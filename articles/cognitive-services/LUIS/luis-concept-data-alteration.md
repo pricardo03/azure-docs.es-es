@@ -2,19 +2,19 @@
 title: 'Descripción de los conceptos de modificación de datos en LUIS: Azure | Microsoft Docs'
 description: Obtenga información sobre cómo se pueden modificar los datos antes de las predicciones en Language Understanding (LUIS)
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/26/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4fb1a5542bb56bd853984e66198ebfbd189451f8
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: d8421114bb5a7416ad2523fe9b0353f03f672619
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266872"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223990"
 ---
 # <a name="data-alterations"></a>Modificaciones de datos
 LUIS proporciona distintos métodos para manipular la expresión antes o durante la predicción. 
@@ -22,7 +22,7 @@ LUIS proporciona distintos métodos para manipular la expresión antes o durante
 ## <a name="correct-spelling-errors-in-utterance"></a>Corregir errores de ortografía de una expresión
 LUIS usa [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) para corregir los errores de ortografía de la expresión. LUIS necesita la clave asociada a ese servicio. Cree la clave y agréguela como parámetro de cadena de consulta en el [punto de conexión](https://aka.ms/luis-endpoint-apis). 
 
-También puede corregir los errores de ortografía en el panel **Prueba** [introduciendo la clave](interactive-test.md#view-bing-spell-check-corrections-in-test-panel). La clave se conserva como variable de sesión en el explorador del panel Prueba. Agregue la clave al panel Prueba en todas las sesiones del explorador en las que quiera que se corrija la ortografía. 
+También puede corregir los errores de ortografía en el panel **Prueba** [introduciendo la clave](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). La clave se conserva como variable de sesión en el explorador del panel Prueba. Agregue la clave al panel Prueba en todas las sesiones del explorador en las que quiera que se corrija la ortografía. 
 
 El uso de la clave en el panel Prueba y en el punto de conexión cuentan para la cuota de [uso de claves](https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/). LUIS implementa límites de Bing Spell Check para la longitud del texto. 
 
@@ -31,7 +31,7 @@ El punto de conexión requiere dos parámetros para que las correcciones ortogr�
 |Parámetro|Valor|
 |--|--|
 |`spellCheck`|boolean|
-|`bing-spell-check-subscription-key`|Clave de suscripción de [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
+|`bing-spell-check-subscription-key`|Clave de punto de conexión de [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
 
 Cuando [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) detecta un error, se devuelven la expresión original y la expresión corregida junto con las predicciones del punto de conexión.
 
@@ -89,5 +89,3 @@ int timezoneOffset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 
 > [!div class="nextstepaction"]
 > [Corregir errores de ortografía con este tutorial](luis-tutorial-bing-spellcheck.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

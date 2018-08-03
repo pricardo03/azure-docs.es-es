@@ -2,19 +2,19 @@
 title: Administrar versiones en aplicaciones de LUIS en Azure | Microsoft Docs
 description: Obtenga información acerca de cómo administrar versiones en las aplicaciones de Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/29/2017
-ms.author: v-geberr
-ms.openlocfilehash: 672f7991be0fc236e39daf7d1ce1d6080b31815b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 4941cf533f1b860ead07a416d5af6f62a1978305
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380226"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226601"
 ---
 # <a name="manage-versions"></a>Administración de versiones
 
@@ -28,7 +28,7 @@ Para trabajar con versiones, abra la aplicación, seleccione su nombre en la pá
 La página **Configuración** permite configurar opciones para toda la aplicación, incluidas las versiones y los colaboradores. 
 
 ## <a name="clone-a-version"></a>Clonar una versión
-1. En la página **Configuración**, después de las secciones Configuración y Colaboradores, busque la fila que contiene la versión que quiere clonar. Seleccione los tres puntos (...) en el extremo derecho. 
+1. En la página **Configuración**, después de las secciones Configuración y Colaboradores, busque la fila que contiene la versión que quiere clonar. Seleccione el botón de los puntos suspensivos (***...***) que se encuentra en el extremo derecho. 
 
     ![Propiedades de la fila de versión](./media/luis-how-to-manage-versions/version-section.png)
 
@@ -51,7 +51,7 @@ La página **Configuración** permite configurar opciones para toda la aplicaci�
  > Como se muestra en la imagen anterior, una versión publicada se asocia con una marca de color, que indica el tipo de ranura donde se ha publicado: producción (verde), almacenamiento provisional (rojo) y ambos (negro). Se muestran las fechas de aprendizaje y publicación para cada versión publicada.
 
 ## <a name="set-active-version"></a>Establecer la versión activa
-1. En la página **Configuración**, en la lista **Versiones**, seleccione los tres puntos (...) en el extremo derecho.
+1. En la página **Configuración**, en la lista **Versions** (Versiones), seleccione el botón de puntos suspensivos (***...***) que se encuentra en el extremo derecho.
 
 2. En la lista emergente, seleccione **Establecer como activo**.
 
@@ -82,14 +82,14 @@ Puede exportar una versión a un archivo JSON.
 
 **Para exportar una versión:**
 
-1. En la página **Configuración**, en la lista **Versiones**, seleccione los tres puntos (...) en el extremo derecho.
+1. En la página **Configuración**, en la lista **Versions** (Versiones), seleccione el botón de puntos suspensivos (***...***) que se encuentra en el extremo derecho.
 
 2. Seleccione **Exportar** en la lista emergente de acciones y seleccione dónde desea guardar el archivo.
 
 ## <a name="delete-a-version"></a>Eliminar una versión
 Puede eliminar versiones, pero se debe conservar al menos una versión de la aplicación. Puede eliminar todas las versiones, excepto la versión activa. 
 
-1. En la página **Configuración**, en la lista **Versiones**, seleccione los tres puntos (...) en el extremo derecho.
+1. En la página **Configuración**, en la lista **Versions** (Versiones), seleccione el botón de puntos suspensivos (***...***) que se encuentra en el extremo derecho.
 
 2. Seleccione **Eliminar** en la lista emergente de acciones y seleccione dónde desea guardar el archivo.
 
@@ -99,7 +99,7 @@ Puede eliminar versiones, pero se debe conservar al menos una versión de la apl
 ## <a name="rename-a-version"></a>Cambiar el nombre de una versión
 Puede cambiar el nombre de las versiones, siempre que el nuevo nombre no esté ya en uso.  
 
-1. En la página **Configuración**, en la lista **Versiones**, seleccione los tres puntos (...) en el extremo derecho.
+1. En la página **Configuración**, en la lista **Versions** (Versiones), seleccione el botón de puntos suspensivos (***...***) que se encuentra en el extremo derecho.
 
 2. Seleccione **Cambiar nombre** en la lista emergente de acciones.
 

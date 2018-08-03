@@ -1,7 +1,7 @@
 ---
-title: 'Uso de entidades negables con una aplicación Conversation Learner: Microsoft Cognitive Services | Microsoft Docs'
+title: 'Uso de entidades negables con un modelo de Conversation Learner: Microsoft Cognitive Services | Microsoft Docs'
 titleSuffix: Azure
-description: Obtenga información acerca de cómo usar entidades negables con una aplicación Conversation Learner.
+description: Obtenga información sobre cómo usar entidades negables con un modelo de Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3d65376c9c43ee1407468f3e8bf3e058048bd556
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2fd00d53755e44e3a3d86782c40aa6a53ff4d378
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381802"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171408"
 ---
-# <a name="how-to-use-negatable-entities-with-a-conversation-learner-application"></a>Uso de entidades negables con una aplicación Conversation Learner
+# <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>Uso de entidades negables con un modelo de Conversation Learner
 
 En este tutorial se explica la propiedad "negable" de las entidades.
 
+## <a name="video"></a>Vídeo
+
+[![Vista previa del tutorial 5](http://aka.ms/cl-tutorial-05-preview)](http://aka.ms/blis-tutorial-05)
+
 ## <a name="requirements"></a>Requisitos
-Para poder realizar este tutorial debe ejecutar el bot de tutorial general.
+Para poder realizar este tutorial debe ejecutar el bot del tutorial general
 
     npm run tutorial-general
 
@@ -37,9 +41,9 @@ Concretamente, si se establece la propiedad "negable" de una entidad:
 
 ## <a name="steps"></a>Pasos
 
-### <a name="create-the-application"></a>Creación de la aplicación
+### <a name="create-the-model"></a>Crear el modelo
 
-1. En la interfaz de usuario web, haga clic en Nueva aplicación.
+1. En la interfaz de usuario web, haga clic en New Model (Modelo nuevo).
 2. En Name (Nombre), escriba NegatableEntity. A continuación, haga clic en Crear.
 
 ### <a name="create-an-entity"></a>Crear una entidad
@@ -47,7 +51,7 @@ Concretamente, si se establece la propiedad "negable" de una entidad:
 1. Haga clic en Entidades y, a continuación, en Nueva entidad.
 2. En Entity Name (Nombre de entidad), escriba el nombre.
 3. Active Negatable (Negable).
-    - Indica que el usuario podrá proporcionar un valor para la entidad o decir algo que *no* es el valor de la entidad. En este último caso, se eliminará un valor coincidente de la entidad.
+    - Esta propiedad indica que el usuario podrá proporcionar un valor para la entidad o decir algo que *no* es el valor de la entidad. En este último caso, se eliminará un valor coincidente de la entidad.
 3. Haga clic en Crear.
 
 ![](../media/tutorial5_entities.PNG)
@@ -74,19 +78,19 @@ Ahora tiene dos acciones.
 1. Haga clic en Train Dialogs (Diálogos de entrenamiento) y, a continuación, en New Train Dialog (Nuevo diálogo de entrenamiento).
 2. Escriba "hello" (hola).
 3. Haga clic en Score Actions (Acciones de puntuación) y seleccione "I don't know your name" (No sé cómo se llama).
-    - Tenga en cuenta que esto obtiene una puntuación del 100 % porque es la única acción válida.
+    - La puntuación es 100 % porque es la única acción válida.
 2. Escriba "my name is david" (Me llamo David).
 3. Seleccione "david" y elija la etiqueta "+name" (+Nombre).
-    - Observe que hay dos instancias de "name" (Nombre): "+name" (+Nombre) y "-name" (-Nombre).  El signo más significa que vamos a proporcionar ese valor. Menos significa que vamos a indicar al sistema que algo no es el valor.
-5. Haga clic en Score Actions (Acciones de puntuación).
-    - Tenga en cuenta que el valor de nombre ahora se encuentra en la memoria del bot.
+    - Hay dos instancias de "name" (Nombre): "+name" (+Nombre) y "-name" (-Nombre).  El signo más (+) agrega o sobrescribe el valor. El signo menos (-) quita el valor.
+5. Haga clic en Score Actions (Acciones de puntuación)
+    - El valor de nombre ahora se encuentra en la memoria del bot.
     - "I know your name. It is $name" (Sé su nombre. Se llama $name) es la única respuesta disponible. 
 6. Seleccione "I know your name. It is $name" (Sé su nombre. Se llama $name).
 
 Vamos a intentar borrar la entidad negable:
 
 7. Escriba "my name is not david" (No me llamo David).
-    - Observe que "not" (No) se selecciona como nombre enf unción del patrón anterior. Eso es incorrecto.
+    - Observe que "not" (No) se selecciona como nombre enf unción del patrón anterior. Esta etiqueta no es correcta.
 2. Haga clic en "not" (No) y luego en la x de color rojo. 
 3. Haga clic en "david".
     - Ahora se trata de una entidad negativa que comunica que este no es el valor de la entidad de nombre.

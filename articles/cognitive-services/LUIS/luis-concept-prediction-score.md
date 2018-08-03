@@ -2,19 +2,19 @@
 title: 'Descripción de la puntuación de predicción que devuelve LUIS: Azure | Microsoft Docs'
 description: Obtener información sobre lo que significa la puntuación de predicción en LUIS
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 31c101a23892df8599b8cdc0f67647fefb969490
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: cee7243531857f07dec2e968352ffb54aef16bf1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265995"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224593"
 ---
 # <a name="prediction-score"></a>Puntuación de predicción
 Una puntuación de predicción indica el grado de confianza que tiene LUIS en los resultados de la predicción. 
@@ -28,7 +28,7 @@ Una puntuación de predicción suele estar entre cero (0) y uno (1). Un ejemplo 
 |0,01|confianza baja|
 |0|falta de coincidencia clara|
 
-Cuando una expresión da como resultado una puntuación de confianza baja, LUIS lo pone de manifiesto en la página **Intención** del sitio web de [LUIS][LUIS], con el valor de **labeled-intent** identificado destacado en color rojo. 
+Cuando una expresión da como resultado una puntuación de confianza baja, LUIS lo pone de manifiesto en la página **Intención** del sitio web de [LUIS](luis-reference-regions.md), con el valor de **labeled-intent** identificado destacado en color rojo. 
 
 ![Discrepancia en la puntuación](./media/luis-concept-score/score-discrepancy.png)
 
@@ -58,8 +58,9 @@ Si entrena el mismo modelo en otra aplicación y los resultados no son los mismo
 
 Si el bot de chat requiere una puntuación de LUIS específica para indicar confianza en una intención, debe usar en su lugar la diferencia de puntuación entre las dos intenciones superiores. Esto proporciona flexibilidad para las variaciones en el aprendizaje. 
 
+## <a name="punctuation"></a>Signos de puntuación
+Los signos de puntuación son un token independiente de LUIS. Una expresión que contiene un punto final frente a una expresión que no lo tiene son dos expresiones distintas y pueden tener predicciones diferentes. Asegúrese de que el modelo controla los signos de puntuación ya sea en las [expresiones de ejemplo](luis-concept-utterance.md) (que tienen y no tienen signos de puntuación) o en los [patrones}(luis-concept-patterns.md), donde es más sencillo pasar por alto los signos de puntuación con la sintaxis especial: `I am applying for the {Job} position[.]`
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vea [Add entities](luis-how-to-add-entities.md) (Agregar entidades) para obtener más información sobre cómo agregar entidades a la aplicación de LUIS.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

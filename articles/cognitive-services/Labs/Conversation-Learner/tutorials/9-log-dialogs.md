@@ -1,7 +1,7 @@
 ---
-title: 'Uso de diálogos de registro con una aplicación Conversation Learner: Microsoft Cognitive Services | Microsoft Docs'
+title: 'Uso de diálogos de registro con un modelo de Conversation Learner: Microsoft Cognitive Services | Microsoft Docs'
 titleSuffix: Azure
-description: Obtenga información acerca de cómo usar diálogos de registro con una aplicación Conversation Learner.
+description: Obtenga información acerca de cómo usar diálogos de registro con un modelo de Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 477545c48aeca05d56fdae28ac65a8f381a482fe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381834"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171442"
 ---
-# <a name="how-to-log-dialogs-in-a-conversation-learner-application"></a>Uso de diálogos de registro con una aplicación Conversation Learner
+# <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Uso de diálogos de registro con un modelo de Conversation Learner
 
 En este tutorial se explica cómo realizar pruebas de usuario final en la interfaz de Conversation Learner, cómo se registran los diálogos y cómo realizar correcciones en los diálogos registrados para mejorar el modelo.
 
+## <a name="video"></a>Vídeo
+
+[![Vista previa del tutorial 9](http://aka.ms/cl-tutorial-09-preview)](http://aka.ms/blis-tutorial-09)
+
 ## <a name="requirements"></a>Requisitos
-Para poder realizar este tutorial debe ejecutar el bot de tutorial general.
+Para poder realizar este tutorial debe ejecutar el bot del tutorial general
 
     npm run tutorial-general
 
@@ -31,9 +35,9 @@ Puede usar los diálogos de registro para revisar los diálogos mantenidos con l
 
 ## <a name="steps"></a>Pasos
 
-### <a name="create-the-application"></a>Creación de la aplicación
+### <a name="create-the-model"></a>Crear el modelo
 
-1. En la interfaz de usuario web, haga clic en Nueva aplicación.
+1. En la interfaz de usuario web, haga clic en New Model (Modelo nuevo).
 2. En Name (Nombre), escriba LogDialogs. A continuación, haga clic en Crear.
 
 ### <a name="create-an-entity"></a>Crear una entidad
@@ -117,7 +121,7 @@ Ahora vamos a hacer correcciones en el otro diálogo:
 
 1. Haga clic en "hello" (Hola) en Log Dialogs (Diálogos de registro).
     - Se abrirá la conversación.
-3. Tenga en cuenta que la respuesta a "hello" (Hola) es "which city" (¿Qué ciudad?). Pero queremos cambiar a algo que resulte más conveniente. Una respuesta mejor sería algo como "hello, I'm the weather bot" (Hola, soy el bot del tiempo). Pero no hay ninguna acción que haga eso, por lo que tenemos que crear una.
+3. La respuesta a "hello" (Hola) es "which city" (¿Qué ciudad?). Pero queremos cambiar a algo que resulte más conveniente. Una respuesta mejor sería algo como "hello, I'm the weather bot" (Hola, soy el bot del tiempo). Pero no hay ninguna acción que haga eso, por lo que tenemos que crear una.
 4. Haga clic en Action (Acción).
     - En Response (Respuesta), escriba "I'm the weather bot. I can help with forecasts" (Soy el bot del tiempo. Puedo ayudarle con las previsiones).
 6. Desactive la casilla Wait for Response (Esperar respuesta) para convertirla en una acción de no espera.

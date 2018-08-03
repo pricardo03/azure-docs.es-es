@@ -1,7 +1,7 @@
 ---
-title: 'Uso de la devolución de llamada de detección de entidades con una aplicación Conversation Learner: Microsoft Cognitive Services | Microsoft Docs'
+title: 'Uso de la devolución de llamada de detección de entidades con un modelo de Conversation Learner: Microsoft Cognitive Services | Microsoft Docs'
 titleSuffix: Azure
-description: Obtenga información sobre cómo utilizar la devolución de llamada de detección de entidades con una aplicación Conversation Learner.
+description: Obtenga información sobre cómo utilizar la devolución de llamada de detección de entidades con un modelo de Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,42 +10,46 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e41ea5930ff0c8395d0c93aa42e224ebfc894ba8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f168018a23d03ffb957da2dd1f67881420a21208
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381771"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171110"
 ---
 # <a name="how-to-use-entity-detection-callback"></a>Uso de la devolución de llamada de detección de entidades
 
 En este tutorial se explica la devolución de llamada de detección de entidades y también se ilustra un patrón común para resolver entidades.
 
+## <a name="video"></a>Vídeo
+
+[![Vista previa del tutorial 10](http://aka.ms/cl-tutorial-10-preview)](http://aka.ms/blis-tutorial-10)
+
 ## <a name="requirements"></a>Requisitos
-Este tutorial requiere la ejecución del bot "tutorialEntityDetectionCallback".
+Para poder realizar este tutorial debe ejecutar el bot `tutorialEntityDetectionCallback`.
 
     npm run tutorial-entity-detection
 
 ## <a name="details"></a>Detalles
-La devolución de llamada de detección de entidades permite utilizar código personalizado para controlar las reglas de negocio relacionadas con entidades. En esta demostración, se usarán las devoluciones de llamada y las entidades de programación para resolver el nombre de la ciudad escrito por el usuario como un nombre canónico; por ejemplo, resolver "La Gran Manzana" para "Nueva York".
+La devolución de llamada de detección de entidades permite utilizar código personalizado para controlar las reglas de negocio relacionadas con entidades. En esta demostración se usan las devoluciones de llamada y las entidades de programación para resolver el nombre de la ciudad escrito por el usuario como un nombre canónico; por ejemplo, resolver "La Gran Manzana" para "Nueva York".
 
 ### <a name="open-the-demo"></a>Abrir la demostración
 
-En la lista de aplicaciones, haga clic en Tutorial-10-EntityDetenctionCallback. 
+En la lista de modelos, haga clic en Tutorial-10-EntityDetectionCallback. 
 
 ### <a name="entities"></a>Entidades
 
-Se han definido tres entidades en la aplicación.
+Hay tres entidades definidas en el modelo.
 
 ![](../media/tutorial10_entities.PNG)
 
 1. La ciudad es una entidad personalizada que proporcionará el usuario como entrada de texto.
-2. CityUnknown es una entidad de programación. El sistema rellenará esta información. Copiará la entrada de usuario si el sistema no sabe de qué ciudad se trata.
-3. CityResolved es la ciudad que el sistema no conoce. Será el nombre canónico de la ciudad; por ejemplo, "La Gran Manzana" se resolverá como "Nueva York".
+2. CityUnknown es una entidad de programación. El sistema rellenará esta entidad. Copiará la entrada de usuario si el sistema no sabe de qué ciudad se trata.
+3. CityResolved es la ciudad que el sistema no conoce. Esta entidad será el nombre canónico de la ciudad; por ejemplo, "La Gran Manzana" se resolverá como "Nueva York".
 
 ### <a name="actions"></a>Acciones
 
-Se han creado tres acciones. 
+Hay tres acciones definidas en el modelo.
 
 ![](../media/tutorial10_actions.PNG)
 
@@ -62,7 +66,7 @@ Echemos un vistazo al código. Puede encontrar el método EntityDetectionCallbac
 Se llama a esta función una vez resuelta la entidad.
  
 - Lo primero que se hará será borrar $CityUknown. $CityUknown solo persistirá una sola vez, ya que siempre se borra al principio.
-- Después, se obtiene la lista de ciudades reconocidas. Seleccione la primera y trate de resolverla.
+- Después, obtenga la lista de ciudades reconocidas. Seleccione la primera y trate de resolverla.
 - La función que la resuelve (resolveCity) se ha definido anteriormente en el código. Contiene una lista de nombres canónicos de ciudades. Encuentra el nombre de la ciudad en la lista y lo devuelve. De lo contrario, busca en "cityMap" y devuelve el nombre asignado. Si no logra encontrar una ciudad, devuelve null.
 - Por último, si la ciudad se resuelve con un nombre, se almacena en la entidad $CityKnown. En caso contrario, borre lo que el usuario ha dicho y rellene la entidad $CityUknown.
 
@@ -72,9 +76,9 @@ Se llama a esta función una vez resuelta la entidad.
 2. Escriba "hello" (hola).
 3. Haga clic en Score Actions (Acciones de puntuación) y seleccione "Which city do you want?" (¿Qué ciudad desea?).
 2. Escriba "Nueva York".
-    - Observe que se reconoce como una entidad de ciudad.
-5. Haga clic en Score Actions (Acciones de puntuación).
-    - Tenga en cuenta que se rellenan las entidades City (Ciudad) y CityResolved (Ciudad resuelta).
+    - El texto se reconoce como una entidad de ciudad.
+5. Haga clic en Score Actions (Acciones de puntuación)
+    - Se rellenaron `City` y `CityResolved`.
 6. Seleccione "You said $City, and I resolved that to $CityResolved" (Ha dicho $City, y la he resuelto como $CityResolved).
 7. Haga clic en Done Teaching (Aprendizaje completado).
 
@@ -84,9 +88,9 @@ Agregue otro diálogo de ejemplo:
 2. Escriba "hello" (hola).
 3. Haga clic en Score Actions (Acciones de puntuación) y seleccione "Which city do you want?" (¿Qué ciudad desea?).
 2. Escriba "Gran Manzana".
-    - Observe que se reconoce como una entidad de ciudad.
-5. Haga clic en Score Actions (Acciones de puntuación).
-    - Tenga en cuenta que CityResolved muestra el efecto de la ejecución del código.
+    - El texto se reconoce como una entidad de ciudad.
+5. Haga clic en Score Actions (Acciones de puntuación)
+    - `CityResolved` muestra el efecto del código en ejecución.
 6. Seleccione "You said $City, and I resolved that to $CityResolved" (Ha dicho $City, y la he resuelto como $CityResolved).
 7. Haga clic en Done Teaching (Aprendizaje completado).
 
@@ -101,7 +105,7 @@ Agregue otro diálogo de ejemplo:
 6. Seleccione "I don't know this city, $CityUknown. Which city do you want?" (No conozco esta ciudad, $CityUknown. ¿Qué ciudad desea?).
 7. Escriba "Nueva York".
 8. Haga clic en Score Actions (Acciones de puntuación).
-    - Tenga en cuenta que se ha borrado CityUknown y que se ha resuelto CityResolved.
+    - `CityUknown` se borró y `CityResolved` se rellenó.
 6. Seleccione "You said $City, and I resolved that to $CityResolved" (Ha dicho $City, y la he resuelto como $CityResolved).
 7. Haga clic en Done Teaching (Aprendizaje completado).
 

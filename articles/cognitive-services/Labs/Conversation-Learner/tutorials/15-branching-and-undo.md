@@ -1,7 +1,7 @@
 ---
-title: 'Uso de las operaciones de bifurcación y de deshacer con una aplicación Conversation Learner: Microsoft Cognitive Services | Microsoft Docs'
+title: 'Uso de las operaciones de bifurcación y de deshacer con un modelo de Conversation Learner: Microsoft Cognitive Services | Microsoft Docs'
 titleSuffix: Azure
-description: Obtenga información sobre cómo usar las operaciones de bifurcación y de deshacer con una aplicación Conversation Learner.
+description: Obtenga información sobre cómo usar las operaciones de bifurcación y de deshacer con un modelo de Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,15 +10,16 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 724a9e47267e0bd7417130efe54c609ac7a465fb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 05140693026e21a73b756ed0ea7bc9936bef067e
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381779"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173305"
 ---
 # <a name="how-to-use-branching-and-undo-operations"></a>Uso de las operaciones de bifurcación y de deshacer
 En este tutorial, se van a analizar las operaciones de deshacer y bifurcación.
+
 
 ## <a name="details"></a>Detalles
 - Deshacer: permite al desarrollador "deshacer" una entrada de usuario o una selección de acciones. En segundo plano, "deshacer" realmente crea un diálogo y lo vuelve a reproducir hasta el paso anterior.  Esto significa que se volverá a llamar a la devolución de llamada de detección de entidades y a las llamadas API en el diálogo.
@@ -33,7 +34,7 @@ Para poder realizar este tutorial debe ejecutar el bot de pedido de pizza:
 
 ### <a name="open-the-demo"></a>Abrir la demostración
 
-En la lista de aplicaciones de la interfaz de usuario web, haga clic en TutorialDemo Pizza Order. 
+En la lista de modelos de la interfaz de usuario web, haga clic en TutorialDemo Pizza Order. 
 
 Para obtener información sobre la demostración Pizza Order, vea el tutorial sobre pedidos de pizza.
 
@@ -55,7 +56,7 @@ Vamos a iniciar una sesión de entrenamiento.
 7. Escriba "Remove mushrooms and add peppers" (Quitar setas y agregar pimientos).
     - Seleccione setas y desactive la entidad de ingredientes. Vamos a crear una acción que se va a deshacer.
 2. Haga clic en Undo Step (Deshacer paso).
-    - Tenga en cuenta que se elimina la última entrada y que se vuelve a "Would you like anything else?" (¿Quiere algo más?).  (captura de pantalla siguiente)
+    - Se elimina la última entrada y se vuelve a "Would you like anything else?" (¿Quiere algo más?).  (captura de pantalla siguiente)
 2. Escriba "Remove mushrooms and add peppers" (Quitar setas y agregar pimientos).
 8. Haga clic para seleccionar "You have $Toppings on your pizza" (Tiene $Toppings en su pizza).
     - Asegúrese de que ambas entidades se seleccionan correctamente.
@@ -72,8 +73,8 @@ Por ejemplo, se va a abrir un diálogo de entrenamiento existente y crear otro d
 
 1. Haga clic en Train Dialogs (Diálogos de entrenamiento) y luego en "new order" (nuevo pedido) para abrir el diálogo existente. 
 2. Haga clic en el último "no" en el diálogo (véase la captura de pantalla siguiente).
-3. Haga clic en Bifurcación.
-    - Tenga en cuenta que se elimina "no", y el diálogo entero hasta dicho punto se copia en otro nuevo. 
+3. Haga clic en Branch (Rama).
+    - Se elimina "no" y el diálogo entero hasta dicho punto se copia en otro nuevo. 
     - Esto ahorra tener que reintroducir los turnos anteriores para explorar una nueva "bifurcación" a partir de este punto.
 1. Escriba "sí".
 2. Haga clic en Score Action (Acción de puntuación).

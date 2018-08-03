@@ -1,7 +1,7 @@
 ---
 title: 'Cómo usar tarjetas con una aplicación Conversation Learner, parte 1: Microsoft Cognitive Services | Microsoft Docs'
 titleSuffix: Azure
-description: Obtenga información acerca de cómo usar tarjetas con una aplicación Conversation Learner.
+description: Obtenga información sobre cómo usar tarjetas con una modelo de Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,21 +10,26 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e90ccd42b21eea6139c402937be7e20513d73c84
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 988a2433f098f41bca4796299825293efd4de44b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381746"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171147"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Cómo usar tarjetas (parte 1 de 2)
 
 En este tutorial se muestra cómo agregar y usar una tarjeta simple en el bot.
 
-Observe que Conversation Learner espera que los archivos de definición de tarjetas se encuentren en un directorio denominado "cards" que se encuentre en el directorio donde se ha iniciado el bot.
+> [!NOTE]
+> Actualmente, Conversation Learner espera que los archivos de definición de tarjetas se encuentren en un directorio denominado "cards" que se encuentre en el directorio donde se ha iniciado el bot. En el futuro, esto se podrá configurar.
+
+## <a name="video"></a>Vídeo
+
+[![Vista previa del tutorial 13](http://aka.ms/cl-tutorial-13-preview)](http://aka.ms/blis-tutorial-13)
 
 ## <a name="requirements"></a>Requisitos
-Para poder realizar este tutorial debe ejecutar el bot de tutorial general.
+Para poder realizar este tutorial debe ejecutar el bot del tutorial general
 
     npm run tutorial-general
 
@@ -34,7 +39,7 @@ Las tarjetas son elementos de interfaz de usuario que permiten al usuario selecc
 
 ### <a name="open-the-demo"></a>Abrir la demostración
 
-En la lista de aplicaciones de la interfaz de usuario web, haga clic en Tutorial-13-Cards-1. 
+En la lista de modelos de la interfaz de usuario web, haga clic en Tutorial-13-Cards-1. 
 
 ### <a name="the-card"></a>Tarjeta
 
@@ -44,12 +49,13 @@ El sistema espera encontrar las definiciones de tarjeta en este directorio cards
 
 ![](../media/tutorial13_prompt.PNG)
 
-- Observe la clase TextBlock y la plantilla de pregunta.
-- Existen dos botones de envío y el texto que se envía para cada uno.
+> [!NOTE]
+> Tenga en cuenta el tipo de cuerpo `TextBlock` y el marcador de posición `{{question}}` en el campo de texto.
+> Existen dos botones de envío y el texto que se envía para cada uno.
 
 ### <a name="actions"></a>Acciones
 
-Hemos creado tres acciones. Como se ve a continuación, la primera acción es una tarjeta.
+Se han creado tres acciones. Como se ve a continuación, la primera acción es una tarjeta.
 
 ![](../media/tutorial13_actions.PNG)
 
@@ -57,7 +63,8 @@ Veamos cómo se creó el tipo de acción de la tarjeta:
 
 ![](../media/tutorial13_cardaction.PNG)
 
-Observe la entrada de la pregunta, y los botones 1 y 2. Son referencias de plantilla de la tarjeta donde se escriben la pregunta y las respuestas correspondientes. También puede consultar y usar entidades, o bien una mezcla de texto y entidades.
+> [!NOTE]
+> La entrada de la pregunta y los botones 1 y 2. Son referencias de plantilla de la tarjeta donde se escriben la pregunta y las respuestas correspondientes. También puede consultar y usar entidades, o bien una mezcla de texto y entidades.
 
 El icono de ojo muestra el aspecto de la tarjeta.
 

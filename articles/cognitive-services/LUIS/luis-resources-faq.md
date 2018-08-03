@@ -1,20 +1,20 @@
 ---
 title: Preguntas más frecuentes sobre Language Understanding (LUIS) en Azure | Microsoft Docs
 description: Obtenga respuestas a las preguntas más frecuentes sobre Language Understanding (LUIS)
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: fd63ffd312e3ac17a6376eb3c9bef8f1978e3935
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 8e0d834b94ff902eb0c1e0ada2fb32d374cee12b
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333622"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239124"
 ---
 # <a name="language-understanding-faq"></a>P+F sobre Language Understanding
 
@@ -53,21 +53,25 @@ Consulte las [entidades](luis-concept-entity-types.md) y la [extracción de dato
 ### <a name="should-variations-of-an-example-utterance-include-punctuation"></a>¿Las variaciones de una expresión de ejemplo deberían incluir signos de puntuación? 
 Puede agregar las variaciones distintas como expresiones de ejemplo de la intención o agregar el patrón de la expresión de ejemplo con la [sintaxis para pasar por alto](luis-concept-patterns.md#pattern-syntax) los signos de puntuación. 
 
+### <a name="does-luis-currently-support-cortana"></a>¿LUIS es compatible actualmente con Cortana?
+
+Las aplicaciones precompiladas de Cortana están en desuso desde 2017. Ya no se admiten. 
+
 ## <a name="luis-endpoint"></a>Punto de conexión de LUIS
 
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>¿Por qué LUIS agrega espacios a la consulta alrededor o en medio de las palabras?
 LUIS [acorta](luis-glossary.md#token) la expresión según la [referencia cultural](luis-supported-languages.md#tokenization). El valor original y el valor acortado están disponibles para la [extracción de datos](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>¿Cómo se crean y asignan las claves de punto de conexión para LUIS?
-[Cree la clave de punto de conexión](luis-how-to-azure-subscription.md#create-luis-endpoint-key) en Azure para su nivel de [servicio](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Asigne la clave](Manage-keys.md#assign-endpoint-key) en la página de **[publicación](publishapp.md)**. No hay ninguna API correspondiente a esta acción. Después, debe cambiar la solicitud HTTP al punto de conexión para [usar la nueva clave de punto de conexión](luis-concept-keys.md#use-endpoint-key-in-query).
+[Cree la clave de punto de conexión](luis-how-to-azure-subscription.md#create-luis-endpoint-key) en Azure para su nivel de [servicio](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Asigne la clave](luis-how-to-manage-keys.md#assign-endpoint-key) en la página de **[publicación](luis-how-to-publish-app.md)**. No hay ninguna API correspondiente a esta acción. Después, debe cambiar la solicitud HTTP al punto de conexión para [usar la nueva clave de punto de conexión](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>¿Cómo se interpretan las puntuaciones de LUIS? 
 El sistema debe utilizar la intención de mayor puntuación independientemente de su valor. Por ejemplo, una puntuación menor a 0,5 (de menos del 50 %) no significa necesariamente que LUIS tiene un nivel de confiabilidad bajo. Proporcionar más datos de entrenamiento puede ayudar a aumentar la puntuación de la intención más probable.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>¿Por qué no son visibles las visitas del punto de conexión en el panel de información de la aplicación?
-Las visitas totales del punto de conexión se actualizan periódicamente en el panel de información de la aplicación, pero las métricas asociadas con su clave de suscripción de LUIS en Azure Portal se actualizan con mayor frecuencia. 
+Las visitas totales del punto de conexión se actualizan periódicamente en el panel de información de la aplicación, pero las métricas asociadas con su clave de punto de conexión de LUIS en Azure Portal se actualizan con mayor frecuencia. 
 
-Si las visitas del punto de conexión no están actualizadas en el panel de información, inicie sesión en Azure Portal, busque el recurso asociado con su clave de suscripción de LUIS y abra **Métrica** para seleccionar la métrica del **Total de llamadas**. Si la clave de suscripción se utiliza para más de una aplicación de LUIS, la métrica en Azure Portal muestra el número agregado de llamadas de todas las aplicaciones de LUIS que la usan.
+Si las visitas del punto de conexión no están actualizadas en el panel de información, inicie sesión en Azure Portal, busque el recurso asociado con su clave de punto de conexión de LUIS y abra **Métrica** para seleccionar la métrica del **Total de llamadas**. Si la clave de punto de conexión se utiliza para más de una aplicación de LUIS, la métrica en Azure Portal muestra el número agregado de llamadas de todas las aplicaciones de LUIS que la usan.
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>La aplicación LUIS funcionaba ayer, pero hoy recibo errores 403. No hice cambios en la aplicación. ¿Cómo puedo corregirlo? 
 Siga las [instrucciones](#how-do-i-create-and-assign-a-luis-endpoint-key) en la siguiente pregunta frecuente para crear una clave de punto de conexión de LUIS y asignarla a la aplicación. Después, debe cambiar la solicitud HTTP al punto de conexión para [usar la nueva clave de punto de conexión](luis-concept-keys.md#use-endpoint-key-in-query).
@@ -115,8 +119,9 @@ En Azure, un inquilino representa al cliente u organización que está asociado 
 
 ![Identificador de inquilino en Azure Portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
-### <a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>¿Por qué hay más claves de suscripción en la página de publicación de la aplicación que las que asigné a la aplicación? 
-Cada aplicación de LUIS tiene la clave de creación/inicio. Las claves de suscripción de LUIS creadas durante el período de tiempo de GA son visibles en la página de publicación, sin importar si se agregaron a la aplicación. Esto facilita la migración de GA. Las claves de suscripción de LUIS nuevas no aparecen en la página de publicación. 
+<a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
+### <a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>¿Por qué hay más claves de punto de conexión en la página de publicación de la aplicación que las que asigné a la aplicación? 
+Cada aplicación de LUIS tiene la clave de creación/inicio. Las claves de punto de conexión de LUIS creadas durante el período de tiempo de GA son visibles en la página de publicación, sin importar si se agregaron a la aplicación. Esto facilita la migración de GA. Las claves de punto de conexión de LUIS nuevas no aparecen en la página de publicación. 
 
 ## <a name="app-management"></a>Administración de la aplicación
 
@@ -153,7 +158,7 @@ Si utiliza el registro para el análisis de predicción, no capture las expresio
 ## <a name="app-notification"></a>Notificaciones de la aplicación
 
 ### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>¿Por qué recibí un correo que dice que casi he agotado mi cuota?
-La clave de creación/inicio solo permite 1000 consultas de punto de conexión por mes. Cree una clave de suscripción de LUIS (gratuita o de pago) y úsela para realizar consultas de punto de conexión. Si está realizando consultas de punto de conexión desde un bot u otra aplicación cliente, debe cambiar la clave de punto de conexión de LUIS ahí. 
+La clave de creación/inicio solo permite 1000 consultas de punto de conexión por mes. Cree una clave de punto de conexión de LUIS (gratuita o de pago) y úsela para realizar consultas de punto de conexión. Si está realizando consultas de punto de conexión desde un bot u otra aplicación cliente, debe cambiar la clave de punto de conexión de LUIS ahí. 
 
 ## <a name="integrating-luis"></a>Integración de LUIS
 
@@ -167,7 +172,7 @@ La [preparación para la voz](https://docs.microsoft.com/bot-framework/bot-servi
 
 ## <a name="luis-service"></a>Servicio de LUIS 
 
-### <a name="is-luis-available-on-premise-or-in-private-cloud"></a>¿LUIS está disponible localmente o en la nube privada?
+### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>¿LUIS está disponible localmente o en la nube privada?
 No. 
 
 ## <a name="changes-to-the-docs"></a>Cambios realizados a la documentación
@@ -182,7 +187,7 @@ Los artículos que anteriormente se encontraban en la sección de tutoriales aho
 |Compilación de una aplicación de LUIS mediante programación con [Node.js](luis-tutorial-node-import-utterances-csv.md)|
 |Uso de [entidades compuestas](luis-tutorial-composite-entity.md) para extraer datos agrupados|
 |Adición de [entidades de lista](luis-tutorial-list-entity.md) para mejorar la detección de entidades con Node.js|
-|Mejora de la precisión de predicción con una [lista de frases](luis-tutorial-interchangeable-phrase-list.md), [patrones](luis-tutorial-pattern.md) y [pruebas en lotes](luis-tutorial-batch-testing.md)|
+|Mejora de la precisión de predicción con una [lista de frases](luis-quickstart-primary-and-secondary-data.md), [patrones](luis-tutorial-pattern.md) y [pruebas en lotes](luis-tutorial-batch-testing.md)|
 |[Corrección ortográfica](luis-tutorial-batch-testing.md) con Bing Spell Check API v7
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Escuché hablar de una característica o demo de Language Understanding en la conferencia Build 2018, pero no recuerdo cómo se llama 
@@ -193,7 +198,7 @@ Las siguientes características se publicaron en la conferencia Build 2018:
 |--|--|
 |Mejoras|La entidad de [expresión regular](luis-concept-data-extraction.md##regular-expression-entity-data) y la entidad de [frase clave](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)
 |Patrones|[Conceptos](luis-concept-patterns.md), [tutoriales](luis-tutorial-pattern.md) y [procedimientos](luis-how-to-model-intent-pattern.md) sobre patrones<br>Concepto de la entidad [Patterns.Any](luis-concept-entity-types.md) que incluye las [listas explícitas](luis-concept-patterns.md#explicit-lists) para excepciones<br>Concepto de [roles](luis-concept-roles.md)|
-|Integraciones|Integración de [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) del [análisis de sentimiento](publishapp.md#enable-sentiment-analysis)<br>Integración de [Voz](https://docs.microsoft.com/azure/cognitive-services/speech) de [preparación para la voz](publishapp.md#enable-speech-priming) con el [SDK de Voz](https://aka.ms/SpeechSDK)|
+|Integraciones|Integración de [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) del [análisis de sentimiento](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>Integración de [Voz](https://docs.microsoft.com/azure/cognitive-services/speech) de [preparación para la voz](luis-how-to-publish-app.md#enable-speech-priming) con el [SDK de Voz](https://aka.ms/SpeechSDK)|
 |Herramienta de distribución|[Herramienta](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) de distribución por línea de comandos que es parte de [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) y combina varias aplicaciones de LUIS y QnA Maker en una única aplicación de LUIS para optimizar el reconocimiento de intención en un bot
 
 Se incluyeron [rutas de API](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) de creación adicionales. 
@@ -212,5 +217,3 @@ Proyectos:
 Para obtener más información sobre LUIS, consulte los siguientes recursos:
 * [Preguntas de Stack Overflow con etiquetas de LUIS](https://stackoverflow.com/questions/tagged/luis)
 * [Foro MSDN de Language Understanding Intelligent Services (LUIS)](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

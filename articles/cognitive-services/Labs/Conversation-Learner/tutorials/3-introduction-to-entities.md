@@ -1,7 +1,7 @@
 ---
-title: 'Uso de entidades con una aplicación Conversation Learner: Microsoft Cognitive Services | Microsoft Docs'
+title: 'Uso de entidades con un modelo de Conversation Learner: Microsoft Cognitive Services | Microsoft Docs'
 titleSuffix: Azure
-description: Obtenga información acerca de cómo usar entidades con una aplicación Conversation Learner.
+description: Obtenga información sobre cómo usar entidades con un modelo de Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,20 +10,24 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 85df31c2e2ff3ca81698921a1f17f415daefb6c5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f851d43d69999a848dea01c9457a379adb63353b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381759"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172388"
 ---
 # <a name="introduction-to-entities"></a>Introducción a las entidades
 
 En este tutorial se presentan las entidades y se explica cómo usar los campos "Disqualifying entities" (Entidades descalificadas) y "Required entities" (Entidades requeridas) en las acciones.
 
+## <a name="video"></a>Vídeo
+
+[![Vista previa del tutorial 3](http://aka.ms/cl-tutorial-03-preview)](http://aka.ms/blis-tutorial-03)
+
 ## <a name="requirements"></a>Requisitos
 
-Para poder realizar este tutorial debe ejecutar el bot de tutorial general.
+Para poder realizar este tutorial debe ejecutar el bot del tutorial general
 
     npm run tutorial-general
 
@@ -37,9 +41,9 @@ En otros tutoriales se tratan otros aspectos de las entidades, como las entidade
 
 ## <a name="steps"></a>Pasos
 
-### <a name="create-the-application"></a>Creación de la aplicación
+### <a name="create-the-model"></a>Crear el modelo
 
-1. En la interfaz de usuario web, haga clic en Nueva aplicación.
+1. En la interfaz de usuario web, haga clic en New Model (Modelo nuevo).
 2. En Name (Nombre), escriba IntroToEntities. A continuación, haga clic en Crear.
 
 ### <a name="create-entity"></a>Crear entidad
@@ -48,7 +52,8 @@ En otros tutoriales se tratan otros aspectos de las entidades, como las entidade
 2. En Entity Name (Nombre de entidad), escriba la ciudad.
 3. Click Create
 
-Tenga en cuenta que el tipo de entidad es "custom" (personalizada), lo que significa que se puede entrenar la entidad.  Hay entidades compiladas previamente, lo que significa que su comportamiento no se puede ajustar; se tratan en otro tutorial.
+> [!NOTE]
+> El tipo de entidad es "custom" (personalizada), lo que significa que se puede entrenar la entidad.  Hay entidades compiladas previamente, lo que significa que su comportamiento no se puede ajustar; se tratan en otro tutorial.
 
 ### <a name="create-two-actions"></a>Crear dos acciones
 
@@ -58,7 +63,7 @@ Tenga en cuenta que el tipo de entidad es "custom" (personalizada), lo que signi
     - Esto significa que si esta entidad está definida en la memoria del bot, entonces esta acción *no* estará disponible.
 2. Haga clic en Actions (Acciones) y en New Action (Nueva acción) para crear una segunda acción.
 3. En Response (Respuesta), escriba "The weather in $city is probably sunny" (Parece que está soleado en $city).
-4. En Required Entities (Entidades requeridas), observe que la entidad de ciudad se ha agregado automáticamente, ya que se ha hecho referencia a ella.
+4. En Required Entities (Entidades requeridas), la entidad de ciudad se ha agregado automáticamente, ya que se ha hecho referencia a ella.
 5. Haga clic en Guardar
 
 Ahora tiene dos acciones.
@@ -70,16 +75,16 @@ Ahora tiene dos acciones.
 1. Haga clic en Train Dialogs (Diálogos de entrenamiento) y, a continuación, en New Train Dialog (Nuevo diálogo de entrenamiento).
 2. Escriba "hello" (hola).
 3. Haga clic en Score Actions (Acciones de puntuación) y seleccione "I don't know what city you want?" (No sé qué ciudad desea).
-    - Tenga en cuenta que no se puede seleccionar la respuesta en que la entidad de ciudad es necesaria, porque la entidad de ciudad no está definida en la memoria del bot.
+    - No se puede seleccionar la respuesta en que la entidad de ciudad es necesaria, porque la entidad de ciudad no está definida en la memoria del bot.
 2. Seleccione "I don't know what city you want" (No sé qué ciudad desea).
 4. Escriba "seattle". Resalte seattle y luego haga clic en la ciudad.
-5. Haga clic en Score Actions (Acciones de puntuación).
-    - Tenga en cuenta que el valor de ciudad ahora se encuentra en la memoria del bot.
+5. Haga clic en Score Actions (Acciones de puntuación)
+    - El valor de ciudad ahora se encuentra en la memoria del bot.
     - "Weather in $city is probably sunny" (Probablemente esté soleado en $city) ahora está disponible como respuesta. 
 6. Seleccione "Weather in $city is probably sunny" (Probablemente esté soleado en $city).
 
 Supongamos que el usuario escribe "repeat that" (Repetir eso). 
-1. Escriba eso y haga clic en ENTRAR. Tenga en cuenta que la entidad de ciudad y su valor están en memoria y disponibles.
+1. Escriba eso y haga clic en ENTRAR. La entidad de ciudad y su valor están en memoria y disponibles.
 2. Seleccione "Weather in $city is probably sunny" (Probablemente esté soleado en $city).
 
 ![](../media/tutorial3_entities.PNG)

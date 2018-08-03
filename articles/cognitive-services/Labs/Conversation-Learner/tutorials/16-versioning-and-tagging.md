@@ -1,7 +1,7 @@
 ---
-title: 'Uso del control de versiones y el etiquetado con una aplicación Conversation Learner: Microsoft Cognitive Services | Microsoft Docs'
+title: 'Uso del control de versiones y el etiquetado con un modelo de Conversation Learner: Microsoft Cognitive Services | Microsoft Docs'
 titleSuffix: Azure
-description: Obtenga información sobre cómo usar el control de versiones y el etiquetado con una aplicación Conversation Learner.
+description: Obtenga información sobre cómo usar el control de versiones y el etiquetado con un modelo de Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,16 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: ea013db078ff33f8597b0e15a8fc951e8ae320e8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c7f23d989cbfa0ece9e404a0fe0feb68cf5fddb2
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381786"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170552"
 ---
 # <a name="how-to-use-versioning-and-tagging"></a>Uso del control de versiones y el etiquetado
 
-En este tutorial se ilustra cómo etiquetar versiones de la aplicación Conversation Learner y definir qué versión está "activa".  
+En este tutorial se ilustra cómo etiquetar versiones del modelo de Conversation Learner y definir qué versión está "activa".  
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial requiere usar el emulador de bots para crear diálogos de registro, no la interfaz de usuario web de diálogos de registros.  
@@ -39,18 +39,18 @@ Al editar, siempre edita la etiqueta denominada "principal"; puede crear version
 - Vaya a [https://github.com/Microsoft/BotFramework-Emulator](https://github.com/Microsoft/BotFramework-Emulator).
 - Descargue e instale el emulador.
 
-### <a name="create-an-app"></a>Creación de una aplicación
+### <a name="create-an-model"></a>Creación de un modelo
 
-1. Haga clic en Nueva aplicación.
+1. Haga clic en New Modelo (Modelo nuevo)
 2. En el campo Nombre, escriba Tutorial-16-Versioning.
 3. Click Create 
 4. Hacer clic en Configuración
-5. Copie el identificador de la aplicación.
+5. Copie el identificador del modelo
 
 ### <a name="configure-the-emulator"></a>Configuración del emulador
 
 - En la carpeta raíz de Conversation Learner, abra el archivo .env.
-- Pegue el identificador de la aplicación como el valor de CONVERSATION_LEARNER_APP_ID.
+- Pegue el identificador del modelo como el valor de CONVERSATION_LEARNER_MODEL_ID
 - Reinicie el servicio Conversation Learner cerrando el símbolo del sistema y volviendo a ejecutar:
  
     npm run tutorial-general 
@@ -73,13 +73,13 @@ Cree una etiqueta:
     - Asígnele el nombre "versión 1".
 4. Establezca "versión 1" en "activa".  
     - El efecto de configurar la etiqueta activa en la "versión 1" es que los canales que usan este bot utilizarán la etiqueta "versión 1".
-    - Las ediciones (modificación de acciones, entidades y adición de diálogos de entrenamiento) no afectan a las versiones etiquetadas de las aplicaciones.  
-    - Las ediciones de una aplicación (modificación de acciones, entidades y adición de diálogos de entrenamiento) siempre se realizan en la etiqueta "principal".  En otras palabras, la etiqueta "principal" es la única que se puede modificar; las demás etiquetas son instantáneas fijas.
+    - Las ediciones (modificación de acciones, entidades e incorporación de diálogos de entrenamiento) no afectan a las versiones etiquetadas de los modelos.  
+    - Las ediciones de un modelo (modificación de acciones, entidades y adición de diálogos de entrenamiento) siempre se realizan en la etiqueta "principal".  En otras palabras, la etiqueta "principal" es la única que se puede modificar; las demás etiquetas son instantáneas fijas.
     - Los diálogos del registro de la interfaz de usuario de Conversation Learner siempre usan la etiqueta principal (no la etiqueta activa).
 
 ![](../media/tutorial16_v1_create.PNG)
 
-Tenga en cuenta la versión creada en la configuración:
+La versión se creó en la configuración:
 
 ![](../media/tutorial16_settings.PNG)
 
@@ -99,17 +99,18 @@ Edite la primera acción:
 ### <a name="switch-to-the-bot-emulator"></a>Cambio al emulador de bot
 
 1. En la interfaz de usuario del bot, escriba "goodbye" (adiós).
-2. Tenga en cuenta que el bot responde "hi there (version 1)" [Hola, (versión 1)].
+2. El bot responde "hi there (version 1)" [Hola, (versión 1)].
     - Muestra que la versión 1 está "activa". 
 
 ![](../media/tutorial16_bf_response.PNG)
 
 ### <a name="switch-to-the-web-ui"></a>Cambio a la interfaz de usuario web
 
-1. Haga clic en los diálogos de registro (si no ve los diálogos, actualice la aplicación).
+1. Haga clic en los cuadros de diálogo de registro (si no ve los cuadros de diálogo, haga clic en el botón Actualizar).
 2. Haga clic en "hi there (version 2)" [Hola, (versión 2)].
 
-Tenga en cuenta que podemos hacer correcciones en todas las acciones disponibles actualmente. Estas modificaciones se realizarán en la etiqueta principal.
+> [!NOTE]
+> Podemos hacer correcciones al elegir entre todas las acciones disponibles actualmente. Estas modificaciones se realizarán en la etiqueta principal.
 
 Ya ha visto cómo funciona el control de versiones y cómo puede interactuar con el bot mediante Bot Framework Emulator.
 

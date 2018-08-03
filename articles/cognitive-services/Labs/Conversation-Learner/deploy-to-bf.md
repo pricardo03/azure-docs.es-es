@@ -10,22 +10,22 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 77cc998227d996a6e52b1b5629204da5dc735ede
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bb977df92cf0ada1e50a929a9ea714313a70165a
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381731"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171483"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Implementación de un bot de Conversation Learner
 
 En este documento se explica cómo implementar un bot de Conversation Learner, tanto localmente como en Azure.
 
-## <a name="prerequisite-determine-the-application-id"></a>Requisito previo: determinar el identificador de la aplicación 
+## <a name="prerequisite-determine-the-model-id"></a>Requisito previo: determinar el identificador de modelo 
 
-Para ejecutar un bot fuera de la interfaz de usuario de Conversation Learner, es preciso establecer el identificador de aplicación de Conversation Learner que va a usar el bot, es decir, el identificador del modelo de aprendizaje automático en la nube de Conversation Learner  (por el contrario, cuando el bot se ejecuta el componente a través de la interfaz de usuario de Conversation Learner, es dicha interfaz la que elige el identificador de la aplicación).  
+Para ejecutar un bot fuera de la interfaz de usuario de Conversation Learner, es preciso establecer el identificador de modelo de Conversation Learner que va a usar el bot, es decir, el identificador del modelo de aprendizaje automático en la nube de Conversation Learner.  (por el contrario, cuando el bot se ejecuta el componente a través de la interfaz de usuario de Conversation Learner, es dicha interfaz la que elige el identificador del modelo).  
 
-Así es como se obtiene el identificador de aplicación:
+A continuación, se muestra cómo obtener el identificador del modelo:
 
 1. Inicie tanto el bot como la interfaz de usuario de Conversation Learner.  Para ver las instrucciones completas consulte la Guía de inicio rápido, pero para resumir:
 
@@ -47,11 +47,11 @@ Así es como se obtiene el identificador de aplicación:
 
 2. Abra el explorador en http://localhost:5050 
 
-3. Haga clic en la aplicación Conversation Learner cuyo identificador desea obtener
+3. Haga clic en el modelo de Conversation Learner cuyo identificador desea obtener
 
 4. Haga clic en "Settings" (Configuración) en la barra de navegación de la izquierda.
 
-5. El GUID "App ID" (Identificador de la aplicación) se muestra cerca de la parte superior de la página.
+5. El GUID "Model ID" (Identificador del modelo) se muestra cerca de la parte superior de la página.
 
 ## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>Opción1: Implementación de un bot de Conversation Learner para que se ejecute localmente
 
@@ -62,7 +62,7 @@ Esto implementa un componente en el equipo local y muestra cómo acceder a él m
 Cuando ejecute un bot localmente, agregue el identificador de la aplicación al archivo `.env` del bot:
 
     ```
-    CONVERSATION_LEARNER_APP_ID=<YOUR_APP_ID>
+    CONVERSATION_LEARNER_MODEL_ID=<YOUR_MODEL_ID>
     ```
 
 Luego, inicie el bot:
@@ -116,8 +116,8 @@ A continuación encontrará instrucciones detalladas para implementar un bot de 
         Variable de entorno | value
         --- | --- 
         CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-        CONVERSATION_LEARNER_APP_ID      | GUID de identificador de la aplicación, obtenido de la interfaz de usuario de Conversation Learner en la "configuración" de la aplicación >
-        LUIS_AUTHORING_KEY               | Clave de creación de LUIS para esta aplicación
+        CONVERSATION_LEARNER_MODEL_ID      | GUID de identificador de la aplicación, obtenido de la interfaz de usuario de Conversation Learner en la "configuración" del modelo>
+        LUIS_AUTHORING_KEY               | Clave de creación de LUIS para este modelo
     
     4. Haga clic en "Save"(Guardar) cerca de la parte superior de la página
     5. Abra el elemento de navegación "Build" (Compilar) de la izquierda

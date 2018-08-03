@@ -3,386 +3,233 @@ title: Uso de las pruebas por lotes para mejorar las predicciones de LUIS | Micr
 titleSuffix: Azure
 description: Cargue las pruebas por lotes, revise los resultados y mejore las predicciones de LUIS con cambios.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/19/2018
-ms.author: v-geberr
-ms.openlocfilehash: 5788f17f2724a0354a1db506971c2343c1800f01
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.date: 07/16/2018
+ms.author: diberry
+ms.openlocfilehash: 0e1f5d29917ba381d4767faffb65847cd2ff210f
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266403"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237815"
 ---
-# <a name="use-batch-testing-to-find-prediction-accuracy-issues"></a>Usar las pruebas por lotes para encontrar problemas de precisión de predicción
+# <a name="improve-app-with-batch-test"></a>Mejora de la aplicación con pruebas por lotes
 
 En este tutorial se muestra cómo usar las pruebas por lotes para encontrar problemas de predicción de expresiones.  
 
 En este tutorial, aprenderá a:
 
+<!-- green checkmark -->
 > [!div class="checklist"]
 * Crear un archivo de prueba por lotes 
 * Ejecutar una prueba por lotes
 * Revisar los resultados de la prueba
-* Corregir los errores de intenciones
+* Corregir errores 
 * Volver a realizar la prueba por lotes
 
-## <a name="prerequisites"></a>requisitos previos
+Para este artículo, necesita una cuenta gratuita de [LUIS](luis-reference-regions.md#luis-website) para crear la aplicación.
 
-> [!div class="checklist"]
-> * Para este artículo, también necesita una cuenta de [LUIS][LUIS] para crear la aplicación.
+## <a name="before-you-begin"></a>Antes de empezar
+Si no tiene la aplicación de recursos humanos del tutorial sobre la [expresiones de punto de conexión de revisión](luis-tutorial-review-endpoint-utterances.md), [importe](luis-how-to-start-new-app.md#import-new-app) el archivo JSON a una aplicación nueva en el sitio web de [LUIS](luis-reference-regions.md#luis-website). La aplicación que se va a importar se encuentra en el repositorio de GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-review-HumanResources.json).
 
-> [!Tip]
-> Si aún no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/).
+Si desea conservar la aplicación original de Recursos humanos, clone la versión en la página [Configuración](luis-how-to-manage-versions.md#clone-a-version) y llámela `batchtest`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. 
 
-## <a name="create-new-app"></a>Crear nueva aplicación
-En este artículo se usa el dominio creado previamente HomeAutomation. El dominio creado previamente tiene intenciones, entidades y expresiones para controlar dispositivos de HomeAutomation, como las luces. Cree la aplicación, agregue el dominio, entrene y publique.
+Entrene la aplicación.
 
-1. En el sitio web de [LUIS], cree una nueva aplicación seleccionando **Crear nueva aplicación** en la página **MyApps**. 
+## <a name="purpose-of-batch-testing"></a>Propósito de las pruebas por lotes
+Las pruebas por lotes permiten validar el estado del modelo entrenado activo con un conjunto conocido de entidades y expresiones etiquetadas. En el archivo por lotes con formato JSON, agregue las expresiones y establezca las etiquetas de entidad que necesita predecir dentro de la expresión. 
 
-    ![Crear nueva aplicación](./media/luis-tutorial-batch-testing/create-app-1.png)
+<!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. --> Cuando se usa una aplicación que no sea de este tutorial, asegúrese de *no* usar las expresiones de ejemplo que ya están agregadas en una intención. Para comprobar sus expresiones de pruebas por lotes frente a las expresiones de ejemplo, [exporte](luis-how-to-start-new-app.md#export-app) la aplicación. Compare la expresión de ejemplo de la aplicación con las expresiones de pruebas por lotes. 
 
-2. Escriba el nombre `Batchtest-HomeAutomation` en el cuadro de diálogo.
+Requisitos de las pruebas por lotes:
 
-    ![Escribir el nombre de la aplicación](./media/luis-tutorial-batch-testing/create-app-2.png)
+* Máximo de 1000 expresiones por prueba. 
+* Sin duplicados. 
+* Tipos de entidad permitidos: solo entidades de aprendizaje automático de entidades simples, jerárquicas (solo principales) y compuestos. Las pruebas por lotes solo son útiles para las entidades e intenciones de aprendizaje automático.
 
-3. Seleccione **Dominios creados previamente** en la esquina inferior izquierda. 
+## <a name="create-a-batch-file-with-utterances"></a>Creación de un archivo por lotes con expresiones
+1. Cree `HumanResources-jobs-batch.json` en un editor de texto como [VSCode](https://code.visualstudio.com/). 
 
-    ![Seleccionar Dominio creado previamente](./media/luis-tutorial-batch-testing/prebuilt-domain-1.png)
+2. En el archivo por lotes con formato JSON, agregue expresiones con la **intención** que quiere predecir en la prueba. 
 
-4. Haga clic en **Agregar dominio** para HomeAutomation.
-
-    ![Agregar dominio HomeAutomation](./media/luis-tutorial-batch-testing/prebuilt-domain-2.png)
-
-5. Haga clic en **Entrenar** en la barra de navegación superior derecha.
-
-    ![Hacer clic en el botón Entrenar](./media/luis-tutorial-batch-testing/train-button.png)
-
-## <a name="batch-test-criteria"></a>Criterios de prueba por lotes
-Las pruebas por lotes pueden probar hasta 1000 expresiones a la vez. El lote no debería tener duplicados. [Exporte](create-new-app.md#export-app) la aplicación para ver la lista de expresiones actuales.  
-
-La estrategia de prueba para LUIS usa tres conjuntos de datos independientes: expresiones de modelo, expresiones de prueba por lotes, y expresiones de punto de conexión. Para este tutorial, asegúrese de que no usa las expresiones de modelo (que se agregan a una intención) ni las de punto de conexión. 
-
-No use ninguna de las expresiones que ya se encuentran en la aplicación para la prueba por lotes:
-
-```
-'breezeway on please',
-'change temperature to seventy two degrees',
-'coffee bar on please',
-'decrease temperature for me please',
-'dim kitchen lights to 25 .',
-'fish pond off please',
-'fish pond on please',
-'illuminate please',
-'living room lamp on please',
-'living room lamps off please',
-'lock the doors for me please',
-'lower your volume',
-'make camera 1 off please',
-'make some coffee',
-'play dvd',
-'set lights bright',
-'set lights concentrate',
-'set lights out bedroom',
-'shut down my work computer',
-'silence the phone',
-'snap switch fan fifty percent',
-'start master bedroom light .',
-'theater on please',
-'turn dimmer off',
-'turn off ac please',
-'turn off foyer lights',
-'turn off living room light',
-'turn off staircase',
-'turn off venice lamp',
-'turn on bathroom heater',
-'turn on external speaker',
-'turn on my bedroom lights .',
-'turn on the furnace room lights',
-'turn on the internet in my bedroom please',
-'turn on thermostat please',
-'turn the fan to high',
-'turn thermostat on 70 .' 
-```
-
-## <a name="create-a-batch-to-test-intent-prediction-accuracy"></a>Crear un lote para probar la precisión de la predicción de intenciones
-1. Cree `homeauto-batch-1.json` en un editor de texto como [VSCode](https://code.visualstudio.com/). 
-
-2. Agregue expresiones con la **intención** que quiera predecir en la prueba. Para este tutorial, para que resulte sencillo, escoja expresiones de `HomeAutomation.TurnOn` y `HomeAutomation.TurnOff`, y cambie el texto `on` y `off` de las expresiones. Para la intención `None`, agregue un par de expresiones que no formen parte del área [dominio](luis-glossary.md#domain) (asunto). 
-
-    Para entender cómo se correlacionan los resultados de la prueba por lotes con el lote JSON, agregue solo seis intenciones.
-
-    ```JSON
-    [
-        {
-          "text": "lobby on please",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": []
-        },
-        {
-          "text": "change temperature to seventy one degrees",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": []
-        },
-        {
-          "text": "where is my pizza",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "help",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "breezeway off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": []
-        },
-        {
-          "text": "coffee bar off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": []
-        }
-    ]
-    ```
+   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
 
 ## <a name="run-the-batch"></a>Ejecute el lote
+
 1. Haga clic en **Probar** en la barra de navegación superior. 
 
-    ![Hacer clic en Probar en la barra de navegación](./media/luis-tutorial-batch-testing/test-1.png)
+    [ ![Captura de pantalla de una aplicación de LUIS con Test (Probar) resaltado en la barra de navegación superior derecha](./media/luis-tutorial-batch-testing/hr-first-image.png)](./media/luis-tutorial-batch-testing/hr-first-image.png#lightbox)
 
 2. Seleccione el **panel Prueba por lotes** en el panel de la derecha. 
 
-    ![Seleccionar el panel Prueba por lotes](./media/luis-tutorial-batch-testing/test-2.png)
+    [ ![Captura de pantalla de una aplicación de LUIS con el panel Prueba por lotes resaltado](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
 
 3. Seleccione **Importar conjunto de datos**.
 
-    ![Seleccionar Importar conjunto de datos](./media/luis-tutorial-batch-testing/test-3.png)
+    [ ![Captura de pantalla de una aplicación de LUIS con Importar conjunto de datos resaltado](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
-4. Elija la ubicación del sistema de archivos del archivo `homeauto-batch-1.json`.
+4. Elija la ubicación del sistema de archivos del archivo `HumanResources-jobs-batch.json`.
 
-5. Asigne el nombre `set 1` al conjunto de datos.
+5. Asigne un nombre al conjunto de datos `intents only` y seleccione **Done** (Listo).
 
-    ![Selección del archivo](./media/luis-tutorial-batch-testing/test-4.png)
+    ![Selección del archivo](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
 
 6. Haga clic en el botón **Ejecutar**. Espere hasta que se realice la prueba.
 
-    ![Hacer clic en Ejecutar](./media/luis-tutorial-batch-testing/test-5.png)
+    [ ![Captura de pantalla de una aplicación de LUIS con Run (Ejecutar) resaltado](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
 
 7. Seleccione **Ver resultados**.
 
-    ![Ver los resultados](./media/luis-tutorial-batch-testing/test-6.png)
-
 8. Revise los resultados en el gráfico y la leyenda.
 
-    ![Resultados de lote](./media/luis-tutorial-batch-testing/batch-result-1.png)
+    [ ![Captura de pantalla de una aplicación de LUIS con resultados de las prueba por lotes](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
 
 ## <a name="review-batch-results"></a>Revisar los resultados de lote
-Los resultados de lote se encuentran en dos secciones. La sección superior contiene el gráfico y la leyenda. La sección inferior muestra expresiones cuando selecciona el nombre de un área del gráfico.
+El gráfico por lotes muestra cuatro cuadrantes de resultados. Hay un filtro a la derecha del gráfico. De manera predeterminada, el filtro se establece en la primera intención de la lista. El filtro contiene todas las intenciones y solo las entidades simples, jerárquicas (solo principales) y compuestas. Cuando se selecciona una [sección del gráfico](luis-concept-batch-test.md#batch-test-results) o un punto dentro del gráfico, las expresiones asociadas se muestra debajo del gráfico. 
 
-Los errores se indican en color rojo. El gráfico se divide en cuatro secciones, y dos de las secciones se muestran en color rojo. **Estas son las secciones a las que debe prestar atención**. 
+Si mantiene el mouse sobre el gráfico y gira la rueda del mouse, puede agrandar o disminuir la visualización del gráfico. Esto resulta útil cuando hay muchos puntos en el gráfico estrechamente agrupados. 
 
-La sección de la parte superior derecha indica que la prueba predijo incorrectamente la existencia de una intención o una entidad. La sección de la parte inferior izquierda indica que la prueba predijo incorrectamente la ausencia de una intención o una entidad.
+El gráfico está en cuatro cuadrantes, donde dos de las secciones aparecen en rojo. **Estas son las secciones a las que debe prestar atención**. 
 
-### <a name="homeautomationturnoff-test-results"></a>Resultado de la prueba de HomeAutomation.TurnOff
-En la leyenda, seleccione la intención `HomeAutomation.TurnOff`. Tiene un icono verde de prueba correcta a la izquierda del nombre en la leyenda. No hay errores para esta intención. 
+### <a name="getjobinformation-test-results"></a>Resultados de las pruebas GetJobInformation
+Los resultados de las pruebas **GetJobInformation** que aparecen en el filtro muestran que dos de las cuatro predicciones se realizaron correctamente. Seleccione el nombre **False positive** (Falso positivo) sobre el cuadrante superior derecho para ver las expresiones debajo del gráfico. 
 
-![Resultados de lote](./media/luis-tutorial-batch-testing/batch-result-1.png)
+![Expresiones de prueba por lotes de LUIS](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
 
-### <a name="homeautomationturnon-and-none-intents-have-errors"></a>Las intenciones HomeAutomation.TurnOn y None tienen errores
-Las otras dos intenciones tienen errores, lo que significa que las predicciones de prueba no coincidieron con las expectativas del archivo por lotes. Seleccione la intención `None` en la leyenda para revisar el primer error. 
+¿Por qué hay dos de las expresiones previstas como **ApplyForJob**, en lugar de la intención correcta **GetJobInformation**? Las dos intenciones están muy estrechamente relacionadas en cuanto a la elección y la disposición de palabras. Además, hay casi tres veces más ejemplos para **ApplyForJob** que para **GetJobInformation**. Esta desigualdad de las expresiones de ejemplo influye a favor de la intención **ApplyForJob**. 
 
-![Intención None](./media/luis-tutorial-batch-testing/none-intent-failures.png)
+Observe que ambas intenciones tienen la misma cantidad de errores. Una predicción incorrecta en una intención afecta también a la otra intención. Ambas tienen errores porque las expresiones se predijeron de manera incorrecta para una intención y también de manera incorrecta no se predijeron para la otra intención. 
 
-Los errores aparecen en el gráfico en las secciones de color rojo: **Falso positivo** y **Falso negativo**. Seleccione el nombre de sección **Falso negativo** en el gráfico para ver las expresiones que obtuvieron un error debajo del gráfico. 
+![Errores de filtro de pruebas por lotes de LUIS](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
 
-![Errores de Falso negativo](./media/luis-tutorial-batch-testing/none-intent-false-negative.png)
-
-La expresión con error, `help` se esperaba como una intención `None`, pero la prueba predijo la intención `HomeAutomation.TurnOn`.  
-
-Hay dos errores, uno en HomeAutomation.TurnOn y otro en None. Ambos están causados por la expresión `help`, porque no pudo cumplir la expectativa de None y era una coincidencia inesperada para la intención HomeAutomation.TurnOn. 
-
-Para determinar por qué se produce un error en las expresiones `None`, revise las expresiones que están actualmente en `None`. 
-
-## <a name="review-none-intents-utterances"></a>Revisar las expresiones de la intención None
-
-1. Cierre el panel **Prueba**; para ello, haga clic en el botón **Probar** situado en el panel de navegación superior. 
-
-2. Seleccione **Compilar** en el panel de navegación superior. 
-
-3. Seleccione la intención **None** de la lista de intenciones.
-
-4. Presione Control+E para ver la vista de token de las expresiones 
-    
-    |expresiones de la intención None|Puntuación de predicción|
-    |--|--|
-    |"reducir la temperatura por mí"|0,44|
-    |"atenuar las luces de la cocina a 25".|0,43|
-    |"bajar el volumen"|0,46|
-    |"activar Internet en mi habitación"|0,28|
-
-## <a name="fix-none-intents-utterances"></a>Corregir las expresiones de la intención None
-    
-Se supone que cualquier expresión en `None` se encuentra fuera del dominio de la aplicación. Estas expresiones están relacionadas con HomeAutomation, por lo que se encuentran en la intención incorrecta. 
-
-LUIS también otorga a las expresiones una puntuación de predicción inferior al 50 % (<.50). Si observa las expresiones en las otras dos intenciones, veré puntuaciones de predicción muy superiores. Cuando LUIS tiene bajas puntuaciones para expresiones de ejemplo es una buena indicación de que las expresiones provocan que LUIS confunda entre la intención actual y otras intenciones. 
-
-Para corregir la aplicación, es necesario mover las expresiones que se encuentran actualmente en la intención `None` a la intención correcta, y la intención `None` necesita intenciones nuevas y más apropiadas. 
-
-Tres de las expresiones en la intención `None` están diseñadas para reducir la configuración de dispositivos de automatización. Usan palabras como `dim`, `lower` o `decrease`. La cuarta expresión le pide que active Internet. Puesto que las cuatro expresiones son sobre cómo activar o cambiar el grado de energía en un dispositivo, deberían moverse a la intención `HomeAutomation.TurnOn`. 
-
-Esto simplemente es una solución. También puede crear una nueva intención de `ChangeSetting` y mover las expresiones que usan atenuar, reducir y disminuir a dicha intención nueva. 
+Las expresiones que corresponden al punto superior en la sección **False positive** (Falso positivo) son `Can I apply for any database jobs with this resume?` y `Can I apply for any database jobs with this resume?`. Para la primera expresión, la palabra `resume` solo se usó en **ApplyForJob**. Para la segunda expresión, la palabra `apply` solo se usó en la intención **ApplyForJob**.
 
 ## <a name="fix-the-app-based-on-batch-results"></a>Corregir la aplicación en función de los resultados de lote
-Mueva las cuatro expresiones a la intención `HomeAutomation.TurnOn`. 
+El objetivo de esta sección es predecir correctamente todas las expresiones para **GetJobInformation** mediante la corrección de la aplicación. 
 
-1. Active la casilla encima de la lista de expresiones, para que se seleccionen todas las expresiones. 
+Una corrección aparentemente rápida sería agregar estas expresiones de archivos por lotes a la intención correcta. Sin embargo, eso no es lo que quiere hacer. Quiere que LUIS prediga de manera correcta estas expresiones sin agregarlas como ejemplos. 
 
-2. En la lista desplegable **Reassign intent** (Reasignar intenciones), seleccione `HomeAutomation.TurnOn`. 
+Tal vez también se pregunte sobre cómo eliminar expresiones de **ApplyForJob** hasta que la cantidad de expresiones sea igual a **GetJobInformation**. Eso puede corregir los resultados de las pruebas, pero impediría que LUIS pueda predecir dicha intención con precisión la próxima vez. 
 
-    ![Mover expresiones](./media/luis-tutorial-batch-testing/move-utterances.png)
+La primera corrección consiste en agregar más expresiones a **GetJobInformation**. La segunda corrección consiste en reducir el peso de palabras como `resume` y `apply` respecto de la intención **ApplyForJob**. 
 
-    Después de que se reasignen las cuatro expresiones, la lista de expresiones para la intención `None` estará vacía.
+### <a name="add-more-utterances-to-getjobinformation"></a>Incorporación de más expresiones a **GetJobInformation**
+1. Seleccione el botón **Probar** que se encuentra en el panel de navegación superior para cerrar el panel de pruebas por lotes. 
 
-3. Agregue cuatro intenciones nuevas para la intención None:
+    [ ![Captura de pantalla de LUIS con el botón Test (Probar) resaltado](./media/luis-tutorial-batch-testing/hr-close-test-panel.png)](./media/luis-tutorial-batch-testing/hr-close-test-panel.png#lightbox)
 
-    ```
-    "fish"
-    "dogs"
-    "beer"
-    "pizza"
-    ```
+2. Seleccione **GetJobInformation** en la lista de intenciones. 
 
-    Estas expresiones están definitivamente fuera del dominio de HomeAutomation. Cuando escriba cada expresión, observe la puntuación de la misma. La puntuación puede ser baja, o incluso muy baja (con un cuadro rojo alrededor). Después de entrenar la aplicación, en el paso 8, la puntuación será mucho mayor. 
+    [ ![Captura de pantalla de LUIS con el botón Test (Probar) resaltado](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png)](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png#lightbox)
 
-7. Quite todas las etiquetas seleccionando la etiqueta azul en la expresión y luego seleccione **Quitar etiqueta**.
+3. Agregue más expresiones que varíen en longitud, elección de palabras y disposición de palabras, y asegúrese de incluir los términos `resume`, `c.v.` y `apply`:
 
-8. Haga clic en **Entrenar** en la barra de navegación superior derecha. La puntuación de cada expresión es mucho mayor. Todas las puntuaciones de la intención `None` ahora deberían ser mayores de 80. 
+    |Expresiones de ejemplo para la intención **GetJobInformation**|
+    |--|
+    |¿Necesito presentar un currículum vítae para el trabajo nuevo de repositor en el almacén?|
+    |¿Dónde aparecen hoy los trabajos relacionados con tejados?|
+    |Supe que había un trabajo de codificación médica para el que se requiere currículum vítae.|
+    |Me gustaría un trabajo que ayudar a los jóvenes universitarios a escribir sus currículum vítae. |
+    |Este es mi currículum vítae y uso equipos computacionales para buscar un empleo nuevo en el centro de formación profesional.|
+    |¿Qué puestos hay disponibles en el ámbito del cuidado infantil y el cuidado domiciliario?|
+    |¿Hay algún puesto interno en el periódico?|
+    |Mi currículum vítae indica que soy bueno para analizar adquisiciones, presupuestos y pérdidas de dinero. ¿Hay disponible algún trabajo de este tipo?|
+    |¿Dónde están ahora los trabajos relacionados con la perforación de la tierra?|
+    |He trabajado ocho años como chofer de ambulancias. ¿Hay algún trabajo nuevo?|
+    |¿Es necesario postular a los trabajos nuevos de manipulación de alimentos?|
+    |¿Cuánto trabajos de jardinería nuevos hay disponibles?|
+    |¿Hay algún empleo nuevo de recursos humanos dirigidos a negociaciones y relaciones laborales?|
+    |Tengo un máster en administración de bibliotecas y archivos. ¿Hay algún puesto nuevo?|
+    |¿Hay algún trabajo de cuidador de niños para chicos de 13 años hoy en la ciudad?|
+
+    No etiquete la entidad**Job** (Trabajo) en las expresiones. Esta sección del tutorial solo se centra en la predicción de la intención.
+
+4. Seleccione **Train** (Entrenar) en el panel de navegación superior derecho para entrenar la aplicación.
 
 ## <a name="verify-the-fix-worked"></a>Comprobar que la corrección ha funcionado
-Para comprobar que las expresiones en la prueba por lotes se predicen correctamente para la intención **None**, vuelva a ejecutar la prueba por lotes.
+Para comprobar que las expresiones en la prueba por lotes se predicen correctamente, vuelva a ejecutar la prueba por lotes.
+
+1. Haga clic en **Probar** en la barra de navegación superior. Si los resultados por lotes todavía están abiertos, seleccione **Back to list** (Volver a la lista).  
+
+2. Seleccione el botón de puntos suspensivos (***...***) a la derecha del nombre del lote y seleccione **Ejecutar conjunto de datos**. Espere hasta que se realice la prueba por lotes. Tenga en cuenta que el botón **Ver resultados** ahora aparece en color verde. Esto significa que todo el lote se ejecutó correctamente.
+
+3. Seleccione **Ver resultados**. Todas las intenciones deben tener un icono verde a la izquierda de los nombres de la intención. 
+
+    ![Captura de pantalla de LUIS con el botón de los resultados por lotes resaltado](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
+
+## <a name="create-batch-file-with-entities"></a>Creación de archivo por lotes con entidades 
+A fin de comprobar las entidades de una prueba por lotes, es necesario etiquetar las entidades en el archivo JSON por lotes. Solo se usan las entidades de aprendizaje automático: las entidades simples, jerárquicas (solo principales) y compuestas. No agregue entidades que no son de aprendizaje automático, porque siempre se encuentran ya sea a través de expresiones regulares o de coincidencias de texto explícitas.
+
+La variación de entidades para el número total de palabras ([token](luis-glossary.md#token)) puede afectar a la calidad de la predicción. Asegúrese de que los datos de entrenamiento proporcionados a la intención con expresiones etiquetadas incluyen una variedad de longitudes de entidad. 
+
+Cuando escriba y pruebe archivos por lotes por primera vez, se recomienda empezar con algunas expresiones y entidades que sabe que funcionan, así como con algunas que considere que se pueden predecir de manera incorrecta. Esto le permite centrarse rápidamente en las áreas problemáticas. Después de probar las intenciones **GetJobInformation** y **ApplyForJob** con varios nombres de trabajo distintos, que no se pueden predecir, este archivo de prueba por lotes se desarrolló para ver si hay un problema de predicción con ciertos valores para la entidad **Job** (Trabajo). 
+
+El valor de una entidad **Job** (Trabajo), que se proporciona en las expresiones de prueba, suele ser una o dos palabras, con algunos ejemplos que son más que palabras. Si _su propia_ aplicación de recursos humanos habitualmente tiene nombres de trabajo de muchas palabras, las expresiones de ejemplo etiquetadas con la entidad **Job** (Trabajo) en esta aplicación no funcionarían correctamente.
+
+1. Cree `HumanResources-entities-batch.json` en un editor de texto como [VSCode](https://code.visualstudio.com/). O descargue [el archivo](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json) desde el repositorio LUIS-Samples de GitHub.
+
+
+2. En el archivo por lotes con formato JSON, agregue una matriz de objetos que incluyen expresiones con la **intención** que quiere predecir en la prueba, así como las ubicaciones de las entidades en la expresión. Como una entidad se basa en token, asegúrese de empezar y detener cada entidad en un carácter. No empiece ni detenga la expresión en un espacio. Esto genera un error durante la importación del archivo por lotes.  
+
+   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
+
+<!--TBD: when will the patterns fix be in for batch testing? -->
+## <a name="run-the-batch-with-entities"></a>Ejecución del lote con entidades
 
 1. Haga clic en **Probar** en la barra de navegación superior. 
 
 2. Seleccione el **panel Prueba por lotes** en el panel de la derecha. 
 
-3. Haga clic en los tres puntos (...) a la derecha del nombre del lote y seleccione **Ejecutar conjunto de datos**. Espere hasta que se realice la prueba por lotes.
+3. Seleccione **Importar conjunto de datos**.
 
-    ![Ejecutar conjunto de datos](./media/luis-tutorial-batch-testing/run-dataset.png)
+4. Elija la ubicación del sistema de archivos del archivo `HumanResources-entities-batch.json`.
 
-4. Seleccione **Ver resultados**. Todas las intenciones deben tener un icono verde a la izquierda de los nombres de la intención. Con el filtro correcto establecido en la intención `HomeAutomation.Turnoff`, seleccione el punto verde del panel superior derecho más cercano al centro del gráfico. El nombre de la expresión aparece en la tabla debajo del gráfico. La puntuación de `breezeway off please` es muy baja. Otra opción es agregar más expresiones a la intención para aumentar esta puntuación. 
+5. Asigne un nombre al conjunto de datos `entities` y seleccione **Done** (Listo).
 
-    ![Ejecutar conjunto de datos](./media/luis-tutorial-batch-testing/turnoff-low-score.png)
+6. Haga clic en el botón **Ejecutar**. Espere hasta que se realice la prueba.
 
-<!--
-    The Entities section of the legend may have errors. That is the next thing to fix.
+    [ ![Captura de pantalla de una aplicación de LUIS con Run (Ejecutar) resaltado](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
 
-## Create a batch to test entity detection
-1. Create `homeauto-batch-2.json` in a text editor such as [VSCode](https://code.visualstudio.com/). 
+7. Seleccione **Ver resultados**.
 
-2. Utterances have entities identified with `startPos` and `endPost`. These two elements identify the entity before [tokenization](luis-glossary.md#token), which happens in some [cultures](luis-supported-languages.md#tokenization) in LUIS. If you plan to batch test in a tokenized culture, learn how to [extract](luis-concept-data-extraction.md#tokenized-entity-returned) the non-tokenized entities.
+## <a name="review-entity-batch-results"></a>Revisión de los resultados de lote de las entidades
+El gráfico se abre con todas las intenciones que se predicen correctamente. Desplácese hacia abajo en el filtro de la derecha para buscar las predicciones de entidades con error. 
 
-    Copy the following JSON into the file:
+1. Seleccione la entidad **Job** (Trabajo) en el filtro.
 
-    ```JSON
-    [
-        {
-          "text": "lobby on please",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Room",
-              "startPos": 0,
-              "endPos": 4
-            }
-          ]
-        },
-        {
-          "text": "change temperature to seventy one degrees",
-          "intent": "HomeAutomation.TurnOn",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Operation",
-              "startPos": 7,
-              "endPos": 17
-            }
-          ]
-        },
-        {
-          "text": "where is my pizza",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "help",
-          "intent": "None",
-          "entities": []
-        },
-        {
-          "text": "breezeway off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Room",
-              "startPos": 0,
-              "endPos": 9
-            }
-          ]
-        },
-        {
-          "text": "coffee bar off please",
-          "intent": "HomeAutomation.TurnOff",
-          "entities": [
-            {
-              "entity": "HomeAutomation.Device",
-              "startPos": 0,
-              "endPos": 10
-            }
-          ]
-        }
-      ]
-    ```
+    ![Predicciones de entidades con error en el filtro](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
-3. Import the batch file, following the [same instructions](#run-the-batch) as the first import, and name the dataset `set 2`. Run the test.
+    El gráfico cambia para mostrar las predicciones de la entidad. 
 
-## Possible entity errors
-Since the intents in the right-side filter of the test panel still pass the test, this section focuses on correct entity identification. 
+2. Seleccione **False Negative** (Falso negativo) en el cuadrante inferior izquierdo del gráfico. A continuación, use el control de combinación de teclado + E para cambiar a la vista del token. 
 
-Entity testing is diferrent than intents. An utterance will have only one top scoring intent, but it may have several entities. An utterance's entity may be correctly identified, may be incorrectly identified as an entity other than the one in the batch test, may overlap with other entities, or not identified at all. 
+    [ ![Vista del token de predicciones de entidad](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
+    
+    Revisar las expresiones debajo del gráfico muestra un error de coherencia cuando el nombre del trabajo incluye `SQL`. Al revisar las expresiones de ejemplo y la lista de frases de trabajo, SQL solo se usa una vez y solo como parte de un nombre de trabajo más grande, `sql/oracle database administrator`.
 
-## Review entity errors
-1. Select `HomeAutomation.Device` in the filter panel. The chart changes to show a single false positive and several true negatives. 
+## <a name="fix-the-app-based-on-entity-batch-results"></a>Corrección de la aplicación en función de los resultados de lotes
+Corregir la aplicación requiere que LUIS determine correctamente las variaciones de los trabajos de SQL. Hay varias opciones para esa corrección. 
 
-2. Select the False positive section name. The utterance for this chart point is displayed below the chart. The labeled intent and the predicted intent are the same, which is consistent with the test -- the intent prediction is correct. 
+* Agregar explícitamente más expresiones de ejemplo, que utilizan SQL, y etiquetar esas palabras como una entidad de trabajo. 
+* Agregar explícitamente más trabajos de SQL a la lista de frases.
 
-    The issue is that the HomeAutomation.Device was detected but the batch expected HomeAutomation.Room for the utterance "coffee bar off please". `Coffee bar` could be a room or a device, depending on the environment and context. As the model designer, you can either enforce the selection as `HomeAutomation.Room` or change the batch file to use `HomeAutomation.Device`. 
+Estas tareas se dejan para que las haga el usuario.
 
-    If you want to reinforce that coffee bar is a room, you nee to add an utterances to LUIS that help LUIS decide a coffee bar is a room. 
+Agregar un [patrón](luis-concept-patterns.md) antes de que la entidad se prediga correctamente no va a corregir el problema. Esto es porque el patrón no coincidirá hasta que se detecten todas las entidades del patrón. 
 
-    The most direct route is to add the utterance to the intent but that to add the utterance for every entity detection error is not the machine-learned solution. Another fix would be to add an utterance with `coffee bar`.
+## <a name="what-has-this-tutorial-accomplished"></a>¿Qué ha logrado este tutorial?
+Aumentó la precisión de la predicción de la aplicación al encontrar errores en el lote y corregir el modelo. 
 
-## Add utterance to help extract entity
-1. Select the **Test** button on the top navigation to close the batch test panel.
+## <a name="clean-up-resources"></a>Limpieza de recursos
+Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione los puntos suspensivos **...** a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
 
-2. On the `HomeAutomation.TurnOn` intent, add the utterance, `turn coffee bar on please`. The uttterance should have all three entities detected after you select enter. 
 
-3. Select **Train** on the top navigation panel. Wait until training completes successfully.
-
-3. Select **Test** on the top navigation panel to open the Batch testing pane again. 
-
-4. If the list of datasets is not visible, select **Back to list**. Select the three dots (...) at the end of `Set 2` and select `Run Dataset`. Wait for the test to complete.
-
-5. Select **See results** to review the test results.
-
-6. 
--->
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Más información sobre las expresiones de ejemplo](luis-how-to-add-example-utterances.md)
+> [Información sobre los patrones](luis-tutorial-pattern.md)
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

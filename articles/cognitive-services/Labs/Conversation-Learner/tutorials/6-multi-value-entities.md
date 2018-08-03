@@ -1,7 +1,7 @@
 ---
-title: 'Cómo usar entidades de varios valores con una aplicación Conversation Learner: Microsoft Cognitive Services | Microsoft Docs'
+title: 'Uso de entidades de varios valores con un modelo de Conversation Learner: Microsoft Cognitive Services | Microsoft Docs'
 titleSuffix: Azure
-description: Obtenga información sobre cómo utilizar entidades de varios valores con una aplicación Conversation Learner.
+description: Obtenga información sobre cómo utilizar entidades de varios valores con un modelo de Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,18 +10,22 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 865b50747b2c9574b5f88d4902bea9e4c8e0e032
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6193a515f0d8136e0d420b7554cf26fee8f50953
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381763"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173108"
 ---
-# <a name="how-to-use-multi-value-entities-with-a-conversation-learner-application"></a>Cómo utilizar entidades de varios valores con una aplicación Conversation Learner
+# <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Uso de entidades de varios valores con un modelo de Conversation Learner
 Este tutorial muestra la propiedad "Multi-Value" (Varios valores) de las entidades.
 
+## <a name="video"></a>Vídeo
+
+[![Vista previa del tutorial 6](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
+
 ##<a name="requirements"></a>Requisitos
-Para poder realizar este tutorial debe ejecutar el bot de tutorial general.
+Para poder realizar este tutorial debe ejecutar el bot del tutorial general
 
     npm run tutorial-general
 
@@ -32,9 +36,9 @@ En concreto, si una entidad está marcada como "Multi-Value" (Varios valores), c
 
 ## <a name="steps"></a>Pasos
 
-### <a name="create-the-application"></a>Creación de la aplicación
+### <a name="create-the-model"></a>Crear el modelo
 
-1. En la interfaz de usuario web, haga clic en Nueva aplicación.
+1. En la interfaz de usuario web, haga clic en New Model (Modelo nuevo).
 2. En Nombre, escriba MultiValueEntities. A continuación, haga clic en Crear.
 
 ### <a name="create-an-entity"></a>Crear una entidad
@@ -75,8 +79,8 @@ Ahora tiene dos acciones.
     - Puede etiquetar ninguna, una o varias entidades.
 3. Haga clic en "mushrooms" (setas) y seleccione Toppings (Ingredientes).
 4. Haga clic en "mushrooms" (setas) y seleccione Toppings (Ingredientes).
-5. Haga clic en Score Actions (Acciones de puntuación).
-    - Tenga en cuenta que los dos valores están ahora presentes en la entidad Toppings (Ingredientes). 
+5. Haga clic en Score Actions (Acciones de puntuación)
+    - Los dos valores están ahora presentes en la entidad Toppings (Ingredientes). 
 6. Seleccione "Here are your toppings: $Toppings" (Estos son sus ingredientes: $Toppings).
 
 Podemos agregar más:
@@ -84,7 +88,7 @@ Podemos agregar más:
 7. Escriba "add peppers" (agregar pimientos).
     - Haga clic en "peppers" (pimientos) en Entity Detection (Detección de entidades) y seleccione Toppings (Ingredientes).
 3. Haga clic en Score Actions (Acciones de puntuación).
-    - Observe que "peppers" (pimientos) se muestra ahora como un valor adicional en Toppings (Ingredientes).
+    - "peppers" (pimientos) se muestra ahora como un valor adicional en Toppings (Ingredientes).
 6. Seleccione "Here are your toppings: $Toppings" (Estos son sus ingredientes: $Toppings).
 
 Vamos a quitar un ingrediente y a agregar otro:
@@ -93,7 +97,7 @@ Vamos a quitar un ingrediente y a agregar otro:
 1. Haga clic en "peppers" (pimientos) y luego en la x roja para quitar el ingrediente.
 2. Haga clic en "peppers" (pimientos) y seleccione "-Toppings" (-Ingredientes).
 3. Haga clic en Score Actions (Acciones de puntuación).
-    - Observe que "peppers" (pimientos) se ha eliminado y "sausage" (salchicha) se ha agregado.
+    - "peppers" (pimientos) se eliminó y "sausage" (salchicha) se agregó.
 6. Seleccione "Here are your toppings: $Toppings" (Estos son sus ingredientes: $Toppings).
 
 Ahora vamos a intentar quitarlo todo:
@@ -101,9 +105,9 @@ Ahora vamos a intentar quitarlo todo:
 6. Escriba "remove mushrooms, remove cheese, and remove sausage " (Quitar setas, quitar quero y quitar salchicha).
 7. Haga clic en los tres elementos y seleccione "-Toppings " (-Ingredientes).
 7. Haga clic en Score Actions (Acciones de puntuación).
-    - Observe que se todos los ingredientes se han borrado.
+    - Todos los ingredientes se borraron.
 2. Seleccione "What toppings do you want" (¿Qué ingredientes quiere?).
-3. Haga clic en Done Teaching (Aprendizaje completado).
+3. Haga clic en Done Teaching (Aprendizaje completado)
 
 ![](../media/tutorial6_dialogs.PNG)
 

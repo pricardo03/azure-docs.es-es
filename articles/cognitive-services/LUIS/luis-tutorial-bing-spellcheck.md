@@ -3,19 +3,19 @@ title: Adición de Bing Spell Check API v7 a consultas de LUIS | Microsoft Docs
 titleSuffix: Azure
 description: Corrija palabras incorrectas en expresiones mediante la adición de Bing Spell Check API V7 a las consultas de punto de conexión de LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: 340fb34c234a12f93fcfc3182ac3fd44fce324fe
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: diberry
+ms.openlocfilehash: 87882052ed7faf0a7d2a665d51afb20db7ee839c
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35383295"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239158"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Corregir palabras incorrectas con Bing Spell Check
 
@@ -26,8 +26,9 @@ La [primera clave de Bing Spell Check API v7](https://azure.microsoft.com/try/co
 
 ![Creación de una clave gratuita](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
-## <a name="create-subscription-key"></a>Crear la clave de suscripción
-Si la clave gratuita ha caducado, cree una clave de suscripción.
+<a name"create-subscription-key"></a>
+## <a name="create-endpoint-key"></a>Creación de punto de conexión
+Si la clave gratuita expiró, cree una clave de punto de conexión.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 
@@ -56,7 +57,7 @@ Si la clave gratuita ha caducado, cree una clave de suscripción.
 10. Copie la primera clave. Solo necesita una de las dos claves. 
 
 ## <a name="using-the-key-in-luis-test-panel"></a>Uso de la clave en el panel de prueba de LUIS
-En LUIS hay dos lugares para usar la clave. El primero es el [panel de prueba](train-test.md#view-bing-spell-check-corrections-in-test-panel). La clave no se guarda en LUIS sino que es una variable de sesión. Tendrá que establecer la clave cada vez que quiera que el panel de prueba aplique el servicio Bing Spell Check API v7 a la expresión. Vea las [instrucciones](train-test.md#view-bing-spell-check-corrections-in-test-panel) en el panel de prueba para configurar la clave.
+En LUIS hay dos lugares para usar la clave. El primero es el [panel de prueba](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). La clave no se guarda en LUIS sino que es una variable de sesión. Tendrá que establecer la clave cada vez que quiera que el panel de prueba aplique el servicio Bing Spell Check API v7 a la expresión. Vea las [instrucciones](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) en el panel de prueba para configurar la clave.
 
 ## <a name="adding-the-key-to-the-endpoint-url"></a>Agregar la clave a la dirección URL del punto de conexión
 La consulta de punto de conexión necesita la clave que se pasa en los parámetros de cadena de consulta para cada consulta a la que quiera aplicar la corrección ortográfica. Es posible que tenga un bot de chat que llama a LUIS o puede llamar directamente a la API de punto de conexión de LUIS. Con independencia de cómo se llame al punto de conexión, cada llamada debe incluir la información necesaria para que las correcciones ortográficas funcionen correctamente.
@@ -90,7 +91,7 @@ https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription
 Si no quiere usar el servicio Bing Spell Check API v7, puede etiquetar las expresiones que contienen errores ortográficos para que LUIS pueda aprender la ortografía correcta, así como los errores tipográficos. Esta opción requiere más esfuerzo de etiquetado que el uso de un corrector ortográfico.
 
 ## <a name="publishing-page"></a>Página de publicación
-La página de [publicación](publishapp.md) contiene una casilla **Enable Bing spell checker** (Habilitar el corrector ortográfico de Bing). Se trata de una comodidad para crear la clave y comprender cómo cambia la dirección URL del punto de conexión. Tendrá que seguir usando los parámetros de punto de conexión correctos para que se corrija la ortografía de cada expresión. 
+La página de [publicación](luis-how-to-publish-app.md) contiene una casilla **Enable Bing spell checker** (Habilitar el corrector ortográfico de Bing). Se trata de una comodidad para crear la clave y comprender cómo cambia la dirección URL del punto de conexión. Tendrá que seguir usando los parámetros de punto de conexión correctos para que se corrija la ortografía de cada expresión. 
 
 > [!div class="nextstepaction"]
 > [Más información sobre las expresiones de ejemplo](luis-how-to-add-example-utterances.md)

@@ -3,19 +3,19 @@ title: 'Referencia de datetimeV2 de entidades de LUIS precompiladas: Azure | Mic
 titleSuffix: Azure
 description: Este artículo contiene información de la entidad precompilada datetimeV2 en Language Understanding (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 261f6f27c39c280efdcd070888d735374a473c85
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 13f62e98a33aac51eae86d5ce1b802d4701ef3f6
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321577"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236778"
 ---
 # <a name="datetimev2-entity"></a>Entidad DatetimeV2
 
@@ -219,7 +219,7 @@ En el siguiente ejemplo, se muestra cómo LUIS utiliza la entidad **datetimeV2**
 
 ## <a name="deprecated-prebuilt-datetime"></a>Intervalo de tiempo precompilado en desuso
 
-La entidad precompilada `datetime` está en desuso y se reemplaza por [ `datetimeV2` ](#builtindatetimev2). 
+La entidad precompilada `datetime` está en desuso y se reemplaza por  **datetimeV2**. 
 
 Para reemplazar `datetime` por `datetimeV2` en la aplicación de LUIS, complete los pasos siguientes:
 

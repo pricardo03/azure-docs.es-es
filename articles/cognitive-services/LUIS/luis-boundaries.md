@@ -3,19 +3,19 @@ title: Límites de Language Understanding (LUIS) | Microsoft Docs
 titleSuffix: Azure
 description: Este artículo contiene los límites conocidos de LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 7f46e55e11c4eb68b515a743b0f51392ffc1269e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: ea4f31094e27f1abbe57c212f262845fd16dd984
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266811"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225285"
 ---
 # <a name="luis-boundaries"></a>Límites de LUIS
 LUIS tiene varias áreas de límites. La primera es el [límite de modelo](#model-boundaries), que controla las intenciones, entidades y características de LUIS. La segunda área son los [límites de cuota](#key-limits) según el tipo de clave. Una tercera área de límites es la [combinación de teclas](#keyboard-controls), para controlar el sitio web de LUIS. Una cuarta área es la [asignación de regiones del mundo](luis-reference-regions.md) entre el sitio web de creación de LUIS y las API de [punto de conexión](luis-glossary.md#endpoint) de LUIS. 
@@ -35,7 +35,7 @@ LUIS tiene varias áreas de límites. La primera es el [límite de modelo](#mode
 | [Patrones](luis-concept-patterns.md)|500 patrones por aplicación.<br>El patrón puede contener 400 caracteres como máximo.<br>3 entidades Pattern.any por patrón<br>Máximo de 2 textos opcionales anidados en el patrón|
 | [Pattern.any](./luis-concept-entity-types.md)|100 por aplicación, 3 entidades Pattern.any por patrón |
 | [Lista de frases][phrase-list]|10 listas de frases, 5000 elementos por lista|
-| [Entidades precompiladas](./Pre-builtEntities.md) | ilimitado|
+| [Entidades precompiladas](./luis-prebuilt-entities.md) | ilimitado|
 | [Entidades de expresión regular](./luis-concept-entity-types.md)|20 entidades<br>Máximo de 500 caracteres por patrón de la entidad de expresiones regulares|
 | [Roles](luis-concept-roles.md)|300 roles por aplicación. 10 roles por entidad|
 | **[Simple](./luis-concept-entity-types.md)| 100 entidades|
@@ -59,14 +59,14 @@ No use los siguientes caracteres en los nombres de intenciones y entidades:
 |`\`|Barra diagonal inversa|
 
 ## <a name="key-limits"></a>Límites de la clave
-La clave de creación tiene distintos límites para la creación y el punto de conexión. La clave de suscripción de servicio de LUIS solo es válida para las consultas del punto de conexión.
+La clave de creación tiene distintos límites para la creación y el punto de conexión. La clave de punto de conexión de servicio de LUIS solo es válida para las consultas del punto de conexión.
 
 |Clave|Creación|Punto de conexión|Propósito|
 |--|--|--|--|
 |Creación/Inicio|1 millón/mes, 5/segundo|1000/mes, 5/segundo|Creación de la aplicación de LUIS|
 |[Suscripción][pricing]: F0: nivel gratis |no válido|10 000/mes, 5/segundo|Consultar el punto de conexión de LUIS|
 |[Suscripción][pricing]: S0: nivel básico|no válido|50/segundo|Consultar el punto de conexión de LUIS|
-|[Integración del análisis de sentimiento](publishapp.md#enable-sentiment-analysis)|no válido|sin cargo|Agregar información de sentimiento, incluida la extracción de datos de frases clave |
+|[Integración del análisis de sentimiento](luis-how-to-publish-app.md#enable-sentiment-analysis)|no válido|sin cargo|Agregar información de sentimiento, incluida la extracción de datos de frases clave |
 |Integración de voz|no válido|5,50 USD/1000 solicitudes de punto de conexión|Convertir las expresiones habladas en expresiones de texto y devolver resultados de LUIS|
 
 ## <a name="keyboard-controls"></a>Controles de teclado

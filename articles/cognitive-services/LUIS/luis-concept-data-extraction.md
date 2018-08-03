@@ -2,19 +2,19 @@
 title: 'Descripción de los conceptos de extracción de datos en LUIS: Azure | Microsoft Docs'
 description: Obtener información sobre qué tipo de datos se pueden extraer de Language Understanding (LUIS)
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 28fde09fa9291fbcd64ce4542a008f48dd0018d1
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: f57e7cb85e6d183a59b358e347d70d4d185868a7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265259"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225689"
 ---
 # <a name="data-extraction"></a>Extracción de datos
 LUIS ofrece la capacidad de obtener información de expresiones de lenguaje natural de un usuario. La información se extrae de una manera que puede usar un programa, una aplicación o un bot de chat para tomar medidas.
@@ -26,9 +26,9 @@ LUIS proporciona los datos del [punto de conexión](luis-glossary.md#endpoint) p
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-El valor de `appID` está disponible en la página **Configuración** de la aplicación de LUIS, así como parte de la dirección URL (después de `/apps/`) cuando edita esa aplicación de LUIS. El valor de `subscription-key` es la clave de punto de conexión que se ha usado para consultar a la aplicación. Aunque puede usar la clave de inicio o creación gratis mientras se familiariza con LUIS, es importante cambiar la clave de suscripción por una clave que admita el [uso esperado de LUIS](luis-boundaries.md#key-limits). La unidad de `timezoneOffset` es minutos.
+El valor de `appID` está disponible en la página **Configuración** de la aplicación de LUIS, así como parte de la dirección URL (después de `/apps/`) cuando edita esa aplicación de LUIS. El valor de `subscription-key` es la clave de punto de conexión que se ha usado para consultar a la aplicación. Aunque puede usar la clave de inicio o creación gratis mientras se familiariza con LUIS, es importante cambiar la clave de punto de conexión por una clave que admita el [uso esperado de LUIS](luis-boundaries.md#key-limits). La unidad de `timezoneOffset` es minutos.
 
-La **respuesta HTTPS** contiene toda la información de la intención y la entidad que LUIS puede determinar en función del modelo actual publicado de un punto de conexión de producción o de almacenamiento provisional. La dirección URL del punto de conexión se encuentra en la página **Publicar** del sitio web de [LUIS][LUIS]. 
+La **respuesta HTTPS** contiene toda la información de la intención y la entidad que LUIS puede determinar en función del modelo actual publicado de un punto de conexión de producción o de almacenamiento provisional. La dirección URL del punto de conexión se encuentra en la página **Publicar** del sitio web de [LUIS](luis-reference-regions.md). 
 
 ## <a name="data-from-intents"></a>Datos de intenciones
 Los datos principales son el **nombre de la intención** de puntuación superior. Mediante el [inicio rápido](luis-quickstart-intents-only.md) `MyStore`, la respuesta del punto de conexión es:
@@ -201,7 +201,7 @@ Las entidades [compuestas](luis-concept-entity-types.md) son de aprendizaje auto
 
 `book 2 tickets to paris`
 
-Fíjese en que `2`, el número, y `paris`, el valor de ToLocation, contienen palabras entre ellos que no forman parte de ninguna de las entidades. El subrayado verde, que se usa en una expresión con etiqueta en el sitio web de [LUIS][LUIS], indica una entidad compuesta.
+Fíjese en que `2`, el número, y `paris`, el valor de ToLocation, contienen palabras entre ellos que no forman parte de ninguna de las entidades. El subrayado verde, que se usa en una expresión con etiqueta en el sitio web de [LUIS](luis-reference-regions.md), indica una entidad compuesta.
 
 ![Entidad compuesta](./media/luis-concept-data-extraction/composite-entity.png)
 
@@ -426,13 +426,13 @@ Las entidades de [expresiones regulares](luis-concept-entity-types.md) se detect
 Obtener nombres de una expresión es difícil porque un nombre puede ser casi cualquier combinación de letras y palabras. En función de qué tipo de nombre vaya a extraer, tiene varias opciones. Estas no son reglas, sino más bien instrucciones. 
 
 ### <a name="names-of-people"></a>Nombres de personas
-Los nombres de personas pueden tener un pequeño formato en función del idioma y la referencia cultural. Use una entidad jerárquica con nombres y apellidos como elementos secundarios o una entidad simple con roles de nombres y apellidos. No olvide proporcionar ejemplos que usen el nombre y el apellido en diferentes partes de la expresión, en expresiones de distintas longitudes y expresiones en todas las intenciones, incluida la intención None. [Revise](label-suggested-utterances.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente. 
+Los nombres de personas pueden tener un pequeño formato en función del idioma y la referencia cultural. Use una entidad jerárquica con nombres y apellidos como elementos secundarios o una entidad simple con roles de nombres y apellidos. No olvide proporcionar ejemplos que usen el nombre y el apellido en diferentes partes de la expresión, en expresiones de distintas longitudes y expresiones en todas las intenciones, incluida la intención None. [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente. 
 
 ### <a name="names-of-places"></a>Nombres de lugares
-Los nombres de ubicaciones se establecen y conocen, por ejemplo, ciudades, condados, estados, provincias y países. Si en la aplicación se usa un conjunto conocido de ubicaciones, considere la posibilidad de usar una entidad de lista. Si necesita buscar todos los nombres de lugares, cree una entidad simple y proporcione una variedad de ejemplos. Agregue una lista de frases de nombres de lugares para reforzar el aspecto de los nombres de lugares en la aplicación. [Revise](label-suggested-utterances.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente. 
+Los nombres de ubicaciones se establecen y conocen, por ejemplo, ciudades, condados, estados, provincias y países. Si en la aplicación se usa un conjunto conocido de ubicaciones, considere la posibilidad de usar una entidad de lista. Si necesita buscar todos los nombres de lugares, cree una entidad simple y proporcione una variedad de ejemplos. Agregue una lista de frases de nombres de lugares para reforzar el aspecto de los nombres de lugares en la aplicación. [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente. 
 
 ### <a name="new-and-emerging-names"></a>Nombres nuevos y emergentes
-Algunas aplicaciones necesitan poder encontrar nombres nuevos y emergentes, como productos o empresas. Este es el tipo de extracción de datos más difícil. Empiece con una entidad simple y agregue una lista de frases. [Revise](label-suggested-utterances.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente. 
+Algunas aplicaciones necesitan poder encontrar nombres nuevos y emergentes, como productos o empresas. Este es el tipo de extracción de datos más difícil. Empiece con una entidad simple y agregue una lista de frases. [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente. 
 
 ## <a name="pattern-roles-data"></a>Datos de roles de patrón
 Los roles son diferencias contextuales de entidades. 
@@ -710,5 +710,3 @@ El punto de conexión de LUIS puede detectar los mismos datos en diferentes enti
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vea [Add entities](luis-how-to-add-entities.md) (Agregar entidades) para obtener más información sobre cómo agregar entidades a la aplicación de LUIS.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

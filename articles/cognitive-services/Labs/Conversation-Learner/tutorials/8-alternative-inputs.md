@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2214436b193932e5b3b80c190f7754a0436b7ed8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8d3b3f419ceacbb9a6fe2b19cf68ea6873de536f
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381838"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171024"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Uso de entradas alternativas
 
 En este tutorial se explica cómo usar el campo "Entradas alternativas" para la entrada de usuario en la interfaz de aprendizaje.
 
+## <a name="video"></a>Vídeo
+
+[![Vista previa del tutorial 8](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
+
 ## <a name="requirements"></a>Requisitos
-Para poder realizar este tutorial debe ejecutar el bot de tutorial general.
+Para poder realizar este tutorial debe ejecutar el bot del tutorial general
 
     npm run tutorial-general
 
@@ -31,9 +35,9 @@ Las "entradas alternativas" son expresiones de usuario alternativas que el usuar
 
 ## <a name="steps"></a>Pasos
 
-### <a name="create-the-application"></a>Creación de la aplicación
+### <a name="create-the-model"></a>Crear el modelo
 
-1. En la interfaz de usuario web, haga clic en Nueva aplicación.
+1. En la interfaz de usuario web, haga clic en New Model (Modelo nuevo).
 2. En Nombre, escriba AlternativeInputs. A continuación, haga clic en Crear.
 
 ### <a name="create-an-entity"></a>Crear una entidad
@@ -74,8 +78,8 @@ Ahora dispone de tres acciones.
 2. Escriba "denver".
 3. Haga doble clic en "denver" y seleccione la ciudad.
     - De esta forma, se marca como una entidad de ciudad.
-5. Haga clic en Score Actions (Acciones de puntuación).
-    - Tenga en cuenta que denver ahora está presente en la entidad de ciudad. 
+5. Haga clic en Score Actions (Acciones de puntuación)
+    - "denver" ahora está presente en la entidad de ciudad. 
 6. Seleccione "The weather in $city is probably sunny" (Parece que está soleado en $city).
 7. Haga clic en Done Teaching (Aprendizaje completado).
 
@@ -87,8 +91,8 @@ Agregue otro diálogo de ejemplo:
 2. Escriba "What's the weather in seattle" (¿Qué tiempo hace en Seattle?).
 3. Haga doble clic en "seattle" y seleccione la ciudad.
     - De esta forma, se marca como una entidad de ciudad.
-5. Haga clic en Score Actions (Acciones de puntuación).
-    - Tenga en cuenta que seattle ahora está presente en la entidad de ciudad. 
+5. Haga clic en Score Actions (Acciones de puntuación)
+    - "seattle" ahora está presente en la entidad de ciudad. 
 6. Seleccione "The weather in $city is probably sunny" (Parece que está soleado en $city).
 7. Haga clic en Done Teaching (Aprendizaje completado).
 
@@ -97,7 +101,7 @@ Veamos qué sucede si el usuario indica algo semánticamente similar a lo anteri
 1. Haga clic en New Action (Nueva acción) y luego en New Train Dialog (Nuevo diálogo de entrenamiento).
 2. Escriba "help" (Ayuda).
 3. Haga clic en Score Actions (Acciones de puntuación).
-    - Tenga en cuenta que la puntuación de las dos respuestas posibles son muy similares. Esto nos indica que el modelo se confunde en el límite que separa las dos acciones.
+    - Las puntuaciones de las dos respuestas posibles son muy similares. Esto nos indica que el modelo se confunde en el límite que separa las dos acciones.
 6. Haga clic en Abandon Teaching (Abandonar entrenamiento) y en Confirm (Confirmar).
 
 ![](../media/tutorial8_closescores.png)
@@ -117,7 +121,7 @@ En este caso, sería útil agregar entradas alternativas a los diálogos. Puede 
 
 2. Ahora haga clic en "what's the weather in seattle" (¿Qué tiempo hace en Seattle?).
     1. En Add alternative input (Agregar entrada alternativa), escriba "forecast for seattle" (Previsión para Seattle).
-    2. Haga doble clic en "seattle" y seleccione la ciudad. Tenga en cuenta que las entidades de las entradas alternativas deben estar presentes y tener el mismo conjunto de entidades. No hay problema si el contenido de las entidades es diferente.
+    2. Haga doble clic en "seattle" y seleccione la ciudad. Las entidades de las entradas alternativas deben estar presentes y tener el mismo conjunto de entidades. No hay problema si el contenido de las entidades es diferente.
     3. En Add alternative input (Agregar entrada alternativa), escriba "will it rain today in denver" (Hoy lloverá en Denver).
     4. Haga clic en "denver" y seleccione la ciudad.
     5. Haga clic en Submit Changes (Enviar cambios) y en Done (Listo).
@@ -134,7 +138,7 @@ Se van a agregar entradas alternativas al primer diálogo:
 4. Haga clic para seleccionar "denver" en el panel izquierdo:
     1. En Add alternative input (Agregar entrada alternativa), escriba "for denver" (Para Denver).
     2. Escriba "forecast for austin" (Previsión para Austin).
-        - Tenga en cuenta que se resalta la frase completa. Haga clic en la frase y luego en la x de color rojo. Luego seleccione Austin y haga clic en la ciudad.
+        - Se resalta la frase completa. Haga clic en la frase y luego en la x de color rojo. Luego seleccione Austin y haga clic en la ciudad.
         - Haga clic en Submit Changes (Enviar cambios).
     1. Haga clic en Done (Listo), lo que provocará el reentrenamiento del modelo.
 
@@ -145,7 +149,7 @@ Probemos las variaciones:
 1. Haga clic en New Train Dialog (Haga clic en diálogo de entrenamiento).
 2. Escriba "what are you capabilities" (¿Qué habilidades tiene?).
 3. Haga clic en Score Actions (Acciones de puntuación).
-    - Tenga en cuenta que las puntuaciones ahora son más decisivas en la siguiente acción, que indica la exactitud del modelo.
+    - Las puntuaciones ahora son más decisivas en la siguiente acción, lo que indica la exactitud del modelo.
 2. Seleccione "Try asking for weather" (Tratar de consultar el tiempo).
 6. Haga clic en Done Teaching (Aprendizaje completado).
 

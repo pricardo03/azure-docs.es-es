@@ -1,6 +1,6 @@
 ---
 title: Uso de Text to Speech mediante los servicios Speech | Microsoft Docs
-description: Aprenda a usar Text to Speech en el servicio Speech.
+description: Obtenga información sobre cómo usar Text to Speech en Speech Service.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -10,22 +10,22 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 6c358b5a40b1d8e91c2e1af5eb493b13604cf82e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 84b577cd00d333717a7a5ad1f66182605429f9f1
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045065"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213340"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Uso de "Text to Speech" en el servicio Speech
 
 El servicio Speech proporciona funcionalidad Text to Speech mediante una sencilla solicitud HTTP. El texto que se habla se registra en el punto de conexión adecuado y el servicio devuelve un archivo de audio (`.wav`) que contiene la voz sintetizada. La aplicación puede usar a continuación este audio de la forma deseada.
 
-El cuerpo de la solicitud POST para Text to Speech puede ser texto sin formato (ASCII o UTF8) o un documento [SSML](speech-synthesis-markup.md). Las solicitudes de texto sin formato se hablan con una voz predeterminada. En la mayoría de los casos, querrá usar un cuerpo SSML. La solicitud HTTP debe incluir un token de autorización. 
+El cuerpo de la solicitud POST para Text to Speech puede ser texto sin formato (ASCII o UTF8) o un documento [SSML](speech-synthesis-markup.md). Las solicitudes de texto sin formato se hablan con una voz predeterminada. En la mayoría de los casos, querrá usar un cuerpo SSML. La solicitud HTTP debe incluir un token de [autorización](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#authentication). 
 
 Aquí se muestran los puntos de conexión regionales de Text to Speech. Use el adecuado para su suscripción.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 ## <a name="specify-a-voice"></a>Especificación de una voz
 
@@ -95,5 +95,7 @@ Para más información sobre la API REST de Text to Speech, consulte [API REST](
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Obtener su suscripción de prueba a Speech](https://azure.microsoft.com/try/cognitive-services/)
-- [Reconocer la voz en C#](quickstart-csharp-windows.md)
+- [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Reconocer la voz en C++](quickstart-cpp-windows.md)
+- [Reconocer la voz en C#](quickstart-csharp-dotnet-windows.md)
+- [Reconocer la voz en Java](quickstart-java-android.md)

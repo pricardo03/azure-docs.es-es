@@ -3,19 +3,19 @@ title: Adición de plantillas de patrón en aplicaciones de LUIS | Microsoft Doc
 titleSuffix: Azure
 description: Obtenga información sobre cómo agregar plantillas de patrón en aplicaciones de Language Understanding (LUIS) para mejorar la precisión de las predicciones.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 68c0ea1fd3f2e60e0adec631f33c8bd09a3d9960
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.author: diberry;
+ms.openlocfilehash: bf1931355fd873eaeac6c313b70717dfa99814c6
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35383498"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222603"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Cómo agregar patrones para mejorar la precisión de las predicciones
 Después de que una aplicación de LUIS reciba expresiones de punto de conexión, use el [concepto](luis-concept-patterns.md) de patrones para mejorar la precisión de la predicción para las expresiones que revelan un patrón en el orden y la elección de las palabras. En los patrones se usan [entidades](luis-concept-entity-types.md) y sus roles para extraer datos mediante una sintaxis de patrón concreta. 
@@ -57,7 +57,7 @@ La búsqueda permite encontrar patrones que contienen un texto especificado.
 <!-- TBD: should I be able to click on the magnifying glass again to close the search box? It doesn't reset the list. -->
 
 ## <a name="edit-a-pattern"></a>Editar un patrón
-1. Para editar un patrón, haga clic el icono de tres puntos (...) en el extremo derecho de la línea de ese patrón y, después, seleccione **Edit** (Editar). 
+1. Para editar un patrón, seleccione el botón de puntos suspensivos (***...***) en el extremo derecho de la línea de ese patrón y seleccione **Edit** (Editar). 
 
     ![Captura de pantalla del elemento de menú Editar en la fila del patrón](./media/luis-how-to-model-intent-pattern/patterns-three-dots.png) 
 
@@ -79,7 +79,7 @@ Para reasignar varios patrones a otra intención, active la casilla situada a la
 
 ## <a name="delete-a-single-pattern"></a>Eliminar un único patrón
 
-1. Para eliminar un patrón, haga clic el icono de tres puntos (...) en el extremo derecho de la línea de ese patrón y, después, seleccione **Delete** (Eliminar). 
+1. Para eliminar un patrón, seleccione el botón de puntos suspensivos (***...***) en el extremo derecho de la línea de ese patrón y seleccione **Delete** (Eliminar). 
 
     ![Captura de pantalla de eliminación de la expresión](./media/luis-how-to-model-intent-pattern/patterns-three-dots-ddl.png)
 
@@ -123,7 +123,7 @@ Se quita el filtro y se muestran todos los patrones.
 ## <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>Adición de un patrón a partir de una de expresión existente en la página de la intención o entidad
 Puede crear un patrón a partir de una expresión existente en la página **Intent** (Intención) o **Entity** (Entidad). Todas las expresiones de cualquier página de intención o entidad se muestran en una lista en la que la columna de la derecha proporciona acceso a las opciones de nivel de expresión como **Edit** (Editar), **Delete** (Eliminar) y **Add as pattern** (Agregar como patrón).
 
-1. En la fila seleccionada de la expresión, haga clic en los tres puntos (...) a la derecha de la expresión y seleccione **Add as pattern** (Agregar como patrón).
+1. En la fila seleccionada de la expresión, seleccione el botón de puntos suspensivos (***...***) a la derecha de la expresión y seleccione **Add as pattern** (Agregar como patrón).
 
     [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Captura de pantalla de la tabla de expresiones con la opción de agregar como patrón resaltada en el menú de opciones")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
@@ -132,7 +132,7 @@ Puede crear un patrón a partir de una expresión existente en la página **Inte
     ![Captura de pantalla de los patrones filtrados por entidad](./media/luis-how-to-model-intent-pattern/confirm-patterns-modal.png)
 
 ## <a name="train-your-app-after-changing-model-with-patterns"></a>Entrenar la aplicación después de cambiar el modelo con patrones
-Después de agregar, editar o quitar un patrón, [entrene](luis-how-to-train.md) y [publique](PublishApp.md) la aplicación para que los cambios se apliquen a las consultas de punto de conexión. 
+Después de agregar, editar o quitar un patrón, [entrene](luis-how-to-train.md) y [publique](luis-how-to-publish-app.md) la aplicación para que los cambios se apliquen a las consultas de punto de conexión. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

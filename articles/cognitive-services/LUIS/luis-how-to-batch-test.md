@@ -2,19 +2,19 @@
 title: 'Prueba por lotes de la aplicación de LUIS: Azure | Microsoft Docs'
 description: Use las pruebas por lotes de Language Understanding (LUIS) para buscar expresiones con intenciones y entidades incorrectas.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr
-ms.openlocfilehash: 822fb1e2d5b13941527d242e8501b423bd6b81cb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 2c648cdd82f89a9646fa0b311a7f1f68dd4bc4a9
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265520"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223588"
 ---
 # <a name="batch-testing"></a>Pruebas por lotes
  Las pruebas por lotes son una prueba completa en el modelo entrenado actual para medir su rendimiento en LUIS. 
@@ -26,7 +26,7 @@ ms.locfileid: "36265520"
 
     ![Vínculo de Pruebas por lotes](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. Seleccione **Importar conjunto de datos**. Aparece el cuadro de diálogo **Import new dataset** (Importar nuevo conjunto de datos). Haga clic en **Elegir archivo** y busque el archivo [JSON](luis-concept-batch-test.md#batch-file-format) que contenga *un máximo de 1000* expresiones para probar.
+2. Seleccione **Importar conjunto de datos**. Aparece el cuadro de diálogo **Import new dataset** (Importar nuevo conjunto de datos). Seleccione **Choose File** (Elegir archivo) y ubique un archivo JSON con el [formato JSON](luis-concept-batch-test.md#batch-file-format) correcto que contiene *no más de 1000* expresiones para probar.
 
     ![Importar archivo de conjunto de datos](./media/luis-how-to-batch-test/batchtest-importset.png)
 
@@ -37,7 +37,7 @@ ms.locfileid: "36265520"
 4. Seleccione **Listo**. Se agrega el archivo del conjunto de datos.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Ejecutar, cambiar el nombre, exportar o eliminar el conjunto de datos
-Para ejecutar, cambiar el nombre, exportar o eliminar el conjunto de datos, use los tres puntos (**...**) al final de la fila del conjunto de datos.
+Para ejecutar, cambiar el nombre, exportar o eliminar el conjunto de datos, use el botón de puntos suspensivos (***...***) al final de la fila del conjunto de datos.
 
 ![Acciones del conjunto de datos](./media/luis-how-to-batch-test/batch-testing-options.png)
 
@@ -77,13 +77,6 @@ Para filtrar el gráfico por una intención o entidad específica, seleccione la
  
 ![Resultado de la prueba por lotes visualizado](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
-<!--
-## Investigate false sections
-Data points on the **[False Positive][false-positive]** and **[False Negative][false-negative]** sections indicate errors, which should be investigated. If all data points are on the **[True Positive][true-positive]** and **[True Negative][true-negative]** sections, then your application's performance is perfect on this dataset.
-
-
-The graph indicates [F-measure][f-measure], [recall][recall], and [precision][precision].  
--->
 ## <a name="view-single-point-utterance-data"></a>Ver los datos de expresión de un único punto
 En el gráfico, mantenga el puntero sobre un punto de datos para ver la puntuación de exactitud de la predicción. Seleccione un punto de datos para recuperar su expresión correspondiente en la lista de expresiones en la parte inferior de la página. 
 
@@ -107,16 +100,7 @@ Las dos secciones del gráfico en color verde coincidieron con la predicción es
 
 Si las pruebas indican que la aplicación de LUIS no reconoce las entidades y las intenciones correctas, puede trabajar para mejorar el rendimiento de la aplicación de LUIS etiquetando más expresiones o agregando características. 
 
-* [Label suggested utterances with LUIS](Label-Suggested-Utterances.md) (Etiquetado de expresiones sugeridas con LUIS) 
+* [Label suggested utterances with LUIS](luis-how-to-review-endoint-utt.md) (Etiquetado de expresiones sugeridas con LUIS) 
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) (Uso de características para mejorar el rendimiento de la aplicación de LUIS) 
 * [Comprenda las pruebas por lotes con este tutorial](luis-tutorial-batch-testing.md)
 * [Obtenga información sobre los conceptos de las pruebas por lotes](luis-concept-batch-test.md).
-
-[true-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-positive
-[true-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-negative
-[false-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-positive
-[false-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-negative
-[f-measure]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#f-measure
-[recall]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#recall
-[precision]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#precision
-

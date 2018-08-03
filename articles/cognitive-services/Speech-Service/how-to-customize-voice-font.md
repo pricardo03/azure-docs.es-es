@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: ad5af799fd46dc51b85432999f986de8cdb056ec
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7c4abb6832a030c2cb3cc2088dc5d0f1350a6ab8
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382487"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258854"
 ---
 # <a name="creating-custom-voice-fonts"></a>Crear fuentes de voz personalizada
 
@@ -25,21 +25,11 @@ Puede comenzar con una pequeña cantidad de datos para realizar una prueba de co
 
 La personalización de la voz está disponible para inglés de Estados Unidos (en-US) y chino continental (zh-CN).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 La característica de personalización de voz Text to Speech se encuentra actualmente en su versión preliminar privada. [Complete el formulario de solicitud](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) para poder obtener acceso.
 
-También necesita lo siguiente:
-
-* Una cuenta de Azure ([regístrese de forma gratuita](https://azure.microsoft.com/free/ai/) si no tiene una cuenta).
-
-* Una suscripción al servicio de Voz. [Cree una suscripción](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) si todavía no lo ha hecho.
-
-    ![Crear un panel](media/custom-voice/create-panel.png)
-
-Después de crear la suscripción, encontrará dos claves de suscripción en el panel de inicio rápido o el panel de información general de la nueva suscripción. Puede usar cualquiera de las claves.
-
-Por último, conecte su suscripción en el portal de Voz personalizada, tal como se indica a continuación.
+También necesita una cuenta de Azure y una suscripción a Speech Service. [Cree una suscripción](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) si todavía no lo ha hecho. Conecte su suscripción con el portal de Voz personalizada, tal como se indica a continuación.
 
 1. Inicie sesión en el [portal de Voz personalizada](https://customvoice.ai) con la misma cuenta de Microsoft que usa para obtener acceso.
 
@@ -51,7 +41,7 @@ Por último, conecte su suscripción en el portal de Voz personalizada, tal como
 
      ![Conectar la suscripción existente](media/custom-voice/connect-existing-sub.png)
 
-4. Pegue su clave de suscripción en la tabla, tal como se muestra a continuación.
+4. Pegue su clave de suscripción en la tabla, tal como se muestra a continuación. Cada suscripción tiene dos claves y puede usar cualquiera de ellas.
 
      ![Agregar suscripción](media/custom-voice/add-subscription.png)
 
@@ -61,9 +51,9 @@ Ya tiene todo listo.
 
 Un conjunto de datos de aprendizaje de voz consiste en un conjunto de archivos de audio, junto con un archivo de texto que contiene las transcripciones de todos estos archivos de audio.
 
-Puede preparar esos archivos en cualquier dirección: puede escribir un script y hacer que lo lea un locutor, o use el audio disponible públicamente y transcríbalo a texto. En este último caso, deberá editar las disfluencias de los archivos de audio, como las muletillas ("um") y otros sonidos de relleno, tartamudeos, palabras entre dientes o pronunciaciones erróneas.
+Puede preparar esos archivos en cualquier dirección: puede escribir un script y hacer que lo lea un locutor, o bien use el audio disponible públicamente y transcríbalo a texto. En este último caso, deberá editar las disfluencias de los archivos de audio, como las muletillas ("um") y otros sonidos de relleno, tartamudeos, palabras entre dientes o pronunciaciones erróneas.
 
-Para crear una buena fuente de voz, es importante que las grabaciones se realicen en una sala silenciosa con un micrófono de alta calidad. El volumen constante, la velocidad de la conversación, el tono al hablar y las particularidades expresivas del habla son esenciales para compilar una gran voz digital. Para crear una voz que se vaya a usar en una producción, le recomendamos que use un estudio de grabación profesional y un locutor.
+Para crear una buena fuente de voz, es importante que las grabaciones se realicen en una sala silenciosa con un micrófono de alta calidad. El volumen constante, la velocidad de la conversación, el tono al hablar y las particularidades expresivas del habla son esenciales para compilar una gran voz digital. Para crear una voz que se vaya a usar en una producción, le recomendamos que use un estudio de grabación profesional y un locutor. Para más información, consulte [Cómo grabar ejemplos de voz para una voz personalizada](record-custom-voice-samples.md).
 
 ### <a name="audio-files"></a>Archivos de audio
 
@@ -74,8 +64,7 @@ Los archivos de audio deben prepararse de la siguiente manera. Otros formatos no
 | **Propiedad** | **Valor** |
 | ------------ | --------- |
 | Formato de archivo  | RIFF (WAV)|
-| Velocidad de muestreo| 16,000 Hz |
-| Canales     | 1 (monofónico)  |
+| Frecuencia de muestreo| al menos 16 000 Hz |
 | Formato de ejemplo| PCM, 16 bits |
 | Nombre de archivo    | Numérico, con la extensión `.wav` |
 | Formato de archivo| Zip      |
@@ -84,11 +73,12 @@ Los archivos de audio deben prepararse de la siguiente manera. Otros formatos no
 Coloque el conjunto de archivos de audio en una única carpeta sin subdirectorios y haga un paquete con el conjunto completo como un solo archivo ZIP.
 
 > [!NOTE]
+> Se rechazarán los archivos de onda con una frecuencia de muestreo inferior a 16 000 Hz. En los casos donde un archivo ZIP contenga ondas con distintas frecuencias de muestreo, solo se importarán las que sean iguales o superiores a 16 000 Hz.
 > Actualmente el portal importa archivos ZIP de hasta 200 MB. Sin embargo, pueden cargarse varios archivos. La cantidad máxima de conjuntos de datos permitida es de 10 archivos ZIP para usuarios con una suscripción gratuita, y de 50 para usuarios con suscripciones estándar.
 
 ### <a name="transcripts"></a>Transcripciones
 
-El archivo de transcripción es un archivo de texto Unicode simple (UTF-16 little-endian). Cada línea del archivo de transcripción debe tener el nombre de un archivo de audio, seguido de un carácter de tabulación (elemento de código 9) y, finalmente, su transcripción. No se permiten líneas en blanco.
+El archivo de transcripción es un archivo de texto sin formato (ANSI/UTF-8/UTF-8-BOM/UTF-16-LE/UTF-16-BE). Cada línea del archivo de transcripción debe tener el nombre de un archivo de audio, seguido de un carácter de tabulación (elemento de código 9) y, finalmente, su transcripción. No se permiten líneas en blanco.
 
 Por ejemplo: 
 
@@ -198,7 +188,7 @@ El estado que se muestra refleja el proceso de conversión del conjunto de datos
 El tiempo de aprendizaje varía según el volumen de datos de audio procesados. El intervalo de tiempo típicos varía, aproximadamente, desde los 30 minutos para unos cientos de expresiones, hasta 40 horas para 20.000 expresiones.
 
 > [!NOTE]
-> Los usuarios que tengan una suscripción gratuita pueden entrenar dos fuentes de voz a la vez. En cambio, los usuarios que tengan una suscripción estándar pueden entrenar tres voces simultáneamente. Si alcanza el límite, espere hasta que al menos uno de las fuentes de voz finalice el aprendizaje, e inténtelo de nuevo.
+> Los usuarios que tengan una suscripción gratuita pueden entrenar una fuente de voz a la vez. En cambio, los usuarios que tengan una suscripción estándar pueden entrenar tres voces simultáneamente. Si alcanza el límite, espere hasta que al menos uno de las fuentes de voz finalice el aprendizaje, e inténtelo de nuevo.
 
 ## <a name="test-your-voice-font"></a>Pruebe la fuente de voz
 
@@ -218,21 +208,21 @@ Después de completar el cuadro de texto y confirmar el modo de entrada, haga cl
 
 Una vez que haya creado y probado con éxito su modelo de voz, impleméntelo en un punto de conexión personalizado de Text to Speech. A continuación, use ese punto de conexión en lugar del punto de conexión habitual al realizar solicitudes de Text to Speech a través de la API REST. Recuerde que solo se puede llamar al punto de conexión personalizado mediante la suscripción que utilizó para implementar la fuente.
 
-Para crear un punto de conexión, elija **Puntos de conexión** en el menú de la voz personalizada, que se encuentra en la parte superior de la página. Aparecerá la página Implementación, con su tabla de puntos de conexión de voz personalizados y actualizados, si hubiera alguno.
+Para crear un punto de conexión, elija **Puntos de conexión** en el menú de la voz personalizada, que se encuentra en la parte superior de la página. Aparecerá la página Mis voces implementadas, con su tabla de puntos de conexión de voz personalizados, si corresponde. La configuración regional actual se refleja en la primera fila de la tabla. Para crear una implementación en un idioma diferente, cambie la configuración regional que se muestra. (Debe coincidir con la voz que está implementando).
 
-Haga clic en el botón **Implementar voces** para crear un nuevo punto de conexión. En la página Crear punto de conexión, la configuración regional actual se refleja en la primera fila de la tabla. Para crear una implementación en un idioma diferente, cambie la configuración regional que se muestra. (Debe coincidir con la voz que está implementando). Escriba el nombre y la descripción del punto de conexión personalizado.
+Haga clic en el botón **Implementar voces** para crear un nuevo punto de conexión. Escriba el nombre y la descripción del punto de conexión personalizado.
 
 En el menú Suscripción, elija la suscripción que quiera usar. Los usuarios que tengan una suscripción gratuita solo pueden tener un modelo implementado a la vez. En cambio, los usuarios que tengan una suscripción estándar pueden crear hasta 20 puntos de conexión, cada uno de ellos con su propia voz personalizada.
 
 ![Crear punto de conexión](media/custom-voice/create-endpoint.png)
 
-Después de seleccionar el modelo que se implementará, haga clic en **Crear**- La página Implementación vuelve a aparecer, y le mostrará una entrada para su nuevo punto de conexión. El proceso para crear instancias del nuevo punto de conexión puede llevar unos minutos. Cuando el estado de la implementación muestra el valor Completado, quiere decir que el punto de conexión está listo para su uso.
+Después de seleccionar el modelo que se implementará, haga clic en **Crear**- La página Mis voces implementadas vuelve a aparecer, ahora con una entrada para el punto de conexión nuevo. El proceso para crear instancias del nuevo punto de conexión puede llevar unos minutos. Cuando el estado de la implementación muestra el valor Completado, quiere decir que el punto de conexión está listo para su uso.
 
 ![Mi voces implementadas](media/custom-voice/my-deployed-voices.png)
 
 Cuando el estado de la implementación muestra el valor Correcto, quiere decir que el punto de conexión de la fuente de voz implementada aparece en la tabla Mis voces implementadas. Puede usar este URI directamente en una solicitud HTTP.
 
-Las pruebas en línea del punto de conexión también están disponibles a través del portal de voz personalizada. Para probar el punto de conexión, seleccione**Pruebas de puntos de conexión** en el menú desplegable de Voz personalizada. Aparecerá la página para probar los puntos de conexión. Elija una voz que haya implementado y escriba el texto que se va a decir (puede ser texto sin formato o con formato SSML) en el cuadro de texto.
+Las pruebas en línea del punto de conexión también están disponibles a través del portal de voz personalizada. Para probar el punto de conexión, seleccione**Pruebas de puntos de conexión** en el menú desplegable de Voz personalizada. Aparecerá la página para probar los puntos de conexión. Elija una voz personalizada implementada y escriba el texto que se dirá (ya sea en texto sin formato o en formato SSML) en el cuadro de texto.
 
 > [!NOTE] 
 > Al usar SSML, la etiqueta `<voice>` debe especificar el nombre que asignó a su voz personalizada cuando la creó.
@@ -245,5 +235,5 @@ El punto de conexión personalizado es técnicamente idéntico al punto de conex
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Obtenga su suscripción de prueba a Speech](https://azure.microsoft.com/try/cognitive-services/)
-- [Reconocer la voz en C#](quickstart-csharp-windows.md)
+- [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Reconocer la voz en C#](quickstart-csharp-dotnet-windows.md)

@@ -2,25 +2,25 @@
 title: 'Descripción del acceso a las aplicaciones de LUIS: Azure | Microsoft Docs'
 description: Obtenga información sobre cómo obtener acceso a la creación con LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 44380e12e6d095e8d40675af0b6b2fddc5e4c4e9
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 13b769a0b5a940e0f3dd5f2e0cc3567d9879ee0d
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264274"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223786"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Acceso de usuario a la creación y los puntos de conexión
 El acceso a la creación está disponible para los propietarios y colaboradores. Para una aplicación privada, el acceso a los puntos de conexión está disponible para los propietarios y colaboradores. Para una aplicación pública, el acceso al punto de conexión está disponible para todos los usuarios que tengan su propia cuenta de LUIS y el identificador de la aplicación pública. 
 
 ## <a name="access-to-authoring"></a>Acceso a la creación
-El acceso a la aplicación desde el sitio web de [LUIS][LUIS] o las [API de creación](https://aka.ms/luis-authoring-apis) está controlado por el propietario de la aplicación. 
+El acceso a la aplicación desde el sitio web de [LUIS](luis-reference-regions.md#luis-website) o las [API de creación](https://aka.ms/luis-authoring-apis) está controlado por el propietario de la aplicación. 
 
 El propietario y todos los colaboradores tienen acceso a la creación de la aplicación. 
 
@@ -33,7 +33,7 @@ El propietario y todos los colaboradores tienen acceso a la creación de la apli
 |Hacer pública la aplicación|Cuando una aplicación es pública, cualquiera que tenga una clave de creación o del punto de conexión puede consultar la aplicación.|
 |Modificar el modelo|
 |Publicar|
-|Revisar las expresiones de punto de conexión para un [aprendizaje activo](label-suggested-utterances.md)|
+|Revisar las expresiones de punto de conexión para un [aprendizaje activo](luis-how-to-review-endoint-utt.md)|
 |Entrenar|
 
 ## <a name="access-to-endpoint"></a>Acceder al punto de conexión
@@ -50,7 +50,7 @@ El punto de conexión de una aplicación privada solo está disponible para lo s
 |--|--|--|
 |Clave de creación del propietario| Hasta 1000 visitas del punto de conexión|
 |Claves de creación de colaboradores| Hasta 1000 visitas del punto de conexión|
-|Las claves del punto de conexión agregadas desde la página **[Publicar](publishapp.md)**|El propietario y los colaboradores pueden agregar claves del punto de conexión|
+|Las claves del punto de conexión agregadas desde la página **[Publicar](luis-how-to-publish-app.md)**|El propietario y los colaboradores pueden agregar claves del punto de conexión|
 
 Otras claves de creación o del punto de conexión **no** tienen acceso.
 
@@ -61,6 +61,8 @@ Un usuario que no sea propietario ni colaborador solo podrá acceder a una aplic
 
 ## <a name="microsoft-user-accounts"></a>Cuentas de usuario de Microsoft
 Los autores y colaboradores pueden agregar claves para LUIS en la página Publicar. La cuenta de usuario de Microsoft que crea la clave de LUIS en Azure Portal debe ser del propietario de la aplicación o de un colaborador de la aplicación. 
+
+Consulte [Usuario inquilino de Azure Active Directory](luis-how-to-account-settings.md#azure-active-directory-tenant-user) para más información sobre las cuentas de usuario de Active Directory. 
 
 <!--
 ### Individual consent
@@ -78,5 +80,3 @@ LUIS superó con éxito la auditoría ISO 27001:2013 e ISO 27018:2014 con cero d
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vea [Best practices](luis-concept-best-practices.md) (Prácticas recomendadas) para obtener información sobre cómo usar las intenciones y entidades para obtener las mejores predicciones.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

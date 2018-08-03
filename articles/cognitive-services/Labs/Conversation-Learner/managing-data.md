@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8d42f903559a1e07b42ded33972be4b552f21b5e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f9de4377857188a8cf483321654fb857e428c7f5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381742"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171646"
 ---
 # <a name="managing-user-data"></a>Administración de datos de usuario
 
@@ -27,7 +27,7 @@ De forma predeterminada, el servicio en la nube Conversation Learner registra la
 
 ## <a name="how-to-disable-logging"></a>Deshabilitar registros
 
-Puede controlar si las conversaciones con los usuarios finales están en la página "Configuración" de la aplicación Conversation Learner.  Hay una casilla para "Log Conversations" (Conversaciones de registro).  Si desactiva esta casilla, las conversaciones con los usuarios finales no se registrarán.
+Puede controlar si las conversaciones con los usuarios finales están en la página "Configuración" del modelo de Conversation Learner.  Hay una casilla para "Log Conversations" (Conversaciones de registro).  Si desactiva esta casilla, las conversaciones con los usuarios finales no se registrarán.
 
 ## <a name="what-is-logged"></a>¿Qué se registra? 
 
@@ -81,9 +81,10 @@ Para obtener los datos sin procesar para un diálogo registrado, puede usar esta
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-Donde `<appId>` es el GUID para esta aplicación Conversation Learner y `<logDialgoId>` es el identificador del diálogo registrado que desea recuperar.  
+Donde `<appId>` es el GUID para este modelo de Conversation Learner y `<logDialgoId>` es el identificador del diálogo registrado que desea recuperar.  
 
-Tenga en cuenta que el desarrollador puede editar los diálogos registrados y luego almacenarlos como diálogos de entrenamiento.  Cuando esto sucede, Conversation Learner almacena el identificador del diálogo registrado de "origen" con el diálogo de entrenamiento.  Además, un diálogo de entrenamiento puede "bifurcarse" en la interfaz de usuario; si un diálogo de entrenamiento tiene un identificador de diálogo registrado de origen asociado, las bifurcaciones de dicho diálogo de entrenamiento se marcarán con el mismo identificador de diálogo registrado.
+> [!NOTE]
+> El desarrollador puede editar los diálogos registrados y luego almacenarlos como diálogos de entrenamiento.  Cuando esto sucede, Conversation Learner almacena el identificador del diálogo registrado de "origen" con el diálogo de entrenamiento.  Además, un diálogo de entrenamiento puede "bifurcarse" en la interfaz de usuario; si un diálogo de entrenamiento tiene un identificador de diálogo registrado de origen asociado, las bifurcaciones de dicho diálogo de entrenamiento se marcarán con el mismo identificador de diálogo registrado.
 
 Para obtener todos los diálogos de entrenamiento derivados de un diálogo registrado, siga estos pasos.
 
@@ -93,7 +94,7 @@ En primer lugar, recupere todos los diálogos de entrenamiento:
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialogs
 ```
 
-Donde `<appId>` es el GUID para esta aplicación de Conversation Learner.  
+Donde `<appId>` es el GUID para este modelo de Conversation Learner.  
 
 Esto devuelve todos los diálogos de entrenamiento.  Busque esta lista para el `sourceLogDialogId` asociado y anote el `trainDialogId` asociado. 
 
@@ -103,7 +104,7 @@ Para un único diálogo de entrenamiento por identificador:
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-Donde `<appId>` es el GUID para esta aplicación Conversation Learner y `<trainDialogId>` es el identificador del diálogo de entrenamiento que desea recuperar.  
+Donde `<appId>` es el GUID para este modelo de Conversation Learner y `<trainDialogId>` es el identificador del cuadro de diálogo de entrenamiento que desea recuperar.  
 
 ## <a name="how-to-delete-a-logged-dialog"></a>Eliminación de un diálogo registrado
 
@@ -113,7 +114,7 @@ Si desea eliminar un diálogo registrado por su identificador, puede usar esta l
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-Donde `<appId>` es el GUID para esta aplicación Conversation Learner y `<logDialogId>` es el identificador del diálogo registrado que desea eliminar. 
+Donde `<appId>` es el GUID para este modelo de Conversation Learner y `<logDialogId>` es el identificador del cuadro de diálogo de registro que desea eliminar. 
 
 Si desea eliminar un diálogo de entrenamiento por su identificador, puede usar esta llamada HTTP:
 
@@ -121,4 +122,4 @@ Si desea eliminar un diálogo de entrenamiento por su identificador, puede usar 
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-Donde `<appId>` es el GUID para esta aplicación Conversation Learner y `<trainDialogId>` es el identificador del diálogo de entrenamiento que desea eliminar. 
+Donde `<appId>` es el GUID para este modelo de Conversation Learner y `<trainDialogId>` es el identificador del cuadro de diálogo de entrenamiento que desea eliminar. 

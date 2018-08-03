@@ -2,19 +2,19 @@
 title: Compatibilidad con la localización mediante aplicaciones de LUIS en Azure | Microsoft Docs
 description: Obtenga información sobre los idiomas que se admiten en LUIS.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2017
-ms.author: cahann
-ms.openlocfilehash: 1eabc01ee07f8791680738a156471e3efe2c44ff
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: diberry
+ms.openlocfilehash: d2c479445aabe05013470724c623978402abeb9d
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35383289"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248424"
 ---
 # <a name="culture-specific-understanding-in-luis-apps"></a>Descripción específica de la referencia cultural en aplicaciones de LUIS
 
@@ -59,7 +59,7 @@ La compatibilidad con idiomas varía para las [entidades creadas previamente](lu
      - です no es lo mismo que だ. 
 
 ### <a name="text-analytics-support-notes"></a>**Notas de compatibilidad para el análisis de texto
-Solo se admite el portugués para las subreferencias culturales: `pt-PT` y `pt-BR`. Todas las demás referencias culturales se admiten en el nivel de la referencia cultural principal. Obtenga más información sobre los [idiomas admitidos](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) de Text Analytics. 
+El análisis de texto incluye el análisis de opinión y la entidad precompilada de keyPhrase. Solo se admite el portugués para las subreferencias culturales: `pt-PT` y `pt-BR`. Todas las demás referencias culturales se admiten en el nivel de la referencia cultural principal. Obtenga más información sobre los [idiomas admitidos](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) de Text Analytics. 
 
 ### <a name="speech-api-supported-languages"></a>Idiomas admitidos en Speech API
 Vea los [idiomas admitidos](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) en Voz para obtener los idiomas de modo de dictado de Voz.

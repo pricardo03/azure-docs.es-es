@@ -2,19 +2,19 @@
 title: Adición de intenciones en aplicaciones de LUIS | Microsoft Docs
 description: Use Language Understanding (LUIS) para agregar intenciones con el fin de que las aplicaciones entiendan las solicitudes del usuario y reaccionen a estas de la forma correcta.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 6e013e994a3bcb60c3104aa10cd7bad1535706f1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0ebf15ea49467674ab3c56aa7983131593cf5c9a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35382988"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225893"
 ---
 # <a name="manage-intents"></a>Administrar intenciones 
 Agregue [intenciones](luis-concept-intent.md) a la aplicación de LUIS para identificar los grupos de preguntas o comandos que tienen las mismas intenciones. 
@@ -66,7 +66,7 @@ En la página de la intención, escriba una expresión pertinente que espere de 
 >[!NOTE]
 >LUIS convierte todas las expresiones a minúsculas.
 
-![Captura de pantalla de la página de detalles de la intención, con la expresión resaltada](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
+![Captura de pantalla de la página de detalles de las intenciones, con la expresión resaltada](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
 
 Las expresiones se agregan a la lista de expresiones de la intención actual. Después de agregar una expresión, [etiquete todas las entidades](luis-how-to-add-example-utterances.md) dentro de las expresiones y [entrene](luis-how-to-train.md) la aplicación. 
 
@@ -75,9 +75,9 @@ Vea [Add pattern from existing utterance on intent or entity page](luis-how-to-m
 
 ## <a name="edit-an-utterance-on-intent-page"></a>Editar una expresión en la página de la intención
 
-Para editar una expresión, haga clic el icono de tres puntos (...) en el extremo derecho de la línea de esa expresión y, después, haga clic en **Edit** (Editar). Modifique el texto y, después, presione Entrar en el teclado.
+Para editar una expresión, seleccione el botón de puntos suspensivos (***...***) en el extremo derecho de la línea de esa expresión y seleccione **Edit** (Editar). Modifique el texto y, después, presione Entrar en el teclado.
 
-![Captura de pantalla de la página de detalles de la intención, con el icono de tres puntos resaltado](./media/luis-how-to-add-intents/edit-utterance.png) 
+![Captura de pantalla de la página de detalles de las intenciones con el botón de puntos suspensivos resaltado](./media/luis-how-to-add-intents/edit-utterance.png) 
 
 ## <a name="reassign-utterances-on-intent-page"></a>Reasignar expresiones en la página de la intención
 Puede cambiar la intención de una o más expresiones si las reasigna a otra intención. 
@@ -92,7 +92,7 @@ Para cambiar la intención de varias expresiones, active las casillas situadas a
 
 ## <a name="delete-utterances-on-intent-page"></a>Eliminar expresiones en la página de la intención
 
-Para eliminar una expresión, haga clic el icono de tres puntos (...) en el extremo derecho de la línea de esa expresión y, después, haga clic en **Delete** (Eliminar). La expresión se quita de la lista y de la aplicación de LUIS.
+Para editar una expresión, seleccione el botón de puntos suspensivos (***...***) en el extremo derecho de la línea de esa expresión y seleccione **Delete** (Eliminar). La expresión se quita de la lista y de la aplicación de LUIS.
 
 ![Captura de pantalla de la página de detalles de la intención, con la opción Delete (Eliminar) resaltada](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
 
@@ -139,7 +139,7 @@ Cambie a **Tokens View** (Vista de tokens) para ver los tokens en lugar de los n
 ![Captura de pantalla de la página de la intención Bookflight con la vista de tokens resaltada](./media/luis-how-to-add-intents/toggle-tokens-view.png)
 
 ## <a name="train-your-app-after-changing-model-with-intents"></a>Entrenar la aplicación después de cambiar el modelo con intenciones
-Después de agregar, editar o quitar intenciones, [entrene](luis-how-to-train.md) y [publique](PublishApp.md) la aplicación para que los cambios se apliquen a las consultas de punto de conexión. 
+Después de agregar, editar o quitar intenciones, [entrene](luis-how-to-train.md) y [publique](luis-how-to-publish-app.md) la aplicación para que los cambios se apliquen a las consultas de punto de conexión. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,67 +8,60 @@ manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 38f7f038a803546adb83245519efc5de0c0d1599
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3e9afc990d6bfa73eb045e7ed76dfd194df309c6
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045017"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213213"
 ---
 # <a name="sample-for-intent-recognition"></a>Ejemplo para el reconocimiento de la intención
 
-> [!NOTE]
-> Para obtener instrucciones para descargar este ejemplo y otros., consulte los [Ejemplos de SDK de voz](samples.md).
+Primero es necesario que obtenga una clave de suscripción. A diferencia de otros servicios compatibles con el SDK de Cognitive Services Speech, los servicios de reconocimiento de la intención requieren una clave de suscripción específica. [Aquí](https://www.luis.ai) puede encontrar información adicional acerca de la tecnología de reconocimiento de la intención, así como información acerca de cómo adquirir una clave de suscripción. Reemplace su propia clave de suscripción de Language Understanding, la [región de su suscripción](regions.md) y el AppId del modelo de la intención en los lugares correspondientes de los ejemplos.
 
-> [!NOTE]
-> Primero es necesario que obtenga una clave de suscripción. A diferencia de otros servicios compatibles con el SDK de Cognitive Services Speech, los servicios de reconocimiento de la intención requieren una clave de suscripción específica. [Aquí](https://www.luis.ai) puede encontrar información adicional acerca de la tecnología de reconocimiento de la intención, así como información acerca de cómo adquirir una clave de suscripción. Coloque su propia clave de suscripción, la región del servicio y el AppId de su modelo de intención en el lugar adecuado en los ejemplos.
+## <a name="top-level-declarations"></a>Declaraciones de nivel superior
 
-> [!NOTE]
-> Para todos los ejemplos siguientes deben aplicarse las siguientes declaraciones de nivel superior:
->
-> [!code-cpp[](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#toplevel)]
->
-> - - -
+Para todos los ejemplos siguientes deben aplicarse las siguientes declaraciones de nivel superior:
+
+[!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
+
+[!code-cpp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/intent_recognition_samples.cpp#toplevel)]
+
+[!code-java[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/IntentRecognitionSamples.java#toplevel)]
 
 ## <a name="intent-recognition-using-microphone"></a>Reconocimiento de la intención con micrófono
 
 El siguiente fragmento de código muestra cómo reconocer la intención en una entrada de micrófono en el idioma predeterminado (`en-US`).
 
-[!code-cpp[Intent Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentRecognitionWithMicrophone)]
+[!code-csharp[Intent Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentRecognitionWithMicrophone)]
 
-- - -
+[!code-cpp[Intent Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/intent_recognition_samples.cpp#IntentRecognitionWithMicrophone)]
+
+[!code-java[Intent Recognition Using Microphone](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/IntentRecognitionSamples.java#IntentRecognitionWithMicrophone)]
 
 ## <a name="intent-recognition-using-microphone-in-a-specified-language"></a>Reconocimiento de la intención con micrófono en un idioma especificado
 
 El siguiente fragmento de código muestra cómo reconocer la intención en una entrada de micrófono en un idioma concreto, en este caso en alemán (`de-de`).
 
-[!code-cpp[Intent Recognition Using Microphone In A Specified Language](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentRecognitionWithLanguage)]
+[!code-csharp[Intent Recognition Using Microphone In A Specified Language](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentRecognitionWithLanguage)]
 
-- - -
+[!code-cpp[Intent Recognition Using Microphone In A Specified Language](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/intent_recognition_samples.cpp#IntentRecognitionWithLanguage)]
 
-## <a name="intent-recognition-from-a-file"></a>Reconocimiento de la intención en un archivo
+[!code-java[Intent Recognition Using Microphone In A Specified Language](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/IntentRecognitionSamples.java#IntentRecognitionWithLanguage)]
 
-El fragmento de código siguiente reconoce la intención en un archivo de audio en el idioma predeterminado (`en-US`), el formato permitido es WAV/PCM de canal único (mono) con una frecuencia de muestreo de 16 KHz.
+## <a name="intent-recognition-from-a-file-using-events"></a>Reconocimiento de intención desde un archivo mediante eventos
 
-[!include[Sample Audio](includes/sample-audio.md)]
+El fragmento de código muestra cómo reconocer la intención en el idioma predeterminado (`en-US`) de manera continua. Este código permite el acceso a información adicional, como los resultados intermedios. La entrada se toma de un archivo de audio, el formato compatible es WAV/PCM de un solo canal (mono) con una frecuencia de muestreo de 16 KHz.
 
-[!code-cpp[Intent Recognition From a File](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentRecognitionWithFile)]
+[!code-csharp[Intent Recognition Using Events From a File](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 
-- - -
+[!code-cpp[Intent Recognition Using Events From a File](~/samples-cognitive-services-speech-sdk/samples/cpp/windows/console/samples/intent_recognition_samples.cpp#IntentContinuousRecognitionWithFile)]
 
-## <a name="intent-recognition-using-events"></a>Reconocimiento de la intención con eventos
+[!code-java[Intent Recognition Using Events From a File](~/samples-cognitive-services-speech-sdk/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/IntentRecognitionSamples.java#IntentContinuousRecognitionWithFile)]
 
-El fragmento de código muestra cómo reconocer la intención de forma continua. Este código permite el acceso a información adicional, como los resultados intermedios. 
-
-[!code-cpp[Intent Recognition Using Events](~/samples-cognitive-services-speech-sdk/Windows/cxx_samples/intent_recognition_samples.cpp#IntentContinuousRecognitionUsingEvents)]
-
-- - -
-
-## <a name="sample-source-code"></a>Código fuente de ejemplo
-
-Para obtener el conjunto más reciente de ejemplos, consulte el [repositorio de GitHub de ejemplos del SDK de Cognitive Services Speech](https://aka.ms/csspeech/samples).
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

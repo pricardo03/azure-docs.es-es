@@ -1,7 +1,7 @@
 ---
-title: Cómo agregar entidades pregeneradas a una aplicación de Conversation Learner - Microsoft Cognitive Services | Microsoft Docs
+title: 'Incorporación de entidades precompiladas a un modelo de Conversation Learner: Microsoft Cognitive Services | Microsoft Docs'
 titleSuffix: Azure
-description: Aprenda a agregar entidades pregeneradas a una aplicación de Conversation Learner.
+description: Obtenga información sobre cómo agregar entidades precompiladas a un modelo de Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,18 +10,22 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f014464419bfac39a9e57e679fcd28a737e9ebdb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84d73add5586aaaf130253a8122a4152e39bcbe9
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382483"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171374"
 ---
 # <a name="how-to-add-pre-built-entities"></a>Cómo agregrar entidades pregeneradas
-En este tutorial aprenderá a agregar entidades "pregeneradas" a una aplicación de Conversation Learner.
+En este tutorial se muestra cómo agregar entidades "precompiladas" a un modelo de Conversation Learner.
+
+## <a name="video"></a>Vídeo
+
+[![Vista previa del tutorial 7](http://aka.ms/cl-tutorial-07-preview)](http://aka.ms/blis-tutorial-07)
 
 ## <a name="requirements"></a>Requisitos
-Para poder realizar este tutorial debe ejecutar el bot de tutorial general
+Para poder realizar este tutorial debe ejecutar el bot del tutorial general
 
     npm run tutorial-general
 
@@ -31,9 +35,9 @@ Las entidades pregeneradas reconocen tipos comunes de entidades, tales como núm
 
 ## <a name="steps"></a>Pasos
 
-### <a name="create-the-application"></a>Creación de la aplicación
+### <a name="create-the-model"></a>Crear el modelo
 
-1. En la interfaz de usuario web, haga clic en Nueva aplicación.
+1. En la interfaz de usuario web, haga clic en New Model (Modelo nuevo).
 2. En Nombre, escriba BuiltInEntities. A continuación, haga clic en Crear.
 
 ### <a name="create-an-entity"></a>Crear una entidad

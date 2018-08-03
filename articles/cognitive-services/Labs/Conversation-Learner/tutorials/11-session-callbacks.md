@@ -1,7 +1,7 @@
 ---
-title: 'Uso de devoluciones de llamada de sesión con una aplicación Conversation Learner: Microsoft Cognitive Services | Microsoft Docs'
+title: 'Uso de devoluciones de llamada de sesión con un modelo de Conversation Learner: Microsoft Cognitive Services | Microsoft Docs'
 titleSuffix: Azure
-description: Obtenga información acerca de cómo usar devoluciones de llamada de sesión con una aplicación Conversation Learner.
+description: Obtenga información sobre cómo usar devoluciones de llamada de sesión con un modelo de Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f8970620c1f0f87ccae13d031092a048144ffb19
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0f51b232470e4e4da3f25d40d025dd3b09dd1204
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381770"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171922"
 ---
-# <a name="how-to-use-session-callbacks-with-a-conversation-learner-application"></a>Uso de devoluciones de llamada de sesión con una aplicación Conversation Learner
+# <a name="how-to-use-session-callbacks-with-a-conversation-learner-model"></a>Uso de devoluciones de llamada de sesión con un modelo de Conversation Learner
 
 En este tutorial se ilustran las devoluciones de llamada onSessionStart y onSessionEnd.
 
+## <a name="video"></a>Vídeo
+
+[![Vista previa del tutorial 11](http://aka.ms/cl-tutorial-11-preview)](http://aka.ms/blis-tutorial-11)
+
 ## <a name="requirements"></a>Requisitos
-Este tutorial requiere la ejecución del bot "tutorialSessionCallbacks.ts".
+Para poder realizar este tutorial debe ejecutar el bot `tutorialSessionCallbacks`.
 
     npm run tutorial-session-callbacks
 
@@ -35,19 +39,19 @@ Si hay interrupciones largas, el bot pasará a la sesión siguiente.  Si inicia 
 
 ### <a name="open-the-demo"></a>Abrir la demostración
 
-En la lista de aplicaciones, haga clic en Tutorial-11-SessionCallbacks. 
+En la lista de modelos, haga clic en Tutorial-11-SessionCallbacks. 
 
 ### <a name="entities"></a>Entidades
 
-Se han definido cuatro entidades en la aplicación.
+Hay cuatro entidades definidas en el modelo.
 
 ![](../media/tutorial11_entities.PNG)
 
-Hay que destacar que BotName es una entidad de programación.  Esto lo definirá el bot en el momento de iniciar la sesión.
+Hay que destacar que BotName es una entidad de programación.  Esta entidad la definirá el bot en el momento de iniciar la sesión.
 
 ### <a name="actions"></a>Acciones
 
-Hemos creado cuatro acciones. 
+Hay cuatro acciones definidas en el modelo.
 
 ![](../media/tutorial11_actions.PNG)
 
@@ -70,7 +74,7 @@ El código para los métodos de devolución de llamada está en el archivo: c:\<
 Ambos métodos son opcionales.
 
 - OnSessionStartCallback: este método define la entidad BotName.
-- OnSessionEndCallback: puede especificar lo que desea borrar. Borrará todas las entidades, excepto el nombre y el teléfono del usuario.
+- OnSessionEndCallback: puede especificar lo que desea conservar. Borrará todas las entidades, excepto el nombre y el teléfono del usuario.
 
 ### <a name="try-the-bot"></a>Probar el bot
 

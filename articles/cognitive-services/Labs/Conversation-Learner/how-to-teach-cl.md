@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 639fea64fc8eeb2c1f6e6240c4eb26efc68febbd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 41fe350fd712f6c521a9020af9a540e554abe94b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381738"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170606"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>Enseñar con Conversation Learner 
 
@@ -56,9 +56,10 @@ Acciones del sistema antes del turno anterior | 4 |
 Entidades presentes en turnos antes del turno actual | 4 | 
 Expresiones de usuario antes del turno actual | 5 | 
 
-Tenga en cuenta que la selección de acciones adopta el contenido de las acciones del sistema (texto, contenido de tarjeta o nombre o comportamiento de la API) y solo la identidad de la acción del sistema.  Como resultado, el cambio de contenido de una acción no alterará el comportamiento del modelo de selección de acciones.
-
-Además, tenga en cuenta que el contenido o los valores de las entidades no se usan, sino solo su presencia/ausencia.
+> [!NOTE]
+> La selección de acciones no adopta el contenido de las acciones del sistema (texto, contenido de tarjeta o nombre o comportamiento de la API), solo la identidad de la acción del sistema.  Como resultado, el cambio de contenido de una acción no alterará el comportamiento del modelo de selección de acciones.
+>
+> Además, el contenido o los valores de las entidades no se usan, sino solo su presencia/ausencia.
 
 Si la selección de acciones no se comporta según lo esperado, aquí se presentan posibles soluciones:
 

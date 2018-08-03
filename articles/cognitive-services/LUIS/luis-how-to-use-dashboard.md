@@ -2,19 +2,19 @@
 title: Panel de la aplicación para aplicaciones de LUIS| Microsoft Docs
 description: Obtenga información sobre el panel de la aplicación, una herramienta de informes visualizada que permite supervisar las aplicaciones de un solo vistazo.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4e117aa734c551f76c3602f81e3e2ebc6aa9f337
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: diberry
+ms.openlocfilehash: 518227d9f4165a08fafefa357de255d97c710f61
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35383001"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224507"
 ---
 # <a name="application-dashboard"></a>Panel de la aplicación
 El panel de la aplicación permite supervisar la aplicación de un solo vistazo. El **Panel** se muestra cuando se abre una aplicación al hacer clic en el nombre de la aplicación en la página **My Apps** (Mis aplicaciones) y después en **Dashboard** (Panel) en el panel superior. 
@@ -69,7 +69,7 @@ Para seleccionar un período para verlo en el gráfico:
 2. Seleccione un período de la lista y, después, haga clic en la flecha Atrás. ![Flecha Atrás](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) para mostrar el gráfico.
 
 ### <a name="key-usage"></a>Uso de las claves
-El número de visitas que se consumen de la clave de suscripción de la aplicación. Para obtener más información sobre las claves de la suscripción, vea las [claves de LUIS](luis-concept-keys.md). 
+El número de visitas que se consumen de la clave de punto de conexión de la aplicación. Para más información sobre las claves de punto de conexión, consulte [Claves en LUIS](luis-concept-keys.md). 
   
 ## <a name="intent-breakdown"></a>Desglose de las intenciones
 En **Intent Breakdown** (Desglose de las intenciones) se muestra un desglose de las intenciones en función de las expresiones etiquetadas o las visitas del punto de conexión. En este gráfico de resumen se muestra la importancia relativa de cada intención en la aplicación. Si mantiene el puntero del mouse sobre un segmento, verá el nombre de la intención y el porcentaje que representa del número total de expresiones etiquetadas y visitas del punto de conexión. 

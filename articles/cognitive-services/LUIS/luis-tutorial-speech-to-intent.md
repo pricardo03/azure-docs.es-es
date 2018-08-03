@@ -3,19 +3,19 @@ title: Uso del SDK de C# de Voz con LUIS - Azure | Microsoft Docs
 titleSuffix: Azure
 description: Utilice el ejemplo del SDK de C# de Voz para hablar al micrófono y obtener la devolución de predicciones de intenciones y de entidades de LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: v-geberr;
-ms.openlocfilehash: b681598f953d217ca636fb5c0adc3de4ddbebd60
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.author: diberry;
+ms.openlocfilehash: 286efcd97c0c9ab95a8241215bc36799c486a8b6
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031794"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247722"
 ---
 # <a name="integrate-speech-service"></a>Integración de Speech Service
 [Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) le permite usar una única solicitud para recibir audio y devolver objetos JSON de predicción de LUIS.
@@ -28,7 +28,7 @@ En este artículo, necesita una cuenta de sitio web de [LUIS][LUIS] gratuita par
 En Azure Portal, [cree](luis-how-to-azure-subscription.md#create-luis-endpoint-key) una clave de **Language Understanding** (LUIS). 
 
 ## <a name="import-human-resources-luis-app"></a>Importación de aplicación Human Resources de LUIS
-Las intenciones y expresiones de este artículo proceden de la aplicación Human Resources de LUIS disponible en el repositorio de Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Descargue el archivo [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json), guárdelo con la extensión *.json e [impórtelo](create-new-app.md#import-new-app) a LUIS. 
+Las intenciones y expresiones de este artículo proceden de la aplicación Human Resources de LUIS disponible en el repositorio de Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples). Descargue el archivo [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json), guárdelo con la extensión *.json e [impórtelo](luis-how-to-start-new-app.md#import-new-app) a LUIS. 
 
 Esta aplicación tiene intenciones, entidades y expresiones relacionadas con el dominio de Human Resources. Las expresiones de ejemplo incluyen:
 
@@ -120,7 +120,7 @@ La intención correcta, **GetEmployeeOrgChart**, se ha conseguido con una confia
 El SDK de Voz devuelve toda la respuesta de LUIS. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no la necesite, elimine la aplicación HumanResources de LUIS. Para ello, seleccione el menú de tres puntos (...) a la derecha del nombre de la aplicación en la lista de aplicaciones y seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), seleccione **Ok** (Aceptar).
+Cuando ya no la necesite, elimine la aplicación HumanResources de LUIS. Para ello, seleccione el botón de puntos suspensivos (***...***) situado a la derecha del nombre de la aplicación en la lista de aplicaciones y haga clic en **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
 
 Recuerde eliminar el directorio LUIS-Samples cuando termine de utilizar el código de ejemplo.
 

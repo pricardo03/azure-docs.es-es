@@ -2,19 +2,19 @@
 title: Glosario del servicio de API de Language Understanding (LUIS) | Microsoft Docs
 description: En el glosario se explican los términos que puede encontrar cuando use el servicio de API de LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 7cfcc5b907b28a877bea57ea869e17f01aae00cb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: f6606a3a09698f236f9ebe2c21ec784ca84bb149
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265394"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225513"
 ---
 # <a name="glossary"></a>Glosario
 
@@ -72,7 +72,7 @@ En el contexto de LUIS, un **dominio** es un área de conocimiento. El dominio e
 
 ## <a name="endpoint"></a>Punto de conexión
 
-La dirección URL del [punto de conexión de LUIS](https://aka.ms/luis-endpoint-apis) es donde se envían las consultas de LUIS después de crear y publicar la [aplicación de LUIS](#luis-app). La dirección URL del punto de conexión contiene la región de la aplicación publicada, así como el identificador de la aplicación. Puede encontrar el punto de conexión en la página **[Publicar](publishapp.md)** de la aplicación, en la tabla de recursos y claves, o bien puede obtener la dirección URL del punto de conexión desde la API [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
+La dirección URL del [punto de conexión de LUIS](https://aka.ms/luis-endpoint-apis) es donde se envían las consultas de LUIS después de crear y publicar la [aplicación de LUIS](#luis-app). La dirección URL del punto de conexión contiene la región de la aplicación publicada, así como el identificador de la aplicación. Puede encontrar el punto de conexión en la página **[Publicar](luis-how-to-publish-app.md)** de la aplicación, en la tabla de recursos y claves, o bien puede obtener la dirección URL del punto de conexión desde la API [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
 
 Un punto de conexión de ejemplo tiene el siguiente aspecto:
 
@@ -82,7 +82,7 @@ Un punto de conexión de ejemplo tiene el siguiente aspecto:
 |--|--|
 |region| [región publicada](luis-reference-regions.md#publishing-regions) |
 |appID | Identificador de la aplicación de LUIS |
-|subscriptionID | Clave de suscripción de LUIS creada en Azure Portal |
+|subscriptionID | Clave de punto de conexión (suscripción) de LUIS creada en Azure Portal |
 |q | expresión |
 |timezoneOffset| minutes|
 
@@ -92,15 +92,15 @@ Las [entidades](luis-concept-entity-types.md) son palabras importantes en las [e
 
 ## <a name="f-measure"></a>Medida F
 
-En las [pruebas por lotes][batch-testing], una medida de la precisión de la prueba.
+En las [pruebas por lotes](luis-interactive-test.md#batch-testing), una medida de la precisión de la prueba.
 
 ## <a name="false-negative"></a>Falso negativo (TN)
 
-En las [pruebas por lotes][batch-testing], los puntos de datos representan expresiones en las que la aplicación predice incorrectamente la ausencia de la intención o entidad de destino.
+En las [pruebas por lotes](luis-interactive-test.md#batch-testing), los puntos de datos representan expresiones en las que la aplicación predice incorrectamente la ausencia de la intención o entidad de destino.
 
 ## <a name="false-positive"></a>Falso positivo (TP)
 
-En las [pruebas por lotes][batch-testing], los puntos de datos representan expresiones en las que la aplicación predice incorrectamente la existencia de la intención o entidad de destino.
+En las [pruebas por lotes](luis-interactive-test.md#batch-testing), los puntos de datos representan expresiones en las que la aplicación predice incorrectamente la existencia de la intención o entidad de destino.
 
 ## <a name="features"></a>Características
 
@@ -135,10 +135,10 @@ Un [dominio creado previamente](luis-how-to-use-prebuilt-domains.md) es una apli
 
 ## <a name="prebuilt-entity"></a>Entidad creada previamente
 
-Una [entidad creada previamente](pre-builtentities.md) es una entidad que LUIS proporciona para los tipos comunes de información, por ejemplo, número, dirección URL y correo electrónico. Puede agregar una entidad creada previamente a la aplicación. 
+Una [entidad creada previamente](luis-prebuilt-entities.md) es una entidad que LUIS proporciona para los tipos comunes de información, por ejemplo, número, dirección URL y correo electrónico. Puede agregar una entidad creada previamente a la aplicación. 
 
 ## <a name="precision"></a>Precisión
-En las [pruebas por lotes][batch-testing], la precisión (también conocida como el valor de predicción positivo) es la fracción de expresiones relevantes entre las expresiones que se recuperan.
+En las [pruebas por lotes](luis-interactive-test.md#batch-testing), la precisión (también conocida como el valor de predicción positivo) es la fracción de expresiones relevantes entre las expresiones que se recuperan.
 
 ## <a name="programmatic-key"></a>Clave de programación
 
@@ -153,7 +153,7 @@ Publicar significa poner una [versión activa](#active-version) de LUIS a dispos
 La cuota de LUIS es la limitación del [nivel de suscripción de Azure](https://aka.ms/luis-price-tier). La cuota de LUIS puede verse limitada por las solicitudes por segundo (estado HTTP 429) y el total de solicitudes en un mes (estado HTTP 403). 
 
 ## <a name="recall"></a>Recuperación
-En las [pruebas por lotes][batch-testing], la recuperación (también conocida como susceptibilidad), es la capacidad de generalizar de LUIS. 
+En las [pruebas por lotes](luis-interactive-test.md#batch-testing), la recuperación (también conocida como susceptibilidad), es la capacidad de generalizar de LUIS. 
 
 ## <a name="semantic-dictionary"></a>Diccionario de semántica
 Se proporciona un diccionario de semántica en la página de entidad de lista, así como en la página de lista de frases. El diccionario de semántica proporciona sugerencias de palabras en función del ámbito actual.
@@ -163,11 +163,11 @@ El análisis de sentimiento proporciona valores positivos o negativos de las exp
 
 ## <a name="speech-priming"></a>Preparación para la voz
 
-La preparación para la voz permite que el servicio de voz se prepare con el modelo de LUIS. Vea [Habilitar la preparación para la voz](publishapp.md#enable-speech-priming).
+La preparación para la voz permite que el servicio de voz se prepare con el modelo de LUIS. Vea [Habilitar la preparación para la voz](luis-how-to-publish-app.md#enable-speech-priming).
 
 ## <a name="spelling-correction"></a>Corrección ortográfica
 
-En la página Publicar, habilite el [corrector ortográfico de Bing](publishapp.md#enable-bing-spell-checker) para corregir las palabras incorrectas en las expresiones antes de la predicción. 
+En la página Publicar, habilite el [corrector ortográfico de Bing](luis-how-to-publish-app.md#enable-bing-spell-checker) para corregir las palabras incorrectas en las expresiones antes de la predicción. 
 
 ## <a name="starter-key"></a>Clave de inicio
 
@@ -175,11 +175,11 @@ Al igual que la [clave de programación](#programmatic-key), su nombre ha cambia
 
 ## <a name="subscription-key"></a>Clave de suscripción
 
-La clave de suscripción es la clave asociada con el servicio de LUIS [que ha creado en Azure](luis-how-to-azure-subscription.md). Esta no es la [clave de creación](#programmatic-key). Si tiene una clave de suscripción, se debe usar para las solicitudes de punto de conexión en lugar de la clave de creación. Puede ver la clave de suscripción actual en la dirección URL del punto de conexión, en la parte inferior de la página [**Publicar aplicación**](publishapp.md) en el sitio web de [LUIS](luis-reference-regions.md). Es el valor del par nombre/valor **subscription-key**. 
+La clave de suscripción es la clave de **punto de conexión** asociada con el servicio de LUIS que [ha creado en Azure](luis-how-to-azure-subscription.md). Esta no es la [clave de creación](#programmatic-key). Si tiene una clave de punto de conexión, se debe usar para las solicitudes de punto de conexión en lugar de la clave de creación. Puede ver la clave de punto de conexión actual en la dirección URL del punto de conexión, en la parte inferior de la página [**Publicar aplicación**](luis-how-to-publish-app.md) en el sitio web de [LUIS](luis-reference-regions.md). Es el valor del par nombre/valor **subscription-key**. 
 
 ## <a name="test"></a>Probar
 
-[Probar](interactive-test.md#test-your-app) una aplicación de LUIS significa pasar una expresión a LUIS y ver los resultados de JSON.
+[Probar](luis-interactive-test.md#test-your-app) una aplicación de LUIS significa pasar una expresión a LUIS y ver los resultados de JSON.
 
 ## <a name="timezoneoffset"></a>Desplazamiento de zona horaria
 
@@ -196,11 +196,11 @@ Entrenar es el proceso de enseñar a LUIS los cambios de la [versión activa](#a
 
 ## <a name="true-negative"></a>Verdadero negativo (TN)
 
-En las [pruebas por lotes][batch-testing], los puntos de datos representan expresiones en las que la aplicación predice correctamente la ausencia de la intención o entidad de destino.
+En las [pruebas por lotes](luis-interactive-test.md#batch-testing), los puntos de datos representan expresiones en las que la aplicación predice correctamente la ausencia de la intención o entidad de destino.
 
 ## <a name="true-positive"></a>Verdadero positivo (TP)
 
-En las [pruebas por lotes][batch-testing], los puntos de datos representan expresiones en las que la aplicación predice correctamente la existencia de la intención o entidad de destino.
+En las [pruebas por lotes](luis-interactive-test.md#batch-testing), los puntos de datos representan expresiones en las que la aplicación predice correctamente la existencia de la intención o entidad de destino.
 
 ## <a name="utterance"></a>Expresión
 
@@ -209,5 +209,3 @@ Una expresión es una frase en lenguaje natural, como "reserva 2 billetes a Seat
 ## <a name="version"></a>Versión
 
 Una [versión](luis-how-to-manage-versions.md) de LUIS es un modelo de datos específico asociado con un identificador de aplicación de LUIS y el punto de conexión publicado. Todas las aplicaciones de LUIS tienen al menos una versión.
-
-[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/interactive-test#batch-testing

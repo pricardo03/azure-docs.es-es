@@ -1,5 +1,5 @@
 ---
-title: Preguntas más frecuentes para el servicio de conversión de voz en texto en Azure | Microsoft Docs
+title: Preguntas más frecuentes sobre el servicio de conversión de voz en texto en Azure | Microsoft Docs
 description: Estas son las respuestas a las preguntas más habituales sobre la conversión de voz en texto.
 services: cognitive-services
 author: PanosPeriorellis
@@ -9,60 +9,55 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 64e505889ef9472603471d67a961985c1290663a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 543e8d6fb68a351dfe75c962debaf15eeb080a3f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054924"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223894"
 ---
-# <a name="custom-speech-service-frequently-asked-questions"></a>Preguntas más frecuentes sobre Custom Speech Service
+# <a name="speech-to-text-frequently-asked-questions"></a>Preguntas más frecuentes sobre la conversión de voz en texto
 
-Si no puede encontrar las respuestas a sus preguntas en estas Preguntas más frecuentes, pregúntelas en la comunidad de Custom Speech Service en [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) y [UserVoice](https://cognitive.uservoice.com/)
+Si no puede encontrar las respuestas en estas preguntas más frecuentes, formúlelas en la comunidad de Custom Speech Service en [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) y [UserVoice](https://cognitive.uservoice.com/)
 
 ## <a name="general"></a>General
 
-**Pregunta**: ¿Qué diferencia hay entre los modelos de línea de base y los modelos personalizados de conversión de voz a texto?
+**Pregunta**: ¿Qué diferencia hay entre los modelos de línea base y los modelos personalizados de conversión de voz a texto?
 
-**Respuesta**: Los modelos de línea base se han entrenado con datos propiedad de Microsoft y ya están implementados en la nube. Los modelos personalizados permiten al usuario adaptar un modelo para que se ajuste mejor a un entorno en particular con ruido ambiental o idioma específicos. Las plantas de fábrica, los automóviles, las calles ruidosas requerirán un modelo acústico adaptado, mientras que los temas específicos como la biología, la física, la radiología, los nombres de productos y los acrónimos personalizados requerirán un modelo de lenguaje.
+**Respuesta**: Los modelos de línea base se han entrenado con datos propiedad de Microsoft y ya están implementados en la nube. Los modelos personalizados permiten al usuario adaptar un modelo para que se ajuste mejor a un entorno en particular con ruido ambiental o idioma específicos. Las plantas de fábrica, los automóviles, las calles ruidosas requerirán un modelo acústico adaptado, mientras que los temas específicos como la biología, la física, la radiología, los nombres de productos y los acrónimos personalizados requerirán un modelo de lenguaje adaptado.
 
 **Pregunta**: ¿Dónde empiezo si quiero usar un modelo de línea base?
 
-**Respuesta**: Primero es necesario obtener una [clave de suscripción](get-started.md). Si quiere realizar llamadas REST a los modelos de línea base implementados previamente, consulte los [detalles aquí](rest-apis.md). Si quiere usar WebSockets, descargue el [SDK](speech-sdk.md)
+**Respuesta**: Primero es necesario obtener una [clave de suscripción](get-started.md). Si quiere realizar llamadas REST a los modelos de línea base implementados previamente, consulte los [detalles aquí](rest-apis.md). Si quiere usar WebSockets, descargue el [SDK](speech-sdk.md).
 
 **Pregunta**: ¿Es siempre necesario crear un modelo de voz personalizado?
 
-**Respuesta**: No, si la aplicación utiliza un lenguaje cotidiano genérico sin vocabulario personalizado o que pueda resultar raro, no es necesario personalizar un modelo. Además, si la aplicación se va a usar en un entorno con poco o ningún ruido de fondo, tampoco es necesaria la personalización. El portal permite a los usuarios implementar la línea base y los modelos personalizados, y ejecutar pruebas de precisión en ellos. Los usuarios pueden utilizar esta función para medir la precisión de una línea base con respecto a un modelo personalizado.
+**Respuesta**: No, si la aplicación usa lenguaje cotidiano genérico, no es necesario personalizar un modelo. Además, si la aplicación se va a usar en un entorno con poco o ningún ruido de fondo, tampoco es necesaria la personalización. El portal permite a los usuarios implementar modelos de línea base y personalizados, y ejecutar pruebas de precisión en ellos. Los usuarios pueden utilizar esta función para medir la precisión de un modelo de línea base con respecto a uno personalizado.
 
 **Pregunta**: ¿Cómo sabré que el proceso de mi conjunto de datos o modelo se ha completado?
 
 **Respuesta**: Actualmente, el estado del modelo o del conjunto de datos de la tabla es la única manera de saberlo.
-Cuando se completa el proceso, el estado será "Listo".
+Cuando se complete el proceso, el estado será "Succeeded" (Correcto).
 
-**Pregunta**: ¿Puedo crear más de un modelo a la vez?
+**Pregunta**: ¿Puedo crear más de un modelo?
 
-**Respuesta**: No existe límite en el número de modelos que puede haber en su colección, pero solo puede crear uno cada vez en cada página.
-Por ejemplo, no puede iniciar un proceso de creación de modelo de lenguaje si actualmente hay un modelo de lenguaje que se encuentra en la etapa de proceso.
-Sin embargo, puede haber un modelo acústico y un modelo de lenguaje en proceso a la vez. 
+**Respuesta**: No hay ningún límite en el número de modelos que puede haber en la colección.
 
 **Pregunta**: Me he dado cuenta de que me he equivocado. ¿Cómo cancelo la importación de datos o la creación del modelo que está en curso? 
 
-**Respuesta**: Actualmente no se puede revertir un proceso de adaptación acústica o de lenguaje.
-Los datos importados se pueden eliminar después de que se complete la importación.
+**Respuesta**: Actualmente no se puede revertir un proceso de adaptación acústica o de lenguaje. Los modelos y los datos importados se pueden eliminar después de que estén en estado terminal.
 
 **Pregunta**: ¿Qué diferencia existe entre los modelos de búsqueda y dictado y los modelos de conversación?
 
-**Respuesta**: Existen dos modelos de lenguaje y acústico base entre los que se puede elegir en Custom Speech Service.
-consultas de búsqueda o dictado. Microsoft conversacional AM es adecuado para el reconocimiento de la voz hablada en un estilo conversacional.
-Este tipo de habla normalmente se dirige a otra persona, como el que se produce en los centros de llamadas o en reuniones.
+**Respuesta**: Hay varios modelos de línea base entre los cuales elegir en Speech Service. El modelo Conversational es adecuado para el reconocimiento de la voz hablada en un estilo conversacional. Este modelo sería ideal para transcribir llamadas al buscar y Dictation es ideal para las aplicaciones activadas por voz. Universal es un modelo nuevo que apunta a abordar ambos escenarios.
 
 **Pregunta**: ¿Puedo actualizar el modelo existente (apilamiento del modelo)?
 
-**Respuesta**: Los modelos existentes no se pueden actualizar. Como solución alternativa puede combinar el conjunto de datos anterior con el nuevo y readaptarlo.
+**Respuesta**: Los modelos existentes no se pueden actualizar. Como solución alternativa, puede combinar el conjunto de datos anterior con el nuevo y readaptarlo.
 
 Los conjuntos de datos anterior y nuevo se deben combinar en un único archivo .zip (si se trata de datos acústicos) o en un archivo .txt si se trata de datos de lenguaje. Una vez realizada la adaptación, se debe anular la implementación del nuevo modelo actualizado para obtener un nuevo punto de conexión.
 
-**Pregunta**: ¿Qué pasa si necesito más simultaneidad que el valor predeterminado o la que se ofrece en el portal? 
+**Pregunta**: ¿Qué pasa si necesito una mayor simultaneidad para el modelo implementado que la que se ofrece en el portal? 
 
 **Respuesta**: Se puede ampliar el modelo en incrementos de 20 solicitudes simultáneas. 
 
@@ -100,7 +95,7 @@ Si la gran mayoría de las expresiones de un conjunto de datos acústico o de le
 **Pregunta**: ¿Qué datos debo recopilar?
 
 **Respuesta**: Recopile datos lo más cercanos posibles al escenario de aplicación y caso de uso.
-La colección de datos debe coincidir con la aplicación de destino y los usuarios en términos de dispositivo o dispositivos, entornos y tipos de hablante. En general, debe recopilar datos de un rango lo más amplio posible de hablantes. 
+La colección de datos debe coincidir con la aplicación y los usuarios de destino en términos de dispositivo o dispositivos, entornos y tipos de hablante. En general, debe recopilar datos de un intervalo lo más amplio posible de hablantes. 
 
 **Pregunta**: ¿Cómo debo recopilarlos? 
 
@@ -109,46 +104,41 @@ También puede crear una versión de la aplicación que registre los datos de au
 
 **Pregunta**: ¿Debo transcribir los datos de adaptación? 
 
-**Respuesta**: Los datos deben transcribirse. Puede transcribirlos usted mismo o utilizar un servicio de transcripción profesional. Algunos de ellos utilizan transcriptores profesionales y otros utilizan crowdsourcing.
+**Respuesta**: Por supuesto. Puede transcribirlos usted mismo o utilizar un servicio de transcripción profesional. Algunos usuarios prefieren usar transcriptores profesionales, mientras que otros usan la colaboración abierta distribuida o ellos mismos realizan las transcripciones.
 
-**Pregunta**: ¿Cuánto se tarda en crear un modelo acústico personalizado?
+## <a name="accuracy-testing"></a>Pruebas de precisión
 
-**Respuesta**: El tiempo de proceso para crear un modelo acústico personalizado es aproximadamente el mismo que la duración del conjunto de datos acústico.
-Por lo tanto, un modelo acústico personalizado creado a partir de un conjunto de datos de cinco horas tardará unas cinco horas en procesarse. 
+**Pregunta**: ¿Puedo realizar una prueba sin conexión de mi modelo acústico personalizado utilizando un modelo de lenguaje personalizado?
 
-## <a name="offline-testing"></a>Pruebas sin conexión
+**Respuesta**: Sí, basta con seleccionar el modelo de lenguaje personalizado en el menú desplegable al configurar la prueba sin conexión.
 
-**Pregunta**: ¿Puedo realizar una prueba fuera de línea de mi modelo acústico personalizado utilizando un modelo de lenguaje personalizado?
+**Pregunta**: ¿Puedo realizar una prueba sin conexión de mi modelo de lenguaje personalizado utilizando un modelo acústico personalizado?
 
-**Respuesta**: Sí, basta con seleccionar el modelo de lenguaje personalizado en el menú desplegable al configurar la prueba fuera de línea.
+**Respuesta**: Sí, basta con seleccionar el modelo acústico personalizado en el menú desplegable al configurar la prueba sin conexión.
 
-**Pregunta**: ¿Puedo realizar una prueba fuera de línea de mi modelo de lenguaje personalizado utilizando un modelo acústico personalizado?
+**Pregunta**: ¿Qué es Word Error Rate (WER) y cómo se calcula?
 
-**Respuesta**: Sí, basta con seleccionar el modelo acústico personalizado en el menú desplegable al configurar la prueba fuera de línea.
-
-**Pregunta**: ¿Qué es Word Error Rate y cómo se calcula?
-
-**Respuesta**: Word Error Rate es la métrica de evaluación para el reconocimiento de voz. Se cuenta como el número total de errores, lo que incluye las inserciones, las eliminaciones y las sustituciones, dividido por el número total de palabras en la transcripción de referencia.
+**Respuesta**: Word Error Rate (WER) es la métrica de evaluación para el reconocimiento de voz. Se cuenta como el número total de errores, lo que incluye las inserciones, las eliminaciones y las sustituciones, dividido por el número total de palabras en la transcripción de referencia. Más detalles [aquí](https://en.wikipedia.org/wiki/Word_error_rate).
 
 **Pregunta**: ¿Cómo determino si los resultados de una prueba de precisión son buenos?
 
 **Respuesta**: Los resultados muestran una comparación entre el modelo de línea base y el personalizado.
 Debe aspirar a superar el modelo de línea base para que la personalización sea útil.
 
-**Pregunta**: ¿Cómo averiguo la métrica WER de los modelos base para ver si ha habido una mejora? 
+**Pregunta**: ¿Cómo averiguo la métrica Word Error Rate de los modelos base para ver si ha habido una mejora? 
 
-**Respuesta**: Los resultados de la prueba fuera de línea muestran la precisión de la línea base, la precisión del modelo personalizado y la mejora sobre la línea base.
+**Respuesta**: Los resultados de la prueba sin conexión muestran la precisión de la línea base, la precisión del modelo personalizado y la mejora sobre la línea base.
 
 ## <a name="creating-lm"></a>Creación de LM
 
 **Pregunta**: ¿Cuántos datos necesito cargar?
 
-**Respuesta**: Depende de la diferencia que exista entre el vocabulario y las frases que se usan en la aplicación y los modelos de lenguaje iniciales. Para todas las palabras nuevas, es útil proporcionar el máximo de ejemplos posible de utilización de estas palabras. Para frases comunes que se usan en la aplicación, también es útil incluir frases en los datos de lenguaje ya que indican al sistema que escuche estos términos también. Es habitual que haya al menos 100 y normalmente varios cientos de expresiones en el conjunto de datos de lenguaje o más. Además, si se espera que determinados tipos de consultas sean más habituales que otras, puede insertar varias copias de las consultas comunes en el conjunto de datos.
+**Respuesta**: Depende de la diferencia que exista entre el vocabulario y las frases que se usan en la aplicación y los modelos de lenguaje iniciales. Para todas las palabras nuevas, es útil proporcionar el máximo de ejemplos posible de utilización de estas palabras. Para frases comunes que se usan en la aplicación, también es útil incluir frases en los datos de lenguaje, ya que indican al sistema que escuche estos términos también. Es habitual que haya al menos cien y, normalmente, varios cientos de expresiones en el conjunto de datos de lenguaje o más. Además, si se espera que determinados tipos de consultas sean más habituales que otras, puede insertar varias copias de las consultas comunes en el conjunto de datos.
 
 **Pregunta**: ¿Puedo simplemente cargar una lista de palabras?
 
 **Respuesta**: La carga de una lista de palabras colocará las palabras en el vocabulario, pero no enseñará al sistema cómo se utilizan normalmente las palabras.
-Al proporcionar expresiones completas o parciales (sentencias o frases que es probable que los usuarios digan) el modelo de lenguaje puede aprender las palabras nuevas y cómo se utilizan. El modelo de lenguaje personalizado es bueno no tan solo para colocar palabras nuevas en el sistema, sino también para ajustar la probabilidad de palabras conocidas para la aplicación. Al proporcionar expresiones completas se ayuda al sistema a aprender mejor. 
+Al proporcionar expresiones completas o parciales (oraciones o frases que es probable que los usuarios digan), el modelo de lenguaje puede aprender las palabras nuevas y cómo se utilizan. El modelo de lenguaje personalizado es bueno no solo para colocar palabras nuevas en el sistema, sino también para ajustar la probabilidad de palabras conocidas para la aplicación. Al proporcionar expresiones completas se ayuda al sistema a aprender mejor. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

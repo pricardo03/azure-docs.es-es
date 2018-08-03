@@ -3,24 +3,24 @@ title: Referencia de dominio creado previamente - Azure| Microsoft Docs
 titleSuffix: Azure
 description: La referencia de dominios creados previamente, que son colecciones creadas previamente de intenciones y entidades de Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 14c53bd25913922a0cd7cc438ad0fbe8b4663dd1
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: diberry
+ms.openlocfilehash: 36e527f9afdce58475ca4c3c6e54ce393c48c983
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061971"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238903"
 ---
 # <a name="prebuilt-domain-reference"></a>Referencia de dominio creado previamente
 Esta referencia ofrece información sobre los [dominios creados previamente](luis-how-to-use-prebuilt-domains.md), que son colecciones creadas previamente de intenciones y entidades que LUIS ofrece.
 
-Los [dominios personalizados](create-new-app.md), por el contrario, se inician sin intenciones ni modelos. Puede agregar cualquier intención y entidad de dominios creados previamente a un modelo personalizado.
+Los [dominios personalizados](luis-how-to-start-new-app.md), por el contrario, se inician sin intenciones ni modelos. Puede agregar cualquier intención y entidad de dominios creados previamente a un modelo personalizado.
 
 ## <a name="list-of-prebuilt-domains"></a>Lista de dominios creados previamente
 LUIS ofrece veinte dominios creados previamente. 
@@ -102,7 +102,7 @@ El dominio de comunicación ofrece intenciones y entidades relacionadas con el c
 | AssignContactNickname| Asignar un alias a un contacto.|Cambiar Isaac por papá <br/>Editar el alias de Jim<br/>Agregar alias para Patti Owens|
 | CallVoiceMail| Conectarse al buzón de voz del usuario.|Conectarme a mi buzón de voz <br/>Buzón de voz<br/>Llamar al buzón de voz|
 | CheckIMStatus| Comprobar el estado de un contacto en Skype.|¿El estado en línea de Jim indica que está fuera? <br/>¿Carol está disponible para chatear?|
-| Confirm| Confirmar una acción.|Sí<br/>Correcto<br/>De acuerdo<br/>Confirmo que deseo enviar este correo electrónico.<br/>|
+| Confirm| Confirmar una acción.|SÍ<br/>Correcto<br/>De acuerdo<br/>Confirmo que deseo enviar este correo electrónico.<br/>|
 | Dial| Hacer una llamada telefónica.|Llamar a Jim<br/>Marcar 311<br/>|
 | FindContact| Buscar información del contacto por nombre.|Buscar el número de Carol<br/>Mostrarme el número de Carol<br/>|
 | FindSpeedDial| Buscar el número de marcación rápida establecido para un número de teléfono y viceversa.|¿A quién corresponde el número de marcación 5?<br/>¿Tengo establecida la marcación rápida?<br/>¿Cuál es el número de marcación rápida del número 941-5555-333?|
@@ -154,7 +154,7 @@ El dominio de entretenimiento ofrece intenciones y entidades relacionadas con la
 | ContentRating | Clasificación de contenido multimedia como G o R para las películas.|Vídeo para niños.<br/>Clasificación PG.|
 | Género | Género de una película, juego, aplicación o canción.|Comedias<br/>Dramas<br/>Divertido|
 | Palabra clave| Una palabra clave de búsqueda genérica que especifica un atributo que no existe en los espacios multimedia más específicos.|Soundtracks<br/>Moon River<br/>Amelia Earhart|
-| Idioma | Clasificación de contenido multimedia como G o R para las películas.|Francés<br/>English<br/>Coreano|
+| Idioma | Idioma hablado en los medios, como el idioma oral de una película o una canción.|Francés<br/>English<br/>Coreano|
 | MediaFormat | El tipo técnico especial adicional en que se da formato al elemento multimedia.|Películas de alta definición<br/>Películas tridimensionales<br/>Descargable|
 | MediaSource | La tienda o el marketplace donde adquirir el elemento multimedia.|Netflix<br/>Prime|
 | MediaSubTypes| Tipos de elementos multimedia más pequeños que las películas y los juegos.|Demostraciones<br/>DLC<br/>Clips finales|
@@ -162,7 +162,7 @@ El dominio de entretenimiento ofrece intenciones y entidades relacionadas con la
 | Persona| El actor, director, productor, músico o artista asociados con una película, aplicación, juego o programa de televisión.|Madonna<br/>Stanley Kubrick|
 | Rol| Rol que desempeña una persona en la creación de un elemento multimedia.|Canciones<br/>Dirigido por<br/>Por|
 | Título| El nombre de una película, aplicación, juego, programa de TV o canción.|Friends<br/>Minecraft|
-| Escriba| El tipo o formato multimedia de una película, aplicación, juego, programa de TV o canción.|Música<br/>Películas de TV <br/>Programas|
+| type| El tipo o formato multimedia de una película, aplicación, juego, programa de TV o canción.|Música<br/>Películas de TV <br/>Programas|
 | UserRating| Clasificación del usuario con estrellas o con el dedo pulgar hacia arriba o hacia abajo.|5 estrellas<br/>3 estrellas<br/>4 estrellas|
 
 ## <a name="events"></a>Eventos 
@@ -181,7 +181,7 @@ El dominio de eventos proporciona intenciones y entidades relacionadas con la re
 | NOMBRE | El nombre de un evento.|Shakespeare in the Park|
 | PlaceName| El nombre de ubicación del evento.|Louvre<br/>Opera House<br/>Broadway|
 | PlaceType | El tipo de ubicación en que se celebrará el evento.|Bar<br/>Teatro<br/>Biblioteca|
-| Escriba | El tipo de evento.|Concierto<br/>Encuentro deportivo|
+| type | El tipo de evento.|Concierto<br/>Encuentro deportivo|
 
 ## <a name="fitness"></a>Fitness 
 El dominio de fitness ofrece intenciones y entidades relacionadas con el control de actividades de fitness. Las intenciones incluyen guardar notas, el tiempo restante o la distancia, así como guardar los resultados de la actividad.
@@ -444,7 +444,7 @@ restart|
 | RouteAvoidanceCriteria | Criterios para evitar rutas específicas, como accidentes, obras o peajes | Peajes <br/>Obras<br/>Carretera 11|
 | ServiceProvided | Se trata del servicio que presta un negocio o lugar, como corte de pelo, quitanieves o paisajismo. | Corte de pelo<br/>Mecánico<br/>Fontanero|
 | TransportationCompany | El nombre de un proveedor de transporte.|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | El tipo de transporte.|Autobús<br/>Entrenar<br/>Conducción|
+| TransportationType | El tipo de transporte.|Autobús<br/>Train<br/>Conducción|
 
 ## <a name="reminder"></a>Reminder 
 El dominio de recordatorio ofrece intenciones y entidades relacionadas con la creación, edición y búsqueda de recordatorios.
@@ -525,7 +525,7 @@ Cancel my Uber
 | PlaceName | Nombre de un negocio local, restaurante, atracción pública o institución. |Central Park<br/>Safeway<br/>Walmart|
 | PlaceType| Tipo de lugar en el que se realiza la solicitud de reserva de un taxi.|Restaurante<br/>Opera<br/>Cine|
 | TransportationCompany | El nombre de un proveedor de transporte.|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | El tipo de transporte.|Autobús<br/>Entrenar<br/>Conducción|
+| TransportationType | El tipo de transporte.|Autobús<br/>Train<br/>Conducción|
 
 ## <a name="translate"></a>Traducir 
 El dominio de traducción ofrece intenciones y entidades relacionadas con la traducción de texto a un idioma de destino.

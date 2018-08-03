@@ -1,7 +1,7 @@
 ---
-title: 'Cómo usar tarjetas con una aplicación Conversation Learner, parte 2: Microsoft Cognitive Services | Microsoft Docs'
+title: 'Cómo usar tarjetas con un modelo de Conversation Learner, parte 2: Microsoft Cognitive Services | Microsoft Docs'
 titleSuffix: Azure
-description: Obtenga información acerca de cómo usar tarjetas con una aplicación Conversation Learner.
+description: Obtenga información sobre cómo usar tarjetas con una modelo de Conversation Learner.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,20 +10,24 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 254f0953fd3e281a35857e69d9795e3decebf45d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1c7c88742c69041594006add76f7e3c642c64dec
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381734"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170579"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Cómo usar tarjetas (parte 1 de 2)
 En este tutorial se explica cómo agregar una tarjeta de formulario rellenable al bot. Se le mostrará cómo los campos de formulario se convierten en entidades.
 
 Conversation Learner espera que los archivos de definición de tarjetas se encuentren en un directorio denominado "cards" que se encuentre en el directorio donde se ha iniciado el bot.
 
+## <a name="video"></a>Vídeo
+
+[![Vista previa del tutorial 14](http://aka.ms/cl-tutorial-14-preview)](http://aka.ms/blis-tutorial-14)
+
 ## <a name="requirements"></a>Requisitos
-Para poder realizar este tutorial debe ejecutar el bot de tutorial general.
+Para poder realizar este tutorial debe ejecutar el bot del tutorial general
 
     npm run tutorial-general
 
@@ -33,7 +37,7 @@ Las tarjetas son elementos de interfaz de usuario que permiten al usuario selecc
 
 ### <a name="open-the-demo"></a>Abrir la demostración
 
-En la lista de aplicaciones de la interfaz de usuario web, haga clic en Tutorial-14-Cards-2. 
+En la lista de modelos de la interfaz de usuario web, haga clic en Tutorial-14-Cards-2. 
 
 ### <a name="the-card"></a>Tarjeta
 

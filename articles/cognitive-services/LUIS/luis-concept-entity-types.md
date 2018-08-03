@@ -2,19 +2,19 @@
 title: Descripción de los tipos de entidades de las aplicaciones de LUIS en Azure | Microsoft Docs
 description: Agregue entidades (datos clave del dominio de la aplicación) a las aplicaciones de Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/22/2018
-ms.author: v-geberr
-ms.openlocfilehash: ccb7269109309355e2af95f6fb2aa060c1998b22
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.date: 06/28/2018
+ms.author: diberry
+ms.openlocfilehash: ace4aa48d3bfce5f88bce8947ab568f0990d67fa
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286025"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226618"
 ---
 # <a name="entities-in-luis"></a>Entidades de LUIS
 
@@ -65,19 +65,19 @@ LUIS ofrece muchos tipos de entidades: entidades creadas previamente, entidades 
 
 | NOMBRE | Se puede etiquetar | DESCRIPCIÓN |
 | -- |--|--|
-| **Creada previamente** <br/>[Personalizada](#prebuilt)| |  **Definición**<br>Tipos integrados que representan conceptos comunes. <br><br>**Lista**<br/>número de frase clave, ordinal, temperatura, dimensión, moneda, edad, porcentaje, correo electrónico, dirección URL, número de teléfono y frase clave. <br><br>Los nombres de las entidades creadas previamente están reservados. <br><br>Todas las entidades creadas previamente que se agregan a la aplicación se devuelven en la consulta de [punto de conexión](luis-glossary.md#endpoint). Para obtener más información, vea [Entidades creadas previamente](./Pre-builtEntities.md). <br/><br/>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#prebuilt-entity-data)|
+| **Creada previamente** <br/>[Personalizada](#prebuilt)| |  **Definición**<br>Tipos integrados que representan conceptos comunes. <br><br>**Lista**<br/>número de frase clave, ordinal, temperatura, dimensión, moneda, edad, porcentaje, correo electrónico, dirección URL, número de teléfono y frase clave. <br><br>Los nombres de las entidades creadas previamente están reservados. <br><br>Todas las entidades creadas previamente que se agregan a la aplicación se devuelven en la consulta de [punto de conexión](luis-glossary.md#endpoint). Para obtener más información, vea [Entidades creadas previamente](./luis-prebuilt-entities.md). <br/><br/>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#prebuilt-entity-data)|
 |<!-- added week of 3/21/08 --> **Expresión regular**<br/>[RegEx](#regex)||**Definición**<br>Expresión regular personalizada para el texto con formato de expresiones sin formato. No distingue entre mayúsculas y minúsculas e ignora la variante cultural.  <br><br>Esta entidad es adecuada para las palabras o frases que tienen un formato coherente con cualquier variación que también sea coherente.<br><br>La coincidencia de expresiones regulares se aplica después de las modificaciones de la ortografía. <br><br>Si la expresión regular es demasiado compleja (por ejemplo, uso excesivo de corchetes), no podrá agregar la expresión al modelo. <br><br>**Ejemplo**<br>`kb[0-9]{6,}` coincide con kb123456.<br/><br/>[Guía de inicio rápido](luis-quickstart-intents-regex-entity.md)<br>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md)|
 | **Simple** <br/>[Con aprendizaje automático](#machine-learned) | ✔ | **Definición**<br>Una entidad simple es una entidad genérica que describe un concepto único que se ha aprendido en un contexto de aprendizaje automático. El contexto incluye la elección de palabras, la colocación de las palabras y la longitud de la expresión.<br/><br/>Se trata de una entidad adecuada para las palabras o frases que no tienen un formato coherente pero que indican lo mismo. <br/><br/>[Guía de inicio rápido](luis-quickstart-primary-and-secondary-data.md)<br/>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#simple-entity-data)|  
-| **Lista** <br/>[Coincidencia exacta](#exact-match)|| **Definición**<br>Las entidades de lista representan un conjunto fijo y cerrado de palabras relacionadas (y sus sinónimos) del sistema. <br><br>Cada entidad de lista puede tener uno o varios formatos. Es útil para un conjunto conocido de variaciones sobre cómo representar el mismo concepto.<br/><br/>LUIS no detecta valores adicionales para las entidades de lista. Use el [diccionario semántico](luis-glossary.md#semantic-dictionary) para buscar sugerencias de palabras nuevas en función de la lista actual.<br/><br>Si hay más de una entidad de lista con el mismo valor, se devolverá cada entidad en la consulta de punto de conexión. <br/><br/>[Guía de inicio rápido](luis-quickstart-intent-and-list-entity.md)<br>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#list-entity-data)| 
+| **Lista** <br/>[Coincidencia exacta](#exact-match)|| **Definición**<br>Las entidades de lista representan un conjunto fijo y cerrado de palabras relacionadas (y sus sinónimos) del sistema. <br><br>Cada entidad de lista puede tener uno o varios formatos. Es útil para un conjunto conocido de variaciones sobre cómo representar el mismo concepto.<br/><br/>LUIS no detecta valores adicionales para las entidades de lista. Use la característica **Recommend** (Recomendar) para ver sugerencias de palabras nuevas en función de la lista actual.<br/><br>Si hay más de una entidad de lista con el mismo valor, se devolverá cada entidad en la consulta de punto de conexión. <br/><br/>[Guía de inicio rápido](luis-quickstart-intent-and-list-entity.md)<br>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[Mixto](#mixed) | ✔|**Definición**<br>Patterns.any es un marcador de posición de longitud variable que solo se usa en la expresión de plantilla de un patrón para marcar dónde empieza y acaba la entidad.  <br><br>**Ejemplo**<br>Dada una búsqueda de expresión de libros en función del título, pattern.any extrae el título completo. `Who wrote {BookTitle}[?]` es una expresión de plantilla que usa pattern.any.<br/><br/>[Tutorial](luis-tutorial-pattern.md)<br>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#composite-entity-data)|  
-| **Compuesto** <br/>[Con aprendizaje automático](#machine-learned) | ✔|**Definición**<br>Una entidad compuesta está formada por otras entidades, como las entidades creadas previamente y las entidades simples. Las entidades independientes forman una entidad completa. Las entidades de lista no se permiten en las entidades compuestas. <br><br>**Ejemplo**<br>Una entidad compuesta denominada PedidoBilleteAvión puede tener las entidades secundarias creadas previamente `number` y `ToLocation`. <br/><br/>[Tutorial](luis-tutorial-composite-entity.md)<br>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#composite-entity-data)|  
-| **Jerárquico** <br/>[Con aprendizaje automático](#machine-learned) |✔ | **Definición**<br>Una entidad jerárquica es una categoría de entidades aprendidas contextualmente.<br><br>**Ejemplo**<br>Dada una entidad jerárquica de `Location` con los elementos secundarios `ToLocation` y `FromLocation`, cada elemento secundario se puede determinar en función del **contexto** dentro de la expresión. En la expresión, `Book 2 tickets from Seattle to New York`, `ToLocation` y `FromLocation` son contextualmente diferentes teniendo en cuenta las palabras de su alrededor. <br/><br/>**No lo use si**<br>Si busca una entidad que tenga coincidencias de texto exactas para los elementos secundarios independientemente del contexto, debe usar una entidad de lista. Si busca una relación entre elementos primarios y secundarios con otros tipos de entidades, debe usar la entidad compuesta.<br/><br/>[Guía de inicio rápido](luis-quickstart-intent-and-hier-entity.md)<br>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#hierarchical-entity-data)|
+| **Compuesto** <br/>[Con aprendizaje automático](#machine-learned) | ✔|**Definición**<br>Una entidad compuesta está formada de otras entidades, como las entidades precompiladas, las entidades simples, regex, listas y jerárquicas. Las entidades independientes forman una entidad completa. Las entidades de lista no se permiten en las entidades compuestas. <br><br>**Ejemplo**<br>Una entidad compuesta denominada PedidoBilleteAvión puede tener las entidades secundarias creadas previamente `number` y `ToLocation`. <br/><br/>[Tutorial](luis-tutorial-composite-entity.md)<br>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#composite-entity-data)|  
+| **Jerárquico** <br/>[Con aprendizaje automático](#machine-learned) |✔ | **Definición**<br>Una entidad jerárquica es una categoría de entidades simples de aprendizaje contextual.<br><br>**Ejemplo**<br>Dada una entidad jerárquica de `Location` con los elementos secundarios `ToLocation` y `FromLocation`, cada elemento secundario se puede determinar en función del **contexto** dentro de la expresión. En la expresión, `Book 2 tickets from Seattle to New York`, `ToLocation` y `FromLocation` son contextualmente diferentes teniendo en cuenta las palabras de su alrededor. <br/><br/>**No lo use si**<br>Si busca una entidad que tenga coincidencias de texto exactas para los elementos secundarios independientemente del contexto, debe usar una entidad de lista. Si busca una relación entre elementos primarios y secundarios con otros tipos de entidades, debe usar la entidad compuesta.<br/><br/>[Guía de inicio rápido](luis-quickstart-intent-and-hier-entity.md)<br>[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#hierarchical-entity-data)|
 
 Las entidades <a name="prebuilt"></a>
 **creadas previamente** son entidades personalizadas que proporciona LUIS. Algunas de estas entidades se definen en el proyecto de código abierto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Hay muchos [ejemplos](https://github.com/Microsoft/Recognizers-Text/tree/master/Specs) en el directorio /Specs de las referencias culturales admitidas. Si su referencia cultural o entidad específica no se admite actualmente, colabore en el proyecto. 
 
 Las entidades de <a name="machine-learned"></a>
-**aprendizaje automático** funcionan mejor cuando se prueban con [consultas de punto de conexión](luis-concept-test.md#endpoint-testing) y con [expresiones de punto de conexión de revisión](label-suggested-utterances.md). 
+**aprendizaje automático** funcionan mejor cuando se prueban con [consultas de punto de conexión](luis-concept-test.md#endpoint-testing) y con [expresiones de punto de conexión de revisión](luis-how-to-review-endoint-utt.md). 
 
 <a name="regex"></a>
 **Las entidades de expresión regular** se definen con una expresión regular proporcionada por el usuario como parte de la definición de la entidad. 
@@ -91,10 +91,13 @@ Las entidades <a name="mixed"></a>
 ## <a name="entity-limits"></a>Límites de entidad
 Consulte los [límites](luis-boundaries.md#model-boundaries) para saber cuántas entidades de cada tipo puede agregar a un modelo.
 
+## <a name="entity-roles"></a>Roles de entidad
+Los [roles](luis-concept-roles.md) de entidad se usan solo en los patrones. 
+
 ## <a name="composite-vs-hierarchical-entities"></a>Entidades compuestas frente a entidades jerárquicas
 Las entidades compuestas y las entidades jerárquicas tienen relaciones entre elementos primarios y secundarios, y se aprenden mediante el aprendizaje automático. Gracias al aprendizaje automático, LUIS puede comprender las entidades en función de otros contextos (organización de palabras). Las entidades compuestas son más flexibles porque admiten distintos tipos de entidad como elementos secundarios. Los elementos secundarios de una entidad jerárquica son solo entidades simples. 
 
-|Escriba|Propósito|Ejemplo|
+|type|Propósito|Ejemplo|
 |--|--|--|
 |Jerárquico|Elementos primarios y secundarios de entidades simples|Location.Origin=Nueva York<br>Location.Destination=Londres|
 |Compuesto|Entidades de elementos primarios y secundarios: creada previamente, lista, simple y jerárquica| number=3<br>list=primera clase<br>prebuilt.datetimeV2=5 de marzo|
@@ -194,7 +197,7 @@ Las entidades compuestas representan partes de un total. Por ejemplo, una entida
 
 LUIS también proporciona el tipo de entidad de lista que no es de aprendizaje automático, pero permite a la aplicación de LUIS especificar una lista fija de valores. Vea la referencia de [LUIS Boundaries](luis-boundaries.md) (Límites de LUIS) para revisar los límites del tipo de entidad de lista. 
 
-Si ha tenido en cuenta las entidades jerárquicas, compuestas y de lista, y aun así necesita más del límite, póngase en contacto con el soporte técnico. Para ello, recopile información detallada sobre el sistema, vaya al sitio web de [LUIS][LUIS] y seleccione **Support** (Soporte). Si la suscripción a Azure incluye servicios de soporte técnico, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/). 
+Si ha tenido en cuenta las entidades jerárquicas, compuestas y de lista, y aun así necesita más del límite, póngase en contacto con el soporte técnico. Para ello, recopile información detallada sobre el sistema, vaya al sitio web de [LUIS](luis-reference-regions.md#luis-website) y seleccione **Support** (Soporte). Si la suscripción a Azure incluye servicios de soporte técnico, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/). 
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 
@@ -213,5 +216,3 @@ Vea los [procedimientos recomendados](luis-concept-best-practices.md) para obten
 Aprenda conceptos sobre las buenas [expresiones](luis-concept-utterance.md). 
 
 Vea [Add entities](luis-how-to-add-entities.md) (Agregar entidades) para obtener más información sobre cómo agregar entidades a la aplicación de LUIS.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

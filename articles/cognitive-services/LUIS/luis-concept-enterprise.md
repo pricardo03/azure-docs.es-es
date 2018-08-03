@@ -2,19 +2,19 @@
 title: 'Conceptos de Enterprise para una aplicación de LUIS: Azure | Microsoft Docs'
 description: Comprender los conceptos de diseño para las aplicaciones de LUIS grandes.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/05/2018
-ms.author: v-geberr
-ms.openlocfilehash: 1f501981dd4b45f4d36188ef4c2aaa6cb11881a2
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: fda4a089866950688d88f9f47988c1540abe1cc0
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263760"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224867"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estrategias de Enterprise para una aplicación de LUIS
 Revise estas estrategias de diseño de la aplicación de empresa.
@@ -27,17 +27,17 @@ Exporte la aplicación de LUIS original y luego vuelva a importar la aplicación
 
 Para obtener la misma intención principal entre todas las aplicaciones, asegúrese de que la predicción de intención entre la primera y la segunda intención sea lo suficientemente amplia para que LUIS no se confunda y dé resultados diferentes entre aplicaciones con pequeñas variaciones en las expresiones. 
 
-Designar una aplicación única como la maestra. Cualquier expresión que se sugiera para revisión debe agregarse a la aplicación maestra y luego devuelta a las demás aplicaciones. Esto implica una exportación completa de la aplicación, o bien cargar las expresiones etiquetadas desde la maestra a las secundarias. La carga se puede hacer desde el sitio web de [LUIS][LUIS] o la API de creación de una [expresión única](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) o para un [lote](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09). 
+Designar una aplicación única como la maestra. Cualquier expresión que se sugiera para revisión debe agregarse a la aplicación maestra y luego devuelta a las demás aplicaciones. Esto implica una exportación completa de la aplicación, o bien cargar las expresiones etiquetadas desde la maestra a las secundarias. La carga se puede hacer desde el sitio web de [LUIS](luis-reference-regions.md) o la API de creación de una [expresión única](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) o para un [lote](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09). 
 
-Programe una [revisión de expresiones de punto de conexión](label-suggested-utterances.md) periódica para obtener un aprendizaje activo, por ejemplo, cada dos semanas, luego vuelva a entrenar y a publicar. 
+Programe una [revisión de expresiones de punto de conexión](luis-how-to-review-endoint-utt.md) periódica para obtener un aprendizaje activo, por ejemplo, cada dos semanas, luego vuelva a entrenar y a publicar. 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>Asignar varias claves de LUIS a la misma aplicación
-Si la aplicación de LUIS recibe más visitas del punto de conexión de las que permite la cuota de la clave única, cree y asigne más claves a la aplicación de LUIS. Crear un administrador de tráfico o un equilibrador de carga para administrar las consultas del punto de conexión entre claves de la suscripción. 
+Si la aplicación de LUIS recibe más visitas del punto de conexión de las que permite la cuota de la clave única, cree y asigne más claves a la aplicación de LUIS. Cree un administrador de tráfico o un equilibrador de carga para administrar las consultas del punto de conexión entre claves del punto de conexión. 
 
 ## <a name="when-your-monolithic-app-returns-wrong-intent"></a>Si la aplicación monolítica devuelve una intención incorrecta
 Si la aplicación se ha diseñado para predecir una amplia variedad de expresiones de usuario, considere la posibilidad de implementar el [modelo de distribución](#dispatch-tool-and-model). Si interrumpe una aplicación monolítica, permite que LUIS se centre en la detección correcta entre intenciones, en lugar de confundir intenciones entre las aplicaciones principales y las secundarias. 
 
-Programe una [revisión de expresiones de punto de conexión](label-suggested-utterances.md) periódica para obtener un aprendizaje activo, por ejemplo, cada dos semanas, luego vuelva a entrenar y a publicar. 
+Programe una [revisión de expresiones de punto de conexión](luis-how-to-review-endoint-utt.md) periódica para obtener un aprendizaje activo, por ejemplo, cada dos semanas, luego vuelva a entrenar y a publicar. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>Si necesita tener más de 500 intenciones
 Por ejemplo, supongamos que está desarrollando un asistente de oficina que tiene más de 500 intenciones. Si 200 intenciones se refieren a la programación de reuniones, 200 son de recordatorios, 200 para obtener información sobre compañeros de trabajo y 200 para el envío de correo electrónico, agrupe las intenciones de forma que cada grupo esté en una única aplicación, y luego cree una aplicación de nivel superior que contenga cada intención. Use la [herramienta de distribución y la arquitectura](#dispatch-tool-and-model) para compilar la aplicación de nivel superior. Después, cambie el bot para que use la llamada en cascada como se muestra en el [tutorial de distribución][dispatcher-application-tutorial]. 
@@ -65,6 +65,5 @@ Una aplicación de distribución tiene 500 orígenes de envío, que equivalen a 
 
 * Obtenga información sobre cómo [probar un lote](luis-how-to-batch-test.md).
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 [dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
 [dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch

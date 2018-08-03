@@ -2,19 +2,19 @@
 title: 'Descripción del control de versiones de LUIS: Azure | Microsoft Docs'
 description: Obtenga información sobre cómo usar las versiones para administrar cambios en Language Understanding (LUIS)
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/13/2018
-ms.author: v-geberr
-ms.openlocfilehash: dabe7def2766770b686be3c43d4af4f331dd9577
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 17abe383d3074d636605c3b1b91927f89f7dd896
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266080"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225734"
 ---
 # <a name="versions"></a>Versiones
 Cree modelos diferentes de la misma aplicación con las [versiones](luis-how-to-manage-versions.md). 
@@ -26,7 +26,7 @@ El identificador de la versión está formado por caracteres, dígitos o ".", y 
 La versión inicial (0.1) es la versión activa predeterminada. 
 
 ## <a name="active-version"></a>Versión activa
-[Establecer una versión](luis-how-to-manage-versions.md#set-active-version) como activa significa que actualmente se edita y prueba en el sitio web de [LUIS][LUIS]. Establezca una versión como activa para tener acceso a sus datos, efectuar actualizaciones, así como para probarla y publicarla.
+[Establecer una versión](luis-how-to-manage-versions.md#set-active-version) como activa significa que actualmente se edita y prueba en el sitio web de [LUIS](luis-reference-regions.md). Establezca una versión como activa para tener acceso a sus datos, efectuar actualizaciones, así como para probarla y publicarla.
 
 El nombre de la versión activa se muestra en el panel superior izquierdo, después del nombre de la aplicación. 
 
@@ -52,7 +52,7 @@ Para poder hacer una copia de seguridad de la aplicación de LUIS, debe exportar
 Puede eliminar todas las versiones, excepto la versión activa, de la lista Versiones de la página Configuración. 
 
 ## <a name="version-availability-at-the-endpoint"></a>Disponibilidad de la versión en el punto de conexión
-Las versiones entrenadas no están disponibles automáticamente en el [punto de conexión](luis-glossary.md#endpoint) de la aplicación. Debe [publicar](PublishApp.md) o volver a publicar una versión para que esté disponible en el punto de conexión de la aplicación. Puede publicar en la fase de **ensayo** o de **producción**, lo que le ofrece hasta dos versiones de la aplicación disponibles en el punto de conexión. Si necesita que haya disponibles más versiones de la aplicación en un punto de conexión, debe exportar la versión y volver a importarla a una aplicación nueva. La nueva aplicación tiene un identificador de aplicación diferente.
+Las versiones entrenadas no están disponibles automáticamente en el [punto de conexión](luis-glossary.md#endpoint) de la aplicación. Debe [publicar](luis-how-to-publish-app.md) o volver a publicar una versión para que esté disponible en el punto de conexión de la aplicación. Puede publicar en la fase de **ensayo** o de **producción**, lo que le ofrece hasta dos versiones de la aplicación disponibles en el punto de conexión. Si necesita que haya disponibles más versiones de la aplicación en un punto de conexión, debe exportar la versión y volver a importarla a una aplicación nueva. La nueva aplicación tiene un identificador de aplicación diferente.
 
 ## <a name="collaborators"></a>Colaboradores
 El propietario y todos los [colaboradores](luis-how-to-collaborate.md) tienen acceso total a todas las versiones de la aplicación.
@@ -62,5 +62,3 @@ El propietario y todos los [colaboradores](luis-how-to-collaborate.md) tienen ac
 Vea cómo agregar el [control de versiones](luis-how-to-manage-versions.md) en la página de configuración de la aplicación. 
 
 Obtenga información sobre cómo diseñar [intenciones](luis-concept-intent.md) en el modelo.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

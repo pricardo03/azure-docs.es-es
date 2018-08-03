@@ -2,19 +2,19 @@
 title: 'Prueba por lotes de la aplicación LUIS: Azure | Microsoft Docs'
 description: Use las pruebas por lotes para trabajar continuamente en la aplicación para refinarla y mejorar la comprensión del lenguaje.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
-ms.author: v-geberr
-ms.openlocfilehash: 3803df32d6431b8413e8df0837ed62b2e4344cdc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 07/06/2018
+ms.author: diberry
+ms.openlocfilehash: bba3f2ff942fbe5dffc9b694990964e4e3078dbe
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381323"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222660"
 ---
 # <a name="batch-testing-in-luis"></a>Pruebas por lotes en LUIS
 
@@ -34,14 +34,99 @@ Envíe un archivo por lotes de expresiones, conocido como *conjunto de datos*, p
 
 *Los duplicados se consideran coincidencias exactas de cadena; no se crea el token de ninguna coincidencia primero. 
 
+## <a name="entities-allowed-in-batch-tests"></a>Entidades permitidas en las pruebas por lotes
+Las entidades incluyen entidades simples, elementos principales jerárquicos y entidades compuestas. Todas las entidades de estos tipos aparecen en el filtro de entidades de pruebas por lotes incluso si no existen entidades correspondientes en el archivo por lotes.
+
+
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>
 ## <a name="batch-file-format"></a>Formato del archivo por lotes
 El archivo por lotes está compuesto de expresiones. Cada expresión debe tener una predicción de intenciones esperada junto con todas las [entidades de aprendizaje automático](luis-concept-entity-types.md#types-of-entities) que espera detectar. 
 
-Este es un ejemplo de archivo por lotes:
+Este es un ejemplo de un archivo por lotes con la sintaxis correcta:
 
-   [!code-json[Valid batch test](~/samples-luis/documentation-samples/batch-testing/travel-agent-1.json)]
+```JSON
+[
+  {
+    "text": "Are there any janitorial jobs currently open?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  },
+  {
+    "text": "I would like a fullstack typescript programming with azure job",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 15,
+            "endPos": 46
+        }
+    ]
+  },
+  {
+    "text": "Is there a database position open in Los Colinas?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 11,
+            "endPos": 18
+        }
+    ]
+  },
+  {
+    "text": "Please find database jobs open today in Seattle",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 12,
+            "endPos": 19
+        }
+    ]
+  }
+]
+```
+
+## <a name="batch-syntax-template"></a>Plantilla de sintaxis por lotes
+
+Use la plantilla siguiente para iniciar el archivo por lotes:
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": 
+    [
+        {
+            "entity": "entity name 1 goes here",
+            "startPos": 14,
+            "endPos": 23
+        },
+        {
+            "entity": "entity name 2 goes here",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  }
+]
+```
+
+El archivo por lotes usa las propiedades **startPos** y **endPos** para tener en cuenta el inicio y el final de una entidad. Los valores se basan en cero y no pueden empezar ni terminar en un espacio. 
+
+Esto es diferente de los registros de consultas que usan las propiedades startIndex y endIndex. 
 
 
 ## <a name="common-errors-importing-a-batch"></a>Errores comunes al importar un lote
@@ -49,6 +134,7 @@ Estos son algunos de los errores comunes:
 
 > * Más de 1000 expresiones
 > * Un objeto JSON de expresiones que no tiene una propiedad de entidades
+> * Palabras etiquetadas en varias entidades
 
 ## <a name="batch-test-state"></a>Estado de la prueba por lotes
 LUIS realiza un seguimiento del estado de la última prueba de cada conjunto de datos. Esto incluye el tamaño (número de expresiones del lote), la fecha de la última ejecución y el último resultado (número de expresiones cuya predicción es correcta).

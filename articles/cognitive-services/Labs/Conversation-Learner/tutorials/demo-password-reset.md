@@ -1,7 +1,7 @@
 ---
-title: 'Aplicación Conversation Learner de demostración, restablecimiento de contraseña: Microsoft Cognitive Services | Microsoft Docs'
+title: 'Modelo de Conversation Learner de demostración, restablecimiento de contraseña: Microsoft Cognitive Services | Microsoft Docs'
 titleSuffix: Azure
-description: Obtenga información acerca de cómo crear una aplicación Conversation Learner de demostración.
+description: Obtenga información acerca de cómo crear un modelo de Conversation Learner de demostración.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,17 +10,21 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 24d61787a79ee1a1a9737c417aa966cc8fd75930
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f633dd375d690a1c3e66a2a6e02ae69665dbe960
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381754"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170640"
 ---
 # <a name="demo-password-reset"></a>Demostración: restablecimiento de contraseña
 En esta demostración se muestra un bot de soporte técnico sencillo que puede facilitar los restablecimientos de contraseña. 
 
 Muestra cómo Conversation Learner puede aprender flujos de diálogos no triviales y secuencias de varios turnos, incluida una clase fuera de dominio. Esta demostración no usa ningún código ni entidades.
+
+## <a name="video"></a>Vídeo
+
+[![Vista previa de la demostración sobre contraseñas](http://aka.ms/cl-demo-password-preview)](http://aka.ms/blis-demo-password)
 
 ## <a name="requirements"></a>Requisitos
 Para poder utilizar este tutorial, debe ejecutar el bot de restablecimiento de contraseña.
@@ -29,7 +33,7 @@ Para poder utilizar este tutorial, debe ejecutar el bot de restablecimiento de c
 
 ### <a name="open-the-demo"></a>Abrir la demostración
 
-En la lista de aplicaciones de la interfaz de usuario web, haga clic en Tutorial Demo Password Reset (Restablecimiento de contraseña para el tutorial de demostración). 
+En la lista de modelos de la interfaz de usuario web, haga clic en Tutorial Demo Password Reset. 
 
 ### <a name="actions"></a>Acciones
 
