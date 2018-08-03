@@ -1,6 +1,6 @@
 ---
-title: Países e idiomas compatibles con Bing News Search API en Azure | Microsoft Docs
-description: Averigüe qué países e idiomas son compatibles con Bing Image Search API.
+title: Países e idiomas o regiones compatibles con Bing News Search API en Azure | Microsoft Docs
+description: Averigüe qué países o regiones e idiomas se admiten en Bing Image Search API.
 services: cognitive-services
 author: MikeDodaro
 manager: rosh
@@ -9,26 +9,26 @@ ms.component: bing-news-search
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: v-gedod
-ms.openlocfilehash: 80326d66e509b64efd5d386fe793bc9942b29ae3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1cdacc82b680407814ff2d88e8ed43deacfb17d0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380358"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001667"
 ---
-# <a name="bing-news-search-countries-and-languages"></a>Países e idiomas de Bing News Search
+# <a name="bing-news-search-countriesregions-and-languages"></a>Países o regiones e idiomas de Bing News Search
 
-Bing News Search API admite numerosos países, muchos de ellos con más de un idioma. La especificación de un país en una consulta sirve principalmente para refinar los resultados de la búsqueda en función de los intereses en ese país. Además, los resultados pueden contener vínculos a Bing, y estos vínculos pueden localizar la experiencia del usuario de Bing según el país especificado o el idioma.
+Bing News Search API admite numerosos países o regiones, muchos de ellos con más de un idioma. La especificación de un país o región en una consulta sirve principalmente para refinar los resultados de la búsqueda en función de los intereses en ese país o región. Además, los resultados pueden contener vínculos a Bing, y estos vínculos pueden localizar la experiencia del usuario de Bing según el país o región especificado o el idioma.
 
-Puede especificar un país utilizando el parámetro de consulta `cc`. Si especifica un país, también debe especificar uno o más códigos de idioma con el encabezado HTTP `Accept-Language`. Los idiomas admitidos varían según el país; se facilitan para cada país en la tabla Mercados.
+Puede especificar un país o región utilizando el parámetro de consulta `cc`. Si especifica un país o región, también debe especificar uno o más códigos de idioma con el encabezado HTTP `Accept-Language`. Los idiomas admitidos varían según el país o región; se facilitan para cada país en la tabla Mercados.
 
-Como alternativa, puede especificar el mercado con el parámetro de consulta `mkt` y un código de la tabla **Mercados**. La especificación de un mercado especifica al mismo tiempo un país y un idioma preferido. El parámetro de consulta `setLang` puede establecerse en un código de idioma en este caso; normalmente se trata del mismo idioma especificado por `mkt` a menos que el usuario prefiera ver Bing en otro idioma.
+Como alternativa, puede especificar el mercado con el parámetro de consulta `mkt` y un código de la tabla **Mercados**. La especificación de un mercado especifica al mismo tiempo un país o región y un idioma preferido. El parámetro de consulta `setLang` puede establecerse en un código de idioma en este caso; normalmente se trata del mismo idioma especificado por `mkt` a menos que el usuario prefiera ver Bing en otro idioma.
 
 ## <a name="supported-markets-for-news-search-endpoint"></a>Mercados compatibles para el punto de conexión de búsqueda de noticias
 
 En la tabla siguiente se listan los valores de código de mercado para el punto de conexión `/news/search` que puede usar para especificar el parámetro de consulta `mkt`. Bing devuelve contenido para estos mercados solamente. La lista está sujeta a cambios.  
   
-Para obtener una lista de códigos de país que puede especificar en el parámetro de consulta `cc`, vea [Country Codes](#countrycodes) (Códigos de país).  
+Para obtener una lista de códigos de país que puede especificar en el parámetro de consulta `cc`, consulte [Códigos de país](#countrycodes).  
   
 |País/región|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------| 
@@ -77,7 +77,7 @@ Para obtener una lista de códigos de país que puede especificar en el parámet
 ## <a name="supported-markets-for-news-endpoint"></a>Mercados compatibles para el punto de conexión de noticias
 En la tabla siguiente se listan los valores de código de mercado para el punto de conexión `/news` que puede usar para especificar el parámetro de consulta `mkt`. Bing devuelve contenido para estos mercados solamente. La lista está sujeta a cambios.  
   
-Para obtener una lista de códigos de país que puede especificar en el parámetro de consulta `cc`, vea [Country Codes](#countrycodes) (Códigos de país).  
+Para obtener una lista de códigos de país que puede especificar en el parámetro de consulta `cc`, consulte [Códigos de país](#countrycodes).  
   
 |País/región|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------| 
@@ -100,7 +100,7 @@ Para obtener una lista de códigos de país que puede especificar en el parámet
 ## <a name="supported-markets-for-news-trending-endpoint"></a>Mercados compatibles para el punto de conexión de noticias populares
 En la tabla siguiente se listan los valores de código de mercado para el punto de conexión `/news/trendingtopics` que puede usar para especificar el parámetro de consulta `mkt`. Bing devuelve contenido para estos mercados solamente. La lista está sujeta a cambios.  
   
-Para obtener una lista de códigos de país que puede especificar en el parámetro de consulta `cc`, vea [Country Codes](#countrycodes) (Códigos de país).  
+Para obtener una lista de códigos de país que puede especificar en el parámetro de consulta `cc`, consulte [Códigos de país](#countrycodes).  
   
 |País/región|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------| 
@@ -119,7 +119,7 @@ Para obtener una lista de códigos de país que puede especificar en el parámet
 <a name="countrycodes"></a>   
 ### <a name="country-codes"></a>Códigos de país  
 
-Los códigos de país siguientes se pueden especificar en el parámetro de consulta `cc`. La lista está sujeta a cambios.  
+Los códigos de país o región siguientes se pueden especificar en el parámetro de consulta `cc`. La lista está sujeta a cambios.  
   
 |País/región|Código de país|  
 |---------------------|------------------|  

@@ -9,22 +9,22 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a25c2b7ea7fdfcc6bcaa10baff3a5ae14ae9753b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 311d0cb7f208c0f720b8611510fb65efc65c12bc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37044827"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112880"
 ---
 # <a name="speech-service-rest-apis"></a>API REST del servicio Speech
 
 Las API REST del servicio Speech unificado son similares a las API que proporciona [Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech) (lo que antes se conocía como el servicio Bing Speech). Los puntos de conexión son distintos de los usados por el servicio Speech.
 
-## <a name="speech-to-text"></a>Conversión de voz en texto
+## <a name="speech-to-text"></a>Speech to Text
 
 En Speech to Text API, solo los puntos de conexión usados se diferencian de la API anterior de reconocimiento de voz del servicio Speech. Los nuevos puntos de conexión se muestran en la tabla siguiente. Use el que coincida con su región de suscripción.
 
-[!include[](includes/endpoints-speech-to-text.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 Aparte de esto, Speech to Text API es parecida a la [API REST](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) de la Speech API anterior.
 
@@ -55,7 +55,7 @@ es-ES  | English (Estados Unidos) | Hombre   | "Microsoft Server Speech Text to 
 
 Estos son los puntos de conexión de REST para la Text to Speech API del servicio unificado Speech. Use el que coincida con su región de suscripción.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 Tenga en cuenta estas diferencias al consultar la Speech API anterior en la [documentación de API REST](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput).
 
@@ -63,7 +63,7 @@ Tenga en cuenta estas diferencias al consultar la Speech API anterior en la [doc
 
 Para enviar una solicitud a la API REST del servicio Speech es necesario un token de acceso. Para obtener el token de acceso, se proporciona la clave de suscripción a un punto de conexión `issueToken` del servicio Speech regional, que se muestra en la tabla siguiente. Use el que coincida con su región de suscripción.
 
-[!include[](includes/endpoints-token-service.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
 Cada token de acceso tiene una validez de 10 minutos. En cualquier momento puede obtener un nuevo token, incluso si quiere, justo antes de cada solicitud de API REST de Speech. No obstante, para reducir el tráfico de red y la latencia, se recomienda usar el mismo token durante nueve minutos.
 
@@ -265,5 +265,7 @@ Al igual que antes, asegúrese de que el valor `FetchTokenUri` coincida con su r
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtenga su suscripción de prueba a Speech](https://azure.microsoft.com/try/cognitive-services/)
-* [Consulte cómo personalizar un modelo de voz](how-to-customize-speech-models.md)
+- [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Personalización de modelos acústicos](how-to-customize-acoustic-models.md)
+- [Personalización de modelos de lenguaje](how-to-customize-language-model.md)
+

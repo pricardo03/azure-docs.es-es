@@ -9,12 +9,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 36d8e5a1d9f86da94fbdbe4ff01e93ba32ce6af6
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: d8df77d43441331bdda38814e4bddfb29d1576c1
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301468"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868405"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-java"></a>Guía de inicio rápido de Microsoft QnA Maker API con Java 
 <a name="HOLTop"></a>
@@ -598,7 +598,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>Obtención del estado de la solicitud
 
-Puede llamar al método [Operación](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) para comprobar el estado de una solicitud para crear o actualizar una base de conocimiento. Para ver cómo se utiliza este método, consulte el código de ejemplo para el método [Crear](#Create) o [Actualizar](#Update).
+Puede llamar al método [Operación](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) a fin de comprobar el estado de una solicitud para crear o actualizar una base de conocimiento. Para ver cómo se utiliza este método, consulte el código de ejemplo para el método [Crear](#Create) o [Actualizar](#Update).
 
 [Volver arriba](#HOLTop)
 
@@ -1054,7 +1054,7 @@ El siguiente código obtiene las respuestas de una pregunta con la base de conoc
 1. Cree un nuevo proyecto de Java en su IDE favorito.
 1. Agregue el código que se proporciona a continuación.
 1. Reemplace el valor `host` por el nombre del sitio web de su suscripción a QnA Maker. Para más información, consulte [Create a QnA Maker service](../How-To/set-up-qnamaker-service-azure.md) (Creación de un servicio de QnA Maker).
-1. Reemplace el valor `endpoint_key` por una clave de punto de conexión válida para la suscripción. Tenga en cuenta es una clave distinta a la clave de suscripción. Puede obtener las claves de punto de conexión mediante el método [Obtener claves de punto de conexión](#GetKeys).
+1. Reemplace el valor `endpoint_key` por una clave de punto de conexión válida para la suscripción. Tenga en cuenta que es una clave distinta a la clave de suscripción. Puede obtener las claves de punto de conexión mediante el método [Get endpoint keys](#GetKeys) (Obtener claves de punto de conexión).
 1. Reemplace el valor `kb` por el identificador de la base de conocimiento que quiere consultar para obtener respuestas. Tenga en cuenta que esta base de conocimiento ya debe haberse publicado mediante el método [Publicar](#Publish).
 1. Ejecute el programa.
 

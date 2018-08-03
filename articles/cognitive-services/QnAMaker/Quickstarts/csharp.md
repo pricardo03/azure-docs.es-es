@@ -9,12 +9,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 15f0415819bc0ae51e8160bb2b4a12c409b13baa
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 4bcc52547b5610bcb8dfa9b0cc56b2afc40e3c32
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301349"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866090"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Inicio rápido de Microsoft QnA Maker API con C# 
 <a name="HOLTop"></a>
@@ -22,19 +22,19 @@ ms.locfileid: "36301349"
 En este artículo, se muestra cómo utilizar [Microsoft QnA Maker API](../Overview/overview.md) con C# para hacer lo siguiente.
 
 - [Crear una base de conocimiento.](#Create)
-- [Actualizar una base de conocimiento existente.](#Update)
-- [Obtener el estado de una solicitud para crear o actualizar una base de conocimiento.](#Status)
-- [Publicar una base de conocimiento existente.](#Publish)
-- [Reemplazar el contenido de una base de conocimiento existente.](#Replace)
-- [Descargar el contenido de una base de conocimiento.](#GetQnA)
-- [Obtener respuestas a una pregunta con una base de conocimiento.](#GetAnswers)
-- [Obtener información acerca de una base de conocimiento.](#GetKB)
-- [Obtener información acerca de todas las bases de conocimiento que pertenecen al usuario especificado.](#GetKBsByUser)
-- [Eliminar una base de conocimiento.](#Delete)
-- [Obtener las claves del punto de conexión actual.](#GetKeys)
-- [Regenerar las claves del punto de conexión actual.](#PutKeys)
-- [Obtener el conjunto actual de modificaciones de palabras.](#GetAlterations)
-- [Reemplazar el conjunto actual de modificaciones de palabras.](#PutAlterations)
+- [Actualizar una base de conocimiento existente](#Update)
+- [Obtener el estado de una solicitud para crear o actualizar una base de conocimiento](#Status)
+- [Publicar una base de conocimiento existente](#Publish)
+- [Reemplazar el contenido de una base de conocimiento existente](#Replace)
+- [Descargar el contenido de una base de conocimiento](#GetQnA)
+- [Obtener respuestas a una pregunta con una base de conocimiento](#GetAnswers)
+- [Obtener información acerca de una base de conocimiento](#GetKB)
+- [Obtener información acerca de todas las bases de conocimiento que pertenecen al usuario especificado](#GetKBsByUser)
+- [Eliminar una base de conocimiento](#Delete)
+- [Obtener las claves del punto de conexión actual](#GetKeys)
+- [Regenerar las claves del punto de conexión actual](#PutKeys)
+- [Obtener el conjunto actual de modificaciones de palabras](#GetAlterations)
+- [Reemplazar el conjunto actual de modificaciones de palabras](#PutAlterations)
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -49,7 +49,7 @@ Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azu
 El siguiente código crea una nueva base de conocimiento, con el método [Crear](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff).
 
 1. Cree un nuevo proyecto de C# en su IDE favorito.
-2. Agregue el código que se le ha proporcionado a continuación.
+2. Agregue el código que se proporciona a continuación.
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
@@ -208,7 +208,7 @@ namespace QnAMaker
 
 **Creación de la respuesta de una base de conocimiento**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {
@@ -246,7 +246,7 @@ Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente 
 El siguiente código actualiza una base de conocimiento existente con el método [Actualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
 
 1. Cree un nuevo proyecto de C# en su IDE favorito.
-2. Agregue el código que se le ha proporcionado a continuación.
+2. Agregue el código que se proporciona a continuación.
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
@@ -409,7 +409,7 @@ namespace QnAMaker
 
 **Actualización de la respuesta de una base de conocimiento**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {
@@ -448,7 +448,7 @@ Puede llamar al método [Operación](https://westus.dev.cognitive.microsoft.com/
 El siguiente código publica una base de conocimiento existente con el método [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
 
 1. Cree un nuevo proyecto de C# en su IDE favorito.
-2. Agregue el código que se le ha proporcionado a continuación.
+2. Agregue el código que se proporciona a continuación.
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
@@ -526,7 +526,7 @@ namespace QnAMaker
 
 **Publicación de la respuesta de una base de conocimiento**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {
@@ -543,7 +543,7 @@ Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente 
 El siguiente código reemplaza el contenido de la base de conocimiento especificada con el método [Reemplazar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish).
 
 1. Cree un nuevo proyecto de C# en su IDE favorito.
-2. Agregue el código que se le ha proporcionado a continuación.
+2. Agregue el código que se proporciona a continuación.
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
@@ -643,7 +643,7 @@ namespace QnAMaker
 
 **Reemplazo de la respuesta de una base de conocimiento**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {
@@ -660,7 +660,7 @@ Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente 
 El siguiente código descarga el contenido de la base de conocimiento especificada con el método [Download knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) (Descargar base de conocimiento).
 
 1. Cree un nuevo proyecto de C# en su IDE favorito.
-2. Agregue el código que se le ha proporcionado a continuación.
+2. Agregue el código que se proporciona a continuación.
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
@@ -735,7 +735,7 @@ namespace QnAMaker
 
 **Descarga de la respuesta de una base de conocimiento**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {
@@ -778,9 +778,9 @@ El siguiente código obtiene las respuestas de una pregunta con la base de conoc
 
 1. Cree un nuevo proyecto de C# en su IDE favorito.
 1. Agregue el código que se le ha proporcionado a continuación.
-1. Reemplace el valor `host` por el nombre del sitio web de su suscripción a QnA Maker. Para obtener más información, consulte [Create a QnA Maker service](../How-To/set-up-qnamaker-service-azure.md) (Creación de un servicio de QnA Maker).
+1. Reemplace el valor `host` por el nombre del sitio web de su suscripción a QnA Maker. Para más información, consulte [Create a QnA Maker service](../How-To/set-up-qnamaker-service-azure.md) (Creación de un servicio de QnA Maker).
 1. Reemplace el valor `endpoint_key` por una clave de punto de conexión válida para la suscripción. Tenga en cuenta que es una clave distinta a la clave de suscripción. Puede obtener las claves de punto de conexión mediante el método [Get endpoint keys](#GetKeys) (Obtener claves de punto de conexión).
-1. Reemplace el valor `kb` con el id. de la base de conocimiento que quiere consultar para obtener respuestas. Tenga en cuenta que esta base de conocimiento ya debe haberse publicado mediante el método [Publicar](#Publish).
+1. Reemplace el valor `kb` por el identificador de la base de conocimiento que quiere consultar para obtener respuestas. Tenga en cuenta que esta base de conocimiento ya debe haberse publicado mediante el método [Publicar](#Publish).
 1. Ejecute el programa.
 
 ```csharp
@@ -851,7 +851,7 @@ namespace QnAMaker
 
 **Obtención de respuestas**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {
@@ -880,7 +880,7 @@ Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente 
 El siguiente código obtiene información sobre la base de conocimiento especificada mediante el método [Get knowledge base details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) (Obtener detalles de la base de conocimiento).
 
 1. Cree un nuevo proyecto de C# en su IDE favorito.
-2. Agregue el código que se le ha proporcionado a continuación.
+2. Agregue el código que se proporciona a continuación.
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
@@ -951,7 +951,7 @@ namespace QnAMaker
 
 **Obtención de respuesta de detalles de la base de conocimiento**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {
@@ -980,7 +980,7 @@ Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente 
 El siguiente código obtiene información sobre todas las bases de conocimiento para un usuario especificado mediante el método [Get knowledge bases for user](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) (Obtener bases de conocimiento para el usuario).
 
 1. Cree un nuevo proyecto de C# en su IDE favorito.
-2. Agregue el código que se le ha proporcionado a continuación.
+2. Agregue el código que se proporciona a continuación.
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
@@ -1048,7 +1048,7 @@ namespace QnAMaker
 
 **Obtención de respuesta de bases de conocimiento para el usuario**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {
@@ -1093,7 +1093,7 @@ Press any key to continue.
 El siguiente código elimina el contenido de la base de conocimiento especificada con el método [Delete knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) (Eliminar base de conocimiento).
 
 1. Cree un nuevo proyecto de C# en su IDE favorito.
-2. Agregue el código que se le ha proporcionado a continuación.
+2. Agregue el código que se proporciona a continuación.
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
@@ -1170,7 +1170,7 @@ namespace QnAMaker
 
 **Eliminación de la respuesta de la base de conocimiento**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {
@@ -1187,7 +1187,7 @@ Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente 
 El siguiente código obtiene las claves del punto de conexión actual mediante el método [Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) (Obtener claves de punto de conexión).
 
 1. Cree un nuevo proyecto de C# en su IDE favorito.
-2. Agregue el código que se le ha proporcionado a continuación.
+2. Agregue el código que se proporciona a continuación.
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
@@ -1254,7 +1254,7 @@ namespace QnAMaker
 
 **Obtención de la respuesta de claves de punto de conexión**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {
@@ -1272,7 +1272,7 @@ Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente 
 El siguiente código regenera las claves del punto de conexión actual mediante el método [Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) (Actualizar claves de punto de conexión).
 
 1. Cree un nuevo proyecto de C# en su IDE favorito.
-2. Agregue el código que se le ha proporcionado a continuación.
+2. Agregue el código que se proporciona a continuación.
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
@@ -1342,7 +1342,7 @@ namespace QnAMaker
 
 **Actualización de la respuesta de claves de punto de conexión**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {
@@ -1360,7 +1360,7 @@ Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente 
 El siguiente código obtiene las modificaciones de palabras actuales mediante el método [Download alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) (Descargar modificaciones).
 
 1. Cree un nuevo proyecto de C# en su IDE favorito.
-2. Agregue el código que se le ha proporcionado a continuación.
+2. Agregue el código que se proporciona a continuación.
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
@@ -1427,7 +1427,7 @@ namespace QnAMaker
 
 **Obtención de la respuesta de modificaciones de palabras**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {
@@ -1451,7 +1451,7 @@ Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente 
 El siguiente código reemplaza las modificaciones de palabras actuales mediante el método [Replace alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) (Reemplazar modificaciones).
 
 1. Cree un nuevo proyecto de C# en su IDE favorito.
-2. Agregue el código que se le ha proporcionado a continuación.
+2. Agregue el código que se proporciona a continuación.
 3. Reemplace el valor `key` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
@@ -1551,7 +1551,7 @@ namespace QnAMaker
 
 **Reemplazo de la respuesta de modificaciones de palabras**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {
@@ -1568,4 +1568,4 @@ Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente 
 
 ## <a name="see-also"></a>Otras referencias 
 
-[Información general de QnA Maker](../Overview/overview.md)
+[Introducción de QnA Maker](../Overview/overview.md)

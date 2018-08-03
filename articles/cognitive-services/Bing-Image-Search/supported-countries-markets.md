@@ -1,6 +1,6 @@
 ---
-title: Países e idiomas compatibles con Bing Image Search API en Azure | Microsoft Docs
-description: Averigüe qué países e idiomas son compatibles con Bing Image Search API.
+title: Países e idiomas admitidos en Bing Image Search API en Azure | Microsoft Docs
+description: Averigüe qué países o regiones e idiomas se admiten en Bing Image Search API.
 services: cognitive-services
 author: v-jerkin
 manager: jhubbard
@@ -9,23 +9,23 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 10/06/2017
 ms.author: v-jerkin
-ms.openlocfilehash: d0d33ee714ba5cd1ce4e846b96c04f755933bee1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 97e2bed509146172c10aa9ac2658b99ed7610fcc
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382091"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004445"
 ---
-# <a name="bing-image-search-countries-and-languages"></a>Países e idiomas de Bing Image Search
+# <a name="bing-image-search-countriesregions-and-languages"></a>Países o regiones e idiomas de Bing Image Search
 
-Bing Image Search API admite más de tres decenas países, muchos de ellos con más de un idioma. La especificación de un país en una consulta sirve principalmente para refinar los resultados de la búsqueda en función de los intereses en ese país. Además, los resultados pueden contener vínculos a Bing, y estos vínculos pueden localizar la experiencia del usuario de Bing según el país o el idioma especificado.
+Bing Image Search API admite más de 36 países o regiones, muchos de ellos con más de un idioma. La especificación de un país o región en una consulta sirve principalmente para refinar los resultados de la búsqueda en función de los intereses en ese país o región. Además, los resultados pueden contener vínculos a Bing, y estos vínculos pueden localizar la experiencia del usuario de Bing según el país o región especificado o el idioma.
 
-Para especificar el país y el idioma, establezca el parámetro de consulta `mkt` (mercado) en un código de la tabla **Mercados** siguiente. El mercado especifica un país y un idioma. Si el usuario prefiere ver el texto de la pantalla en un idioma diferente, establezca el parámetro de consulta `setLang`en el código de idioma adecuado.
+Para especificar el país o región y el idioma, establezca el parámetro de consulta `mkt` (mercado) en un código de la tabla **Mercados** siguiente. El mercado especifica un país o región y un idioma. Si el usuario prefiere ver el texto de la pantalla en un idioma diferente, establezca el parámetro de consulta `setLang`en el código de idioma adecuado.
 
-También puede especificar el país utilizando el parámetro de consulta `cc`. Si especifica un país, también debe especificar uno o más códigos de idioma con el encabezado HTTP `Accept-Language`. Los idiomas admitidos varían según el país; se facilitan para cada país en la tabla Mercados.
+También puede especificar el país o región utilizando el parámetro de consulta `cc`. Si especifica un país o región, también debe especificar uno o más códigos de idioma con el encabezado HTTP `Accept-Language`. Los idiomas admitidos varían según el país o región; se facilitan para cada país en la tabla Mercados.
 
 > [!NOTE]
-> La API de imágenes de tendencia solo admite actualmente los mercados siguientes:
+> Trending Images API solo se admite actualmente en los mercados siguientes:
 > - en-US (inglés, Estados Unidos) 
 > - en-CA (inglés, Canadá) 
 > - en-AU (inglés, Australia) 
@@ -33,7 +33,7 @@ También puede especificar el país utilizando el parámetro de consulta `cc`. S
 
 ## <a name="countries"></a>Países
 
-|País|Código|
+|País/región|Código|
 |-------|----|
 |Argentina|AR|
 |Australia|AU|
@@ -75,7 +75,7 @@ También puede especificar el país utilizando el parámetro de consulta `cc`. S
 
 ## <a name="markets"></a>Mercados
 
-|País|Idioma|Código de mercado|
+|País/región|Idioma|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Español|es-AR|
 |Australia|English|en-AU|

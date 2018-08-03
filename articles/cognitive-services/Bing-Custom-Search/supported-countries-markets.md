@@ -1,6 +1,6 @@
 ---
-title: Países e idiomas compatibles con Bing Custom Search API en Azure | Microsoft Docs
-description: Averigüe qué países e idiomas son compatibles con Bing Custom Search API.
+title: Países o regiones e idiomas admitidos con Bing Custom Search API en Azure | Microsoft Docs
+description: Averigüe qué países o regiones e idiomas se admiten con Bing Custom Search API.
 services: cognitive-services
 author: mikedodaro
 manager: ronakshah
@@ -9,26 +9,26 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: v-gedod
-ms.openlocfilehash: 7ff309f9b789662c4ebd791dffaa2bc2e440763e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7009991ddd0bc8fd9fc68eaab57585b752db1fc1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381018"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006502"
 ---
-# <a name="bing-custom-search-countries-and-languages"></a>Países e idiomas de Bing Custom Search
+# <a name="bing-custom-search-countriesregions-and-languages"></a>Países o regiones e idiomas de Bing Custom Search
 
-Bing Custom Search API admite más de tres docenas de países, muchos de ellos con más de un idioma. 
+Bing Custom Search API admite más de 36 países o regiones, muchos de ellos con más de un idioma. 
 
 Aunque es opcional, la solicitud debe especificar el parámetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#mkt), que identifica el mercado de donde desea que procedan los resultados. Para ver una lista de parámetros de consulta opcionales, consulte [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) (Parámetros de consulta).
 
-Puede especificar un país utilizando el parámetro de consulta `cc`. Si especifica un país, también debe especificar uno o más códigos de idioma con el encabezado `Accept-Language`. Los idiomas admitidos varían según el país; se facilitan para cada país en la tabla **Mercados**.
+Puede especificar un país o región utilizando el parámetro de consulta `cc`. Si especifica un país o región, también debe especificar uno o más códigos de idioma con el encabezado `Accept-Language`. Los idiomas admitidos varían según el país o región; se facilitan para cada país en la tabla **Mercados**.
 
 El encabezado `Accept-Language` y el parámetro de consulta `setLang` son mutuamente excluyentes, no especifique ambos. Para obtener más información, consulte [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
 
 ## <a name="countries"></a>Países
 
-|País|Código|
+|País/región|Código|
 |-------|----|
 |Argentina|AR|
 |Australia|AU|
@@ -70,7 +70,7 @@ El encabezado `Accept-Language` y el parámetro de consulta `setLang` son mutuam
 
 ## <a name="markets"></a>Mercados
 
-|País|Idioma|Código de mercado|
+|País/región|Idioma|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Español|es-AR|
 |Australia|English|en-AU|

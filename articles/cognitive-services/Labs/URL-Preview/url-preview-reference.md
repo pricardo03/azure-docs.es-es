@@ -9,12 +9,12 @@ ms.technology: project-url-preview
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: adc2f83f703e740e40d9ba4fd3ed08ba429e5d97
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 46c011d62b6ae51f5f7d292345e6ece0e27a8541
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381878"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865882"
 ---
 # <a name="project-url-preview-v7-reference"></a>Referencia de Project URL Preview v7
 
@@ -74,7 +74,7 @@ A continuación se indican los encabezados que una solicitud y una respuesta pue
 La solicitud puede incluir los siguientes parámetros de consulta. Consulte la columna Obligatorio para saber cuáles son los parámetros obligatorios. Debe codificar como dirección URL los parámetros de la consulta. La consulta debe ser una dirección URL absoluta con un esquema http o https; no se admiten las direcciones URL relativas ni otros esquemas, como ftp://.
   
   
-|NOMBRE|Valor|Escriba|Obligatorio|  
+|NOMBRE|Valor|type|Obligatorio|  
 |----------|-----------|----------|--------------|  
 |<a name="mkt" />mkt|Mercado de donde proceden los resultados. <br /><br />Para obtener una lista de los valores de mercado posibles, consulte [Códigos de mercado](#market-codes).<br /><br /> **NOTA:** URL Preview API solo admite actualmente la geografía de Estados Unidos y el idioma inglés.<br /><br />|string|Sí|  
 |<a name="query" />q|Dirección URL para la vista previa.|string|Sí|  
@@ -93,7 +93,7 @@ El esquema de respuesta es un objeto [WebPage] o ErrorResponse, como se muestra 
 ### <a name="error"></a>Error  
 Define el error que se produjo.  
   
-|Elemento|DESCRIPCIÓN|Escriba|  
+|Elemento|DESCRIPCIÓN|type|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />code|Código de error que identifica la categoría de error. Para obtener una lista de los códigos posibles, consulte [Códigos de error](#error-codes).|string|  
 |<a name="error-message" />message|Descripción del error.|string|  
@@ -106,7 +106,7 @@ Define el error que se produjo.
 ### <a name="errorresponse"></a>ErrorResponse  
 Objeto de nivel superior que la respuesta incluye cuando se produce un error en la solicitud.  
   
-|NOMBRE|Valor|Escriba|  
+|NOMBRE|Valor|type|  
 |----------|-----------|----------|  
 |_type|Sugerencia de tipo.|string|  
 |<a name="errors" />errors|Lista de errores que describen los motivos que causaron un error en la solicitud.|[Error](#error)[]|   
@@ -115,17 +115,17 @@ Objeto de nivel superior que la respuesta incluye cuando se produce un error en 
 ### <a name="webpage"></a>WebPage  
 Define la información sobre una página web en la vista previa.  
   
-|NOMBRE|Valor|Escriba|  
+|NOMBRE|Valor|type|  
 |----------|-----------|----------|
 |Nombre|Título de la página (no necesariamente el título HTML).|string|
 |URL|Dirección URL que se rastreó realmente (la solicitud puede tener redireccionamientos con seguimiento)|string|  
-|Descripción|Breve descripción de la página y el contenido.|string|  
+|Descripción|Breve descripción de la página y el contenido|string|  
 |isFamilyFriendly|Más preciso para elementos del índice web; las capturas en tiempo real realizan esta detección basada únicamente en la dirección URL y no en el contenido de la página.|boolean|
 |primaryImageOfPage/contentUrl|Dirección URL de una imagen representativa que se incluirá en la vista previa.|string| 
 
 
 ### <a name="identifiable"></a>Identifiable
-|NOMBRE|Valor|Escriba|  
+|NOMBRE|Valor|type|  
 |-------------|-----------------|----------|
 |id|Identificador de recursos.|string|
  

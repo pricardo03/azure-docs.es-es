@@ -8,20 +8,20 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/16/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7f39f284998489574049d82c44b3d3a0a3797adb
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 6acfcf0ae8ab4c63e6cc943f93da6b947f3d118c
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35383420"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071103"
 ---
 # <a name="translate-speech-using-speech-service"></a>Traducción de voz mediante el servicio Voz
 
 El [SDK de Voz](speech-sdk.md) es la manera más sencilla de usar la traducción de voz en la aplicación. El SDK proporciona toda la funcionalidad del servicio. El proceso básico para llevar a cabo la traducción de voz incluye los pasos siguientes:
 
-1. Cree un generador de voz y proporcione una clave de suscripción al servicio Voz o un token de autorización. En este momento también se configuran los idiomas de traducción de origen y de destino, y se especifica si quiere salida de texto o de voz.
+1. Cree un generador de voz y proporcione una clave de suscripción al servicio Voz y una [región](regions.md) o un token de autorización. En este momento también se configuran los idiomas de traducción de origen y de destino, y se especifica si quiere salida de texto o de voz.
 
 2. Obtenga un reconocedor del generador. Para la traducción, seleccione un reconocedor de traducción. (Los otros identificadores son para *Conversión de voz en texto*). Hay distintas versiones de reconocedor de traducción en función del origen de audio que se use.
 
@@ -36,4 +36,4 @@ Para obtener el conjunto más reciente de ejemplos, consulte el [repositorio de 
 # <a name="next-steps"></a>Pasos siguientes
 
 - [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/)
-- [Reconocimiento de voz en C#](quickstart-csharp-windows.md)
+- [Reconocer la voz en C#](quickstart-csharp-dotnet-windows.md)

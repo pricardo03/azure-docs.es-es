@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 48fc234e15ce3b9172d766f6fae11b51a017ce70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d9391cc486dc868a1a291ccc7095291cddd3e4c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35382953"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858466"
 ---
 # <a name="call-bing-custom-search-endpoint-nodejs"></a>Llamada a un punto de conexión de Bing Custom Search (Node.js)
 
@@ -34,12 +34,16 @@ Para completar este inicio rápido necesita instalar:
 Para llamar al punto de conexión Bing Custom Search, siga estos pasos:
 
 1. Cree una carpeta para el código.
+
 2. Desde un terminal o símbolo del sistema, vaya a la carpeta que acaba de crear.
+
 3. Instale el módulo de Node **request**:
     <pre>
     npm install request
     </pre>
+    
 4. Cree el archivo BingCustomSearch.js y copie en él el código siguiente.
+
 5. Reemplace los valores de **YOUR-SUBSCRIPTION-KEY** y **YOUR-CUSTOM-CONFIG-ID** por su clave y su identificador de configuración (consulte el paso 1).
 
     ``` javascript

@@ -9,12 +9,12 @@ ms.technology: microsoft translator
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 31435fcfca61517bfc72d534e911a1dcadbee52b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5a186f60dc099b095c00056d965aa92618c2c708
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382407"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868092"
 ---
 # <a name="text-api-30-dictionary-lookup"></a>Text API 3.0: búsqueda de diccionario
 
@@ -120,7 +120,7 @@ Una respuesta correcta, es una matriz JSON con un resultado para cada cadena en 
 
     * `confidence`: es un valor entre 0,0 y 1,0 que representa la "confianza" o, más exactamente, la "probabilidad en los datos de aprendizaje" del par de traducción. La suma de las puntuaciones de confianza para una palabra de origen puede, o no, sumar 1,0. 
 
-    * `prefixWord`: es una cadena que indica que la palabra a mostrar es un prefijo en la traducción. En la actualidad, este es el determinante de género de los sustantivos, que se usa en idiomas que tienen determinantes de género. Por ejemplo, el prefijo de la palabra en español "mosca" es "la", ya que "mosca" es un nombre femenino en español. Esto solo depende de la traducción, y no del origen. Si no hay prefijo, la cadena quedará vacía.
+    * `prefixWord`: es una cadena que indica que la palabra para mostrar es un prefijo en la traducción. En la actualidad, este es el determinante de género de los sustantivos, que se usa en idiomas que tienen determinantes de género. Por ejemplo, el prefijo de la palabra en español "mosca" es "la", ya que "mosca" es un nombre femenino en español. Esto solo depende de la traducción, y no del origen. Si no hay prefijo, la cadena quedará vacía.
     
     * `backTranslations`: es una lista de "traducciones inversas" del destino. Por ejemplo, las palabras de origen que se pueden traducir al idioma de destino. La lista garantiza que se encontrará la palabra de origen que se solicitó (por ejemplo, si la palabra de origen que se busca es "fly", entonces se garantiza que "fly" estará en la lista `backTranslations`). Sin embargo, no se garantiza que esté en la primera posición, y a menudo no lo estará. Cada elemento de la lista `backTranslations` es un objeto que consta de las siguientes propiedades:
 

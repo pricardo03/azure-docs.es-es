@@ -9,12 +9,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: pchoudh
-ms.openlocfilehash: 94e3632884d7033971ff1c45b455afb9a09ee798
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 82e3ee460309f293c9bd7eadebe139f85e241f71
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35383235"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113358"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Uso de metadatos y GenerateAnswer API
 
@@ -57,7 +57,7 @@ Para llamar a GenerateAnswer, se utiliza una solicitud HTTP POST. Para ver códi
     - **Punto de conexión de QnAMaker** (cadena): nombre de host del punto de conexión implementado en su suscripción de Azure.
 - **Encabezados de solicitud**
     - **Content-Type** (cadena): tipo de medio del cuerpo que se envía a la API.
-    - **Authorization** (cadena): clave de punto de conexión.
+    - **Autorización** (cadena): la clave de punto de conexión (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
 - **Cuerpo de la solicitud**
     - **question** (cadena): pregunta de usuario que realizará la consulta a la base de conocimiento.
     - **top** (opcional, entero): número de resultados clasificados por orden de prioridad que se incluirá en la salida. El valor predeterminado es 1.
@@ -82,6 +82,7 @@ Para llamar a GenerateAnswer, se utiliza una solicitud HTTP POST. Para ver códi
     - **answers**: lista de las respuestas de la consulta del usuario, en orden decreciente de puntuación de clasificación.
         - **score**: puntuación de clasificación entre 0 y 100.
         - **questions**: preguntas proporcionadas por el usuario.
+        - **answer**: la respuesta a la pregunta.
         - **source**: nombre del origen desde el que se extrajo la respuesta o se guardó en la base de conocimiento.
         - **metadata**: metadatos asociados a la respuesta.
             - name: nombre de los metadatos. (cadena, longitud máx.: 100, requerido)

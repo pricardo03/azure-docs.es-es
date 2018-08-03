@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 5a90f298e80ec4ca1b17e2d3aa4079aebcd38a83
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 06350decd9d9f15db7226b6f2c3580feb49a59d1
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382571"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069581"
 ---
 # <a name="supported-languages-for-speech-service"></a>Idiomas admitidos por el servicio Voz
 
@@ -25,13 +25,18 @@ Se admiten diferentes idiomas para distintas funciones del servicio Voz. Las tab
 
 Speech Recognition API de Microsoft admite los siguientes idiomas. 
 
-| Código | Idioma | Código | Idioma |
-|-----|-----|-----|-----|
-| ar-EG | Árabe (Egipto), estándar moderno | It-IT | Italiano (Italia) |
-| de-DE | Alemán (Alemania) | ja-JP | Japonés (Japón) |
-| es-ES | Inglés (Estados Unidos) | pt-BR | Portugués (Brasil) |
-| es-ES | Español (España) | ru-RU | Ruso (Rusia) |
-| fr-FR | Francés (Francia) | zh-CN | Chino (mandarín, simplificado) |
+  Código | Idioma | Adaptación acústica | Adaptación de idioma | Adaptación de pronunciación
+ ------|----------|---------------------|---------------------|-------------------------
+ ar-EG | Árabe (Egipto), estándar moderno | Sin  | Sí | Sin 
+ It-IT | Italiano (Italia) | Sin  | Sí | Sin  
+ de-DE | Alemán (Alemania) | Sin  | SÍ | SÍ
+ ja-JP | Japonés (Japón) | Sin  | Sí | Sin 
+ es-ES | Inglés (Estados Unidos) | SÍ | Sí | SÍ
+ pt-BR | Portugués (Brasil) | Sin  | Sí | Sin 
+ es-ES | Español (España) | Sin  | Sí | Sin 
+ ru-RU | Ruso (Rusia) | Sin  | Sí | Sin 
+ fr-FR | Francés (Francia) | Sin  | Sí | Sin 
+ zh-CN | Chino (mandarín, simplificado) | Sin  | Sí | Sin 
 
 ## <a name="text-to-speech"></a>Texto a voz
 
@@ -47,11 +52,11 @@ cs-CZ | Checo | Hombre | "Microsoft Server Speech Text to Speech Voice (cs-CZ, J
 da-DK | Danés | Mujer | "Microsoft Server Speech Text to Speech Voice (da-DK, HelleRUS)"
 de-AT | Alemán (Austria) | Hombre | "Microsoft Server Speech Text to Speech Voice (de-AT, Michael)"
 de-CH | Alemán (Suiza) | Hombre | "Microsoft Server Speech Text to Speech Voice (de-CH, Karsten)"
-de-DE | Alemán (Alemania) | Mujer | "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda) "
+de-DE | Alemán (Alemania) | Mujer | "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda)"
 | | | Mujer | "Microsoft Server Speech Text to Speech Voice (de-DE, HeddaRUS)"
-| | | Hombre | "Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo) "
+| | | Hombre | "Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo)"
 el-GR | Griego | Hombre | "Microsoft Server Speech Text to Speech Voice (el-GR, Stefanos)"
-en-AU | Inglés (Australia) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-AU, Catherine) "
+en-AU | Inglés (Australia) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-AU, Catherine)"
 | | | Mujer | "Microsoft Server Speech Text to Speech Voice (en-AU, HayleyRUS)"
 en-CA | Inglés (Canadá) | Mujer | "Microsoft Server Speech Text to Speech Voice (en-CA, Linda)"
 | | | Mujer | "Microsoft Server Speech Text to Speech Voice (en-CA, HeatherRUS)"
@@ -180,7 +185,7 @@ Puede obtener la lista de idiomas mediante programación o con el punto de conex
 | Indonesio      | `id`          |
 | Italiano      | `it`          |
 | Japonés      | `ja`          |
-| Suajili      | `sw`          |
+| Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Klingon (plqaD)      | `tlh-Qaak`          |
 | Coreano      | `ko`          |
@@ -217,5 +222,5 @@ Puede obtener la lista de idiomas mediante programación o con el punto de conex
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtener suscripción de prueba a Speech](https://azure.microsoft.com/try/cognitive-services/)
-* [Ver cómo funciona el reconocimiento de voz en C#](quickstart-csharp-windows.md)
+* [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/)
+* [Vea cómo funciona el reconocimiento de voz en C#](quickstart-csharp-dotnet-windows.md)

@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: dd28c829d8d24980a746244dc6aca880d2d69224
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 60b1dc9b8ea9eda258e9776b8967df38c97d964e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382486"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071710"
 ---
 # <a name="your-first-bing-visual-search-query-in-javascript"></a>Su primera consulta de Bing Visual Search en JavaScript
 
@@ -34,7 +34,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 En este artículo se incluye una aplicación simple de consola que envía una solicitud de Bing Visual Search API y muestra los resultados de búsqueda de JSON. Si bien esta aplicación está escrita en JavaScript, la API es un servicio web RESTful compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Necesita [Node.js 6](https://nodejs.org/en/download/) para ejecutar este código.
 
@@ -95,8 +95,9 @@ function requestCallback(err, res, body) {
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Obtenga información acerca de una imagen mediante un token de conclusión](../use-insights-token.md)  
-[Tutorial de aplicación de una sola página de Bing Visual Search](../tutorial-bing-visual-search-single-page-app.md)  
-[Introducción a Bing Visual Search API](../overview.md)  
+[Tutorial sobre la carga de imágenes en Bing Visual Search](../tutorial-visual-search-image-upload.md)
+[Tutorial sobre la aplicación de una sola página en Bing Visual Search](../tutorial-bing-visual-search-single-page-app.md)  
+[Introducción a Bing Visual Search](../overview.md)  
 [Pruébelo](https://aka.ms/bingvisualsearchtryforfree)  
 [Obtenga una clave de acceso para evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
 [Referencia a Bing Visual Search API](https://aka.ms/bingvisualsearchreferencedoc)

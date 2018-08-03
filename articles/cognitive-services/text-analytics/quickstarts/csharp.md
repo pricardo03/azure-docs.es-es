@@ -9,12 +9,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: ashmaka
-ms.openlocfilehash: d9c61a83450844461f621ff16354881a029f7ad6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 94847adf761652a25fd3e2d594c7169776fefc89
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266301"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125132"
 ---
 # <a name="quickstart-for-text-analytics-api-with-c"></a>Inicio rápido de Text Analytics API con C# 
 <a name="HOLTop"></a>
@@ -23,7 +23,7 @@ En este artículo se muestra cómo detectar el idioma, analizar sentimiento y ex
 
 Consulte las [definiciones de API](//go.microsoft.com/fwlink/?LinkID=759346) para obtener la documentación técnica de las API.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Text Analytics API**. Puede usar el **nivel gratuito de 5000 transacciones al mes** para completar este inicio rápido.
 
@@ -48,7 +48,7 @@ También debe tener la [clave de acceso y punto de conexión](../How-tos/text-an
 ## <a name="call-the-text-analytics-api-using-the-sdk"></a>Llamada a la API de Text Analytics mediante el SDK
 1. Reemplace Program.cs por el código que se proporciona a continuación. Este programa muestra las funciones de Text Analytics API en tres secciones (extracción de lenguaje, extracción de frases clave y análisis de sentimiento).
 1. Reemplace el valor de encabezado `Ocp-Apim-Subscription-Key` por una clave de acceso válida para la suscripción.
-1. Reemplace la ubicación de `client.AzureRegion` (actualmente `AzureRegions.Westus`) por la región para la que se ha registrado.
+1. Reemplace la ubicación de `client.BaseUri` por el punto de conexión para el que se ha registrado. Puede encontrar el punto de conexión en el recurso de Azure Portal. El punto de conexión suele ser como "https://[region].api.cognitive.microsoft.com/text/analytics/v2.0".
 1. Ejecute el programa.
 
 ```csharp
@@ -81,8 +81,8 @@ namespace ConsoleApp1
         {
 
             // Create a client.
-            ITextAnalyticsAPI client = new TextAnalyticsAPI(new ApiKeyServiceClientCredentials());
-            client.AzureRegion = AzureRegions.Westus;
+            ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials());
+            client.BaseUri = new Uri("https://westus.api.cognitive.microsoft.com/text/analytics/v2.0");
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 

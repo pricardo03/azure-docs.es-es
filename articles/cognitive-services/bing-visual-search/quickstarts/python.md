@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: a520466825eb429e45e0500b52bd7af502c0a38c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 96bd94e37c75d10726245fbcea7044d4ae2ed07e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382474"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070382"
 ---
 # <a name="your-first-bing-visual-search-query-in-python"></a>Su primera consulta de Bing Visual Search en Python
 
@@ -34,7 +34,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 En este artículo se incluye una aplicación simple de consola que envía una solicitud de Bing Visual Search API y muestra los resultados de búsqueda de JSON. Si bien esta aplicación está escrita en Python, la API es un servicio web RESTful compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Necesita [Python 3](https://www.python.org/) para ejecutar este código.
 
@@ -100,8 +100,9 @@ if __name__ == '__main__':
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Obtenga información acerca de una imagen mediante un token de conclusión](../use-insights-token.md)  
-[Tutorial de aplicación de una sola página de Bing Visual Search](../tutorial-bing-visual-search-single-page-app.md)  
-[Introducción a Bing Visual Search API](../overview.md)  
+[Tutorial sobre la carga de imágenes en Bing Visual Search](../tutorial-visual-search-image-upload.md)
+[Tutorial sobre la aplicación de una sola página en Bing Visual Search](../tutorial-bing-visual-search-single-page-app.md)  
+[Introducción a Bing Visual Search](../overview.md)  
 [Pruébelo](https://aka.ms/bingvisualsearchtryforfree)  
 [Obtenga una clave de acceso para evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
 [Referencia a Bing Visual Search API](https://aka.ms/bingvisualsearchreferencedoc)

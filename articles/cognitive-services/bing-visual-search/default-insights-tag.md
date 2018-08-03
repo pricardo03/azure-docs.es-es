@@ -10,16 +10,16 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: c0bf51ab86e2ba99aeb859ea415e1afd355a86f2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a0ced7076c566c819f9e3f7abc5e2fa3930fa0b3
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381842"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004308"
 ---
 # <a name="default-insights-tag"></a>Etiqueta de conclusiones predeterminada
 
-La etiqueta de conclusiones predeterminada es la que tiene el campo `displayName` establecido en una cadena vacía. En el ejemplo siguiente se muestra la lista posibles conclusiones predeterminadas (acciones).
+La etiqueta de conclusiones predeterminada es la que tiene el campo `displayName` establecido en una cadena vacía. En el ejemplo siguiente se muestra la lista posibles conclusiones predeterminadas (acciones). La lista de acciones que incluye la respuesta depende de la imagen. Y para cada acción, la lista de propiedades puede variar según la imagen, así que compruebe si la propiedad existe antes de intentar usarla.
 
 ```json
 {
@@ -344,6 +344,9 @@ La conclusión ProductVisualSearch proporciona una lista de imágenes de product
                 "shoppingSourcesCount" : 1,
                 "recipeSourcesCount" : 0,
                 "aggregateOffer" : {
+                  "name":"4-Piece Kitchen Package with...",
+                  "priceCurrency":"USD",
+                  "lowPrice":2756,
                   "offers" : [
                     {
                       "name" : "4-Piece Kitchen Package with...",
@@ -360,7 +363,8 @@ La conclusión ProductVisualSearch proporciona una lista de imágenes de product
                       "availability" : "InStock",
                       "lastUpdated" : "2018-02-20T00:00:00.0000000"
                     }
-                  ]
+                  ],
+                  "offerCount":1
                 },
                 "pagesIncludingCount" : 4,
                 "availableSizesCount" : 2

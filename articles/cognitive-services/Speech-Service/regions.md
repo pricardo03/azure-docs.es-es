@@ -7,36 +7,39 @@ manager: wolmfa61
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: a201cc043f673e2285ea48950804d97b96f881ed
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 11360d163fdba057d373d091d46903cde7789a8b
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054941"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071426"
 ---
-# <a name="regions-and-endpoints-of-the-speech-service"></a>Regiones y puntos de conexión del servicio Voz
+# <a name="regions-of-the-speech-service"></a>Regiones del servicio Voz
 
-> [!NOTE]
-> Los nombres de región del [SDK de Voz](speech-sdk.md) coinciden con la primera parte del dominio de los puntos de conexión que se indican a continuación.
-> Por ejemplo, use `westus` para especificar la región Oeste de EE. UU. en el SDK de Voz.
+El servicio Voz está disponible en distintas regiones.
+Al crear una suscripción, puede elegir una región disponible, según sus necesidades.
 
-## <a name="speech-to-text"></a>Conversión de voz en texto
+Al utilizar la suscripción, debe tener en cuenta la región que ha elegido.
 
-[!include[](includes/endpoints-speech-to-text.md)]
+## <a name="rest-api"></a>API DE REST
 
-## <a name="text-to-speech"></a>Texto a voz
+Con la API REST, elija los puntos de conexión específicos de la región.
+Consulte las [API REST](rest-apis.md) para más información.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+## <a name="speech-sdk"></a>SDK de voz
 
-## <a name="authentication"></a>Autenticación
+En las regiones de [SDK de Voz](speech-sdk.md), las regiones se especifican como una cadena (por ejemplo, como un parámetro [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription) en el SDK de Voz para C#).
 
-[!include[](includes/endpoints-token-service.md)]
+En la tabla siguiente se enumeran las regiones disponibles para el **reconocimiento de voz** y la **traducción**:
 
-Vaya [aquí](rest-apis.md#authentication) para obtener información para la obtención y la actualización de los tokens de autorización.
+Region| Valor del parámetro de una región en el SDK de Voz
+-|-
+Oeste de EE. UU.| `westus`
+Asia oriental| `eastasia`
+Europa del Norte| `northeurope`
 
-## <a name="language-understanding-speech-sdk-only"></a>Language Understanding (solo el SDK de Voz)
-
-Las regiones del servicio Language Understanding se incluyen [aquí](/azure/cognitive-services/luis/luis-reference-regions).
-En el SDK de Voz, especifique estas regiones por la primera parte del nombre de dominio del punto de conexión (por ejemplo, `westus`).
+Las regiones disponibles para el **reconocimiento de la intención** mediante el SDK de Voz se enumeran en la [página de la región del servicio Language Understanding](/azure/cognitive-services/luis/luis-reference-regions).
+Para cada región de publicación enumerada, el parámetro de región del SDK de Voz correspondiente se determina como la primera parte del nombre de dominio del punto de conexión.
+Por ejemplo, use `westus` para especificar la región de publicación Oeste de EE. UU.

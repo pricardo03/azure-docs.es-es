@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 238d086e87b0e52f0887af5c4db58e8f72796b49
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7320286e186d7e6ba4041d3ed52f19e573b4d7e3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380886"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049888"
 ---
 # <a name="moderate-text-using-net"></a>Moderación de texto con .NET
 
@@ -26,12 +26,12 @@ En este artículo se proporciona información y ejemplos de código que le ayuda
 
 En este artículo se da por supuesto que ya está familiarizado con Visual Studio y C#.
 
-## <a name="sign-up-for-content-moderator-services"></a>Suscripción a los servicios de Content Moderator
+## <a name="sign-up-for-content-moderator-services"></a>Suscribirse a los servicios de Content Moderator
 
 Antes de poder usar los servicios de Content Moderator mediante la API REST o el SDK, necesita una clave de suscripción.
 Consulte el [inicio rápido](quick-start.md) para más información sobre cómo puede obtener la clave.
 
-## <a name="create-your-visual-studio-project"></a>Creación del proyecto de Visual Studio
+## <a name="create-your-visual-studio-project"></a>Crear un proyecto de Visual Studio
 
 1. Agregue un nuevo proyecto de **Aplicación de consola (.NET Framework)** a la solución.
 
@@ -49,7 +49,7 @@ Instale los siguientes paquetes NuGet:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Actualización de las instrucciones using del programa
+### <a name="update-the-programs-using-statements"></a>Actualizar las instrucciones using del programa
 
 Modifique las instrucciones using del programa.
 
@@ -63,7 +63,7 @@ Modifique las instrucciones using del programa.
     using System.Threading;
 
 
-### <a name="initialize-application-specific-settings"></a>Inicialización de la configuración específica de la aplicación
+### <a name="initialize-application-specific-settings"></a>Inicializar la configuración específica de la aplicación
 
 Agregue los siguientes campos estáticos a la clase **Program** en Program.cs.
 
@@ -119,9 +119,9 @@ Agregue el siguiente código al método **Main**.
 > [!NOTE]
 > La clave de servicio de Content Moderator tiene un límite de solicitudes por segundo (RPS) y, si se supera el límite, el SDK emite una excepción con un código de error 429.
 >
-> Una clave de un plan gratuito tiene un límite de una solicitud por segundo.
+> Cuando se usa una clave de nivel gratis, la tasa de solicitudes está limitada a una solicitud por segundo.
 
-## <a name="run-the-program-and-review-the-output"></a>Ejecución del programa y revisión de la salida
+## <a name="run-the-program-and-review-the-output"></a>Ejecutar el programa y revisar la salida
 
 La salida del ejemplo para el programa, escrita en el archivo de registro, es:
 
