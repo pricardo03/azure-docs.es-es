@@ -2,8 +2,8 @@
 title: Documentación sobre Azure Security Center | Microsoft Docs
 description: La seguridad se integra en todos los aspectos de Azure. Azure le ofrece unas ventajas exclusivas en seguridad que se derivan de una inteligencia global de seguridad, unos sofisticados controles orientados al cliente y una infraestructura segura reforzada. Esta potente combinación le ayuda a proteger sus datos y aplicaciones, viene en ayuda de sus esfuerzos en cumplimiento normativo y proporciona una seguridad rentable para organizaciones de todos los tamaños.
 services: security
-author: czeumault
-manager: carolz
+author: arob98
+manager: angrobe
 layout: LandingPage
 ms.assetid: ''
 ms.service: security
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/30/2018
-ms.author: carolz
-ms.openlocfilehash: ceabc623963acd469a2e4694cb412828dc511100
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: angrobe
+ms.openlocfilehash: 9f190ab5b17fbead9a9d88bc37fc8b35d8c9f45c
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113799"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505467"
 ---
 # <a name="azure-security-documentation"></a>Documentación de Azure Security Center
 
