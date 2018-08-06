@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 19fd671514da0dbfb1704c37d4347e870763d41b
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 1437c3552a7af5d5474cf3bdaabe95d5415af603
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091820"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414218"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Guía de inicio rápido: implementación del primer módulo de IoT Edge desde Azure Portal a un dispositivo Windows (versión preliminar)
 
@@ -36,18 +36,6 @@ El módulo que se implementa en esta guía de inicio rápido es un sensor simula
 
 Si no tiene una suscripción activa a Azure, cree una [cuenta gratuita][lnk-account] antes de comenzar.
 
-## <a name="prerequisites"></a>Requisitos previos
-
-Esta guía de inicio rápido convierte su equipo o máquina virtual Windows en un dispositivo IoT Edge. Si ejecuta Windows en una máquina virtual, habilite la [virtualización anidada][lnk-nested] y asigne al menos 2 GB de memoria. 
-
-Asegúrese de cumplir los siguientes requisitos previos en la máquina que va a usar con un dispositivo IoT Edge:
-
-1. Asegúrese de que usa una versión de Windows compatible:
-   * Windows 10 o posterior
-   * Windows Server 2016 o posterior
-2. Instale [Docker para Windows][lnk-docker] y asegúrese de que se ejecuta.
-3. Configure Docker para usar [contenedores de Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Usará la CLI de Azure para completar muchos de los pasos de esta guía de inicio rápido; además, Azure IoT cuenta con una extensión para habilitar funcionalidad adicional. 
@@ -58,24 +46,40 @@ Agregue la extensión de Azure IoT a la instancia de Cloud Shell.
    az extension add --name azure-cli-iot-ext
    ```
 
-## <a name="create-an-iot-hub"></a>Crear un centro de IoT
+## <a name="prerequisites"></a>Requisitos previos
 
-Para comenzar la guía de inicio rápido, cree su instancia de IoT Hub en Azure Portal.
-![Creación de una instancia de IoT Hub][3]
+Recursos en la nube: 
 
-El nivel gratuito de IoT Hub funciona para esta guía de inicio rápido. Si ha usado IoT Hub en el pasado y ya tiene un centro gratis creado, puede usar ese centro de IoT. Cada suscripción no puede tener más de un centro de IoT gratuito. 
-
-1. En Azure Cloud Shell, cree un grupo de recursos. El código siguiente crea un grupo de recursos llamado **IoTEdgeResources** en la región **Oeste de EE. UU.** Al colocar todos los recursos en para las guías de inicio rápido y tutoriales en un grupo, puede administrarlos juntos. 
+* Un grupo de recursos para administrar todos los recursos que se van a usar en esta guía de inicio rápido. 
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus
    ```
 
-1. Cree un centro de IoT en el grupo de recursos nuevo. El código siguiente crea un centro **F1** gratis en el grupo de recursos **IoTEdgeResources**. Reemplace *{hub_name}* por un nombre único para el centro de IoT.
+Un equipo Windows o máquina virtual que actúe como dispositivo de IoT Edge: 
+
+* Use una versión de Windows compatible:
+   * Windows 10 o posterior
+   * Windows Server 2016 o posterior
+* Si es una máquina virtual, habilite la [virtualización anidada][lnk-nested] y asigne al menos 2 GB de memoria. 
+* Instale [Docker para Windows][lnk-docker] y asegúrese de que se ejecuta.
+* Configure Docker para usar [contenedores de Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
+
+## <a name="create-an-iot-hub"></a>Crear un centro de IoT
+
+Para comenzar la guía de inicio rápido, cree su instancia de IoT Hub con la CLI de Azure. 
+
+![Crear IoT Hub][3]
+
+El nivel gratuito de IoT Hub funciona para esta guía de inicio rápido. Si ha usado IoT Hub en el pasado y ya tiene un centro gratis creado, puede usar ese centro de IoT. Cada suscripción no puede tener más de un centro de IoT gratuito. 
+
+El código siguiente crea un centro **F1** gratis en el grupo de recursos **IoTEdgeResources**. Reemplace *{hub_name}* por un nombre único para el centro de IoT.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
+
+   Si se produce un error porque ya hay un centro gratis en la suscripción, cambie la SKU a **S1**. 
 
 ## <a name="register-an-iot-edge-device"></a>Registro de un dispositivo de IoT Edge
 
@@ -206,7 +210,13 @@ Configure el entorno de ejecución con la cadena de conexión del dispositivo Io
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-8. Busque la sección **Moby Container Runtime settings** (Configuración del entorno de ejecución de contenedores de Moby) y compruebe que el valor de **red** está establecido en `nat`.
+8. Busque la sección **Moby Container Runtime settings** (Configuración del entorno de ejecución de contenedores de Moby) y compruebe que se le ha quitado la marca de comentario al valor de **red** y que se ha establecido en **azure-iot-edge**
+
+   ```yaml
+   moby_runtime:
+     docker_uri: "npipe://./pipe/docker_engine"
+     network: "azure-iot-edge"
+   ```
 
 9. Guarde el archivo de configuración. 
 
@@ -237,7 +247,8 @@ Compruebe que el entorno de ejecución se ha instalado y configurado correctamen
     -FilterHashtable @{ProviderName= "iotedged";
       LogName = "application"; StartTime = [datetime]::Today} |
     select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false}
+    sort-object @{Expression="TimeCreated";Descending=$false} |
+    format-table -autosize -wrap
    ```
 
 3. Vea todos los módulos que se ejecutan en el dispositivo IoT Edge. Como el servicio se acaba de iniciar por primera vez, solo verá la ejecución del módulo **edgeAgent**. El módulo edgeAgent se ejecuta de forma predeterminada, y le ayuda a instalar e iniciar módulos adicionales que puede implementar en el dispositivo. 

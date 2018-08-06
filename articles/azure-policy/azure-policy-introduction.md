@@ -4,17 +4,17 @@ description: Azure Policy es un servicio de Azure que se usa para crear, asignar
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/31/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 51fd0c625ad7e600d54999ddd86e5e49a7c4f14d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249875"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364435"
 ---
 # <a name="what-is-azure-policy"></a>¿Qué es Azure Policy?
 
@@ -126,11 +126,11 @@ Hay un número máximo de cada tipo de objeto de Azure Policy. Una entrada de _S
 | Ámbito | Definiciones de directiva | 250 |
 | Ámbito | Definiciones de iniciativa | 100 |
 | Inquilino | Definiciones de iniciativa | 1000 |
-| Ámbito | Asignación de directiva | 100 |
+| Ámbito | Asignaciones de iniciativa/directivas | 100 |
 | Definición de directiva | Parámetros | 20 |
 | Definición de iniciativa | Directivas | 100 |
 | Definición de iniciativa | Parámetros | 100 |
-| Asignación de directiva | Exclusiones (notScopes) | 100 |
+| Asignaciones de iniciativa/directivas | Exclusiones (notScopes) | 100 |
 | Regla de directiva | Condicionales anidados | 512 |
 
 ## <a name="recommendations-for-managing-policies"></a>Recomendaciones para la administración de directivas
@@ -156,5 +156,5 @@ Ahora que tiene información general acerca de Azure Policy y algunos de los con
 - [Asignación de una definición de directiva](assign-policy-definition.md)
 - [Asignación de una definición de directiva con la CLI de Azure](assign-policy-definition-cli.md)
 - [Asignación de una definición de directiva con PowerShell](assign-policy-definition-ps.md)
-- En [Organización de los recursos con grupos de administración de Azure](../azure-resource-manager/management-groups-overview.md), obtendrá información acerca de lo que es un grupo de administración
+- En [Organización de los recursos con grupos de administración de Azure](../azure-resource-manager/management-groups-overview.md), obtendrá información sobre lo que es un grupo de administración.
 - Vea [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) (Gobierno de un entorno de Azure mediante Azure Policy) en Channel 9

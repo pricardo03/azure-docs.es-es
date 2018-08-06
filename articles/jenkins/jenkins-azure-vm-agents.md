@@ -1,22 +1,19 @@
 ---
 title: Escale las implementaciones de Jenkins con agentes de máquina virtual de Azure.
 description: Agregue una funcionalidad adicional a las canalizaciones de Jenkins mediante Azure Virtual Machines con el complemento de agente de máquina virtual de Azure.
-services: multiple
-documentationcenter: ''
-author: rloutlaw
-manager: justhe
-ms.service: multiple
-ms.workload: multiple
-ms.topic: article
-ms.date: 8/25/2017
-ms.author: mlearned
-ms.custom: Jenkins
-ms.openlocfilehash: 4d45ed14be499ed927f1433e134a029066146eea
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.topic: tutorial
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: 7f3facbc1bca51061d49ca99778c60d58c525144
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29392647"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391281"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Escalado de las implementaciones de Jenkins para satisfacer la demanda con agentes de máquina virtual de Azure
 
@@ -34,7 +31,7 @@ En este tutorial, aprenderá lo siguiente:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure
 * Un servidor maestro de Jenkins. Si no lo tiene, vea el [inicio rápido](install-jenkins-solution-template.md) para configurar uno en Azure.
@@ -143,7 +140,11 @@ Seleccione **Verify Template** (Verificar plantilla) para verificar la configura
 
 ![Salida de consola](./media/jenkins-azure-vm-agents/console-output.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="troubleshooting-the-jenkins-plugin"></a>Solución de problemas del complemento de Jenkins
+
+Si detecta algún error con los complementos de Jenkins, envíe un problema en [Jenkins JIRA](https://issues.jenkins-ci.org/) para el componente específico.
+
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [CI/CD en Azure App Service](java-deploy-webapp-tutorial.md)

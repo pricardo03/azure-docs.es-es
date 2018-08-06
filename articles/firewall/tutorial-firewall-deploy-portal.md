@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8db3f0ffbd65f3601bc05054e53a1e8e17384866
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: be11ea2195705b344638b93ea2657481897d6ef7
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145325"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358953"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal
 
@@ -88,6 +88,9 @@ En primer lugar, cree un grupo de recursos para que contenga los recursos necesa
     El firewall estará en esta subred y el nombre de la subred **debe** ser AzureFirewallSubnet.
 11. En **Intervalo de direcciones**, escriba **10.0.1.0/24**.
 12. Utilice los otros valores predeterminados y, a continuación, haga clic en **Crear**.
+
+> [!NOTE]
+> El tamaño mínimo de la subred AzureFirewallSubnet es /25.
 
 ### <a name="create-additional-subnets"></a>Creación de subredes adicionales
 
@@ -172,6 +175,9 @@ Use la información de la tabla siguiente para configurar la **configuración** 
 4. Una vez finalizada la implementación, vaya al grupo de recursos **Test-FW-RG** y haga clic en el firewall **Test-FW01**.
 6. Anote la dirección IP privada. Se usará más adelante al crear la ruta predeterminada.
 
+> [!NOTE]
+> La dirección IP pública tiene que ser del tipo de SKU estándar.
+
 [//]: # (No olvide tener anotar la dirección IP privada del firewall.)
 
 ## <a name="create-a-default-route"></a>Crear una ruta predeterminada
@@ -223,7 +229,7 @@ En la subred **Workload-SN**, puede configurar la ruta predeterminada de salida 
 >- Acceso al almacenamiento de estado de los discos administrados.
 >- Diagnósticos de Windows
 >
-> Puede invalidar esta colección integrada de reglas de infraestructura creando una colección de reglas de aplicación *Denegar todo* que se procese en último lugar. Siempre se procesará antes que la colección de reglas de infraestructura. Cualquier cosa que no esté en la colección de reglas de infraestructura se denegará de forma predeterminada.
+> Puede invalidar esta colección integrada de reglas de infraestructura creando una colección de reglas de aplicación *Denegar todo* que se procese en último lugar. Se procesará siempre antes que la colección de reglas de infraestructura. Cualquier cosa que no esté en la colección de reglas de infraestructura se denegará de forma predeterminada.
 
 ## <a name="configure-network-rules"></a>Configuración de reglas de red
 
@@ -233,7 +239,7 @@ En la subred **Workload-SN**, puede configurar la ruta predeterminada de salida 
 4. En **Acción**, seleccione **Permitir**.
 
 6. En **Reglas**, como **Nombre**, escriba **AllowDNS**.
-8. En **Protocolo**, seleccione **TCP**.
+8. En **Protocolo**, seleccione **UDP**.
 9. En **Direcciones de origen**, escriba **10.0.2.0/24**.
 10. Como dirección de destino, escriba **209.244.0.3,209.244.0.4**
 11. En **Puertos de destino**, escriba **53**.

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/23/2018
+ms.date: 07/26/2018
 ms.author: barclayn
-ms.openlocfilehash: b34b05ae86aed199d80a86c8e1a073cb54b5e75f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cd9dd4d400177e511f23c2677b77198a50420a35
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226720"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283003"
 ---
 # <a name="what-is-azure-key-vault"></a>¿Qué es Azure Key Vault?
 
@@ -37,6 +37,8 @@ A continuación se muestran algunos términos clave:
 - **[Azure Active Directory](../active-directory/active-directory-whatis.md)** es el servicio de Azure AD para un inquilino determinado. Cada directorio tiene uno o varios dominios. Un directorio puede tener varias suscripciones asociadas, pero solo un inquilino. 
 - **Identificador de inquilino de Azure**: se trata de una manera única para identificar una instancia de Azure Active Directory dentro de una suscripción de Azure. 
 - **Managed Service Identity**: Azure Key Vault proporciona una manera de almacenar de forma segura las credenciales y otras claves y secretos, pero el código tiene que autenticarse en Key Vault para recuperarlos. Para solucionar este problema, Managed Service Identity (MSI) proporciona a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticarse Key Vault o en cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código. Para más información sobre Managed Service Identity, haga clic [aquí](../active-directory/managed-service-identity/overview.md)
+
+    ![Gráfico MSI](./media/key-vault-whatis/msi.png)
 
 ## <a name="key-vault-roles"></a>Roles del almacén de claves
 

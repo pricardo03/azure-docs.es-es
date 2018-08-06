@@ -1,22 +1,19 @@
 ---
-title: Uso de Jenkins para implementar aplicaciones web en Azure | Microsoft Docs
+title: Uso de Jenkins para implementar aplicaciones web en Azure
 description: Configure la integración continua desde GitHub en Azure App Service para las aplicaciones web de Java con Jenkins y Docker.
-author: rloutlaw
-manager: douge
-ms.service: jenkins
-ms.search.scope: ''
-ms.devlang: java
-ms.topic: article
-ms.workload: web
-ms.date: 08/02/2017
-ms.author: routlaw
-ms.custom: Jenkins, devcenter
-ms.openlocfilehash: b2606acba341d4cfbc16314048e134fa30ff8606
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.topic: tutorial
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: e880d84c3ae0fd23c11bb9b30733544bd5f28872
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29853006"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389949"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configuración de la integración continua y la implementación en Azure App Service con Jenkins
 
@@ -74,8 +71,8 @@ Configure Jenkins para recibir [webhooks de GitHub](https://developer.github.com
     ![Bifurcación desde GitHub](media/jenkins-java-quickstart/fork_github_repo.png)
 1. En la consola de web Jenkins, seleccione **New Item** (Nuevo elemento), asígnele el nombre **MyJavaApp**, elija **Freestyle project** (Proyecto de Freestyle) y haga clic en **OK** (Aceptar).   
     ![Nuevo proyecto de Freestyle de Jenkins](media/jenkins-java-quickstart/jenkins_freestyle.png)
-2. En la sección **General**, seleccione el proyecto de **GitHub** y escriba la URL del repositorio bifurcado; por ejemplo, https://github.com/raisa/gs-spring-boot-docker.
-3. En la sección **Source code management** (Administración de código fuente), seleccione **Git** y escriba la URL `.git` del repositorio bifurcado; por ejemplo, https://github.com/raisa/gs-spring-boot-docker.git.
+2. En la sección **General**, seleccione el proyecto de **GitHub** y escriba la dirección URL del repositorio bifurcado, como https://github.com/raisa/gs-spring-boot-docker
+3. En la sección **Source code management** (Administración del código fuente), seleccione **Git** y escriba la dirección URL de su repositorio bifurcado `.git`, como https://github.com/raisa/gs-spring-boot-docker.git.
 4. En la sección **Build Triggers** (Compilar desencadenadores), seleccione **GitHub hook trigger for GITScm polling** (Desencadenador de enlace de GitHub para sondeo de GITScm).
 5. En la sección **Build** (Compilar), seleccione **Add build step** (Agregar paso de compilación) y elija **Invoke top-level Maven targets** (Invocar destinos de Maven de nivel superior). Escriba `package` en el campo **Goals** (Objetivos).
 6. Seleccione **Guardar**. Puede probar el trabajo seleccionando **Build Now** (Compilar ahora) en la página del proyecto.
@@ -167,7 +164,7 @@ Configure Jenkins para recibir [webhooks de GitHub](https://developer.github.com
 ## <a name="deploy-the-app-from-github"></a>Implementación de la aplicación desde GitHub
 
 1. En el proyecto de Jenkins, seleccione **Build now** (Compilar ahora) para implementar la aplicación de ejemplo en Azure.
-2. Una vez finalizada la compilación, la aplicación estará activa en Azure mediante la URL de publicación, por ejemplo, http://myjavaapp.azurewebsites.net.   
+2. Una vez finalizada la compilación, la aplicación estará activa en Azure mediante la URL de publicación, por ejemplo http://myjavaapp.azurewebsites.net.   
    ![Visualización de la aplicación implementada en Azure](media/jenkins-java-quickstart/hello_docker_world_unedited.png)
 
 ## <a name="push-changes-and-redeploy"></a>Confirmación de cambios y reimplementación
@@ -180,9 +177,12 @@ Configure Jenkins para recibir [webhooks de GitHub](https://developer.github.com
     ```
 3. Se iniciará una nueva compilación de Jenkins desencadenada mediante la confirmación nueva de la bifurcación `master` del repositorio. Una vez que se complete, vuelva a cargar la aplicación en Azure.     
       ![Visualización de la aplicación implementada en Azure](media/jenkins-java-quickstart/hello_docker_world.png)
-  
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Solución de problemas del complemento de Jenkins
+
+Si detecta algún error con los complementos de Jenkins, envíe un problema en [Jenkins JIRA](https://issues.jenkins-ci.org/) para el componente específico.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Usar máquinas virtuales de Azure como agentes de compilación](/azure/jenkins/jenkins-azure-vm-agents)
-- [Administrar recursos en trabajos y canalizaciones con la CLI de Azure](/azure/jenkins/execute-cli-jenkins-pipeline)
- 
+> [!div class="nextstepaction"]
+> [Usar máquinas virtuales de Azure como agentes de compilación](/azure/jenkins/jenkins-azure-vm-agents)

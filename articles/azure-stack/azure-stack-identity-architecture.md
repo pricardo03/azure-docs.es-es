@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/28/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: a6da27740efd613b8a81ffa85092d6b00b3e47d8
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: bf69c71a8b361e4a147263bc60324573c710818f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257495"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412703"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Arquitectura de identidad para Azure Stack
 Antes de elegir un proveedor de identidad para usarlo con Azure Stack, conozca las diferencias importantes entre las opciones de Azure Active Directory (Azure AD) y Servicios de federación de Active Directory (AD FS). 
@@ -32,16 +32,16 @@ El proveedor de identidad que elija puede limitar las opciones, incluida la comp
 
 |Funcionalidad o escenario        |Azure AD  |AD FS  |
 |------------------------------|----------|-------|
-|Conectado a Internet     |Sí       |Opcional|
-|Compatibilidad con arquitectura multiinquilino     |Sí       |Sin       |
-|Redifusión de Marketplace       |Sí       |Sí. Requiere el uso de la herramienta [Marketplace Syndication sin conexión](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).|
-|Compatibilidad con la biblioteca de autenticación de Active Directory (ADAL) |Sí |Sí|
-|Compatibilidad con herramientas como la CLI de Azure, Visual Studio y PowerShell  |Sí |Sí|
-|Creación de entidades de servicio mediante Azure Portal     |Sí |Sin |
-|Creación de entidades de servicio con certificados      |Sí |Sí|
-|Creación de entidades de servicio con secretos (claves)    |Sí |Sin |
-|Las aplicaciones pueden usar el servicio Graph           |Sí |Sin |
-|Las aplicaciones pueden utilizar el proveedor de identidades para iniciar sesión |Sí |Sí. Requiere que las aplicaciones se federen con instancias de AD FS locales. |
+|Conectado a Internet     |SÍ       |Opcional|
+|Compatibilidad con arquitectura multiinquilino     |SÍ       |Sin       |
+|Ofrecer elementos en Marketplace |SÍ       |Sí. Requiere el uso de la herramienta [Marketplace Syndication sin conexión](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).|
+|Compatibilidad con la biblioteca de autenticación de Active Directory (ADAL) |SÍ |SÍ|
+|Compatibilidad con herramientas como la CLI de Azure, Visual Studio y PowerShell  |SÍ |SÍ|
+|Creación de entidades de servicio mediante Azure Portal     |SÍ |Sin |
+|Creación de entidades de servicio con certificados      |SÍ |SÍ|
+|Creación de entidades de servicio con secretos (claves)    |SÍ |Sin |
+|Las aplicaciones pueden usar el servicio Graph           |SÍ |Sin |
+|Las aplicaciones pueden utilizar el proveedor de identidades para iniciar sesión |SÍ |Sí. Requiere que las aplicaciones se federen con instancias de AD FS locales. |
 
 ## <a name="topologies"></a>Topologías
 En las siguientes secciones se explican las diferentes topologías de identidad que pueden usar.

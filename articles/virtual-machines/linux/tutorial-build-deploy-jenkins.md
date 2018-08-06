@@ -1,25 +1,24 @@
 ---
 title: 'Tutorial: Integración continua o implementación continua (CI/CD) de Jenkins en máquinas virtuales de Azure con Team Services | Microsoft Docs'
 description: En este tutorial, aprenderá a configurar la integración continua (CI) y la implementación continua (CD) de una aplicación de Node.js con Jenkins en máquinas virtuales de Azure desde Release Management para Visual Studio Team Services o Microsoft Team Foundation Server
-author: ahomer
-manager: douge
-editor: tysonn
+author: tomarcher
+manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: devops
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/19/2017
-ms.author: ahomer
-ms.custom: mvc
-ms.openlocfilehash: 6b74ab4d97df7e1e6b9bec8e3bcb150c99bd5b5c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.date: 07/31/2018
+ms.author: tarcher
+ms.custom: jenkins
+ms.openlocfilehash: d3a4a81f60f4e70c2c7576c3176e2b4d6de08d04
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903458"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390602"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>Tutorial: Implementación de la aplicación en máquinas virtuales Linux en Azure con Jenkins y Visual Studio Team Services
 
@@ -169,6 +168,10 @@ Para crear la definición de versión en Team Services:
 6. Vaya al repositorio de Git de origen y modifique el contenido del encabezado **h1** del archivo app/views/index.jade con parte del texto modificado.
 7. Confirme el cambio.
 8. Pasados unos minutos, verá una nueva versión creada en la página **Versiones** de Team Services o Team Foundation Server. Abra la versión para ver cómo se realiza la implementación. Felicidades.
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Solución de problemas del complemento de Jenkins
+
+Si detecta algún error con los complementos de Jenkins, envíe un problema en [Jenkins JIRA](https://issues.jenkins-ci.org/) para el componente específico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

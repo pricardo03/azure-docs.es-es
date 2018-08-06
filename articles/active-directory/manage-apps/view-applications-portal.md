@@ -1,6 +1,6 @@
 ---
-title: Visualización de todas las aplicaciones empresariales que se pueden administrar en Azure Active Directory | Microsoft Docs
-description: Cómo ver una lista de las aplicaciones empresarial que tienen permisos de administración en Azure Active Directory
+title: 'Visualización de aplicaciones del inquilino: Azure Active Directory | Microsoft Docs'
+description: Utilice Azure Portal para visualizar las aplicaciones del inquilino de Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,31 +11,86 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/28/2017
+ms.topic: quickstart
+ms.date: 07/25/2018
 ms.author: barbkess
-ms.reviewer: asteen
+ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: 5054cb3b1b0b886c882dac18131eb73244adb336
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: bedd83426ecb24681fcfa292a049b8d4a3271d6a
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303011"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39266489"
 ---
-# <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Visualización de todas las aplicaciones empresariales que se pueden administrar en Azure Active Directory
-Puede administrar las aplicaciones empresariales en Azure Active Directory (Azure AD). Podrá ver las aplicaciones que pueden administrarse, asignar usuarios o grupos a una aplicación, mantener las propiedades de la aplicación, como el nombre y logotipo, e incluso deshabilitar una aplicación para que ningún usuario pueda iniciar sesión en ella.
+# <a name="view-your-azure-active-directory-tenant-applications"></a>Visualización de las aplicaciones del inquilino de Azure Active Directory
 
-## <a name="how-do-i-view-all-my-apps"></a>¿Cómo puedo ver todas mis aplicaciones?
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta que tenga el rol de administrador global en el directorio.
-2. Seleccione **Todos los servicios**, escriba **Azure Active Directory** en el cuadro de texto y, después, seleccione **Entrar**.
-3. En el panel **Azure Active Directory -**  ***nombreDelDirectorio*** (es decir, el panel de Azure AD del directorio que está administrando), seleccione **Aplicaciones empresariales**.
+Esta guía de inicio rápido utiliza Azure Portal para visualizar las aplicaciones del inquilino de Azure Active Directory (Azure AD).
 
-    ![Apertura de Enterprise apps (Aplicaciones empresariales)](./media/view-applications-portal/open-enterprise-apps.png)
-4. En el panel **Aplicaciones empresariales**, seleccione **Todas las aplicaciones**. En este panel puede seleccionar aplicaciones para administrarlas, cambiar las columnas mostradas o filtrar la lista para encontrar la que quiera (por ejemplo, para ver solo las aplicaciones deshabilitadas).
+## <a name="before-you-begin"></a>Antes de empezar
+
+Para ver los resultados, debe tener al menos una aplicación en su inquilino de Azure AD. Para agregar una aplicación, consulte la guía de inicio rápido [Adición de una aplicación](add-application-portal.md).
+
+Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global del inquilino de Azure AD, administrador de aplicaciones en la nube o administrador de aplicaciones.
+
+## <a name="find-the-list-of-tenant-applications"></a>Búsqueda de la lista de aplicaciones del inquilino
+
+Las aplicaciones del inquilino de Azure AD están visibles en la sección **Aplicaciones empresariales** de Azure Portal.
+
+Para buscar las aplicaciones del inquilino:
+
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en **Azure Active Directory**. 
+
+2. En la hoja Azure Active Directory, haga clic en **Aplicaciones empresariales**. 
+
+3. Desde el menú desplegable **Tipo de aplicación**, seleccione **Todas las aplicaciones** y haga clic en **Aplicar**. Aparece una muestra aleatoria de las aplicaciones del inquilino.
+
+    ![Aplicaciones Enterprise](media/view-applications-portal/open-enterprise-apps.png)
+   
+4. Para ver más aplicaciones, haga clic en **Mostrar más** en la parte inferior de la lista. En función del número de aplicaciones del inquilino, puede resultar más fácil [buscar una aplicación específica](#search-for-a-tenant-application) en lugar de desplazarse por la lista.
+
+## <a name="select-viewing-options"></a>Selección de las opciones de visualización
+
+En esta sección, seleccione las opciones según lo que esté buscando.
+
+1. Puede ver las aplicaciones en función del **Tipo de aplicación**, **Estado de la aplicación** y **Visibilidad de la aplicación**. 
+
+    ![Opciones de búsqueda](media/view-applications-portal/search-options.png)
+
+2. En **Tipo de aplicación**, elija una de estas opciones:
+
+    - **Aplicaciones empresariales** muestra las aplicaciones que no son de Microsoft.
+    - **Aplicaciones de Microsoft** muestra las aplicaciones de Microsoft.
+    - **Todas las aplicaciones** muestra las aplicaciones de Microsoft y las que no son de Microsoft.
+
+3. En **Estado de la aplicación**, elija **Cualquiera**, **Deshabilitada** o **Habilitada**. La opción **Cualquiera** incluye tanto aplicaciones habilitadas como deshabilitadas.
+
+4. En **Visibilidad de la aplicación**, elija **Cualquiera** u **Oculta**. La opción **Oculta** muestra las aplicaciones que están en el inquilino pero no son visibles para los usuarios.
+
+5. Después de elegir las opciones que desee, haga clic en **Aplicar**.
+ 
+
+## <a name="search-for-a-tenant-application"></a>Búsqueda de una aplicación del inquilino
+
+Para buscar una aplicación determinada:
+
+1. En el menú **Tipo de aplicación**, seleccione **Todas las aplicaciones** y haga clic en **Aplicar**.
+
+2. Escriba el nombre de la aplicación que desea buscar. Si la aplicación se ha agregado al inquilino de Azure AD, aparecerá en los resultados de la búsqueda. En este ejemplo, se muestra que GitHub no se ha agregado a las aplicaciones del inquilino.
+
+    ![Búsqueda de una aplicación](media/view-applications-portal/search-for-tenant-application.png)
+
+3. Pruebe a escribir las primeras letras del nombre de una aplicación.  En este ejemplo se muestran todas las aplicaciones que empiezan por **Sales**.
+
+    ![Búsqueda con un prefijo](media/view-applications-portal/search-by-prefix.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Asignar un usuario o grupo a una aplicación empresarial](assign-user-or-group-access-portal.md)
-* [Eliminación de asignaciones de usuario o grupo de una aplicación empresarial](remove-user-or-group-access-portal.md)
-* [Deshabilitar los inicios de sesión de los usuarios de una aplicación empresarial](disable-user-sign-in-portal.md)
-* [Cambio del nombre o el logotipo de una aplicación empresarial](change-name-or-logo-portal.md)
+
+En esta guía de inicio rápido, ha aprendido cómo visualizar las aplicaciones del inquilino de Azure AD y cómo filtrar la lista de aplicaciones por tipo de aplicación, estado y visibilidad. También ha aprendido cómo buscar una aplicación determinada.
+
+Ahora que ha encontrado la aplicación que estaba buscando, puede seguir [agregando más aplicaciones al inquilino](add-application-portal.md) o puede hacer clic en la aplicación para ver o editar sus propiedades y opciones de configuración. Por ejemplo, podría configurar el inicio de sesión único. 
+
+> [!div class="nextstepaction"]
+> [Configuración del inicio de sesión único](configure-single-sign-on-portal.md)
+
+

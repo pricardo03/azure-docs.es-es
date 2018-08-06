@@ -1,181 +1,292 @@
 ---
-title: Montaje de un recurso compartido de archivos de Azure y acceso al recurso compartido en Windows | Microsoft Docs
-description: Montaje de un recurso compartido de archivos de Azure y acceso al recurso compartido en Windows.
+title: Uso de un recurso compartido de archivos de Azure con Windows | Microsoft Docs
+description: Aprenda a usar un recurso compartido de archivos de Azure con Windows y Windows Server.
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2018
+ms.date: 06/07/2018
 ms.author: renash
-ms.openlocfilehash: e283619c7e634a1fbba5940e5c8545b0ee4de3d1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 54e084e6480c872ff6dd4625b8c87d5a60a181ba
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39392274"
 ---
-# <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montaje de un recurso compartido de archivos de Azure y acceso al recurso compartido en Windows
-[Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en Windows y Windows Server. En este artículo se muestran tres maneras diferentes para montar un recurso compartido de archivos de Azure en Windows: con la interfaz del explorador de archivos, a través de PowerShell y mediante el símbolo del sistema. 
+# <a name="use-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
+[Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden usar sin problemas en Windows y Windows Server. En este artículo se describen los aspectos que se deben tener en cuenta al usar un recurso compartido de archivos de Azure con Windows y Windows Server.
 
-Para montar un recurso compartido de archivos de Azure fuera de la región de Azure en la que se hospeda, bien sea en local o en una región distinta de Azure, el sistema operativo debe admitir SMB 3.0. 
+Para usar un recurso compartido de archivos de Azure fuera de la región de Azure en la que se hospeda, bien sea de forma local o en una región distinta de Azure, el sistema operativo debe admitir SMB 3.0. 
 
-Puede montar recursos compartidos de Azure File en una instalación de Windows que se ejecute en una máquina virtual de Azure o en el entorno local. En la tabla siguiente se ilustran las versiones del sistema operativo que admiten el montaje de recursos compartidos de archivos en cada entorno:
+Puede usar recursos compartidos de archivos de Azure en una instalación de Windows que se ejecute en una máquina virtual de Azure o en el entorno local. En la tabla siguiente se ilustran las versiones del sistema operativo que admiten el acceso a recursos compartidos de archivos en cada entorno:
 
 | Versión de Windows        | Versión de SMB | Se puede montar en una máquina virtual de Azure | Se puede montar en el entorno local |
 |------------------------|-------------|-----------------------|----------------------|
-| Canal semestral de Windows Server<sup>1</sup> | SMB 3.0 | Sí | Sí |
-| Windows 10<sup>2</sup>  | SMB 3.0 | Sí | Sí |
-| Windows Server 2016    | SMB 3.0     | Sí                   | Sí                  |
-| Windows 8.1            | SMB 3.0     | Sí                   | Sí                  |
-| Windows Server 2012 R2 | SMB 3.0     | Sí                   | Sí                  |
-| Windows Server 2012    | SMB 3.0     | Sí                   | Sí                  |
-| Windows 7              | SMB 2.1     | Sí                   | Sin                    |
-| Windows Server 2008 R2 | SMB 2.1     | Sí                   | Sin                    |
+| Windows Server 2019 (versión preliminar)<sup>1</sup> | SMB 3.0 | SÍ | SÍ |
+| Windows 10<sup>2</sup> | SMB 3.0 | SÍ | SÍ |
+| Canal semestral de Windows Server<sup>3</sup> | SMB 3.0 | SÍ | SÍ |
+| Windows Server 2016    | SMB 3.0     | SÍ                   | SÍ                  |
+| Windows 8.1            | SMB 3.0     | SÍ                   | SÍ                  |
+| Windows Server 2012 R2 | SMB 3.0     | SÍ                   | SÍ                  |
+| Windows Server 2012    | SMB 3.0     | SÍ                   | SÍ                  |
+| Windows 7              | SMB 2.1     | SÍ                   | Sin                    |
+| Windows Server 2008 R2 | SMB 2.1     | SÍ                   | Sin                    |
 
-<sup>1</sup>Versión 1709 de Windows Server.  
-<sup>2</sup>Versiones 1507, 1607, 1703 y 1709 de Windows 10.
+<sup>1</sup>Windows Server 2019 está disponible en versión preliminar mediante el [programa Windows Server Insiders](https://insider.windows.com/for-business-getting-started-server/). Aunque Windows Server 2019 no se admite aún para su uso en producción, díganos si tiene problemas para conectarse a los recursos compartidos de archivos de Azure, que no se tratan en la [guía de solución de problemas de Windows](storage-troubleshoot-windows-file-connection-problems.md).  
+<sup>2</sup>Windows 10, versiones 1507, 1607, 1703, 1709 y 1803.  
+<sup>3</sup>Windows Server, versión 1709 y 1803.
 
 > [!Note]  
 > Siempre se recomienda disponer de la KB más reciente para su versión de Windows.
 
-## <a name="aprerequisites-for-mounting-azure-file-share-with-windows"></a></a>Requisitos previos para el montaje de un recurso compartido de archivos de Azure en Windows 
+## <a name="prerequisites"></a>Requisitos previos 
 * **Nombre de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará el nombre de la cuenta de almacenamiento.
 
 * **Clave de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará la clave principal (o secundaria) de la cuenta de almacenamiento. Actualmente no se admiten claves SAS para el montaje.
 
-* **Asegúrese de que el puerto 445 está abierto**: Azure Files usa el protocolo SMB. SMB se comunica a través del puerto TCP 445: compruebe que el firewall no bloquea el puerto TCP 445 en el equipo cliente. Puede usar Portqry para comprobar si el puerto TCP 445 está abierto. Si el puerto TCP 445 se muestra como filtrado, significa que el puerto TCP está bloqueado. Aquí se muestra una consulta de ejemplo:
+* **Asegúrese de que el puerto 445 está abierto**: el protocolo SMB requiere que esté abierto el puerto TCP 445; las conexiones producirán errores si el puerto 445 está bloqueado. Otra forma de comprobar si el firewall está bloqueando el puerto 445 es usar el cmdlet `Test-NetConnection`. En el siguiente código de PowerShell se da por hecho que tiene instalado el módulo AzureRM PowerShell. Para más información, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). No olvide reemplazar `<your-storage-account-name>` y `<your-resoure-group-name>` por los nombres correspondientes de su cuenta de almacenamiento.
 
-    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+    ```PowerShell
+    $resourceGroupName = "<your-resource-group-name>"
+    $storageAccountName = "<your-storage-account-name>"
 
-    Si el puerto TCP 445 está bloqueado por una regla a lo largo de la ruta de acceso de red, verá la siguiente salida:
+    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # already logged in.
+    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
-    `TCP port 445 (Microsoft-ds service): FILTERED`
+    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
+    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign clouds
+    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+    ```
 
-    Para más información sobre el uso de Portqry, consulte [Descripción de la utilidad de línea de comandos Portqry.exe](https://support.microsoft.com/help/310099).
+    Si la conexión se realizó correctamente, verá la siguiente salida:
 
+    ```
+    ComputerName     : <storage-account-host-name>
+    RemoteAddress    : <storage-account-ip-address>
+    RemotePort       : 445
+    InterfaceAlias   : <your-network-interface>
+    SourceAddress    : <your-ip-address>
+    TcpTestSucceeded : True
+    ```
 
-## <a name="persisting-connections-across-reboots"></a>Conexiones persistentes entre reinicios
-### <a name="cmdkey"></a>CmdKey
-La manera más fácil de establecer conexiones persistentes es guardar las credenciales de la cuenta de almacenamiento en Windows mediante la utilidad de línea de comandos "CmdKey". El siguiente es un ejemplo de línea de comandos para almacenar las credenciales de la cuenta de almacenamiento en la máquina virtual:
+    > [!Note]  
+    > El comando anterior devuelve la dirección IP actual de la cuenta de almacenamiento. No se garantiza que esta dirección IP permanezca igual, podría cambiar en cualquier momento. No codifique de forma rígida esta dirección IP en los scripts o en una configuración de firewall. 
+
+## <a name="using-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
+Para usar un recurso compartido de archivos de Azure con Windows, debe montarlo, lo que significa asignarle una letra de unidad o una ruta de acceso a un punto de montaje, o acceder a él mediante su [ruta de acceso UNC](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
+
+A diferencia de otros recursos compartidos de SMB con los que pueda haber interactuado, como los que están hospedados en un servidor de Windows, un servidor de Linux Samba o un dispositivo NAS, los recursos compartidos de archivos de Azure no admiten actualmente la autenticación Kerberos con la identidad de Active Directory (AD) o Azure Active Directory (AAD), si bien es una característica [en la que estamos trabajando](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles). En su lugar, debe acceder a su recurso compartido de archivos de Azure con la clave de la cuenta de almacenamiento que lo contiene. Una clave de cuenta de almacenamiento es una clave de administrador para una cuenta de almacenamiento, lo que incluye los permisos de administrador de todos los archivos y carpetas dentro de un recurso compartido de archivos al que accede, y de todos los recursos compartidos de archivos y otros recursos de almacenamiento (blobs, colas, tablas, etc.) contenidos en la cuenta de almacenamiento. Si esta solución no es suficiente para su carga de trabajo, [Azure File Sync](storage-files-planning.md#data-access-method) puede solucionar mientras tanto la falta de compatibilidad con la autenticación Kerberos y las listas ACL hasta que dicha compatibilidad esté disponible públicamente.
+
+Un patrón común para elevar y desplazar aplicaciones de línea de negocio (LOB) que esperan un recurso compartido de archivos de SMB es usar un recurso compartido de archivos de Azure como alternativa a ejecutar un servidor de archivos de Windows dedicado en una máquina virtual de Azure. Un aspecto importante que se debe tener en cuenta para migrar correctamente una aplicación de línea de negocio para usar un recurso compartido de archivos de Azure es que muchas de estas aplicaciones se ejecutan en el contexto de una cuenta de servicio dedicada con permisos de sistema limitados y no en la cuenta administrativa de la máquina virtual. Por lo tanto, debe asegurarse de montar o guardar las credenciales del recurso compartido de archivos de Azure desde el contexto de la cuenta de servicio y no de la cuenta administrativa.
+
+### <a name="persisting-azure-file-share-credentials-in-windows"></a>Persistencia de las credenciales del recurso compartido de archivos de Azure en Windows  
+La utilidad [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) le permite almacenar las credenciales de la cuenta de almacenamiento en Windows. Esto significa que al intentar acceder a un recurso compartido de archivos de Azure mediante su ruta de acceso UNC o montar el recurso compartido de archivos de Azure, no necesitará especificar las credenciales. Para guardar las credenciales de la cuenta de almacenamiento, ejecute los siguientes comandos de PowerShell, y sustituya `<your-storage-account-name>` y `<your-resoure-group-name>` donde corresponda.
+
+```PowerShell
+$resourceGroupName = "<your-resource-group-name>"
+$storageAccountName = "<your-storage-account-name>"
+
+# These commands require you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+# already logged in.
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$storageAccountKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
+
+# The cmdkey utility is a command-line (rather than PowerShell) tool. We use Invoke-Expression to allow us to 
+# consume the appropriate values from the storage account variables. The value given to the add parameter of the
+# cmdkey utility is the host address for the storage account, <storage-account>.file.core.windows.net for Azure 
+# Public Regions. $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign 
+# clouds or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+Invoke-Expression -Command "cmdkey /add:$([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) " + `
+    "/user:AZURE\$($storageAccount.StorageAccountName) /pass:$($storageAccountKeys[0].Value)"
 ```
-C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
-```
-> [!Note]
-> Domainname aquí será "AZURE"
 
-CmdKey también le permitirá enumerar las credenciales que almacena:
+Puede comprobar que la utilidad cmdkey ha almacenado la credencial de la cuenta de almacenamiento mediante el parámetro de lista:
 
+```PowerShell
+cmdkey /list
 ```
-C:\>cmdkey /list
-```
-La salida será la siguiente:
+
+Si las credenciales del recurso compartido de archivos de Azure están almacenadas correctamente, el resultado esperado es el siguiente (puede haber claves adicionales almacenadas en la lista):
 
 ```
 Currently stored credentials:
 
-Target: Domain:target=<yourstorageaccountname>.file.core.windows.net
+Target: Domain:target=<storage-account-host-name>
 Type: Domain Password
-User: AZURE\<yourstorageaccountname>
+User: AZURE\<your-storage-account-name>
 ```
-Una vez que se han almacenado las credenciales, ya no tiene que proporcionarlas al conectarse al recurso compartido. En su lugar, puede conectarse sin especificarlas.
 
-## <a name="mount-the-azure-file-share-with-file-explorer"></a>Montaje del recurso compartido de archivos de Azure con el explorador de archivos
+Ahora podrá montar o acceder al recurso compartido sin tener que proporcionar credenciales adicionales.
+
+#### <a name="advanced-cmdkey-scenarios"></a>Escenarios avanzados de cmdkey
+Es necesario tener en cuenta dos escenarios adicionales con cmdkey: el almacenamiento de credenciales de otro usuario en la máquina, como una cuenta de servicio, y el almacenamiento de credenciales en una máquina remota con la comunicación remota de PowerShell.
+
+Almacenar las credenciales de otro usuario en la máquina es muy sencillo: cuando haya iniciado sesión en su cuenta, simplemente ejecute el siguiente comando de PowerShell:
+
+```PowerShell
+$password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
+Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
+```
+
+Se abre una nueva ventana de PowerShell en el contexto de usuario de la cuenta de servicio (o la cuenta de usuario). A continuación, puede usar la utilidad cmdkey tal como se ha descrito [anteriormente](#persisting-azure-file-share-credentials-in-windows).
+
+No obstante, almacenar las credenciales en una máquina remota mediante la comunicación remota de PowerShell no es posible, dado que cmdkey no permite el acceso, ni siquiera para agregar algo, a su almacén de credenciales cuando se inicia la sesión del usuario mediante la comunicación remota de PowerShell. Se recomienda iniciar sesión en la máquina con [Escritorio remoto](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows).
+
+### <a name="mount-the-azure-file-share-with-powershell"></a>Montaje del recurso compartido de archivos de Azure con PowerShell
+Ejecute los siguientes comandos desde una sesión normal (es decir, sin privilegios elevados) de PowerShell para montar el recurso compartido de archivos de Azure. No olvide reemplazar `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` y `<desired-drive-letter>` por la información adecuada.
+
+```PowerShell
+$resourceGroupName = "<your-resource-group-name>"
+$storageAccountName = "<your-storage-account-name>"
+$fileShareName = "<your-file-share-name>"
+
+# These commands require you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+# already logged in.
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$storageAccountKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object { 
+    $_.Name -eq $fileShareName -and $_.IsSnapshot -eq $false
+}
+
+if ($fileShare -eq $null) {
+    throw [System.Exception]::new("Azure file share not found")
+}
+
+# The value given to the root parameter of the New-PSDrive cmdlet is the host address for the storage account, 
+# <storage-account>.file.core.windows.net for Azure Public Regions. $fileShare.StorageUri.PrimaryUri.Host is 
+# used because non-Public Azure regions, such as soverign clouds or Azure Stack deployments, will have different 
+# hosts for Azure file shares (and other storage resources).
+$password = ConvertTo-SecureString -String $storageAccountKeys[0].Value -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "AZURE\$($storageAccount.StorageAccountName)", $password
+New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\$($fileShare.StorageUri.PrimaryUri.Host)\$($fileShare.Name)" -Credential $credential -Persist
+```
+
+> [!Note]  
+> La opción `-Persist` del cmdlet `New-PSDrive` solo permitirá que se vuelva a montar el recurso compartido de archivos durante el arranque si las credenciales están guardadas. Puede guardar las credenciales mediante la utilidad cmdkey como [se ha descrito anteriormente](#persisting-azure-file-share-credentials-in-windows). 
+
+Si quiere, puede desmontar el recurso compartido de archivos de Azure con el siguiente cmdlet de PowerShell.
+
+```PowerShell
+Remove-PSDrive -Name <desired-drive-letter>
+```
+
+### <a name="mount-the-azure-file-share-with-file-explorer"></a>Montaje del recurso compartido de archivos de Azure con el Explorador de archivos
 > [!Note]  
 > Tenga en cuenta que las instrucciones siguientes se muestran en Windows 10 y pueden variar ligeramente en las versiones anteriores. 
 
-1. **Abra el Explorador de archivos**: esto puede hacerse desde el menú Inicio o bien presionando las teclas Win + E.
+1. Abra el Explorador de archivos. Para ello, puede abrir el menú Inicio o presionar el método abreviado Win+E.
 
-2. **Desplácese hasta el elemento "Este PC" en el lado izquierdo de la ventana. Esta operación cambiará los menús disponibles en la barra de herramientas. En el menú Equipo, seleccione "Conectar a unidad de red"**.
+2. Vaya al elemento **Este PC** del lado izquierdo de la ventana. Esta operación cambiará los menús disponibles en la barra de herramientas. En el menú Equipo, seleccione **Conectar a unidad de red**.
     
     ![Captura de pantalla del menú desplegable "Conectar a unidad de red"](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. **Copie la ruta de acceso UNC del panel Conectar en Azure Portal.** 
+3. Copie la ruta de acceso UNC del panel **Conectar** en Azure Portal. 
 
     ![Ruta de acceso UNC en el panel Conectar de Azure Files](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
-4. **Seleccione la letra de unidad y escriba la ruta de acceso UNC.** 
+4. Seleccione la letra de unidad y escriba la ruta de acceso UNC. 
     
     ![Captura de pantalla del cuadro de diálogo "Conectar a unidad de red"](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
-5. **Utilice el nombre de la cuenta de almacenamiento prefijada con `Azure\` como el nombre de usuario y la clave de la cuenta de almacenamiento como contraseña.**
+5. Use el nombre de la cuenta de almacenamiento prefijada con `AZURE\` como el nombre de usuario y la clave de la cuenta de almacenamiento como contraseña.
     
     ![Captura de pantalla del cuadro de diálogo credenciales de red](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
 
-6. **Uso del recurso compartido de archivos de Azure**.
+6. Use el recurso compartido de archivos de Azure como prefiera.
     
-    ![El recurso compartido de archivos de Azure ahora está montado](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
+    ![El recurso compartido de archivos de Azure ahora está montado.](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
-7. **Cuando esté listo para desmontar (o desconectar) el recurso compartido de archivos de Azure, puede hacerlo si hace clic con el botón derecho en la entrada del recurso compartido en "Ubicaciones de red" en el Explorador de archivos y selecciona "Desconectar"**.
+7. Cuando esté listo para desmontar el recurso compartido de archivos de Azure, puede hacerlo si hace clic con el botón derecho en la entrada del recurso compartido en **Ubicaciones de red** en el Explorador de archivos y selecciona **Desconectar**.
 
-## <a name="mount-the-azure-file-share-with-powershell"></a>Montaje del recurso compartido de archivos de Azure con PowerShell
-1. **Use el siguiente comando para montar el recurso compartido de archivos de Azure**: no olvide reemplazar `<storage-account-name>`, `<share-name>`, `<storage-account-key>` y `<desired-drive-letter>` con la información correcta.
+## <a name="securing-windowswindows-server"></a>Protección de Windows y Windows Server
+Para montar un recurso compartido de archivos de Azure en Windows, el puerto 445 debe estar accesible. Muchas organizaciones bloquean este puerto debido a los riesgos de seguridad inherentes a SMB 1. SMB 1, también conocido como CIFS (Sistema de archivos de Internet común), es un protocolo de sistema de archivos heredado que se incluye con Windows y Windows Server. SMB 1 es un protocolo obsoleto, ineficaz y, lo más importante, no seguro. La buena noticia es que Azure Files no admite SMB 1, y todas las versiones admitidas de Windows y Windows Server permiten quitar o deshabilitar SMB 1. Siempre se [recomienda firmemente](https://aka.ms/stopusingsmb1) quitar o deshabilitar el cliente y el servidor de SMB 1 en Windows antes de usar los recursos compartidos de archivos de Azure en producción.
 
-    ```PowerShell
-    $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
-    $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\<storage-account-name>", $acctKey
-    New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\<share-name>" -Credential $credential
-    ```
+En la tabla siguiente se proporciona información detallada sobre el estado de SMB 1 de cada versión de Windows:
 
-2. **Uso del recurso compartido de archivos de Azure**.
+| Versión de Windows                           | Estado predeterminado de SMB 1 | Método "deshabilitar o quitar"       | 
+|-------------------------------------------|----------------------|-----------------------------|
+| Windows Server 2019 (versión preliminar)             | Disabled             | Quitar con la característica de Windows |
+| Windows Server, versiones 1709 +            | Disabled             | Quitar con la característica de Windows |
+| Windows 10, versiones 1709 +                | Disabled             | Quitar con la característica de Windows |
+| Windows Server 2016                       | habilitado              | Quitar con la característica de Windows |
+| Windows 10, versiones 1507, 1607 y 1703 | habilitado              | Quitar con la característica de Windows |
+| Windows Server 2012 R2                    | habilitado              | Quitar con la característica de Windows | 
+| Windows 8.1                               | habilitado              | Quitar con la característica de Windows | 
+| Windows Server 2012                       | habilitado              | Deshabilitar con el Registro       | 
+| Windows Server 2008 R2                    | habilitado              | Deshabilitar con el Registro       |
+| Windows 7                                 | habilitado              | Deshabilitar con el Registro       | 
 
-3. **Cuando haya terminado, puede desmontar el recurso compartido de archivos de Azure mediante el siguiente comando**.
+### <a name="auditing-smb-1-usage"></a>Auditoría del uso de SMB 1
+> Se aplica a Windows Server 2019 (versión preliminar), el canal semestral de Windows Server (versiones 1709 y 1803), Windows Server 2016, Windows 10 (versiones 1507, 1607, 1703, 1709 y 1803), Windows Server 2012 R2 y Windows 8.1.
 
-    ```PowerShell
-    Remove-PSDrive -Name <desired-drive-letter>
-    ```
-
-> [!Note]  
-> Puede usar el parámetro `-Persist` en `New-PSDrive` para hacer visible el recurso compartido de archivos de Azure para el resto del sistema operativo durante el montaje.
-
-## <a name="mount-the-azure-file-share-with-command-prompt"></a>Montaje del recurso compartido de archivos de Azure desde el símbolo del sistema
-1. **Use el siguiente comando para montar el recurso compartido de archivos de Azure**: no olvide reemplazar `<storage-account-name>`, `<share-name>`, `<storage-account-key>` y `<desired-drive-letter>` con la información correcta.
-
-    ```
-    net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
-    ```
-
-2. **Uso del recurso compartido de archivos de Azure**.
-
-3. **Cuando haya terminado, puede desmontar el recurso compartido de archivos de Azure mediante el siguiente comando**.
-
-    ```
-    net use <desired-drive-letter>: /delete
-    ```
+Antes de quitar SMB 1 de su entorno, quizás quiera auditar su uso para ver si el cambio interrumpirá a los clientes. Si las solicitudes se realizan con respecto a recursos compartidos de SMB con SMB 1, se registrará un evento de auditoría en el registro de eventos en `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit`. 
 
 > [!Note]  
-> Puede configurar el recurso compartido de archivos de Azure para conectar automáticamente al reiniciar haciendo conservar las credenciales de Windows. El siguiente comando conservará las credenciales:
->   ```
->   cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
->   ```
+> Para habilitar la compatibilidad con auditoría en Windows Server 2012 R2 y Windows 8.1, instale al menos [KB4022720](https://support.microsoft.com/help/4022720/windows-8-1-windows-server-2012-r2-update-kb4022720).
+
+Para habilitar la auditoría, ejecute el siguiente cmdlet desde una sesión de PowerShell con privilegios elevados:
+
+```PowerShell
+Set-SmbServerConfiguration –AuditSmb1Access $true
+```
+
+### <a name="removing-smb-1-from-windows-server"></a>Eliminación de SMB 1 de Windows Server
+> Se aplica a Windows Server 2019 (versión preliminar), el canal semestral de Windows Server (versiones 1709 y 1803), Windows Server 2016 y Windows Server 2012 R2.
+
+Para quitar SMB 1 de una instancia de Windows Server, ejecute el siguiente cmdlet desde una sesión de PowerShell con privilegios elevados:
+
+```PowerShell
+Remove-WindowsFeature -Name FS-SMB1
+```
+
+Para completar el proceso de eliminación, reinicie el servidor. 
+
+> [!Note]  
+> A partir de Windows 10 y Windows Server versión 1709, SMB 1 no está instalado de forma predeterminada y las características de Windows para el cliente de SMB 1 y el servidor de SMB 1 son diferentes. Se recomienda siempre dejar sin instalar el servidor de SMB 1 (`FS-SMB1-SERVER`) y el cliente de SMB 1 (`FS-SMB1-CLIENT`).
+
+### <a name="removing-smb-1-from-windows-client"></a>Eliminación de SMB 1 del cliente de Windows
+> Se aplica a Windows 10 (versiones 1507, 1607, 1703, 1709 y 1803) y Windows 8.1.
+
+Para quitar SMB 1 del cliente de Windows, ejecute el siguiente cmdlet desde una sesión de PowerShell con privilegios elevados:
+
+```PowerShell
+Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
+```
+
+Para completar el proceso de eliminación, reinicie el equipo.
+
+### <a name="disabling-smb-1-on-legacy-versions-of-windowswindows-server"></a>Deshabilitación de SMB 1 en versiones heredadas de Windows y Windows Server
+> Se aplica a Windows Server 2012, Windows Server 2008 R2 y Windows 7.
+
+No se puede quitar completamente SMB 1 en versiones heredadas de Windows y Windows Server, pero se puede deshabilitar mediante el Registro. Para deshabilitar SMB 1, cree una nueva clave del Registro `SMB1` de tipo `DWORD` con un valor de `0` en `HKEY_LOCAL_MACHINE > SYSTEM > CurrentControlSet > Services > LanmanServer > Parameters`.
+
+Esto lo puede hacer fácilmente también con el siguiente cmdlet de PowerShell:
+
+```PowerShell
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
+```
+
+Después de crear esta clave del Registro, debe reiniciar el servidor para deshabilitar SMB 1.
+
+### <a name="smb-resources"></a>Recursos de SMB
+- [Stop using SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/) (Dejar de usar SMB1)
+- [SMB 1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/) (Centro de enrutamiento de productos de SMB 1)
+- [Discover SMB 1 in your environment with DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/) (Detección de SMB 1 en el entorno con DSCEA)
+- [Disabling SMB 1 through Group Policy](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/) (Deshabilitación de SMB 1 mediante directiva de grupo)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los vínculos siguientes para más información acerca Azure Files.
-
+Consulte los vínculos siguientes para más información sobre Azure Files:
+- [Planeamiento de una implementación de Azure Files](storage-files-planning.md)
 * [P+F](../storage-files-faq.md)
 * [Solución de problemas en Windows](storage-troubleshoot-windows-file-connection-problems.md)      
-
-### <a name="conceptual-articles-and-videos"></a>Artículos y vídeos conceptuales
-* [Azure Files: un sistema de archivos SMB en la nube sin dificultades para Windows y Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Uso de Azure Files con Linux](../storage-how-to-use-files-linux.md)
-
-### <a name="tooling-support-for-azure-files"></a>Compatibilidad de herramientas con Azure Files
-* [Uso de AzCopy con Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [Uso de la CLI de Azure con Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Solución de problemas de Azure Files en Windows](storage-troubleshoot-windows-file-connection-problems.md)
-* [Solución de problemas de Azure Files en Linux](storage-troubleshoot-linux-file-connection-problems.md)
-
-### <a name="blog-posts"></a>Publicaciones de blog
-* [Azure Files is now generally available (Azure Files ya está disponible con carácter general)](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Inside Azure Files (En el interior de Azure Files)](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-* [Introducing Microsoft Azure File Service (Introducción al servicio de archivos de Microsoft Azure)](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Migración de datos a Azure Files](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
-
-### <a name="reference"></a>Referencia
-* [Referencia de la biblioteca de clientes de almacenamiento para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
-* [Referencia de la API REST del servicio de archivos](http://msdn.microsoft.com/library/azure/dn167006.aspx)

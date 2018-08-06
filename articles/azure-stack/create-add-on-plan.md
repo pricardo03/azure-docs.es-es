@@ -13,23 +13,28 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: a84148a3ac31d51ff30cebffab00e5fec8fdaa87
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: a35ba993e6fd1162fa4a18bc0d6bc9351fe7dfa2
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35237003"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358297"
 ---
 # <a name="azure-stack-add-on-plans"></a>Planes complementarios de Azure Stack
-Como operador de Azure Stack, va a crear planes que contienen los servicios deseados y las cuotas aplicables para que sus usuarios se suscriban. Estos [*planes base*](azure-stack-create-plan.md) contienen los servicios básicos que se ofrecerán a los usuarios y solo se puede tener un plan base por oferta. Si necesita modificar su oferta, puede utilizar *planes complementarios* que le permitan modificar el plan para ampliar las cuotas de equipo, almacenamiento o red ofrecidas inicialmente con el plan base. 
 
-Aunque combinar todo en un solo plan puede ser adecuado en algunos casos, es posible que desee tener un plan base y ofrecer servicios adicionales utilizando planes complementarios. Por ejemplo, podría decidir ofrecer servicios IaaS como parte de un plan base, con todos los servicios PaaS tratados como planes complementarios. Los planes también se pueden utilizar para controlar el consumo de recursos en su entorno de Azure Stack. Por ejemplo, si desea que los usuarios sean conscientes de su uso de recursos, podría tener un plan base relativamente pequeño (dependiendo de los servicios requeridos) y a medida que los usuarios alcancen la capacidad, se les avisaría de que ya han consumido la asignación de recursos basada en su plan asignado. Desde allí, los usuarios pueden seleccionar un plan complementario disponible para recursos adicionales. 
+Como operador de Azure Stack, puede crear planes complementarios para modificar un [*plan base*](azure-stack-create-plan.md) cuando desee ofrecer servicios adicionales o ampliar las cuotas de *equipo*, *almacenamiento*  o *red* más allá de la oferta inicial de los planes base. Los planes complementarios modifican el plan base y son extensiones opcionales a las que los usuarios pueden elegir suscribirse. 
+
+Hay ocasiones en las que combinar todo en un único plan es la solución óptima. En otras ocasiones puede interesarle más tener un plan base y ofrecer los servicios adicionales utilizando planes complementarios. Por ejemplo, podría decidir ofrecer servicios IaaS como parte de un plan base, con todos los servicios PaaS tratados como planes complementarios.
+
+Otra razón para usar los planes complementarios es ayudar a los usuarios a que tengan conciencia del uso que hacen de los recursos. Para ello, puede empezar con un plan base que incluye cuotas relativamente pequeñas (dependiendo de los servicios requeridos). Después, a medida que los usuarios vayan utilizando la capacidad disponible, se les avisaría de que han consumido la asignación de recursos en función a su plan asignado. A partir de ese momento, los usuarios pueden seleccionar un plan complementario que proporcione los recursos adicionales.
 
 > [!NOTE]
-> Cuando un usuario agrega un plan complementario a una suscripción de oferta existente, los recursos adicionales pueden tardar hasta una hora en aparecer. 
+> Cuando no desee usar un plan complementario para ampliar una cuota, también puede elegir a [editar la configuración original de la cuota](azure-stack-quota-types.md#to-edit-a-quota). 
+
+Cuando un usuario agrega un plan complementario a una suscripción de oferta existente, los recursos adicionales pueden tardar hasta una hora en aparecer. 
 
 ## <a name="create-an-add-on-plan"></a>Crear un plan complementario
 Los planes complementarios se crean al modificar una oferta existente:
@@ -44,7 +49,7 @@ Los planes complementarios se crean al modificar una oferta existente:
    
     ![](media/create-add-on-plan/2.PNG)
 
-5. Seleccione el plan que se va a agregar. En este ejemplo, el plan se denomina **Key vault plan** (Plan de almacén de claves) y, después, haga clic en **Seleccionar** para agregar el plan a la oferta. Debería recibir una notificación de que el plan se agregó correctamente a la oferta.
+5. Seleccione el plan que se va a agregar. En este ejemplo, el plan se denomina **Key vault plan** (Plan de almacén de claves). Después de seleccionar el plan, haga clic en **Seleccionar** para agregar el plan a la oferta. Debería recibir una notificación de que el plan se agregó correctamente a la oferta.
    
     ![](media/create-add-on-plan/3.PNG)
 

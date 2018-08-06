@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: jdial
-ms.openlocfilehash: 30bed569887ce4b25d0b464e9f14a1491c38c736
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: f55dfa8ffadc4ddee1ff3861682e5596b675f0d0
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32767865"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325292"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de direcciones IP y métodos de asignación en Azure
 
@@ -97,7 +97,7 @@ Las direcciones IP públicas se suelen usar en los escenarios siguientes:
 * Usa certificados SSL vinculados a una dirección IP.
 
 > [!NOTE]
-> Azure asigna direcciones IP públicas a partir de un rango único para cada región de Azure. Para más información, consulte [Intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+> Azure asigna direcciones IP públicas a partir de un rango único para cada región en cada nube de Azure. Puede descargar la lista de intervalos (prefijos) para las nubes de Azure [Pública](https://www.microsoft.com/download/details.aspx?id=56519), [Gobierno de Estados Unidos](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062) y [Alemania](https://www.microsoft.com/download/details.aspx?id=57064).
 >
 
 ### <a name="dns-hostname-resolution"></a>Resolución de nombres de host DNS
@@ -128,10 +128,10 @@ La siguiente tabla muestra la propiedad específica a través de la cual una dir
 
 | Recurso de nivel superior | Asociación de dirección IP | Dinámica | estática |
 | --- | --- | --- | --- |
-| Máquina virtual |interfaz de red |Sí |Sí |
-| Equilibrador de carga accesible desde Internet |Configuración de front-end |Sí |Sí |
-| puerta de enlace de VPN |Configuración de dirección IP de puerta de enlace |Sí |Sin  |
-| puerta de enlace de aplicaciones |Configuración de front-end |Sí |Sin  |
+| Máquina virtual |interfaz de red |SÍ |SÍ |
+| Equilibrador de carga accesible desde Internet |Configuración de front-end |SÍ |SÍ |
+| puerta de enlace de VPN |Configuración de dirección IP de puerta de enlace |SÍ |Sin  |
+| puerta de enlace de aplicaciones |Configuración de front-end |SÍ |Sin  |
 
 ## <a name="private-ip-addresses"></a>Direcciones IP privadas
 Las direcciones IP privadas permiten que los recursos de Azure se comuniquen con otros recursos en una [red virtual](virtual-networks-overview.md) , o en la red local a través de una puerta de enlace de VPN o un circuito ExpressRoute, sin usar una dirección IP accesible desde Internet.
@@ -176,9 +176,9 @@ La siguiente tabla muestra la propiedad específica a través de la cual una dir
 
 | Recurso de nivel superior | Asociación de dirección IP | dinámico | estática |
 | --- | --- | --- | --- |
-| Máquina virtual |interfaz de red |Sí |Sí |
-| Equilibrador de carga |Configuración de front-end |Sí |Sí |
-| puerta de enlace de aplicaciones |Configuración de front-end |Sí |Sí |
+| Máquina virtual |interfaz de red |SÍ |SÍ |
+| Equilibrador de carga |Configuración de front-end |SÍ |SÍ |
+| puerta de enlace de aplicaciones |Configuración de front-end |SÍ |SÍ |
 
 ## <a name="limits"></a>límites
 Los límites impuestos en una dirección IP se indican en el conjunto completo de [límites de red](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) de Azure. Los límites son por región y suscripción. Puede [ponerse en contacto con el servicio de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar los límites predeterminados hasta alcanzar los límites máximos, según las necesidades empresariales.

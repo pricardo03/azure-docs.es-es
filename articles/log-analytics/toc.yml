@@ -9,9 +9,9 @@
   items:
     - name: 'Recopilación: máquinas virtuales de Azure'
       href: log-analytics-quick-collect-azurevm.md
-    - name: 'Recopilación: equipo con Linux'
+    - name: 'Recopilación: equipo híbrido con Linux'
       href: log-analytics-quick-collect-linux-computer.md
-    - name: 'Recopilación: equipo con Windows'
+    - name: 'Recopilación: equipo híbrido con Windows'
       href: log-analytics-quick-collect-windows-computer.md
 - name: Tutoriales
   items:

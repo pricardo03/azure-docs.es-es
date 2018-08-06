@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 6e09bdc336821720c970f8b8daf13f52b0a69ed0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9fdbfd0338b1c4b6ac863f07e5808ce6ccd9a6c7
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355379"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39347364"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creación y uso de un equilibrador de carga interno con una instancia de App Service Environment #
 
@@ -64,13 +64,7 @@ Pasos para crear un ASE con un ILB:
 
 4. Cree una red virtual o seleccione una.
 
-    * Si selecciona una red virtual nueva, puede especificar un nombre y una ubicación. Si desea hospedar aplicaciones de Linux en este ASE, solo se admiten estas 6 regiones en este momento: **Oeste de EE. UU., Este de EE. UU., Europa Occidental, Europa del Norte, Este de Australia, Sudeste Asiático.** 
-
-5. Si selecciona una red virtual existente, debe crear una subred para almacenar el ASE. Asegúrese de establecer un tamaño de subred suficientemente grande para alojar el crecimiento futuro de su ASE. Recomendamos un tamaño de `/25`, que tiene 128 direcciones y puede controlar los ASE de tamaño máximo. El tamaño mínimo que puede seleccionar es `/28`. Tras las necesidades de infraestructura, este tamaño se puede escalar hasta un máximo de 3 instancias.
-
-    * Vaya más allá del máximo predeterminado de 100 instancias en los planes de App Service.
-
-    * Escale cerca de 100, pero con un escalado de front-end más rápido.
+5. Si selecciona una red virtual existente, debe crear una subred para almacenar el ASE. Asegúrese de establecer un tamaño de subred suficientemente grande para alojar el crecimiento futuro de su ASE. Recomendamos un tamaño de `/24`, que tiene 256 direcciones y puede controlar los ASE de tamaño máximo y cualquier escala necesaria. 
 
 6. Seleccione **Virtual Network/Ubicación** > **Configuración de Virtual Network**. Establezca el valor de **Tipo de dirección VIP** en **Interna**.
 
@@ -119,7 +113,7 @@ Crea una aplicación en un ASE con un ILB del mismo modo que crea una aplicació
 
 5. Seleccione el sistema operativo. 
 
-    * Si desea crear una aplicación de Linux con un contenedor de Docker personalizado, simplemente puede poner su propio contenedor siguiendo las instrucciones que aparecen aquí. 
+    * Si desea crear una aplicación de Linux con un contenedor de Docker personalizado, simplemente puede poner su propio contenedor siguiendo las instrucciones que se indican [aquí][linuxapp]. 
 
 6. Seleccione o cree un plan de App Service. Si desea crear un nuevo plan de App Service, seleccione su ASE como ubicación. Seleccione el grupo de trabajo donde desea que se cree el plan de App Service. Cuando cree el plan de App Service, seleccione el ASE como ubicación y grupo de trabajo. Al especificar el nombre de la aplicación, el dominio que se encuentra bajo el nombre de la aplicación se reemplaza por el dominio del ASE.
 
@@ -172,7 +166,6 @@ Para cargar sus propios certificados y probar el acceso:
 
     > [!NOTE] 
     > No intente crear esta máquina virtual en la misma subred que el ASE porque se producirá un error o causará problemas.
-    >
     >
 
 6. Establezca el DNS para el dominio del ASE. Puede usar un comodín con el dominio en el DNS. Para realizar algunas pruebas sencillas, edite el archivo de hosts en su máquina virtual para establecer el nombre de la aplicación web en la dirección IP de IP virtual:
@@ -258,3 +251,4 @@ Para obtener más información sobre cómo configurar el ASE con un ILB con un d
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md
+[linuxapp]: ../containers/app-service-linux-intro.md

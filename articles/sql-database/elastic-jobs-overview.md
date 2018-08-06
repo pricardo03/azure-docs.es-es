@@ -6,14 +6,14 @@ author: srinia
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 06/14/2018
+ms.date: 07/26/2018
 ms.author: srinia
-ms.openlocfilehash: 65e920858b1c859dc9f8e911cdf59d4ab02da6d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0e01270b6ba12bde0e5f379903b80620646c4d1f
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972169"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309051"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Administración de grupos de bases de datos con trabajos de Elastic Database
 
@@ -106,11 +106,25 @@ Un *grupo de destino* define el conjunto de bases de datos en las que se ejecuta
 > [!TIP]
 > En el momento de la ejecución del trabajo,la *enumeración dinámica* vuelve a evaluar el conjunto de bases de datos de los grupos de destino que incluyan servidores o grupos. La enumeración dinámica garantiza que los **trabajos se ejecutan en todas las bases de datos que existen en el servidor o grupo de servidores en el momento de la ejecución del trabajo**. Volver a evaluar la lista de bases de datos en tiempo de ejecución es específicamente útil en escenarios donde la pertenencia al grupo o servidor cambia con frecuencia.
 
-
 Los grupos y bases de datos individuales se pueden especificar como incluidas o excluidas del grupo. Esto permite crear un grupo de destino con cualquier combinación de bases de datos. Por ejemplo, puede agregar un servidor a un grupo de destino, pero excluir bases de datos específicas de un grupo elástico (o excluir un grupo completo).
 
 Un grupo de destino puede incluir bases de datos de varias suscripciones y de varias regiones. Tenga en cuenta que las ejecuciones entre regiones tienen una latencia mayor que las ejecuciones en la misma región.
 
+Los ejemplos siguientes muestran cómo se enumeran dinámicamente distintas definiciones de grupo de destino en el momento de la ejecución del trabajo para determinar en qué bases de datos se ejecutará el trabajo:
+
+![Ejemplos de grupo de destino](media/elastic-jobs-overview/targetgroup-examples1.png)
+
+El **Ejemplo 1** muestra un grupo de destino que consta de una lista de bases de datos individuales. Cuando se ejecuta un paso de trabajo con este grupo de destino, la acción del paso de trabajo se ejecutará en cada una de esas bases de datos.<br>
+El **Ejemplo 2** muestra un grupo de destino que contiene un servidor de Azure SQL Server como destino. Cuando se ejecuta un paso de trabajo con este grupo de destino, el servidor se enumera de forma dinámica para determinar la lista de bases de datos que existen actualmente en el servidor. La acción del paso de trabajo se ejecutará en cada una de esas bases de datos.<br>
+El **Ejemplo 3** muestra un grupo de destino similar al del *Ejemplo 2*, pero se excluye específicamente una base de datos individual. La acción del paso de trabajo *no* se ejecutará en la base de datos excluida.<br>
+El **Ejemplo 4** muestra un grupo de destino que contiene un grupo elástico como destino. De forma similar al *Ejemplo 2*, el grupo se enumerará dinámicamente en tiempo de ejecución del trabajo para determinar la lista de bases de datos del grupo.
+<br><br>
+
+
+![Ejemplos de grupo de destino](media/elastic-jobs-overview/targetgroup-examples2.png)
+
+El **Ejemplo 5** y el *Ejemplo 6* muestran escenarios avanzados en los que se pueden combinar servidores de Azure SQL, grupos elásticos y bases de datos con reglas de inclusión y exclusión.<br>
+En el **Ejemplo 7** se muestra que las particiones de un mapa de particiones también se pueden evaluar en tiempo de ejecución del trabajo.
 
 ### <a name="job"></a>Trabajo
 

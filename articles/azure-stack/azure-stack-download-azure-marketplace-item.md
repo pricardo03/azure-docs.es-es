@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/13/2018
+ms.date: 07/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 73f8616449141ca91f96e9fcebede74597bc4fe3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 418b2f6b156853c1a2820271808bdba922d41a87
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044924"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412906"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Descarga de elementos de Marketplace desde Azure a Azure Stack
 
@@ -31,7 +31,7 @@ Los operadores en la nube pueden descargar elementos de Azure Marketplace y hace
 Hay dos escenarios para conectarse a Azure Marketplace: 
 
 - **Un escenario conectado**: requiere que el entorno de Azure Stack esté conectado a Internet. El portal de Azure Stack se usa para buscar y descargar elementos. 
-- **Un escenario sin conexión o con conexión parcial**: requiere que se acceda a internet mediante la herramienta de redifusión de Marketplace para descargar los elementos de este. Después, los elementos descargados se transfieren a la instalación desconectada de Azure Stack. Este escenario usa PowerShell.
+- **Un escenario sin conexión o con conexión parcial**: requiere que se acceda a Internet mediante la herramienta de redifusión de Marketplace para descargar los elementos de este. Después, los elementos descargados se transfieren a la instalación desconectada de Azure Stack. Este escenario usa PowerShell.
 
 En [Elementos de Azure Marketplace disponibles para Azure Stack](azure-stack-marketplace-azure-items.md) encontrará una lista de los elementos de Marketplace que se pueden descargar.
 
@@ -148,26 +148,7 @@ Este escenario tiene dos partes:
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>Importación de la descarga y su publicación en Azure Stack Marketplace
 1. Los archivos de las imágenes de máquina virtual o plantillas de solución que haya [descargado con anterioridad](#use-the-marketplace-syndication-tool-to-download-marketplace-items) deben estar disponibles localmente para su entorno de Azure Stack.  
 
-2. Importe la imagen de disco duro virtual en Azure Stack mediante el cmdlet **Add-AzsPlatformimage**. Cuando use este cmdlet, reemplace los valores *publisher*, *offer* y otros parámetros por los valores de la imagen que va a importar. 
-
-   Los valores *publisher*, *offer* y *sku* de la imagen se pueden obtener en el archivo de texto que se descarga junto con el archivo AZPKG. El archivo de texto se almacena en la ubicación de destino.
- 
-   En el siguiente script de ejemplo, se usan los valores de la máquina virtual Windows Server 2016 Datacenter - Server Core. 
-
-   ```PowerShell  
-   Add-AzsPlatformimage `
-    -publisher "MicrosoftWindowsServer" `
-    -offer "WindowsServer" `
-    -sku "2016-Datacenter-Server-Core" `
-    -osType Windows `
-    -Version "2016.127.20171215" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
-   ```
-   **Acerca de las plantillas de solución:** algunas plantillas pueden incluir un pequeño archivo .VHD de 3 MB llamado **fixed3.vhd**. Dicho archivo no es preciso que se importe en Azure Stack. Fixed3.vhd.  Este archivo se incluye con algunas plantillas de solución para cumplir requisitos de publicación de Azure Marketplace.
-
-   Vea la descripción de las plantillas y descargue e importe los requisitos adicionales, como los discos duros virtuales, necesarios para trabajar con la plantilla de solución.
-
-3. Use el Portal de administración para cargar el paquete de elementos de Marketplace (el archivo .azpkg) en el almacenamiento de blobs de Azure Stack. La carga del paquete hace que esté disponible para Azure Stack, por lo que más adelante el elemento se podrá publicar en Azure Stack Marketplace.
+2. Use el Portal de administración para cargar el paquete de elementos de Marketplace (el archivo .azpkg) en el almacenamiento de blobs de Azure Stack. La carga del paquete hace que esté disponible para Azure Stack, por lo que más adelante el elemento se podrá publicar en Azure Stack Marketplace.
 
    Para poder realizar la carga es preciso tener una cuenta de almacenamiento con un contenedor con acceso público (consulte los requisitos previos para este escenario)   
    1. En el Portal de administración de Azure Stack, vaya a **More services** > **Storage accounts** (Más servicios > Cuentas de almacenamiento).  
@@ -183,6 +164,33 @@ Este escenario tiene dos partes:
 
    5. Los archivos que se cargan aparecen en el panel del contenedor. Seleccione un archivo y, después, copie la dirección URL del panel **Propiedades del blob**. Esta dirección URL la usará en el paso siguiente, cuando importe el elemento de Marketplace en Azure Stack.  En la siguiente imagen, el contenedor es *blob-test-storage* y el archivo es *Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  La dirección URL del archivo es *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
       ![Propiedades del blob](media/azure-stack-download-azure-marketplace-item/blob-storage.png)  
+
+3. Importe la imagen de disco duro virtual en Azure Stack mediante el cmdlet **Add-AzsPlatformimage**. Cuando use este cmdlet, reemplace los valores *publisher*, *offer* y otros parámetros por los valores de la imagen que va a importar. 
+
+   Los valores *publisher*, *offer* y *sku* de la imagen se pueden obtener en el archivo de texto que se descarga junto con el archivo AZPKG. El archivo de texto se almacena en la ubicación de destino. El valor de *versión* es el valor que anotó al descargar el elemento de Azure en el procedimiento anterior. 
+ 
+   En el siguiente script de ejemplo, se usan los valores de la máquina virtual Windows Server 2016 Datacenter - Server Core. Reemplace *URI_path* por la ruta de acceso a la ubicación de almacenamiento de blob del elemento.
+
+   ```PowerShell  
+   Add-AzsPlatformimage `
+    -publisher "MicrosoftWindowsServer" `
+    -offer "WindowsServer" `
+    -sku "2016-Datacenter-Server-Core" `
+    -osType Windows `
+    -Version "2016.127.20171215" `
+    -OsUri "URI_path"  
+   ```
+   **Acerca de las plantillas de solución:** algunas plantillas pueden incluir un pequeño archivo .VHD de 3 MB llamado **fixed3.vhd**. Dicho archivo no es preciso que se importe en Azure Stack. Fixed3.vhd.  Este archivo se incluye con algunas plantillas de solución para cumplir requisitos de publicación de Azure Marketplace.
+
+   Vea la descripción de las plantillas y descargue e importe los requisitos adicionales, como los discos duros virtuales, necesarios para trabajar con la plantilla de solución.  
+   
+   **Acerca de las extensiones:** cuando trabaje con las extensiones de imágenes de máquinas virtuales, use los parámetros siguientes:
+   - *Publicador*
+   - *Tipo*
+   - *Versión*  
+
+   No use *Offer* para las extensiones.   
+
 
 4.  Use PowerShell para publicar el elemento de Marketplace en Azure Stack mediante el cmdlet **Add-AzsGalleryItem**. Por ejemplo:   
     ```PowerShell  

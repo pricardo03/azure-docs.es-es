@@ -1,27 +1,25 @@
 ---
 title: Creación de un servidor de Jenkins en Azure
 description: Instale Jenkins en una máquina virtual Linux de Azure a partir de la plantilla de solución de Jenkins y genere una aplicación Java de ejemplo.
-author: tomarcher
-manager: rloutlaw
-ms.service: multiple
-ms.workload: web
-ms.devlang: na
-ms.topic: article
-ms.date: 03/12/2018
+ms.topic: quickstart
 ms.author: tarcher
-ms.custom: Jenkins
-ms.openlocfilehash: c9f86ab2536d3c598bb8c7084524395b41f18db0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: af1082d9b7b350f1845d6c8e22108b9238a40f28
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635465"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390435"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Creación de un servidor de Jenkins en una máquina virtual Linux de Azure desde Azure Portal
 
 Este tutorial rápido muestra cómo instalar [Jenkins](https://jenkins.io) en una máquina virtual Linux de Ubuntu con las herramientas y complementos configurados para que funcionen con Azure. Cuando haya terminado, dispondrá de un servidor de Jenkins en ejecución en Azure que permitirá compilar una aplicación Java de ejemplo desde [GitHub](https://github.com).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure
 * Acceso a SSH en la línea de comandos del equipo (por ejemplo, el shell de Bash o [PuTTY](http://www.putty.org/))
@@ -88,6 +86,10 @@ Seleccione **Build Now** (Compilar ahora) para compilar el código y empaquetar 
 ![Vaya al área de trabajo para obtener el archivo JAR de la compilación](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
 
 Vaya a `complete/build/libs` y asegúrese de que `gs-spring-boot-0.1.0.jar` está allí para comprobar que la compilación se realizó correctamente. El servidor de Jenkins ya está listo para compilar sus propios proyectos de Azure.
+
+## <a name="troubleshooting-the-jenkins-solution-template"></a>Solución de problemas de la plantilla de solución de Jenkins
+
+Si detecta algún error con la plantilla de solución de Jenkins, registre un problema en [el repositorio de GitHub para Jenkins](https://github.com/azure/jenkins/issues).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

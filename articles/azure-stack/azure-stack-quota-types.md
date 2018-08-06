@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 52d469236d607a145430134c24c4237346dafb4c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2e884164347239838d08fbbc1616ed54ffc4ff24
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358742"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de cuota en Azure Stack
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 05/07/2018
 
 Las [cuotas](azure-stack-plan-offer-quota-overview.md#plans) definen los límites de recursos que puede aprovisionar o consumir una suscripción de usuario. Por ejemplo, una cuota podría permitir que un usuario creara hasta cinco máquinas virtuales. Cada recurso puede tener sus propios tipos de cuotas.
 
-## <a name="compute-quota-types"></a>Tipos de cuota de proceso
+## <a name="compute-quota-types"></a>Tipos de cuota de proceso 
 | **Tipo** | **Valor predeterminado** | **Descripción** |
 | --- | --- | --- |
 | Número máximo de máquinas virtuales | 20 | El número máximo de máquinas virtuales que puede crear una suscripción en esta ubicación. |
@@ -35,17 +36,14 @@ Las [cuotas](azure-stack-plan-offer-quota-overview.md#plans) definen los límite
 | Número máximo de conjuntos de disponibilidad | 10 | El número máximo de conjuntos de disponibilidad que se pueden crear en esta ubicación. |
 | Número máximo de conjuntos de escalado de máquinas virtuales | 20 | El número máximo de conjuntos de escalado de máquinas virtuales que se pueden crear en esta ubicación. |
 
-
-
-## <a name="storage-quota-types"></a>Tipos de cuotas de almacenamiento
+## <a name="storage-quota-types"></a>Tipos de cuotas de almacenamiento 
 | **Elemento** | **Valor predeterminado** | **Descripción** |
 | --- | --- | --- |
 | Capacidad máxima (GB) |500 |Capacidad de almacenamiento total que puede consumir una suscripción en esta ubicación. |
 | Número total de cuentas de almacenamiento |20 |El número máximo de cuentas de almacenamiento que puede crear una suscripción en esta ubicación. |
 
 > [!NOTE]  
-> Puede que el proceso tarde hasta dos horas antes de aplicar una cuota de almacenamiento. 
-> 
+> Puede que el proceso tarde hasta dos horas antes de aplicar una cuota de almacenamiento.
 
 
 ## <a name="network-quota-types"></a>Tipos de cuota de red
@@ -60,11 +58,25 @@ Las [cuotas](azure-stack-plan-offer-quota-overview.md#plans) definen los límite
 | Número máximo de grupos de seguridad de red |50 |El número máximo de grupos de seguridad de red que puede crear una suscripción en esta ubicación. |
 
 ## <a name="view-an-existing-quota"></a>Visualización de una cuota existente
-1. Haga clic en **Más servicios** > **Proveedores de recursos**.
-2. Seleccione el servicio con la cuota que desea ver.
-3. Haga clic en **Cuotas** y seleccione la cuota que desea ver.
+1. En el panel predeterminado del portal de administración, busque el icono **Proveedores de recursos**.
+2. Seleccione el servicio con la cuota que desea ver como **Compute** o **Storage**.
+3. Seleccione **Cuotas** y luego seleccione la cuota que desea ver.
+
+
+## <a name="edit-a-quota"></a>Edición de una cuota  
+Puede elegir editar la configuración original de una cuota en lugar de [utilizar un plan complementario](create-add-on-plan.md). Al editar una cuota, la nueva configuración se aplica automáticamente de forma global a todos los planes que utilizan esa cuota y a todas las suscripciones existentes que usan esos planes. La edición de una cuota es diferente a cuando se utiliza un plan complementario para proporcionar una cuota modificada a la que un usuario decide suscribirse. 
+
+### <a name="to-edit-a-quota"></a>Para editar una cuota  
+1. En el panel predeterminado del portal de administración, busque el icono **Proveedores de recursos**.
+2. Seleccione el servicio con la cuota que desea ver como **Compute**, **Network** o **Storage**.
+3. A continuación seleccione **Cuotas** y luego la cuota que desea cambiar.
+4. En el panel **Establecer cuotas**, edite los valores y luego seleccione **Guardar**. 
+
+Los nuevos valores para la cuota se aplican globalmente a todos los planes que utilizan la cuota modificada y a todas las suscripciones existentes que usan esos planes. 
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Más información acerca de planes, ofertas y cuotas.](azure-stack-plan-offer-quota-overview.md)
 
-[Crear cuotas durante la creación de un plan.](azure-stack-create-plan.md)
+- [Más información acerca de planes, ofertas y cuotas.](azure-stack-plan-offer-quota-overview.md)
+- [Crear cuotas durante la creación de un plan.](azure-stack-create-plan.md)
