@@ -50,7 +50,7 @@ Concretamente, si el campo "entidad esperada" de una acción está establecido e
 
 1. Haga clic en Entidades y, a continuación, en Nueva entidad.
 2. En Entity Name (Nombre de entidad), escriba el nombre.
-3. Click Create
+3. Haga clic en Crear.
 
 > [!NOTE]
 > El tipo de entidad es "custom". Este valor significa que la entidad se puede entrenar.  También hay entidades precompiladas, lo que significa que no se puede ajustar su comportamiento.  Estas entidades se tratan en el [tutorial sobre las entidades precompiladas](./7-built-in-entities.md).
