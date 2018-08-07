@@ -7,7 +7,7 @@
 - name: Guía de inicio rápido
   items:
     - name: Crear un perfil de Traffic Manager
-      href: traffic-manager-create-profile.md
+      href: quickstart-create-traffic-manager-profile.md
 - name: Tutoriales
   items:
     - name: Enrutamiento del tráfico según la ubicación geográfica del punto de conexión
