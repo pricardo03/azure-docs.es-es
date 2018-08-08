@@ -47,8 +47,6 @@
   items:
     - name: Ejemplos de código de Azure
       href: 'https://azure.microsoft.com/resources/samples/?service=search'
-    - name: Ejemplos de GitHub
-      href: 'https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search'
 - name: Conceptos
   items:
     - name: Cognitive Search (versión preliminar)
@@ -73,6 +71,8 @@
           href: cognitive-search-create-custom-skill-example.md
         - name: Sugerencias de solución de problemas
           href: cognitive-search-concept-troubleshooting.md
+        - name: Vínculos de documentación
+          href: cognitive-search-resources-documentation.md
     - name: Planificación
       items:
         - name: Elija un nivel
@@ -175,7 +175,7 @@
               href: search-indexer-field-mappings.md
     - name: Búsqueda de datos
       items:
-        - name: Aspectos básicos de consulta
+        - name: Aspectos básicos
           href: search-query-overview.md
         - name: Explorador de búsqueda (portal)
           href: search-explorer.md
@@ -215,6 +215,10 @@
           href: search-traffic-analytics.md
 - name: Referencia
   items:
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest'
+    - name: Azure PowerShell
+      href: 'https://www.powershellgallery.com/packages/AzureRM.search/0.1.0-preview'
     - name: .NET
       href: /dotnet/api/?term=microsoft.azure.search
     - name: .NET (administración)
@@ -250,35 +254,27 @@
           href: cognitive-search-skill-shaper.md
 - name: Recursos
   items:
-    - name: 'P+F: Preguntas más frecuentes'
+    - name: Soporte técnico de la comunidad de Azure
+      href: 'https://azure.microsoft.com/support/community/?product=search'
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-search'
+    - name: Sitios de demostración
+      items:
+        - name: Demostración de archivos financieros
+          href: 'http://wolterskluwereap.azurewebsites.net/'
+        - name: Demostración de archivos JFK
+          href: 'http://aka.ms/jfkfiles'
+        - name: Aplicación de listados de trabajos
+          href: 'http://aka.ms/azjobsdemo'
+        - name: Demostración del analizador de búsquedas
+          href: 'http://alice.unearth.ai/'
+        - name: Búsqueda de casos de uso
+          href: 'https://searchsamples.azurewebsites.net/'
+    - name: Preguntas más frecuentes
       href: search-faq-frequently-asked-questions.md
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/search/'
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=search'
-    - name: Documentación de Cognitive Search
-      href: cognitive-search-resources-documentation.md
-    - name: Cursos y tutoriales
-      items:
-        - name: Vídeos y tutoriales
-          href: search-video-demo-tutorial-list.md
-        - name: Academia virtual
-          href: 'https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382'
-    - name: Sitios de demostración
-      items:
-        - name: Demostración del analizador de búsquedas
-          href: 'http://alice.unearth.ai/'
-        - name: Aplicaciones de demostración en vivo
-          href: 'https://searchsamples.azurewebsites.net/'
-        - name: Aplicación de listados de trabajos
-          href: 'http://aka.ms/azjobsdemo'
-    - name: Partner y comunidad
-      items:
-        - name: Foro de MSDN sobre Azure Search
-          href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch'
-        - name: Stack Overflow
-          href: 'http://stackoverflow.com/questions/tagged/azure-search'
-        - name: 'Blog: Modelado de datos relacionales'
-          href: 'http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx'
-        - name: 'Blog: Aplicación de facetas de varios niveles'
-          href: 'http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

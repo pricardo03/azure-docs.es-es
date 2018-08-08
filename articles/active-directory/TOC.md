@@ -171,12 +171,13 @@
 #### [Planeación de la unión a Azure AD](devices/azureadjoin-plan.md)
 #### [Planeación de la implementación de la unión a Azure AD híbrido](devices/hybrid-azuread-join-plan.md)
 #### [Control de la unión a Azure AD híbrido de los dispositivos](devices/hybrid-azuread-join-control.md)
+#### [Asignación de administradores locales en dispositivos unidos a Azure AD](devices/assign-local-admin.md)
 #### [Solución de problemas de dispositivos actuales de Windows unidos a Azure AD híbrido](devices/troubleshoot-hybrid-join-windows-current.md)
 #### [Solución de problemas de dispositivos heredados de Windows unidos a Azure AD híbrido](devices/troubleshoot-hybrid-join-windows-legacy.md)
 
 ### Conceptos
-### [Administración de dispositivos con Azure Portal](devices/device-management-azure-portal.md)
-### [Preguntas más frecuentes](devices/faq.md)
+#### [Administración de dispositivos con Azure Portal](devices/device-management-azure-portal.md)
+#### [Preguntas más frecuentes](devices/faq.md)
 
 ## Administración de aplicaciones
 ### [Información general](manage-apps/what-is-application-management.md)
@@ -403,30 +404,30 @@
 ### [Acceso condicional](active-directory-conditional-access-azure-portal.md)
 #### [Primeros pasos](active-directory-conditional-access-azure-portal-get-started.md)
 #### Guías de inicio rápido
-##### [Configuración de Multi-Factor Authentication para aplicaciones por cada nube](active-directory-conditional-access-app-based-mfa.md)
-##### [Solicitar la aceptación de los términos de uso](active-directory-conditional-access-tou.md)
-##### [Bloqueo del acceso si se detecta un riesgo de sesión](active-directory-conditional-access-app-sign-in-risk.md)
+##### [Configuración de Multi-Factor Authentication para aplicaciones por cada nube](conditional-access/app-based-mfa.md)
+##### [Solicitar la aceptación de los términos de uso](conditional-access/require-tou.md)
+##### [Bloqueo del acceso si se detecta un riesgo de sesión](conditional-access/app-sign-in-risk.md)
 #### Tutoriales
-##### [Migración de directiva de MFA clásica](active-directory-conditional-access-migration-mfa.md)
+##### [Migración de directiva de MFA clásica](conditional-access/policy-migration-mfa.md)
 #### Conceptos
-##### [Protección básica](active-directory-conditional-access-baseline-protection.md)
-##### [Condiciones](active-directory-conditional-access-conditions.md)
-##### [Condiciones de ubicación](active-directory-conditional-access-locations.md)
-##### [Controles](active-directory-conditional-access-controls.md)
-##### [Herramienta What if](active-directory-conditional-access-whatif.md)
+##### [Protección básica](conditional-access/baseline-protection.md)
+##### [Condiciones](conditional-access/conditions.md)
+##### [Condiciones de ubicación](conditional-access/location-condition.md)
+##### [Controles](conditional-access/controls.md)
+##### [Herramienta What if](conditional-access/what-if-tool.md)
 ##### [Descripción de directivas de dispositivo para servicios de Office 365](active-directory-conditional-access-device-policies.md)
 #### Guías de procedimientos
-##### [procedimientos recomendados](active-directory-conditional-access-best-practices.md)
+##### [procedimientos recomendados](conditional-access/best-practices.md)
 ##### [Configuración de las directivas de acceso condicionales para los intentos de acceso de redes que no son de confianza](active-directory-conditional-access-untrusted-networks.md)
 ##### [Configuración del acceso condicional basado en dispositivos](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Configuración del acceso condicional basado en aplicaciones](active-directory-conditional-access-mam.md)
 ##### [Proporcionar condiciones de uso para los usuarios y las aplicaciones](active-directory-tou.md)
-##### [Migración de directivas clásicas](active-directory-conditional-access-migration.md)
+##### [Migración de directivas clásicas](conditional-access/policy-migration.md)
 ##### [Configuración de la conectividad VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [Configuración de SharePoint y Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Corrección](active-directory-conditional-access-device-remediation.md)
 #### [Referencia técnica](active-directory-conditional-access-technical-reference.md)
-#### [Preguntas más frecuentes](active-directory-conditional-faqs.md)
+#### [Preguntas más frecuentes](conditional-access/faqs.md)
 
 ### Autenticación basada en certificados
 #### [Android](active-directory-certificate-based-authentication-android.md)
