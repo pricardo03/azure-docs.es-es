@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 34248d75c190aa4636c39f087d399d946b589d58
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dc5b5cbe9b1f000d8ddf9d38cfe13f5275e698f2
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39348091"
 ---
 # <a name="create-an-external-app-service-environment"></a>Creación de una instancia externa de App Service Environment #
 
@@ -33,14 +34,14 @@ En este artículo se muestra cómo crear un ASE externo. Para obtener informaci�
 Después de crear la instancia de ASE, no puede cambiar los siguientes parámetros:
 
 - Ubicación
-- La suscripción
+- Subscription
 - Grupos de recursos
 - Red virtual usada
 - La subred usada
 - Tamaño de la subred
 
 > [!NOTE]
-> Al seleccionar una VNet y especificar una subred, asegúrese de que es lo suficientemente grande para adaptarse al crecimiento futuro. Se recomienda un tamaño de `/25` con ciento veintiocho direcciones.
+> Al seleccionar una VNet y especificar una subred, asegúrese de que es lo suficientemente grande para adaptarse al crecimiento futuro y a las necesidades de escalado. Se recomienda un tamaño de `/24` con doscientas cincuenta y seis direcciones.
 >
 
 ## <a name="three-ways-to-create-an-ase"></a>Tres formas de crear un ASE ##
@@ -67,10 +68,7 @@ Para compilar una instancia de ASE al crear un plan de App Service:
 
 3. Seleccione o cree un grupo de recursos. Con los grupos de recursos, puede administrar recursos de Azure relacionados como una unidad. Los grupos de recursos también son útiles cuando establece reglas de control de acceso basado en rol para las aplicaciones. Para más información, vea la [Información general de Azure Resource Manager][ARMOverview].
 
-4. Seleccione el sistema operativo. 
-
-    * El hospedaje de una aplicación Linux en un ASE es una nueva característica en versión preliminar, por lo que se recomienda no agregar aplicaciones Linux en un ASE que esté ejecutando en ese momento cargas de trabajo de producción. 
-    * Agregar una aplicación Linux en un ASE significa que el ASE estará también en modo versión preliminar. 
+4. Seleccione el sistema operativo (Windows, Linux o Docker). 
 
 5. Seleccione el plan de App Service y después seleccione **Crear nuevo**. Las aplicaciones web Windows y Linux no pueden estar en el mismo plan de App Service, pero sí que pueden estar en el mismo entorno de App Service. 
 
@@ -78,13 +76,7 @@ Para compilar una instancia de ASE al crear un plan de App Service:
 
 6. En la lista desplegable **Ubicación**, seleccione la región donde desea crear la instancia de ASE. Si selecciona una instancia de ASE existente, entonces no se crea ninguna. El plan de App Service se crea en la instancia de ASE seleccionada. 
 
-    > [!NOTE]
-    > Linux en ASE solo está habilitado en 6 regiones, en este momento: **Oeste de EE. UU., Este de EE. UU., Europa Occidental, Europa del Norte, Este de Australia, Sudeste Asiático.** Dado que Linux en ASE es una característica de versión preliminar, NO seleccione un ASE que haya creado antes de esta versión preliminar.
-    >
-
 7. Seleccione **Plan de tarifa** y elija una de las SKU de precios **aisladas**. Si elige una tarjeta de SKU **aislada** y una ubicación que no sea una instancia de ASE, significa que se va a crear una instancia de ASE en dicha ubicación. Para iniciar el proceso de creación de una instancia de ASE, haga clic en **Seleccionar**. La SKU **aislada** está disponible solo junto con una instancia de ASE. Tampoco puede utilizar cualquier otra SKU de precios en una instancia de ASE distinta de la **aislada**. 
-
-    * Para la versión preliminar de Linux en ASE, se aplicará un descuento del 50 % para la SKU del tipo Aislado (no habrá ningún descuento en la tarifa plana para el propio ASE).
 
     ![Selección del plan de tarifa][3]
 
@@ -120,13 +112,7 @@ Para compilar una instancia de ASE al crear un plan de App Service:
 
 5. En la lista desplegable **Ubicación**, seleccione la región donde desea crear la instancia de ASE. Si selecciona una instancia de ASE existente, entonces no se crea ninguna. El plan de App Service se crea en la instancia de ASE seleccionada. 
 
-    > [!NOTE]
-    > Linux en ASE solo está habilitado en 6 regiones, en este momento: **Oeste de EE. UU., Este de EE. UU., Europa Occidental, Europa del Norte, Este de Australia, Sudeste Asiático.** Dado que Linux en ASE es una característica de versión preliminar, NO seleccione un ASE que haya creado antes de esta versión preliminar.
-    >
-
 6. Seleccione **Plan de tarifa** y elija una de las SKU de precios **aisladas**. Si elige una tarjeta de SKU **aislada** y una ubicación que no sea una instancia de ASE, significa que se va a crear una instancia de ASE en dicha ubicación. Para iniciar el proceso de creación de una instancia de ASE, haga clic en **Seleccionar**. La SKU **aislada** está disponible solo junto con una instancia de ASE. Tampoco puede utilizar cualquier otra SKU de precios en una instancia de ASE distinta de la **aislada**. 
-
-    * Para la versión preliminar de Linux en ASE, se aplicará un descuento del 50 % para la SKU del tipo Aislado (no habrá ningún descuento en la tarifa plana para el propio ASE).
 
     ![Selección del plan de tarifa][3]
 
@@ -147,7 +133,7 @@ Para compilar una instancia de ASE al crear un plan de App Service:
 9.  Seleccione "Configurar contenedor".
     * Escriba el nombre de la imagen personalizada (puede usar Azure Container Registry, Docker Hub y su propio registro privado). Si no desea utilizar su propio contenedor personalizado, puede traer su código y utilizar una imagen integrada con App Service en Linux, utilizando las instrucciones anteriores. 
 
-    ![Configurar contenedor][9]
+    ![Configuración del contenedor][9]
 
 10. Seleccione **Crear** para crear la instancia de ASE. Con este proceso también se crea la aplicación y el plan de App Service. Tanto la instancia de ASE como el plan de App Service y la aplicación se encuentran en la misma suscripción y también en el mismo grupo de recursos. Si la instancia de ASE necesita un grupo de recursos independiente, o si necesita una instancia de ASE con un ILB, siga los pasos para crear un ASE por sí mismo.
 
@@ -170,7 +156,7 @@ Si crea una instancia de ASE independiente, esta no contendrá nada. Aunque la i
 
 5. Seleccione la red virtual y la ubicación. Puede crear una red virtual o seleccionar una existente: 
 
-    * Si selecciona una red virtual nueva, puede especificar un nombre y una ubicación. Si desea hospedar aplicaciones de Linux en este ASE, solo se admiten estas 6 regiones en este momento: **Oeste de EE. UU., Este de EE. UU., Europa Occidental, Europa del Norte, Este de Australia, Sudeste Asiático.** 
+    * Si selecciona una red virtual nueva, puede especificar un nombre y una ubicación. 
     
     * La nueva red virtual tiene el intervalo de direcciones 192.168.250.0/23 y una subred con nombre predeterminado. La subred se define como 192.168.250.0/24. Solo se puede seleccionar una red virtual de Resource Manager. La selección del **tipo de VIP** determina si es posible acceder directamente a la instancia de ASE desde Internet (externa) o si usa un ILB. Para obtener más información sobre estas opciones, vea [Creación y uso de un equilibrador de carga interno con una instancia de App Service Environment][MakeILBASE]. 
 
@@ -195,7 +181,7 @@ Para más información sobre ASEv1, consulte [Introducción a App Service Enviro
 [6]: ./media/how_to_create_an_external_app_service_environment/createexternalase-network.png
 [7]: ./media/how_to_create_an_external_app_service_environment/createexternalase-createwafc.png
 [8]: ./media/how_to_create_an_external_app_service_environment/createexternalase-aspcreatewafc.png
-[8]: ./media/how_to_create_an_external_app_service_environment/createexternalase-configurecontainer.png
+[9]: ./media/how_to_create_an_external_app_service_environment/createexternalase-configurecontainer.png
 
 
 
