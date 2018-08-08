@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 32feac32af01e518ad6cede43cc4b4f00c097d3b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e07ed8f131697d6340b899ef76c988aed215556b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041286"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283418"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Tutorial: integración de Azure Active Directory con SmarterU
 
@@ -126,11 +126,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 7. En la barra de herramientas de la parte superior, haga clic en **Configuración de cuenta**.
    
-    ![Configuración de la cuenta](./media/smarteru-tutorial/IC777326.png "configuración de la cuenta")
+    ![Configuración de cuenta](./media/smarteru-tutorial/accountsettings.png)
 
 8. En la página de configuración de la cuenta, realice los siguientes pasos:
    
-    ![Autorización externa](./media/smarteru-tutorial/IC777327.png "Autorización externa") 
+    ![Autorización externa](./media/smarteru-tutorial/externalauthorizationconfiguration.png) 
  
       a. Seleccione **Habilitar autorización externa**.
   
@@ -138,11 +138,13 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
   
       c. En la sección **Inicio de sesión predeterminado de usuario**, seleccione la pestaña **SmarterU**.
   
-      d. Seleccione **Habilitar Okta**.
+      d. Seleccione **Habilitar SAML**.
   
-      e. Copie el contenido del archivo de metadatos descargado y luego péguelo en el cuadro de texto **Metadatos de Okta** .
+      e. Copie el contenido del archivo de metadatos descargado y luego péguelo en el cuadro de texto **Metadatos de IdP**.
+      
+      f. Seleccione una **notificación o atributo de identificador**.
   
-      f. Haga clic en **Save**(Guardar).
+      g. Haga clic en **Save**(Guardar).
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -193,7 +195,7 @@ En el caso de SmarterU, el aprovisionamiento es una tarea manual.
 
 3. En la sección del usuario, lleve a cabo estos pasos:
    
-    ![Nuevo usuario](./media/smarteru-tutorial/IC777329.png "nuevo usuario")  
+    ![Nuevo usuario](./media/smarteru-tutorial/adduser.png)  
 
     a. Haga clic en **+Usuario**.
     

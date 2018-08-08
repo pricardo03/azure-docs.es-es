@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 9c0519181ec03394e7d732a8eb608501d6dd6657
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5928896ab3c89972b7912f686be045afc988b1cd
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161837"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308882"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Versión preliminar: Implementación de la protección con contraseña de Azure AD
 
@@ -56,7 +56,7 @@ Se necesitan dos instaladores de la protección con contraseña de Azure AD que 
 
 1. Elija uno o varios servidores para hospedar el servicio de proxy de protección con contraseña de Azure AD.
    * Cada servicio solo puede proporcionar las directivas de contraseñas para un bosque único, y el equipo host debe estar unido a un dominio (tanto el raíz como el secundario son compatibles) de ese bosque. Para que el servicio de proxy de protección con contraseña de Azure AD cumpla su misión, debe existir conectividad de red entre al menos un controlador de dominio de cada dominio del bosque y el equipo host del proxy de protección con contraseña de Azure AD.
-   * Es posible instalar y ejecutar el servicio de proxy de protección con contraseña de Azure AD en un controlador de dominio con fines de prueba pero, después, se requiere conectividad a Internet.
+   * Es posible instalar y ejecutar el servicio de proxy de protección con contraseña de Azure AD en un controlador de dominio con fines de prueba, pero el controlador de dominio requiere conectividad a Internet.
 
    > [!NOTE]
    > La versión preliminar pública admite un máximo de dos (2) servidores proxy por bosque.
@@ -110,6 +110,9 @@ Se necesitan dos instaladores de la protección con contraseña de Azure AD que 
 
    > [!NOTE]
    > Se prevé que el registro del bosque de Active Directory conste de un solo paso durante toda la vigencia del bosque. Los agentes de controladores de dominio que se ejecutan en el bosque realizarán automáticamente todas las demás tareas de mantenimiento necesarias. Una vez haya realizado todo esto correctamente para un bosque determinado, las invocaciones adicionales de `Register-AzureADPasswordProtectionForest` se realizarán correctamente, pero serán innecesarias.
+
+   > [!NOTE]
+   > Para que `Register-AzureADPasswordProtectionForest` funcione correctamente debe haber al menos un controlador de dominio de Windows Server 2012 o posterior disponible en el dominio del servidor proxy. Pero no es necesario que el software del agente de controlador de dominio esté instalado en ningún controlador de dominio antes de este paso.
 
 6. Opcional: Configure el servicio de proxy de protección con contraseña de Azure AD para que escuche en un puerto específico.
    * El software del agente de controlador de dominio de la protección con contraseña de Azure AD usa RPC a través de TCP en los controladores de dominio para comunicarse con el servicio de proxy de protección con contraseña de Azure AD. De forma predeterminada, el servicio de proxy de la directiva de contraseñas de protección con contraseña de Azure AD escucha en cualquier punto de conexión RPC dinámico disponible. Si es necesario debido a la topología de red o a los requisitos de firewall, en su lugar, se puede configurar el servicio para que escuche en un puerto TCP específico.

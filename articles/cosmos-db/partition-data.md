@@ -7,19 +7,19 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 046e45978d401e05d0ab8154aff994052f5d7717
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 0cb668dba661ce05d6393aec2707b65918f0c2ac
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960379"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344137"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partición y escalado en Azure Cosmos DB
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) es un servicio de bases de datos multimodelo, con distribución global, diseñado para ayudarle a lograr un rendimiento rápido y predecible. Se escala sin problemas junto con la aplicación a medida que esta crece. Este artículo proporciona información general sobre cómo funcionan las particiones para todos los modelos de datos de Azure Cosmos DB. También describe cómo puede configurar los contenedores de Azure Cosmos DB para escalar de forma eficaz las aplicaciones.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) es un servicio de bases de datos multimodelo, con distribución global, diseñado para ayudarle a lograr un rendimiento rápido y predecible. Se escala sin problemas junto con la aplicación. Este artículo proporciona información general sobre cómo funcionan las particiones para todos los modelos de datos de Azure Cosmos DB. También describe cómo puede configurar los contenedores de Azure Cosmos DB para escalar de forma eficaz las aplicaciones.
 
 En este vídeo se describe la creación de particiones y las claves de partición:
 
@@ -27,28 +27,31 @@ En este vídeo se describe la creación de particiones y las claves de partició
 > 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Creación de particiones en Azure Cosmos DB
-Azure Cosmos DB permite almacenar y consultar datos sin esquemas con una latencia inferior a 10 milisegundos a cualquier escala. Azure Cosmos DB proporciona contenedores para el almacenamiento de datos llamados *colecciones* (para el documento), *grafos* o *tablas*. 
+Azure Cosmos DB proporciona contenedores para el almacenamiento de datos llamados colecciones (para el documento), grafos o tablas. Los contenedores son recursos lógicos y pueden abarcar uno o varios servidores o particiones físicos. Azure Cosmos DB determina el número de particiones en función del tamaño de almacenamiento y del rendimiento aprovisionado en un contenedor o un conjunto de contenedores. 
 
-Los contenedores son recursos lógicos y pueden abarcar uno o varios servidores o particiones físicos. Azure Cosmos DB determina el número de particiones en función del tamaño de almacenamiento y del rendimiento aprovisionado en un contenedor o un conjunto de contenedores. 
 
-Una partición *física* es una cantidad fija de almacenamiento reservado respaldado por SSD y combinado con una cantidad variable de recursos de proceso (CPU y memoria). Todas las particiones físicas se replican para lograr una alta disponibilidad. Cada conjunto de contenedores puede compartir una o varias particiones físicas. Azure Cosmos DB se encarga de administrar las particiones físicas de principio a fin, por lo que no tendrá que escribir ningún código complejo ni administrar ninguna partición. Los contenedores de Azure Cosmos DB son ilimitados en términos de almacenamiento y rendimiento. 
+### <a name="physical-partition"></a>Partición física
+
+Una partición *física* es una cantidad fija de almacenamiento reservado respaldado por SSD y combinado con una cantidad variable de recursos de proceso (CPU y memoria). Todas las particiones físicas se replican para lograr una alta disponibilidad. Cada conjunto de contenedores puede compartir una o varias particiones físicas. Azure Cosmos DB se encarga de administrar las particiones físicas de principio a fin, por lo que no tendrá que escribir ningún código complejo ni administrar ninguna partición. Los contenedores de Azure Cosmos DB son ilimitados en términos de almacenamiento y rendimiento. Las particiones físicas son un concepto interno de Azure Cosmos DB y son transitorias. Azure Cosmos DB will escalará automáticamente el número de particiones físicas según la carga de trabajo. Por lo tanto, no debe correlacionar el diseño de la base de datos en función del número de particiones físicas. Por el contrario, debería asegurarse de elegir la clave de partición correcta que determina las particiones lógicas. 
+
+### <a name="logical-partition"></a>Partición lógica
 
 Una partición *lógica* es aquella dentro de una partición física que almacena todos los datos asociados a un valor de clave de partición única. Varias particiones lógicas pueden terminar en la misma partición física. En el siguiente diagrama, un único contenedor tiene tres particiones lógicas. Cada partición lógica almacena los datos para una clave de partición, LAX, AMS y MEL, respectivamente. Cada una de las particiones lógicas LAX, AMS y MEL no puede crecer más allá del límite máximo de las particiones lógicas de 10 GB. 
 
 ![Partición de los recursos](./media/introduction/azure-cosmos-db-partitioning.png) 
 
-Cuando un contenedor cumple los [requisitos previos de la creación de particiones](#prerequisites), esta creación es completamente transparente para la aplicación. Azure Cosmos DB admite lecturas y escrituras rápidas, consultas, lógica transaccional, niveles de coherencia y control de acceso muy detallado a través de métodos o API para un recurso de contenedor único. El servicio controla la distribución de los datos en las distintas particiones físicas y lógicas, así como el enrutamiento de las solicitudes de consulta a la partición correcta. 
+Cuando un contenedor cumple los [requisitos previos de la creación de particiones](#prerequisites), esta creación es completamente transparente para la aplicación. Azure Cosmos DB controla la distribución de los datos en las distintas particiones físicas y lógicas, así como el enrutamiento de las solicitudes de consulta a la partición correcta. 
 
 ## <a name="how-does-partitioning-work"></a>¿Cómo funciona la creación de particiones?
 
-¿Cómo funciona la creación de particiones? Cada elemento debe tener una *clave de partición* y una *clave de fila* que lo identifiquen de forma única. La clave de partición ejerce de partición lógica para los datos y proporciona a Azure Cosmos DB un límite natural para distribuir datos entre las particiones físicas. Los datos de una única partición lógica deben residir dentro de una misma partición física, pero la administración de particiones físicas está administrada por Azure Cosmos DB. 
+Cada documento debe tener una *clave de partición* y una *clave de fila* que lo identifiquen de forma única. La clave de partición ejerce de partición lógica para los datos y proporciona a Azure Cosmos DB un límite natural para distribuir datos entre las particiones físicas. **Los datos de una única partición lógica deben residir dentro de una misma partición física, y la administración de particiones físicas está administrada por Azure Cosmos DB**. 
 
 En resumen, la creación de particiones funciona en Azure Cosmos DB de la siguiente manera:
 
-* Va a aprovisionar un conjunto de contenedores de Azure Cosmos DB con un rendimiento de **T** RU/s (solicitudes por segundo).
-* En un segundo plano, Azure Cosmos DB aprovisiona las particiones físicas necesarias para atender **T** solicitudes por segundo. Si **T** es superior al rendimiento máximo por partición física **t**, Azure Cosmos DB aprovisiona **N = T/t** particiones físicas. El valor de rendimiento máximo por partición(t) se configura mediante Azure Cosmos DB, y dicho valor se asigna en función del rendimiento aprovisionado total y de la configuración de hardware que se utiliza. 
-* Azure Cosmos DB asigna el espacio de claves de los hash de claves de partición uniformemente entre las **N** particiones físicas. Por lo tanto, el número de particiones lógicas que cada partición física hospeda es **1/N** * valores de número de claves de partición.
-* Si una partición física **p** alcanza su límite de almacenamiento, Azure Cosmos DB divide **p** en dos nuevas particiones físicas, **p1** y **p2**. Lo que hace es distribuir los valores correspondientes a la mitad de las claves, aproximadamente, a cada una de las nuevas particiones. Esta operación de división es completamente invisible para la aplicación. Si una partición física alcanza su límite de almacenamiento y todos los datos en la partición física pertenecen a la misma clave de partición lógica, no tiene lugar la operación de división. Esto se debe a que todos los datos de una clave de partición lógica única deben residir en la misma partición física. En este caso, se debe emplear una estrategia de claves de partición diferente.
+* Va a aprovisionar un conjunto de contenedores de Azure Cosmos DB con un rendimiento de **T** RU/s (solicitudes por segundo).  
+* En un segundo plano, Azure Cosmos DB aprovisiona las particiones físicas necesarias para atender **T** solicitudes por segundo. Si **T** es superior al rendimiento máximo por partición física **t**, Azure Cosmos DB aprovisiona **N = T/t** particiones físicas. El valor de rendimiento máximo por partición(t) se configura mediante Azure Cosmos DB, y dicho valor se asigna en función del rendimiento aprovisionado total y de la configuración de hardware que se utiliza.  
+* Azure Cosmos DB asigna el espacio de claves de los hash de claves de partición uniformemente entre las **N** particiones físicas. Por lo tanto, el número de particiones lógicas que cada partición física hospeda es **1/N** * valores de número de claves de partición.  
+* Si una partición física **p** alcanza su límite de almacenamiento, Azure Cosmos DB divide **p** en dos nuevas particiones físicas, **p1** y **p2**. Lo que hace es distribuir los valores correspondientes a la mitad de las claves, aproximadamente, a cada una de las nuevas particiones. Esta operación de división es completamente invisible para la aplicación. Si una partición física alcanza su límite de almacenamiento y todos los datos en la partición física pertenecen a la misma clave de partición lógica, no tiene lugar la operación de división. Esto se debe a que todos los datos de una clave de partición lógica única deben residir en la misma partición física. En este caso, se debe emplear una estrategia de claves de partición diferente.  
 * Si el rendimiento que aprovisiona es mayor que **t*N**, Azure Cosmos DB divide una o varias de sus particiones físicas para respaldar el rendimiento más alto.
 
 La semántica para claves de partición es ligeramente diferente a fin de coincidir con la semántica de cada API, como se muestra en la siguiente tabla:
@@ -60,41 +63,45 @@ La semántica para claves de partición es ligeramente diferente a fin de coinci
 | Gremlin | Propiedad de clave de partición personalizada | `id` fija | 
 | Tabla | `PartitionKey` fija | `RowKey` fija | 
 
-Azure Cosmos DB usa la creación de particiones basada en hash. Al escribir un elemento, Azure Cosmos DB aplica un algoritmo hash al valor de clave de partición y usa el resultado al que se ha aplicado un algoritmo hash para determinar en qué partición se va a almacenar el elemento. Azure Cosmos DB almacena todos los elementos con la misma clave de partición en la misma partición física. 
+Azure Cosmos DB usa la creación de particiones basada en hash. Al escribir un elemento, Azure Cosmos DB aplica un algoritmo hash al valor de clave de partición y usa el resultado al que se ha aplicado un algoritmo hash para determinar en qué partición se va a almacenar el elemento. 
+
+> [!NOTE]
+> Azure Cosmos DB almacena todos los elementos con la misma clave de partición en la misma partición física. 
 
 ## <a name="best-practices-when-choosing-a-partition-key"></a>Procedimientos recomendados al elegir una clave de partición
 
 La elección de la clave de partición es una decisión importante que debe realizarse en el tiempo de diseño. Elija un nombre de propiedad que tenga una amplia gama de valores e incluso patrones de acceso. Se recomienda tener una clave de partición con un gran número de valores distintos (por ejemplo, centenares o miles). Le permite distribuir la carga de trabajo uniformemente entre estos valores. Una clave de partición idónea es la que aparece con frecuencia como filtro en sus consultas y que tiene suficiente cardinalidad para asegurar que la solución sea escalable.
 
-Si una partición física alcanza su límite de almacenamiento y los datos de la partición tienen la misma clave de partición, Azure Cosmos DB devuelve el mensaje que indica que *la clave de partición alcanzó el tamaño máximo de 10 GB* y la partición no se divide; por tanto, elegir una clave de partición es una decisión muy importante. Las particiones físicas son un concepto interno de Azure Cosmos DB y son transitorias. Azure Cosmos DB will escalará automáticamente el número de particiones físicas según la carga de trabajo. Por lo tanto, no debe correlacionar el diseño de la base de datos en función del número de particiones físicas. Por el contrario, debería asegurarse de elegir la clave de partición correcta (particiones lógicas). 
+Si una partición física alcanza su límite de almacenamiento y los datos de la partición tienen la misma clave de partición, Azure Cosmos DB devuelve el mensaje que indica que *la clave de partición alcanzó el tamaño máximo de 10 GB* y la partición no se divide; por tanto, elegir una clave de partición es una decisión muy importante. 
 
 Elija una clave de partición con que se cumpla lo siguiente:
 
-* La distribución de almacenamiento es uniforme en todas las claves.
-* La distribución de volúmenes de solicitudes en un momento dado es uniforme en todas las claves.
+* La distribución de almacenamiento es uniforme en todas las claves.  
+* La distribución de volúmenes de solicitudes en un momento dado es uniforme en todas las claves.  
+
+  Es una buena idea comprobar cómo se distribuyen los datos en las particiones. Para comprobar la distribución de datos en el portal, vaya a la cuenta de Azure Cosmos DB, haga clic en **Métrica**, en la sección **Supervisión** y luego haga clic en la pestaña **Almacenamiento** para ver cómo se distribuyen los datos en las diferentes particiones físicas.
+
+  ![Partición de los recursos](./media/partition-data/partitionkey-example.png)
+
+  La imagen de la izquierda anterior muestra el resultado de una clave de partición incorrecta y la imagen de la derecha anterior muestra el resultado cuando se elige una clave de partición correcta. En la imagen de la izquierda, puede ver que los datos no se distribuyen uniformemente en las particiones. Debe procurar elegir una clave de partición que distribuya los datos como se ve en la imagen de la derecha.
+
 * Las consultas que se invocan con alta simultaneidad se pueden enrutar de manera eficaz si se incluye la clave de partición en el predicador de filtro.  
-* Por lo general, se recomienda elegir una clave de partición con una mayor cardinalidad, porque habitualmente genera una mejor distribución y escalabilidad. Por ejemplo, se puede formar una clave compuesta si se concatenan valores de varias propiedades para aumentar la cardinalidad. 
+* Por lo general, se recomienda elegir una clave de partición con una mayor cardinalidad, porque habitualmente genera una mejor distribución y escalabilidad. Por ejemplo, se puede formar una clave sintética si se concatenan valores de varias propiedades para aumentar la cardinalidad.  
 
 Cuando elige una clave con las consideraciones anteriores, no es necesario que se preocupe por el número de particiones ni por cuánto rendimiento se asigna por partición física, porque Azure Cosmos DB escala de manera horizontal el número de particiones físicas y también puede escalar las particiones individuales en caso de ser necesario.
-
-Los contenedores de Azure Cosmos DB se pueden crear como *fijos* o *ilimitados* en Azure Portal. Los contenedores de tamaño fijo tienen un límite máximo de 10 GB y un rendimiento de 10 000 RU/s. Para crear un contenedor como ilimitado, debe especificar una clave de partición y una capacidad de proceso mínima de 1000 RU/s. Los contenedores de Azure Cosmos DB se pueden configurar también para compartir el rendimiento entre un conjunto de contenedores, en cuyo caso cada contenedor debe especificar una clave de partición y puede crecer de forma ilimitada.
-
-Es una buena idea comprobar cómo se distribuyen los datos en las particiones. Para comprobar la distribución de datos en el portal, vaya a la cuenta de Azure Cosmos DB, haga clic en **Métrica**, en la sección **Supervisión** y luego haga clic en la pestaña **Almacenamiento** para ver cómo se distribuyen los datos en las diferentes particiones físicas.
-
-![Partición de los recursos](./media/partition-data/partitionkey-example.png)
-
-La imagen de la izquierda anterior muestra el resultado de una clave de partición incorrecta y la imagen de la derecha anterior muestra el resultado cuando se elige una clave de partición correcta. En la imagen de la izquierda, puede ver que los datos no se distribuyen uniformemente en las particiones. Debe procurar elegir una clave de partición que distribuya los datos como se ve en la imagen de la derecha.
 
 <a name="prerequisites"></a>
 ## <a name="prerequisites-for-partitioning"></a>Requisitos previos para la creación de particiones
 
-Para que las particiones físicas se dividan automáticamente en **p1** y **p2**, tal y como se describe en [Cómo funciona la creación de particiones](#how-does-partitioning-work), el contenedor debe crearse con un rendimiento de 1000 RU/s o más (o compartirlo entre un conjunto de contenedores), y se debe proporcionar una clave de partición. Al crear un contenedor (por ejemplo, una colección, un grafo o una tabla) en Azure Portal, seleccione la opción **Ilimitada** para la capacidad de almacenamiento a fin de aprovechar las ventajas del escalado ilimitado. 
+Los contenedores de Azure Cosmos DB se pueden crear como fijos o ilimitados en Azure Portal. Los contenedores de tamaño fijo tienen un límite máximo de 10 GB y un rendimiento de 10 000 RU/s. Para crear un contenedor como ilimitado, debe especificar una clave de partición y una capacidad de proceso mínima de 1000 RU/s. Los contenedores de Azure Cosmos DB se pueden configurar también para compartir el rendimiento entre un conjunto de contenedores, en cuyo caso cada contenedor debe especificar una clave de partición y puede crecer de forma ilimitada. A continuación se detallan los requisitos previos a tener en cuenta para la creación de particiones y el escalado:
 
-Si ha creado un contenedor en Azure Portal o mediante programación y la capacidad de proceso inicial era de 1000 RU/s o más, y ha proporcionado una clave de partición, puede aprovechar el escalado ilimitado sin realizar cambios en su contenedor. Esto incluye los contenedores de tamaño **Fijo**, siempre que el contenedor inicial se haya creado con una capacidad de proceso de al menos 1000 RU/s y se haya especificado una clave de partición.
+* Al crear un contenedor (por ejemplo, una colección, un grafo o una tabla) en Azure Portal, seleccione la opción **Ilimitada** para la capacidad de almacenamiento a fin de aprovechar las ventajas del escalado ilimitado. Para que las particiones físicas se dividan automáticamente en **p1** y **p2**, tal y como se describe en [Cómo funciona la creación de particiones](#how-does-partitioning-work), el contenedor debe crearse con un rendimiento de 1000 RU/s o más (o compartirlo entre un conjunto de contenedores), y se debe proporcionar una clave de partición. 
 
-Todos los contenedores configurados para compartir el rendimiento como parte de un conjunto de contenedores se tratan como contenedores **ilimitados**.
+* Si ha creado un contenedor en Azure Portal o mediante programación y la capacidad de proceso inicial era de 1000 RU/s o más, y ha proporcionado una clave de partición, puede aprovechar el escalado ilimitado sin realizar cambios en su contenedor. Esto incluye los contenedores de tamaño **Fijo**, siempre que el contenedor inicial se haya creado con una capacidad de proceso de al menos 1000 RU/s y se haya especificado una clave de partición.
 
-Si ha creado un contenedor de tamaño **Fijo** sin ninguna clave de partición o con una capacidad de proceso menor que 1000 RU/s, el contenedor no se podrá escalar automáticamente tal y como se describe en este artículo. Para migrar los datos de un contenedor fijo a un contenedor ilimitado (por ejemplo, uno con al menos 1000 RU/s y una clave de partición), debe usar la [Herramienta de migración de datos](import-data.md) o la [biblioteca de fuente de cambios](change-feed.md). 
+* Todos los contenedores configurados para compartir el rendimiento como parte de un conjunto de contenedores se tratan como contenedores **ilimitados**.
+
+Si ha creado un contenedor de tamaño **Fijo** sin ninguna clave de partición o con una capacidad de procesamiento menor que 1000 RU/s, el contenedor no se podrá escalar automáticamente. Para migrar los datos de un contenedor fijo a un contenedor ilimitado, debe usar la [herramienta de migración de datos](import-data.md) o la [biblioteca de fuente de cambios](change-feed.md). 
 
 ## <a name="partitioning-and-provisioned-throughput"></a>Creación de particiones y procesamiento aprovisionado
 Azure Cosmos DB se ha diseñado para ofrecer un rendimiento predecible. Al crear un contenedor o un conjunto de contenedores, reserva el rendimiento en términos de *[unidades de solicitud](request-units.md) (RU) por segundo*. Cada solicitud realiza una carga de unidad de solicitud proporcional a la cantidad de recursos del sistema, como la CPU, la memoria y la E/S consumida por la operación. Una lectura de un documento de 1 KB con coherencia de sesión consume 1 unidad de solicitud. Una lectura es 1 RU independientemente del número de elementos almacenados o del número de solicitudes que se ejecutan de manera simultánea. Los elementos más grandes exigen unidades de solicitud mayores en función del tamaño. Si se conoce el tamaño de las entidades y el número de lecturas que debe admitir la aplicación, se puede aprovisionar la capacidad de proceso exacta requerida para las necesidades de la aplicación. 
@@ -105,7 +112,7 @@ Azure Cosmos DB se ha diseñado para ofrecer un rendimiento predecible. Al crear
 > 
 
 <a name="designing-for-partitioning"></a>
-## <a name="work-with-the-azure-cosmos-db-apis"></a>Uso de las API de Azure Cosmos DB
+## <a name="create-partition-key"></a>Creación de la lave de partición 
 Puede usar Azure Portal o la CLI de Azure para crear contenedores y escalarlos en cualquier momento. En esta sección se muestra cómo crear contenedores y cómo especificar la capacidad de proceso aprovisionada y la clave de partición que utiliza cada API.
 
 
@@ -198,6 +205,30 @@ g.E(['USA', 'I5'])
 
 Para más información, consulte [Using a partitioned graph in Azure Cosmos DB](graph-partitioning.md) (Uso de un grafo con particiones en Azure Cosmos DB).
 
+## <a name="form-partition-key-by-concatenating-multiple-fields"></a>Clave de partición del formulario mediante la concatenación de varios campos
+
+También puede formar una clave de partición mediante la concatenación y relleno de múltiples valores de propiedades en una única propiedad "partitionKey" artificial del elemento. Estas claves se conocen como claves sintéticas.
+
+Por ejemplo, tiene un documento similar al siguiente:
+
+```json
+{
+"deviceId": "abc-123",
+"date": 2018
+}
+```
+
+Una opción es establecer partitionKey en /deviceId o /date. Si desea formar una clave de partición en el identificador del dispositivo y la fecha. Concatene estos dos valores en una propiedad "partitionKey" artificial y establezca la clave de partición en /partitionKey.
+
+```json
+{
+"deviceId": "abc-123",
+"date": 2018,
+"partitionKey": "abc-123-2018"
+}
+```
+
+En escenarios en tiempo real puede tener miles de documentos, por lo que debe definir la lógica del lado cliente para concatenar los valores en una clave sintética, insertar la clave sintética en los documentos y, a continuación, utilizarla para especificar la clave de partición.
 
 <a name="designing-for-scale"></a>
 ## <a name="design-for-scale"></a>Diseño para escala

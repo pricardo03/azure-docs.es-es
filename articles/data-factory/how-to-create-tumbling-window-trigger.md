@@ -11,19 +11,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/05/2018
+ms.date: 07/27/2018
 ms.author: shlo
-ms.openlocfilehash: 02f84047d0e1d3e73fac991250da814176f3995d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c42d6235af8a5ab27fbd550b63c301fd9c6f15b1
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049931"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325040"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Creación de un desencadenador que ejecuta una canalización en una ventana de saltos de tamaño constante
 En este artículo se explica cómo crear, iniciar y supervisar un desencadenador de ventana de saltos de tamaño constante. Para obtener información general sobre los desencadenadores y los tipos compatibles, vea [Ejecución y desencadenadores de canalización](concepts-pipeline-execution-triggers.md).
 
 Los desencadenadores de ventana de saltos de tamaño constante son un tipo de desencadenador que se activa en un intervalo de tiempo periódico a partir de una hora de inicio especificada, mientras conserva el estado. Las ventanas de saltos de tamaño constante son una serie de intervalos de tiempo de tamaño fijo, contiguos y que no se superponen. Un desencadenador de ventana de saltos de tamaño constante tiene una relación uno a uno con una canalización y solo puede hacer referencia a una única canalización.
+
+## <a name="data-factory-ui"></a>Interfaz de usuario de Data Factory
+
+Para crear un desencadenador de ventana de saltos de tamaño constante en Azure Portal, seleccione **Desencadenador > Ventana de saltos de tamaño constante > Siguiente**, y luego configure las propiedades que definen la ventana de saltos de tamaño constante.
+
+![Creación de un desencadenador de ventana de saltos de tamaño constante en Azure Portal](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
 
 ## <a name="tumbling-window-trigger-type-properties"></a>Propiedades del tipo de desencadenador de ventana de saltos de tamaño constante
 Una ventana de saltos de tamaño constante tiene las siguientes propiedades del tipo de desencadenador:
@@ -72,14 +78,14 @@ En la tabla siguiente se muestra una descripción general de los elementos JSON 
 
 | Elemento JSON | DESCRIPCIÓN | Escriba | Valores permitidos | Obligatorio |
 |:--- |:--- |:--- |:--- |:--- |
-| **type** | Tipo de desencadenador. El tipo es el valor fijo "TumblingWindowTrigger". | string | "TumblingWindowTrigger" | Sí |
-| **runtimeState** | Estado actual del tiempo de ejecución del desencadenador.<br/>**Nota**: Este elemento es \<readOnly>. | string | "Started," "Stopped," "Disabled" | Sí |
-| **frequency** | Una cadena que representa la unidad de frecuencia (minutos u horas) con que se repite el desencadenador. Si los valores de fecha **startTime** son más granulares que el valor **frequency**, las fechas **startTime** se tienen en cuenta para calcular los límites de ventana. Por ejemplo, si el valor **frequency** es cada hora y el valor **startTime** es 2016-04-01T10:10:10Z, la primera ventana es (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | string | "minute", "hour"  | Sí |
-| **interval** | Un entero positivo que indica el intervalo para el valor **frequency**, que determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es "hour", el desencadenador se repite cada tres horas. | Entero | Un número entero positivo. | Sí |
-| **startTime**| La primera repetición, que puede ser en el pasado. El primer intervalo de desencadenador es (**startTime**, **startTime** + **interval**). | Datetime | Un valor DateTime. | Sí |
-| **endTime**| La última repetición, que puede ser en el pasado. | Datetime | Un valor DateTime. | Sí |
+| **type** | Tipo de desencadenador. El tipo es el valor fijo "TumblingWindowTrigger". | string | "TumblingWindowTrigger" | SÍ |
+| **runtimeState** | Estado actual del tiempo de ejecución del desencadenador.<br/>**Nota**: Este elemento es \<readOnly>. | string | "Started," "Stopped," "Disabled" | SÍ |
+| **frequency** | Una cadena que representa la unidad de frecuencia (minutos u horas) con que se repite el desencadenador. Si los valores de fecha **startTime** son más granulares que el valor **frequency**, las fechas **startTime** se tienen en cuenta para calcular los límites de ventana. Por ejemplo, si el valor **frequency** es cada hora y el valor **startTime** es 2016-04-01T10:10:10Z, la primera ventana es (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | string | "minute", "hour"  | SÍ |
+| **interval** | Un entero positivo que indica el intervalo para el valor **frequency**, que determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es "hour", el desencadenador se repite cada tres horas. | Entero | Un número entero positivo. | SÍ |
+| **startTime**| La primera repetición, que puede ser en el pasado. El primer intervalo de desencadenador es (**startTime**, **startTime** + **interval**). | Datetime | Un valor DateTime. | SÍ |
+| **endTime**| La última repetición, que puede ser en el pasado. | Datetime | Un valor DateTime. | SÍ |
 | **delay** | La cantidad de tiempo para retrasar el inicio del procesamiento de datos de la ventana. La ejecución de la canalización se inicia después del tiempo de ejecución esperado más el tiempo de retraso establecido en **delay**. **delay** define el tiempo de espera del desencadenador antes de desencadenar una nueva ejecución. El valor de **delay** no altera el valor de **startTime** de la ventana. Por ejemplo, un valor **delay** de 00:10:00 implica un retraso de diez minutos. | TimeSpan  | Un valor de tiempo donde el valor predeterminado es 00:00:00. | Sin  |
-| **maxConcurrency** | Número de ejecuciones simultáneas del desencadenador que se activan para las ventanas que están listas. Por ejemplo, reponer las ejecuciones cada hora para el día de ayer genera veinticuatro ventanas. Si **maxConcurrency** = 10, los eventos del desencadenador se activan solo para las diez primeras ventanas (00:00-01:00 - 09:00-10:00). Una vez completadas las diez primeras ejecuciones de canalización desencadenadas, se activan las ejecuciones del desencadenador para las diez siguientes (10:00-11:00 - 19:00-20:00). Siguiendo con el ejemplo de **maxConcurrency** = 10, si hay diez ventanas listas, habrá también diez ejecuciones de canalización en total. Si solo hay una ventana lista, solo se producirá una ejecución de canalización. | Entero | Un número entero comprendido entre uno y cincuenta. | Sí |
+| **maxConcurrency** | Número de ejecuciones simultáneas del desencadenador que se activan para las ventanas que están listas. Por ejemplo, reponer las ejecuciones cada hora para el día de ayer genera veinticuatro ventanas. Si **maxConcurrency** = 10, los eventos del desencadenador se activan solo para las diez primeras ventanas (00:00-01:00 - 09:00-10:00). Una vez completadas las diez primeras ejecuciones de canalización desencadenadas, se activan las ejecuciones del desencadenador para las diez siguientes (10:00-11:00 - 19:00-20:00). Siguiendo con el ejemplo de **maxConcurrency** = 10, si hay diez ventanas listas, habrá también diez ejecuciones de canalización en total. Si solo hay una ventana lista, solo se producirá una ejecución de canalización. | Entero | Un número entero comprendido entre uno y cincuenta. | SÍ |
 | **retryPolicy: Count** | El número de reintentos antes de que la ejecución de la canalización se marque como "error".  | Entero | Un entero, donde el valor predeterminado es 0 (ningún reintento). | Sin  |
 | **retryPolicy: intervalInSeconds** | El retraso entre intentos de reintentos, especificado en segundos. | Entero | El número de segundos, donde el valor predeterminado es 30. | Sin  |
 

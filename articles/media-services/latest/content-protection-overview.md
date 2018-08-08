@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 1568ea3431f18b7a7a020d34d803f883904e18b4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 600068113fec0549f3993ac57c1daa93577c6be6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115237"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399760"
 ---
 # <a name="content-protection-overview"></a>Introducción a la protección de contenido
 
@@ -30,7 +30,7 @@ En la siguiente imagen se ilustra el flujo de trabajo de protección de contenid
 
 *El cifrado dinámico es compatible con la "clave sin cifrado" de AES-128, CBCS y CENC. Para obtener información detallada, consulte la matriz de compatibilidad [aquí](#streaming-protocols-and-encryption-types).*
 
-En este artículo se explican los conceptos y terminología pertinentes para conocer la protección de contenido con Media Services. En el artículo también se proporcionan vínculos a artículos donde se indica cómo proteger el contenido. 
+En este artículo se explican los conceptos y terminología pertinentes para conocer la protección de contenido con Media Services. El artículo también incluye la sección de [preguntas más frecuentes](#faq) y proporciona vínculos a artículos que muestran cómo proteger el contenido. 
 
 ## <a name="main-components-of-the-content-protection-system"></a>Componentes principales del sistema de protección de contenido
 
@@ -125,6 +125,65 @@ Con una directiva de clave de contenido con restricción de token, la clave de c
 
 Al configurar la directiva de restricción de token, debe especificar los parámetros de clave de comprobación principal, el emisor y el público. La clave de comprobación principal contiene la clave con la que se firmó el token. El emisor es el servicio de token seguro que emite el token. El público, a veces denominado ámbito, describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Media Services valida que estos valores del token coincidan con los valores de la plantilla.
 
+## <a name="a-idfaqfrequently-asked-questions"></a><a id="faq"/>Preguntas más frecuentes
+
+### <a name="question"></a>Pregunta
+
+¿Cómo se implementa el sistema con DRM múltiple (PlayReady, Widevine y FairPlay) mediante Azure Media Services (AMS) v3 y cómo se usa el servicio de entrega de claves/licencias de AMS?
+
+### <a name="answer"></a>Respuesta
+
+Para el escenario completo, consulte el [ejemplo de código siguiente](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs). 
+
+En el ejemplo se muestra cómo:
+
+1. Crear y configurar ContentKeyPolicies.
+
+  El ejemplo contiene funciones que configuran licencias de [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md) y [FairPlay](fairplay-license-overview.md).
+
+    ```
+    ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
+    ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
+    ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
+    ```
+
+2. Crear un objeto StreamingLocator configurado para transmitir un recurso cifrado. 
+
+  En el caso de este ejemplo, establecemos **StreamingPolicyName** en **PredefinedStreamingPolicy.SecureStreaming** que admite el cifrado de sobre y CENC y establece dos claves de contenido en el objeto StreamingLocator. 
+
+  Si también quiere cifrar con FairPlay, establezca **StreamingPolicyName** en **PredefinedStreamingPolicy.SecureStreamingWithFairPlay**.
+
+3. Crear un token de prueba.
+
+  El método **GetTokenAsync** muestra cómo crear una prueba de token.
+  
+4. Crear las direcciones URL de streaming.
+
+  El método **GetDASHStreamingUrlAsync** muestra cómo crear la dirección URL de streaming. En este caso, la dirección URL transmite el contenido de **DASH**.
+
+### <a name="question"></a>Pregunta
+
+¿Cómo y dónde se puede obtener el token JWT antes de usarlo para solicitar la licencia o la clave?
+
+### <a name="answer"></a>Respuesta
+
+1. Para entornos de producción, deberá tener servicios de token seguro (STS) (servicio web) que emite el token JWT tras una solicitud HTTPS. Para la prueba, puede usar el código que se muestra en el método **GetTokenAsync** definido en [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+2. Una vez que se autentique un usuario, el reproductor deberá solicitar al STS dicho tipo de token y asignarlo como el valor del token. Puede usar la [API de Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/).
+
+* Para un ejemplo de cómo ejecutar STS, con claves simétricas y asimétricas, consulte [ http://aka.ms/jwt ](http://aka.ms/jwt). 
+* Para un ejemplo de un reproductor basado en Azure Media Player usando dicho token JWT, consulte [ http://aka.ms/amtest ](http://aka.ms/amtest) (expanda el vínculo "player_settings" para ver la entrada de token).
+
+### <a name="question"></a>Pregunta
+
+¿Cómo se autorizan las solicitudes para transmitir vídeos con cifrado AES?
+
+### <a name="answer"></a>Respuesta
+
+El enfoque correcto consiste en aprovechar STS (servicio de token seguro):
+
+Según el perfil de usuario, en STS agregue notificaciones distintas (por ejemplo, "Usuario premium", "Usuario básico", "Usuario de evaluación gratuita"). Con notificaciones distintas en un token JWT, el usuario puede ver diferentes contenidos. Por supuesto, para otro contenido o recurso, la restricción ContentKeyPolicyRestriction tendrá el elemento RequiredClaims correspondiente.
+
+Use las API de Azure Media Services para configurar la entrega de claves o licencias y cifrar los recursos (como se muestra en [este ejemplo](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

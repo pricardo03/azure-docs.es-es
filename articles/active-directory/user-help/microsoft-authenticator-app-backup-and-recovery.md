@@ -1,25 +1,22 @@
 ---
-title: Copia de seguridad y recuperación con la aplicación Microsoft Authenticator en Azure AD | Microsoft Docs
+title: 'Copia de seguridad y recuperación con la aplicación Microsoft Authenticator: Azure Active Directory | Microsoft Docs'
 description: Aprenda a realizar copias de seguridad y recuperar sus credenciales de cuenta con la aplicación Microsoft Authenticator.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.service: multi-factor-authentication
+ms.component: user-help
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.custom: end-user
-ms.openlocfilehash: a9c950ecafd2eb5f3aed1bee3707f57be6ec3b62
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 29226f0645a772ffe02e378c9b4df0a87909731a
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058557"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358127"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Copia seguridad y recuperación de las credenciales de cuenta con la aplicación Microsoft Authenticator
 
@@ -51,7 +48,7 @@ El inicio simultáneo en las dos cuentas ofrece mayor seguridad para la informac
 ## <a name="recover-your-account-credentials-on-your-new-device"></a>Recuperación de las credenciales de cuenta en el dispositivo nuevo
 Puede recuperar las credenciales de su cuenta de la cuenta de iCloud, con la misma cuenta de recuperación de Microsoft que configuró al realizar la copia de seguridad de la información.
 
-**Recuperación de la información**
+### <a name="to-recover-your-information"></a>Recuperación de la información
 1.  En el dispositivo iOS, abra la aplicación Microsoft Authenticator y seleccione **Iniciar recuperación** en la parte inferior de la pantalla.
 
     ![Aplicación de Microsoft Authenticator que muestra dónde debe hacer clic en Iniciar recuperación](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-begin-recovery.png)
@@ -67,7 +64,7 @@ Si usa notificaciones push con las cuentas personales, profesionales o educativa
 
 Para las cuentas Microsoft personales, puede probar su identidad mediante la especificación de la contraseña junto con un número de teléfono o correo electrónico alternativos. Para las cuentas profesionales o educativas, debe digitalizar un código QR que le proporcione el proveedor de la cuenta.
 
-**Incorporación de datos adicionales de verificación para las cuentas personales**
+### <a name="to-provide-additional-verification-for-personal-accounts"></a>Proporcionar verificación adicional para las cuentas personales
 1.  En la pantalla **Cuentas** de la aplicación Microsoft Authenticator, seleccione la flecha desplegable junto a la cuenta que desea recuperar.
 
     ![Aplicación Microsoft Authenticator que muestra las cuentas disponibles con las flechas desplegables asociadas](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-arrow.png)
@@ -76,7 +73,7 @@ Para las cuentas Microsoft personales, puede probar su identidad mediante la esp
 
     ![Aplicación Microsoft Authenticator que permite escribir la información de inicio de sesión](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-sign-in.png)
 
-**Incorporación de datos adicionales de verificación para las cuentas profesionales o educativas**
+### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>Proporcionar verificación adicional para las cuentas profesionales o educativas
 1.  En la pantalla **Cuentas** de la aplicación Microsoft Authenticator, seleccione la flecha desplegable junto a la cuenta que desea recuperar.
 
     ![Aplicación Microsoft Authenticator que muestra las cuentas disponibles con las flechas desplegables asociadas](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
@@ -86,7 +83,7 @@ Para las cuentas Microsoft personales, puede probar su identidad mediante la esp
     ![Aplicación Microsoft Authenticator que permite digitalizar el código QR](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >Para obtener más información sobre cómo obtener un código QR, consulte el artículo [Get started with the Microsoft Authenticator app](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to) (Introducción a la aplicación Microsoft Authenticator).
+    >Para más información sobre cómo obtener un código QR, consulte la sección [Incorporación de cuentas a la aplicación del artículo Introducción a la aplicación Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app).
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Solución de problemas de copia de seguridad y recuperación
 Existen diversos motivos para que la copia de seguridad no esté disponible:

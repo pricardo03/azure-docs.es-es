@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: 2be5ddd51140563efc44b1c1a4c84502bf491020
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e2fbe766391759f2bbe4a95e75897b2bc9523c0c
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215329"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399080"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migración de Contoso: valorar las cargas de trabajo locales para la migración a Azure
 
@@ -123,8 +123,10 @@ Contoso y otros usuarios deben cumplir los siguientes requisitos previos para la
 - Al menos dos máquinas virtuales VMware locales, y en una de ellas debe ejecutarse una base de datos de SQL Server.
 - Permisos para instalar agentes de Azure Migrate en todas las máquinas virtuales.
 - Las máquinas virtuales deben tener conectividad directa a Internet.  
-        - Puede restringir el acceso a Internet a las [direcciones URL requeridas](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-        -Si las máquinas virtuales no tienen conexión a Internet, la [puerta de enlace OMS](../log-analytics/log-analytics-oms-gateway.md) de Azure Log Analytics debe estar instalada en ellas.
+        
+- Puede restringir el acceso a Internet a las [direcciones URL necesarias](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+
+- Si las máquinas virtuales no tienen conexión a Internet, la [puerta de enlace OMS](../log-analytics/log-analytics-oms-gateway.md) de Azure Log Analytics debe estar instalada en ellas.
 - El FQDN de la máquina virtual que ejecuta la instancia de SQL Server, para la evaluación de la base de datos.
 - La instancia de Firewall de Windows que se ejecuta en la máquina virtual de SQL Server debe permitir conexiones externas en el puerto TCP 1433 (valor predeterminado). El programa de instalación permite que Data Migration Assistant se conecte.
 

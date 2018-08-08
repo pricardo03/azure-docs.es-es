@@ -10,31 +10,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/09/2018
+ms.date: 7/31/2018
 ms.author: rithorn
-ms.openlocfilehash: c8152a6c12c776806d9a17c5e434d825d6c91165
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 146ded37dbf517528af23574cd5b9325f4b5f9d0
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38466650"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358776"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure
 
 Si su organización tiene varias suscripciones, puede que necesite una manera de administrar el acceso, las directivas y el cumplimiento de esas suscripciones de forma eficaz. Los grupos de administración de Azure proporcionan un nivel de ámbito por encima de las suscripciones. Las suscripciones se organizan en contenedores llamados "grupos de administración" y aplican sus condiciones de gobierno a los grupos de administración. Todas las suscripciones dentro de un grupo de administración heredan automáticamente las condiciones que se aplican al grupo de administración. Los grupos de administración proporcionan capacidad de administración de nivel empresarial a gran escala con independencia del tipo de suscripciones que tenga.
-
-La característica de grupo de administración está disponible en versión preliminar pública. Para empezar a usar los grupos de administración, inicie sesión en [Azure Portal](https://portal.azure.com) y busque **Grupos de administración** en la sección **Todos los servicios**.
 
 A modo de ejemplo, puede aplicar directivas a un grupo de administración que limite las regiones disponibles para la creación de máquinas virtuales. Esta directiva se aplicaría a todos los grupos de administración, las suscripciones y los recursos de ese grupo de administración, al permitir únicamente que se creen máquinas virtuales en esa región.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Jerarquía de los grupos de administración y las suscripciones
 
 Puede compilar una estructura flexible de grupos de administración y suscripciones para organizar los recursos en una jerarquía para una administración unificada de las directivas y el acceso.
-El siguiente diagrama muestra un ejemplo de jerarquía que consta de grupos de administración y suscripciones organizados por departamentos.
+El siguiente diagrama muestra un ejemplo de creación de una jerarquía para el gobierno mediante grupos de administración.
 
 ![árbol](media/management-groups/MG_overview.png)
 
-Al crear una jerarquía agrupada por departamentos, es posible asignar roles de [control de acceso basado en rol (RBAC) de Azure](../role-based-access-control/overview.md) que *hereden* en los departamentos de ese grupo de administración. Gracias a los grupos de administración, se reduce la carga de trabajo y el riesgo de errores, ya que el rol solo se asigna una vez.
+Mediante la creación de una jerarquía similar a este ejemplo puede aplicar una directiva, por ejemplo, las ubicaciones de máquina virtual limitadas a la región Oeste de EE. UU. en el grupo “Grupo de administración del equipo de infraestructura” para habilitar de cumplimiento interno y las directivas de seguridad. Esta directiva se heredará en ambas suscripciones de EA en ese grupo de administración y se aplicará a todas las máquinas virtuales de esas suscripciones. Como esta directiva se hereda del grupo de administración en las suscripciones, el propietario de recursos o suscripciones no puede modificar esta directiva de seguridad, lo que permite una gobernabilidad mejorada.
+
+Otro escenario en el que usaría grupos de administración es para proporcionar acceso de usuario a varias suscripciones.  Al mover varias suscripciones bajo ese grupo de administración, tiene la posibilidad de crear una asignación de RBAC en el grupo de administración, que heredará ese acceso en todas las suscripciones.  Sin la necesidad de crear scripts de asignaciones de RBAC en varias suscripciones, una asignación en el grupo de administración puede permitir a los usuarios tener acceso a todo lo que necesitan.
 
 ### <a name="important-facts-about-management-groups"></a>Hechos importantes acerca de los grupos de administración
 
@@ -44,19 +44,6 @@ Al crear una jerarquía agrupada por departamentos, es posible asignar roles de 
 - Cada grupo de administración y suscripción admite solo un elemento primario.
 - Cada grupo de administración puede tener varios elementos secundarios.
 - Todas las suscripciones y grupos de administración están dentro de una única jerarquía en cada directorio. Consulte [Hechos importantes sobre el grupo de administración raíz](#important-facts-about-the-root-management-group) para conoce las excepciones durante la versión preliminar.
-
-### <a name="preview-subscription-visibility-limitation"></a>Limitación de visibilidad de la suscripción de la versión preliminar
-
-Actualmente, hay una limitación en la versión preliminar por la que no es posible ver las suscripciones para las que ha heredado el acceso. El acceso se hereda con la suscripción, pero Azure Resource Manager aún no puede asignar el acceso de herencia.  
-
-El uso de la API REST para obtener información sobre la suscripción devuelve detalles siempre y cuando tenga acceso, pero en Azure Portal y Azure Powershell no se muestran las suscripciones.
-
-Se está trabajando en este elemento y se resolverá antes de que los grupos de administración se anuncien con "Disponibilidad general".  
-
-### <a name="cloud-solution-provider-csp-limitation-during-preview"></a>Limitación del Proveedor de soluciones en la nube (CSP) durante la versión preliminar
-
-Existe una limitación actual para los asociados del Proveedor de soluciones en la nube (CSP), y es que no es posible crear ni administrar los grupos de administración de sus clientes dentro del directorio de estos.  
-Se está trabajando en este elemento y se resolverá antes de que los grupos de administración se anuncien con "Disponibilidad general".
 
 ## <a name="root-management-group-for-each-directory"></a>Un grupo de administración raíz para cada directorio
 
@@ -76,7 +63,7 @@ Cada directorio tiene un grupo de administración de nivel superior único denom
   - A ninguno se le concede acceso de forma predeterminada al grupo de administración raíz. Los administradores globales de directorio son los únicos usuarios que pueden elevarse ellos mismos para obtener acceso.  Una vez que tengan acceso, los administradores de directorio pueden asignar cualquier rol RBAC a otros usuarios para la administración.  
 
 >[!NOTE]
->Si su directorio empezó usando el servicio de administración de grupos antes del 25 de junio de 2018, el directorio podría no estar configurado con todas las suscripciones en la jerarquía. El equipo del grupo de administración actualiza con carácter retroactivo cada directorio que comenzó con grupos de administración en la versión preliminar pública antes de esa fecha en julio de 2018. Todas las suscripciones en los directorios serán elementos secundarios en el grupo de administración raíz anterior.  
+>Si su directorio empezó usando el servicio de administración de grupos antes del 25 de junio de 2018, el directorio podría no estar configurado con todas las suscripciones en la jerarquía. El equipo del grupo de administración actualiza con carácter retroactivo cada directorio que comenzó con grupos de administración en la versión preliminar pública antes de esa fecha en julio o agosto de 2018. Todas las suscripciones en los directorios serán elementos secundarios en el grupo de administración raíz anterior.  
 >
 >Si tiene preguntas sobre este proceso retroactivo, póngase en contacto con: managementgroups@microsoft.com  
   
@@ -97,9 +84,13 @@ El gráfico siguiente muestra la lista de roles y las acciones admitidas en los 
 |:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
 |Propietario                       | X      | X      | X    | X      | X             |               | X     |
 |Colaborador                 | X      | X      | X    | X      |               |               | X     |
+|Colaborador MG*             | X      | X      | X    | X      |               |               | X     |
 |Lector                      |        |        |      |        |               |               | X     |
+|Lector MG*                  |        |        |      |        |               |               | X     |
 |Colaborador de directivas de recursos |        |        |      |        |               | X             |       |
 |Administrador de acceso de usuario   |        |        |      |        | X             |               |       |
+
+*: Colaborador MG y Lector MG solo permiten a los usuarios realizar esas acciones en el ámbito del grupo de administración.  
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>Asignación y definición de roles de RBAC personalizados
 

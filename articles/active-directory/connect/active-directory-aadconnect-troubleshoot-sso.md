@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 563958458979d0a0a28046ce35d21bd58be631ce
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 65757abe13c45ce1a929c4648637f98360659030
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259303"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284877"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -76,7 +76,7 @@ Use la siguiente lista de comprobación para solucionar problemas de SSO de cone
 - Asegúrese de que la característica SSO de conexión directa está habilitada en Azure AD Connect. Si no puede habilitarla (por ejemplo, debido a que hay un puerto bloqueado), asegúrese de que cumple todos los [requisitos previos](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites).
 - Si ha habilitado tanto [Azure AD Join](../active-directory-azureadjoin-overview.md) como SSO de conexión directa en el inquilino, asegúrese de que el problema no está relacionado con Azure AD Join. SSO de Azure AD Join tiene prioridad sobre SSO de conexión directa, si el dispositivo está tanto registrado con Azure AD como unido a un dominio. Con SSO de Azure AD Join, el usuario ve un icono de inicio de sesión que dice "Conectado a Windows".
 - Asegúrese de que la dirección URL de Azure AD (https://autologon.microsoftazuread-sso.com) forma parte de la configuración de zonas de intranet del usuario.
-- Asegúrese de que el dispositivo corporativo se ha unido al dominio de Active Directory.
+- Asegúrese de que el dispositivo corporativo se ha unido al dominio de Active Directory. El dispositivo _no_ tiene que [unirse a Azure AD](../active-directory-azureadjoin-overview.md) para que SSO de conexión directa funcione.
 - Asegúrese de que el usuario ha iniciado sesión en el dispositivo a través de una cuenta de dominio de Active Directory.
 - Asegúrese de que la cuenta del usuario provenga de un bosque de Active Directory donde esté configurado SSO de conexión directa.
 - Asegúrese de que el dispositivo está conectado a la red corporativa.
@@ -120,8 +120,8 @@ Si el procedimiento de solución de problemas no sirve de ayuda, restablezca man
 
 1. Llame a `$creds = Get-Credential`. Cuando se le pida, escriba las credenciales del administrador de dominio para el bosque de Active Directory deseado.
 
->[!NOTE]
->Usamos el nombre de usuario del Administrador de dominio, que se proporciona con el formato de nombres principales de usuario (UPN) (johndoe@contoso.com), o bien con el formato de nombre de dominio completo de cuenta SAM (contoso\johndoe o contoso.com\johndoe), para encontrar el bosque de AD deseado. Si usa el nombre de dominio completo de cuenta SAM, usamos la parte del dominio del nombre de usuario para [localizar el controlador de dominio del Administrador de dominio con DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Si usa UPN en su lugar, [la traducimos a un nombre de cuenta SAM de dominio completo](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar el controlador de dominio adecuado.
+    >[!NOTE]
+    >Usamos el nombre de usuario del Administrador de dominio, que se proporciona con el formato de nombres principales de usuario (UPN) (johndoe@contoso.com), o bien con el formato de nombre de dominio completo de cuenta SAM (contoso\johndoe o contoso.com\johndoe), para encontrar el bosque de AD deseado. Si usa el nombre de dominio completo de cuenta SAM, usamos la parte del dominio del nombre de usuario para [localizar el controlador de dominio del Administrador de dominio con DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Si usa UPN en su lugar, [la traducimos a un nombre de cuenta SAM de dominio completo](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar el controlador de dominio adecuado.
 
 2. Llame a `Disable-AzureADSSOForest -OnPremCredentials $creds`. Este comando quita la cuenta de equipo `AZUREADSSOACCT` del controlador de dominio local para este bosque de Active Directory específico.
 3. Repita los pasos anteriores para cada bosque de Active Directory en el que se configuró la característica.
@@ -129,12 +129,10 @@ Si el procedimiento de solución de problemas no sirve de ayuda, restablezca man
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Paso 4: Habilitación de SSO de conexión directa para cada bosque de Active Directory
 
 1. Llame a `Enable-AzureADSSOForest`. Cuando se le pida, escriba las credenciales del administrador de dominio para el bosque de Active Directory deseado.
-
->[!NOTE]
->Usamos el nombre de usuario del Administrador de dominio, que se proporciona con el formato de nombres principales de usuario (UPN) (johndoe@contoso.com), o bien con el formato de nombre de dominio completo de cuenta SAM (contoso\johndoe o contoso.com\johndoe), para encontrar el bosque de AD deseado. Si usa el nombre de dominio completo de cuenta SAM, usamos la parte del dominio del nombre de usuario para [localizar el controlador de dominio del Administrador de dominio con DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Si usa UPN en su lugar, [la traducimos a un nombre de cuenta SAM de dominio completo](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar el controlador de dominio adecuado.
-
+   >[!NOTE]
+   >Usamos el nombre de usuario del Administrador de dominio, que se proporciona con el formato de nombres principales de usuario (UPN) (johndoe@contoso.com), o bien con el formato de nombre de dominio completo de cuenta SAM (contoso\johndoe o contoso.com\johndoe), para encontrar el bosque de AD deseado. Si usa el nombre de dominio completo de cuenta SAM, usamos la parte del dominio del nombre de usuario para [localizar el controlador de dominio del Administrador de dominio con DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Si usa UPN en su lugar, [la traducimos a un nombre de cuenta SAM de dominio completo](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar el controlador de dominio adecuado.
 2. Repita los pasos anteriores para cada bosque de Active Directory en el que desea configurar la característica.
 
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>Paso 5. Habilite la característica en su inquilino
 
-Para activar la característica en el inquilino, llame a `Enable-AzureADSSO` y escriba **true** en el mensaje `Enable:`.
+Para activar la característica en su inquilino, llame a `Enable-AzureADSSO -Enable $true`.

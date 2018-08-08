@@ -4,17 +4,17 @@ description: Uso de la extensión de IoT de la CLI de Azure 2.0 para la implemen
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/08/2018
+ms.date: 07/27/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 98a4be02188f7e0462979792a6061d535a64a18d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 29c11139a2c773db2d26bf44984ad4dc72f2d870
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37095983"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324612"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli-20"></a>Implementación de módulos de Azure IoT Edge con la CLI de Azure 2.0
 
@@ -24,7 +24,7 @@ La [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest
 
 En este artículo se muestra cómo crear un manifiesto de implementación de JSON y, luego, usar ese archivo para insertar la implementación en un dispositivo IoT Edge. Para información sobre la creación de una implementación dirigida a varios dispositivos en función de sus etiquetas compartidas, consulte [Implementación y supervisión de módulos de IoT Edge a escala](how-to-deploy-monitor-cli.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-using-cli.md) en la suscripción de Azure. 
 * Un [dispositivo de IoT Edge](how-to-register-device-cli.md) que tenga instalado el entorno de ejecución de Azure IoT Edge.
@@ -35,13 +35,13 @@ En este artículo se muestra cómo crear un manifiesto de implementación de JSO
 
 Un manifiesto de implementación es un documento JSON que describe qué módulos se van a implementar, cómo fluyen los datos entre los módulos y las propiedades deseadas de los módulos gemelos. Para más información sobre los manifiestos de implementación y cómo crearlos, consulte [Descripción de cómo se pueden utilizar, configurar y reutilizar los módulos de IoT Edge](module-composition.md).
 
-Para implementar módulos con la CLI de Azure 2.0, guarde el manifiesto de implementación localmente como un archivo .txt. Usará la ruta de acceso al archivo en la sección siguiente, al ejecutar el comando para aplicar la configuración al dispositivo. 
+Para implementar módulos con la CLI de Azure 2.0, guarde el manifiesto de implementación localmente como un archivo .json. Usará la ruta de acceso al archivo en la sección siguiente, al ejecutar el comando para aplicar la configuración al dispositivo. 
 
 Este es un manifiesto de implementación básico con un módulo como ejemplo:
 
    ```json
    {
-     "moduleContent": {
+     "modulesContent": {
        "$edgeAgent": {
          "properties.desired": {
            "schemaVersion": "1.0",
@@ -50,13 +50,8 @@ Este es un manifiesto de implementación básico con un módulo como ejemplo:
              "settings": {
                "minDockerVersion": "v1.25",
                "loggingOptions": "",
-               "registryCredentials": {
-                 "registryName": {
-                   "username": "",
-                   "password": "",
-                   "address": ""
-                 }
-               }
+               "registryCredentials": {}
+             }
            },
            "systemModules": {
              "edgeAgent": {
@@ -112,6 +107,8 @@ Este es un manifiesto de implementación básico con un módulo como ejemplo:
 
 Para implementar los módulos en el dispositivo, aplique el manifiesto de implementación que configuró con la información del módulo. 
 
+Cambie los directorios a la carpeta donde se guarda el manifiesto de implementación. Si ha usado una de las plantillas de IoT Edge para VS Code, use el archivo `deployment.json` de la carpeta **config** del directorio de la solución. No use el archivo `deployment.template.json`. 
+
 Utilice el siguiente comando para aplicar la configuración a un dispositivo IoT Edge:
 
    ```cli
@@ -119,6 +116,8 @@ Utilice el siguiente comando para aplicar la configuración a un dispositivo IoT
    ```
 
 El parámetro "device id" distingue mayúsculas y minúsculas. El parámetro "content" apunta al archivo del manifiesto de implementación que guardó. 
+
+   ![Establecimiento de los módulos](./media/how-to-deploy-cli/set-modules.png)
 
 ## <a name="view-modules-on-your-device"></a>Visualización de módulos en el dispositivo
 

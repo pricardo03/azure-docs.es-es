@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 99cd7fe6f9f46ff4d6dbbf6a6e024b3b32679724
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5f022f366c0247fade4cc39925e116a09b3d08de
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444280"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399097"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Configuración y obtención del rendimiento para contenedores y la base de datos de Azure Cosmos DB
 
@@ -153,7 +153,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-### <a name="set-throughput-at-the-for-a-set-of-containers-or-at-the-database-level"></a>Configuración de rendimiento para un conjunto de contenedores o a nivel de base de datos
+### <a name="set-throughput-for-a-set-of-containers-at-the-database-level"></a>Establecimiento del rendimiento de un conjunto de contenedores a nivel de base de datos
 
 Este es un fragmento de código para aprovisionar 100 000 unidades de solicitud por segundo en un conjunto de contenedores mediante el SDK de .NET de la API de SQL:
 
@@ -226,7 +226,16 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
-## <a id="GetLastRequestStatistics"></a>Obtención de rendimiento mediante el comando GetLastRequestStatistics de la API de MongoDB
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Obtención de rendimiento mediante el uso de las métricas de portal de API de MongoDB
+
+La manera más sencilla de obtener una buena estimación de los cargos por la unidad de solicitud de la base de datos de API de MongoDB es usar las métricas de [Azure Portal](https://portal.azure.com). Con los grafos *Número de solicitudes* y *Cargo de solicitud*, puede obtener una estimación de cuántas unidades de solicitud está consumiendo cada operación y cuántas unidades de solicitud consumen entre sí.
+
+![Métricas del portal de API de MongoDB][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> Superación de los límites de rendimiento reservados en la API de MongoDB
+Las aplicaciones que superan el rendimiento aprovisionado para un contenedor o un conjunto de contenedores tendrán velocidad limitada hasta que la velocidad de consumo caiga por debajo de la velocidad del rendimiento aprovisionado. Cuando se produce una limitación de la velocidad, el back-end finalizará la solicitud con un código de error `16500`: `Too Many Requests`. De forma predeterminada, la API de MongoDB volverá a intentarlo automáticamente hasta 10 veces antes de devolver un código de error `Too Many Requests`. Si recibe numerosos códigos de error `Too Many Requests`, puede plantearse agregar una lógica de reintento en las rutinas de control de error de la aplicación o [mejorar el rendimiento aprovisionado para el contenedor](set-throughput.md).
+
+## <a id="GetLastRequestStatistics"></a>Obtención de cargo de solicitud mediante el comando GetLastRequestStatistics de la API de MongoDB
 
 La API de MongoDB admite un comando personalizado, *getLastRequestStatistics*, para recuperar las cargas de solicitudes de las operaciones especificadas.
 
@@ -254,14 +263,19 @@ Un método para calcular la cantidad de rendimiento reservado que necesita la ap
 > 
 > 
 
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Obtención de rendimiento mediante el uso de las métricas de portal de API de MongoDB
+## <a id="RequestchargeGraphAPI"></a>Obtención del cargo de solicitud para las cuentas de API de Gremlin 
 
-La manera más sencilla de obtener una buena estimación de los cargos por la unidad de solicitud de la base de datos de API de MongoDB es usar las métricas de [Azure Portal](https://portal.azure.com). Con los grafos *Número de solicitudes* y *Cargo de solicitud*, puede obtener una estimación de cuántas unidades de solicitud está consumiendo cada operación y cuántas unidades de solicitud consumen entre sí.
+He aquí un ejemplo de cómo obtener el cargo por solicitud para las cuentas de la API de Gremlin mediante la biblioteca Gremlin.Net. 
 
-![Métricas del portal de API de MongoDB][1]
+```csharp
 
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> Superación de los límites de rendimiento reservados en la API de MongoDB
-Las aplicaciones que superan el rendimiento aprovisionado para un contenedor o un conjunto de contenedores tendrán velocidad limitada hasta que la velocidad de consumo caiga por debajo de la velocidad del rendimiento aprovisionado. Cuando se produce una limitación de la velocidad, el back-end finalizará la solicitud con un código de error `16500`: `Too Many Requests`. De forma predeterminada, la API de MongoDB volverá a intentarlo automáticamente hasta 10 veces antes de devolver un código de error `Too Many Requests`. Si recibe numerosos códigos de error `Too Many Requests`, puede plantearse agregar una lógica de reintento en las rutinas de control de error de la aplicación o [mejorar el rendimiento aprovisionado para el contenedor](set-throughput.md).
+var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
+                var resultSet = response.AsResultSet();
+                var statusAttributes= resultSet.StatusAttributes;
+```
+
+Además del método anterior, también puede usar el encabezado "x-ms-total-request-charge" para los cálculos de las unidades de solicitud.
+
 
 ## <a name="throughput-faq"></a>Preguntas más frecuentes sobre el rendimiento
 

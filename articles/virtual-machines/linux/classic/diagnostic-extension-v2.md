@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: f1415e2cfbe48b287db5851bb8ebef1ff9251280
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 13d7594c15959661f3f9c3ab2165739719beac07
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "32193067"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308228"
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Uso de la extensión de diagnóstico de Linux para supervisar los datos de rendimiento y diagnóstico de una máquina virtual Linux
 
@@ -60,7 +60,7 @@ En este artículo nos centramos en cómo habilitar y configurar la extensión me
 
 Tenga en cuenta que los métodos de configuración que se describen a continuación no funcionarán en el Portal de Azure. Para ver y configurar los datos de rendimiento y del sistema directamente desde el Portal de Azure, se debe habilitar esta extensión a través de dicho portal.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Versión 2.0.6 o posterior del agente Linux de Azure**.
 
@@ -89,7 +89,7 @@ Paso 1. Cree un archivo llamado "PrivateConfig.json" con el siguiente contenido:
         "storageAccountKey" : "the key of the account"
     }
 
-Paso 2. Ejecute **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+Paso 2. Ejecute **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.\* --private-config-path PrivateConfig.json**.
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>Escenario 2. Personalización de las métricas del monitor de rendimiento
 

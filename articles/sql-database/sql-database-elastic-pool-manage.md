@@ -7,16 +7,16 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 06/20/2018
+ms.date: 08/01/2018
 ms.author: ninarn
 ms.topic: conceptual
 ms.reviewer: carlrab
-ms.openlocfilehash: 3cdc82d71c05298aa5822b87c22edcc5d8e73385
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 96ea965ac383ae449afffa62c5e9950c6fd4e4da
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311359"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411940"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Creación y administración de grupos elásticos en Azure SQL Database
 
@@ -37,7 +37,7 @@ Desde aquí puede realizar cualquier combinación de los siguientes cambios y gu
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: administración de grupos elásticos y bases de datos agrupadas 
 
-Para crear y administrar grupos elásticos y bases de datos agrupadas de SQL Database con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell). Para crear y administrar bases de datos, servidores y reglas de firewall, vea [Administración de servidores, bases de datos y firewalls de Azure SQL con PowerShell](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-powershell).
+Para crear y administrar grupos elásticos y bases de datos agrupadas de SQL Database con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell). Para crear y administrar los servidores lógicos para un grupo elástico, consulte el artículo sobre cómo [crear y administrar servidores lógicos](sql-database-logical-servers.md). Para crear y administrar reglas de firewall, consulte la sección [Administración de reglas de firewall mediante Azure PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
 
 > [!TIP]
 > Para obtener scripts de ejemplo de PowerShell, vea [Creación de grupos elásticos y traslado de bases de datos de un grupo a otro y fuera de un grupo mediante PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) y [Uso de PowerShell para supervisar y escalar un grupo elástico de SQL en Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md).
@@ -79,7 +79,7 @@ Para crear y administrar grupos elásticos de SQL Database con la [CLI de Azure]
 
 ## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL: administración de bases de datos agrupadas
 
-Para crear y mover bases de datos en grupos elásticos existentes o para devolver información sobre un grupo elástico de SQL Database con Transact-SQL, use los siguientes comandos de T-SQL. Puede emitir estos comandos mediante Azure Portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs) o cualquier otro programa que pueda conectarse a un servidor de Azure SQL Database y pasar comandos de Transact-SQL. Para crear y administrar bases de datos, servidores y reglas de firewall, vea [Administración de servidores, bases de datos y firewalls de Azure SQL con Transact-SQL](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-transact-sql).
+Para crear y mover bases de datos en grupos elásticos existentes o para devolver información sobre un grupo elástico de SQL Database con Transact-SQL, use los siguientes comandos de T-SQL. Puede emitir estos comandos mediante Azure Portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs) o cualquier otro programa que pueda conectarse a un servidor de Azure SQL Database y pasar comandos de Transact-SQL. Para crear y administrar reglas de firewall mediante T-SQL, consulte [Administración de reglas de firewall mediante Transact-SQL](sql-database-firewall-configure.md#manage-firewall-rules-using-transact-sql).
 
 > [!IMPORTANT]
 > No es posible crear, actualizar ni eliminar un grupo elástico de Azure SQL Database mediante Transact-SQL. Puede agregar o quitar bases de datos de un grupo elástico y puede usar DMV para devolver información sobre grupos elásticos existentes.

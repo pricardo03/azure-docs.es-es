@@ -2,28 +2,23 @@
 title: Creación y uso de una firma de acceso compartido (SAS) con Azure Blob Storage | Microsoft Docs
 description: En este tutorial se muestra cómo crear firmas de acceso compartido para su uso con Blob Storage y cómo consumirlas en las aplicaciones cliente.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 491e0b3c-76d4-4149-9a80-bbbd683b1f3e
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
+ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
-ms.openlocfilehash: 9dde12acde748c48b56f9f96ee772fca49954358
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: blobs
+ms.openlocfilehash: 6546553fa3537ac63d956dc5febfd77efe9fd34d
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23056800"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400128"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Almacenamiento de blobs
 
-[Parte 1](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) de este tutorial se analizaron las firmas de acceso compartido (SAS) y se explicaron los procedimientos recomendados para su uso. En la parte 2 se muestra cómo generar este tipo de firmas para luego usarlas con Almacenamiento de blobs. Los ejemplos están escritos en C# y usan la biblioteca del cliente de almacenamiento de Azure para .NET. En los ejemplos de este tutorial:
+[Parte 1](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) de este tutorial se analizaron las firmas de acceso compartido (SAS) y se explicaron los procedimientos recomendados para su uso. En la parte 2 se muestra cómo generar este tipo de firmas para luego usarlas con Almacenamiento de blobs. Los ejemplos están escritos en C# y usan la biblioteca del cliente de Azure Storage para .NET. En los ejemplos de este tutorial:
 
 * Se generará una firma de acceso compartido en un contenedor.
 * Se generará una firma de acceso compartido en un blob.
@@ -38,7 +33,7 @@ En este tutorial, crearemos dos aplicaciones de consola para demostrar la creaci
 **Aplicación 2**: la aplicación cliente. Accede a los recursos del contenedor y del blob mediante las firmas de acceso compartido creadas con la primera aplicación. Usa únicamente firmas de acceso compartido para acceder a los recursos del blob y del contenedor; *no* incluye la clave de acceso de la cuenta de almacenamiento.
 
 ## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>Parte 1: Creación de una aplicación de consola para generar firmas de acceso compartido
-En primer lugar, asegúrese de tener instalada la biblioteca del cliente de almacenamiento de Azure para .NET. Puede instalar el [paquete de NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") que contiene los ensamblados más actualizados para la biblioteca de cliente. Este es el método recomendado para garantizar que cuenta con las revisiones más recientes. También puede descargar dicha biblioteca como parte de la última versión de [Azure SDK para .NET](https://azure.microsoft.com/downloads/).
+En primer lugar, asegúrese de tener instalada la biblioteca del cliente de Azure Storage para .NET. Puede instalar el [paquete de NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") que contiene los ensamblados más actualizados para la biblioteca de cliente. Este es el método recomendado para garantizar que cuenta con las revisiones más recientes. También puede descargar dicha biblioteca como parte de la última versión de [Azure SDK para .NET](https://azure.microsoft.com/downloads/).
 
 En Visual Studio, cree una aplicación de consola de Windows y denomínela **GenerateSharedAccessSignatures**. Agregue referencias a [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) y [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) mediante uno de los siguientes enfoques:
 
@@ -72,7 +67,7 @@ Edite el archivo app.config para que contenga un valor de configuración con una
 ### <a name="generate-a-shared-access-signature-uri-for-a-container"></a>Generación de un URI de firma de acceso compartido para un contenedor
 Para comenzar, se agregará un método para generar una firma de acceso compartido en un nuevo contenedor. En este caso, la firma no está asociada a una directiva de acceso almacenada, por lo que incluye en el URI la información que indica su tiempo de expiración y los permisos que concede.
 
-En primer lugar, agregue código al método **Main()** para autenticar el acceso a la cuenta de almacenamiento y crear un contenedor:
+En primer lugar, agregue código al método **Main()** para autorizar el acceso a la cuenta de almacenamiento y crear un contenedor:
 
 ```csharp
 static void Main(string[] args)

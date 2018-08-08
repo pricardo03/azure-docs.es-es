@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
-ms.openlocfilehash: ddde2e6bad8a373df405ac05e78a5dbccd0257fc
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 4e77e187d969af7ea2a12754b18d4a218daceed6
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "34800647"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411913"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Puesta en disponibilidad de conjuntos de escalado de máquinas virtuales en Azure Stack
 
@@ -31,10 +31,10 @@ Los conjuntos de escalado de máquinas virtuales en Azure Stack son similares a 
 
 En Azure Stack, los conjuntos de escalado de máquinas virtuales no admiten el escalado automático. Puede agregar más instancias a un conjunto de escalado con plantillas de Resource Manager, la CLI o PowerShell.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-- **Redifusión de Marketplace**  
-    Registre Azure Stack con Azure global para habilitar la redifusión de Marketplace. Siga las instrucciones de [Registro de Azure Stack con Azure](azure-stack-registration.md).
+- **Marketplace**  
+    Registre Azure Stack con Azure global para habilitar la disponibilidad de los artículos en Marketplace. Siga las instrucciones de [Registro de Azure Stack con Azure](azure-stack-registration.md).
 - **Imagen del sistema operativo**  
     Si no ha agregado ninguna imagen de sistema operativo a la plataforma Marketplace de Azure Stack, consulte [Adición de un elemento de Marketplace de Azure Stack desde Azure](asdk/asdk-marketplace-item.md).
 

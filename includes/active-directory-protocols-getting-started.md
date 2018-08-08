@@ -13,18 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: priyamo
-ms.openlocfilehash: 72fb594265e69eb1dc16cb29ad4df6acb3a87720
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: cb31bb91c80e4d5dd032b009b40d8e3fc435e0c8
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34663634"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359466"
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>Registro de la aplicación con el inquilino de AD
 En primer lugar, tendrá que registrar la aplicación con el inquilino de Azure Active Directory (Azure AD). De este modo, se generará un id. de aplicación para la aplicación y también se habilitará esta para que reciba tokens.
 
 * Inicie sesión en el [Azure Portal](https://portal.azure.com).
-* Para elegir el inquilino de Azure AD, haga clic en su cuenta en la esquina superior derecha de la página.
+* Elija el inquilino de Azure AD con un clic en su cuenta en la esquina superior derecha de la página; luego haga clic en el menú de navegación **Cambiar directorio** y seleccione el inquilino adecuado. 
+  * Omita este paso si tiene solo un inquilino de Azure AD en su cuenta o si ya seleccionó el inquilino de Azure AD adecuado.
 * En el panel de navegación izquierdo, haga clic en **Azure Active Directory**.
 * Haga clic en **Registros de aplicaciones** y elija **Nuevo registro de aplicaciones**.
 * Siga las indicaciones y cree una nueva aplicación. Para este tutorial, no importa si se trata de una aplicación web o nativa, pero si desea ver ejemplos específicos de aplicaciones web o nativas, consulte nuestras [guías de inicio rápido](../articles/active-directory/develop/active-directory-developers-guide.md).

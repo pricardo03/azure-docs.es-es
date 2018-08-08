@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/26/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 8032fd2a0150597c55178648511c80233e63a911
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a5ab49beed79a8ea3a7ded0848c09acad27a5fb1
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054733"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390544"
 ---
 # <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>Desarrollo y depuración de módulos de Node.js con Azure IoT Edge para Visual Studio Code
 
@@ -84,7 +84,8 @@ Cuando esté listo para personalizar la plantilla de Node.js con su propio códi
 
 En cada carpeta del módulo, hay varios archivos de Docker para diferentes tipos de contenedor. Puede usar cualquiera de estos archivos que acaban con la extensión **.debug** para compilar el módulo de pruebas. Actualmente, los módulos de C# solo admiten la depuración en contenedores de Linux amd64.
 
-1. En VS Code, vaya al archivo `deployment.template.json`. Reemplace el módulo de createOptions de Node.js en el archivo **deployment.template.json** por el siguiente contenido y guarde este archivo: 
+1. En VS Code, vaya al archivo `deployment.template.json`. Para actualizar la dirección URL de la imagen del módulo, agregue **.debug** al final.
+2. Reemplace el módulo de createOptions de Node.js en el archivo **deployment.template.json** por el siguiente contenido y guarde este archivo: 
     ```json
     "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
     ```

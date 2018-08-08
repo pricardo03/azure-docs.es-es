@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: 18b34af8dc383cfa86017162ec48782f156156bc
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: efd1c1eafbff8bf56b16131e44cff6b03ce7338a
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092699"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264817"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Administración del registro de inquilinos en Azure Stack
 
@@ -35,8 +35,15 @@ También puede usar esta operación si desea cambiar la suscripción asociada a 
 
 Tenga en cuenta que solo se puede asociar una suscripción de Azure a un inquilino. Si intenta agregar una segunda suscripción a un inquilino existente, la primera suscripción se sobrescribe. 
 
+### <a name="use-api-profiles"></a>Uso de perfiles de API
 
-| .                  | DESCRIPCIÓN |
+Los cmdlets de este artículo requieren que se especifique un perfil de API cuando se ejecuta PowerShell. Los perfiles de API representan un conjunto de proveedores de recursos de Azure y sus versiones de API. Le ayudan a usar la versión correcta de la API cuando se interactúa con varias nubes de Azure, por ejemplo cuando se trabaja con Azure global y Azure Stack. Los perfiles se especifican mediante un nombre que coincide con su fecha de versión. Con este artículo, deberá usar el perfil **2017-09-03**.
+
+Para más información sobre los perfiles de la API y Azure Stack, consulte [Administración de perfiles de versión de API en Azure Stack](user/azure-stack-version-profiles.md). Para obtener instrucciones sobre cómo empezar a trabajar con el perfil de la API con PowerShell, consulte [Uso de perfiles de versión de API con PowerShell en Azure Stack](user/azure-stack-version-profiles-powershell.md).
+
+### <a name="parameters"></a>Parámetros
+
+| Parámetro                  | DESCRIPCIÓN |
 |---                         | --- |
 | registrationSubscriptionID | La suscripción de Azure que se ha usado para el registro inicial. |
 | customerSubscriptionID     | La suscripción de Azure (no Azure Stack) a la que pertenece el cliente que se va a registrar. Debe crearse en la oferta del proveedor de servicios en la nube (CSP). En la práctica, esto significa mediante el centro de partners. Si un cliente tiene más de un inquilino, esta suscripción debe crearse en el inquilino que se usará para iniciar sesión en Azure Stack. |
@@ -71,7 +78,7 @@ Obtenga una lista de todos los inquilinos que se han agregado a un registro.
 
 ### <a name="parameters"></a>Parámetros
 
-| .                  | DESCRIPCIÓN          |
+| Parámetro                  | DESCRIPCIÓN          |
 |---                         | ---                  |
 | registrationSubscriptionId | La suscripción de Azure que se ha usado para el registro inicial.   |
 | resourceGroup              | El grupo de recursos de Azure en el que se almacena el registro.    |
@@ -121,7 +128,7 @@ Puede quitar un inquilino que se haya agregado a un registro. Si ese inquilino t
 
 ### <a name="parameters"></a>Parámetros
 
-| .                  | DESCRIPCIÓN          |
+| Parámetro                  | DESCRIPCIÓN          |
 |---                         | ---                  |
 | registrationSubscriptionId | Identificador de suscripción para el registro.   |
 | resourceGroup              | El grupo de recursos para el registro.   |

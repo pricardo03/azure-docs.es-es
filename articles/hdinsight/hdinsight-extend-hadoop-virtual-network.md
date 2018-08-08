@@ -1,26 +1,22 @@
 ---
-title: Extensión de HDInsight con Virtual Network - Azure | Microsoft Docs
+title: Extensión de HDInsight con Virtual Network en Azure
 description: Aprenda a usar Azure Virtual Network para conectar HDInsight con otros recursos en la nube o recursos en su centro de datos.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/21/2018
-ms.author: larryfr
-ms.openlocfilehash: 842746561b74860e674fbaa298c78bb0ac58bd68
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.date: 07/26/2018
+ms.openlocfilehash: bcfbe3b8ff198f9905fe6f36b18a9474cf987bba
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112140"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284642"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Extender Azure HDInsight mediante una instancia de Azure Virtual Network
 
@@ -290,6 +286,7 @@ Si usa grupos de seguridad de red o rutas definidas por el usuario, debe permiti
     | Alemania | Centro de Alemania | 51.4.146.68</br>51.4.146.80 | 443 | Entrada |
     | &nbsp; | Noreste de Alemania | 51.5.150.132</br>51.5.144.101 | 443 | Entrada |
     | India | India Central | 52.172.153.209</br>52.172.152.49 | 443 | Entrada |
+    | &nbsp; | Sur de la India | 104.211.223.67<br/>104.211.216.210 | 443 | Entrada |
     | Japón | Este de Japón | 13.78.125.90</br>13.78.89.60 | 443 | Entrada |
     | &nbsp; | Oeste de Japón | 40.74.125.69</br>138.91.29.150 | 443 | Entrada |
     | Corea | Corea Central | 52.231.39.142</br>52.231.36.209 | 433 | Entrada |

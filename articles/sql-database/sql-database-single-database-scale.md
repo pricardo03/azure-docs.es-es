@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 525416506a22f386de574ca02b2e919ac47b8737
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 51facd32fd7dbffe39fd959b0c8e9321d04657e0
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311139"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412386"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de base de datos única en Azure SQL Database
 
@@ -26,6 +26,9 @@ En este artículo se describe cómo escalar los recursos de proceso y almacenami
 - Se puede aprovisionar almacenamiento para una base de datos única mediante el aumento o disminución de su tamaño máximo con [Azure Portal](https://portal.azure.com), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), la [CLI de Azure](/cli/azure/sql/db#az_sql_db_update) o la [API REST](/rest/api/sql/databases/update).
 - SQL Database asigna automáticamente 30 % de almacenamiento adicional para los archivos de registro y 32 GB por núcleo virtual para TempDB, sin exceder los 384 GB. TempDB se encuentra en una SSD asociada en todos los niveles de servicio.
 - El precio de almacenamiento para una única base de datos es la suma de los importes de almacenamiento de datos y almacenamiento de registros multiplicado por el precio de la unidad de almacenamiento del nivel de servicio. El costo de TempDB se incluye en el precio del núcleo virtual. Para más información sobre el precio del almacenamiento adicional, consulte los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+
+> [!IMPORTANT]
+> En algunas circunstancias, puede que tenga que reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Manage file space in Azure SQL Database](sql-database-file-space-management.md) (Administración de espacio de archivos en Azure SQL Database).
 
 ## <a name="vcore-based-purchasing-model-change-compute-resources"></a>Modelo de compra basado en núcleos virtuales: cambiar los recursos de proceso
 
@@ -47,12 +50,15 @@ La duración de todo el proceso de escalado vertical depende del nivel de servic
 ## <a name="dtu-based-purchasing-model-change-storage-size"></a>Modelo de compra basado en DTU: cambiar el tamaño del almacenamiento
 
 - El precio de la DTU para una base de datos única incluye una cierta cantidad de almacenamiento sin costo adicional. El almacenamiento adicional que supere la cantidad incluida se puede aprovisionar por un costo extra hasta el límite de tamaño máximo en incrementos de 250 GB hasta 1 TB, y luego en incrementos de 256 GB superando 1 TB. Para cantidades de almacenamiento incluido y límites de tamaño máximo, consulte [Base de datos única: tamaños de almacenamiento y niveles de rendimiento](#single-database-storage-sizes-and-performance-levels).
-- Se puede aprovisionar almacenamiento adicional para una base de datos única mediante el aumento de su tamaño máximo con [Azure Portal](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), la [CLI de Azure](/cli/azure/sql/db#az_sql_db_update) o la [API de REST](/rest/api/sql/databases/update).
+- Se puede aprovisionar almacenamiento adicional para una base de datos única aumentando su tamaño máximo con Azure Portal, [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), la [CLI de Azure](/cli/azure/sql/db#az_sql_db_update) o la [API de REST](/rest/api/sql/databases/update).
 - El precio del almacenamiento adicional para una base de datos única es la cantidad de almacenamiento adicional multiplicado por el precio de la unidad de almacenamiento adicional del nivel de servicio. Para más información sobre el precio del almacenamiento adicional, consulte los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+
+> [!IMPORTANT]
+> En algunas circunstancias, puede que tenga que reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Manage file space in Azure SQL Database](sql-database-file-space-management.md) (Administración de espacio de archivos en Azure SQL Database).
 
 ## <a name="dtu-based-purchasing-model-change-compute-resources-dtus"></a>Modelo de compra basado en DTU: cambiar los recursos de proceso (DTU)
 
-Después de elegir inicialmente un nivel de servicio, un nivel de rendimiento y una cantidad de almacenamiento, puede escalar o reducir una base de datos verticalmente de manera dinámica en función de la experiencia real mediante [Azure Portal](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), la [CLI de Azure](/cli/azure/sql/db#az_sql_db_update) o la [API de REST](/rest/api/sql/databases/update). 
+Después de elegir inicialmente un nivel de servicio, un nivel de rendimiento y una cantidad de almacenamiento, puede escalar o reducir una base de datos verticalmente de manera dinámica en función de la experiencia real mediante Azure Portal, [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), la [CLI de Azure](/cli/azure/sql/db#az_sql_db_update) o la [API de REST](/rest/api/sql/databases/update). 
 
 El vídeo siguiente muestra cómo cambia de manera dinámica el nivel de rendimiento para aumentar las DTU disponibles para una base de datos única.
 

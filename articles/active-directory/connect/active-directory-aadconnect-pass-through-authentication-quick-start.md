@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 280d62f127c333ff195e921de380721170fd6a96
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 1b5640b790b07050336a990a06b66e5f89fcf768
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214989"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308616"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticación de paso a través de Azure Active Directory: inicio rápido
 
@@ -45,7 +45,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos.
 ### <a name="in-your-on-premises-environment"></a>En el entorno local
 
 1. Identifique un servidor con Windows Server 2012 R2 o posterior en el que ejecutar Azure AD Connect. Agregue el servidor al mismo bosque de Active Directory que los usuarios cuyas contraseñas se deben validar.
-2. Instale la [última versión de Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) en el servidor identificado en el paso anterior. Si ya tiene Azure AD Connect en ejecución, asegúrese de que la versión es 1.1.644.0 o posterior.
+2. Instale la [última versión de Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) en el servidor identificado en el paso anterior. Si ya tiene Azure AD Connect en ejecución, asegúrese de que la versión es 1.1.750.0 o posterior.
 
     >[!NOTE]
     >Las versiones de Azure AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 y 1.1.614.0 tienen un problema relacionado con la sincronización de hash de contraseña. Si _no_ pretende utilizar la sincronización de hash de contraseña junto con la autenticación de paso a través, consulte las [notas del historial de versiones de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470).
@@ -73,7 +73,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos.
 Habilite la [autenticación de paso a través mediante Azure AD Connect](active-directory-aadconnect.md).
 
 >[!IMPORTANT]
->Puede habilitar la autenticación de paso a través en el servidor principal o provisional de Azure AD Connect. Se recomienda habilitarlo desde el servidor principal.
+>Puede habilitar la autenticación de paso a través en el servidor principal o provisional de Azure AD Connect. Se recomienda muy especialmente habilitarlo desde el servidor principal. Si va a configurar un servidor de almacenamiento provisional de Azure AD Connect en el futuro, **debe** continuar para elegir Autenticación de paso a través como opción de inicio de sesión; la elección de otra opción **deshabilitará** la autenticación de paso a través en el inquilino y reemplazará el valor en el servidor principal.
 
 Si va a instalar Azure AD Connect por primera vez, elija la [ruta de acceso de instalación personalizada](active-directory-aadconnect-get-started-custom.md). En la página **Inicio de sesión de usuario**, elija **Autenticación de paso a través** como **método de inicio de sesión**. Si se completa correctamente, se instala un agente de autenticación de paso a través en el mismo servidor que Azure AD Connect. Además, se habilita la característica de autenticación de paso a través en el inquilino.
 

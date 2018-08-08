@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 05/28/2018
+ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: ae3d4c3e732024baae29f75fda6f6e821af701a2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: aabda90deb9634ef456f1006bccb69375f63fc97
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630350"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324000"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-april-2018"></a>¿Cuáles son las novedades de Azure SQL Data Warehouse? 2018 de abril de 2018
 Continuamente se aplican mejoras a Azure SQL Data Warehouse. En este artículo se describen las nuevas características y los cambios que se han incluido en abril de 2018.
@@ -55,3 +55,25 @@ Para más información, consulte la sección [Consultas](https://docs.microsoft.
 
 ## <a name="removed-the-syspdwdatabasemappings-view-behavior-change"></a>Se quitó la vista SYS.PDW_DATABASE_MAPPINGS (cambio en el comportamiento)
 Esta vista `sys.pdw_database_mappings` no se utiliza en SQL Data Warehouse. Anteriormente, una instrucción SELECT de esta vista no devolvía ningún resultado. Se ha quitado la vista. 
+
+## <a name="next-steps"></a>Pasos siguientes
+Ahora que ya conoce un poco SQL Data Warehouse, aprenda a [crear una instancia de SQL Data Warehouse][create a SQL Data Warehouse] rápidamente. Si no está familiarizado con Azure, el [Glosario de Azure][Azure glossary] le puede resultar útil para consultar la nueva terminología que se encuentre. O bien, examine algunos de estos otros recursos de SQL Data Warehouse.  
+
+* [Casos de éxito de clientes]
+* [Blogs]
+* [Solicitud de función]
+* [Vídeos]
+* [Blogs de Customer Advisory Team]
+* [Foro Stack Overflow]
+* [Twitter]
+
+
+[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[Blogs de Customer Advisory Team]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Casos de éxito de clientes]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
+[Solicitud de función]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Foro Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Twitter]: https://twitter.com/hashtag/SQLDW
+[Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md

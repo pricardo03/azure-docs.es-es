@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 88869fbeef0475f2c674e0f154a3624545182363
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 41e75fcfd0b88d5c37bb8dd6fcc16b1767b34dba
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213238"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285364"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -30,12 +30,12 @@ El inicio de sesión único de conexión directa de Azure Active Directory (SSO 
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-SSO de conexión directa se puede combinar con los métodos de inicio de sesión mediante [sincronización de hash de contraseñas](active-directory-aadconnectsync-implement-password-hash-synchronization.md) o [autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md).
+SSO de conexión directa se puede combinar con los métodos de inicio de sesión mediante [sincronización de hash de contraseñas](active-directory-aadconnectsync-implement-password-hash-synchronization.md) o [autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md). El inicio de sesión único de conexión directa _no_ se puede aplicar a Servicios de federación de Active Directory (AD FS).
 
 ![Inicio de sesión único de conexión directa](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!IMPORTANT]
->El inicio de sesión único de conexión directa _no_ se puede aplicar a Servicios de federación de Active Directory (AD FS).
+>Un inicio de sesión único de conexión directa necesita que el dispositivo del usuario esté **unido a un dominio**, pero no que esté [unido a Azure AD](../active-directory-azureadjoin-overview.md).
 
 ## <a name="key-benefits"></a>Ventajas principales
 
@@ -76,7 +76,9 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [**Inicio rápido**](active-directory-aadconnect-sso-quick-start.md): desarrollo y ejecución de SSO de conexión directa de Azure AD.
+- [**Plan de implementación**](https://aka.ms/AuthenticationDeploymentPlan): paso a paso.
 - [**Profundización técnica**](active-directory-aadconnect-sso-how-it-works.md): descripción del funcionamiento de esta característica.
 - [**Preguntas más frecuentes**](active-directory-aadconnect-sso-faq.md): obtenga respuestas a las preguntas más frecuentes.
 - [**Solución de problemas**](active-directory-aadconnect-troubleshoot-sso.md): información para resolver problemas habituales de esta característica.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): para la tramitación de solicitudes de nuevas características.
+

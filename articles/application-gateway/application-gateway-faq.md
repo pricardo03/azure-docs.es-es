@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: victorh
-ms.openlocfilehash: 989ecf209dc5093b5e4c73f01f9e382fc1ad21e8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: b8b5b1da902a854dacea7e3019e3fa1116f04212
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295535"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399154"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -92,6 +92,8 @@ Por ejemplo, si Application Gateway está establecida en tres instancias y ningu
 **P. ¿Admite Application Gateway encabezados x-forwarded-for?**
 
 Sí, Application Gateway inserta encabezados x-forwarded-for, x-forwarded-proto y x-forwarded-port en la solicitud que se reenvía al back-end. El formato del encabezado x-forwarded-for es una lista separada por comas de IP:Port. Los valores válidos para x-forwarded-proto son http o https. X-forwarded-port especifica el puerto al que llegó la solicitud en Application Gateway.
+
+Application Gateway también inserta el encabezado X-Original-Host que contiene el encabezado de host original con el que llegó la solicitud. Este encabezado es útil en escenarios como la integración con el Sitio web de Azure, donde el encabezado del host entrante se modifica antes de que el tráfico se enrute al back-end.
 
 **P. ¿Cuánto tiempo se tarda en implementar Application Gateway? ¿Sigue funcionando Application Gateway mientras se actualiza?**
 

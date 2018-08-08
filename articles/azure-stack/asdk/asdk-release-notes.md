@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: d86f0e96f64a56644b3161725f7f6a430568a72f
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: 2f732dfdfe9bf4aff2753114c3041f8f646421c2
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242706"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344739"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notas de la versión del Kit de desarrollo de Azure Stack
 Estas notas de la versión proporcionan información sobre las mejoras, correcciones y problemas conocidos en el Kit de desarrollo de Azure Stack. Si no está seguro de qué versión se está ejecutando, puede usar el [portal de administración](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -47,6 +47,8 @@ This build includes the following improvements and fixes for Azure Stack.
 ### <a name="known-issues"></a>Problemas conocidos
  
 #### <a name="portal"></a>Portal
+- <!-- TBD - IS ASDK --> No puede aplicar las actualizaciones de controladores mediante el uso de un paquete de extensiones de OEM con esta versión de Azure Stack.  No hay ninguna solución alternativa para este problema.
+ 
 - <!-- TBD - IS ASDK --> No use los nuevos tipos de suscripción administrativos de *suscripción de medición* y *suscripción de consumo*. Estos nuevos tipos de suscripción se introdujeron con la versión 1804, pero aún no están listos para su uso. Tendrá que seguir usando el tipo de suscripción del *proveedor predeterminado*.  
 
 - <!-- 2403291 - IS ASDK --> No puede usar la barra de desplazamiento horizontal a lo largo de la parte inferior de los portales de administrador y de usuario. Si no puede acceder a la barra de desplazamiento horizontal, use las rutas de navegación para ir a una hoja anterior del portal seleccionando la hoja que desea ver en la lista de rutas que se encuentra en la parte superior izquierda del portal.
@@ -168,6 +170,8 @@ Las siguientes están disponibles ahora, pero no requieren la actualización de 
 ### <a name="known-issues"></a>Problemas conocidos
  
 #### <a name="portal"></a>Portal
+- <!-- TBD - IS ASDK --> No puede aplicar las actualizaciones de controladores mediante el uso de un paquete de extensiones de OEM con esta versión de Azure Stack.  No hay ninguna solución alternativa para este problema.
+ 
 - <!-- TBD - IS ASDK --> No está disponible la posibilidad de [abrir una nueva solicitud de soporte técnico desde la lista desplegable](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) del portal de administración. En su lugar, use el siguiente vínculo:     
     - Para el Kit de desarrollo de Azure Stack, use https://aka.ms/azurestackforum.    
 

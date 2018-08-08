@@ -10,24 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/09/2018
+ms.date: 07/31/2018
 ms.author: rithorn
-ms.openlocfilehash: 730f79ce0a70da92dbb6332ad824b17e6c2327ff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fab26fec44b671a9f779b114c1521bc8142d9427
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488385"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389405"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración
 
-Los grupos de administración son contenedores que ayudan a administran el acceso, las directivas y el cumplimiento de varias suscripciones. Puede cambiar, eliminar y administrar estos contenedores para que las jerarquías puedan usarse con [Azure Policy](../azure-policy/azure-policy-introduction.md) y los [controles de acceso basado en roles de Azure (RBAC)](../role-based-access-control/overview.md). Para más información sobre los grupos de administración, consulte [Organización de los recursos con grupos de administración de Azure](management-groups-overview.md).
-
-La característica de grupo de administración está disponible en versión preliminar pública. Para empezar a usar grupos de administración, inicie sesión en [Azure Portal](https://portal.azure.com); o puede usar [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), la [CLI de Azure](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available) o la [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) para administrar grupos de administración.
+Los grupos de administración son contenedores que ayudan a administran el acceso, las directivas y el cumplimiento de varias suscripciones. Puede cambiar, eliminar y administrar estos contenedores para que las jerarquías puedan usarse con [Azure Policy](../azure-policy/azure-policy-introduction.md) y los [controles de acceso basado en roles de Azure (RBAC)](../role-based-access-control/overview.md). Para más información acerca de los grupos de administración, consulte [Organización de los recursos con grupos de administración de Azure](management-groups-overview.md).
 
 Para realizar cambios en un grupo de administración, debe tener un rol de propietario o colaborador en el grupo de administración. Para ver qué permisos tiene, seleccione el grupo de administración y, a continuación, seleccione **IAM**. Para más información sobre los roles de RBAC, consulte [Administración del acceso y los permisos con RBAC](../role-based-access-control/overview.md).
 
-[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="change-the-name-of-a-management-group"></a>Cambio del nombre de un grupo de administración
 
@@ -80,6 +78,7 @@ Para eliminar un grupo de administración, deben cumplirse los siguientes requis
 3. Seleccione el grupo de administración que desea eliminar.
 4. Seleccione **Eliminar**.
     - Si el icono está deshabilitado, al mantener el selector del mouse sobre el icono se muestra el motivo.
+
     ![Eliminar grupo](media/management-groups/delete.png)
 5. Se abre una ventana para que confirme si quiere eliminar el grupo de administración.
 

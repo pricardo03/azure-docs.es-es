@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/31/2018
 ms.author: diberry
-ms.openlocfilehash: ea4f31094e27f1abbe57c212f262845fd16dd984
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 0a75c113f619aa70ba6c504f07afc8dc8a35b694
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225285"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399838"
 ---
 # <a name="luis-boundaries"></a>Límites de LUIS
 LUIS tiene varias áreas de límites. La primera es el [límite de modelo](#model-boundaries), que controla las intenciones, entidades y características de LUIS. La segunda área son los [límites de cuota](#key-limits) según el tipo de clave. Una tercera área de límites es la [combinación de teclas](#keyboard-controls), para controlar el sitio web de LUIS. Una cuarta área es la [asignación de regiones del mundo](luis-reference-regions.md) entre el sitio web de creación de LUIS y las API de [punto de conexión](luis-glossary.md#endpoint) de LUIS. 
@@ -31,7 +31,7 @@ LUIS tiene varias áreas de límites. La primera es el [límite de modelo](#mode
 | Lista explícita | 50 por aplicación|
 | **[Jerárquico](./luis-concept-entity-types.md) |100 con un máximo de 10 elementos secundarios |
 | [Intenciones][intents]|500 por aplicación<br>La aplicación [por distribución](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) tiene 500 orígenes de distribución correspondientes|
-| [Listar entidades](./luis-concept-entity-types.md) | Elementos primarios: 50, secundarios: 20 000. El nombre canónico es *Máximo de caracteres predeterminado. Los sinónimos no tienen ninguna restricción de longitud. |
+| [Listar entidades](./luis-concept-entity-types.md) | Elementos primarios: 50, secundarios: 20 000. El nombre canónico es *Máximo de caracteres predeterminado. Los valores de los sinónimos no tienen ninguna restricción de longitud. |
 | [Patrones](luis-concept-patterns.md)|500 patrones por aplicación.<br>El patrón puede contener 400 caracteres como máximo.<br>3 entidades Pattern.any por patrón<br>Máximo de 2 textos opcionales anidados en el patrón|
 | [Pattern.any](./luis-concept-entity-types.md)|100 por aplicación, 3 entidades Pattern.any por patrón |
 | [Lista de frases][phrase-list]|10 listas de frases, 5000 elementos por lista|
@@ -41,6 +41,7 @@ LUIS tiene varias áreas de límites. La primera es el [límite de modelo](#mode
 | **[Simple](./luis-concept-entity-types.md)| 100 entidades|
 | [Expresión][utterances] | 500 caracteres|
 | [Expresiones][utterances] | 15 000 por aplicación|
+| [Versiones](luis-concept-version.md)| ilimitado |
 | [Nombre de la versión][luis-how-to-manage-versions] | 10 caracteres, restringido a caracteres alfanuméricos y punto (.) |
 
 *El valor máximo predeterminado de caracteres es 50. 

@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 78cd8b2d6afe98e34c33ed3c841c8023d9dab764
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f8ad67fafa20fd9adce62e8beb619999203ef62
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635277"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346668"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>SDK de dispositivo IoT de Azure para C
 
@@ -70,9 +70,10 @@ Ahora que tiene el código fuente de ejemplo, lo siguiente que debe hacer es obt
 Hay varias herramientas de código abierto que le ayudan a administrar IoT Hub.
 
 * Una aplicación de Windows llamada [device explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+* Una extensión de Visual Studio Code multiplataforma llamada [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 * Una herramienta de CLI de Python multiplataforma denominada como [la extensión de IoT para la CLI de Azure 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
-En este tutorial se utiliza la herramienta gráfica *device explorer*. También puede usar la herramienta *extensión de IoT para la CLI de Azure 2.0* si prefiere usar una herramienta de la CLI.
+En este tutorial se utiliza la herramienta gráfica *device explorer*. Puede usar la *extensión Azure IoT Toolkit para VS Code* si desarrolla en VS Code. También puede usar la herramienta *extensión de IoT para la CLI de Azure 2.0* si prefiere usar una herramienta de la CLI.
 
 La herramienta device explorer usa las bibliotecas del servicio Azure IoT para realizar varias funciones en IoT Hub, entre las que se incluye la adición de dispositivos. Si usa la herramienta device explorer para agregar un dispositivo, obtiene una cadena de conexión para el dispositivo. Esta cadena de conexión se necesita para ejecutar las aplicaciones de ejemplo.
 
@@ -84,7 +85,7 @@ Al ejecutar el programa se ve esta interfaz:
 
   ![](media/iot-hub-device-sdk-c-intro/03-DeviceExplorer.PNG)
 
-Escriba su **cadena de conexión del IoT Hub** en el primer campo y haga clic en **Update** (Actualizar). Este paso configura la herramienta para que pueda comunicarse con IoT Hub.
+Escriba su **cadena de conexión del IoT Hub** en el primer campo y haga clic en **Update** (Actualizar). Este paso configura la herramienta para que pueda comunicarse con IoT Hub. La **Cadena de conexión** puede encontrarse en **Servicio IoT Hub** > **Configuración** > **Directiva de acceso compartido** > **iothubowner**.
 
 Cuando se configura la cadena de conexión de IoT Hub, haga clic en la pestaña **Management** (Administración):
 
@@ -102,7 +103,7 @@ Cuando se crea el dispositivo, la lista de dispositivos se actualiza con todos l
 
 Si elige la opción **Copy connection string for selected device** (Copiar cadena de conexión de dispositivo seleccionado), la cadena de conexión del dispositivo se copia en el Portapapeles. Mantenga una copia de la cadena de conexión de dispositivo, ya que se necesita al ejecutar las aplicaciones de ejemplo que se describen en las secciones siguientes.
 
-Cuando haya completados los pasos anteriores, estará listo para empezar a ejecutar código. Ambos ejemplos tienen una constante en la parte superior del archivo de código fuente principal, que permite especificar una cadena de conexión. Por ejemplo, la línea correspondiente de la aplicación **iothub\_client\_sample\_mqtt** es como la siguiente.
+Cuando haya completados los pasos anteriores, estará listo para empezar a ejecutar código. La mayoría de los ejemplos tienen una constante en la parte superior del archivo de código fuente principal, que permite especificar una cadena de conexión. Por ejemplo, la línea correspondiente de la aplicación **iothub\_client\_sample\_mqtt** es como la siguiente.
 
 ```c
 static const char* connectionString = "[device connection string]";

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 20526c1ddd55671f815dc39b3e03c4f9b2f91788
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9c2534644a0627bac9765621691cbba6ffccfe35
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208658"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391318"
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Actualizar el clúster de Azure Service Fabric independiente en Windows Server 
 > [!div class="op_single_selector"]
@@ -83,7 +83,7 @@ Cuando vea la advertencia de mantenimiento del clúster, haga lo siguiente:
     Debería obtener una salida similar a esta:
 
     ![Obtener versiones de Service Fabric][getfabversions]
-3. Inicie una actualización de clúster a una versión disponible mediante el comando de Windows PowerShell [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
+3. Inicie una actualización de clúster a una versión disponible mediante el comando de Windows PowerShell [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
     ```Powershell
 
@@ -101,9 +101,9 @@ Cuando vea la advertencia de mantenimiento del clúster, haga lo siguiente:
     Get-ServiceFabricClusterUpgrade
     ```
 
-    Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte. Para especificar las directivas de mantenimiento personalizado para el comando Start-ServiceFabricClusterUpgrade consulte la documentación de [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
+    Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte. Para especificar las directivas de mantenimiento personalizado para el comando Start-ServiceFabricClusterUpgrade consulte la documentación de [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
-Después de corregir los problemas que provocaron la reversión, debe iniciar la actualización de nuevo, siguiendo los mismos pasos descritos anteriormente.
+    Después de corregir los problemas que provocaron la reversión, debe iniciar la actualización de nuevo, siguiendo los mismos pasos descritos anteriormente.
 
 ### <a name="upgrade-clusters-that-have-no-connectivity-to-download-the-latest-code-and-configuration"></a>Actualización de los clústeres *sin conectividad* para descargar el código y la configuración más recientes
 Siga estos pasos para actualizar el clúster a una versión compatible, si los nodos del clúster no tienen conectividad a Internet al [Centro de descarga de Microsoft](http://download.microsoft.com).
@@ -121,7 +121,7 @@ Modifique la configuración del clúster para establecer la siguiente propiedad 
 
         "fabricClusterAutoupgradeEnabled": false,
 
-Consulte el [comando Start-ServiceFabricClusterConfigurationUpgrade de PowerShell ](https://msdn.microsoft.com/library/mt788302.aspx) para conocer los detalles de uso. Asegúrese de actualizar 'clusterConfigurationVersion' en JSON antes de iniciar la actualización de la configuración.
+Consulte el [comando Start-ServiceFabricClusterConfigurationUpgrade de PowerShell ](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) para conocer los detalles de uso. Asegúrese de actualizar 'clusterConfigurationVersion' en JSON antes de iniciar la actualización de la configuración.
 
 ```powershell
 
@@ -131,7 +131,7 @@ Consulte el [comando Start-ServiceFabricClusterConfigurationUpgrade de PowerShel
 
 #### <a name="cluster-upgrade-workflow"></a>Flujo de trabajo de actualización de clúster
 
-1. Ejecute Get-ServiceFabricClusterUpgrade desde uno de los nodos del clúster y apunte el valor de TargetCodeVersion.
+1. Ejecute [Get-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterupgrade) desde uno de los nodos del clúster y apunte el valor de *TargetCodeVersion*.
 
 2. Ejecute lo siguiente en un equipo conectado a Internet para enumerar todas las versiones de actualización compatibles con la versión actual y descargar el paquete correspondiente de los vínculos de descarga asociados:
 
@@ -182,9 +182,9 @@ Consulte el [comando Start-ServiceFabricClusterConfigurationUpgrade de PowerShel
     Get-ServiceFabricClusterUpgrade
     ```
 
-    Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte. Para especificar las directivas de mantenimiento personalizado para el comando Start-ServiceFabricClusterUpgrade consulte la documentación de [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx).
+    Si no se cumplen las directivas de mantenimiento del clúster, la actualización se revierte. Para especificar las directivas de mantenimiento personalizado para el comando Start-ServiceFabricClusterUpgrade consulte la documentación de [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade).
 
-Después de corregir los problemas que provocaron la reversión, debe iniciar la actualización de nuevo, siguiendo los mismos pasos descritos anteriormente.
+    Después de corregir los problemas que provocaron la reversión, debe iniciar la actualización de nuevo, siguiendo los mismos pasos descritos anteriormente.
 
 
 ## <a name="upgrade-the-cluster-configuration"></a>Actualizar la configuración del clúster
@@ -205,7 +205,7 @@ O bien, puede utilizar este script:
 
 Algunas configuraciones no se pueden actualizar, como los puntos de conexión, el nombre del clúster, la dirección IP del nodo, etc. El nuevo archivo JSON de configuración del clúster se prueba en el antiguo y generará errores en la ventana de PowerShell si hay cualquier problema.
 
-Para actualizar la configuración del clúster, ejecute Start-ServiceFabricClusterConfigurationUpgrade. El dominio de actualización procesa la actualización de la configuración.
+Para actualizar la configuración del clúster, ejecute [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). El dominio de actualización procesa la actualización de la configuración.
 
 ```powershell
 

@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: dfea1587cddbf7440771ca7007928f7e4054f61a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 46ab4a177cc7d86e5d967ff8e219dae96f82a0dc
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092297"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263153"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Introducción a la continuidad empresarial con Azure SQL Database
 
@@ -33,7 +33,7 @@ En la tabla siguiente se comparan los valores de ERT y RPO de cada nivel de serv
 | --- | --- | --- | --- |--- |--- |
 | Restauración a un momento dado a partir de una copia de seguridad |Cualquier punto de restauración en 7 días |Cualquier punto de restauración en 35 días |Cualquier punto de restauración en 35 días |Cualquier punto de restauración en el período configurado (hasta 35 días)|Cualquier punto de restauración en el período configurado (hasta 35 días)|
 | Restauración geográfica de las copias de seguridad con replicación geográfica |ERT < 12h, RPO < 1 h |ERT < 12h, RPO < 1 h |ERT < 12h, RPO < 1 h |ERT < 12h, RPO < 1 h|ERT < 12h, RPO < 1 h|
-| Restauración de datos del Almacén de Azure Backup |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h|ERT < 12 h, RPO < 1 h|
+| Restauración desde la retención a largo plazo de SQL |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h|ERT < 12 h, RPO < 1 h|
 | Replicación geográfica activa |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s|ERT < 30 s, RPO < 5 s|
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Uso de la restauración a un momento dado para recuperar una base de datos
@@ -102,7 +102,7 @@ Para más información y ver los pasos detallados de cómo restaurar una base de
 
 ### <a name="restore-backups-from-long-term-retention"></a>Restauración de copias de seguridad de la retención a largo plazo
 
-Si se ha producido la pérdida de datos fuera del período de retención actual con copias de seguridad automatizadas y la base de datos está configurada para una retención a largo plazo, puede restaurar una copia de seguridad completa del almacenamiento de LTR a una nueva base de datos. Llegados a este punto, puede reemplazar la base de datos original por la restaurada o copiar la información que necesite de los datos restaurados en la base de datos original. Si tiene que recuperar una versión anterior de la base de datos antes de una actualización de la aplicación principal, satisfacer una solicitud de auditores o una orden judicial, puede crear una base de datos mediante una copia de seguridad completa guardada en el almacén de Azure Backup.  Para más información, consulte [retención a largo plazo](sql-database-long-term-retention.md).
+Si la pérdida de datos se ha producido fuera del período de retención actual para las copias de seguridad automatizadas y la base de datos está configurada para la retención a largo plazo con Azure Blob Storage, puede restaurar desde una copia de seguridad completa de Azure Blob Storage a una nueva base de datos. Llegados a este punto, puede reemplazar la base de datos original por la restaurada o copiar la información que necesite de los datos restaurados en la base de datos original. Si tiene que recuperar una versión anterior de la base de datos antes de una actualización de la aplicación principal, satisfacer una solicitud de auditores o una orden judicial, puede crear una base de datos mediante una copia de seguridad completa guardada en Azure Blob Storage.  Para más información, consulte [retención a largo plazo](sql-database-long-term-retention.md).
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Recuperación de una base de datos en otra región tras una interrupción en el centro de datos regional de Azure
 <!-- Explain this scenario -->

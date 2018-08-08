@@ -1,23 +1,23 @@
 ---
-title: 'Solución de problemas de la comprobación en dos pasos: Azure AD | Microsoft Docs'
+title: 'Solución de problemas de la verificación en dos pasos: Azure Active Directory | Microsoft Docs'
 description: Proporciona instrucciones para los usuarios sobre qué hacer si encuentran un problema con Azure Multi-Factor Authentication y la verificación en dos pasos.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
-ms.service: multi-factor-authentication
 ms.workload: identity
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: ec79adcaf7cbef778b8c9e572ae932d5ceb47aa6
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: fd722da236f3e1fff18e2561756635cd95f098e0
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090384"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346530"
 ---
 # <a name="get-help-with-two-step-verification"></a>Obtener ayuda con la verificación en dos pasos
 

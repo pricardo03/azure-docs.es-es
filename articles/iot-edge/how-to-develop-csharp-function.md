@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3176a3a4acc6e9ca486d409d861f2ed0e63473ec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bf2d1af66cc3ecc35dafe3bcd43bf10399d71641
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056511"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346722"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Uso de Visual Studio Code para desarrollar y depurar funciones de Azure para Azure IoT Edge
 
@@ -23,7 +23,7 @@ En este artículo se muestra cómo usar [Visual Studio Code (VS Code)](https://c
 En este artículo se da por hecho que usa una máquina virtual que ejecuta Windows o Linux como máquina de desarrollo. El dispositivo IoT Edge puede ser otro dispositivo físico. O bien, puede simular el dispositivo IoT Edge en la máquina de desarrollo.
 
 > [!NOTE]
-> En este tutorial de depuración se demuestra cómo asociar un proceso en un contenedor de módulos y depurarlo con VS Code. Los módulos de C# solo se pueden depurar en contenedores Linux-amd64. Si no está familiarizado con las funcionalidades de depuración de Visual Studio Code, consulte más información sobre [depuración](https://code.visualstudio.com/Docs/editor/debugging). 
+> En este tutorial de depuración se demuestra cómo asociar un proceso en un contenedor de módulos y depurarlo con VS Code. Solo se pueden depurar funciones de C# en contenedores Linux-amd64. Si no está familiarizado con las funcionalidades de depuración de Visual Studio Code, consulte más información sobre [depuración](https://code.visualstudio.com/Docs/editor/debugging). 
 
 Este artículo usa Visual Studio Code como herramienta de desarrollo principal. Instale VS Code. A continuación, agregue las extensiones necesarias: 
 
@@ -71,7 +71,7 @@ Hay cuatro elementos dentro de la solución:
 
 * Un archivo **deployment.template.json** muestra el nuevo módulo junto con un módulo **tempSensor** de ejemplo que simula los datos que puede usar para las pruebas. Para más información sobre cómo funcionan los manifiestos de implementación, consulte [cómo usar los manifiestos de implementación para implementar módulos y establecer rutas](module-composition.md).
 
-## <a name="devlop-your-module"></a>Desarrollo del módulo
+## <a name="develop-your-module"></a>Desarrollo de su módulo
 
 El código de función de Azure predeterminado que se incluye con la solución se encuentra en **módulos** > **\<nombre del módulo\>** > **EdgeHubTrigger-Csharp** > **run.csx**. El módulo y el archivo deployment.template.json se configuran para que pueda compilar la solución, insertarla en el registro de contenedor e implementarla en un dispositivo para iniciar la prueba sin tocar el código. El módulo se compila para tomar simplemente la entrada de un origen (en este caso, el módulo tempSensor que simula datos) y canalizarlo a IoT Hub. 
 

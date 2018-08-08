@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 07/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 794039ee1a5b1cf3b382e0f0769383b1e033e982
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b003f29db699d89f0d3cec76ee3562ffad08b40f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046947"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346341"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Tutorial: integrar Azure Active Directory con Jamf Pro
 
@@ -139,7 +139,21 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración de Jamf Pro](./media/jamfprosamlconnector-tutorial/configure2.png)
 
-10. Desplácese a la sección **PROVEEDOR DE IDENTIDADES** en la sección **Inicio de sesión único** y realice los pasos siguientes:
+10. En la página **Single Sign-On** (Inicio de sesión único) realice los pasos siguientes:
+
+    ![Inicio de sesión único de Jamf Pro](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
+
+    a. Seleccione **Jamf Pro Server** para habilitar el acceso mediante el inicio de sesión único.
+
+    b. Si selecciona **Allow bypass for all users** (Permitir omisión para todos los usuarios), no se remitirá a los usuarios a la página de inicio de sesión del proveedor de identidades para fines de autenticación, pero podrán iniciar sesión directamente en Jamf Pro. Cuando un usuario intenta tener acceso a Jamf Pro a través del proveedor de identidades, se produce la autorización y autenticación mediante SSO iniciadas por el proveedor de identidades.
+
+    c. Seleccione la opción **NameID** para **USER MAPPING: SAML** (ASIGNACIÓN DE USUARIO: SAML). De forma predeterminada, este valor se establece en **NameID**, pero se puede definir un atributo personalizado.
+
+    d. Seleccione **Email** (Correo electrónico) para **USER MAPPING: JAMF PRO** (ASIGNACIÓN DE USUARIO: JAMF PRO). Jamf Pro asigna los atributos SAML enviados por el proveedor de identidades de las siguientes maneras: por usuarios y por grupos. Cuando un usuario intenta acceder a Jamf Pro, de forma predeterminada, Jamf Pro obtiene información sobre el usuario del proveedor de identidades y la compara con las cuentas de usuario de Jamf Pro. Si la cuenta de usuario entrante no existe en Jamf Pro, se produce una asociación de nombres por grupo.
+
+    e. Pegue el valor `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` en el cuadro de texto **GROUP ATTRIBUTE NAME** (NOMBRE DE ATRIBUTO DE GRUPO).
+ 
+11. En la misma página, desplácese a la sección **PROVEEDOR DE IDENTIDADES** en la sección **Inicio de sesión único** y realice los pasos siguientes:
 
     ![Configuración de Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
@@ -152,7 +166,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     d. Copie el valor del **id. de entidad** y péguelo en el cuadro de texto **Identificador (id. de entidad)**, que se encuentra en la sección **Dominio y direcciones URL de Jamf Pro** de Azure Portal.
 
     >[!NOTE]
-    > En `aadsso` está la parte de subdominio (que se usa para fines de referencia). Use este valor para completar las direcciones URL de inicio de sesión y respuesta en la sección **Dominio y direcciones URL de Jamf Pro** en Azure Portal.
+    > Aquí el valor borroso es la parte del subdominio. Use este valor para completar las direcciones URL de inicio de sesión y respuesta en la sección **Dominio y direcciones URL de Jamf Pro** en Azure Portal.
 
     e. Haga clic en **Save**(Guardar).
 

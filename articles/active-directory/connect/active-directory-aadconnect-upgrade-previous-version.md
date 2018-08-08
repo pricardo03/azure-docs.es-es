@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/12/2017
+ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1a6fe4fc7fd5f47bfd4bc4d9168f76c31c78b47b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 20c43669b9da24cea4b0b552a86ec7d5a77dc5a7
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592483"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264518"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: actualización de una versión anterior a la versión más reciente
 En este tema se describen los distintos métodos que se puede utilizar para actualizar la instalación de Azure Active Directory (Azure AD) Connect a la versión más reciente. Le recomendamos mantenerse al día con las versiones de Azure AD Connect. Los pasos de la sección [Migración oscilante](#swing-migration) también se utilizan al realizar un cambio de configuración considerable.
@@ -130,6 +130,38 @@ Puede que haya situaciones en las no quiere que estas invalidaciones se produzca
    > No olvide ejecutar lo antes posible los pasos de sincronización necesarios. Puede ejecutar estos pasos manualmente con el Synchronization Service Manager o volver a agregar las invalidaciones con el cmdlet Set-ADSyncSchedulerConnectorOverride.
 
 Para agregar las invalidaciones de importación completa y sincronización completa en un conector arbitrario, ejecute el siguiente cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+
+## <a name="troubleshooting"></a>solución de problemas
+La siguiente sección contiene instrucciones de solución de problemas e información que puede usar si se produce un problema al actualizar Azure AD Connect.
+
+### <a name="azure-active-directory-connector-missing-error-during-azure-ad-connect-upgrade"></a>Error Falta el conector de Azure Active Directory durante la actualización de Azure AD Connect
+
+Cuando se actualiza Azure AD Connect desde una versión anterior, podría aparecer el siguiente error al principio de la actualización 
+
+![Error](./media/active-directory-aadconnect-upgrade-previous-version/error1.png)
+
+Este error se produce porque el conector de Azure Active Directory, con el identificador b891884f-051e-4a83-95af-2544101c9083, no existe en la configuración actual de Azure AD Connect. Para comprobar que este es el caso, abra una ventana de PowerShell y ejecute el cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
+
+```
+PS C:\> Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083
+Get-ADSyncConnector : Operation failed because the specified MA could not be found.
+At line:1 char:1
++ Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ReadError: (Microsoft.Ident...ConnectorCmdlet:GetADSyncConnectorCmdlet) [Get-ADSyncConne
+   ctor], ConnectorNotFoundException
+    + FullyQualifiedErrorId : Operation failed because the specified MA could not be found.,Microsoft.IdentityManageme
+   nt.PowerShell.Cmdlet.GetADSyncConnectorCmdlet
+
+```
+
+El cmdlet de PowerShell informa del error **no se encontró el MA especificado**.
+
+La razón por la que se produce esto es porque no se admite la configuración actual de Azure AD Connect para la actualización. 
+
+Si desea instalar una versión más reciente de Azure AD Connect: cierre el asistente de Azure AD Connect, desinstale la versión de Azure AD Connect existente y realice una instalación limpia de la versión de Azure AD Connect más reciente.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Más información acerca de la [integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).

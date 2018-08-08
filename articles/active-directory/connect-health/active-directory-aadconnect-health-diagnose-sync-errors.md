@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: zhiweiw
-ms.openlocfilehash: 4a6e0924492c26c9bad4ed0af207ad9764c3cc5c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3659572f46ae82d39a6c53246db2b6a536be32c8
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831904"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282948"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnóstico y solución de errores de sincronización de atributos duplicados
 
@@ -127,6 +127,12 @@ En función de las respuestas a las preguntas anteriores, podrá ver el botón *
 
 Después de los pasos anteriores, el usuario puede acceder al recurso original, que es un vínculo a un objeto existente. El valor **Diagnose status** (Estado de diagnóstico) de la vista de lista se actualizará a **Sincronización pendiente**. El error de sincronización se resolverá después de la siguiente sincronización. Connect Health dejará de mostrar el error de sincronización resuelto en la vista de lista.
 
+## <a name="failures-and-error-messages"></a>Errores y mensajes de error
+**El usuario con el atributo en conflicto es eliminado temporalmente en Azure Active Directory. Asegúrese de que el usuario se elimina de forma definitiva antes de volver a intentarlo.**  
+El usuario con el atributo en conflicto en Azure AD debe limpiarse para poder aplicar la corrección. Revise el [procedimiento para eliminar de forma permanente el usuario en Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) antes de volver a intentar la corrección. El usuario también se eliminará automáticamente de forma permanente después de 30 días en el estado de eliminación temporal. 
+
+**No se admite la actualización del delimitador de origen al usuario basado en la nube en el inquilino.**  
+El usuario basado en la nube de Azure AD no debe tener el delimitador de origen. En este caso no se admite la actualización del delimitador de origen. Se requiere una corrección manual en el entorno local. 
 
 ## <a name="faq"></a>Preguntas más frecuentes
 **P.** ¿Qué ocurre si se produce un error al ejecutarse **Aplicar corrección**?  

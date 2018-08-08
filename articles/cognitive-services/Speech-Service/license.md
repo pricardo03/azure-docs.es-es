@@ -1,21 +1,20 @@
 ---
-title: Licencia del SDK de Voz de Cognitive Services | Microsoft Docs
+title: Licencia de Speech SDK de Cognitive Services
 description: Ejemplos para el SDK de Voz de Cognitive Services
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.topic: article
 ms.component: speech-service
 ms.date: 05/01/2018
 ms.author: wolfma
-ms.openlocfilehash: 5a0056690dfb6dc607c30327dc1e90911f3af052
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c21f4511fa995d47c90a65555d3b8f77976e7fe0
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381863"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283358"
 ---
 # <a name="microsoft-software-license-termsbrmicrosoft-cognitive-services-speech-sdk-preview"></a>Términos de licencia de software de Microsoft<br>Versión preliminar del SDK de Voz de Microsoft Cognitive Services
 

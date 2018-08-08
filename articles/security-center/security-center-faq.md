@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2018
+ms.date: 07/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 320c7c483e865c85948d32ee2b5b70a92181920f
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 382f85c268b2e21a780756057f4bf78c41c791c2
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160076"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283510"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Preguntas más frecuentes sobre el Centro de seguridad de Azure
 Estas preguntas más frecuentes responden a preguntas sobre Azure Security Center, un servicio que le ayuda a evitar y detectar amenazas y a responder a las mismas con mayor visibilidad y control sobre la seguridad de los recursos de Microsoft Azure.
@@ -67,10 +67,11 @@ Si el aprovisionamiento automático está habilitado, Security Center aprovision
 
 El agente habilita el evento 4688 de creación de procesos y el campo *CommandLine* dentro del evento 4688. El registro de eventos registra los nuevos procesos creados en la VM y los servicios de detección de Security Center los supervisan. Para obtener información sobre los detalles que se registran para cada nuevo proceso, consulte los [campos de descripción en 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). El agente también recopila los eventos 4688 creados en la máquina virtual y los almacena en la búsqueda.
 
+El agente también habilita la recopilación de datos para los [controles de aplicación adaptables](security-center-adaptive-application.md), Security Center configura una directiva de AppLocker local en el modo de auditoría para permitir todas las aplicaciones. Con esto, AppLocker generará eventos que luego Security Center recopilará y aprovechará. Es importante tener en cuenta que esta directiva no se configurará en las máquinas en las que ya se haya configurado una directiva de AppLocker. 
+
 Cuando Security Center detecta actividad sospechosa en la máquina virtual, el cliente recibe una notificación por correo electrónico si se ha proporcionado [información de contacto de seguridad](security-center-provide-security-contact-details.md). También se puede ver una alerta en el panel de alertas de seguridad de Security Center.
 
-> [!NOTE]
-> - Para habilitar la recopilación de datos para [Controles de aplicación adaptables](security-center-adaptive-application.md), Security Center configura una directiva de AppLocker local en el modo de auditoría que permite todas las aplicaciones. Con esto, AppLocker generará eventos que luego Security Center recopilará y aprovechará. Es importante tener en cuenta que esta directiva no se configurará en las máquinas en las que ya se haya configurado una directiva de AppLocker. 
+
 
 ### <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>¿Microsoft Monitoring Agent afecta al rendimiento de mis servidores?
 El agente utiliza una cantidad simbólica de recursos del sistema y apenas tiene impacto en el rendimiento. Para obtener más información sobre el impacto en el rendimiento, y el agente y la extensión, vea la [guía de planeación y las operaciones](security-center-planning-and-operations-guide.md#data-collection-and-storage).

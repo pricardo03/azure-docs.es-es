@@ -1,31 +1,23 @@
 ---
 title: 'Modificación de un circuito ExpressRoute mediante PowerShell: Azure clásico | Microsoft Docs'
 description: En este artículo encontrará los pasos para comprobar el estado, actualizar o eliminar y desaprovisionar el circuito de modelo de implementación clásica de ExpressRoute.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-service-management
-ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.topic: conceptual
+ms.date: 07/26/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 457bb74fa15d31fecbf668038ac880cafb8a897d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 407782ff59147f227f5f34bc3318333093b4f57e
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "24102841"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283578"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificación de un circuito ExpressRoute mediante PowerShell (clásica)
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [CLI de Azure](howto-circuit-cli.md)
 > * [Vídeo: Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
@@ -36,13 +28,44 @@ En este artículo, también se muestra cómo comprobar el estado de un circuito 
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
-**Información acerca de los modelos de implementación de Azure**
+**Información sobre los modelos de implementación de Azure**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Instale las versiones más recientes de los módulos de PowerShell de Administración de servicios (SM) de Azure. Para obtener instrucciones detalladas sobre cómo configurar el equipo para usar los módulos de Azure PowerShell, siga las indicaciones que aparecen en [Introducción a los cmdlets de Azure PowerShell](/powershell/azure/overview).
+Instale las versiones más recientes de los módulos de ExpressRoute y de PowerShell de Azure Service Management (SM).  Cuando se usa el ejemplo siguiente, tenga en cuenta que el número de versión (en este ejemplo, 5.1.1) cambiará a medida que se publiquen las versiones más recientes de los cmdlets.
+
+```powershell
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
+```
+
+Si necesita más información sobre Azure PowerShell, consulte [Introducción a los cmdlets de PowerShell para Azure](/powershell/azure/overview) para obtener instrucciones detalladas sobre cómo configurar el equipo para usar los módulos de Azure PowerShell.
+
+Para iniciar sesión en la cuenta de Azure, vea el siguiente ejemplo:
+
+1. Abra la consola de PowerShell con privilegios elevados y conéctela a su cuenta. Use el siguiente ejemplo para conectarse:
+
+  ```powershel
+  Connect-AzureRmAccount
+  ```
+2. Compruebe las suscripciones para la cuenta.
+
+  ```powershell
+  Get-AzureRmSubscription
+  ```
+3. Si tiene varias suscripciones, seleccione la que quiera usar.
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
+
+4. A continuación, use el cmdlet siguiente para agregar la suscripción de Azure a PowerShell para el modelo de implementación clásica.
+
+  ```powershell
+  Add-AzureAccount
+  ```
 
 ## <a name="get-the-status-of-a-circuit"></a>Obtención del estado de un circuito
 

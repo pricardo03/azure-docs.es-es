@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 4d248724597a411f7253be1ccca0be6b85db95af
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 3c8eac98414fa43213136940fb4c91694a78a2c1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237186"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397533"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Servicio DNS en Azure Service Fabric
 El servicio DNS es un servicio de sistema opcional que se puede habilitar en el clúster para detectar otros servicios que usan el protocolo DNS. 
@@ -159,7 +159,7 @@ Puede establecer el nombre DNS de un servicio cuando se crea mediante el comando
     -ServiceDnsName service1.application1
 ```
 
-## <a name="making-dns-queries-on-a-stateful-service-partition"></a>Realización de consultas de DNS en una partición de servicio con estado
+## <a name="preview-making-dns-queries-on-a-stateful-service-partition"></a>[Versión preliminar] Realización de consultas de DNS en una partición de servicio con estado
 A partir de la versión 6.3 de Service Fabric, el servicio DNS de Service Fabric admite las consultas para las particiones del servicio.
 
 Para las particiones que se usarán en las consultas de DNS, se aplican las restricciones de nomenclatura siguientes:
@@ -249,6 +249,8 @@ public class ValuesController : Controller
 }
 ```
 
+## <a name="known-issues"></a>Problemas conocidos
+* En las versiones 6.3, y posteriores, de Service Fabric hay un problema con las búsquedas de DNS de los nombres de servicio que contienen un guión en el nombre DNS. Para más información acerca de este problema, realiza un seguimiento del siguiente [problema de GitHub](https://github.com/Azure/service-fabric-issues/issues/1197). En la próxima actualización, la 6.3, se solucionará el problema. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre la comunicación de servicios dentro del clúster, vea [Conexión y comunicación con servicios](service-fabric-connect-and-communicate-with-services.md).

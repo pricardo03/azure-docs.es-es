@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: cf4579705e5910f62ca07223cb16405140926119
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 66b4f63e75773aa0c1857dfcc19e22b48a0c3537
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859207"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343169"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Copias de seguridad y restauración automáticas en línea con Azure Cosmos DB
 Azure Cosmos DB crea automáticamente copias de seguridad de todos los datos a intervalos regulares. Las copias de seguridad automáticas se crean sin afectar el rendimiento ni la disponibilidad de las operaciones de bases de datos. Todas las copias de seguridad se almacenan por separado en otro servicio de almacenamiento y se replican globalmente para lograr resistencia frente a desastres regionales. Las copias de seguridad automáticas están pensadas para escenarios en los que se elimina accidentalmente el contenedor de Cosmos DB y que después requieren una solución de recuperación de datos o de recuperación ante desastres.  
@@ -50,7 +50,7 @@ Como se describió anteriormente, Azure Cosmos DB toma instantáneas de los dato
 Para la API de SQL, si quiere mantener sus propias instantáneas, puede usar la opción de exportación a JSON de la [herramienta de migración de datos](import-data.md#export-to-json-file) de Azure Cosmos DB para programar copias de seguridad adicionales.
 
 > [!NOTE]
-> Si aprovisiona el rendimiento de un conjunto de contenedores en el nivel de base de datos, recuerde que la restauración tiene lugar en el nivel completo de la cuenta de base de datos. También debe asegurarse de ponerse en contacto con el equipo de soporte técnico en un plazo de 8 horas si usa esta nueva funcionalidad y elimina por accidente su contenedor (colección, tabla o gráfico). 
+> Si aprovisiona el rendimiento de un conjunto de contenedores en el nivel de base de datos, recuerde que la restauración tiene lugar en el nivel completo de la cuenta de base de datos. También debe asegurarse de ponerse en contacto con el equipo de soporte técnico en un plazo de 8 horas si usa esta nueva funcionalidad y elimina por accidente su contenedor. Los datos no se pueden restaurar si no se pone en contacto con el equipo de soporte técnico en un plazo de 8 horas. 
 
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Restauración de una base de datos desde una copia de seguridad en línea

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 698dbbba55ed32a5cef8034059ee8e36edd16ae5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 9fa71c221b276e2173694e2c1e86673e52677e63
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347908"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389830"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Datos de flujo como entrada en Stream Analytics
 
@@ -123,7 +123,7 @@ Azure Blob Storage ofrece una solución rentable y escalable para aquellos escen
 
 Un escenario típico de entradas de Blob Storage con Stream Analytics es el procesamiento de registros. En este escenario, se han capturado archivos de datos de telemetría de un sistema y es preciso analizarlos y procesarlos para extraer datos significativos.
 
-La marca de tiempo predeterminada de los eventos de Blob Storage en Stream Analytics es la marca de tiempo correspondiente al momento en que el blob se modificó por última vez, que es `BlobLastModifiedUtcTime`. Para procesar los datos como un flujo con una marca de tiempo en la carga del evento, se debe usar la palabra clave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+La marca de tiempo predeterminada de los eventos de Blob Storage en Stream Analytics es la marca de tiempo correspondiente al momento en que el blob se modificó por última vez, que es `BlobLastModifiedUtcTime`. Para procesar los datos como un flujo con una marca de tiempo en la carga del evento, se debe usar la palabra clave [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx). Un trabajo de Stream Analytics extrae datos de entrada de Azure Blob Storage cada segundo si el archivo de blob está disponible. Si el archivo de blob no está disponible, hay un retroceso exponencial con un retraso de tiempo máximo de 90 segundos.
 
 Las entradas con formato CSV *requieren* una fila de encabezado para definir los campos del conjunto de datos, y todos los campos de fila de encabezado deben ser únicos.
 

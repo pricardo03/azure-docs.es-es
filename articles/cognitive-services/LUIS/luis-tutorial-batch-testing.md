@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: diberry
-ms.openlocfilehash: 0e1f5d29917ba381d4767faffb65847cd2ff210f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: de33b4618eb31707d324098e894682dd254c8ee4
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237815"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358389"
 ---
 # <a name="improve-app-with-batch-test"></a>Mejora de la aplicación con pruebas por lotes
 
@@ -31,9 +31,10 @@ En este tutorial, aprenderá a:
 * Corregir errores 
 * Volver a realizar la prueba por lotes
 
-Para este artículo, necesita una cuenta gratuita de [LUIS](luis-reference-regions.md#luis-website) para crear la aplicación.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
+
 Si no tiene la aplicación de recursos humanos del tutorial sobre la [expresiones de punto de conexión de revisión](luis-tutorial-review-endpoint-utterances.md), [importe](luis-how-to-start-new-app.md#import-new-app) el archivo JSON a una aplicación nueva en el sitio web de [LUIS](luis-reference-regions.md#luis-website). La aplicación que se va a importar se encuentra en el repositorio de GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-review-HumanResources.json).
 
 Si desea conservar la aplicación original de Recursos humanos, clone la versión en la página [Configuración](luis-how-to-manage-versions.md#clone-a-version) y llámela `batchtest`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. 
@@ -41,6 +42,7 @@ Si desea conservar la aplicación original de Recursos humanos, clone la versió
 Entrene la aplicación.
 
 ## <a name="purpose-of-batch-testing"></a>Propósito de las pruebas por lotes
+
 Las pruebas por lotes permiten validar el estado del modelo entrenado activo con un conjunto conocido de entidades y expresiones etiquetadas. En el archivo por lotes con formato JSON, agregue las expresiones y establezca las etiquetas de entidad que necesita predecir dentro de la expresión. 
 
 <!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. --> Cuando se usa una aplicación que no sea de este tutorial, asegúrese de *no* usar las expresiones de ejemplo que ya están agregadas en una intención. Para comprobar sus expresiones de pruebas por lotes frente a las expresiones de ejemplo, [exporte](luis-how-to-start-new-app.md#export-app) la aplicación. Compare la expresión de ejemplo de la aplicación con las expresiones de pruebas por lotes. 
@@ -52,6 +54,7 @@ Requisitos de las pruebas por lotes:
 * Tipos de entidad permitidos: solo entidades de aprendizaje automático de entidades simples, jerárquicas (solo principales) y compuestos. Las pruebas por lotes solo son útiles para las entidades e intenciones de aprendizaje automático.
 
 ## <a name="create-a-batch-file-with-utterances"></a>Creación de un archivo por lotes con expresiones
+
 1. Cree `HumanResources-jobs-batch.json` en un editor de texto como [VSCode](https://code.visualstudio.com/). 
 
 2. En el archivo por lotes con formato JSON, agregue expresiones con la **intención** que quiere predecir en la prueba. 
@@ -62,15 +65,13 @@ Requisitos de las pruebas por lotes:
 
 1. Haga clic en **Probar** en la barra de navegación superior. 
 
-    [ ![Captura de pantalla de una aplicación de LUIS con Test (Probar) resaltado en la barra de navegación superior derecha](./media/luis-tutorial-batch-testing/hr-first-image.png)](./media/luis-tutorial-batch-testing/hr-first-image.png#lightbox)
-
 2. Seleccione el **panel Prueba por lotes** en el panel de la derecha. 
 
-    [ ![Captura de pantalla de una aplicación de LUIS con el panel Prueba por lotes resaltado](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
+    [![Captura de pantalla de una aplicación de LUIS con el panel Prueba por lotes resaltado](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
 
 3. Seleccione **Importar conjunto de datos**.
 
-    [ ![Captura de pantalla de una aplicación de LUIS con Importar conjunto de datos resaltado](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
+    [![Captura de pantalla de una aplicación de LUIS con Importar conjunto de datos resaltado](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
 4. Elija la ubicación del sistema de archivos del archivo `HumanResources-jobs-batch.json`.
 
@@ -80,15 +81,14 @@ Requisitos de las pruebas por lotes:
 
 6. Haga clic en el botón **Ejecutar**. Espere hasta que se realice la prueba.
 
-    [ ![Captura de pantalla de una aplicación de LUIS con Run (Ejecutar) resaltado](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
-
 7. Seleccione **Ver resultados**.
 
 8. Revise los resultados en el gráfico y la leyenda.
 
-    [ ![Captura de pantalla de una aplicación de LUIS con resultados de las prueba por lotes](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
+    [![Captura de pantalla de una aplicación de LUIS con resultados de las pruebas por lotes](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
 
 ## <a name="review-batch-results"></a>Revisar los resultados de lote
+
 El gráfico por lotes muestra cuatro cuadrantes de resultados. Hay un filtro a la derecha del gráfico. De manera predeterminada, el filtro se establece en la primera intención de la lista. El filtro contiene todas las intenciones y solo las entidades simples, jerárquicas (solo principales) y compuestas. Cuando se selecciona una [sección del gráfico](luis-concept-batch-test.md#batch-test-results) o un punto dentro del gráfico, las expresiones asociadas se muestra debajo del gráfico. 
 
 Si mantiene el mouse sobre el gráfico y gira la rueda del mouse, puede agrandar o disminuir la visualización del gráfico. Esto resulta útil cuando hay muchos puntos en el gráfico estrechamente agrupados. 
@@ -96,6 +96,7 @@ Si mantiene el mouse sobre el gráfico y gira la rueda del mouse, puede agrandar
 El gráfico está en cuatro cuadrantes, donde dos de las secciones aparecen en rojo. **Estas son las secciones a las que debe prestar atención**. 
 
 ### <a name="getjobinformation-test-results"></a>Resultados de las pruebas GetJobInformation
+
 Los resultados de las pruebas **GetJobInformation** que aparecen en el filtro muestran que dos de las cuatro predicciones se realizaron correctamente. Seleccione el nombre **False positive** (Falso positivo) sobre el cuadrante superior derecho para ver las expresiones debajo del gráfico. 
 
 ![Expresiones de prueba por lotes de LUIS](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
@@ -109,6 +110,7 @@ Observe que ambas intenciones tienen la misma cantidad de errores. Una predicci�
 Las expresiones que corresponden al punto superior en la sección **False positive** (Falso positivo) son `Can I apply for any database jobs with this resume?` y `Can I apply for any database jobs with this resume?`. Para la primera expresión, la palabra `resume` solo se usó en **ApplyForJob**. Para la segunda expresión, la palabra `apply` solo se usó en la intención **ApplyForJob**.
 
 ## <a name="fix-the-app-based-on-batch-results"></a>Corregir la aplicación en función de los resultados de lote
+
 El objetivo de esta sección es predecir correctamente todas las expresiones para **GetJobInformation** mediante la corrección de la aplicación. 
 
 Una corrección aparentemente rápida sería agregar estas expresiones de archivos por lotes a la intención correcta. Sin embargo, eso no es lo que quiere hacer. Quiere que LUIS prediga de manera correcta estas expresiones sin agregarlas como ejemplos. 
@@ -118,13 +120,10 @@ Tal vez también se pregunte sobre cómo eliminar expresiones de **ApplyForJob**
 La primera corrección consiste en agregar más expresiones a **GetJobInformation**. La segunda corrección consiste en reducir el peso de palabras como `resume` y `apply` respecto de la intención **ApplyForJob**. 
 
 ### <a name="add-more-utterances-to-getjobinformation"></a>Incorporación de más expresiones a **GetJobInformation**
+
 1. Seleccione el botón **Probar** que se encuentra en el panel de navegación superior para cerrar el panel de pruebas por lotes. 
 
-    [ ![Captura de pantalla de LUIS con el botón Test (Probar) resaltado](./media/luis-tutorial-batch-testing/hr-close-test-panel.png)](./media/luis-tutorial-batch-testing/hr-close-test-panel.png#lightbox)
-
 2. Seleccione **GetJobInformation** en la lista de intenciones. 
-
-    [ ![Captura de pantalla de LUIS con el botón Test (Probar) resaltado](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png)](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png#lightbox)
 
 3. Agregue más expresiones que varíen en longitud, elección de palabras y disposición de palabras, y asegúrese de incluir los términos `resume`, `c.v.` y `apply`:
 
@@ -151,6 +150,7 @@ La primera corrección consiste en agregar más expresiones a **GetJobInformatio
 4. Seleccione **Train** (Entrenar) en el panel de navegación superior derecho para entrenar la aplicación.
 
 ## <a name="verify-the-fix-worked"></a>Comprobar que la corrección ha funcionado
+
 Para comprobar que las expresiones en la prueba por lotes se predicen correctamente, vuelva a ejecutar la prueba por lotes.
 
 1. Haga clic en **Probar** en la barra de navegación superior. Si los resultados por lotes todavía están abiertos, seleccione **Back to list** (Volver a la lista).  
@@ -162,6 +162,7 @@ Para comprobar que las expresiones en la prueba por lotes se predicen correctame
     ![Captura de pantalla de LUIS con el botón de los resultados por lotes resaltado](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
 
 ## <a name="create-batch-file-with-entities"></a>Creación de archivo por lotes con entidades 
+
 A fin de comprobar las entidades de una prueba por lotes, es necesario etiquetar las entidades en el archivo JSON por lotes. Solo se usan las entidades de aprendizaje automático: las entidades simples, jerárquicas (solo principales) y compuestas. No agregue entidades que no son de aprendizaje automático, porque siempre se encuentran ya sea a través de expresiones regulares o de coincidencias de texto explícitas.
 
 La variación de entidades para el número total de palabras ([token](luis-glossary.md#token)) puede afectar a la calidad de la predicción. Asegúrese de que los datos de entrenamiento proporcionados a la intención con expresiones etiquetadas incluyen una variedad de longitudes de entidad. 
@@ -177,7 +178,7 @@ El valor de una entidad **Job** (Trabajo), que se proporciona en las expresiones
 
    [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
 
-<!--TBD: when will the patterns fix be in for batch testing? -->
+
 ## <a name="run-the-batch-with-entities"></a>Ejecución del lote con entidades
 
 1. Haga clic en **Probar** en la barra de navegación superior. 
@@ -192,11 +193,10 @@ El valor de una entidad **Job** (Trabajo), que se proporciona en las expresiones
 
 6. Haga clic en el botón **Ejecutar**. Espere hasta que se realice la prueba.
 
-    [ ![Captura de pantalla de una aplicación de LUIS con Run (Ejecutar) resaltado](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
-
 7. Seleccione **Ver resultados**.
 
 ## <a name="review-entity-batch-results"></a>Revisión de los resultados de lote de las entidades
+
 El gráfico se abre con todas las intenciones que se predicen correctamente. Desplácese hacia abajo en el filtro de la derecha para buscar las predicciones de entidades con error. 
 
 1. Seleccione la entidad **Job** (Trabajo) en el filtro.
@@ -207,11 +207,12 @@ El gráfico se abre con todas las intenciones que se predicen correctamente. Des
 
 2. Seleccione **False Negative** (Falso negativo) en el cuadrante inferior izquierdo del gráfico. A continuación, use el control de combinación de teclado + E para cambiar a la vista del token. 
 
-    [ ![Vista del token de predicciones de entidad](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
+    [![Vista del token de predicciones de entidad](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
     
     Revisar las expresiones debajo del gráfico muestra un error de coherencia cuando el nombre del trabajo incluye `SQL`. Al revisar las expresiones de ejemplo y la lista de frases de trabajo, SQL solo se usa una vez y solo como parte de un nombre de trabajo más grande, `sql/oracle database administrator`.
 
 ## <a name="fix-the-app-based-on-entity-batch-results"></a>Corrección de la aplicación en función de los resultados de lotes
+
 Corregir la aplicación requiere que LUIS determine correctamente las variaciones de los trabajos de SQL. Hay varias opciones para esa corrección. 
 
 * Agregar explícitamente más expresiones de ejemplo, que utilizan SQL, y etiquetar esas palabras como una entidad de trabajo. 
@@ -222,11 +223,12 @@ Estas tareas se dejan para que las haga el usuario.
 Agregar un [patrón](luis-concept-patterns.md) antes de que la entidad se prediga correctamente no va a corregir el problema. Esto es porque el patrón no coincidirá hasta que se detecten todas las entidades del patrón. 
 
 ## <a name="what-has-this-tutorial-accomplished"></a>¿Qué ha logrado este tutorial?
+
 Aumentó la precisión de la predicción de la aplicación al encontrar errores en el lote y corregir el modelo. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione los puntos suspensivos **...** a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
 
+Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione los puntos suspensivos **...** a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

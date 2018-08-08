@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: f8cd78e63099f864c5fc54b6268f6e558d738626
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9f7fee71fb2b80be93d978569791dbb57f137949
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38724952"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346841"
 ---
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
@@ -21,15 +21,14 @@ ms.locfileid: "38724952"
 
 Ahora que ha creado un centro de IoT, busque la información importante que usa para conectar a él dispositivos y aplicaciones. 
 
-En el menú de navegación de IoT Hub, abra **Directivas de acceso compartido**.
-Seleccione la directiva **iothubowner** y, a continuación, copie el valor de **Cadena de conexión: clave principal** de su IoT Hub. Para más información, consulte [Control del acceso a IoT Hub](../articles/iot-hub/iot-hub-devguide-security.md).
+En el menú de navegación de IoT Hub, abra **Directivas de acceso compartido**. Seleccione la directiva **iothubowner** y, a continuación, copie el valor de **Cadena de conexión: clave principal** de su IoT Hub. Para más información, consulte [Control del acceso a IoT Hub](../articles/iot-hub/iot-hub-devguide-security.md).
 
    > [!NOTE] 
-   > En este tutorial de configuración, no necesita esta cadena de conexión iothubowner. Sin embargo, puede necesitarla en algunos de los tutoriales o en diferentes escenarios de IoT después de realizar esta configuración.
+   > En este tutorial de configuración, no necesita la cadena de conexión iothubowner. Sin embargo, puede necesitarla en algunos de los tutoriales o en diferentes escenarios de IoT después de realizar esta configuración.
 
    ![Obtener la cadena de conexión del centro de IoT](./media/iot-hub-get-started-create-hub-and-device/create-iot-hub5.png)
 
-## <a name="register-a-device-in-the-iot-hub-for-your-device"></a>Registro de su dispositivo en IoT Hub
+## <a name="register-your-device-in-the-iot-hub"></a>Registro del dispositivo en IoT Hub
 
 1. En el menú de navegación de IoT Hub, abra **Dispositivos de IoT** y, a continuación, haga clic en **Agregar** para registrar un dispositivo en su IoT Hub.
 
@@ -39,8 +38,10 @@ Seleccione la directiva **iothubowner** y, a continuación, copie el valor de **
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-4. Haga clic en **Save**(Guardar).
-5. Después de crear el dispositivo, ábralo desde la lista del panel **Dispositivos de IoT**.
-6. Copie el valor de **Cadena de conexión: clave principal** para usarlo más adelante.
+3. Haga clic en **Save**(Guardar).
+
+4. Después de crear el dispositivo, ábralo desde la lista del panel **Dispositivos de IoT**.
+
+5. Copie el valor de **Cadena de conexión: clave principal** para usarlo más adelante.
 
    ![Obtener la cadena de conexión del dispositivo](./media/iot-hub-get-started-create-hub-and-device/device-connection-string.png)

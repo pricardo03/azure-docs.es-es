@@ -14,22 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/25/2018
 ms.author: fryu
-ms.openlocfilehash: 6c313b6015a8a6dcc4ca5befb5fef70b047d0410
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 232af6ec08152d18db86a7b6373da0d281a74a91
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866532"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262524"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Habilitación de la conexión TLS segura para el cliente de Azure Storage
 
-Si necesita auditar los servicios mediante Azure Storage según los requisitos de seguridad y normas de cumplimiento más recientes, sepa que SSL 1.0, 2.0, 3.0 y TLS 1.0 no están reconocidos como protocolos de comunicación compatibles.
-
-Se ha detectado que SSL 1.0, 2.0 y 3.0 son vulnerables. RFC los ha prohibido. TLS 1.0 no es seguro para el uso del cifrado de bloques (DES CBC y RC2 CBC) y del cifrado de flujos (RC4). El consejo de PCI ha sugerido la migración a versiones superiores de TLS. Para más información, puede consultar [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
+Seguridad de la capa de transporte (TLS) y Capa de sockets seguros (SSL) son protocolos criptográficos que proporcionan la seguridad de las comunicaciones a través de una red de equipos. Se ha detectado que SSL 1.0, 2.0 y 3.0 son vulnerables. RFC los ha prohibido. TLS 1.0 no es seguro para el uso del cifrado de bloques (DES CBC y RC2 CBC) y del cifrado de flujos (RC4). El consejo de PCI ha sugerido la migración a versiones superiores de TLS. Para más información, puede consultar [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
 
 Azure Storage ha dejado de usar SSL 3.0 desde 2015 y usa TLS 1.2 en puntos de conexión HTTP públicos. Sin embargo, TLS 1.0 y TLS 1.1 se siguen admitiendo gracias a la compatibilidad con versiones anteriores.
 
-Para garantizar una conexión segura y compatible con Azure Storage, debe habilitar TLS 1.2 en el lado de cliente antes de enviar solicitudes para trabajar con Azure Storage.
+Para garantizar una conexión segura y compatible con Azure Storage, debe habilitar TLS 1.2 o una versión más reciente en el cliente antes de enviar solicitudes para trabajar con el servicio de Azure Storage.
 
 ## <a name="enable-tls-12-in-net-client"></a>Habilitación de TLS 1.2 en el cliente de .NET
 
@@ -86,4 +84,5 @@ La captura de pantalla siguiente es un ejemplo de la comprobación.
 ## <a name="see-also"></a>Otras referencias
 
 * [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
+* [Cumplimiento del estándar PCI en TLS](https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls)
 * [Habilitar TLS en el cliente de Java](https://www.java.com/en/configure_crypto.html)

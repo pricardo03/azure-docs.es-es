@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 5d4062ff2c21deeb56eb4ae6e8386452608f85fa
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: fa6048800aad04b45b72c4da61ad9e8b94541502
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158811"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308483"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Versión preliminar: Aplicación de Protección con contraseña de Azure AD para Windows Server Active Directory
 
@@ -37,6 +37,7 @@ Hay tres componentes de software que forman Protección con contraseña de Azure
 ## <a name="requirements"></a>Requisitos
 
 * Todas las máquinas en las que estén instalados los componentes de Protección con contraseña de Azure AD, incluidos los controladores de dominio, deben ejecutar Windows Server 2012 o posterior.
+* Todas las máquinas en las que haya componentes de protección con contraseña de Azure AD instalados, incluidos los controladores de dominio, deben tener instalado Universal C Runtime. Si es posible, esto se logra mediante la aplicación de revisiones completas a la máquina a través de Windows Update. De lo contrario, es posible que se instale un paquete de actualizaciones específico del sistema operativo: vea [Actualización para Universal C RunTime en Windows ](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows).
 * Debe existir conectividad de red entre al menos un controlador de dominio de cada dominio y un servidor que hospede el servicio de proxy de Protección con contraseña de Azure AD.
 * Todos los dominios de Active Directory que ejecuten el software del servicio de agente de controlador de dominio deben usar DFSR para la replicación de sysvol.
 * Una cuenta de administrador global para registrar el servicio de proxy de Protección con contraseña de Azure AD.
@@ -48,7 +49,7 @@ Las ventajas de la lista global de contraseñas prohibidas se aplican a todos lo
 
 La lista personalizada de contraseñas prohibidas requiere licencias básicas de Azure AD.
 
-Protección con contraseña de Azure AD para Windows Server Active Directory requiere licencias premium de Azure AD. 
+Protección con contraseña de Azure AD para Windows Server Active Directory requiere licencias premium de Azure AD.
 
 Puede encontrar información adicional sobre licencias, incluidos los costos, en la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -61,7 +62,7 @@ Se necesitan dos instaladores para Protección con contraseña de Azure AD que s
 * No se necesita conectividad de Internet de los controladores de dominio. Las máquinas que ejecutan el servicio de proxy de Protección con contraseña de Azure AD son las únicas máquinas que requieren conectividad de Internet.
 * No se abren puertos de red en los controladores de dominio.
 * No se requiere ningún cambio de esquema de Active Directory.
-   * El software utiliza el contenedor de Active Directory existente y los objetos de esquema de serviceConnectionPoint.
+* El software utiliza el contenedor de Active Directory existente y los objetos de esquema de serviceConnectionPoint.
 * No hay ningún requisito mínimo de dominio de Active Directory ni de nivel funcional del bosque (DFL/FFL).
 * El software no crea ni requiere ninguna cuenta en los dominios de Active Directory que protege.
 * Se admite la implementación incremental a cambio de que la directiva de contraseñas se aplique solamente allí donde se haya instalado el agente de controlador de dominio.

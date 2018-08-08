@@ -1,23 +1,24 @@
 ---
-title: 'Guía de inicio rápido: Reconocimiento de voz en C# en .NET Framework en Windows mediante el SDK de Voz de Cognitive Services | Microsoft Docs'
+title: 'Guía de inicio rápido: Reconocimiento de voz en C# en .NET Framework en Windows mediante Speech SDK de Cognitive Services'
 titleSuffix: Microsoft Cognitive Services
 description: Obtenga información sobre cómo reconocer la voz en C# en .NET Framework en Windows mediante el SDK de Voz de Cognitive Services
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: f3b181c8d65cf8618b7599a999b2b8edf20ed809
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 587ae9f6452f85dee867047e47ccc272ee508b81
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259034"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325197"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>Guía de inicio rápido: Reconocimiento de voz en C# en .NET Framework en Windows mediante el SDK de Voz
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 En este artículo, obtendrá información sobre cómo crear una aplicación de la consola de C# para .NET Framework en Windows mediante el SDK de Voz de Cognitive Services para transcribir la conversión de voz en texto.
 La aplicación se compila con el [paquete NuGet del SDK de Voz de Microsoft Cognitive Services](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017.
@@ -104,6 +105,6 @@ Busque este ejemplo en la carpeta `quickstart/csharp-dotnet-windows`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Traducción de voz](how-to-translate-speech.md)
+- [Traducción de voz](how-to-translate-speech-csharp.md)
 - [Personalización de modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalización de modelos de lenguaje](how-to-customize-language-model.md)

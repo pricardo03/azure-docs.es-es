@@ -1,21 +1,21 @@
 ---
-title: Ejecución de tareas en contenedores en Azure Container Instances
+title: Ejecución de tareas en contenedores en Azure Container Instances con directivas de reinicio
 description: Aprenda a usar Azure Container Instances para ejecutar tareas hasta su terminación, como compilaciones, pruebas o trabajos de representación de imágenes.
 services: container-instances
 author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 07/26/2018
 ms.author: marsma
-ms.openlocfilehash: 3bbe3e891423b6ad62a1d1093daef304206f3d76
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dd411ff38411c71cce2a8a63cc453c34e665a385
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167136"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262742"
 ---
-# <a name="run-a-containerized-task-in-azure-container-instances"></a>Ejecución de tareas en contenedores en Azure Container Instances
+# <a name="run-containerized-tasks-with-restart-policies"></a>Ejecución de tareas en contenedores con directivas de reinicio
 
 La facilidad y rapidez con que se implementan contenedores convierten a Azure Container Instances en una plataforma convincente para la ejecución de tareas que se ejecutan una única vez, como compilaciones, pruebas y representaciones de imágenes en una instancia de contenedor.
 

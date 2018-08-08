@@ -2,8 +2,8 @@
 title: Concesión de acceso para crear suscripciones de Azure Enterprise | Microsoft Docs
 description: Obtenga información sobre cómo conceder a un usuario o a una entidad de servicio la capacidad de crear mediante programación las suscripciones de Azure Enterprise.
 services: azure-resource-manager
-author: jlian
-manager: jlian
+author: adpick
+manager: adpick
 editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
-ms.author: jlian
-ms.openlocfilehash: 4c5d505f431ef684b73adc04629464883d336a5b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.author: adpick
+ms.openlocfilehash: 86e457cf553c84386937c35bab1ab0fd20518bed
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35237097"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368513"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Concesión de acceso para crear suscripciones de Azure Enterprise (versión preliminar)
 
-Como cliente de Azure del [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), puede conceder a otro usuario u otra entidad de servicio permisos para crear suscripciones facturadas en su cuenta. En este artículo, aprenderá a usar el [control de acceso basado en rol (RBAC)](../active-directory/role-based-access-control-configure.md) para compartir la capacidad de crear suscripciones y cómo auditar creaciones de suscripciones.
+Como cliente de Azure del [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), puede conceder a otro usuario u otra entidad de servicio permisos para crear suscripciones facturadas en su cuenta. En este artículo, aprenderá a usar el [control de acceso basado en rol (RBAC)](../active-directory/role-based-access-control-configure.md) para compartir la capacidad de crear suscripciones y cómo auditar creaciones de suscripciones. Debe tener el rol de propietario en la cuenta que desea compartir.
 
 Para crear una suscripción, vea [Creación de suscripciones de Azure Enterprise mediante programación (versión preliminar)](programmatically-create-subscription.md).
 
@@ -100,5 +100,5 @@ GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015
 * Ahora que el usuario o la entidad de servicio tienen permiso para crear una suscripción, puede usar dicha identidad para [crear suscripciones de Azure Enterprise mediante programación](programmatically-create-subscription.md).
 * Para obtener un ejemplo sobre cómo crear suscripciones con. NET, vea [ejemplo de código en GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Para obtener más información sobre Azure Resource Manager y sus API, vea [Información general de Azure Resource Manager](resource-group-overview.md).
-* Para obtener más información sobre cómo administrar grandes cantidades de suscripciones, vea [Organización de los recursos con grupos de administración de Azure](management-groups-overview.md).
+* Para obtener más información sobre cómo administrar grandes cantidades de suscripciones mediante grupos de administración, consulte [Organización de los recursos con grupos de administración de Azure](management-groups-overview.md).
 * Para consultar una guía completa de procedimientos recomendados para grandes organizaciones sobre el gobierno de suscripciones, vea [Scaffolding empresarial de Azure: gobierno de suscripción preceptivo](/azure/architecture/cloud-adoption-guide/subscription-governance)

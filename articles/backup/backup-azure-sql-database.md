@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 7/30/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 3d19b42e339e9776d0fdbbf7cfcfba07d69549ad
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 430490859e6d8a58a54eea267e0c3f16991f74c8
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249087"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364383"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Copia de seguridad de bases de datos de SQL Server en Azure
 
@@ -212,7 +212,7 @@ Azure Backup detecta todas las bases de datos de una instancia de SQL Server. Pu
 
 2. En el menú izquierdo, seleccione **Todos los servicios**.
 
-    ![Seleccionar todos los servicios](./media/backup-azure-sql-database/click-all-services.png) <br/>
+    ![Seleccionar Todos los servicios](./media/backup-azure-sql-database/click-all-services.png) <br/>
 
 3. En el cuadro de diálogo **Todos los servicios**, escriba **Recovery Services**. A medida que escribe, la entrada filtra la lista de recursos. Seleccione **Almacenes de Recovery Services** en la lista.
 
@@ -258,7 +258,7 @@ Cuando usa la herramienta **Detectar bases de datos**, Azure Backup ejecuta las 
 
     ![Seleccionar la máquina virtual y la base de datos](./media/backup-azure-sql-database/registration-errors.png)
 
-## <a name="configure-backup-for-sql-server-databases"></a>Configuración de copia de seguridad para bases de datos de SQL Server 
+## <a name="configure-backup-for-sql-server-databases"></a>Configuración de copia de seguridad para bases de datos de SQL Server
 
 Azure Backup ofrece servicios de administración para proteger las bases de datos SQL Server y administrar trabajos de copia de seguridad. Las funciones de administración y supervisión dependen del almacén de Recovery Services. 
 
@@ -317,6 +317,9 @@ Para configurar la protección de una base de datos SQL:
 
 8. En el cuadro de lista desplegable **Elegir directiva de copia de seguridad**, elija una directiva de copia de seguridad y seleccione **Aceptar**. Para más información sobre la creación de una directiva de copia de seguridad, consulte [Definición de una directiva de copia de seguridad](backup-azure-sql-database.md#define-a-backup-policy).
 
+   > [!NOTE]
+   > Durante la versión preliminar, no puede editar las directivas de copia de seguridad. Si desea una directiva diferente de la disponible en la lista, debe crearla. Para obtener información sobre cómo crear una nueva directiva de copia de seguridad, consulte la sección [Definición de una directiva de copia de seguridad](backup-azure-sql-database.md#define-a-backup-policy).
+
     ![Elegir una directiva de copia de seguridad de la lista](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
 
     En el menú **Directiva de copia de seguridad** del cuadro de lista desplegable **Elegir directiva de copia de seguridad**, puede: 
@@ -341,25 +344,32 @@ Para configurar la protección de una base de datos SQL:
 
 Una directiva de copia de seguridad define una matriz del momento en que se realizan las copias de seguridad y durante cuánto tiempo se retienen. Use Azure Backup para programar tres tipos de copia de seguridad de bases de datos SQL:
 
-* Copia de seguridad completa: una copia de seguridad completa de la base de datos realiza una copia de seguridad de toda la base de datos. Una copia de seguridad completa contiene todos los datos de una base de datos específica o de un conjunto de archivos o grupos de archivos y suficientes registros para recuperar esos datos. A lo sumo, puede desencadenar una copia de seguridad completa al día. Puede elegir realizar una copia de seguridad completa en un intervalo diario o semanal. 
+* Copia de seguridad completa: una copia de seguridad completa de la base de datos realiza una copia de seguridad de toda la base de datos. Una copia de seguridad completa contiene todos los datos de una base de datos específica o de un conjunto de archivos o grupos de archivos, y suficientes registros para recuperar esos datos. A lo sumo, puede desencadenar una copia de seguridad completa al día. Puede elegir realizar una copia de seguridad completa en un intervalo diario o semanal. 
 * Copia de seguridad diferencial: la copia de seguridad diferencial se basa en la copia de seguridad de datos completa anterior más reciente. Una copia de seguridad diferencial captura solo los datos que han cambiado desde la copia de seguridad completa. A lo sumo, puede desencadenar una copia de seguridad diferencial al día. No se puede configurar una copia de seguridad completa y una copia de seguridad diferencial en el mismo día.
 * Copia de seguridad del registro de transacciones: una copia de seguridad de registros permite realizar la restauración a un momento dado con una precisión de un segundo. A lo sumo, puede configurar las copias de seguridad del registro de transacciones cada 15 minutos.
 
-La directiva se crea al nivel de almacén de Recovery Services. Varios almacenes pueden usar la misma directiva de copia de seguridad, pero debe aplicar la directiva de copia de seguridad a cada almacén. Al crear una directiva de copia de seguridad, la copia de seguridad completa diaria es la predeterminada. Puede agregar una copia de seguridad diferencial, pero solo si configura las copias de seguridad completas para que se realicen semanalmente. En el siguiente procedimiento se explica cómo crear una directiva de copia de seguridad para una instancia de SQL Server en una máquina virtual de Azure.
+La directiva se crea al nivel de almacén de Recovery Services. Varios almacenes pueden usar la misma directiva de copia de seguridad, pero debe aplicar la directiva de copia de seguridad a cada almacén. Al crear una directiva de copia de seguridad, la copia de seguridad completa diaria es la predeterminada. Puede agregar una copia de seguridad diferencial, pero solo si configura las copias de seguridad completas para que se realicen semanalmente. En el siguiente procedimiento se explica cómo crear una directiva de copia de seguridad para una instancia de SQL Server en una máquina virtual de Azure. 
 
+> [!NOTE]
+> En la versión preliminar, no puede editar una directiva de copia de seguridad. En su lugar, debe crear una directiva con los detalles deseados.  
+ 
 Para crear una directiva de copia de seguridad:
 
-1. En el menú **Directiva de copia de seguridad** del cuadro de lista desplegable **Elegir directiva de copia de seguridad**, seleccione **Crear nueva**.
+1. En el almacén de Recovery Services que protege la base de datos SQL, haga clic en **Directivas de copia de seguridad** y, a continuación, haga clic en **Agregar**. 
 
-   ![Crear una directiva de copia de seguridad](./media/backup-azure-sql-database/create-new-backup-policy.png)
+   ![Apertura del cuadro de diálogo para crear una directiva de copia de seguridad](./media/backup-azure-sql-database/new-policy-workflow.png)
 
-    El menú **Directiva de copia de seguridad** muestra los campos necesarios para cualquier nueva política de copia de seguridad de SQL Server.
+   Aparece el menú **Agregar**.
 
-   ![Nuevos campos de directiva de copia de seguridad](./media/backup-azure-sql-database/blank-new-policy.png)
+2. En el menú **Agregar**, haga clic en **SQL Server en la máquina virtual de Azure**.
 
-2. En el cuadro **Nombre de la directiva**, escriba un nombre.
+   ![Elección de un tipo de directiva para la nueva directiva de copia de seguridad](./media/backup-azure-sql-database/policy-type-details.png)
 
-3. Una copia de seguridad completa es obligatoria. Acepte los valores predeterminados para la copia de seguridad completa, o seleccione **Copia de seguridad completa** para editar la directiva.
+   Al seleccionar SQL Server en la máquina virtual de Azure, se define el tipo de directiva y se abre el menú de directiva de copia de seguridad. El menú **Directiva de copia de seguridad** muestra los campos necesarios para cualquier nueva política de copia de seguridad de SQL Server.
+
+3. En **Nombre de la directiva**, escriba un nombre para la nueva directiva.
+
+4. Es obligatoria una copia de seguridad completa; no se puede desactivar la opción **Copia de seguridad completa**. Haga clic en **Copia de seguridad completa** para ver la directiva y editarla. Incluso si no cambia la directiva de copia de seguridad, debería ver los detalles de la directiva.
 
     ![Nuevos campos de directiva de copia de seguridad](./media/backup-azure-sql-database/full-backup-policy.png)
 
@@ -371,13 +381,13 @@ Para crear una directiva de copia de seguridad:
 
    ![Configuración de intervalo semanal](./media/backup-azure-sql-database/weekly-interval.png)
 
-4. De forma predeterminada, están seleccionadas todas las opciones de **duración de retención**: diaria, semanal, mensual y anual. Anule la selección de los límites de duración de retención no deseados. Establezca los intervalos que desea usar. En el menú de la **directiva de copia de seguridad completa**, seleccione **Aceptar** para aceptar la configuración.
+5. De forma predeterminada, están seleccionadas todas las opciones de **duración de retención**: diaria, semanal, mensual y anual. Anule la selección de los límites de duración de retención no deseados. Establezca los intervalos que desea usar. En el menú de la **directiva de copia de seguridad completa**, seleccione **Aceptar** para aceptar la configuración.
 
    ![Configuración del intervalo de la duración de retención](./media/backup-azure-sql-database/retention-range-interval.png)
 
     Los puntos de recuperación se etiquetan para la retención en función de su duración de retención. Por ejemplo, si selecciona la frecuencia diaria, solo se desencadena una copia de seguridad completa cada día. La copia de seguridad de un día específico se etiqueta y se retiene según la duración de la retención semanal y la configuración de esta. La duración de retención mensual y anual se comporta de forma similar.
 
-5. Para agregar una directiva de copia de seguridad diferencial, seleccione **Copia de seguridad diferencial**. Se abre el menú **Directiva de copia de seguridad diferencial**. 
+6. Para agregar una directiva de copia de seguridad diferencial, seleccione **Copia de seguridad diferencial**. Se abre el menú **Directiva de copia de seguridad diferencial**. 
 
    ![Abrir el menú Directiva de copia de seguridad diferencial](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
@@ -391,30 +401,32 @@ Para crear una directiva de copia de seguridad:
 
     Seleccione **Aceptar** para guardar la directiva y volver al menú principal de la **directiva de copia de seguridad**.
 
-6. Para agregar una directiva de copia de seguridad del registro de transacciones, seleccione **Copia de seguridad de registros**. Se abre el menú de **Copia de seguridad de registros**.
+7. Para agregar una directiva de copia de seguridad del registro de transacciones, seleccione **Copia de seguridad de registros**. Se abre el menú de **Copia de seguridad de registros**.
 
     En el menú **Copia de seguridad de registros**, seleccione **Habilitar** y establezca los controles de frecuencia y retención. Las copia de seguridad de registros pueden realizarse cada 15 minutos y se pueden retener durante un período máximo de 35 días. Seleccione **Aceptar** para guardar la directiva y volver al menú principal de la **directiva de copia de seguridad**.
 
    ![Editar la directiva de copia de seguridad de registros](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-7. En el menú **Directiva de copia de seguridad**, elija si desea habilitar la **compresión de copia de seguridad de SQL**. La compresión está deshabilitada de manera predeterminada.
+8. En el menú **Directiva de copia de seguridad**, elija si desea habilitar la **compresión de copia de seguridad de SQL**. La compresión está deshabilitada de manera predeterminada.
 
     En el back-end, Azure Backup usa la compresión de copia de seguridad nativa de SQL.
 
-8. Después de completar las modificaciones en la directiva de copia de seguridad, seleccione **Aceptar**. 
+9. Después de completar las modificaciones en la directiva de copia de seguridad, seleccione **Aceptar**. 
 
    ![Aceptar la nueva directiva de copia de seguridad](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>Restauración de una base de datos SQL
-
 Azure Backup proporciona funcionalidad para restaurar las bases de datos individuales a una fecha u hora específicas, (con una precisión de un segundo), con las copias de seguridad del registro de transacciones. En función de los tiempos de restauración proporcionados, Azure Backup determina automáticamente si la copia de seguridad será completa o diferencial y también la cadena de copia de seguridad de registros necesaria para restaurar los datos.
 
 También puede seleccionar una copia de seguridad completa o diferencial específica para restaurar a un punto de recuperación específico en lugar de a un momento concreto.
- > [!Note]
- > Antes de desencadenar la restauración de la base de datos "maestra", inicie la instancia de SQL Server en modo de usuario único con la opción de inicio `-m AzureWorkloadBackup`. El argumento para la opción `-m` es el nombre del cliente. Solo este cliente tiene permiso para abrir la conexión. Para todas las bases de datos del sistema (modelo, master, msdb), detenga el servicio Agente SQL antes de desencadenar la restauración. Cierre las aplicaciones que pueden intentar robar una conexión a cualquiera de estas bases de datos.
->
 
-Para restaurar una base de datos:
+### <a name="pre-requisite-before-triggering-a-restore"></a>Requisito previo antes de desencadenar una restauración
+
+1. Puede restaurar la base de datos en una instancia de SQL Server en la misma región de Azure. El servidor de destino debe estar registrado como origen en el almacén de Recovery Services.  
+2. Para restaurar una base de datos cifrada TDE en otra de SQL Server, primero siga los pasos documentados [aquí](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017) para restaurar el certificado en el servidor de destino.
+3. Antes de desencadenar la restauración de la base de datos "maestra", inicie la instancia de SQL Server en modo de usuario único con la opción de inicio `-m AzureWorkloadBackup`. El argumento para la opción `-m` es el nombre del cliente. Solo este cliente tiene permiso para abrir la conexión. Para todas las bases de datos del sistema (modelo, master, msdb), detenga el servicio Agente SQL antes de desencadenar la restauración. Cierre las aplicaciones que pueden intentar robar una conexión a cualquiera de estas bases de datos.
+
+### <a name="steps-to-restore-a-database"></a>Pasos para restaurar una base de datos:
 
 1. Abra el almacén de Recovery Services registrado con la máquina virtual SQL.
 

@@ -10,12 +10,12 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: tdykstra
-ms.openlocfilehash: 31c0d8c43a1a7614ff1965853b8ce0a3997db6f4
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 5d30357e5308de0224590703bb5e68fbe73b882b
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343243"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343447"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Preparación de un cambio de dirección IP de entrada
 
@@ -40,6 +40,8 @@ La nueva dirección IP de entrada que se le da a la aplicación está en el port
 2.  En el menú de navegación izquierdo, seleccione **App Services**.
 
 3.  Seleccione la aplicación de App Service en la lista.
+
+4.  Si la aplicación es una aplicación de función, consulte la sección [Function app inbound IP address](../azure-functions/ip-addresses.md#function-app-inbound-ip-address) (Dirección IP entrante de la aplicación de función).
 
 4.  En el encabezado **Configuración**, haga clic en **Propiedades** en el menú de navegación izquierdo y busque la sección denominada **Dirección IP virtual**.
 

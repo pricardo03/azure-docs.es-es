@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1cc58832d5f863f5bbfa6fc20d38b4be81ddad8f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: cfb09718c545d55b31250070fed0c8adff9d3fed
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089968"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263953"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: actualización automática
 Esta característica se introdujo con la compilación [1.1.105.0 (publicada en febrero de 2016)](active-directory-aadconnect-version-history.md#111050).  Esta característica se actualizó en la [compilación 1.1.561](active-directory-aadconnect-version-history.md#115610) y ahora admite otros escenarios que antes no eran compatibles.
@@ -95,8 +95,8 @@ Aquí presentamos una lista de los mensajes más comunes que se encuentran. No a
 | UpgradeNotSupportedInvalidPersistedState |La instalación no es una configuración rápida ni una actualización de DirSync. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |Tiene más de 100.000 objetos en el metaverso. |
 | UpgradeNotSupportedMultiForestSetup |Se está conectando a más de un bosque. La configuración rápida solo se conecta a un bosque. |
-| UpgradeNotSupportedNonLocalDbInstall |No se está utilizando una base de datos de SQL Server Express LocalDB. |
-| UpgradeNotSupportedNonMsolAccount |La [cuenta del conector AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) ya no es la cuenta de MSOL_ predeterminada. |
+| UpgradeNotSupportedNonLocalDbInstall |No se está utilizando una base de datos de SQL Server Express LocalDB. |d
+| UpgradeNotSupportedNonMsolAccount |La [cuenta del conector AD DS](active-directory-aadconnect-accounts-permissions.md#ad-ds-connector-account) ya no es la cuenta de MSOL_ predeterminada. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | Cuando configuró AAD Connect, eligió *No configurar* cuando seleccionó el método de inicio de sesión. | 
 | UpgradeNotSupportedPtaSignInMethod | Ha seleccionado Autenticación de paso a través como método de inicio de sesión. |
 | UpgradeNotSupportedStagingModeEnabled |El servidor está establecido en [modo provisional](active-directory-aadconnectsync-operations.md#staging-mode). |

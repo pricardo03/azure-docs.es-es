@@ -1,23 +1,24 @@
 ---
-title: 'Guía de inicio rápido: Reconocimiento de voz en C++ en el escritorio de Windows mediante el SDK de Voz de Cognitive Services | Microsoft Docs'
+title: 'Guía de inicio rápido: Reconocimiento de voz en C++ en el escritorio de Windows con Speech SDK de Cognitive Services'
 titleSuffix: Microsoft Cognitive Services
 description: Aprenda a reconocer voz en C++ en el escritorio de Windows con el SDK de Voz de Cognitive Services
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 4a8c5f7053c1976233bf9de6a0c142885b73c8aa
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 7c93f9f450cc2d244a0d716401171cde02abf70b
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071205"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324578"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>Guía de inicio rápido: Reconocimiento de voz en C++ en el escritorio de Windows mediante el SDK de Voz
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Se describe cómo crear una aplicación de consola basada en C++ para escritorio de Windows que use el SDK de Speech.
 La aplicación se basa en el [paquete NuGet del SDK de Voz de Microsoft Cognitive Services](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017.
@@ -25,7 +26,7 @@ La aplicación se basa en el [paquete NuGet del SDK de Voz de Microsoft Cognitiv
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Clave de suscripción para Speech Service. Consulte [Pruebe Speech Service gratis](get-started.md).
-* Un equipo Windows con un micrófono.
+* Un PC Windows con micrófono operativo.
 * [Microsoft Visual Studio 2017](https://www.visualstudio.com/), Community Edition o superior.
 * **Desarrollo de escritorio con la carga de trabajo C++** en Visual Studio y componente del **administrador de paquetes NuGet** en Visual Studio.
   Puede habilitarlo tanto en **Herramientas** \> **Get Tools and Features** (Obtener herramientas y características), en las pestañas **Workloads** (Cargas de trabajo) e **Individual components** (Componentes individuales), respectivamente:
@@ -94,4 +95,4 @@ Busque este ejemplo en la carpeta `quickstart/cpp-windows`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Visite la [página de ejemplos](samples.md) para obtener más ejemplos.
+* [Obtener nuestros ejemplos](speech-sdk.md#get-the-samples)

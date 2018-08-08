@@ -1,27 +1,24 @@
 ---
-title: 'Configuración de la comprobación en dos pasos: Azure AD | Microsoft Docs'
+title: 'Configuración de la verificación en dos pasos: Azure Active Directory | Microsoft Docs'
 description: Si su empresa configura Azure Multi-Factor Authentication, deberá registrarse para la comprobación en dos pasos. Aprenda a configurar.
-services: multi-factor-authentication
+services: active-directory
 keywords: cómo usar azure directory, active directory en la nube, tutorial de active directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
-ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.custom: end-user
-ms.openlocfilehash: 1d0c60dedcb5eefb4ab9167b40c06c3616790719
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d4ebecd11f4ca3d12a55cf25db31e31d7f528db8
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058527"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343736"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configuración de mi cuenta para la comprobación en dos pasos
 La comprobación en dos pasos es un paso adicional de seguridad que ayuda a proteger su cuenta para que el acceso para las demás personas sea más complicado. Si está leyendo este artículo, probablemente tiene un correo electrónico del administrador del trabajo o la escuela sobre Multi-Factor Authentication. O quizás ha intentado iniciar sesión y tiene un mensaje pidiéndole que configure la comprobación de seguridad adicional. Si es así, **no puede iniciar sesión hasta que haya completado el proceso de inscripción automática**.

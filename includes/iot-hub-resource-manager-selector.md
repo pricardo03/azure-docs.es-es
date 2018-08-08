@@ -1,5 +1,6 @@
 > [!div class="op_single_selector"]
-> * [Portal de Azure](../articles/iot-hub/iot-hub-create-through-portal.md)
+> * [Azure Portal](../articles/iot-hub/iot-hub-create-through-portal.md)
+> * [Azure IoT Toolkit para VS Code](../articles/iot-hub/iot-hub-create-use-iot-toolkit.md)
 > * [PowerShell](../articles/iot-hub/iot-hub-create-using-powershell.md)
 > * [CLI de Azure 2.0](../articles/iot-hub/iot-hub-create-using-cli.md)
 > * [CLI de Azure](../articles/iot-hub/iot-hub-create-using-cli-nodejs.md)

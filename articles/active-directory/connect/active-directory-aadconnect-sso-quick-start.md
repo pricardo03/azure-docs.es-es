@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df936c697f500f5ab98becd1529cd321f9f3f5c4
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 24bda501f88d4f96fb558eeb6b21e437edd6d862
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259126"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325394"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
@@ -49,7 +49,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
     
 * **Habilite la autenticación moderna**: para que esta característica funcione, es preciso que habilite la [autenticación moderna](https://aka.ms/modernauthga) en el inquilino.
 
-* **Use las versiones más recientes de los clientes de Office 365**: para obtener una experiencia de inicio de sesión silenciosa con clientes de Office 365 (Outlook, Word, Excel, etc.), necesita las versiones 16.0.8730.xxxx o superiores.
+* **Use las versiones más recientes de los clientes de Office 365**: para obtener una experiencia de inicio de sesión silenciosa con clientes de Office 365 (Outlook, Word, Excel, etc.), los usuarios deben usar las versiones 16.0.8730.xxxx o superiores.
 
 ## <a name="step-2-enable-the-feature"></a>Paso 2: Habilitación de la característica
 
@@ -80,6 +80,9 @@ Siga estas instrucciones para verificar que ha habilitado SSO de conexión direc
 4. Verifique que la característica **Inicio de sesión único de conexión directa** aparece como **Habilitado**.
 
 ![Azure Portal: panel Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
+
+>[!IMPORTANT]
+> SSO de conexión directa crea una cuenta de equipo llamada `AZUREADSSOACC` (que representa Azure AD) en la instancia local de Active Directory (AD) de cada bosque de AD. Esta cuenta de equipo es necesaria para que funcione la característica. Migre la cuenta de equipo `AZUREADSSOACC` a una unidad organizativa (UO) donde se almacenen otras cuentas de equipo para garantizar que se administre de la misma manera y que no se elimine.
 
 ## <a name="step-3-roll-out-the-feature"></a>Paso 3: Implementación de la característica
 
@@ -194,7 +197,7 @@ SSO de conexión directa no funciona en modo de exploración privada en los nave
 
 Para probar la característica con un usuario específico, asegúrese de que se cumplen todas las condiciones siguientes:
   - El usuario inicia sesión en un dispositivo corporativo.
-  - El dispositivo se une a su dominio de Active Directory.
+  - El dispositivo se une a su dominio de Active Directory. El dispositivo _no_ debe estar [unido a Azure AD](../active-directory-azureadjoin-overview.md).
   - El dispositivo tiene una conexión directa a su controlador de dominio (DC), en la red cableada o inalámbrica de la empresa o mediante una conexión de acceso remoto, como una conexión VPN.
   - Ha [implantado la característica](##step-3-roll-out-the-feature) para este usuario mediante la directiva de grupo.
 

@@ -1,24 +1,23 @@
 ---
-title: Preguntas más frecuentes sobre el servicio de conversión de voz en texto en Azure | Microsoft Docs
+title: Preguntas más frecuentes sobre el servicio Speech to Text en Azure
 description: Estas son las respuestas a las preguntas más habituales sobre la conversión de voz en texto.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 543e8d6fb68a351dfe75c962debaf15eeb080a3f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e5ba01c25646578da22f054659051be3515e9e4b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223894"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281837"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Preguntas más frecuentes sobre la conversión de voz en texto
 
-Si no puede encontrar las respuestas en estas preguntas más frecuentes, formúlelas en la comunidad de Custom Speech Service en [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) y [UserVoice](https://cognitive.uservoice.com/)
+Si no encuentra respuestas a sus preguntas en estas preguntas más frecuentes, consulte otras opciones de soporte técnico [aquí](support.md).
 
 ## <a name="general"></a>General
 
@@ -28,7 +27,7 @@ Si no puede encontrar las respuestas en estas preguntas más frecuentes, formúl
 
 **Pregunta**: ¿Dónde empiezo si quiero usar un modelo de línea base?
 
-**Respuesta**: Primero es necesario obtener una [clave de suscripción](get-started.md). Si quiere realizar llamadas REST a los modelos de línea base implementados previamente, consulte los [detalles aquí](rest-apis.md). Si quiere usar WebSockets, descargue el [SDK](speech-sdk.md).
+**Respuesta**: Primero es necesario obtener una [clave de suscripción](get-started.md). Si quiere realizar llamadas REST a los modelos de línea de base implementados previamente, consulte los [detalles aquí](rest-apis.md). Si quiere usar WebSockets, descargue el [SDK](speech-sdk.md).
 
 **Pregunta**: ¿Es siempre necesario crear un modelo de voz personalizado?
 

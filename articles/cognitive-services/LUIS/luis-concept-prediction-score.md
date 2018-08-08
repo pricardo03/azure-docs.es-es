@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: cee7243531857f07dec2e968352ffb54aef16bf1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7412459fca179e7a13d6933f27c2c9ac2d770f33
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224593"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358110"
 ---
 # <a name="prediction-score"></a>Puntuación de predicción
 Una puntuación de predicción indica el grado de confianza que tiene LUIS en los resultados de la predicción. 
@@ -36,6 +36,8 @@ Cuando una expresión da como resultado una puntuación de confianza baja, LUIS 
 Todas las predicciones de expresión devuelven una intención de puntuación superior. Se trata de una comparación numérica de puntuaciones de predicción. Puede haber una diferencia muy pequeña entre las dos puntuaciones superiores. LUIS no indica esta proximidad de otra forma que no sea devolver resultados.  
 
 Si le preocupa la proximidad de las puntuaciones superiores, debería devolver la puntuación de todas las intenciones. Puede agregar expresiones a las dos intenciones que indiquen sus diferencias con la elección de palabras y la organización, o bien puede hacer que la aplicación que llama a LUIS, como un bot de chat, tome decisiones de programación sobre cómo controlar las dos intenciones superiores. 
+
+Dos intenciones con puntuaciones muy cercanas se pueden invertir debido al aprendizaje no determinista. La puntuación superior podría convertirse en la segunda superior y la puntuación segunda podría convertirse en la puntuación superior. Con el fin de evitar esto, agregue expresiones de ejemplo a cada una de las dos intenciones principales para esa expresión con la elección de palabras y el contexto que diferencia las dos intenciones. Las dos intenciones deben tener aproximadamente el mismo número de expresiones de ejemplo. Una regla general de separación para evitar la inversión debida al aprendizaje sería una diferencia del 15 % en las puntuaciones.
 
 ## <a name="return-prediction-score-for-all-intents"></a>Devolver la puntuación de predicción de todas las intenciones
 Un resultado de prueba o punto de conexión puede incluir todas las intenciones. Esta configuración se establece en el [punto de conexión](https://aka.ms/v1-endpoint-api-docs) con el par valor/nombre de cadena de consulta `verbose=true`. 

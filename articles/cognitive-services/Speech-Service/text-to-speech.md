@@ -1,21 +1,20 @@
 ---
-title: Acerca de Text to Speech | Microsoft Docs
+title: Acerca de Text to Speech
 description: Introducción a las funcionalidades de Text to Speech.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e3543c2056934372a2795bd50f340432ceec3b6d
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: d111a9f852b849df15dbd056a7210fac82cee190
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257953"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324262"
 ---
 # <a name="about-the-text-to-speech-api"></a>Acerca de Text to Speech API
 
@@ -42,4 +41,4 @@ Si desea una voz única para la aplicación, puede crear [fuentes de voz persona
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Vea cómo funciona el reconocimiento de voz en C#](quickstart-csharp-dotnet-windows.md)
+* [Conozca cómo sintetizar voz con la API REST](how-to-text-to-speech.md)

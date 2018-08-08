@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e4f2bf4303d2a6f52f6dac7e8d71eca24800f53
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 6c43a52309a6f41d73ead19fc5f5b7df2f06d6f6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092076"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308820"
 ---
 # <a name="sql-database-faq"></a>Preguntas más frecuentes sobre la SQL Database
 
@@ -90,7 +90,7 @@ Sí, puede seleccionar de forma independiente el nivel de proceso que necesita s
 Puede configurar la retención de copia de seguridad de PITR entre 7 y 35 días. El almacenamiento de copia de seguridad se cobra por separado según el consumo de almacenamiento real si supera la cantidad de almacenamiento igual al tamaño máximo de datos. En la versión preliminar, el período de retención de PITR se establece de forma predeterminada en 7 días. En muchos casos, el tamaño máximo de los datos es suficiente para almacenar copias de seguridad durante 7 días.
 
 ## <a name="why-do-you-allow-selection-of-the-hardware-generation-for-compute"></a>¿Por qué se permite la selección de la generación de hardware para los recursos de proceso?
-Nuestro objetivo es permitir la flexibilidad máxima para que pueda elegir una configuración de rendimiento que se ajuste lo más posible a las necesidades de la aplicación. En la tabla anterior se muestran las diferencias entre Gen4 y Gen5. En concreto, el hardware de Gen4 ofrece bastante más memoria por núcleo virtual. Sin embargo, el hardware de Gen5 permite escalar verticalmente mucho más alto los recursos de proceso. Queremos que estas diferencias sean transparentes, para que pueda lograr la relación óptima de precio/rendimiento para la aplicación.
+Nuestro objetivo es permitir la flexibilidad máxima para que pueda elegir una configuración de rendimiento que se ajuste lo más posible a las necesidades de la aplicación. El hardware de Gen4 ofrece bastante más memoria por núcleo virtual. Sin embargo, el hardware de Gen5 permite escalar verticalmente mucho más alto los recursos de proceso. Para más información, vea el [modelo de compra de núcleos virtuales](sql-database-service-tiers-vcore.md).
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>¿Hay que desconectar la aplicación para realizar la conversión de una base de datos basada en DTU a un nivel de servicio basado en núcleos virtuales? 
 Los nuevos niveles de servicio ofrecen un método sencillo de conversión en línea similar al proceso existente de actualizar las bases de datos desde el nivel de servicio Estándar a Premium, y viceversa. Esta conversión puede iniciarse con Azure Portal, PowerShell, la CLI de Azure, T-SQL o la API de REST. Consulte [Administración de bases de datos únicas](sql-database-single-database-scale.md) y [Administración de grupos elásticos](sql-database-elastic-pool.md).

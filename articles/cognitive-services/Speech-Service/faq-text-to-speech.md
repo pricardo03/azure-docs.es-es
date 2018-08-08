@@ -1,24 +1,23 @@
 ---
-title: Preguntas más frecuentes sobre el servicio de conversión de voz en texto en Azure | Microsoft Docs
+title: Preguntas más frecuentes sobre el servicio Speech to Text en Azure
 description: Estas son las respuestas a las preguntas más habituales sobre la conversión de voz en texto.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 4a29435c0ace79fc3a5d3a5a42a0e91bdbc8da5e
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8d70c4a359c713d6c5f46423193e9c9e7e1f3baf
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082831"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282864"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Preguntas más frecuentes sobre Texto a voz
 
-Si no puede encontrar las respuestas a sus preguntas en estas preguntas más frecuentes, formúlelas en la comunidad de Custom Speech Service en [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) y [UserVoice](https://cognitive.uservoice.com/)
+Si no encuentra respuestas a sus preguntas en estas preguntas más frecuentes, consulte otras opciones de soporte técnico [aquí](support.md).
 
 ## <a name="general"></a>General
 

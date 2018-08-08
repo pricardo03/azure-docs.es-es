@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: c7a5031fab10f44809f9533e43c3596d46dc77e3
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c0c2e1748518b794916f1950c288ed1f4df628aa
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346032"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309068"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database 
 Azure SQL Database puede emitir métricas y registros de diagnóstico para facilitar la supervisión. SQL Database se puede configurar para que almacene el uso de recursos, los trabajadores y sesiones, y la conectividad en uno de estos recursos de Azure:
@@ -267,6 +267,8 @@ Aprenda a [descargar métricas y registros de diagnóstico desde Storage](../sto
 |Grupo elástico|Porcentaje de eDTU; eDTU usada; límite de eDTU; porcentaje de CPU; porcentaje de lectura de datos físicos; porcentaje de escritura en registro; porcentaje de sesiones; porcentaje de trabajos; almacenamiento; porcentaje de almacenamiento; límite de almacenamiento y porcentaje de almacenamiento de XTP |
 |||
 
+### <a name="logs"></a>Registros
+
 ### <a name="query-store-runtime-statistics"></a>Estadísticas de tiempo de ejecución del Almacén de consultas
 
 |Propiedad|Descripción|
@@ -460,6 +462,57 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |resource_owner_type_s|Propietario del bloqueo.|
 |blocked_process_filtered_s|Archivo XML de informe del proceso bloqueado|
 |duration_d|Duración del bloqueo en microsegundos.|
+
+### <a name="deadlocks-dataset"></a>Conjunto de datos de interbloqueos
+
+|Propiedad|Descripción|
+|---|---|
+|TenantId|El identificador de inquilino.|
+|SourceSystem|Siempre: Azure|
+|TimeGenerated [UTC] |Marca de tiempo de cuándo se registró el registro.|
+|type|Siempre: AzureDiagnostics|
+|ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
+|Categoría|Nombre de la categoría Siempre: Deadlocks|
+|nombreOperación|Nombre de la operación. Siempre: DeadlockEvent|
+|Recurso|Nombre del recurso.|
+|ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES|
+|SubscriptionId|GUID de la suscripción al que pertenece la base de datos.|
+|ResourceGroup|Nombre del grupo de recursos al que pertenece la base de datos.|
+|LogicalServerName_s|Nombre del servidor al que pertenece la base de datos.|
+|ElasticPoolName_s|Nombre del grupo elástico al que pertenece la base de datos, si pertenece a alguno.|
+|DatabaseName_s|Nombre de la base de datos. |
+|ResourceId|URI de recurso.|
+|deadlock_xml_s|Informe XML de interbloqueo.|
+
+### <a name="automatic-tuning-dataset"></a>Conjunto de datos de ajuste automático
+
+|Propiedad|Descripción|
+|---|---|
+|TenantId|El identificador de inquilino.|
+|SourceSystem|Siempre: Azure|
+|TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
+|type|Siempre: AzureDiagnostics|
+|ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
+|Categoría|Nombre de la categoría Siempre: AutomaticTuning|
+|Recurso|Nombre del recurso.|
+|ResourceType|Nombre del tipo de recurso Siempre: SERVERS/DATABASES|
+|SubscriptionId|GUID de la suscripción al que pertenece la base de datos.|
+|ResourceGroup|Nombre del grupo de recursos al que pertenece la base de datos.|
+|LogicalServerName_s|Nombre del servidor al que pertenece la base de datos.|
+|LogicalDatabaseName_s|Nombre de la base de datos.|
+|ElasticPoolName_s|Nombre del grupo elástico al que pertenece la base de datos, si pertenece a alguno.|
+|DatabaseName_s|Nombre de la base de datos.|
+|ResourceId|URI de recurso.|
+|RecommendationHash_s|Código hash único de la recomendación de ajuste automático.|
+|OptionName_s|Operación de ajuste automático.|
+|Schema_s|Esquema de la base de datos.|
+|Table_s|Tabla afectada.|
+|IndexName_s|Nombre del índice.|
+|IndexColumns_s|Nombre de la columna.|
+|IncludedColumns_s|Columnas incluidas.|
+|EstimatedImpact_s|Impacto estimado del formato JSON de la recomendación de ajuste automático.|
+|Event_s|Tipo de evento de ajuste automático.|
+|Timestamp_t|Última marca de tiempo actualizada.|
 
 ### <a name="intelligent-insights-dataset"></a>Conjunto de datos de Intelligent Insights
 Obtenga más información sobre el [formato de registro de Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).

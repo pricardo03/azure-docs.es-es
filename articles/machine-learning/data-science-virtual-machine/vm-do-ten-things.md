@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
-ms.openlocfilehash: a5f0961a99eac805e82cbc5e5d61c485f8661ba0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8d633a1d3d56f33aad24ca15aea08b5180a6be32
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31595759"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368543"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Diez cosas que puede hacer en Windows Data Science Virtual Machine
 
@@ -64,9 +64,9 @@ Este es el aspecto que tendrá la configuración personalizada del entorno en Vi
 
 ![Programa de instalación de PTVS](./media/vm-do-ten-things/PTVSSetup.png)
 
-Para más detalles acerca de cómo crear entornos de Python, consulte la [documentación de PTVS](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) .
+Para más detalles acerca de cómo crear entornos de Python, consulte la [documentación de PTVS](http://aka.ms/ptvsdocs) .
 
-Ya está configurado el entorno para crear un nuevo proyecto de Python. Vaya a **Archivo** -> **Nuevo** -> **Proyecto** -> **Python** y seleccione el tipo de aplicación de Python que va a compilar. Puede establecer el entorno de Python del proyecto actual en la versión deseada (Anaconda 2.7 o 3.6) haciendo clic con el botón derecho en el **entorno de Python**, seleccionando **Agregar o quitar entornos de Python** y, por último, seleccionando el entorno que desea. Puede encontrar más información acerca de cómo trabajar con PTVS en la página de [documentación](https://github.com/Microsoft/PTVS/wiki) del producto.
+Ya está configurado el entorno para crear un nuevo proyecto de Python. Vaya a **Archivo** -> **Nuevo** -> **Proyecto** -> **Python** y seleccione el tipo de aplicación de Python que va a compilar. Puede establecer el entorno de Python del proyecto actual en la versión deseada (Anaconda 2.7 o 3.6) haciendo clic con el botón derecho en el **entorno de Python**, seleccionando **Agregar o quitar entornos de Python** y, por último, seleccionando el entorno que desea. Puede encontrar más información acerca de cómo trabajar con PTVS en la [documentación](http://aka.ms/ptvsdocs) del producto.
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Utilizar un cuaderno de Jupyter Notebook para explorar y modelar los datos con Python o R
 Jupyter Notebook es un eficaz entorno que proporciona un IDE basado en explorador para la exploración y el modelado de datos. En un cuaderno de Jupyter Notebook se pueden utilizar Python 2, Python 3 o R (tanto de código abierto como de Microsoft R Server).
@@ -251,7 +251,7 @@ En Visual Studio, puede realizar la misma operación de clonación. En la captur
 
 ![GIT en Visual Studio](./media/vm-do-ten-things/VSGit.PNG)
 
-En los distintos recursos disponibles en github.com, puede encontrar más información sobre el uso de Git para trabajar con el repositorio de GitHub. La [hoja de referencia rápida](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) puede resultar un recurso útil.
+En los distintos recursos disponibles en github.com, puede encontrar más información sobre el uso de Git para trabajar con el repositorio de GitHub. La [hoja de referencia rápida](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) puede resultar un recurso útil.
 
 ## <a name="7-access-various-azure-data-and-analytics-services"></a>7. Obtener acceso a diversos servicios de análisis y datos de Azure
 ### <a name="azure-blob"></a>Blob de Azure

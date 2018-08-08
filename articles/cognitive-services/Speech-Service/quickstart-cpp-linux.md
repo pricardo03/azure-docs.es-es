@@ -1,23 +1,24 @@
 ---
-title: 'Guía de inicio rápido: Reconocimiento de voz en C++ en Linux mediante el SDK de Voz de Cognitive Services | Microsoft Docs'
+title: 'Guía de inicio rápido: Reconocimiento de voz en C++ en Linux con Speech SDK de Cognitive Services'
 titleSuffix: Microsoft Cognitive Services
 description: Aprenda a reconocer la voz en C++ en Linux con el SDK de Voz de Cognitive Services
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: b5f5cdbe202b406c724a9f4f5787e566b432a66c
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8f794f1d29b5fde9acd43fa4a018ccb39a8ccd25
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116153"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324785"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>Guía de inicio rápido: Reconocimiento de voz en C++ en Linux mediante el SDK de Voz
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 En este artículo, aprenderá a crear una aplicación de consola de C++ en Linux (Ubuntu 16.04) mediante el SDK de Voz de Cognitive Services para convertir voz en texto.
 
@@ -80,7 +81,7 @@ Descargue e instale el SDK de la forma siguiente:
 
 1. Reemplace la cadena `YourSubscriptionKey` por la clave de suscripción.
 
-1. Reemplace la cadena `YourServiceRegion` por la [región](regions.md) asociada con la suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
+1. Reemplace la cadena `YourServiceRegion` por la [región](regions.md) asociada a sus suscripción (por ejemplo, `westus` para la suscripción de evaluación gratuita).
 
 ## <a name="building"></a>Compilación
 
@@ -133,4 +134,4 @@ Busque este ejemplo en la carpeta `quickstart/cpp-linux`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Visite la [página de ejemplos](samples.md) para obtener más ejemplos.
+* [Obtener nuestros ejemplos](speech-sdk.md#get-the-samples)

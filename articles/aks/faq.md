@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/27/2018
 ms.author: iainfou
-ms.openlocfilehash: ea22b33233f85da117de54829e5a16bd7dcab36a
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b64c770bca84fba8cbed98e420abf649897f7a17
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205255"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345861"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ Azure aplica automáticamente revisiones de seguridad a los nodos del clúster s
 
 - Manualmente, mediante Azure Portal o la CLI de Azure.
 - Mediante la actualización del clúster de AKS. Las actualizaciones del clúster [acordonan y purgan los nodos](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) y luego los ponen de nuevo en activo con la imagen de Ubuntu más reciente. Actualice la imagen de sistema operativo en los nodos sin cambiar las versiones de Kubernetes mediante la especificación de la versión actual del clúster en `az aks upgrade`.
-- Mediante [Kured](https://github.com/weaveworks/kured), un demonio de reinicio de código abierto para Kubernetes. Kured se ejecuta como un elemento [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) y supervisa cada nodo para comprobar la presencia de un archivo que indique que hace falta un reinicio. A continuación, organiza reinicios en el clúster, siguiendo el mismo proceso de acordonamiento y purga descrito anteriormente.
+- Mediante [Kured](https://github.com/weaveworks/kured), un demonio de reinicio de código abierto para Kubernetes. Kured se ejecuta como un elemento [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) y supervisa cada nodo para comprobar la presencia de un archivo que indique que hace falta un reinicio. A continuación, administra reinicios del sistema operativo en el clúster, siguiendo el mismo proceso de acordonamiento y purga descrito anteriormente.
 
 ## <a name="does-aks-support-node-autoscaling"></a>¿AKS admite el escalado automático de los nodos?
 
@@ -39,7 +39,7 @@ Sí, el escalado automático está disponible mediante el [AutoScaler de Kuberne
 
 Sí, se puede habilitar RBAC al [implementar un clúster de AKS desde la CLI de Azure CLI o la plantilla de Azure Resource Manager](https://docs.microsoft.com/en-us/azure/aks/aad-integration). Esta funcionalidad llegará pronto a Azure Portal.
 
-## <a name="what-kubernetes-admission-controllers-does-aks-support-can-this-be-configured"></a>¿Qué controladores de admisión de Kubernetes admite AKS? ¿Es posible configurar esto?
+## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>¿Qué controladores de admisión de Kubernetes admite AKS? ¿Se pueden agregar o eliminar los controladores de admisión?
 
 AKS admite los siguientes [controladores de admisión][admission-controllers]:
 
@@ -66,7 +66,7 @@ De momento, no. El servidor de API de Kubernetes se expone como un nombre de dom
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>¿Azure Key Vault se integra con AKS?
 
-AKS no está integrado de forma nativa con Azure Key Vault por ahora. No obstante, existen soluciones de la comunidad como [acs-keyvault-agent de Hexadite][hexadite].
+AKS no está integrado de forma nativa con Azure Key Vault por ahora. Sin embargo, el [proyecto KeyVault Flex Volume](https://github.com/Azure/kubernetes-keyvault-flexvol) permite realizar una integración directa desde pods de Kubernetes en secretos de KeyVault.
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>¿Puedo ejecutar contenedores de Windows Server en AKS?
 
@@ -80,7 +80,7 @@ Si va a crear recursos que se usarán con el clúster de AKS, como cuentas de al
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>¿AKS ofrece un contrato de nivel de servicio?
 
-En un Acuerdo de Nivel de Servicio (SLA), el proveedor acuerda reembolsar al cliente por el costo del servicio si no se pudo cumplir el nivel de servicio publicado. Dado que AKS es gratuito, no hay ningún costo disponible para reembolsar y, por tanto, ningún Acuerdo de Nivel de Servicio formal. Sin embargo, buscamos mantener una disponibilidad del 99,5 % como mínimo para el servidor de API de Kubernetes.
+En un Acuerdo de Nivel de Servicio (SLA), el proveedor acuerda reembolsar al cliente por el costo del servicio si no se pudo cumplir el nivel de servicio publicado. Dado que AKS es gratuito, no hay ningún costo disponible para reembolsar y, por tanto, ningún Acuerdo de Nivel de Servicio formal. Sin embargo, AKS busca mantener una disponibilidad del 99,5 % como mínimo para el servidor de API de Kubernetes.
 
 <!-- LINKS - internal -->
 

@@ -1,9 +1,9 @@
 ---
-title: Habilitar los servicios multiinquilino en Azure Stack | Microsoft Docs
+title: Servicio multiinquilino en Azure Stack
 description: Aprenda cómo admitir varios directorios de Azure Active Directory en Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: PatAltimore
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
-ms.author: mabrigg
-ms.openlocfilehash: 59b0f8e4c7234b246d4fb54d065ff318939e2662
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.date: 07/23/2018
+ms.author: patricka
+ms.openlocfilehash: e61b4457cd88c236145ce7595ee7db4340538465
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301842"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39330545"
 ---
-# <a name="enable-multi-tenancy-in-azure-stack"></a>Habilitar los servicios multiinquilino en Azure Stack
+# <a name="multi-tenancy-in-azure-stack"></a>Servicio multiinquilino en Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
@@ -30,28 +30,31 @@ Puede configurar Azure Stack para admitir usuarios de varios inquilinos de Azure
  - Mary es la administradora de directorios de fabrikam.onmicrosoft.com, donde se encuentran los usuarios invitados. 
  - La empresa de Mary recibe servicios IaaS y PaaS de su empresa y debe permitir que los usuarios del directorio de invitados (fabrikam.onmicrosoft.com) inicien sesión y usen los recursos de Azure Stack en contoso.onmicrosoft.com.
 
-En esta guía encontrará los pasos necesarios, en el contexto de este escenario, para configurar los servicios multiinquilino en Azure Stack.  En este escenario, usted y Mary deben completar los pasos para permitir que los usuarios de Fabrikam inicien sesión y consuman servicios de la implementación de Azure Stack en Contoso.  
+En esta guía encontrará los pasos necesarios, en el contexto de este escenario, para configurar los servicios multiinquilino en Azure Stack. En este escenario, usted y Mary deben completar los pasos para permitir que los usuarios de Fabrikam inicien sesión y consuman servicios de la implementación de Azure Stack en Contoso.  
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="enable-multi-tenancy"></a>Habilitación de servicios multiinquilino
+
 Hay algunos requisitos previos que debe tener en cuenta antes de configurar los servicios multiinquilino en Azure Stack:
   
  - Usted y Mary deben coordinar los procedimientos administrativos tanto en el directorio donde está instalado Azure Stack (Contoso) como en el directorio de invitados (Fabrikam).  
  - Asegúrese de que ha [instalado](azure-stack-powershell-install.md) y [configurado](azure-stack-powershell-configure-admin.md) PowerShell para Azure Stack.
  - [Descargue Azure Stack Tools](azure-stack-powershell-download.md) e importe los módulos Connect e Identity:
 
-    ````PowerShell
-        Import-Module .\Connect\AzureStack.Connect.psm1
-        Import-Module .\Identity\AzureStack.Identity.psm1
-    ```` 
+    ````PowerShell  
+    Import-Module .\Connect\AzureStack.Connect.psm1
+    Import-Module .\Identity\AzureStack.Identity.psm1
+    ````
+
  - Mary necesitará acceso por [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) a Azure Stack. 
 
-## <a name="configure-azure-stack-directory"></a>Configurar el directorio de Azure Stack
+### <a name="configure-azure-stack-directory"></a>Configurar el directorio de Azure Stack
+
 En esta sección, configurará Azure Stack para permitir inicios de sesión de inquilinos del directorio de Azure AD de Fabrikam.
 
-### <a name="onboard-guest-directory-tenant"></a>Incorporar el inquilino del directorio de invitados
-A continuación, incorpore el inquilino del directorio de invitados (Fabrikam) en Azure Stack.  Este paso configura Azure Resource Manager para que acepte usuarios y entidades de servicio desde el inquilino del directorio de invitados.
+Incorpore el inquilino de directorio invitado (Fabrikam) a Azure Stack y configure Azure Resource Manager para aceptar usuarios y entidades de servicio de dicho inquilino.
 
-````PowerShell
+````PowerShell  
+## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
 ## Replace the value below with the Azure Stack directory
@@ -63,22 +66,26 @@ $guestDirectoryTenantToBeOnboarded = "fabrikam.onmicrosoft.com"
 ## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
 $ResourceGroupName = "system.local"
 
+## Replace the value below with the region location of the resource group. 
+$location = "local"
+
 Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
  -DirectoryTenantName $azureStackDirectoryTenant `
  -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded `
- -Location "local" `
+ -Location $location `
  -ResourceGroupName $ResourceGroupName
 ````
 
+### <a name="configure-guest-directory"></a>Configurar el directorio de invitados
 
-
-## <a name="configure-guest-directory"></a>Configurar el directorio de invitados
 Después de completar los pasos en el directorio de Azure Stack, Mary debe dar su consentimiento para que Azure Stack tenga acceso al directorio de invitados y para registrar Azure Stack en el directorio de invitados. 
 
-### <a name="registering-azure-stack-with-the-guest-directory"></a>Registrar Azure Stack en el directorio de invitados
+#### <a name="registering-azure-stack-with-the-guest-directory"></a>Registrar Azure Stack en el directorio de invitados
+
 Una vez que el administrador del directorio de invitados ha dado su consentimiento para que Azure Stack tenga acceso al directorio de Fabrikam, Mary debe registrar Azure Stack en el inquilino del directorio de Fabrikam.
 
 ````PowerShell
+## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $tenantARMEndpoint = "https://management.local.azurestack.external"
     
 ## Replace the value below with the guest tenant directory. 
@@ -89,10 +96,60 @@ Register-AzSWithMyDirectoryTenant `
  -DirectoryTenantName $guestDirectoryTenantName `
  -Verbose 
 ````
-## <a name="direct-users-to-sign-in"></a>Instruir a los usuarios para iniciar sesión
+
+> [!IMPORTANT]
+> Si el Administrador de Azure Stack instala nuevos servicios o las actualizaciones en el futuro, puede que tenga que volver a ejecutar este script.
+>
+> Ejecute este script de nuevo en cualquier momento para comprobar el estado de las aplicaciones de Azure Stack en su directorio.
+
+### <a name="direct-users-to-sign-in"></a>Instruir a los usuarios para iniciar sesión
+
 Ahora que usted y Mary han completado los pasos para incorporar el directorio de Mary, Mary puede instruir a los usuarios de Fabrikam para que inicien sesión.  Para iniciar sesión, los usuarios de Fabrikam (es decir, los usuarios con el sufijo fabrikam.onmicrosoft.com) van a https://portal.local.azurestack.external.  
 
 Mary instruirá a todas las [entidades de seguridad externas](../role-based-access-control/rbac-and-directory-admin-roles.md) en el directorio de Fabrikam (es decir, los usuarios en el directorio de Fabrikam sin el sufijo fabrikam.onmicrosoft.com) para que inicien sesión con https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Si no utilizan esta dirección URL, se dirigen a su directorio predeterminado (Fabrikam) y reciben un error que indica que su administrador no ha dado su consentimiento.
+
+## <a name="disable-multi-tenancy"></a>Deshabilitación del servicio multiinquilino
+
+Si ya no desea varios inquilinos en Azure Stack, puede deshabilitar el servicio multiinquilino siguiendo estos pasos en orden:
+
+1. Como administrador del directorio invitado (Mary en este escenario), ejecute *Unregister-AzsWithMyDirectoryTenant*. El cmdlet desinstala todas las aplicaciones de Azure Stack del nuevo directorio.
+
+    ``` PowerShell
+    ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
+    $tenantARMEndpoint = "https://management.local.azurestack.external"
+        
+    ## Replace the value below with the guest tenant directory. 
+    $guestDirectoryTenantName = "fabrikam.onmicrosoft.com"
+    
+    Unregister-AzsWithMyDirectoryTenant `
+     -TenantResourceManagerEndpoint $tenantARMEndpoint `
+     -DirectoryTenantName $guestDirectoryTenantName `
+     -Verbose 
+    ```
+
+2. Como administrador de servicios de Azure Stack (usted en este escenario), ejecute *Unregister-AzSGuestDirectoryTenant*. 
+
+    ``` PowerShell  
+    ## The following Azure Resource Manaager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
+    $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
+    
+    ## Replace the value below with the Azure Stack directory
+    $azureStackDirectoryTenant = "contoso.onmicrosoft.com"
+    
+    ## Replace the value below with the guest tenant directory. 
+    $guestDirectoryTenantToBeDecommissioned = "fabrikam.onmicrosoft.com"
+    
+    ## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
+    $ResourceGroupName = "system.local"
+    
+    Unregister-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
+     -DirectoryTenantName $azureStackDirectoryTenant `
+     -GuestDirectoryTenantName $guestDirectoryTenantToBeDecommissioned `
+     -ResourceGroupName $ResourceGroupName
+    ```
+
+    > [!WARNING]
+    > Los pasos para deshabilitar el servicio multiinquilino deben realizarse en orden. Si el paso 2 se realiza primero, el paso 1 generará errores.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

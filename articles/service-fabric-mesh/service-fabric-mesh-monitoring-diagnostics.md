@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 06/22/2018
 ms.author: srrengar
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 79e5622dd73e53854204675b435e99d187a3ab26
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9f857c23b5500bc7790a0ff7fcf81eaec51f37c9
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075883"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358331"
 ---
 # <a name="monitoring-and-diagnostics"></a>Supervisión y diagnóstico
-Azure Service Fabric mesh es un servicio totalmente administrado que permite a los desarrolladores implementar aplicaciones de microservicios sin administración de máquinas virtuales, almacenamiento o red. La supervisión y el diagnóstico para Service Fabric mesh se clasifican en tres tipos principales de datos de diagnóstico:
+Azure Service Fabric Mesh es un servicio totalmente administrado que permite a los desarrolladores implementar aplicaciones de microservicios sin necesidad de administrar máquinas virtuales, almacenamiento o redes. La supervisión y el diagnóstico para Service Fabric mesh se clasifican en tres tipos principales de datos de diagnóstico:
 
 - Registros de aplicación: se definen como registros de aplicaciones en contenedores, según cómo haya instrumentado la aplicación (por ejemplo, registros de Docker)
 - Eventos de plataforma: eventos de la plataforma mesh pertinentes para la operación de contenedor. Actualmente, se incluyen la activación, desactivación y terminación del contenedor.
@@ -40,7 +40,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> 
 ```
 
 > [!NOTE]
-> Puede usar el comando "az mesh servicereplica" para obtener el nombre de la réplica. Los nombres de réplica son números incrementales a partir de 0.*
+> Puede usar el comando "az mesh service-replica" para obtener el nombre de la réplica. Los nombres de réplica son números incrementales a partir de 0.*
 
 Este es el aspecto de los registros del contenedor VotingWeb.Code desde la aplicación de votación:
 
@@ -50,4 +50,4 @@ az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzV
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre Service Fabric mesh, lea la introducción:
-- [Introducción a Service Fabric mesh](service-fabric-mesh-overview.md)
+- [Service Fabric Mesh overview](service-fabric-mesh-overview.md) (Introducción a Service Fabric Mesh)

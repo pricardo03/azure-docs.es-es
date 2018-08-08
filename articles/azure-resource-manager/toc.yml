@@ -16,7 +16,6 @@
     - name: 'Creación de plantillas: Visual Studio'
       href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
 - name: Tutoriales
-  expanded: true
   items:
     - name: Creación de una cuenta de almacenamiento cifrada
       href: resource-manager-tutorial-create-encrypted-storage-accounts.md
@@ -52,10 +51,12 @@
               href: resource-manager-templates-outputs.md
         - name: Plantillas vinculadas y anidadas
           href: resource-group-linked-templates.md
-        - name: Definición de las dependencias entre recursos
+        - name: Dependencias de recursos
           href: resource-group-define-dependencies.md
         - name: Creación de varias instancias
           href: resource-group-create-multiple.md
+        - name: Creación de grupo de recursos en una plantilla
+          href: create-resource-group-in-template.md
         - name: Actualización de recursos
           href: /azure/architecture/building-blocks/extending-templates/update-resource
     - name: Implementación

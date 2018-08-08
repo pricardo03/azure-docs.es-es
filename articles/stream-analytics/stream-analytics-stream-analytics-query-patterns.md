@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 1ca7d40bb3c358b374e354fa2c3ef77edba055c9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4a37ac6cdf5d13556c6a3e293c19c00ad36e4495
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971788"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364172"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Ejemplos de consulta para patrones de uso comunes de Stream Analytics
 
@@ -24,6 +24,12 @@ Las consultas de Azure Stream Analytics se expresan en un lenguaje de consulta s
 El diseño de la consulta puede expresar una lógica sencilla de paso a través para mover datos de evento de un flujo de entrada a otro almacén de datos de salida. O bien, puede realizar abundante análisis temporal y coincidencia de patrones para calcular agregados durante varias ventanas de tiempo, como en el ejemplo TollApp. Puede combinar datos de varias entradas para combinar eventos de streaming y realizar búsquedas en datos de referencia estáticos que enriquecerán los valores de evento. También puede escribir datos en varias salidas.
 
 En este artículo se describen las soluciones para varios patrones de consulta comunes basados en situaciones del mundo real. Es un trabajo en curso y continúa actualizándose con nuevos patrones de forma continuada.
+
+## <a name="work-with-complex-data-types-in-json-and-avro"></a>Trabajo con tipos de datos complejos en JSON y AVRO 
+Azure Stream Analytics admite eventos de procesamiento en formatos de datos CSV, JSON y Avro.
+Tanto JSON como Avro pueden contener tipos complejos como objetos anidados (registros) o matrices. Para trabajar con estos tipos de datos complejos, consulte la [página MSDN que explica cómo trabajar con tipos de datos complejos en la página de JSON y AVRO](
+https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics).
+
 
 ## <a name="query-example-convert-data-types"></a>Ejemplo de consulta: conversión de tipos de datos
 **Descripción**: defina los tipos de propiedades en el flujo de entrada.

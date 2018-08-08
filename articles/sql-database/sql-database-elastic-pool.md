@@ -7,15 +7,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 07/16/2018
+ms.date: 07/27/2018
 ms.author: ninarn
 ms.topic: conceptual
-ms.openlocfilehash: a5d5c29b30f746c5507e45ecbee6c5ab9aff56f3
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: d350678d80497b44cdd854baf958926150867c01
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091949"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326105"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Los grupos elásticos pueden ayudarle a administrar y escalar varias instancias de Azure SQL Database
 
@@ -36,6 +36,9 @@ Los grupos elásticos solucionan este problema y se aseguran de que las bases de
 Los grupos elásticos permiten al desarrollador adquirir recursos para un grupo compartido entre varias bases de datos con el fin de hacer frente a periodos impredecibles de uso por bases de datos individuales. Puede configurar los recursos para el grupo según el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md). El requisito de recursos para un grupo viene determinado por el uso agregado de sus bases de datos. La cantidad de recursos disponibles para el grupo se determina mediante el presupuesto del desarrollador. El desarrollador simplemente agrega bases de datos al grupo, establece los recursos mínimos y máximos para las bases de datos (DTU mínimas o máximas o núcleos virtuales mínimos y máximos, según la elección del modelo de recursos) y, a continuación, establece los recursos del grupo en función de su presupuesto. Un desarrollador puede usar grupos para aumentar de forma eficiente su servicio a partir de un método Lean Startup hasta un negocio con madurez a una escala cada vez mayor.
 
 Dentro del grupo, a las bases de datos individuales se les proporciona la flexibilidad de escalarse automáticamente dentro de unos parámetros establecidos. Con cargas elevadas, una base de datos puede consumir más recursos para satisfacer la demanda. Las bases de datos con cargas ligeras consumen menos y las bases de datos sin carga no consumen ningún recurso. El aprovisionamiento de recursos para el grupo entero en lugar de para bases de datos únicas simplifica las tareas de administración. Además, cuenta con un presupuesto predecible para el grupo. Se pueden agregar recursos adicionales a un grupo existente sin que haya un tiempo de inactividad de la base de datos, excepto en los casos en los que las bases de datos se deben mover para proporcionar los recursos de proceso adicionales para la reserva de nuevas eDTU. De manera similar, si ya no se necesitan recursos adicionales, se pueden quitar de un grupo existente en cualquier momento dado. Y puede agregar bases de datos al grupo o quitar bases de datos del grupo. Si una base de datos infrautiliza recursos de forma predecible, sáquela del grupo.
+
+> [!NOTE]
+> Al mover las bases de datos dentro o fuera de un grupo elástico, no hay tiempo de inactividad, aparte de un breve período de tiempo (del orden de segundos) al final de la operación cuando se descartan las conexiones de base de datos.
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>¿Cuándo se debe usar un grupo elástico de SQL Database?
 

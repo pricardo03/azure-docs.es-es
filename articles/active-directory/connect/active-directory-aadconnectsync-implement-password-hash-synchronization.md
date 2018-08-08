@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5d62eb4d5f43625b336ade68532cf734ef0cde6a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: af9a2e47a5e91d9b32a787f8f40ba06b5a1596e7
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214700"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265053"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
@@ -173,3 +173,4 @@ Si tiene problemas con la sincronización de hash de contraseñas, vea [Solució
 ## <a name="next-steps"></a>Pasos siguientes
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
+* [Obtención de un plan de implementación paso a paso para migrar desde AD FS para la sincronización de hash de contraseña](https://aka.ms/authenticationDeploymentPlan)

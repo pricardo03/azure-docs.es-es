@@ -1,29 +1,25 @@
 ---
-title: Esquema del lenguaje de definición de flujo de trabajo - Azure Logic Apps | Microsoft Docs
+title: 'Referencia de esquema del lenguaje de definición de flujo de trabajo: Azure Logic Apps | Microsoft Docs'
 description: Escritura de definiciones de flujo de trabajo personalizadas para Azure Logic Apps con el lenguaje de definición de flujo de trabajo
 services: logic-apps
-author: ecfan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: reference
 ms.date: 04/30/2018
-ms.author: estfan
-ms.openlocfilehash: babe21db6acc2f7154857b4eb0a02356e89a8ca7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 0ac191f1191357ecc7292d51b298567f7f4e4786
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059237"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391231"
 ---
-# <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Definiciones de flujo de trabajo de Logic Apps con el esquema de lenguaje de definición de flujo de trabajo
+# <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referencia de esquema del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 
-Cuando se crea un flujo de trabajo de aplicación lógica con [Azure Logic Apps](../logic-apps/logic-apps-overview.md), la definición subyacente del flujo de trabajo describe la lógica real que se ejecuta para la aplicación lógica. Esta descripción sigue una estructura que se define y valida mediante el esquema de lenguaje de definición de flujo de trabajo, que usa el formato [Notación de objetos JavaScript (JSON)](https://www.json.org/). 
+Cuando se crea un flujo de trabajo de aplicación lógica con [Azure Logic Apps](../logic-apps/logic-apps-overview.md), la definición subyacente del flujo de trabajo describe la lógica real que se ejecuta para la aplicación lógica. Esta descripción sigue una estructura que se define y valida mediante el esquema de lenguaje de definición de flujo de trabajo, que usa la [notación de objetos JavaScript (JSON)](https://www.json.org/). 
   
 ## <a name="workflow-definition-structure"></a>Estructura de definición de flujo de trabajo
 
@@ -74,7 +70,7 @@ Esta es la estructura general de una definición de parámetro:
 },
 ```
 
-| Elemento | Obligatorio | type | DESCRIPCIÓN |  
+| Elemento | Obligatorio | Escriba | DESCRIPCIÓN |  
 |---------|----------|------|-------------|  
 | Tipo | SÍ | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Nota**: Con todas las contraseñas, claves y secretos, use los tipos `securestring` y `secureobject` porque la operación `GET` no los devuelve. | El tipo del parámetro. |
 | defaultValue | Sin  | Igual que `type`. | El valor de parámetro predeterminado cuando no se especifica ningún valor al crear una instancia del flujo de trabajo. | 
@@ -104,7 +100,7 @@ Esta es la estructura general de una definición de salida:
 } 
 ```
 
-| Elemento | Obligatorio | type | DESCRIPCIÓN | 
+| Elemento | Obligatorio | Escriba | DESCRIPCIÓN | 
 |---------|----------|------|-------------| 
 | <*key-name*> | SÍ | string | El nombre de clave del valor devuelto de salida. |  
 | Tipo | SÍ | int, float, string, securestring, bool, array, JSON object | El tipo del valor devuelto de salida. | 
@@ -226,7 +222,7 @@ O bien, puede seguir aprendiendo sobre las funciones y su uso general.
 Estas son solo algunas tareas de ejemplo que se pueden realizar con funciones: 
 
 | Task | Sintaxis de la función | Resultado | 
-| ---- | --------------- | -------------- | 
+| ---- | --------------- | ------ | 
 | Devuelve una cadena en formato de minúsculas. | toLower('<*text*>') <p>Por ejemplo: toLower('Hello') | "Hola" | 
 | Devuelve un identificador único global (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
 |||| 

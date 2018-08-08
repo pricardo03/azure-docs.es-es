@@ -1,5 +1,5 @@
 ---
-title: Diseño de un servicio de alta disponibilidad con Azure SQL Database | Microsoft Docs
+title: Diseño de servicios disponibles globalmente con Azure SQL Database | Microsoft Docs
 description: Obtenga información sobre el diseño de aplicaciones para servicios de alta disponibilidad con Azure SQL Database.
 keywords: recuperación ante desastres en la nube, soluciones de recuperación ante desastres, copia de seguridad de datos de aplicación, planificación de continuidad del negocio
 services: sql-database
@@ -8,19 +8,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/26/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: f1c228802bd0a2e65321a3abe47b87845f5f86a0
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 88a6e1a66390b2b317e1e30a71455ad693e6d7df
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092620"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264661"
 ---
-# <a name="designing-highly-available-services-using-azure-sql-database"></a>Diseño de servicios de alta disponibilidad con Azure SQL Database
+# <a name="designing-globally-available-services-using-azure-sql-database"></a>Diseño de servicios disponibles globalmente con Azure SQL Database
 
-Al compilar e implementar servicios de alta disponibilidad en Azure SQL Database, use los [grupos de conmutación por error y la replicación geográfica activa](sql-database-geo-replication-overview.md) para proporcionar resistencia frente a interrupciones regionales y errores muy graves. También permite una recuperación rápida a las bases de datos secundarias. Este artículo se centra en los patrones comunes de aplicación y analiza las ventajas y desventajas de cada opción. Para saber cómo utilizar la replicación geográfica activa con los grupos elásticos, consulte [Estrategias de recuperación ante desastres para aplicaciones que usan el grupo elástico de Base de datos SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Al crear e implementar servicios en la nube con Azure SQL Database, use los [grupos de conmutación por error y la replicación geográfica activa](sql-database-geo-replication-overview.md) para proporcionar resistencia frente a interrupciones regionales y errores graves. La misma característica permite crear aplicaciones distribuidas globalmente optimizadas para el acceso local a los datos. En este artículo se describen patrones de aplicación comunes, incluidas las ventajas y desventajas de cada opción. 
 
 > [!NOTE]
 > Si usa bases de datos y grupos elásticos de nivel Premium o Crítico para la empresa, puede hacerlos resistentes a las interrupciones regionales mediante su conversión a una configuración de implementación con redundancia de zona. Vea [Alta disponibilidad y Azure SQL Database](sql-database-high-availability.md).  

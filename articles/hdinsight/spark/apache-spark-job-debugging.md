@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 1ddf8cd38b4d62dc206a9f27e0620f8c7b232ec3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2593a9e782298bbd6e40bde611a430844febbce3
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31519389"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398495"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depuración de trabajos de Apache Spark que se ejecutan en Azure HDInsight
 
 En este artículo se aprende a realizar un seguimiento y a depurar los trabajos de Spark que se ejecutan en clústeres de HDInsight mediante la interfaz de usuario de YARN, la de Spark y el servidor de historial de Spark. Se inicia un trabajo de Spark mediante un cuaderno disponible en el clúster de Spark, **Machine learning: Predictive analysis on food inspection data using MLLib** (Aprendizaje automático: análisis predictivo en datos de inspección de alimentos con MLLib). Puede utilizar los pasos siguientes para realizar el seguimiento de una aplicación que haya enviado mediante cualquier otro enfoque, por ejemplo, **spark-submit**.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Debe tener lo siguiente:
 
 * Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -107,6 +107,7 @@ Cuando se completa un trabajo, se conserva la información sobre este en el serv
 
 ## <a name="see-also"></a>Otras referencias
 *  [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](apache-spark-resource-manager.md)
+*  [Depuración de trabajos de Spark mediante el servidor de historial de Spark extendido](apache-azure-spark-history-server.md)
 
 ### <a name="for-data-analysts"></a>Para analistas de datos
 

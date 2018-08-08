@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: b7fd880683eed9e742007d6e595e1f275467b664
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 4cf04ceeb8650b2978389cefb561ae31e88bc853
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990122"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282444"
 ---
 # <a name="log-analytics-data-security"></a>Seguridad de datos de Log Analytics
 Este documento está diseñado para proporcionar información específica sobre Azure Log Analytics que complemente la información que se halla en el [Centro de confianza de Azure](../security/security-microsoft-trust-center.md).  
@@ -176,7 +176,7 @@ Como se describió anteriormente, los datos del servidor de administración o de
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Recepción y procesamiento de los datos por parte del servicio Log Analytics
 El servicio Log Analytics asegura que los datos entrantes provienen de una fuente de confianza mediante la validación de certificados y la integridad de los datos con la autenticación de Azure. Los datos sin procesar se almacenarán posteriormente en una instancia de Azure Event Hubs en la región en que finalmente se almacenarán los datos en reposo. El tipo de datos que se almacena depende de los tipos de soluciones que se importaron y se usaron para recopilar datos. Después, el servicio Log Analytics procesa los datos sin procesar y los ingiere en la base de datos.
 
-El período de retención de los datos recopilados que se almacenan en la base de datos depende del plan de precios seleccionado. Para el nivel *Gratis*, los datos recopilados están disponibles durante 7 días. Para el nivel de *pago*, los datos recopilados están disponibles durante 31 días de forma predeterminada, pero se puede ampliar a 720 días. Los datos se almacenan cifrados en el almacenamiento de Azure, para garantizar la confidencialidad de los datos. Las dos últimas semanas de datos también se almacenan en caché basada en SSD y actualmente esta caché no está cifrada.  Tenemos previsto admitir este tipo de cifrado el último semestre de 2018.  
+El período de retención de los datos recopilados que se almacenan en la base de datos depende del plan de precios seleccionado. Para el nivel *Gratis*, los datos recopilados están disponibles durante 7 días. Para el nivel de *pago*, los datos recopilados están disponibles durante 31 días de forma predeterminada, pero se puede ampliar a 730 días. Los datos se almacenan cifrados en el almacenamiento de Azure, para garantizar la confidencialidad de los datos. Las dos últimas semanas de datos también se almacenan en caché basada en SSD y actualmente esta caché no está cifrada.  Tenemos previsto admitir este tipo de cifrado el último semestre de 2018.  
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Uso de Log Analytics para acceder a los datos
 Para acceder al área de trabajo de Log Analytics puede iniciar sesión en Azure Portal mediante la cuenta de la organización o la cuenta Microsoft configurada anteriormente. Todo el tráfico que circula entre el portal y el servicio Log Analytics se envía por un canal seguro HTTPS. Al usar el portal, se genera un identificador de sesión en el cliente del usuario (explorador web) y los datos se almacenan en una caché local hasta que finalice la sesión. Cuando termina, se elimina la memoria caché. Las cookies del cliente, que no contienen información de identificación personal, no se quitan automáticamente. Las de sesión se marcan con HTTPOnly y se protegen. Después de un periodo de inactividad predeterminado, se termina la sesión de Azure Portal.

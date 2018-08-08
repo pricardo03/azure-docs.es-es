@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: f73b6f594403ce51fcff4d757990afb3ce4a82bc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5ae7a0d3aa0606fd02bfbaa0dcebdfaed5d11eb7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004853"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283108"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager
 
-[Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) le permite fácilmente [crear y agregar una máquina virtual a un laboratorio](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Esto funciona bien para crear una máquina virtual a la vez. Sin embargo, si el entorno contiene varias máquinas virtuales, cada una tiene que crearse por separado. Para escenarios como una aplicación web de varios niveles o una granja de SharePoint, se necesita un mecanismo para permitir la creación de varias máquinas virtuales en un solo paso. Mediante el uso de plantillas de Azure Resource Manager, puede definir ahora la infraestructura y la configuración de la solución de Azure e implementar repetidamente varias máquinas virtuales de manera coherente. Esta característica proporciona las siguientes ventajas:
+[Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) le permite [agregar una máquina virtual a la vez a un laboratorio](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm) fácilmente. Sin embargo, si el entorno contiene varias máquinas virtuales, cada una tiene que crearse por separado. Para escenarios como una aplicación web de varios niveles o una granja de SharePoint, se necesita un mecanismo para permitir la creación de varias máquinas virtuales en un solo paso. Mediante el uso de plantillas de Azure Resource Manager, puede definir ahora la infraestructura y la configuración de la solución de Azure e implementar repetidamente varias máquinas virtuales de manera coherente. Esta característica proporciona las siguientes ventajas:
 
 - Las plantillas de Azure Resource Manager se cargan directamente desde el repositorio de control de código fuente (GitHub o Git de Team Services).
 - Con la configuración finalizada, los usuarios pueden crear un entorno al seleccionar una plantilla de Azure Resource Manager desde Azure Portal como lo hacen con otros tipos de [bases de máquinas virtuales](./devtest-lab-comparing-vm-base-image-types.md).
@@ -43,6 +43,8 @@ Más información acerca de las muchas [ventajas del uso de plantillas de Resour
 
 Como uno de los procedimientos recomendados con infraestructura como código y configuración como código, las plantillas de entorno deben administrarse con control de código fuente. Azure DevTest Labs sigue este procedimiento y carga todas las plantillas de Azure Resource Manager directamente desde los repositorios de GitHub o VSTS Git. Como resultado, las plantillas de Resource Manager pueden utilizarse en todo el ciclo de versiones, desde el entorno de prueba hasta el entorno de producción.
 
+Consulte las plantillas creadas por el equipo de DevTest Labs en el [repositorio público de GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Environments). En este repositorio público, puede ver las plantillas compartidas por otros usuarios que puede utilizar directamente o personalizarlas para adaptarlas a sus necesidades. Después de crear la plantilla, almacénela en este repositorio para compartirla con otros usuarios. También puede configurar su propio repositorio de Git con plantillas que se pueden usar para configurar los entornos en la nube. 
+
 Hay un par de reglas que seguir para organizar las plantillas de Azure Resource Manager en un repositorio:
 
 - El archivo de plantilla principal debe llamarse `azuredeploy.json`. 
@@ -50,18 +52,18 @@ Hay un par de reglas que seguir para organizar las plantillas de Azure Resource 
     ![Archivos de plantilla principal de Azure Resource Manager](./media/devtest-lab-create-environment-from-arm/master-template.png)
 
 - Si desea usar valores de parámetro definidos en un archivo de parámetros, este debe llamarse `azuredeploy.parameters.json`.
-- Puede usar los parámetros `_artifactsLocation` y `_artifactsLocationSasToken` para construir el valor parametersLink URI y permitir a DevTest Labs administrar automáticamente las plantillas anidadas. Vea [How Azure DevTest Labs makes nested Resource Manager template deployments easier for testing environments](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/) Cómo Azure DevTest Labs facilita la implementación de las plantillas de Resource Manager anidadas para los entornos de prueba) para más información.
+- Puede usar los parámetros `_artifactsLocation` y `_artifactsLocationSasToken` para construir el valor parametersLink URI y permitir a DevTest Labs administrar automáticamente las plantillas anidadas. Para más información, consulte [How Azure DevTest Labs makes nested Resource Manager template deployments easier for testing environments](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/) (Procedimiento por el que Azure DevTest Labs facilita las implementaciones de plantillas de Resource Manager para entornos de prueba).
 - Los metadatos pueden definirse para especificar el nombre para mostrar y la descripción de la plantilla. Estos metadatos deben estar en un archivo denominado `metadata.json`. El archivo de metadatos de ejemplo siguiente muestra cómo especificar el nombre para mostrar y la descripción: 
 
-```json
-{
+    ```json
+    {
  
-"itemDisplayName": "<your template name>",
+        "itemDisplayName": "<your template name>",
  
-"description": "<description of the template>"
+        "description": "<description of the template>"
  
-}
-```
+    }
+    ```
 
 Los siguientes pasos le ayudarán a agregar un repositorio al laboratorio a través de Azure Portal. 
 
@@ -144,13 +146,13 @@ Tenga en cuenta estas limitaciones cuando use una plantilla de Resource Manager 
 
    La única excepción a eso es que **puede** hacer referencia a una red virtual existente. 
 
-- No se pueden crear fórmulas a partir de las máquinas virtuales de laboratorio que se crearon con una plantilla de Resource Manager. 
+- No se pueden crear fórmulas desde las máquinas virtuales de laboratorio que se crearon a partir de una plantilla de Resource Manager. 
 
-- No se pueden crear imágenes personalizadas a partir de las máquinas virtuales de laboratorio que se crearon con una plantilla de Resource Manager. 
+- No se pueden crear imágenes personalizadas desde las máquinas virtuales de laboratorio que se crearon a partir de una plantilla de Resource Manager. 
 
 - La mayoría de las directivas no se evalúan al implementar plantillas de Resource Manager.
 
-   Por ejemplo, es posible que tenga una directiva de laboratorio que especifique que un usuario solo puede crear cinco máquinas virtuales. Sin embargo, si el usuario implementa una plantilla de Resource Manager que crea docenas de máquinas virtuales, esto sí que se permite. Entre las directivas que no se evalúan se incluyen:
+   Por ejemplo, es posible que tenga una directiva de laboratorio que especifique que un usuario solo puede crear cinco máquinas virtuales. Sin embargo, un usuario puede implementar una plantilla de Resource Manager que cree docenas de máquinas virtuales. Entre las directivas que no se evalúan se incluyen:
 
    - Número de máquinas virtuales por usuario
    - Número de máquinas virtuales premium por usuario de laboratorio

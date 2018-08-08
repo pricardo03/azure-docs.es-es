@@ -5,6 +5,7 @@ documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
+services: machine-learning
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -14,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: deguhath
-ms.openlocfilehash: aaa965c507faba344ca717a76b3fb3a0a01fa0ee
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1ebd640191ffbb1b3ea70ca07081522b370e4e2d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838575"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308194"
 ---
 # <a name="team-data-science-process-project-planning"></a>Plantilla de planeamiento del proyecto del proceso de ciencia de datos en equipo
 
@@ -55,9 +56,13 @@ Si no tiene acceso a Microsoft Project, también hay una hoja de cálculo de Exc
 
 Use estas plantillas bajo su responsabilidad. Son de aplicación las [renuncias de responsabilidad habituales](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
+## <a name="repository-template"></a>Plantilla de repositorio
+
+Utilice este [repositorio de plantillas de proyecto](https://github.com/Azure/Azure-TDSP-ProjectTemplate) para permitir la ejecución y colaboración eficientes del proyecto. Este repositorio le ofrece una estructura de directorios estandarizada y plantillas de documentos que puede utilizar para su propio proyecto TDSP.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Desarrollo ágil de proyectos de ciencia de datos](agile-development.md) En este documento se describe cómo ejecutar un proyecto de ciencia de datos de forma sistemática, con control de versiones y de manera colaborativa dentro de un equipo de proyecto mediante el proceso de ciencia de datos en equipo.
 
-También se proporcionan tutoriales que muestran todos los pasos del proceso en **escenarios concretos**. Se enumeran y enlazan con descripciones en miniatura en los [tutoriales de ejemplos](walkthroughs.md). En ellos se ilustra cómo combinar herramientas y servicios locales y en la nube en un flujo de trabajo o canalización para crear una aplicación inteligente. 
+También se proporcionan tutoriales que muestran todos los pasos del proceso en **escenarios concretos**. Se enumeran y enlazan con descripciones en miniatura en los [tutoriales de ejemplo](walkthroughs.md). En ellos se ilustra cómo combinar herramientas y servicios locales y en la nube en un flujo de trabajo o canalización para crear una aplicación inteligente. 
 

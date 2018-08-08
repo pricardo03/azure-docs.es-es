@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
-ms.openlocfilehash: 3ed449912df1e16b5c8f1dfa3c83b81eaf635227
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f45630a99d9045d0909e11d4ccc1517782d39779
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035357"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284472"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transferencia de datos con AzCopy en Linux
 
@@ -348,6 +348,9 @@ azcopy \
     --include "ab" \
     --set-content-type
 ```
+
+### <a name="customizing-the-mime-content-type-mapping"></a>Personalización de la asignación de tipo de contenido MIME
+AzCopy utiliza un archivo de configuración que contiene una asignación de extensión de archivo para el tipo de contenido. Puede personalizar esta asignación y agregar nuevos pares según sea necesario. La asignación se encuentra en ```/usr/lib/azcopy/AzCopyConfig.json```
 
 ## <a name="blob-copy"></a>Blob: copia
 ### <a name="copy-single-blob-within-storage-account"></a>Copia de un solo blob dentro de una cuenta de almacenamiento

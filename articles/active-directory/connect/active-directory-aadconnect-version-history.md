@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/31/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e808d4bf116dcab344308c3dd2aa06c72e0318ba
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6ca32d51a52cf636b1c41667e20872cfe49fa7e2
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049524"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390160"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historial de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -36,6 +36,45 @@ Pasos para actualizar desde Azure AD Connect | Diferentes métodos para [actuali
 Permisos necesarios | Para más información sobre los permisos necesarios para aplicar una actualización, consulte [cuentas y permisos](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Descarga | [Descargar Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="118800"></a>1.1.880.0
+
+### <a name="release-status"></a>Estado de la versión
+
+20/7/2018: Publicada para actualización automática. Pronto se ofrecerá la versión para su descarga.
+
+### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
+
+- La integración de PingFederate en Azure AD Connect ya tiene disponibilidad general. [Más información sobre cómo realizar la federación de Azure AD con PingFederate](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
+- Ahora, Azure AD Connect crea la copia de seguridad de confianza de Azure AD en AD FS cada vez que se realiza una actualización, y la almacena en un archivo independiente para una sencilla restauración, si esta fuese necesaria. [Más información sobre la nueva funcionalidad y la administración de confianza de Azure AD en Azure AD Connect ](https://aka.ms/fedtrustinaadconnect).
+- Las nuevas herramientas de solución de problemas le ayudan a resolver los problemas relacionados con el cambio de dirección de correo electrónico principal y la ocultación de la cuenta de la lista global de direcciones
+- Azure AD Connect se ha actualizado para incluir al cliente nativo más reciente de SQL Server 2012
+- Al cambiar del inicio de sesión de usuario a la sincronización de hash de contraseña o la autenticación de paso a través, en la tarea "Cambio de inicio de sesión de usuario", la casilla de verificación Inicio de sesión único de conexión directa está habilitada de forma predeterminada.
+- Se ha agregado compatibilidad para Windows Server Essentials 2019
+- El agente de Azure AD Connect Health se ha actualizado a la versión más reciente 3.1.7.0
+- Durante una actualización, si el instalador detecta cambios en las reglas de sincronización predeterminadas, el administrador recibe una advertencia antes de sobrescribir las reglas modificadas. Esto permitirá al usuario llevar a cabo acciones correctivas y continuar más adelante. Comportamiento anterior: si había reglas integradas que estaban modificadas, la actualización manual sobrescribía esas reglas sin proporcionar ningún mensaje de advertencia al usuario, y el programador de sincronización se deshabilitaba sin informar al usuario. Nuevo comportamiento: se proporciona al usuario una advertencia antes de sobrescribir las reglas de sincronización integradas modificadas. El usuario tendrá la opción de detener el proceso de actualización y reanudarlo más adelante, tras llevar a cabo una acción correctiva.
+- Se proporciona un mejor control de los problemas de cumplimiento de la norma FIPS, proporcionándose un mensaje de error para la generación de hash MD5 en un entorno compatible con FIPS, y un vínculo a documentación que proporciona una solución alternativa para este problema.
+- Actualización de la interfaz de usuario para mejorar las tareas de federación en el asistente, que ahora están en un subgrupo independiente para la federación. 
+- Todas las tareas adicionales de la federación se agrupan ahora bajo un submenú único para facilitar su uso.
+- Un nuevo y renovado módulo Posh de ADSyncConfig (AdSyncConfig.psm1) con nuevas funciones de los permisos de AD que se han movido desde el antiguo ADSyncPrep.psm1 (que posiblemente se deje de usar en breve)
+
+### <a name="fixed-issues"></a>Problemas corregidos 
+
+- Se ha corregido un error en el servidor de AAD Connect que mostraba un uso elevado de CPU después de actualizar a .Net 4.7.2
+- Se ha corregido un error que de forma intermitente producía un mensaje de error para un problema de interbloqueo de SQL de resolución automática
+- Se han corregido varios problemas de accesibilidad del editor de reglas de sincronización y el servicio de administrador de sincronización  
+- Se ha corregido un error en Azure AD Connect por el que no se podía obtener información de configuración del registro
+- Se ha corregido un error que creaba problemas cuando el usuario va hacia delante y hacia atrás en el asistente
+- Se ha realizado una corrección para evitar un error que se produce debido a un control incorrecto de varios subprocesos en el asistente
+- Cuando la página Group Sync Filtering (filtros de sincronización de grupos) encuentra un error LDAP al resolver los grupos de seguridad, Azure AD Connect devuelve ahora la excepción con fidelidad total.  La causa raíz de la excepción de referencia aún no se conoce y se tratará en un error diferente.
+-  Se ha corregido un error en el que los permisos para las claves STK y NGC (atributo msDS-KeyCredentialLink en objetos de usuario o dispositivo para WHfB) no se establecían correctamente.     
+- Se ha corregido un error en el que no se llamaba correctamente a "Set-ADSyncRestrictedPermissions"
+-  Se ha agregado compatibilidad para el permiso que se concede para la escritura diferida de grupos en el asistente para la instalación de AADConnect
+- Al cambiar el método de inicio de sesión de sincronización de hash de contraseña a AD FS, no se deshabilitaba la sincronización de hash de contraseña.
+- Se ha agregado la comprobación para las direcciones IPv6 en la configuración de AD FS
+- Se ha actualizado el mensaje de notificación para informar de que ya existe una configuración.
+- La escritura diferida de dispositivo no detecta el contenedor en el bosque sin confianza. Se ha actualizado para proporcionar un mensaje de error mejorado y un vínculo a la documentación adecuada
+- La anulación de la selección de una unidad organizativa y, a continuación, la sincronización/escritura diferida que corresponde a esa unidad organizativa da un error genérico de sincronización. Se ha cambiado para crear un mensaje de error más comprensible.
 
 ## <a name="118190"></a>1.1.819.0
 
@@ -209,7 +248,7 @@ Bloquee el acceso a la cuenta de AD DS mediante la implementación de los siguie
 *   Quite todas las ACE del objeto específico, excepto las ACE específicas de SELF. Deseamos mantener intactos los permisos predeterminados cuando se trata de SELF.
 *   Asigne estos permisos específicos:
 
-type     | NOMBRE                          | Access               | Se aplica a
+Escriba     | NOMBRE                          | Access               | Se aplica a
 ---------|-------------------------------|----------------------|--------------|
 PERMITIR    | SYSTEM                        | Control total         | Este objeto  |
 PERMITIR    | Administradores de empresas             | Control total         | Este objeto  |

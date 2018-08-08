@@ -1,27 +1,24 @@
 ---
-title: 'Administración de la configuración de verificación en dos pasos: Azure AD | Microsoft Docs'
+title: 'Administración de la configuración de la verificación en dos pasos: Azure Active Directory | Microsoft Docs'
 description: Administre cómo usar Azure Multi-Factor Authentication, incluida la modificación de la información de contacto o la configuración de los dispositivos.
-services: multi-factor-authentication
+services: active-directory
 keywords: cliente de multi-factor authentication, problema de autenticación, identificador de correlación
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
-ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
-ms.custom: end-user
-ms.openlocfilehash: ff48cb2cee5387f5dd5e0b89966a11fb76379337
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c3fd74731dbed2c2f36d97b3cb42b383f8e4ca0f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057607"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345096"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Administración de la configuración de la comprobación en dos pasos
 Este artículo ofrece respuestas a preguntas acerca de cómo actualizar la configuración de la verificación en dos pasos o la autenticación multifactor. Si tiene problemas para iniciar sesión en su cuenta, consulte [Problemas con la comprobación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md) para obtener ayuda para la solución de problemas.

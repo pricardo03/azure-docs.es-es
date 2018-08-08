@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.author: diberry
-ms.openlocfilehash: 9ad1d9e1543c3d9a74025fb23bd1767478b53b4b
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 355c1edd4fa7433e68a9c0e903f4f782203326fe
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238461"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365885"
 ---
 # <a name="tutorial-improve-app-with-patterns"></a>Tutorial: Mejorar la aplicación con patrones
 
@@ -23,32 +23,34 @@ En este tutorial, use patrones para mejorar la predicción de intenciones y enti
 
 > [!div class="checklist"]
 * Cómo identificar que un patrón ayudaría a la aplicación
-* Cómo crear un patrón 
+* Cómo crear un patrón
 * Cómo comprobar las mejoras de la predicción de patrones
 
-Para este artículo, necesita una cuenta gratuita de [LUIS](luis-reference-regions.md) para crear la aplicación.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
+
 Si no tiene la aplicación de recursos humanos del tutorial sobre [pruebas por lotes](luis-tutorial-batch-testing.md), [importe](luis-how-to-start-new-app.md#import-new-app) el archivo JSON a una nueva aplicación en el sitio web de [LUIS](luis-reference-regions.md#luis-website). La aplicación que se va a importar se encuentra en el repositorio de GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json).
 
 Si quiere conservar la aplicación original de Recursos humanos, clone la versión en la página [Configuración](luis-how-to-manage-versions.md#clone-a-version) y llámela `patterns`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. 
 
 ## <a name="patterns-teach-luis-common-utterances-with-fewer-examples"></a>Los patrones enseñan a LUIS expresiones comunes con menos ejemplos
+
 Dada la naturaleza del dominio de recursos humanos, hay algunas formas habituales de preguntar por relaciones de empleados en las organizaciones. Por ejemplo: 
 
-```
-Who does Jill Jones report to?
-Who reports to Jill Jones? 
-```
+|Grabaciones de voz|
+|--|
+|Who does Jill Jones report to? (¿A quién informa Jill Jones?)|
+|Who reports to Jill Jones? (¿Quién informa a Jill Jones?)|
 
 Estas expresiones son demasiado cercanas como para determinar la singularidad contextual de cada una de ellas sin proporcionar muchos ejemplos de expresiones. Al agregar un patrón para una intención, LUIS aprende patrones de expresión comunes para una intención sin proporcionar muchos ejemplos de expresiones. 
 
 Entre las expresiones de plantilla de ejemplo de esta intención se incluyen las siguientes:
 
-```
-Who does {Employee} report to?
-Who reports to {Employee}? 
-```
+|Expresiones de plantilla de ejemplo|
+|--|
+|Who does {Employee} report to? (¿A quién informa {empleado}?)|
+|Who reports to {Employee}? (¿Quién informa a {empleado}?)|
 
 El patrón se proporciona por medio de un ejemplo de expresión de plantilla, que incluye la sintaxis para identificar las entidades y el texto que se puede pasar por alto. Un patrón es una combinación de una coincidencia de expresión regular y el aprendizaje automático.  El ejemplo de expresión de plantilla junto con las expresiones de intención permiten que LUIS comprenda mejor qué expresiones se ajustan a la intención.
 
@@ -59,9 +61,10 @@ Para que un patrón coincida con una expresión, las entidades dentro de la expr
 Recuerde que los empleados se crearon en el [tutorial de la entidad de lista](luis-quickstart-intent-and-list-entity.md).
 
 ## <a name="create-new-intents-and-their-utterances"></a>Creación de intenciones nuevas y sus expresiones
+
 Agregue dos intenciones nuevas: `OrgChart-Manager` y `OrgChart-Reports`. Una vez que LUIS devuelve una predicción a la aplicación cliente, el nombre de la intención se puede usar como un nombre de función en la aplicación cliente y la entidad Employee (Empleado) podría usarse como un parámetro para esa función.
 
-```
+```Javascript
 OrgChart-Manager(employee){
     ///
 }
@@ -85,7 +88,7 @@ OrgChart-Manager(employee){
     |¿De quién depende directamente de Jill Jones?|
     |¿Quién es el supervisor de Jill Jones?|
 
-    [![](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Captura de pantalla de LUIS con la opción de agregar expresiones nuevas a la intención")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
+    [![Captura de pantalla de LUIS, agregar nuevas expresiones a una intención](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "Captura de pantalla de LUIS, agregar nuevas expresiones a una intención")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
 
     No se preocupe si la entidad keyPhrase está etiquetada las expresiones de la intención en lugar de la entidad employee. Ambas se predicen correctamente en el panel de prueba y en el punto de conexión. 
 
@@ -106,35 +109,20 @@ OrgChart-Manager(employee){
     |¿De quién es supervisora Jill Jones?|
 
 ## <a name="caution-about-example-utterance-quantity"></a>Precaución sobre la cantidad de expresiones de ejemplo
+
 La cantidad de expresiones de ejemplo en estas intenciones no es suficiente para entrenar correctamente a LUIS. En una aplicación real, cada intención debe tener un mínimo de 15 expresiones con una variedad de elecciones de palabras y de duraciones de expresiones. Estas pocas expresiones se seleccionan específicamente para resaltar los patrones. 
 
 ## <a name="train-the-luis-app"></a>Entrenamiento de la aplicación de LUIS
-La intención y las expresiones nuevas requieren entrenamiento. 
 
-1. En la parte superior derecha del sitio web de LUIS, haga clic en el botón **Entrenar**.
-
-    ![Imagen del botón de entrenamiento](./media/luis-tutorial-pattern/hr-train-button.png)
-
-2. El entrenamiento se completa cuando ve la barra de estado verde en la parte superior del sitio web que confirma que se ha realizado correctamente.
-
-    ![Imagen de la barra de notificación con la confirmación de realización correcta](./media/luis-tutorial-pattern/hr-trained-inline.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicación de la aplicación para obtener la dirección URL del punto de conexión
-Para obtener una predicción de LUIS en un bot de chat u otra aplicación, tiene que publicar la aplicación. 
 
-1. En la parte superior derecha del sitio web de LUIS, haga clic en el botón **Publish** (Publicar). 
-
-2. Seleccione el espacio de producción y haga clic en el botón **Publicar**.
-
-    [ ![Captura de pantalla de la página Publish (Publicar) con el botón de publicación en el espacio de producción resaltado](./media/luis-tutorial-pattern/hr-publish-to-production.png)](./media/luis-tutorial-pattern/hr-publish-to-production.png#lightbox)
-
-3. La publicación se completa cuando ve la barra de estado verde en la parte superior del sitio web que confirma que se ha realizado correctamente.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Consulta del punto de conexión con una expresión diferente
-1. En la página **Publish** (Publicar), seleccione el vínculo **endpoint** (Punto de conexión) en la parte inferior de la página. Esta acción abre otra ventana del explorador con la dirección URL del punto de conexión en la barra de direcciones. 
 
-    [ ![Captura de pantalla de la página Publish (Publicar) con la dirección URL del punto de conexión resaltada](./media/luis-tutorial-pattern/hr-publish-select-endpoint.png)](./media/luis-tutorial-pattern/hr-publish-select-endpoint.png#lightbox)
-
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Vaya al final de la dirección URL en la dirección y escriba `Who is the boss of Jill Jones?`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. 
 
@@ -225,6 +213,8 @@ Para obtener una predicción de LUIS en un bot de chat u otra aplicación, tiene
 
 Use los patrones para que la puntuación de la intención correcta sea considerablemente más alta en porcentaje y esté más lejos de la puntuación más alta siguiente. 
 
+Deje esta segunda ventana del explorador abierta. Se usará más adelante en el tutorial. 
+
 ## <a name="add-the-template-utterances"></a>Agregar las expresiones de plantilla
 
 1. Seleccione **Build** (Compilación) en el menú superior.
@@ -243,16 +233,14 @@ Use los patrones para que la puntuación de la intención correcta sea considera
     |[¿]Quién es el jefe de {Employee}[?]|
 
     La sintaxis `{Employee}` marca la ubicación de la entidad dentro de la expresión de plantilla, así como qué entidad. 
-    
-    Las entidades con roles usan sintaxis que incluye el nombre de rol y se describen en un [tutorial independiente para los roles](luis-tutorial-pattern-roles.md). 
+
+    Las entidades con roles usan una sintaxis que incluye el nombre del rol y se describen en un [tutorial independiente para los roles](luis-tutorial-pattern-roles.md). 
 
     La sintaxis opcional, `[]`, marca las palabras o los signos de puntuación que son opcionales. LUIS coincide con la expresión y omite el texto opcional entre corchetes.
 
     Si escribe la expresión de plantilla, LUIS lo ayuda a rellenar la entidad al escribir la llave de apertura, `{`.
 
-    [ ![Captura de pantalla del ingreso de expresiones de plantilla para la intención](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
-
-
+    [![Captura de pantalla del ingreso de expresiones de plantilla para la intención](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
 4. Seleccione la intención **OrgChart-Reports** y, después, escriba las siguientes expresiones de plantilla, una de cada vez, y presione ENTRAR después de cada expresión de plantilla:
 
@@ -269,7 +257,7 @@ Use los patrones para que la puntuación de la intención correcta sea considera
 
 1. Vuelva a entrenar y publicar la aplicación.
 
-2. En la página **Publish** (Publicar), seleccione el vínculo **endpoint** (Punto de conexión) en la parte inferior de la página. Esta acción abre otra ventana del explorador con la dirección URL del punto de conexión en la barra de direcciones. 
+2. Cambie las pestañas de explorador de vuelta a la pestaña de la dirección URL del punto de conexión.
 
 3. Vaya al final de la dirección URL en la dirección y escriba `Who is the boss of Jill Jones?` como la expresión. El último parámetro de la cadena de consulta es `q`, la expresión **query**. 
 
@@ -357,10 +345,86 @@ Use los patrones para que la puntuación de la intención correcta sea considera
     }
     ```
 
-La predicción de la intención ahora es considerablemente más alta. 
+La predicción de la intención ahora es considerablemente más alta.
+
+## <a name="working-with-optional-text-and-prebuilt-entities"></a>Trabajo con texto opcional y entidades creadas previamente
+
+Las expresiones de plantilla del patrón anterior de este tutorial tenían algunos ejemplos de texto opcional, como el uso posesivo de la letra s, `'s` y el uso del signo de interrogación, `?`. Suponga que las expresiones del punto de conexión muestran que los administradores y los representantes de recursos humanos buscan datos históricos, así como traslados de empleados previstos dentro de la empresa que ocurrirán en una fecha futura.
+
+Las expresiones de ejemplo son:
+
+|Intención|Expresiones de ejemplo con texto opcional y entidades creadas previamente|
+|:--|:--|
+|Organigrama-Administrador|`Who was Jill Jones manager on March 3?`|
+|Organigrama-Administrador|`Who is Jill Jones manager now?`|
+|Organigrama-Administrador|`Who will be Jill Jones manager in a month?`|
+|Organigrama-Administrador|`Who will be Jill Jones manager on March 3?`|
+
+Cada uno de estos ejemplos usa un tiempo verbal, `was`, `is`, `will be`, así como una fecha, `March 3`, `now` y `in a month`, que LUIS debe predecir correctamente. Observe que los dos últimos ejemplos usan casi el mismo texto, excepto para `in` y `on`.
+
+Expresiones de plantilla de ejemplo:
+|Intención|Expresiones de ejemplo con texto opcional y entidades creadas previamente|
+|:--|:--|
+|Organigrama-Administrador|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
+|Organigrama-Administrador|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
+|Organigrama-Administrador|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
+|Organigrama-Administrador|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
+El uso de la sintaxis opcional de corchetes, `[]`, facilita la adición de este texto opcional a la expresión de plantilla y se pueden anidar hasta un segundo nivel, `[[]]` e incluir entidades o texto.
+
+**Pregunta: ¿Por qué no se pueden combinar las dos últimas expresiones de ejemplo combinar en una expresión de plantilla única?** La plantilla del patrón no admite la sintaxis OR. Con el fin de capturar tanto la versión `in` como la versión `on`, cada una debe ser una expresión de plantilla independiente.
+
+**Pregunta: ¿Por qué están todas las letras `w`, la primera letra de cada expresión de plantilla, en minúsculas? ¿No deberían estar en mayúsculas o minúsculas opcionalmente?** La expresión enviada al punto de conexión de consulta por la aplicación cliente se convierte en minúsculas. La expresión de plantilla puede estar en mayúsculas o minúsculas y la expresión del punto de conexión también puede estar en cualquiera de las dos. La comparación siempre se realiza después de la conversión a minúsculas.
+
+**Pregunta: ¿Por qué el número creado previamente no se parte de la expresión de plantilla si el 3 de marzo se predice como número `3` y fecha `March 3`?** La expresión de plantilla contextualmente usa una fecha, ya sea de modo literal, como en `March 3` o abstracto, como en `in a month`. Una fecha puede contener un número, pero un número es posible que no necesariamente se considere como una fecha. Use siempre la entidad que mejor representa el tipo en el que desea que se devuelvan los resultados JSON de la predicción.  
+
+**Pregunta: ¿Qué sucede con las expresiones de composición incorrecta como `Who will {Employee}['s] manager be on March 3?`.** Los tiempos verbales diferentes gramaticalmente, como este en el que `will` y `be` son independientes, deben ser una nueva expresión de plantilla. La expresión de plantilla existente no producirá coincidencia. Aunque no ha cambiado la intención de la expresión, ha cambiado la colocación de las palabras en la expresión. Este cambio afecta a la predicción de LUIS.
+
+**Recuerde: primero se encuentran las entidades y, a continuación, se compara el patrón.**
+
+## <a name="edit-the-existing-pattern-template-utterance"></a>Edición de la expresión de plantilla del patrón existente
+
+1. En el sitio web de LUIS, seleccione **Build** (Crear) en el menú superior y, a continuación, seleccione **Patterns** (Patrones) en el menú izquierdo. 
+
+2. Busque la expresión de plantilla existente, `Who is {Employee}['s] manager[?]` y seleccione los puntos suspensivos (***...***) a la derecha. 
+
+3. Seleccione **Edit** (Editar) en el menú emergente. 
+
+4. Cambie la expresión de plantilla a: `who is {Employee}['s] manager [[on]{datetimeV2}?]]`
+
+## <a name="add-new-pattern-template-utterances"></a>Adición de nuevas expresiones de plantilla del patrón
+
+1. Mientras sigue en la sección **Patterns** (Patrones) de **Build** (Crear), agregue varias nuevas expresiones de plantilla del patrón. Seleccione **OrgChart-Manager** (Organigrama-Administrador) en el menú desplegable Intent (Intención) y escriba cada una de las siguientes expresiones de plantilla:
+
+    |Intención|Expresiones de ejemplo con texto opcional y entidades creadas previamente|
+    |--|--|
+    |OrgChart-Manager (Organigrama-Administrador)|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager (Organigrama-Administrador)|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager (Organigrama-Administrador)|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
+    |OrgChart-Manager (Organigrama-Administrador)|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
+2. Entrene la aplicación.
+
+3. Seleccione **Test** (Prueba) en la parte superior del panel para abrir el panel de pruebas. 
+
+4. Especifique varias expresiones de prueba para comprobar que el patrón coincide y la puntuación de la intención es considerablemente alta. 
+
+    Después de escribir la primera expresión, seleccione **Inspect** (Inspeccionar) en el resultado para ver todos los resultados de la predicción.
+
+    |Expresión|
+    |--|
+    |Who will be Jill Jones manager (¿Quién será el administrador de Jill Jones?)|
+    |who will be jill jones's manager (¿Quién será el administrador de Jill Jones?)|
+    |Who will be Jill Jones's manager? (¿Quién será el administrador de Jill Jones?)|
+    |who will be Jill jones manager on March 3 (¿Quién será el administrador de Jill Jones el 3 de marzo?)|
+    |Who will be Jill Jones manager next Month (¿Quién será el administrador de Jill Jones el próximo mes?)|
+    |Who will be Jill Jones manager in a month? (¿Quién será el administrador de Jill Jones dentro de un mes?)|
+
+Todas estas expresiones encuentran las entidades, por lo tanto coinciden con el mismo patrón y tienen una puntuación de predicción alta.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Para hacerlo, seleccione los puntos suspensivos (***...***) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

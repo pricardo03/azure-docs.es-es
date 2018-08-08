@@ -2,18 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: virtual-machines
-author: cynthn
+author: shants123
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
-ms.author: cynthn
+ms.date: 07/05/2018
+ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: e484dac645ff2e5867d2e652c389a9950e8bac12
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: f203e056df00fb1a9b1e7e43930955040dfce4aa
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "30196447"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39029947"
 ---
 Azure realiza periódicamente actualizaciones para mejorar la confiabilidad, el rendimiento y la seguridad de la infraestructura host de las máquinas virtuales. Estas actualizaciones van desde la aplicación de revisiones a componentes de software en el entorno de hospedaje (sistema operativo, hipervisor y varios agentes implementados en el host), hasta la retirada de hardware, pasando por la actualización de los componentes de red. La mayoría de estas actualizaciones se realizan sin afectar a las máquinas virtuales hospedadas. Sin embargo, hay casos en los que las actualizaciones tienen un impacto:
 
@@ -21,9 +21,9 @@ Azure realiza periódicamente actualizaciones para mejorar la confiabilidad, el 
 
 - Si el mantenimiento requiere un reinicio, el usuario recibe un aviso de cuándo está programado el mantenimiento. En estos casos, se le asigna también un período de tiempo donde puede iniciar el mantenimiento a la hora que le sea más conveniente.
 
-En esta página se describe cómo Microsoft Azure realiza ambos tipos de mantenimiento. Para más información sobre eventos no planeados (interrupciones), consulte el artículo sobre la administración de la disponibilidad de máquinas virtuales en [Windows] (../articles/virtual-machines/windows/manage-availability.md) o [Linux](../articles/virtual-machines/linux/manage-availability.md).
+En esta página se describe cómo Microsoft Azure realiza ambos tipos de mantenimiento. Para más información sobre eventos no planeados (interrupciones), vea Administración de la disponibilidad de las máquinas virtuales para [Windows](../articles/virtual-machines/windows/manage-availability.md) o [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-Las aplicaciones que se ejecutan en una máquina virtual pueden recopilar información sobre próximas actualizaciones mediante el servicio de metadatos de Azure para [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) o [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
+Las aplicaciones que se ejecutan en una máquina virtual pueden recopilar información sobre próximas actualizaciones mediante Azure Metadata Service para [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) o [Linux](../articles/virtual-machines/linux/instance-metadata-service.md).
 
 Para obtener información de procedimientos sobre la administración del mantenimiento planeado, vea "Control de las notificaciones de mantenimiento planeadas" para [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) o [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
@@ -31,7 +31,7 @@ Para obtener información de procedimientos sobre la administración del manteni
 
 Cuando las actualizaciones no requieren un reinicio completo, se utilizan mecanismos de mantenimiento de conservación de memoria para limitar el impacto en la máquina virtual. La máquina virtual se pausa durante un máximo de 30 segundos, conservando la memoria RAM, mientras el entorno de hospedaje aplica las actualizaciones y las revisiones necesarias o mueve la VM a un host que ya está actualizado. A continuación, se reanuda la máquina virtual y su reloj se sincroniza automáticamente. 
 
-En las máquinas virtuales de conjuntos de disponibilidad, los dominios de actualización se actualizan de uno en uno. Todas las máquinas virtuales de un dominio de actualización (UD) se pausan, se actualizan y luego se reanudan antes de que el mantenimiento planeado se mueva al siguiente UD.
+Estas operaciones de mantenimiento sin reinicialización se aplican dominio por dominio, si tienen errores, y el progreso se detiene si se recibe alguna señal de estado de advertencia.
 
 Algunas aplicaciones pueden resultar afectadas por estos tipos de actualizaciones. Las aplicaciones que realizan procesamiento de eventos en tiempo real, como transcodificación y streaming multimedia, o los escenarios de redes de alto rendimiento podrían no estar diseñados para tolerar una pausa de 30 segundos. <!-- sooooo, what should they do? --> En caso de que la VM se mueva a otro host, puede que algunas cargas de trabajo sensibles sufran una pequeña degradación del rendimiento en los pocos minutos anteriores a la pausa de la máquina virtual. 
 
@@ -44,26 +44,26 @@ La **ventana de autoservicio** le permite iniciar el mantenimiento en sus máqui
 
 Cuando se inicia el mantenimiento de autoservicio, la máquina virtual se mueve a un nodo que ya se ha actualizado y, a continuación, lo vuelve a activar. Como la máquina virtual se reinicia, se pierde el disco temporal y se actualizan las direcciones IP dinámicas asociadas con la interfaz de red virtual.
 
-Si inicia el mantenimiento de autoservicio y hay un error durante el proceso, la operación se detiene, la máquina virtual no se actualiza y también se quita de la iteración de mantenimiento planeado. Más adelante se le ofrecerá una nueva programación y una nueva oportunidad de realizar el mantenimiento de autoservicio. 
+Si inicia el mantenimiento de autoservicio y hay un error durante el proceso, la operación se detiene, la máquina virtual no se actualiza y se le ofrece la posibilidad de reintentar el mantenimiento de autoservicio. 
 
 Cuando ha transcurrido la ventana de autoservicio, comienza la **ventana de mantenimiento programado**. Durante esta ventana de tiempo, puede seguir realizando consultas dentro de la ventana de mantenimiento, pero ya no podrá iniciar el mantenimiento usted mismo.
 
 Para obtener información sobre la administración del mantenimiento que requiere reinicio, consulte "Control de las notificaciones de mantenimiento planeado de máquinas virtuales" [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) o [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
 
-## <a name="availability-considerations-during-planned-maintenance"></a>Consideraciones sobre disponibilidad durante el mantenimiento planeado 
+### <a name="availability-considerations-during-scheduled-maintenance"></a>Consideraciones sobre disponibilidad durante el mantenimiento programado 
 
 Si decide esperar a la ventana de mantenimiento programado, hay algunas cosas que debe tener en cuenta para mantener la máxima disponibilidad de sus VM. 
 
-### <a name="paired-regions"></a>Regiones emparejadas
+#### <a name="paired-regions"></a>Regiones emparejadas
 
-Cada región de Azure se empareja con otra región de la misma zona geográfica, que juntas forman un par de regiones. Durante el mantenimiento planeado, Azure solo actualiza las máquinas virtuales de una única región de un par de regiones. Por ejemplo, al actualizar las máquinas virtuales de la zona centro-norte de EE. UU., Azure no actualizará las máquinas virtuales de centro-sur de EE. UU. al mismo tiempo. Sin embargo, otras regiones como Europa del Norte pueden estar en mantenimiento al mismo tiempo que el Este de EE. UU. Comprender cómo funcionan los pares de regiones puede ayudar a distribuir mejor las máquinas virtuales entre regiones. Para más información, consulte [Regiones de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Cada región de Azure se empareja con otra región de la misma zona geográfica, que juntas forman un par de regiones. Durante el mantenimiento programado, Azure solo actualiza las máquinas virtuales de una sola región de un par de regiones. Por ejemplo, al actualizar las máquinas virtuales de la zona centro-norte de EE. UU., Azure no actualizará las máquinas virtuales de centro-sur de EE. UU. al mismo tiempo. Sin embargo, otras regiones como Europa del Norte pueden estar en mantenimiento al mismo tiempo que el Este de EE. UU. Comprender cómo funcionan los pares de regiones puede ayudar a distribuir mejor las máquinas virtuales entre regiones. Para más información, consulte [Regiones de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-### <a name="availability-sets-and-scale-sets"></a>Conjuntos de disponibilidad y conjuntos de escalado
+#### <a name="availability-sets-and-scale-sets"></a>Conjuntos de disponibilidad y conjuntos de escalado
 
-Al implementar una carga de trabajo en máquinas virtuales de Azure, puede crear las máquinas virtuales dentro de un conjunto de disponibilidad para proporcionar alta disponibilidad a su aplicación. Esto garantiza que durante un corte de suministro o un evento de mantenimiento, al menos haya una máquina virtual disponible.
+Al implementar una carga de trabajo en máquinas virtuales de Azure, puede crear las máquinas virtuales dentro de un conjunto de disponibilidad para proporcionar alta disponibilidad a su aplicación. Esto garantiza que durante una interrupción o un evento de mantenimiento con reinicialización, al menos haya una máquina virtual disponible.
 
-En un conjunto de disponibilidad, las máquinas virtuales individuales se reparten entre 20 dominios de actualización (UD) como máximo. Durante el mantenimiento planeado, solo un dominio de actualización se ve afectado en un momento dado. Tenga en cuenta que el orden de los dominios de actualización afectados no siempre ocurre de manera secuencial. 
+En un conjunto de disponibilidad, las máquinas virtuales individuales se reparten entre 20 dominios de actualización (UD) como máximo. Durante el mantenimiento planeado, solo un dominio de actualización se ve afectado en un momento determinado. Tenga en cuenta que el orden de los dominios de actualización afectados no siempre ocurre de manera secuencial. 
 
-Los conjuntos de escalado de máquinas virtuales son un recurso informático de Azure que permite implementar y administrar un conjunto de máquinas virtuales idénticas como un recurso único. El conjunto de escalado se implementa automáticamente entre dominios de actualización, como las máquinas virtuales de un conjunto de disponibilidad. Igual que con los conjuntos de disponibilidad, con los conjuntos de escalado solo un dominio de actualización dado resulta afectado en un momento determinado.
+Los conjuntos de escalado de máquinas virtuales son un recurso informático de Azure que permite implementar y administrar un conjunto de máquinas virtuales idénticas como un recurso único. El conjunto de escalado se implementa automáticamente entre dominios de actualización, como las máquinas virtuales de un conjunto de disponibilidad. Igual que con los conjuntos de disponibilidad, con los conjuntos de escalado solo un dominio de actualización resulta afectado en un momento determinado durante el mantenimiento programado.
 
 Para más información sobre la configuración de máquinas virtuales para ofrecer alta disponibilidad, consulte Administración de la disponibilidad de las máquinas virtuales [Windows](../articles/virtual-machines/windows/manage-availability.md) o [Linux](../articles/virtual-machines/linux/manage-availability.md).

@@ -1,29 +1,25 @@
 ---
-title: 'Funciones del lenguaje de definición de flujo de trabajo: Azure Logic Apps | Microsoft Docs'
+title: 'Referencia de las funciones del lenguaje de definición de flujo de trabajo: Azure Logic Apps | Microsoft Docs'
 description: Obtenga información sobre las funciones para crear aplicaciones lógicas con el lenguaje de definición de flujo de trabajo
 services: logic-apps
-author: ecfan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: reference
 ms.date: 04/25/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 6f1871e1e135ecb9e7cb37c0bedff3737d3febb7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 46ccf9484b76ec5f24dba470a194b5b83c32f013
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301395"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263783"
 ---
-# <a name="workflow-definition-language-functions-reference-for-azure-logic-apps"></a>Referencia de las funciones del lenguaje de definición de flujo de trabajo para Azure Logic Apps
+# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referencia de las funciones del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 
-Este artículo describe las funciones que puede usar al crear flujos de trabajo con [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Para obtener más información sobre las funciones en las definiciones de una aplicación lógica, consulte [Lenguaje de definición de flujo de trabajo para Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
+Este artículo describe las funciones que puede usar al crear flujos de trabajo automatizados con [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Para obtener más información sobre las funciones en las definiciones de una aplicación lógica, consulte [Lenguaje de definición de flujo de trabajo para Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
 
 > [!NOTE]
 > En la sintaxis de las definiciones de parámetros, el signo de interrogación (?) que aparece después de un parámetro significa que el parámetro es opcional. Por ejemplo, consulte [getFutureTime()](#getFutureTime).
@@ -45,7 +41,7 @@ action()
 action().outputs.body.<property> 
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
 | <*propiedad*> | Sin  | string | Nombre de la propiedad del objeto de acción cuyo valor desee: **name**, **startTime**, **endTime**, **inputs**,  **outputs**, **status**, **code**, **trackingId** y **clientTrackingId**. En Azure Portal, revise los detalles de un historial de ejecución específico para encontrar estas propiedades. Para más información, consulte [API REST: acciones de ejecución de flujo de trabajo](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). | 
 ||||| 
@@ -65,9 +61,9 @@ Devuelve la salida en tiempo de ejecución del elemento `body` de una acción. A
 actionBody('<actionName>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*nombre_de_la_acción*> | Sí | string | Nombre de la acción cuya salida del elemento `body` desea | 
+| <*nombre_de_la_acción*> | SÍ | string | Nombre de la acción cuya salida del elemento `body` desea | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -110,9 +106,9 @@ Devuelve la salida en tiempo de ejecución de una acción. Abreviatura de `actio
 actionOutputs('<actionName>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*nombre_de_la_acción*> | Sí | string | Nombre de la acción cuya salida desea | 
+| <*nombre_de_la_acción*> | SÍ | string | Nombre de la acción cuya salida desea | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -177,9 +173,9 @@ actions('<actionName>')
 actions('<actionName>').outputs.body.<property> 
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*nombre_de_la_acción*> | Sí | string | Nombre del objeto de acción cuya salida desea  | 
+| <*nombre_de_la_acción*> | SÍ | string | Nombre del objeto de acción cuya salida desea  | 
 | <*propiedad*> | Sin  | string | Nombre de la propiedad del objeto de acción cuyo valor desee: **name**, **startTime**, **endTime**, **inputs**,  **outputs**, **status**, **code**, **trackingId** y **clientTrackingId**. En Azure Portal, revise los detalles de un historial de ejecución específico para encontrar estas propiedades. Para más información, consulte [API REST: acciones de ejecución de flujo de trabajo](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). | 
 ||||| 
 
@@ -208,9 +204,9 @@ Devuelve el resultado de sumar dos números.
 add(<summand_1>, <summand_2>)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*sumando_1*>, <*sumando_2*> | Sí | Integer, Float o mixto | Números que se van a sumar | 
+| <*sumando_1*>, <*sumando_2*> | SÍ | Integer, Float o mixto | Números que se van a sumar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -238,10 +234,10 @@ Agrega un número de días a una marca de tiempo.
 addDays('<timestamp>', <days>, '<format>'?)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*marca_de_tiempo*> | Sí | string | Cadena que contiene la marca de tiempo | 
-| <*días*> | Sí | Entero | Número positivo o negativo de días que desea agregar | 
+| <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
+| <*días*> | SÍ | Entero | Número positivo o negativo de días que desea agregar | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 ||||| 
 
@@ -280,10 +276,10 @@ Agrega un número de horas a una marca de tiempo.
 addHours('<timestamp>', <hours>, '<format>'?)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*marca_de_tiempo*> | Sí | string | Cadena que contiene la marca de tiempo | 
-| <*horas*> | Sí | Entero | Número positivo o negativo de horas que desea agregar | 
+| <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
+| <*horas*> | SÍ | Entero | Número positivo o negativo de horas que desea agregar | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 ||||| 
 
@@ -322,10 +318,10 @@ Agrega un número de minutos a una marca de tiempo.
 addMinutes('<timestamp>', <minutes>, '<format>'?)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*marca_de_tiempo*> | Sí | string | Cadena que contiene la marca de tiempo | 
-| <*minutos*> | Sí | Entero | Número positivo o negativo de minutos que desea agregar | 
+| <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
+| <*minutos*> | SÍ | Entero | Número positivo o negativo de minutos que desea agregar | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 ||||| 
 
@@ -364,11 +360,11 @@ Agrega una propiedad y su valor o un par de nombre y valor a un objeto JSON y de
 addProperty(<object>, '<property>', <value>)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*objeto*> | Sí | Objeto | Objeto JSON al que desea agregar una propiedad | 
-| <*propiedad*> | Sí | string | Nombre de la propiedad que se va a agregar | 
-| <*valor*> | Sí | Cualquiera | Valor de la propiedad |
+| <*objeto*> | SÍ | Objeto | Objeto JSON al que desea agregar una propiedad | 
+| <*propiedad*> | SÍ | string | Nombre de la propiedad que se va a agregar | 
+| <*valor*> | SÍ | Cualquiera | Valor de la propiedad |
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -394,10 +390,10 @@ Agrega un número de segundos a una marca de tiempo.
 addSeconds('<timestamp>', <seconds>, '<format>'?)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*marca_de_tiempo*> | Sí | string | Cadena que contiene la marca de tiempo | 
-| <*segundos*> | Sí | Entero | Número positivo o negativo de segundos que desea agregar | 
+| <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
+| <*segundos*> | SÍ | Entero | Número positivo o negativo de segundos que desea agregar | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 ||||| 
 
@@ -436,11 +432,11 @@ Agrega un número de unidades de tiempo a una marca de tiempo. Consulte también
 addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*marca_de_tiempo*> | Sí | string | Cadena que contiene la marca de tiempo | 
-| <*intervalo*> | Sí | Entero | Número de unidades de tiempo especificadas que se va a agregar | 
-| <*unidad_de_tiempo*> | Sí | string | Unidad de tiempo que se usará con el *intervalo*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" ("Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año") | 
+| <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
+| <*intervalo*> | SÍ | Entero | Número de unidades de tiempo especificadas que se va a agregar | 
+| <*unidad_de_tiempo*> | SÍ | string | Unidad de tiempo que se usará con el *intervalo*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" ("Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año") | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 ||||| 
 
@@ -479,9 +475,9 @@ Comprueba si todas las expresiones son true. Devuelve true cuando todas las expr
 and(<expression1>, <expression2>, ...)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*expresión1*>, <*expresión2*>, ... | Sí | boolean | Expresiones que se van a comprobar | 
+| <*expresión1*>, <*expresión2*>, ... | SÍ | boolean | Expresiones que se van a comprobar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -531,9 +527,9 @@ Devuelve una matriz a partir de una única entrada especificada. Para varias ent
 array('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | string | Cadena para la creación de una matriz | 
+| <*valor*> | SÍ | string | Cadena para la creación de una matriz | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -561,9 +557,9 @@ Devuelve la versión de una cadena codificada en base64.
 base64('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | string | Cadena de entrada | 
+| <*valor*> | SÍ | string | Cadena de entrada | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -591,9 +587,9 @@ Devuelve la versión binaria de una cadena codificada en base64.
 base64ToBinary('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | string | Cadena con codificación base64 que se va a convertir | 
+| <*valor*> | SÍ | string | Cadena con codificación base64 que se va a convertir | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -623,9 +619,9 @@ Devuelve la versión de cadena de una cadena codificada en base64, decodificando
 base64ToString('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | string | Cadena con codificación base64 que se va a decodificar | 
+| <*valor*> | SÍ | string | Cadena con codificación base64 que se va a decodificar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -653,9 +649,9 @@ Devuelve la versión binaria de una cadena.
 binary('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | string | Cadena que se va a convertir | 
+| <*valor*> | SÍ | string | Cadena que se va a convertir | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -685,9 +681,9 @@ Devuelve la salida en tiempo de ejecución del elemento `body` de una acción. A
 body('<actionName>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*nombre_de_la_acción*> | Sí | string | Nombre de la acción cuya salida del elemento `body` desea | 
+| <*nombre_de_la_acción*> | SÍ | string | Nombre de la acción cuya salida del elemento `body` desea | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -730,9 +726,9 @@ Devuelve la versión booleana de un valor.
 bool(<value>)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | Cualquiera | Valor que se va a convertir | 
+| <*valor*> | SÍ | Cualquiera | Valor que se va a convertir | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -764,9 +760,9 @@ Devuelve el primer valor distinto de null de uno o más parámetros. Las cadenas
 coalesce(<object_1>, <object_2>, ...)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*objeto_1*>, <*objeto_2*>, ... | Sí | Cualquiera, se pueden mezclar tipos | Uno o más elementos para comprobar si hay valores NULL | 
+| <*objeto_1*>, <*objeto_2*>, ... | SÍ | Cualquiera, se pueden mezclar tipos | Uno o más elementos para comprobar si hay valores NULL | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -800,9 +796,9 @@ Combina dos o más cadenas y devuelve la cadena combinada.
 concat('<text1>', '<text2>', ...)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*texto1*>, <*texto2*>, ... | Sí | string | Al menos dos cadenas para combinar | 
+| <*texto1*>, <*texto2*>, ... | SÍ | string | Al menos dos cadenas para combinar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -837,10 +833,10 @@ En concreto, esta función funciona en estos tipos de colección:
 * Una *matriz* para buscar un *valor*
 * Un *diccionario* para buscar una *clave*
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*colección*> | Sí | Cadena, matriz o diccionario | Colección que se va a comprobar | 
-| <*valor*> | Sí | Cadena, matriz o diccionario, respectivamente | Elemento que se va a buscar | 
+| <*colección*> | SÍ | Cadena, matriz o diccionario | Colección que se va a comprobar | 
+| <*valor*> | SÍ | Cadena, matriz o diccionario, respectivamente | Elemento que se va a buscar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -874,10 +870,10 @@ Convierte una marca de tiempo del formato Hora Universal Coordinada (UTC) a la z
 convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*marca_de_tiempo*> | Sí | string | Cadena que contiene la marca de tiempo | 
-| <*zona_horaria_de_destino*> | Sí | string | Nombre de la zona horaria de destino. Para más información, consulte [Identificadores de zona horaria](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
+| <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
+| <*zona_horaria_de_destino*> | SÍ | string | Nombre de la zona horaria de destino. Para más información, consulte [Identificadores de zona horaria](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 ||||| 
 
@@ -916,11 +912,11 @@ Convierte una marca de tiempo de la zona horaria de origen a la zona horaria de 
 convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<format>'?)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*marca_de_tiempo*> | Sí | string | Cadena que contiene la marca de tiempo | 
-| <*zona_horaria_de_origen*> | Sí | string | Nombre de la zona horaria de origen. Para más información, consulte [Identificadores de zona horaria](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
-| <*zona_horaria_de_destino*> | Sí | string | Nombre de la zona horaria de destino. Para más información, consulte [Identificadores de zona horaria](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
+| <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
+| <*zona_horaria_de_origen*> | SÍ | string | Nombre de la zona horaria de origen. Para más información, consulte [Identificadores de zona horaria](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
+| <*zona_horaria_de_destino*> | SÍ | string | Nombre de la zona horaria de destino. Para más información, consulte [Identificadores de zona horaria](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 ||||| 
 
@@ -959,10 +955,10 @@ Convierte una marca de tiempo de la zona horaria de origen al formato Hora Unive
 convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*marca_de_tiempo*> | Sí | string | Cadena que contiene la marca de tiempo | 
-| <*zona_horaria_de_origen*> | Sí | string | Nombre de la zona horaria de origen. Para más información, consulte [Identificadores de zona horaria](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
+| <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
+| <*zona_horaria_de_origen*> | SÍ | string | Nombre de la zona horaria de origen. Para más información, consulte [Identificadores de zona horaria](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 ||||| 
 
@@ -1001,9 +997,9 @@ Devuelve una matriz a partir de varias entradas. Para matrices de una sola entra
 createArray('<object1>', '<object2>', ...)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*objeto1*>, <*objeto2*>,... | Sí | Cualquiera, pero no mixtos | Al menos dos elementos para crear la matriz | 
+| <*objeto1*>, <*objeto2*>,... | SÍ | Cualquiera, pero no mixtos | Al menos dos elementos para crear la matriz | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1031,9 +1027,9 @@ Devuelve un identificador uniforme de recursos (URI) de datos de una cadena.
 dataUri('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | string | Cadena que se va a convertir | 
+| <*valor*> | SÍ | string | Cadena que se va a convertir | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1061,9 +1057,9 @@ Devuelve la versión binaria de un identificador uniforme de recursos (URI) de d
 dataUriToBinary('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | string | Identificador URI de datos que se va a convertir | 
+| <*valor*> | SÍ | string | Identificador URI de datos que se va a convertir | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1096,9 +1092,9 @@ Devuelve la versión de cadena de un identificador uniforme de recursos (URI) de
 dataUriToString('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | string | Identificador URI de datos que se va a convertir | 
+| <*valor*> | SÍ | string | Identificador URI de datos que se va a convertir | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1126,9 +1122,9 @@ Devuelve el día del mes de una marca de tiempo.
 dayOfMonth('<timestamp>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*marca_de_tiempo*> | Sí | string | Cadena que contiene la marca de tiempo | 
+| <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1156,9 +1152,9 @@ Devuelve el día de la semana de una marca de tiempo.
 dayOfWeek('<timestamp>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*marca_de_tiempo*> | Sí | string | Cadena que contiene la marca de tiempo | 
+| <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1186,9 +1182,9 @@ Devuelve el día del año de una marca de tiempo.
 dayOfYear('<timestamp>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*marca_de_tiempo*> | Sí | string | Cadena que contiene la marca de tiempo | 
+| <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1216,9 +1212,9 @@ Devuelve la versión de cadena de una cadena codificada en base64, decodificando
 decodeBase64('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | string | Cadena con codificación base64 que se va a decodificar | 
+| <*valor*> | SÍ | string | Cadena con codificación base64 que se va a decodificar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1246,9 +1242,9 @@ Devuelve la versión binaria de un identificador uniforme de recursos (URI) de d
 decodeDataUri('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | string | Cadena URI de datos que se va a decodificar | 
+| <*valor*> | SÍ | string | Cadena URI de datos que se va a decodificar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1281,9 +1277,9 @@ Devuelve una cadena que reemplaza los caracteres de escape por versiones descodi
 decodeUriComponent('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | string | Cadena con caracteres de escape que se va a decodificar | 
+| <*valor*> | SÍ | string | Cadena con caracteres de escape que se va a decodificar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1311,10 +1307,10 @@ Devuelve el resultado entero de dividir dos números. Para obtener el resultado 
 div(<dividend>, <divisor>)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*dividendo*> | Sí | Integer o Float | Número que se va a dividir entre el *divisor*. | 
-| <*divisor*> | Sí | Integer o Float | Número que divide el *dividendo*, pero no puede ser 0 | 
+| <*dividendo*> | SÍ | Integer o Float | Número que se va a dividir entre el *divisor*. | 
+| <*divisor*> | SÍ | Integer o Float | Número que divide el *dividendo*, pero no puede ser 0 | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1343,9 +1339,9 @@ Devuelve una versión codificada de un identificador uniforme de recursos (URI) 
 encodeUriComponent('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | string | Cadena que se va a convertir en formato codificado de URI | 
+| <*valor*> | SÍ | string | Cadena que se va a convertir en formato codificado de URI | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1374,9 +1370,9 @@ empty('<collection>')
 empty([<collection>])
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*colección*> | Sí | Cadena, matriz u objeto | Colección que se va a comprobar | 
+| <*colección*> | SÍ | Cadena, matriz u objeto | Colección que se va a comprobar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1408,10 +1404,10 @@ Comprueba si una cadena termina con una subcadena especificada. Devuelve true cu
 endsWith('<text>', '<searchText>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*texto*> | Sí | string | Cadena que se va a comprobar | 
-| <*texto_a_buscar*> | Sí | string | Subcadena final que se va a buscar | 
+| <*texto*> | SÍ | string | Cadena que se va a comprobar | 
+| <*texto_a_buscar*> | SÍ | string | Subcadena final que se va a buscar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1449,9 +1445,9 @@ Comprueba si los valores, expresiones u objetos son equivalentes. Devuelve true 
 equals('<object1>', '<object2>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*objeto1*>, <*objeto2*> | Sí | Varios | Valores, expresiones u objetos que se van a comparar | 
+| <*objeto1*>, <*objeto2*> | SÍ | Varios | Valores, expresiones u objetos que se van a comparar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1484,9 +1480,9 @@ first('<collection>')
 first([<collection>])
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*colección*> | Sí | Cadena o matriz | Colección en la que buscar el primer elemento |
+| <*colección*> | SÍ | Cadena o matriz | Colección en la que buscar el primer elemento |
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1518,9 +1514,9 @@ Convierte una versión de cadena de un número de punto flotante a un número de
 float('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | string | Cadena que contiene un número de punto flotante válido que se va a convertir |
+| <*valor*> | SÍ | string | Cadena que contiene un número de punto flotante válido que se va a convertir |
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1548,9 +1544,9 @@ Devuelve una marca de tiempo en el formato especificado.
 formatDateTime('<timestamp>', '<format>'?)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*marca_de_tiempo*> | Sí | string | Cadena que contiene la marca de tiempo | 
+| <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 ||||| 
 
@@ -1579,10 +1575,10 @@ Devuelve una matriz con valores que coinciden con un nombre de clave de la salid
 formDataMultiValues('<actionName>', '<key>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*nombre_de_la_acción*> | Sí | string | Acción cuya salida tiene el valor de una clave que busca | 
-| <*clave*> | Sí | string | Nombre de la clave cuyo valor busca | 
+| <*nombre_de_la_acción*> | SÍ | string | Acción cuya salida tiene el valor de una clave que busca | 
+| <*clave*> | SÍ | string | Nombre de la clave cuyo valor busca | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1610,10 +1606,10 @@ Devuelve un valor único que coincide con un nombre de clave en las salidas *for
 formDataValue('<actionName>', '<key>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*nombre_de_la_acción*> | Sí | string | Acción cuya salida tiene el valor de una clave que busca | 
-| <*clave*> | Sí | string | Nombre de la clave cuyo valor busca |
+| <*nombre_de_la_acción*> | SÍ | string | Acción cuya salida tiene el valor de una clave que busca | 
+| <*clave*> | SÍ | string | Nombre de la clave cuyo valor busca |
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1641,10 +1637,10 @@ Devuelve la marca de tiempo actual más las unidades de tiempo especificadas.
 getFutureTime(<interval>, <timeUnit>, <format>?)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*intervalo*> | Sí | Entero | Número de unidades de tiempo especificadas que se va a sustraer | 
-| <*unidad_de_tiempo*> | Sí | string | Unidad de tiempo que se usará con el *intervalo*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" ("Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año") | 
+| <*intervalo*> | SÍ | Entero | Número de unidades de tiempo especificadas que se va a sustraer | 
+| <*unidad_de_tiempo*> | SÍ | string | Unidad de tiempo que se usará con el *intervalo*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" ("Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año") | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. | 
 ||||| 
 
@@ -1683,10 +1679,10 @@ Devuelve la marca de tiempo actual menos las unidades de tiempo especificadas.
 getPastTime(<interval>, <timeUnit>, <format>?)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*intervalo*> | Sí | Entero | Número de unidades de tiempo especificadas que se va a sustraer | 
-| <*unidad_de_tiempo*> | Sí | string | Unidad de tiempo que se usará con el *intervalo*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" ("Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año") | 
+| <*intervalo*> | SÍ | Entero | Número de unidades de tiempo especificadas que se va a sustraer | 
+| <*unidad_de_tiempo*> | SÍ | string | Unidad de tiempo que se usará con el *intervalo*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" ("Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año") | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. | 
 ||||| 
 
@@ -1726,10 +1722,10 @@ greater(<value>, <compareTo>)
 greater('<value>', '<compareTo>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | Integer, Float o String | Primer valor para comprobar si es mayor que el segundo valor | 
-| <*comparar_con*> | Sí | Integer, Float o String, respectivamente | Valor de comparación | 
+| <*valor*> | SÍ | Integer, Float o String | Primer valor para comprobar si es mayor que el segundo valor | 
+| <*comparar_con*> | SÍ | Integer, Float o String, respectivamente | Valor de comparación | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1763,10 +1759,10 @@ greaterOrEquals(<value>, <compareTo>)
 greaterOrEquals('<value>', '<compareTo>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | Integer, Float o String | Primer valor para comprobar si es mayor o igual que el segundo valor | 
-| <*comparar_con*> | Sí | Integer, Float o String, respectivamente | Valor de comparación | 
+| <*valor*> | SÍ | Integer, Float o String | Primer valor para comprobar si es mayor o igual que el segundo valor | 
+| <*comparar_con*> | SÍ | Integer, Float o String, respectivamente | Valor de comparación | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1804,7 +1800,7 @@ Además, es posible especificar un formato diferente del GUID que no sea el form
 guid('<format>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
 | <*formato*> | Sin  | string | Un único [especificador de formato](https://msdn.microsoft.com/library/97af8hh4) para el GUID devuelto. De forma predeterminada, el formato es "D", pero puede usar "N", "D", "B", "P" o "X". | 
 ||||| 
@@ -1834,11 +1830,11 @@ Comprueba si una expresión es true o false. En función del resultado, devuelve
 if(<expression>, <valueIfTrue>, <valueIfFalse>)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*expresión*> | Sí | boolean | Expresión que se va a evaluar | 
-| <*valor_si_es_true*> | Sí | Cualquiera | Valor que se devuelve cuando la expresión es verdadera | 
-| <*valor_si_es_false*> | Sí | Cualquiera | Valor que se devuelve cuando la expresión es falsa | 
+| <*expresión*> | SÍ | boolean | Expresión que se va a evaluar | 
+| <*valor_si_es_true*> | SÍ | Cualquiera | Valor que se devuelve cuando la expresión es verdadera | 
+| <*valor_si_es_false*> | SÍ | Cualquiera | Valor que se devuelve cuando la expresión es falsa | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1864,10 +1860,10 @@ Devuelve la posición de inicio o valor de índice de una subcadena. Esta funci�
 indexOf('<text>', '<searchText>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*texto*> | Sí | string | Cadena que contiene la subcadena que se va a buscar | 
-| <*texto_a_buscar*> | Sí | string | Subcadena que se va a buscar | 
+| <*texto*> | SÍ | string | Cadena que contiene la subcadena que se va a buscar | 
+| <*texto_a_buscar*> | SÍ | string | Subcadena que se va a buscar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1895,9 +1891,9 @@ Devuelve la versión como número entero de una cadena.
 int('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | string | Cadena que se va a convertir | 
+| <*valor*> | SÍ | string | Cadena que se va a convertir | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1948,9 +1944,9 @@ Devuelve el elemento actual de cada ciclo de un bucle for-each. Utilice esta fun
 items('<loopName>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*nombre_del_bucle*> | Sí | string | Nombre del bucle for-each | 
+| <*nombre_del_bucle*> | SÍ | string | Nombre del bucle for-each | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -1976,9 +1972,9 @@ Devuelve el valor o el objeto de tipo Notación de objetos JavaScript (JSON) de 
 json('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | String o XML | Cadena o XML que se va a convertir | 
+| <*valor*> | SÍ | String o XML | Cadena o XML que se va a convertir | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2046,9 +2042,9 @@ intersection([<collection1>], [<collection2>], ...)
 intersection('<collection1>', '<collection2>', ...)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*colección1*>, <*colección2*>, ... | Sí | Matriz u objeto, pero no ambos | Colecciones de las que desea *solo* los elementos comunes | 
+| <*colección1*>, <*colección2*>, ... | SÍ | Matriz u objeto, pero no ambos | Colecciones de las que desea *solo* los elementos comunes | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2076,10 +2072,10 @@ Devuelve una cadena que tiene todos los elementos de una matriz y tiene cada car
 join([<collection>], '<delimiter>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*colección*> | Sí | Matriz | Matriz que tiene los elementos que se van a unir |  
-| <*delimitador*> | Sí | string | Separador que aparece entre cada carácter de la cadena resultante | 
+| <*colección*> | SÍ | Matriz | Matriz que tiene los elementos que se van a unir |  
+| <*delimitador*> | SÍ | string | Separador que aparece entre cada carácter de la cadena resultante | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2108,9 +2104,9 @@ last('<collection>')
 last([<collection>])
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*colección*> | Sí | Cadena o matriz | Colección en la que buscar el último elemento | 
+| <*colección*> | SÍ | Cadena o matriz | Colección en la que buscar el último elemento | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2142,10 +2138,10 @@ Devuelve la posición final o valor de índice de una subcadena. Esta función n
 lastIndexOf('<text>', '<searchText>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*texto*> | Sí | string | Cadena que contiene la subcadena que se va a buscar | 
-| <*texto_a_buscar*> | Sí | string | Subcadena que se va a buscar | 
+| <*texto*> | SÍ | string | Cadena que contiene la subcadena que se va a buscar | 
+| <*texto_a_buscar*> | SÍ | string | Subcadena que se va a buscar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2174,9 +2170,9 @@ length('<collection>')
 length([<collection>])
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*colección*> | Sí | Cadena o matriz | Colección con los elementos que se van a contar | 
+| <*colección*> | SÍ | Cadena o matriz | Colección con los elementos que se van a contar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2207,10 +2203,10 @@ less(<value>, <compareTo>)
 less('<value>', '<compareTo>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | Integer, Float o String | Primer valor para comprobar si es menor que el segundo valor | 
-| <*comparar_con*> | Sí | Integer, Float o String, respectivamente | Elemento de comparación | 
+| <*valor*> | SÍ | Integer, Float o String | Primer valor para comprobar si es menor que el segundo valor | 
+| <*comparar_con*> | SÍ | Integer, Float o String, respectivamente | Elemento de comparación | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2244,10 +2240,10 @@ lessOrEquals(<value>, <compareTo>)
 lessOrEquals('<value>', '<compareTo>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | Integer, Float o String | Primer valor para comprobar si es menor o igual que el segundo valor | 
-| <*comparar_con*> | Sí | Integer, Float o String, respectivamente | Elemento de comparación | 
+| <*valor*> | SÍ | Integer, Float o String | Primer valor para comprobar si es menor o igual que el segundo valor | 
+| <*comparar_con*> | SÍ | Integer, Float o String, respectivamente | Elemento de comparación | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2301,10 +2297,10 @@ max(<number1>, <number2>, ...)
 max([<number1>, <number2>, ...])
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*número1*>, <*número2*>,... | Sí | Integer, Float o ambos | Conjunto de números del que se desea obtener el valor más alto | 
-| [<*número2*>, <*número2*>,...] | Sí | Matriz: Integer, Float o ambos | Matriz de números de la que se desea obtener el valor más alto | 
+| <*número1*>, <*número2*>,... | SÍ | Integer, Float o ambos | Conjunto de números del que se desea obtener el valor más alto | 
+| [<*número2*>, <*número2*>,...] | SÍ | Matriz: Integer, Float o ambos | Matriz de números de la que se desea obtener el valor más alto | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2334,10 +2330,10 @@ min(<number1>, <number2>, ...)
 min([<number1>, <number2>, ...])
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*número1*>, <*número2*>,... | Sí | Integer, Float o ambos | Conjunto de números del que se desea obtener el valor más bajo | 
-| [<*número2*>, <*número2*>,...] | Sí | Matriz: Integer, Float o ambos | Matriz de números de la que se desea obtener el valor más bajo | 
+| <*número1*>, <*número2*>,... | SÍ | Integer, Float o ambos | Conjunto de números del que se desea obtener el valor más bajo | 
+| [<*número2*>, <*número2*>,...] | SÍ | Matriz: Integer, Float o ambos | Matriz de números de la que se desea obtener el valor más bajo | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2366,10 +2362,10 @@ Devuelve el resto de dividir dos números. Para obtener el resultado de número 
 mod(<dividend>, <divisor>)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*dividendo*> | Sí | Integer o Float | Número que se va a dividir entre el *divisor*. | 
-| <*divisor*> | Sí | Integer o Float | Número que divide el *dividendo*, pero no puede ser 0. | 
+| <*dividendo*> | SÍ | Integer o Float | Número que se va a dividir entre el *divisor*. | 
+| <*divisor*> | SÍ | Integer o Float | Número que divide el *dividendo*, pero no puede ser 0. | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2397,10 +2393,10 @@ Devuelve el producto de multiplicar dos números.
 mul(<multiplicand1>, <multiplicand2>)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*multiplicando1*> | Sí | Integer o Float | Número que se va a multiplicar por el *multiplicando2* | 
-| <*multiplicando2*> | Sí | Integer o Float | Número que multiplica al *multiplicando1* | 
+| <*multiplicando1*> | SÍ | Integer o Float | Número que se va a multiplicar por el *multiplicando2* | 
+| <*multiplicando2*> | SÍ | Integer o Float | Número que multiplica al *multiplicando1* | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2432,10 +2428,10 @@ Devuelve el elemento body de una parte específica de la salida de una acción q
 multipartBody('<actionName>', <index>)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*nombre_de_la_acción*> | Sí | string | Nombre de la acción cuya salida tiene varias partes | 
-| <*índice*> | Sí | Entero | Valor de índice de la parte que se busca | 
+| <*nombre_de_la_acción*> | SÍ | string | Nombre de la acción cuya salida tiene varias partes | 
+| <*índice*> | SÍ | Entero | Valor de índice de la parte que se busca | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2453,9 +2449,9 @@ Comprueba si una expresión es false. Devuelve verdadero cuando la expresión es
 not(<expression>)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*expresión*> | Sí | boolean | Expresión que se va a evaluar | 
+| <*expresión*> | SÍ | boolean | Expresión que se va a evaluar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2501,9 +2497,9 @@ Comprueba si al menos una expresión es true. Devuelve true cuando al menos una 
 or(<expression1>, <expression2>, ...)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*expresión1*>, <*expresión2*>, ... | Sí | boolean | Expresiones que se van a comprobar | 
+| <*expresión1*>, <*expresión2*>, ... | SÍ | boolean | Expresiones que se van a comprobar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2549,9 +2545,9 @@ Devuelve el valor de un parámetro que se describe en la definición de aplicaci
 parameters('<parameterName>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*nombre_del_parámetro*> | Sí | string | Nombre del parámetro cuyo valor busca | 
+| <*nombre_del_parámetro*> | SÍ | string | Nombre del parámetro cuyo valor busca | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2587,10 +2583,10 @@ Devuelve un entero aleatorio de un intervalo especificado, que incluye solo el e
 rand(<minValue>, <maxValue>)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor_mínimo*> | Sí | Entero | Entero más bajo del intervalo | 
-| <*valor_maximo*> | Sí | Entero | Entero que sigue al entero más alto del intervalo que puede devolver la función | 
+| <*valor_mínimo*> | SÍ | Entero | Entero más bajo del intervalo | 
+| <*valor_maximo*> | SÍ | Entero | Entero que sigue al entero más alto del intervalo que puede devolver la función | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2618,10 +2614,10 @@ Devuelve una matriz de enteros que comienza en un entero especificado.
 range(<startIndex>, <count>)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*índice_inicial*> | Sí | Entero | Valor entero que inicia la matriz como el primer elemento | 
-| <*recuento*> | Sí | Entero | Número de enteros de la matriz | 
+| <*índice_inicial*> | SÍ | Entero | Valor entero que inicia la matriz como el primer elemento | 
+| <*recuento*> | SÍ | Entero | Número de enteros de la matriz | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2649,11 +2645,11 @@ Reemplaza una subcadena por la cadena especificada y devuelve la cadena resultan
 replace('<text>', '<oldText>', '<newText>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*texto*> | Sí | string | Cadena que contiene la subcadena que se va a reemplazar | 
-| <*texto_anterior*> | Sí | string | Subcadena que se va a reemplazar | 
-| <*texto_nuevo*> | Sí | string | Cadena de sustitución | 
+| <*texto*> | SÍ | string | Cadena que contiene la subcadena que se va a reemplazar | 
+| <*texto_anterior*> | SÍ | string | Subcadena que se va a reemplazar | 
+| <*texto_nuevo*> | SÍ | string | Cadena de sustitución | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2681,10 +2677,10 @@ Elimina una propiedad de un objeto y devuelve el objeto actualizado.
 removeProperty(<object>, '<property>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*objeto*> | Sí | Objeto | Objeto JSON del que desea eliminar una propiedad | 
-| <*propiedad*> | Sí | string | Nombre de la propiedad que se va a eliminar | 
+| <*objeto*> | SÍ | Objeto | Objeto JSON del que desea eliminar una propiedad | 
+| <*propiedad*> | SÍ | string | Nombre de la propiedad que se va a eliminar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2710,11 +2706,11 @@ Establece el valor de una propiedad de un objeto y devuelve el objeto actualizad
 setProperty(<object>, '<property>', <value>)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*objeto*> | Sí | Objeto | Objeto JSON cuya propiedad desea establecer | 
-| <*propiedad*> | Sí | string | Nombre de la propiedad existente o nueva que se va a establecer | 
-| <*valor*> | Sí | Cualquiera | Valor que se va a establecer para la propiedad especificada |
+| <*objeto*> | SÍ | Objeto | Objeto JSON cuya propiedad desea establecer | 
+| <*propiedad*> | SÍ | string | Nombre de la propiedad existente o nueva que se va a establecer | 
+| <*valor*> | SÍ | Cualquiera | Valor que se va a establecer para la propiedad especificada |
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2740,10 +2736,10 @@ Quita elementos del principio de una colección y devuelve *todos los demás* el
 skip([<collection>], <count>)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*colección*> | Sí | Matriz | Colección cuyos elementos desea eliminar | 
-| <*recuento*> | Sí | Entero | Entero positivo para el número de elementos a eliminar al principio | 
+| <*colección*> | SÍ | Matriz | Colección cuyos elementos desea eliminar | 
+| <*recuento*> | SÍ | Entero | Entero positivo para el número de elementos a eliminar al principio | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2771,10 +2767,10 @@ Devuelve una matriz que tiene todos los caracteres de una cadena y tiene cada ca
 split('<text>', '<separator>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*texto*> | Sí | string | Cadena que contiene los caracteres que se van a dividir |  
-| <*separador*> | Sí | string | Separador que aparece entre cada carácter de la matriz resultante | 
+| <*texto*> | SÍ | string | Cadena que contiene los caracteres que se van a dividir |  
+| <*separador*> | SÍ | string | Separador que aparece entre cada carácter de la matriz resultante | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2802,9 +2798,9 @@ Devuelve el inicio del día de una marca de tiempo.
 startOfDay('<timestamp>', '<format>'?)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*marca_de_tiempo*> | Sí | string | Cadena que contiene la marca de tiempo | 
+| <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 ||||| 
 
@@ -2833,9 +2829,9 @@ Devuelve el inicio de la hora de una marca de tiempo.
 startOfHour('<timestamp>', '<format>'?)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*marca_de_tiempo*> | Sí | string | Cadena que contiene la marca de tiempo | 
+| <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 ||||| 
 
@@ -2864,9 +2860,9 @@ Devuelve el inicio del mes de una marca de tiempo.
 startOfMonth('<timestamp>', '<format>'?)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*marca_de_tiempo*> | Sí | string | Cadena que contiene la marca de tiempo | 
+| <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. |
 ||||| 
 
@@ -2895,10 +2891,10 @@ Comprueba si una cadena comienza con una subcadena especificada. Devuelve true c
 startsWith('<text>', '<searchText>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*texto*> | Sí | string | Cadena que se va a comprobar | 
-| <*texto_a_buscar*> | Sí | string | Cadena inicial que se va a buscar | 
+| <*texto*> | SÍ | string | Cadena que se va a comprobar | 
+| <*texto_a_buscar*> | SÍ | string | Cadena inicial que se va a buscar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2936,9 +2932,9 @@ Devuelve la versión de cadena de un valor.
 string(<value>)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | Cualquiera | Valor que se va a convertir | 
+| <*valor*> | SÍ | Cualquiera | Valor que se va a convertir | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -2976,10 +2972,10 @@ Devuelve el resultado de restar el segundo número del primero.
 sub(<minuend>, <subtrahend>)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*minuendo*> | Sí | Integer o Float | Número del que se resta el *sustraendo* | 
-| <*sustraendo*> | Sí | Integer o Float | Número que se resta del *minuendo* | 
+| <*minuendo*> | SÍ | Integer o Float | Número del que se resta el *sustraendo* | 
+| <*sustraendo*> | SÍ | Integer o Float | Número que se resta del *minuendo* | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3007,11 +3003,11 @@ Devuelve caracteres de una cadena a partir de la posición especificada o índic
 substring('<text>', <startIndex>, <length>)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*texto*> | Sí | string | Cadena cuyos caracteres se toman | 
-| <*índice_inicial*> | Sí | Entero | Número positivo para la posición inicial o valor de índice | 
-| <*longitud*> | Sí | Entero | Número positivo de caracteres que desea incluir en la subcadena | 
+| <*texto*> | SÍ | string | Cadena cuyos caracteres se toman | 
+| <*índice_inicial*> | SÍ | Entero | Número positivo para la posición inicial o valor de índice | 
+| <*longitud*> | SÍ | Entero | Número positivo de caracteres que desea incluir en la subcadena | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3039,11 +3035,11 @@ Resta un número de unidades de tiempo de una marca de tiempo. Consulte también
 subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*marca_de_tiempo*> | Sí | string | Cadena que contiene la marca de tiempo | 
-| <*intervalo*> | Sí | Entero | Número de unidades de tiempo especificadas que se va a sustraer | 
-| <*unidad_de_tiempo*> | Sí | string | Unidad de tiempo que se usará con el *intervalo*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" ("Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año") | 
+| <*marca_de_tiempo*> | SÍ | string | Cadena que contiene la marca de tiempo | 
+| <*intervalo*> | SÍ | Entero | Número de unidades de tiempo especificadas que se va a sustraer | 
+| <*unidad_de_tiempo*> | SÍ | string | Unidad de tiempo que se usará con el *intervalo*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" ("Segundo", "Minuto", "Hora", "Día", "Semana", "Mes", "Año") | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. | 
 ||||| 
 
@@ -3083,10 +3079,10 @@ take('<collection>', <count>)
 take([<collection>], <count>)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*colección*> | Sí | Cadena o matriz | Colección cuyos elementos desea tomar | 
-| <*recuento*> | Sí | Entero | Entero positivo para el número de elementos a tomar desde el principio | 
+| <*colección*> | SÍ | Cadena o matriz | Colección cuyos elementos desea tomar | 
+| <*recuento*> | SÍ | Entero | Entero positivo para el número de elementos a tomar desde el principio | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3118,9 +3114,9 @@ Devuelve el valor de la propiedad `ticks` de una marca de tiempo especificada. U
 ticks('<timestamp>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*marca_de_tiempo*> | Sí | string | Cadena de una marca de tiempo | 
+| <*marca_de_tiempo*> | SÍ | string | Cadena de una marca de tiempo | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3138,9 +3134,9 @@ Devuelve una cadena en formato de minúsculas. Si un carácter de la cadena no t
 toLower('<text>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*texto*> | Sí | string | Cadena que se devuelve en formato de minúsculas | 
+| <*texto*> | SÍ | string | Cadena que se devuelve en formato de minúsculas | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3168,9 +3164,9 @@ Devuelve una cadena en formato de mayúsculas. Si un carácter de la cadena no t
 toUpper('<text>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*texto*> | Sí | string | Cadena que se devuelve en formato de mayúsculas | 
+| <*texto*> | SÍ | string | Cadena que se devuelve en formato de mayúsculas | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3234,9 +3230,9 @@ Devuelve una matriz con valores que coinciden con un nombre de clave de la salid
 triggerFormDataMultiValues('<key>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*clave*> | Sí | string | Nombre de la clave cuyo valor busca | 
+| <*clave*> | SÍ | string | Nombre de la clave cuyo valor busca | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3264,9 +3260,9 @@ Devuelve una cadena con un valor único que coincide con un nombre de clave en l
 triggerFormDataValue('<key>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*clave*> | Sí | string | Nombre de la clave cuyo valor busca |
+| <*clave*> | SÍ | string | Nombre de la clave cuyo valor busca |
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3292,9 +3288,9 @@ Devuelve el elemento body de una parte específica de la salida de un desencaden
 triggerMultipartBody(<index>)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*índice*> | Sí | Entero | Valor de índice de la parte que se busca |
+| <*índice*> | SÍ | Entero | Valor de índice de la parte que se busca |
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3327,9 +3323,9 @@ Quita el espacio en blanco inicial y final de una cadena y devuelve la cadena ac
 trim('<text>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*texto*> | Sí | string | Cadena que contiene los espacios en blanco iniciales y finales que se van a eliminar | 
+| <*texto*> | SÍ | string | Cadena que contiene los espacios en blanco iniciales y finales que se van a eliminar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3358,9 +3354,9 @@ union('<collection1>', '<collection2>', ...)
 union([<collection1>], [<collection2>], ...)
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*colección1*>, <*colección2*>, ...  | Sí | Matriz u objeto, pero no ambos | Colecciones de las que desean *todos* los elementos | 
+| <*colección1*>, <*colección2*>, ...  | SÍ | Matriz u objeto, pero no ambos | Colecciones de las que desean *todos* los elementos | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3388,9 +3384,9 @@ Devuelve una versión codificada de un identificador uniforme de recursos (URI) 
 uriComponent('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | string | Cadena que se va a convertir en formato codificado de URI | 
+| <*valor*> | SÍ | string | Cadena que se va a convertir en formato codificado de URI | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3418,9 +3414,9 @@ Devuelve la versión binaria de un componente de un identificador uniforme de re
 uriComponentToBinary('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | string | Cadena con codificación URI que se va a convertir | 
+| <*valor*> | SÍ | string | Cadena con codificación URI que se va a convertir | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3453,9 +3449,9 @@ Devuelve la versión de cadena de una cadena codificada en formato de identifica
 uriComponentToString('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | string | Cadena con codificación URI que se va a decodificar | 
+| <*valor*> | SÍ | string | Cadena con codificación URI que se va a decodificar | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3483,9 +3479,9 @@ Devuelve el valor `host` de un identificador uniforme de recursos (URI).
 uriHost('<uri>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*uri*> | Sí | string | Identificador URI cuyo valor `host` desea | 
+| <*uri*> | SÍ | string | Identificador URI cuyo valor `host` desea | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3513,9 +3509,9 @@ Devuelve el valor `path` de un identificador uniforme de recursos (URI).
 uriPath('<uri>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*uri*> | Sí | string | Identificador URI cuyo valor `path` desea | 
+| <*uri*> | SÍ | string | Identificador URI cuyo valor `path` desea | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3543,9 +3539,9 @@ Devuelve los valores `path` y `query` de un identificador uniforme de recursos (
 uriPathAndQuery('<uri>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*uri*> | Sí | string | Identificador URI cuyos valores `path` y `query` desea | 
+| <*uri*> | SÍ | string | Identificador URI cuyos valores `path` y `query` desea | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3573,9 +3569,9 @@ Devuelve el valor `port` de un identificador uniforme de recursos (URI).
 uriPort('<uri>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*uri*> | Sí | string | Identificador URI cuyo valor `port` desea | 
+| <*uri*> | SÍ | string | Identificador URI cuyo valor `port` desea | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3603,9 +3599,9 @@ Devuelve el valor `query` de un identificador uniforme de recursos (URI).
 uriQuery('<uri>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*uri*> | Sí | string | Identificador URI cuyo valor `query` desea | 
+| <*uri*> | SÍ | string | Identificador URI cuyo valor `query` desea | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3633,9 +3629,9 @@ Devuelve el valor `scheme` de un identificador uniforme de recursos (URI).
 uriScheme('<uri>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*uri*> | Sí | string | Identificador URI cuyo valor `scheme` desea | 
+| <*uri*> | SÍ | string | Identificador URI cuyo valor `scheme` desea | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3666,7 +3662,7 @@ utcNow('<format>')
 Si lo desea, puede especificar un formato diferente con el parámetro <*format*>. 
 
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
 | <*formato*> | Sin  | string | Puede ser un [especificador de formato sencillo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o un [patrón de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). El formato predeterminado de la marca de tiempo es ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), que cumple con [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) y conserva la información de zona horaria. | 
 ||||| 
@@ -3706,9 +3702,9 @@ Devuelve el valor de una variable especificada.
 variables('<variableName>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*nombre_de_variable*> | Sí | string | Nombre de la variable cuyo valor busca | 
+| <*nombre_de_variable*> | SÍ | string | Nombre de la variable cuyo valor busca | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3736,7 +3732,7 @@ Devuelve todos los detalles sobre el propio flujo de trabajo durante el tiempo d
 workflow().<property>
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
 | <*propiedad*> | Sin  | string | Nombre de la propiedad del flujo de trabajo cuyo valor desea <p>Un objeto de flujo de trabajo tiene estas propiedades: **name** (nombre), **type** (tipo), **id** (identificador), **location** (ubicación) y **run** (ejecución). El valor de la propiedad **run** también es un objeto que tiene estas propiedades: **name**, **type** e **id**. | 
 ||||| 
@@ -3759,9 +3755,9 @@ Devuelve la versión XML de una cadena que contiene un objeto JSON.
 xml('<value>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*valor*> | Sí | string | Cadena con el objeto JSON que se va a convertir <p>El objeto JSON debe tener solo una propiedad raíz. <br>Use el carácter de barra diagonal inversa (\\) como carácter de escape para la marca de comillas dobles ("). | 
+| <*valor*> | SÍ | string | Cadena con el objeto JSON que se va a convertir <p>El objeto JSON debe tener solo una propiedad raíz. <br>Use el carácter de barra diagonal inversa (\\) como carácter de escape para la marca de comillas dobles ("). | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
@@ -3817,10 +3813,10 @@ Comprueba el código XML de los nodos o valores que coinciden con una expresión
 xpath('<xml>', '<xpath>')
 ```
 
-| . | Obligatorio | Escriba | DESCRIPCIÓN | 
+| Parámetro | Obligatorio | Escriba | DESCRIPCIÓN | 
 | --------- | -------- | ---- | ----------- | 
-| <*xml*> | Sí | Cualquiera | Cadena XML en la que buscar nodos o valores que coincidan con un valor de la expresión XPath | 
-| <*xpath*> | Sí | Cualquiera | Expresión XPath utilizada para buscar nodos XML o valores coincidentes | 
+| <*xml*> | SÍ | Cualquiera | Cadena XML en la que buscar nodos o valores que coincidan con un valor de la expresión XPath | 
+| <*xpath*> | SÍ | Cualquiera | Expresión XPath utilizada para buscar nodos XML o valores coincidentes | 
 ||||| 
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 

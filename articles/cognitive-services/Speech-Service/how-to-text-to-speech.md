@@ -1,27 +1,26 @@
 ---
-title: Uso de Text to Speech mediante los servicios Speech | Microsoft Docs
+title: Uso de Text to Speech mediante los servicios Speech
 description: Obtenga información sobre cómo usar Text to Speech en Speech Service.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 84b577cd00d333717a7a5ad1f66182605429f9f1
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 21157af9ad6361234ffa9b927da64baab505f624
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213340"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281521"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Uso de "Text to Speech" en el servicio Speech
 
 El servicio Speech proporciona funcionalidad Text to Speech mediante una sencilla solicitud HTTP. El texto que se habla se registra en el punto de conexión adecuado y el servicio devuelve un archivo de audio (`.wav`) que contiene la voz sintetizada. La aplicación puede usar a continuación este audio de la forma deseada.
 
-El cuerpo de la solicitud POST para Text to Speech puede ser texto sin formato (ASCII o UTF8) o un documento [SSML](speech-synthesis-markup.md). Las solicitudes de texto sin formato se hablan con una voz predeterminada. En la mayoría de los casos, querrá usar un cuerpo SSML. La solicitud HTTP debe incluir un token de [autorización](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#authentication). 
+El cuerpo de la solicitud POST para Text to Speech puede ser texto sin formato (ASCII o UTF8) o un documento [SSML](speech-synthesis-markup.md). Las solicitudes de texto sin formato se hablan con una voz predeterminada. En la mayoría de los casos, querrá usar un cuerpo SSML. La solicitud HTTP debe incluir un token de [autorización](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication). 
 
 Aquí se muestran los puntos de conexión regionales de Text to Speech. Use el adecuado para su suscripción.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 68e31f6b88a772ad67e3c58e11925f46f1cc37e9
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a86d5c1513594f5bc0df03b8ca7671a1f9541b4d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188675"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308061"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos del sistema de Azure Import/Export
 
@@ -30,13 +30,12 @@ Para preparar las unidades de disco duro con la herramienta WAImportExport, se a
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 
-
 ## <a name="supported-storage-accounts"></a>Cuentas de almacenamiento admitidas
 
-El servicio Azure Import/Export admite las siguientes cuentas de almacenamiento de Azure.
-- Clásico
+El servicio Azure Import/Export admite las siguientes [cuentas de Azure Storage](storage-account-options.md).
+- Cuentas de almacenamiento de uso general v1 (implementación clásica o de Azure Resource Manager)
 - Cuentas de Blob Storage
-- Cuentas de almacenamiento de uso general v1 
+- Cuentas de almacenamiento de uso general v2
 
 Puede utilizar cada trabajo para transferir datos desde o hacia una sola cuenta de almacenamiento. Dicho de otra forma, un trabajo de importación y exportación no puede abarcar varias cuentas de almacenamiento. Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account).
 
@@ -48,10 +47,10 @@ Puede utilizar cada trabajo para transferir datos desde o hacia una sola cuenta 
 La siguiente lista muestra los tipos de almacenamiento que se admiten con el servicio Azure Import/Export.
 
 
-|Trabajo  |Storage  |Compatible  |No compatible  |
+|Trabajo  |Servicio de almacenamiento |Compatible  |No compatible  |
 |---------|---------|---------|---------|
-|Importar     |  Azure Blob Storage. <br>Blobs en bloques y blobs en páginas admitidos. <br> Archivos de Azure admitidos.       |         |
-|Exportación     |   Azure Blob Storage. <br>Blobs en bloques, blobs en páginas y blobs en anexos admitidos.       | Archivos de Azure no admitidos.        |
+|Importar     |  Azure Blob Storage <br><br> Almacenamiento de archivos de Azure       | Blobs en bloques y blobs en páginas admitidos <br><br> Archivos admitidos          |
+|Exportación     |   Azure Blob Storage       | Blobs en bloques, blobs en páginas y blobs en anexos admitidos         | No se admite Azure Files
 
 
 ## <a name="supported-hardware"></a>Hardware admitido 

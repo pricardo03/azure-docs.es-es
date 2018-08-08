@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: ninarn
-ms.openlocfilehash: 62b5f7470491027dbf5a1c60ee478268e969d1a8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 1da4e8d94007653a43f187322c1d0e4077e337fa
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113501"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398944"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Acciones para solucionar problemas, diagnosticar y evitar errores de conexión y errores transitorios en SQL Database
 En este artículo se describe cómo evitar, solucionar, diagnosticar y mitigar los errores de conexión y los errores transitorios que la aplicación cliente encuentra cuando interactúa con Azure SQL Database. Aprenda a configurar la lógica de reintento, generar la cadena de conexión y ajustar otros valores de conexión.
@@ -181,17 +181,21 @@ Para obtener información general acerca de la configuración de puertos y direc
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-### <a name="connection-adonet-461"></a>Conexión: ADO.NET 4.6.1
-Si el programa usa clases ADO.NET como **System.Data.SqlClient.SqlConnection** para conectarse a SQL Database, le recomendamos que use .NET Framework 4.6.1 o una versión posterior.
+### <a name="connection-adonet-462-or-later"></a>Conexión: ADO.NET 4.6.2 o posteriores
+Si el programa usa clases ADO.NET como **System.Data.SqlClient.SqlConnection** para conectarse a SQL Database, le recomendamos que use .NET Framework 4.6.2, o cualquier versión posterior.
 
-ADO.NET 4.6.1:
+A partir de ADO.NET 4.6.2:
+
+- El intento de apertura de conexión que se va a reintentar de inmediato para las bases de datos SQL de Azure, lo que mejora el rendimiento de aplicaciones habilitadas para la nube.
+
+A partir de ADO.NET 4.6.1:
 
 * Con SQL Database, se mejora la confiabilidad si abre una conexión con el método **SqlConnection.Open**. Ahora, el método **Open** incorpora los mejores mecanismos de reintento en respuesta a errores transitorios para determinados errores dentro del período de tiempo de espera de conexión.
 * Se admite a agrupación de conexiones, que incluye una comprobación eficaz de que el objeto de conexión que ofrece el programa está funcionando.
 
-Cuando se usa un objeto de conexión desde un grupo de conexiones, se recomienda que el programa cierre temporalmente la conexión cuando no la esté usando inmediatamente. Volver a abrir una conexión no tiene un costo alto, pero sí lo tiene crear una nueva.
+Cuando se usa un objeto de conexión desde un grupo de conexiones, se recomienda que el programa cierre temporalmente la conexión cuando no se vaya a usar de inmediato. Volver a abrir una conexión no tiene un costo alto, pero sí lo tiene crear una nueva.
 
-Si usa ADO.NET 4.0 o versiones anteriores, se recomienda que lo actualice a la versión de ADO.NET más reciente. Desde noviembre de 2015 se puede [descargar ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
+Si usa ADO.NET 4.0 o versiones anteriores, se recomienda que lo actualice a la versión de ADO.NET más reciente. Desde agosto de 2018 se puede [descargar ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/2018/04/30/announcing-the-net-framework-4-7-2/).
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
@@ -261,7 +265,7 @@ Presentamos algunas instrucciones SELECT de Transact-SQL que consultan los regis
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
 ### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnóstico: Buscar eventos de problema en el registro de SQL Database
-Puede buscar entradas sobre los eventos de problema en el registro de SQL Database. Pruebe la siguiente instrucción SELECT de Transact-SQL en la base de datos *principal* :
+Puede buscar entradas sobre los eventos de problema en el registro de SQL Database. Pruebe la siguiente instrucción SELECT de Transact-SQL en la base de datos *principal*:
 
 ```
 SELECT

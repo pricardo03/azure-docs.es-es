@@ -2,20 +2,20 @@
 title: Límites y configuración - Azure Logic Apps | Microsoft Docs
 description: Valores de límites y configuración del servicio para Azure Logic Apps
 services: logic-apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.topic: article
-ms.date: 05/30/2018
 ms.service: logic-apps
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.topic: article
+ms.date: 07/31/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: eaf05d44a4d77f1a294664485e38c6f5719ce238
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 644d382b87b0cc7c60cc8917edbaeff34b222718
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238318"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390745"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -52,7 +52,7 @@ Estos son los límites de ejecución de una única aplicación lógica:
 | NOMBRE | Límite | Notas | 
 |------|-------|-------| 
 | Duración de la ejecución | 90 días | Para cambiar este límite, consulte [Cambio de la duración de ejecución](#change-duration). | 
-| Retención de almacenamiento | 90 días a partir de la hora de inicio de la ejecución | Para cambiar este límite, consulte [Cambio de la retención de almacenamiento](#change-retention). | 
+| Retención de almacenamiento | 90 días a partir de la hora de inicio de la ejecución | Para cambiar este límite a un valor de entre 7 y 90 días, consulte [Cambio de la retención de almacenamiento](#change-retention). | 
 | Intervalo de periodicidad mínima | 1 segundo | | 
 | Intervalo de periodicidad máxima | 500 días | | 
 |||| 
@@ -62,7 +62,7 @@ Estos son los límites de ejecución de una única aplicación lógica:
 
 ### <a name="change-run-duration-and-storage-retention"></a>Cambio de la duración de ejecución y la retención de almacenamiento
 
-Puede cambiar este límite a un valor de entre 7 y 90 días. En cambio, para superar el límite máximo, [póngase en contacto con el equipo de Logic Apps](mailto://logicappsemail@microsoft.com) para obtener ayuda con sus requisitos.
+Para cambiar el límite predeterminado a un valor de entre 7 y 90 días, siga estos pasos. Si necesita superar el límite máximo, [póngase en contacto con el equipo de Logic Apps](mailto://logicappsemail@microsoft.com) para obtener ayuda con sus requisitos.
 
 1. En Azure Portal, en el menú de la aplicación lógica, elija **Configuración del flujo de trabajo**. 
 
@@ -72,16 +72,18 @@ Puede cambiar este límite a un valor de entre 7 y 90 días. En cambio, para sup
 
 <a name="looping-debatching-limits"></a>
 
-## <a name="looping-and-debatching-limits"></a>Límites de bucle y anulación de procesamiento por lotes
+## <a name="concurrency-looping-and-debatching-limits"></a>Límites de simultaneidad, bucle y anulación de procesamiento por lotes
 
 Estos son los límites de ejecución de una única aplicación lógica:
 
 | NOMBRE | Límite | Notas | 
 | ---- | ----- | ----- | 
-| Iteraciones Until | 5.000 | | 
-| Elementos ForEach | 100 000 | Puede usar la [acción de consulta](../connectors/connectors-native-query.md) para filtrar matrices más grandes, según sea necesario. | 
-| Paralelismo de ForEach | 50 | El valor predeterminado es 20. <p>Para cambiar este nivel predeterminado en un bucle ForEach, establezca la propiedad `runtimeConfiguration` en la acción `foreach`. <p>Para ejecutar secuencialmente un bucle ForEach, establezca la propiedad `operationOptions` en "Sequential" en la acción `foreach`. | 
+| Simultaneidad de desencadenadores | 50 | El límite predeterminado es 20. Este límite describe el número máximo de instancias de aplicaciones lógicas que se pueden ejecutar al mismo tiempo o en paralelo. <p><p>Para cambiar el límite predeterminado a un valor comprendido entre 1 y 50 (ambos inclusive), consulte [Cambio en la simultaneidad de desencadenadores](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Desencadenamiento secuencial de instancias](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Número máximo de ejecuciones en espera | 100 | El límite predeterminado es 10. Este límite describe el número máximo de instancias de aplicaciones lógicas que se pueden poner en espera de ejecución en caso de que la aplicación lógica ya esté ejecutando el número máximo de instancias simultáneas. <p><p>Para cambiar el límite predeterminado a un valor comprendido entre 0 y 100 (ambos inclusive), consulte [Cambio del límite de ejecuciones en espera](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Elementos foreach | 100 000 | Este límite describe el número máximo de elementos de matriz que puede procesar un bucle "for each". <p><p>Para filtrar matrices más grandes, puede usar la [acción de consulta](../connectors/connectors-native-query.md). | 
+| Iteraciones foreach | 50 | El límite predeterminado es 20. Este límite describe el número máximo de iteraciones de bucles "for each" que se pueden ejecutar al mismo tiempo o en paralelo. <p><p>Para cambiar el límite predeterminado a un valor comprendido entre 1 y 50 (ambos inclusive), consulte [Cambio de la simultaneidad de los bucles "for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [Ejecución secuencial de bucles "for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
 | Elementos SplitOn | 100 000 | | 
+| Iteraciones Until | 5.000 | | 
 |||| 
 
 <a name="throughput-limits"></a>
@@ -91,14 +93,14 @@ Estos son los límites de ejecución de una única aplicación lógica:
 Estos son los límites de ejecución de una única aplicación lógica:
 
 | NOMBRE | Límite | Notas | 
-| ----- | ----- | ----- | 
-| Ejecuciones de acciones cada 5 minutos | 100 000 | Para aumentar el límite a 300 000, puede ejecutar una aplicación de lógica en modo `High Throughput`. Para configurar el modo de alto rendimiento, en `runtimeConfiguration` del recurso de flujo de trabajo, establezca la propiedad `operationOptions` en `OptimizedForHighThroughput`. <p>**Nota**: El modo de alto rendimiento se encuentra en versión preliminar. Además, puede distribuir una carga de trabajo entre varias aplicaciones, según sea necesario. | 
-| Llamadas salientes simultáneas de acciones | Aproximadamente 2500 | Reduzca el número de solicitudes simultáneas o reduzca la duración según sea necesario. | 
-| Punto de conexión en tiempo de ejecución: llamadas entrantes simultáneas | ~1000 | Reduzca el número de solicitudes simultáneas o reduzca la duración según sea necesario. | 
+| ---- | ----- | ----- | 
+| Acción: Ejecuciones por cada 5 minutos | 300 000 | El límite predeterminado es 100 000. Para cambiar el límite predeterminado, consulte [Ejecución de la aplicación lógica en modo de "alto rendimiento"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), que está en versión preliminar. O bien puede distribuir la carga de trabajo entre varias aplicaciones lógicas según sea necesario. | 
+| Acción: Llamadas salientes simultáneas | Aproximadamente 2500 | Puede reducir el número de solicitudes simultáneas o la duración según sea necesario. | 
+| Punto de conexión en tiempo de ejecución: llamadas entrantes simultáneas | ~1000 | Puede reducir el número de solicitudes simultáneas o la duración según sea necesario. | 
 | Punto de conexión en tiempo de ejecución: llamadas de lectura por 5 minutos  | 60 000 | Puede distribuir una carga de trabajo entre varias aplicaciones, según sea necesario. | 
-| Punto de conexión en tiempo de ejecución: llamadas de invocación por 5 minutos| 45 000 | Puede distribuir una carga de trabajo entre varias aplicaciones, según sea necesario. |
-| Rendimiento de contenido cada 5 minutos | 600 MB | Puede distribuir una carga de trabajo entre varias aplicaciones, según sea necesario. |  
-||||| 
+| Punto de conexión en tiempo de ejecución: llamadas de invocación por 5 minutos | 45 000 | Puede distribuir una carga de trabajo entre varias aplicaciones, según sea necesario. | 
+| Rendimiento de contenido cada 5 minutos | 600 MB | Puede distribuir una carga de trabajo entre varias aplicaciones, según sea necesario. | 
+|||| 
 
 Si quiere superar estos límites en el procesamiento normal, o ejecutar pruebas de carga que puedan superar estos límites, [póngase en contacto con el equipo de Logic Apps](mailto://logicappsemail@microsoft.com) para que podamos ayudarle con sus solicitudes.
 
@@ -236,57 +238,57 @@ Todas las aplicaciones lógicas de una región usan el mismo intervalo de direcc
 
 | Región de Logic Apps | IP de salida |
 |-------------------|-------------|
-| Este de Australia | 13.75.149.4, 104.210.91.55, 104.210.90.241 |
-| Sudeste de Australia | 13.73.114.207, 13.77.3.139, 13.70.159.205 |
-| Sur de Brasil | 191.235.82.221, 191.235.91.7, 191.234.182.26 |
+| Este de Australia | 13.75.149.4, 104.210.90.241, 104.210.91.55 |
+| Sudeste de Australia | 13.70.159.205, 13.73.114.207, 13.77.3.139 |
+| Sur de Brasil | 191.234.182.26, 191.235.82.221, 191.235.91.7 |
 | Centro de Canadá | 52.233.29.92, 52.228.39.241, 52.228.39.244 |
-| Este de Canadá | 52.232.128.155, 52.229.120.45, 52.229.126.25 |
-| India Central | 52.172.154.168, 52.172.186.159, 52.172.185.79 |
-| Centro de EE. UU. | 13.67.236.125, 104.208.25.27, 40.122.170.198 |
+| Este de Canadá | 52.229.120.45, 52.229.126.25, 52.232.128.155 |
+| India Central | 52.172.154.168, 52.172.185.79, 52.172.186.159 |
+| Centro de EE. UU. | 13.67.236.125, 40.122.170.198, 104.208.25.27 |
 | Asia oriental | 13.75.94.173, 40.83.127.19, 52.175.33.254 |
-| Este de EE. UU | 13.92.98.111, 40.121.91.41, 40.114.82.191 |
+| Este de EE. UU | 13.92.98.111, 40.114.82.191, 40.121.91.41 |
 | Este de EE. UU. 2 | 40.84.30.147, 104.208.155.200, 104.208.158.174 |
-| Este de Japón | 13.71.158.3, 13.73.4.207, 13.71.158.120 |
+| Este de Japón | 13.71.158.3, 13.71.158.120, 13.73.4.207 |
 | Oeste de Japón | 40.74.140.4, 104.214.137.243, 138.91.26.45 |
-| Centro-Norte de EE. UU | 168.62.248.37, 157.55.210.61, 157.55.212.238 |
+| Centro-Norte de EE. UU | 157.55.210.61, 157.55.212.238, 168.62.248.37 |
 | Europa del Norte | 40.113.12.95, 52.178.165.215, 52.178.166.21 |
-| Centro-Sur de EE. UU | 104.210.144.48, 13.65.82.17, 13.66.52.232 |
-| Sur de la India | 52.172.50.24, 52.172.55.231, 52.172.52.0 |
+| Centro-Sur de EE. UU | 13.65.82.17, 13.66.52.232, 104.210.144.48 |
+| Sur de la India | 52.172.50.24, 52.172.52.0, 52.172.55.231 |
 | Sudeste asiático | 13.76.133.155, 52.163.228.93, 52.163.230.166 |
-| Centro occidental de EE.UU. | 52.161.27.190, 52.161.18.218, 52.161.9.108 |
-| Europa occidental | 40.68.222.65, 40.68.209.23, 13.95.147.65 |
-| Oeste de la India | 104.211.164.80, 104.211.162.205, 104.211.164.136 |
-| Oeste de EE. UU. | 52.160.92.112, 40.118.244.241, 40.118.241.243 |
-| Oeste de EE. UU. 2 | 13.66.210.167, 52.183.30.169, 52.183.29.132 |
-| Sur de Reino Unido 2 | 51.140.74.14, 51.140.73.85, 51.140.78.44 |
-| Oeste de Reino Unido | 51.141.54.185, 51.141.45.238, 51.141.47.136 |
+| Centro occidental de EE.UU. | 52.161.18.218, 52.161.9.108, 52.161.27.190 |
+| Europa occidental | 13.95.147.65, 40.68.209.23, 40.68.222.65 |
+| Oeste de la India | 104.211.162.205, 104.211.164.80, 104.211.164.136 |
+| Oeste de EE. UU. | 40.83.164.80, 40.118.244.241, 40.118.241.243, 52.160.92.112, 104.42.38.32, 104.42.49.145, 157.56.162.53, 157.56.167.147 |
+| Oeste de EE. UU. 2 | 13.66.210.167, 52.183.29.132, 52.183.30.169 |
+| Sur de Reino Unido 2 | 51.140.73.85, 51.140.74.14, 51.140.78.44 |
+| Oeste de Reino Unido | 51.141.45.238, 51.141.47.136, 51.141.54.185 |
 | | |
 
 | Región de Logic Apps | IP entrante |
 |-------------------|------------|
 | Este de Australia | 3.75.153.66, 104.210.89.222, 104.210.89.244 |
 | Sudeste de Australia | 13.73.115.153, 40.115.78.70, 40.115.78.237 |
-| Sur de Brasil | 191.235.86.199, 191.235.95.229, 191.235.94.220 |
-| Centro de Canadá | 13.88.249.209, 52.233.30.218, 52.233.29.79 |
-| Este de Canadá | 52.232.129.143, 52.229.125.57, 52.232.133.109 |
+| Sur de Brasil | 191.235.86.199, 191.235.94.220, 191.235.95.229 |
+| Centro de Canadá | 13.88.249.209, 52.233.29.79, 52.233.30.218 |
+| Este de Canadá | 52.229.125.57, 52.232.129.143, 52.232.133.109 |
 | India Central | 52.172.157.194, 52.172.184.192, 52.172.191.194 |
-| Centro de EE. UU. | 13.67.236.76, 40.77.111.254, 40.77.31.87 |
-| Asia oriental | 168.63.200.173, 13.75.89.159, 23.97.68.172 |
-| Este de EE. UU | 137.135.106.54, 40.117.99.79, 40.117.100.228 |
-| Este de EE. UU. 2 | 40.84.25.234, 40.79.44.7, 40.84.59.136 |
+| Centro de EE. UU. | 13.67.236.76, 40.77.31.87, 40.77.111.254 |
+| Asia oriental | 13.75.89.159, 23.97.68.172, 168.63.200.173 |
+| Este de EE. UU | 40.117.99.79, 40.117.100.228, 137.135.106.54 |
+| Este de EE. UU. 2 | 40.79.44.7, 40.84.25.234, 40.84.59.136 |
 | Este de Japón | 13.71.146.140, 13.78.84.187, 13.78.62.130 |
 | Oeste de Japón | 40.74.140.173, 40.74.81.13, 40.74.85.215 |
 | Centro-Norte de EE. UU | 168.62.249.81, 157.56.12.202, 65.52.211.164 |
 | Europa del Norte | 13.79.173.49, 52.169.218.253, 52.169.220.174 |
-| Centro-Sur de EE. UU | 52.172.9.47, 52.172.49.43, 52.172.51.140 |
+| Centro-Sur de EE. UU | 13.65.98.39, 13.84.41.46, 13.84.43.45 |
 | Sur de la India | 52.172.9.47, 52.172.49.43, 52.172.51.140 |
 | Sudeste asiático | 52.163.93.214, 52.187.65.81, 52.187.65.155 |
-| Centro occidental de EE.UU. | 52.161.26.172, 52.161.8.128, 52.161.19.82 |
+| Centro occidental de EE.UU. | 52.161.8.128, 52.161.19.82, 52.161.26.172 |
 | Europa occidental | 13.95.155.53, 52.174.54.218, 52.174.49.6 |
-| Oeste de la India | 104.211.164.112, 104.211.165.81, 104.211.164.25 |
-| Oeste de EE. UU. | 52.160.90.237, 138.91.188.137, 13.91.252.184 |
+| Oeste de la India | 104.211.164.25, 104.211.164.112, 104.211.165.81 |
+| Oeste de EE. UU. | 13.91.252.184, 52.160.90.237, 138.91.188.137, 157.56.160.212 |
 | Oeste de EE. UU. 2 | 13.66.224.169, 52.183.30.10, 52.183.39.67 |
-| Sur de Reino Unido 2 | 51.140.79.109, 51.140.78.71, 51.140.84.39 |
+| Sur de Reino Unido 2 | 51.140.78.71, 51.140.79.109, 51.140.84.39 |
 | Oeste de Reino Unido | 51.141.48.98, 51.141.51.145, 51.141.53.164 |
 | | |
 
@@ -301,28 +303,28 @@ Para admitir las llamadas que realizan los [conectores](../connectors/apis-list.
 | Región de Logic Apps | IP de salida | 
 |-------------------|-------------|  
 | Este de Australia | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213 | 
-| Sudeste de Australia | 13.77.50.240 - 13.77.50.255, 13.70.136.174, 40.127.80.34 | 
-| Sur de Brasil | 191.233.203.192 - 191.233.203.207, 104.41.59.51, 191.232.38.129 | 
-| Centro de Canadá | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.237.24.126, 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13, 52.233.26.83 | 
-| Este de Canadá | 40.69.106.240 - 40.69.106.255, 52.242.35.152, 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52, 52.229.120.131 | 
-| India Central | 104.211.81.192 - 104.211.81.207, 52.172.211.12, 104.211.98.164 | 
-| Centro de EE. UU. | 13.89.171.80 - 13.89.171.95, 52.173.245.164, 40.122.49.51 | 
-| Asia oriental | 13.75.36.64 - 13.75.36.79, 52.175.23.169, 23.99.116.181 | 
+| Sudeste de Australia | 13.70.136.174, 13.77.50.240 - 13.77.50.255, 40.127.80.34 | 
+| Sur de Brasil | 104.41.59.51, 191.232.38.129, 191.233.203.192 - 191.233.203.207 | 
+| Centro de Canadá | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.228.33.76, 52.228.34.13, 52.228.42.205, 52.233.26.83, 52.233.31.197, 52.237.24.126 | 
+| Este de Canadá | 40.69.106.240 - 40.69.106.255, 52.229.120.52, 52.229.120.131, 52.229.120.178, 52.229.123.98, 52.229.126.202, 52.242.35.152 | 
+| India Central | 52.172.211.12, 104.211.81.192 - 104.211.81.207, 104.211.98.164 | 
+| Centro de EE. UU. | 13.89.171.80 - 13.89.171.95, 40.122.49.51, 52.173.245.164 | 
+| Asia oriental | 13.75.36.64 - 13.75.36.79, 23.99.116.181, 52.175.23.169 | 
 | Este de EE. UU | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 | 
 | Este de EE. UU. 2 | 40.70.146.208 - 40.70.146.223, 52.232.188.154, 104.208.233.100 | 
-| Este de Japón | 13.78.108.0 - 13.78.108.15, 13.71.153.19, 40.115.186.96 | 
-| Oeste de Japón | 40.74.100.224 - 40.74.100.239, 104.215.61.248, 40.74.130.77 | 
+| Este de Japón | 13.71.153.19, 13.78.108.0 - 13.78.108.15, 40.115.186.96 | 
+| Oeste de Japón | 40.74.100.224 - 40.74.100.239, 40.74.130.77, 104.215.61.248 | 
 | Centro-Norte de EE. UU | 52.162.107.160 - 52.162.107.175, 52.162.242.161, 65.52.218.230 | 
 | Europa del Norte | 13.69.227.208 - 13.69.227.223, 52.178.150.68, 104.45.93.9 | 
-| Centro-Sur de EE. UU | 104.214.19.48 - 104.214.19.63, 13.65.86.57, 104.214.70.191 | 
-| Sur de la India | 40.78.194.240 - 40.78.194.255, 13.71.125.22, 104.211.227.225 | 
-| Sudeste asiático | 13.67.8.240 - 13.67.8.255, 52.187.68.19, 13.76.231.68 | 
-| Centro occidental de EE.UU. | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212, 52.161.128 | 
-| Europa occidental | 13.69.64.208 - 13.69.64.223, 52.174.88.118, 40.115.50.13 | 
-| Oeste de la India | 104.211.146.224 - 104.211.146.239, 104.211.189.218, 104.211.161.203 | 
-| Oeste de EE. UU. | 40.112.243.160 - 40.112.243.175, 104.42.122.49, 104.40.51.248 | 
-| Oeste de EE. UU. 2 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14, 13.66.221.19 | 
-| Sur de Reino Unido 2 | 51.140.148.0 - 51.140.148.15, 51.140.80.51 | 
+| Centro-Sur de EE. UU | 13.65.86.57, 104.214.19.48 - 104.214.19.63, 104.214.70.191 | 
+| Sur de la India | 13.71.125.22, 40.78.194.240 - 40.78.194.255, 104.211.227.225 | 
+| Sudeste asiático | 13.67.8.240 - 13.67.8.255, 13.76.231.68, 52.187.68.19 | 
+| Centro occidental de EE.UU. | 13.71.195.32 - 13.71.195.47, 52.161.24.128, 52.161.26.212, 52.161.27.108, 52.161.29.35, 52.161.30.5, 52.161.102.22 | 
+| Europa occidental | 13.69.64.208 - 13.69.64.223, 40.115.50.13, 52.174.88.118 | 
+| Oeste de la India | 104.211.146.224 - 104.211.146.239, 104.211.161.203, 104.211.189.218 | 
+| Oeste de EE. UU. | 40.112.243.160 - 40.112.243.175, 104.40.51.248, 104.42.122.49 | 
+| Oeste de EE. UU. 2 | 13.66.140.128 - 13.66.140.143, 13.66.218.78, 13.66.219.14, 13.66.220.135, 13.66.221.19, 13.66.225.219, 52.183.78.157 | 
+| Sur de Reino Unido 2 | 51.140.80.51, 51.140.148.0 - 51.140.148.15 | 
 | Oeste de Reino Unido | 51.140.211.0 - 51.140.211.15, 51.141.47.105 | 
 | | | 
 

@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: luisca
-ms.openlocfilehash: dd9bb4cb2622651c2d1979166ad838b3b337d583
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: b428e6e7738c8a9052c3fcfe2ad5284bfd5293d6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343251"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308000"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Ejemplo: crear una aptitud personalizada mediante Text Translate API
 
@@ -244,6 +244,13 @@ Cuando esté satisfecho con el comportamiento de la función, puede publicarla.
 
 1. En [Azure Portal](https://portal.azure.com), vaya al grupo de recursos y busque la función de traducción que publicó. En la sección **Administrar**, verá las claves de host. Seleccione el ícono **Copiar** de la clave de host *predeterminada*.  
 
+## <a name="update-ssl-settings"></a>Actualización de la configuración de SSL
+
+Todas las funciones de Azure Funtions creadas después del 30 de junio de 2018 tienen deshabilitado TLS 1.0, que no es compatible actualmente con funcionalidades personalizadas.
+
+1. En [Azure Portal](https://portal.azure.com), vaya al grupo de recursos y busque la función de traducción que publicó. En la sección **Características de la plataforma**, debería ver SSL.
+
+1. Después de seleccionar SSL, debe cambiar la **Versión TLS mínima** a 1.0. Las funciones de TLS 1.2 no se admiten aún como funcionalidades personalizadas.
 
 ## <a name="test-the-function-in-azure"></a>Pruebe la función en Azure
 

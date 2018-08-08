@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 7a61fa9df5b5232c11f4a546ec5f050461c88e88
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 72091d592475e41f254ef7c3882e3d3fee0c491b
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211147"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389538"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Directrices y recomendaciones de Reliable Collections en Azure Service Fabric
 Esta sección proporciona directrices para el uso de Reliable State Manager y Reliable Collections. El objetivo es ayudar a los usuarios a evitar problemas comunes.
@@ -49,6 +49,7 @@ Algunos aspectos que debe tener en cuenta:
 * Las operaciones de lectura de la base de datos secundaria pueden leer versiones que no están confirmadas en el cuórum.
   Esto significa que una versión de datos leída desde una única base de datos secundaria podría progresar como false.
   Las lecturas de la base de datos principal siempre son estables, es decir, que nunca pueden progresar como false.
+* La seguridad y privacidad de los datos que la aplicación conserva en una colección de confianza es su decisión, y está sujeta a las protecciones proporcionadas por la administración de almacenamiento; ES DECIR El cifrado de disco de sistema operativo puede utilizarse para proteger los datos en reposo.  
 
 ### <a name="next-steps"></a>Pasos siguientes
 * [Trabajo con Reliable Collections](service-fabric-work-with-reliable-collections.md)

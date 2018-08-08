@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 62b0639f134a134739b09593a0b21b47d06699dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6f6fa1ebc086530f138d32ee5a9c799b5bfbbdeb
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236931"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412117"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Información general de los límites de recursos de Azure SQL Database 
 
@@ -28,10 +28,12 @@ En este artículo se proporciona información general sobre los límites de recu
 | Número predeterminado de servidores por suscripción en cualquier región | 20 |
 | Número máximo de servidores por suscripción en cualquier región | 200 |
 | Cuota de DTU o eDTU por servidor | 54 000 |
+| Cuota de núcleo virtual por servidor | 540 |
+| Número máximo de grupos por servidor | limitado por el número de DTU o núcleos virtuales |
 |||
 
 > [!NOTE]
-> Para obtener más cuota de DTU o eDTU o más servidores que la cantidad predeterminada, se puede enviar una nueva solicitud de soporte técnico en Azure Portal para la suscripción con el tipo de problema "Cuota". La cuota de DTU o eDTU y el límite de base de datos por servidor restringe el número de grupos elásticos por servidor. 
+> Para obtener más cuota de DTU, eDTU, núcleos virtuales o más servidores que la cantidad predeterminada, se puede enviar una nueva solicitud de soporte técnico en Azure Portal para la suscripción con el tipo de problema "Cuota". La cuota de DTU o eDTU y el límite de base de datos por servidor restringe el número de grupos elásticos por servidor. 
 
 > [!IMPORTANT]
 > A medida que el número de bases de datos se aproxima al límite por servidor, puede ocurrir lo siguiente:
@@ -56,6 +58,7 @@ Al encontrar un uso elevado de espacio, las opciones de mitigación incluyen:
 
 - Aumentar el tamaño máximo de la base de datos o el grupo elástico, o agregar más almacenamiento. Consulte [Scale single database resources](sql-database-single-database-scale.md) (Escala de recursos de bases de datos únicas) y [Scale elastic pool resources](sql-database-elastic-pool-scale.md) (Escala de recursos de grupos elásticos).
 - Si la base de datos está en un grupo elástico, se puede mover fuera del grupo para que su espacio de almacenamiento no se comparta con otras bases de datos.
+- Reduzca una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Manage file space in Azure SQL Database](sql-database-file-space-management.md) (Administración de espacio de archivos en Azure SQL Database).
 
 ### <a name="sessions-and-workers-requests"></a>Sesiones y trabajos (solicitudes) 
 

@@ -1,5 +1,5 @@
 ---
-title: Uso Apache Flink con Azure Event Hubs para ecosistemas de Kafka | Microsoft Docs
+title: Uso de Apache Flink con Azure Event Hubs para Apache Kafka | Microsoft Docs
 description: Conexión de Apache Flink a una instancia de Event Hubs habilitada para Kafka
 services: event-hubs
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 06/06/2018
 ms.author: bahariri
-ms.openlocfilehash: cb7ef0e9b6a612e3f4116cb626903770e4035368
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ce1665c3cfd58d0d5aa8e253b5db317505b1959e
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303186"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284584"
 ---
-# <a name="apache-flink-with-event-hubs-for-the-kafka-ecosystem"></a>Uso de Apache Flink con Event Hubs para el ecosistema de Kafka
+# <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Uso de Apache Flink con Azure Event Hubs para Apache Kafka
 
 Uno de los beneficios clave de usar Apache Kafka es el ecosistema de plataformas a los que se puede conectar. La instancia de Event Hubs habilitada para Kafka combina la flexibilidad de Kafka con la escalabilidad, consistencia y asistencia del ecosistema Azure.
 
-En este tutorial se muestra cómo conectar instancias de Event Hubs habilitadas para Apache Flink sin cambiar los clientes del protocolo o ejecutar sus propios clústeres. Azure Event Hubs para el ecosistema de Kafka admite [Apache Kafka versión 1.0.](https://kafka.apache.org/10/documentation.html)
+En este tutorial se muestra cómo conectar instancias de Event Hubs habilitadas para Apache Flink sin cambiar los clientes del protocolo o ejecutar sus propios clústeres. Azure Event Hubs admite [Apache Kafka versión 1.0.](https://kafka.apache.org/10/documentation.html)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
@@ -36,13 +36,13 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 * [Git](https://www.git-scm.com/downloads)
     * En Ubuntu, puede ejecutar `sudo apt-get install git` para instalar Git.
 
-## <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
+## <a name="create-an-event-hubs-namespace"></a>Crear un espacio de nombres de Event Hubs
 
 Se requiere un espacio de nombres de Event Hubs para enviar o recibir de cualquier servicio de Event Hubs. Consulte [Creación de un espacio de nombres de Event Hubs y un centro de eventos con Azure Portal](event-hubs-create-kafka-enabled.md) para obtener información sobre cómo obtener un punto de conexión de Kafka para Event Hubs. Asegúrese de copiar la cadena de conexión de Event Hubs para su uso posterior.
 
 ## <a name="clone-the-example-project"></a>Clonación del proyecto de ejemplo
 
-Ahora que tiene una cadena de conexión de Event Hubs habilitada para Kafka, clone el repositorio de Azure Event Hubs y navegue hasta la subcarpeta `flink`:
+Ahora que tiene una cadena de conexión de Event Hubs habilitada para Kafka, clone el repositorio de Azure Event Hubs y vaya a la subcarpeta `flink`:
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs.git
@@ -116,6 +116,6 @@ Revise la [guía del conector Kafka de Flink](https://ci.apache.org/projects/fli
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Más información sobre Events Hubs](event-hubs-what-is-event-hubs.md)
-* [Más información sobre Event Hubs para Kafka Ecosystem](event-hubs-for-kafka-ecosystem-overview.md)
+* [Información sobre Event Hubs para Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para [transmitir eventos desde Kafka local a una instancia de Event Hubs habilitada para Kafka en la nube](event-hubs-kafka-mirror-maker-tutorial.md).
 * Aprenda a transmitir en una instancia de Event Hubs habilitada para Kafka mediante [aplicaciones nativas de Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)o [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md).

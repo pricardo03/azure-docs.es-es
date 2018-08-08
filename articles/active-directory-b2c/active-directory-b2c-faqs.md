@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e56b6f9360bdbfe2c5dcb2e81862cb80310bf54c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6b5cc1eff5c6d080854754ec5b3b62068f1cbb9c
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928739"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264722"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: preguntas más frecuentes (P+F) 
 Esta página responde a las preguntas más frecuentes sobre Azure Active Directory (Azure AD) B2C. Siga comprobando si hay actualizaciones.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>¿Por qué no puedo acceder a la extensión de Azure AD B2C en Azure Portal?
-Hay dos causas comunes de por qué las extensiones de Azure AD no funcionan en su caso.  Azure AD B2C requiere que su rol de usuario en el directorio sea el de administrador global.  Póngase en contacto con su administrador si cree que debería tener acceso.  Si tiene privilegios de administrador global, asegúrese de que se encuentra en un directorio de Azure AD B2C y no en un directorio de Azure Active Directory.  Puede ver las instrucciones para [crear un directorio de Azure AD B2C aquí](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
+Hay dos causas comunes de por qué la extensión de Azure AD no funciona en su caso.  Azure AD B2C requiere que su rol de usuario en el directorio sea el de administrador global.  Póngase en contacto con su administrador si cree que debería tener acceso.  Si tiene privilegios de administrador global, asegúrese de que se encuentra en un directorio de Azure AD B2C y no en un directorio de Azure Active Directory.  Puede ver las instrucciones para [crear un directorio de Azure AD B2C aquí](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>¿Puedo usar las características de Azure AD B2C en mi inquilino de Azure de AD existente, basado en empleados?
 Azure AD y Azure AD B2C son ofertas de producto independientes y no pueden coexistir en el mismo inquilino.  Un inquilino de Azure AD representa una organización.  Un inquilino de Azure AD B2C representa una colección de identidades para su uso con aplicaciones de usuario de confianza.  Con las directivas personalizadas (en versión preliminar), Azure AD B2C puede federarse con Azure AD, lo que permite la autenticación de los empleados de una organización.

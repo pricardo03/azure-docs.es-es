@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: cca9befb65abed3b6d07a52aa286c43725577121
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: cfab1a82c7da0ad596c9989e5a9f3ed800c58e4a
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051753"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389317"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory: reglas de nomenclatura
 La tabla siguiente proporciona las reglas de nomenclatura para los artefactos de Factoría de datos.
@@ -26,7 +26,7 @@ La tabla siguiente proporciona las reglas de nomenclatura para los artefactos de
 | NOMBRE | Exclusividad del nombre | Comprobaciones de validación |
 |:--- |:--- |:--- |
 | Data Factory |Único en Microsoft Azure. Los nombres no distinguen mayúsculas de minúsculas, es decir, `MyDF` y `mydf` hacen referencia a la misma factoría de datos. |<ul><li>Cada factoría de datos está asociada exactamente a una suscripción de Azure.</li><li>Los nombres de objeto deben comenzar por una letra o un número, y pueden contener solo letras, números y el carácter de guión (-).</li><li>Los caracteres de guión (-) debe estar inmediatamente precedidos y seguidos por una letra o un número. No se permiten guiones consecutivos en los nombres de contenedor.</li><li>El nombre puede tener entre 3 y 63 caracteres.</li></ul> |
-| Servicios, tablas o canalizaciones vinculados |Único en una factoría de datos. Los nombres no distinguen mayúsculas de minúsculas. |<ul><li>Número máximo de caracteres incluido en un nombre de tabla: 260.</li><li>Los nombres de objeto deben empezar con una letra, un número o un carácter de subrayado (_).</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, ”>”,”*”,”%”,”&”,”:”,”\\”</li><li>Solo no se permiten guiones ("-") en los nombres de los servicios vinculados y en el de los conjuntos de datos.</li></ul>  |
+| Servicios vinculados, conjuntos de datos o canalizaciones |Único en una factoría de datos. Los nombres no distinguen mayúsculas de minúsculas. |<ul><li>Los nombres de objeto deben empezar con una letra, un número o un carácter de subrayado (_).</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, ”>”,”*”,”%”,”&”,”:”,”\\”</li><li>Solo no se permiten guiones ("-") en los nombres de los servicios vinculados y en el de los conjuntos de datos.</li></ul>  |
 | Grupo de recursos |Único en Microsoft Azure. Los nombres no distinguen mayúsculas de minúsculas. | Para más información, consulte [Reglas y restricciones de nomenclatura de Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions). |
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -6,15 +6,15 @@ author: sachinpMSFT
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 08/01/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: d6dc641123e2bf840940f6246245a89fdd792db5
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 5d16763fc8f3331082b98216d25190b945d95b60
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131845"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411827"
 ---
 # <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>Elección de un nivel de servicio basado en DTU, nivel de rendimiento y recursos de almacenamiento 
 
@@ -48,6 +48,9 @@ Los niveles de rendimiento se expresan como unidades de transmisión de datos (D
 | Cantidad máxima de DTU | 5 | 3000 | 4000 | |
 ||||||
 
+> [!IMPORTANT]
+> En algunas circunstancias, puede que tenga que reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Manage file space in Azure SQL Database](sql-database-file-space-management.md) (Administración de espacio de archivos en Azure SQL Database).
+
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Límites de eDTU de grupo elástico, almacenamiento y base de datos agrupada
 
 | | **Básico** | **Estándar** | **Premium** | 
@@ -61,6 +64,9 @@ Los niveles de rendimiento se expresan como unidades de transmisión de datos (D
 
 > [!IMPORTANT]
 > Hay más de 1 TB de almacenamiento en el nivel Premium disponible actualmente en todas las regiones, excepto en las siguientes: Centro-oeste de EE. UU., Este de China, USDoD (centro), Centro de Alemania, USDoD (este), US Gov (suroeste), USGov Iowa, Nordeste de Alemania, Norte de China. En otras regiones, el almacenamiento máximo del nivel Premium está limitado a 1 TB. Consulte [Limitaciones actuales P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+
+> [!IMPORTANT]
+> En algunas circunstancias, puede que tenga que reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Manage file space in Azure SQL Database](sql-database-file-space-management.md) (Administración de espacio de archivos en Azure SQL Database).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

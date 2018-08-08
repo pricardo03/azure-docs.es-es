@@ -12,20 +12,20 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7717c026b4c09f47159fe62640f9a2eedf409d30
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: d321e82560f7676f77ed9161c1bce0304b7d5914
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247688"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397114"
 ---
 # <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>Administración de la conectividad y mensajería confiable mediante los SDK de dispositivo de Azure IoT Hub
 
-En esta guía se proporcionan instrucciones de alto nivel para diseñar aplicaciones de dispositivos resistentes, aprovechando las ventajas de las características de conectividad y mensajería confiable de los SDK de dispositivo IoT de Azure. El objetivo de este artículo es ayudar a responder preguntas y controlar estos escenarios:
+En esta guía se proporcionan instrucciones de alto nivel para diseñar aplicaciones de dispositivos resistentes, aprovechando las ventajas de las características de conectividad y mensajería confiable de los SDK de dispositivo IoT de Azure. El objetivo de este artículo es ayudarle a responder preguntas y a controlar estos escenarios:
 
-- administración de una conexión de red descartada
-- administración del cambio entre distintas conexiones de red
-- administración de la reconexión debido a errores de conexión transitorios del servicio
+- Administración de una conexión de red descartada
+- Administración del cambio entre distintas conexiones de red
+- Administración de la reconexión debido a errores de conexión transitorios del servicio
 
 Los detalles de la implementación pueden variar según el lenguaje. Para más detalles, consulte la documentación de API vinculada o el SDK específico.
 
@@ -116,3 +116,4 @@ Revise la documentación de implementación que aparece a continuación para inf
 - [Uso del SDK de dispositivo IoT para C](.\iot-hub-device-sdk-c-intro.md)
 - [Desarrollo para dispositivos restringidos](.\iot-hub-devguide-develop-for-constrained-devices.md)
 - [Desarrollo para dispositivos móviles](.\iot-hub-how-to-develop-for-mobile-devices.md)
+- [Solución de problemas de desconexión de dispositivos](iot-hub-troubleshoot-connectivity.md)

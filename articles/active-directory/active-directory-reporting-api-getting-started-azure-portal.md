@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ce8630f5718a849f460b372d9e15b03902ac2117
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 89562e6a2bfb977585cec1925a5f306c69c3d1e8
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159686"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390677"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introducción a la API de generación informes de Azure Active Directory
 
@@ -43,8 +43,6 @@ Para acceder a la API de generación de informes, incluso si planea el acceso a 
 3. Concesión de permisos
 4. Recopilación de configuraciones
 
-
- 
 Para obtener instrucciones detalladas, consulte [Requisitos previos para acceder a la API de generación de informes de Azure AD](active-directory-reporting-api-prerequisites-azure-portal.md).
 
 ## <a name="apis-with-graph-explorer"></a>APIs con probador de Graph
@@ -55,11 +53,11 @@ Puede usar el [probador de MSGraph](https://developer.microsoft.com/en-us/graph/
 
 ![Modificación de la interfaz de usuario de permisos](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 
-## <a name="recommendation"></a>Recomendación 
+## <a name="use-certificates-to-access-the-azure-ad-reporting-api"></a>Uso de certificados para acceder a la API de generación de informes de Azure AD 
 
-Si planea recuperar datos de informes sin la intervención del usuario, debería considerar el uso de la API de generación de informes de Azure AD con certificados.
+Si planea recuperar datos de informes sin la intervención del usuario, considere el uso de la API de generación de informes de Azure AD con certificados.
 
-Para instrucciones detalladas, consulte [Obtención de datos mediante Reporting API de Azure Active Directory con certificados](active-directory-reporting-api-with-certificates.md).
+Para instrucciones detalladas, consulte [Obtención de datos mediante la API de generación de informes de Azure Active Directory con certificados](active-directory-reporting-api-with-certificates.md).
 
 
 ## <a name="explore"></a>Exploración
@@ -67,17 +65,13 @@ Para instrucciones detalladas, consulte [Obtención de datos mediante Reporting 
 Obtenga una primera impresión de las API de generación de informes:
    
    - [Uso de los ejemplos de la API de auditoría](active-directory-reporting-api-audit-samples.md) 
- 
    - [Uso de los ejemplos de la API de generación de informes de actividad de inicio de sesión](active-directory-reporting-api-sign-in-activity-samples.md)
 
 
-## <a name="customize"></a>Personalizar  
+## <a name="next-steps"></a>Pasos siguientes
 
-Cree su propia solución: 
-   
-   - [Uso de la referencia de la API de auditoría](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-
-   - [Uso de la referencia de la API de generación de informes de actividad de inicio de sesión](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
-
+ * [Referencia de la API de auditoría](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+ * [Referencia de la API de generación de informes de actividad de inicio de sesión](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+ * [Solución de errores de la API de generación de informes de Azure AD](active-directory-reporting-troubleshoot-graph-api.md)
 
 

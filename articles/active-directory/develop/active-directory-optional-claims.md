@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e2b8b1f63e4c23c0beeaff6fd246fa2ba8afe106
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036758"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265071"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Notificaciones opcionales en Azure AD (versión preliminar)
 
@@ -41,8 +41,8 @@ Uno de los objetivos del [punto de conexión de la versión 2.0 de Azure AD](act
 
 | Tipo de cuenta | Versión 1.0 del punto de conexión                      | Versión 2.0 del punto de conexión  |
 |--------------|------------------------------------|----------------|
-| MSA          | N/D: se usan vales de RPS en su lugar | En breve habrá compatibilidad |
-| AAD          | Compatible                          | Compatible      |
+| Cuenta personal de Microsoft  | N/D: se usan vales de RPS en su lugar | En breve habrá compatibilidad |
+| Cuenta de Azure AD          | Compatible                          | Compatible      |
 
 ## <a name="standard-optional-claims-set"></a>Conjunto de notificaciones opcionales estándar
 El conjunto de notificaciones opcionales disponibles de forma predeterminada para que las usen las aplicaciones se enumeran a continuación.  Para agregar notificaciones opcionales personalizadas para la aplicación, consulte las [extensiones de directorio](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions) a continuación. 
@@ -165,7 +165,7 @@ Indica las notificaciones opcionales solicitadas por una aplicación. Una aplica
 
 **Tabla 5. Propiedades del tipo OptionalClaims**
 
-| NOMBRE        | type                       | DESCRIPCIÓN                                           |
+| NOMBRE        | Escriba                       | DESCRIPCIÓN                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Colección (OptionalClaim) | Notificaciones opcionales que se devuelven en el token de identificación de JWT.     |
 | `accessToken` | Colección (OptionalClaim) | Notificaciones opcionales que se devuelven en el token de acceso de JWT. |
@@ -179,7 +179,7 @@ Si lo admite una notificación concreta, también puede modificar el comportamie
 
 **Tabla 6. Propiedades del tipo OptionalClaim**
 
-| NOMBRE                 | type                    | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                   |
+| NOMBRE                 | Escriba                    | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nombre de la notificación opcional.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | Origen (objeto de directorio) de la notificación. Hay unas notificaciones predefinidas y otras definidas por el usuario desde las propiedades de extensión. Si el valor de origen es null, es una notificación opcional predefinida. Si el valor de origen es user, el valor de la propiedad name es la propiedad de extensión del objeto de usuario. |

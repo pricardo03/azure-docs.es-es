@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 81616522f479175dc58188bd6acc4db4f9007756
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 042db9bcadb470b2dc5e0095072e4ca06747ec5d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069393"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283631"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync
 
@@ -117,7 +117,9 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 
 -   Una tabla no puede tener una columna de identidad que no sea la clave principal.
 
--   Una clave principal no puede tener el tipo de datos de datetime.
+-   Una clave principal no puede tener los siguientes tipos de datos: sql_variant, binary, varbinary, image, xml. 
+
+-   Tenga cuidado al usar los siguientes tipos de datos como clave principal, porque la precisión admitida solo llega al segundo: time, datetime, datetime2, datetimeoffset.
 
 -   Los nombres de objetos (bases de datos, tablas y columnas) no pueden contener los caracteres imprimibles punto (.), corchete de apertura ([) o corchete de cierre (]).
 
@@ -131,7 +133,7 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 
 -   XMLSchemaCollection (XML admitido)
 
--   Cursor, Timestamp, Hierarchyid
+-   Cursor, RowVersion, Timestamp, Hierarchyid
 
 #### <a name="unsupported-column-types"></a>Tipos de columna no admitidos
 

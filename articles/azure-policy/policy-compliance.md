@@ -4,17 +4,17 @@ description: Las evaluaciones y los efectos de Azure Policy determinan el cumpli
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 390935d80e903631287b1a4b9f1075e547298d99
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f2283125aff705aae87b6260b48deee01aa12f0d
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39250380"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343559"
 ---
 # <a name="getting-compliance-data"></a>Obtención de datos de cumplimiento
 
@@ -35,7 +35,7 @@ Las evaluaciones de directivas asignadas e iniciativas se producen como resultad
 
 - Una directiva o iniciativa se asigna recientemente a un ámbito. Cuando esto ocurre, la asignación tarda unos 30 minutos en aplicarse al ámbito definido. Una vez que se aplica, comienza el ciclo de evaluación de recursos dentro de ese ámbito con la directiva o iniciativa recién asignada y, dependiendo de los efectos usados por la directiva o iniciativa, los recursos se marcan como compatibles o no compatibles. Una directiva o iniciativa grande evaluada en un ámbito amplio de recursos puede tardar bastante tiempo, por lo que no hay una predicción de cuándo se completará el ciclo de la evaluación. Una vez completado, los resultados de cumplimiento actualizados están disponibles en el portal y en los SDK.
 - Una directiva o iniciativa que ya está asignada a un ámbito se actualiza. El ciclo de evaluación y control de tiempo en este escenario es el mismo que para una nueva asignación a un ámbito.
-- Un recurso se implementa en un ámbito con una asignación a través del Administrador de recursos, REST, CLI de Azure o Azure PowerShell. En este escenario, el evento de efecto (anexar, auditar, denegar, implementar) y la información de estado de cumplimiento están disponibles en el portal y en los SDK unos 15 minutos más tarde.
+- Un recurso se implementa en un ámbito con una asignación a través del Administrador de recursos, REST, CLI de Azure o Azure PowerShell. En este escenario, el evento de efecto (anexar, auditar, denegar, implementar) y la información de estado de cumplimiento para el recurso individual están disponibles en el portal y en los SDK unos 15 minutos más tarde. Este evento no causa una evaluación de otros recursos.
 - Ciclo de evaluación de cumplimiento estándar. Una vez cada 24 horas, las asignaciones se evalúan automáticamente. Una directiva o iniciativa grande evaluada en un ámbito amplio de recursos puede tardar bastante tiempo, por lo que no hay una predicción de cuándo se completará el ciclo de la evaluación. Una vez completado, los resultados de cumplimiento actualizados están disponibles en el portal y en los SDK.
 
 ## <a name="how-compliance-works"></a>Cómo funciona el cumplimiento
@@ -51,8 +51,6 @@ En una asignación, un recurso no es compatible si no cumple las reglas de inici
 
 \* Los efectos Append, DeployIfNotExist y AuditIfNotExist requieren que la instrucción IF sea TRUE.
 Los efectos requieren también que la condición de existencia sea FALSE para ser no compatibles. Si es TRUE, la condición IF desencadena la evaluación de la condición de existencia de los recursos relacionados.
-
-Para entender mejor cómo se marcan los recursos como no compatibles, se usará el ejemplo de asignación de directiva creado anteriormente.
 
 Por ejemplo, suponga que tiene un grupo de recursos (ContosoRG) con varias cuentas de almacenamiento (resaltadas en rojo) expuestas a redes públicas.
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/10/2016
+ms.date: 07/24/2018
 ms.author: genli
-ms.openlocfilehash: a10bf96f06c3917913c479d81e8772cb86cfe36e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8a6256ab9c511342b536919c69faed30d40a256d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005273"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282597"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Introducción a las direcciones IP públicas a nivel de instancia (clásica)
 Una IP pública de nivel de instancia (ILPIP) es una dirección IP pública que se puede asignar directamente a la máquina virtual o a la instancia de rol de Cloud Services, en lugar de a un servicio en la nube en el que reside la máquina virtual o la instancia de rol. Un ILPIP no reemplaza a la dirección IP virtual (VIP) que está asignada al servicio en la nube. Es más bien una dirección IP adicional que puede usar para conectarse directamente a la máquina virtual o instancia de rol.
@@ -144,6 +144,16 @@ Para agregar una ILPIP a una instancia de rol de Cloud Services, complete los pa
     </ServiceConfiguration>
     ```
 3. Cargue el archivo .cscfg para el servicio en la nube siguiendo los pasos descritos en el artículo sobre [cómo configurar Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg).
+
+### <a name="how-to-retrieve-ilpip-information-for-a-cloud-service"></a>Procedimiento de recuperación de información de ILPIP para un servicio en la nube
+Para ver la información de ILPIP para cada instancia de rol, ejecute el siguiente comando de PowerShell y observe los valores de *PublicIPAddress* y *PublicIPName*:
+
+```powershell
+$roles = Get-AzureRole -ServiceName PaaSFTPService -Slot Production -RoleName WorkerRole1 -InstanceDetails
+
+$roles[0].PublicIPAddress
+$roles[1].PublicIPAddress
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Descubra cómo funcionan las [direcciones IP](virtual-network-ip-addresses-overview-classic.md) en el modelo de implementación clásica.

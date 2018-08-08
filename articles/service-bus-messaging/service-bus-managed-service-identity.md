@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 08/01/2018
 ms.author: sethm
-ms.openlocfilehash: 7b9901ee3478cb193c808b65d2dbbcf8b596a3c1
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 30df312e349bd6f6ebd1f38141075382be2522a2
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874659"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397991"
 ---
 # <a name="managed-service-identity-preview"></a>Identidad de servicio administrada (versión preliminar)
 
@@ -63,7 +63,7 @@ La identidad de servicio administrada de la aplicación web ya tiene acceso al e
 
 ### <a name="run-the-app"></a>Ejecución de la aplicación
 
-Ahora, modifique la página predeterminada de la aplicación de ASP.NET que ha creado. También puede utilizar el código de la aplicación web de [este repositorio de GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity).
+Ahora, modifique la página predeterminada de la aplicación de ASP.NET que ha creado. Puede utilizar el código de la aplicación web de [este repositorio de GitHub](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 
 La página Default.aspx es su página de destino. El código puede encontrarse en el archivo Default.aspx.cs. El resultado es una aplicación web básica con unos cuantos campos de entrada y con los botones **enviar** y **recibir** que se conectan a Service Bus para enviar o recibir mensajes.
 
@@ -74,8 +74,12 @@ Una vez realizados estos cambios, publique y ejecute la aplicación. Una manera 
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
 Para enviar o recibir mensajes, escriba el nombre del espacio de nombres y el nombre de la entidad que creó y, a continuación, haga clic en **enviar** o **recibir**.
- 
-Tenga en cuenta que la identidad de servicio administrada solo funciona dentro del entorno de Azure y únicamente en la implementación de App Service en que la configuró. Tenga en cuenta también que las identidades de servicio administradas no funcionan con las ranuras de implementación de App Service en este momento.
+
+
+> [!NOTE]
+> - La identidad de servicio administrada solo funciona en el entorno de Azure, en servicios de aplicaciones, en máquinas virtuales de Azure y en conjuntos de escalado. En el caso de las aplicaciones de .NET, la biblioteca Microsoft.Azure.Services.AppAuthentication, que es la que usa el paquete NuGet de Service Bus, proporciona una abstracción sobre este protocolo y admite una experiencia de desarrollo local. Esta biblioteca también permite probar el código localmente en una máquina de desarrollo, con su cuenta de usuario de Visual Studio, la CLI de Azure 2.0 o la autenticación integrada de Active Directory. Para más información acerca de las opciones de desarrollo local con esta biblioteca, consulte [Autenticación entre servicios en Azure Key Vault mediante .NET](../key-vault/service-to-service-authentication.md).  
+> 
+> - Actualmente, las identidades de servicio administradas no funcionan con las ranuras de implementación de App Service.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

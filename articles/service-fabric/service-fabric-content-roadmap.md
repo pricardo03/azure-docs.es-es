@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 1c3ea5b041cf2a961ef57bc168ae86b83412e044
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9f37a7665521b69634329078258b00cb9f53c407
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212830"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358725"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>¿Qué desea saber sobre Service Fabric?
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables.  Sin embargo, Service Fabric tiene un área expuesta de gran tamaño, y hay mucho por aprender.  En este artículo se proporciona una sinopsis de Service Fabric y se describen los conceptos principales, los modelos de programación, el ciclo de vida de la aplicación, las pruebas, los clústeres y la supervisión del estado. Lea [Información general](service-fabric-overview.md) y [¿Qué son los microservicios?](service-fabric-overview-microservices.md) para obtener una introducción y conocer cómo se puede utilizar Service Fabric para crear microservicios. Este artículo no contiene una lista completa de contenido, pero incluye vínculos a información general y artículos de introducción de cada área de Service Fabric. 
@@ -55,7 +55,7 @@ Una aplicación con nombre es una colección de servicios con nombre que realiza
 
 Después de crear una aplicación con nombre puede crear una instancia de uno de sus tipos de servicio (un servicio con nombre) en el clúster, especificando el tipo de servicio (con su nombre o versión). A cada instancia del tipo de servicio se le asigna un nombre de URI cuyo ámbito es el URI de su aplicación con nombre. Por ejemplo, si crea un servicio con nombre "MyDatabase" en la aplicación con nombre "MyNamedApp", el URI será similar al siguiente: *fabric:/MyNamedApp/MyDatabase*. En una aplicación con nombre, puede crear uno o varios servicios con nombre. Todos los servicios con nombre pueden tener su propio esquema de partición y cuentas de instancia o réplica. 
 
-Hay dos tipos de servicios: con y sin estado. Los servicios sin estado pueden almacenar el estado persistente en un servicio de almacenamiento externo como Azure Storage, Azure SQL Database o Azure Cosmos DB. Utilice un servicio sin estado en el caso de que el servicio no tenga almacenamiento persistente. Un servicio con estado usa Service Fabric para administrar el estado del servicio mediante sus modelos de programación Reliable Collections o Reliable Actors. 
+Hay dos tipos de servicios: con y sin estado. Los servicio sin estado no almacenan el estado dentro del servicio. Los servicios sin estado no tienen almacenamiento persistente en absoluto no almacenan el estado persistente en un servicio de almacenamiento externo como Azure Storage, Azure SQL Database o Azure Cosmos DB. Un servicio con estado almacena el estado dentro del servicio y usa modelos de programación Reliable Collections o Reliable Actors para administrar el estado. 
 
 Al crear un servicio con nombre, especifique un esquema de partición. Los servicios con grandes cantidades de estado dividen los datos entre las particiones. Cada partición es responsable de una parte de todo el estado del servicio, que se reparte entre los nodos del clúster.  
 

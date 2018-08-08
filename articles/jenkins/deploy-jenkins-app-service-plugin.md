@@ -1,26 +1,19 @@
 ---
-title: Implementación en Azure App Service mediante el complemento de Jenkins | Microsoft Docs
+title: Implementación en Azure App Service mediante el complemento de Jenkins
 description: Aprenda a usar el complemento de Jenkins de Azure App Service para implementar una aplicación web de Java para Azure en Jenkins.
-services: app-service\web
-documentationcenter: ''
-author: mlearned
-manager: douge
-editor: ''
-ms.assetid: ''
-ms.service: multiple
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
-ms.date: 7/24/2017
-ms.author: mlearned
-ms.custom: Jenkins
-ms.openlocfilehash: 0128ad37e3ba66710279de42cf4eae0ce5431b5b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: 1b01eb760fa36c9f0fb6180c12dc3e5c1bf9de6f
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418434"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391493"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementación en Azure App Service mediante el complemento de Jenkins 
 
@@ -91,7 +84,7 @@ Antes de configurar el trabajo en Jenkins, necesitará un plan de Azure App Serv
 ### <a name="set-up-the-jenkins-job"></a>Configuración del trabajo de Jenkins
 
 1. Cree un nuevo proyecto **freestyle** (estilo libre) en el panel de Jenkins.
-2. Configure **Source Code Management** (Administración de código fuente) para usar la bifurcación local de la [sencilla aplicación web de Java para Azure](https://github.com/azure-devops/javawebappsample). Proporcione el valor de **Repository URL** (Dirección URL de repositorio). Por ejemplo: http://github.com/&lt;su_ID>/javawebappsample.
+2. Configure **Source Code Management** (Administración de código fuente) para usar la bifurcación local de la [sencilla aplicación web de Java para Azure](https://github.com/azure-devops/javawebappsample). Proporcione el valor de **Repository URL** (Dirección URL de repositorio). Por ejemplo: http://github.com/&lt;your_ID>/javawebappsample.
 3. Agregue un paso para compilar el proyecto mediante el uso de Maven agregando el comando **Execute shell**. En este ejemplo, es necesario un comando adicional para cambiar el nombre del archivo \*.war en la carpeta de destino a **ROOT.war**:   
     ```bash
     mvn clean package
@@ -144,7 +137,7 @@ Antes de configurar el trabajo en Jenkins, necesita una aplicación web en Linux
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Configuración del trabajo de Jenkins para Docker
 
 1. Cree un nuevo proyecto **freestyle** (estilo libre) en el panel de Jenkins.
-2. Configure **Source Code Management** (Administración de código fuente) para usar la bifurcación local de la [sencilla aplicación web de Java para Azure](https://github.com/azure-devops/javawebappsample). Proporcione el valor de **Repository URL** (Dirección URL de repositorio). Por ejemplo: http://github.com/&lt;su_ID>/javawebappsample.
+2. Configure **Source Code Management** (Administración de código fuente) para usar la bifurcación local de la [sencilla aplicación web de Java para Azure](https://github.com/azure-devops/javawebappsample). Proporcione el valor de **Repository URL** (Dirección URL de repositorio). Por ejemplo: http://github.com/&lt;your_ID>/javawebappsample.
 3. Agregue un paso para compilar el proyecto mediante el uso de Maven agregando un comando **Execute shell**. En el comando, incluya la línea siguiente:
     ```bash
     mvn clean package
@@ -228,6 +221,10 @@ Para el valor de **Docker registry URL** (Dirección URL de registro del Docker)
 
 3. Vaya a http://&lt;nombre_de_su_aplicación>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y>. Reemplace &lt;x> e &lt;y> por cualquier número para obtener la suma de x+y.
     
+## <a name="troubleshooting-the-jenkins-plugin"></a>Solución de problemas del complemento de Jenkins
+
+Si detecta algún error con los complementos de Jenkins, envíe un problema en [Jenkins JIRA](https://issues.jenkins-ci.org/) para el componente específico.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial se utiliza el complemento de Jenkins de Azure App Service para implementar en Azure.

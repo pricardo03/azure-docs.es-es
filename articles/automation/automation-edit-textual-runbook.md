@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/02/2018
+ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 517c339122e493dfc4140acb12a2e181babea019
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b17fc82d6e9cbda6ffa94ac2ee5c97835b089a7e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192911"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399726"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Edición de runbooks de texto en Azure Automation
 
@@ -64,21 +64,19 @@ Use el siguiente procedimiento para abrir un runbook para su edición en el edit
 
 ## <a name="to-edit-an-azure-automation-runbook-using-windows-powershell"></a>Para editar un runbook de Azure Automation mediante Windows PowerShell
 
-Para editar un runbook con Windows PowerShell, use el editor de su elección y guárdelo en un archivo. ps1. Puede usar el cmdlet [Get-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) para recuperar el contenido del runbook y después el cmdlet [Set-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) para reemplazar el borrador del runbook existente por el modificado.
+Para editar un runbook con Windows PowerShell, use el editor de su elección y guárdelo en un archivo. ps1. Puede usar el cmdlet [Export-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Export-AzureRmAutomationRunbook) para recuperar el contenido del runbook y después el cmdlet [Import-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/import-azurermautomationrunbook) para reemplazar el borrador del runbook existente por el modificado.
 
 ### <a name="to-retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>Para recuperar el contenido de un runbook mediante Windows PowerShell
 
 En los siguientes comandos de ejemplo, se muestra cómo se recupera el script para un runbook y se guarda en un archivo de script. En este ejemplo, se recupera la versión de borrador. También es posible recuperar la versión publicada del runbook, aunque esta no se puede cambiar.
 
 ```powershell-interactive
-$automationAccountName = "MyAutomationAccount"
-$runbookName = "Sample-TestRunbook"
-$scriptPath = "c:\runbooks\Sample-TestRunbook.ps1"
+$resourceGroupName = "MyResourceGroup"
+$automationAccountName = "MyAutomatonAccount"
+$runbookName = "Hello-World"
+$scriptFolder = "c:\runbooks"
 
-$runbookDefinition = Get-AzureAutomationRunbookDefinition -AutomationAccountName $automationAccountName -Name $runbookName -Slot Draft
-$runbookContent = $runbookDefinition.Content
-
-Out-File -InputObject $runbookContent -FilePath $scriptPath
+Export-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $automationAccountName -ResourceGroupName $resourceGroupName -OutputFolder $scriptFolder -Slot Draft
 ```
 
 ### <a name="to-change-the-contents-of-a-runbook-using-windows-powershell"></a>Para cambiar el contenido de un runbook mediante Windows PowerShell
@@ -86,12 +84,13 @@ Out-File -InputObject $runbookContent -FilePath $scriptPath
 En los siguientes comandos de ejemplo, se muestra cómo reemplazar el contenido existente de un runbook por el de un archivo de script. Tenga en cuenta que es el mismo procedimiento de ejemplo que en el artículo sobre cómo [importar un runbook desde un archivo de script con Windows PowerShell](automation-creating-importing-runbook.md).
 
 ```powershell-interactive
-$automationAccountName = "MyAutomationAccount"
-$runbookName = "Sample-TestRunbook"
-$scriptPath = "c:\runbooks\Sample-TestRunbook.ps1"
+$resourceGroupName = "MyResourceGroup"
+$automationAccountName = "MyAutomatonAccount"
+$runbookName = "Hello-World"
+$scriptFolder = "c:\runbooks"
 
-Set-AzureAutomationRunbookDefinition -AutomationAccountName $automationAccountName -Name $runbookName -Path $scriptPath -Overwrite
-Publish-AzureAutomationRunbook –AutomationAccountName $automationAccountName –Name $runbookName
+Import-AzureRmAutomationRunbook -Path "$scriptfolder\Hello-World.ps1" -Name $runbookName -Type PowerShell -AutomationAccountName $automationAccountName -ResourceGroupName $resourceGroupName -Force
+Publish-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $automationAccountName -ResourceGroupName $resourceGroupName
 ```
 
 ## <a name="related-articles"></a>Artículos relacionados

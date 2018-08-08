@@ -16,12 +16,12 @@ ms.date: 07/09/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: f1d85b031abda73c6ca41d6d2551db9d9cd36f1f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ac338283bfe123e70697b0301fdccca886653c42
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092161"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285306"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integración de aplicación SaaS con Azure Active Directory
 
@@ -113,7 +113,7 @@ Para obtener una lista completa de las aplicaciones SaaS que fueron previamente 
 | ![Logotipo](./media/tutorial-list/active-directory-saas-boomi-tutorial.png)| [Boomi](boomi-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-box-tutorial.png)| [Box](box-tutorial.md)| [Box: aprovisionamiento de usuarios](box-userprovisioning-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-boxcryptor-tutorial.png)| [Boxcryptor](boxcryptor-tutorial.md)|
-| ![Logotipo](./media/tutorial-list/active-directory-saas-bpmonline-tutorial.png)| [Bpmâen línea](bpmonline-tutorial.md)|
+| ![Logotipo](./media/tutorial-list/active-directory-saas-bpmonline-tutorial.png)| [Bpmâonline](bpmonline-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-bridge-tutorial.png)| [Bridge](bridge-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-brightspace-desire2learn-tutorial.png)| [Brightspace by Desire2Learn](brightspace-desire2learn-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-bynder-tutorial.png)| [Bynder](bynder-tutorial.md)|
@@ -330,7 +330,7 @@ Para obtener una lista completa de las aplicaciones SaaS que fueron previamente 
 | ![Logotipo](./media/tutorial-list/active-directory-saas-lifesize-cloud-tutorial.png)| [Nube Lifesize](lifesize-cloud-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-worksmobile-tutorial.png)| [LINE WORKS](worksmobile-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-linkedinelevate-tutorial.png)| [LinkedIn Elevate](linkedinelevate-tutorial.md)|[LinkedIn Elevate: aprovisionamiento de usuarios](linkedinelevate-provisioning-tutorial.md)|
-| ![Logotipo](./media/tutorial-list/active-directory-saas-linkedinlearning-tutorial.png)| [LinkedIn Learning](linkedinlearning-tutorial.md)|[LinkedIn Learning: aprovisionamiento de usuarios](linkedinlearning-provisioning-tutorial.md)|
+| ![Logotipo](./media/tutorial-list/active-directory-saas-linkedinlearning-tutorial.png)| [LinkedIn Learning](linkedinlearning-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-linkedinsalesnavigator-tutorial.png)| [LinkedIn Sales Navigator](linkedinsalesnavigator-tutorial.md)|  [LinkedIn Sales Navigator: aprovisionamiento de usuarios](linkedinsalesnavigator-provisioning-tutorial.md)| 
 | ![Logotipo](./media/tutorial-list/active-directory-saas-liquidfiles-tutorial.png)| [LiquidFiles](liquidfiles-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-litmos-tutorial.png)| [Litmos](litmos-tutorial.md)|

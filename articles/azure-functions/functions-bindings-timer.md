@@ -3,7 +3,7 @@ title: Desencadenador de temporizador para Azure Functions
 description: Descubra cómo utilizar desencadenadores de temporizador en Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,14 +15,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: a4895c0c58d1cdb0430b7418ba24dd85157ecdd3
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 8459c08866fb71e755663aaddd32015af8b0d1df
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308166"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345249"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
@@ -205,7 +205,7 @@ La propiedad `IsPastDue` es `true` cuando la invocación de función actual es p
 
 ## <a name="cron-expressions"></a>Expresiones CRON 
 
-Una expresión CRON para el desencadenador de temporizador de Azure Functions incluye seis campos: 
+Azure Functions usa la biblioteca [NCronTab](https://github.com/atifaziz/NCrontab) para interpretar expresiones CRON. Una expresión CRON incluye seis campos:
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -219,7 +219,12 @@ Cada campo puede tener uno de los siguientes tipos de valores:
 |Un conjunto de valores (operador `,`)|<nobr>"5,8,10 * * * * *"</nobr>|A las hh:mm:05, hh:mm:08 y hh:mm:10, donde hh:mm es cada minuto de cada hora (tres veces por minuto)|
 |Un valor de intervalo (operador `/`)|<nobr>"0 */5 * * * *"</nobr>|A las hh:05:00, hh:10:00, hh:15:00 y así sucesivamente hasta hh:55:00, donde hh es cada hora (doce veces por hora)|
 
-Para especificar meses o días puede usar las abreviaturas de tres letras en lugar de valores numéricos. Por ejemplo, use "Ene" para enero o "Dom" para domingo.
+Para especificar meses o días puede usar valores numéricos, nombres o abreviaturas de nombres:
+
+* Para los días, los valores numéricos van de 0 a 6, donde 0 comienza con el domingo.
+* Los nombres están en inglés. Por ejemplo: `Monday`, `January`.
+* Los nombres no distinguen mayúsculas de minúsculas.
+* Los nombres se pueden abreviar. La longitud recomendada para la abreviatura es de tres letras.  Por ejemplo: `Mon`, `Jan`. 
 
 ### <a name="cron-examples"></a>Ejemplos CRON
 
@@ -227,13 +232,13 @@ Estos son algunos ejemplos de expresiones CRON que puede usar para el desencaden
 
 |Ejemplo|Cuándo se desencadena  |
 |---------|---------|
-|"0 */5 * * * *"|Una vez cada cinco minutos|
-|"0 0 * * * *"|Una vez al principio de cada hora|
-|"0 0 */2 * * *"|Una vez cada dos horas|
-|"0 0 9-17 * * *"|Una vez cada hora de 9 a. m. a 5 p. m.|
-|"0 30 9 * * *"|A las 9:30 a. m. todos los días|
-|"0 30 9 * * 1-5"|A las 9:30 a. m. cada día de la semana|
-
+|`"0 */5 * * * *"`|Una vez cada cinco minutos|
+|`"0 0 * * * *"`|Una vez al principio de cada hora|
+|`"0 0 */2 * * *"`|Una vez cada dos horas|
+|`"0 0 9-17 * * *"`|Una vez cada hora de 9 a. m. a 5 p. m.|
+|`"0 30 9 * * *"`|A las 9:30 a. m. todos los días|
+|`"0 30 9 * * 1-5"`|A las 9:30 a. m. cada día de la semana|
+|`"0 30 9 * Jan Mon"`|A las 9:30 a. m. todos los lunes en enero|
 >[!NOTE]   
 >Puede encontrar ejemplos de expresiones CRON en línea, pero muchas de ellas omiten el campo `{second}`. Si copia información de uno de ellos, agregue el campo que falta, `{second}`. Por lo general querrá un cero en ese campo, no un asterisco.
 
@@ -246,13 +251,13 @@ La zona horaria predeterminada que se usa con las expresiones CRON es la Hora un
 Por ejemplo, la *Hora estándar del Este* (EST) es UTC-05:00. Para que el desencadenador de temporizador se dispare a las 10 a.m. (Hora estándar), use la siguiente expresión CRON que representa la zona horaria UTC:
 
 ```json
-"schedule": "0 0 15 * * *",
+"schedule": "0 0 15 * * *"
 ``` 
 
 O bien, cree una configuración de aplicación para la aplicación de función denominada `WEBSITE_TIME_ZONE` y establecer el valor en **Hora estándar del Este**.  A continuación, utilice la siguiente expresión CRON: 
 
 ```json
-"schedule": "0 0 10 * * *",
+"schedule": "0 0 10 * * *"
 ``` 
 
 ## <a name="timespan"></a>timespan

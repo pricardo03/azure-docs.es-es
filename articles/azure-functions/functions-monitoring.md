@@ -2,7 +2,7 @@
 title: Monitor Azure Functions
 description: Obtenga información acerca de cómo usar Azure Application Insights con Azure Functions para supervisar la ejecución de funciones.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
-ms.author: tdykstra
-ms.openlocfilehash: cbdb4691bac01843a451c988e09d77dd10f97461
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: glenga
+ms.openlocfilehash: ba820c594b5afb34c050c74de30300b0dfc8c3a6
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344062"
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -203,7 +204,7 @@ El registrador de funciones de Azure también incluye un *nivel de registro* con
 |Seguimiento       | 0 |
 |Depurar       | 1 |
 |Información | 2 |
-|Warning (Advertencia)     | 3 |
+|Advertencia     | 3 |
 |Error       | 4 |
 |Crítico    | 5 |
 |None        | 6 |
@@ -222,7 +223,7 @@ El archivo *host.json* configura la cantidad de registro que envía una aplicaci
       "categoryLevels": {
         "Host.Results": "Error",
         "Function": "Error",
-        "Host.Aggregator": "Information"
+        "Host.Aggregator": "Trace"
       }
     }
   }
@@ -232,7 +233,7 @@ El archivo *host.json* configura la cantidad de registro que envía una aplicaci
 En el ejemplo siguiente se configuran las reglas siguientes:
 
 1. Para los registros con la categoría "Host.Results" o "Function", solo tiene que enviar el nivel `Error` y superior a Application Insights. Los registros del nivel `Warning` e inferiores se omiten.
-2. Para los registros con la categoría Host. Aggregator, envíe solo el nivel `Information` y superior a Application Insights. Los registros del nivel `Debug` e inferiores se omiten.
+2. Para los registros con la categoría Host.Aggregator, envíe todos los registros a Application Insights. El nivel de registro `Trace` es el mismo que algunos registradores llaman `Verbose`, pero usa `Trace` en el archivo *host.json*.
 3. Para el resto de registros, envíe solo el nivel `Information` y superior a Application Insights.
 
 El valor de categoría de *host.json* controla el registro de todas las categorías que comienzan con el mismo valor. Por ejemplo, "Host" en *host.json* controla el registro de "Host.General", "Host.Executor", "Host.Results" y así sucesivamente.
@@ -558,7 +559,7 @@ Para la CLI de Azure 2.0, use los siguientes comandos para iniciar sesión, elij
 az login
 az account list
 az account set <subscriptionNameOrId>
-az appservice web log tail --resource-group <resource group name> --name <function app name>
+az webapp log tail --resource-group <resource group name> --name <function app name>
 ```
 
 Para Azure PowerShell, use los siguientes comandos para agregar su cuenta de Azure, elija su suscripción y transmita los archivos de registro:

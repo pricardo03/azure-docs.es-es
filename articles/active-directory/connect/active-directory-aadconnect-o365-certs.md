@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e8f6b30bb7cbe82159e86fa48721afce3f9477d8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4de24608ba9db174f343bf0d78029913e4b7868f
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591504"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325690"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovación de certificados de federación para Office 365 y Azure Active Directory
 ## <a name="overview"></a>Información general
@@ -69,13 +69,19 @@ En el servidor de AD FS, abra Powershell. Compruebe que el valor AutoCertRollove
 >Si usa AD FS 2.0, ejecute primero Add-Pssnapin Microsoft.Adfs.Powershell.
 
 ### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Paso 2: Confirmar que AD FS y Azure AD están sincronizados
-En el servidor de AD FS, abra el símbolo del sistema de Azure AD Powershell y conéctese a Azure AD.
+En el servidor de AD FS, abra el símbolo del sistema de MSOnline PowerShell y conéctese a Azure AD.
 
 > [!NOTE]
-> Puede descargar Azure AD PowerShell [aquí](https://technet.microsoft.com/library/jj151815.aspx).
->
+> Los cmdlets de MSOL son parte del módulo MSOnline PowerShell.
+> Puede descargar el módulo MSOnline PowerShell directamente desde la Galería de PowerShell.
+> 
 >
 
+    Install-Module MSOnline
+
+Conéctese a Azure AD mediante MSOnline PowerShell-Module.
+
+    Import-Module MSOnline
     Connect-MsolService
 
 Compruebe que los certificados configurados en AD FS y Azure AD confían en las propiedades para el dominio especificado.
@@ -91,8 +97,8 @@ En la salida de Get-MsolFederationProperty o Get-AdfsCertificate compruebe la fe
 
 | AutoCertificateRollover | Certificados sincronizados con Azure AD | Los metadatos de federación están disponibles públicamente | Validez | . |
 |:---:|:---:|:---:|:---:|:---:|
-| Sí |Sí |Sí |- |No se requiere ninguna acción. Consulte [Renovación automática de certificados de firma de tokens](#autorenew). |
-| Sí |Sin  |- |Menos de 15 días |Renovar inmediatamente. Consulte [Renovación manual de certificados de firma de tokens](#manualrenew). |
+| SÍ |Sí |SÍ |- |No se requiere ninguna acción. Consulte [Renovación automática de certificados de firma de tokens](#autorenew). |
+| SÍ |Sin  |- |Menos de 15 días |Renovar inmediatamente. Consulte [Renovación manual de certificados de firma de tokens](#manualrenew). |
 | Sin  |- |- |Menos de 30 días |Renovar inmediatamente. Consulte [Renovación manual de certificados de firma de tokens](#manualrenew). |
 
 \[-] No importa

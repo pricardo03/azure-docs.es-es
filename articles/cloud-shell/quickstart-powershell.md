@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 07/27/2018
 ms.author: damaerte
-ms.openlocfilehash: a85d718d1c524a240f4b59b4db5004595fe1902f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: adae7ea79ada9247382c88e58f1ba5331007985b
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608617"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324500"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Guía de inicio rápido de PowerShell en Azure Cloud Shell (versión preliminar)
 
@@ -42,12 +42,15 @@ En este documento se detalla cómo usar PowerShell en Cloud Shell en [Azure Port
 
 Ejecute los comandos habituales de PowerShell en Cloud Shell, como:
 
-```PowerShell
+```azurepowershell-interactive
 PS Azure:\> Get-Date
-Monday, September 25, 2017 08:55:09 AM
+
+# Expected Output
+Friday, July 27, 2018 7:08:48 AM
 
 PS Azure:\> Get-AzureRmVM -Status
 
+# Expected Output
 ResourceGroupName       Name       Location                VmSize   OsType     ProvisioningState  PowerState
 -----------------       ----       --------                ------   ------     -----------------  ----------
 MyResourceGroup2        Demo        westus         Standard_DS1_v2  Windows    Succeeded           running
@@ -57,24 +60,24 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
 
 ## <a name="navigate-azure-resources"></a>Navegación de los recursos de Azure
 
- 1. Muestre las suscripciones
+ 1. Enumere todas las suscripciones de la unidad `Azure`.
 
-    ``` PowerShell
+    ```azurepowershell-interactive
     PS Azure:\> dir
     ```
 
  2. `cd` a la suscripción de su preferencia
 
-    ``` PowerShell
+    ```azurepowershell-interactive
     PS Azure:\> cd MySubscriptionName
     PS Azure:\MySubscriptionName>
     ```
 
  3. Vea todos los recursos de Azure en la suscripción actual
- 
+
     Escriba `dir` para mostrar varias vistas de los recursos de Azure.
- 
-    ``` PowerShell
+
+    ```azurepowershell-interactive
     PS Azure:\MySubscriptionName> dir
 
         Directory: azure:\MySubscriptionName
@@ -86,18 +89,21 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
     +    StorageAccounts
     +    VirtualMachines
     +    WebApps
-     ```
+    ```
 
-### <a name="allresources-view"></a>Vista AllResources 
+### <a name="allresources-view"></a>Vista AllResources
+
 Escriba `dir` en el directorio `AllResources` para ver los recursos de Azure.
-    
-    PS Azure:\MySubscriptionName> dir AllResources
+
+```azurepowershell-interactive
+PS Azure:\MySubscriptionName> dir AllResources
+```
 
 ### <a name="explore-resource-groups"></a>Exploración de grupos de recursos
 
  Puede ir al directorio `ResourceGroups` y encontrar máquinas virtuales dentro de un grupo de recursos específicos.
 
-``` PowerShell
+```azureowershell-interactive
 PS Azure:\MySubscriptionName> cd ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
 
 PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines> dir
@@ -110,46 +116,40 @@ VMName    Location   ProvisioningState VMSize          OS            SKU        
 ------    --------   ----------------- ------          --            ---             --------- -------------  --------------------
 TestVm1   westus     Succeeded         Standard_DS2_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo371
 TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo271
-
 ```
+
 > [!NOTE]
 > Es posible que observe que la segunda vez que escribe `dir`, Cloud Shell muestra los elementos mucho más rápido.
 > Esto se debe a que los elementos secundarios se almacenan en la memoria caché para brindar una mejor experiencia del usuario.
 Sin embargo, siempre puede usar `dir -Force` para obtener datos actualizados.
 
 ### <a name="navigate-storage-resources"></a>Navegación de los recursos de almacenamiento
-    
-Para navegar fácilmente en los recursos de almacenamiento, acceda al directorio `StorageAccounts`
-    
-``` PowerShell 
+
+Para navegar fácilmente por los recursos de almacenamiento, acceda al directorio `StorageAccounts`.
+
+```azureowershell-interactive
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
 
     Directory: Azure:\MySubscriptionNameStorageAccounts\MyStorageAccountName\Files
-
 
 Name          ConnectionString
 ----          ----------------
 MyFileShare1  \\MyStorageAccountName.file.core.windows.net\MyFileShare1;AccountName=MyStorageAccountName AccountKey=<key>
 MyFileShare2  \\MyStorageAccountName.file.core.windows.net\MyFileShare2;AccountName=MyStorageAccountName AccountKey=<key>
 MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountName=MyStorageAccountName AccountKey=<key>
-
-
 ```
 
 Con la cadena de conexión, puede usar el comando siguiente para montar el recurso compartido de Azure Files.
-        
-``` PowerShell
+
+```azurepowershell-interactive
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
-
-
 ```
 
 Para detalles, consulte [Montaje de un recurso compartido de Azure Files y acceso al recurso compartido en Windows][azmount].
 
 También puede navegar en los directorios del recurso compartido de Azure Files de la manera siguiente:
 
-            
-``` PowerShell
+```azurepowershell-interactive
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> cd .\MyFileShare1\
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files\MyFileShare1> dir
 
@@ -157,15 +157,13 @@ Mode  Name
 ----  ----
 +     TestFolder
 .     hello.ps1
-
-    
 ```
 
 ### <a name="interact-with-virtual-machines"></a>Interacción con máquinas virtuales
 
 Puede encontrar todas las máquinas virtuales de la suscripción actual mediante el directorio `VirtualMachines`.
-    
-``` PowerShell
+
+```azurepowershell-interactive
 PS Azure:\MySubscriptionName\VirtualMachines> dir
 
     Directory: Azure:\MySubscriptionName\VirtualMachines
@@ -176,8 +174,6 @@ Name       ResourceGroupName  Location  VmSize          OsType              NIC 
 TestVm1    MyResourceGroup1   westus    Standard_DS2_v2 Windows       my2008r213         Succeeded     stopped
 TestVm2    MyResourceGroup1   westus    Standard_DS1_v2 Windows          jpstest         Succeeded deallocated
 TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest         Succeeded     running
-
-
 ```
 
 #### <a name="invoke-powershell-script-across-remote-vms"></a>Invocación del script de PowerShell a través de máquinas virtuales remotas
@@ -187,18 +183,18 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
   Supongamos que tiene una máquina virtual llamada MyVM1. Usemos entonces `Invoke-AzureRmVMCommand` para invocar un bloque de scripts de PowerShell en la máquina remota.
 
-  ``` Powershell
+  ```azurepowershell-interactive
   Invoke-AzureRmVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
   ```
+
   También puede ir primero al directorio VirtualMachines y ejecutar `Invoke-AzureRmVMCommand` de la manera siguiente.
 
-  ``` PowerShell
+  ```azurepowershell-interactive
   PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
   PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzureRmVMCommand -Scriptblock {Get-ComputerInfo}
-  ```
-  Verá un resultado similar al siguiente:
 
-  ``` PowerShell
+  # You will see output similar to the following:
+
   PSComputerName                                          : 65.52.28.207
   RunspaceId                                              : 2c2b60da-f9b9-4f42-a282-93316cb06fe1
   WindowsBuildLabEx                                       : 14393.1066.amd64fre.rs1_release_sec.170327-1835
@@ -216,33 +212,30 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 Puede usar `Enter-AzureRmVM` para iniciar sesión de manera interactiva en una máquina virtual que se ejecuta en Azure.
 
-  ``` PowerShell
-  Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
+  ```azurepowershell-interactive
+  PS Azure:\> Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
   ```
 
 También puede navegar primero al directorio `VirtualMachines` y ejecute `Enter-AzureRmVM` de la siguiente manera
 
-  ``` PowerShell
+  ```azurepowershell-interactive
  PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzureRmVM
  ```
 
 ### <a name="discover-webapps"></a>Detección de WebApps
 
-Para navegar fácilmente por los recursos de Web Apps, acceda al directorio `WebApps`
+Para navegar fácilmente por los recursos de aplicaciones web, acceda al directorio `WebApps`.
 
-``` PowerShell
+```azurepowershell-interactive
 PS Azure:\MySubscriptionName> dir .\WebApps\
 
     Directory: Azure:\MySubscriptionName\WebApps
-
 
 Name            State    ResourceGroup      EnabledHostNames                  Location
 ----            -----    -------------      ----------------                  --------
 mywebapp1       Stopped  MyResourceGroup1   {mywebapp1.azurewebsites.net...   West US
 mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   West Europe
 mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
-
-
 
 # You can use Azure cmdlets to Start/Stop your web apps
 PS Azure:\MySubscriptionName\WebApps> Start-AzureRmWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
@@ -256,13 +249,11 @@ PS Azure:\MySubscriptionName\WebApps> dir -Force
 
     Directory: Azure:\MySubscriptionName\WebApps
 
-
 Name            State    ResourceGroup      EnabledHostNames                  Location
 ----            -----    -------------      ----------------                  --------
 mywebapp1       Running  MyResourceGroup1   {mywebapp1.azurewebsites.net...   West US
 mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   West Europe
 mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
-
 ```
 
 ## <a name="ssh"></a>SSH
@@ -273,44 +264,20 @@ Para realizar la autenticación en servidores o máquinas virtuales mediante SSH
 > [!NOTE]
 > Puede crear las claves pública y privada de SSH mediante `ssh-keygen` y publicarlas en `$env:USERPROFILE\.ssh` en Cloud Shell.
 
-### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>Uso de un perfil personalizado para conservar la configuración de GIT y SSH
-
-Puesto que las sesiones no se conservan al cerrar la sesión, guarde el directorio `$env:USERPROFILE\.ssh` en `clouddrive` o cree un vínculo simbólico al iniciar Cloud Shell.
-Agregue el fragmento de código siguiente en el archivo profile.ps1 para crear un vínculo simbólico a `clouddrive`.
-
-``` PowerShell
-# Check if the .ssh directory exists
-if( -not (Test-Path $home\clouddrive\.ssh)){
-    mkdir $home\clouddrive\.ssh
-}
-
-# .ssh path relative to this script
-$script:sshFolderPath = Join-Path $PSScriptRoot .ssh
-
-# Create a symlink to .ssh in user's $home
-if(Test-Path $script:sshFolderPath){
-   if(-not (Test-Path (Join-Path $HOME .ssh ))){
-        New-Item -ItemType SymbolicLink -Path $HOME -Name .ssh -Value $script:sshFolderPath
-   }
-}
-
-```
-
 ### <a name="using-ssh"></a>Uso de SSH
 
 Siga las instrucciones que se indican [aquí](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) para crear una nueva configuración de máquina virtual mediante cmdlets de AzureRM.
 Antes de llamar a `New-AzureRmVM` para iniciar la implementación, agregue la clave pública SSH a la configuración de la máquina virtual.
 La máquina virtual recién creada contendrá la clave pública en la ubicación `~\.ssh\authorized_keys`, lo cual permitirá una sesión SSH sin credenciales en la máquina virtual.
 
-``` PowerShell
-
+```azurepowershell-interactive
 # Create VM config object - $vmConfig using instructions on linked page above
 
 # Generate SSH keys in Cloud Shell
 ssh-keygen -t rsa -b 2048 -f $HOME\.ssh\id_rsa 
 
 # Ensure VM config is updated with SSH keys
-$sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
+$sshPublicKey = Get-Content "$HOME\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 # Create a virtual machine
@@ -318,9 +285,7 @@ New-AzureRmVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM 
 
 # SSH to the VM
 ssh azureuser@MyVM.Domain.Com
-
 ```
-
 
 ## <a name="list-available-commands"></a>Enumeración de los comandos disponibles
 
@@ -336,33 +301,34 @@ Puede ejecutar `Install-Module` para instalar módulos desde la [Galería de Pow
 
 Escriba `Get-Help` para obtener información sobre PowerShell en Azure Cloud Shell.
 
-``` PowerShell
-PS Azure:\> Get-Help
+```azurepowershell-interactive
+Get-Help
 ```
 
 En un comando específico, todavía puede ejecutar `Get-Help` seguido de un cmdlet.
 
-``` PowerShell
-PS Azure:\> Get-Help Get-AzureRmVM
+```azurepowershell-interactive
+Get-Help Get-AzureRmVM
 ```
 
 ## <a name="use-azure-files-to-store-your-data"></a>Uso de Azure Files para almacenar los datos
 
 Para crear un script, diga `helloworld.ps1` y guárdelo en `clouddrive` para usarlo en distintas sesiones de shell.
 
-``` PowerShell
-cd C:\users\ContainerAdministrator\clouddrive
-PS C:\users\ContainerAdministrator\clouddrive> vim .\helloworld.ps1
+```azurepowershell-interactive
+cd $HOME\clouddrive
+code .\helloworld.ps1
 # Add the content, such as 'Hello World!'
-PS C:\users\ContainerAdministrator\clouddrive> .\helloworld.ps1
+.\helloworld.ps1
 Hello World!
 ```
 
-La próxima vez que use PowerShell en Cloud Shell, el archivo `helloworld.ps1` existirá en el directorio `clouddrive` que monta el recurso compartido de Azure Files.
+La próxima vez que use PowerShell en Cloud Shell, el archivo `helloworld.ps1` existirá en el directorio `$HOME\clouddrive` que monta el recurso compartido de Azure Files.
 
 ## <a name="use-custom-profile"></a>Uso de un perfil personalizado
 
-Puede crear los perfiles de PowerShell `profile.ps1` o `Microsoft.PowerShell_profile.ps1` para personalizar el entorno de PowerShell. Guárdelo en `clouddrive` para que se pueda cargar en cada sesión de PowerShell cuando inicie Cloud Shell.
+Puede crear los perfiles de PowerShell `profile.ps1` o `Microsoft.PowerShell_profile.ps1` para personalizar el entorno de PowerShell.
+Guárdelo en `$profile.CurrentUserAllHosts` (o `$profile.CurrentUserAllHosts`), de modo que se pueda cargar en cada sesión de PowerShell en Cloud Shell.
 
 Para saber cómo crear un perfil, consulte la [información sobre los perfiles][profile].
 
@@ -370,26 +336,10 @@ Para saber cómo crear un perfil, consulte la [información sobre los perfiles][
 
 Para clonar un repositorio Git en Cloud Shell, debe crear un [token de acceso personal][githubtoken] y usarlo como el nombre de usuario. Una vez que tenga el token, clone el repositorio de la manera siguiente:
 
- ``` PowerShell
+```azurepowershell-interactive
   git clone https://<your-access-token>@github.com/username/repo.git
-
 ```
-Como las sesiones en Cloud Shell no se guardan cuando cierra la sesión o se agota el tiempo de espera de la misma, el archivo de configuración de GIT no existirá en el momento en que inicie otra sesión. Para que la configuración de GIT se guarde, debe guardar el archivo .gitconfig en `clouddrive` y copiarlo o crear un vínculo simbólico cuando se inicie Cloud Shell. Use el fragmento de código siguiente en el archivo profile.ps1 para crear un vínculo simbólico a `clouddrive`.
 
- ``` PowerShell
- 
-# .gitconfig path relative to this script
-$script:gitconfigPath = Join-Path $PSScriptRoot .gitconfig
-
-# Create a symlink to .gitconfig in user's $home
-if(Test-Path $script:gitconfigPath){
-
-    if(-not (Test-Path (Join-Path $home .gitconfig ))){
-         New-Item -ItemType SymbolicLink -Path $home -Name .gitconfig -Value $script:gitconfigPath
-    }
-}
-
-```
 ## <a name="exit-the-shell"></a>Salga del shell
 
 Escriba `exit` para finalizar la sesión.

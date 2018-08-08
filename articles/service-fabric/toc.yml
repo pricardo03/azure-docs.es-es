@@ -553,8 +553,8 @@
                   href: service-fabric-cluster-scale-up-down.md
                 - name: Escalado horizontal mediante programación
                   href: service-fabric-cluster-programmatic-scaling.md
-                - name: Escalado o actualización de las máquinas virtuales del tipo de nodo principal
-                  href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
+                - name: Escalado horizontal del tipo de nodo del conjunto de escalado de máquinas virtuales
+                  href: virtual-machine-scale-set-scale-node-type-scale-out.md
             - name: Actualizar
               href: service-fabric-cluster-upgrade.md
             - name: Establecimiento del control de acceso

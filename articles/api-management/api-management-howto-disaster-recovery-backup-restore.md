@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: b06a179459a449762555879669d177f811cb9560
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 4135bd66e839037d7db694cb3c6df8f3905222e6
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090884"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283111"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -76,6 +76,7 @@ Todas las tareas que se realizan en los recursos mediante Azure Resource Manager
 
 7. Haga clic en **Permisos delegados** al lado de la aplicación recién agregada, active la casilla **Access Azure Service Management (preview)** [Acceso a Azure Service Management (versión preliminar)].
 8. Haga clic en **Seleccionar**.
+9. Haga clic en **Conceder permisos**.
 
 ### <a name="configuring-your-app"></a>Configuración de la aplicación
 
@@ -92,7 +93,7 @@ namespace GetTokenResourceManagerRequests
         static void Main(string[] args)
         {
             var authenticationContext = new AuthenticationContext("https://login.microsoftonline.com/{tenant id}");
-            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+            var result = authenticationContext.AcquireTokenAsync("https://management.azure.com/", "{application id}", new Uri("{redirect uri}"), new PlatformParameters(PromptBehavior.Auto)).Result;
 
             if (result == null) {
                 throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -123,6 +124,8 @@ Reemplace `{tentand id}`, `{application id}` y `{redirect uri}` mediante las sig
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Llamada a operaciones de copia de seguridad y restauración
 
+Las API REST son [servicio API Management: Copia de seguridad](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/backup) y [servicio API Management: Restauración](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/restore).
+
 Antes de llamar a las operaciones de "copia de seguridad y restauración" descritas en las secciones siguientes, establezca el encabezado de solicitud de autorización para la llamada REST.
 
 ```csharp
@@ -132,24 +135,27 @@ request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ### <a name="step1"></a>Crear una copia de seguridad del servicio API Management
 Para crear una copia de seguridad del servicio API Management, emita esta solicitud HTTP:
 
-`POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}`
+```
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
+```
 
 donde:
 
 * `subscriptionId`: identificador de la suscripción que contiene el servicio API Management del que desea crear una copia de seguridad.
 * `resourceGroupName` : nombre del grupo de recursos del servicio Azure API Management
 * `serviceName` : el nombre del servicio Administración de API del que desea crear una copia de seguridad que se especificó durante su creación.
-* `api-version`: reemplazar por `2014-02-14`
+* `api-version`: reemplazar por `2018-06-01-preview`
 
 En el cuerpo de la solicitud, especifique el nombre de la copia de seguridad, el nombre del contenedor de blobs, la clave de acceso y el nombre de la cuenta de almacenamiento de Azure de destino:
 
-```
-'{  
-    storageAccount : {storage account name for the backup},  
-    accessKey : {access key for the account},  
-    containerName : {backup container name},  
-    backupName : {backup blob name}  
-}'
+
+```json
+{
+  "storageAccount": "{storage account name for the backup}",
+  "accessKey": "{access key for the account}",
+  "containerName": "{backup container name}",
+  "backupName": "{backup blob name}"
+}
 ```
 
 Establezca el valor del encabezado de solicitud `Content-Type` en `application/json`.
@@ -168,24 +174,26 @@ Tenga en cuenta las siguientes restricciones al realizar una solicitud de copia 
 ### <a name="step2"></a>Restaurar el servicio Administración de API
 Para restaurar el servicio Administración de API de una copia de seguridad anterior, realice esta solicitud HTTP:
 
-`POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}`
+```
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
+```
 
 donde:
 
 * `subscriptionId`: identificador de la suscripción que contiene el servicio Administración de API en el que se restaura una copia de seguridad.
 * `resourceGroupName`: una cadena de tipo "Api-Default-{service-region}", donde `service-region` identifica la región de Azure donde se hospeda el servicio API Management en el que desea restaurar una copia de seguridad (por ejemplo, `North-Central-US`).
 * `serviceName` : el nombre del servicio Administración de API que desea restaurar que se especificó durante su creación.
-* `api-version`: reemplazar por `2014-02-14`
+* `api-version`: reemplazar por `2018-06-01-preview`
 
 En el cuerpo de la solicitud, especifique la ubicación del archivo de copia de seguridad, es decir, el nombre de la copia de seguridad, el nombre del contenedor de blobs, la clave de acceso y el nombre de la cuenta de almacenamiento de Azure:
 
-```
-'{  
-    storageAccount : {storage account name for the backup},  
-    accessKey : {access key for the account},  
-    containerName : {backup container name},  
-    backupName : {backup blob name}  
-}'
+```json
+{
+  "storageAccount": "{storage account name for the backup}",
+  "accessKey": "{access key for the account}",
+  "containerName": "{backup container name}",
+  "backupName": "{backup blob name}"
+}
 ```
 
 Establezca el valor del encabezado de solicitud `Content-Type` en `application/json`.

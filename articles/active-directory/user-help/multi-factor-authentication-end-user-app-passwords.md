@@ -1,97 +1,126 @@
 ---
-title: ¿Cómo se utilizan las contraseñas de aplicación en Azure MFA? | Microsoft Docs
-description: Esta página ayudará a los usuarios a entender qué son las contraseñas de aplicación y para qué se utilizan con respecto a Azure MFA.
-services: multi-factor-authentication
-documentationcenter: ''
+title: Administración de contraseñas de aplicaciones en Azure Active Directory | Microsoft Docs
+description: Esta página ayuda a los usuarios a entender qué son las contraseñas de aplicaciones y para qué se utilizan con respecto la verificación en dos pasos.
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
-ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
-ms.date: 01/05/2018
+ms.date: 07/30/2018
 ms.author: lizross
-ms.custom: end-user
-ms.openlocfilehash: 290458e95aaed0cc85d83539d9d870c334df45df
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c6340133971a226002ce11ae1521bdc88e3e7975
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057597"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343295"
 ---
-# <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>¿Qué son las contraseñas de aplicación en Azure Multi-Factor Authentication?
-Determinadas aplicaciones sin explorador, como el cliente de correo electrónico nativo de Apple que usa Exchange Active Sync, actualmente no admiten la autenticación multifactor. La autenticación multifactor se habilita por usuario. Esto significa que si un usuario se ha habilitado para la autenticación multifactor y está intentando utilizar aplicaciones sin explorador, no podrá hacerlo. Una contraseña de aplicación permite que pueda hacerlo. Si se exige la aplicación de Multi-Factor Authentication a través de directivas de acceso condicional y no a través de MFA por usuario, no podrá crear contraseñas de aplicación. Las aplicaciones que utilizan directivas de acceso condicional para controlar el acceso no necesitan contraseñas de aplicación.
+# <a name="manage-app-passwords-for-two-step-verification"></a>Administración de las contraseñas de aplicaciones para la verificación en dos pasos
 
-Una vez que tenga una contraseña de aplicación, utilícela en lugar de la contraseña original para estas aplicaciones sin explorador. Esto se debe a que cuando se registra para la verificación en dos pasos, le está indicando a Microsoft que no permita que ningún usuario inicie sesión con su contraseña si no pueden realizar también la segunda comprobación. El cliente de correo electrónico nativo de Apple en el teléfono no puede iniciar sesión en su lugar ya que no puede solicitar la verificación en dos pasos. La solución para esto consiste en crear una contraseña de aplicación más segura que no se use a diario, pero solo para aquellas aplicaciones que no sean compatibles con la verificación en dos pasos. Utilice la contraseña de aplicación para que las aplicaciones puedan omitir la autenticación multifactor y poder seguir trabajando.
+Determinadas aplicaciones sin explorador, como Outlook 2010, no admiten la verificación en dos pasos. Esta falta de compatibilidad significa que si usa la verificación en dos pasos, la aplicación no funcionará. Para solucionar este problema, puede crear una contraseña generada automáticamente para usar con cada aplicación sin explorador, independiente de la contraseña normal.
 
-> [!NOTE]
-> Los clientes de Office 2013 (incluido Outlook) admiten nuevos protocolos de autenticación que se pueden usar con la verificación en dos pasos.  Esto significa que una vez habilitada, las contraseñas de aplicación no son necesarias para los clientes de Office 2013.  Para más información, consulte [Anuncio de la versión preliminar pública de la autenticación moderna de Office 2013](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+Al utilizar las contraseñas de aplicaciones, es importante recordar:
 
+- Las contraseñas de aplicaciones se generan automáticamente y solo se escriben una vez por cada aplicación.
 
-## <a name="how-to-use-app-passwords"></a>Cómo utilizar las contraseñas de aplicación
-Las siguientes son algunas cosas que es necesario recordar sobre el uso de contraseñas de aplicación.
+- Hay un límite de 40 contraseñas por usuario. Si intenta crear una después de ese límite, se le pedirá que elimine una contraseña existente antes de que se le permita crear una nueva.
 
-* El usuario no crea sus propias contraseñas de aplicación. En su lugar, se generan automáticamente. Puesto que solo tiene que escribir la contraseña de aplicación una vez por aplicación, es más seguro usar una contraseña más compleja, generada automáticamente, en lugar de crear una que pueda recordar.
-* Actualmente hay un límite de 40 contraseñas por usuario. Si intenta crear más una vez que haya alcanzado el límite, se le pedirá que elimine una de las contraseñas de aplicación existentes para poder crear una nueva.
-* Debe usar una contraseña de aplicación por dispositivo, no por aplicación. Por ejemplo, puede crear una contraseña de aplicación para su equipo portátil y utilizar esa contraseña de aplicación para todas las aplicaciones de ese equipo portátil. A continuación, cree una segunda contraseña de aplicación que se usará para todas las aplicaciones del escritorio.
-* La primera vez que se registre para la verificación en dos pasos, se le proporcionará una contraseña de aplicación.  Si necesita otras adicionales, puede crearlas.
+- Utilice una contraseña de aplicación por dispositivo, no por aplicación. Por ejemplo, cree una única contraseña para todas las aplicaciones del equipo portátil y luego otra contraseña única para todas las aplicaciones del equipo de sobremesa.
 
+    >[!Note]
+    >Los clientes de Office 2013 (incluido Outlook) admiten nuevos protocolos de autenticación que se pueden usar con la verificación en dos pasos. Esta compatibilidad significa que después de activar la verificación en dos pasos, ya no necesitará contraseñas de aplicaciones para clientes de Office 2013. Para obtener más información, consulte el artículo [Cómo funciona la autenticación moderna para las aplicaciones de cliente de Office 2013 y Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517).
 
+## <a name="where-to-create-and-delete-your-app-passwords"></a>Dónde crear y eliminar las contraseñas de aplicaciones
 
-## <a name="creating-and-deleting-app-passwords"></a>Creación y eliminación de contraseñas de aplicación
-Durante el inicio de sesión primero, se proporciona una contraseña de aplicación que puede utilizar.  Además, también puede crear y eliminar contraseñas de aplicación más adelante.  La forma de hacerlo depende de cómo use la autenticación multifactor. Responda a las siguientes preguntas para determinar dónde debe ir para administrar las contraseñas de aplicación:
+Recibirá una contraseña de la aplicación durante el registro inicial de verificación en dos pasos. Si necesita más de una contraseña, puede crear contraseñas adicionales, según cómo utilice la verificación en dos pasos:
 
-1. ¿Utiliza la verificación en dos pasos para su cuenta Microsoft personal? Si es así, consulte el artículo [Contraseñas de aplicación y verificación en dos pasos](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) para obtener ayuda. En caso contrario, continúe con la pregunta dos.
+- **Utiliza la verificación en dos pasos con la cuenta de Microsoft Azure.** Cree y elimine las contraseñas de aplicaciones con [Azure Portal](https://portal.azure.com). Para más información, consulte el artículo [Contraseñas de aplicaciones y verificación en dos pasos](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification).
 
-2. En ese caso, significa que usa la verificación en dos pasos para la cuenta profesional o educativa. ¿La usa para iniciar sesión en aplicaciones de Office 365? Si es así, consulte [Crear una contraseña de aplicación para Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) para obtener ayuda. En caso contrario, pase a la pregunta tres.
+- **Utiliza la verificación en dos pasos para la cuenta Microsoft personal.** Cree y elimine las contraseñas de aplicaciones mediante con la página [Conceptos básicos sobre seguridad](https://account.microsoft.com/account/) con su cuenta de Microsoft. Para más información, consulte el artículo [Contraseñas de aplicaciones y verificación en dos pasos](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification).
 
-3. ¿Utiliza la verificación en dos pasos con Microsoft Azure? En caso afirmativo, continúe en la sección [Administración de contraseñas de aplicación en Azure Portal](#manage-app-passwords-in-the-Azure-portal) de este artículo. En caso contrario, continúe con la pregunta cuatro.
+- **Utiliza la verificación en dos pasos para la cuenta profesional o educativa y las aplicaciones Office 365.** Cree y elimine las contraseñas de aplicaciones mediante las instrucciones de la sección [Creación y eliminación de contraseñas de aplicaciones en el portal de Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) de este artículo.
 
-4. ¿No está seguro de donde utiliza la verificación en dos pasos? Continúe en la sección [Administración de contraseñas de aplicación con el portal de MyApps](#manage-app-passwords-with-the-myapps-portal) de este artículo.
+## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Creación y eliminación de contraseñas de aplicaciones en el portal de Office 365
 
+Si utiliza la verificación en dos pasos con la cuenta profesional o educativa y sus aplicaciones de Office 365, puede crear y eliminar las contraseñas de aplicaciones mediante el portal de Office 365. Puede tener un máximo de 40 contraseñas de aplicaciones a la vez. Si necesita otra contraseña de aplicación después de ese límite, tendrá que eliminar una de las contraseñas de aplicaciones existentes.
+
+### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Para crear contraseñas de aplicaciones en el portal de Office 365
+
+1. Inicie sesión en su cuenta profesional o educativa.
+
+2. Vaya a https://portal.office.com, seleccione el icono **Configuración** en la parte superior derecha de la página **Portal de Office 365** y, a continuación, expanda **Comprobación de seguridad adicional**.
+
+    ![Portal de Office que muestra la ampliación del área de comprobación de seguridad adicional](media/security-info/security-info-o365password.png)
+
+3. Seleccione el vínculo **Crear y administrar contraseñas de aplicaciones** para abrir la página **Contraseñas de aplicaciones**.
+
+4. Seleccione **Crear**, escriba un nombre descriptivo para la aplicación que necesita la contraseña y, después, seleccione **Siguiente**.
+
+5. Seleccione **Copiar contraseña en el Portapapeles** y luego seleccione **Cerrar**.
+
+6. Utilice la contraseña de la aplicación copiada para iniciar sesión en su aplicación sin explorador. Solo tiene que escribir esta contraseña una vez y será recordada en el futuro.
+
+### <a name="to-delete-app-passwords-using-the-office-365-portal"></a>Para eliminar contraseñas de aplicación en el portal de Office 365
+
+1. Inicie sesión en su cuenta profesional o educativa.
+
+2. Vaya a https://portal.office.com, seleccione el icono **Configuración** en la parte superior derecha de la página **Portal de Office 365** y, a continuación, seleccione **Comprobación de seguridad adicional**.
+
+3. Seleccione el vínculo **Crear y administrar contraseñas de aplicaciones** para abrir la página **Contraseñas de aplicaciones**.
+
+4. Seleccione **Eliminar** para la contraseña de la aplicación que desea eliminar, seleccione **Sí** en el cuadro de confirmación y, después, seleccione **Cerrar**.
+
+    La contraseña de aplicación se eliminó correctamente.
+
+5. Siga los pasos de crear una contraseña de aplicación para crear una nueva.
 
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Administración de contraseñas de aplicación en Azure Portal
+
 Si utiliza la verificación en dos pasos con Azure, le interesará crear contraseñas de aplicación a través de Azure Portal.
 
+## <a name="manage-app-passwords-with-the-myapps-portal"></a>Administración de contraseñas de aplicación con el portal de MyApps
 
+También puede crear y eliminar contraseñas de aplicaciones mediante el portal de Mis aplicaciones.
 
-## <a name="manage-app-passwords-with-the-myapps-portal"></a>Administración de contraseñas de aplicación con el portal de MyApps.
-Si no está seguro de cómo usar la autenticación multifactor, siempre puede cambiar la configuración mediante el portal de Myapps.
+### <a name="to-create-an-app-password-using-the-my-apps-portal"></a>Para crear una contraseña de aplicación mediante el portal de Mis aplicaciones
 
-### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Creación de una contraseña de aplicación mediante el portal de MyApps
-1. Inicio de sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com)
-2. Haga clic en su nombre en la parte superior derecha y elija **Perfil**.
+1. Inicie sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com).
+
+2. Seleccione su nombre en la parte superior derecha y elija **Perfil**.
+
 3. Seleccione **Comprobación de seguridad adicional**.
+
    ![Seleccionar comprobación de seguridad adicional: captura de pantalla](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
 
-4. Seleccione **contraseñas de aplicación**.
+4. Seleccione **Contraseñas de aplicaciones**.
+
    ![Seleccionar contraseñas de aplicación: captura de pantalla](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
 
 5. Haga clic en **Create**(Crear).
-6. Escriba un nombre para la contraseña de aplicación y haga clic en **Siguiente**.
+
+6. Escriba un nombre para la contraseña de aplicación y seleccione **Siguiente**.
+
 7. Copie la contraseña de aplicación en el Portapapeles y péguela en la aplicación.
-   ![Crear una contraseña de aplicación](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+   
+    ![Crear una contraseña de aplicación](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Eliminación de una contraseña de aplicación mediante el portal de MyApps
-1. Inicio de sesión en [https://myapps.microsoft.com](https://myapps.microsoft.com)
-2. En la parte superior, seleccione el perfil.
-3. Seleccione **Comprobación de seguridad adicional**.
+### <a name="to-delete-an-app-password-using-the-my-apps-portal"></a>Para eliminar una contraseña de aplicación mediante el portal de Mis aplicaciones
 
-   ![Seleccionar comprobación de seguridad adicional: captura de pantalla](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
+1. Haga clic en su perfil y seleccione **Comprobación de seguridad adicional**.
 
-4. Seleccione **contraseñas de aplicación**.
-
-   ![Seleccionar contraseñas de aplicación: captura de pantalla](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
-
-5. Junto a la contraseña de la aplicación que desea quitar, seleccione **Eliminar**.
+2. Seleccione **Contraseñas de aplicaciones** y después seleccione **Eliminar** junto a la contraseña de la aplicación que desea eliminar.
 
    ![Eliminar una contraseña de aplicación](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
 
-6. Confirme que desea eliminar esa contraseña haciendo clic en **Sí**.
-7. Una vez que la contraseña se elimina, puede hacer clic en **cerrar**.
+3. Seleccione **Sí** para confirmar que desea eliminar la contraseña y, a continuación, seleccione **Cerrar**.
+
+## <a name="if-your-app-passwords-arent-working-properly"></a>Si las contraseñas de aplicaciones no funcionan correctamente
+
+Asegúrese de escribir correctamente la contraseña. Si está seguro de que ha introducido tu contraseña correctamente, vuelva a iniciar sesión y cree una nueva contraseña de la aplicación. Si ninguna de estas opciones soluciona el problema, póngase en contacto con el soporte técnico de la empresa para que pueda eliminar las contraseñas de aplicaciones existentes, permitiéndole crear otras nuevas. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

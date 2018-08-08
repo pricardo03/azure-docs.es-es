@@ -2,23 +2,18 @@
 title: Almacenamiento de archivo, esporádico y frecuente para blobs | Microsoft Docs
 description: Almacenamiento de archivo, esporádico y frecuente para cuentas de Azure Storage.
 services: storage
-documentationcenter: ''
 author: kuhussai
-manager: jwillis
-editor: ''
-ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: 21b09d9c428f9c29e0048faa32ce5349a127be89
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: blobs
+ms.openlocfilehash: 5d12b9f04dc1cc5017ab4c9ff1bde9b84ac24cfe
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400108"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: niveles de almacenamiento de archivo, esporádico y frecuente
 
@@ -72,7 +67,7 @@ Durante la rehidratación, puede comprobar la propiedad de blob **Archive Status
 
 El almacenamiento por niveles de blob permite cambiar el nivel de los datos en el nivel de objeto mediante una única operación denominada [Set Blob Tier](/rest/api/storageservices/set-blob-tier) (establecimiento de nivel de blob). Puede cambiar fácilmente el nivel de acceso de un blob entre el nivel de archivo, esporádico o frecuente a medida que cambien los patrones de uso, sin tener que mover los datos entre las cuentas. Todos los cambios de nivel se realizan de inmediato, excepto cuando se rehidrata un blob desde el nivel de archivo, lo que puede llevar varias horas. La hora del último cambio de nivel de blob se expone a través de la propiedad de blob **access tier change time**. Si un blob está en el nivel de archivo, no se puede sobrescribir y, por consiguiente, la carga del mismo blob no se permite en este escenario. Puede sobrescribir un blob de forma esporádica o permanente y, en este caso, el nuevo blob hereda el nivel del blob anterior que se ha sobrescrito.
 
-Los blobs en los tres niveles de almacenamiento pueden coexistir dentro de la misma cuenta. Los blobs que no tienen un nivel asignado explícitamente infieren el nivel de la configuración del nivel de acceso de la cuenta. Si el nivel de acceso se infiere desde la cuenta, verá que la propiedad de blob **access tier inferred** se establece en "true" y que la propiedad de blob **access tier** coincide con el nivel de cuenta. En Azure Portal, la propiedad inferida del nivel de acceso se muestra con el nivel de acceso de blob (por ejemplo, Permanente (inferido) o Esporádico (inferido)).
+Los blobs en los tres niveles de almacenamiento pueden coexistir dentro de la misma cuenta. Los blobs que no tienen un nivel asignado explícitamente infieren el nivel de la configuración del nivel de acceso de la cuenta. Si el nivel de acceso se infiere desde la cuenta, verá que la propiedad de blob **access tier inferred** se establece en "true", y que la propiedad de blob **access tier** coincide con el nivel de cuenta. En Azure Portal, la propiedad inferida del nivel de acceso se muestra con el nivel de acceso de blob (por ejemplo, Permanente (inferido) o Esporádico (inferido)).
 
 > [!NOTE]
 > El almacenamiento de archivo y el almacenamiento por niveles de blob solo admiten blobs en bloques. Tampoco se puede cambiar el nivel de un blob en bloques que tiene instantáneas.
@@ -151,7 +146,7 @@ Sí, puede cambiar el nivel de almacenamiento predeterminado mediante la definic
 
 **¿Puedo establecer el nivel de acceso de cuenta predeterminado en archivo?**
 
-Nº Los niveles de almacenamiento de acceso frecuente y esporádico se pueden establecer como nivel de acceso de cuenta predeterminado. El nivel de acceso de archivo solo puede establecerse en el nivel de objeto.
+No. Los niveles de almacenamiento de acceso frecuente y esporádico se pueden establecer como nivel de acceso de cuenta predeterminado. El nivel de acceso de archivo solo puede establecerse en el nivel de objeto.
 
 **¿En qué regiones están disponibles los niveles de almacenamiento de acceso frecuente, esporádico y de archivo?**
 

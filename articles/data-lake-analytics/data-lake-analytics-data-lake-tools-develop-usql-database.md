@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.author: yanacai
-ms.openlocfilehash: a8099a8c9bcec8ed5a7bb480dae58d2c077b8fe0
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1fee28ad185629b0cb26abb54cc2e196fca791e5
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37890905"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364056"
 ---
-# <a name="use-u-sql-database-project-to-develop-u-sql-database-for-azure-data-lake"></a>Uso de un proyecto de base de datos de U-SQL para desarrollar una base de datos de U-SQL para Azure Data Lake
+# <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Uso de un proyecto de base de datos de U-SQL para desarrollar una base de datos de U-SQL para Azure Data Lake
 
-La base de datos de U-SQL proporciona vistas estructuradas de los datos sin estructurar, administra datos estructurados en tablas y proporciona un sistema de catálogo de metadatos general para organizar los datos estructurados y el código personalizado. La base de datos es el concepto que agrupa estos objetos relacionados.
+La base de datos de U-SQL proporciona vistas estructuradas a través de los datos no estructurados y datos estructurados administrados en las tablas. También proporciona un sistema de catálogo de metadatos generales para organizar los datos estructurados y el código personalizado. La base de datos es el concepto que agrupa estos objetos relacionados.
 
 Obtenga más información sobre la [base de datos de U-SQL y el lenguaje de definición de datos (DDL)](https://msdn.microsoft.com/azure/data-lake-analytics/u-sql/data-definition-language-ddl-statements-u-sql). 
 
@@ -31,67 +31,70 @@ El proyecto de base de datos de U-SQL es un tipo de proyecto de Visual Studio qu
 
 ## <a name="create-a-u-sql-database-project"></a>Creación de un proyecto de base de datos de U-SQL
 
-Las Herramientas de Azure Data Lake para Visual Studio agregaron una nueva plantilla de proyecto llamada proyecto de base de datos de U-SQL en la versión 2.3.3000.0. Para crear un proyecto de U-SQL, vaya a **Archivo > Nuevo > Proyecto**. El proyecto de base de datos de U-SQL puede encontrarse en **Azure Data Lake > U-SQL node** (Nodo U-SQL).
+Las Herramientas de Azure Data Lake para Visual Studio agregaron una nueva plantilla de proyecto llamada proyecto de base de datos de U-SQL en la versión 2.3.3000.0. Para crear un proyecto de U-SQL, seleccione **Archivo > Nuevo > Proyecto**. El proyecto de base de datos de U-SQL puede encontrarse en **Azure Data Lake > Nodo U-SQL**.
 
-![Creación de proyecto de base de datos de U-SQL de Herramientas de Data Lake para Visual Studio](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-create-usql-database-project-creation.png) 
+![Herramientas de Data Lake para Visual Studio: Creación de proyecto de base de datos de U-SQL](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-create-usql-database-project-creation.png) 
 
-## <a name="develop-u-sql-database-objects-using-database-project"></a>Desarrollo de objetos de bases de datos de U-SQL mediante un proyecto de base de datos
+## <a name="develop-u-sql-database-objects-by-using-a-database-project"></a>Desarrollo de objetos de bases de datos de U-SQL mediante un proyecto de base de datos
 
-Haga clic con el botón derecho en el proyecto de base de datos U-SQL y, después, haga clic en **Agregar > Nuevo elemento**. Todos los tipos de objetos compatibles pueden encontrarse en el asistente para agregar un nuevo elemento. 
+Haga clic con el botón derecho en el proyecto de base de datos de U-SQL. Seleccione **Agregar > Nuevo elemento**. Puede encontrar todos los nuevos tipos de objetos admitidos en el Asistente para **Agregar nuevo elemento**. 
 
-1.  Para un objeto no ensamblado, por ejemplo, una función con valores de tabla, se crea un nuevo script U-SQL después de agregar el nuevo elemento. Puede empezar a desarrollar la instrucción DDL para ese objeto en el editor.
-2.  Para un objeto de ensamblado, la herramienta proporciona un editor de interfaz de usuario fácil de usar que le ayuda a registrar el ensamblado e implementar .dll y otros archivos. Siga estos pasos para agregar una definición de objeto de ensamblado al proyecto de base de datos de U-SQL:
+Para un objeto no ensamblado (por ejemplo, una función con valores de tabla), se crea un nuevo script U-SQL después de agregar el nuevo elemento. Puede empezar a desarrollar la instrucción DDL para ese objeto en el editor.
 
-1.  Agregue las referencias del proyecto de C# que incluye el UDO/UDAG/UDF para el proyecto de base de datos de U-SQL.
+Para un objeto de ensamblado, la herramienta proporciona un editor de interfaz de usuario fácil de usar que le ayuda a registrar el ensamblado e implementar archivos DLL y otros adicionales. Estos pasos le muestran cómo agregar una definición de objeto de ensamblado al proyecto de base de datos de U-SQL:
 
-    ![Adición de referencia de proyecto de base de datos de U-SQL de Herramientas de Data Lake para Visual Studio](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-add-project-reference.png) 
+1.  Agregue las referencias del proyecto de C# que incluya UDO/UDAG/UDF para el proyecto de base de datos de U-SQL.
 
-    ![Adición de referencia de proyecto de base de datos de U-SQL de Herramientas de Data Lake para Visual Studio](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-add-project-reference-wizard.png)
+    ![Herramientas de Data Lake para Visual Studio: Adición de referencia de proyecto de base de datos de U-SQL](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-add-project-reference.png) 
 
-2.  En la vista de diseño del ensamblado, seleccione el ensamblado referenciado en el menú desplegable **Cree el ensamblado desde la referencia**.
+    ![Herramientas de Data Lake para Visual Studio: Adición de referencia de proyecto de base de datos de U-SQL](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-add-project-reference-wizard.png)
 
-    ![Creación de ensamblado a partir de referencia para Herramientas de Data Lake para Visual Studio](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-create-assembly-from-reference.png)
+2.  En la vista de diseño del ensamblado, elija el ensamblado referenciado en el menú desplegable **Create assembly from reference** (Crear el ensamblado desde la referencia).
 
-3.  Agregue **dependencias administradas** y **archivos adicionales** si los hay. Al agregar archivos adicionales, la herramienta usará la ruta de acceso relativa para asegurarse de que puede encontrar los ensamblados en la máquina local y en la máquina de compilación más adelante. @_DeployTempDirectory es una variable predefinida que dirige la herramienta a la carpeta de salida de compilación. En la salida de la compilación, cada ensamblado tiene una subcarpeta denominada como el nombre del ensamblado, con todos los archivos .dll y archivos adicionales incluidos en dicha subcarpeta. 
+    ![Herramientas de Data Lake para Visual Studio: Creación de un ensamblado a partir de una referencia](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-create-assembly-from-reference.png)
+
+3.  Agregue **Dependencias administradas** y **Archivos adicionales**, si los hay. Al agregar archivos adicionales, la herramienta usa la ruta de acceso relativa para asegurarse de que puede encontrar los ensamblados tanto en la máquina local como en la máquina de compilación más adelante. 
+
+@_DeployTempDirectory es una variable predefinida que dirige la herramienta a la carpeta de salida de compilación. En la carpeta de salida de compilación, cada ensamblado tiene una subcarpeta denominada con el nombre del ensamblado. Todos los archivos adicionales y DLL están en esa subcarpeta. 
  
-## <a name="build-u-sql-database-project"></a>Compilación de un proyecto de base de datos de U-SQL
+## <a name="build-a-u-sql-database-project"></a>Compilación de un proyecto de base de datos U-SQL
 
-La salida de compilación del proyecto de base de datos de U-SQL es un paquete de implementación de la base de datos de U-SQL, denominado con el sufijo `.usqldbpack`. El paquete `.usqldbpack` es un archivo ZIP que incluye todas las instrucciones DDL en un único script U-SQL en la carpeta **DDL** y todos los archivos DLL y archivos adicionales para los ensamblados en la carpeta **Temp**.
+La salida de compilación del proyecto de base de datos U-SQL es un paquete de implementación de la base de datos U-SQL, denominado con el sufijo `.usqldbpack`. El paquete `.usqldbpack` es un archivo ZIP que incluye todas las instrucciones DDL en un único script U-SQL en la carpeta **DDL** y todos los archivos DLL y archivos adicionales para los ensamblados en la carpeta **Temp**.
 
-Obtenga más información sobre [cómo compilar el proyecto de base de datos de U-SQL con la línea de comandos de MSBuild y la tarea de compilación de Visual Studio Team Services](data-lake-analytics-cicd-overview.md#build-u-sql-database-project).
+Mas información sobre [cómo compilar un proyecto de base de datos U-SQL con la línea de comandos de MSBuild y la tarea de compilación de Visual Studio Team Services](data-lake-analytics-cicd-overview.md).
 
-## <a name="deploy-u-sql-database"></a>Implementación de la base de datos de U-SQL
+## <a name="deploy-a-u-sql-database"></a>Implementación de la base de datos U-SQL
 
 El paquete .usqldbpack puede implementarse tanto en una cuenta local como en una cuenta de Azure Data Lake Analytics mediante Visual Studio o el SDK de implementación. 
 
-### <a name="deploy-u-sql-database-in-visual-studio"></a>Implementación de la base de datos de U-SQL en Visual Studio
+### <a name="deploy-a-u-sql-database-in-visual-studio"></a>Implementación de una base de datos U-SQL en Visual Studio
 
 Puede implementar una base de datos de U-SQL mediante un proyecto de base de datos de U-SQL o un paquete .usqldbpack en Visual Studio.
 
-#### <a name="deploy-through-u-sql-database-project"></a>Implementación mediante un proyecto de base de datos de U-SQL
+#### <a name="deploy-through-a-u-sql-database-project"></a>Implementación mediante un proyecto de base de datos U-SQL
 
-1.  Haga clic con el botón derecho en el proyecto de base de datos de U-SQL y seleccione **Implementar**.
-2.  En el asistente para implementar la base de datos de U-SQL, seleccione la **cuenta de ADLA** en la que desea implementar la base de datos. Se admite tanto una cuenta (Local) como una cuenta de ADLA.
-3.  El **origen de la base de datos** se rellena automáticamente señalando al paquete .usqldbpack de la carpeta de salida de compilación del proyecto
-4.  Escriba el **nombre de la base de datos** para crear una base de datos. Si ya hay una base de datos con el mismo nombre en la cuenta de Azure Data Lake Analytics de destino, todos los objetos definidos en el proyecto de base de datos se crean sin volver a crear la base de datos.
-5.  Haga clic en **Enviar** para implementar la base de datos de U-SQL. Se cargarán todos los recursos (ensamblados y archivos adicionales) y un trabajo de U-SQL incluirá todas las instrucciones DDL enviadas.
+1.  Haga clic con el botón derecho en el proyecto de base de datos U-SQL y, después, seleccione **Implementar**.
+2.  En el **Asistente para implementar la base de datos de U-SQL**, seleccione la **cuenta de ADLA** en la que desea implementar la base de datos. Se admite tanto una cuenta local como una cuenta de ADLA.
+3.  El **origen de la base de datos** se rellena automáticamente y señala al paquete .usqldbpack en la carpeta de salida de compilación del proyecto.
+4.  Escriba un nombre en **Nombre de base de datos** para crear una base de datos. Si ya hay una base de datos con el mismo nombre en la cuenta de Azure Data Lake Analytics de destino, todos los objetos definidos en el proyecto de base de datos se crean sin volver a crear la base de datos.
+5.  Para implementar la base de datos de U-SQL, seleccione **Enviar**. Se cargarán todos los recursos (ensamblados y archivos adicionales) y un trabajo de U-SQL que incluya todas las instrucciones DDL enviadas.
 
-    ![Implementación mediante proyecto de base de datos de U-SQL de Herramientas de Data Lake para Visual Studio](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-deploy-usql-database-project.png)
+    ![Herramientas de Data Lake para Visual Studio: Implementación un proyecto de base de datos U-SQL](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-deploy-usql-database-project.png)
 
-    ![Asistente para la implementación mediante proyecto de base de datos de U-SQL de Herramientas de Data Lake para Visual Studio](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-deploy-usql-database-project-wizard.png)
+    ![Herramientas de Data Lake para Visual Studio: Implementación mediante el asistente del proyecto de base de datos de U-SQL](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-deploy-usql-database-project-wizard.png)
 
-#### <a name="deploy-through-u-sql-database-deployment-package"></a>Implementación mediante el paquete de implementación de base de datos de U-SQL
+#### <a name="deploy-through-a-u-sql-database-deployment-package"></a>Implementación mediante el paquete de implementación de base de datos de U-SQL
 
-1.  Abra **Explorador de servidores** y expanda la **cuenta de Azure Data Lake Analytics** en la que desea implementar la base de datos.
-2.  Haga clic con el botón derecho en Bases de datos U-SQL y seleccione **Implementar base de datos**.
+1.  Abra el **Explorador de servidores**. A continuación, expanda la **cuenta de Azure Data Lake Analytics** en la que desee implementar la base de datos.
+2.  Haga clic con el botón derecho en **U-SQL Databases** (Bases de datos U-SQL) y seleccione **Implementar base de datos**.
 3.  Defina **Origen de la base de datos** como la ruta de acceso del paquete de implementación de la base de datos de U-SQL (archivo .usqldbpack).
-4.  Escriba el **nombre de la base de datos** para crear una base de datos. Si ya hay una base de datos con el mismo nombre en la cuenta de Azure Data Lake Analytics de destino, todos los objetos definidos en el proyecto de base de datos se crean sin volver a crear la base de datos.
+4.  Escriba el **Nombre de base de datos** para crear una base de datos. Si ya hay una base de datos con el mismo nombre en la cuenta de Azure Data Lake Analytics de destino, todos los objetos definidos en el proyecto de base de datos se crean sin volver a crear la base de datos.
 
-    ![Implementación mediante paquete de base de datos de U-SQL de Herramientas de Data Lake para Visual Studio](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-deploy-usql-database-package.png)
+    ![Herramientas de Data Lake para Visual Studio: Implementación de un paquete de base de datos U-SQL](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-deploy-usql-database-package.png)
 
-    ![Asistente para la implementación mediante paquete de base de datos de U-SQL de Herramientas de Data Lake para Visual Studio](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-deploy-usql-database-package-wizard.png)
+    ![Herramientas de Data Lake para Visual Studio: Implementación mediante el asistente de paquetes de base de datos U-SQL](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-deploy-usql-database-package-wizard.png)
   
-### <a name="deploy-u-sql-database-using-sdk"></a>Implementación de la base de datos de U-SQL mediante el SDK
+### <a name="deploy-u-sql-database-by-using-the-sdk"></a>Implementación de una base de datos U-SQL mediante el SDK
 
 `PackageDeploymentTool.exe` proporciona interfaces de programación y línea de comandos que ayudan a implementar bases de datos de U-SQL. El SDK se incluye en el [paquete Nuget del SDK de U-SQL](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), que se encuentra en `build/runtime/PackageDeploymentTool.exe`.
 
@@ -101,22 +104,22 @@ Puede implementar una base de datos de U-SQL mediante un proyecto de base de dat
 
 Un proyecto de U-SQL puede hacer referencia a un proyecto de base de datos de U-SQL. La referencia afecta a dos cargas de trabajo:
 
-- Compilación del proyecto: los entornos de bases de datos referenciadas se configuran antes de compilar los scripts U-SQL. 
-- Ejecución local en cuenta (Local-project): los entornos de bases de datos referenciadas se implementan en la cuenta (Local-project) antes de la ejecución del script U-SQL. [Más información sobre la ejecución local y las diferencias entre las cuentas (Local-machine) y (Local-project)](data-lake-analytics-data-lake-tools-local-run.md).
+- *Compilación del proyecto*: configure los entornos de bases de datos referenciadas antes de compilar los scripts U-SQL. 
+- *Ejecución local en cuenta (local-project)*: los entornos de bases de datos referenciadas se implementan en la cuenta (local-project) antes de la ejecución del script U-SQL. [Más información sobre la ejecución local y las diferencias entre las cuentas (local-machine) y (local-project)](data-lake-analytics-data-lake-tools-local-run.md).
 
-### <a name="how-to-add-u-sql-database-reference"></a>Cómo agregar una referencia de base de datos de U-SQL
+### <a name="how-to-add-a-u-sql-database-reference"></a>Procedimiento para agregar una referencia de base de datos U-SQL
 
-1. Haga clic con el botón derecho en el **Explorador de soluciones** y seleccione **Agregar referencia de base de datos U-SQL...**.
+1. Haga clic con el botón derecho en el **Explorador de soluciones** y, después, elija **Agregar referencia de base de datos U-SQL**.
 
-    ![Adición de referencia de proyecto de base de datos de Herramientas de Data Lake para Visual Studio](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-add-database-project-reference.png)
+    ![Herramientas de Data Lake para Visual Studio: Adición de una referencia de proyecto de base de datos](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-add-database-project-reference.png)
 
-2. Configure una referencia de base de datos desde un proyecto de base de datos de U-SQL en la solución actual o un archivo de paquete de base de datos de U-SQL.
+2. Configure una referencia de base de datos desde un proyecto de base de datos U-SQL en la solución actual o un archivo de paquete de base de datos U-SQL.
 3. Proporcione el nombre de la base de datos.
 
     ![Asistente para la adición de referencia de proyecto de base de datos de Herramientas de Data Lake para Visual Studio](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-add-database-project-reference-wizard.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configuración de canalizaciones de CI/CD para Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md)
+- [Procedimiento para configurar una canalización de CI/CD para Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md)
 - [Prueba de código de Azure Data Lake Analytics](data-lake-analytics-cicd-test.md)
 - [Ejecución local de scripts U-SQL](data-lake-analytics-data-lake-tools-local-run.md)

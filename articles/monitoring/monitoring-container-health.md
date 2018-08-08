@@ -3,7 +3,7 @@ title: Supervisión del mantenimiento de Azure Kubernetes Service (AKS) (versió
 description: En este artículo se describe cómo puede revisar fácilmente el rendimiento del contenedor de AKS para comprender rápidamente el uso de su entorno hospedado de Kubernetes.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2018
+ms.date: 07/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 806487ec731a1b7fe02ccdfe6b285f5b2e119787
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f84452af9c2c731d69d5805961266c46351a7687
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249104"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366103"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Supervisión del mantenimiento de contenedores de Azure Kubernetes Service (AKS) (versión preliminar)
 
@@ -39,7 +39,7 @@ Antes de empezar, asegúrese de que dispone de lo siguiente:
 
 - Un clúster de AKS nuevo o existente.
 - Un Agente de OMS para Linux, versión microsoft / oms:ciprod04202018 o posterior. El número de versión se representa mediante una fecha con el siguiente formato: *mmddaaaa*. El agente se instala automáticamente durante la incorporación de la solución de mantenimiento de contenedores. 
-- Un área de trabajo de Log Analytics. Puede crearlo al habilitar la supervisión del nuevo clúster de AKS, o bien mediante [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) o [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md).
+- Un área de trabajo de Log Analytics. Puede crearla al habilitar la supervisión de su nuevo clúster de AKS o dejar que la experiencia de incorporación cree un área de trabajo predeterminada en el grupo de recursos predeterminado de la suscripción del clúster de AKS. Si opta por crear el área de trabajo usted mismo, puede usar [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), mediante [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) o [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md).
 - El rol de colaborador de Log Analytics para habilitar la supervisión de contenedores. Para más información acerca de cómo controlar el acceso a un área de trabajo de Log Analytics, consulte [Administración de áreas de trabajo](../log-analytics/log-analytics-manage-access.md).
 
 ## <a name="components"></a>Componentes 
@@ -47,14 +47,20 @@ Antes de empezar, asegúrese de que dispone de lo siguiente:
 La capacidad para supervisar el rendimiento se basa en un Agente de OMS para Linux en contenedor, que recopila los datos de los eventos y del rendimiento de todos los nodos del clúster. El agente se implementa y registra automáticamente con el área de trabajo de Log Analytics especificada después de habilitar la supervisión del contenedor. 
 
 >[!NOTE] 
->Si ya ha implementado un clúster de AKS, puede habilitar la supervisión mediante una plantilla de Azure Resource Manager que se proporciona, como se muestra más adelante en este artículo. No puede usar `kubectl` para actualizar, eliminar, volver a implementar o implementar el agente. 
+>Si ya ha implementado un clúster de AKS, puede habilitar la supervisión mediante la CLI de Azure o una plantilla de Azure Resource Manager que se proporciona, como se muestra más adelante en este artículo. No puede usar `kubectl` para actualizar, eliminar, volver a implementar o implementar el agente. 
 >
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 Inicie sesión en el [Azure Portal](https://portal.azure.com). 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Habilitación de la supervisión del mantenimiento de contenedores para un nuevo clúster
-Durante la implementación puede habilitar la supervisión de un nuevo clúster de AKS desde Azure Portal. Siga los pasos descritos en el artículo de inicio rápido [Implementación de un clúster de Azure Container Service (AKS)](../aks/kubernetes-walkthrough-portal.md). En la página **Supervisión**, en la opción **Habilitar supervisión**, seleccione **Sí** y, después, seleccione un área de trabajo de Log Analytics existente o cree una nueva. 
+Durante la implementación, puede habilitar la supervisión de un nuevo clúster de AKS desde Azure Portal o con la CLI de Azure. Siga los pasos descritos en el artículo de guía de inicio rápido [Implementación de un clúster de Azure Kubernetes Service (AKS)](../aks/kubernetes-walkthrough-portal.md), si desea habilitarlo desde el portal. En la página **Supervisión**, en la opción **Habilitar supervisión**, seleccione **Sí** y, después, seleccione un área de trabajo de Log Analytics existente o cree una nueva. 
+
+Para habilitar la supervisión de un nuevo clúster de AKS creado con la CLI de Azure, siga el paso correspondiente del artículo de la guía de inicio rápido, en la sección [Creación de un clúster de AKS](../aks/kubernetes-walkthrough.md#create-aks-cluster).  
+
+>[!NOTE]
+>Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecuta la versión 2.0.27 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+>
 
 Una vez que haya habilitado la supervisión y todas las tareas de configuración se hayan completado correctamente, puede supervisar el rendimiento de su clúster de cualquiera de estas dos maneras:
 
@@ -66,7 +72,20 @@ Una vez que haya habilitado la supervisión y todas las tareas de configuración
 Después de habilitar la supervisión pueden pasar unos 15 minutos hasta que pueda ver los datos operativos del clúster. 
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Habilitación de la supervisión del mantenimiento de contenedores para clústeres administrados existentes
-Puede habilitar la supervisión de un clúster de AKS que ya se haya implementado en Azure Portal o con la plantilla de Azure Resource Manager proporcionada mediante el cmdlet `New-AzureRmResourceGroupDeployment` de PowerShell o la CLI de Azure. 
+Puede habilitar la supervisión de un clúster de AKS que ya se haya implementado bien con la CLI de Azure, desde Azure Portal o con la plantilla de Azure Resource Manager proporcionada mediante el cmdlet `New-AzureRmResourceGroupDeployment` de PowerShell. 
+
+### <a name="enable-monitoring-using-azure-cli"></a>Habilitación de la supervisión mediante la CLI de Azure
+El paso siguiente habilita la supervisión del clúster de AKS mediante la CLI de Azure. En este ejemplo, no es necesario que cree o especifique un área de trabajo. Este comando le simplifica el proceso al crear un área de trabajo predeterminada en el grupo de recursos predeterminado de la suscripción del clúster de AKS, si aún no existe en la región.  El área de trabajo predeterminada creada es similar al formato de *DefaultWorkspace-<GUID>-<Region>*.  
+
+```azurecli
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+```
+
+La salida será similar a la siguiente:
+
+```azurecli
+provisioningState       : Succeeded
+```
 
 ### <a name="enable-monitoring-in-the-azure-portal"></a>Habilitación de la supervisión en Azure Portal
 Para habilitar la supervisión de un contenedor de AKS en Azure Portal, siga estos pasos:
@@ -74,7 +93,7 @@ Para habilitar la supervisión de un contenedor de AKS en Azure Portal, siga est
 1. En Azure Portal, seleccione **Todos los servicios**. 
 2. En la lista de recursos, empiece a escribir **Containers**.  
     La lista se filtra en función de lo que escriba. 
-3. Seleccione **Servicios de Kubernetes**.  
+3. Seleccione **servicios de Kubernetes**.  
 
     ![El vínculo de Servicios de Kubernetes](./media/monitoring-container-health/azure-portal-01.png)
 
@@ -298,6 +317,26 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
 
+## <a name="view-configuration-with-cli"></a>Visualización de la configuración con la CLI
+Use el comando `aks show` para obtener detalles como si la solución está habilitada o no, cuál es el valor del identificador de recursos del área de trabajo de Log Analytics y detalles de resumen acerca del clúster.  
+
+```azurecli
+az aks show -g <resoourceGroupofAKSCluster> -n <nameofAksCluster>
+```
+
+Transcurridos unos minutos, el comando se completa y devuelve información en formato JSON acerca de la solución.  Los resultados del comando deben mostrar el perfil de complemento de supervisión y son similares a la salida del ejemplo siguiente:
+
+```
+"addonProfiles": {
+    "omsagent": {
+      "config": {
+        "logAnalyticsWorkspaceResourceID": "/subscriptions/<WorkspaceSubscription>/resourceGroups/<DefaultWorkspaceRG>/providers/Microsoft.OperationalInsights/workspaces/<defaultWorkspaceName>"
+      },
+      "enabled": true
+    }
+  }
+```
+
 ## <a name="view-performance-utilization"></a>Ver el uso del rendimiento
 Cuando se abre el mantenimiento de contenedores, la página presenta inmediatamente el uso del rendimiento de todo el clúster. La vista de información sobre el clúster de AKS está organizada en cuatro perspectivas:
 
@@ -337,9 +376,9 @@ Este resumen puede ayudarle a identificar rápidamente si tiene el equilibrio ad
 
 La información que se presenta al ver los nodos se describe en la siguiente tabla:
 
-| Columna | Descripción | 
+| Columna | DESCRIPCIÓN | 
 |--------|-------------|
-| Nombre | El nombre del host. |
+| NOMBRE | El nombre del host. |
 | Status | Vista de Kubernetes del estado del nodo. |
 | Avg&nbsp;% (Porcentaje medio), Min&nbsp;% (Porcentaje mínimo), Max&nbsp;% (Porcentaje máximo), 50th&nbsp;% (Porcentaje 50) y 90th&nbsp;% (90) | Porcentaje medio de nodos basado en el percentil durante la duración seleccionada. |
 | Avg (Promedio), Min (Mínimo), Max (Máximo), 50th (50), 90th (90) | Valor real de promedio de nodos basado en el percentil para la duración seleccionada. El valor medio se mide desde el límite de CPU/memoria establecido para un nodo; en el caso de los pods y contenedores, es el valor medio notificado por el host. |
@@ -361,9 +400,9 @@ La jerarquía de filas comienza con un controlador y expande el controlador. Se 
 
 La información que se muestra al ver los controladores se describe en la siguiente tabla:
 
-| Columna | Descripción | 
+| Columna | DESCRIPCIÓN | 
 |--------|-------------|
-| Nombre | El nombre del controlador.|
+| NOMBRE | El nombre del controlador.|
 | Status | El estado del resumen de los contenedores cuando ha terminado de ejecutarse con un estado, como *OK (Correcto)*, *Terminated (Finalizado)*, *Failed (Error)* *Stopped (Detenido)* o *Paused (En pausa)*. Si el contenedor se está ejecutando, pero el estado no se mostró correctamente o el agente no lo seleccionó, y no ha respondido durante más de 30 minutos, el estado es *Unknown* (Desconocido). En la tabla siguiente se proporcionan detalles adicionales del icono de estado.|
 | Avg&nbsp;% (Porcentaje medio), Min&nbsp;% (Porcentaje mínimo), Max&nbsp;% (Porcentaje máximo), 50th&nbsp;% (Porcentaje 50) y 90th&nbsp;% (90) | Promedio resumen del porcentaje medio de cada entidad para la métrica y el percentil seleccionados. |
 | Avg (Promedio), Min (Mínimo), Max (Máximo), 50th (50), 90th (90)  | Resumen del rendimiento medio de memoria o CPU de millares de núcleos del contenedor para el percentil seleccionado. El valor medio se mide a partir del límite de CPU o memoria establecido para un pod. |
@@ -394,9 +433,9 @@ Aquí puede ver el mantenimiento del rendimiento de los contenedores.
 
 La información que se muestra al ver los contenedores se describe en la siguiente tabla:
 
-| Columna | Descripción | 
+| Columna | DESCRIPCIÓN | 
 |--------|-------------|
-| Nombre | El nombre del controlador.|
+| NOMBRE | El nombre del controlador.|
 | Status | Estado de los contenedores, si lo hay. En la tabla siguiente se proporcionan detalles adicionales del icono de estado.|
 | Avg&nbsp;% (Porcentaje medio), Min&nbsp;% (Porcentaje mínimo), Max&nbsp;% (Porcentaje máximo), 50th&nbsp;% (Porcentaje 50) y 90th&nbsp;% (90) | El resumen del porcentaje medio de cada entidad para la métrica y el percentil seleccionados. |
 | Avg (Promedio), Min (Mínimo), Max (Máximo), 50th (50), 90th (90)  | El resumen del rendimiento medio de memoria o CPU de millares de núcleos del contenedor para el percentil seleccionado. El valor medio se mide a partir del límite de CPU o memoria establecido para un pod. |
@@ -451,7 +490,7 @@ La salida de los registros del contenedor que se reenvía a Log Analytics es STD
 ### <a name="example-log-search-queries"></a>Ejemplos de consultas de búsqueda de registros
 A menudo resulta útil crear consultas que comiencen con un ejemplo o dos y luego modificarlas para ajustarlas a sus requisitos. Para ayudarle a crear consultas más avanzadas, puede experimentar con las siguientes consultas de ejemplo:
 
-| Consultar | Descripción | 
+| Consultar | DESCRIPCIÓN | 
 |-------|-------------|
 | ContainerInventory<br> &#124; project Computer, Name, Image, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; render table | Se muestra toda la información del ciclo de vida de un contenedor| 
 | KubeEvents_CL<br> &#124; where not(isempty(Namespace_s))<br> &#124; sort by TimeGenerated desc<br> &#124; render table | Eventos de Kubernetes|

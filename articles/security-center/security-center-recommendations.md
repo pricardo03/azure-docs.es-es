@@ -3,7 +3,7 @@ title: Administración de recomendaciones de seguridad en Azure Security Center 
 description: Este documento explica cómo las recomendaciones del Centro de seguridad de Azure ayudan a proteger los recursos de Azure y a cumplir con las directivas de seguridad.
 services: security-center
 documentationcenter: na
-author: TerryLan
+author: TerryLanfear
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2018
+ms.date: 07/31/2018
 ms.author: terrylan
-ms.openlocfilehash: 35f9f197dc9886998f695c4c632aa4b68ac4d072
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: caeef52ed8eb456bbec015f1766a95aa5ceb49f8
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006621"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39367113"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Administración de recomendaciones de seguridad en el Centro de seguridad de Azure
 En este documento se explica cómo usar las recomendaciones del Centro de seguridad de Azure para proteger los recursos de Azure.
@@ -95,7 +95,7 @@ Use la tabla siguiente como referencia para ayudarle a entender las recomendacio
 | [Evaluación de vulnerabilidades no instalada](security-center-vulnerability-assessment-recommendations.md) |Se recomienda instalar una solución de evaluación de vulnerabilidades en la máquina virtual. |
 | [Corrección de vulnerabilidades](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Permite ver las vulnerabilidades tanto del sistema como de las aplicaciones que ha detectado la solución de evaluación de vulnerabilidades instalada en la máquina virtual. |
 | [Habilitar el cifrado para la cuenta de Azure Storage](security-center-enable-encryption-for-storage-account.md) | Es recomendable que habilite el cifrado del servicio de Azure Storage para datos en reposo. El Cifrado de servicio de almacenamiento (SSE) funciona mediante el cifrado de los datos cuando se escriben en Azure Storage y el descifrado antes de la recuperación. SSE actualmente solo está disponible para Azure Blob service y puede usarse para blobs en bloques, blobs de página y blobs en anexos. Para obtener más información, consulte [Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)](../storage/common/storage-service-encryption.md).</br>SSE solo es compatible con las cuentas de almacenamiento de Resource Manager. |
-| [Habilitar controles de aplicaciones adaptables](security-center-adaptive-application.md) | Se recomienda que aplique controles de aplicación adaptables en las máquinas virtuales de Windows. Esta característica se encuentra en versión preliminar y está disponible en el nivel estándar de Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md). |
+| [Habilitar controles de aplicaciones adaptables](security-center-adaptive-application.md) | Se recomienda que aplique controles de aplicación adaptables en las máquinas virtuales de Windows. La característica está disponible en el nivel estándar de Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md). |
 | Solo se debería poder acceder a App Service a través de HTTPS | Se recomienda limitar el acceso de App Service a través de HTTPS solamente. |
 | Recomendación de desactivación de Web Sockets para aplicaciones web| Se recomienda que revise cuidadosamente el uso de Web Sockets en las aplicaciones web.  El protocolo Web Sockets es vulnerable a distintos tipos de amenazas de seguridad. |
 | Uso de dominios personalizados para su aplicación web | Se recomienda el uso de dominios personalizados para proteger una aplicación web frente a ataques comunes, como la suplantación de identidad y otros ataques relacionados con el DNS. |

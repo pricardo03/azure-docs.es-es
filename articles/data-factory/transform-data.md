@@ -10,25 +10,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: afd1944006a08811075e8af8b1a641d00ee3c352
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e3aefc23cd0f4d8043232214591155aa893f4522
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112821"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390143"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar datos en Azure Data Factory
 > [!div class="op_single_selector"]
 > * [Hive](transform-data-using-hadoop-hive.md)  
 > * [Pig](transform-data-using-hadoop-pig.md)  
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
-> * [Hadoop Streaming](transform-data-using-hadoop-streaming.md)
-> * [Spark](transform-data-using-spark.md)
+> * [HDInsight Streaming](transform-data-using-hadoop-streaming.md)
+> * [HDInsight Spark](transform-data-using-spark.md)
 > * [Machine Learning](transform-data-using-machine-learning.md) 
 > * [Procedimiento almacenado](transform-data-using-stored-procedure.md)
 > * [U-SQL de análisis con Data Lake](transform-data-using-data-lake-analytics.md)
+> * [Notebook de Databricks](transform-data-databricks-notebook.md)
+> * [Jar en Databricks](transform-data-databricks-jar.md)
+> * [Python en Databricks](transform-data-databricks-python.md)
 > * [.NET personalizado](transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="overview"></a>Información general
@@ -63,6 +66,18 @@ Puede usar la actividad de procedimiento almacenado de SQL Server en una canaliz
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Actividad de U-SQL de Data Lake Analytics 
 La actividad de U-SQL de Data Lake Analytics ejecuta un script de U-SQL en un clúster de Azure Data Lake Analytics. Vea el artículo [Actividad de U-SQL de Data Analytics](transform-data-using-data-lake-analytics.md) para más información. 
+
+## <a name="databricks-notebook-activity"></a>Actividad Notebook de Databricks
+
+La actividad Notebook de Azure Databricks en una canalización de Data Factory ejecuta un bloc de notas de Databricks en el área de trabajo de Azure Databricks. Azure Databricks es una plataforma administrada para ejecutar Apache Spark. Consulte [Transformación de datos mediante la ejecución de blocs de notas de Databricks](transform-data-databricks-notebook.md).
+
+## <a name="databricks-jar-activity"></a>Actividad de Jar en Databricks
+
+La actividad de Jar en Azure Databricks en una canalización de Data Factory ejecuta un archivo Jar de Spark en el clúster de Azure Databricks. Azure Databricks es una plataforma administrada para ejecutar Apache Spark. Consulte [Transformación de datos mediante la ejecución de una actividad de Jar en Azure Databricks](transform-data-databricks-jar.md).
+
+## <a name="databricks-python-activity"></a>Actividad de Python en Databricks
+
+La actividad de Python en Azure Databricks en una canalización de Data Factory ejecuta un archivo de Python en el clúster de Azure Databricks. Azure Databricks es una plataforma administrada para ejecutar Apache Spark. Consulte [Transformación de datos mediante la ejecución de una actividad de Python en Azure Databricks](transform-data-databricks-python.md).
 
 ## <a name="custom-activity"></a>Actividad personalizada
 Si necesita transformar datos de algún modo no compatible con Data Factory, puede crear una actividad personalizada con su propia lógica de procesamiento de datos y usarla en la canalización. Puede configurar una actividad de .NET personalizada para ejecutarse mediante un servicio Azure Batch o un clúster de Azure HDInsight. Consulte el artículo [Utilizar actividades personalizadas](transform-data-using-dotnet-custom-activity.md) para obtener más información. 

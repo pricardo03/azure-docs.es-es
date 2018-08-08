@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 05/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 2651742b680bbb1e620939a982f5863355f6e3e0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fdc80c4820a1f301bfcc88a57c5e2f1d3a29bea8
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309743"
 ---
 # <a name="app-service-environment-management-addresses"></a>Direcciones de administración de App Service Environment
 
@@ -29,6 +30,8 @@ Este documento enumera la direcciones de origen de App Service para el tráfico 
 2. Puede crear rutas con estas direcciones para admitir implementaciones de túnel forzadas. Para obtener más información sobre cómo configurar su ASE para que funcione en un entorno donde el tráfico saliente se envía de forma local, lea [Configuración de App Service Environment con tunelización forzada][forcedtunnel].
 
 Todas las instancias de ASE tienen una IP virtual pública por la que entra el tráfico de administración. El tráfico de administración entrante desde estas direcciones entra por los puertos 454 y 455 en la IP virtual pública de su instancia de ASE.  
+
+## <a name="list-of-management-addresses"></a>Lista de direcciones de administración ##
 
 | Region | Direcciones |
 |--------|-----------|
@@ -46,8 +49,20 @@ Todas las instancias de ASE tienen una IP virtual pública por la que entra el t
 | Sur de Brasil y Centro y Sur de EE. UU. | 70.37.57.58, 157.55.208.185, 52.174.22.21,13.94.149.179,13.94.143.126,13.94.141.115, 52.178.195.197, 52.178.190.65, 52.178.184.149, 52.178.177.147, 13.75.127.117, 40.83.125.161, 40.83.121.56, 40.83.120.64, 52.187.56.50, 52.187.63.37, 52.187.59.251, 52.187.63.19, 52.165.158.140, 52.165.152.214, 52.165.154.193, 52.165.153.122, 104.44.129.255, 104.44.134.255, 104.44.129.243, 104.44.129.141, 23.102.188.65, 191.236.154.88, 13.64.115.203, 65.52.193.203, 70.37.89.222, 52.224.105.172, 23.102.135.246 |
 | India central e India meridional | 70.37.57.58, 157.55.208.185, 52.174.22.21,13.94.149.179,13.94.143.126,13.94.141.115, 52.178.195.197, 52.178.190.65, 52.178.184.149, 52.178.177.147, 13.75.127.117, 40.83.125.161, 40.83.121.56, 40.83.120.64, 52.187.56.50, 52.187.63.37, 52.187.59.251, 52.187.63.19, 52.165.158.140, 52.165.152.214, 52.165.154.193, 52.165.153.122, 104.44.129.255, 104.44.134.255, 104.44.129.243, 104.44.129.141, 23.102.188.65, 191.236.154.88, 13.64.115.203, 65.52.193.203, 70.37.89.222, 52.224.105.172, 23.102.135.246 |
 | India occidental e India meridional | 70.37.57.58, 157.55.208.185, 52.174.22.21,13.94.149.179,13.94.143.126,13.94.141.115, 52.178.195.197, 52.178.190.65, 52.178.184.149, 52.178.177.147, 13.75.127.117, 40.83.125.161, 40.83.121.56, 40.83.120.64, 52.187.56.50, 52.187.63.37, 52.187.59.251, 52.187.63.19, 52.165.158.140, 52.165.152.214, 52.165.154.193, 52.165.153.122, 104.44.129.255, 104.44.134.255, 104.44.129.243, 104.44.129.141, 23.102.188.65, 191.236.154.88, 13.64.115.203, 65.52.193.203, 70.37.89.222, 52.224.105.172, 23.102.135.246 |
-| Fairfax | 23.97.29.209, 13.72.53.37, 13.72.180.105, 23.97.0.17, 23.97.16.184 |
+| Microsoft Azure Government (Fairfax o MAG) | 23.97.29.209, 13.72.53.37, 13.72.180.105, 23.97.0.17, 23.97.16.184 |
 
+## <a name="get-your-management-addresses-from-api"></a>Obtención de direcciones de administración de la API ##
+
+Hay una llamada API que se puede realizar para obtener la lista de direcciones de administración que coincida con el ASE.  La llamada es:
+
+    get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01
+
+Esta llamada devuelve un documento JSON que incluye todas las direcciones de entrada del ASE, lo que incluye las direcciones de administración, la dirección IP virtual usada por su ASE y la propia subred de ASE.  
+
+Para llamar a la API con [armclient](http://github.com/projectkudu/ARMClient), use los siguientes comandos pero sustituya su identificador de suscripción, grupo de recursos y nombre de ASE.  
+
+    armclient login
+    armclient get /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Web/hostingEnvironments/<ASE Name>/inboundnetworkdependenciesendpoints?api-version=2016-09-01
 
 
 <!-- LINKS -->

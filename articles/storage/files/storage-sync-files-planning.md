@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 79f3787713d7615d8f5c42d1747dfa5ed96780cd
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 0493679575e9ff94ede1ad40c2bcadc6066afa6b
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214890"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399022"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -156,6 +156,10 @@ Dado que un antivirus funciona examinando los archivos en busca de código malin
 
 Las siguientes soluciones se sabe que admiten la omisión de archivos sin conexión:
 
+- [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
+    - Windows Defender omitirá automáticamente la lectura de estos archivos. Hemos probado Defender e identificado un problema menor: al agregar un servidor a un grupo de sincronización existente, se recuperan (descargan) archivos de menos de 800 bytes en el nuevo servidor. Estos archivos permanecerán en el nuevo servidor y no se organizarán en niveles ya que no cumplen con el requisito de tamaño de niveles (>64 kb).
+- [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
+    - SCEP funciona igual que Defender; consulte más arriba
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
 - [McAfee EndPoint Security](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf) (consulte "Scan only what you need to" [Examen solo de lo necesario en la página 90 del PDF])
 - [Kaspersky Anti-Virus](https://support.kaspersky.com/4684)

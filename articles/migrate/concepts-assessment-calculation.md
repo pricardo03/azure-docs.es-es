@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: raynew
-ms.openlocfilehash: 7900a02ba9112b910589d04850a4cd5d52e044d2
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 7ffcf5e3c7e6f0cb3d344b7d148b6024e8469eff
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249196"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263016"
 ---
 # <a name="assessment-calculations"></a>Cálculos de evaluación
 
@@ -38,11 +38,11 @@ Azure Migrate Azure revisa las siguientes propiedades de la máquina virtual loc
 
 **Propiedad** | **Detalles** | **Estado de la preparación para Azure**
 --- | --- | ---
-**Tipo de arranque** | Azure admite máquinas virtuales con el tipo de arranque de BIOS y no UEFI. | Condicionalmente preparada para Azure, si el tipo de arranque es UEFI.
-**Núcleos** | El número de núcleos de las máquinas debe ser igual o menor que el número máximo de núcleos (32) admitidos en una máquina virtual de Azure.<br/><br/> Si el historial de rendimiento está disponible, Azure Migrate tiene en cuenta los núcleos utilizados para la comparación. Si se especifica un factor de confort en la configuración de evaluación, el número de núcleos utilizados se multiplica por dicho factor de confort.<br/><br/> Si no hay ningún historial de rendimiento, Azure Migrate usa los núcleos asignados sin aplicar el factor de confort. | No está preparada si el número de núcleos es mayor que 32.
-**Memoria** | La memoria de la máquina debe tener un tamaño igual o menor que la memoria máxima (3892 GB en Azure M serie Standard_M128m&nbsp;<sup>2</sup>) permitida en una máquina virtual de Azure. [Más información](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory.md#m-series).<br/><br/> Si hay algún historial de rendimiento disponible, Azure Migrate tiene en cuenta la memoria utilizada para la comparación. Si se especifica un factor de confort, la memoria utilizada se multiplica por dicho factor de confort.<br/><br/> Si no hay ningún historial, se utiliza la memoria asignada sin aplicar el factor de confort.<br/><br/> | No está preparada si el tamaño de memoria es superior a 448 GB.
-**Disco de almacenamiento** | El tamaño asignado de un disco debe ser de 4 TB (4096 GB) o menos.<br/><br/> El número de discos conectados a la máquina debe ser 65 o menos, incluido el disco de sistema operativo. | No está preparada si cualquier disco tiene un tamaño mayor de 4 TB o si hay más de 65 discos asociados a la máquina.
-**Redes** | Una máquina debe tener 32 NIC o menos conectadas. | No está preparada si la máquina tiene más de 32 NIC.
+**Tipo de arranque** | Azure admite máquinas virtuales con el tipo de arranque de BIOS y no UEFI. | Condicionalmente preparada si el tipo de arranque es UEFI.
+**Núcleos** | El número de núcleos de las máquinas debe ser igual o menor que el número máximo de núcleos (32) admitidos en una máquina virtual de Azure.<br/><br/> Si el historial de rendimiento está disponible, Azure Migrate tiene en cuenta los núcleos utilizados para la comparación. Si se especifica un factor de confort en la configuración de evaluación, el número de núcleos utilizados se multiplica por dicho factor de confort.<br/><br/> Si no hay ningún historial de rendimiento, Azure Migrate usa los núcleos asignados sin aplicar el factor de confort. | Preparada si es menor o igual a los límites.
+**Memoria** | La memoria de la máquina debe tener un tamaño igual o menor que la memoria máxima (3892 GB en Azure M serie Standard_M128m&nbsp;<sup>2</sup>) permitida en una máquina virtual de Azure. [Más información](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory.md#m-series).<br/><br/> Si hay algún historial de rendimiento disponible, Azure Migrate tiene en cuenta la memoria utilizada para la comparación. Si se especifica un factor de confort, la memoria utilizada se multiplica por dicho factor de confort.<br/><br/> Si no hay ningún historial, se utiliza la memoria asignada sin aplicar el factor de confort.<br/><br/> | Preparada si está dentro de los límites.
+**Disco de almacenamiento** | El tamaño asignado de un disco debe ser de 4 TB (4096 GB) o menos.<br/><br/> El número de discos conectados a la máquina debe ser 65 o menos, incluido el disco de sistema operativo. | Preparada si está dentro de los límites.
+**Redes** | Una máquina debe tener 32 NIC o menos conectadas. | Preparada si está dentro de los límites.
 
 ### <a name="guest-operating-system"></a>Sistema operativo invitado
 Además de las propiedades de la máquina virtual, Azure Migrate también examina el sistema operativo invitado de la máquina virtual local para identificar si se puede ejecutar en Azure.
@@ -65,7 +65,7 @@ Cliente de Windows 7, 8 y 10 | Azure solo proporciona compatibilidad con la susc
 Windows Vista, XP Professional | Estos sistemas operativos han alcanzado la fecha de finalización del soporte técnico, la máquina pude arrancar en Azure, pero Azure no proporciona ningún soporte técnico para el sistema operativo. | Condicionalmente preparada para Azure, se recomienda actualizar el sistema operativo antes de migrar a Azure.
 Linux | Azure aprueba estos [sistemas operativos Linux](../virtual-machines/linux/endorsed-distros.md). Otros sistemas operativos Linux pueden arrancar en Azure, pero se recomienda actualizar el sistema operativo a una versión aprobada antes de migrar a Azure. | Preparada para Azure si la versión está aprobada.<br/><br/>Condicionalmente preparada si la versión no se ha aprobado.
 Otros sistemas operativos<br/><br/> Por ejemplo,  Oracle Solaris, Apple Mac OS etc., FreeBSD, etc. | Azure no aprueba estos sistemas operativos. La máquina puede arrancar en Azure, pero Azure no proporciona ningún sistema operativo. | Condicionalmente preparada para Azure, se recomienda instalar un sistema operativo compatible antes de migrar a Azure.  
-Sistema operativo especificado como *otro* en vCenter Server. | Azure Migrate no puede identificar el sistema operativo en este caso. | Preparación desconocida. Asegúrese de que el sistema operativo que se ejecuta dentro de la máquina virtual se admite en Azure.
+Sistema operativo especificado como **otro** en vCenter Server. | Azure Migrate no puede identificar el sistema operativo en este caso. | Preparación desconocida. Asegúrese de que el sistema operativo que se ejecuta dentro de la máquina virtual se admite en Azure.
 Sistemas operativos de 32 bits | La máquina puede arrancar en Azure, pero Azure no puede proporcionar soporte técnico completo. | Condicionalmente preparada para Azure, considere la posibilidad de actualizar el sistema operativo de la máquina de un sistema operativo de 32 bits a uno de 64 bits antes de migrar a Azure.
 
 ## <a name="sizing"></a>Ajuste de tamaño

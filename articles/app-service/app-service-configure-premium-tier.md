@@ -13,36 +13,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 07/25/2018
 ms.author: cephalin
-ms.openlocfilehash: 4c157ed905b7dc48c886b26987c164ef9a47f3c3
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 04996e772c2989be89ce551bfa45c57154de7b2d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714568"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307796"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configuración del nivel PremiumV2 para Azure App Service
 
 Con el nuevo plan de tarifa **PremiumV2**, se obtienen procesadores más rápidos, almacenamiento SSD y el doble de relación memoria-núcleo que con los planes de tarifa actuales. Con la ventaja de rendimiento, puede ahorrar dinero mediante la ejecución de las aplicaciones en menos instancias. En este artículo, aprenderá a crear una aplicación en el nivel **PremiumV2** o escalar verticalmente una aplicación al nivel **PremiumV2**.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-Para escalar verticalmente una aplicación web en **PremiumV2**, debe tener una aplicación web en Azure App Service que se ejecute en un plan de tarifa inferior a **PremiumV2**.
+Para escalar verticalmente una aplicación web en **PremiumV2**, debe tener una aplicación web en Azure App Service que se ejecute en un plan de tarifa inferior a **PremiumV2** y la aplicación web debe ejecutarse en una implementación de App Service que admita PremiumV2.
 
 <a name="availability"></a>
 
 ## <a name="premiumv2-availability"></a>Disponibilidad del nivel PremiumV2
 
-El nivel PremiumV2 actualmente solo está disponible para App Service en _Windows_. Los contenedores Linux todavía no se admiten.
+El nivel **PremiumV2** está disponible para App Service tanto en _Windows_ como en _Linux_.
 
-PremiumV2 ya está disponible en la mayoría de las regiones de Azure y no deja de crecer. Para ver si está disponible en su región, ejecute el siguiente comando de la CLI de Azure en [Azure Cloud Shell](../cloud-shell/overview.md):
+**PremiumV2** está disponible en la mayoría de las regiones de Azure. Para ver si está disponible en su región, ejecute el siguiente comando de la CLI de Azure en [Azure Cloud Shell](../cloud-shell/overview.md):
 
 ```azurecli-interactive
 az appservice list-locations --sku P1V2
 ```
-
-Si recibe un error durante la creación de la aplicación o la creación del plan de App Service, significa que lo más probable es que **PremiumV2** no esté disponible para la región elegida.
 
 <a name="create"></a>
 
@@ -57,11 +55,11 @@ Seleccione **Producción**, luego **P1V2**, **P2V2** o **P3V2** y, a continuaci�
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
-> Si no ve **P1V2**, **P2V2** y **P3V2** como opciones, significa que **PremiumV2** no está disponible en la región elegida o que está configurando un plan de App Service de Linux que no admite **PremiumV2**.
+> Si no ve **P1V2**, **P2V2** y **P3V2** como opciones, o si las opciones están atenuadas, es probable que **PremiumV2** no esté disponible en la implementación subyacente de App Service que contiene el plan de App Service. Vea [Escalado vertical desde una combinación de región y grupos de recursos no admitidos](#unsupported) para obtener más información.
 
 ## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>Escalado vertical de una aplicación existente a nivel PremiumV2
 
-Antes de escalar una aplicación existente al nivel **PremiumV2**, asegúrese de que **PremiumV2** está disponible en su región. Para información, consulte [Disponibilidad del nivel PremiumV2](#availability). Si no está disponible en su región, consulte [Escalado vertical desde una región no admitida](#unsupported).
+Antes de escalar una aplicación existente al nivel **PremiumV2**, asegúrese de que **PremiumV2** está disponible. Para información, consulte [Disponibilidad del nivel PremiumV2](#availability). Si no está disponible en su región, ve [Escalado vertical desde una combinación de región y grupos de recursos no admitidos](#unsupported).
 
 Dependiendo del entorno de hospedaje, el escalado vertical puede requerir pasos adicionales. 
 
@@ -81,32 +79,20 @@ Si la operación finaliza correctamente, la página de información general de l
 
 ### <a name="if-you-get-an-error"></a>Si recibe un error
 
-Algunos planes de App Service no se pueden escalar verticalmente al plan PremiumV2. Si la operación de escalado vertical produce un error, necesitará un nuevo plan de App Service para la aplicación.
-
-Crear un plan de App Service _Windows_ en la misma región y grupo de recursos que la aplicación de App Service existente. Siga los pasos de [Creación de una aplicación en el nivel PremiumV2](#create) para establecerlo en el nivel **PremiumV2**. Si lo desea, utilice la misma configuración de escalado horizontal que el plan de App Service existente (número de instancias, escalado automático, etc.).
-
-Vuelva a abrir la página de la aplicación de App Service. En el panel izquierdo de navegación de App Service, seleccione **Cambiar el plan de App Service**.
-
-![](media/app-service-configure-premium-tier/change-plan.png)
-
-Seleccione el plan de App Service que ha creado.
-
-![](media/app-service-configure-premium-tier/select-plan.png)
-
-Una vez completada la operación de cambio, la aplicación se ejecuta en el nivel **PremiumV2**.
+Algunos planes de App Service no se pueden escalar verticalmente al nivel PremiumV2 si la implementación de App Service subyacente no admite PremiumV2.  Vea [Escalado vertical desde una combinación de región y grupos de recursos no admitidos](#unsupported) para obtener más información.
 
 <a name="unsupported"></a>
 
-## <a name="scale-up-from-an-unsupported-region"></a>Escalado vertical desde una región no admitida
+## <a name="scale-up-from-an-unsupported-resource-group-and-region-combination"></a>Escalado vertical desde una combinación de región y grupos de recursos no admitidos
 
-Si la aplicación se ejecuta en una región donde **PremiumV2** todavía no está disponible, puede mover la aplicación a otra región para aprovechar **PremiumV2**. Tiene dos opciones:
+Si la aplicación se ejecuta en una implementación de App Service en la que **PremiumV2** no está disponible o se ejecuta en una región que actualmente no admite **PremiumV2**, tendrá que volver a implementar la aplicación para aprovechar **PremiumV2**.  Tiene dos opciones:
 
-- Cree una aplicación en el nuevo plan **PremiumV2** y luego vuelva a implementar el código de aplicación. Siga los pasos de [Creación de una aplicación en el nivel PremiumV2](#create) para establecerlo en el nivel **PremiumV2**. Si lo desea, utilice la misma configuración de escalado horizontal que el plan de App Service existente (número de instancias, escalado automático, etc).
-- Si la aplicación ya se ejecuta en un nivel **Premium** existente, puede clonar la aplicación con todas las configuraciones de aplicación, las cadenas de conexión y la configuración de implementación.
+- Cree **otro** grupo de recursos y luego cree **otra** aplicación web y un plan de App Service en el **nuevo** grupo de recursos, y elija la región de Azure que prefiera durante el proceso de creación.  **Debe** seleccionar el plan **PremiumV2** en el momento en que se crea el nuevo plan de App Service.  Esto garantiza que la combinación del grupo de recursos, el plan de App Service y la región de Azure tendrá como resultado que el plan de App Service se cree en una implementación de App Service que admita **PremiumV2**.  Luego, vuelva a implementar el código de aplicación en la aplicación recién creada y el plan de App Service. Si quiere, posteriormente puede reducir verticalmente el plan de App Service en **PremiumV2** para ahorrar costos y aún podrá volver a escalarlo verticalmente en el futuro mediante **PremiumV2**.
+- Si la aplicación ya se ejecuta en un nivel **Premium** existente, puede clonar la aplicación con todos los valores de aplicación, las cadenas de conexión y la configuración de implementación en un nuevo plan de App Service que utilice **PremiumV2**.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
-    En la página **Clonar aplicación**, puede crear un nuevo plan de App Service en la región que quiera y especificar la configuración que quiere clonar.
+    En la página **Clonar aplicación**, puede crear un plan de App Service con **PremiumV2** en la región que prefiera y especificar la configuración que quiera clonar.
 
 ## <a name="automate-with-scripts"></a>Automatizar con scripts
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: adb78f04c0fd5ba175bb31c9a81ad58b3b03fb42
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 46e4956aa145aa082de86191ede4adaf9a43fca9
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447326"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309033"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: referencia de tokens
 
@@ -72,7 +72,7 @@ Tenga en cuenta que  las notificaciones de los tokens de identificador no se dev
 
 | NOMBRE | Notificación | Valor de ejemplo | DESCRIPCIÓN |
 | --- | --- | --- | --- |
-| Público |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Una notificación de audiencia identifica al destinatario previsto del token. En el caso de Azure AD B2C, la audiencia es el identificador de la aplicación asignado a su aplicación en el portal de registro de aplicaciones. La aplicación tiene que validar este valor y rechazar el token si no coincide. |
+| Público |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Una notificación de audiencia identifica al destinatario previsto del token. En el caso de Azure AD B2C, la audiencia es el identificador de la aplicación asignado a su aplicación en el portal de registro de aplicaciones. La aplicación tiene que validar este valor y rechazar el token si no coincide. Audiencia es sinónimo de recursos. |
 | Emisor |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |La notificación identifica el servicio de token de seguridad (STS) que construye y devuelve el token. También identifica el directorio de Azure AD en el que se autenticó el usuario. La aplicación tiene que validar la notificación del emisor para asegurarse de que el token proviene del punto de conexión de Azure Active Directory 2.0. |
 | Emitido a las |`iat` |`1438535543` |Esta notificación es la hora a la que se emitió el token, representada en tiempo de época. |
 | Fecha de expiración |`exp` |`1438539443` |Esta notificación es la hora de expiración a la que el token deja de ser válido, representada en tiempo de época. La aplicación tiene que usar esta notificación para comprobar la validez de la duración del token. |

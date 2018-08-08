@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: def5788b83116ce0843f1fdd86933830cabc9ee2
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a9f684eccefab3e43d9b2b7a364b245a53519f76
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188008"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389692"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-azure-powershell"></a>Creación, enumeración o eliminación de una identidad asignada por el usuario mediante Azure PowerShell
 
@@ -38,6 +38,12 @@ En este artículo, aprenderá a crear, enumerar y eliminar una identidad asignad
 - Para llevar a cabo las operaciones de administración de este artículo, su cuenta debe tener las siguientes asignaciones de roles:
     - Rol [Colaborador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para crear, leer (listar), actualizar y eliminar una identidad asignada por el usuario.
     - Rol [Operador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para leer (listar) las propiedades de una identidad asignada por el usuario.
+
+> [!NOTE]
+> Aunque las identidades asignadas por el usuario se encuentran aún en versión preliminar, tiene que instalar manualmente el módulo AzureRM.ManagedServiceIdentity con el siguiente comando. 
+```azurepowershell-interactive
+Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease
+```
 
 ## <a name="create-a-user-assigned-identity"></a>Creación de una identidad asignada por el usuario
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2d49164748079346f24aeeebe216b2668a4e3aed
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9c59db56ad78818d9b6165d27fd2e64f0bfd902c
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258507"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283230"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Preguntas más frecuentes sobre el inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -94,10 +94,8 @@ Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
 
 1. Llame a `$creds = Get-Credential`. Cuando se le pida, escriba las credenciales del administrador de dominio para el bosque de AD deseado.
 
->[!NOTE]
->Usamos el nombre de usuario del Administrador de dominio, que se proporciona con el formato de nombres principales de usuario (UPN) (johndoe@contoso.com), o bien con el formato de nombre de dominio completo de cuenta SAM (contoso\johndoe o contoso.com\johndoe), para encontrar el bosque de AD deseado. Si usa el nombre de dominio completo de cuenta SAM, usamos la parte del dominio del nombre de usuario para [localizar el controlador de dominio del Administrador de dominio con DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Si usa UPN en su lugar, [la traducimos a un nombre de cuenta SAM de dominio completo](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar el controlador de dominio adecuado.
-
-usar UPN, traducimos 
+    >[!NOTE]
+    >Usamos el nombre de usuario del Administrador de dominio, que se proporciona con el formato de nombres principales de usuario (UPN) (johndoe@contoso.com), o bien con el formato de nombre de dominio completo de cuenta SAM (contoso\johndoe o contoso.com\johndoe), para encontrar el bosque de AD deseado. Si usa el nombre de dominio completo de cuenta SAM, usamos la parte del dominio del nombre de usuario para [localizar el controlador de dominio del Administrador de dominio con DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Si usa UPN en su lugar, [la traducimos a un nombre de cuenta SAM de dominio completo](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar el controlador de dominio adecuado.
 
 2. Llame a `Update-AzureADSSOForest -OnPremCredentials $creds`. Este comando actualiza la clave de descifrado de Kerberos de la cuenta de equipo `AZUREADSSOACC` en este bosque de AD concreto y la actualiza en Azure AD.
 3. Repita los pasos anteriores para cada bosque de AD en el que haya configurado la característica.
@@ -107,26 +105,45 @@ usar UPN, traducimos
 
 ## <a name="how-can-i-disable-seamless-sso"></a>¿Cómo se deshabilita SSO de conexión directa?
 
-SSO de conexión directa se puede deshabilitar con Azure AD Connect.
+### <a name="step-1-disable-the-feature-on-your-tenant"></a>Paso 1. Deshabilite la característica en su inquilino
 
-Ejecute Azure AD Connect, elija "Change user sign-in page" (Cambiar página de inicio de sesión de usuario) y haga clic en "Siguiente". A continuación, desactive la opción "Habilitar el inicio de sesión único". Continúe con el asistente. Cuando haya finalizado con el asistente, el SSO de conexión directa estará deshabilitado en su inquilino.
+#### <a name="option-a-disable-using-azure-ad-connect"></a>Opción A: deshabilitar el uso de Azure AD Connect
 
-Sin embargo, verá un mensaje en pantalla en el que se anuncia lo siguiente:
+1. Ejecute Azure AD Connect, elija **Change user sign-in page** (Cambiar página de inicio de sesión de usuario) y haga clic en **Siguiente**.
+2. Desactive la opción **Enable single sign on** (Habilitar el inicio de sesión único). Continúe con el asistente.
+
+Cuando haya finalizado con el asistente, el SSO de conexión directa estará deshabilitado en su inquilino. Sin embargo, verá un mensaje en pantalla en el que se anuncia lo siguiente:
 
 "El inicio de sesión único ya está deshabilitado, pero es necesario completar otros pasos manualmente para finalizar el proceso. Más información".
 
-Para completar el proceso, siga estos pasos manuales en el servidor local donde se ejecuta Azure AD Connect:
+Para completar el proceso de limpieza, siga los pasos 2 y 3 en el servidor local donde se ejecuta Azure AD Connect.
 
-### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Paso 1. Obtención de la lista de bosques de AD en los que se habilitó SSO de conexión directa
+#### <a name="option-b-disable-using-powershell"></a>Opción B: deshabilitar el uso de PowerShell
 
-1. En primer lugar, descargue e instale [Microsoft Online Services - Ayudante para el inicio de sesión](http://go.microsoft.com/fwlink/?LinkID=286152).
+Ejecute los pasos siguientes en el servidor local donde se ejecuta Azure AD Connect:
+
+1. En primer lugar, descargue e instale el [Ayudante para el inicio de sesión de Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
+2. A continuación, descargue e instale el [módulo de Azure Active Directory de 64 bits para Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+3. Vaya a la carpeta `%programfiles%\Microsoft Azure Active Directory Connect`.
+4. Importe el módulo de PowerShell de SSO de conexión directa mediante este comando: `Import-Module .\AzureADSSO.psd1`.
+5. Ejecute PowerShell como administrador. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Este comando debería mostrar un cuadro emergente para escribir las credenciales de administrador global del inquilino.
+6. Llame a `Enable-AzureADSSO -Enable $false`.
+
+>[!IMPORTANT]
+>Si deshabilita SSO de conexión directa con PowerShell, no cambiará el estado en Azure AD Connect. SSO de conexión directa se mostrará como habilitado en la página **Change user sign-in** (Cambiar inicio de sesión de usuario).
+
+### <a name="step-2-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Paso 2. Obtención de la lista de bosques de AD en los que se habilitó SSO de conexión directa
+
+Siga los pasos 1 a 5 siguientes, si ha deshabilitado el inicio de sesión único de conexión directa con Azure AD Connect. Si ha deshabilitado el inicio de sesión único de conexión directa con PowerShell en su lugar, avance al paso 6 a continuación.
+
+1. En primer lugar, descargue e instale el [Ayudante para el inicio de sesión de Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152).
 2. A continuación, descargue e instale el [módulo de Azure Active Directory de 64 bits para Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
 3. Vaya a la carpeta `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Importe el módulo de PowerShell de SSO de conexión directa mediante este comando: `Import-Module .\AzureADSSO.psd1`.
 5. Ejecute PowerShell como administrador. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Este comando debería mostrar un cuadro emergente para escribir las credenciales de administrador global del inquilino.
 6. Llame a `Get-AzureADSSOStatus`. Aparecerá la lista de bosques de AD (examine la lista "Dominios") en la que se ha habilitado esta característica.
 
-### <a name="step-2-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Paso 2. Elimine manualmente la cuenta de equipo `AZUREADSSOACCT` de cada bosque de AD que encuentre en la lista.
+### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Paso 3. Elimine manualmente la cuenta de equipo `AZUREADSSOACCT` de cada bosque de AD que encuentre en la lista.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

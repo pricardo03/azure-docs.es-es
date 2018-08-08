@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 1dae926a3a368e518877b210fb1caf487688750c
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 1a5df1081edeb8b8e7520064a71534f70a9a9d33
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187373"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344307"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glosario de términos de IoT Hub
 En este artículo se enumeran algunos de los términos comunes que se utilizan en los artículos de IoT Hub.
@@ -39,6 +39,9 @@ Hay _SDK de dispositivos_ disponibles para varios idiomas que permiten crear [ap
 
 ## <a name="azure-iot-service-sdks"></a>SDK de servicios IoT de Azure
 Hay _SDK de servicios_ disponibles para varios idiomas que permiten crear [aplicaciones de back-end](#back-end-app) que interactúan con un centro de IoT. Los tutoriales de IoT Hub muestran cómo se utilizan estos SDK de servicios. Puede encontrar el código fuente y más información sobre los SDK de servicios en este [repositorio](https://github.com/Azure/azure-iot-sdks) de GitHub.
+
+## <a name="azure-iot-toolkit"></a>Azure IoT Toolkit
+[Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) es una extensión de Visual Studio Code multiplataforma y de código abierto que le ayuda a administrar Azure IoT Hub y dispositivos en VS Code. Con Azure IoT Toolkit, los desarrolladores de IoT podrían desarrollar proyectos de IoT en VS Code con facilidad.
 
 ## <a name="azure-portal"></a>Azure Portal
 [Microsoft Azure Portal](https://portal.azure.com) es una ubicación central desde donde se pueden aprovisionar y administrar los recursos de Azure. Organiza su contenido mediante _hojas_.

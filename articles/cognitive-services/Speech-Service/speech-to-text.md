@@ -1,21 +1,20 @@
 ---
-title: Acerca de Speech to Text | Microsoft Docs
+title: Acerca de Speech to Text
 description: Información general de las funcionalidades de Speech to Text API.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 2ed00377db80849a8355ccc895db12d006bea642
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: ba6710c8b5b8de1c63fa6778ea3853ab52365254
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069934"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325343"
 ---
 # <a name="about-the-speech-to-text-api"></a>Acerca de Speech to Text API
 
@@ -51,4 +50,5 @@ Algunas funcionalidades de **Speech to Text** API no están disponibles a travé
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/)
-* [Vea cómo funciona el reconocimiento de voz en C#](quickstart-csharp-dotnet-windows.md)
+* [Guía de inicio rápido: Reconocimiento de voz en C#](quickstart-csharp-dotnet-windows.md)
+* [Reconocimiento de intenciones a partir de contenido de voz en C#](how-to-recognize-intents-from-speech-csharp.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: e564f48b4b90cfcaa72ed51d5f210a71a4980360
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ee4702733e775051cbbcace109bd1a7ffdf50e9c
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902952"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325462"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Uso de una identidad de servicio administrada de máquina virtual de Azure para obtener tokens 
 
@@ -29,7 +29,7 @@ Managed Service Identity proporciona a los servicios de Azure una identidad admi
 
 En este artículo se proporcionan diversos ejemplos de códigos y scripts para obtener tokens, así como instrucciones sobre temas importantes como el control de errores HTTP y la expiración de tokens. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -49,6 +49,7 @@ Una aplicación cliente puede solicitar un [token de acceso de solo aplicación]
 |  |  |
 | -------------- | -------------------- |
 | [Obtención de un token con HTTP](#get-a-token-using-http) | Detalles del protocolo del punto de conexión de token de MSI |
+| [Obtención de un token con la biblioteca Microsoft.Azure.Services.AppAuthentication para .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Ejemplo del uso de la biblioteca Microsoft.Azure.Services.AppAuthentication desde un cliente .NET
 | [Obtención de un token con C#](#get-a-token-using-c) | Ejemplo de cómo utilizar el punto de conexión REST de MSI desde un cliente de C# |
 | [Obtención de un token con Go](#get-a-token-using-go) | Ejemplo de cómo utilizar el punto de conexión REST de MSI desde un cliente de Go |
 | [Obtención de un token con Azure PowerShell](#get-a-token-using-azure-powershell) | Ejemplo de cómo utilizar el punto de conexión REST de MSI desde un cliente de PowerShell |
@@ -73,7 +74,9 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `http://169.254.169.254/metadata/identity/oauth2/token` | El punto de conexión de MSI del servicio de metadatos de instancia. |
 | `api-version`  | Un parámetro de cadena de consulta, que indica la versión de API del punto de conexión de IMDS. Use una versión de API `2018-02-01` o superior. |
 | `resource` | Un parámetro de cadena de consulta, que indica el URI del identificador de aplicación del recurso de destino. También aparece en la notificación `aud` (audiencia) del token emitido. En este ejemplo, se solicita un token para acceder a Azure Resource Manager, que tiene un URI de identificador de aplicación de https://management.azure.com/. |
-| `Metadata` | Un campo de encabezado de la solicitud HTTP, requerido por MSI como mitigación frente a ataques de falsificación de solicitud de lado del servidor (SSRF). Este valor debe establecerse en "true", todo en minúsculas.
+| `Metadata` | Un campo de encabezado de la solicitud HTTP, requerido por MSI como mitigación frente a ataques de falsificación de solicitud de lado del servidor (SSRF). Este valor debe establecerse en "true", todo en minúsculas. |
+| `object_id` | (Opcional) Un parámetro de cadena de consulta, que indica el valor de object_id de la identidad administrada para la que quiere que sea el token. Es obligatorio si la máquina virtual tiene varias identidades administradas asignadas por el usuario.|
+| `client_id` | (Opcional) Un parámetro de cadena de consulta, que indica el valor de client_id de la identidad administrada para la que quiere que sea el token. Es obligatorio si la máquina virtual tiene varias identidades administradas asignadas por el usuario.|
 
 Solicitud de ejemplo con el punto de conexión de extensión de VM de Managed Service Identity (MSI) *(que entrará en desuso)*:
 
@@ -87,7 +90,9 @@ Metadata: true
 | `GET` | El verbo HTTP, indicando que se van a recuperar datos desde el punto de conexión. En este caso, el token de acceso de OAuth. | 
 | `http://localhost:50342/oauth2/token` | El punto de conexión de MSI, donde 50342 es el puerto predeterminado y es configurable. |
 | `resource` | Un parámetro de cadena de consulta, que indica el URI del identificador de aplicación del recurso de destino. También aparece en la notificación `aud` (audiencia) del token emitido. En este ejemplo, se solicita un token para acceder a Azure Resource Manager, que tiene un URI de identificador de aplicación de https://management.azure.com/. |
-| `Metadata` | Un campo de encabezado de la solicitud HTTP, requerido por MSI como mitigación frente a ataques de falsificación de solicitud de lado del servidor (SSRF). Este valor debe establecerse en "true", todo en minúsculas.
+| `Metadata` | Un campo de encabezado de la solicitud HTTP, requerido por MSI como mitigación frente a ataques de falsificación de solicitud de lado del servidor (SSRF). Este valor debe establecerse en "true", todo en minúsculas.|
+| `object_id` | (Opcional) Un parámetro de cadena de consulta, que indica el valor de object_id de la identidad administrada para la que quiere que sea el token. Es obligatorio si la máquina virtual tiene varias identidades administradas asignadas por el usuario.|
+| `client_id` | (Opcional) Un parámetro de cadena de consulta, que indica el valor de client_id de la identidad administrada para la que quiere que sea el token. Es obligatorio si la máquina virtual tiene varias identidades administradas asignadas por el usuario.|
 
 
 Respuesta de ejemplo:
@@ -115,6 +120,26 @@ Content-Type: application/json
 | `not_before` | El intervalo de tiempo cuando el token de acceso tiene efecto y se puede aceptar. La fecha se representa como el número de segundos desde "1970-01-01T0:0:0Z UTC" (se corresponde con la notificación `nbf` del token). |
 | `resource` | El recurso para el que se solicitó el token de acceso, que coincide con el parámetro de la cadena de consulta `resource` de la solicitud. |
 | `token_type` | El tipo de token, que es un token de acceso al "Portador", lo que significa que el recurso puede permitir el acceso al portador del token. |
+
+## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Obtención de un token con la biblioteca Microsoft.Azure.Services.AppAuthentication para .NET
+
+En el caso de las aplicaciones y las funciones de .NET, la manera más sencilla de trabajar con una identidad de servicio administrada es utilizar el paquete Microsoft.Azure.Services.AppAuthentication. Esta biblioteca también le permite probar el código localmente en la máquina de desarrollo, con su cuenta de usuario de Visual Studio, la [CLI de Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) o la autenticación integrada de Active Directory. Para más información sobre las opciones de desarrollo local con esta biblioteca, consulte la [referencia de Microsoft.Azure.Services.AppAuthentication]. En esta sección se muestra cómo empezar a usar la biblioteca en su código.
+
+1. Agregue referencias a los paquetes de NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) y [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) para la aplicación.
+
+2.  Agregue el siguiente código a su aplicación:
+
+    ```csharp
+    using Microsoft.Azure.Services.AppAuthentication;
+    using Microsoft.Azure.KeyVault;
+    // ...
+    var azureServiceTokenProvider = new AzureServiceTokenProvider();
+    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
+    // OR
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+    ```
+    
+Para obtener más información sobre Microsoft.Azure.Services.AppAuthentication y las operaciones que expone, consulte la [referencia de Microsoft.Azure.Services.AppAuthentication](/azure/key-vault/service-to-service-authentication) y el [ejemplo de .NET sobre App Service y KeyVault con MSI](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ## <a name="get-a-token-using-c"></a>Obtención de un token con C#
 

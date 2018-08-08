@@ -15,6 +15,8 @@
 | Tiempo de espera de solicitud máx. |24 horas | |
 | Número de sitios |20 |1 por agentes de escucha HTTP |
 | Asignaciones de URL por agente de escucha |1 | |
+|Longitud máxima de dirección URL|8000|
 | Tamaño máximo de carga de archivos estándar |2 GB | |
 | Tamaño máximo de carga de archivos WAF |100 MB| |
+|Límite de tamaño de cuerpo de WAF (sin archivos)|128 KB|
 

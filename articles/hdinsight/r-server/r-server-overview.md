@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 9633a7df1cb72f3e9e5ee79be0c332565e7e8f2a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c952d64229102f99dde393bc9a6efda45fc1c717
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054109"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358858"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Introducción a las funcionalidades de ML Services y R de código abierto en HDInsight
 
@@ -106,7 +106,7 @@ Si elige esta opción, tendrá que convertir los objetos de modelo de ScaleR en 
 
 ### <a name="score-on-premises"></a>Puntuación en un entorno local
 
-Para puntuar de forma local después de crear el modelo, este se puede serializar en R, descargarlo, anular la serialización y, después, usarlo para puntuar nuevos datos. Puede puntuar nuevos datos adoptando el enfoque descrito antes en [Puntuación en HDInsight](#scoring-in-hdinsight) o mediante [DeployR](https://deployr.revolutionanalytics.com/).
+Para puntuar de forma local después de crear el modelo, este se puede serializar en R, descargarlo, anular la serialización y, después, usarlo para puntuar nuevos datos. Puede puntuar nuevos datos adoptando el enfoque descrito antes en [Puntuación en HDInsight](#scoring-in-hdinsight) o mediante [servicios web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
 
 ## <a name="maintain-the-cluster"></a>Mantenimiento del clúster
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 07/18/2018
+ms.date: 07/31/2018
 ms.author: rolyon
-ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 970e748d7174a9b443fc96f52ac94e082a6c9d44
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136662"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398961"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Característica Azure Active Directory Terms of Use
 Azure AD Terms of Use ofrece un método sencillo que pueden usar las organizaciones para presentar información a los usuarios finales. Esta presentación garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes de los requisitos legales o de cumplimiento. En este artículo se describe cómo empezar a trabajar con Azure AD Terms of Use.
@@ -138,6 +138,42 @@ Los usuarios pueden revisar y ver los términos de uso que han aceptado mediante
 
 1. Desde ahí puede examinar los términos de uso que ha aceptado. 
 
+## <a name="edit-terms-of-use-details"></a>Edición de los detalles de los términos de uso
+Algunos de los detalles de los términos de uso se pueden editar, pero no se puede modificar un documento existente. El siguiente procedimiento describe cómo editar dichos detalles.
+
+1. Inicie sesión en Azure y vaya a **Términos de uso** en [https://aka.ms/catou](https://aka.ms/catou).
+
+1. Seleccione los términos de uso que desea editar.
+
+1. Haga clic en **Editar términos**.
+
+1. En el panel de edición de términos de uso, cambie el nombre, muestre el nombre o solicite a los usuarios que expandan los valores.
+
+    ![Agregar condiciones de uso](media/active-directory-tou/edit-tou.png)
+
+1. Haga clic en **Guardar** para guardar los cambios.
+
+    Una vez que guarde los cambios, los usuarios tendrán que volver a aceptar los nuevos términos.
+
+## <a name="add-a-terms-of-use-language"></a>Agregar un idioma a los términos de uso
+El siguiente procedimiento describe cómo agregar un idioma a los términos de uso.
+
+1. Inicie sesión en Azure y vaya a **Términos de uso** en [https://aka.ms/catou](https://aka.ms/catou).
+
+1. Seleccione los términos de uso que desea editar.
+
+1. En el panel de detalles, haga clic en la pestaña **Idiomas**.
+
+    ![Agregar condiciones de uso](media/active-directory-tou/languages-tou.png)
+
+1. Haga clic en **Agregar idioma**.
+
+1. En el panel para agregar idioma de los términos de uso, cargue el PDF localizado y seleccione el idioma.
+
+    ![Agregar condiciones de uso](media/active-directory-tou/language-add-tou.png)
+
+1. Haga clic en **Agregar** para agregar el idioma.
+
 ## <a name="delete-terms-of-use"></a>Eliminar los términos de uso
 Puede eliminar los antiguos términos de uso mediante el procedimiento siguiente:
 
@@ -175,8 +211,11 @@ R: Los recuentos de usuarios en el informe Términos de uso y quién los ha acep
 **P: ¿Por qué veo un número diferente de consentimientos en el informe Términos de uso en comparación con los registros de auditoría de Azure AD?**</br>
 R: El informe Términos de uso se almacena durante toda la vigencia de esos términos de uso, mientras que los registros de auditoría de Azure AD se almacenan durante 30 días. Además, el informe Términos de uso solo muestra el estado de consentimiento actual de los usuarios. Por ejemplo, si un usuario manifiesta su rechazo y luego su aceptación, el informe Términos de uso solo mostrará la aceptación de ese usuario. Si necesita ver el historial, puede usar los registros de auditoría de Azure AD.
 
-**P: ¿Si cambio los términos de uso, es necesario que los usuarios los acepten de nuevo?**</br>
-R: Sí, un administrador puede cambiar los términos de uso y será necesario que los usuarios vuelvan a aceptar los nuevos términos.
+**P: Si edito los detalles de los términos de uso, ¿los usuarios tienen que volver a aceptarlos?**</br>
+R: Sí, si un administrador edita los detalles de los términos de uso, los usuarios tienen que volver a aceptar los nuevos términos.
+
+**P: ¿Se puede actualizar un documento de términos de uso existente?**</br>
+R: Actualmente no se puede actualizar un documento de términos de uso existente. Para cambiarlo tendrá que crear una nueva instancia de los términos de uso.
 
 **P: Si hay hipervínculos en el documento PDF de Términos de uso, ¿los usuarios finales podrán hacer clic en ellos?**</br>
 R: El archivo PDF se representa de manera predeterminada como un archivo JPEG, por lo que no se puede hacer clic en los hipervínculos. Los usuarios tiene la opción de seleccionar **¿Tiene problemas con la visualización? Haga clic aquí**, que muestra el PDF de manera nativa, donde sí se admiten los hipervínculos.

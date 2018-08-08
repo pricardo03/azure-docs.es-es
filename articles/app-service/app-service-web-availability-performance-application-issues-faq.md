@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 9c8eda1c4a65465a93b9c3f9caf23a6663073f26
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 06fe9f1fd65f70e41d528a513e44e61edb4a7e4f
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34159297"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307915"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre el rendimiento de aplicaciones para Web Apps de Azure
 
@@ -158,7 +158,7 @@ Tenga en cuenta que un entorno de 64 bits requiere un plan de servicio Básico o
 
 Para más información, consulte [Configuración de aplicaciones web en Azure App Service](web-sites-configure.md).
 
-## <a name="why-does-my-request-time-out-after-240-seconds"></a>¿Por qué se agota el tiempo de espera de la solicitud después de 240 segundos?
+## <a name="why-does-my-request-time-out-after-230-seconds"></a>¿Por qué se agota el tiempo de espera de la solicitud después de 230 segundos?
 
 Azure Load Balancer tiene un valor de tiempo de expiración de inactividad predeterminado de cuatro minutos. Por lo general, suele ser un límite de tiempo de respuesta razonable para una solicitud web. Si la aplicación web requiere un procesamiento en segundo plano, se recomienda el uso de Azure WebJobs. La aplicación web de Azure puede llamar a WebJobs y se recibirá una notificación cuando haya finalizado el procesamiento en segundo plano. Puede elegir entre varios métodos para usar WebJobs, incluidos las colas y los desencadenadores.
 
