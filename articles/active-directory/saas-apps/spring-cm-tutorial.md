@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.openlocfilehash: cf0495e27d7fc06c54266eba6640e0c0fb99be42
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 034d7b61d4a02ac899c7215a042d47bc7938176d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051208"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438154"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Tutorial: integración de Azure Active Directory con SprinkCM
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Agregar SpringCM desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-springcm-from-the-gallery"></a>Agregar SpringCM desde la galería
 Para configurar la integración de SpringCM en Azure AD, deberá agregar SpringCM desde la galería a la lista de aplicaciones SaaS administradas.
@@ -63,19 +63,19 @@ Para configurar la integración de SpringCM en Azure AD, deberá agregar SpringC
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **SpringCM**.
+1. En el cuadro de búsqueda, escriba **SpringCM**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/spring-cm-tutorial/tutorial_springcm_search.png)
 
-5. En el panel de resultados, seleccione **SpringCM** y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **SpringCM** y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/spring-cm-tutorial/tutorial_springcm_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Para establecer la relación de vínculo, en SpringCM, asigne el valor del **nom
 Para configurar y probar el inicio de sesión único de Azure AD con SpringCM, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de SpringCM](#creating-a-springcm-test-user)**: para tener un homólogo de Britta Simon en SpringCM vinculado a la representación del usuario de Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de SpringCM](#creating-a-springcm-test-user)**: para tener un homólogo de Britta Simon en SpringCM vinculado a la representación del usuario de Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,11 +104,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/spring-cm-tutorial/tutorial_springcm_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de SpringCM**, lleve a cabo los pasos siguientes:
+1. En la sección **Dominio y direcciones URL de SpringCM**, lleve a cabo los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/spring-cm-tutorial/tutorial_springcm_url.png)
 
@@ -117,25 +117,25 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de SpringCM](https://knowledge.springcm.com/support) para obtener este valor. 
  
-4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (sin procesar)** y, a continuación, guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (sin procesar)** y, a continuación, guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/spring-cm-tutorial/tutorial_springcm_certificate.png) 
 
-5. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/spring-cm-tutorial/tutorial_general_400.png)
 
-6. En la sección **Configuración de SpringCM**, haga clic en **Configurar SpringCM** para abrir la ventana **Configurar inicio de sesión**. Copie los valores de **SAML Entity ID y SAML Single Sign-On Service URL** (Identificador de entidad de SAML y Dirección URL del servicio de inicio de sesión único de SAML) de la sección **Referencia rápida**.
+1. En la sección **Configuración de SpringCM**, haga clic en **Configurar SpringCM** para abrir la ventana **Configurar inicio de sesión**. Copie los valores de **SAML Entity ID y SAML Single Sign-On Service URL** (Identificador de entidad de SAML y Dirección URL del servicio de inicio de sesión único de SAML) de la sección **Referencia rápida**.
 
     ![Configurar inicio de sesión único](./media/spring-cm-tutorial/tutorial_springcm_configure.png)     
 
-7. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de **SpringCM** como administrador.
+1. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de **SpringCM** como administrador.
 
-8. En el menú de la parte superior, haga clic en**IR A**, haga clic en **Preferencias** y, luego, en la sección **Preferencias de cuenta**, haga clic en**SSO de SAML**.
+1. En el menú de la parte superior, haga clic en**IR A**, haga clic en **Preferencias** y, luego, en la sección **Preferencias de cuenta**, haga clic en**SSO de SAML**.
    
     ![SSO DE SAML](./media/spring-cm-tutorial/ic797051.png "SSO DE SAML")
 
-9. En la sección de configuración del proveedor de identidades, realice los pasos siguientes:
+1. En la sección de configuración del proveedor de identidades, realice los pasos siguientes:
    
     ![Configuración del proveedor de identidades](./media/spring-cm-tutorial/ic797052.png "Configuración del proveedor de identidades")
     
@@ -164,15 +164,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/spring-cm-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Creación de un usuario de prueba de Azure AD](./media/spring-cm-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Creación de un usuario de prueba de Azure AD](./media/spring-cm-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/spring-cm-tutorial/create_aaduser_04.png) 
 
@@ -195,21 +195,21 @@ Para permitir que los usuarios de Azure Active Directory inicien sesión en Spri
 
 1. Inicie sesión en su sitio de compañía de **SpringCM** como administrador.
 
-2. Haga clic en **GOTO** y, luego, en **ADDRESS BOOK** (LIBRETA DE DIRECCIONES).
+1. Haga clic en **GOTO** y, luego, en **ADDRESS BOOK** (LIBRETA DE DIRECCIONES).
    
     ![Creación de usuarios](./media/spring-cm-tutorial/ic797054.png "Creación de usuarios")
 
-3. Haga clic en **Create User**(Crear usuario).
+1. Haga clic en **Create User**(Crear usuario).
 
-4. Seleccione un **Rol de usuario**.
+1. Seleccione un **Rol de usuario**.
 
-5. Seleccione **Enviar correo electrónico de activación**.
+1. Seleccione **Enviar correo electrónico de activación**.
 
-6. Escriba el nombre, el apellido y la dirección de correo electrónico de una cuenta de usuario de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados.
+1. Escriba el nombre, el apellido y la dirección de correo electrónico de una cuenta de usuario de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados.
 
-7. Agregue el usuario a un **Grupo de seguridad**.
+1. Agregue el usuario a un **Grupo de seguridad**.
 
-8. Haga clic en **Save**(Guardar).
+1. Haga clic en **Save**(Guardar).
 
   >[!NOTE]
   >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de SpringCM ofrecida por SpringCM para aprovisionar cuentas de usuario de AAD.  
@@ -227,23 +227,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **SpringCM**.
+1. En la lista de aplicaciones, seleccione **SpringCM**.
 
     ![Configurar inicio de sesión único](./media/spring-cm-tutorial/tutorial_springcm_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 

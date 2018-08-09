@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: afdee938145dacf50538ceb186957933fe7ec3bd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 379878e261007eca13a4e455ef2b97237c81eeba
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450035"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparación de un registro de contenedor de Azure con replicación geográfica
 
@@ -31,7 +32,7 @@ En los siguientes tutoriales implementará el contenedor desde el registro priva
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Para realizar este tutorial es necesaria una instalación local de la CLI de Azure (versión 2.0.31 o posterior). Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Para realizar este tutorial es necesaria una instalación local de la CLI de Azure (versión 2.0.31 o posterior). Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 Debe estar familiarizado con los principales conceptos de Docker, como los contenedores, las imágenes de contenedor y los comandos básicos de la CLI de Docker. Si es necesario, consulte la [introducción a Docker]( https://docs.docker.com/get-started/), donde encontrará datos básicos acerca de los contenedores.
 
@@ -39,7 +40,7 @@ Para completar este tutorial, necesita una instalación local de Docker. Docker 
 
 Azure Cloud Shell no incluye los componentes de Docker necesarios para completar cada paso de este tutorial. Por lo tanto, le recomendamos que realice una instalación local del entorno de desarrollo de la CLI de Azure y Docker.
 
-## <a name="create-a-container-registry"></a>Creación de un registro de contenedor
+## <a name="create-a-container-registry"></a>Creación de un Registro de contenedor
 
 Inicie sesión en el [Azure Portal](http://portal.azure.com).
 
@@ -89,7 +90,7 @@ Una vez completada la replicación, el portal mostrará el mensaje *Listo* para 
 
 Ahora que ha configurado la replicación geográfica, compile una imagen de contenedor e insértela en el registro. Primero debe iniciar sesión en la instancia de ACR antes de insertar imágenes en ella.
 
-Use el comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) para autenticarse y almacenar en caché las credenciales del registro. Reemplace `<acrName>` por el nombre del registro que creó anteriormente.
+Use el comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) para autenticarse y almacenar en caché las credenciales del registro. Reemplace `<acrName>` por el nombre del registro que creó anteriormente.
 
 ```azurecli
 az acr login --name <acrName>

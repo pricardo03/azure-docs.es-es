@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 1dfe8a903e19ff524a1c4a0228e6aefcbe9ff183
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2c08522df598bd5c6313c3f026efe48e1c4a2c56
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29117687"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449366"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Administración de un plan de App Service en Azure
 
@@ -35,7 +35,7 @@ Puede crear un plan de App Service vacío o como parte de la creación de la apl
 
 1. En [Azure Portal](https://portal.azure.com), haga clic en **Nuevo** > **Web y móvil** y, a continuación, seleccione **Aplicación web** u otro tipo de aplicación de App Service.
 
-2. Seleccione un plan de App Service existente o cree un plan para la nueva aplicación.
+1. Seleccione un plan de App Service existente o cree un plan para la nueva aplicación.
 
    ![Cree una aplicación en Azure Portal.][createWebApp]
 
@@ -59,13 +59,13 @@ Puede mover una aplicación a otro plan de App Service siempre que el plan de or
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la aplicación que desea mover.
 
-2. En el menú, busque la sección **Plan de App Service**.
+1. En el menú, busque la sección **Plan de App Service**.
 
-3. Seleccione **Cambiar plan de App Service** para abrir el selector **Plan de App Service**.
+1. Seleccione **Cambiar plan de App Service** para abrir el selector **Plan de App Service**.
 
    ![Selector de plan de App Service.][change] 
 
-4. En el selector **Plan de App Service**, seleccione un plan existente al que mover esta aplicación.   
+1. En el selector **Plan de App Service**, seleccione un plan existente al que mover esta aplicación.   
 
 > [!IMPORTANT]
 > La página **Select App Service plan** (Seleccionar plan de App Service) se filtra por los siguientes criterios: 
@@ -112,7 +112,7 @@ Para evitar cargos inesperados, al eliminar la última aplicación en un plan de
 > [!IMPORTANT]
 > Los planes de App Service que no tienen aplicaciones asociadas a ellos seguirán generando cargos, ya que siguen reservando las instancias de máquinas virtuales configuradas.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Escalado vertical de aplicaciones en Azure](web-sites-scale.md)

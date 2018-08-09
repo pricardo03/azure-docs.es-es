@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: d66b5aa4eb2ad90596dfe9e26bbc18996c967295
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a17260770f0b2e0a73585ce4108bd5625ac22229
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "27778554"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436155"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configuración de credenciales de implementación para Azure App Service
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) admite dos tipos de credenciales para la [implementación de GIT local](app-service-deploy-local-git.md) y la [implementación FTP/S](app-service-deploy-ftp.md). Estas credenciales no son las mismas que las de Azure Active Directory.
@@ -46,7 +46,7 @@ Para configurar las credenciales de nivel de usuario:
 1. En [Azure Portal](https://portal.azure.com), haga clic en App Service > **&lt;cualquier_aplicación >** > **Credenciales de implementación**.
 
     > [!NOTE]
-    > En el portal, debe tener al menos una aplicación para acceder a la página de credenciales de implementación. Sin embargo, con la [CLI de Azure](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set), puede configurar las credenciales de nivel de usuario sin tener ninguna aplicación.
+    > En el portal, debe tener al menos una aplicación para acceder a la página de credenciales de implementación. Sin embargo, con la [CLI de Azure](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set), puede configurar las credenciales de nivel de usuario sin tener ninguna aplicación.
 
 2. Configure el nombre de usuario y la contraseña y, a continuación, haga clic en **Guardar**.
 
@@ -91,6 +91,6 @@ Para restablecer las credenciales de nivel de aplicación:
 
     La acción de restablecimiento invalida cualquier archivo .PublishSettings anteriormente descargado.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo usar estas credenciales para implementar la aplicación desde [GIT local](app-service-deploy-local-git.md) o con [FTP/S](app-service-deploy-ftp.md).

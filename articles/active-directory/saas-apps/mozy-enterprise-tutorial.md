@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: jeedes
-ms.openlocfilehash: a0e3d6822c3aa79018482ec601a3f821f9fda254
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 7dc2f13979bb0ea919a78b750160119198ee7d6d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040871"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436614"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Integración de Azure Active Directory con Mozy Enterprise
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Mozy Enterprise desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-mozy-enterprise-from-the-gallery"></a>Adición de Mozy Enterprise desde la galería
 Para configurar la integración de Mozy Enterprise en Azure AD, es preciso agregar dicha solución desde la galería a la lista de aplicaciones SaaS administradas.
@@ -63,19 +63,19 @@ Para configurar la integración de Mozy Enterprise en Azure AD, es preciso agreg
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **Mozy Enterprise**.
+1. En el cuadro de búsqueda, escriba **Mozy Enterprise**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_search.png)
 
-5. En el panel de resultados, seleccione **Mozy Enterprise** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **Mozy Enterprise** y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Para establecer la relación de vínculo, asigne el valor de **nombre de usuario
 Para configurar y probar el inicio de sesión único de Azure AD con Mozy Enterprise, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Mozy Enterprise](#creating-a-mozy-enterprise-test-user)**: el objetivo es tener un homólogo de Britta Simon en Mozy Enterprise que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de Mozy Enterprise](#creating-a-mozy-enterprise-test-user)**: el objetivo es tener un homólogo de Britta Simon en Mozy Enterprise que esté vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,11 +104,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Mozy Enterprise**, lleve a cabo los pasos siguientes:
+1. En la sección **Dominio y direcciones URL de Mozy Enterprise**, lleve a cabo los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_url.png)
 
@@ -117,25 +117,25 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de atención al cliente de Mozy Enterprise](http://support.mozy.com/) para obtener este valor.
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_certificate.png) 
 
-5. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/mozy-enterprise-tutorial/tutorial_general_400.png)
 
-6. En la sección **Configuración de Mozy Enterprise**, haga clic en **Configurar Mozy Enterprise** para abrir la ventana **Configurar inicio de sesión**. Copie **SAML Entity ID and SAML Single Sign-On Service URL** (URL del servicio de inicio de sesión único de SAML e Identificador de entidad de SAML) de la sección **Referencia rápida**.
+1. En la sección **Configuración de Mozy Enterprise**, haga clic en **Configurar Mozy Enterprise** para abrir la ventana **Configurar inicio de sesión**. Copie **SAML Entity ID and SAML Single Sign-On Service URL** (URL del servicio de inicio de sesión único de SAML e Identificador de entidad de SAML) de la sección **Referencia rápida**.
 
     ![Configurar inicio de sesión único](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_configure.png) 
 
-7. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de Mozy Enterprise.
+1. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de Mozy Enterprise.
 
-8. En la sección **Configuración**, haga clic en **Directiva de autenticación**.
+1. En la sección **Configuración**, haga clic en **Directiva de autenticación**.
    
    ![Directiva de autenticación](./media/mozy-enterprise-tutorial/ic777314.png "Directiva de autenticación")
 
-9. En la sección **Authentication Policy** (Directiva de autenticación), realice estos pasos:
+1. En la sección **Authentication Policy** (Directiva de autenticación), realice estos pasos:
    
    ![Directiva de autenticación](./media/mozy-enterprise-tutorial/ic777315.png "Directiva de autenticación")
    
@@ -170,15 +170,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/mozy-enterprise-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Creación de un usuario de prueba de Azure AD](./media/mozy-enterprise-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Creación de un usuario de prueba de Azure AD](./media/mozy-enterprise-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/mozy-enterprise-tutorial/create_aaduser_04.png) 
 
@@ -201,14 +201,14 @@ Para permitir que los usuarios de Azure AD inicien sesión en Mozy Enterprise, d
 
 1. Inicie sesión en su inquilino de **Mozy Enterprise** .
 
-2. Haga clic en **Usuarios** y, luego, en **Agregar nuevo usuario**.
+1. Haga clic en **Usuarios** y, luego, en **Agregar nuevo usuario**.
    
    ![Usuarios](./media/mozy-enterprise-tutorial/ic777317.png "Usuarios")
    
    >[!NOTE]
    >La opción **Agregar nuevo usuario** solo se muestra si **Mozy** está seleccionado como proveedor en **Directiva de autenticación**. Si la autenticación SAML está configurada, los usuarios se agregan automáticamente al iniciar sesión por primera vez con inicio de sesión único.
     
-3. En el cuadro de diálogo Nuevo usuario, realice los pasos siguientes:
+1. En el cuadro de diálogo Nuevo usuario, realice los pasos siguientes:
    
    ![Agregar usuarios](./media/mozy-enterprise-tutorial/ic777318.png "Agregar usuarios")
    
@@ -239,23 +239,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **Mozy Enterprise**.
+1. En la lista de aplicaciones, seleccione **Mozy Enterprise**.
 
     ![Configurar inicio de sesión único](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 

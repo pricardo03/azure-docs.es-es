@@ -15,24 +15,24 @@ ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 90b36183ba32e75e06d434098d26cb10f3736373
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f6f2860b1ae1e88495e2dad3916a0216bf5d0726
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32156698"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428798"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Guía de inicio rápido: Creación de una máquina virtual de servidor Linux con la CLI de Azure en Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Puede crear una máquina virtual Ubuntu Server 16.04 LTS mediante la CLI de Azure. Siga los pasos descritos en este artículo para crear y usar una máquina virtual. Este artículo también proporciona los pasos para:
+Puede crear una máquina virtual Ubuntu Server 16.04 LTS mediante la CLI de Azure. Siga los pasos descritos en este artículo para crear y usar una máquina virtual. En este artículo también se proporcionan los pasos para:
 
 * Conectarse a la máquina virtual con un cliente remoto.
-* Instalar al servidor web NGINX y ver la página principal predeterminada.
-* Realizar la limpieza de los recursos no utilizados.
+* Instalar el servidor web NGINX y ver la página principal predeterminada.
+* Borrar los recursos que no use.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Una imagen de Linux en el marketplace de Azure Stack**
 
@@ -40,11 +40,11 @@ Puede crear una máquina virtual Ubuntu Server 16.04 LTS mediante la CLI de Azur
 
 * Azure Stack requiere una versión específica de la CLI de Azure para crear y administrar los recursos. Si no tiene la CLI de Azure configurada para Azure Stack, inicie sesión en el [kit de desarrollo](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) o en un cliente externo basado en Windows si está [conectado a través de VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) y siga los pasos para [instalar y configurar la CLI de Azure](azure-stack-version-profiles-azurecli2.md).
 
-* Una clave SSH pública con el nombre id_rsa.pub en el directorio .ssh del perfil de usuario de Windows. Para más información sobre la creación de claves SSH, consulte [Creación de claves SSH en Windows](../../virtual-machines/linux/ssh-from-windows.md).
+* Una clave SSH pública con el nombre id_rsa.pub en el directorio .ssh del perfil de usuario de Windows. Para obtener más información sobre la creación de claves SSH, consulte [Crear claves SSH en Windows](../../virtual-machines/linux/ssh-from-windows.md).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos es un contenedor lógico en el que puede implementar y administrar los recursos de Azure Stack. Desde el kit de desarrollo o el sistema integrado de Azure Stack, ejecute el comando [az group create](/cli/azure/group#az_group_create) para crear un grupo de recursos.
+Un grupo de recursos es un contenedor lógico en el que puede implementar y administrar recursos de Azure Stack. Desde el kit de desarrollo o el sistema integrado de Azure Stack, ejecute el comando [az group create](/cli/azure/group#az-group-create) para crear un grupo de recursos.
 
 >[!NOTE]
  Se asignan valores para todas las variables en los ejemplos de código. Sin embargo, puede asignar nuevos valores si lo desea.
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>de una máquina virtual
 
-Cree una máquina virtual con el comando [az vm create](/cli/azure/vm#az_vm_create). En el ejemplo siguiente se crea una máquina virtual denominada myVM. En este ejemplo se usa Demouser como el nombre de usuario administrativo y Demouser@123 como la contraseña del usuario. Actualice estos valores a un valor apropiado para su entorno.
+Cree una máquina virtual con el comando [az vm create](/cli/azure/vm#az-vm-create). En el ejemplo siguiente se crea una máquina virtual denominada myVM. En este ejemplo se usa Demouser como el nombre de usuario administrativo y Demouser@123 como la contraseña del usuario. Actualice estos valores a un valor apropiado para su entorno.
 
 ```cli
 az vm create \
@@ -110,7 +110,7 @@ Con NGINX instalado y el puerto 80 abierto en la máquina virtual, puede acceder
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Realice a limpieza de los recursos que ya no necesita. Puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para eliminar estos recursos. Ejecute el comando siguiente para eliminar el grupo de recursos y todos sus recursos:
+Borre los recursos que ya no necesite. Puede usar el comando [az group delete](/cli/azure/group#az-group-delete) para eliminar estos recursos. Ejecute el comando siguiente para eliminar el grupo de recursos y todos sus recursos:
 
 ```cli
 az group delete --name myResourceGroup

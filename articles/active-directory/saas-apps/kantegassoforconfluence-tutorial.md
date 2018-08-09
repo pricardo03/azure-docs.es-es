@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 5468b278d16cbc0373cd268f45820fbc2a207370
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fd53a6814649b529e301c3135fb491c51a13bcb1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046794"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449233"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-confluence"></a>Tutorial: Integración de Azure Active Directory con Kantega SSO para Confluence
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de Kantega SSO para Confluence desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-kantega-sso-for-confluence-from-the-gallery"></a>Incorporación de Kantega SSO para Confluence desde la galería
 Para configurar la integración de Kantega SSO para Confluence en Azure AD, tiene que agregar Kantega SSO para Confluence desde la galería a la lista de aplicaciones SaaS administradas.
@@ -63,19 +63,19 @@ Para configurar la integración de Kantega SSO para Confluence en Azure AD, tien
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **Kantega SSO para Confluence**.
+1. En el cuadro de búsqueda, escriba **Kantega SSO para Confluence**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_search.png)
 
-5. En el panel de resultados, seleccione **Kantega SSO para Confluence** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **Kantega SSO para Confluence** y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Para establecer la relación de vínculo, en Kantega SSO para Confluence, asigne
 Para configurar y probar el inicio de sesión único de Azure AD con Kantega SSO para Confluence, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Kantega SSO para Confluence](#creating-a-kantega-sso-for-confluence-test-user)**: para tener un homólogo de Britta Simon en Kantega SSO para Confluence que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de Kantega SSO para Confluence](#creating-a-kantega-sso-for-confluence-test-user)**: para tener un homólogo de Britta Simon en Kantega SSO para Confluence que esté vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,11 +104,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_samlbase.png)
 
-3. En el modo de inicio de **IDP**, en la sección **Dominio y direcciones URL de Kantega SSO para Confluence** realice el paso siguiente:
+1. En el modo de inicio de **IDP**, en la sección **Dominio y direcciones URL de Kantega SSO para Confluence** realice el paso siguiente:
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_url1.png)
 
@@ -116,7 +116,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`.
 
-4. En el modo de inicio de **SP**, active la casilla **Mostrar configuración avanzada de URL** y realice el siguiente paso:
+1. En el modo de inicio de **SP**, active la casilla **Mostrar configuración avanzada de URL** y realice el siguiente paso:
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_url2.png)
 
@@ -125,57 +125,57 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Estos valores se reciben durante la configuración del complemento de Confluence, que se explica más adelante en el tutorial.
 
-5. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_certificate.png) 
 
-6. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/tutorial_general_400.png)
     
-7. En otra ventana del explorador web, regístrese en el **Portal de administración de Confluence** como administrador.
+1. En otra ventana del explorador web, regístrese en el **Portal de administración de Confluence** como administrador.
 
-8. Mantenga el mouse encima del icono de engranaje y haga clic en **Complementos**.
+1. Mantenga el mouse encima del icono de engranaje y haga clic en **Complementos**.
     
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/addon1.png)
 
-9. En la pestaña **ATLASSIAN MARKETPLACE** (MARKETPLACE DE ATLASSIAN), haga clic en **Find new add-ons** (Buscar nuevos complementos). 
+1. En la pestaña **ATLASSIAN MARKETPLACE** (MARKETPLACE DE ATLASSIAN), haga clic en **Find new add-ons** (Buscar nuevos complementos). 
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/addon.png)
 
-10. Busque **Kantega SSO para Confluence (SAML Kerberos)** y haga clic en el botón **Instalar** para instalar el nuevo complemento SAML.
+1. Busque **Kantega SSO para Confluence (SAML Kerberos)** y haga clic en el botón **Instalar** para instalar el nuevo complemento SAML.
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/addon2.png)
 
-11. Se inicia la instalación del complemento.
+1. Se inicia la instalación del complemento.
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/addon3.png)
 
-12. Una vez completada la instalación. Haga clic en **Cerrar**.
+1. Una vez completada la instalación. Haga clic en **Cerrar**.
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/addon33.png)
 
-13. Haga clic en **Administrar**.
+1.  Haga clic en **Administrar**.
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/addon34.png)
     
-14. Haga clic en **Configurar** para configurar el nuevo complemento.
+1. Haga clic en **Configurar** para configurar el nuevo complemento.
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/addon35.png)
 
-15. Este nuevo complemento también puede encontrarse en la pestaña **USERS & SECURITY** (USUARIOS Y SEGURIDAD).
+1. Este nuevo complemento también puede encontrarse en la pestaña **USERS & SECURITY** (USUARIOS Y SEGURIDAD).
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/addon36.png)
     
-16. En la sección **SAML**. Seleccione **Azure Active Directory (Azure AD)** en la lista desplegable **Agregar proveedor de identidades**.
+1. En la sección **SAML**. Seleccione **Azure Active Directory (Azure AD)** en la lista desplegable **Agregar proveedor de identidades**.
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/addon4.png)
 
-17. Seleccione el nivel de suscripción **Básica**.
+1. Seleccione el nivel de suscripción **Básica**.
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/addon5.png)     
 
-18. En la sección **Agregar propiedades**, siga estos pasos: 
+1. En la sección **Agregar propiedades**, siga estos pasos: 
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/addon6.png)
 
@@ -183,7 +183,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. Haga clic en **Next**.
 
-19. En la sección **Importar metadatos**, siga estos pasos: 
+1. En la sección **Importar metadatos**, siga estos pasos: 
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/addon7.png)
 
@@ -191,7 +191,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. Haga clic en **Next**.
 
-20. En la sección**Name and SSO location** (Nombre y ubicación de SSO), siga estos pasos:
+1. En la sección**Name and SSO location** (Nombre y ubicación de SSO), siga estos pasos:
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/addon8.png)
     
@@ -199,11 +199,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. Haga clic en **Next**.
 
-21. Compruebe el certificado de firma y haga clic en **Siguiente**.
+1. Compruebe el certificado de firma y haga clic en **Siguiente**.
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/addon9.png)
 
-22. En la sección **Cuentas de usuario de Confluence**, siga estos pasos:
+1. En la sección **Cuentas de usuario de Confluence**, siga estos pasos:
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/addon10.png)
 
@@ -211,11 +211,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. Haga clic en **Next**.
 
-23. Haga clic en **Finalizar**   
+1. Haga clic en **Finalizar**    
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/addon11.png)
 
-24. En la sección **Known domains for Azure AD** (Dominios conocidos para Azure AD), siga estos pasos: 
+1. En la sección **Known domains for Azure AD** (Dominios conocidos para Azure AD), siga estos pasos: 
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/addon12.png)
 
@@ -240,15 +240,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/kantegassoforconfluence-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Creación de un usuario de prueba de Azure AD](./media/kantegassoforconfluence-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Creación de un usuario de prueba de Azure AD](./media/kantegassoforconfluence-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/kantegassoforconfluence-tutorial/create_aaduser_04.png) 
 
@@ -268,11 +268,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Confluence, tienen
 
 1. Inicie sesión en el sitio de la empresa de Kantega SSO para Confluence como administrador.
 
-2. Mantenga el mouse encima del icono de engranaje y haga clic en **Administración de usuarios**.
+1. Mantenga el mouse encima del icono de engranaje y haga clic en **Administración de usuarios**.
 
     ![Agregar empleado](./media/kantegassoforconfluence-tutorial/user1.png) 
 
-3. En la sección Usuarios, haga clic en la pestaña **Agregar usuarios**. En la página del cuadro de diálogo **Agregar un usuario**, realice los siguientes pasos:
+1. En la sección Usuarios, haga clic en la pestaña **Agregar usuarios**. En la página del cuadro de diálogo **Agregar un usuario**, realice los siguientes pasos:
 
     ![Agregar empleado](./media/kantegassoforconfluence-tutorial/user2.png) 
 
@@ -300,23 +300,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **Kantega SSO para Confluence**.
+1. En la lista de aplicaciones, seleccione **Kantega SSO para Confluence**.
 
     ![Configurar inicio de sesión único](./media/kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 

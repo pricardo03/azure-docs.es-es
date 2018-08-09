@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 66ef20616df77dc809a79e516a53133a80759dc7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b3550c771b4c2916987c66f318010e5bb246fa39
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355311"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446857"
 ---
 # <a name="use-an-app-service-environment"></a>Uso de una instancia de App Service Environment #
 
@@ -51,20 +51,20 @@ Para crear una aplicación web en ASE:
 
 1. Seleccione **Crear un recurso** > **Web y móvil** > **Aplicación web**.
 
-2. Escriba un nombre para la aplicación web. Si ya seleccionó un plan de App Service en ASE, el nombre de dominio de la aplicación refleja el nombre de dominio del entorno ASE.
+1. Escriba un nombre para la aplicación web. Si ya seleccionó un plan de App Service en ASE, el nombre de dominio de la aplicación refleja el nombre de dominio del entorno ASE.
 
     ![Selección del nombre de la aplicación web][1]
 
-3. Seleccione una suscripción.
+1. Seleccione una suscripción.
 
-4. Especifique un nombre para un grupo de recursos nuevo o seleccione **Usar existente** y seleccione uno en la lista desplegable.
+1. Especifique un nombre para un grupo de recursos nuevo o seleccione **Usar existente** y seleccione uno en la lista desplegable.
 
-5. Seleccione el sistema operativo. 
+1. Seleccione el sistema operativo. 
 
     * El hospedaje de una aplicación Linux en un ASE es una nueva característica en versión preliminar, por lo que se recomienda no agregar aplicaciones Linux en un ASE que esté ejecutando en ese momento cargas de trabajo de producción. 
     * Agregar una aplicación Linux en un ASE significa que el ASE estará también en modo versión preliminar. 
 
-5. Seleccione un plan de App Service existente en ASE o cree uno nuevo siguiendo estos pasos:
+1. Seleccione un plan de App Service existente en ASE o cree uno nuevo siguiendo estos pasos:
 
     a. Seleccione **Crear nuevo**.
 
@@ -82,7 +82,7 @@ Para crear una aplicación web en ASE:
     > Las aplicaciones web Windows y Linux no pueden estar en el mismo plan de App Service, pero sí que pueden estar en el mismo entorno de App Service. 
     >
 
-6. Seleccione **Crear**.
+1. Seleccione **Crear**.
 
 ## <a name="how-scale-works"></a>Cómo funciona escalar ##
 
@@ -160,7 +160,7 @@ Para eliminar un entorno ASE:
 
 1. Use **Eliminar** en la parte superior de la hoja **App Service Environment**. 
 
-2. Escriba el nombre de su ASE para confirmar que desea eliminarlo. Cuando se elimina un entorno ASE, se elimina también todo su contenido. 
+1. Escriba el nombre de su ASE para confirmar que desea eliminarlo. Cuando se elimina un entorno ASE, se elimina también todo su contenido. 
 
     ![Eliminación de ASE][3]
 

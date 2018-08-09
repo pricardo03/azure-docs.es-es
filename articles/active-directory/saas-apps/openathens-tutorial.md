@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.openlocfilehash: ddd669bb8ff8e520c5538457789d4f660a82255d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 269b216a94b1233c5f9f9a634fda3c05e46cac90
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051431"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435918"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Tutorial: Integración de Azure Active Directory con OpenAthens
 
@@ -50,7 +50,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de OpenAthens desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-openathens-from-the-gallery"></a>Adición de OpenAthens desde la galería
 Para configurar la integración de OpenAthens en Azure AD, será preciso que agregue OpenAthens desde la galería a la lista de aplicaciones SaaS administradas.
@@ -61,15 +61,15 @@ Para configurar la integración de OpenAthens en Azure AD, será preciso que agr
 
     ![Botón Azure Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales** y, a continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales** y, a continuación, vaya a **Todas las aplicaciones**.
 
     ![Panel Aplicaciones empresariales][2]
     
-3. Para agregar una nueva aplicación, seleccione el botón **Nueva aplicación** en la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, seleccione el botón **Nueva aplicación** en la parte superior del cuadro de diálogo.
 
     ![Botón Nueva aplicación][3]
 
-4. En el cuadro de búsqueda, escriba **OpenAthens**, seleccione **OpenAthens** en el panel de resultados y, a continuación, seleccione el botón **Agregar**.
+1. En el cuadro de búsqueda, escriba **OpenAthens**, seleccione **OpenAthens** en el panel de resultados y, a continuación, seleccione el botón **Agregar**.
 
     ![OpenAthens en la lista de resultados](./media/openathens-tutorial/tutorial_openathens_addfromgallery.png)
 
@@ -84,10 +84,10 @@ Para establecer la relación de vínculo en OpenAthens, asigne el valor de **nom
 Para configurar y probar el inicio de sesión único de Azure AD con OpenAthens, es preciso completar los siguientes bloques de creación:
 
 1. [Configuración del inicio de sesión único en Azure AD](#configure-azure-ad-single-sign-on), para permitir a los usuarios usar esta característica.
-2. [Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user), para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. [Creación de un usuario de prueba de OpenAthens](#create-a-openathens-test-user), para tener un homólogo de Britta Simon en OpenAthens que esté vinculado a la representación del usuario en Azure AD.
-4. [Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user), para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. [Prueba del inicio de sesión único](#test-single-sign-on), para comprobar si la configuración funciona.
+1. [Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user), para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. [Creación de un usuario de prueba de OpenAthens](#create-a-openathens-test-user), para tener un homólogo de Britta Simon en OpenAthens que esté vinculado a la representación del usuario en Azure AD.
+1. [Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user), para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. [Prueba del inicio de sesión único](#test-single-sign-on), para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -99,37 +99,37 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Cuadro de diálogo Inicio de sesión único](./media/openathens-tutorial/tutorial_openathens_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de OpenAthens**, escriba el valor `https://login.openathens.net/saml/2/metadata-sp` en el cuadro de texto **Identificador**.
+1. En la sección **Dominio y direcciones URL de OpenAthens**, escriba el valor `https://login.openathens.net/saml/2/metadata-sp` en el cuadro de texto **Identificador**.
 
     ![Información de dominio y direcciones URL de inicio de sesión único de OpenAthens](./media/openathens-tutorial/tutorial_openathens_url.png)
 
-4. En la sección **Certificado de firma de SAML**, seleccione **XML de metadatos** y, a continuación, guarde el archivo de metadatos en el equipo.
+1. En la sección **Certificado de firma de SAML**, seleccione **XML de metadatos** y, a continuación, guarde el archivo de metadatos en el equipo.
 
     ![Vínculo de descarga del certificado de firma de SAML](./media/openathens-tutorial/tutorial_openathens_certificate.png) 
 
-5. Seleccione el botón **Guardar**.
+1. Seleccione el botón **Guardar**.
 
     ![Botón Guardar de Configuración de inicio de sesión único](./media/openathens-tutorial/tutorial_general_400.png)
 
-6. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la empresa de OpenAthens.
+1. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la empresa de OpenAthens.
 
-7. Seleccione **Connections** (Conexiones) de la lista de la pestaña **Management** (Administración). 
+1. Seleccione **Connections** (Conexiones) de la lista de la pestaña **Management** (Administración). 
 
     ![Configurar inicio de sesión único](./media/openathens-tutorial/tutorial_openathens_application1.png)
 
-8. Seleccione **SAML 1.1/2.0** y, a continuación, seleccione el botón **Configure** (Configurar).
+1. Seleccione **SAML 1.1/2.0** y, a continuación, seleccione el botón **Configure** (Configurar).
 
     ![Configurar inicio de sesión único](./media/openathens-tutorial/tutorial_openathens_application2.png)
     
-9. Para agregar la configuración, seleccione el botón **Browse** (Examinar) para cargar el archivo .xml de metadatos que descargó desde Azure Portal y, a continuación, seleccione **Add** (Agregar).
+1. Para agregar la configuración, seleccione el botón **Browse** (Examinar) para cargar el archivo .xml de metadatos que descargó desde Azure Portal y, a continuación, seleccione **Add** (Agregar).
 
     ![Configurar inicio de sesión único](./media/openathens-tutorial/tutorial_openathens_application3.png)
 
-10. Realice los pasos siguientes en la pestaña **Details** (Detalles).
+1. Realice los pasos siguientes en la pestaña **Details** (Detalles).
 
     ![Configurar inicio de sesión único](./media/openathens-tutorial/tutorial_openathens_application4.png)
 
@@ -162,15 +162,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Botón Azure Active Directory](./media/openathens-tutorial/create_aaduser_01.png)
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, seleccione **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, seleccione **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/openathens-tutorial/create_aaduser_02.png)
 
-3. En la parte superior del cuadro de diálogo **Todos los usuarios**, seleccione **Agregar** para abrir el cuadro de diálogo **Usuario**.
+1. En la parte superior del cuadro de diálogo **Todos los usuarios**, seleccione **Agregar** para abrir el cuadro de diálogo **Usuario**.
 
     ![Botón Agregar](./media/openathens-tutorial/create_aaduser_03.png)
 
-4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
+1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
 
     ![Cuadro de diálogo Usuario](./media/openathens-tutorial/create_aaduser_04.png)
 
@@ -198,23 +198,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista **Aplicaciones**, seleccione **OpenAthens**.
+1. En la lista **Aplicaciones**, seleccione **OpenAthens**.
 
     ![Vínculo a OpenAthens en la lista de aplicaciones](./media/openathens-tutorial/tutorial_openathens_app.png)  
 
-3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
+1. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"][202]
 
-4. Seleccione el botón **Agregar**. Después, en el panel **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. Seleccione el botón **Agregar**. Después, en el panel **Agregar asignación**, seleccione **Usuarios y grupos**.
 
     ![Panel Agregar asignación][203]
 
-5. En la lista **Usuarios y grupos**, seleccione **Britta Simon**.
+1. En la lista **Usuarios y grupos**, seleccione **Britta Simon**.
 
-6. En la lista **Usuarios y grupos**, seleccione el botón **Seleccionar**.
+1. En la lista **Usuarios y grupos**, seleccione el botón **Seleccionar**.
 
-7. En el panel **Agregar asignación**, seleccione el botón **Asignar**.
+1. En el panel **Agregar asignación**, seleccione el botón **Asignar**.
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

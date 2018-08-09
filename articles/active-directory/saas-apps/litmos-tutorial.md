@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 786040054875d5e90b558ca1684d0ce657205cff
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a0c70ee6419280b0975d77fb213f9406286708cc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219264"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428009"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-litmos"></a>Tutorial: Integración de Azure Active Directory con Litmos
 
@@ -34,7 +34,7 @@ La integración de Litmos con Azure AD le proporciona las siguientes ventajas:
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Litmos, necesita los siguientes elementos:
 
@@ -53,7 +53,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Litmos desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-litmos-from-the-gallery"></a>Adición de Litmos desde la galería
 Para configurar la integración de Litmos en Azure AD, deberá agregar Litmos desde la galería a la lista de aplicaciones SaaS administradas.
@@ -64,15 +64,15 @@ Para configurar la integración de Litmos en Azure AD, deberá agregar Litmos de
 
     ![Botón Azure Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![Botón Nueva aplicación][3]
 
-4. En el cuadro de búsqueda, escriba **Litmos**, seleccione **Litmos** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el cuadro de búsqueda, escriba **Litmos**, seleccione **Litmos** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Litmos en la lista de resultados](./media/litmos-tutorial/tutorial_litmos_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Para establecer la relación de vínculo, en Litmos, asigne el valor de **nombre
 Para configurar y probar el inicio de sesión único de Azure AD con Litmos, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba en Litmos](#create-a-litmos-test-user)**: para tener un homólogo de Britta Simon en Litmos que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba en Litmos](#create-a-litmos-test-user)**: para tener un homólogo de Britta Simon en Litmos que esté vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -102,11 +102,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Cuadro de diálogo Inicio de sesión único](./media/litmos-tutorial/tutorial_litmos_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Litmos**, lleve a cabo los pasos siguientes:
+1. En la sección **Dominio y direcciones URL de Litmos**, lleve a cabo los pasos siguientes:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Litmos](./media/litmos-tutorial/tutorial_litmos_url.png)
 
@@ -117,11 +117,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Estos valores no son reales. Actualice estos valores con el identificador y dirección URL de respuesta reales, que se explican más adelante en el tutorial o póngase en contacto con el [equipo de soporte técnico de Litmos](https://www.litmos.com/contact-us/) para obtener estos valores.
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Vínculo de descarga del certificado](./media/litmos-tutorial/tutorial_litmos_certificate.png)
 
-5. Como parte de la configuración, debe personalizar los **atributos de token de SAML** para la aplicación Litmos.
+1. Como parte de la configuración, debe personalizar los **atributos de token de SAML** para la aplicación Litmos.
 
     ![Sección atributos](./media/litmos-tutorial/tutorial_attribute.png)
            
@@ -143,29 +143,29 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     d. Haga clic en **Aceptar**.     
 
-6. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Botón Configurar inicio de sesión único](./media/litmos-tutorial/tutorial_general_400.png)
 
-7. En otra ventana del explorador, inicie sesión en su sitio de la compañía de Litmos como administrador.
+1. En otra ventana del explorador, inicie sesión en su sitio de la compañía de Litmos como administrador.
 
-8. En la barra de navegación del lado izquierdo, haga clic en el icono de **cuentas**.
+1. En la barra de navegación del lado izquierdo, haga clic en el icono de **cuentas**.
    
     ![Sección Cuentas en la aplicación][22] 
 
-9. Haga clic en la pestaña **Integraciones** .
+1. Haga clic en la pestaña **Integraciones** .
    
     ![Pestaña Integración][23] 
 
-10. En la pestaña **Integraciones**, desplácese hacia abajo hasta **3rd Party Integrations (Integraciones de terceros)** y, después, haga clic en la pestaña **SAML 2.0**.
+1. En la pestaña **Integraciones**, desplácese hacia abajo hasta **3rd Party Integrations (Integraciones de terceros)** y, después, haga clic en la pestaña **SAML 2.0**.
    
     ![Sección SAML 2.0][24] 
 
-11. Copie el valor situado bajo **El punto de conexión de SAML para Litmos es:** y péguelo en el cuadro de texto **Dirección URL de respuesta** en la sección **Dominio y direcciones URL de Litmos** en Azure Portal. 
+1. Copie el valor situado bajo **El punto de conexión de SAML para Litmos es:** y péguelo en el cuadro de texto **Dirección URL de respuesta** en la sección **Dominio y direcciones URL de Litmos** en Azure Portal. 
    
     ![Punto de conexión de SAML][26] 
 
-12. En la aplicación **Litmos** , realice los pasos siguientes:
+1. En la aplicación **Litmos** , realice los pasos siguientes:
     
      ![Aplicación Litmos][25] 
      
@@ -190,15 +190,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Botón Azure Active Directory](./media/litmos-tutorial/create_aaduser_01.png)
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/litmos-tutorial/create_aaduser_02.png)
 
-3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
 
     ![Botón Agregar](./media/litmos-tutorial/create_aaduser_03.png)
 
-4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
+1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
 
     ![Cuadro de diálogo Usuario](./media/litmos-tutorial/create_aaduser_04.png)
 
@@ -219,19 +219,19 @@ La aplicación Litmos admite el aprovisionamiento Just-in-Time. Esto significa q
 
 1. En otra ventana del explorador, inicie sesión en su sitio de la compañía de Litmos como administrador.
 
-2. En la barra de navegación del lado izquierdo, haga clic en el icono de **cuentas**.
+1. En la barra de navegación del lado izquierdo, haga clic en el icono de **cuentas**.
    
     ![Sección Cuentas en la aplicación][22] 
 
-3. Haga clic en la pestaña **Integraciones** .
+1. Haga clic en la pestaña **Integraciones** .
    
     ![Pestaña Integraciones][23] 
 
-4. En la pestaña **Integraciones**, desplácese hacia abajo hasta **3rd Party Integrations (Integraciones de terceros)** y, después, haga clic en la pestaña **SAML 2.0**.
+1. En la pestaña **Integraciones**, desplácese hacia abajo hasta **3rd Party Integrations (Integraciones de terceros)** y, después, haga clic en la pestaña **SAML 2.0**.
    
     ![SAML 2.0][24] 
     
-5. Seleccione **Autogenerate Users**(Generar usuarios automáticamente)
+1. Seleccione **Autogenerate Users**(Generar usuarios automáticamente)
    
     ![Generar usuarios automáticamente][27] 
 
@@ -247,23 +247,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **Litmos**.
+1. En la lista de aplicaciones, seleccione **Litmos**.
 
     ![Vínculo a Litmos en la lista de aplicaciones](./media/litmos-tutorial/tutorial_litmos_app.png)  
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"][202]
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Panel Agregar asignación][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

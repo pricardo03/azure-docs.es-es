@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 5d7f77b1c2b7677310246afd4dd512a3dcaff442
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 79e3b853728f6f997ad97a653ac3c119b2760cbd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223338"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430646"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Tutorial: integración de Azure Active Directory con TalentLMS
 
@@ -33,7 +33,7 @@ Integrar TalentLMS con Azure AD proporciona las siguientes ventajas:
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con TalentLMS, necesita los siguientes elementos:
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de TalentLMS desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-talentlms-from-the-gallery"></a>Incorporación de TalentLMS desde la galería
 Para configurar la integración de TalentLMS en Azure AD, deberá agregar TalentLMS desde la galería a la lista de aplicaciones SaaS administradas.
@@ -63,19 +63,19 @@ Para configurar la integración de TalentLMS en Azure AD, deberá agregar Talent
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **TalentLMS**.
+1. En el cuadro de búsqueda, escriba **TalentLMS**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/talentlms-tutorial/tutorial_talentlms_search.png)
 
-5. En el panel de resultados, seleccione **TalentLMS** y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **TalentLMS** y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/talentlms-tutorial/tutorial_talentlms_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Para establecer la relación de vínculo, en TalentLMS, asigne el valor del **no
 Para configurar y probar el inicio de sesión único de Azure AD con TalentLMS, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de TalentLMS](#creating-a-talentlms-test-user)**: para tener un homólogo de Britta Simon en TalentLMS que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de TalentLMS](#creating-a-talentlms-test-user)**: para tener un homólogo de Britta Simon en TalentLMS que esté vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,11 +104,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/talentlms-tutorial/tutorial_talentlms_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de TalentLMS**, lleve a cabo los pasos siguientes:
+1. En la sección **Dominio y direcciones URL de TalentLMS**, lleve a cabo los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/talentlms-tutorial/tutorial_talentlms_url.png)
 
@@ -119,27 +119,27 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de TalentLMS](https://www.talentlms.com/contact) para obtener estos valores. 
  
-4. En la sección **Certificado de firma de SAML**, copie el valor de **HUELLA DIGITAL** del certificado.
+1. En la sección **Certificado de firma de SAML**, copie el valor de **HUELLA DIGITAL** del certificado.
 
     ![Configurar inicio de sesión único](./media/talentlms-tutorial/tutorial_talentlms_certificate.png) 
 
-5. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/talentlms-tutorial/tutorial_general_400.png)
 
-6. En la sección **Configuración de TalentLMS**, haga clic en **Configurar TalentLMS** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+1. En la sección **Configuración de TalentLMS**, haga clic en **Configurar TalentLMS** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
 
     ![Configurar inicio de sesión único](./media/talentlms-tutorial/tutorial_talentlms_configure.png)  
 
-7. En otra ventana del explorador web, inicie sesión en el sitio de la compañía de TalentLMS como administrador.
+1. En otra ventana del explorador web, inicie sesión en el sitio de la compañía de TalentLMS como administrador.
 
-8. En la sección **Account & Settings** (Cuenta y configuración), haga clic en la pestaña **Users** (Usuarios).
+1. En la sección **Account & Settings** (Cuenta y configuración), haga clic en la pestaña **Users** (Usuarios).
    
     ![Cuenta y configuración](./media/talentlms-tutorial/IC777296.png "Cuenta y configuración")
 
-9. Haga clic en **Inicio de sesión único (SSO)**.
+1. Haga clic en **Inicio de sesión único (SSO)**.
 
-10. En la sección Inicio de sesión único, siga estos pasos:
+1. En la sección Inicio de sesión único, siga estos pasos:
    
     ![Inicio de sesión único](./media/talentlms-tutorial/IC777297.png "Inicio de sesión único")   
 
@@ -163,7 +163,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     * En el cuadro de texto **Email** (Correo electrónico), escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
     
-11. Haga clic en **Save**(Guardar).
+1. Haga clic en **Save**(Guardar).
  
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -180,15 +180,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/talentlms-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Creación de un usuario de prueba de Azure AD](./media/talentlms-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Creación de un usuario de prueba de Azure AD](./media/talentlms-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/talentlms-tutorial/create_aaduser_04.png) 
 
@@ -208,9 +208,9 @@ Para permitir que los usuarios de Azure AD inicien sesión en TalentLMS, deben a
 
 1. Inicie sesión en su inquilino de **TalentLMS** .
 
-2. Haga clic en **Users** (Usuarios) y, luego, en **Add User** (Agregar usuario).
+1. Haga clic en **Users** (Usuarios) y, luego, en **Add User** (Agregar usuario).
 
-3. En la página del cuadro de diálogo **Agregar usuario** , realice los siguientes pasos:
+1. En la página del cuadro de diálogo **Agregar usuario** , realice los siguientes pasos:
    
     ![Agregar usuario](./media/talentlms-tutorial/IC777299.png "Agregar usuario")  
 
@@ -238,23 +238,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **TalentLMS**.
+1. En la lista de aplicaciones, seleccione **TalentLMS**.
 
     ![Configurar inicio de sesión único](./media/talentlms-tutorial/tutorial_talentlms_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 

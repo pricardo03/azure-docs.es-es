@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: e469311609909e3453015702fca7d015a4e72398
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: dbefe5324acb699abb0e06b8f3f464a91a6fa2e2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34273973"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431137"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Equilibrio de carga de máquinas virtuales en todas las zonas de disponibilidad con la CLI de Azure
 
@@ -39,7 +39,7 @@ Si decide instalar y usar la CLI en el sitio local, para este tutorial es precis
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
+Cree un grupo de recursos con [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupSLB* en la ubicación *westeurope*:
 
@@ -69,7 +69,7 @@ En esta sección se detalla cómo se pueden crear y configurar los componentes s
 - Una regla de equilibrador de carga que define cómo se distribuye el tráfico a las máquinas virtuales.
 
 ### <a name="create-the-load-balancer"></a>Creación del equilibrador de carga
-Cree una instancia de Load Balancer Estándar con [az network lb create](/cli/azure/network/lb#az_network_lb_create). En el ejemplo siguiente se crea un equilibrador de carga llamado *myLoadBalancer* y se asigna la dirección *myPublicIP* a la configuración de IP de front-end.
+Cree una instancia de Load Balancer Estándar con [az network lb create](/cli/azure/network/lb#az-network-lb-create). En el ejemplo siguiente se crea un equilibrador de carga llamado *myLoadBalancer* y se asigna la dirección *myPublicIP* a la configuración de IP de front-end.
 
 ```azurecli-interactive
 az network lb create \
@@ -83,7 +83,7 @@ az network lb create \
 
 ## <a name="create-health-probe-on-port-80"></a>Creación de un sondeo de estado en el puerto 80
 
-Los sondeos de estado comprueban todas las instancias de máquina virtual para asegurarse de que pueden enviar tráfico de red. La instancia de máquina virtual con comprobaciones de sondeo incorrectas se elimina del equilibrador de carga hasta que vuelve a estar en línea y una comprobación de sondeo determina que es correcta. Cree un sondeo de estado con az network lb probe create para supervisar el estado de las máquinas virtuales. Para crear un sondeo de estado TCP, debe usar el comando [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create). En el ejemplo siguiente se crea un sondeo de TCP denominado *myHealthProbe*:
+Los sondeos de estado comprueban todas las instancias de máquina virtual para asegurarse de que pueden enviar tráfico de red. La instancia de máquina virtual con comprobaciones de sondeo incorrectas se elimina del equilibrador de carga hasta que vuelve a estar en línea y una comprobación de sondeo determina que es correcta. Cree un sondeo de estado con az network lb probe create para supervisar el estado de las máquinas virtuales. Para crear un sondeo de estado TCP, debe usar el comando [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create). En el ejemplo siguiente se crea un sondeo de TCP denominado *myHealthProbe*:
 
 ```azurecli-interactive
 az network lb probe create \
@@ -95,7 +95,7 @@ az network lb probe create \
 ```
 
 ## <a name="create-load-balancer-rule-for-port-80"></a>Creación de reglas del equilibrador de carga para el puerto 80
-Una regla de equilibrador de carga define la configuración de la dirección IP de front-end para el tráfico entrante y el grupo de direcciones IP de back-end para recibir el tráfico, junto con el puerto de origen y destino requeridos. Cree una regla de equilibrador de carga *myLoadBalancerRuleWeb* con [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) para escuchar el puerto 80 en el grupo de servidores front-end *myFrontEndPool* y enviar tráfico de red con equilibrio de carga al grupo de direcciones de back-end *myBackEndPool*, que también usan el puerto 80.
+Una regla de equilibrador de carga define la configuración de la dirección IP de front-end para el tráfico entrante y el grupo de direcciones IP de back-end para recibir el tráfico, junto con el puerto de origen y destino requeridos. Cree una regla de equilibrador de carga *myLoadBalancerRuleWeb* con [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create) para escuchar el puerto 80 en el grupo de servidores front-end *myFrontEndPool* y enviar tráfico de red con equilibrio de carga al grupo de direcciones de back-end *myBackEndPool*, que también usan el puerto 80.
 
 ```azurecli-interactive
 az network lb rule create \
@@ -115,7 +115,7 @@ Antes de implementar algunas máquinas virtuales y poder probar el equilibrador 
 
 ### <a name="create-a-virtual-network"></a>Crear una red virtual
 
-Cree una red virtual llamada *myVnet* con una subred llamada *mySubnet* en myResourceGroup con el comando [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create).
+Cree una red virtual llamada *myVnet* con una subred llamada *mySubnet* en myResourceGroup con el comando [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
 
 
 ```azurecli-interactive
@@ -128,7 +128,7 @@ az network vnet create \
 
 ### <a name="create-a-network-security-group"></a>Crear un grupo de seguridad de red
 
-Cree un grupo de seguridad de red llamado *myNetworkSecurityGroup* para definir las conexiones entrantes a su red virtual con [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create).
+Cree un grupo de seguridad de red llamado *myNetworkSecurityGroup* para definir las conexiones entrantes a su red virtual con [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
 
 ```azurecli-interactive
 az network nsg create \
@@ -136,7 +136,7 @@ az network nsg create \
 --name myNetworkSecurityGroup
 ```
 
-Cree una regla de grupo de seguridad de red llamada *myNetworkSecurityGroupRule* para el puerto 80 con [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create).
+Cree una regla de grupo de seguridad de red llamada *myNetworkSecurityGroupRule* para el puerto 80 con [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create).
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -153,7 +153,7 @@ az network nsg rule create \
 --priority 200
 ```
 ### <a name="create-nics"></a>Cree tarjetas NIC
-Cree tres tarjetas de red virtuales con el comando [az network nic create](/cli/azure/network/nic#az_network_nic_create) y asócielas con la dirección IP pública y el grupo de seguridad de red. En el ejemplo siguiente se crean seis NIC virtuales. (Una NIC virtual para cada máquina virtual que cree para la aplicación en los pasos siguientes). Puede crear NIC virtuales y máquinas virtuales adicionales en cualquier momento y agregarlas al equilibrador de carga:
+Cree tres tarjetas de red virtuales con el comando [az network nic create](/cli/azure/network/nic#az-network-nic-create) y asócielas con la dirección IP pública y el grupo de seguridad de red. En el ejemplo siguiente se crean seis NIC virtuales. (Una NIC virtual para cada máquina virtual que cree para la aplicación en los pasos siguientes). Puede crear NIC virtuales y máquinas virtuales adicionales en cualquier momento y agregarlas al equilibrador de carga:
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -217,7 +217,7 @@ runcmd:
 ```
 
 ### <a name="create-the-zonal-virtual-machines"></a>Creación de las máquinas virtuales zonales
-Cree las máquinas virtuales con [az vm create](/cli/azure/vm#az_vm_create) en la zona 1, la zona 2 y la zona 3. El siguiente ejemplo crea una máquina virtual en cada zona y genera claves SSH si aún no existen:
+Cree las máquinas virtuales con [az vm create](/cli/azure/vm#az-vm-create) en la zona 1, la zona 2 y la zona 3. El siguiente ejemplo crea una máquina virtual en cada zona y genera claves SSH si aún no existen:
 
 Cree una máquina virtual en cada zona (zona 1, zona 2 y zona 3) de la ubicación *westeurope*.
 
@@ -235,7 +235,7 @@ done
 ```
 ## <a name="test-the-load-balancer"></a>Prueba del equilibrador de carga
 
-Obtenga la dirección IP pública del equilibrador de carga mediante [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). 
+Obtenga la dirección IP pública del equilibrador de carga mediante [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). 
 
 ```azurecli-interactive
   az network public-ip show \

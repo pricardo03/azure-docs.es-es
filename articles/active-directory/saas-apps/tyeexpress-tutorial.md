@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 3a9a2efffa057ee1e35e8074556043b8e515c39c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f3b9a2ed9b374192151a8a737a5b51d9085d53ff
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224137"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430924"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: Integración de Azure Active Directory con T&E Express
 
@@ -33,7 +33,7 @@ La integración de T&E Express con Azure AD proporciona las siguientes ventajas:
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con T&E Express se necesitan los siguientes elementos:
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Agregar T & E Express desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-te-express-from-the-gallery"></a>Agregar T & E Express desde la galería
 Para configurar la integración de T&E Express en Azure AD, será preciso que agregue T&E Express desde la galería a la lista de aplicaciones SaaS administradas.
@@ -63,19 +63,19 @@ Para configurar la integración de T&E Express en Azure AD, será preciso que ag
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
+1. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **T&E Express**.
+1. En el cuadro de búsqueda, escriba **T&E Express**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/tyeexpress-tutorial/tutorial_tyeexpress_search.png)
 
-5. En el panel de resultados, seleccione **T&E Express** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **T&E Express** y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/tyeexpress-tutorial/tutorial_tyeexpress_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Esta relación de vínculo se establece mediante la asignación del valor del **
 Para configurar y probar el inicio de sesión único de Azure AD con T&E Express, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de T&amp;E Express](#creating-a-te-express-test-user)**: para tener un homólogo de Britta Simon en T&amp;E Express que esté vinculado a la representación de ella en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de T&amp;E Express](#creating-a-te-express-test-user)**: para tener un homólogo de Britta Simon en T&amp;E Express que esté vinculado a la representación de ella en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,11 +104,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/tyeexpress-tutorial/tutorial_tyeexpress_samlbase.png)
 
-3. En la sección de **dominio y direcciones URL de T&E Express**, lleve a cabo los pasos siguientes:
+1. En la sección de **dominio y direcciones URL de T&E Express**, lleve a cabo los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/tyeexpress-tutorial/tutorial_tyeexpress_url.png)
 
@@ -119,25 +119,25 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
     > [!NOTE] 
     > Tenga en cuenta que estos no son valores reales. Estos valores se tienen que actualizar con los valores reales de Identificador y URL de respuesta. Aquí le recomendamos que utilice el valor de cadena único en el identificador. Póngase en contacto con el [equipo de soporte técnico de T&E Express](http://www.tyeexpress.com/contacto.aspx) para obtener estos valores.
 
-5. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo XML en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo XML en el equipo.
 
     ![Configurar inicio de sesión único](./media/tyeexpress-tutorial/tutorial_tyeexpress_certificate.png) 
 
-6. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/tyeexpress-tutorial/tutorial_general_400.png)
 
-8. Para configurar el inicio de sesión único en **T&E Express**, inicie sesión en la aplicación T&E Express sin inicio de sesión único de SAML, sino usando credenciales de administrador.
+1. Para configurar el inicio de sesión único en **T&E Express**, inicie sesión en la aplicación T&E Express sin inicio de sesión único de SAML, sino usando credenciales de administrador.
 
-9. En la pestaña **Administrar**, haga clic en **Dominio de SAML** para abrir la página de configuración de SAML.
+1. En la pestaña **Administrar**, haga clic en **Dominio de SAML** para abrir la página de configuración de SAML.
 
     ![Configurar inicio de sesión único](./media/tyeexpress-tutorial/tye-SAML.png)
 
-10. Invierta la opción **Activar** de **No** a **SI**. En el cuadro de texto **Metadatos del proveedor de identidades**, pegue los metadatos XML que descargó desde Azure Portal.
+1. Invierta la opción **Activar** de **No** a **SI**. En el cuadro de texto **Metadatos del proveedor de identidades**, pegue los metadatos XML que descargó desde Azure Portal.
 
     ![Configurar inicio de sesión único](./media/tyeexpress-tutorial/tyeAdmin.png)
 
-11. Haga clic en el botón **Guardar** para guardar la configuración. 
+1. Haga clic en el botón **Guardar** para guardar la configuración.  
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
@@ -151,15 +151,15 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
 
     ![Creación de un usuario de prueba de Azure AD](./media/tyeexpress-tutorial/create_aaduser_01.png) 
 
-2. Vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios** para mostrar la lista de usuarios.
+1. Vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios** para mostrar la lista de usuarios.
     
     ![Creación de un usuario de prueba de Azure AD](./media/tyeexpress-tutorial/create_aaduser_02.png) 
 
-3. En la parte superior del diálogo, haga clic en **Agregar** para abrir el diálogo **Usuario**.
+1. En la parte superior del diálogo, haga clic en **Agregar** para abrir el diálogo **Usuario**.
  
     ![Creación de un usuario de prueba de Azure AD](./media/tyeexpress-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/tyeexpress-tutorial/create_aaduser_04.png) 
 
@@ -180,15 +180,15 @@ En el caso de T&E Express, el aprovisionamiento es una tarea manual.
 
 1. Inicie sesión en su sitio de la compañía de T&E Express como administrador.
 
-2. En la etiqueta de administración, haga clic en Usuarios para abrir la página principal de los usuarios.
+1. En la etiqueta de administración, haga clic en Usuarios para abrir la página principal de los usuarios.
 
     ![Agregar empleado](./media/tyeexpress-tutorial/tye-adminusers.png)
 
-3. En la página principal, haga clic en **+** para agregar los usuarios.
+1. En la página principal, haga clic en **+** para agregar los usuarios.
 
     ![Agregar empleado](./media/tyeexpress-tutorial/tye-usershome.png)
 
-4. Especificar todos los detalles obligatorios que solicita el formulario y haga clic en el botón Guardar para guardar los detalles.
+1. Especificar todos los detalles obligatorios que solicita el formulario y haga clic en el botón Guardar para guardar los detalles.
 
     ![Agregar empleado](./media/tyeexpress-tutorial/tye-usersadd.png)
 
@@ -207,23 +207,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **T&E Express**.
+1. En la lista de aplicaciones, seleccione **T&E Express**.
 
     ![Configurar inicio de sesión único](./media/tyeexpress-tutorial/tutorial_tyeexpress_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 24a5c1a260cf86f0860e0292c2eb9527f976a363
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0d21a409669cc7d7fceeec9787efbe31d880597c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040517"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437855"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Tutorial: Integración de Azure Active Directory con SignalFx
 
@@ -53,7 +53,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de SignalFx desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-signalfx-from-the-gallery"></a>Adición de SignalFx desde la galería
 Para configurar la integración de SignalFx en Azure AD, deberá agregar SignalFx desde la galería a la lista de aplicaciones SaaS administradas.
@@ -64,15 +64,15 @@ Para configurar la integración de SignalFx en Azure AD, deberá agregar SignalF
 
     ![Botón Azure Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![Botón Nueva aplicación][3]
 
-4. En el cuadro de búsqueda, escriba **SignalFx**, seleccione **SignalFx** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el cuadro de búsqueda, escriba **SignalFx**, seleccione **SignalFx** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![SignalFx en la lista de resultados](./media/signalfx-tutorial/tutorial_signalfx_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el u
 Para configurar y probar el inicio de sesión único de Azure AD con SignalFx, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de SignalFx](#create-a-signalfx-test-user)**: para tener un homólogo de Britta Simon en SignalFx vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de SignalFx](#create-a-signalfx-test-user)**: para tener un homólogo de Britta Simon en SignalFx vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -100,11 +100,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Cuadro de diálogo Inicio de sesión único](./media/signalfx-tutorial/tutorial_signalfx_samlbase.png)
 
-3. En la sección **SignalFx Domain and URLs** (Dominios y direcciones URL de SignalFx), lleve a cabo los pasos siguientes:
+1. En la sección **SignalFx Domain and URLs** (Dominios y direcciones URL de SignalFx), lleve a cabo los pasos siguientes:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de SignalFx](./media/signalfx-tutorial/tutorial_signalfx_url.png)
 
@@ -115,11 +115,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > El valor anterior no es real. El valor se actualizará con la dirección URL de respuesta real, que se explica más adelante en el tutorial.
 
-4. La aplicación SignalFx espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. La siguiente captura de pantalla le muestra un ejemplo de esto.   
+1. La aplicación SignalFx espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. La siguiente captura de pantalla le muestra un ejemplo de esto.   
 
     ![Configurar inicio de sesión único](./media/signalfx-tutorial/tutorial_signalfx_attribute.png)
 
-5. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo token de SAML como muestra la imagen y siga estos pasos:
+1. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo token de SAML como muestra la imagen y siga estos pasos:
     
     | Nombre del atributo | Valor de atributo |
     | ------------------- | -------------------- |    
@@ -142,7 +142,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     e. Haga clic en **Aceptar**.
  
-6. En la sección **Certificado de firma de SAML**, realice los pasos siguientes: 
+1. En la sección **Certificado de firma de SAML**, realice los pasos siguientes: 
 
     ![Vínculo de descarga del certificado](./media/signalfx-tutorial/tutorial_signalfx_certificate.png)
 
@@ -150,25 +150,25 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. Haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
-7. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Botón Configurar inicio de sesión único](./media/signalfx-tutorial/tutorial_general_400.png)
 
-8. En la sección **SignalFx Configuration** (Configuración de SignalFx), haga clic en **Configure SignalFx** (Configurar Sprinklr) para abrir la ventana **Configurar inicio de sesión**. Copie el valor de **Identificador de entidad de SAML** de la **sección Referencia rápida**
+1. En la sección **SignalFx Configuration** (Configuración de SignalFx), haga clic en **Configure SignalFx** (Configurar Sprinklr) para abrir la ventana **Configurar inicio de sesión**. Copie el valor de **Identificador de entidad de SAML** de la **sección Referencia rápida**
 
     ![Configuración de SignalFx](./media/signalfx-tutorial/tutorial_signalfx_configure.png) 
 
-9. Inicie sesión en su sitio de la compañía de SignalFx como administrador.
+1. Inicie sesión en su sitio de la compañía de SignalFx como administrador.
 
-10. En SignalFx, en la parte superior, haga clic en **Integrations** (Integraciones) para abrir la página correspondiente.
+1. En SignalFx, en la parte superior, haga clic en **Integrations** (Integraciones) para abrir la página correspondiente.
 
     ![Integración de SignalFx](./media/signalfx-tutorial/tutorial_signalfx_intg.png)
 
-11. Haga clic en el icono **Azure Active Directory** en la sección **Login Services** (Servicios de inicio de sesión).
+1. Haga clic en el icono **Azure Active Directory** en la sección **Login Services** (Servicios de inicio de sesión).
  
     ![SignalFx saml](./media/signalfx-tutorial/tutorial_signalfx_saml.png)
 
-12. Haga clic en **NEW INTEGRATION** (Nueva integración) y en la pestaña **INSTALL** (Instalar) realice los pasos siguientes:
+1. Haga clic en **NEW INTEGRATION** (Nueva integración) y en la pestaña **INSTALL** (Instalar) realice los pasos siguientes:
  
     ![SignalFx samlintgpage](./media/signalfx-tutorial/tutorial_signalfx_azure.png)
 
@@ -196,15 +196,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Botón Azure Active Directory](./media/signalfx-tutorial/create_aaduser_01.png)
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/signalfx-tutorial/create_aaduser_02.png)
 
-3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
 
     ![Botón Agregar](./media/signalfx-tutorial/create_aaduser_03.png)
 
-4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
+1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
 
     ![Cuadro de diálogo Usuario](./media/signalfx-tutorial/create_aaduser_04.png)
 
@@ -237,23 +237,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **SignalFx**.
+1. En la lista de aplicaciones, seleccione **SignalFx**.
 
     ![Vínculo a SignalFx en la lista de aplicaciones](./media/signalfx-tutorial/tutorial_signalfx_app.png)  
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"][202]
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Panel Agregar asignación][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

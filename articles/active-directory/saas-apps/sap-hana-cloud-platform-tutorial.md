@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 176ed1718818b24866620d86d7eff4d9af1d378f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 07b3c32601d90fdeed1c335c0f36a5ccbdbe4f1d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050881"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446721"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Tutorial: Integración de Azure Active Directory con SAP Cloud Platform
 
@@ -56,7 +56,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de SAP Cloud Platform desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-sap-cloud-platform-from-the-gallery"></a>Adición de SAP Cloud Platform desde la galería
 Para configurar la integración de SAP Cloud Platform en Azure AD, deberá agregarlo desde la galería a la lista de aplicaciones SaaS administradas.
@@ -67,15 +67,15 @@ Para configurar la integración de SAP Cloud Platform en Azure AD, deberá agreg
 
     ![Botón Azure Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![Botón Nueva aplicación][3]
 
-4. En el cuadro de búsqueda, escriba **SAP Cloud Platform**, seleccione **SAP Cloud Platform** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el cuadro de búsqueda, escriba **SAP Cloud Platform**, seleccione **SAP Cloud Platform** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![SAP Cloud Platform en la lista de resultados](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_addfromgallery.png)
 
@@ -90,10 +90,10 @@ Para establecer la relación de vínculo, asigne el valor de **nombre de usuario
 Para configurar y probar el inicio de sesión único de Azure AD con SAP Cloud Platform, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de SAP Cloud Platform](#create-a-sap-cloud-platform-test-user)**: para tener un homólogo de Britta Simon en SAP Cloud Platform vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de SAP Cloud Platform](#create-a-sap-cloud-platform-test-user)**: para tener un homólogo de Britta Simon en SAP Cloud Platform vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -105,11 +105,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Cuadro de diálogo Inicio de sesión único](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_samlbase.png)
 
-3. En la sección **SAP Cloud Platform Domain and URLs** (Dominio y direcciones URL de SAP Cloud Platform), lleve a cabo los siguientes pasos:
+1. En la sección **SAP Cloud Platform Domain and URLs** (Dominio y direcciones URL de SAP Cloud Platform), lleve a cabo los siguientes pasos:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de SAP Cloud Platform](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_url.png)
 
@@ -149,21 +149,21 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de atención al cliente de SAP Cloud Platform](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html) para obtener la dirección URL de inicio de sesión y el identificador. La dirección URL de respuesta se obtiene de la sección de administración de confianza que se explica más adelante en el tutorial.
     > 
      
-4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
     ![Vínculo de descarga del certificado](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_certificate.png) 
 
-5. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Botón Configurar inicio de sesión único](./media/sap-hana-cloud-platform-tutorial/tutorial_general_400.png)
 
-6. En otra ventana del explorador web, inicie sesión en SAP Cloud Platform Cockpit en `https://account.<landscape host>.ondemand.com/cockpit` (por ejemplo: https://account.hanatrial.ondemand.com/cockpit)).
+1. En otra ventana del explorador web, inicie sesión en SAP Cloud Platform Cockpit en `https://account.<landscape host>.ondemand.com/cockpit` (por ejemplo: https://account.hanatrial.ondemand.com/cockpit)).
 
-7. Haga clic en la pestaña **Trust** (Confianza).
+1. Haga clic en la pestaña **Trust** (Confianza).
    
     ![Confianza](./media/sap-hana-cloud-platform-tutorial/ic790800.png "Confianza")
 
-8. En la sección Trust Management (Administración de confianza), en **Local Service Provider** (Proveedor de servicios local), realice los pasos siguientes:
+1. En la sección Trust Management (Administración de confianza), en **Local Service Provider** (Proveedor de servicios local), realice los pasos siguientes:
 
     ![Administración de confianza](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Administración de confianza")
    
@@ -181,7 +181,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     g. Haga clic en **Save**(Guardar).
 
-9. Después de guardar la configuración de **Local Service Provider** (Proveedor de servicios local), realice lo siguiente para obtener la dirección URL de respuesta:
+1. Después de guardar la configuración de **Local Service Provider** (Proveedor de servicios local), realice lo siguiente para obtener la dirección URL de respuesta:
    
     ![Obtención de metadatos](./media/sap-hana-cloud-platform-tutorial/ic793930.png "Obtención de metadatos")
 
@@ -191,7 +191,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
  
     c. Copie el valor del atributo **Location** y péguelo en el campo **URL de respuesta** de la configuración de Azure AD para SAP Cloud Platform.
 
-10. Haga clic en la pestaña **Trusted Identity Provider** (Proveedor de identidades de confianza) y en **Add Trusted Identity Provider** (Agregar proveedor de identidad de confianza).
+1. Haga clic en la pestaña **Trusted Identity Provider** (Proveedor de identidades de confianza) y en **Add Trusted Identity Provider** (Agregar proveedor de identidad de confianza).
    
     ![Administración de confianza](./media/sap-hana-cloud-platform-tutorial/ic790802.png "Administración de confianza")
    
@@ -200,7 +200,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > 
     > 
 
-11. Haga clic en la pestaña **General** y en **Browse** (Examinar) para cargar el archivo de metadatos descargados.
+1. Haga clic en la pestaña **General** y en **Browse** (Examinar) para cargar el archivo de metadatos descargados.
     
     ![Administración de confianza](./media/sap-hana-cloud-platform-tutorial/ic793932.png "Administración de confianza")
     
@@ -208,9 +208,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     >Después de cargar el archivo de metadatos, los valores de **Dirección URL de inicio de sesión único**, **Dirección URL de cierre de sesión único** y **Certificado de firma** se rellenan automáticamente.
     > 
      
-12. Haga clic en la pestaña **Attributes** (Atributos).
+1. Haga clic en la pestaña **Attributes** (Atributos).
 
-13. En la pestaña **Attributes** (Atributos), realice los pasos siguientes:
+1. En la pestaña **Attributes** (Atributos), realice los pasos siguientes:
     
     ![Atributos](./media/sap-hana-cloud-platform-tutorial/ic790804.png "Atributos") 
 
@@ -256,15 +256,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Botón Azure Active Directory](./media/sap-hana-cloud-platform-tutorial/create_aaduser_01.png)
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/sap-hana-cloud-platform-tutorial/create_aaduser_02.png)
 
-3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
 
     ![Botón Agregar](./media/sap-hana-cloud-platform-tutorial/create_aaduser_03.png)
 
-4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
+1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
 
     ![Cuadro de diálogo Usuario](./media/sap-hana-cloud-platform-tutorial/create_aaduser_04.png)
 
@@ -284,7 +284,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en SAP Cloud Platform
 
 1. Inicie sesión en de **SAP Cloud Platform Cockpit**.
 
-2. Lleve a cabo los siguientes pasos:
+1. Lleve a cabo los siguientes pasos:
    
     ![Autorizaciones](./media/sap-hana-cloud-platform-tutorial/ic790805.png "Autorizaciones")
    
@@ -310,23 +310,23 @@ En esta sección, concederá acceso a Britta Simon a SAP Cloud Platform para que
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **SAP Cloud Platform**.
+1. En la lista de aplicaciones, seleccione **SAP Cloud Platform**.
 
     ![Vínculo a SAP Cloud Platform en la lista de aplicaciones](./media/sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_app.png)  
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"][202]
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Panel Agregar asignación][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

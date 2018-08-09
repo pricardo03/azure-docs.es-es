@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: fcef86a19a77581ff82b64173e2ac68b26ae708a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d3969114323f5675c5e14ab36990b124e84ead37
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380194"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427574"
 ---
 # <a name="obtain-subscription-keys"></a>Obtención de claves de suscripción
 Para empezar a usar Azure Custom Speech Service, primero debe vincular su cuenta de usuario a una suscripción de Azure. Hay suscripciones de plan gratuito y de pago. Para obtener información sobre los planes, vea la [página de precios](https://www.microsoft.com/cognitive-services/en-us/pricing).
@@ -31,7 +31,7 @@ Para empezar a usar Azure Custom Speech Service, primero debe vincular su cuenta
         ![Cognitive Services APIs](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription2.png)
 
     
-2. Rellene todos los campos obligatorios siguientes:
+1. Rellene todos los campos obligatorios siguientes:
 
       a. **Nombre de cuenta**. Utilice un nombre que se adapte a sus necesidades. Recuerde este nombre para que pueda encontrar su suscripción a Cognitive Services en la lista de recursos.
 
@@ -45,7 +45,7 @@ Para empezar a usar Azure Custom Speech Service, primero debe vincular su cuenta
 
       ![Creación de la cuenta de Cognitive Services](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-blade.png)
 
-3. Debe buscar una vista en el panel o un servicio con el nombre de cuenta proporcionado en la lista de recursos. Cuando se seleccione, podrá ver la información general del servicio. En la lista de la izquierda, en **Administración de recursos**, seleccione **Claves**. Copie **Clave 1**.
+1. Debe buscar una vista en el panel o un servicio con el nombre de cuenta proporcionado en la lista de recursos. Cuando se seleccione, podrá ver la información general del servicio. En la lista de la izquierda, en **Administración de recursos**, seleccione **Claves**. Copie **Clave 1**.
 
       Esta clave de suscripción es necesaria en los pasos siguientes.
 
@@ -57,7 +57,7 @@ Para empezar a usar Azure Custom Speech Service, primero debe vincular su cuenta
 
       ![Id. de suscripción de información general](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-keys.png)
 
-4. Para especificar la clave de suscripción, en la cinta de la esquina superior derecha, seleccione su cuenta de usuario. En el menú desplegable, seleccione **Suscripciones**.
+1. Para especificar la clave de suscripción, en la cinta de la esquina superior derecha, seleccione su cuenta de usuario. En el menú desplegable, seleccione **Suscripciones**.
 
       ![Elemento de menú Suscripciones](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-selection.png)
 
@@ -65,7 +65,7 @@ Para empezar a usar Azure Custom Speech Service, primero debe vincular su cuenta
 
     ![Tabla de suscripciones](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-list.png)
 
-5. Seleccione **Agregar nuevo**. Escriba un nombre para la suscripción y la clave de la suscripción. Puede ser la **Clave 1** (clave principal) o la **Clave 2** (clave secundaria) de su suscripción.
+1. Seleccione **Agregar nuevo**. Escriba un nombre para la suscripción y la clave de la suscripción. Puede ser la **Clave 1** (clave principal) o la **Clave 2** (clave secundaria) de su suscripción.
 
       ![Nombre de clave de suscripción](../../../media/cognitive-services/custom-speech-service/custom-speech-enter-subsciption.png)
 

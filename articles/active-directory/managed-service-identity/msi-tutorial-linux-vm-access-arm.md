@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c2735d385b0a3c2201ec2dad83c0c32fe44d458c
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: d1e4d8dd7201935ef1dbdc83224f905c812f9cca
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258250"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447482"
 ---
 # <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Tutorial: usar una identidad que asignó el usuario en una máquina virtual de Linux para obtener acceso a Azure Resource Manager
 
@@ -72,7 +72,7 @@ En este tutorial, creará primero una nueva máquina virtual Linux. También pue
     az login
     ```
 
-2. Cree una identidad asignada por el usuario mediante el cmdlet [az identity create](/cli/azure/identity#az_identity_create). El parámetro `-g` especifica el grupo de recursos en que se crea la característica Managed Service Identity, mientras que el parámetro `-n` especifica su nombre. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<MSI NAME>` por sus propios valores:
+2. Cree una identidad asignada por el usuario mediante el cmdlet [az identity create](/cli/azure/identity#az-identity-create). El parámetro `-g` especifica el grupo de recursos en que se crea la característica Managed Service Identity, mientras que el parámetro `-n` especifica su nombre. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<MSI NAME>` por sus propios valores:
     
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -102,7 +102,7 @@ La respuesta contiene detalles de la identidad asignada por el usuario que se ha
 
 Los clientes pueden usar una identidad asignada por el usuario en varios recursos de Azure. Use los siguientes comandos para asignar la identidad asignada por el usuario a una única máquina virtual. Use la propiedad `Id` devuelta en el paso anterior para el parámetro `-IdentityID`.
 
-Asigne la característica Managed Service Identity asignada por el usuario a la máquina virtual Linux mediante el cmdlet [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VM NAME>` con sus propios valores. Use la propiedad `id` devuelta en el paso anterior para el valor del parámetro `--identities`.
+Asigne la característica Managed Service Identity asignada por el usuario a la máquina virtual Linux mediante el cmdlet [az vm assign-identity](/cli/azure/vm#az-vm-assign-identity). Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VM NAME>` con sus propios valores. Use la propiedad `id` devuelta en el paso anterior para el valor del parámetro `--identities`.
 
 ```azurecli-interactive
 az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"

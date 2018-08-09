@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 98ddd26bce7a8e2741db4f8e064a1b5bf2b6bed5
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: d45712a94a6a2eb18088c99d7175b73b29e62ce3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865865"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Tutorial: integración de Azure Active Directory con The Funding Portal
 
@@ -33,7 +33,7 @@ La integración de The Funding Portal con Azure AD proporciona las siguientes ve
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con The Funding Portal, necesita los siguientes elementos:
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de The Funding Portal desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-the-funding-portal-from-the-gallery"></a>Adición de The Funding Portal desde la galería
 Para configurar la integración de The Funding Portal en Azure AD, deberá agregar esta solución desde la galería a la lista de aplicaciones SaaS administradas.
@@ -63,19 +63,19 @@ Para configurar la integración de The Funding Portal en Azure AD, deberá agreg
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **The Funding Portal**.
+1. En el cuadro de búsqueda, escriba **The Funding Portal**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/thefundingportal-tutorial/tutorial_thefundingportal_search.png)
 
-5. En el panel de resultados, seleccione **The Funding Portal** y, luego, haga clic en **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **The Funding Portal** y, luego, haga clic en **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/thefundingportal-tutorial/tutorial_thefundingportal_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Para establecer la relación de vínculo, en The Funding Portal, asigne el valor
 Para configurar y probar el inicio de sesión único de Azure AD con The Funding Portal, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de The Funding Portal](#creating-the-funding-portal-test-user)**: para tener un homólogo de Britta Simon en The Funding Portal que esté vinculado a la representación de ella en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de The Funding Portal](#creating-the-funding-portal-test-user)**: para tener un homólogo de Britta Simon en The Funding Portal que esté vinculado a la representación de ella en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,11 +104,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/thefundingportal-tutorial/tutorial_thefundingportal_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de The Funding Portal**, lleve a cabo los pasos siguientes:
+1. En la sección **Dominio y direcciones URL de The Funding Portal**, lleve a cabo los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/thefundingportal-tutorial/tutorial_thefundingportal_url.png)
 
@@ -119,11 +119,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de The Funding Portal](mailto:info@regenteducation.com) para obtener estos valores. 
 
-4. La aplicación The Funding Portal espera que las aserciones SAML contengan un atributo denominado "externalId1". El valor de externalId1 debe ser un elemento studentID reconocido. Configure las notificaciones de "externalId1" de esta aplicación. Puede administrar el valor de estos atributos desde la pestaña **Atributos de usuario** de la aplicación. La siguiente captura de pantalla le muestra un ejemplo de esto.
+1. La aplicación The Funding Portal espera que las aserciones SAML contengan un atributo denominado "externalId1". El valor de externalId1 debe ser un elemento studentID reconocido. Configure las notificaciones de "externalId1" de esta aplicación. Puede administrar el valor de estos atributos desde la pestaña **Atributos de usuario** de la aplicación. La siguiente captura de pantalla le muestra un ejemplo de esto.
 
     ![Configurar inicio de sesión único](./media/thefundingportal-tutorial/tutorial_thefundingportal_attribute.png)
 
-5. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo token de SAML como muestra la imagen y siga estos pasos:
+1. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo token de SAML como muestra la imagen y siga estos pasos:
 
     | Nombre del atributo | Valor de atributo |
     | ------------------- | ---------------- |
@@ -141,15 +141,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     d. Haga clic en **Aceptar**.
  
-6. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
     ![Configurar inicio de sesión único](./media/thefundingportal-tutorial/tutorial_thefundingportal_certificate.png) 
 
-7. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/thefundingportal-tutorial/tutorial_general_400.png)
 
-8. Para configurar el inicio de sesión único en **The Funding Portal**, es preciso enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de The Funding Portal](mailto:info@regenteducation.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+1. Para configurar el inicio de sesión único en **The Funding Portal**, es preciso enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de The Funding Portal](mailto:info@regenteducation.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -166,15 +166,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/thefundingportal-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Creación de un usuario de prueba de Azure AD](./media/thefundingportal-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Creación de un usuario de prueba de Azure AD](./media/thefundingportal-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/thefundingportal-tutorial/create_aaduser_04.png) 
 
@@ -202,23 +202,23 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **The Funding Portal**.
+1. En la lista de aplicaciones, seleccione **The Funding Portal**.
 
     ![Configurar inicio de sesión único](./media/thefundingportal-tutorial/tutorial_thefundingportal_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 

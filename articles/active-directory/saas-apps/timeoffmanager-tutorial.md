@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 7e1d942d593fc01f68c1cdb7ffd923d2529cf171
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e7f0f6bb778dedeea61b74b5ca0c2edbadd5279b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050619"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430294"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Tutorial: Integración de Azure Active Directory con TimeOffManager
 
@@ -53,7 +53,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de TimeOffManager desde la galería
-2. Configuración y prueba del inicio de sesión único en Azure AD
+1. Configuración y prueba del inicio de sesión único en Azure AD
 
 ## <a name="add-timeoffmanager-from-the-gallery"></a>Adición de TimeOffManager desde la galería
 Para configurar la integración de TimeOffManager en Azure AD, deberá agregar TimeOffManager desde la galería a la lista de aplicaciones SaaS administradas.
@@ -64,15 +64,15 @@ Para configurar la integración de TimeOffManager en Azure AD, deberá agregar T
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **TimeOffManager**, seleccione **TimeOffManager** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el cuadro de búsqueda, escriba **TimeOffManager**, seleccione **TimeOffManager** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Incorporación desde la galería](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_addfromgallery.png)
 
@@ -86,10 +86,10 @@ Para establecer la relación de vínculo, en TimeOffManager, asigne el valor de 
 Para configurar y probar el inicio de sesión único de Azure AD con TimeOffManager, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de TimeOffManager](#create-a-timeoffmanager-test-user)**: para tener un homólogo de Britta Simon en TimeOffManager que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de TimeOffManager](#create-a-timeoffmanager-test-user)**: para tener un homólogo de Britta Simon en TimeOffManager que esté vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si funciona la configuración.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -101,11 +101,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Inicio de sesión basado en SAML](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de TimeOffManager**, lleve a cabo los pasos siguientes:
+1. En la sección **Dominio y direcciones URL de TimeOffManager**, lleve a cabo los pasos siguientes:
 
      ![Sección Dominio y direcciones URL de TimeOffManager](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_url.png)
 
@@ -114,11 +114,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Este valor no es real. Actualice este valor con la dirección URL de respuesta real. Puede obtener este valor en la **página de configuración de Inicio de sesión único** que se explica más adelante en el tutorial o ponerse en contacto con el [equipo de soporte técnico de TimeOffManager](https://www.purelyhr.com/contact-us).
  
-4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Sección Certificado de firma SAML](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_certificate.png) 
 
-5. El objetivo de esta sección es describir cómo se habilita la autenticación de usuarios en TimeOffManager con su cuenta de Azure AD mediante la federación basada en el protocolo SAML.
+1. El objetivo de esta sección es describir cómo se habilita la autenticación de usuarios en TimeOffManager con su cuenta de Azure AD mediante la federación basada en el protocolo SAML.
     
     La aplicación TimeOffManager espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de pantalla le muestra un ejemplo de esto.
 
@@ -142,20 +142,20 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     d.  Haga clic en **Aceptar**.
     
-6. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/timeoffmanager-tutorial/tutorial_general_400.png)
 
-7. En la sección **Configuración de TimeOffManager**, haga clic en **Configurar TimeOffManager** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+1. En la sección **Configuración de TimeOffManager**, haga clic en **Configurar TimeOffManager** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
 
     ![Sección Configuración de TimeOffManager](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_configure.png) 
 
-8. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de TimeOffManager.
+1. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de TimeOffManager.
 
-9. Vaya a **Cuenta \> Opciones de cuenta \> Configuración de inicio de sesión único**.
+1. Vaya a **Cuenta \> Opciones de cuenta \> Configuración de inicio de sesión único**.
    
    ![Configuración de inicio de sesión único](./media/timeoffmanager-tutorial/ic795917.png "Configuración de inicio de sesión único")
-7. En la sección **Configuración del inicio de sesión único** , siga estos pasos:
+1. En la sección **Configuración del inicio de sesión único** , siga estos pasos:
    
    ![Configuración de inicio de sesión único](./media/timeoffmanager-tutorial/ic795918.png "Configuración de inicio de sesión único")
    
@@ -173,7 +173,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
    g. Haga clic en **Guardar cambios**.
 
-11. En la página **Configuración de inicio de sesión único**, copie el valor de **URL del Servicio de consumidor de aserciones** y péguelo en el cuadro de texto **URL de respuesta** bajo la sección **Dominio y direcciones URL de TimeOffManager** en Azure Portal. 
+1. En la página **Configuración de inicio de sesión único**, copie el valor de **URL del Servicio de consumidor de aserciones** y péguelo en el cuadro de texto **URL de respuesta** bajo la sección **Dominio y direcciones URL de TimeOffManager** en Azure Portal. 
 
       ![Configuración de inicio de sesión único](./media/timeoffmanager-tutorial/ic795915.png "Configuración de inicio de sesión único")
 
@@ -192,15 +192,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/timeoffmanager-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Usuarios y grupos --> Todos los usuarios](./media/timeoffmanager-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Botón Agregar](./media/timeoffmanager-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Página del cuadro de diálogo Usuario](./media/timeoffmanager-tutorial/create_aaduser_04.png) 
 
@@ -236,23 +236,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **TimeOffManager**.
+1. En la lista de aplicaciones, seleccione **TimeOffManager**.
 
     ![TimeOffManager en la lista de aplicaciones](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

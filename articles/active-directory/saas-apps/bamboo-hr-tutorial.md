@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 77625296797ec8ed8364e7d8bff3e5a15b4b74b5
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: dc6664321588d383b4656199c3e8ea79159ca850
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048045"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437685"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Tutorial: Integración de Azure Active Directory con BambooHR
 
@@ -55,7 +55,7 @@ En este tutorial, puede probar el inicio de sesión único de Azure AD en un ent
 La situación descrita en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de BambooHR desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="add-bamboohr-from-the-gallery"></a>Incorporación de BambooHR desde la galería
 Para configurar la integración de BambooHR en Azure AD, agregue BambooHR desde la galería a la lista de aplicaciones SaaS administradas haciendo lo siguiente:
@@ -64,15 +64,15 @@ Para configurar la integración de BambooHR en Azure AD, agregue BambooHR desde 
 
     ![Botón Azure Active Directory][1]
 
-2. Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
+1. Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
 
     ![Panel Aplicaciones empresariales][2]
     
-3. Para agregar una aplicación, seleccione **Nueva aplicación**.
+1. Para agregar una aplicación, seleccione **Nueva aplicación**.
 
     ![Botón “Nueva aplicación”][3]
 
-4. En el cuadro de búsqueda, escriba **BambooHR**. En la lista de resultados, seleccione **BambooHR**  y, a continuación, seleccione **Agregar**.
+1. En el cuadro de búsqueda, escriba **BambooHR**. En la lista de resultados, seleccione **BambooHR**  y, a continuación, seleccione **Agregar**.
 
     ![BambooHR en la lista de resultados](./media/bamboo-hr-tutorial/tutorial_bamboohr_addfromgallery.png)
 
@@ -94,11 +94,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo Configurar inicio de sesión único][4]
 
-2. En la ventana **Inicio de sesión único**, en la lista del cuadro desplegable **Modo**, seleccione **SAML-based Sign-on** (Inicio de sesión basado en SAML).
+1. En la ventana **Inicio de sesión único**, en la lista del cuadro desplegable **Modo**, seleccione **SAML-based Sign-on** (Inicio de sesión basado en SAML).
  
     ![Ventana de inicio de sesión único](./media/bamboo-hr-tutorial/tutorial_bamboohr_samlbase.png)
 
-3. En **Dominio y direcciones URL de BambooHR**, haga lo siguiente:
+1. En **Dominio y direcciones URL de BambooHR**, haga lo siguiente:
 
     ![La sección Dominio y direcciones URL de BambooHR](./media/bamboo-hr-tutorial/tutorial_bamboohr_url.png)
 
@@ -109,21 +109,21 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > El valor de la **dirección URL de inicio de sesión** no es real. Actualícelo con su dirección de URL de inicio de sesión real. Para obtener el valor, póngase en contacto con el [equipo de soporte técnico de cliente de BambooHR](https://www.bamboohr.com/contact.php). 
  
-4. En **Certificado de firma de SAML**, seleccione **Certificado (Base64)** y, luego, guarde el archivo del certificado en el equipo.
+1. En **Certificado de firma de SAML**, seleccione **Certificado (Base64)** y, luego, guarde el archivo del certificado en el equipo.
 
     ![Vínculo de descarga del certificado](./media/bamboo-hr-tutorial/tutorial_bamboohr_certificate.png) 
 
-5. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
     ![Botón Guardar](./media/bamboo-hr-tutorial/tutorial_general_400.png)
 
-6. En **Configuración de BambooHR**, seleccione **Configurar BambooHR** para abrir la ventana **Configurar inicio de sesión**. En la sección **Referencia rápida**, copie los valores de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML).
+1. En **Configuración de BambooHR**, seleccione **Configurar BambooHR** para abrir la ventana **Configurar inicio de sesión**. En la sección **Referencia rápida**, copie los valores de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML).
 
     ![Configuración de BambooHR](./media/bamboo-hr-tutorial/tutorial_bamboohr_configure.png) 
 
-7. En otra ventana, inicie sesión como administrador en el sitio de la compañía de BambooHR.
+1. En otra ventana, inicie sesión como administrador en el sitio de la compañía de BambooHR.
 
-8. En la página principal, haga lo siguiente:
+1. En la página principal, haga lo siguiente:
    
     ![Página de inicio de sesión único de BambooHR](./media/bamboo-hr-tutorial/ic796691.png "Inicio de sesión único")   
 
@@ -133,7 +133,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
     c. Seleccione **SAML Single Sign-On** (Inicio de sesión único de SAML).
 
-9. En el panel **SAML Single Sign-On** (Inicio de sesión único de SAML), haga lo siguiente:
+1. En el panel **SAML Single Sign-On** (Inicio de sesión único de SAML), haga lo siguiente:
    
     ![El panel SAML Single Sign-O](./media/bamboo-hr-tutorial/IC796692.png "SAML Single Sign-On")
    
@@ -159,15 +159,15 @@ Haga lo siguiente para crear un usuario de prueba en Azure AD:
 
     ![Botón Azure Active Directory](./media/bamboo-hr-tutorial/create_aaduser_01.png)
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, seleccione **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, seleccione **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/bamboo-hr-tutorial/create_aaduser_02.png)
 
-3. En la parte superior del panel **Todos los usuarios**, seleccione **Agregar**.
+1. En la parte superior del panel **Todos los usuarios**, seleccione **Agregar**.
 
     ![Botón Agregar](./media/bamboo-hr-tutorial/create_aaduser_03.png)
 
-4. En la ventana **Usuario**, haga lo siguiente:
+1. En la ventana **Usuario**, haga lo siguiente:
 
     ![Ventana Usuario](./media/bamboo-hr-tutorial/create_aaduser_04.png)
 
@@ -185,17 +185,17 @@ Para permitir que los usuarios de Azure AD inicien sesión en BambooHR, configú
 
 1. Inicie sesión en su sitio de **BambooHR** como administrador.
 
-2. En la barra de herramientas en la parte superior, seleccione **Configuración**.
+1. En la barra de herramientas en la parte superior, seleccione **Configuración**.
    
     ![El botón Configuración](./media/bamboo-hr-tutorial/IC796694.png "Configuración")
 
-3. Seleccione **Información general**.
+1. Seleccione **Información general**.
 
-4. En el panel izquierdo, seleccione **Seguridad** > **Usuarios**.
+1. En el panel izquierdo, seleccione **Seguridad** > **Usuarios**.
 
-5. Escriba el nombre de usuario, la contraseña y la dirección de correo electrónico de la cuenta válida de Azure AD que desee configurar.
+1. Escriba el nombre de usuario, la contraseña y la dirección de correo electrónico de la cuenta válida de Azure AD que desee configurar.
 
-6. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
         
 >[!NOTE]
 >Para configurar cuentas de usuario de Azure AD, también puede utilizar las herramientas de creación de cuentas de usuario de BambooHR o las API.
@@ -212,23 +212,23 @@ Para asignar el usuario Britta Simon a BambooHR, haga lo siguiente:
 
     ![Asignar usuario][201] 
 
-2. En la lista **Aplicaciones empresariales**, seleccione**BambooHR**.
+1. En la lista **Aplicaciones empresariales**, seleccione**BambooHR**.
 
     ![Vínculo a BambooHR en la lista de aplicaciones empresariales](./media/bamboo-hr-tutorial/tutorial_bamboohr_app.png)  
 
-3. En el panel izquierdo, seleccione **Usuarios y grupos**.
+1. En el panel izquierdo, seleccione **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"][202]
 
-4. Seleccione el botón **Agregar** y, después, en el panel **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. Seleccione el botón **Agregar** y, después, en el panel **Agregar asignación**, seleccione **Usuarios y grupos**.
 
     ![Panel Agregar asignación][203]
 
-5. En la ventana **Usuarios y grupos**, en la lista **Usuarios**, seleccione **Britta Simon**.
+1. En la ventana **Usuarios y grupos**, en la lista **Usuarios**, seleccione **Britta Simon**.
 
-6. Seleccione el botón **Seleccionar**.
+1. Seleccione el botón **Seleccionar**.
 
-7. En el panel **Agregar asignación**, seleccione el botón **Asignar**.
+1. En el panel **Agregar asignación**, seleccione el botón **Asignar**.
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

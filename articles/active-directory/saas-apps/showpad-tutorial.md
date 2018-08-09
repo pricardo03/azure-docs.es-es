@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 74ab20c7ae7e70f04cce224e4fb45d7eb646c085
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d78276fad3da1b0ef4a860f147b17bc715932971
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050766"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438807"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Tutorial: integración de Azure Active Directory con Showpad
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de Showpad desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-showpad-from-the-gallery"></a>Incorporación de Showpad desde la galería
 
@@ -64,19 +64,19 @@ Para configurar la integración de Showpad en Azure AD, deberá agregar Showpad 
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **Showpad**.
+1. En el cuadro de búsqueda, escriba **Showpad**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/showpad-tutorial/tutorial_showpad_search.png)
 
-5. En el panel de resultados, seleccione **Showpad** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **Showpad** y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/showpad-tutorial/tutorial_showpad_addfromgallery.png)
 
@@ -91,10 +91,10 @@ Para establecer la relación de vínculo, en Showpad, asigne el valor de **nombr
 Para configurar y probar el inicio de sesión único de Azure AD con Showpad, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Showpad](#creating-a-showpad-test-user)**: para tener un homólogo de Britta Simon en Showpad que esté vinculado a su representación en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de Showpad](#creating-a-showpad-test-user)**: para tener un homólogo de Britta Simon en Showpad que esté vinculado a su representación en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -106,11 +106,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/showpad-tutorial/tutorial_showpad_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Showpad**, lleve a cabo los pasos siguientes:
+1. En la sección **Dominio y direcciones URL de Showpad**, lleve a cabo los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/showpad-tutorial/tutorial_showpad_url.png)
 
@@ -123,25 +123,25 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
  
 
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
     ![Configurar inicio de sesión único](./media/showpad-tutorial/tutorial_showpad_certificate.png) 
 
-5. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/showpad-tutorial/tutorial_general_400.png)
 
-6. Inicie la sesión en el inquilino de Showpad como administrador.
+1. Inicie la sesión en el inquilino de Showpad como administrador.
 
-7. En el menú de la parte superior, haga clic en **Configuración**.
+1. En el menú de la parte superior, haga clic en **Configuración**.
    
     ![Configuración del inicio de sesión único en la aplicación](./media/showpad-tutorial/tutorial_showpad_001.png) 
 
-8. Vaya a **Inicio de sesión único** y haga clic en "**Habilitar**".
+1. Vaya a **Inicio de sesión único** y haga clic en "**Habilitar**".
    
     ![Configuración del inicio de sesión único en la aplicación](./media/showpad-tutorial/tutorial_showpad_002.png)
 
-9. En el cuadro de diálogo **Agregar un servicio de SAML 2.0** , realice los pasos siguientes:
+1. En el cuadro de diálogo **Agregar un servicio de SAML 2.0** , realice los pasos siguientes:
    
     ![Configuración del inicio de sesión único en la aplicación](./media/showpad-tutorial/tutorial_showpad_003.png) 
    
@@ -170,15 +170,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/showpad-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Creación de un usuario de prueba de Azure AD](./media/showpad-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Creación de un usuario de prueba de Azure AD](./media/showpad-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/showpad-tutorial/create_aaduser_04.png) 
 
@@ -210,23 +210,23 @@ En esta sección, concederá acceso a Britta Simon a Showpad para que use el ini
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **Showpad**.
+1. En la lista de aplicaciones, seleccione **Showpad**.
 
     ![Configurar inicio de sesión único](./media/showpad-tutorial/tutorial_showpad_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 

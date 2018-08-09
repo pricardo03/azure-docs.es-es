@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 1a201974749acbbb9607e42e67d1935f437f9ca1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: db1d449e5c9f66446f00b637c5550dc9144920ff
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31421806"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446772"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Aprovisionamiento de una instancia de Data Science Virtual Machine de Linux CentOS en Azure
 
@@ -47,8 +47,8 @@ Linux Data Science Virtual Machine es una máquina virtual de Azure basada en Ce
 La ciencia de datos implica la iteración de una secuencia de tareas:
 
 1. Buscar, cargar y preprocesar datos
-2. Compilar y probar modelos
-3. Implementar los modelos para consumirse en aplicaciones inteligentes
+1. Compilar y probar modelos
+1. Implementar los modelos para consumirse en aplicaciones inteligentes
 
 Los científicos de datos usan varias herramientas para realizar estas tareas. Puede llevar bastante tiempo encontrar las versiones del software adecuadas y, después, descargarlas, compilarlas e instalarlas.
 
@@ -59,7 +59,7 @@ No hay ningún cargo de software para esta imagen de VM de ciencia de datos. Sol
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Otras versiones de Data Science Virtual Machine
 También hay una imagen de [Ubuntu](dsvm-ubuntu-intro.md) disponible, con la mayoría de las mismas herramientas que la imagen de CentOS más marcos de trabajo de aprendizaje profundo. También hay una imagen de [Windows](provision-vm.md) disponible.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de poder crear una Linux Data Science Virtual Machine, debe tener lo siguiente:
 
 * **Una suscripción a Azure**: para conseguir una, vea [Obtención de una evaluación gratuita de Azure](https://azure.microsoft.com/free/).
@@ -69,8 +69,8 @@ Antes de poder crear una Linux Data Science Virtual Machine, debe tener lo sigui
 A continuación le indicamos los pasos para crear una instancia de Linux Data Science Virtual Machine:
 
 1. Navegue al listado de máquinas virtuales en [Azure Portal](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vmlinuxdsvm).
-2. Haga clic en **Crear** (botón ubicado en la parte inferior) para acceder al asistente.![configure-data-science-vm](./media/linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
-3. En las secciones siguientes se proporcionan las entradas para cada uno de los pasos del asistente (enumerados a la derecha de la figura anterior) que se siguieron para crear la Microsoft Data Science Virtual Machine. Estas son las entradas necesarias para configurar cada uno de estos pasos:
+1. Haga clic en **Crear** (botón ubicado en la parte inferior) para acceder al asistente.![configure-data-science-vm](./media/linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
+1. En las secciones siguientes se proporcionan las entradas para cada uno de los pasos del asistente (enumerados a la derecha de la figura anterior) que se siguieron para crear la Microsoft Data Science Virtual Machine. Estas son las entradas necesarias para configurar cada uno de estos pasos:
    
    a. **Aspectos básicos**:
    
@@ -113,7 +113,7 @@ Después de crear la máquina virtual, puede iniciar sesión en ella mediante SS
 La VM de Linux ya está provista del servidor X2Go y está preparada para aceptar conexiones de cliente. Para conectarse al escritorio gráfico de la VM de Linux, haga lo siguiente en el cliente:
 
 1. Descargue e instale el cliente X2Go para su plataforma cliente desde [aquí](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
-2. Ejecute el cliente X2Go y seleccione **Nueva sesión**. Se abrirá una ventana de configuración con varias pestañas. Escriba los siguientes parámetros de configuración:
+1. Ejecute el cliente X2Go y seleccione **Nueva sesión**. Se abrirá una ventana de configuración con varias pestañas. Escriba los siguientes parámetros de configuración:
    * **Pestaña Sesión**:
      * **Host**: nombre de host o dirección IP de la Linux Data Science Virtual Machine.
      * **Inicio de sesión**: nombre de usuario en la máquina virtual Linux.
@@ -356,16 +356,16 @@ Se abrirá una interfaz gráfica con un conjunto de pestañas. Siga estos pasos 
 > 
 
 1. Haga clic en **Ejecutar**.
-2. Aparecerá un cuadro de diálogo que le preguntará si quiere usar el conjunto de datos de meteorología de ejemplo. Haga clic en **Yes** (Sí) para cargar el ejemplo.
-3. Haga clic en la pestaña **Model** (Modelo).
-4. Haga clic en **Execute** (Ejecutar) para crear un árbol de decisión.
-5. Haga clic en **Draw** (Dibujar) para mostrar el árbol de decisión.
-6. Haga clic en el botón de opción **Forest** (Bosque) y haga clic en **Execute** (Ejecutar) para crear un bosque aleatorio.
-7. Haga clic en la pestaña **Evaluate** (Evaluar).
-8. Haga clic en el botón de opción **Risk** (Riesgo) y haga clic en **Execute** (Ejecutar) para mostrar dos trazados de rendimiento de riesgo (acumulativo).
-9. Haga clic en la pestaña **Log** (Registro) para mostrar el código en R generado para las operaciones anteriores
+1. Aparecerá un cuadro de diálogo que le preguntará si quiere usar el conjunto de datos de meteorología de ejemplo. Haga clic en **Yes** (Sí) para cargar el ejemplo.
+1. Haga clic en la pestaña **Model** (Modelo).
+1. Haga clic en **Execute** (Ejecutar) para crear un árbol de decisión.
+1. Haga clic en **Draw** (Dibujar) para mostrar el árbol de decisión.
+1. Haga clic en el botón de opción **Forest** (Bosque) y haga clic en **Execute** (Ejecutar) para crear un bosque aleatorio.
+1. Haga clic en la pestaña **Evaluate** (Evaluar).
+1. Haga clic en el botón de opción **Risk** (Riesgo) y haga clic en **Execute** (Ejecutar) para mostrar dos trazados de rendimiento de riesgo (acumulativo).
+1. Haga clic en la pestaña **Log** (Registro) para mostrar el código en R generado para las operaciones anteriores
    (debido a un error de la versión actual de Rattle, debe insertar un carácter *#* delante de *Export this log* [Exportar este registro] en el texto del registro).
-10. Haga clic en el botón **Export** (Exportar) para guardar el script de R en el archivo *weather_script.R* de la carpeta principal.
+1. Haga clic en el botón **Export** (Exportar) para guardar el script de R en el archivo *weather_script.R* de la carpeta principal.
 
 Puede salir de Rattle y R. Ahora puede modificar el script de R generado o usarlo tal como está y ejecutarlo en cualquier momento para repetir todo lo que se realizó en la interfaz de usuario de Rattle. Esta es una forma sencilla (especialmente para los principiantes en R) de realizar el análisis y el aprendizaje automático rápidamente en una interfaz gráfica sencilla mientras se genera automáticamente un código en R para modificar o aprender.
 

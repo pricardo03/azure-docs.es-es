@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 1af195e644fe93e0c59f5e4402dd8942f5fe1aba
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 108abe45b4b296e0d7928f2da00a06ac43e1ccbe
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635513"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438790"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Integración de Azure DevTest Labs en la canalización de entrega e integración continuas de VSTS
 Puede usar la extensión *Azure DevTest Labs Tasks*, que se instala en Visual Studio Team Services (VSTS), para integrar fácilmente la compilación de CI/CD y la canalización de versión con Azure DevTest Labs. La extensión instala tres tareas: 
@@ -91,10 +91,10 @@ En esta sección se describe cómo crear la plantilla de Azure Resource Manager 
 Para crear la definición de la versión, siga estos pasos:
 
 1. En la pestaña **Versiones** del concentrador **Compilación y versión**, seleccione el botón con el signo de la suma (+).
-2. En la ventana **Crear definición de versión**, seleccione la plantilla **Vacía** y, luego, seleccione **Siguiente**.
-3. Seleccione **Elegir más tarde** y, luego, seleccione **Crear** para crear una nueva definición de versión con un entorno predeterminado y ningún artefacto vinculado.
-4. Para abrir el menú contextual, en la nueva definición de versión, seleccione los puntos suspensivos (...) junto al nombre del entorno y, luego, seleccione **Configurar variables**. 
-5. En la ventana de **configuración del entorno**, escriba los siguientes valores para las variables que se usan en las tareas de definición de versión:
+1. En la ventana **Crear definición de versión**, seleccione la plantilla **Vacía** y, luego, seleccione **Siguiente**.
+1. Seleccione **Elegir más tarde** y, luego, seleccione **Crear** para crear una nueva definición de versión con un entorno predeterminado y ningún artefacto vinculado.
+1. Para abrir el menú contextual, en la nueva definición de versión, seleccione los puntos suspensivos (...) junto al nombre del entorno y, luego, seleccione **Configurar variables**. 
+1. En la ventana de **configuración del entorno**, escriba los siguientes valores para las variables que se usan en las tareas de definición de versión:
 
    a. En **vmName**, escriba el nombre que asignó a la máquina virtual cuando creó la plantilla de Resource Manager en Azure Portal.
 
@@ -107,7 +107,7 @@ Para crear la definición de la versión, siga estos pasos:
 La siguiente fase de la implementación consiste en crear la máquina virtual que se usará como la "imagen maestra" en las sucesivas implementaciones. Creará la máquina virtual en su instancia de Azure DevTest Lab mediante la tarea desarrollada especialmente para este fin. 
 
 1. En la definición de versión, seleccione **Agregar tareas**.
-2. En la pestaña **Implementar**, agregue una tarea de *creación de una máquina virtual de Azure DevTest Labs*. Configure la tarea de la siguiente manera:
+1. En la pestaña **Implementar**, agregue una tarea de *creación de una máquina virtual de Azure DevTest Labs*. Configure la tarea de la siguiente manera:
 
    > [!NOTE]
    > Para crear la máquina virtual que se usará en las implementaciones posteriores, consulte [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
@@ -134,8 +134,8 @@ La siguiente fase de la implementación consiste en crear la máquina virtual qu
    /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualMachines/{vmName}
    ```
 
-3. Ejecute el script que creó anteriormente para recopilar los detalles de la máquina virtual de DevTest Labs. 
-4. En la definición de versión, seleccione **Agregar tareas** y, luego, en la pestaña **Implementar**, agregue una tarea de *Azure PowerShell*. Configure la tarea de la siguiente manera:
+1. Ejecute el script que creó anteriormente para recopilar los detalles de la máquina virtual de DevTest Labs. 
+1. En la definición de versión, seleccione **Agregar tareas** y, luego, en la pestaña **Implementar**, agregue una tarea de *Azure PowerShell*. Configure la tarea de la siguiente manera:
 
    > [!NOTE]
    > Para recopilar los detalles de la máquina virtual de DevTest Labs, consulte [Deploy: Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell) (Implementación: Azure PowerShell) y ejecute el script.
@@ -156,7 +156,7 @@ La siguiente fase de la implementación consiste en crear la máquina virtual qu
       ```
     El script recopila los valores necesarios y los almacena en variables de entorno dentro de la definición de versión, para que así pueda consultarlos fácilmente en pasos posteriores.
 
-5. Implemente la aplicación en la nueva máquina de DevTest Labs. Las tareas que se usan habitualmente para implementar la aplicación son *Azure File Copy* y *PowerShell en las máquinas de destino*.
+1. Implemente la aplicación en la nueva máquina de DevTest Labs. Las tareas que se usan habitualmente para implementar la aplicación son *Azure File Copy* y *PowerShell en las máquinas de destino*.
    La información acerca de la máquina virtual que se necesita para los parámetros de estas tareas se almacena en tres variables de configuración denominadas **labVmRgName**, **labVMIpAddress**, y **labVMFqdn** dentro de la definición de versión. Si solo desea experimentar con la creación de una máquina virtual de DevTest Labs y una imagen personalizada, sin implementar una aplicación en ella, puede omitir este paso.
 
 ### <a name="create-an-image"></a>Crear una imagen
@@ -164,7 +164,7 @@ La siguiente fase de la implementación consiste en crear la máquina virtual qu
 La siguiente fase consiste en crear una imagen de la máquina virtual recién implementada en la instancia de Azure DevTest Labs. Luego, puede usar la imagen para crear copias de la máquina virtual a petición siempre que quiera ejecutar una tarea de desarrollo o ejecutar algunas pruebas. 
 
 1. En la definición de versión, seleccione **Agregar tareas**.
-2. En la pestaña **Implementar**, agregue una tarea de **creación de imagen personalizada de Azure DevTest Labs**. Configúrelo de la siguiente forma:
+1. En la pestaña **Implementar**, agregue una tarea de **creación de imagen personalizada de Azure DevTest Labs**. Configúrelo de la siguiente forma:
 
    > [!NOTE]
    > Para crear la imagen, consulte [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
@@ -194,8 +194,8 @@ La fase final consiste en eliminar la máquina virtual que se implementó en la 
  
    b. En **Lab VM ID** (Id. de máquina virtual de laboratorio), si cambió el nombre predeterminado de la variable de entorno que se rellenó automáticamente con el identificador de la máquina virtual de laboratorio en una tarea anterior, edítelo aquí. El valor predeterminado es **$(labVMId)**.
 
-2. Escriba un nombre para la definición de versión y, a continuación, guárdelo.
-3. Cree una nueva versión, seleccione la última compilación e impleméntela en el entorno único de la definición.
+1. Escriba un nombre para la definición de versión y, a continuación, guárdelo.
+1. Cree una nueva versión, seleccione la última compilación e impleméntela en el entorno único de la definición.
 
 En cada una de las fases, actualice la vista de la instancia de DevTest Labs en Azure Portal para ver de nuevo la máquina virtual y la imagen que se crean, y la máquina virtual que se elimina.
 

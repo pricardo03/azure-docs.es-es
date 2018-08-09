@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 0e6a34ba9df96f904ebee3fc25dc849f7ce6f2ee
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0bbdf576c38207349bb45e7b54f3ffc85ecf3d36
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053220"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449441"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: integración de Azure Active Directory con Help Scout
 
@@ -50,7 +50,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de Help Scout desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-help-scout-from-the-gallery"></a>Incorporación de Help Scout desde la galería
 Para configurar la integración de Help Scout en Azure AD, deberá agregarlo desde la galería a la lista de aplicaciones SaaS administradas.
@@ -61,15 +61,15 @@ Para configurar la integración de Help Scout en Azure AD, deberá agregarlo des
 
     ![Botón Azure Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![Botón Nueva aplicación][3]
 
-4. En el cuadro de búsqueda, escriba **Help Scout**, seleccione **Help Scout** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el cuadro de búsqueda, escriba **Help Scout**, seleccione **Help Scout** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Help Scout en la lista de resultados](./media/helpscout-tutorial/tutorial_helpscout_addfromgallery.png)
 
@@ -84,10 +84,10 @@ Help Scout utiliza direcciones de correo electrónico para los inicios de sesió
 Para configurar y probar el inicio de sesión único de Azure AD con Help Scout, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de usuario de prueba de Help Scout](#create-a-help-scout-test-user)**: para tener un homólogo de Britta Simon en Help Scout que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de usuario de prueba de Help Scout](#create-a-help-scout-test-user)**: para tener un homólogo de Britta Simon en Help Scout que esté vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -99,11 +99,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Cuadro de diálogo Inicio de sesión único](./media/helpscout-tutorial/tutorial_helpscout_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Help Scout**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por **IDP**:
+1. En la sección **Dominio y direcciones URL de Help Scout**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por **IDP**:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Help Scout](./media/helpscout-tutorial/tutorial_helpscout_url.png)
 
@@ -114,36 +114,36 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Los valores de estas direcciones URL se muestran solo con fines demostrativos. Tiene que actualizar estos valores con el identificador y la dirección URL de respuesta reales. Estos valores se obtienen en la pestaña **Single Sign-On** (Inicio de sesión único), en la sección Authentication (Autenticación), que se explica más adelante en el tutorial.
 
-4. Si desea configurar la aplicación en modo iniciado por **SP**, active **Mostrar configuración avanzada de URL** y realice los pasos siguientes:
+1. Si desea configurar la aplicación en modo iniciado por **SP**, active **Mostrar configuración avanzada de URL** y realice los pasos siguientes:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Help Scout](./media/helpscout-tutorial/tutorial_helpscout_url1.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una URL como: `https://secure.helpscout.net/members/login/`
      
-5. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Vínculo de descarga del certificado](./media/helpscout-tutorial/tutorial_helpscout_certificate.png) 
 
-6. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Botón Configurar inicio de sesión único](./media/helpscout-tutorial/tutorial_general_400.png)
 
 
-7. En la sección **Configuración de Help Scout**, haga clic en **Configurar Help Scout** para abrir la ventana **Configurar inicio de sesión**. Copie el valor de **SAML Single Sign-On Service URL** (URL del servicio de inicio de sesión único de SAML) de la sección de **referencia rápida**.
+1. En la sección **Configuración de Help Scout**, haga clic en **Configurar Help Scout** para abrir la ventana **Configurar inicio de sesión**. Copie el valor de **SAML Single Sign-On Service URL** (URL del servicio de inicio de sesión único de SAML) de la sección de **referencia rápida**.
 
     ![Configurar inicio de sesión único](./media/helpscout-tutorial/config.png) 
 
-8. En otra ventana del explorador web, inicie sesión en el sitio de la compañía de Help Scout como administrador.
+1. En otra ventana del explorador web, inicie sesión en el sitio de la compañía de Help Scout como administrador.
 
-9. Una vez registrado, haga clic en **"Manage"** (Administrar) en el menú superior y seleccione **"Company"** (Compañía) en el menú desplegable.
+1. Una vez registrado, haga clic en **"Manage"** (Administrar) en el menú superior y seleccione **"Company"** (Compañía) en el menú desplegable.
 
     ![Configurar inicio de sesión único](./media/helpscout-tutorial/settings1.png) 
  
-10. Seleccione **"Authentication"** (Autenticación) en el menú izquierdo. 
+1. Seleccione **"Authentication"** (Autenticación) en el menú izquierdo. 
 
     ![Configurar inicio de sesión único](./media/helpscout-tutorial/settings2.png) 
 
-11. Esto le lleva a la sección de configuración de SAML, donde debe seguir estos pasos:
+1. Esto le lleva a la sección de configuración de SAML, donde debe seguir estos pasos:
 
     ![Configurar inicio de sesión único](./media/helpscout-tutorial/settings3.png) 
  
@@ -151,7 +151,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     b. Copie el valor de **Audience URI (Service Provider Entity ID)** [URI de audiencia (Identificador de entidad del proveedor de servicios)] y péguelo en el cuadro **Identificador** en Azure Portal, en la sección **Dominio y direcciones URL** de Help Scout.
 
-12. Active **Enable SAML** (Habilitar SAML) y siga estos pasos:
+1. Active **Enable SAML** (Habilitar SAML) y siga estos pasos:
 
     ![Configurar inicio de sesión único](./media/helpscout-tutorial/settings4.png) 
  
@@ -180,15 +180,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Botón Azure Active Directory](./media/helpscout-tutorial/create_aaduser_01.png)
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/helpscout-tutorial/create_aaduser_02.png)
 
-3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
 
     ![Botón Agregar](./media/helpscout-tutorial/create_aaduser_03.png)
 
-4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
+1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
 
     ![Cuadro de diálogo Usuario](./media/helpscout-tutorial/create_aaduser_04.png)
 
@@ -218,23 +218,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **Help Scout**.
+1. En la lista de aplicaciones, seleccione **Help Scout**.
 
     ![Vínculo a Help Scout en la lista de aplicaciones](./media/helpscout-tutorial/tutorial_helpscout_app.png)  
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"][202]
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Panel Agregar asignación][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

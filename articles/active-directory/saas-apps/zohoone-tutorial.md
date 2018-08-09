@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 9f1db693ac75d7ab4b9776d60f63a0ca7524f760
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 81e86df270a7286426363c26a0e8a87b99082428
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050191"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438280"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Tutorial: Integración de Azure Active Directory con Zoho One
 
@@ -53,7 +53,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de Zoho One desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-zoho-one-from-the-gallery"></a>Incorporación de Zoho One desde la galería
 Para configurar la integración de Zoho One en Azure AD, deberá agregar Zoho One desde la galería a la lista de aplicaciones SaaS administradas.
@@ -64,15 +64,15 @@ Para configurar la integración de Zoho One en Azure AD, deberá agregar Zoho On
 
     ![Botón Azure Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![Botón Nueva aplicación][3]
 
-4. En el cuadro de búsqueda, escriba **Zoho One**, seleccione **Zoho One** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el cuadro de búsqueda, escriba **Zoho One**, seleccione **Zoho One** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Zoho One en la lista de resultados](./media/zohoone-tutorial/tutorial_zohoone_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el u
 Para configurar y probar el inicio de sesión único de Azure AD con Zoho One, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Zoho One](#create-a-zoho-one-test-user)**, para tener un homólogo de Britta Simon en Zoho One que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de Zoho One](#create-a-zoho-one-test-user)**, para tener un homólogo de Britta Simon en Zoho One que esté vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -100,11 +100,11 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
 
     ![Vínculo Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Cuadro de diálogo Inicio de sesión único](./media/zohoone-tutorial/tutorial_zohoone_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Zoho One**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por **IDP**:
+1. En la sección **Dominio y direcciones URL de Zoho One**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por **IDP**:
 
     ![Información de inicio de sesión único de Dominio y direcciones URL de Zoho One](./media/zohoone-tutorial/tutorial_zohoone_url.png)
 
@@ -116,32 +116,32 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
 
     d. En el cuadro de texto **Estado de la retransmisión**, escriba una dirección URL: `https://one.zoho.com`
 
-4. Si quiere configurar la aplicación en modo iniciado por **SP**, realice el siguiente paso:
+1. Si quiere configurar la aplicación en modo iniciado por **SP**, realice el siguiente paso:
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://accounts.zoho.com/samlauthrequest/<domain_name>?serviceurl=https://one.zoho.com`.
      
     > [!NOTE] 
     > El valor de **URL de respuesta** y **URL de inicio de sesión** no es real. El valor se actualiza con la dirección URL de inicio de sesión y de respuesta reales, lo que se explica más adelante en el tutorial. 
 
-5. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Vínculo de descarga del certificado](./media/zohoone-tutorial/tutorial_zohoone_certificate.png) 
 
-6. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Botón Configurar inicio de sesión único](./media/zohoone-tutorial/tutorial_general_400.png)
     
-7. En la sección **Configuración de Zoho One**, haga clic en **Configurar Zoho One** para abrir la ventana **Configurar inicio de sesión**. Copie las **direcciones URL del servicio de inicio de sesión único de SAML y de cierre de sesión** de la sección **Referencia rápida**.
+1. En la sección **Configuración de Zoho One**, haga clic en **Configurar Zoho One** para abrir la ventana **Configurar inicio de sesión**. Copie las **direcciones URL del servicio de inicio de sesión único de SAML y de cierre de sesión** de la sección **Referencia rápida**.
 
     ![Configuración de Zoho One](./media/zohoone-tutorial/tutorial_zohoone_configure.png) 
 
-8. En otra ventana del explorador web, inicie sesión en el sitio de la empresa de Zoho One como administrador.
+1. En otra ventana del explorador web, inicie sesión en el sitio de la empresa de Zoho One como administrador.
 
-9. En la pestaña **Organización**, haga clic en **Configuración** en **Autenticación SAML**.
+1. En la pestaña **Organización**, haga clic en **Configuración** en **Autenticación SAML**.
 
     ![Org. Zoho One](./media/zohoone-tutorial/tutorial_zohoone_setup.png)
 
-10. En la página emergente, realice los pasos siguientes:
+1. En la página emergente, realice los pasos siguientes:
 
     ![Ini. Zoho One](./media/zohoone-tutorial/tutorial_zohoone_save.png)
 
@@ -153,15 +153,15 @@ En esta sección se habilita el inicio de sesión único de Azure AD en Azure Po
 
     d. Haga clic en **Save**(Guardar).
 
-11. Después de guardar la configuración de autenticación SAML, copie el valor **Identificador SAML** y use este valor en **URL de respuesta** en Azure Portal, en la sección **Dominio y direcciones URL de Zoho One**.
+1. Después de guardar la configuración de autenticación SAML, copie el valor **Identificador SAML** y use este valor en **URL de respuesta** en Azure Portal, en la sección **Dominio y direcciones URL de Zoho One**.
 
     ![SAML de Zoho One](./media/zohoone-tutorial/tutorial_zohoone_samlidenti.png)
 
-12. Vaya a la pestaña **Dominios** y haga clic en **Agregar dominio**.
+1. Vaya a la pestaña **Dominios** y haga clic en **Agregar dominio**.
 
     ![Dominio de Zoho One](./media/zohoone-tutorial/tutorial_zohoone_domain.png)
 
-13. En la página **Agregar dominio**, siga estos pasos:
+1. En la página **Agregar dominio**, siga estos pasos:
 
     ![Agregar dominio de Zoho One](./media/zohoone-tutorial/tutorial_zohoone_adddomain.png)
 
@@ -184,15 +184,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Botón Azure Active Directory](./media/zohoone-tutorial/create_aaduser_01.png)
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/zohoone-tutorial/create_aaduser_02.png)
 
-3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
 
     ![Botón Agregar](./media/zohoone-tutorial/create_aaduser_03.png)
 
-4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
+1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
 
     ![Cuadro de diálogo Usuario](./media/zohoone-tutorial/create_aaduser_04.png)
 
@@ -212,11 +212,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Zoho One, deben ap
 
 1. Inicie sesión en Zoho One como administrador de seguridad.
 
-2. En la pestaña **Usuarios**, haga clic en **Logotipo de usuario**.
+1. En la pestaña **Usuarios**, haga clic en **Logotipo de usuario**.
 
     ![Usuario de Zoho One](./media/zohoone-tutorial/tutorial_zohoone_users.png)
 
-3. En la página **Add User** (Agregar usuario), siga estos pasos:
+1. En la página **Add User** (Agregar usuario), siga estos pasos:
 
     ![Agregar usuario de Zoho One](./media/zohoone-tutorial/tutorial_zohoone_adduser.png)
     
@@ -241,23 +241,23 @@ En esta sección se habilita a Britta Simon para que use el inicio de sesión ú
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **Zoho One**.
+1. En la lista de aplicaciones, seleccione **Zoho One**.
 
     ![Vínculo de Zoho One en la lista de aplicaciones](./media/zohoone-tutorial/tutorial_zohoone_app.png)  
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"][202]
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Panel Agregar asignación][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

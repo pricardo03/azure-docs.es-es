@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 79a2bc9d517e3c292268a4a70f08936cb0325fbd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 7f932346cdfd6363bd76f8167b8598d3a1199de3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053094"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427795"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Tutorial: Integración de Azure Active Directory con GitHub
 
@@ -53,7 +53,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de GitHub desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-github-from-the-gallery"></a>Adición de GitHub desde la galería
 Para configurar la integración de GitHub en Azure AD, debe agregar GitHub desde la galería a la lista de aplicaciones SaaS administradas.
@@ -64,15 +64,15 @@ Para configurar la integración de GitHub en Azure AD, debe agregar GitHub desde
 
     ![Botón Azure Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![Botón Nueva aplicación][3]
 
-4. En el cuadro de búsqueda, escriba **GitHub**, seleccione **GitHub** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el cuadro de búsqueda, escriba **GitHub**, seleccione **GitHub** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![GitHub en la lista de resultados](./media/github-tutorial/tutorial_github_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el u
 Para configurar y probar el SSO de Azure AD con GitHub, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de GitHub](#create-a-github-test-user)**: para tener un homólogo de Britta Simon en GitHub que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de GitHub](#create-a-github-test-user)**: para tener un homólogo de Britta Simon en GitHub que esté vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -100,11 +100,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Cuadro de diálogo Inicio de sesión único](./media/github-tutorial/tutorial_github_samlbase.png)
 
-3. En la sección de **dominio y direcciones URL de GitHub**, lleve a cabo los pasos siguientes:
+1. En la sección de **dominio y direcciones URL de GitHub**, lleve a cabo los pasos siguientes:
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de GitHub](./media/github-tutorial/tutorial_github_url.png)
 
@@ -115,33 +115,33 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE]
     > Tenga en cuenta que estos no son valores reales. Tendrá que actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Aquí le recomendamos que utilice el valor de cadena único en el identificador. Vaya a la sección de administración de GitHub para recuperar estos valores.
 
-4. En la sección **Atributos de usuario**, seleccione user.mail como **Identificador de usuario**.
+1. En la sección **Atributos de usuario**, seleccione user.mail como **Identificador de usuario**.
 
     ![Configurar inicio de sesión único](./media/github-tutorial/tutorial_github_attribute_new01.png)
 
-5. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Vínculo de descarga del certificado](./media/github-tutorial/tutorial_github_certificate.png) 
 
-6. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Botón Configurar inicio de sesión único](./media/github-tutorial/tutorial_general_400.png)
 
-7. En la sección **Configuración de GitHub**, haga clic en **Configurar GitHub** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+1. En la sección **Configuración de GitHub**, haga clic en **Configurar GitHub** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
 
     ![Configuración de GitHub](./media/github-tutorial/tutorial_github_configure.png) 
 
-8. En otra ventana del navegador web, inicie sesión en el sitio de la organización de GitHub como administrador.
+1. En otra ventana del navegador web, inicie sesión en el sitio de la organización de GitHub como administrador.
 
-9. Vaya a **Configuración** y haga clic en **Seguridad**
+1. Vaya a **Configuración** y haga clic en **Seguridad**
 
     ![Configuración](./media/github-tutorial/tutorial_github_config_github_03.png)
 
-10. Active la casilla **Habilitar autenticación SAML** para ver los campos de configuración del inicio de sesión único. Luego, use el valor de URL de inicio de sesión único para actualizar la URL de inicio de sesión único en la configuración de Azure AD.
+1. Active la casilla **Habilitar autenticación SAML** para ver los campos de configuración del inicio de sesión único. Luego, use el valor de URL de inicio de sesión único para actualizar la URL de inicio de sesión único en la configuración de Azure AD.
 
     ![Configuración](./media/github-tutorial/tutorial_github_config_github_13.png)
 
-11. Configure los campos siguientes:
+1. Configure los campos siguientes:
 
     a. En el cuadro de texto **Sign-On URL** (Dirección URL de inicio de sesión), pegue el valor de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) que ha copiado de Azure Portal.
 
@@ -151,11 +151,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración](./media/github-tutorial/tutorial_github_config_github_051.png)
 
-12. Haga clic en **Test SAML configuration** (Probar configuración de SAML) para configura que no hay errores de validación durante el SSO.
+1. Haga clic en **Test SAML configuration** (Probar configuración de SAML) para configura que no hay errores de validación durante el SSO.
 
     ![Configuración](./media/github-tutorial/tutorial_github_config_github_06.png)
 
-13. Haga clic en **Guardar**
+1. Haga clic en **Guardar**
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -169,15 +169,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Botón Azure Active Directory](./media/github-tutorial/create_aaduser_01.png)
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/github-tutorial/create_aaduser_02.png)
 
-3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
 
     ![Botón Agregar](./media/github-tutorial/create_aaduser_03.png)
 
-4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
+1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
 
     ![Cuadro de diálogo Usuario](./media/github-tutorial/create_aaduser_04.png)
 
@@ -197,15 +197,15 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 
 1. Inicie sesión en el sitio de la empresa de GitHub como administrador.
 
-2. Haga clic en **Contactos**.
+1. Haga clic en **Contactos**.
 
     ![Personas](./media/github-tutorial/tutorial_github_config_github_08.png "Personas")
 
-3. Haga clic en **Invitar a miembros**.
+1. Haga clic en **Invitar a miembros**.
 
     ![Invitación de usuarios](./media/github-tutorial/tutorial_github_config_github_09.png "Invitación de usuarios")
 
-4. En la página de diálogo **Invitar a miembros**, realice los siguientes pasos:
+1. En la página de diálogo **Invitar a miembros**, realice los siguientes pasos:
 
     a. En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de la cuenta de Britta Simon.
 
@@ -230,23 +230,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201]
 
-2. En la lista de aplicaciones, seleccione **GitHub**.
+1. En la lista de aplicaciones, seleccione **GitHub**.
 
     ![El vínculo de GitHub en la lista Aplicaciones](./media/github-tutorial/tutorial_github_app.png)  
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"][202]
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Panel Agregar asignación][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

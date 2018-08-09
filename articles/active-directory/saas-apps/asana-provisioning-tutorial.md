@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 8c3224a392e7e130b62e36019a1d180c6826d0ed
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9ab2b22840d162fc0194151c5eec02675aad92dc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332218"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427659"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Tutorial: Configuración de Asana para el aprovisionamiento automático de usuarios
 
 El objetivo de este tutorial es explicar los pasos que debe realizar en Asana y Azure Active Directory (Azure AD) para aprovisionar y desaprovisionar automáticamente las cuentas de usuario de Azure AD a Asana.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -61,15 +61,15 @@ Esta sección le guía en el proceso de conexión de Azure AD a la API de aprovi
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la sección **Azure Active Directory**  > **Aplicaciones empresariales** > **Todas las aplicaciones**.
 
-2. Si ya ha configurado Asana para el inicio de sesión único, busque la instancia de Asana mediante el campo de búsqueda. En caso contrario, seleccione **Agregar** y busque **Asana** en la galería de aplicaciones. Seleccione **Asana** en los resultados de búsqueda y agrégalo a la lista de aplicaciones.
+1. Si ya ha configurado Asana para el inicio de sesión único, busque la instancia de Asana mediante el campo de búsqueda. En caso contrario, seleccione **Agregar** y busque **Asana** en la galería de aplicaciones. Seleccione **Asana** en los resultados de búsqueda y agrégalo a la lista de aplicaciones.
 
-3. Seleccione la instancia de Asana y, después, la pestaña **Aprovisionamiento**.
+1. Seleccione la instancia de Asana y, después, la pestaña **Aprovisionamiento**.
 
-4. Establezca el **modo de aprovisionamiento** en **Automático**.
+1. Establezca el **modo de aprovisionamiento** en **Automático**.
 
     ![Aprovisionamiento de Asana](./media/asana-provisioning-tutorial/asanaazureprovisioning.png)
 
-5. En la sección **Credenciales de administrador**, siga estas instrucciones para generar el token y escríbalo en el cuadro de texto **Token secreto**:
+1. En la sección **Credenciales de administrador**, siga estas instrucciones para generar el token y escríbalo en el cuadro de texto **Token secreto**:
 
     a. Inicie sesión en [Asana](https://app.asana.com) mediante la cuenta de administrador.
 
@@ -81,19 +81,19 @@ Esta sección le guía en el proceso de conexión de Azure AD a la API de aprovi
 
     e. Actualice los valores de **Name** (Nombre) y **About** (Acerca de) y la foto de perfil, según sea necesario. Copie el token en **Token** y selecciónelo en **Save Changes** (Guardar cambios).
 
-6. En Azure Portal, seleccione **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación Asana. Si se produce un error de conexión, asegúrese de que su cuenta de Asana tenga permisos de administrador y vuelva a intentar el paso **Probar conexión**.
+1. En Azure Portal, seleccione **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación Asana. Si se produce un error de conexión, asegúrese de que su cuenta de Asana tenga permisos de administrador y vuelva a intentar el paso **Probar conexión**.
 
-7. Escriba la dirección de correo electrónico de una persona o grupo que quiera que reciba las notificaciones de error de aprovisionamiento en **Correo electrónico de notificación**. Active la casilla situada debajo.
+1. Escriba la dirección de correo electrónico de una persona o grupo que quiera que reciba las notificaciones de error de aprovisionamiento en **Correo electrónico de notificación**. Active la casilla situada debajo.
 
-8. Seleccione **Guardar**. 
+1. Seleccione **Guardar**. 
 
-9. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Box** (Sincronizar usuarios de Azure Active Directory con Asana).
+1. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Box** (Sincronizar usuarios de Azure Active Directory con Asana).
 
-10. En la sección **Asignaciones de atributos**, revise los atributos de usuario que se van a sincronizar entre Azure AD y Asana. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Asana con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**. Para más información, consulte [Personalización de asignaciones de atributos de aprovisionamiento de usuarios](../active-directory-saas-customizing-attribute-mappings.md).
+1. En la sección **Asignaciones de atributos**, revise los atributos de usuario que se van a sincronizar entre Azure AD y Asana. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Asana con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**. Para más información, consulte [Personalización de asignaciones de atributos de aprovisionamiento de usuarios](../active-directory-saas-customizing-attribute-mappings.md).
 
-11. Para habilitar el servicio de aprovisionamiento de Azure AD para Asana, cambie **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
+1. Para habilitar el servicio de aprovisionamiento de Azure AD para Asana, cambie **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
-12. Seleccione **Guardar**. 
+1. Seleccione **Guardar**. 
 
 Ahora, se inicia la sincronización inicial para todos los usuarios asignados a Asana en la sección **Usuarios**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si se está ejecutando el servicio. Use la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos a los registros de actividad de aprovisionamiento. En los registros de auditoría se describen todas las acciones realizadas por el servicio de aprovisionamiento en la aplicación Asana.
 

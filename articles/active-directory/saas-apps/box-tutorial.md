@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: c15894f8cd559a08a1d75e2ac29cc0da0fc9e963
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f5aa724e9848c9794eef093aef15b0aaed9cae97
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226585"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435767"
 ---
 # <a name="integrate-azure-active-directory-with-box"></a>Integración de Azure Active Directory con Box
 
@@ -34,7 +34,7 @@ Mediante la integración de Azure AD con Box, obtendrá las siguientes ventajas:
 
 Para información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Box, se necesitan los siguientes elementos:
 
@@ -55,7 +55,7 @@ En este tutorial, puede probar el inicio de sesión único de Azure AD en un ent
 La situación descrita en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Box desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="add-box-from-the-gallery"></a>Adición de Box desde la galería
 Para configurar la integración de Azure AD con Box, agregue Box desde la galería a la lista de aplicaciones SaaS administradas de la manera siguiente:
@@ -64,15 +64,15 @@ Para configurar la integración de Azure AD con Box, agregue Box desde la galer�
 
     ![Botón Azure Active Directory][1]
 
-2. Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
+1. Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
 
     ![Ventana Aplicaciones empresariales][2]
     
-3. Para agregar una nueva aplicación, seleccione el botón **Nueva aplicación** en la parte superior de la ventana.
+1. Para agregar una nueva aplicación, seleccione el botón **Nueva aplicación** en la parte superior de la ventana.
 
     ![Botón “Nueva aplicación”][3]
 
-4. En el cuadro de búsqueda, escriba **Box**, seleccione **Box** en la lista de resultados y, a continuación, seleccione **Agregar**.
+1. En el cuadro de búsqueda, escriba **Box**, seleccione **Box** en la lista de resultados y, a continuación, seleccione **Agregar**.
 
     ![Box en la lista de resultados](./media/box-tutorial/tutorial_box_search.png)
 ### <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
@@ -93,11 +93,11 @@ Haga lo siguiente para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Vínculo Inicio de sesión único][4]
 
-2. En la ventana **Inicio de sesión único**, en el cuadro **Modo de inicio de sesión único**, seleccione **Inicio de sesión basado en SAML**.
+1. En la ventana **Inicio de sesión único**, en el cuadro **Modo de inicio de sesión único**, seleccione **Inicio de sesión basado en SAML**.
  
     ![Ventana Inicio de sesión único](./media/box-tutorial/tutorial_box_samlbase.png)
 
-3. En **Box Domain and URLs** (Dominio y direcciones URL de Box), haga lo siguiente:
+1. En **Box Domain and URLs** (Dominio y direcciones URL de Box), haga lo siguiente:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Box](./media/box-tutorial/url3.png)
 
@@ -108,15 +108,15 @@ Haga lo siguiente para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE] 
     > Los valores anteriores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Para obtener los valores, póngase en contacto con el [equipo de soporte técnico de Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). 
 
-4. En la sección **Certificado de firma de SAML**, seleccione **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+1. En la sección **Certificado de firma de SAML**, seleccione **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
     ![Vínculo de descarga del certificado](./media/box-tutorial/tutorial_box_certificate.png) 
 
-5. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
     ![Botón Configurar inicio de sesión único](./media/box-tutorial/tutorial_general_400.png)
     
-6. Para configurar el inicio de sesión único para la aplicación, siga el procedimiento que se describe en [Set up SSO on your own](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown) (Configuración del inicio de sesión único por su cuenta).
+1. Para configurar el inicio de sesión único para la aplicación, siga el procedimiento que se describe en [Set up SSO on your own](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown) (Configuración del inicio de sesión único por su cuenta).
 
 > [!NOTE] 
 > Si no puede habilitar la configuración de inicio de sesión único para su cuenta de Box, puede que necesite ponerse en contacto con el [equipo de atención al cliente de Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) y proporcionar el archivo XML descargado.
@@ -135,17 +135,17 @@ En esta sección, creará el usuario de prueba Britta Simon en Azure Portal sigu
 
     ![Vínculo de Azure Active Directory](./media/box-tutorial/create_aaduser_01.png)
 
-2. Para mostrar una lista de usuarios actuales, seleccione **Usuarios y grupos** > **Todos los usuarios**.
+1. Para mostrar una lista de usuarios actuales, seleccione **Usuarios y grupos** > **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/box-tutorial/create_aaduser_02.png)
 
-3. En la parte superior de la ventana **Todos los usuarios**, seleccione **Agregar**.
+1. En la parte superior de la ventana **Todos los usuarios**, seleccione **Agregar**.
 
     ![Botón Agregar](./media/box-tutorial/create_aaduser_03.png)
 
     Se abre la ventana **Usuario**.
 
-4. En la ventana **Usuario**, haga lo siguiente:
+1. En la ventana **Usuario**, haga lo siguiente:
 
     ![Ventana Usuario](./media/box-tutorial/create_aaduser_04.png)
 
@@ -171,23 +171,23 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
     ![Vínculos "Aplicaciones empresariales" y "Todas las aplicaciones"][201] 
 
-2. En la lista **Aplicaciones**, seleccione **Box**.
+1. En la lista **Aplicaciones**, seleccione **Box**.
 
     ![El vínculo de Box](./media/box-tutorial/tutorial_box_app.png)  
 
-3. En el panel izquierdo, seleccione **Usuarios y grupos**.
+1. En el panel izquierdo, seleccione **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"][202]
 
-4. Seleccione **Agregar** y, después, en el panel **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar** y, después, en el panel **Agregar asignación**, seleccione **Usuarios y grupos**.
 
     ![Panel Agregar asignación][203]
 
-5. En la ventana **Usuarios y grupos**, en la lista **Usuarios**, seleccione **Britta Simon**.
+1. En la ventana **Usuarios y grupos**, en la lista **Usuarios**, seleccione **Britta Simon**.
 
-6. Seleccione el botón **Seleccionar**.
+1. Seleccione el botón **Seleccionar**.
 
-7. En la ventana **Agregar asignación**, seleccione **Asignar**.
+1. En la ventana **Agregar asignación**, seleccione **Asignar**.
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 70615726ed313884a977ae1b338d3c484fc32a1a
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 7a9adc8e9b7bcf69cce6b8ecf00e44477c1b0da3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39326180"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430746"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -105,21 +105,21 @@ Para usar la autenticación de tokens de aplicaciones de Azure AD basada en una 
     - Clave de la aplicación
     - Id. de inquilino
 
-2. **[Aprovisione un administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para el servidor Azure SQL Server desde Azure Portal, en caso de que aún no lo haya hecho. El administrador de Azure AD puede ser un usuario de Azure AD o un grupo de Azure AD. Si concede al grupo con MSI el rol de administrador, omita los pasos 3 y 4. El administrador tendrá acceso total a la base de datos.
+1. **[Aprovisione un administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para el servidor Azure SQL Server desde Azure Portal, en caso de que aún no lo haya hecho. El administrador de Azure AD puede ser un usuario de Azure AD o un grupo de Azure AD. Si concede al grupo con MSI el rol de administrador, omita los pasos 3 y 4. El administrador tendrá acceso total a la base de datos.
 
-3. **[Cree usuarios de bases de datos independientes](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** para la entidad de servicio. Conéctese al almacenamiento de datos del que desea copiar datos (o en el que desea copiarlos) mediante alguna herramienta como SSMS, con una identidad de Azure AD que tenga al menos permiso para modificar cualquier usuario. Ejecute el siguiente T-SQL:
+1. **[Cree usuarios de bases de datos independientes](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** para la entidad de servicio. Conéctese al almacenamiento de datos del que desea copiar datos (o en el que desea copiarlos) mediante alguna herramienta como SSMS, con una identidad de Azure AD que tenga al menos permiso para modificar cualquier usuario. Ejecute el siguiente T-SQL:
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Conceda a la entidad de servicio los permisos necesarios**, tal como lo haría normalmente para los usuarios de SQL, u otros usuarios. Ejecute el código siguiente:
+1. **Conceda a la entidad de servicio los permisos necesarios**, tal como lo haría normalmente para los usuarios de SQL, u otros usuarios. Ejecute el código siguiente:
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-5. En Azure Data Factory, **configure un servicio vinculado de Azure SQL Data Warehouse**.
+1. En Azure Data Factory, **configure un servicio vinculado de Azure SQL Data Warehouse**.
 
 
 #### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Ejemplo de servicio vinculado que usa la autenticación de entidad de servicio
@@ -168,21 +168,21 @@ Para usar la autenticación de token de aplicación de Azure AD basada en MSI, s
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Aprovisione un administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para el servidor Azure SQL Server desde Azure Portal, en caso de que aún no lo haya hecho.
+1. **[Aprovisione un administrador de Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para el servidor Azure SQL Server desde Azure Portal, en caso de que aún no lo haya hecho.
 
-3. **[Cree usuarios de bases de datos independientes](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** para el grupo de Azure AD. Conéctese al almacenamiento de datos del que desea copiar datos (o en el que desea copiarlos) mediante alguna herramienta como SSMS, con una identidad de Azure AD que tenga al menos permiso para modificar cualquier usuario. Ejecute el siguiente T-SQL. 
+1. **[Cree usuarios de bases de datos independientes](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** para el grupo de Azure AD. Conéctese al almacenamiento de datos del que desea copiar datos (o en el que desea copiarlos) mediante alguna herramienta como SSMS, con una identidad de Azure AD que tenga al menos permiso para modificar cualquier usuario. Ejecute el siguiente T-SQL. 
     
     ```sql
     CREATE USER [your Azure AD group name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Conceda al grupo de Azure AD los permisos necesarios**, tal como lo haría normalmente para los usuarios de SQL y otros usuarios. Por ejemplo, ejecute el código siguiente.
+1. **Conceda al grupo de Azure AD los permisos necesarios**, tal como lo haría normalmente para los usuarios de SQL y otros usuarios. Por ejemplo, ejecute el código siguiente.
 
     ```sql
     EXEC sp_addrolemember [role name], [your Azure AD group name];
     ```
 
-5. En Azure Data Factory, **configure un servicio vinculado de Azure SQL Data Warehouse**.
+1. En Azure Data Factory, **configure un servicio vinculado de Azure SQL Data Warehouse**.
 
 #### <a name="linked-service-example-that-uses-msi-authentication"></a>Ejemplo de servicio vinculado que usa la autenticación de MSI
 
@@ -398,13 +398,13 @@ PolyBase de SQL Data Warehouse admite directamente Azure Blob y Azure Data Lake 
 Si no se cumplen los requisitos, Azure Data Factory comprobará la configuración y volverá automáticamente al mecanismo BULKINSERT para realizar el movimiento de datos.
 
 1. El tipo de **servicio de origen vinculado** es **AzureStorage** o **AzureDataLakeStore** con autenticación de la entidad de servicio.
-2. El tipo de **conjunto de datos de entrada** es **AzureBlob** o **AzureDataLakeStoreFile**. El tipo de formato de `type` es **OrcFormat**, **ParquetFormat** o **TextFormat**, con las configuraciones siguientes:
+1. El tipo de **conjunto de datos de entrada** es **AzureBlob** o **AzureDataLakeStoreFile**. El tipo de formato de `type` es **OrcFormat**, **ParquetFormat** o **TextFormat**, con las configuraciones siguientes:
 
    1. `rowDelimiter` debe ser **\n**.
-   2. `nullValue` se establece en **cadena vacía** ("") o se deja como valor predeterminado, y `treatEmptyAsNull` no se establece en false.
-   3. `encodingName` se establece en **utf-8**, que es el valor predeterminado.
-   4. `escapeChar`, `quoteChar` y `skipLineCount` no se especifican. Fila de encabezado de omisión de compatibilidad de PolyBase que se puede configurar como `firstRowAsHeader` en ADF.
-   5. `compression` puede ser **no compression**, **GZip** o **Deflate**.
+   1. `nullValue` se establece en **cadena vacía** ("") o se deja como valor predeterminado, y `treatEmptyAsNull` no se establece en false.
+   1. `encodingName` se establece en **utf-8**, que es el valor predeterminado.
+   1. `escapeChar`, `quoteChar` y `skipLineCount` no se especifican. Fila de encabezado de omisión de compatibilidad de PolyBase que se puede configurar como `firstRowAsHeader` en ADF.
+   1. `compression` puede ser **no compression**, **GZip** o **Deflate**.
 
     ```json
     "typeProperties": {

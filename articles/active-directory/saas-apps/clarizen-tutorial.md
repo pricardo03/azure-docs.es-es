@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: f1ce8d961666b6abf4d9abe4fd881023afae7a3d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 510bf383848725f3864c40af02c2b309370237f0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218123"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438093"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: integración de Azure Active Directory con Clarizen
 
@@ -32,11 +32,11 @@ En este tutorial, aprenderá a integrar Azure Active Directory (Azure AD) con Cl
 El escenario de este tutorial consta de dos tareas principales:
 
 1. Incorporación de Clarizen desde la galería.
-2. Configuración y prueba del inicio de sesión único en Azure AD.
+1. Configuración y prueba del inicio de sesión único en Azure AD.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para configurar la integración de Azure AD con Clarizen, necesita los siguientes elementos:
 
 - Una suscripción de Azure AD
@@ -54,19 +54,19 @@ Para configurar la integración de Clarizen en Azure AD, debe agregar Clarizen d
 
     ![Icono de Azure Active Directory][1]
 
-2. Haga clic en **Aplicaciones empresariales**. A continuación, haga clic en **Todas las aplicaciones**.
+1. Haga clic en **Aplicaciones empresariales**. A continuación, haga clic en **Todas las aplicaciones**.
 
     ![Clic en "Aplicaciones empresariales" y "Todas las aplicaciones"][2]
 
-3. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
+1. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
 
     ![Botón "Agregar"][3]
 
-4. En el cuadro de búsqueda, escriba **Clarizen**.
+1. En el cuadro de búsqueda, escriba **Clarizen**.
 
     ![Escribir "Clarizen" en el cuadro de búsqueda](./media/clarizen-tutorial/tutorial_clarizen_000.png)
 
-5. En el panel de resultados, seleccione **Clarizen** y luego haga clic en **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **Clarizen** y luego haga clic en **Agregar** para agregar la aplicación.
 
     ![Selección de Clarizen en el panel de resultados](./media/clarizen-tutorial/tutorial_clarizen_0001.png)
 
@@ -78,10 +78,10 @@ Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el u
 Para configurar y probar el inicio de sesión único de Azure AD con Clarizen, complete los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**, para permitir que los usuarios utilicen esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Clarizen](#create-a-clarizen-test-user)**, para tener un homólogo de Britta Simon en Clarizen que esté vinculado a la representación de ella en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#test-single-sign-on)**, para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de Clarizen](#create-a-clarizen-test-user)**, para tener un homólogo de Britta Simon en Clarizen que esté vinculado a la representación de ella en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Prueba del inicio de sesión único](#test-single-sign-on)**, para comprobar si funciona la configuración.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 Habilite el inicio de sesión único de Azure AD en Azure Portal y configure el inicio de sesión único en la aplicación Clarizen.
@@ -90,11 +90,11 @@ Habilite el inicio de sesión único de Azure AD en Azure Portal y configure el 
 
     ![Clic en "Inicio de sesión único"][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
 
     ![Selección de "Inicio de sesión basado en SAML"](./media/clarizen-tutorial/tutorial_clarizen_01.png)
 
-3. En la sección **Dominio y direcciones URL de Clarizen**, lleve a cabo los pasos siguientes:
+1. En la sección **Dominio y direcciones URL de Clarizen**, lleve a cabo los pasos siguientes:
 
     ![Cuadros de identificador y dirección URL de respuesta](./media/clarizen-tutorial/tutorial_clarizen_02.png)
 
@@ -105,43 +105,43 @@ Habilite el inicio de sesión único de Azure AD en Azure Portal y configure el 
     > [!NOTE]
     > Estos valores no son reales. Tiene que usar el identificador y la dirección URL de respuesta reales. Aquí se recomienda que utilice el valor de cadena único en el identificador. Para obtener los valores reales, póngase en contacto con el [equipo de soporte técnico de Clarizen](https://success.clarizen.com/hc/en-us/requests/new).
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **Crear un nuevo certificado**.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Crear un nuevo certificado**.
 
     ![Clic en "Crear un nuevo certificado"](./media/clarizen-tutorial/tutorial_clarizen_03.png)    
 
-5. En el cuadro de diálogo **Crear nuevo certificado**, haga clic en el icono del calendario y seleccione una fecha de expiración. A continuación, haga clic en **Guardar**.
+1. En el cuadro de diálogo **Crear nuevo certificado**, haga clic en el icono del calendario y seleccione una fecha de expiración. A continuación, haga clic en **Guardar**.
 
     ![Seleccionar y guardar una fecha de expiración](./media/clarizen-tutorial/tutorial_general_300.png)
 
-6. En la sección **Certificado de firma de SAML**, seleccione **Activar el certificado nuevo** y haga clic en el botón **Guardar**.
+1. En la sección **Certificado de firma de SAML**, seleccione **Activar el certificado nuevo** y haga clic en el botón **Guardar**.
 
     ![Selección de la casilla para activar el nuevo certificado](./media/clarizen-tutorial/tutorial_clarizen_04.png)
 
-7. En el cuadro de diálogo **Certificado de sustitución**, haga clic en **Aceptar**.
+1. En el cuadro de diálogo **Certificado de sustitución**, haga clic en **Aceptar**.
 
     ![Clic en "Aceptar" para confirmar que desea activar el certificado](./media/clarizen-tutorial/tutorial_general_400.png)
 
-8. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Clic en "Certificado (Base64)" para iniciar la descarga](./media/clarizen-tutorial/tutorial_clarizen_05.png)
 
-9. En la sección **Configuración de Clarizen**, haga clic en **Configurar Clarizen** para abrir la ventana **Configurar inicio de sesión**.
+1. En la sección **Configuración de Clarizen**, haga clic en **Configurar Clarizen** para abrir la ventana **Configurar inicio de sesión**.
 
     ![Clic en "Configurar Clarizen"](./media/clarizen-tutorial/tutorial_clarizen_06.png)
 
     ![Ventana "Configurar inicio de sesión", incluidos los archivos y las direcciones URL](./media/clarizen-tutorial/tutorial_clarizen_07.png)
 
-10. En otra ventana del explorador web, inicie sesión en el sitio de la compañía de Clarizen como administrador.
+1. En otra ventana del explorador web, inicie sesión en el sitio de la compañía de Clarizen como administrador.
 
-11. Haga clic en el nombre de usuario y luego haga clic en **Settings** (Configuración).
+1. Haga clic en el nombre de usuario y luego haga clic en **Settings** (Configuración).
 
     ![Clic en "Settings" (Configuración) debajo del nombre de usuario](./media/clarizen-tutorial/tutorial_clarizen_001.png "Configuración")
 
-12. Haga clic en la pestaña **Global Settings** (Configuración global). A continuación, junto a **Federated Authentication** (Autenticación federada), haga clic en **edit** (Editar).
+1. Haga clic en la pestaña **Global Settings** (Configuración global). A continuación, junto a **Federated Authentication** (Autenticación federada), haga clic en **edit** (Editar).
 
     ![Pestaña "Global Settings"](./media/clarizen-tutorial/tutorial_clarizen_002.png "Global Settings")
 
-13. En el cuadro de diálogo **Federated Authentication** (Autenticación federada), realice los pasos siguientes:
+1. En el cuadro de diálogo **Federated Authentication** (Autenticación federada), realice los pasos siguientes:
 
     ![Cuadro de diálogo "Federated Authentication"](./media/clarizen-tutorial/tutorial_clarizen_003.png "Federated Authentication")
 
@@ -166,15 +166,15 @@ En Azure Portal, cree un usuario de prueba denominado Britta Simon.
 
     ![Icono de Azure Active Directory](./media/clarizen-tutorial/create_aaduser_01.png)
 
-2. Haga clic en **Usuarios y grupos** y luego en **Todos los usuarios** para mostrar la lista de usuarios.
+1. Haga clic en **Usuarios y grupos** y luego en **Todos los usuarios** para mostrar la lista de usuarios.
 
     ![Clic en "Usuarios y grupos" y "Todos los usuarios"](./media/clarizen-tutorial/create_aaduser_02.png)
 
-3. En la parte superior del cuadro de diálogo, haga clic en **Agregar** para abrir el cuadro de diálogo **Usuario**.
+1. En la parte superior del cuadro de diálogo, haga clic en **Agregar** para abrir el cuadro de diálogo **Usuario**.
 
     ![Botón "Agregar"](./media/clarizen-tutorial/create_aaduser_03.png)
 
-4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
+1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
 
     ![Cuadro de diálogo "Usuario" con los campos nombre, dirección de correo electrónico y contraseña cumplimentados](./media/clarizen-tutorial/create_aaduser_04.png)
 
@@ -196,15 +196,15 @@ Para permitir que los usuarios de Azure AD inicien sesión en Clarizen, debe apr
 
 1. Inicie sesión en el sitio de la compañía de Clarizen como administrador.
 
-2. Haga clic en **Contactos**.
+1. Haga clic en **Contactos**.
 
     ![Clic en "People"](./media/clarizen-tutorial/create_aaduser_001.png "People")
 
-3. Haga clic en **Invitar a usuario**.
+1. Haga clic en **Invitar a usuario**.
 
     ![Botón "Invite User"](./media/clarizen-tutorial/create_aaduser_002.png "Invite Users")
 
-4. En el cuadro de diálogo **Invite People** (Invitar a personas), siga estos pasos:
+1. En el cuadro de diálogo **Invite People** (Invitar a personas), siga estos pasos:
 
     ![Cuadro de diálogo "Invite People"](./media/clarizen-tutorial/create_aaduser_003.png "Invite People")
 
@@ -224,23 +224,23 @@ Habilite a Britta Simon para que use el inicio de sesión único de Azure conced
 
     ![Clic en "Aplicaciones empresariales" y "Todas las aplicaciones"][201]
 
-2. En la lista de aplicaciones, seleccione **Clarizen**.
+1. En la lista de aplicaciones, seleccione **Clarizen**.
 
     ![Selección de Clarizen en la lista](./media/clarizen-tutorial/tutorial_clarizen_50.png)
 
-3. En el panel izquierdo, haga clic en **Usuarios y grupos**.
+1. En el panel izquierdo, haga clic en **Usuarios y grupos**.
 
     ![Clic en "Usuarios y grupos"][202]
 
-4. Haga clic en el botón **Agregar**. Después, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. Haga clic en el botón **Agregar**. Después, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 
     ![Botón "Agregar" y cuadro de diálogo "Agregar asignación"][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. En el cuadro de diálogo **Usuarios y grupos**, haga clic en el botón **Seleccionar**.
+1. En el cuadro de diálogo **Usuarios y grupos**, haga clic en el botón **Seleccionar**.
 
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 Pruebe la configuración de inicio de sesión único de Azure AD mediante el panel de acceso.

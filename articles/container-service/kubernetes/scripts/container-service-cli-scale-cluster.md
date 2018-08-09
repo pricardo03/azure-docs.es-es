@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 2daff49e90213b2fadc0f75e0209f668a94d3dea
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1e5ca9fb44ea3ad15206f36a16e61f2865d79f5f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32161929"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427778"
 ---
 # <a name="scale-an-azure-container-service-cluster"></a>Escalado de un clúster de Azure Container Service
 
@@ -51,7 +51,7 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 
 | Get-Help | Notas |
 |---|---|
-| [az acs scale](/cli/azure/acs#az_acs_scale) | Escale un clúster de ACS. |
+| [az acs scale](/cli/azure/acs#az-acs-scale) | Escale un clúster de ACS. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 48f1a4950365c00b7bff8c804abd95fd7b7ab9b9
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: be6032d8c0ce7c20a080037fad216c4b540c90cb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069063"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435604"
 ---
 # <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>Tutorial: Habilitar el firewall de aplicaciones web mediante la CLI de Azure
 
@@ -41,7 +41,7 @@ Si decide instalar y usar la CLI localmente, para este tutorial es preciso que e
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos de Azure llamado *myResourceGroupAG* con [az group create](/cli/azure/group#az_group_create).
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos de Azure llamado *myResourceGroupAG* con [az group create](/cli/azure/group#az-group-create).
 
 ```azurecli-interactive 
 az group create --name myResourceGroupAG --location eastus
@@ -49,7 +49,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Crear recursos de red
 
-La red virtual y las subredes se usan para proporcionar conectividad de red a la puerta de enlace de aplicaciones y sus recursos asociados. Cree la red virtual llamada *myVNet* y la subred llamada *myAGSubnet* con [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) y [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Cree una dirección IP pública llamada *myAGPublicIPAddress* con [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create).
+La red virtual y las subredes se usan para proporcionar conectividad de red a la puerta de enlace de aplicaciones y sus recursos asociados. Cree la red virtual llamada *myVNet* y la subred llamada *myAGSubnet* con [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) y [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Cree una dirección IP pública llamada *myAGPublicIPAddress* con [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -73,7 +73,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>Creación de una puerta de enlace de aplicaciones con WAF
 
-Puede usar [az network application-gateway create](/cli/azure/application-gateway#az_application_gateway_create) para crear la puerta de enlace de aplicaciones llamada *myAppGateway*. Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. La puerta de enlace de aplicaciones se asigna a los elementos *myAGSubnet* y *myPublicIPSddress* creados anteriormente.
+Puede usar [az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create) para crear la puerta de enlace de aplicaciones llamada *myAppGateway*. Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. La puerta de enlace de aplicaciones se asigna a los elementos *myAGSubnet* y *myPublicIPSddress* creados anteriormente.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -108,7 +108,7 @@ La puerta de enlace de aplicaciones puede tardar varios minutos en crearse. Desp
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Crear un conjunto de escalado de máquinas virtuales
 
-En este ejemplo, creará un conjunto de escalado de máquinas virtuales que proporcione dos servidores para el grupo de servidores back-end en la puerta de enlace de aplicaciones. Las máquinas virtuales del conjunto de escalado están asociadas a la subred *myBackendSubnet*. Para crear el conjunto de escalado, puede usar [az vmss create](/cli/azure/vmss#az_vmss_create).
+En este ejemplo, creará un conjunto de escalado de máquinas virtuales que proporcione dos servidores para el grupo de servidores back-end en la puerta de enlace de aplicaciones. Las máquinas virtuales del conjunto de escalado están asociadas a la subred *myBackendSubnet*. Para crear el conjunto de escalado, puede usar [az vmss create](/cli/azure/vmss#az-vmss-create).
 
 ```azurecli-interactive
 az vmss create \
@@ -144,7 +144,7 @@ En este tutorial, la puerta de enlace de aplicaciones usa una cuenta de almacena
 
 ### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Cree una cuenta de almacenamiento llamada *myagstore1* con [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create).
+Cree una cuenta de almacenamiento llamada *myagstore1* con [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
 
 ```azurecli-interactive
 az storage account create \
@@ -157,7 +157,7 @@ az storage account create \
 
 ### <a name="configure-diagnostics"></a>Configuración de diagnóstico
 
-Configure los diagnósticos para registrar datos en los registros ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog y ApplicationGatewayFirewallLog. Sustituya `<subscriptionId>` por el identificador de la suscripción y, luego, configure los diagnósticos con [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az_monitor_diagnostic_settings_create).
+Configure los diagnósticos para registrar datos en los registros ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog y ApplicationGatewayFirewallLog. Sustituya `<subscriptionId>` por el identificador de la suscripción y, luego, configure los diagnósticos con [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
 appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
@@ -171,7 +171,7 @@ az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
+Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
 
 ```azurepowershell-interactive
 az network public-ip show \
