@@ -2,19 +2,20 @@
 title: Información de rendimiento de consultas para Azure SQL Database | Microsoft Docs
 description: La supervisión del rendimiento de las consultas identifica las consultas que más CPU consumen en Azure SQL Database.
 services: sql-database
-author: stevestein
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: sstein
-ms.openlocfilehash: f608beb0834b1c838b082e92340ebf9b650d8b3f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: 5069b4e69c53ed93e9018cef2517f6125b838d12
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648741"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524172"
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Query Performance Insight de Azure SQL Database
 La administración y ajuste del rendimiento de las bases de datos relacionales son tareas difíciles que requieren una gran inversión de tiempo y muchos conocimientos. Información de rendimiento de consultas permite dedicar menos tiempo a la solución de problemas de rendimiento de bases de datos, ya que proporciona:
@@ -26,7 +27,7 @@ La administración y ajuste del rendimiento de las bases de datos relacionales s
 
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Información de rendimiento de consultas requiere que el [Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx) esté activo en la base de datos. Si Almacén de consultas no está en ejecución, el portal le pedirá que lo active.
 
 ## <a name="permissions"></a>Permisos

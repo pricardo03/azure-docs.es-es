@@ -1,23 +1,20 @@
 ---
-title: Configuración de la replicación de clúster de HBase en redes virtuales de Azure | Microsoft Docs
+title: Configuración de la replicación de clúster de HBase en redes virtuales de Azure
 description: Aprenda a configurar la replicación de HBase de una versión de HDInsight a otra para conseguir equilibrio de carga, alta disponibilidad, migración y actualizaciones sin tiempo de inactividad y recuperación ante desastres.
 services: hdinsight,virtual-network
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: jgao
-ms.openlocfilehash: f0367b67f141ca65ce2374722016d0fbea6c97d1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: jasonh
+ms.openlocfilehash: 535b5dcc62020119cda3db36bfdbd707badfe549
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951131"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600312"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configuración de la replicación de clúster de HBase en redes virtuales de Azure
 
@@ -42,7 +39,7 @@ Los siguientes son casos de uso de replicación de HBase para dos redes virtuale
 
 Puede replicar clústeres mediante scripts de [acción de script](../hdinsight-hadoop-customize-cluster-linux.md) disponibles en [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar este tutorial, debe tener una suscripción a Azure. Consulte cómo [obtener una evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Configuración de los entornos

@@ -2,23 +2,19 @@
 title: 'Introducción a Table Storage: almacenamiento de objetos en Azure | Microsoft Docs'
 description: Almacene datos estructurados en la nube con el Almacenamiento de tablas de Azure, un almacén de datos NoSQL.
 services: storage
-documentationcenter: .net
 author: SnehaGunda
-manager: kfile
-ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: storage
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: overview
 ms.date: 04/23/2018
 ms.author: sngun
-ms.openlocfilehash: 044f52cd1fa42653269649b92c7a06a5f623a501
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: tables
+ms.openlocfilehash: 316e10d56e5c235c4d64dde0fde4dcb9429629c8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618313"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527794"
 ---
 # <a name="introduction-to-table-storage-in-azure"></a>Introducción al almacenamiento de tablas en Azure
 

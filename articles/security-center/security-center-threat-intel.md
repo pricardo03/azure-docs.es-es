@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 832998a6028a8977b43e343ed778cc0b60388728
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8f1c6aa2e691a11e8920db8ca8bfdef5b8eb61b9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561371"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434197"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Inteligencia sobre amenazas de Azure Security Center
 Este artículo le ayuda a utilizar la inteligencia sobre amenazas de Azure Security Center para tratar problemas relacionados con la seguridad.
@@ -50,22 +50,22 @@ Para visualizar la información sobre amenazas actual en su entorno, primero deb
 
 1. Abra el panel **Security Center**.
 
-2. En el panel izquierdo, en **Protección contra amenazas**, haga clic en **Inteligencia sobre amenazas**. Se abre un mapa.
+1. En el panel izquierdo, en **Protección contra amenazas**, haga clic en **Inteligencia sobre amenazas**. Se abre un mapa.
 
     ![Mapa de información sobre amenazas](./media/security-center-threat-intel/security-center-threat-intel.png)
 
-3. En la parte superior del mapa, seleccione **Ver inteligencia de amenazas clásica**. Se abre el panel **Inteligencia sobre amenazas**.
+1. En la parte superior del mapa, seleccione **Ver inteligencia de amenazas clásica**. Se abre el panel **Inteligencia sobre amenazas**.
 
     ![Panel Inteligencia sobre amenazas](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
     > Si en la columna de la derecha se muestra **UPGRADE PLAN** (ACTUALIZAR PLAN), esta área de trabajo está usando la suscripción gratuita. Para usar esta característica, actualice a la versión Estándar. Si en columna de la derecha se muestra **REQUIRES UPDATE** (REQUIERE ACTUALIZACIÓN), actualice [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esta característica. Para más información sobre el plan de precios, consulte Precios de Azure Security Center.
     >
-3. Si tiene más de un área de trabajo para investigar, priorice la investigación de acuerdo con la columna **Direcciones IP malintencionadas**. Muestra el número actual de direcciones IP malintencionadas en esta área de trabajo. Seleccione el área de trabajo que desea usar, y aparecerá el panel **Información sobre amenazas**.
+1. Si tiene más de un área de trabajo para investigar, priorice la investigación de acuerdo con la columna **Direcciones IP malintencionadas**. Muestra el número actual de direcciones IP malintencionadas en esta área de trabajo. Seleccione el área de trabajo que desea usar, y aparecerá el panel **Información sobre amenazas**.
 
     ![Información de inteligencia sobre amenazas](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-4. Este panel se divide en cuatro iconos:
+1. Este panel se divide en cuatro iconos:
 
     a.  **Tipos de amenaza**. Resume el tipo de amenaza detectada en el área de trabajo seleccionada.
 

@@ -3,17 +3,17 @@ title: Notas de la versión del agente de Azure File Sync | Microsoft Docs
 description: Notas de la versión del agente de Azure File Sync.
 services: storage
 author: wmgries
-manager: aungoo
 ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 7422300ffe315e0a12812c38f9b823a125eaf344
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.component: files
+ms.openlocfilehash: 69cd7774c92cf1c213f8522dffeb02be6c024acb
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144795"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525144"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de la versión del agente de Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Las instalaciones de Windows Server se transforman en una memoria caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a los datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.

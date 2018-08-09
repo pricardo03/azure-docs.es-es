@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: bdaead6fe739d62340ca225aa1a6d8adf9e86cb9
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: a55727c58f8f9d4a05f547100875f18291328ea2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100303"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435329"
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: importar datos de MongoDB 
 
@@ -45,8 +45,8 @@ En este tutorial se describen las tareas siguientes:
 ## <a name="find-your-connection-string-information-host-port-username-and-password"></a>Búsqueda de la información de la cadena de conexión (host, puerto, nombre de usuario y contraseña)
 
 1. En [Azure Portal](https://portal.azure.com), en el panel izquierdo, haga clic en la entrada **Azure Cosmos DB**.
-2. En el panel **Suscripciones**, seleccione el nombre de cuenta.
-3. En la hoja **Cadena de conexión**, haga clic en **Cadena de conexión**.
+1. En el panel **Suscripciones**, seleccione el nombre de cuenta.
+1. En la hoja **Cadena de conexión**, haga clic en **Cadena de conexión**.
 
    El panel derecho contiene toda la información que necesita para conectarse correctamente a la cuenta.
 
@@ -102,7 +102,7 @@ Ejemplo:
         }
         ```
 
-2. Calcule la carga de RU aproximada para una sola operación de escritura de documento:
+1. Calcule la carga de RU aproximada para una sola operación de escritura de documento:
 
     a. Conéctese a la base de datos MongoDB de Azure Cosmos DB desde el shell de MongoDB. Encontrará instrucciones en [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) (Conectar una aplicación de MongoDB a Azure Cosmos DB).
     
@@ -125,7 +125,7 @@ Ejemplo:
         
     d. Tome nota de la carga de solicitudes.
     
-3. Determine la latencia del equipo en el servicio en la nube de Azure Cosmos DB:
+1. Determine la latencia del equipo en el servicio en la nube de Azure Cosmos DB:
     
     a. Habilite el registro detallado desde el shell de MongoDB mediante este comando: ```setVerboseShell(true)```.
     
@@ -135,9 +135,9 @@ Ejemplo:
         Fetched 1 record(s) in 100(ms)
         ```
         
-4. Quite el documento insertado antes de la migración para asegurarse de que no hay ningún documento duplicado. Puede quitar los documentos con este comando: ```db.coll.remove({})```.
+1. Quite el documento insertado antes de la migración para asegurarse de que no hay ningún documento duplicado. Puede quitar los documentos con este comando: ```db.coll.remove({})```.
 
-5. Calcular los valores aproximados de *batchSize* y *numInsertionWorkers*:
+1. Calcular los valores aproximados de *batchSize* y *numInsertionWorkers*:
 
     * En el caso de *batchSize*, divida el total de RU aprovisionadas entre las RU consumidas en la operación de escritura de documento del paso 3.
     
@@ -157,7 +157,7 @@ Ejemplo:
     
     *numInsertionWorkers = (10 000 RU x 0,1 s) / (24 x 10 RU) = 4,1666*
 
-6. Ejecute el comando de migración final:
+1. Ejecute el comando de migración final:
 
    ```
    mongoimport.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 0737738bfd0ab27898631263f57302d15ee11d53
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: c9f0707f6d24ba899c89bf19066994ae860a69d5
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006553"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620994"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tareas de inicio comunes para los servicios en la nube
 Este artículo proporciona algunos ejemplos de tareas comunes de inicio que puede realizar en su servicio en la nube. Puede usar las tareas de inicio para realizar operaciones antes de que se inicie un rol. Estas operaciones incluyen la instalación de un componente, el registro de componentes COM, el establecimiento de las claves del registro o el inicio de un proceso de ejecución largo. 
@@ -58,7 +58,8 @@ También se pueden usar un [valor válido xPath en Azure](cloud-services-role-co
 
 
 ## <a name="configure-iis-startup-with-appcmdexe"></a>Configuración del inicio IIS con AppCmd.exe
-La herramienta de línea de comandos [AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) puede usarse para administrar la configuración de IIS en el inicio de Azure. *AppCmd.exe* proporciona acceso práctico a través de la línea de comandos a los ajustes de configuración para su uso en las tareas de inicio en Azure. Con *AppCmd.exe*se pueden agregar modificar o quitar ajustes del sitio web para aplicaciones y sitios.
+La herramienta de línea de comandos [AppCmd.exe](https://technet.microsoft.com/library/jj635852.aspx) puede usarse para administrar la configuración de IIS en el inicio de Azure. 
+  *AppCmd.exe* proporciona acceso práctico a través de la línea de comandos a los ajustes de configuración para su uso en las tareas de inicio en Azure. Con *AppCmd.exe*se pueden agregar modificar o quitar ajustes del sitio web para aplicaciones y sitios.
 
 Sin embargo, hay algunos aspectos que hay que tener en cuenta cuando se use *AppCmd.exe* como una tarea de inicio:
 
@@ -348,7 +349,7 @@ La manera más sencilla de detectar si una tarea se ha ejecutado ya es crear un 
 
 ```cmd
 REM   If Task1_Success.txt exists, then Application 1 is already installed.
-IF EXIST "%RoleRoot%\Task1_Success.txt" (
+IF EXIST "%PathToApp1Install%\Task1_Success.txt" (
   ECHO Application 1 is already installed. Exiting. >> "%TEMP%\StartupLog.txt" 2>&1
   GOTO Finish
 )
@@ -361,7 +362,7 @@ IF %ERRORLEVEL% EQU 0 (
   REM   The application installed without error. Create a file to indicate that the task
   REM   does not need to be run again.
 
-  ECHO This line will create a file to indicate that Application 1 installed correctly. > "%RoleRoot%\Task1_Success.txt"
+  ECHO This line will create a file to indicate that Application 1 installed correctly. > "%PathToApp1Install%\Task1_Success.txt"
 
 ) ELSE (
   REM   An error occurred. Log the error and exit with the error code.

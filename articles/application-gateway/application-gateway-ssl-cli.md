@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 5104b1ffa12e35f18ba0843718afb6d697df6c39
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: b0c5c9aeb1b26aa7af7930f463d97e3e176acfa9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068886"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432701"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con terminación SSL mediante la CLI de Azure
 
@@ -63,7 +63,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Crear recursos de red
 
-Cree la red virtual llamada *myVNet* y la subred llamada *myAGSubnet* mediante [az network vnet create](/cli/azure/network/vnet#az_net). Luego, puede agregar la subred llamada *myBackendSubnet* que necesitan los servidores back-end mediante [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Cree la dirección IP pública llamada *myAGPublicIPAddress* mediante [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
+Cree la red virtual llamada *myVNet* y la subred llamada *myAGSubnet* mediante [az network vnet create](/cli/azure/network/vnet#az-net). Luego, puede agregar la subred llamada *myBackendSubnet* que necesitan los servidores back-end mediante [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Cree la dirección IP pública llamada *myAGPublicIPAddress* mediante [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -118,7 +118,7 @@ az network application-gateway create \
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Crear un conjunto de escalado de máquinas virtuales
 
-En este ejemplo, creará un conjunto de escalado de máquinas virtuales que proporcione servidores para el grupo de servidores back-end predeterminado en la puerta de enlace de aplicaciones. Las máquinas virtuales del conjunto de escalado están asociadas a *myBackendSubnet* y *appGatewayBackendPool*. Para crear el conjunto de escalado, puede usar [az vmss create](/cli/azure/vmss#az_vmss_create).
+En este ejemplo, creará un conjunto de escalado de máquinas virtuales que proporcione servidores para el grupo de servidores back-end predeterminado en la puerta de enlace de aplicaciones. Las máquinas virtuales del conjunto de escalado están asociadas a *myBackendSubnet* y *appGatewayBackendPool*. Para crear el conjunto de escalado, puede usar [az vmss create](/cli/azure/vmss#az-vmss-create).
 
 ```azurecli-interactive
 az vmss create \
@@ -151,7 +151,7 @@ az vmss extension set \
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, puede usar [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
+Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, puede usar [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
 
 ```azurepowershell-interactive
 az network public-ip show \

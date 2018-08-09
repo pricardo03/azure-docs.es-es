@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 92089904941ae913f1992a4407083bfcae010f2d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a07a17105b4d84b51689e9636cfacc7a3b5428ad
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887425"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528034"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Diseño y compilación de una solución de administración en Azure (versión preliminar)
 > [!NOTE]
@@ -77,7 +77,7 @@ Mientras se desarrolla la solución, tiene que instalarla y probarla en el área
 Una vez haya finalizado y probado la solución, puede ponerla a disposición de los clientes a través de los siguientes orígenes.
 
 - **Plantillas de inicio rápido de Azure**.  [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/) es un conjunto de plantillas de Resource Manager aportadas por la comunidad a través de GitHub.  Puede hacer que su solución esté disponible siguiendo la información en la [guía de contribución](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE).
-- **Azure Marketplace**.  [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) le permite distribuir y vender su solución a otros desarrolladores, fabricantes de software independientes y profesionales de TI.  Puede obtener información sobre cómo publicar la solución en Azure Marketplace en [Publicación y administración de una oferta en Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md).
+- **Azure Marketplace**.  [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) le permite distribuir y vender su solución a otros desarrolladores, fabricantes de software independientes y profesionales de TI.  Puede obtener información sobre cómo publicar la solución en Azure Marketplace en [Publicación y administración de una oferta en Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
 
 
 

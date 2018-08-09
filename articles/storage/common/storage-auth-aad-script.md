@@ -3,17 +3,17 @@ title: Ejecute comandos de la CLI de Azure o de PowerShell bajo una identidad de
 description: La CLI de Azure y PowerShell admiten el inicio de sesión con una identidad de Azure AD para ejecutar comandos en contenedores y colas de Azure Storage y en sus datos. Se proporciona un token de acceso para la sesión y se usa para autorizar operaciones de llamada. Los permisos dependen del rol asignado a la identidad de Azure AD.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: tamram
-ms.openlocfilehash: 98af46707485d1ab49e7d8c6fb1729e6edc6b2ff
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.component: common
+ms.openlocfilehash: 253edccef064e729e96bceac619458cf4c585ae4
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235872"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522492"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Uso de una identidad de Azure AD para acceder a Azure Storage con la CLI o PowerShell (versión preliminar).
 
@@ -22,7 +22,7 @@ Azure Storage proporciona extensiones de versión preliminar para la CLI de Azur
 Cuando inicia sesión en la CLI de Azure o en PowerShell con una identidad de Azure AD, se devuelve un token de acceso para acceder a Azure Storage con esa identidad. Después, la CLI de Azure o PowerShell usan automáticamente ese token para autorizar operaciones en Azure Storage. Para las operaciones admitidas, ya no necesita pasar una clave de cuenta o token SAS con el comando.
 
 > [!IMPORTANT]
-> Esta versión preliminar está pensada para usos distintos del de producción. Los Acuerdos de nivel de Servicio (SLA) de producción no estarán disponibles hasta que la integración de Azure AD para Azure Storage se declare disponible con carácter general. Si la integración de Azure AD no se admite todavía para su escenario, siga usando la autorización con clave compartida o tokens de SAS en las aplicaciones. Para más información sobre la versión preliminar, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory (versión preliminar)](storage-auth-aad.md).
+> Esta versión preliminar está pensada para usos distintos del de producción. Los Acuerdos de nivel de Servicio (SLA) de producción no estarán disponibles hasta que la integración de Azure AD para Azure Storage se declare disponible con carácter general. Si la integración de Azure AD no se admite todavía para su escenario, siga usando la autorización con clave compartida o tokens de SAS en las aplicaciones. Para más información sobre la versión preliminar, consulte [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md) (Autenticación del acceso en Azure Storage mediante Azure Active Directory [versión preliminar]).
 >
 > Durante la versión preliminar, las asignaciones de roles de control de acceso basado en rol pueden tardar hasta cinco minutos en propagarse.
 >
@@ -94,7 +94,7 @@ Get-AzureStorageBlob -Container $sample-container -Context $ctx
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre los roles RBAC para Azure Storage, consulte [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md) (Administración de los derechos de acceso a los datos de almacenamiento con RBAC [versión preliminar]).
+- Para más información sobre los roles RBAC en Azure Storage, consulte [Administración de los derechos de acceso a los datos de Azure Storage con RBAC (versión preliminar)](storage-auth-aad-rbac.md).
 - Para aprender a usar Managed Service Identity con Azure Storage, consulte [Autenticación con Azure AD mediante Azure Managed Service Identity (versión preliminar)](storage-auth-aad-msi.md).
 - Para información sobre la autorización de acceso a los contenedores y las colas desde las aplicaciones de almacenamiento, consulte el artículo sobre el [uso de Azure AD con aplicaciones de almacenamiento](storage-auth-aad-app.md).
 - Para información adicional sobre la integración de Azure AD para los blobs y las colas de Azure, consulte la entrada de blog del equipo de Azure Storage acerca del [anuncio de la versión preliminar de Autenticación de Azure AD para Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

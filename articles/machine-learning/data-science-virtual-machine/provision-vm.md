@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma
-ms.openlocfilehash: 445b18dee9efa9561ba1274ef59a9a426332d745
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b749d8a904bc40eba3346cc03d9274236380c80d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31594059"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450295"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Aprovisionamiento de Data Science Virtual Machine de Windows en Azure
 Microsoft Data Science Virtual Machine es una imagen de máquina virtual (VM) de Windows Azure preinstalada y configurada con varias herramientas populares que se usan habitualmente para el análisis de datos y el aprendizaje automático. Las herramientas incluidas son:
@@ -45,8 +45,8 @@ Microsoft Data Science Virtual Machine es una imagen de máquina virtual (VM) de
 La ciencia de datos implica la iteración de una secuencia de tareas:
 
 1. Buscar, cargar y preprocesar datos
-2. Compilar y probar modelos
-3. Implementar los modelos para consumirse en aplicaciones inteligentes
+1. Compilar y probar modelos
+1. Implementar los modelos para consumirse en aplicaciones inteligentes
 
 Los científicos de datos usan varias herramientas para realizar estas tareas. Puede ser bastante lento encontrar las versiones del software adecuadas, descargarlas e instalarlas. Para reducir esta carga, Microsoft Data Science Virtual Machine proporciona una imagen lista para usar que se puede aprovisionar en Azure con las herramientas más populares preinstaladas y configuradas. 
 
@@ -57,7 +57,7 @@ No hay ningún cargo de software para esta imagen de VM de ciencia de datos. Sol
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Otras versiones de Data Science Virtual Machine
 También hay una imagen de [Ubuntu](dsvm-ubuntu-intro.md) disponible, con muchas herramientas similares más otros marcos de trabajo de aprendizaje profundo. También hay una imagen de [CentOS](linux-dsvm-intro.md) disponible. También ofrecemos la [versión Windows Server 2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) de la máquina virtual de ciencia de datos, aunque algunas herramientas solo están disponibles para la versión Windows Server 2016.  Respecto al resto, este artículo también se aplica a la versión Windows Server 2012.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de poder crear una Microsoft Data Science Virtual Machine, debe tener lo siguiente:
 
 * **Una suscripción a Azure**: para conseguir una, vea [Obtención de una evaluación gratuita de Azure](http://azure.com/free).
@@ -67,23 +67,23 @@ Antes de poder crear una Microsoft Data Science Virtual Machine, debe tener lo s
 Estos son los pasos para crear una instancia de Microsoft Data Science Virtual Machine:
 
 1. Navegue a la lista de máquinas virtuales en [Azure Portal](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
-2. Seleccione el botón **Crear** ubicado en la parte inferior para acceder a un asistente.![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
-3. El asistente que se usó para crear la instancia de Microsoft Data Science Virtual Machine necesita **datos de entrada** para cada uno de los **cuatro pasos** que se enumeran en la parte derecha de esta ilustración. Estas son las entradas necesarias para configurar cada uno de estos pasos:
+1. Seleccione el botón **Crear** ubicado en la parte inferior para acceder a un asistente.![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
+1. El asistente que se usó para crear la instancia de Microsoft Data Science Virtual Machine necesita **datos de entrada** para cada uno de los **cuatro pasos** que se enumeran en la parte derecha de esta ilustración. Estas son las entradas necesarias para configurar cada uno de estos pasos:
    
    1. **Aspectos básicos**
       
       1. **Nombre**: nombre del servidor de ciencia de datos que está creando.
-      2. **Tipo de disco de máquina virtual**: elija entre SSD o HDD. Para la instancia de GPU NC_v1 (basada en NVidia Tesla K80), elija **HDD** como el tipo de disco. 
-      3. **Nombre de usuario**: identificador de inicio de sesión de la cuenta del administrador.
-      4. **Contraseña**: contraseña de la cuenta del administrador.
-      5. **Suscripción**: si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina.
-      6. **Grupo de recursos**: puede crear uno nuevo o usar un grupo que ya exista.
-      7. **Ubicación**: seleccione el centro de datos más adecuado. Normalmente es el centro de datos que tenga la mayoría de los datos o que esté más cercano a su ubicación física para un acceso más rápido a la red.
-   2. **Tamaño**: seleccione uno de los tipos de servidor que cumpla sus requisitos funcionales y las restricciones de costo. Para obtener más opciones de tamaños de máquina virtual, seleccione "Ver todo".
-   3. **Configuración**:
+      1. **Tipo de disco de máquina virtual**: elija entre SSD o HDD. Para la instancia de GPU NC_v1 (basada en NVidia Tesla K80), elija **HDD** como el tipo de disco. 
+      1. **Nombre de usuario**: identificador de inicio de sesión de la cuenta del administrador.
+      1. **Contraseña**: contraseña de la cuenta del administrador.
+      1. **Suscripción**: si tiene más de una suscripción, seleccione aquella en la que se creará y facturará la máquina.
+      1. **Grupo de recursos**: puede crear uno nuevo o usar un grupo que ya exista.
+      1. **Ubicación**: seleccione el centro de datos más adecuado. Normalmente es el centro de datos que tenga la mayoría de los datos o que esté más cercano a su ubicación física para un acceso más rápido a la red.
+   1. **Tamaño**: seleccione uno de los tipos de servidor que cumpla sus requisitos funcionales y las restricciones de costo. Para obtener más opciones de tamaños de máquina virtual, seleccione "Ver todo".
+   1. **Configuración**:
       
       1. **Usar Managed Disks**: elija Administrado si desea que Azure administre los discos de la máquina virtual.  En caso contrario, debe especificar una cuenta de almacenamiento nueva o existente. 
-      2. **Otros parámetros**: normalmente usará simplemente los valores predeterminados. Si se plantea utilizar valores no predeterminados, mueva el puntero sobre el vínculo informativo para obtener ayuda sobre los campos específicos.
+      1. **Otros parámetros**: normalmente usará simplemente los valores predeterminados. Si se plantea utilizar valores no predeterminados, mueva el puntero sobre el vínculo informativo para obtener ayuda sobre los campos específicos.
     a. **Resumen**: compruebe que toda la información que ha especificado es correcta y haga clic en **Crear**. **NOTA**: La máquina virtual no tiene ningún cargo aparte del proceso para el tamaño del servidor que eligió en el paso **Tamaño**. 
 
 > [!NOTE]
@@ -112,7 +112,7 @@ Para el desarrollo con Python, se ha instalado Anaconda Python Distribution 2.7 
 > 
 > 
 
-Anaconda Python 3.6 se instala en C:\Anaconda y Anaconda Python 2.7 se instala en c:\Anaconda\envs\python2. Consulte la [documentación de PTVS](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) para ver los pasos detallados. 
+Anaconda Python 3.6 se instala en C:\Anaconda y Anaconda Python 2.7 se instala en c:\Anaconda\envs\python2. Consulte la [documentación de PTVS](/visualstudio/python/installing-python-interpreters.md) para ver los pasos detallados. 
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
 La distribución de Anaconda también incluye una instancia de Jupyter Notebook, un entorno para compartir código y análisis. Previamente se ha configurado un servidor de notebooks de Jupyter con kernels de Python 2.7, Python 3.x, PySpark, Julia y R. Hay un icono del escritorio llamado "Jupyter Notebook" para iniciar el servidor de Jupyter y el explorador para acceder al servidor de Notebook. 

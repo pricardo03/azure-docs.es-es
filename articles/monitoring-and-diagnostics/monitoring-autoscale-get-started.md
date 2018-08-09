@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
 ms.component: autoscale
-ms.openlocfilehash: 2781e718e3829c13dcc8cdd998936cfba30d8550
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b303632c236e492bbf57ee60d5e7b0cc7b2f9e5c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263653"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448975"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introducción al escalado automático en Azure
 Este artículo describe cómo configurar el escalado automático de recursos en Microsoft Azure Portal.
@@ -24,9 +24,9 @@ El escalado automático de Azure Monitor solo se aplica a Conjuntos de escalado 
 Puede detectar todos los recursos a los que se aplica el escalado automático en Azure Monitor. Siga los pasos siguientes para obtener un tutorial paso a paso:
 
 1. Abra [Azure Portal.][1]
-2. Haga clic en el icono de Azure Monitor en el panel izquierdo.
+1. Haga clic en el icono de Azure Monitor en el panel izquierdo.
   ![Abrir Azure Monitor][2]
-3. Haga clic en **Escalado automático** para ver todos los recursos para los que se puede aplicar el escalado automático, junto con su estado de escalado automático actual.
+1. Haga clic en **Escalado automático** para ver todos los recursos para los que se puede aplicar el escalado automático, junto con su estado de escalado automático actual.
   ![Detectar el escalado automático en Azure Monitor][3]
 
 Puede utilizar el panel de filtro de la parte superior para limitar la lista a los recursos seleccionados de un grupo de recursos específico, tipos de recursos concretos o un recurso determinado.
@@ -42,11 +42,11 @@ Para cada recurso, encontrará el recuento de instancias actual y el estado de e
 Se va a ofrecer ahora un tutorial paso a paso sencillo sobre cómo crear la primera configuración de escalado automático.
 
 1. Abra la hoja **Escalado automático** en Azure Monitor y seleccione un recurso que desee escalar (en los pasos siguientes se usa un plan de App Service asociado con una aplicación web. Puede [crear su primera aplicación web de ASP.NET en Azure en cinco minutos][4]).
-2. Tenga en cuenta que el número actual de instancias es 1. Haga clic en **Enable autoscale** (Habilitar escalado automático).
+1. Tenga en cuenta que el número actual de instancias es 1. Haga clic en **Enable autoscale** (Habilitar escalado automático).
   ![Configuración de escalado para la nueva aplicación web][5]
-3. Proporcione un nombre para la configuración de escalado y haga clic en **Agregar una regla**. Tenga en cuenta que las opciones de la regla de escalado se abren como un panel Contexto en el lado derecho. De forma predeterminada, establece la opción para escalar el recuento de instancias en 1 si el porcentaje de CPU del recurso supera el 70 %. Deje los valores predeterminados y haga clic en **Agregar**.
+1. Proporcione un nombre para la configuración de escalado y haga clic en **Agregar una regla**. Tenga en cuenta que las opciones de la regla de escalado se abren como un panel Contexto en el lado derecho. De forma predeterminada, establece la opción para escalar el recuento de instancias en 1 si el porcentaje de CPU del recurso supera el 70 %. Deje los valores predeterminados y haga clic en **Agregar**.
   ![Crear configuración de escalado para una aplicación web][6]
-4. Ahora ha creado su primera regla de escalado. Tenga en cuenta que UX ofrece procedimientos recomendados e indica que "se recomienda tener al menos una regla de reducción horizontal". Para ello:
+1. Ahora ha creado su primera regla de escalado. Tenga en cuenta que UX ofrece procedimientos recomendados e indica que "se recomienda tener al menos una regla de reducción horizontal". Para ello:
   
     a. Haga clic en **Agregar una regla**. 
 
@@ -58,7 +58,7 @@ Se va a ofrecer ahora un tutorial paso a paso sencillo sobre cómo crear la prim
 
    Ahora debería tener una configuración de escalado que escale o reduzca horizontalmente en función del uso de CPU.
    ![Escala en función de la CPU][8]
-5. Haga clic en **Save**(Guardar).
+1. Haga clic en **Save**(Guardar).
 
 Felicidades. Ya ha establecido correctamente la primera configuración del escalado para escalar automáticamente la aplicación web en función del uso de CPU.
 
@@ -70,18 +70,18 @@ Felicidades. Ya ha establecido correctamente la primera configuración del escal
 Además de escalar en función de la CPU, puede establecer la escala de forma diferente para días específicos de la semana.
 
 1. Haga clic en **Add a scale condition** (Agregar una condición de escalado).
-2. Establezca el modo y las reglas de escalado de la misma forma que la condición predeterminada.
-3. Seleccione **Repeat specific days** (Repetir días específicos) para la programación.
-4. Seleccione los días y la hora de inicio y fin en que debe aplicarse la condición de escalado.
+1. Establezca el modo y las reglas de escalado de la misma forma que la condición predeterminada.
+1. Seleccione **Repeat specific days** (Repetir días específicos) para la programación.
+1. Seleccione los días y la hora de inicio y fin en que debe aplicarse la condición de escalado.
 
 ![Condición de escalado basada en programación][9]
 ### <a name="scale-differently-on-specific-dates"></a>Escalado distinto en fechas concretas
 Además de escalar en función de la CPU, puede establecer la escala de forma diferente para fechas específicas.
 
 1. Haga clic en **Add a scale condition** (Agregar una condición de escalado).
-2. Establezca el modo y las reglas de escalado de la misma forma que la condición predeterminada.
-3. Seleccione **Specify start/end dates** (Especificar fechas de inicio y fin) para la programación.
-4. Seleccione las fechas y la hora de inicio y fin en que debe aplicarse la condición de escalado.
+1. Establezca el modo y las reglas de escalado de la misma forma que la condición predeterminada.
+1. Seleccione **Specify start/end dates** (Especificar fechas de inicio y fin) para la programación.
+1. Seleccione las fechas y la hora de inicio y fin en que debe aplicarse la condición de escalado.
 
 ![Condición de escalado basada en fechas][10]
 

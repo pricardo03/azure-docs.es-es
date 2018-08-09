@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: c8bcc2bf11ef4adbe9139635d3c24c240a46783c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 536092c1ee50045e6df4e2933c7d6eb0ee7a8b42
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525764"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429794"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Uso del Explorador de Storage con Azure File Storage
 
@@ -29,7 +29,7 @@ Azure File Storage es un servicio que ofrece recursos compartidos de archivos en
 
 Para completar los pasos de este artículo, necesitará:
 
-- [Descargar e instalar el Explorador de Azure Storage](http://www.storageexplorer.com/)
+- [Descarga e instalación del Explorador de Storage](http://www.storageexplorer.com/)
 
 - [Conectarse a una cuenta de almacenamiento de Azure o a un servicio](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
@@ -41,17 +41,17 @@ Los siguientes pasos muestran cómo crear un recurso compartido de archivos en e
 
 1. Abra el Explorador de Storage.
 
-2. En el panel izquierdo, expanda la cuenta de almacenamiento en la que desea crear el recurso compartido de archivos
+1. En el panel izquierdo, expanda la cuenta de almacenamiento en la que desea crear el recurso compartido de archivos
 
-3. Haga clic con el botón derecho en **Recursos compartidos de archivos** y (en el menú contextual) seleccione **Create File Share** (Crear recurso compartido de archivos).
+1. Haga clic con el botón derecho en **Recursos compartidos de archivos** y (en el menú contextual) seleccione **Create File Share** (Crear recurso compartido de archivos).
 
     ![Creación un recurso compartido de archivos](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-4. Aparecerá un cuadro de texto debajo de la carpeta **Recursos compartidos de archivos**. Escriba el nombre del recurso compartido de archivos. Para ver una lista de reglas y restricciones en la nomenclatura de recursos compartidos de archivos, consulte la sección [Reglas de nomenclatura de recursos compartidos](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container).
+1. Aparecerá un cuadro de texto debajo de la carpeta **Recursos compartidos de archivos**. Escriba el nombre del recurso compartido de archivos. Para ver una lista de reglas y restricciones en la nomenclatura de recursos compartidos de archivos, consulte la sección [Reglas de nomenclatura de recursos compartidos](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container).
 
     ![Nomenclatura de recurso compartido](media/vs-azure-tools-storage-explorer-files/image2.png)
 
-5. Presione **Entrar** cuando termine para crear el recurso compartido de archivos o **Esc** para cancelar la operación. Una vez que el recurso compartido de archivos se haya creado correctamente, se mostrará en la carpeta **Recursos compartidos de archivos** de la cuenta de almacenamiento seleccionada.
+1. Presione **Entrar** cuando termine para crear el recurso compartido de archivos o **Esc** para cancelar la operación. Una vez que el recurso compartido de archivos se haya creado correctamente, se mostrará en la carpeta **Recursos compartidos de archivos** de la cuenta de almacenamiento seleccionada.
 
     ![El nuevo recurso compartido](media/vs-azure-tools-storage-explorer-files/image3.png)
 
@@ -63,15 +63,15 @@ Los siguientes pasos muestran cómo ver el contenido de recurso compartido de ar
 
 1. Abra el Explorador de Storage.
 
-2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el recurso compartido de archivos que desea ver.
+1. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el recurso compartido de archivos que desea ver.
 
-3. Expanda la opción **Recursos compartidos de archivos**de la cuenta de almacenamiento.
+1. Expanda la opción **Recursos compartidos de archivos**de la cuenta de almacenamiento.
 
-4. Haga clic con el botón derecho en el recurso compartido de archivos que desea ver y (en el menú contextual) seleccione **Abrir**. También puede hacer doble clic en el recurso compartido de archivos que desea ver.
+1. Haga clic con el botón derecho en el recurso compartido de archivos que desea ver y (en el menú contextual) seleccione **Abrir**. También puede hacer doble clic en el recurso compartido de archivos que desea ver.
 
     ![Abrir recurso compartido](media/vs-azure-tools-storage-explorer-files/image4.png)
 
-5. El panel principal mostrará el contenido del recurso compartido de archivos.
+1. El panel principal mostrará el contenido del recurso compartido de archivos.
     
     ![El contenido del recurso compartido de archivos](media/vs-azure-tools-storage-explorer-files/image5.png)
 
@@ -83,15 +83,15 @@ Los siguientes pasos muestran cómo eliminar un recurso compartido de archivos e
 
 1. Abra el Explorador de Storage.
 
-2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el recurso compartido de archivos que desea ver.
+1. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el recurso compartido de archivos que desea ver.
 
-3. Expanda la opción **Recursos compartidos de archivos**de la cuenta de almacenamiento.
+1. Expanda la opción **Recursos compartidos de archivos**de la cuenta de almacenamiento.
 
-4. Haga clic con el botón derecho en el recurso compartido de archivos que desea eliminar y (en el menú contextual) seleccione **Delete** (Eliminar). También puede presionar **Suprimir** para eliminar el recurso compartido de archivos actualmente seleccionado.
+1. Haga clic con el botón derecho en el recurso compartido de archivos que desea eliminar y (en el menú contextual) seleccione **Delete** (Eliminar). También puede presionar **Suprimir** para eliminar el recurso compartido de archivos actualmente seleccionado.
 
     ![Eliminar](media/vs-azure-tools-storage-explorer-files/image6.png)
 
-5. Haga clic en **Sí** en el cuadro de diálogo de confirmación.
+1. Haga clic en **Sí** en el cuadro de diálogo de confirmación.
     
     ![Cuadro de diálogo Confirmación](media/vs-azure-tools-storage-explorer-files/image7.png)
 
@@ -103,15 +103,15 @@ Los siguientes pasos muestran cómo copiar un recurso compartido de archivos de 
 
 1. Abra el Explorador de Storage.
 
-2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el recurso compartido de archivos que desea copiar.
+1. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el recurso compartido de archivos que desea copiar.
 
-3. Expanda la opción **Recursos compartidos de archivos**de la cuenta de almacenamiento.
+1. Expanda la opción **Recursos compartidos de archivos**de la cuenta de almacenamiento.
 
-4. Haga clic con el botón derecho en el recurso compartido de archivos que desea copiar y (en el menú contextual) seleccione **Copy File Share** (Copar recurso compartido de archivos).
+1. Haga clic con el botón derecho en el recurso compartido de archivos que desea copiar y (en el menú contextual) seleccione **Copy File Share** (Copar recurso compartido de archivos).
 
     ![Copiar recurso compartido de archivos](media/vs-azure-tools-storage-explorer-files/image8.png)
 
-5. Haga clic con el botón derecho en la cuenta de almacenamiento de "destino" deseada en la que desea pegar el recurso compartido de archivos y (en el menú contextual) seleccione **Paste File Share**(Pegar recurso compartido de archivos).
+1. Haga clic con el botón derecho en la cuenta de almacenamiento de "destino" deseada en la que desea pegar el recurso compartido de archivos y (en el menú contextual) seleccione **Paste File Share**(Pegar recurso compartido de archivos).
 
     ![Pegar recurso compartido de archivos](media/vs-azure-tools-storage-explorer-files/image9.png)
 
@@ -123,25 +123,25 @@ Los siguientes pasos muestran cómo crear una SAS para un recurso compartido de 
 
 1. Abra el Explorador de Storage.
 
-2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el recurso compartido de archivos del que desea obtener una SAS.
+1. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el recurso compartido de archivos del que desea obtener una SAS.
 
-3. Expanda la opción **Recursos compartidos de archivos**de la cuenta de almacenamiento.
+1. Expanda la opción **Recursos compartidos de archivos**de la cuenta de almacenamiento.
 
-4. Haga clic con el botón derecho en el recurso compartido de archivos y (en el menú contextual) seleccione **Get Shared Access Signature**(Obtener firma de acceso compartido).
+1. Haga clic con el botón derecho en el recurso compartido de archivos y (en el menú contextual) seleccione **Get Shared Access Signature**(Obtener firma de acceso compartido).
 
     ![Obtener firma de acceso compartido](media/vs-azure-tools-storage-explorer-files/image10.png)
 
-5. En el cuadro de diálogo **Firma de acceso compartido**, especifique la directiva, las fechas de inicio y vencimiento, la zona horaria y los niveles de acceso que desea para el recurso.
+1. En el cuadro de diálogo **Firma de acceso compartido** , especifique la directiva, las fechas de inicio y vencimiento, la zona horaria y los niveles de acceso que desea para el recurso.
 
     ![Cuadro de diálogo SAS](media/vs-azure-tools-storage-explorer-files/image11.png)
 
-6. Cuando haya terminado de especificar las opciones de SAS, seleccione **Crear**.
+1. Cuando haya terminado de especificar las opciones de SAS, seleccione **Crear**.
 
-7. Después, un segundo cuadro de diálogo **Firma de acceso compartido** mostrará el recurso compartido de archivos junto con la dirección URL y las QueryStrings que se pueden utilizar para acceder al recurso de almacenamiento. Seleccione **Copiar** junto a la dirección URL que desea copiar al Portapapeles.
+1. Después, un segundo cuadro de diálogo **Firma de acceso compartido** mostrará el recurso compartido de archivos junto con la dirección URL y las QueryStrings que se pueden utilizar para acceder al recurso de almacenamiento. Seleccione **Copiar** junto a la dirección URL que desea copiar al Portapapeles.
     
     ![Segundo cuadro de diálogo SAS](media/vs-azure-tools-storage-explorer-files/image12.png)
 
-8. Cuando haya terminado, seleccione **Cerrar**.
+1. Cuando haya terminado, seleccione **Cerrar**.
 
 ## <a name="manage-access-policies-for-a-file-share"></a>Administración de directivas de acceso para un recurso compartido de archivos
 
@@ -149,19 +149,19 @@ Los siguientes pasos muestran cómo administrar (agregar y quitar) las directiva
 
 1. Abra el Explorador de Storage.
 
-2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el recurso compartido de archivos cuyas directivas de acceso desea administrar.
+1. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el recurso compartido de archivos cuyas directivas de acceso desea administrar.
 
-3. Expanda la opción **Recursos compartidos de archivos**de la cuenta de almacenamiento.
+1. Expanda la opción **Recursos compartidos de archivos**de la cuenta de almacenamiento.
 
-4. Seleccione el recurso compartido de archivos deseado y (en el menú contextual) seleccione **Manage Access Policies**(Administrar directivas de acceso).
+1. Seleccione el recurso compartido de archivos deseado y (en el menú contextual) seleccione **Manage Access Policies**(Administrar directivas de acceso).
 
     ![Menú contextual Administrar directivas de acceso](media/vs-azure-tools-storage-explorer-files/image13.png)
 
-5. El cuadro de diálogo **Directivas de acceso** enumerará las directivas de acceso creadas para el recurso compartido de archivos seleccionado.
+1. El cuadro de diálogo **Directivas de acceso** enumerará las directivas de acceso creadas para el recurso compartido de archivos seleccionado.
     
     ![Directivas de acceso](media/vs-azure-tools-storage-explorer-files/image14.png)
 
-6. Siga estos pasos en función de la tarea de administración de directivas de acceso:
+1. Siga estos pasos en función de la tarea de administración de directivas de acceso:
     
     - **Agregar una nueva directiva de acceso**: seleccione **Agregar**. Una vez generada, el cuadro de diálogo **Directivas de acceso** mostrará la directiva de acceso recién agregada (con la configuración predeterminada).
 
@@ -169,7 +169,7 @@ Los siguientes pasos muestran cómo administrar (agregar y quitar) las directiva
 
     - **Quitar una directiva de acceso**: seleccione **Quitar** junto a la directiva de acceso que desea quitar.
 
-7. Cree una nueva dirección URL de SAS mediante la directiva de acceso que creó anteriormente:
+1. Cree una nueva dirección URL de SAS mediante la directiva de acceso que creó anteriormente:
     
     ![Obtener SAS](media/vs-azure-tools-storage-explorer-files/image15.png)
     
@@ -183,19 +183,19 @@ Los siguientes pasos muestran cómo administrar los archivos (y carpetas) en un 
 
 1.  Abra el Explorador de Storage.
 
-2.  En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el recurso compartido de archivos que desea administrar.
+1.  En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el recurso compartido de archivos que desea administrar.
 
-3.  Expanda la opción **Recursos compartidos de archivos**de la cuenta de almacenamiento.
+1.  Expanda la opción **Recursos compartidos de archivos**de la cuenta de almacenamiento.
 
-4.  Haga doble clic en el recurso compartido de archivos que desea ver.
+1.  Haga doble clic en el recurso compartido de archivos que desea ver.
 
-5.  El panel principal mostrará el contenido del recurso compartido de archivos.
+1.  El panel principal mostrará el contenido del recurso compartido de archivos.
 
     ![El contenido del recurso compartido de archivos](media/vs-azure-tools-storage-explorer-files/image17.png)
 
-6.  El panel principal mostrará el contenido del recurso compartido de archivos.
+1.  El panel principal mostrará el contenido del recurso compartido de archivos.
 
-7.  Siga estos pasos según la tarea que desea realizar:
+1.  Siga estos pasos según la tarea que desea realizar:
 
     - **Cargar archivos en un recurso compartido de archivos**
 

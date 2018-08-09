@@ -3,18 +3,17 @@ title: Administración del ciclo de vida de Azure Storage
 description: Obtenga información sobre cómo crear reglas de directiva de ciclo de vida para volver a realizar la transición de datos del nivel de acceso frecuente al nivel de almacenamiento de acceso y al nivel de acceso de archivo.
 services: storage
 author: yzheng-msft
-manager: jwillis
 ms.service: storage
-ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: ec314925635d34baa7b3edeeb397805964b6353d
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.component: common
+ms.openlocfilehash: a3208152ddf198d00c0a158e466c9d024c17b4d6
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413134"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528450"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Administración del ciclo de vida de Azure Blob Storage (versión preliminar)
 
@@ -59,11 +58,11 @@ Si la característica se aprueba y registra correctamente, debe recibir el estad
 
 Para enviar una solicitud: 
 ```cli
-az feature register –-namespace Microsoft.Storage –-name DLM
+az feature register --namespace Microsoft.Storage --name DLM
 ```
 Puede comprobar el estado de aprobación del registro con el siguiente comando:
 ```cli
--az feature show –-namespace Microsoft.Storage –-name DLM
+az feature show --namespace Microsoft.Storage --name DLM
 ```
 Si la característica se aprueba y registra correctamente, debe recibir el estado "Registrado". 
 

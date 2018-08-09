@@ -2,24 +2,19 @@
 title: Cifrado del lado cliente con Python para Microsoft Azure Storage | Microsoft Docs
 description: Biblioteca de cliente de Azure Storage para Python admite el cifrado de lado cliente para obtener una seguridad máxima de las aplicaciones de Azure Storage.
 services: storage
-documentationcenter: python
 author: lakasa
-manager: jahogg
-editor: tysonn
-ms.assetid: f9bf7981-9948-4f83-8931-b15679a09b8a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: c925b41d1654bd5c9b40438c4b6b9f402ec4bac2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.component: common
+ms.openlocfilehash: 6a6508393fe935b456cde815d35f2fd4447cd2d4
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29742649"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528129"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Cifrado del lado cliente con Python para Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -56,7 +51,7 @@ El descifrado mediante la técnica de sobres funciona de la siguiente manera:
 La biblioteca de cliente de almacenamiento usa [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para cifrar los datos del usuario. En concreto, emplea el modo [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) con AES. Cada servicio funciona de forma ligeramente diferente, por lo que describiremos aquí cada uno de ellos.
 
 ### <a name="blobs"></a>Blobs
-La biblioteca de cliente solo admite actualmente el cifrado de blobs completos. En concreto, se admite el cifrado cuando los usuarios emplean los métodos **create**\*. En el caso de las descargas, se admiten tanto las descargas de intervalo como las completas, y está disponible la paralelización tanto de la carga como de la descarga.
+La biblioteca de cliente solo admite actualmente el cifrado de blobs completos. En concreto, se admite el cifrado cuando los usuarios emplean los métodos **create***. En el caso de las descargas, se admiten tanto las descargas de intervalo como las completas, y está disponible la paralelización tanto de la carga como de la descarga.
 
 Durante el cifrado, la biblioteca de cliente generará un vector de inicialización (IV) aleatorio de 16 bytes, junto con una clave de cifrado de contenido (CEK) aleatoria de 32 bytes, y realiza el cifrado de sobres de los datos de blob con esta información. Posteriormente, la CEK encapsulada y algunos metadatos de cifrado adicionales se almacenan como metadatos de blob junto con el objeto blob cifrado en el servicio.
 
@@ -65,9 +60,9 @@ Durante el cifrado, la biblioteca de cliente generará un vector de inicializaci
 > 
 > 
 
-Descargar un blob cifrado implica recuperar el contenido del blob completo mediante los cómodos métodos **get**\*. La CEK encapsulada se desencapsula y se utiliza junto con el vector de inicialización (que se almacena como metadatos de blob, en este caso) para devolver los datos descifrados a los usuarios.
+Descargar un blob cifrado implica recuperar el contenido del blob completo mediante los cómodos métodos **get***. La CEK encapsulada se desencapsula y se utiliza junto con el vector de inicialización (que se almacena como metadatos de blob, en este caso) para devolver los datos descifrados a los usuarios.
 
-Descargar un intervalo arbitrario (métodos **get**\* con parámetros de intervalo transferidos) en el blob cifrado implica ajustar el intervalo proporcionado por los usuarios para obtener una pequeña cantidad de datos adicionales que pueden usarse para descifrar correctamente el intervalo solicitado.
+Descargar un intervalo arbitrario (métodos**get*** con parámetros de intervalo transferidos) en el blob cifrado implica ajustar el intervalo proporcionado por los usuarios para obtener una pequeña cantidad de datos adicionales que pueden usarse para descifrar correctamente el intervalo solicitado.
 
 Los blobs en bloques y los blobs en páginas solo se pueden cifrar y descifrar usando este esquema. Actualmente, no se admite el cifrado de blobs en anexos.
 

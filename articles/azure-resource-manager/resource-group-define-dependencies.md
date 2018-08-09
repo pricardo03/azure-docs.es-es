@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 475e1f0d481678f53c191a887c7cc56c28c4b361
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 5b4d8317d565528f896bf6823ddaefd010d0a845
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887436"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528636"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definición del orden de implementación de recursos en plantillas de Azure Resource Manager
 Antes de proceder a la implementación de un recurso determinado, es posible que deban existir otros recursos. Por ejemplo, debe existir un servidor SQL para intentar implementar una base de datos SQL. Esta relación se define al marcar un recurso como dependiente del otro. Una dependencia se define con el elemento **dependsOn** o mediante la función **reference**. 
@@ -108,7 +108,7 @@ En el ejemplo siguiente se muestran un servidor SQL y una base de datos SQL. Obs
 ```
 
 ## <a name="reference-and-list-functions"></a>Funciones de referencia y lista
-La [función reference](resource-group-template-functions-resource.md#reference) permite que una expresión derive su valor de otros pares de valor y nombre JSON o de recursos en tiempo de ejecución. Las [funciones list*](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) devuelven valores para un recurso de una operación de lista.  Las expresiones de referencia y lista declaran implícitamente que un recurso depende de otro, cuando el recurso al que se hace referencia está implementado en la misma plantilla y se hace referencia a él por su nombre (no por el identificador de recurso). Si se pasa el identificador de recurso a las funciones de referencia o lista, no se crea una referencia implícita.
+La [función reference](resource-group-template-functions-resource.md#reference) permite que una expresión derive su valor de otros pares de valor y nombre JSON o de recursos en tiempo de ejecución. Las [funciones list*](resource-group-template-functions-resource.md#list) devuelven valores para un recurso de una operación de lista.  Las expresiones de referencia y lista declaran implícitamente que un recurso depende de otro, cuando el recurso al que se hace referencia está implementado en la misma plantilla y se hace referencia a él por su nombre (no por el identificador de recurso). Si se pasa el identificador de recurso a las funciones de referencia o lista, no se crea una referencia implícita.
 
 El formato general de la función de referencia es:
 

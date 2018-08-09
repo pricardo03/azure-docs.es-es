@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 10c5116afa46817a42834e0350937fde7ae0b927
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a99fb959ae1ac1434bedffd782a7c4e0a302d361
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657349"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431426"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Implementación de SAP S/4HANA o BW/4HANA en Azure
 En este artículo se describe cómo implementar S/4HANA en Azure por medio de SAP Cloud Appliance Library (SAP CAL) 3.0. Para implementar otras soluciones basadas en SAP HANA, por ejemplo, BW/4HANA, siga los mismos pasos.
@@ -52,7 +52,7 @@ La página **Soluciones** muestra algunas de las soluciones basadas en SAP CAL H
     > [!NOTE]
     Los pasos siguientes muestran cómo crear una cuenta de SAP CAL para las implementaciones mediante Resource Manager. Si ya tiene una cuenta de SAP CAL vinculada al modelo de implementación clásico, *tendrá que* seguir estos pasos para crear una cuenta de SAP CAL nueva. La nueva cuenta de SAP CAL se tiene que implementar mediante el modelo de Resource Manager.
 
-2. Cree una nueva cuenta de SAP CAL. La página **Cuentas** muestra tres opciones de Azure: 
+1. Cree una nueva cuenta de SAP CAL. La página **Cuentas** muestra tres opciones de Azure: 
 
     a. **Microsoft Azure (classic)** es el modelo de implementación clásico y ya no se suele usar.
 
@@ -64,27 +64,27 @@ La página **Soluciones** muestra algunas de las soluciones basadas en SAP CAL H
 
     ![Detalles de la cuenta de SAP CAL](./media/cal-s4h/s4h-pic-2a.png)
 
-3. En el campo **Suscription ID**, especifique el identificador de suscripción de Azure, que se puede encontrar en Azure Portal.
+1. En el campo **Suscription ID**, especifique el identificador de suscripción de Azure, que se puede encontrar en Azure Portal.
 
    ![Cuentas de SAP CAL](./media/cal-s4h/s4h-pic3c.png)
 
-4. Para autorizar que SAP CAL se implemente en la suscripción de Azure que ha definido, haga clic en **Authorize** (Autorizar). La siguiente página aparecerá en la pestaña del explorador:
+1. Para autorizar que SAP CAL se implemente en la suscripción de Azure que ha definido, haga clic en **Authorize** (Autorizar). La siguiente página aparecerá en la pestaña del explorador:
 
    ![Inicio de sesión de servicios en la nube de Internet Explorer](./media/cal-s4h/s4h-pic4c.png)
 
-5. Si se enumera más de un usuario, elija la cuenta de Microsoft vinculada para ser el coadministrador de la suscripción de Azure que ha seleccionado. La siguiente página aparecerá en la pestaña del explorador:
+1. Si se enumera más de un usuario, elija la cuenta de Microsoft vinculada para ser el coadministrador de la suscripción de Azure que ha seleccionado. La siguiente página aparecerá en la pestaña del explorador:
 
    ![Confirmación de servicios en la nube de Internet Explorer](./media/cal-s4h/s4h-pic5a.png)
 
-6. Haga clic en **Aceptar**. Si la autorización es correcta, vuelve a mostrarse la definición de la cuenta de SAP CAL. Poco después, un mensaje confirma que el proceso de autorización se ha realizado correctamente.
+1. Haga clic en **Aceptar**. Si la autorización es correcta, vuelve a mostrarse la definición de la cuenta de SAP CAL. Poco después, un mensaje confirma que el proceso de autorización se ha realizado correctamente.
 
-7. Para asignar la cuenta de SAP CAL recién creada al usuario, escriba en el cuadro de texto de la derecha su **identificador de usuario** y haga clic en **Agregar**.
+1. Para asignar la cuenta de SAP CAL recién creada al usuario, escriba en el cuadro de texto de la derecha su **identificador de usuario** y haga clic en **Agregar**.
 
    ![Asociación de cuenta a usuario](./media/cal-s4h/s4h-pic8a.png)
 
-8. Para asociar una cuenta con el usuario que utiliza para iniciar sesión en SAP CAL, haga clic en **Review** (Revisar). 
+1. Para asociar una cuenta con el usuario que utiliza para iniciar sesión en SAP CAL, haga clic en **Review** (Revisar). 
  
-9. Para crear la asociación entre el usuario y la cuenta de SAP CAL recién creada, haga clic en **Create** (Crear).
+1. Para crear la asociación entre el usuario y la cuenta de SAP CAL recién creada, haga clic en **Create** (Crear).
 
    ![Asociación de usuario a cuenta de SAP CAL](./media/cal-s4h/s4h-pic9b.png)
 
@@ -122,29 +122,29 @@ Aquí se muestra la ruta de acceso básica a la implementación.
 
    ![SAP CAL, Modo básico: crear instancia](./media/cal-s4h/s4h-pic10a.png)
 
-2. Haga clic en **Crear** y, en el cuadro de mensaje que aparece, haga clic en **Aceptar**.
+1. Haga clic en **Crear** y, en el cuadro de mensaje que aparece, haga clic en **Aceptar**.
 
    ![Tamaños de máquinas virtuales que admite SAP CAL](./media/cal-s4h/s4h-pic10b.png)
 
-3. En el cuadro de diálogo **Clave privada**, haga clic en **Almacenar** para almacenar la clave privada en SAP CAL. Para usar la protección con contraseña para la clave privada, haga clic en **Descargar**. 
+1. En el cuadro de diálogo **Clave privada**, haga clic en **Almacenar** para almacenar la clave privada en SAP CAL. Para usar la protección con contraseña para la clave privada, haga clic en **Descargar**. 
 
    ![Clave privada de SAP CAL](./media/cal-s4h/s4h-pic10c.png)
 
-4. Lea el mensaje de **advertencia** de SAP CAL y haga clic en **Aceptar**.
+1. Lea el mensaje de **advertencia** de SAP CAL y haga clic en **Aceptar**.
 
    ![Advertencia de SAP CAL](./media/cal-s4h/s4h-pic10d.png)
 
     Ahora se realizará la implementación. Después de un tiempo, y en función del tamaño y la complejidad de la solución (SAP CAL ofrece una estimación), el estado pasa a mostrarse como activo y listo para usarse.
 
-5. Para buscar las máquinas virtuales que se recopilan con los demás recursos asociados de un grupo de recursos, vaya a Azure Portal: 
+1. Para buscar las máquinas virtuales que se recopilan con los demás recursos asociados de un grupo de recursos, vaya a Azure Portal: 
 
    ![Objetos de SAP CAL implementados en el nuevo portal](./media/cal-s4h/sapcaldeplyment_portalview.png)
 
-6. En el portal de SAP CAL, el estado aparece como **Activo**. Para conectarse a la solución, haga clic en **Conectar**. Se implementan diferentes opciones para conectarse a los distintos componentes en esta solución.
+1. En el portal de SAP CAL, el estado aparece como **Activo**. Para conectarse a la solución, haga clic en **Conectar**. Se implementan diferentes opciones para conectarse a los distintos componentes en esta solución.
 
    ![Instancias de SAP CAL](./media/cal-s4h/active_solution.png)
 
-7. Para poder usar una de las opciones para conectarse a los sistemas implementados, haga clic en **Guía de introducción**. 
+1. Para poder usar una de las opciones para conectarse a los sistemas implementados, haga clic en **Guía de introducción**. 
 
    ![Conectarse a la instancia](./media/cal-s4h/connect_to_solution.png)
 

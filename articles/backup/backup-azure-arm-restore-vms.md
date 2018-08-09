@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: markgal
-ms.openlocfilehash: 52ca7cf4a04ace2a43f15433c05a2db26bde3602
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 872bfc0027fd5b69bb42f391c036f7116789f529
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605600"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431154"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Uso de Azure Portal para restaurar máquinas virtuales
 Proteja sus datos tomando instantáneas de sus datos a intervalos definidos. Estas instantáneas se denominan puntos de recuperación y se almacenan en almacenes de Recovery Services. Si es necesario reparar o recompilar una máquina virtual, puede restaurarla desde cualquiera de los puntos de recuperación guardados. Cuando restaura un punto de recuperación, puede:
@@ -39,34 +39,34 @@ Para restaurar una máquina virtual o todos los discos a partir de copias de seg
 ## <a name="select-a-restore-point-for-restore"></a>Seleccionar un punto de restauración
 1. Inicie sesión en el [Azure Portal](http://portal.azure.com/).
 
-2. En el menú de Azure, seleccione **Examinar**. En la lista de servicios, escriba **Recovery Services**. La lista de servicios se ajusta a lo que escribe. Cuando vea la opción **Almacenes de Recovery Services**, haga clic en ella.
+1. En el menú de Azure, seleccione **Examinar**. En la lista de servicios, escriba **Recovery Services**. La lista de servicios se ajusta a lo que escribe. Cuando vea la opción **Almacenes de Recovery Services**, haga clic en ella.
 
     ![Almacén de Recovery Services](./media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
 
     Se muestra la lista de almacenes de la suscripción.
 
     ![Lista de almacenes de Recovery Services](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
-3. En la lista, seleccione el almacén asociado a la máquina virtual que desea restaurar. Al hacer clic en el almacén, se abre su panel.
+1. En la lista, seleccione el almacén asociado a la máquina virtual que desea restaurar. Al hacer clic en el almacén, se abre su panel.
 
     ![Almacén de Recovery Services seleccionado](./media/backup-azure-arm-restore-vms/select-vault-open-vault-blade.png)
-4. En el panel del almacén, en el icono **Elementos de copia de seguridad**, seleccione **Azure Virtual Machines**.
+1. En el panel del almacén, en el icono **Elementos de copia de seguridad**, seleccione **Azure Virtual Machines**.
 
     ![Panel del almacén](./media/backup-azure-arm-restore-vms/vault-dashboard.png)
 
     Se abre la hoja **Elementos de copia de seguridad** y se muestra la lista de máquinas virtuales de Azure.
 
     ![Lista de máquinas virtuales en el almacén](./media/backup-azure-arm-restore-vms/list-of-vms-in-vault.png)
-5. En la lista, seleccione una máquina virtual para abrir el panel. Se abre el panel de máquinas virtuales en el área Supervisión que contiene el icono **Puntos de recuperación**.
+1. En la lista, seleccione una máquina virtual para abrir el panel. Se abre el panel de máquinas virtuales en el área Supervisión que contiene el icono **Puntos de recuperación**.
 
     ![Puntos de restauración](./media/backup-azure-arm-restore-vms/vm-blade.png)
-6. En el menú del panel de máquina virtual, seleccione **Restaurar**.
+1. En el menú del panel de máquina virtual, seleccione **Restaurar**.
 
     ![Botón Restaurar](./media/backup-azure-arm-restore-vms/vm-blade-menu-restore.png)
 
     Se abre la hoja **Restaurar**.
 
     ![Hoja Restaurar](./media/backup-azure-arm-restore-vms/restore-blade.png)
-7. En la hoja **Restaurar**, seleccione **Punto de restauración**. Se abre la hoja **Seleccionar punto de restauración**.
+1. En la hoja **Restaurar**, seleccione **Punto de restauración**. Se abre la hoja **Seleccionar punto de restauración**.
 
     ![Seleccionar punto de restauración](./media/backup-azure-arm-restore-vms/recovery-point-selector.png)
 
@@ -79,13 +79,13 @@ Para restaurar una máquina virtual o todos los discos a partir de copias de seg
      * Puntos de restauración coherentes con el sistema de archivos
      * Todos los puntos de restauración
 
-8. Elija un punto de restauración y seleccione **Aceptar**.
+1. Elija un punto de restauración y seleccione **Aceptar**.
 
     ![Opciones de puntos de restauración](./media/backup-azure-arm-restore-vms/select-recovery-point.png)
 
     La hoja **Restaurar** muestra que el punto de restauración está establecido.
 
-9. Si aún no está allí, vaya a la hoja **Restaurar**. Asegúrese de que se selecciona un [punto de restauración](#select-a-restore-point-for-restore) y seleccione **Restaurar configuración**. Se abre la hoja **Restaurar configuración**.
+1. Si aún no está allí, vaya a la hoja **Restaurar**. Asegúrese de que se selecciona un [punto de restauración](#select-a-restore-point-for-restore) y seleccione **Restaurar configuración**. Se abre la hoja **Restaurar configuración**.
 
 ## <a name="choose-a-vm-restore-configuration"></a>Elección de la configuración de restauración de una máquina virtual
 Después de seleccionar el punto de restauración, elija la configuración de restauración de una máquina virtual. Para configurar la máquina virtual restaurada, puede usar Azure Portal o PowerShell.
@@ -93,7 +93,7 @@ Después de seleccionar el punto de restauración, elija la configuración de re
 1. Si aún no está allí, vaya a la hoja **Restaurar**. Asegúrese de que se selecciona un [punto de restauración](#select-a-restore-point-for-restore) y seleccione **Restaurar configuración**. Se abre la hoja **Restaurar configuración**.
 
     ![Asistente para configuración de restauración](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
-2. En la hoja **Configuración de restauración** tiene dos opciones:
+1. En la hoja **Configuración de restauración** tiene dos opciones:
 
    * **Crear la máquina virtual**
 
@@ -127,7 +127,7 @@ El portal proporciona una opción **Creación rápida** para la máquina virtual
     >
     >
 
-2. En la hoja **Restore configuration** (Configuración de restauración), haga clic en **Aceptar** para finalizar la configuración de la restauración. En la hoja **Restaurar**, seleccione **Restaurar** para desencadenar la operación de restauración.
+1. En la hoja **Restore configuration** (Configuración de restauración), haga clic en **Aceptar** para finalizar la configuración de la restauración. En la hoja **Restaurar**, seleccione **Restaurar** para desencadenar la operación de restauración.
 
 ## <a name="restore-backed-up-disks"></a>Restauración de discos de copia de seguridad
 Para personalizar la máquina virtual que quiere crear con discos de copia de seguridad diferentes a los que existen en la hoja **Restore configuration** (Configuración de restauración), seleccione **Restaurar discos** como valor de **Tipo de restauración**. Esta opción solicita una cuenta de almacenamiento en la que se copiarán los discos desde las copias de seguridad. Al elegir una cuenta de almacenamiento, seleccione una cuenta que comparta la misma ubicación que el almacén de Recovery Services. No se admiten cuentas de almacenamiento con redundancia de zona. Si no hay ninguna cuenta de almacenamiento con la misma ubicación que el almacén de Recovery Services, debe crear una antes de iniciar la operación de restauración. El tipo de replicación de la cuenta de almacenamiento se muestra entre paréntesis.
@@ -156,9 +156,9 @@ Para ver la operación mientras se está procesando, o para verla cuando se ha c
     Se muestra la lista de almacenes de la suscripción.
 
     ![Lista de almacenes de Recovery Services](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
-2. En la lista, seleccione el almacén asociado a la máquina virtual ha restaurado. Al hacer clic en el almacén, se abre su panel.
+1. En la lista, seleccione el almacén asociado a la máquina virtual ha restaurado. Al hacer clic en el almacén, se abre su panel.
 
-3. En el panel del almacén en el icono **Trabajos de copia de seguridad**, haga clic en **Azure Virtual Machines** para mostrar los trabajos asociados al almacén.
+1. En el panel del almacén en el icono **Trabajos de copia de seguridad**, haga clic en **Azure Virtual Machines** para mostrar los trabajos asociados al almacén.
 
     ![Panel del almacén](./media/backup-azure-arm-restore-vms/vault-dashboard-jobs.png)
 
@@ -178,15 +178,15 @@ Para obtener la plantilla que se generó como parte de la opción de discos de r
 
 1. Vaya a los detalles del trabajo de restauración correspondientes al trabajo.
 
-2. En la pantalla **Restore Job Details** (Detalles del trabajo de restauración), seleccione **Implementar plantilla** para iniciar la implementación de la plantilla. 
+1. En la pantalla **Restore Job Details** (Detalles del trabajo de restauración), seleccione **Implementar plantilla** para iniciar la implementación de la plantilla. 
 
      ![Exploración en profundidad del trabajo de restauración](./media/backup-azure-arm-restore-vms/restore-job-drill-down.png)
    
-3. En la hoja **Implementar plantilla** para la implementación personalizada, use la implementación de plantillas para [editar e implementar la plantilla](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), o bien agregue más personalizaciones y [cree una plantilla](../azure-resource-manager/resource-group-authoring-templates.md) antes de realizar la implementación. 
+1. En la hoja **Implementar plantilla** para la implementación personalizada, use la implementación de plantillas para [editar e implementar la plantilla](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), o bien agregue más personalizaciones y [cree una plantilla](../azure-resource-manager/resource-group-authoring-templates.md) antes de realizar la implementación. 
 
    ![Carga de la implementación de plantilla](./media/backup-azure-arm-restore-vms/loading-template.png)
    
-4. Después de escribir los valores necesarios, acepte los **términos y condiciones** y seleccione **Comprar**.
+1. Después de escribir los valores necesarios, acepte los **términos y condiciones** y seleccione **Comprar**.
 
    ![Envío de la implementación de plantilla](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
@@ -233,7 +233,7 @@ Con el fin de volver a crear completamente las máquinas virtuales después de r
 
 1. Restaure los discos desde un almacén de Recovery Services mediante [PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm).
 
-2. Cree la configuración de máquina virtual necesaria para el equilibrador de carga/varias NIC/varias IP reservadas mediante los cmdlets de PowerShell. Úsela para crear la máquina virtual con la configuración deseada:
+1. Cree la configuración de máquina virtual necesaria para el equilibrador de carga/varias NIC/varias IP reservadas mediante los cmdlets de PowerShell. Úsela para crear la máquina virtual con la configuración deseada:
 
    a. Cree una máquina virtual en el servicio en la nube con el [equilibrador de carga interno ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/).
 

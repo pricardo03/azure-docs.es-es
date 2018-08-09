@@ -1,19 +1,19 @@
 ---
 title: Administración de inscripciones de dispositivos con Azure Portal | Microsoft Docs
 description: Administración de las inscripciones de dispositivos para el servicio DPS en Azure Portal
-author: dsk-2015
-ms.author: dkshir
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/05/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: b13f74e0c3df5090d1b1b2e0c48e3dc612821250
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5282ee0858c1226b2b743f42203e7b4af9eac6e6
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628443"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524132"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Administración de inscripciones de dispositivos con Azure Portal
 
@@ -29,8 +29,8 @@ Hay dos maneras de inscribir los dispositivos con el servicio de aprovisionamien
     Se puede crear un grupo de inscripción en el portal para un grupo de dispositivos mediante los siguientes pasos:
 
     1. Inicie sesión en Azure Portal y haga clic en **Todos los recursos** en el menú a la izquierda.  
-    2. Haga clic en el servicio de aprovisionamiento de dispositivos donde desee inscribir su dispositivo en la lista de recursos.  
-    3. En el servicio de aprovisionamiento:  
+    1. Haga clic en el servicio de aprovisionamiento de dispositivos donde desee inscribir su dispositivo en la lista de recursos.  
+    1. En el servicio de aprovisionamiento:  
        a. Haga clic en **Administrar inscripciones**y seleccione la pestaña **Grupos de inscripción**.  
        b. Haga clic en el botón **Agregar** de la parte superior.  
        c. Cuando aparezca el panel de incorporación de grupos de inscripción, escriba la información de entrada en la lista de inscripción.  El **nombre del grupo** es obligatorio. Seleccione también "de entidad de certificación" o "intermedio" como **Tipo de certificado** y cargar el **certificado principal** raíz para el grupo de dispositivos.  
@@ -44,8 +44,8 @@ Hay dos maneras de inscribir los dispositivos con el servicio de aprovisionamien
     Para crear una inscripción individual en el portal, siga estos pasos:
 
     1. Inicie sesión en Azure Portal y haga clic en **Todos los recursos** en el menú a la izquierda.
-    2. Haga clic en el servicio de aprovisionamiento de dispositivos donde desee inscribir su dispositivo en la lista de recursos.
-    3. En el servicio de aprovisionamiento:  
+    1. Haga clic en el servicio de aprovisionamiento de dispositivos donde desee inscribir su dispositivo en la lista de recursos.
+    1. En el servicio de aprovisionamiento:  
        a. Haga clic en **Administrar inscripciones** y seleccione la pestaña **Inscripciones individuales**.  
        b. Haga clic en el botón **Agregar** de la parte superior.   
        c. Cuando aparezca el panel de incorporación de inscripciones, escriba la información de entrada en la lista de inscripción. Seleccione primero el **Mecanismo** de atestación para el dispositivo (X.509 o TPM). La atestación de X.509 requiere la carga del **certificado principal** de hoja para el dispositivo. TPM requiere que escriba la **clave de atestación** y el **identificador de registro** del dispositivo.  
@@ -57,9 +57,9 @@ Hay dos maneras de inscribir los dispositivos con el servicio de aprovisionamien
 Para actualizar una entrada de inscripción existente, siga estos pasos:
 
 1. Abra el servicio de aprovisionamiento de dispositivos en Azure Portal y haga clic en **Manage Enrollments** (Administrar inscripciones). 
-2. Navegue a la entrada de inscripción que desee modificar. Haga clic en la entrada para abrir un resumen de la información sobre la inscripción del dispositivo. 
-3. En esta página podrá modificar otros elementos distintos del tipo de seguridad y las credenciales, como la instancia de IoT Hub a la que vincular el dispositivo y el identificador de este. También podrá modificar el estado inicial del dispositivo gemelo. 
-4. Al terminar, haga clic en **Guardar** para actualizar la inscripción del dispositivo. 
+1. Navegue a la entrada de inscripción que desee modificar. Haga clic en la entrada para abrir un resumen de la información sobre la inscripción del dispositivo. 
+1. En esta página podrá modificar otros elementos distintos del tipo de seguridad y las credenciales, como la instancia de IoT Hub a la que vincular el dispositivo y el identificador de este. También podrá modificar el estado inicial del dispositivo gemelo. 
+1. Al terminar, haga clic en **Guardar** para actualizar la inscripción del dispositivo. 
 
     ![Actualización de la inscripción en el portal](./media/how-to-manage-enrollments/update-enrollment.png)
 
@@ -67,9 +67,9 @@ Para actualizar una entrada de inscripción existente, siga estos pasos:
 Cuando no sea necesario aprovisionar dispositivos en ninguna instancia de IoT Hub, para eliminar la entrada de inscripción asociada en el portal siga estos pasos:
 
 1. Abra el servicio de aprovisionamiento de dispositivos en Azure Portal y haga clic en **Manage Enrollments** (Administrar inscripciones). 
-2. Navegue a la entrada de inscripción que desee eliminar y selecciónela. 
-3. Haga clic en el botón **Eliminar** de la parte superior y seleccione **Sí** cuando se le pida confirmación. 
-5. Una vez completada la acción, verá que se ha eliminado la entrada de la lista de inscripciones de dispositivos. 
+1. Navegue a la entrada de inscripción que desee eliminar y selecciónela. 
+1. Haga clic en el botón **Eliminar** de la parte superior y seleccione **Sí** cuando se le pida confirmación. 
+1. Una vez completada la acción, verá que se ha eliminado la entrada de la lista de inscripciones de dispositivos. 
  
     ![Eliminación de la inscripción en el portal](./media/how-to-manage-enrollments/remove-enrollment.png)
 

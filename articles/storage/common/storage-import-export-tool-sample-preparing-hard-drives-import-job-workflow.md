@@ -2,24 +2,18 @@
 title: Flujo de trabajo de ejemplo para preparar unidades de disco duro para un trabajo de importación de Azure Import/Export | Microsoft Docs
 description: Vea un tutorial para conocer el proceso completo de preparación de las unidades para un trabajo de importación en el servicio Azure Import/Export.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
-ms.openlocfilehash: 60139ff36b66432620591ceaf201e046ad30217f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: b21c378d58590e33c7b6aeffe627ce5602074fa2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059540"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524627"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Flujo de trabajo de ejemplo para preparar las unidades de disco duro para un trabajo de importación
 
@@ -29,7 +23,7 @@ Este artículo le guiará por el proceso completo de preparar las unidades para 
 
 Este ejemplo importa los datos siguientes en una cuenta de Azure Storage denominada `mystorageaccount`:
 
-|Ubicación|Descripción|Tamaño de los datos|
+|Ubicación|DESCRIPCIÓN|Tamaño de los datos|
 |--------------|-----------------|-----|
 |H:\Video\ |Una colección de vídeos|12 TB|
 |H:\Photo\ |Una colección de fotos|30 GB|

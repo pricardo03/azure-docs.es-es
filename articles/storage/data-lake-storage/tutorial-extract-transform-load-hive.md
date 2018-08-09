@@ -2,23 +2,20 @@
 title: 'Tutorial: Extracción, transformación y carga de datos (ETL) mediante Hive en Azure HDInsight | Microsoft Docs'
 description: Aprenda a extraer datos de un conjunto de datos CSV sin procesar, a transformarlos mediante Hive en HDInsight y, después, a cargar los datos transformados en una base de datos SQL de Azure mediante Sqoop.
 services: storage
-documentationcenter: ''
 author: jamesbak
-manager: jahogg
 tags: azure-portal
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 4f71a4e0570695abbe580ffc16b3361d5cd71ac1
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 376ac623c37183cdfbd6e27c54b0c726928237e2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136493"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526011"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Tutorial: Realización de las operaciones de extracción, transformación y carga mediante Apache Hive en Azure HDInsight
 

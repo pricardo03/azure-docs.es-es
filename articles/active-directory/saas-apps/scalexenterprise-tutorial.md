@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b2da2680adbc92655030351cc9e1269a4cccccd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 04708806b9e1ba224e7b438f11c68dca82d6320e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041008"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448825"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Tutorial: Integración de Azure Active Directory con ScaleX Enterprise
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de ScaleX Enterprise desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-scalex-enterprise-from-the-gallery"></a>Adición de ScaleX Enterprise desde la galería
 Para configurar la integración de ScaleX Enterprise en Azure AD, deberá agregar esta solución desde la galería a la lista de aplicaciones SaaS administradas.
@@ -63,19 +63,19 @@ Para configurar la integración de ScaleX Enterprise en Azure AD, deberá agrega
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
+1. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **ScaleX Enterprise**.
+1. En el cuadro de búsqueda, escriba **ScaleX Enterprise**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_search.png)
 
-5. En el panel de resultados, seleccione **ScaleX Enterprise** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **ScaleX Enterprise** y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Esta relación de vínculo se establece mediante la asignación del valor del **
 Para configurar y probar el inicio de sesión único de Azure AD con ScaleX Enterprise, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de ScaleX Enterprise](#creating-a-scalex-enterprise-test-user)**: para tener un homólogo de Britta Simon en ScaleX Enterprise que esté vinculado a su representación en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de ScaleX Enterprise](#creating-a-scalex-enterprise-test-user)**: para tener un homólogo de Britta Simon en ScaleX Enterprise que esté vinculado a su representación en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,11 +104,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de ScaleX Enterprise**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por **IDP**:
+1. En la sección **Dominio y direcciones URL de ScaleX Enterprise**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por **IDP**:
 
     ![Configurar inicio de sesión único](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
 
@@ -116,7 +116,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://platform.rescale.com/saml2/<company id>/acs/`.
 
-4. Active **Mostrar configuración avanzada de URL**, si desea volver a configurar la aplicación en modo iniciado por **SP**:
+1. Active **Mostrar configuración avanzada de URL**, si desea volver a configurar la aplicación en modo iniciado por **SP**:
 
     ![Configurar inicio de sesión único](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url2.png)
 
@@ -125,7 +125,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta o URL de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de ScaleX Enterprise](http://info.rescale.com/contact_sales) para obtener estos valores. 
 
-5. La aplicación ScaleX Enterprise espera las aserciones de SAML en un formato específico, que requiere que se modifiquen las asignaciones de atributos personalizados en la configuración de los atributos del token de SAML. Haga clic en **Ver y editar todos los demás atributos de usuario** para abrir la configuración de atributos personalizados.
+1. La aplicación ScaleX Enterprise espera las aserciones de SAML en un formato específico, que requiere que se modifiquen las asignaciones de atributos personalizados en la configuración de los atributos del token de SAML. Haga clic en **Ver y editar todos los demás atributos de usuario** para abrir la configuración de atributos personalizados.
 
     ![Configurar inicio de sesión único](./media/scalexenterprise-tutorial/scalex_attributes.png)
     
@@ -137,32 +137,32 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/scalexenterprise-tutorial/edit_email_attribute.png) 
     
-5. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_certificate.png) 
 
-6. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/scalexenterprise-tutorial/tutorial_general_400.png)
     
-7. En la sección **Configuración de ScaleX Enterprise**, haga clic en **Configurar ScaleX Enterprise** para abrir la ventana **Configurar inicio de sesión**. Copie **SAML Entity ID** y **SAML Single Sign-On Service URL** (Identificador de entidad de SAML y URL del servicio de inicio de sesión único de SAML) de la sección **Referencia rápida**.
+1. En la sección **Configuración de ScaleX Enterprise**, haga clic en **Configurar ScaleX Enterprise** para abrir la ventana **Configurar inicio de sesión**. Copie **SAML Entity ID** y **SAML Single Sign-On Service URL** (Identificador de entidad de SAML y URL del servicio de inicio de sesión único de SAML) de la sección **Referencia rápida**.
 
     ![Configurar inicio de sesión único](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_configure.png) 
 
-8. Para configurar el inicio de sesión único en **ScaleX Enterprise**, regístrese en el sitio web de la compañía de ScaleX Enterprise como administrador.
+1. Para configurar el inicio de sesión único en **ScaleX Enterprise**, regístrese en el sitio web de la compañía de ScaleX Enterprise como administrador.
 
-9. Haga clic en el menú en la esquina superior derecha y seleccione **Contoso Administration** (Administración de Contoso).
+1. Haga clic en el menú en la esquina superior derecha y seleccione **Contoso Administration** (Administración de Contoso).
 
     > [!NOTE] 
     > Contoso solo es un ejemplo. Debería tratarse del nombre real de la empresa. 
 
     ![Configurar inicio de sesión único](./media/scalexenterprise-tutorial/Test_Admin.png) 
 
-10. Seleccione **Integrations** (Integraciones) en el menú superior y seleccione **Single Sign-On** (Inicio de sesión único).
+1. Seleccione **Integrations** (Integraciones) en el menú superior y seleccione **Single Sign-On** (Inicio de sesión único).
 
     ![Configurar inicio de sesión único](./media/scalexenterprise-tutorial/admin_sso.png) 
 
-11. Complete el formulario de la siguiente manera:
+1. Complete el formulario de la siguiente manera:
 
     ![Configurar inicio de sesión único](./media/scalexenterprise-tutorial/scalex_admin_save.png) 
     
@@ -197,15 +197,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/scalexenterprise-tutorial/create_aaduser_01.png) 
 
-2. Vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios** para mostrar la lista de usuarios.
+1. Vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios** para mostrar la lista de usuarios.
     
     ![Creación de un usuario de prueba de Azure AD](./media/scalexenterprise-tutorial/create_aaduser_02.png) 
 
-3. En la parte superior del diálogo, haga clic en **Agregar** para abrir el diálogo **Usuario**.
+1. En la parte superior del diálogo, haga clic en **Agregar** para abrir el diálogo **Usuario**.
  
     ![Creación de un usuario de prueba de Azure AD](./media/scalexenterprise-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/scalexenterprise-tutorial/create_aaduser_04.png) 
 
@@ -233,23 +233,23 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **ScaleX Enterprise**.
+1. En la lista de aplicaciones, seleccione **ScaleX Enterprise**.
 
     ![Configurar inicio de sesión único](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
 
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 

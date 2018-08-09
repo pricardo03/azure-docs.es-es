@@ -1,36 +1,30 @@
 ---
 title: Herramientas para trabajar con Azure Storage | Microsoft Docs
-description: Lista de herramientas que le permiten ver datos de Almacenamiento de Azure o interactuar con ellos.
+description: Lista de herramientas que le permiten ver datos de Azure Storage o interactuar con ellos.
 services: storage
-documentationcenter: ''
 author: dineshmurthy
-manager: jahogg
-editor: tysonn
-ms.assetid: e4748642-98c4-437e-b0ed-4f9641c2e894
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: dineshmurthy
-ms.openlocfilehash: 5c2add48b128a3e5a632c048f0feb4413fcb26cc
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.component: common
+ms.openlocfilehash: 55fa63e75768662a0f909cef0e3cc04b9c2dae41
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2017
-ms.locfileid: "23479906"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526205"
 ---
-# <a name="azure-storage-client-tools"></a>Herramientas de cliente de Almacenamiento de Azure
-Los usuarios de Almacenamiento de Azure con frecuencia desean poder ver o interactuar con sus datos mediante una herramienta de cliente de Almacenamiento de Azure. En las tablas siguientes, mostramos un número de herramientas que le permiten hacer esto. Escribimos una "X" en cada bloque si permite enumerar la abstracción de los datos o tener acceso a ella. La tabla también muestra si las herramientas están disponibles. "Versión de prueba" indica que cuenta con una evaluación gratuita, pero que el producto completo no es gratuito. "S/N" indica que hay disponible una versión gratuita, mientras que la versión disponible para la compra es diferente.
+# <a name="azure-storage-client-tools"></a>Herramientas de cliente de Azure Storage
+Los usuarios de Azure Storage con frecuencia desean poder ver o interactuar con sus datos mediante una herramienta de cliente de Azure Storage. En las tablas siguientes, mostramos un número de herramientas que le permiten hacer esto. Escribimos una "X" en cada bloque si permite enumerar la abstracción de los datos o tener acceso a ella. La tabla también muestra si las herramientas están disponibles. "Versión de prueba" indica que cuenta con una evaluación gratuita, pero que el producto completo no es gratuito. "S/N" indica que hay disponible una versión gratuita, mientras que la versión disponible para la compra es diferente.
 
-Únicamente proporcionamos una instantánea de las herramientas de cliente de Almacenamiento de Azure. Estas herramientas pueden seguir evolucionando y ampliando su funcionalidad. Si existen correcciones o actualizaciones, le agradeceremos que nos lo haga saber a través de un comentario. De igual manera, si conoce otras herramientas que deberíamos mostrar, estaremos encantados de agregarlas.
+Únicamente proporcionamos una instantánea de las herramientas de cliente de Azure Storage. Estas herramientas pueden seguir evolucionando y ampliando su funcionalidad. Si existen correcciones o actualizaciones, le agradeceremos que nos lo haga saber a través de un comentario. De igual manera, si conoce otras herramientas que deberíamos mostrar, estaremos encantados de agregarlas.
 
-**Herramientas de cliente de Almacenamiento de Microsoft Azure**
+**Herramientas de cliente de Microsoft Azure Storage**
 
 <table>
   <tr>
-    <th rowspan="2">Herramienta de cliente de Almacenamiento de Azure</th>
+    <th rowspan="2">Herramienta de cliente de Azure Storage</th>
     <th rowspan="2">Blob en bloques</th>
     <th rowspan="2">Blob en páginas</th>
     <th rowspan="2">Append Blob</th>
@@ -90,13 +84,13 @@ Los usuarios de Almacenamiento de Azure con frecuencia desean poder ver o intera
   </tr>
 </table>
 
-**Herramientas de cliente de Almacenamiento de Azure de terceros**
+**Herramientas de cliente de Azure Storage de terceros**
 
 No hemos comprobado la funcionalidad ni la calidad proporcionadas por las siguientes herramientas de terceros; el hecho de que figuren en esta lista no implica su aprobación por parte de Microsoft.
 
 <table>
   <tr>
-    <th rowspan="2">Herramienta de cliente de Almacenamiento de Azure</th>
+    <th rowspan="2">Herramienta de cliente de Azure Storage</th>
     <th rowspan="2">Blob en bloques</th>
     <th rowspan="2">Blob en páginas</th>
     <th rowspan="2">Append Blob</th>

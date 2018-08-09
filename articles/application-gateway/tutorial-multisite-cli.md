@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 2f78cfc9918222fd22c2894b5e920a5c07efe522
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 2a63b9b6d256a84edc25bf257d175455717c43c2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069900"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434744"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante la CLI de Azure
 
@@ -52,7 +52,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Crear recursos de red 
 
-Cree la red virtual llamada *myVNet* y la subred llamada *myAGSubnet* mediante [az network vnet create](/cli/azure/network/vnet#az_net). Luego, puede agregar la subred llamada *myBackendSubnet* que necesitan los servidores back-end mediante [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Cree la dirección IP pública llamada *myAGPublicIPAddress* mediante [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
+Cree la red virtual llamada *myVNet* y la subred llamada *myAGSubnet* mediante [az network vnet create](/cli/azure/network/vnet#az-net). Luego, puede agregar la subred llamada *myBackendSubnet* que necesitan los servidores back-end mediante [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Cree la dirección IP pública llamada *myAGPublicIPAddress* mediante [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -102,7 +102,7 @@ La puerta de enlace de aplicaciones puede tardar varios minutos en crearse. Desp
 
 ### <a name="add-the-backend-pools"></a>Adición de grupos de back-end
 
-Agregue los grupos de back-end llamados *contosoPool* y *fabrikamPool* que son necesarios para contener los servidores backend mediante [az network application-gateway address-pool create](/cli/azure/application-gateway#az_network_application_gateway_address_pool_create).
+Agregue los grupos de back-end llamados *contosoPool* y *fabrikamPool* que son necesarios para contener los servidores backend mediante [az network application-gateway address-pool create](/cli/azure/application-gateway#az-network_application_gateway_address_pool_create).
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -119,7 +119,7 @@ az network application-gateway address-pool create \
 
 Es necesario un agente de escucha para que la puerta de enlace de aplicaciones enrute el tráfico de forma adecuada al grupo de servidores back-end. En este tutorial, creará dos agentes de escucha para los dos dominios. En este ejemplo, se crean los agentes de escucha para los dominios de *www.contoso.com* y *www.fabrikam.com*. 
 
-Agregue los agentes de escucha llamados *contosoListener* y *fabrikamListener* que son necesarios para enrutar el tráfico con [az network application-gateway http-listener create](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create).
+Agregue los agentes de escucha llamados *contosoListener* y *fabrikamListener* que son necesarios para enrutar el tráfico con [az network application-gateway http-listener create](/cli/azure/application-gateway#az-network_application_gateway_http_listener_create).
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -142,7 +142,7 @@ az network application-gateway http-listener create \
 
 Las reglas se procesan en el orden en el que se crean y el tráfico se dirige mediante la primera regla que coincida con la dirección URL que se envía a la puerta de enlace de aplicaciones. Por ejemplo, si tiene una regla que usa un agente de escucha básico y una regla que usa un agente de escucha multisitio en el mismo puerto, la regla con el agente de escucha multisitio debe aparecer antes que la regla con el agente de escucha básico para que la regla multisitio funcione según lo previsto. 
 
-En este ejemplo, va a crear dos reglas nuevas y a eliminar la regla predeterminada que se creó junto con la puerta de enlace de aplicaciones. Puede agregar la regla mediante [az network application-gateway rule create](/cli/azure/application-gateway#az_network_application_gateway_rule_create).
+En este ejemplo, va a crear dos reglas nuevas y a eliminar la regla predeterminada que se creó junto con la puerta de enlace de aplicaciones. Puede agregar la regla mediante [az network application-gateway rule create](/cli/azure/application-gateway#az-network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -213,7 +213,7 @@ done
 
 ## <a name="create-a-cname-record-in-your-domain"></a>Creación de un registro CNAME en el dominio
 
-Después de crear la puerta de enlace de aplicaciones con su dirección IP pública, puede obtener la dirección DNS y usarla para crear un registro CNAME en el dominio. Para obtener la dirección DNS de la puerta de enlace de aplicaciones, puede usar [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copie el valor de *fqdn* de DNSSettings y úselo como valor del registro CNAME que creó. 
+Después de crear la puerta de enlace de aplicaciones con su dirección IP pública, puede obtener la dirección DNS y usarla para crear un registro CNAME en el dominio. Para obtener la dirección DNS de la puerta de enlace de aplicaciones, puede usar [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Copie el valor de *fqdn* de DNSSettings y úselo como valor del registro CNAME que creó. 
 
 ```azurecli-interactive
 az network public-ip show \

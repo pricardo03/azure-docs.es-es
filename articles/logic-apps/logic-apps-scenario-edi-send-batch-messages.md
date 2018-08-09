@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: LADocs; estfan; divswa
-ms.openlocfilehash: 6340d1fc409b64c5e681f9f69e4e2d0895ede61f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fb15688968cb29039fc669ed6b8685ba64df9e81
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299297"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432140"
 ---
 # <a name="send-x12-messages-in-batch-to-trading-partners"></a>Envío de mensajes X12 en lotes a asociados comerciales
 
@@ -39,7 +39,7 @@ En este tema se muestra la forma de procesar mensajes X12 como un lote mediante 
 * [Cree una aplicación lógica que envíe elementos a un lote](#sender). Esta aplicación lógica "remitente" especifica dónde enviar elementos para el procesamiento de lotes, que será una aplicación lógica existente receptora.
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir este ejemplo, necesita estos elementos:
 
@@ -60,11 +60,11 @@ Para poder enviar mensajes a un lote, primero debe crear una aplicación lógica
 
 1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica con este nombre: "BatchX12Messages"
 
-2. En el Diseñador de Logic Apps, agregue el desencadenador de **lotes** que inicia el flujo de trabajo de la aplicación lógica. En el cuadro de búsqueda, escriba "lotes" como filtro. Seleccione este desencadenador: **Batch: Mensajes de Batch**
+1. En el Diseñador de Logic Apps, agregue el desencadenador de **lotes** que inicia el flujo de trabajo de la aplicación lógica. En el cuadro de búsqueda, escriba "lotes" como filtro. Seleccione este desencadenador: **Batch: Mensajes de Batch**
 
    ![Agregar desencadenador de lotes](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
 
-3. Proporcione un nombre para el lote y especifique los criterios para liberar el lote, por ejemplo:
+1. Proporcione un nombre para el lote y especifique los criterios para liberar el lote, por ejemplo:
 
    * **Nombre de lote**: el nombre usado para identificar el lote. En este ejemplo es "TestBatch".
 
@@ -81,7 +81,7 @@ Para poder enviar mensajes a un lote, primero debe crear una aplicación lógica
      ![Proporcionar detalles del desencadenador de lotes](./media/logic-apps-scenario-EDI-send-batch-messages/receive-batch-schedule-based.png)
 
 
-4. Agregue otra acción que codifique los mensajes agrupados o por lotes y que cree un mensaje por lotes X12. 
+1. Agregue otra acción que codifique los mensajes agrupados o por lotes y que cree un mensaje por lotes X12. 
 
    a. Elija **+Nuevo paso** > **Agregar una acción**.
 
@@ -89,7 +89,7 @@ Para poder enviar mensajes a un lote, primero debe crear una aplicación lógica
 
    ![Seleccione la acción de codificación por lotes X12.](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
    
-5. Establezca las propiedades de la acción que acaba de agregar.
+1. Establezca las propiedades de la acción que acaba de agregar.
 
    * En **Nombre del contrato X12** , seleccione el acuerdo en la lista desplegable. Si la lista está vacía, asegúrese de que ha creado una conexión a su cuenta de integración.
 
@@ -101,17 +101,17 @@ Para poder enviar mensajes a un lote, primero debe crear una aplicación lógica
 
    ![Detalles de la acción de codificación por lotes](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-details.png)
 
-6. Con fines de prueba, agregue una acción HTTP para enviar el mensaje por lotes al [servicio Request Bin](https://requestbin.fullcontact.com/). 
+1. Con fines de prueba, agregue una acción HTTP para enviar el mensaje por lotes al [servicio Request Bin](https://requestbin.fullcontact.com/). 
 
    1. En el cuadro de búsqueda, escriba "HTTP" como filtro. Seleccione esta acción: **HTTP - HTTP**.
     
       ![Selección de la acción de HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receive-add-http-action.png)
 
-   2. En la lista **Método**, seleccione **POST**. En el cuadro **Uri**, genere un URI para Request Bin y escriba esa URI. En el cuadro **Cuerpo**, cuando se abre la lista dinámica, seleccione el campo **Cuerpo** bajo la sección **Batch permite codificar por nombre de contrato**. Si no ve **Cuerpo**, elija **Ver más** junto a **Batch permite codificar por nombre de contrato**.
+   1. En la lista **Método**, seleccione **POST**. En el cuadro **Uri**, genere un URI para Request Bin y escriba esa URI. En el cuadro **Cuerpo**, cuando se abre la lista dinámica, seleccione el campo **Cuerpo** bajo la sección **Batch permite codificar por nombre de contrato**. Si no ve **Cuerpo**, elija **Ver más** junto a **Batch permite codificar por nombre de contrato**.
 
       ![Especificación de los detalles de la acción HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receive-add-http-action-details.png)
 
-7.  Ahora que ha creado una aplicación lógica receptora, guárdela.
+1.  Ahora que ha creado una aplicación lógica receptora, guárdela.
 
     ![Guardado de la aplicación lógica](./media/logic-apps-scenario-EDI-send-batch-messages/save-batch-receiver-logic-app.png)
 
@@ -131,24 +131,24 @@ La aplicación lógica remitente necesita saber dónde enviar los elementos, mie
    
    ![Adición del desencadenador Request](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
 
-2. Agregue un nuevo paso para enviar mensajes a un lote.
+1. Agregue un nuevo paso para enviar mensajes a un lote.
 
    1. Elija **+Nuevo paso** > **Agregar una acción**.
 
-   2. En el cuadro de búsqueda, escriba "lotes" como filtro. 
+   1. En el cuadro de búsqueda, escriba "lotes" como filtro. 
 
-3. Seleccione esta acción: **Enviar mensajes al lote: Escoja un flujo de trabajo de Logic Apps con el desencadenador de lotes**
+1. Seleccione esta acción: **Enviar mensajes al lote: Escoja un flujo de trabajo de Logic Apps con el desencadenador de lotes**
 
    ![Seleccione "Enviar mensajes al lote"](./media/logic-apps-scenario-EDI-send-batch-messages/send-messages-batch-action.png)
 
-4. Ahora seleccione la aplicación lógica "BatchX12Messages" que creó anteriormente, que ahora aparece como una acción.
+1. Ahora seleccione la aplicación lógica "BatchX12Messages" que creó anteriormente, que ahora aparece como una acción.
 
    ![Seleccionar aplicación lógica "receptora de lotes"](./media/logic-apps-scenario-EDI-send-batch-messages/send-batch-select-batch-receiver.png)
 
    > [!NOTE]
    > La lista también muestra todas las aplicaciones lógicas que tienen desencadenadores de lotes.
 
-5. Establezca las propiedades de lote.
+1. Establezca las propiedades de lote.
 
    * **Nombre de lote**: el nombre de lote definido por la aplicación lógica receptora, que es "TestBatch" en este ejemplo y se valida en tiempo de ejecución.
 
@@ -160,7 +160,7 @@ La aplicación lógica remitente necesita saber dónde enviar los elementos, mie
    
    ![Establecimiento de las propiedades de lote](./media/logic-apps-scenario-EDI-send-batch-messages/send-batch-select-batch-properties.png)
 
-6. Guarde la aplicación lógica. La aplicación lógica remitente tiene ahora un aspecto similar al de este ejemplo:
+1. Guarde la aplicación lógica. La aplicación lógica remitente tiene ahora un aspecto similar al de este ejemplo:
 
    ![Guardar la aplicación lógica remitente](./media/logic-apps-scenario-EDI-send-batch-messages/send-batch-finished.png)
 

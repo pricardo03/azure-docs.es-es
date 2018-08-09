@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/31/2018
 ms.author: rithorn
-ms.openlocfilehash: 146ded37dbf517528af23574cd5b9325f4b5f9d0
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: edc57d146ccb034ac3fd627386000a1953b0e558
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358776"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480329"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure
 
@@ -82,7 +82,7 @@ El gráfico siguiente muestra la lista de roles y las acciones admitidas en los 
 
 | Nombre de rol de RBAC             | Crear | Cambiar nombre | Move | Eliminar | Asignar acceso | Asignar directiva | Lectura  |
 |:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
-|Propietario                       | X      | X      | X    | X      | X             |               | X     |
+|Propietario                       | X      | X      | X    | X      | X             | X             | X     |
 |Colaborador                 | X      | X      | X    | X      |               |               | X     |
 |Colaborador MG*             | X      | X      | X    | X      |               |               | X     |
 |Lector                      |        |        |      |        |               |               | X     |
@@ -104,4 +104,4 @@ Para más información sobre los grupos de administración, consulte:
 - [Cambio, eliminación y administración de los grupos de administración](management-groups-manage.md)
 - [Instalación del módulo Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Revisión de las especificaciones de la API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Instalación de la extensión de la CLI de Azure](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [Instalación de la extensión de la CLI de Azure](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)

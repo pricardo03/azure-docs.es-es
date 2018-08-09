@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 24f49cac136335493fcc9290f29a08efcc5eb5da
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e6cf860f161015fa0698effcd4ecaead263b29f1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043422"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449349"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ekincare"></a>Tutorial: integración de Azure Active Directory con eKincare
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de eKincare desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-ekincare-from-the-gallery"></a>Incorporación de eKincare desde la galería
 Para configurar la integración de eKincare en Azure AD, es preciso agregarlo desde la galería a la lista de aplicaciones SaaS administradas.
@@ -63,19 +63,19 @@ Para configurar la integración de eKincare en Azure AD, es preciso agregarlo de
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **eKincare**.
+1. En el cuadro de búsqueda, escriba **eKincare**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/ekincare-tutorial/tutorial_ekincare_search.png)
 
-5. En el panel de resultados, seleccione **eKincare** y haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **eKincare** y haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/ekincare-tutorial/tutorial_ekincare_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Para establecer la relación de vínculo, en eKincare, asigne el valor de **nomb
 Para configurar y probar el inicio de sesión único de Azure AD con eKincare, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de eKincare](#creating-a-ekincare-test-user)**: para tener un homólogo de Britta Simon en eKincare vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de eKincare](#creating-a-ekincare-test-user)**: para tener un homólogo de Britta Simon en eKincare vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,11 +104,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/ekincare-tutorial/tutorial_ekincare_samlbase.png)
 
-3. En la sección **eKincare Domain and URLs** (Dominio y direcciones URL de eKincare), lleve a cabo los pasos siguientes:
+1. En la sección **eKincare Domain and URLs** (Dominio y direcciones URL de eKincare), lleve a cabo los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/ekincare-tutorial/tutorial_ekincare_url.png)
 
@@ -119,13 +119,13 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de eKincare](mailto:tech@ekincare.com) para obtener estos valores.
  
-4. La aplicación eKincare espera las instrucciones de aserción de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección "**Atributos de usuario**" de la página de integración de aplicaciones. En la siguiente captura de pantalla se muestra un ejemplo de esta configuración.
+1. La aplicación eKincare espera las instrucciones de aserción de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección "**Atributos de usuario**" de la página de integración de aplicaciones. En la siguiente captura de pantalla se muestra un ejemplo de esta configuración.
 
     El nombre de la notificación siempre será **"employeeid"**, cuyo valor hemos asignado a extensionattribute1, que contiene el valor de employeeid del usuario. Los otros dos nombres de notificación, es decir, **"organizationid"** y **"organizationname"**, siempre serán los mismos y sus valores contendrán los detalles de la organización del usuario.
     
     ![Configurar inicio de sesión único](./media/ekincare-tutorial/attribute.png)
     
-5. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
+1. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
     
     | Nombre del atributo | Valor de atributo |
     | ---------------| --------------- |    
@@ -145,15 +145,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     d. Haga clic en **Aceptar**.
 
-6. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
     ![Configurar inicio de sesión único](./media/ekincare-tutorial/tutorial_ekincare_certificate.png) 
 
-7. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/ekincare-tutorial/tutorial_general_400.png)
 
-8. Para configurar el inicio de sesión único en el lado de **eKincare**, necesita enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de eKincare](mailto:tech@ekincare.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+1. Para configurar el inicio de sesión único en el lado de **eKincare**, necesita enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de eKincare](mailto:tech@ekincare.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -170,15 +170,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/ekincare-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Creación de un usuario de prueba de Azure AD](./media/ekincare-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Creación de un usuario de prueba de Azure AD](./media/ekincare-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/ekincare-tutorial/create_aaduser_04.png) 
 
@@ -206,23 +206,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **eKincare**.
+1. En la lista de aplicaciones, seleccione **eKincare**.
 
     ![Configurar inicio de sesión único](./media/ekincare-tutorial/tutorial_ekincare_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 

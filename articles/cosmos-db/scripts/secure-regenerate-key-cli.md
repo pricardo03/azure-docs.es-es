@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: sngun
-ms.openlocfilehash: a50517d711fdae75184c85a5cb3adff83ec83ab3
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 519da5373b834c56e6cd94d925d55a56df5d7c9c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34794894"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432606"
 ---
 # <a name="regenerate-an-azure-cosmos-db-account-key-using-the-azure-cli"></a>Regeneración de una clave de cuenta de Azure Cosmos DB mediante la CLI de Azure
 
@@ -47,10 +47,10 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | Actualiza una cuenta de Azure Cosmos DB. |
+| [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az-cosmosdb-create) | Actualiza una cuenta de Azure Cosmos DB. |
 | [az cosmosdb regenerate-key](/cli/azure/cosmosdb/regenerate-key) | Regenera claves de cuenta de Azure Cosmos DB. |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az-group-delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

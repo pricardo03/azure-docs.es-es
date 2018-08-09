@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 5884978895d8cfe72c35a3879a2575d1b58077c7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 9af2de667085ef736c3ae37b75e3c67981161267
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216891"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434285"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benselect"></a>Tutorial: Integración de Azure Active Directory con BenSelect
 
@@ -33,7 +33,7 @@ La integración de BenSelect con Azure AD proporciona las siguientes ventajas:
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con BenSelect, necesita los siguientes elementos:
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de BenSelect desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-benselect-from-the-gallery"></a>Adición de BenSelect desde la galería
 Para configurar la integración de BenSelect en Azure AD, es preciso agregar BenSelect desde la galería a la lista de aplicaciones SaaS administradas.
@@ -63,19 +63,19 @@ Para configurar la integración de BenSelect en Azure AD, es preciso agregar Ben
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **BenSelect**.
+1. En el cuadro de búsqueda, escriba **BenSelect**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/benselect-tutorial/tutorial_benselect_search.png)
 
-5. En el panel de resultados, seleccione **BenSelect** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **BenSelect** y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/benselect-tutorial/tutorial_benselect_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Para establecer la relación de vínculo, en BenSelect, asigne el valor de **nom
 Para configurar y probar el inicio de sesión único de Azure AD con BenSelect, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de BenSelect](#creating-a-benselect-test-user)**: para tener un homólogo de Britta Simon en BenSelect vinculado a su representación en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de BenSelect](#creating-a-benselect-test-user)**: para tener un homólogo de Britta Simon en BenSelect vinculado a su representación en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,11 +104,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/benselect-tutorial/tutorial_benselect_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de BenSelect**, lleve a cabo los pasos siguientes:
+1. En la sección **Dominio y direcciones URL de BenSelect**, lleve a cabo los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/benselect-tutorial/tutorial_benselect_url.png)
 
@@ -117,29 +117,29 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Este valor no es real. Actualice este valor con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico de BenSelect](mailto:support@selerix.com) para obtener este valor.
  
-4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (sin procesar)** y, a continuación, guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (sin procesar)** y, a continuación, guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/benselect-tutorial/tutorial_benselect_certificate.png) 
 
-5. La aplicación BenSelect espera las aserciones de SAML en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. La siguiente captura de pantalla le muestra un ejemplo de esto.
+1. La aplicación BenSelect espera las aserciones de SAML en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. La siguiente captura de pantalla le muestra un ejemplo de esto.
 
     ![Configurar inicio de sesión único](./media/benselect-tutorial/tutorial_benselect_06.png)
 
-6. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**:
+1. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**:
 
     a. En la lista desplegable **Identificador de usuario**, seleccione **ExtractMailPrefix**.
 
     b. En la lista desplegable **Correo**, seleccione **user.userprincipalname**.
 
-7. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/benselect-tutorial/tutorial_general_400.png)
 
-8. En la sección **Configuración de BenSelect**, haga clic en **Configurar BenSelect** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+1. En la sección **Configuración de BenSelect**, haga clic en **Configurar BenSelect** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
 
     ![Configurar inicio de sesión único](./media/benselect-tutorial/tutorial_benselect_configure.png) 
 
-9. Para configurar el inicio de sesión único en **BenSelect**, es preciso enviar los valores descargados de **Certificado (sin procesar)**, **Sign-Out URL (Dirección URL de cierre de sesión), SAML Entity ID (Identificador de entidad de SAML) y SAML Single Sign-On Service URL (Dirección URL del servicio de inicio de sesión único de SAML)** al [equipo de soporte técnico de BenSelect ](mailto:support@selerix.com).
+1. Para configurar el inicio de sesión único en **BenSelect**, es preciso enviar los valores descargados de **Certificado (sin procesar)**, **Sign-Out URL (Dirección URL de cierre de sesión), SAML Entity ID (Identificador de entidad de SAML) y SAML Single Sign-On Service URL (Dirección URL del servicio de inicio de sesión único de SAML)** al [equipo de soporte técnico de BenSelect ](mailto:support@selerix.com).
 
    >[!NOTE]
    >Debe mencionar que esta integración requiere el algoritmo SHA256 (no se admite SHA1) para establecer el SSO en el servidor apropiado, como app2101. 
@@ -158,15 +158,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/benselect-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Creación de un usuario de prueba de Azure AD](./media/benselect-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Creación de un usuario de prueba de Azure AD](./media/benselect-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/benselect-tutorial/create_aaduser_04.png) 
 
@@ -194,23 +194,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **BenSelect**.
+1. En la lista de aplicaciones, seleccione **BenSelect**.
 
     ![Configurar inicio de sesión único](./media/benselect-tutorial/tutorial_benselect_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 

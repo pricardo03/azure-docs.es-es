@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: ca4ed4444cd753c0fe22c6596dfd34d033b7b0cf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 1587debecd82072c29d4caffc2b81629b1f52b0e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237009"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527371"
 ---
 # <a name="tutorial-improve-app-with-patternany-entity"></a>Tutorial: Mejorar la aplicación con la entidad pattern.any
 
@@ -26,7 +26,7 @@ En este tutorial, use la entidad pattern.any para aumentar las predicciones de i
 * Crear el patrón que usa la entidad pattern.any
 * Comprobar las mejoras de las predicciones
 
-Para este artículo, necesita una cuenta gratuita de [LUIS](luis-reference-regions.md) para crear la aplicación.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 Si no tiene la aplicación de recursos humanos del tutorial sobre [roles de patrón](luis-tutorial-pattern-roles.md), [importe](luis-how-to-start-new-app.md#import-new-app) el archivo JSON a una nueva aplicación en el sitio web de [LUIS](luis-reference-regions.md#luis-website). La aplicación que se va a importar se encuentra en el repositorio de GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json).
@@ -106,8 +106,9 @@ La entidad Pattern.any extrae entidades de diferente longitud. Solo funciona en 
 
 4. Si quitó la entidad keyPhrase, vuelva a agregarla a la aplicación. 
 
-5. Entrene la aplicación.
+## <a name="train-the-luis-app"></a>Entrenamiento de la aplicación de LUIS
 
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Probar el nuevo patrón para extraer datos de forma libre
 1. Haga clic en **Probar** en la barra superior para abrir el panel de pruebas. 
@@ -123,7 +124,8 @@ La entidad Pattern.any extrae entidades de diferente longitud. Solo funciona en 
 4. Cierre el panel de pruebas; para ello, haga clic en el botón **Probar** situado en el panel de navegación superior.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Para hacerlo, seleccione los puntos suspensivos (***...***) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

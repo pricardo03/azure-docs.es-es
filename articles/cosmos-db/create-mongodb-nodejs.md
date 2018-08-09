@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
 ms.author: sngun
-ms.openlocfilehash: ff6712a70138a2178a2bddb4af467371192fdea3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8b5b96db516c6f62f669a0cfc2a10a0c7796cac5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582229"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429206"
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: Migrar una aplicación web MongoDB de Node.js 
 
@@ -33,7 +33,7 @@ Cuando haya terminado, tendrá una aplicación MEAN (MongoDB, Express, Angular y
 
 Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
 
-## <a name="prerequisites"></a>requisitos previos 
+## <a name="prerequisites"></a>Requisitos previos 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
@@ -76,7 +76,7 @@ La aplicación intentará conectarse a un origen de MongoDB y producirá un erro
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Si usa una CLI de Azure instalada, inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/reference-index#az_login) y siga las instrucciones de la pantalla. Puede omitir este paso si usa Azure Cloud Shell.
+Si usa una CLI de Azure instalada, inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/reference-index#az-login) y siga las instrucciones de la pantalla. Puede omitir este paso si usa Azure Cloud Shell.
 
 ```azurecli
 az login 
@@ -90,7 +90,7 @@ Si `cosmosdb` no está en la lista de comandos de referencia, vuelva a instalar 
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un [grupo de recursos](../azure-resource-manager/resource-group-overview.md) con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran recursos de Azure como aplicaciones web, bases de datos y cuentas de almacenamiento. 
+Cree un [grupo de recursos](../azure-resource-manager/resource-group-overview.md) con el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran recursos de Azure como aplicaciones web, bases de datos y cuentas de almacenamiento. 
 
 En el ejemplo siguiente se crea un grupo de recursos en la región de Europa Occidental. Elija un nombre único para el grupo de recursos.
 
@@ -102,7 +102,7 @@ az group create --name myResourceGroup --location "West Europe"
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Creación de una cuenta de Azure Cosmos DB
 
-Cree una cuenta de Azure Cosmos DB con el comando [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create).
+Cree una cuenta de Azure Cosmos DB con el comando [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create).
 
 En el comando siguiente, sustituya su propio nombre único de la cuenta de Azure Cosmos DB donde vea el marcador de posición `<cosmosdb-name>`. Este nombre único se usará como parte del punto de conexión de Azure Cosmos DB (`https://<cosmosdb-name>.documents.azure.com/`), por lo que debe ser único entre todas las cuentas de Azure Cosmos DB de Azure. 
 

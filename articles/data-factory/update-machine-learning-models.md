@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 931c6b2cc0230e4605089dfc1eb0764aa61ec7b8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4eed11b312bce27dc0cd98daa3e2599a28fcabbd
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620471"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524437"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Actualización de los modelos de Azure Machine Learning con la actividad de actualización de recurso
 Este artículo complementa el artículo de integración principal Azure Data Factory - Azure Machine Learning: [Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory](transform-data-using-machine-learning.md). Si aún no lo ha hecho, revise el artículo principal antes de leer este artículo. 
 
 ## <a name="overview"></a>Información general
-Como parte del proceso de operacionalización de modelos de Azure Machine Learning, el modelo se debe entrenar y guardar. Posteriormente, podrá usarlo para crear un servicio web predicativo. A continuación, el servicio web se puede consumir en sitios web, paneles y aplicaciones móviles.
+Como parte del proceso de operacionalización de modelos de Azure Machine Learning, el modelo se debe entrenar y guardar. Posteriormente, podrá usarlo para crear un servicio web predictivo. A continuación, el servicio web se puede consumir en sitios web, paneles y aplicaciones móviles.
 
 Los modelos que crea mediante Machine Learning no suelen ser estáticos. Cuando hay nuevos datos disponibles o cuando el consumidor de la API tiene sus propios datos, el modelo debe volver a entrenarse. Consulte [Volver a entrenar un modelo de Machine Learning](../machine-learning/machine-learning-retrain-machine-learning-model.md) para más información acerca de cómo volver a entrenar un modelo en Azure Machine Learning. 
 
@@ -63,13 +63,13 @@ El siguiente fragmento JSON define una actividad de ejecución de Batch de Azure
 
 | Propiedad                      | DESCRIPCIÓN                              | Obligatorio |
 | :---------------------------- | :--------------------------------------- | :------- |
-| Nombre                          | Nombre de la actividad en la canalización     | Sí      |
+| Nombre                          | Nombre de la actividad en la canalización     | SÍ      |
 | Descripción                   | Texto que describe para qué se usa la actividad.  | Sin        |
-| Tipo                          | Para la actividad de actualización de recurso de Azure Machine Learning, el tipo de actividad es **AzureMLUpdateResource**. | Sí      |
-| linkedServiceName             | Servicio vinculado de Azure Machine Learning que contiene la propiedad updateResourceEndpoint. | Sí      |
-| trainedModelName              | Nombre del módulo del modelo entrenado del experimento de servicio web que se actualizará | Sí      |
-| trainedModelLinkedServiceName | Nombre del servicio vinculado de Azure Storage que contiene el archivo ilearner cargado por la operación de actualización | Sí      |
-| trainedModelFilePath          | La ruta de acceso relativa en trainedModelLinkedService para representar el archivo ilearner cargado por la operación de actualización | Sí      |
+| Tipo                          | Para la actividad de actualización de recurso de Azure Machine Learning, el tipo de actividad es **AzureMLUpdateResource**. | SÍ      |
+| linkedServiceName             | Servicio vinculado de Azure Machine Learning que contiene la propiedad updateResourceEndpoint. | SÍ      |
+| trainedModelName              | Nombre del módulo del modelo entrenado del experimento de servicio web que se actualizará | SÍ      |
+| trainedModelLinkedServiceName | Nombre del servicio vinculado de Azure Storage que contiene el archivo ilearner cargado por la operación de actualización | SÍ      |
+| trainedModelFilePath          | La ruta de acceso relativa en trainedModelLinkedService para representar el archivo ilearner cargado por la operación de actualización | SÍ      |
 
 
 ## <a name="end-to-end-workflow"></a>Flujo de trabajo de un extremo a otro

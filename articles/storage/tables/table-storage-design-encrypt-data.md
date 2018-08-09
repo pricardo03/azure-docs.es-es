@@ -2,23 +2,18 @@
 title: Cifrado de datos de tabla de Azure Storage | Microsoft Docs
 description: Aprenda sobre el cifrado de datos de tabla en Azure Storage.
 services: storage
-documentationcenter: na
 author: MarkMcGeeAtAquent
-manager: kfile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 04/11/2018
 ms.author: sngun
-ms.openlocfilehash: 082e8a54cc8625a4bbdea2157f73874dbc86fde2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: tables
+ms.openlocfilehash: 8a7b61705f6efc5a76212fdd1345a022f58e0686
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660356"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526473"
 ---
 # <a name="encrypt-table-data"></a>Cifrado de datos de tabla
 La biblioteca de clientes de Azure Storage para .NET admite el cifrado de propiedades de entidades de cadena en operaciones de insertar y reemplazar. Las cadenas cifradas se almacenan en el servicio como propiedades binarias y se convierten de nuevo en cadenas después del descifrado.    

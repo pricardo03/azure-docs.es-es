@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6362bcb701b444c8cd71b270222ce4f87b4cc2e3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 7e444692dfeab5ca14fbd896043cc28e2cbd8717
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055865"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434001"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Tutorial: Integración de Azure Active Directory con vxMaintain
 
@@ -65,19 +65,19 @@ Para agregar vxMaintain desde la galería, haga lo siguiente:
 
     ![Botón Azure Active Directory][1]
 
-2. Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
+1. Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
 
     ![Panel "Aplicaciones empresariales"][2]
     
-3. Para agregar una aplicación, en el cuadro de diálogo **Todas las aplicaciones**, seleccione **Nueva aplicación**.
+1. Para agregar una aplicación, en el cuadro de diálogo **Todas las aplicaciones**, seleccione **Nueva aplicación**.
 
     ![Botón Nueva aplicación][3]
 
-4. En el cuadro de búsqueda, escriba **vxMaintain**.
+1. En el cuadro de búsqueda, escriba **vxMaintain**.
 
     ![Lista desplegable de "Modo de inicio de sesión único"](./media/vxmaintain-tutorial/tutorial_vxmaintain_search.png)
 
-5. En la lista de resultados, seleccione **vxMaintain**y, a continuación, seleccione **Agregar**.
+1. En la lista de resultados, seleccione **vxMaintain**y, a continuación, seleccione **Agregar**.
 
     ![El vínculo a vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_addfromgallery.png)
 
@@ -98,11 +98,11 @@ En esta sección, puede habilitar el inicio de sesión único de Azure AD en Azu
 
     ![Comando "Inicio de sesión único"][4]
 
-2. Para habilitar el inicio de sesión único, en la lista desplegable **Modo de inicio de sesión único**, seleccione **Inicio de sesión basado en SAML**.
+1. Para habilitar el inicio de sesión único, en la lista desplegable **Modo de inicio de sesión único**, seleccione **Inicio de sesión basado en SAML**.
  
     ![Comando "Inicio de sesión basado en SAML"](./media/vxmaintain-tutorial/tutorial_vxmaintain_samlbase.png)
 
-3. En **Dominio y direcciones URL de vxMaintain**, haga lo siguiente:
+1. En **Dominio y direcciones URL de vxMaintain**, haga lo siguiente:
 
     ![Sección Dominio y direcciones URL de vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_url.png)
 
@@ -113,15 +113,15 @@ En esta sección, puede habilitar el inicio de sesión único de Azure AD en Azu
     > [!NOTE] 
     > Los valores anteriores no son reales. Actualícelos con el identificador y la URL de respuesta reales. Para obtener los valores, póngase en contacto con el [equipo de soporte técnico de vxMaintain](https://www.hubspot.com/company/contact).
  
-4. En la sección **Certificado de firma de SAML**, seleccione **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+1. En la sección **Certificado de firma de SAML**, seleccione **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
     ![Sección "Certificado de firma SAML"](./media/vxmaintain-tutorial/tutorial_vxmaintain_certificate.png) 
 
-5. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
     ![Botón Guardar](./media/vxmaintain-tutorial/tutorial_general_400.png)
 
-6. Para configurar el inicio de sesión único de **vxMaintain**, envíe el archivo **XML de metadatos** al [equipo de soporte técnico de vxMaintain](https://www.hubspot.com/company/contact).
+1. Para configurar el inicio de sesión único de **vxMaintain**, envíe el archivo **XML de metadatos** al [equipo de soporte técnico de vxMaintain](https://www.hubspot.com/company/contact).
 
 > [!TIP]
 > Cuando configure la aplicación, puede leer una versión concisa de las instrucciones anteriores en [Azure Portal](https://portal.azure.com). Después de agregar la aplicación desde la sección **Active Directory** > **Aplicaciones empresariales**, seleccione la pestaña **Inicio de sesión único** y, a continuación, acceda a la documentación incrustada en la sección **Configuración**. 
@@ -138,16 +138,16 @@ En esta sección, creará el usuario de prueba Britta Simon en Azure Portal sigu
 
     ![Botón "Azure Active Directory"](./media/vxmaintain-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar una lista de usuarios, vaya a **Usuarios y grupos** > **Todos los usuarios**.
+1. Para mostrar una lista de usuarios, vaya a **Usuarios y grupos** > **Todos los usuarios**.
     
     ![Vínculo "Todos los usuarios"](./media/vxmaintain-tutorial/create_aaduser_02.png)  
     Se abre el cuadro de diálogo **Todos los usuarios**. 
 
-3. Para abrir el cuadro de diálogo **Usuario**, seleccione **Agregar**.
+1. Para abrir el cuadro de diálogo **Usuario**, seleccione **Agregar**.
  
     ![Botón Agregar](./media/vxmaintain-tutorial/create_aaduser_03.png) 
 
-4. En el cuadro de diálogo **Usuario**, haga lo siguiente:
+1. En el cuadro de diálogo **Usuario**, haga lo siguiente:
  
     ![Cuadro de diálogo Usuario](./media/vxmaintain-tutorial/create_aaduser_04.png) 
 
@@ -173,21 +173,21 @@ En esta sección, permitirá que la usuaria de prueba Britta Simon use el inicio
 
     ![Vínculo "Todas las aplicaciones"][201] 
 
-2. En la lista **Aplicaciones**, seleccione **vxMaintain**.
+1. En la lista **Aplicaciones**, seleccione **vxMaintain**.
 
     ![El vínculo a vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_app.png) 
 
-3. En el panel izquierdo, seleccione **Usuarios y grupos**.
+1. En el panel izquierdo, seleccione **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"][202] 
 
-4. Seleccione **Agregar** y, después, en el panel **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar** y, después, en el panel **Agregar asignación**, seleccione **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, en la lista **Usuarios** seleccione **Britta Simon** y, después, el botón **Seleccionar**.
+1. En el cuadro de diálogo **Usuarios y grupos**, en la lista **Usuarios** seleccione **Britta Simon** y, después, el botón **Seleccionar**.
 
-7. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
+1. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
     
 ### <a name="test-your-azure-ad-single-sign-on"></a>Prueba del inicio de sesión único de Azure AD
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f58a8d76cc46ac25474c7b91e464974612876a06
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8f14a7aabbdf815992e0777eaf5335a69570ce2e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164969"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429257"
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Implementación y uso de Azure Container Registry
 
@@ -39,13 +39,13 @@ Para realizar este tutorial es necesario que ejecute la versión 2.0.4 o superio
 
 Para implementar Azure Container Registry, necesita tener antes un grupo de recursos. Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). En este ejemplo, se crea un grupo de recursos denominado `myResourceGroup` en la región `westeurope`.
+Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az-group-create). En este ejemplo, se crea un grupo de recursos denominado `myResourceGroup` en la región `westeurope`.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
 ```
 
-Cree una instancia de Azure Container Registry con el comando [az acr create](/cli/azure/acr#az_acr_create). El nombre de una instancia de Container Registry **debe ser único**.
+Cree una instancia de Azure Container Registry con el comando [az acr create](/cli/azure/acr#az-acr-create). El nombre de una instancia de Container Registry **debe ser único**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -55,7 +55,7 @@ En el resto de este tutorial, se usa `<acrname>` como un marcador de posición d
 
 ## <a name="container-registry-login"></a>Inicio de sesión en Container Registry
 
-Después, use el comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) para iniciar sesión en la instancia de Azure Container Registry. Debe proporcionar el nombre único que se especificó para el registro de contenedor cuando se creó.
+Después, use el comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) para iniciar sesión en la instancia de Azure Container Registry. Debe proporcionar el nombre único que se especificó para el registro de contenedor cuando se creó.
 
 ```azurecli
 az acr login --name <acrName>
@@ -124,7 +124,7 @@ Tarda unos minutos en completarse.
 
 ## <a name="list-images-in-registry"></a>Lista de imágenes en el registro
 
-Para que se devuelva una lista de las imágenes que se han insertado en la instancia de Azure Container Registry, el usuario debe usar el comando [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list). Actualice el comando con el nombre de instancia de ACR.
+Para que se devuelva una lista de las imágenes que se han insertado en la instancia de Azure Container Registry, el usuario debe usar el comando [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list). Actualice el comando con el nombre de instancia de ACR.
 
 ```azurecli
 az acr repository list --name <acrName> --output table

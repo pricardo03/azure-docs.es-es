@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: a4ea4272b11c167d95840b45b39634abea8c1cea
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b2d5acfcb722845d7f346668597c073319f273f0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051605"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448791"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Tutorial: Integración de Azure Active Directory con Recognize
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Recognize desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-recognize-from-the-gallery"></a>Adición de Recognize desde la galería
 Para configurar la integración de Recognize en Azure AD, deberá agregar Recognize desde la galería a la lista de aplicaciones SaaS administradas.
@@ -63,19 +63,19 @@ Para configurar la integración de Recognize en Azure AD, deberá agregar Recogn
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **Recognize**.
+1. En el cuadro de búsqueda, escriba **Recognize**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/recognize-tutorial/tutorial_recognize_search.png)
 
-5. En el panel de resultados, seleccione **Recognize** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **Recognize** y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/recognize-tutorial/tutorial_recognize_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Para establecer la relación de vínculo, en Recognize, asigne el valor de **nom
 Para configurar y probar el inicio de sesión único de Azure AD con Recognize, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Recognize](#creating-a-recognize-test-user)**: para tener un homólogo de Britta Simon en Recognize que esté vinculado a su representación en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de Recognize](#creating-a-recognize-test-user)**: para tener un homólogo de Britta Simon en Recognize que esté vinculado a su representación en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,11 +104,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/recognize-tutorial/tutorial_recognize_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Recognize**, lleve a cabo los pasos siguientes:
+1. En la sección **Dominio y direcciones URL de Recognize**, lleve a cabo los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/recognize-tutorial/tutorial_recognize_url.png)
 
@@ -119,29 +119,29 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte al cliente de Recognize](mailto:support@recognizeapp.com) para obtener la dirección URL de inicio de sesión. Puede obtener el valor del identificador abriendo la dirección URL de metadatos del proveedor de servicios desde la sección Configuración de SSO que se explica más adelante en el tutorial. . 
  
-4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/recognize-tutorial/tutorial_recognize_certificate.png) 
 
-5. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/recognize-tutorial/tutorial_general_400.png)
 
-6. En la sección **Configuración de Recognize**, haga clic en **Configurar Recognize** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+1. En la sección **Configuración de Recognize**, haga clic en **Configurar Recognize** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
 
     ![Configurar inicio de sesión único](./media/recognize-tutorial/tutorial_recognize_configure.png) 
 
-7. En otra ventana del explorador web, inicie sesión en el inquilino de Recognize como administrador.
+1. En otra ventana del explorador web, inicie sesión en el inquilino de Recognize como administrador.
 
-8. En la esquina superior derecha, haga clic en **Menú**. Vaya a **Company Admin** (Administrador de empresa).
+1. En la esquina superior derecha, haga clic en **Menú**. Vaya a **Company Admin** (Administrador de empresa).
    
     ![Configuración del inicio de sesión único en la aplicación](./media/recognize-tutorial/tutorial_recognize_000.png)
 
-9. En la barra de navegación de la izquierda, haga clic en **Settings**(Configuración).
+1. En la barra de navegación de la izquierda, haga clic en **Settings**(Configuración).
    
     ![Configuración del inicio de sesión único en la aplicación](./media/recognize-tutorial/tutorial_recognize_001.png)
 
-10. Siga estos pasos en la sección **SSO Settings** (Configuración de SSO).
+1. Siga estos pasos en la sección **SSO Settings** (Configuración de SSO).
    
     ![Configuración del inicio de sesión único en la aplicación](./media/recognize-tutorial/tutorial_recognize_002.png)
     
@@ -157,11 +157,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     f. Haga clic en el botón **Guardar configuración**. 
 
-11. Junto a la sección de **configuración de SSO**, copie la dirección URL en **Service Provider Metadata url** (Dirección URL de metadatos del proveedor de servicio).
+1. Junto a la sección de **configuración de SSO**, copie la dirección URL en **Service Provider Metadata url** (Dirección URL de metadatos del proveedor de servicio).
    
     ![Configuración del inicio de sesión único en la aplicación](./media/recognize-tutorial/tutorial_recognize_003.png)
 
-12. Abra el vínculo **Dirección URL de metadatos** en un explorador en blanco para descargar el documento de metadatos. Después, copie el valor de EntityDescriptor (entityID) del archivo y péguelo en el cuadro de texto **Identificador** en la sección **Dominio y direcciones URL de Recognize** en Azure Portal.
+1. Abra el vínculo **Dirección URL de metadatos** en un explorador en blanco para descargar el documento de metadatos. Después, copie el valor de EntityDescriptor (entityID) del archivo y péguelo en el cuadro de texto **Identificador** en la sección **Dominio y direcciones URL de Recognize** en Azure Portal.
     
     ![Configuración del inicio de sesión único en la aplicación](./media/recognize-tutorial/tutorial_recognize_004.png)
 
@@ -180,15 +180,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/recognize-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Creación de un usuario de prueba de Azure AD](./media/recognize-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Creación de un usuario de prueba de Azure AD](./media/recognize-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/recognize-tutorial/create_aaduser_04.png) 
 
@@ -210,11 +210,11 @@ Esta aplicación no admite el aprovisionamiento SCIM, pero tiene una sincronizac
 
 1. Inicie sesión en su sitio de la compañía de Recognize como administrador.
 
-2. En la esquina superior derecha, haga clic en **Menú**. Vaya a **Company Admin** (Administrador de empresa).
+1. En la esquina superior derecha, haga clic en **Menú**. Vaya a **Company Admin** (Administrador de empresa).
 
-3. En la barra de navegación de la izquierda, haga clic en **Settings**(Configuración).
+1. En la barra de navegación de la izquierda, haga clic en **Settings**(Configuración).
 
-4. En la sección **User Sync** (Sincronización de usuario), siga estos pasos.
+1. En la sección **User Sync** (Sincronización de usuario), siga estos pasos.
    
    ![Nuevo usuario](./media/recognize-tutorial/tutorial_recognize_005.png "nuevo usuario")
    
@@ -236,23 +236,23 @@ En esta sección, concederá acceso a Britta Simon a Recognize para que use el i
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **Recognize**.
+1. En la lista de aplicaciones, seleccione **Recognize**.
 
     ![Configurar inicio de sesión único](./media/recognize-tutorial/tutorial_recognize_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 

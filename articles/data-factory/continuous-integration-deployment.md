@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 26ab8c0547bb533a032dec59183f8152be9180cf
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364552"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448448"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integración e implementación continuas en Azure Data Factory
 
@@ -53,15 +53,15 @@ El siguiente es el ciclo de vida completo de la integración y la implementació
 
 1.  Configure una factoría de datos de desarrollo con VSTS en la que todos los desarrolladores puedan crear recursos de Data Factory como canalizaciones, conjuntos de datos, etc.
 
-2.  A continuación, los desarrolladores podrán modificar recursos, como las canalizaciones. A medida que realicen modificaciones, podrán seleccionar **Depurar** para ver cómo se ejecuta la canalización con los cambios más recientes.
+1.  A continuación, los desarrolladores podrán modificar recursos, como las canalizaciones. A medida que realicen modificaciones, podrán seleccionar **Depurar** para ver cómo se ejecuta la canalización con los cambios más recientes.
 
-3.  Cuando los desarrolladores hayan realizado todos los cambios necesarios, pueden crear una solicitud de incorporación de cambios de su rama a la rama master (o la rama de colaboración) para que otros equipos del mismo nivel revisen sus cambios.
+1.  Cuando los desarrolladores hayan realizado todos los cambios necesarios, pueden crear una solicitud de incorporación de cambios de su rama a la rama master (o la rama de colaboración) para que otros equipos del mismo nivel revisen sus cambios.
 
-4.  Una vez que los cambios se encuentren en la rama master, puede publicar en la factoría de desarrollo seleccionando **Publicar**.
+1.  Una vez que los cambios se encuentren en la rama master, puede publicar en la factoría de desarrollo seleccionando **Publicar**.
 
-5.  Cuando el equipo esté listo para promocionar los cambios a la factoría de pruebas y la de producción, podrán exportar la plantilla de Resource Manager desde la rama master o desde cualquier otra rama en caso de que la rama master respalde la instancia de desarrollo de Data Factory activa.
+1.  Cuando el equipo esté listo para promocionar los cambios a la factoría de pruebas y la de producción, podrán exportar la plantilla de Resource Manager desde la rama master o desde cualquier otra rama en caso de que la rama master respalde la instancia de desarrollo de Data Factory activa.
 
-6.  La plantilla de Resource Manager exportada se puede implementar con archivos de parámetros distintos en la factoría de pruebas y la de producción.
+1.  La plantilla de Resource Manager exportada se puede implementar con archivos de parámetros distintos en la factoría de pruebas y la de producción.
 
 ## <a name="automate-continuous-integration-with-vsts-releases"></a>Automatización de integración continua con versiones de VSTS
 
@@ -81,19 +81,19 @@ Estos son los pasos para configurar una versión de VSTS para que pueda automati
 
 1.  Vaya a la página de VSTS en el mismo proyecto que el configurado con la instancia de Data Factory.
 
-2.  Haga clic en el menú superior **Compilación y versión** &gt; **Versiones** &gt; **Crear definición de versión**.
+1.  Haga clic en el menú superior **Compilación y versión** &gt; **Versiones** &gt; **Crear definición de versión**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-3.  Seleccione la plantilla **Proceso vacío**.
+1.  Seleccione la plantilla **Proceso vacío**.
 
-4.  Escriba el nombre del entorno.
+1.  Escriba el nombre del entorno.
 
-5.  Añada un artefacto Git y seleccione el mismo repositorio configurado con la instancia de Data Factory. Seleccione `adf_publish` como rama predeterminada con la versión predeterminada más reciente.
+1.  Añada un artefacto Git y seleccione el mismo repositorio configurado con la instancia de Data Factory. Seleccione `adf_publish` como rama predeterminada con la versión predeterminada más reciente.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
-7.  Añada una tarea de implementación de Azure Resource Manager:
+1.  Añada una tarea de implementación de Azure Resource Manager:
 
     a.  Cree una nueva tarea, busque **Implementación de un grupo de recursos de Azure** y añádalo.
 
@@ -109,9 +109,9 @@ Estos son los pasos para configurar una versión de VSTS para que pueda automati
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-8.  Guarde la definición de versión.
+1.  Guarde la definición de versión.
 
-9.  Cree una nueva versión a partir de esta definición de versión.
+1.  Cree una nueva versión a partir de esta definición de versión.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -144,7 +144,7 @@ Hay dos formas de administrar los secretos:
 
     -   El archivo de parámetros también debe estar en la rama de publicación.
 
-2.  Agregue una [tarea de Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) antes de la implementación de Azure Resource Manager que se describió en la sección anterior:
+1.  Agregue una [tarea de Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) antes de la implementación de Azure Resource Manager que se describió en la sección anterior:
 
     -   Seleccione la pestaña **Tareas**, cree una nueva tarea, busque **Azure Key Vault** y añádalo.
 
@@ -160,9 +160,9 @@ Puede producirse un error en la implementación si intenta actualizar desencaden
 
 1.  En la ficha Tareas de la versión de VSTS, busque **Azure Powershell** y añádalo.
 
-2.  Elija **Azure Resource Manager** como tipo de conexión y seleccione su suscripción.
+1.  Elija **Azure Resource Manager** como tipo de conexión y seleccione su suscripción.
 
-3.  Elija **Script alineado** como tipo de script y, a continuación, especifique el código. En el ejemplo siguiente se detienen los desencadenadores:
+1.  Elija **Script alineado** como tipo de script y, a continuación, especifique el código. En el ejemplo siguiente se detienen los desencadenadores:
 
     ```powershell
     $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName

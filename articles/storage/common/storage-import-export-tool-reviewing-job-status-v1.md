@@ -2,24 +2,18 @@
 title: Revisión del estado de un trabajo de Azure Import/Export (versión 1) | Microsoft Docs
 description: Obtenga información sobre cómo usar los archivos de registro creados cuando se ejecutó el trabajo de importación o exportación para ver el estado del trabajo de importación y exportación.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: c69d1d69-6403-4eee-9949-0185faeecfa1
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: muralikk
-ms.openlocfilehash: bdb30bc28c36ab9e969efc8be3b87b97e4027b39
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 51a73a4466f3460beead0ce03ddbf011a0b9cc3b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059400"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527668"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Revisión del estado de un trabajo de Azure Import/Export con archivos de registro de copia
 Cuando el servicio Microsoft Azure Import/Export procesa las unidades asociadas a un trabajo de importación o exportación, escribe archivos de registro de copia en la cuenta de almacenamiento con origen o destino en la ubicación donde está importando o exportando blobs. El archivo de registro contiene el estado detallado de cada archivo que se importó o exportó. La dirección URL de cada archivo de registro de copia se devuelve al consultar el estado de un trabajo completado; vea el artículo de [obtención de trabajos](/rest/api/storageservices/Get-Job3) para obtener más información.  

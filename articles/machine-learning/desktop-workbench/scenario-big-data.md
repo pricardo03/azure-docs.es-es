@@ -9,19 +9,19 @@ editor: daden
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 450c033fbce3544cdc17ddc6d47ff726b01a4d3e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7a13cafd3dcfb4637a5deae2c678c518019ad168
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832669"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450675"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsión de carga de trabajo del servidor en terabytes de datos
 
@@ -44,12 +44,12 @@ La previsión de la carga de trabajo en servidores es una necesidad empresarial 
 En este escenario, se centra en la predicción de carga de trabajo para cada máquina (o servidor). En concreto, los datos de sesión de cada servidor se usan para predecir la clase de carga de trabajo del servidor en el futuro. Deberá clasificar la carga de cada servidor en clases baja, media y alta mediante el uso del clasificador de bosque aleatorio de [Apache Spark ML](https://spark.apache.org/docs/2.1.1/ml-guide.html). La técnicas de aprendizaje automático y el flujo de trabajo de este ejemplo se pueden extender con facilidad a otros problemas similares. 
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Los requisitos previos para ejecutar este ejemplo son los siguientes:
 
 * Una [cuenta de Azure](https://azure.microsoft.com/free/) (hay disponibles versiones gratuitas de prueba).
-* Una copia instalada de [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Para instalar el programa y crear un área de trabajo, consulte la [Guía de instalación rápida](../service/quickstart-installation.md). Si tiene varias suscripciones, puede [establecer la suscripción deseada para que sea la suscripción activa actual](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
+* Una copia instalada de [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Para instalar el programa y crear un área de trabajo, consulte la [Guía de instalación rápida](../service/quickstart-installation.md). Si tiene varias suscripciones, puede [establecer la suscripción deseada para que sea la suscripción activa actual](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
 * Windows 10 (las instrucciones que aparecen en este ejemplo suelen ser las mismas para los sistemas macOS).
 * Una instancia de Data Science Virtual Machine (DSVM) para Linux (Ubuntu), preferiblemente en la región Este de EE. UU. donde se ubican los datos. Puede aprovisionar una DSVM Ubuntu siguiendo [estas instrucciones](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). También puede ver [este tutorial de inicio rápido](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Se recomienda usar una máquina virtual con al menos 8 núcleos y 32 GB de memoria. 
 
@@ -59,7 +59,7 @@ Siga la [instrucción](../service/known-issues-and-troubleshooting-guide.md#remo
  |------------|------|
 Dirección IP de la DSVM | xxx|
  Nombre de usuario  | xxx|
- Password   | xxx|
+ Contraseña   | xxx|
 
 
  Puede usar cualquier máquina virtual que tenga [Docker Engine](https://docs.docker.com/engine/) instalado.
@@ -70,7 +70,7 @@ Dirección IP de la DSVM | xxx|
  |------------|------|
  Nombre del clúster| xxx|
  Nombre de usuario  | xxx (sshuser de forma predeterminada)|
- Password   | xxx|
+ Contraseña   | xxx|
 
 
 * Una cuenta de Azure Storage. Para crear una, siga [estas instrucciones](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account). Además, cree dos contenedores de blobs privados llamados `fullmodel` y `onemonthmodel` en esta cuenta de almacenamiento. La cuenta de almacenamiento se utiliza para guardar resultados intermedios de proceso y modelos de aprendizaje automático. Necesitará la clave de acceso y nombre de la cuenta de almacenamiento para probar este ejemplo. Guarde la tabla siguiente con información de la cuenta de Azure Storage para pasos posteriores:

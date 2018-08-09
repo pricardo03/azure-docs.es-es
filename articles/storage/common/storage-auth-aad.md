@@ -3,17 +3,17 @@ title: Autenticación del acceso a Azure Storage con Azure Active Directory (ver
 description: Autentique el acceso a Azure Storage con Azure Active Directory (versión preliminar).
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: tamram
-ms.openlocfilehash: 9a0782b96b45d27c9b7e603959ecadf5b2632064
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: common
+ms.openlocfilehash: 90868961475c2e9d0ac7d28c5d9a50c8eb281675
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737653"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525212"
 ---
 # <a name="authenticate-access-to-azure-storage-using-azure-active-directory-preview"></a>Autenticación del acceso a Azure Storage con Azure Active Directory (versión preliminar)
 
@@ -41,7 +41,7 @@ Tenga en cuenta los siguientes puntos en relación con la versión preliminar:
     - [JavaScript](https://aka.ms/downloadazurestoragejs))
 
 > [!IMPORTANT]
-> Esta versión preliminar está destinada para usos distintos del de producción. Los Acuerdos de nivel de servicio (SLA) de producción no estarán disponibles hasta que la integración de Azure AD para Azure Storage se declare disponible con carácter general. Si la integración de Azure AD no se admite todavía para su escenario, siga usando la autorización con clave compartida o tokens de SAS en las aplicaciones.
+> Esta versión preliminar está destinada para usos distintos del de producción. Los Acuerdos de nivel de Servicio (SLA) de producción no estarán disponibles hasta que la integración de Azure AD para Azure Storage se declare disponible con carácter general. Si la integración de Azure AD no se admite todavía para su escenario, siga usando la autorización con clave compartida o tokens de SAS en las aplicaciones.
 >
 > Durante la versión preliminar, las asignaciones de roles de control de acceso basado en rol pueden tardar hasta cinco minutos en propagarse.
 >
@@ -57,4 +57,4 @@ La CLI de Azure y PowerShell admite ahora el inicio de sesión con una identidad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para información adicional sobre la integración de Azure AD para los blobs y las colas de Azure, consulte la entrada de blog del equipo de Azure Storage acerca del [anuncio de la versión preliminar Autenticación de Azure AD para Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
+Para información adicional sobre la integración de Azure AD para los blobs y las colas de Azure, consulte la entrada de blog del equipo de Azure Storage acerca del [anuncio de la versión preliminar de Autenticación de Azure AD para Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

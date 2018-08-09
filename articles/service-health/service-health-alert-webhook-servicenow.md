@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 867a8c0b478df9d2b7690b8b914ded7c42558583
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1f5984f8f28832c33d3a5a844fde72e7286ad251
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30178875"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433796"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>Configuración de alertas de estado del servicio con ServiceNow
 
@@ -26,27 +26,27 @@ Este artículo muestra cómo integrar las alertas de estado del servicio de Azur
 ## <a name="creating-a-scripted-rest-api-in-servicenow"></a>Creación de una API de REST con script en ServiceNow
 1.  Asegúrese de que se ha registrado y ha iniciado sesión en su cuenta de [ServiceNow](https://www.servicenow.com/).
 
-2.  Vaya hasta la sección **System Web Services** (Servicios web del sistema) en ServiceNow y seleccione **Scripted REST APIs** (API de REST con script).
+1.  Vaya hasta la sección **System Web Services** (Servicios web del sistema) en ServiceNow y seleccione **Scripted REST APIs** (API de REST con script).
 
     ![La sección "Scripted Web Service" (Servicio web con script) en ServiceNow](./media/webhook-alerts/servicenow-sws-section.png)
 
-3.  Seleccione **New** (Nuevo) para crear un nuevo servicio de REST con script.
+1.  Seleccione **New** (Nuevo) para crear un nuevo servicio de REST con script.
  
     ![El botón "New Scripted REST API" (Nueva API de REST con script) en ServiceNow](./media/webhook-alerts/servicenow-new-button.png)
 
-4.  Agregue un **nombre** a la API de REST y establezca el **identificador de la API** en `azureservicehealth`.
+1.  Agregue un **nombre** a la API de REST y establezca el **identificador de la API** en `azureservicehealth`.
 
-5.  Seleccione **Submit** (Enviar).
+1.  Seleccione **Submit** (Enviar).
 
     !["REST API Settings" (Configuración de la API de REST) en ServiceNow](./media/webhook-alerts/servicenow-restapi-settings.png)
 
-6.  Seleccione la API de REST que creó, y, en la pestaña **Resources** (Recursos), seleccione **New** (Nuevo).
+1.  Seleccione la API de REST que creó, y, en la pestaña **Resources** (Recursos), seleccione **New** (Nuevo).
 
     ![La pestaña "Resources" (Recursos) en ServiceNow](./media/webhook-alerts/servicenow-resources-tab.png)
 
-7.  **Nombre** el nuevo recurso `event` y cambie el **método HTTP** a `POST`.
+1.  **Nombre** el nuevo recurso `event` y cambie el **método HTTP** a `POST`.
 
-8.  En la sección **Script**, agregue el siguiente código JavaScript:
+1.  En la sección **Script**, agregue el siguiente código JavaScript:
 
     >[!NOTE]
     >Debe actualizar los valores `<secret>`, `<group>` y `<email>` en el siguiente script.
@@ -139,15 +139,15 @@ Este artículo muestra cómo integrar las alertas de estado del servicio de Azur
     })(request, response);
     ```
 
-9.  En la pestaña de seguridad, desactive la opción **Requires authentication** (Requiere autenticación) y seleccione **Submit** (Enviar). El `<secret>` establecido protege esta API.
+1.  En la pestaña de seguridad, desactive la opción **Requires authentication** (Requiere autenticación) y seleccione **Submit** (Enviar). El `<secret>` establecido protege esta API.
 
     ![La casilla "Requires Authentication" (Requiere autenticación) en ServiceNow](./media/webhook-alerts/servicenow-resource-settings.png)
 
-10.  Si volvemos a la sección Scripted REST APIs (API de REST con script), debe encontrar la **ruta de la API base** para la nueva API de REST:
+1.  Si volvemos a la sección Scripted REST APIs (API de REST con script), debe encontrar la **ruta de la API base** para la nueva API de REST:
 
      ![La "ruta de la API base" in ServiceNow](./media/webhook-alerts/servicenow-base-api-path.png)
 
-11.  La dirección URL completa de integración tiene el siguiente aspecto:
+1.  La dirección URL completa de integración tiene el siguiente aspecto:
         
          https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
 
@@ -156,7 +156,7 @@ Este artículo muestra cómo integrar las alertas de estado del servicio de Azur
 ### <a name="for-a-new-action-group"></a>Para un nuevo grupo de acciones:
 1. Siga los pasos del 1 al 8 en [este artículo](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) para crear una alerta con un nuevo grupo de acciones.
 
-2. Defina la lista de **acciones**:
+1. Defina la lista de **acciones**:
 
     a. **Tipo de acción**: *webhook*
 
@@ -164,16 +164,16 @@ Este artículo muestra cómo integrar las alertas de estado del servicio de Azur
 
     c. **Nombre**: el identificador, alias o nombre de webhook.
 
-3. Seleccione **Guardar** cuando termine para crear la alerta.
+1. Seleccione **Guardar** cuando termine para crear la alerta.
 
 ### <a name="for-an-existing-action-group"></a>Para un grupo de acciones existentes:
 1. En [Azure Portal](https://portal.azure.com/), seleccione **Supervisión**.
 
-2. En la sección **Configuración**, seleccione **Grupos de acciones**.
+1. En la sección **Configuración**, seleccione **Grupos de acciones**.
 
-3. Busque el grupo de acciones que desee editar.
+1. Busque el grupo de acciones que desee editar.
 
-4. Defina la lista de **acciones**:
+1. Defina la lista de **acciones**:
 
     a. **Tipo de acción**: *webhook*
 
@@ -181,12 +181,12 @@ Este artículo muestra cómo integrar las alertas de estado del servicio de Azur
 
     c. **Nombre**: el identificador, alias o nombre de webhook.
 
-5. Cuando termine de actualizar el grupo de acciones, seleccione **Guardar**.
+1. Cuando termine de actualizar el grupo de acciones, seleccione **Guardar**.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Prueba de la integración de webhook a través de una solicitud HTTP POST
 1. Cree la carga de estado del servicio que desee enviar. Puede encontrar una carga de webhook de estado del servicio de ejemplo en [Webhooks para alertas del registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
-2. Cree una solicitud HTTP POST de la siguiente manera:
+1. Cree una solicitud HTTP POST de la siguiente manera:
 
     ```
     POST        https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
@@ -195,9 +195,9 @@ Este artículo muestra cómo integrar las alertas de estado del servicio de Azur
 
     BODY        <service health payload>
     ```
-3. Debe recibir una respuesta `200 OK` con el mensaje "Incident created" (Incidente creado).
+1. Debe recibir una respuesta `200 OK` con el mensaje "Incident created" (Incidente creado).
 
-4. Vaya a [ServiceNow](https://www.servicenow.com/) para confirmar que la integración se ha configurado correctamente.
+1. Vaya a [ServiceNow](https://www.servicenow.com/) para confirmar que la integración se ha configurado correctamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información acerca de cómo [configurar notificaciones de webhook para los sistemas de administración de problemas existentes](service-health-alert-webhook-guide.md).

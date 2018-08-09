@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 49fd4a9407bd46963037b0f7078cfe257d841627
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 46b8aead2a217ab827731a6636d3527fd99ea753
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100269"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432113"
 ---
 # <a name="run-applications-in-kubernetes"></a>Ejecución de aplicaciones en Kubernetes
 
@@ -43,7 +43,7 @@ Si no ha realizado estos pasos, pero desea continuar, vuelva al tutorial [Create
 
 En este tutorial se ha usado Azure Container Registry (ACR) para almacenar una imagen de contenedor. Antes de ejecutar la aplicación, hay que actualizar el nombre del servidor de inicio de sesión de ACR en el archivo de manifiesto de Kubernetes.
 
-El nombre del servidor de inicio de sesión de ACR se obtiene con el comando [az acr list](/cli/azure/acr#az_acr_list).
+El nombre del servidor de inicio de sesión de ACR se obtiene con el comando [az acr list](/cli/azure/acr#az-acr-list).
 
 ```azurecli-interactive
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table

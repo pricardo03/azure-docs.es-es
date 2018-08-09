@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: d7066b58330d35e5dba66cfe6ed5cfaddff4b68a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 962bc996a86340bb10a28b90ef6340a98c5d9275
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778069"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430613"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Instrucciones sobre arquitectura de inserción empresarial
 En la actualidad, las empresas están pasando cada vez más hacia la creación de aplicaciones móviles para sus usuarios finales (externos) o para los empleados (internos). Disponen de sistemas back-end como grandes sistemas (mainframes) o algunas aplicaciones de línea de negocio (LoB) que deben estar integradas en la arquitectura de aplicaciones móviles. En esta guía se habla acerca de la mejor manera de realizar esta integración y recomendaremos soluciones posibles a escenarios comunes.
@@ -32,7 +32,7 @@ Una solución mejor es usar el modelo de temas y suscripciones de Azure Service 
 
 Esta es la arquitectura general de la solución (generalizada con varias aplicaciones móviles pero igualmente aplicable cuando solo hay una aplicación móvil).
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Arquitectura
 ![][1]
 
 La pieza clave en este diagrama arquitectónico es Azure Service Bus que proporciona un modelo de programación de temas y suscripciones (se puede obtener más información al respecto en [Programación Pub/Sub de Service Bus]). El receptor, en este caso el back-end móvil (normalmente el [servicio móvil de Azure], que inicia una inserción en las aplicaciones móviles) no recibe los mensajes directamente de los sistemas back-end, sino de una capa de abstracción intermedia que proporciona [Azure Service Bus que permite que el back-end móvil reciba mensajes de uno o varios sistemas back-end. Se debe crear un tema de Service Bus para cada uno de los sistemas back-end, por ejemplo, Cuentas, RR.HH., Finanzas, que son básicamente "temas" de interés que iniciarán mensajes para enviarse como notificaciones de inserción. Los sistemas back-end envían mensajes a estos temas. Un back-end móvil puede suscribirse a uno o varios de estos temas mediante la creación de una suscripción a Service Bus. Esto permite al back-end móvil recibir una notificación del sistema back-end correspondiente. El back-end móvil sigue escuchando mensajes en sus suscripciones y, en cuanto llega uno, da la vuelta y lo envía como notificación a su centro de notificaciones. Los centros de notificaciones entregan finalmente el mensaje a la aplicación móvil. Esta es la lista de componentes clave:
@@ -40,23 +40,23 @@ La pieza clave en este diagrama arquitectónico es Azure Service Bus que proporc
 1. Sistema back-end (sistema LoB o heredado)
    * Crea el tema de Service Bus
    * Envía el mensaje
-2. Back-end móvil
+1. Back-end móvil
    * Crea la suscripción al servicio
    * Recibe el mensaje (del sistema back-end)
    * Envía una notificación a los clientes (a través del Centro de notificaciones de Azure)
-3. Aplicación móvil
+1. Aplicación móvil
    * Recibe y muestra notificaciones
 
 ### <a name="benefits"></a>Ventajas:
 1. La separación entre el receptor (aplicación/servicio móvil a través del Centro de notificaciones) y el emisor (sistemas back-end) permite la integración de sistemas back-end adicionales con cambios mínimos.
-2. Esto hace también que en el escenario de varias aplicaciones móviles, sea posible recibir eventos de uno o varios sistemas back-end.  
+1. Esto hace también que en el escenario de varias aplicaciones móviles, sea posible recibir eventos de uno o varios sistemas back-end.  
 
 ## <a name="sample"></a>Sample:
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 Para familiarizarse con los conceptos, así como con los pasos comunes de creación y configuración, realice los siguientes tutoriales:
 
 1. [Programación Pub/Sub de Service Bus]: en este tutorial se explican los detalles de trabajar con temas y suscripciones de Service Bus, cómo crear un espacio de nombres que contenga temas o suscripciones y cómo enviar y recibir mensajes de ellos.
-2. [Tutorial sobre Notification Hubs: Windows Universal]: en este tutorial se explica cómo configurar una aplicación de la Tienda Windows y usar Notification Hubs para registrar y, después, recibir notificaciones.
+1. [Tutorial sobre Notification Hubs: Windows Universal]: en este tutorial se explica cómo configurar una aplicación de la Tienda Windows y usar Notification Hubs para registrar y, después, recibir notificaciones.
 
 ### <a name="sample-code"></a>Código de ejemplo
 El código de ejemplo completo está disponible en [Ejemplos de centro de notificaciones]. Se divide en tres componentes:
@@ -124,7 +124,7 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
                 System.Threading.Thread.Sleep(new TimeSpan(0, 0, 10));
             }
         }
-2. **ReceiveAndSendNotification**
+1. **ReceiveAndSendNotification**
    
     a. Este proyecto usa los paquetes de NuGet *WindowsAzure.ServiceBus* y *Microsoft.Web.WebJobs.Publish* y se basa en la [programación Pub/Sub de Service Bus].
    
@@ -217,7 +217,7 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
     g. Configure el trabajo como "Ejecutar continuamente", de modo que cuando inicie sesión en [Azure Portal] vea algo parecido a esto:
    
     ![][4]
-3. **EnterprisePushMobileApp**
+1. **EnterprisePushMobileApp**
    
     a. Se trata de una aplicación de la Tienda Windows que recibe notificaciones del sistema del trabajo web que se ejecuta como parte de su back-end móvil y las mostrará. Este código se basa en el [tutorial sobre Notification Hubs: Windows Universal].  
    
@@ -243,11 +243,11 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 
 ### <a name="running-sample"></a>Ejecución del ejemplo:
 1. Asegúrese de que su trabajo web se ejecuta correctamente y está programado para ejecutarse continuamente.
-2. Ejecute **EnterprisePushMobileApp, que inicia la aplicación de la Tienda Windows.
-3. Ejecute la aplicación de consola **EnterprisePushBackendSystem** que simula el back-end LoB e inicia el envío de mensajes, de modo que verá que aparecen notificaciones del sistema como la siguiente imagen:
+1. Ejecute **EnterprisePushMobileApp, que inicia la aplicación de la Tienda Windows.
+1. Ejecute la aplicación de consola **EnterprisePushBackendSystem** que simula el back-end LoB e inicia el envío de mensajes, de modo que verá que aparecen notificaciones del sistema como la siguiente imagen:
    
     ![][5]
-4. Los mensajes se enviaron originalmente a temas de Service Bus, los cuales son supervisadas por las suscripciones de Service Bus en el trabajo web. Cuando se recibe un mensaje, se crea una notificación y se envía a la aplicación móvil. Puede examinar los registros del trabajo web para confirmar el procesamiento en el vínculo Registros en [Azure Portal] correspondiente a su trabajo web:
+1. Los mensajes se enviaron originalmente a temas de Service Bus, los cuales son supervisadas por las suscripciones de Service Bus en el trabajo web. Cuando se recibe un mensaje, se crea una notificación y se envía a la aplicación móvil. Puede examinar los registros del trabajo web para confirmar el procesamiento en el vínculo Registros en [Azure Portal] correspondiente a su trabajo web:
    
     ![][6]
 

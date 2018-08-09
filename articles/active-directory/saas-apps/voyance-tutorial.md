@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 8974bb30e77b0e1c725531410db873f258f4c20a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ce72fb75729574c9645025459b67fd3eab597bb1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228587"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432184"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-voyance"></a>Tutorial: Integración de Azure Active Directory con Voyance
 
@@ -34,7 +34,7 @@ La integración de Voyance con Azure AD proporciona las siguientes ventajas:
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Voyance, necesita los siguientes elementos:
 
@@ -53,7 +53,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Voyance desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-voyance-from-the-gallery"></a>Adición de Voyance desde la galería
 Para configurar la integración de Voyance en Azure AD, deberá agregar Voyance desde la galería a la lista de aplicaciones SaaS administradas.
@@ -64,15 +64,15 @@ Para configurar la integración de Voyance en Azure AD, deberá agregar Voyance 
 
     ![Botón Azure Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![Botón Nueva aplicación][3]
 
-4. En el cuadro de búsqueda, escriba **Voyance**, seleccione **Voyance** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el cuadro de búsqueda, escriba **Voyance**, seleccione **Voyance** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Voyance en la lista de resultados](./media/voyance-tutorial/tutorial_voyance_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Para establecer la relación de vínculo, en Voyance, asigne el valor de **nombr
 Para configurar y probar el inicio de sesión único de Azure AD con Voyance, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Voyance](#create-a-voyance-test-user)**: para tener un homólogo de Britta Simon en Voyance que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de Voyance](#create-a-voyance-test-user)**: para tener un homólogo de Britta Simon en Voyance que esté vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si funciona la configuración.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -102,11 +102,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Cuadro de diálogo Inicio de sesión único](./media/voyance-tutorial/tutorial_voyance_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Voyance**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por **IDP**:
+1. En la sección **Dominio y direcciones URL de Voyance**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por **IDP**:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Voyance para IDP](./media/voyance-tutorial/tutorial_voyance_url1.png)
 
@@ -114,7 +114,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.nyansa.com/saml/create/`.
 
-4. Active **Mostrar configuración avanzada de URL** y siga estos pasos si desea configurar la aplicación en el modo iniciado por **SP**:
+1. Active **Mostrar configuración avanzada de URL** y siga estos pasos si desea configurar la aplicación en el modo iniciado por **SP**:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Voyance para SP](./media/voyance-tutorial/tutorial_voyance_url2.png)
 
@@ -123,37 +123,37 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Voyance](mailto:support@nyansa.com) para obtener estos valores. 
 
-5. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Vínculo de descarga del certificado](./media/voyance-tutorial/tutorial_voyance_certificate.png) 
 
-6. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Botón Configurar inicio de sesión único](./media/voyance-tutorial/tutorial_general_400.png)
     
-7. En la sección **Configuración de Voyance**, haga clic en **Configurar Voyance** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de servicio de inicio de sesión único de SAML** de la sección **Referencia rápida**.
+1. En la sección **Configuración de Voyance**, haga clic en **Configurar Voyance** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de servicio de inicio de sesión único de SAML** de la sección **Referencia rápida**.
 
     ![Configuración de Voyance](./media/voyance-tutorial/tutorial_voyance_configure.png) 
 
-8. En otra ventana del explorador web, inicie sesión en el inquilino de Voyance como administrador.
+1. En otra ventana del explorador web, inicie sesión en el inquilino de Voyance como administrador.
 
-9. Vaya a la esquina superior derecha de la barra de navegación y haga clic en la lista desplegable que dice "**Acme University**".
+1. Vaya a la esquina superior derecha de la barra de navegación y haga clic en la lista desplegable que dice "**Acme University**".
     
     ![Configuración del inicio de sesión único en la aplicación Acme University](./media/voyance-tutorial/tutorial_voyance_001.png) 
 
-10. Haga clic en "**Configuración de administración**".
+1. Haga clic en "**Configuración de administración**".
 
     ![Configuración del inicio de sesión único en la configuración de administrador de la aplicación](./media/voyance-tutorial/tutorial_voyance_002.png)
 
-11. Haga clic en la pestaña "**Acceso de usuarios**".
+1. Haga clic en la pestaña "**Acceso de usuarios**".
 
     ![Configuración del inicio de sesión único en el acceso de usuarios de la aplicación](./media/voyance-tutorial/tutorial_voyance_003.png)
 
-12. Haga clic en el botón "**SSO is disabled**" (SSO está deshabilitado) para configurar Azure AD como IdP mediante SAML 2.0.
+1. Haga clic en el botón "**SSO is disabled**" (SSO está deshabilitado) para configurar Azure AD como IdP mediante SAML 2.0.
 
     ![Configuración del inicio de sesión único con el botón SSO deshabilitado en la aplicación](./media/voyance-tutorial/tutorial_voyance_004.png)
 
-13. Vaya a la sección **SAML v2** y realice los siguientes pasos:
+1. Vaya a la sección **SAML v2** y realice los siguientes pasos:
 
     ![Configuración del inicio de sesión único en la configuración SAML v2 de la aplicación](./media/voyance-tutorial/tutorial_voyance_005.png)
     
@@ -181,15 +181,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Botón Azure Active Directory](./media/voyance-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/voyance-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Botón Agregar](./media/voyance-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Cuadro de diálogo Usuario](./media/voyance-tutorial/create_aaduser_04.png) 
 
@@ -220,23 +220,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **Voyance**.
+1. En la lista de aplicaciones, seleccione **Voyance**.
 
     ![Vínculo a Voyance en la lista de aplicaciones](./media/voyance-tutorial/tutorial_voyance_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"][202]
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Panel Agregar asignación][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

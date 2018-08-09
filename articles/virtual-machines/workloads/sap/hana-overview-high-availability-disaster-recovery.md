@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2445713aa5d6a839950ca0fe9567133c06d1ffa
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 554991c7c0f11a095a11ae24dbb693a1a3ba50fd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062248"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430127"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Alta disponibilidad y recuperación ante desastres de SAP HANA para instancias grandes en Azure 
 
@@ -169,12 +169,12 @@ Para tener la certeza de que el script de instantáneas se ejecuta correctamente
 
 Para configurar las instantáneas de almacenamiento con HANA (instancias grandes), siga estos pasos:
 1. Asegúrese de que Perl está instalado en el sistema operativo Linux en el servidor de instancias grandes de HANA.
-2. Modifique /etc/ssh/ssh\_config para agregar la línea _MACs hmac-sha1_.
-3. Cree una cuenta de usuario de copia de seguridad de SAP HANA en el nodo maestro de cada instancia de SAP HANA que se ejecute, si procede.
-4. Instale el cliente HDB de SAP HANA en todos los servidores de instancias grandes de SAP HANA.
-5. En el primer servidor de instancias grandes de SAP HANA de cada región, cree una clave pública para acceder a la infraestructura de almacenamiento subyacente que controla la creación de instantáneas.
-6. Copie los scripts y el archivo de configuración de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) a la ubicación de **hdbsql** en la instalación de SAP HANA.
-7. Modifique el archivo *HANABackupDetails.txt* tanto como sea necesario para ajustarse a las especificaciones apropiadas del cliente.
+1. Modifique /etc/ssh/ssh\_config para agregar la línea _MACs hmac-sha1_.
+1. Cree una cuenta de usuario de copia de seguridad de SAP HANA en el nodo maestro de cada instancia de SAP HANA que se ejecute, si procede.
+1. Instale el cliente HDB de SAP HANA en todos los servidores de instancias grandes de SAP HANA.
+1. En el primer servidor de instancias grandes de SAP HANA de cada región, cree una clave pública para acceder a la infraestructura de almacenamiento subyacente que controla la creación de instantáneas.
+1. Copie los scripts y el archivo de configuración de [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) a la ubicación de **hdbsql** en la instalación de SAP HANA.
+1. Modifique el archivo *HANABackupDetails.txt* tanto como sea necesario para ajustarse a las especificaciones apropiadas del cliente.
 
 Obtenga los scripts de instantáneas más recientes y la documentación en [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
 
@@ -384,7 +384,7 @@ Por este motivo, la instancia de HANA se incluye como argumento. Si se produce u
 
    El nombre de usuario y la dirección IP de almacenamiento se proporcionan con la entrega de la unidad de instancia grande de HANA.
 
-2. Ejecute el script de prueba:
+1. Ejecute el script de prueba:
    ```
     ./testStorageSnapshotConnection.pl
    ```
@@ -488,8 +488,8 @@ En caso de escalado horizontal, el script realiza comprobaciones adicionales par
 La ejecución del script `azure_hana_backup.pl` crea la instantánea de almacenamiento en las tres fases siguientes:
 
 1. Ejecuta una instantánea de SAP HANA
-2. Ejecuta una instantánea de almacenamiento
-3. Quita la instantánea de SAP HANA que se creó antes de la ejecución de la instantánea de almacenamiento
+1. Ejecuta una instantánea de almacenamiento
+1. Quita la instantánea de SAP HANA que se creó antes de la ejecución de la instantánea de almacenamiento
 
 Para ejecutar el script, llámelo desde la carpeta ejecutable de HDB en la que se copió. 
 
@@ -701,44 +701,44 @@ A continuación se muestra cómo prepararse para la solicitud:
 
 1. Decida qué instantánea desea restaurar. Salvo que se indique lo contrario, solo se restaura el volumen de datos/HANA. 
 
-2. Cierre la instancia de HANA.
+1. Cierre la instancia de HANA.
 
  ![Cerrar la instancia de HANA](./media/hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
 
-3. Desmonte los volúmenes de datos de todos los nodos de la base de datos de HANA. Si los volúmenes de datos siguen montados en el sistema operativo, se produce un error en la restauración de la instantánea.
+1. Desmonte los volúmenes de datos de todos los nodos de la base de datos de HANA. Si los volúmenes de datos siguen montados en el sistema operativo, se produce un error en la restauración de la instantánea.
  ![Desmontar los volúmenes de datos de todos los nodos de la base de datos de HANA](./media/hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
 
-4. Abra una solicitud de soporte técnico de Azure e incluya instrucciones acerca de la restauración de una instantánea concreta.
+1. Abra una solicitud de soporte técnico de Azure e incluya instrucciones acerca de la restauración de una instantánea concreta.
 
  - Durante la restauración: SAP HANA en Azure Service Management podría pedirle que asista a una llamada de conferencia para garantizar la coordinación, la comprobación y la confirmación de que se restaure la instantánea de almacenamiento correcta. 
 
  - Después de la restauración: SAP HANA en Azure Service Management le enviará una notificación cuando la instantánea del almacenamiento se haya restaurado.
 
-5. Una vez que el proceso de restauración se haya completado, vuelva a montar todos los volúmenes de datos.
+1. Una vez que el proceso de restauración se haya completado, vuelva a montar todos los volúmenes de datos.
 
  ![Volver a montar todos los volúmenes de datos](./media/hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
 
-6. Seleccione las opciones de recuperación en SAP HANA Studio, en caso de que no aparezcan automáticamente al volver a conectarse a base de datos de HANA a través de HANA Studio. En el siguiente ejemplo se muestra una operación de restauración a la instantánea de HANA más reciente. Una instantánea de almacenamiento inserta una instantánea de HANA. Si restaura a la instantánea de almacenamiento más reciente, debe ser la instantánea de HANA más reciente. (Si restaura a una instantánea de almacenamiento más antigua, será preciso que encuentre la instantánea de HANA por la hora en que se tomó la instantánea de almacenamiento.)
+1. Seleccione las opciones de recuperación en SAP HANA Studio, en caso de que no aparezcan automáticamente al volver a conectarse a base de datos de HANA a través de HANA Studio. En el siguiente ejemplo se muestra una operación de restauración a la instantánea de HANA más reciente. Una instantánea de almacenamiento inserta una instantánea de HANA. Si restaura a la instantánea de almacenamiento más reciente, debe ser la instantánea de HANA más reciente. (Si restaura a una instantánea de almacenamiento más antigua, será preciso que encuentre la instantánea de HANA por la hora en que se tomó la instantánea de almacenamiento.)
 
  ![Seleccionar las opciones de recuperación en SAP HANA Studio](./media/hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
 
-7. Seleccione **Recover the database to a specific data backup or storage snapshot** (Recuperar la base en una instantánea del almacenamiento o de copia de seguridad de datos concreta).
+1. Seleccione **Recover the database to a specific data backup or storage snapshot** (Recuperar la base en una instantánea del almacenamiento o de copia de seguridad de datos concreta).
 
  ![Ventana Specify Recovery Type (Especificar tipo de recuperación)](./media/hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
 
-8. Seleccione **Specify backup without catalog** (Especificar copia de seguridad sin catálogo).
+1. Seleccione **Specify backup without catalog** (Especificar copia de seguridad sin catálogo).
 
  ![Ventana Specify Backup Location (Especificar ubicación de copia de seguridad)](./media/hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
 
-9. En la lista **Destination Type** (Tipo de destino), seleccione **Snapshot** (Instantánea).
+1. En la lista **Destination Type** (Tipo de destino), seleccione **Snapshot** (Instantánea).
 
  ![Ventana Specify the Backup to Recover (Especificar la copia de seguridad que se recuperará)](./media/hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
 
-10. Seleccione **Finish** (Finalizar) para iniciar el proceso de recuperación.
+1. Seleccione **Finish** (Finalizar) para iniciar el proceso de recuperación.
 
  ![Seleccionar "Finish" (Finalizar) para iniciar el proceso de recuperación](./media/hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
 
-11. La base de datos HANA se restaura y recupera en la instantánea de HANA incluida en la instantánea del almacenamiento.
+1. La base de datos HANA se restaura y recupera en la instantánea de HANA incluida en la instantánea del almacenamiento.
 
  ![La base de datos HANA se restaura y recupera en la instantánea de HANA.](./media/hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
 
@@ -751,23 +751,23 @@ El proceso siguiente restaura la instantánea de HANA que se incluye en la de al
 
 1. Complete los pasos 1 a 6 de [Recuperación a la instantánea más reciente de HANA](#recovering-to-the-most-recent-hana-snapshot).
 
-2. Elija **Recover the database to its most recent state** (Recuperar la base de datos a su estado más reciente).
+1. Elija **Recover the database to its most recent state** (Recuperar la base de datos a su estado más reciente).
 
  ![Seleccione "Recover the database to its most recent state" (Recuperar la base de datos a su estado más reciente).](./media/hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
 
-3. Especifique la ubicación de las copias de seguridad de registros de HANA más recientes. La ubicación tiene que contener todas las copias del registro de transacciones de HANA desde la instantánea de HANA al estado más reciente.
+1. Especifique la ubicación de las copias de seguridad de registros de HANA más recientes. La ubicación tiene que contener todas las copias del registro de transacciones de HANA desde la instantánea de HANA al estado más reciente.
 
  ![Especifique la ubicación de las copias de seguridad de registros de HANA más recientes.](./media/hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
 
-4. Elija una copia de seguridad como base desde la que recuperar la base de datos. En este ejemplo, la instantánea de HANA que aparece en la captura de pantalla es la instantánea de HANA que se incluyó en la instantánea de almacenamiento. 
+1. Elija una copia de seguridad como base desde la que recuperar la base de datos. En este ejemplo, la instantánea de HANA que aparece en la captura de pantalla es la instantánea de HANA que se incluyó en la instantánea de almacenamiento. 
 
  ![Elija una copia de seguridad como base desde la que recuperar la base de datos.](./media/hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
 
-5. Desactive la casilla **Use Delta Backups** (Usar copias de seguridad diferenciales) si no existe entre el momento de la instantánea de HANA y el estado más reciente.
+1. Desactive la casilla **Use Delta Backups** (Usar copias de seguridad diferenciales) si no existe entre el momento de la instantánea de HANA y el estado más reciente.
 
  ![Desactive la casilla "Use Delta Backups" (Usar copias de seguridad diferenciales) si no hay datos diferenciales.](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
 
-6. En la pantalla de resumen, seleccione **Finish** (Finalizar) para iniciar el procedimiento de restauración.
+1. En la pantalla de resumen, seleccione **Finish** (Finalizar) para iniciar el procedimiento de restauración.
 
  ![Haga clic en "Finish" (Finalizar) en la pantalla de resumen.](./media/hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
 
@@ -775,21 +775,21 @@ El proceso siguiente restaura la instantánea de HANA que se incluye en la de al
 Para realizar la recuperación a un momento dado entre la instantánea de HANA (incluida en la instantánea del almacenamiento) y una que sea posterior a la recuperación a un momento dado de la instantánea de HANA, siga estos pasos:
 
 1. Asegúrese de que dispone de todas las copias de seguridad del registro de transacciones desde la instantánea de HANA para la hora a la que desea recuperar.
-2. Inicie el procedimiento de [Recuperación al estado más reciente](#recovering-to-the-most-recent-state).
-3. En el paso 2, en la ventana **Specify Recovery Type** (Especificar tipo de recuperación), seleccione **Recover the database to the following point in time** (Recuperar la base de datos al siguiente momento dado) y especifique el momento dado. 
-4. Complete los pasos 3 a 6.
+1. Inicie el procedimiento de [Recuperación al estado más reciente](#recovering-to-the-most-recent-state).
+1. En el paso 2, en la ventana **Specify Recovery Type** (Especificar tipo de recuperación), seleccione **Recover the database to the following point in time** (Recuperar la base de datos al siguiente momento dado) y especifique el momento dado. 
+1. Complete los pasos 3 a 6.
 
 ### <a name="monitor-the-execution-of-snapshots"></a>Supervisión de la ejecución de instantáneas
 
 Cuando se usan las instantáneas de almacenamiento de HANA (instancias grandes), también es preciso supervisar su ejecución. El script que ejecuta una instantánea del almacenamiento escribe la salida en un archivo y, luego, lo guarda en la misma ubicación que los scripts Perl. Se escribe un archivo independiente para cada instantánea de almacenamiento. La salida de cada archivo muestra las distintas fases que ejecuta el script de la instantánea:
 
 1. Busca los volúmenes que necesitan crear una instantánea.
-2. Busca las instantáneas tomadas de estos volúmenes.
-3. Elimina eventuales instantáneas existentes para ajustarse al número de instantáneas especificado.
-4. Crea una instantánea de SAP HANA.
-5. Cree la instantánea de almacenamiento en los volúmenes.
-6. Elimina la instantánea de SAP HANA.
-7. Cambia el nombre de la instantánea más reciente a **.0**.
+1. Busca las instantáneas tomadas de estos volúmenes.
+1. Elimina eventuales instantáneas existentes para ajustarse al número de instantáneas especificado.
+1. Crea una instantánea de SAP HANA.
+1. Cree la instantánea de almacenamiento en los volúmenes.
+1. Elimina la instantánea de SAP HANA.
+1. Cambia el nombre de la instantánea más reciente a **.0**.
 
 La parte más importante del script cab identificada es esta parte:
 ```
@@ -884,10 +884,10 @@ Con esta configuración, la secuencia de copias de seguridad del registro de tra
 Para conseguir un RPO incluso mejor en caso de recuperación ante desastres, puede copiar las copias de seguridad del registro de transacciones de HANA de SAP HANA en Azure (instancias grandes) a la otra región de Azure. Para alcanzar esta reducción adicional del RPO, siga estos pasos:
 
 1. Realizar una copia de seguridad del registro de transacciones de HANA tan frecuentemente como sea posible en /hana/logbackups.
-2. Utilice rsync para copiar las copias de seguridad del registro de transacciones en las máquinas virtuales de Azure hospedadas en el recurso compartido NFS. Las VM se encuentran en redes virtuales de Azure en la región de producción de Azure y en las regiones de recuperación ante desastres. Debe conectar ambas redes virtuales de Azure al circuito conectando las instancias grandes de HANA de producción a Azure. Ver los gráficos de la sección [Consideraciones de red para recuperación ante desastres con instancias grandes de HANA](#Network-considerations-for-disaster recovery-with-HANA-Large-Instances). 
-3. Conserve las copias de seguridad del registro de transacciones en la región de la máquina virtual asociada al almacenamiento exportado de NFS.
-4. En caso de una conmutación por error ante desastres, complemente las copias de seguridad del registro de transacciones que encuentre en el volumen /hana/logbackups con copias de seguridad del registro de transacciones creadas más recientemente en el recurso compartido NFS del sitio de recuperación ante desastres. 
-5. Inicie una copia de seguridad del registro de transacciones que se restaure a la copia de seguridad más reciente que se podría guardar en la región de recuperación ante desastres.
+1. Utilice rsync para copiar las copias de seguridad del registro de transacciones en las máquinas virtuales de Azure hospedadas en el recurso compartido NFS. Las VM se encuentran en redes virtuales de Azure en la región de producción de Azure y en las regiones de recuperación ante desastres. Debe conectar ambas redes virtuales de Azure al circuito conectando las instancias grandes de HANA de producción a Azure. Ver los gráficos de la sección [Consideraciones de red para recuperación ante desastres con instancias grandes de HANA](#Network-considerations-for-disaster recovery-with-HANA-Large-Instances). 
+1. Conserve las copias de seguridad del registro de transacciones en la región de la máquina virtual asociada al almacenamiento exportado de NFS.
+1. En caso de una conmutación por error ante desastres, complemente las copias de seguridad del registro de transacciones que encuentre en el volumen /hana/logbackups con copias de seguridad del registro de transacciones creadas más recientemente en el recurso compartido NFS del sitio de recuperación ante desastres. 
+1. Inicie una copia de seguridad del registro de transacciones que se restaure a la copia de seguridad más reciente que se podría guardar en la región de recuperación ante desastres.
 
 Cuando las operaciones de HANA (instancias grandes ) confirman la configuración de la relación de replicación e inicia las copias de seguridad de instantánea de almacenamiento de ejecución, los datos empiezan a replicarse.
 
@@ -909,15 +909,15 @@ Hay dos casos que se deben tener en cuenta cuando se realiza la conmutación por
 Para restaurar a las instantáneas de almacenamiento replicado más recientes, siga estos pasos: 
 
 1. Apague la instancia ajena a producción de HANA en la unidad de recuperación ante desastres de HANA (instancias grandes) que está ejecutando. Eso se debe a que hay instalada previamente una instancia de producción de HANA inactiva.
-2. Asegúrese de que no hay ningún proceso de SAP HANA en ejecución. Utilice el siguiente comando para esta comprobación: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. La salida debería mostrarle el proceso **hdbdaemon** en estado detenido y ningún otro proceso de HANA en ejecución o iniciado.
-3. En la unidad de HANA (instancias grandes) correspondiente al sitio de recuperación ante desastres, ejecute el script *azure_hana_dr_failover.pl*. El script solicita la restauración de un SID de SAP HANA. Cuando se le solicite, escriba un SID (o el único) de SAP HANA que se haya replicado y que se mantiene en el archivo *HANABackupCustomerDetails.txt* de la unidad de HANA (instancias grandes) en el sitio de recuperación ante desastres. 
+1. Asegúrese de que no hay ningún proceso de SAP HANA en ejecución. Utilice el siguiente comando para esta comprobación: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. La salida debería mostrarle el proceso **hdbdaemon** en estado detenido y ningún otro proceso de HANA en ejecución o iniciado.
+1. En la unidad de HANA (instancias grandes) correspondiente al sitio de recuperación ante desastres, ejecute el script *azure_hana_dr_failover.pl*. El script solicita la restauración de un SID de SAP HANA. Cuando se le solicite, escriba un SID (o el único) de SAP HANA que se haya replicado y que se mantiene en el archivo *HANABackupCustomerDetails.txt* de la unidad de HANA (instancias grandes) en el sitio de recuperación ante desastres. 
 
       Si desea conmutar por error varias instancias de SAP HANA, debe ejecutar el script varias veces. Cuando se solicite, escriba el SID de SAP HANA que desea conmutar por error y restaurar. Al finalizar, el script muestra una lista de puntos de montaje de los volúmenes que se agregan a la unidad de HANA (instancias grandes). Esta lista incluye también los volúmenes de recuperación ante desastres restaurados.
 
-4. Monte los volúmenes de recuperación ante desastres restaurados mediante comandos del sistema operativo Linux en la unidad de HANA (instancias grandes) del sitio de recuperación ante desastres. 
-6. Inicie la instancia de producción de SAP HANA inactiva.
-7. Si eligió copiar registros de la copia de seguridad del registro de transacciones para reducir el tiempo de RPO, debe combinar dichas copias de seguridad del registro de transacciones en el directorio /hana/logbackups de recuperación ante desastres que se acaba de montar. No sobrescriba copias de seguridad existentes. Copie las copias de seguridad más recientes que no se hayan replicado con la última replicación de una instantánea de almacenamiento.
-8. También puede restaurar archivos individuales de las instantáneas que se han replicado en el volumen /hana/shared/PRD en la región de Azure de recuperación ante desastres. 
+1. Monte los volúmenes de recuperación ante desastres restaurados mediante comandos del sistema operativo Linux en la unidad de HANA (instancias grandes) del sitio de recuperación ante desastres. 
+1. Inicie la instancia de producción de SAP HANA inactiva.
+1. Si eligió copiar registros de la copia de seguridad del registro de transacciones para reducir el tiempo de RPO, debe combinar dichas copias de seguridad del registro de transacciones en el directorio /hana/logbackups de recuperación ante desastres que se acaba de montar. No sobrescriba copias de seguridad existentes. Copie las copias de seguridad más recientes que no se hayan replicado con la última replicación de una instantánea de almacenamiento.
+1. También puede restaurar archivos individuales de las instantáneas que se han replicado en el volumen /hana/shared/PRD en la región de Azure de recuperación ante desastres. 
 
 También puede probar la conmutación por error de recuperación ante desastres sin que afecte a la relación de replicación real. Para llevar a cabo una conmutación por error de prueba, siga los pasos anteriores 1 y 2 y, después, vaya al paso 3.
 
@@ -935,10 +935,10 @@ Diríjase al paso 4.
    >[!NOTE]
    >Este procedimiento es válido si necesita conmutar por error al sitio de recuperación ante desastres para recuperar algunos datos que se eliminaron hace horas y necesita que los volúmenes de recuperación ante desastres se configuren a una instantánea anterior. 
 
-4. Apague la instancia ajena a producción de HANA en la unidad de recuperación ante desastres de HANA (instancias grandes) que está ejecutando. Eso se debe a que hay instalada previamente una instancia de producción de HANA inactiva.
-5. Asegúrese de que no hay ningún proceso de SAP HANA en ejecución. Utilice el siguiente comando para esta comprobación: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. El resultado debería mostrar el proceso **hdbdaemon** en estado detenido y ningún otro proceso de HANA en ejecución o iniciado.
-6. Determine en qué nombre de instantánea o identificador de copia de seguridad de SAP HANA desea que se restaure el tenga el sitio de recuperación ante desastres. En casos reales de recuperación ante desastres, esta instantánea suele ser la instantánea más reciente. Si necesita recuperar datos perdidos, elija una instantánea anterior.
-7. Póngase en contacto con el soporte técnico de Azure a través de una solicitud de soporte técnico de alta prioridad. Solicite la restauración de dicha instantánea (con el nombre y la fecha de la misma) o el identificador de copia de seguridad de HANA en el sitio de recuperación ante desastres. El valor predeterminado es que las operaciones solo restauran el volumen /hana/data. Si también desea tener los volúmenes /hana/logbackups, debe indicarlo específicamente. *No restaure el volumen /hana/shared.* En su lugar, debe elegir archivos específicos, como global.ini del directorio **.snapshot** y sus subdirectorios después de volver a montar el volumen /hana/shared para PRD. 
+1. Apague la instancia ajena a producción de HANA en la unidad de recuperación ante desastres de HANA (instancias grandes) que está ejecutando. Eso se debe a que hay instalada previamente una instancia de producción de HANA inactiva.
+1. Asegúrese de que no hay ningún proceso de SAP HANA en ejecución. Utilice el siguiente comando para esta comprobación: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. El resultado debería mostrar el proceso **hdbdaemon** en estado detenido y ningún otro proceso de HANA en ejecución o iniciado.
+1. Determine en qué nombre de instantánea o identificador de copia de seguridad de SAP HANA desea que se restaure el tenga el sitio de recuperación ante desastres. En casos reales de recuperación ante desastres, esta instantánea suele ser la instantánea más reciente. Si necesita recuperar datos perdidos, elija una instantánea anterior.
+1. Póngase en contacto con el soporte técnico de Azure a través de una solicitud de soporte técnico de alta prioridad. Solicite la restauración de dicha instantánea (con el nombre y la fecha de la misma) o el identificador de copia de seguridad de HANA en el sitio de recuperación ante desastres. El valor predeterminado es que las operaciones solo restauran el volumen /hana/data. Si también desea tener los volúmenes /hana/logbackups, debe indicarlo específicamente. *No restaure el volumen /hana/shared.* En su lugar, debe elegir archivos específicos, como global.ini del directorio **.snapshot** y sus subdirectorios después de volver a montar el volumen /hana/shared para PRD. 
 
    En lo que respecta a las operaciones, se realizan los pasos siguientes:
 
@@ -948,26 +948,26 @@ Diríjase al paso 4.
    
    c. Después de la restauración, los volúmenes de recuperación ante desastres están disponibles para montarlos en las unidades de HANA (instancias grandes) en la región de recuperación ante desastres.
       
-8. Monte los volúmenes de recuperación ante desastres en la unidad de HANA (instancias grandes) en el sitio de recuperación ante desastres. 
-9. Inicie la instancia de producción de SAP HANA inactiva.
-10. Si eligió copiar registros de la copia de seguridad del registro de transacciones para reducir el tiempo de RPO, debe combinar dichas copias de seguridad del registro de transacciones en el directorio /hana/logbackups de recuperación ante desastres que se acaba de montar. No sobrescriba copias de seguridad existentes. Copie las copias de seguridad más recientes que no se hayan replicado con la última replicación de una instantánea de almacenamiento.
-11. También puede restaurar archivos individuales de las instantáneas que se han replicado en el volumen /hana/shared/PRD en la región de Azure de recuperación ante desastres.
+1. Monte los volúmenes de recuperación ante desastres en la unidad de HANA (instancias grandes) en el sitio de recuperación ante desastres. 
+1. Inicie la instancia de producción de SAP HANA inactiva.
+1. Si eligió copiar registros de la copia de seguridad del registro de transacciones para reducir el tiempo de RPO, debe combinar dichas copias de seguridad del registro de transacciones en el directorio /hana/logbackups de recuperación ante desastres que se acaba de montar. No sobrescriba copias de seguridad existentes. Copie las copias de seguridad más recientes que no se hayan replicado con la última replicación de una instantánea de almacenamiento.
+1. También puede restaurar archivos individuales de las instantáneas que se han replicado en el volumen /hana/shared/PRD en la región de Azure de recuperación ante desastres.
 
 La secuencia de pasos siguiente implica la recuperación de la instancia de producción de SAP HANA según la instantánea de almacenamiento restaurada y las copias de seguridad del registro de transacciones que están disponibles:
 
 1. Cambie la ubicación de copia de seguridad a **/hana/logbackups** con SAP HANA Studio.
    ![Cambiar la ubicación de copia de seguridad para la recuperación de DR](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
-2. SAP HANA examina las ubicaciones del archivo de copia de seguridad y sugiere la copia de seguridad del registro de transacciones más reciente para restaurar. El examen puede tardar unos minutos hasta que aparezca una pantalla similar a la siguiente: ![Lista de copias de seguridad del registro de transacciones para DR](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
+1. SAP HANA examina las ubicaciones del archivo de copia de seguridad y sugiere la copia de seguridad del registro de transacciones más reciente para restaurar. El examen puede tardar unos minutos hasta que aparezca una pantalla similar a la siguiente: ![Lista de copias de seguridad del registro de transacciones para DR](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
 
-3. Ajuste algunas de las configuraciones predeterminadas:
+1. Ajuste algunas de las configuraciones predeterminadas:
 
       - Desactive la casilla **Use Delta Backups** (Usar copias de seguridad diferenciales).
       - Seleccione **Initialize Log Area** (Inicializar el área de registro).
 
    ![Establecer la inicialización del área de registro](./media/hana-overview-high-availability-disaster-recovery/initialize_log_dr3.PNG)
 
-4. Seleccione **Finalizar**.
+1. Seleccione **Finalizar**.
 
    ![Finalizar la restauración de DR](./media/hana-overview-high-availability-disaster-recovery/finish_dr4.PNG)
 
@@ -984,11 +984,11 @@ Puede conmutar por recuperación desde DR a un sitio de producción. Echemos un 
 Esta es la secuencia de pasos a seguir:
 
 1. SAP HANA en el equipo de operaciones de Azure obtiene el desencadenador para sincronizar los volúmenes de almacenamiento de producción desde los volúmenes de almacenamiento de recuperación ante desastres, que ahora representan el estado de la producción. En este estado, la unidad de instancia grande de HANA en el sitio de producción está apagada.
-2. SAP HANA en el equipo de operaciones de Azure supervisa la replicación y garantiza que se actualiza antes de informar al usuario.
-3. El usuario apaga las aplicaciones que usan la instancia de HANA de producción en el sitio de recuperación ante desastres. Después, realiza una copia de seguridad del registro de transacciones de HANA. Luego, detiene la instancia de HANA que se ejecuta en las unidades de HANA (instancias grandes) en el sitio de recuperación ante desastres.
-4. Una vez que se apaga la instancia de HANA que se ejecuta en la unidad de HANA (instancias grandes) del sitio de recuperación ante desastres, el equipo de operaciones vuelve a sincronizar manualmente los volúmenes de disco.
-5. SAP HANA en el equipo de operaciones de Azure inicia de nuevo la unidad de instancia grande de HANA en el sitio de producción y se la entrega al usuario. Asegúrese de que la instancia de SAP HANA esté apagada en el momento en que se inicia la unidad HANA (instancias grandes).
-6. El usuario realiza los mismos pasos de la restauración de la base de datos que siguió cuando se realizó la conmutación por error al sitio de recuperación ante desastres anteriormente.
+1. SAP HANA en el equipo de operaciones de Azure supervisa la replicación y garantiza que se actualiza antes de informar al usuario.
+1. El usuario apaga las aplicaciones que usan la instancia de HANA de producción en el sitio de recuperación ante desastres. Después, realiza una copia de seguridad del registro de transacciones de HANA. Luego, detiene la instancia de HANA que se ejecuta en las unidades de HANA (instancias grandes) en el sitio de recuperación ante desastres.
+1. Una vez que se apaga la instancia de HANA que se ejecuta en la unidad de HANA (instancias grandes) del sitio de recuperación ante desastres, el equipo de operaciones vuelve a sincronizar manualmente los volúmenes de disco.
+1. SAP HANA en el equipo de operaciones de Azure inicia de nuevo la unidad de instancia grande de HANA en el sitio de producción y se la entrega al usuario. Asegúrese de que la instancia de SAP HANA esté apagada en el momento en que se inicia la unidad HANA (instancias grandes).
+1. El usuario realiza los mismos pasos de la restauración de la base de datos que siguió cuando se realizó la conmutación por error al sitio de recuperación ante desastres anteriormente.
 
 ### <a name="monitor-disaster-recovery-replication"></a>Supervisión de la replicación de recuperación ante desastres
 

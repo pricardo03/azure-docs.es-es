@@ -2,23 +2,18 @@
 title: Solución de problemas de Azure File Sync | Microsoft Docs
 description: Solución de problemas comunes con Azure File Sync.
 services: storage
-documentationcenter: ''
 author: jeffpatt24
-manager: aungoo
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: jeffpatt
-ms.openlocfilehash: ad82cde2dc6048c5a87766b21bd38ed3fbc6bd39
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.component: files
+ms.openlocfilehash: 1475e1955a282581c66235c13d4dbe7153735a35
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173288"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526749"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.

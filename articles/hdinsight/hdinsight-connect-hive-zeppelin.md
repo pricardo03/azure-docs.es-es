@@ -1,31 +1,27 @@
 ---
-title: Uso de Zeppelin para ejecutar consultas de Hive en Azure HDInsight | Microsoft Docs
+title: Uso de Zeppelin para ejecutar consultas de Hive en Azure HDInsight
 description: Aprenda a usar Zeppelin para ejecutar consultas de Hive.
 keywords: hdinsight,hadoop,hive,interactive query,LLAP
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: c8fe65d2eadaede1d99befbf76c4d06fab9598fc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: d4767c4d86d03827b0c055af41638988afd632a1
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202618"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595940"
 ---
 # <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>Uso de Zeppelin para ejecutar consultas de Hive en Azure HDInsight 
 
 Los clústeres de HDInsight Interactive Query incluyen blocs de notas de Zeppelin con los que puede ejecutar consultas de Hive interactivas. Con este artículo aprenderá a usar Zeppelin para ejecutar consultas de Hive en Azure HDInsight. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de seguir los pasos de este artículo, debe disponer de los siguientes elementos:
 
 * **Clúster de HDInsight Interactive Query**. Vea [Crear clúster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) para crear un clúster de HDInsight.  Asegúrese de elegir el tipo Interactive Query. 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 478c6dcaa6afd67742df91366021c6186fc1427e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 792d9b1409b9571474f47da4940724df7a764d82
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098539"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429889"
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Escalado de pods de Kubernetes e infraestructura de Kubernetes
 
@@ -33,7 +33,7 @@ En tutoriales posteriores se actualiza la aplicación Azure Vote y se configura 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En tutoriales anteriores se ha empaquetado una aplicación en una imagen de contenedor, se ha cargado esta imagen en Azure Container Registry y se ha creado un clúster de Kubernetes. La aplicación se ejecutó después en el clúster de Kubernetes. 
+En tutoriales anteriores se ha empaquetado una aplicación en una imagen de contenedor, esta imagen se ha cargado en Azure Container Registry y se ha creado un clúster de Kubernetes. La aplicación se ejecutó después en el clúster de Kubernetes. 
 
 Si no ha realizado estos pasos y quiere continuar, vuelva al [paso 1 del tutorial: creación de imágenes de contenedor](./container-service-tutorial-kubernetes-prepare-app.md). 
 
@@ -115,7 +115,7 @@ Después de unos minutos con carga mínima en la aplicación Azure Vote, el núm
 
 ## <a name="scale-the-agents"></a>Escalado de los agentes
 
-Si en el tutorial anterior ha creado el clúster de Kubernetes mediante comandos predeterminados, este tiene tres nodos de agente. Puede ajustar el número de pods manualmente si tiene previsto usar más o menos cargas de trabajo en el clúster. Use el comando [az acs scale](/cli/azure/acs#az_acs_scale) y especifique el número de agentes con el parámetro `--new-agent-count`.
+Si en el tutorial anterior ha creado el clúster de Kubernetes mediante comandos predeterminados, este tiene tres nodos de agente. Puede ajustar el número de pods manualmente si tiene previsto usar más o menos cargas de trabajo en el clúster. Use el comando [az acs scale](/cli/azure/acs#az-acs-scale) y especifique el número de agentes con el parámetro `--new-agent-count`.
 
 En el ejemplo siguiente, el número de nodos de agente se aumenta a 4 en el clúster de Kubernetes denominado *myK8sCluster*. El comando tarda unos minutos en completarse.
 

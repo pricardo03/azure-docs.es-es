@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 929598f9b2d7c3bd4b7c96158486c019d6afc281
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 1d70e6468b8f9944df04e41a6fffb719e0cb8a04
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988779"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435312"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>Creación de una aplicación de función para la ejecución de código sin servidor
 
@@ -49,9 +49,9 @@ Cada comando de la tabla crea un vínculo a documentación específica del coman
 
 | Get-Help | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crea una cuenta de Azure Storage. |
-| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Crea una aplicación de función. |
+| [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crea una cuenta de Azure Storage. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Crea una aplicación de función. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

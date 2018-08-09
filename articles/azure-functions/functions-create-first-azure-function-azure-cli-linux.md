@@ -11,12 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 49931155339660fc7a0a39f5b60dc9443374b8b0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f4285b3e02176f6f734e6de4d02d3c9c26e5524c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467788"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429720"
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>Creación de su primera función para ejecutarse en Linux con la CLI de Azure (versión preliminar)
 
@@ -26,7 +26,7 @@ En este tema de inicio rápido se explica cómo utilizar Azure Functions con la 
 
 Los pasos siguientes se admiten en equipos Mac, Windows o Linux. 
 
-## <a name="prerequisites"></a>requisitos previos 
+## <a name="prerequisites"></a>Requisitos previos 
 
 Para completar este inicio rápido necesita instalar:
 
@@ -50,7 +50,7 @@ El hospedaje de Linux para Functions solo se admite actualmente en un plan de Ap
 
 ## <a name="create-a-function-app-on-linux"></a>Creación de aplicación de función en Linux
 
-Debe tener una aplicación de función para hospedar la ejecución de las funciones en Linux. La aplicación de función proporciona un entorno para la ejecución del código de su aplicación. Le permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación y el uso compartido de recursos. Cree una aplicación de función usando el comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create) con un plan de App Service de Linux. 
+Debe tener una aplicación de función para hospedar la ejecución de las funciones en Linux. La aplicación de función proporciona un entorno para la ejecución del código de su aplicación. Le permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación y el uso compartido de recursos. Cree una aplicación de función usando el comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create) con un plan de App Service de Linux. 
 
 En el siguiente comando, sustituya un nombre de aplicación de función único donde vea el marcador de posición `<app_name>` y el nombre de la cuenta de almacenamiento para `<storage_name>`. El `<app_name>` se usa como el dominio DNS predeterminado para la Function App y, por ello, el nombre debe ser único en todas las aplicaciones de Azure. El parámetro _deployment-source-url_ es un repositorio de ejemplo de GitHub que contiene una función desencadenada mediante HTTP de tipo "Hola mundo".
 

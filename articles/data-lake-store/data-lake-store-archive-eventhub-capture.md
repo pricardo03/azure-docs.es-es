@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 57c4d9ccc64c9644c3d333fad1262c997aeff5d1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bda52acc12aad3cad20143c319f557f11d760c42
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624668"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435159"
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Usar Azure Data Lake Store para capturar datos de Event Hubs
 
 Obtenga información sobre cómo usar Azure Data Lake Store para capturar datos recibidos por Azure Event Hubs.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -39,11 +39,11 @@ En esta sección, creará una carpeta en la cuenta en que quiere capturar los da
 
     ![Explorador de datos de Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-open-data-explorer.png "Explorador de datos de Data Lake Store")
 
-2.  Haga clic en **Nueva carpeta** y después escriba un nombre para la carpeta en que quiere capturar los datos.
+1.  Haga clic en **Nueva carpeta** y después escriba un nombre para la carpeta en que quiere capturar los datos.
 
     ![Crear una carpeta en Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-new-folder.png "Crear una carpeta en Data Lake Store")
 
-3. Asigne permisos en la raíz de Data Lake Store. 
+1. Asigne permisos en la raíz de Data Lake Store. 
 
     a. Haga clic en **Explorador de datos**, seleccione la raíz de la cuenta de Data Lake Store y después haga clic en **Acceso**.
 
@@ -64,7 +64,7 @@ En esta sección, creará una carpeta en la cuenta en que quiere capturar los da
 
     Haga clic en **OK**.
 
-4. Asigne permisos a la carpeta en la cuenta de Data Lake Store en que quiere capturar los datos.
+1. Asigne permisos a la carpeta en la cuenta de Data Lake Store en que quiere capturar los datos.
 
     a. Haga clic en **Explorador de datos**, seleccione la carpeta de la cuenta de Data Lake Store y después haga clic en **Acceso**.
 
@@ -86,11 +86,11 @@ En esta sección, creará una carpeta en la cuenta en que quiere capturar los da
 
 En esta sección, creará un centro de eventos en un espacio de nombres de Event Hubs. También configurará el centro de eventos para capturar los datos en una cuenta de Azure Data Lake Store. En esta sección, se da por supuesto que ya ha creado un espacio de nombres de Event Hubs.
 
-2. En el panel **Introducción** del espacio de nombres de Event Hubs, haga clic en **+ Centro de eventos**.
+1. En el panel **Introducción** del espacio de nombres de Event Hubs, haga clic en **+ Centro de eventos**.
 
     ![Crear centro de eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Crear centro de eventos")
 
-3. Proporcione los siguientes valores para configurar Event Hubs para capturar datos en Data Lake Store.
+1. Proporcione los siguientes valores para configurar Event Hubs para capturar datos en Data Lake Store.
 
     ![Crear centro de eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Crear centro de eventos")
 

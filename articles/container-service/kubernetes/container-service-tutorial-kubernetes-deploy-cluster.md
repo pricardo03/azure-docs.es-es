@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 29a5cc67ab4d515809d00e5f0b4277f95bfb08e6
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 8403e5d8dd3bad07e412b08709dcb8c28201bcdf
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100185"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434431"
 ---
 # <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>Implementación de un clúster de Kubernetes en Azure Container Service
 
@@ -35,7 +35,7 @@ En los tutoriales anteriores, se creó una imagen de contenedor y se actualizó 
 
 ## <a name="create-kubernetes-cluster"></a>Creación de un clúster de Kubernetes
 
-Cree un clúster de Kubernetes en Azure Container Service con el comando [az acs create](/cli/azure/acs#az_acs_create). 
+Cree un clúster de Kubernetes en Azure Container Service con el comando [az acs create](/cli/azure/acs#az-acs-create). 
 
 En el siguiente ejemplo se crea un clúster denominado `myK8sCluster` en un grupo de recursos llamado `myResourceGroup`. Este grupo de recursos se creó en el [tutorial anterior](./container-service-tutorial-kubernetes-prepare-acr.md).
 
@@ -43,7 +43,7 @@ En el siguiente ejemplo se crea un clúster denominado `myK8sCluster` en un grup
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
-En algunos casos, como con las versiones de evaluación de tiempo limitado, una suscripción a Azure tiene un acceso limitado a los recursos de Azure. Si se produce un error en la implementación debido a que los núcleos disponibles son limitados, reduzca el número de agentes predeterminado agregando `--agent-count 1` al comando [az acs create](/cli/azure/acs#az_acs_create). 
+En algunos casos, como con las versiones de evaluación de tiempo limitado, una suscripción a Azure tiene un acceso limitado a los recursos de Azure. Si se produce un error en la implementación debido a que los núcleos disponibles son limitados, reduzca el número de agentes predeterminado agregando `--agent-count 1` al comando [az acs create](/cli/azure/acs#az-acs-create). 
 
 Después de varios minutos, la implementación se completa y devuelve información en formato json sobre la implementación de ACS.
 

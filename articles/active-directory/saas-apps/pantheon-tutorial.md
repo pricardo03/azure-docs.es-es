@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 2f77fedddd84303ae489379a62a3b1845127b16b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 25f8b09f31bd9eecc454444312ea02182a71a77a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051826"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448859"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pantheon"></a>Tutorial: Integración de Azure Active Directory con Pantheon
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Pantheon desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-pantheon-from-the-gallery"></a>Adición de Pantheon desde la galería
 Para configurar la integración de Pantheon en Azure AD, es preciso agregar Pantheon desde la galería a la lista de aplicaciones SaaS administradas.
@@ -63,19 +63,19 @@ Para configurar la integración de Pantheon en Azure AD, es preciso agregar Pant
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **Pantheon**.
+1. En el cuadro de búsqueda, escriba **Pantheon**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/pantheon-tutorial/tutorial_pantheon_search.png)
 
-5. En el panel de resultados, seleccione **Pantheon** y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **Pantheon** y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/pantheon-tutorial/tutorial_pantheon_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Para establecer la relación de vínculo, asigne el valor de **nombre de usuario
 Para configurar y probar el inicio de sesión único de Azure AD con Pantheon, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Pantheon](#creating-a-pantheon-test-user)**: el objetivo es tener un homólogo de Britta Simon en Pantheon que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de Pantheon](#creating-a-pantheon-test-user)**: el objetivo es tener un homólogo de Britta Simon en Pantheon que esté vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,11 +104,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/pantheon-tutorial/tutorial_pantheon_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Pantheon**, lleve a cabo los pasos siguientes:
+1. En la sección **Dominio y direcciones URL de Pantheon**, lleve a cabo los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/pantheon-tutorial/tutorial_pantheon_url.png)
 
@@ -119,24 +119,24 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de Pantheon](https://pantheon.io/docs/getting-support/) para obtener estos valores.
 
-4. La aplicación Pantheon espera la aserción de SAML en un formato específico, lo que requiere establecer el valor del atributo UserIdentifier con la dirección de correo electrónico del usuario. De forma predeterminada, Azure AD usa el valor de UserPrincipalName para el atributo UserIdentifier. Para una correcta integración, deberá ajustar este valor para que coincida con la dirección de correo electrónico del usuario. La integración solo funcionará después de realizar la asignación correcta.
+1. La aplicación Pantheon espera la aserción de SAML en un formato específico, lo que requiere establecer el valor del atributo UserIdentifier con la dirección de correo electrónico del usuario. De forma predeterminada, Azure AD usa el valor de UserPrincipalName para el atributo UserIdentifier. Para una correcta integración, deberá ajustar este valor para que coincida con la dirección de correo electrónico del usuario. La integración solo funcionará después de realizar la asignación correcta.
 
     ![Configurar inicio de sesión único](./media/pantheon-tutorial/tutorial_attribute.png)    
 
 
-5. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/pantheon-tutorial/tutorial_pantheon_certificate.png)
 
-6. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/pantheon-tutorial/tutorial_general_400.png)
 
-7. En la sección **Configuración de Pantheon**, haga clic en **Configurar Pantheon** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de servicio de inicio de sesión único de SAML** de la sección **Referencia rápida**.
+1. En la sección **Configuración de Pantheon**, haga clic en **Configurar Pantheon** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de servicio de inicio de sesión único de SAML** de la sección **Referencia rápida**.
 
     ![Configurar inicio de sesión único](./media/pantheon-tutorial/tutorial_pantheon_configure.png) 
 
-8. Para configurar el inicio de sesión único en **Pantheon**, es preciso enviar el **certificado** descargado y la **dirección URL del servicio de inicio de sesión único de SAML** al [equipo de soporte técnico de Pantheon](https://pantheon.io/docs/getting-support/).
+1. Para configurar el inicio de sesión único en **Pantheon**, es preciso enviar el **certificado** descargado y la **dirección URL del servicio de inicio de sesión único de SAML** al [equipo de soporte técnico de Pantheon](https://pantheon.io/docs/getting-support/).
 
      > [!Note]
      > También debe proporcionar la información del dominio de correo electrónico y la fecha y hora en que quiere habilitar esta conexión. Puede encontrar más detalles al respecto [aquí](https://pantheon.io/docs/sso-organizations/).
@@ -155,15 +155,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/pantheon-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Creación de un usuario de prueba de Azure AD](./media/pantheon-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Creación de un usuario de prueba de Azure AD](./media/pantheon-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/pantheon-tutorial/create_aaduser_04.png) 
 
@@ -184,17 +184,17 @@ En esta sección, creará un usuario llamado Britta Simon en Pantheon. Siga los 
 
 1. Inicie sesión en Pantheon con credenciales de administrador.
 
-2. Vaya a la página del panel **Organization** (Organización).
+1. Vaya a la página del panel **Organization** (Organización).
  
-3. Haga clic en **Contactos**.
+1. Haga clic en **Contactos**.
 
-4. Haga clic en **Agregar usuario**.
+1. Haga clic en **Agregar usuario**.
 
-5. Escriba la dirección de correo electrónico del usuario.
+1. Escriba la dirección de correo electrónico del usuario.
 
-6. Elija el rol del usuario.
+1. Elija el rol del usuario.
 
-7. Haga clic en **Agregar usuario**.
+1. Haga clic en **Agregar usuario**.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -208,23 +208,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **Pantheon**.
+1. En la lista de aplicaciones, seleccione **Pantheon**.
 
     ![Configurar inicio de sesión único](./media/pantheon-tutorial/tutorial_pantheon_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 

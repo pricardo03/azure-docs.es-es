@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: e6c0fc981030b934cd1b8568946344262936e18c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: c4ccd75f679e58dd42f136bf1199eda88dc3f087
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215714"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431722"
 ---
 # <a name="configure-managed-identity-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configuración de la identidad administrada en un conjunto de escalado de máquinas virtuales mediante llamadas a la API REST
 
@@ -36,7 +36,7 @@ En este artículo aprenderá a realizar las siguientes operaciones de Managed Id
 
 - Si no está familiarizado con Managed Service Identity, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad asignada por el sistema y una asignada por el usuario](overview.md#how-does-it-work)**.
 - Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para llevar a cabo las operaciones de administración en este artículo, su cuenta debe tener las siguientes asignaciones de roles:
+- Para llevar a cabo las operaciones de administración de este artículo, su cuenta debe tener las siguientes asignaciones de roles:
     - [Colaborador de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para crear un conjunto de escalado de máquinas virtuales y habilitar y quitar la identidad administrada asignada por el usuario o el sistema desde un conjunto de escalado de máquinas virtuales.
     - Rol [Colaborador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para crear una identidad asignada por el usuario.
     - Rol [Operador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para asignar y quitar una identidad asignada por el usuario en un conjunto de escalado de máquinas virtuales.
@@ -55,7 +55,7 @@ En esta sección, aprenderá a habilitar y deshabilitar una identidad asignada p
 
 Para crear un conjunto de escalado de máquinas virtuales con la identidad asignada por el sistema habilitada, debe crear un conjunto de escalado de máquinas virtuales y recuperar un token de acceso para usar CURL y llamar al punto de conexión de Resource Manager con el valor del tipo de identidad asignado por el sistema.
 
-1. Cree un [grupo de recursos](../../azure-resource-manager/resource-group-overview.md#terminology) para contener e implementar el conjunto de escalado de máquinas virtuales y sus recursos relacionados, con [az group create](/cli/azure/group/#az_group_create). Puede omitir este paso si ya tiene un grupo de recursos que le gustaría usar en su lugar:
+1. Cree un [grupo de recursos](../../azure-resource-manager/resource-group-overview.md#terminology) para contener e implementar el conjunto de escalado de máquinas virtuales y sus recursos relacionados, con [az group create](/cli/azure/group/#az-group-create). Puede omitir este paso si ya tiene un grupo de recursos que le gustaría usar en su lugar:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus

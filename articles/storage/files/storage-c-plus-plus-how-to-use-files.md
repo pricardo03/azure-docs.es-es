@@ -2,24 +2,18 @@
 title: Desarrollo con C++ para Azure Files | Microsoft Docs
 description: Aprenda a desarrollar aplicaciones y servicios C++ que usen Azure Files para almacenar datos de archivos.
 services: storage
-documentationcenter: .net
 author: renashahmsft
-manager: aungoo
-editor: tamram
-ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
-ms.openlocfilehash: e0b5974780813eb4f3d67c42781db4d95829814d
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: files
+ms.openlocfilehash: 4543784c1de85cf86f3dfa912a33641541e0373a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737578"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39530455"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Desarrollo con C++ para Azure Files
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -31,13 +25,13 @@ En este tutorial, aprenderá a realizar operaciones básicas en Azure Files. Med
 
 * Crear y eliminar recursos compartidos de archivos de Azure
 * Crear y eliminar directorios
-* Enumerar los archivos y directorios de un recurso compartido de archivos de Azure
+* Enumerar los archivos y directorios de un recurso compartido de Azure File
 * Cargar, descargar y eliminar un archivo
 * Establecer la cuota (tamaño máximo) de un recurso compartido de archivos de Azure
 * Crear una firma de acceso compartido (clave SAS) para un archivo que utiliza una directiva de acceso compartido definida en el recurso compartido.
 
 > [!Note]  
-> Dado que se puede acceder a Azure Files a través de SMB, es posible escribir aplicaciones sencillas que accedan al recurso compartido de archivos de Azure mediante las clases y funciones estándar de E/S de C++. En este artículo se describe cómo escribir aplicaciones que utilizan el SDK de C++ de Azure Storage, que usa la [API de REST de archivos](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) para comunicarse con Azure Files.
+> Dado que se puede acceder a Azure Files a través de SMB, es posible escribir aplicaciones sencillas que accedan al recurso compartido de archivos de Azure mediante las clases y funciones estándar de E/S de C++. En este artículo se describe cómo escribir aplicaciones que utilizan el SDK de C++ de Azure Storage, que usa la [API de REST de archivos](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) para comunicarse con Azure Files.
 
 ## <a name="create-a-c-application"></a>Creación de una aplicación de C++
 Para compilar los ejemplos, debe instalar la biblioteca de cliente de Azure Storage 2.4.0 para C++. También deberá haber creado una cuenta de almacenamiento de Azure.
@@ -154,7 +148,7 @@ sub_directory.delete_directory_if_exists();
 directory.delete_directory_if_exists();
 ```
 
-## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar los archivos y directorios de un recurso compartido de archivos de Azure
+## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar los archivos y directorios de un recurso compartido de Azure File
 Es fácil obtener una lista de archivos y directorios dentro de un recurso compartido mediante la llamada a **list_files_and_directories** en una referencia de **cloud_file_directory**. Para acceder al conjunto completo de propiedades y métodos de un elemento **list_file_and_directory_item** devuelto, debe llamar al método **list_file_and_directory_item.as_file** para obtener un objeto **cloud_file**, o al método **list_file_and_directory_item.as_directory** para obtener un objeto **cloud_file_directory**.
 
 El código siguiente muestra cómo recuperar y generar el URI de cada elemento en el directorio raíz del recurso compartido.

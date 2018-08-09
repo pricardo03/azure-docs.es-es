@@ -12,12 +12,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 2088844693748f090a67ad56f9b5fba4514d1282
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cc41b5e4ed9c823976a3e45a6e52d6c8b5684758
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488364"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429448"
 ---
 # <a name="create-your-first-function-using-the-azure-cli"></a>Creación de su primera función con la CLI de Azure
 
@@ -25,7 +25,7 @@ Este tutorial de inicio rápido le indicará cómo usar Azure Functions para cre
 
 Puede seguir los pasos siguientes con un equipo Mac, Windows o Linux. 
 
-## <a name="prerequisites"></a>requisitos previos 
+## <a name="prerequisites"></a>Requisitos previos 
 
 Antes de ejecutar este ejemplo, debe tener lo siguiente:
 
@@ -45,7 +45,7 @@ Si decide instalar y usar la CLI localmente, para este tema es preciso la CLI de
 
 ## <a name="create-a-function-app"></a>Creación de una aplicación de función
 
-Debe tener una Function App para hospedar la ejecución de las funciones. La Function App proporciona un entorno para la ejecución sin servidor de su código de función. Le permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación y el uso compartido de recursos. Cree una Function App con el comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create). 
+Debe tener una Function App para hospedar la ejecución de las funciones. La Function App proporciona un entorno para la ejecución sin servidor de su código de función. Le permite agrupar funciones como una unidad lógica para facilitar la administración, la implementación y el uso compartido de recursos. Cree una Function App con el comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create). 
 
 En el siguiente comando, sustituya un nombre de aplicación de función único donde vea el marcador de posición `<app_name>` y el nombre de la cuenta de almacenamiento para `<storage_name>`. El `<app_name>` se usa como el dominio DNS predeterminado para la Function App y, por ello, el nombre debe ser único en todas las aplicaciones de Azure. El parámetro _deployment-source-url_ es un repositorio de ejemplo de GitHub que contiene una función desencadenada mediante HTTP de tipo "Hola mundo".
 

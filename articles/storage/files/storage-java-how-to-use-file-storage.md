@@ -2,24 +2,19 @@
 title: Desarrollo con Java para Azure Files | Microsoft Docs
 description: Aprenda a desarrollar aplicaciones y servicios Java que usen Azure Files para almacenar datos de archivos.
 services: storage
-documentationcenter: java
 author: wmgries
-manager: aungoo
-editor: tamram
-ms.assetid: 3bfbfa7f-d378-4fb4-8df3-e0b6fcea5b27
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: a9585bc77a73cbd84fb2efa201a5745c62f3360a
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: files
+ms.openlocfilehash: aa63a31f7f84502a29aad6b38f454ea1080127e0
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738207"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39530040"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Desarrollo con Java para Azure Files
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -31,11 +26,11 @@ En este tutorial se muestran los aspectos básicos del uso de Java para desarrol
 
 * Crear y eliminar recursos compartidos de archivos de Azure
 * Crear y eliminar directorios
-* Enumerar los archivos y directorios de un recurso compartido de archivos de Azure
+* Enumerar los archivos y directorios de un recurso compartido de Azure File
 * Cargar, descargar y eliminar un archivo
 
 > [!Note]  
-> Dado que se puede acceder a Azure Files a través de SMB, es posible escribir aplicaciones que accedan al recurso compartido de archivos de Azure mediante las clases estándar de E/S de Java. En este artículo se describe cómo escribir aplicaciones que usen el SDK de Java de Microsoft Azure Storage, que emplea la [API de REST de Azure Files](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) para comunicarse con Azure Files.
+> Dado que se puede acceder a Azure Files a través de SMB, es posible escribir aplicaciones que accedan al recurso compartido de archivos de Azure mediante las clases estándar de E/S de Java. En este artículo se describe cómo escribir aplicaciones que usen el SDK de Java de Microsoft Azure Storage, que emplea la [API de REST de Azure Files](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) para comunicarse con Azure Files.
 
 ## <a name="create-a-java-application"></a>Creación de una aplicación Java
 Para compilar las muestras, se necesitará el Kit de desarrollo de Java (JDK) y el [SDK de Azure Storage para Java](https://github.com/Azure/azure-storage-java). También deberá haber creado una cuenta de almacenamiento de Azure.
@@ -160,7 +155,7 @@ if ( containerDir.deleteIfExists() ) {
 }
 ```
 
-## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar los archivos y directorios de un recurso compartido de archivos de Azure
+## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Enumerar los archivos y directorios de un recurso compartido de Azure File
 Obtener una lista de archivos y directorios dentro de un recurso compartido se realiza fácilmente mediante una llamada a **listFilesAndDirectories** en una referencia de CloudFileDirectory. El método devuelve una lista de objetos ListFileItem en los que puede efectuar la iteración. Por ejemplo, el siguiente código enumerará archivos y directorios dentro del directorio raíz.
 
 ```java

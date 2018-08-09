@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: de46f3ded72b8f4444426b8754b1c1a14863321f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 139a40f339c2f403999f1c3b7fe65192d45c84fd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045886"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426928"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Tutorial: Integración de Azure Active Directory con SensoScientific Wireless Temperature Monitoring System
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de SensoScientific Wireless Temperature Monitoring System desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-sensoscientific-wireless-temperature-monitoring-system-from-the-gallery"></a>Adición de SensoScientific Wireless Temperature Monitoring System desde la galería
 Para configurar la integración de SensoScientific Wireless Temperature Monitoring System en Azure AD, debe agregar dicho sistema desde la galería a la lista de aplicaciones SaaS administradas.
@@ -63,19 +63,19 @@ Para configurar la integración de SensoScientific Wireless Temperature Monitori
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **SensoScientific Wireless Temperature Monitoring System**.
+1. En el cuadro de búsqueda, escriba **SensoScientific Wireless Temperature Monitoring System**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_search.png)
 
-5. En el panel de resultados, seleccione **SensoScientific Wireless Temperature Monitoring System** y después haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **SensoScientific Wireless Temperature Monitoring System** y después haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Esta relación de vínculo se establece mediante la asignación del valor del **
 Para configurar y probar el inicio de sesión único de Azure AD con SensoScientific Wireless Temperature Monitoring System, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de SensoScientific Wireless Temperature Monitoring System](#creating-a-sensoscientific-wireless-temperature-monitoring-system-test-user)**: para encontrar un homólogo de Britta Simon en SensoScientific Wireless Temperature Monitoring System vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de SensoScientific Wireless Temperature Monitoring System](#creating-a-sensoscientific-wireless-temperature-monitoring-system-test-user)**: para encontrar un homólogo de Britta Simon en SensoScientific Wireless Temperature Monitoring System vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,33 +104,33 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de SensoScientific Wireless Temperature Monitoring System**, no necesita seguir ningún paso, ya que la aplicación ya está integrada previamente en Azure:
+1. En la sección **Dominio y direcciones URL de SensoScientific Wireless Temperature Monitoring System**, no necesita seguir ningún paso, ya que la aplicación ya está integrada previamente en Azure:
 
     ![Configurar inicio de sesión único](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_url.png)
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_certificate.png) 
 
-5. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/sensoscientific-tutorial/tutorial_general_400.png)
 
-6. En la sección **Configuración de SensoScientific Wireless Temperature Monitoring System**, haga clic en **Configurar SensoScientific Wireless Temperature Monitoring System** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad en SAML** y la **dirección URL de cierre de sesión** de la **sección Referencia rápida**.
+1. En la sección **Configuración de SensoScientific Wireless Temperature Monitoring System**, haga clic en **Configurar SensoScientific Wireless Temperature Monitoring System** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad en SAML** y la **dirección URL de cierre de sesión** de la **sección Referencia rápida**.
 
     ![Configurar inicio de sesión único](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_configure.png) 
 
-7. Inicie sesión en la aplicación SensoScientific Wireless Temperature Monitoring System como administrador.
+1. Inicie sesión en la aplicación SensoScientific Wireless Temperature Monitoring System como administrador.
 
-8. En el menú de navegación de la parte superior, haga clic en **Configuration** (Configuración) y vaya a **Configure** (Configurar) en **Single Sign On** (Inicio de sesión único) para abrir la configuración del inicio de sesión.
+1. En el menú de navegación de la parte superior, haga clic en **Configuration** (Configuración) y vaya a **Configure** (Configurar) en **Single Sign On** (Inicio de sesión único) para abrir la configuración del inicio de sesión.
 
     ![Configurar inicio de sesión único](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_admin.png) 
 
-9. En el formulario **Single Sign On Settings** (Configuración de inicio de sesión), realice estos pasos:
+1. En el formulario **Single Sign On Settings** (Configuración de inicio de sesión), realice estos pasos:
  
     a. Seleccione **Issuer Name** (Nombre del emisor) como Azure AD.
     
@@ -158,15 +158,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/sensoscientific-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Creación de un usuario de prueba de Azure AD](./media/sensoscientific-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Creación de un usuario de prueba de Azure AD](./media/sensoscientific-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/sensoscientific-tutorial/create_aaduser_04.png) 
 
@@ -194,23 +194,23 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **SensoScientific Wireless Temperature Monitoring System**.
+1. En la lista de aplicaciones, seleccione **SensoScientific Wireless Temperature Monitoring System**.
 
     ![Configurar inicio de sesión único](./media/sensoscientific-tutorial/tutorial_sensoscientificwtms_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 

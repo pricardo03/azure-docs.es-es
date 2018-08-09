@@ -2,24 +2,18 @@
 title: Objetivos de escalabilidad y rendimiento de Azure Storage | Microsoft Docs
 description: Obtenga información sobre los objetivos de escalabilidad y rendimiento para Azure Storage, incluida la capacidad, la velocidad de solicitudes y el ancho de banda entrante y saliente para las cuentas Premium y Standard de Storage. Comprenda los objetivos de rendimiento para las particiones en cada uno de los servicios de Azure Storage.
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: be721bd3-159f-40a1-88c1-96418537fe75
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 10/24/2017
 ms.author: rogarana
-ms.openlocfilehash: e393bb9e7615b893699caf5a931ede5803046892
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: common
+ms.openlocfilehash: 1db7219beead4d7ee228baff4c802c105419ba1c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30239691"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524610"
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento de Azure Storage
 ## <a name="overview"></a>Información general

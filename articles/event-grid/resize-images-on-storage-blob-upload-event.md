@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/20/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f1f10e0cb552dfa938b85280f3acb302b4591426
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 922c87f2d577aff86d51a1fde53f221ebd2fa82c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295956"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446697"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizar el cambio de tamaño de imágenes cargadas mediante Event Grid
 
@@ -36,7 +36,7 @@ En este tutorial, aprenderá a:
 > * Implementar código sin servidor con Azure Functions
 > * Crear una suscripción de eventos de Blob Storage en Event Grid
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -52,9 +52,9 @@ Si no usa Cloud Shell, primero debe iniciar sesión con `az login`.
 
 ## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 
-Azure Functions necesita una cuenta de almacenamiento general. Cree una cuenta de almacenamiento general independiente en el grupo de recursos con el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+Azure Functions necesita una cuenta de almacenamiento general. Cree una cuenta de almacenamiento general independiente en el grupo de recursos con el comando [az storage account create](/cli/azure/storage/account#az-storage-account-create).
 
-Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas. 
+Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula. 
 
 En el siguiente comando, sustituya su propio nombre único global por la cuenta de almacenamiento general donde vea el marcador de posición `<general_storage_account>`. 
 
@@ -66,7 +66,7 @@ az storage account create --name <general_storage_account> \
 
 ## <a name="create-a-function-app"></a>Creación de una aplicación de función  
 
-Debe tener una Function App para hospedar la ejecución de la función. La Function App proporciona un entorno para la ejecución sin servidor de su código de función. Cree una Function App con el comando [az functionapp create](/cli/azure/functionapp#az_functionapp_create). 
+Debe tener una Function App para hospedar la ejecución de la función. La Function App proporciona un entorno para la ejecución sin servidor de su código de función. Cree una Function App con el comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create). 
 
 En el siguiente comando, sustituya su propio nombre único de Function App donde vea el marcador de posición `<function_app>`. El nombre de la aplicación de función se usa como dominio DNS predeterminado para la aplicación de función y, por ello, el nombre debe ser único en todas las aplicaciones de Azure. En `<general_storage_account>`, sustituya el nombre de la cuenta de almacenamiento general que ha creado.
 

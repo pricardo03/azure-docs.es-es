@@ -2,24 +2,19 @@
 title: Qué hacer si se produce una interrupción del servicio de Azure Storage | Microsoft Docs
 description: Qué hacer si se produce una interrupción del servicio Azure Storage
 services: storage
-documentationcenter: .net
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: tamram
-ms.openlocfilehash: 160fe756458e067125b9d696fd0cdb929774446e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.component: common
+ms.openlocfilehash: bca4b13ea2a003ea428351bcff44944630387e1b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072042"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528017"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Qué hacer si se produce una interrupción del servicio Azure Storage
 En Microsoft, hacemos todo lo posible para garantizar que los servicios siempre estén disponibles. A veces, debido a factores externos que escapan de nuestro control, se producen interrupciones de servicio no planeadas en una o varias regiones. Para ayudarlo a gestionar estos raros imprevistos, ofrecemos la siguiente guía general para los servicios de Azure Storage.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: d76a8996f7ccc6a7b6df2f8e1fe52568dbd725db
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8d05e314cb31aaba96e7db79e0e4dd287e6d2184
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210805"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426911"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Tutorial: Configuración de ServiceNow para el aprovisionamiento automático de usuarios con Azure Active Directory
 
@@ -29,7 +29,7 @@ El objetivo de este tutorial es explicar los pasos que debe realizar en ServiceN
 > [!NOTE]
 > Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](./../active-directory-saas-app-provisioning.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con ServiceNow, necesita los siguientes elementos:
 
@@ -68,15 +68,15 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la sección **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones**.
 
-2. Si ya ha configurado ServiceNow para el inicio de sesión único, busque la instancia de ServiceNow con el campo de búsqueda. En caso contrario, seleccione **Agregar** y busque **ServiceNow** en la galería de aplicaciones. Seleccione ServiceNow en los resultados de la búsqueda y agréguelo a la lista de aplicaciones.
+1. Si ya ha configurado ServiceNow para el inicio de sesión único, busque la instancia de ServiceNow con el campo de búsqueda. En caso contrario, seleccione **Agregar** y busque **ServiceNow** en la galería de aplicaciones. Seleccione ServiceNow en los resultados de la búsqueda y agréguelo a la lista de aplicaciones.
 
-3. Seleccione la instancia de ServiceNow y la pestaña **Aprovisionamiento**.
+1. Seleccione la instancia de ServiceNow y la pestaña **Aprovisionamiento**.
 
-4. Establezca el **modo de aprovisionamiento** en **Automático**. 
+1. Establezca el **modo de aprovisionamiento** en **Automático**. 
 
     ![Aprovisionamiento](./media/servicenow-provisioning-tutorial/provisioning.png)
 
-5. En la sección Credenciales de administración, realice los pasos siguientes:
+1. En la sección Credenciales de administración, realice los pasos siguientes:
    
     a. En el cuadro de texto **Nombre de la instancia de ServiceNow** , escriba el nombre de la instancia de ServiceNow.
 
@@ -84,19 +84,19 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
     c. En el cuadro de texto de **contraseña de administrador de ServiceNow**, escriba la contraseña del administrador.
 
-6. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación ServiceNow. Si se produce un error de conexión, asegúrese de que su cuenta de ServiceNow tiene permisos de administrador de equipo y vuelva a intentar el paso de **"Credenciales de administración"**.
+1. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación ServiceNow. Si se produce un error de conexión, asegúrese de que su cuenta de ServiceNow tiene permisos de administrador de equipo y vuelva a intentar el paso de **"Credenciales de administración"**.
 
-7. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla.
+1. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla.
 
-8. Haga clic en **Guardar**.
+1. Haga clic en **Guardar**.
 
-9. En la sección Asignaciones, seleccione **Synchronize Azure Active Directory Users to** (Sincronizar usuarios de Azure Active Directory con ServiceNow).
+1. En la sección Asignaciones, seleccione **Synchronize Azure Active Directory Users to** (Sincronizar usuarios de Azure Active Directory con ServiceNow).
 
-10. En la sección **Asignaciones de atributos**, revise los atributos de usuario que se sincronizan entre Azure AD y ServiceNow. Los atributos seleccionados como propiedades **Matching** se usan para buscar coincidencias con las cuentas de usuario de ServiceNow con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
+1. En la sección **Asignaciones de atributos**, revise los atributos de usuario que se sincronizan entre Azure AD y ServiceNow. Los atributos seleccionados como propiedades **Matching** se usan para buscar coincidencias con las cuentas de usuario de ServiceNow con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
-11. Para habilitar el aprovisionamiento del servicio de aprovisionamiento de Azure AD para ServiceNow, cambie el **estado de aprovisionamiento** a **Activado** en la sección Configuración.
+1. Para habilitar el aprovisionamiento del servicio de aprovisionamiento de Azure AD para ServiceNow, cambie el **estado de aprovisionamiento** a **Activado** en la sección Configuración.
 
-12. Haga clic en **Guardar**.
+1. Haga clic en **Guardar**.
 
 Esta acción inicia la sincronización inicial de todos los usuarios y grupos asignados a ServiceNow en la sección Usuarios y grupos. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos a los registros de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación de ServiceNow.
 

@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: d924c1fc9697bff77f12f7f0bf33a1654d1e7d6e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265071"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597980"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Notificaciones opcionales en Azure AD (versión preliminar)
 
@@ -33,7 +33,7 @@ Esta característica la usan los desarrolladores de aplicaciones para especifica
 > [!Note]
 > Esta funcionalidad se encuentra actualmente en versión preliminar pública. Debe estar preparado para deshacer o eliminar los cambios. La característica estará disponible en cualquier suscripción de Azure AD durante el período de versión preliminar pública. Pero cuando ya esté disponible con carácter general, algunos aspectos podrían requerir una suscripción Premium de Azure AD.
 
-Para la lista de notificaciones estándares y cómo se utilizan en los tokens, consulte los [conceptos básicos de los tokens que emite Azure AD](active-directory-token-and-claims.md). 
+Para la lista de notificaciones estándares y cómo se utilizan en los tokens, consulte los [conceptos básicos de los tokens que emite Azure AD](v1-id-and-access-tokens.md). 
 
 Uno de los objetivos del [punto de conexión de la versión 2.0 de Azure AD](active-directory-appmodel-v2-overview.md) es conseguir tamaños de token menores para garantizar el rendimiento óptimo de los clientes.  Como resultado, varias notificaciones que antes se incluían en los tokens de identificación y acceso ya no aparecen en los de la versión 2.0 y deben solicitarse específicamente para cada aplicación.  
 
@@ -126,7 +126,7 @@ Este objeto OptionalClaims hace que el token de identificador devuelto al client
 
 ## <a name="configuring-optional-claims"></a>Configuración de notificaciones opcionales
 
-Puede configurar notificaciones opcionales para la aplicación al modificar el manifiesto de esta (consulte el ejemplo siguiente). Para más información, consulte el artículo explicativo [Manifiesto de aplicación de Azure Active Directory](active-directory-application-manifest.md).
+Puede configurar notificaciones opcionales para la aplicación al modificar el manifiesto de esta (consulte el ejemplo siguiente). Para más información, consulte el artículo explicativo [Manifiesto de aplicación de Azure Active Directory](reference-app-manifest.md).
 
 **Esquema de ejemplo:**
 
@@ -247,4 +247,4 @@ Hay varias opciones disponibles para actualizar las propiedades de configuració
 
 
 ## <a name="related-content"></a>Contenido relacionado
-* Más información sobre las [notificaciones estándares](active-directory-token-and-claims.md) que proporciona Azure AD. 
+* Más información sobre las [notificaciones estándares](v1-id-and-access-tokens.md) que proporciona Azure AD. 

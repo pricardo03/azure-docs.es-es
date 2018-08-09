@@ -2,24 +2,19 @@
 title: Uso de la CLI de Azure 2.0 con Azure Storage | Microsoft Docs
 description: Aprenda a usar la interfaz de línea de comandos (CLI de Azure) 2.0 de Azure con Azure Storage para crear y administrar cuentas de almacenamiento y trabajar con archivos y blobs de Azure. La CLI de Azure 2.0 es una herramienta multiplataforma escrita en Python.
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.openlocfilehash: b7cb8b1ca2f377964f3613ad8e0549418cb2abec
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: common
+ms.openlocfilehash: 12b383267cb90d9305043b52450572add0c1c202
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131878"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527497"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Uso de la CLI de Azure 2.0 con Azure Storage
 
@@ -31,7 +26,7 @@ Los ejemplos de la guía se basan en el shell Bash en Ubuntu, pero el resto de l
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En esta guía se supone que conoce los conceptos básicos de Azure Storage. También se da por sentado que puede cumplir los requisitos para la creación de cuentas que se especifican a continuación en Azure y el servicio Almacenamiento.
 
 ### <a name="accounts"></a>Cuentas

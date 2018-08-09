@@ -10,12 +10,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: cc1c9c9385d34f317ff911d131058b9210065edf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: eca5e308399b9fb694a8e5060d72c12790a8f78d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237050"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434965"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatización de la replicación de los cambios de esquema en Azure SQL Data Sync
 
@@ -23,9 +23,9 @@ SQL Data Sync permite que los usuarios sincronicen datos entre instancias de Azu
 
 En este artículo se presenta una solución para replicar de manera automática los cambios de esquema en todos los puntos de conexión de SQL Data Sync.
 1. Esta solución usa un desencadenador DDL para realizar el seguimiento de cambios de esquema.
-2. El desencadenador inserta los comandos de cambios de esquema en una tabla de seguimiento.
-3. Esta tabla de seguimiento se sincroniza con todos los puntos de conexión mediante el servicio Data Sync.
-4. Después de la inserción, los desencadenadores DML se usan para aplicar los cambios de esquema en los otros puntos de conexión.
+1. El desencadenador inserta los comandos de cambios de esquema en una tabla de seguimiento.
+1. Esta tabla de seguimiento se sincroniza con todos los puntos de conexión mediante el servicio Data Sync.
+1. Después de la inserción, los desencadenadores DML se usan para aplicar los cambios de esquema en los otros puntos de conexión.
 
 En este artículo se usa ALTER TABLE como ejemplo de un cambio de esquema, pero esta solución también sirve para otros tipos de cambios de esquema.
 
@@ -136,31 +136,31 @@ Una vez que los cambios de esquema se replican a todos los puntos de conexión, 
 
 1.  Realice el cambio de esquema.
 
-2.  Evite cualquier cambio de datos en los que participen las columnas nuevas hasta que haya completado el paso que crea el desencadenador.
+1.  Evite cualquier cambio de datos en los que participen las columnas nuevas hasta que haya completado el paso que crea el desencadenador.
 
-3.  Espere hasta que los cambios de esquema se apliquen a todos los puntos de conexión.
+1.  Espere hasta que los cambios de esquema se apliquen a todos los puntos de conexión.
 
-4.  Actualice el esquema de base de datos y agregue la columna nueva al esquema de sincronización.
+1.  Actualice el esquema de base de datos y agregue la columna nueva al esquema de sincronización.
 
-5.  Los datos de la columna nueva se sincronizan durante la operación de sincronización siguiente.
+1.  Los datos de la columna nueva se sincronizan durante la operación de sincronización siguiente.
 
 #### <a name="remove-columns"></a>Quitar columnas
 
 1.  Quite las columnas del esquema de sincronización. Data Sync detiene la sincronización de los datos de estas columnas.
 
-2.  Realice el cambio de esquema.
+1.  Realice el cambio de esquema.
 
-3.  Actualice el esquema de la base de datos.
+1.  Actualice el esquema de la base de datos.
 
 #### <a name="update-data-types"></a>Actualizar tipos de datos
 
 1.  Realice el cambio de esquema.
 
-2.  Espere hasta que los cambios de esquema se apliquen a todos los puntos de conexión.
+1.  Espere hasta que los cambios de esquema se apliquen a todos los puntos de conexión.
 
-3.  Actualice el esquema de la base de datos.
+1.  Actualice el esquema de la base de datos.
 
-4.  Si los tipos de datos nuevos y anteriores no son totalmente compatibles (por ejemplo, si cambia de `int` a `bigint`), puede producirse un error de sincronización antes de completar los pasos que crean los desencadenadores. La sincronización se completa correctamente después de un reintento.
+1.  Si los tipos de datos nuevos y anteriores no son totalmente compatibles (por ejemplo, si cambia de `int` a `bigint`), puede producirse un error de sincronización antes de completar los pasos que crean los desencadenadores. La sincronización se completa correctamente después de un reintento.
 
 #### <a name="rename-columns-or-tables"></a>Cambiar el nombre de las columnas o tablas
 
@@ -176,25 +176,25 @@ En este artículo se describe una lógica de replicación que deja de trabajar e
 
 1.  Deshabilite el desencadenador DDL y evite cualquier cambio de esquema hasta que se corrija el problema.
 
-2.  En la base de datos del punto de conexión donde se produce el problema, deshabilite el desencadenador AFTER INSERT en el punto de conexión donde no se puede hacer el cambio de esquema. Esta acción permite sincronizar el comando de cambios de esquema.
+1.  En la base de datos del punto de conexión donde se produce el problema, deshabilite el desencadenador AFTER INSERT en el punto de conexión donde no se puede hacer el cambio de esquema. Esta acción permite sincronizar el comando de cambios de esquema.
 
-3.  Desencadene la sincronización para sincronizar la tabla de seguimiento de cambios de esquema.
+1.  Desencadene la sincronización para sincronizar la tabla de seguimiento de cambios de esquema.
 
-4.  En la base de datos del punto de conexión donde se produce el problema, consulte la tabla del historial de cambios de esquema para obtener el identificador del último comando de cambios de esquema aplicado.
+1.  En la base de datos del punto de conexión donde se produce el problema, consulte la tabla del historial de cambios de esquema para obtener el identificador del último comando de cambios de esquema aplicado.
 
-5.  Consulte la tabla de seguimiento de cambios de esquema para mostrar todos los comandos que tengan un identificador mayor que el valor del identificador que recuperó en el paso anterior.
+1.  Consulte la tabla de seguimiento de cambios de esquema para mostrar todos los comandos que tengan un identificador mayor que el valor del identificador que recuperó en el paso anterior.
 
     a.  Omita los comandos que no se pueden ejecutar en la base de datos del punto de conexión. Tiene que resolver la incoherencia del esquema. Revierta los cambios al esquema original si la incoherencia afecta la aplicación.
 
     b.  Aplique manualmente los comandos que se deben aplicar.
 
-6.  Actualice la tabla del historial de cambios de esquema y establezca el último identificador aplicado en el valor correcto.
+1.  Actualice la tabla del historial de cambios de esquema y establezca el último identificador aplicado en el valor correcto.
 
-7.  Revise si el esquema está actualizado.
+1.  Revise si el esquema está actualizado.
 
-8.  Vuelva a habilitar el desencadenador AFTER INSERT que se deshabilitó en el segundo paso.
+1.  Vuelva a habilitar el desencadenador AFTER INSERT que se deshabilitó en el segundo paso.
 
-9.  Vuelva a habilitar el desencadenador DDL que se deshabilitó en el primer paso.
+1.  Vuelva a habilitar el desencadenador DDL que se deshabilitó en el primer paso.
 
 Si quiere limpiar los registros de la tabla de seguimiento de cambios de esquema, use DELETE en lugar de TRUNCATE. Nunca use DBCC CHECKIDENT para propagar la columna de identidad en la tabla de seguimiento de cambios de esquema. Si es necesario realizar una propagación, puede crear tablas de seguimiento de cambios de esquema nuevas y actualizar el nombre de la tabla en el desencadenador DDL.
 

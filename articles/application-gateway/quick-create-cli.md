@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 99c3975c6ab2c7a20dfbab519dae575a2a61465f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 282f6d965ea85b25f1eada1a63897734c6c7b298
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160365"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435271"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Guía de inicio rápido: Dirección del tráfico web con Azure Application Gateway: CLI de Azure
 
@@ -34,7 +34,7 @@ Si decide instalar y usar la CLI en un entorno local, para esta guía de inicio 
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Siempre debe crear los recursos en un grupo de recursos. Para crear un grupo de recursos, use [az group create](/cli/azure/group#az_group_create). 
+Siempre debe crear los recursos en un grupo de recursos. Para crear un grupo de recursos, use [az group create](/cli/azure/group#az-group-create). 
 
 En el ejemplo siguiente, se crea un grupo de recursos llamado *myResourceGroupAG* en la ubicación *eastus*.
 
@@ -44,9 +44,9 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Crear recursos de red 
 
-Debe crear una red virtual para que la puerta de enlace de aplicaciones pueda comunicarse con otros recursos. Puede crear una red virtual a la vez que crea la puerta de enlace de aplicaciones. En este ejemplo se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para las máquinas virtuales. 
+Debe crear una red virtual para que la puerta de enlace de aplicaciones pueda comunicarse con otros recursos. Puede crear una red virtual a la vez que crea la puerta de enlace de aplicaciones. En este ejemplo, se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para las máquinas virtuales. 
 
-Cree la red virtual y una subred mediante [az network vnet create](/cli/azure/vnet#az_vnet_create). Cree la dirección IP pública mediante [az network public-ip create](/cli/azure/public-ip#az_public_ip_create).
+Cree la red virtual y una subred mediante [az network vnet create](/cli/azure/vnet#az-vnet-create). Cree la dirección IP pública mediante [az network public-ip create](/cli/azure/public-ip#az-public-ip-create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -118,7 +118,7 @@ runcmd:
   - nodejs index.js
 ```
 
-Cree las interfaces de red con [az network nic create](/cli/azure/network/nic#az_network_nic_create). Cree las máquinas virtuales con [az vm create](/cli/azure/vm#az_vm_create).
+Cree las interfaces de red con [az network nic create](/cli/azure/network/nic#az-network-nic-create). Cree las máquinas virtuales con [az vm create](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -140,7 +140,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Creación de la puerta de enlace de aplicaciones
 
-Cree una puerta de enlace de aplicaciones mediante [az network application-gateway create](/cli/azure/application-gateway#az_application_gateway_create). Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. Las direcciones IP privadas de las interfaces de red se agregan como servidores en el grupo de servidores back-end de la puerta de enlace de aplicaciones.
+Cree una puerta de enlace de aplicaciones mediante [az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create). Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. Las direcciones IP privadas de las interfaces de red se agregan como servidores en el grupo de servidores back-end de la puerta de enlace de aplicaciones.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
@@ -168,7 +168,7 @@ La puerta de enlace de aplicaciones puede tardar hasta 30 minutos en crearse. De
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-No es necesario instalar NGINX para crear la puerta de enlace de aplicaciones, pero se instaló en esta guía de inicio rápido para comprobar si la puerta de enlace de aplicaciones se ha creado correctamente. Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
+No es necesario instalar NGINX para crear la puerta de enlace de aplicaciones, pero se instaló en esta guía de inicio rápido para comprobar si la puerta de enlace de aplicaciones se ha creado correctamente. Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -180,11 +180,11 @@ az network public-ip show \
 
 ![Prueba de la puerta de enlace de aplicaciones](./media/quick-create-cli/application-gateway-nginxtest.png)
 
-Al actualizar el explorador, verá aparecer el nombre de la otra máquina virtual.
+Al actualizar el explorador, verá aparecer el nombre de la otra VM.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Explore los recursos que se han creado con la puerta de enlace de aplicaciones y, cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos, la puerta de enlace de aplicaciones y todos los recursos relacionados.
+Explore los recursos que se han creado con la puerta de enlace de aplicaciones y, cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/group#az-group-delete) para quitar el grupo de recursos, la puerta de enlace de aplicaciones y todos los recursos relacionados.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupAG
@@ -193,5 +193,5 @@ az group delete --name myResourceGroupAG
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Administración del tráfico web con Application Gateway mediante la CLI de Azure](./tutorial-manage-web-traffic-cli.md)
+> [Administrar el tráfico web con Application Gateway mediante la CLI de Azure](./tutorial-manage-web-traffic-cli.md)
 

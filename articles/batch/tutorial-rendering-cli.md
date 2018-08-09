@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 5cd4ce6b04f9257de13aad6e59eb772fbe2fa558
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8dfec4c30a9610d8f30ceea131ebd7d2e1d64aa1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31789306"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432735"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Representación de una escena con Azure Batch 
 
@@ -31,7 +31,7 @@ En este tutorial se representa una escena 3DS Max con Batch mediante el represen
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 La escena de 3DS Max de este tutorial se encuentra en [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), junto con un script de ejemplo de Bash y archivos de configuración JSON. La escena 3DS Max procede de los [archivos de ejemplo de Autodesk 3DS Max](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Los archivos de ejemplo de Autodesk 3DS Max están disponibles con licencias tipo Creative Commons Attribution-NonCommercial-Share. Copyright © Autodesk, Inc.).
 
@@ -43,7 +43,7 @@ Si decide instalar y usar la CLI localmente, para este tutorial es preciso que e
 
 Si no lo ha hecho ya, cree un grupo de recursos, una cuenta de Batch y una de Storage vinculada en la suscripción. 
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). En el ejemplo siguiente se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus2*.
+Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az-group-create). En el ejemplo siguiente se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus2*.
 
 ```azurecli-interactive 
 az group create \
@@ -51,7 +51,7 @@ az group create \
     --location eastus2
 ```
 
-Cree una cuenta de Azure Storage en el grupo de recursos con el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create). Para este tutorial se utiliza la cuenta de Storage para almacenar una escena 3 DS Max de entrada y la salida representada.
+Cree una cuenta de Azure Storage en el grupo de recursos con el comando [az storage account create](/cli/azure/storage/account#az-storage-account-create). Para este tutorial se utiliza la cuenta de Storage para almacenar una escena 3 DS Max de entrada y la salida representada.
 
 ```azurecli-interactive
 az storage account create \
@@ -60,7 +60,7 @@ az storage account create \
     --location eastus2 \
     --sku Standard_LRS
 ```
-Cree una cuenta de Batch con el comando [az batch account create](/cli/azure/batch/account#az_batch_account_create). En el ejemplo siguiente se crea una cuenta de Batch llamada *mybatchaccount* en *myResourceGroup* y se vincula a la cuenta de almacenamiento que ha creado.  
+Cree una cuenta de Batch con el comando [az batch account create](/cli/azure/batch/account#az-batch-account-create). En el ejemplo siguiente se crea una cuenta de Batch llamada *mybatchaccount* en *myResourceGroup* y se vincula a la cuenta de almacenamiento que ha creado.  
 
 ```azurecli-interactive 
 az batch account create \
@@ -70,7 +70,7 @@ az batch account create \
     --location eastus2
 ```
 
-Para crear y administrar grupos de proceso y trabajos, es preciso autenticarse en Batch. Inicie sesión en la cuenta con el comando [az batch account login](/cli/azure/batch/account#az_batch_account_login). Tras iniciar sesión, los comandos `az batch` usan este contexto de la cuenta. En el ejemplo siguiente se utiliza la autenticación de clave compartida, en función del nombre y la clave de la cuenta de Batch. Batch también admite la autenticación a través de [Azure Active Directory](batch-aad-auth.md) para usuarios individuales o una aplicaciones desatendidas.
+Para crear y administrar grupos de proceso y trabajos, es preciso autenticarse en Batch. Inicie sesión en la cuenta con el comando [az batch account login](/cli/azure/batch/account#az-batch-account-login). Tras iniciar sesión, los comandos `az batch` usan este contexto de la cuenta. En el ejemplo siguiente se utiliza la autenticación de clave compartida, en función del nombre y la clave de la cuenta de Batch. Batch también admite la autenticación a través de [Azure Active Directory](batch-aad-auth.md) para usuarios individuales o una aplicaciones desatendidas.
 
 ```azurecli-interactive 
 az batch account login \
@@ -80,7 +80,7 @@ az batch account login \
 ```
 ## <a name="upload-a-scene-to-storage"></a>Carga de una escena en Storage
 
-Para cargar la escena de entrada escena en Storage, acceda primero a la cuenta de Storage y cree un contenedor de destino para los blobs. Para acceder a la cuenta de Azure Storage, exporte las variables de entorno `AZURE_STORAGE_KEY` y `AZURE_STORAGE_ACCOUNT`. El primer comando de shell de Bash usa el comando [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) para obtener la primera clave de cuenta. Después de establecer estas variables de entorno, los comandos de almacenamiento usan este contexto de la cuenta.
+Para cargar la escena de entrada escena en Storage, acceda primero a la cuenta de Storage y cree un contenedor de destino para los blobs. Para acceder a la cuenta de Azure Storage, exporte las variables de entorno `AZURE_STORAGE_KEY` y `AZURE_STORAGE_ACCOUNT`. El primer comando de shell de Bash usa el comando [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) para obtener la primera clave de cuenta. Después de establecer estas variables de entorno, los comandos de almacenamiento usan este contexto de la cuenta.
 
 ```azurecli-interactive
 export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup -o tsv --query [0].value)
@@ -88,7 +88,7 @@ export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorage
 export AZURE_STORAGE_ACCOUNT=mystorageaccount
 ```
 
-Ahora crearemos un contenedor de blobs en la cuenta de Storage para los archivos de la escena. En el ejemplo siguiente se usa el comando [az storage container create](/cli/azure/storage/container#az_storage_container_create) para crear un contenedor de blobs denominado *scenefiles* que permita el acceso de lectura público.
+Ahora crearemos un contenedor de blobs en la cuenta de Storage para los archivos de la escena. En el ejemplo siguiente se usa el comando [az storage container create](/cli/azure/storage/container#az-storage-container-create) para crear un contenedor de blobs denominado *scenefiles* que permita el acceso de lectura público.
 
 ```azurecli-interactive
 az storage container create \
@@ -102,7 +102,7 @@ Descargue la escena `MotionBlur-Dragon-Flying.max` de [GitHub](https://github.co
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
 ```
 
-Cargue el archivo de la escena del directorio de trabajo local en el contenedor de blobs. En el ejemplo siguiente se usa el comando [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch), que puede cargar varios archivos:
+Cargue el archivo de la escena del directorio de trabajo local en el contenedor de blobs. En el ejemplo siguiente se usa el comando [az storage blob upload-batch](/cli/azure/storage/blob#az-storage-blob-upload-batch), que puede cargar varios archivos:
 
 ```azurecli-interactive
 az storage blob upload-batch \
@@ -112,7 +112,7 @@ az storage blob upload-batch \
 
 ## <a name="create-a-rendering-pool"></a>Creación de un grupo de representación
 
-Cree un grupo de Batch para la representación mediante el comando [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create). En este ejemplo se especifica la configuración del grupo en un archivo JSON. En el shell actual, cree un archivo denominado *mypool.json*, y copie y pegue el contenido siguiente. Asegúrese de copiar todo el texto correctamente. (Puede descargar el archivo de [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/mypool.json)).
+Cree un grupo de Batch para la representación mediante el comando [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create). En este ejemplo se especifica la configuración del grupo en un archivo JSON. En el shell actual, cree un archivo denominado *mypool.json*, y copie y pegue el contenido siguiente. Asegúrese de copiar todo el texto correctamente. (Puede descargar el archivo de [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/mypool.json)).
 
 
 ```json
@@ -148,7 +148,7 @@ Cree el grupo; para ello, pase el archivo JSON al comando `az batch pool create`
 az batch pool create \
     --json-file mypool.json
 ``` 
-El grupo tardará unos minutos en aprovisionarse. Para ver el estado del grupo, ejecute el comando [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show). El siguiente comando obtiene el estado de asignación del grupo:
+El grupo tardará unos minutos en aprovisionarse. Para ver el estado del grupo, ejecute el comando [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show). El siguiente comando obtiene el estado de asignación del grupo:
 
 ```azurecli-interactive
 az batch pool show \
@@ -160,7 +160,7 @@ Realice los pasos siguientes para crear un trabajo y tareas mientras cambia el e
 
 ## <a name="create-a-blob-container-for-output"></a>Creación de un contenedor de blobs para la salida
 
-En los ejemplos de este tutorial, todas las tareas del trabajo de representación crean un archivo de salida. Antes de programar el trabajo, cree un contenedor de blobs en la cuenta de Storage como destino de los archivos de salida. En el ejemplo siguiente se usa el comando [az storage container create](/cli/azure/storage/container#az_storage_container_create) para crear el contenedor *job-myrenderjob* con acceso de lectura público. 
+En los ejemplos de este tutorial, todas las tareas del trabajo de representación crean un archivo de salida. Antes de programar el trabajo, cree un contenedor de blobs en la cuenta de Storage como destino de los archivos de salida. En el ejemplo siguiente se usa el comando [az storage container create](/cli/azure/storage/container#az-storage-container-create) para crear el contenedor *job-myrenderjob* con acceso de lectura público. 
 
 ```azurecli-interactive
 az storage container create \
@@ -168,7 +168,7 @@ az storage container create \
     --name job-myrenderjob
 ```
 
-Para escribir archivos de salida en el contenedor, Batch debe usar un token de firma de acceso compartido (SAS). Cree el token con el comando [az storage account enerate-sas](/cli/azure/storage/account#az_storage_account_generate_sas). En este ejemplo se crea un token para escribir en cualquier contenedor de blobs de la cuenta que expira el 15 de noviembre de 2018:
+Para escribir archivos de salida en el contenedor, Batch debe usar un token de firma de acceso compartido (SAS). Cree el token con el comando [az storage account enerate-sas](/cli/azure/storage/account#az-storage-account-generate-sas). En este ejemplo se crea un token para escribir en cualquier contenedor de blobs de la cuenta que expira el 15 de noviembre de 2018:
 
 ```azurecli-interactive
 az storage account generate-sas \
@@ -188,7 +188,7 @@ se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ### <a name="create-a-job"></a>Creación de un trabajo
 
-Cree un trabajo de representación con el comando [az batch job create](/cli/azure/batch/job#az_batch_job_create) para ejecutarlo en el grupo. Inicialmente, el trabajo no tiene tareas.
+Cree un trabajo de representación con el comando [az batch job create](/cli/azure/batch/job#az-batch-job-create) para ejecutarlo en el grupo. Inicialmente, el trabajo no tiene tareas.
 
 ```azurecli-interactive
 az batch job create \
@@ -198,7 +198,7 @@ az batch job create \
 
 ### <a name="create-a-task"></a>Crea una tarea.
 
-Use el comando [az batch task create](/cli/azure/batch/task#az_batch_task_create) para crear una tarea de representación en el trabajo. En este ejemplo se especifica la configuración de la tarea en un archivo JSON. En el shell actual, cree un archivo denominado *myrendertask.json*, y copie y pegue el contenido siguiente. Asegúrese de copiar todo el texto correctamente. (Puede descargar el archivo de [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json)).
+Use el comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para crear una tarea de representación en el trabajo. En este ejemplo se especifica la configuración de la tarea en un archivo JSON. En el shell actual, cree un archivo denominado *myrendertask.json*, y copie y pegue el contenido siguiente. Asegúrese de copiar todo el texto correctamente. (Puede descargar el archivo de [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json)).
 
 La tarea especifica un comando de 3DS Max para representar un fotograma individual de la escena *MotionBlur-DragonFlying.max*.
 
@@ -256,7 +256,7 @@ Batch programa la tarea y esta se ejecuta en cuanto haya un nodo del grupo dispo
 
 ### <a name="view-task-output"></a>Visualización de la salida de la tarea
 
-La tarea tarda unos minutos en ejecutarse. Use el comando [az batch task show](/cli/azure/batch/task#az_batch_task_show) para ver los detalles de la tarea.
+La tarea tarda unos minutos en ejecutarse. Use el comando [az batch task show](/cli/azure/batch/task#az-batch-task-show) para ver los detalles de la tarea.
 
 ```azurecli-interactive
 az batch task show \
@@ -264,7 +264,7 @@ az batch task show \
     --task-id myrendertask
 ```
 
-La tarea genera el archivo *dragon0001.jpg* en el nodo de proceso y lo carga en el contenedor *job-myrenderjob* de la cuenta de Storage. Para ver la salida, descargue el archivo de Storage en el equipo local mediante el comando [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download).
+La tarea genera el archivo *dragon0001.jpg* en el nodo de proceso y lo carga en el contenedor *job-myrenderjob* de la cuenta de Storage. Para ver la salida, descargue el archivo de Storage en el equipo local mediante el comando [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download).
 
 ```azurecli-interactive
 az storage blob download \
@@ -281,7 +281,7 @@ Abra *dragon.jpg* en el equipo. La imagen representada será similar a la siguie
 
 ## <a name="scale-the-pool"></a>Escalado del grupo
 
-Ahora, modifique el grupo para prepararnos para un trabajo de representación mayor, con varios fotogramas. Batch ofrece distintas maneras de escalar los recursos de proceso, como el [escalado automático](batch-automatic-scaling.md), que agrega o quita nodos al cambiar las necesidades de la tarea. En este ejemplo básico, utilice el comando [az batch pool resize](/cli/azure/batch/pool#az_batch_pool_resize) para aumentar el número de nodos de baja prioridad del grupo a *6*:
+Ahora, modifique el grupo para prepararnos para un trabajo de representación mayor, con varios fotogramas. Batch ofrece distintas maneras de escalar los recursos de proceso, como el [escalado automático](batch-automatic-scaling.md), que agrega o quita nodos al cambiar las necesidades de la tarea. En este ejemplo básico, utilice el comando [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) para aumentar el número de nodos de baja prioridad del grupo a *6*:
 
 ```azurecli-interactive
 az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-low-priority-nodes 6
@@ -291,7 +291,7 @@ El tamaño del grupo tardará unos minutos en cambiar. Mientras se realiza el pr
 
 ## <a name="render-a-multiframe-scene"></a>Representación de una escena de varios fotogramas
 
-Como en el ejemplo de un solo fotograma, utilice el comando [az batch task create](/cli/azure/batch/task#az_batch_task_create) para crear tareas de representación en el trabajo denominado *myrenderjob*. En este caso, especifique la configuración de la tarea en un archivo JSON denominado *myrendertask_multi.json*. (Puede descargar el archivo de [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json)). Cada una de las seis tareas especifica una línea de comandos Arnold que representa un fotograma de la escena 3DS Max *MotionBlur-DragonFlying.max*.
+Como en el ejemplo de un solo fotograma, utilice el comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para crear tareas de representación en el trabajo denominado *myrenderjob*. En este caso, especifique la configuración de la tarea en un archivo JSON denominado *myrendertask_multi.json*. (Puede descargar el archivo de [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json)). Cada una de las seis tareas especifica una línea de comandos Arnold que representa un fotograma de la escena 3DS Max *MotionBlur-DragonFlying.max*.
 
 Cree un archivo en el shell actual con el nombre *myrendertask_multi.json*, y copie y pegue el contenido del archivo descargado. Modifique los elementos `blobSource` y `containerURL` del archivo JSON de manera que incluyan el nombre de la cuenta de Storage y el token de SAS. Asegúrese de cambiar la configuración de las seis tareas. Guarde el archivo y ejecute el siguiente comando para poner las tareas en cola:
 
@@ -301,7 +301,7 @@ az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 
 ### <a name="view-task-output"></a>Visualización de la salida de la tarea
 
-La tarea tarda unos minutos en ejecutarse. Use el comando [az batch task list](/cli/azure/batch/task#az_batch_task_list) para ver el estado de las tareas. Por ejemplo: 
+La tarea tarda unos minutos en ejecutarse. Use el comando [az batch task list](/cli/azure/batch/task#az-batch-task-list) para ver el estado de las tareas. Por ejemplo: 
 
 ```azurecli-interactive
 az batch task list \
@@ -309,7 +309,7 @@ az batch task list \
     --output table
 ```
 
-Use el comando [az batch task show](/cli/azure/batch/task#az_batch_task_show) para ver los detalles de una tarea. Por ejemplo: 
+Use el comando [az batch task show](/cli/azure/batch/task#az-batch-task-show) para ver los detalles de una tarea. Por ejemplo: 
 
 ```azurecli-interactive
 az batch task show \
@@ -317,7 +317,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-Las tareas generan archivos de salida denominados *dragon0002.jpg* - *dragon0007.jpg* en los nodos de proceso y los cargan en el contenedor *job-myrenderjob* de la cuenta de Storage. Para ver la salida, descargue los archivos en una carpeta del equipo local mediante el comando [az storage blob download-batch](/cli/azure/storage/blob#az_storage_blob_download_batch). Por ejemplo: 
+Las tareas generan archivos de salida denominados *dragon0002.jpg* - *dragon0007.jpg* en los nodos de proceso y los cargan en el contenedor *job-myrenderjob* de la cuenta de Storage. Para ver la salida, descargue los archivos en una carpeta del equipo local mediante el comando [az storage blob download-batch](/cli/azure/storage/blob#az-storage-blob-download_batch). Por ejemplo: 
 
 ```azurecli-interactive
 az storage blob download-batch \
@@ -332,7 +332,7 @@ Abra uno de los archivos en el equipo. El fotograma representado 6 será similar
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando no necesite el grupo de recursos, la cuenta de Batch, los grupos y todos los recursos relacionados, puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para quitarlos. Los recursos se eliminan como se indica a continuación:
+Cuando no necesite el grupo de recursos, la cuenta de Batch, los grupos y todos los recursos relacionados, puede usar el comando [az group delete](/cli/azure/group#az-group-delete) para quitarlos. Los recursos se eliminan como se indica a continuación:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

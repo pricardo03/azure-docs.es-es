@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 151aa2f8065c7232284c560ff515afab40ae7f5c
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 7e71ff5f5da17165d5127f3547d8eb0756411b8c
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415768"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597700"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introducción a la administración de dispositivos en Azure Active Directory
 
@@ -32,7 +32,7 @@ En un mundo donde la nube y la movilidad son prioritarias, Azure Active Director
 
 Los usuarios acceden a los recursos corporativos a través de sus dispositivos. Para proteger los recursos corporativos, como administrador de TI, desea tener control sobre estos dispositivos. De esta forma, se asegura de que los usuarios acceden a los recursos desde dispositivos que satisfacen los estándares de seguridad y cumplimiento. 
 
-La administración de dispositivos también es la base del [acceso condicional basado en dispositivos](../active-directory-conditional-access-policy-connected-applications.md). Con el acceso condicional basado en dispositivos, puede asegurarse de que el acceso a los recursos del entorno solo es posible con dispositivos administrados.   
+La administración de dispositivos también es la base del [acceso condicional basado en dispositivos](../conditional-access/require-managed-devices.md). Con el acceso condicional basado en dispositivos, puede asegurarse de que el acceso a los recursos del entorno solo es posible con dispositivos administrados.   
 
 En este artículo se explica cómo funciona la administración de dispositivos en Azure Active Directory.
 
@@ -178,7 +178,7 @@ Como regla general, debe utilizar:
 
 - Para obtener información general sobre cómo administrar dispositivos en Azure Portal, vea [Managing devices using the Azure portal (Administración de dispositivos con Azure Portal)](device-management-azure-portal.md)
 
-- Para más información sobre el acceso condicional basado en dispositivo, consulte las [directivas de acceso condicional basado en dispositivos para Azure Active Directory](../active-directory-conditional-access-policy-connected-applications.md).
+- Para más información sobre el acceso condicional basado en dispositivo, consulte las [directivas de acceso condicional basado en dispositivos para Azure Active Directory](../conditional-access/require-managed-devices.md).
 
 - Para configurar:
     - Dispositivos Windows 10 registrados en Azure Active Directory, vea [How to configure Azure Active Directory registered Windows 10 devices (Configuración de dispositivos Windows 10 registrados en Azure Active Directory)](../user-help/device-management-azuread-registered-devices-windows10-setup.md)

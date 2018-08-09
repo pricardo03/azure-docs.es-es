@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 5ae7a0d3aa0606fd02bfbaa0dcebdfaed5d11eb7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: a6f6beedfc6c23be70693428388f6d0e585260bc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283108"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433177"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager
 
@@ -136,7 +136,7 @@ Después de guardar una plantilla de Resource Manager y personalizarla según su
 - En [Implementación de recursos con plantillas de Resource Manager y CLI de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) se describe cómo usar CLI de Azure con plantillas de Resource Manager para implementar recursos en Azure.
 
 > [!NOTE]
-> Solo un usuario con permisos de propietario de laboratorio puede crear máquinas virtuales desde una plantilla de Resource Manager con Azure PowerShell. Si desea automatizar la creación de máquinas virtuales mediante una plantilla de Resource Manager y solo tiene permisos de usuario, puede usar el comando [ **az lab vm create** de la CLI ](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
+> Solo un usuario con permisos de propietario de laboratorio puede crear máquinas virtuales desde una plantilla de Resource Manager con Azure PowerShell. Si desea automatizar la creación de máquinas virtuales mediante una plantilla de Resource Manager y solo tiene permisos de usuario, puede usar el comando [ **az lab vm create** de la CLI ](https://docs.microsoft.com/cli/azure/lab/vm#az-lab-vm-create).
 
 ### <a name="general-limitations"></a>Limitaciones generales 
 

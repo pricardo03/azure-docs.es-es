@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: jeedes
-ms.openlocfilehash: d6cd215651dddf9ddd6d0bce17114ab0c0900da8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2bb9df9fe0cb20cdd50d7ba716ee5cba562f3e1b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224222"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448264"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>Tutorial: Integración de Azure Active Directory con Rally Software
 
@@ -34,7 +34,7 @@ La integración de Rally Software con Azure AD proporciona las siguientes ventaj
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Rally Software, necesita los siguientes elementos:
 
@@ -53,7 +53,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de Rally Software desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-rally-software-from-the-gallery"></a>Incorporación de Rally Software desde la galería
 Para configurar la integración de Rally Software en Azure AD, deberá agregarlo desde la galería a la lista de aplicaciones SaaS administradas.
@@ -64,15 +64,15 @@ Para configurar la integración de Rally Software en Azure AD, deberá agregarlo
 
     ![Botón Azure Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![Botón Nueva aplicación][3]
 
-4. En el cuadro de búsqueda, escriba **Rally Software**, seleccione **Rally Software** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el cuadro de búsqueda, escriba **Rally Software**, seleccione **Rally Software** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Rally Software en la lista de resultados](./media/rally-software-tutorial/tutorial_rallysoftware_addfromgallery.png)
 
@@ -87,10 +87,10 @@ En Rally Software, asigne el valor del **nombre de usuario** en Azure AD como va
 Para configurar y probar el inicio de sesión único de Azure AD con Rally Software, debe completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Rally Software](#create-a-rally-software-test-user)**: para tener un homólogo de Britta Simon en Rally Software que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de Rally Software](#create-a-rally-software-test-user)**: para tener un homólogo de Britta Simon en Rally Software que esté vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -102,11 +102,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Cuadro de diálogo Inicio de sesión único](./media/rally-software-tutorial/tutorial_rallysoftware_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Rally Software**, lleve a cabo los pasos siguientes:
+1. En la sección **Dominio y direcciones URL de Rally Software**, lleve a cabo los pasos siguientes:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Rally Software](./media/rally-software-tutorial/tutorial_rallysoftware_url.png)
 
@@ -119,27 +119,27 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
  
 
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
     ![Vínculo de descarga del certificado](./media/rally-software-tutorial/tutorial_rallysoftware_certificate.png) 
 
-5. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Botón Configurar inicio de sesión único](./media/rally-software-tutorial/tutorial_general_400.png)
 
-6. En la sección **Configuración de Rally Software**, haga clic en **Configurar Rally Software** para abrir la ventana **Configurar inicio de sesión**. Copie los valores de **Sign-Out URL (Dirección URL de cierre de sesión) y SAML Entity ID (Identificador de entidad de SAML)** de la sección **Referencia rápida**.
+1. En la sección **Configuración de Rally Software**, haga clic en **Configurar Rally Software** para abrir la ventana **Configurar inicio de sesión**. Copie los valores de **Sign-Out URL (Dirección URL de cierre de sesión) y SAML Entity ID (Identificador de entidad de SAML)** de la sección **Referencia rápida**.
 
     ![Configuración de Rally Software](./media/rally-software-tutorial/tutorial_rallysoftware_configure.png) 
 
-7. Inicie sesión en su inquilino de **Rally Software** .
+1. Inicie sesión en su inquilino de **Rally Software** .
 
-8. En la barra de herramientas de la parte superior, haga clic en **Configuración** y seleccione **Suscripción**.
+1. En la barra de herramientas de la parte superior, haga clic en **Configuración** y seleccione **Suscripción**.
    
     ![Suscripción](./media/rally-software-tutorial/ic769531.png "Suscripción")
 
-9. Haga clic en el botón **Acción**. Seleccione **Editar suscripción** en la parte superior derecha de la barra de herramientas.
+1. Haga clic en el botón **Acción**. Seleccione **Editar suscripción** en la parte superior derecha de la barra de herramientas.
 
-10. En la página de diálogo **Suscripción**, realice los pasos siguientes y haga clic en **Guardar y cerrar**:
+1. En la página de diálogo **Suscripción**, realice los pasos siguientes y haga clic en **Guardar y cerrar**:
    
     ![Autenticación](./media/rally-software-tutorial/ic769542.png "Autenticación")
    
@@ -165,15 +165,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Botón Azure Active Directory](./media/rally-software-tutorial/create_aaduser_01.png)
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/rally-software-tutorial/create_aaduser_02.png)
 
-3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
 
     ![Botón Agregar](./media/rally-software-tutorial/create_aaduser_03.png)
 
-4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
+1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
 
     ![Cuadro de diálogo Usuario](./media/rally-software-tutorial/create_aaduser_04.png)
 
@@ -193,13 +193,13 @@ Para que los usuarios de Azure AD puedan inician sesión, deben aprovisionarse p
 
 1. Inicie sesión en su inquilino de Rally Software.
 
-2. Vaya a **Configuración \> USUARIOS** y haga clic en **+ Agregar nuevo**.
+1. Vaya a **Configuración \> USUARIOS** y haga clic en **+ Agregar nuevo**.
    
     ![Usuarios](./media/rally-software-tutorial/ic781039.png "Usuarios")
 
-3. Escriba el nombre en el cuadro de texto Nuevo usuario y luego haga clic en **Agregar con detalles**.
+1. Escriba el nombre en el cuadro de texto Nuevo usuario y luego haga clic en **Agregar con detalles**.
 
-4. En la sección **Crear usuario** , lleve a cabo estos pasos:
+1. En la sección **Crear usuario** , lleve a cabo estos pasos:
    
     ![Creación de usuarios](./media/rally-software-tutorial/ic781040.png "Creación de usuarios")
 
@@ -228,23 +228,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **Rally Software**.
+1. En la lista de aplicaciones, seleccione **Rally Software**.
 
     ![Vínculo a Rally Software en la lista de aplicaciones](./media/rally-software-tutorial/tutorial_rallysoftware_app.png)  
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"][202]
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Panel Agregar asignación][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

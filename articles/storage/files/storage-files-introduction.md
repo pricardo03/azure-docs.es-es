@@ -2,24 +2,18 @@
 title: Introducción a Azure Files | Microsoft Docs
 description: Información general sobre Azure Files, el servicio que permite crear y utilizar recursos compartidos de archivos en red en la nube mediante el protocolo SMB estándar del sector.
 services: storage
-documentationcenter: ''
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/19/2018
 ms.author: renash
-ms.openlocfilehash: b331a6fcc6efd07bf63135e917f9fe55560e4ec7
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.component: files
+ms.openlocfilehash: 7501d28d75f180f289f4e3e130e0a5f7219835b9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158291"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526028"
 ---
 # <a name="introduction-to-azure-files"></a>Introducción a Azure Files
 Azure Files ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo SMB (Bloque de mensajes del servidor)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar. Los recursos compartidos de Azure Files se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. Además, los recursos compartidos de archivos de Azure Files se pueden almacenar en la caché de los servidores de Windows Server con Azure File Sync, lo que permite un acceso rápido allí donde se utilizan los datos.

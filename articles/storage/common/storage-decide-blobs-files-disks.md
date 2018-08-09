@@ -3,16 +3,17 @@ title: Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks
 description: Obtenga información sobre las distintas formas de almacenar datos y acceder a ellos en Azure para que le sea más fácil decidir qué la tecnología usar.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: tamram
-ms.openlocfilehash: ded0884ff83cc214d78f65fed8cefa646f11d952
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: common
+ms.openlocfilehash: 3f2609ea57ea5a5a0cce2544a1031c55199d137b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39530088"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decisión sobre cuándo usar Azure Blobs, Azure Files o Azure Disks
 
@@ -56,8 +57,8 @@ En la tabla siguiente se compara Azure Files con Azure Disks.
 ||||  
 |-|-|-|  
 |**Atributo**|**Azure Disks**|**Archivos de Azure**|  
-|Scope|Exclusivo para una máquina virtual individual|Acceso compartido entre varias máquinas virtuales|  
-|Instantáneas y copia|Sí|Sin |  
+|Ámbito|Exclusivo para una máquina virtual individual|Acceso compartido entre varias máquinas virtuales|  
+|Instantáneas y copia|SÍ|SÍ|  
 |Configuración|Se conecta al iniciarse la máquina virtual|Se conecta una vez iniciada la máquina virtual|  
 |Autenticación|Característica integrada|Configurar con el uso de la red|  
 |Limpieza|Automático|Manual|  

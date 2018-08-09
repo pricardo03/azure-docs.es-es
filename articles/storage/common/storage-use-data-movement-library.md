@@ -2,24 +2,19 @@
 title: Transferencia de datos con la Biblioteca de movimiento de datos de Microsoft Azure Storage | Microsoft Docs
 description: Use la Biblioteca de movimiento de datos para realizar operaciones de movimiento o copia de datos con blobs y contenido de archivos. Copie datos a Azure Storage desde archivos locales o copie datos en o entre cuentas de almacenamiento. Migre fácilmente sus datos a Azure Storage.
 services: storage
-documentationcenter: ''
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
-ms.openlocfilehash: eb96f3697d5369ba96a1b0c491e3eacf09e7aac4
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.component: common
+ms.openlocfilehash: ee24a055c6a3c53b9753728e13a7687e722c1c91
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
-ms.locfileid: "27564746"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526222"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Transferencia de datos con la Biblioteca de movimiento de datos de Microsoft Azure Storage
 
@@ -39,7 +34,7 @@ En este documento se muestra cómo crear una aplicación de consola de .NET Core
 
 **Lo que necesita:**
 
-* [código de Visual Studio](https://code.visualstudio.com/)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * Una [cuenta de almacenamiento de Azure](storage-create-storage-account.md#create-a-storage-account)
 
 > [!NOTE]
@@ -566,7 +561,7 @@ En este ejemplo, se establece el parámetro booleano de `TransferManager.CopyAsy
 ## <a name="conclusion"></a>Conclusión
 Nuestra aplicación de movimiento de datos ahora está completa. [El ejemplo de código completo está disponible en GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En esta introducción, hemos creado una aplicación que interactúa con Azure Storage y se ejecuta en Windows, Linux y MacOS. Esta introducción estaba dedicada a Blob Storage. Sin embargo, estos mismos conocimientos pueden aplicarse a File Storage. Para más información, visite la [documentación de referencia de la de datos de Azure Storage](https://azure.github.io/azure-storage-net-data-movement).
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
