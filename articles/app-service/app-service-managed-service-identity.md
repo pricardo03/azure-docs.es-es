@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: 8305a447ac75cf4c72a332910c9c4c90c1d8eac6
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2e392a3a50cda3daacb5bc358baaea2627eeafc0
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061444"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578837"
 ---
 # <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Uso de Azure Managed Service Identity en App Service y Azure Functions
 
@@ -56,7 +56,7 @@ Para configurar una identidad de servicio administrada mediante la CLI de Azure,
 
 Los siguientes pasos le guiarán por la creación de una aplicación web y la asignación a la misma de una identidad mediante la CLI:
 
-1. Si usa la CLI de Azure en una consola local, lo primero que debe hacer es iniciar sesión en Azure mediante el [inicio de sesión de az](/cli/azure/reference-index#az_login). Use una cuenta asociada a la suscripción de Azure en la que desea implementar la aplicación:
+1. Si usa la CLI de Azure en una consola local, lo primero que debe hacer es iniciar sesión en Azure mediante el [inicio de sesión de az](/cli/azure/reference-index#az-login). Use una cuenta asociada a la suscripción de Azure en la que desea implementar la aplicación:
 
     ```azurecli-interactive
     az login
@@ -184,7 +184,7 @@ Una aplicación con una identidad de servicio administrada tiene dos variables d
 La variable **MSI_ENDPOINT** es una dirección URL local desde la que la aplicación puede solicitar tokens. Para obtener un token para un recurso, realice una solicitud HTTP GET para este punto de conexión, incluyendo los parámetros siguientes:
 
 > [!div class="mx-tdBreakAll"]
-> |Nombre de parámetro|En el|DESCRIPCIÓN|
+> |Nombre de parámetro|En|DESCRIPCIÓN|
 > |-----|-----|-----|
 > |resource|Consultar|El URI del recurso del recurso AAD para el que se debe obtener un token.|
 > |api-version|Consultar|La versión de la API de token que se usará. Actualmente, la única versión admitida es "2017-09-01".|
@@ -202,7 +202,7 @@ Una respuesta 200 OK incluye un cuerpo JSON con las siguientes propiedades:
 > |token_type|Indica el valor de tipo de token. El único tipo que admite Azure AD es portador. Para obtener más información sobre los tokens de portador, consulte [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt)[Marco de autorización de OAuth2.0: uso del token de portador (RFC 6750)].|
 
 
-Esta respuesta es la misma que la [respuesta para la solicitud de token de acceso de servicio a servicio de AAD](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response).
+Esta respuesta es la misma que la [respuesta para la solicitud de token de acceso de servicio a servicio de AAD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
 > [!NOTE] 
 > Las variables de entorno se configuran cuando el proceso se inicia por primera vez, por lo que después de habilitar la funcionalidad Managed Service Identity de la aplicación puede que necesite reiniciar la aplicación, o implementar de nuevo el código, antes de que `MSI_ENDPOINT` y `MSI_SECRET` estén disponibles en el código.

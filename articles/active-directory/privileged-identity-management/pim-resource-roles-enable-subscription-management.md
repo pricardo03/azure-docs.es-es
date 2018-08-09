@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 03/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 6aeb82ff1feb3521f3a09dc1b28186754568bb27
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d7a9c0090d3bfaaf1161b6255c4c0b659c77d692
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443001"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620287"
 ---
 # <a name="enable-subscription-management-in-your-tenant"></a>Habilitar la administración de suscripciones
 
@@ -29,7 +29,7 @@ Como administrador global del directorio, puede que no tenga acceso de forma pre
 
 Cada usuario que tiene asignado el rol de administrador global debe seguir los pasos siguientes para habilitar la administración de suscripciones. Una vez que haya habilitado la administración de suscripciones para usted mismo, puede agregar otros administradores globales que también necesiten obtener acceso a los recursos. No hay ninguna configuración de directorio que permita el acceso de todos los miembros del rol de administrador global.
 
-## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
 Inicie sesión en Azure Portal con una cuenta válida o con un miembro activo del rol de administrador global. Si la cuenta es un administrador global válido, primero debe activar el rol antes de continuar con el siguiente paso.
 

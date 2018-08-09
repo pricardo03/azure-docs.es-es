@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/30/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 9da2454afa130c4c2ccab458099a90d78354b3e2
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 994bd6f2a041e25d15c7e0b4a216952cec4101fa
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358310"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492830"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>Tutorial: 3. Incorporación de entidades de expresiones regulares
 En este tutorial, va a crear una aplicación que demuestra cómo extraer datos con formato de forma coherente desde una expresión con la entidad **Expresión regular**.
@@ -110,15 +110,8 @@ Cree una entidad de expresión regular para decirle a LUIS qué es un formato de
     Debido a que la entidad no es una entidad que se aprende automáticamente, la etiqueta se aplica a las expresiones y se muestra en el sitio web de LUIS tan pronto como se crea.
 
 ## <a name="train-the-luis-app"></a>Entrenamiento de la aplicación de LUIS
-Una entidad de expresión regular no requiere entrenamiento pero las nuevas intenciones y expresiones sí que lo requieren. 
 
-1. En la parte superior derecha del sitio web de LUIS, seleccione el botón **Train** (Entrenar).
-
-    ![Imagen del botón de entrenamiento](./media/luis-quickstart-intents-regex-entity/train-button.png)
-
-2. El entrenamiento se completa cuando ve la barra de estado verde en la parte superior del sitio web que confirma que se ha realizado correctamente.
-
-    ![Imagen de la barra de notificación con la confirmación de realización correcta](./media/luis-quickstart-intents-regex-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicación de la aplicación para obtener la dirección URL del punto de conexión
 
@@ -237,7 +230,8 @@ El bot de chat ahora tiene suficiente información para determinar la acción pr
 LUIS ha terminado con esta solicitud. La aplicación que realiza la llamada, como un bot de chat, puede tomar el resultado topScoringIntent y los números de formulario y buscar una API de terceros. LUIS no hace ese trabajo. LUIS solo determina cuál es la intención del usuario y extrae datos sobre esa intención. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione los puntos suspensivos (***...***) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

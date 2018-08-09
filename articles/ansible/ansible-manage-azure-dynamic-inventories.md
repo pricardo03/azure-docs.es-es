@@ -8,17 +8,17 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 01/14/2018
 ms.topic: article
-ms.openlocfilehash: f29f4ec64b79738cae2ad684610f4817739825a9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 35033f7a6a0340be4dff5fa0051fd3c5ddb3c0eb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153116"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449424"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Uso de Ansible para administrar sus inventarios dinámicos de Azure
 Ansible puede utilizarse para extraer información de inventario de varios orígenes (incluidos orígenes en la nube como Azure) en un *inventario dinámico*. En este artículo, usará [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) para configurar un inventario dinámico de Azure con Ansible en el que crear dos máquinas virtuales, etiquetará una de esas máquinas virtuales e instalará Nginx en la máquina virtual etiquetada.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - **Suscripción a Azure**: si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 
@@ -57,7 +57,7 @@ Ansible puede utilizarse para extraer información de inventario de varios oríg
 ## <a name="tag-a-virtual-machine"></a>Etiquetado de una máquina virtual
 Puede [usar etiquetas para organizar los recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#azure-cli) por categorías definidas por el usuario. 
 
-Escriba el comando [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az_resource_tag) siguiente para etiquetar la máquina virtual `ansible-inventory-test-vm1` con la clave `nginx`:
+Escriba el comando [az resource tag](/cli/azure/resource?view=azure-cli-latest.md#az-resource-tag) siguiente para etiquetar la máquina virtual `ansible-inventory-test-vm1` con la clave `nginx`:
 
 ```azurecli-interactive
 az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
@@ -175,7 +175,7 @@ El objetivo de las etiquetas es permitir que se pueda trabajar de forma rápida 
 ## <a name="test-nginx-installation"></a>Prueba de la instalación de Nginx
 En esta sección se muestra una técnica para probar que Nginx está instalado en la máquina virtual.
 
-1. Use el comando [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_ip_addresses) para recuperar la dirección IP de la máquina virtual `ansible-inventory-test-vm1`. El valor devuelto (dirección IP de la máquina virtual) se utiliza entonces como parámetro del comando SSH para conectarse a la máquina virtual.
+1. Use el comando [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) para recuperar la dirección IP de la máquina virtual `ansible-inventory-test-vm1`. El valor devuelto (dirección IP de la máquina virtual) se utiliza entonces como parámetro del comando SSH para conectarse a la máquina virtual.
 
     ```azurecli-interactive
     ssh `az vm list-ip-addresses \

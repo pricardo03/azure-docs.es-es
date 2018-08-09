@@ -2,26 +2,20 @@
 title: Creación, administración o eliminación de una cuenta de almacenamiento en Azure Portal | Microsoft Docs
 description: Cree una nueva cuenta de almacenamiento, administre las claves de acceso de dicha cuenta o elimínela en Azure Portal. Obtenga información acerca de las cuentas de almacenamiento estándar y premium.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 87c37da0-6cc6-4d88-a330-ef2896a1531d
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 f1_keywords:
 - sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: ce561c61d25946a508df3e92c461f1c8e889a07e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: common
+ms.openlocfilehash: 980053adc89cc121f3218233d521c8db4f075eb7
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776727"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523655"
 ---
 # <a name="about-azure-storage-accounts"></a>Acerca de las cuentas de almacenamiento de Azure
 
@@ -69,7 +63,7 @@ También puede configurar un nombre de dominio personalizado para usarlo con la 
 3. Escriba un nombre para la cuenta de almacenamiento. Consulte [Puntos de conexión de cuenta de almacenamiento](#storage-account-endpoints) para más información sobre la forma en que se usará el nombre de la cuenta de almacenamiento para dirigir los objetos en Azure Storage.
    
    > [!NOTE]
-   > Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas.
+   > Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula.
    > 
    > El nombre de la cuenta de almacenamiento debe ser único dentro de Azure. El Portal de Azure indicará si el nombre de la cuenta de almacenamiento que seleccione ya está en uso.
    > 

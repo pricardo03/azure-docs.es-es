@@ -4,16 +4,16 @@ description: Describe cómo Azure Policy usa la definición de directiva de recu
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 08/03/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 7f01464c4b9063f20a83c3626d7f92a5e0524f7a
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: ced8ebad0122973595cdede4497cd200e3090043
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989132"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524114"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -219,19 +219,6 @@ Se admiten los siguientes campos:
   - Ejemplo: `tags.[Acct.CostCenter]` donde **Acct.CostCenter** es el nombre de la etiqueta.
 - alias de propiedad: para obtener una lista, vea [Alias](#aliases).
 
-### <a name="alternative-accessors"></a>Descriptores de acceso alternativos
-
-**Field** es el descriptor de acceso principal usado en reglas de directiva. Inspecciona directamente el recurso que se va a evaluar. Sin embargo, la directiva es compatible con otro descriptor de acceso, **source**.
-
-```json
-"source": "action",
-"equals": "Microsoft.Compute/virtualMachines/write"
-```
-
-**Source** solo admite un valor, **action**. Action devuelve la acción de autorización de la solicitud que se va a evaluar. Las acciones de autorización se exponen en la sección de autorización del [Registro de actividad](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
-
-Cuando la directiva está evaluando los recursos existentes en segundo plano, establece **action** en una acción de autorización `/write` en el tipo de recurso.
-
 ### <a name="effect"></a>Efecto
 
 La directiva admite tres tipos de efectos:
@@ -275,33 +262,44 @@ La lista de alias siempre está en aumento. Para descubrir qué alias son compat
   $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
   $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
   $authHeader = @{
-      'Content-Type'='application/json'
-      'Authorization'='Bearer ' + $token.AccessToken
+    'Authorization'='Bearer ' + $token.AccessToken
+  }
+
+  # Create a splatting variable for Invoke-RestMethod
+  $invokeRest = @{
+    Uri = 'https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases'
+    Method = 'Get'
+    ContentType = 'application/json'
+    Headers = $authHeader
   }
 
   # Invoke the REST API
-  $response = Invoke-RestMethod -Uri 'https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases' -Method Get -Headers $authHeader
+  $response = Invoke-RestMethod @invokeRest
 
-  # Create an Array List to hold discovered aliases
-  $aliases = New-Object System.Collections.ArrayList
+  # Create an List to hold discovered aliases
+  $aliases = [System.Collections.Generic.List[pscustomobject]]::new()
 
-  foreach ($ns in $response.value) {
-      foreach ($rT in $ns.resourceTypes) {
-          if ($rT.aliases) {
-              foreach ($obj in $rT.aliases) {
+  foreach ($ns in $response.value)
+  {
+      foreach ($rT in $ns.resourceTypes)
+      {
+          if ($rT.aliases)
+          {
+              foreach ($obj in $rT.aliases)
+              {
                   $alias = [PSCustomObject]@{
-                      Namespace       = $ns.namespace
-                      resourceType    = $rT.resourceType
-                      alias           = $obj.name
+                      Namespace    = $ns.namespace
+                      resourceType = $rT.resourceType
+                      alias        = $obj.name
                   }
-                  $aliases.Add($alias) | Out-Null
+                  $aliases.Add($alias)
               }
           }
       }
   }
 
-  # Output the list, sort, and format. You can customize with Where-Object to limit as desired.
-  $aliases | Sort-Object -Property Namespace, resourceType, alias | Format-Table
+  # Output the list and sort it by Namespace, resourceType and alias. You can customize with Where-Object to limit as desired.
+  $aliases | Sort-Object -Property Namespace, resourceType, alias
   ```
 
 - Azure CLI
@@ -309,7 +307,10 @@ La lista de alias siempre está en aumento. Para descubrir qué alias son compat
   ```azurecli-interactive
   # Login first with az login if not using Cloud Shell
 
-  # Get Azure Policy aliases for a specific Namespace
+  # List namespaces
+  az provider list --query [*].namespace
+
+  # Get Azure Policy aliases for a specific Namespace (such as Azure Automation -- Microsoft.Automation)
   az provider show --namespace Microsoft.Automation --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
   ```
 

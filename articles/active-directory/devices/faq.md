@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e6d223b386aea3ca41931c600d16c16b53765f26
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: fd2505d6262948e193531d91222cdec319f33100
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415688"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597160"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Preguntas más frecuentes sobre la administración de dispositivos de Azure Active Directory
 
@@ -37,7 +37,7 @@ ms.locfileid: "39415688"
 
 **Comentarios:**
 
-- Los usuarios que se incluyen en la directiva de acceso condicional necesitan un [versión admitida de Office para Mac OS](../active-directory-conditional-access-technical-reference.md#client-apps-condition) para acceder a los recursos. 
+- Los usuarios que se incluyen en la directiva de acceso condicional necesitan un [versión admitida de Office para Mac OS](../conditional-access/technical-reference.md#client-apps-condition) para acceder a los recursos. 
 
 - Durante el primer intento de acceso, se pide a los usuarios que inscriban el dispositivo mediante el portal de empresa.
 
@@ -146,7 +146,7 @@ En las versiones anteriores del sistema operativo Windows que están unidas a un
 
 **P: Puedo ver el registro del dispositivo en la información del USUARIO en Azure Portal y puedo ver el estado como registrado en el dispositivo. ¿He establecido la configuración correctamente para utilizar el acceso condicional?**
 
-**R:** El estado de unión del dispositivo, especificado en deviceID, debe coincidir con el de Azure AD y satisfacer los criterios de evaluación del acceso condicional. Para más información, consulte [Require managed devices for cloud app access with conditional access](../active-directory-conditional-access-policy-connected-applications.md) (Exigir dispositivos administrados para el acceso a aplicaciones en la nube con acceso condicional).
+**R:** El estado de unión del dispositivo, especificado en deviceID, debe coincidir con el de Azure AD y satisfacer los criterios de evaluación del acceso condicional. Para más información, consulte [Require managed devices for cloud app access with conditional access](../conditional-access/require-managed-devices.md) (Exigir dispositivos administrados para el acceso a aplicaciones en la nube con acceso condicional).
 
 ---
 

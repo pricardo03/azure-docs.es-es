@@ -3,7 +3,7 @@ title: Uso del SDK de Azure WebJobs
 description: Obtenga más información sobre cómo escribir código para el SDK de WebJobs. Cree trabajos de procesamiento en segundo plano basados en eventos que tengan acceso a los datos de los servicios de Azure y de terceros.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 ms.service: app-service-web
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
-ms.author: tdykstra
-ms.openlocfilehash: 08272ba7d828f744336723f25b482bf06b9e43dc
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.author: glenga
+ms.openlocfilehash: 3e06dc82baed4043ce490769aa0ec84ab3de8c24
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234657"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577018"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Uso del SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -32,7 +32,7 @@ En este artículo se proporciona orientación sobre cómo escribir código para 
 > 
 > Para obtener más información, consulte [Compare the WebJobs SDK and Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs) (Comparación del SDK de WebJobs con Azure Functions). 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para trabajar con este artículo, le recomendamos que lea antes [Get started with the WebJobs SDK](webjobs-sdk-get-started.md) (Introducción al SDK de WebJobs).
 
@@ -469,7 +469,7 @@ Cada registro que creó una instancia `ILogger` tiene asociados los valores `Cat
 |Seguimiento       | 0 |
 |Depurar       | 1 |
 |Información | 2 |
-|Warning (Advertencia)     | 3 |
+|Advertencia     | 3 |
 |Error       | 4 |
 |Crítico    | 5 |
 |None        | 6 |

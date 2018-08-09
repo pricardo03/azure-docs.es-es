@@ -2,28 +2,24 @@
 title: Copia de datos en Azure Data Lake Storage Gen2 (versión preliminar) con Distcp | Microsoft Docs
 description: Uso de la herramienta Distcp para copiar datos hacia y desde Data Lake Storage Gen2 (versión preliminar)
 services: storage
-documentationcenter: ''
 author: seguler
-manager: jahogg
-editor: seguler
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.devlang: na
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: seguler
-ms.openlocfilehash: 073d81baca7e174872806301236f547329836c45
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 065c4c4315bda209484cc1b2449980e55d4ac798
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113483"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522703"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-storage-gen2-preview"></a>Uso de Distcp para copiar datos entre Azure Storage Blob y Data Lake Storage Gen2 (versión preliminar)
 
 Si tiene un clúster de HDInsight con acceso a Azure Data Lake Storage Gen2 (versión preliminar), puede usar herramientas del ecosistema de Hadoop, como [Distcp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html), tanto para copiar datos **a un almacenamiento de clúster de HDInsight (WASB) como para copiarlos desde este** a una cuenta compatible con Data Lake Storage Gen2. En este artículo se proporcionan instrucciones sobre cómo usar la herramienta Distcp.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Una cuenta de Azure Storage con la característica de Azure Data Lake Storage (versión preliminar) habilitada**. Para obtener instrucciones para crear uno, consulte [Creación de una cuenta de almacenamiento de Azure Data Lake Storage Gen2 (versión preliminar)](quickstart-create-account.md)

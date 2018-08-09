@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 18673186e80b4d1784fa5b42e622d90dd4c889d4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 3d2c0d21d0cf4cc0654c8f7ee2debee4f0320461
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860010"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577069"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Novedades en Azure Data Catalog
 De forma periódica se publican actualizaciones de **Azure Data Catalog**. No todas las versiones incluyen nuevas características de cara al usuario, ya que algunas se centran en las funcionalidades del servicio back-end. En esta página se resaltan las nuevas funcionalidades de cara al usuario que se han agregado al servicio Azure Data Catalog.
@@ -27,7 +27,7 @@ De forma periódica se publican actualizaciones de **Azure Data Catalog**. No to
 A partir de noviembre de 2017 se han ido agregando las siguientes funcionalidades a Azure Data Catalog:
 
 * Compatibilidad para vincular directamente los términos del glosario empresarial específico en el portal de Data Catalog. Los usuarios pueden copiar vínculos desde el glosario empresarial e insertarlos en documentos, correos electrónicos, informes u otras ubicaciones, para así vincular todos estos elementos directamente con la definición del término del glosario.
-* Compatibilidad con las entidades de servicio de Azure Active Directory. Los administradores de Data Catalog pueden dar permiso a las aplicaciones cliente que usan las entidades de servicio para que puedan obtener acceso al catálogo; asimismo, pueden otorgar a esas aplicaciones permisos específicos del mismo modo que pueden otorgar permisos a usuarios y grupos de seguridad. Para obtener más información, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+* Compatibilidad con las entidades de servicio de Azure Active Directory. Los administradores de Data Catalog pueden dar permiso a las aplicaciones cliente que usan las entidades de servicio para que puedan obtener acceso al catálogo; asimismo, pueden otorgar a esas aplicaciones permisos específicos del mismo modo que pueden otorgar permisos a usuarios y grupos de seguridad. Para obtener más información, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 * Compatibilidad con la autenticación de Azure Active Directory al conectarse a los orígenes de datos de Azure SQL Database y a Azure SQL Data Warehouse mediante la herramienta de registro de orígenes de datos de Data Catalog. Para obtener más información, consulte [Uso de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
 
 

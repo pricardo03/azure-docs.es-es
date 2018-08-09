@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: f44532f0b0c0927c7b06c7e92a4839c5ce762f6e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0b374e92a1e1d9828bc8c095e29e1dfdfd13275b
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196787"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492918"
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Comparación de Azure Data Lake Store y Azure Blob Storage
 La tabla de este artículo resume las diferencias entre Azure Data Lake Store y Azure Blob Storage en algunos aspectos clave del procesamiento de macrodatos. Azure Blob Storage es un almacén de objetos general escalable que está diseñado para una amplia variedad de escenarios de almacenamiento. Azure Data Lake Store un repositorio a hiperescala optimizado cargas de trabajo de análisis de macrodatos.
 
-|  | Almacén de Azure Data Lake | Azure Blob Storage |
+|  | Azure Data Lake Store | Azure Blob Storage |
 | --- | --- | --- |
 | Propósito |Almacenamiento optimizado para cargas de trabajo de análisis de macrodatos |Almacén de objetos de uso general para una amplia variedad de escenarios de almacenamiento, incluidos análisis de macrodatos |
 | Casos de uso |Datos en lote, interactivos, de análisis de transmisiones y de aprendizaje automático, como archivos de registro, datos de IoT, transmisiones de clic y conjuntos de datos grandes |Cualquier tipo de texto o datos binarios, por ejemplo, back-end de aplicación, datos de copia de seguridad, almacenamiento multimedia para streaming y datos de uso general. Además, compatibilidad total con cargas de trabajo de análisis; datos en lote, interactivos, de análisis de streaming y de aprendizaje automático, como archivos de registro, datos de IoT, flujos de clics y conjuntos de datos grandes. |
@@ -30,8 +30,8 @@ La tabla de este artículo resume las diferencias entre Azure Data Lake Store y 
 | sección Estructura |Sistema de archivos jerárquico |Almacén de objetos con el espacio de nombres plano |
 | API |API de REST a través de HTTPS |API de REST a través de HTTP/HTTPS |
 | API de servidor |[WebHDFS-compatible REST API (API de REST compatible con WebHDFS)](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Storage REST API (API de REST de Almacenamiento de blobs de Azure)](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
-| Cliente de sistema de archivos de Hadoop |Sí |Sí |
-| Operaciones de datos: autenticación |Basado en las [identidades de Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md) |Basado en secretos compartidos: [teclas de acceso de cuenta](../storage/common/storage-create-storage-account.md#manage-your-storage-account) y [claves de firma de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
+| Cliente de sistema de archivos de Hadoop |SÍ |SÍ |
+| Operaciones de datos: autenticación |Basado en las [identidades de Azure Active Directory](../active-directory/develop/authentication-scenarios.md) |Basado en secretos compartidos: [teclas de acceso de cuenta](../storage/common/storage-create-storage-account.md#manage-your-storage-account) y [claves de firma de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Operaciones de datos: protocolo de autenticación |OAuth 2.0. Las llamadas deben contener un JWT válido (JSON Web Token) emitido por Azure Active Directory |Código de autenticación de mensajes basado en hash (HMAC). Las llamadas deben contener un hash SHA-256 codificado en Base64 en una parte de la solicitud HTTP. |
 | Operaciones de datos: autorización |Listas de control de acceso (ACL) de POSIX.  Las ACL basadas en identidades de Azure Active Directory se pueden establecer en el nivel de archivo y de carpeta. |Para la autorización de nivel de cuenta: usar [claves de acceso de cuenta](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>Para la cuenta, el contenedor o la autorización de blob - Usar [claves de firma de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Operaciones de datos: auditoría |Disponible. Más información [aquí](data-lake-store-diagnostic-logs.md) . |Disponible |

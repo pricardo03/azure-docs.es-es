@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 483f30a6546cf21d93b96b08eede6afae828d9e4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 45a2747a60df4d91c2fe1c5247e1d4ac82ff819f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38548311"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617156"
 ---
 # <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Activar roles para recursos de Azure mediante Privileged Identity Management
 Privileged Identity Management (PIM) presenta una nueva experiencia de activación de roles para los recursos de Azure. Los miembros del rol que sean aptos pueden programar la activación para una fecha y hora futuras. Asimismo, también pueden seleccionar una duración de activación específica dentro del valor máximo establecido (configurado por los administradores). Para obtener más información, consulte [How to activate or deactivate roles in Azure AD Privileged Identity Management](pim-how-to-activate-role.md) (Cómo activar o desactivar roles en Privileged Identity Management para Azure AD).

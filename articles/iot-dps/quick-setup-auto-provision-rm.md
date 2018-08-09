@@ -1,27 +1,27 @@
 ---
 title: Configuración de Device Provisioning con una plantilla de Azure Resource Manager | Microsoft Docs
 description: 'Guía de inicio rápido de Azure: configuración del servicio Azure IoT Hub Device Provisioning con una plantilla'
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/18/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6bd1073012a68149d194e21e745604a43dfe92c0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e3aa2cf93e529fcc430162ac90be06a75690fb21
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219703"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523451"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Configuración del servicio IoT Hub Device Provisioning con una plantilla de Azure Resource Manager
 
 Puede utilizar [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para configurar mediante programación los recursos de nube de Azure necesarios para aprovisionar los dispositivos. Estos pasos muestran cómo crear una instancia de IoT Hub, una nueva instancia del servicio IoT Hub Device Provisioning y vincular los dos servicios mediante una plantilla de Azure Resource Manager. Esta guía de inicio rápido utiliza la [CLI de Azure 2.0](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) para realizar los pasos de programación necesarios para crear un grupo de recursos e implementar la plantilla, pero puede utilizar fácilmente [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby u otros lenguajes de programación para realizar estos pasos e implementar la plantilla. 
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 - Esta guía de inicio rápido requiere que se ejecute localmente la CLI de Azure. Debe tener instalada la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
@@ -301,7 +301,7 @@ La plantilla que ha definido en el último paso utiliza parámetros para especif
 
 Utilice los siguientes comandos de la CLI de Azure para implementar las plantillas y comprobar la implementación.
 
-1. Para implementar la plantilla, ejecute el siguiente [comando para iniciar una implementación](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create):
+1. Para implementar la plantilla, ejecute el siguiente [comando para iniciar una implementación](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -312,7 +312,7 @@ Utilice los siguientes comandos de la CLI de Azure para implementar las plantill
    ![Aprovisionamiento de salida](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. Para comprobar la implementación, ejecute el siguiente [comando para enumerar los recursos](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az_resource_list) y busque el nuevo servicio de aprovisionamiento y el centro de IoT en la salida:
+2. Para comprobar la implementación, ejecute el siguiente [comando para enumerar los recursos](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) y busque el nuevo servicio de aprovisionamiento y el centro de IoT en la salida:
 
     ```azurecli
      az resource list -g {your resource group name}

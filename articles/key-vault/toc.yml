@@ -44,30 +44,24 @@
       href: key-vault-ovw-throttling.md
 - name: Guías de procedimientos
   items:
-    - name: administración
-      items:
-        - name: Registro de Azure Key Vault
-          href: key-vault-logging.md
-        - name: Acceso detrás de firewalls
-          href: key-vault-access-behind-firewall.md
-        - name: Disponibilidad y redundancia
-          href: key-vault-disaster-recovery-guidance.md
-        - name: Cambiar el identificador de inquilino
-          href: key-vault-subscription-move-fix.md
-        - name: Creación y administración mediante la CLI de Azure
-          href: key-vault-manage-with-cli2.md
-        - name: Uso de la eliminación temporal de Key Vault con la CLI
-          href: key-vault-soft-delete-cli.md
-        - name: Uso de la eliminación temporal de Key Vault con Azure PowerShell
-          href: key-vault-soft-delete-powershell.md
-        - name: Uso de grupos para conceder acceso
-          href: key-vault-group-permissions-for-apps.md
-        - name: Protección de un almacén de claves
-          href: key-vault-secure-your-key-vault.md
-    - name: Automatizar
-      items:
-        - name: Azure Automation
-          href: automation-manage-key-vault.md
+    - name: Registro de Azure Key Vault
+      href: key-vault-logging.md
+    - name: Acceso detrás de firewalls
+      href: key-vault-access-behind-firewall.md
+    - name: Disponibilidad y redundancia
+      href: key-vault-disaster-recovery-guidance.md
+    - name: Cambiar el identificador de inquilino
+      href: key-vault-subscription-move-fix.md
+    - name: Creación y administración mediante la CLI de Azure
+      href: key-vault-manage-with-cli2.md
+    - name: Uso de la eliminación temporal de Key Vault con la CLI
+      href: key-vault-soft-delete-cli.md
+    - name: Uso de la eliminación temporal de Key Vault con Azure PowerShell
+      href: key-vault-soft-delete-powershell.md
+    - name: Uso de grupos para conceder acceso
+      href: key-vault-group-permissions-for-apps.md
+    - name: Protección de un almacén de claves
+      href: key-vault-secure-your-key-vault.md
 - name: Referencia
   items:
     - name: Azure PowerShell

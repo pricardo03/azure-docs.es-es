@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: 3848f317fd6d760961756f132edf9cbcb5f431ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2efe7769f68988f3c0d52c8806b78c1b96d8c639
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181977"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620236"
 ---
 # <a name="upgrading-to-the-latest-azure-search-service-rest-api-version"></a>Actualización a la versión más reciente de la API REST del servicio Azure Search
 Si usa la versión anterior de la [API REST del servicio Azure Search](https://docs.microsoft.com/rest/api/searchservice/), este artículo le ayudará a actualizar la aplicación para que use la versión más reciente de la API disponible con carácter general, 2017-11-11.
@@ -31,7 +31,7 @@ La versión 2017-11-11 es la versión disponible con carácter general más reci
 
 * [Sinónimos](search-synonyms.md). La nueva característica de sinónimos permite definir términos equivalentes y ampliar el ámbito de la consulta.
 * [Compatibilidad para la indexación eficaz de blobs de texto](https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#IndexingPlainText). El nuevo modo de análisis `text` para los indexadores de blobs de Azure mejora significativamente el rendimiento de la indexación.
-* [API de estadísticas del servicio](https://aka.ms/azure-search-stats) Vea el uso y los límites de los recursos actuales en Azure Search con esta nueva API.
+* [API de estadísticas del servicio](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics) Vea el uso y los límites de los recursos actuales en Azure Search con esta nueva API.
 
 <a name="UpgradeSteps"></a>
 

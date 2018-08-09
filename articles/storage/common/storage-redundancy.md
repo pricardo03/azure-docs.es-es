@@ -3,17 +3,17 @@ title: Replicación de datos en Azure Storage | Microsoft Docs
 description: Los datos de su cuenta de Microsoft Azure Storage se replican para garantizar la durabilidad y la alta disponibilidad. Entre las opciones de replicación se incluyen el almacenamiento con redundancia local (LRS), el almacenamiento con redundancia de zona (ZRS), el almacenamiento con redundancia geográfica (GRS) y el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS).
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 6c2c6979d56eb19ff2ba4fb647c7c51e52e51ac6
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.component: common
+ms.openlocfilehash: 18dfdce827a76d924494e66ceb0d03e2bb3a3ffe
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076221"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523767"
 ---
 # <a name="azure-storage-replication"></a>Replicación de Azure Storage
 
@@ -34,10 +34,10 @@ En la tabla siguiente se ofrece una rápida información general del ámbito de 
 
 | Escenario                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Falta de disponibilidad del nodo en un centro de datos                                                                 | Sí                             | Sí                              | Sí                                  | Sí                                  |
-| Un centro de datos completo (de zona o no de zona) deja de estar disponible                                           | Sin                               | Sí                              | Sí                                  | Sí                                  |
-| Una interrupción en toda la región                                                                                     | Sin                               | Sin                                | Sí                                  | Sí                                  |
-| Acceso de lectura a los datos (en una región remota y con replicación geográfica) en caso de no disponibilidad en toda la región. | Sin                               | Sin                                | Sin                                    | Sí                                  |
+| Falta de disponibilidad del nodo en un centro de datos                                                                 | SÍ                             | Sí                              | Sí                                  | SÍ                                  |
+| Un centro de datos completo (de zona o no de zona) deja de estar disponible                                           | Sin                               | SÍ                              | Sí                                  | SÍ                                  |
+| Una interrupción en toda la región                                                                                     | Sin                               | No                               | SÍ                                  | SÍ                                  |
+| Acceso de lectura a los datos (en una región remota y con replicación geográfica) en caso de no disponibilidad en toda la región. | Sin                               | No                               | No                                   | SÍ                                  |
 | Diseñado para proporcionar una durabilidad de objetos ___ a lo largo de un año determinado.                                          | Como mínimo 99.999999999 % (once nueves) | Como mínimo 99.9999999999 % (doce nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) |
 | Tipos de cuenta de almacenamiento admitidos                                                                   | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
 

@@ -1,35 +1,29 @@
 ---
 title: Enumeración de recursos de Azure Storage con la biblioteca del cliente de Storage para C++ | Microsoft Docs
-description: Obtenga información acerca de cómo usar las API de enumeración en la biblioteca de cliente de Almacenamiento de Microsoft Azure para C++ para enumerar los contenedores, blobs, colas, tablas y entidades.
-documentationcenter: .net
+description: Obtenga información acerca de cómo usar las API de enumeración en la biblioteca de cliente de Microsoft Azure Storage para C++ para enumerar los contenedores, blobs, colas, tablas y entidades.
 services: storage
 author: dineshmurthy
-manager: jahogg
-editor: tysonn
-ms.assetid: 33563639-2945-4567-9254-bc4a7e80698f
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
-ms.openlocfilehash: 9844412739f4f6f95416f81347f0f2eeeca62bea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 0a105122eccdfa671c806389908762941f23200c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059670"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525314"
 ---
-# <a name="list-azure-storage-resources-in-c"></a>Enumeración de los recursos de Almacenamiento de Azure en C++
-Las operaciones de enumeración son clave para muchos escenarios de desarrollo con el Almacenamiento de Azure. En este artículo se describe cómo enumerar los objetos del Almacenamiento de Azure de manera eficaz con las API de enumeración proporcionadas en la biblioteca de cliente de Almacenamiento de Microsoft Azure para C++.
+# <a name="list-azure-storage-resources-in-c"></a>Enumeración de los recursos de Azure Storage en C++
+Las operaciones de enumeración son clave para muchos escenarios de desarrollo con Azure Storage. En este artículo se describe cómo enumerar los objetos de Azure Storage de manera eficaz con las API de enumeración proporcionadas en la biblioteca de cliente de Microsoft Azure Storage para C++.
 
 > [!NOTE]
 > Esta guía tiene como destino la biblioteca de cliente de Azure Storage para C++ versión 2.x, que está disponible a través de [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp).
 > 
 > 
 
-La biblioteca de cliente de almacenamiento proporciona una variedad de métodos para enumerar o consultar objetos en Almacenamiento de Azure. En este artículo se tratan los siguientes escenarios:
+La biblioteca de cliente de almacenamiento proporciona una variedad de métodos para enumerar o consultar objetos en Azure Storage. En este artículo se tratan los siguientes escenarios:
 
 * Enumerar contenedores de una cuenta
 * Enumerar blobs de un contenedor o un directorio virtual de blobs
@@ -40,7 +34,7 @@ La biblioteca de cliente de almacenamiento proporciona una variedad de métodos 
 Cada uno de estos métodos se muestra con diferentes sobrecargas para diferentes escenarios.
 
 ## <a name="asynchronous-versus-synchronous"></a>Asincrónica frente sincrónica
-Puesto que la biblioteca de cliente de almacenamiento para C++ está integrada en la [biblioteca de REST de C++](https://github.com/Microsoft/cpprestsdk), admitimos inherentemente operaciones asincrónicas usando [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Por ejemplo:
+Puesto que la biblioteca de cliente de almacenamiento para C++ está integrada en la [biblioteca de REST de C++](https://github.com/Microsoft/cpprestsdk), admitimos inherentemente operaciones asincrónicas usando [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Por ejemplo: 
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -182,7 +176,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 
 Tenga en cuenta que la enumeración diferida solo está disponible en modo sincrónico.
 
-En comparación con la enumeración expansiva, la diferida captura los datos solo cuando es necesario. En segundo plano, recupera los datos del almacenamiento de Azure solo cuando se mueve el iterador siguiente al siguiente segmento. Por lo tanto, el uso de la memoria se controla con un tamaño límitado y la operación es rápida.
+En comparación con la enumeración expansiva, la diferida captura los datos solo cuando es necesario. En segundo plano, recupera los datos de Azure Storage solo cuando se mueve el iterador siguiente al siguiente segmento. Por lo tanto, el uso de la memoria se controla con un tamaño límitado y la operación es rápida.
 
 Las API de enumeración diferida se incluyen en la biblioteca de cliente de almacenamiento de C++ en la versión 2.2.0.
 
@@ -195,12 +189,12 @@ En este artículo, hemos tratado diferentes sobrecargas para API de enumeración
 * La enumeración expansiva no se recomienda y se ha eliminado de la biblioteca.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre el almacenamiento de Azure y la biblioteca de cliente de C++, consulte los siguientes recursos.
+Para obtener más información sobre Azure Storage y la biblioteca de cliente de C++, consulte los siguientes recursos.
 
-* [Cómo usar el almacenamiento de blobs de C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [Cómo usar el almacenamiento de tablas de C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [Cómo usar el almacenamiento de colas de C++](../storage-c-plus-plus-how-to-use-queues.md)
-* [Documentación de la Biblioteca de cliente de almacenamiento de Azure para la API de C++.](http://azure.github.io/azure-storage-cpp/)
-* [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
-* [Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Cómo usar Blob Storage de C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [Cómo usar Table Storage de C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
+* [Cómo usar Queue Storage de C++](../storage-c-plus-plus-how-to-use-queues.md)
+* [Documentación de la Biblioteca de cliente de Azure Storage para la API de C++.](http://azure.github.io/azure-storage-cpp/)
+* [Blog del equipo de Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Documentación de Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 

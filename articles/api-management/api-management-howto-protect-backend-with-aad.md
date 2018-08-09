@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: f5662a4082487137dfd642cc3264a90f8ab19054
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 06350d30999cb056babbd001f98a6c3a5fdbac6c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30928043"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577001"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Protección de una API mediante OAuth 2.0 con Azure Active Directory API Management
 
 En esta guía se muestra cómo configurar la instancia de Azure API Management para proteger una API mediante el protocolo OAuth 2.0 con Azure Active Directory (Azure AD). 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para seguir los pasos de este artículo, debe tener:
 * Una instancia de API Management
 * Una API que se vaya a publicar y que use la instancia de API Management
@@ -193,10 +193,10 @@ La directiva de [validación de JWT](api-management-access-restriction-policies.
 
 ## <a name="build-an-application-to-call-the-api"></a>Compilación de una aplicación para llamar a la API
 
-En esta guía, se utiliza la consola del desarrollador en API Management como la aplicación de cliente de ejemplo para llamar a `Echo API` protegido por OAuth 2.0. Para más información sobre cómo compilar una aplicación e implementar OAuth 2.0, consulte [Ejemplos de código de Azure Active Directory](../active-directory/develop/active-directory-code-samples.md).
+En esta guía, se utiliza la consola del desarrollador en API Management como la aplicación de cliente de ejemplo para llamar a `Echo API` protegido por OAuth 2.0. Para más información sobre cómo compilar una aplicación e implementar OAuth 2.0, consulte [Ejemplos de código de Azure Active Directory](../active-directory/develop/sample-v1-code.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga más información sobre [Escenarios de autenticación para Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md).
+* Obtenga más información sobre [Escenarios de autenticación para Azure AD](../active-directory/develop/authentication-scenarios.md).
 * Consulte más [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) sobre la administración de API.
 * Para conocer otras formas de proteger el servicio back-end, consulte [Autenticación de certificado mutua](api-management-howto-mutual-certificates.md).
 

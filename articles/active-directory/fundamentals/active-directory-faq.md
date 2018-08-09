@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: e304242718478cae2670372a06abe07f926fbed2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 787178b2c1582729249fcf549356fa7445f5ecbe
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054750"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494971"
 ---
 # <a name="azure-active-directory-faq"></a>P+F de Azure Active Directory
 Azure Active Directory (Azure AD) es una completa solución de identidad como servicio (IDaaS) que abarca todos los aspectos de la identidad, la administración de acceso y la seguridad.
@@ -185,7 +185,7 @@ Para más información, consulte [Implementación de aplicaciones integradas en 
 
 Para más información, consulte:
 
-* [Escenarios de autenticación para Azure AD](../develop/active-directory-authentication-scenarios.md)
+* [Escenarios de autenticación para Azure AD](../develop/authentication-scenarios.md)
 * [Protocolos de autenticación de Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 * [¿Cómo funciona el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
 

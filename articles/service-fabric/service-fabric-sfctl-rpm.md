@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 5e7cf1b28e8f38f0539e0084e1f745e0dab4dec3
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 57a9f0516175b459723a3dcdb2e3766f0fa039c1
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763619"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495431"
 ---
 # <a name="sfctl-rpm"></a>rpm de sfctl
 Consulte y envíe comandos al servicio del administrador de reparaciones.
@@ -98,6 +98,7 @@ Esta API es compatible con la plataforma Service Fabric; no está diseñada para
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
 | --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 494526ae2084053f23bb3a096ac7d089c47a731a
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 176de6f19274dfd8a6cf0335bb4cf16a8baa874b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823442"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525351"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Resolver errores de recursos de Azure no encontrados
 
@@ -60,7 +60,7 @@ Si está tratando de implementar el recurso que falta en la plantilla, compruebe
 }
 ```
 
-No obstante, desea evitar configurar dependencias que no sean necesarias. Cuando hay dependencias innecesarias, prolonga la duración de la implementación al impedir que los recursos que no son dependientes entre sí se implementen en paralelo. Además, puede crear dependencias circulares que bloqueen la implementación. La función [reference](resource-group-template-functions-resource.md#reference) y [list*](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) crea una dependencia implícita del recurso al que hace referencia, cuando este se implementa en la misma plantilla y se hace referencia a él con su nombre (no el identificador del recurso). Por lo tanto, puede tener más dependencias que las especificadas en la propiedad **dependsOn**. La función [resourceId](resource-group-template-functions-resource.md#resourceid) no crea una dependencia implícita ni valida que el recurso existe. Las funciones [reference](resource-group-template-functions-resource.md#reference) y [list*](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) no crean una dependencia implícita cuando el recurso se conoce por su identificador de recurso. Para crear una dependencia implícita, pase el nombre del recurso que se implementa en la misma plantilla.
+No obstante, desea evitar configurar dependencias que no sean necesarias. Cuando hay dependencias innecesarias, prolonga la duración de la implementación al impedir que los recursos que no son dependientes entre sí se implementen en paralelo. Además, puede crear dependencias circulares que bloqueen la implementación. La función [reference](resource-group-template-functions-resource.md#reference) y [list*](resource-group-template-functions-resource.md#list) crea una dependencia implícita del recurso al que hace referencia, cuando este se implementa en la misma plantilla y se hace referencia a él con su nombre (no el identificador del recurso). Por lo tanto, puede tener más dependencias que las especificadas en la propiedad **dependsOn**. La función [resourceId](resource-group-template-functions-resource.md#resourceid) no crea una dependencia implícita ni valida que el recurso existe. Las funciones [reference](resource-group-template-functions-resource.md#reference) y [list*](resource-group-template-functions-resource.md#list) no crean una dependencia implícita cuando el recurso se conoce por su identificador de recurso. Para crear una dependencia implícita, pase el nombre del recurso que se implementa en la misma plantilla.
 
 Cuando se encuentre con problemas de dependencia, debe comprender mejor el orden de la implementación de recursos. Para ver el orden de las operaciones de implementación:
 

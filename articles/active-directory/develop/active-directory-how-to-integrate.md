@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 79721c2ad0ae83e3c8bd103aee94916f1e2995aa
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fdc33f4009ce9434b241611851fecec451783a1a
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054644"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495346"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integración con Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -33,7 +33,7 @@ Azure Active Directory proporciona a las organizaciones administración de ident
 Hay varias maneras de integrar la aplicación con Azure AD. Aprovechar muchos o algunos de estos escenarios es apropiado para su aplicación.
 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Compatibilidad con Azure AD como una forma de inicio de sesión para la aplicación
-**Reduzca la fricción de inicio de sesión y reduzca los costes de soporte técnico.** Mediante el uso de Azure AD para iniciar sesión en la aplicación, los usuarios no tendrán un nombre y una contraseña más que recordar. Como desarrollador, tendrá una contraseña menos que almacenar y proteger. No tener que administrar restablecimientos de contraseñas olvidadas puede considerarse en sí un ahorro notable. Azure AD acciona el inicio de sesión para algunas aplicaciones en la nube más populares del mundo, incluido Office 365 y Microsoft Azure. Con cientos de millones de usuarios de millones de organizaciones, lo más probable es que el usuario ya haya iniciado sesión en Azure AD. Más información sobre la [adición de compatibilidad para el inicio de sesión de Azure AD](active-directory-authentication-scenarios.md).
+**Reduzca la fricción de inicio de sesión y reduzca los costes de soporte técnico.** Mediante el uso de Azure AD para iniciar sesión en la aplicación, los usuarios no tendrán un nombre y una contraseña más que recordar. Como desarrollador, tendrá una contraseña menos que almacenar y proteger. No tener que administrar restablecimientos de contraseñas olvidadas puede considerarse en sí un ahorro notable. Azure AD acciona el inicio de sesión para algunas aplicaciones en la nube más populares del mundo, incluido Office 365 y Microsoft Azure. Con cientos de millones de usuarios de millones de organizaciones, lo más probable es que el usuario ya haya iniciado sesión en Azure AD. Más información sobre la [adición de compatibilidad para el inicio de sesión de Azure AD](authentication-scenarios.md).
 
 **Simplifique el registro de la aplicación.**  Durante el registro de la aplicación, Azure AD puede enviar información esencial acerca de un usuario para que pueda rellenar previamente el formulario de registro o eliminarlo completamente. Los usuarios pueden registrarse en la aplicación con su cuenta de Azure AD a través de una experiencia familiar de consentimiento familiar similar a las que se encuentran en las redes sociales y en las aplicaciones móviles. Cualquier usuario puede registrarse e iniciar sesión en una aplicación que se integra con Azure AD sin necesidad de la participación de TI. Más información sobre el [registro de la aplicación para el inicio de sesión con la cuenta de Azure AD](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
@@ -81,7 +81,7 @@ La integración con Azure AD conlleva beneficios que no requieren que escriba c�
 **Azure AD se implementa en centros de datos en todo el mundo y se administra y supervisa continuamente.**  Azure AD es el sistema de administración de identidades de Microsoft Azure y Office 365 y se implementa en 28 centros de datos en todo el mundo. Se garantiza que los datos de directorio se replican en al menos tres centros de datos. Los equilibradores de carga global garantizan el acceso de los usuarios a la copia más cercana de Azure AD que contiene sus datos y vuelve a dirigir automáticamente las solicitudes a otros centros de datos si se detecta un problema.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Introducción a la escritura de código](active-directory-developers-guide.md#get-started)
+[Introducción a la escritura de código](azure-ad-developers-guide.md#get-started)
 
-[Inicio de sesión de usuario con Azure AD](active-directory-authentication-scenarios.md)
+[Inicio de sesión de usuarios con Azure AD](authentication-scenarios.md)
 

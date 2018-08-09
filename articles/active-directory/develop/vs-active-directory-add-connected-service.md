@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: 42ec8aa6119dbf01297743cd509285145c7bea29
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 1dc00e62a297b55d05c5bf96081974fd95bae3a3
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34594095"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493785"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Adición de Azure Active Directory con Servicios conectados en Visual Studio
 
@@ -27,7 +27,7 @@ En este artículo y sus artículos complementarios se proporcionan detalles acer
 
 En la actualidad, el servicio conectado de Active Directory no es compatible con aplicaciones de ASP.NET Core.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Cuenta de Azure: si todavía no tiene ninguna cuenta de Azure, puede [registrarse para una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 - **Visual Studio 2015** o posterior. [Descargar Visual Studio 2017 ahora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -74,5 +74,5 @@ Cuando agrega el servicio conectado en el asistente, Visual Studio agrega Azure 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Escenarios de autenticación para Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Escenarios de autenticación para Azure Active Directory](authentication-scenarios.md)
+- [Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET](quickstart-v1-aspnet-webapp.md)

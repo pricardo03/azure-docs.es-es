@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 210781b36f6215afc925266e597031d772a94002
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e3fe033de05ed42d221795159461048790e1cec8
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059207"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493309"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure
 
@@ -133,7 +133,7 @@ Asegúrese de registrar las aplicaciones que externalicen la autenticación a Az
 
 Las organizaciones que no aplican control de identidad para el acceso a las aplicaciones y que no guían a sus desarrolladores en el modo de integrar las aplicaciones de forma segura con su sistema de administración de identidades, pueden ser más susceptibles al tipo de ataque de robo de identidad, por ejemplo [autenticación débil y administración de sesiones que se describen en Open Web Application Security Project (OWASP) Top 10](https://www.owasp.org/index.php/OWASP_Top_Ten_Cheat_Sheet).
 
-Puede aprender más sobre los escenarios de autenticación para aplicaciones SaaS en [Escenarios de autenticación para Azure AD](../active-directory/active-directory-authentication-scenarios.md).
+Puede aprender más sobre los escenarios de autenticación para aplicaciones SaaS en [Escenarios de autenticación para Azure AD](../active-directory/develop/authentication-scenarios.md).
 
 ## <a name="actively-monitor-for-suspicious-activities"></a>Supervisión activa de actividades sospechosas
 

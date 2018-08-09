@@ -23,7 +23,7 @@
     - name: Hoja de ruta de SignalR
       href: 'https://github.com/aspnet/Home/wiki/Roadmap'
     - name: Precios
-      href: 'https://azure.microsoft.com'
+      href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
     - name: Vídeos
       href: 'https://www.youtube.com/results?search_query=Azure+SignalR+Core'
     - name: Foros de ASP.NET

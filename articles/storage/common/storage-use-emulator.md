@@ -3,17 +3,17 @@ title: Uso del emulador de Azure Storage para desarrollo y pruebas | Microsoft D
 description: El emulador de Azure Storage ofrece un entorno de desarrollo local gratuito para desarrollo y pruebas de las aplicaciones de Azure Storage. Aprenda cómo se autorizan las solicitudes, cómo conectarse al emulador desde su aplicación y cómo usar la herramienta de la línea de comandos.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: tamram
-ms.openlocfilehash: c6500cd1ddd31d789b8cd5d72d6e4614db3f88db
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.component: common
+ms.openlocfilehash: 4f4c5870bb1bdd804aa4b2da8c46c0698b897798
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291940"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526188"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Uso del emulador de Azure Storage para desarrollo y pruebas
 

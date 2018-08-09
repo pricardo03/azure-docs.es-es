@@ -17,16 +17,16 @@ ms.date: 07/24/2018
 ms.author: celested
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 49561434688806b3959824f87d1c81e07d7a7559
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 7d3796d8d4a5a2e292afaf9cd013ff04ffc082c5
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238712"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578677"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciales de certificado para la autenticación de aplicaciones
 
-Azure Active Directory (Azure AD) permite que una aplicación use sus propias credenciales para la autenticación, por ejemplo, en el flujo de concesión de credenciales de cliente de OAuth 2.0 ([v1.0](active-directory-protocols-oauth-service-to-service.md) y [v2.0](active-directory-v2-protocols-oauth-client-creds.md)) y el flujo en nombre de ([v1.0](active-directory-protocols-oauth-on-behalf-of.md) y [v2.0](active-directory-v2-protocols-oauth-on-behalf-of.md)).
+Azure Active Directory (Azure AD) permite que una aplicación use sus propias credenciales para la autenticación, por ejemplo, en el flujo de concesión de credenciales de cliente de OAuth 2.0 ([v1.0](v1-oauth2-client-creds-grant-flow.md) y [v2.0](v2-oauth2-client-creds-grant-flow.md)) y el flujo en nombre de ([v1.0](v1-oauth2-on-behalf-of-flow.md) y [v2.0](v2-oauth2-on-behalf-of-flow.md)).
 
 Un formato de credencial que una aplicación puede utilizar para autenticación es una aserción de JSON Web Token (JWT) firmada con un certificado que la aplicación posea.
 

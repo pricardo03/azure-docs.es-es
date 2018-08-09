@@ -1,27 +1,21 @@
 ---
-title: 'Tutorial: Análisis de opiniones sobre los datos transmitidos con Azure Databricks | Microsoft Docs'
+title: 'Tutorial: Análisis de opiniones sobre los datos transmitidos con Azure Databricks'
 description: Aprenda a usar Azure Databricks con Event Hubs y Cognitive Services API para ejecutar un análisis de sentimiento en los datos de streaming casi en tiempo real.
 services: azure-databricks
-documentationcenter: ''
 author: lenadroid
 manager: cgronlun
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: azure-databricks
 ms.custom: mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 06/21/2018
+ms.date: 08/06/2018
 ms.author: alehall
-ms.openlocfilehash: 1d6087477a7d99314ced19f5fe29fe81b5acaef4
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: edd78b9b54e39a25aa3349f6ad27e61991ea91d2
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308098"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577820"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: Análisis de opiniones sobre los datos transmitidos con Azure Databricks
 
@@ -48,7 +42,7 @@ En este tutorial se describen las tareas siguientes:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar este tutorial, asegúrese de que se cumplen los requisitos siguientes:
 - Un espacio de nombres de Azure Event Hubs.
@@ -76,7 +70,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
 
     Proporcione los valores siguientes:
 
-    |Propiedad  |DESCRIPCIÓN  |
+    |Propiedad  |Descripción  |
     |---------|---------|
     |**Workspace name** (Nombre del área de trabajo)     | Proporcione un nombre para el área de trabajo de Databricks        |
     |**Suscripción**     | En el cuadro desplegable, seleccione la suscripción de Azure.        |
@@ -544,7 +538,7 @@ Agregue una nueva celda de código y pegue el fragmento de código siguiente. Es
       val docsWithLanguage = SentimentDetector.getLanguage(inputDocs)
       val docsWithSentiment = SentimentDetector.getSentiment(docsWithLanguage)
       if (docsWithLanguage.documents.isEmpty) {
-        // Placeholder value to display for no score returned by the sentiment API
+        // Placeholder value to display when unable to perform sentiment request for text in unknown language
         (-1).toDouble
       } else {
         docsWithSentiment.documents.get(0).sentiment.toDouble

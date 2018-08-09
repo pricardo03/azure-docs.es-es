@@ -9,12 +9,12 @@ author: allenwux
 ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 2be6d0321db41772116078d5308824fe8e1b64fd
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8ba4b32f45dd978439b08650e498c3030c618aab
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113906"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618716"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Solución de problemas de SQL Data Sync
 
@@ -61,16 +61,16 @@ Cualquiera de las condiciones siguientes puede hacer que un grupo de sincronizac
 - **Resolución**. Si el agente cliente se ha desinstalado o no está presente, haga lo siguiente:
 
     1. Si el archivo XML del agente existe, quítelo de la carpeta de instalación de SQL Data Sync.
-    2. Instale el agente en un equipo local (puede ser el mismo o un equipo diferente). A continuación, envíe la clave del agente que se genera en el portal para el agente que se muestra como sin conexión.
+    1. Instale el agente en un equipo local (puede ser el mismo o un equipo diferente). A continuación, envíe la clave del agente que se genera en el portal para el agente que se muestra como sin conexión.
 
 - **Causa**. El servicio SQL Data Sync se detiene.
 
 - **Resolución**. Reinicie el servicio SQL Data Sync.
 
     1. En el menú **Inicio**, busque **Servicios**.
-    2. En los resultados de la búsqueda, haga clic en **Servicios**.
-    3. Busque el servicio **SQL Data Sync**.
-    4. Si el estado del servicio es **Detenido**, haga clic con el botón derecho en el nombre del servicio y, después, seleccione **Iniciar**.
+    1. En los resultados de la búsqueda, haga clic en **Servicios**.
+    1. Busque el servicio **SQL Data Sync**.
+    1. Si el estado del servicio es **Detenido**, haga clic con el botón derecho en el nombre del servicio y, después, seleccione **Iniciar**.
 
 > [!NOTE]
 > Si la información anterior no hace que el grupo de sincronización salga del estado de procesamiento, el Soporte técnico de Microsoft puede restablecer el estado del grupo de sincronización. Para restablecer el estado del grupo de sincronización, publique un mensaje en el [foro de Azure SQL Database](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted). En este mensaje, incluya el identificador de suscripción y el identificador del grupo de sincronización que es necesario reiniciar. Un ingeniero de Soporte técnico de Microsoft responderá a su mensaje y le informará cuando se haya restablecido el estado.
@@ -179,14 +179,14 @@ El agente no se está ejecutando en un equipo que hospeda SQL Server. Al intenta
     b. En el cuadro de búsqueda, escriba **services.msc**.  
     c. En los resultados de la búsqueda, haga clic en **Servicios**.  
     d. En la ventana **Servicios**, desplácese hasta la entrada **Agente de SQL Data Sync**.  
-  2. Haga clic con el botón derecho en **Agente de SQL Data Sync** y seleccione **Detener**.
-  3. Haga clic con el botón derecho en **Agente de SQL Data Sync** y seleccione **Propiedades**.
-  4. En **Propiedades del agente de SQL Data Sync**, seleccione la pestaña **Inicio de sesión**.
-  5. En el cuadro de texto **Contraseña**, escriba su contraseña.
-  6. En el cuadro de texto **Confirmar contraseña**, vuelva a escribir su contraseña.
-  7. Seleccione **Aplicar** y luego **Aceptar**.
-  8. En la ventana **Servicios**, haga clic con el botón derecho en el servicio **Agente de SQL Data Sync** y, después, haga clic en **Iniciar**.
-  9. Cierre la ventana **Servicios**.
+  1. Haga clic con el botón derecho en **Agente de SQL Data Sync** y seleccione **Detener**.
+  1. Haga clic con el botón derecho en **Agente de SQL Data Sync** y seleccione **Propiedades**.
+  1. En **Propiedades del agente de SQL Data Sync**, seleccione la pestaña **Inicio de sesión**.
+  1. En el cuadro de texto **Contraseña**, escriba su contraseña.
+  1. En el cuadro de texto **Confirmar contraseña**, vuelva a escribir su contraseña.
+  1. Seleccione **Aplicar** y luego **Aceptar**.
+  1. En la ventana **Servicios**, haga clic con el botón derecho en el servicio **Agente de SQL Data Sync** y, después, haga clic en **Iniciar**.
+  1. Cierre la ventana **Servicios**.
 
 ### <a name="agent-key"></a> No puedo enviar la clave del agente
 
@@ -212,17 +212,17 @@ Después de crear o volver a crear una clave para un agente, intenta enviar esa 
 - **Resolución**. Si el agente no funciona, es porque una de estas condiciones o ninguna de las dos se cumplen. Para que el agente vuelva a funcionar:
 
   1. Genere una nueva clave.
-  2. Aplique la nueva clave al agente.
+  1. Aplique la nueva clave al agente.
 
   Para aplicar la nueva clave al agente:
 
   1. En el Explorador de archivos, vaya al directorio de instalación del agente. El directorio de instalación predeterminado es C:\\Archivos de programa (x86)\\Microsoft SQL Data Sync.
-  2. Haga doble clic en el subdirectorio bin.
-  3. Abra la aplicación SqlAzureDataSyncAgent.
-  4. Seleccione **Enviar clave del agente**.
-  5. Pegue la clave del portapapeles en el espacio proporcionado.
-  6. Seleccione **Aceptar**.
-  7. Cierre el programa.
+  1. Haga doble clic en el subdirectorio bin.
+  1. Abra la aplicación SqlAzureDataSyncAgent.
+  1. Seleccione **Enviar clave del agente**.
+  1. Pegue la clave del portapapeles en el espacio proporcionado.
+  1. Seleccione **Aceptar**.
+  1. Cierre el programa.
 
 ### <a name="agent-delete"></a> El agente cliente no se puede eliminar del portal si no se puede acceder a su base de datos local
 
@@ -240,12 +240,12 @@ Si no se puede acceder a un punto de conexión local (es decir, a una base de da
 - **Resolución**. Realice estos pasos:
 
   1. Salga de la aplicación.  
-  2. Abra el panel Servicios de componentes.  
+  1. Abra el panel Servicios de componentes.  
     a. En el cuadro de búsqueda de la barra de tareas, escriba **services.msc**.  
     b. En los resultados de la búsqueda, haga doble clic en **Servicios**.  
-  3. Detenga el servicio **SQL Data Sync**.
-  4. Reinicie el servicio **SQL Data Sync**.  
-  5. Vuelva a abrir la aplicación.
+  1. Detenga el servicio **SQL Data Sync**.
+  1. Reinicie el servicio **SQL Data Sync**.  
+  1. Vuelva a abrir la aplicación.
 
 ## <a name="setup-and-maintenance-issues"></a>Problemas de configuración y mantenimiento
 
@@ -312,9 +312,9 @@ Se produce un error al intentar eliminar un grupo de sincronización. El error a
     e. Si el servicio se está ejecutando, deténgalo.  
     f. Haga clic con el botón derecho en el servicio y, después, seleccione **Iniciar**.  
     g. Compruebe si la base de datos sigue registrada. Si ya no lo está, habrá terminado. En caso contrario, continúe con el paso siguiente.
-  2. Abra la aplicación de agente cliente (SqlAzureDataSyncAgent).
-  3. Seleccione **Editar credenciales** y, después, escriba las credenciales de la base de datos.
-  4. Continúe con la anulación del registro.
+  1. Abra la aplicación de agente cliente (SqlAzureDataSyncAgent).
+  1. Seleccione **Editar credenciales** y, después, escriba las credenciales de la base de datos.
+  1. Continúe con la anulación del registro.
 
 ### <a name="setup-perms"></a> No tengo suficientes privilegios para iniciar los servicios del sistema
 
@@ -325,10 +325,10 @@ Se produce un error al intentar eliminar un grupo de sincronización. El error a
 - **Resolución**. Conceda a la cuenta de usuario credenciales para iniciar sesión como servicio:
 
   1. Vaya a **Inicio** > **Panel de control** > **Herramientas administrativas** > **Directiva de seguridad local** > **Directiva local** > **User Rights Management** (Administración de los permisos del usuario).
-  2. Seleccione **Iniciar sesión como servicio**.
-  3. En el cuadro de diálogo **Propiedades**, agregue la cuenta de usuario.
-  4. Seleccione **Aplicar** y luego **Aceptar**.
-  5. Cierre todas las ventanas.
+  1. Seleccione **Iniciar sesión como servicio**.
+  1. En el cuadro de diálogo **Propiedades**, agregue la cuenta de usuario.
+  1. Seleccione **Aplicar** y luego **Aceptar**.
+  1. Cierre todas las ventanas.
 
 ### <a name="setup-date"></a> Una base de datos tiene como estado "Obsoleto"
 
@@ -339,7 +339,7 @@ Se produce un error al intentar eliminar un grupo de sincronización. El error a
   Si el estado de una base de datos es **Obsoleto**:
 
   1. Quite la base de datos con un estado **Obsoleto** del grupo de sincronización.
-  2. Vuelva a agregar la base de datos al grupo de sincronización.
+  1. Vuelva a agregar la base de datos al grupo de sincronización.
 
   > [!WARNING]
   > Perderá todos los cambios que haya realizado en la base de datos mientras estaba sin conexión.
@@ -359,8 +359,8 @@ No puede eliminar un grupo de sincronización durante los tres minutos posterior
 - **Resolución**.
 
   1. Quite un grupo de sincronización mientras los agentes de sincronización asociados estén en línea (opción recomendada).
-  2. Si el agente está sin conexión pero instalado, póngalo en línea en el equipo local. Espere a que el estado del agente aparezca como **En línea** en el portal de SQL Data Sync. A continuación, quite el grupo de sincronización.
-  3. Si el agente está sin conexión porque se ha desinstalado:  
+  1. Si el agente está sin conexión pero instalado, póngalo en línea en el equipo local. Espere a que el estado del agente aparezca como **En línea** en el portal de SQL Data Sync. A continuación, quite el grupo de sincronización.
+  1. Si el agente está sin conexión porque se ha desinstalado:  
     a.  Si el archivo XML del agente existe, quítelo de la carpeta de instalación de SQL Data Sync.  
     b.  Instale el agente en un equipo local (puede ser el mismo o un equipo diferente). A continuación, envíe la clave del agente que se genera en el portal para el agente que se muestra como sin conexión.  
     c. Intente eliminar el grupo de sincronización.
@@ -379,7 +379,6 @@ Para más información acerca de SQL Data Sync, consulte:
 -   Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL Data Sync:  
     -   [Uso de PowerShell para sincronizar entre varias bases de datos SQL de Azure.](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Uso de PowerShell para realizar la sincronización entre Azure SQL Database y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Descarga de la documentación de la API de REST de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 Para obtener más información sobre SQL Database, vea:
 

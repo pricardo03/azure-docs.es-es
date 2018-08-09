@@ -14,17 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
-ms.openlocfilehash: 63dd283605553297a7dc8feab90c8bcbd716d5de
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 683261ce9ecaa15f5849142cd25aa9b7c77a6867
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
-ms.locfileid: "26660146"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505804"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Uso de la biblioteca de cliente de iOS para Aplicaciones móviles de Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del [SDK de iOS de Azure Mobile Apps][1]. Si está familiarizado con Aplicaciones móviles de Azure, complete primero [Inicio rápido de Aplicaciones móviles de Azure] para crear un back-end, crear una tabla y descargar un proyecto de Xcode para iOS pregenerada. En esta guía, nos centramos en el SDK de iOS de cliente. Para obtener más información sobre el SDK de servidor para el back-end, consulte los procedimientos del SDK de servidor.
+Esta guía muestra cómo realizar algunas tareas comunes a través del [SDK de iOS de Azure Mobile Apps][1]. Si está familiarizado con Aplicaciones móviles de Azure, complete primero [Creación de una aplicación de Apache Cordova] para crear un back-end, crear una tabla y descargar un proyecto de Xcode para iOS pregenerada. En esta guía, nos centramos en el SDK de iOS de cliente. Para obtener más información sobre el SDK de servidor para el back-end, consulte los procedimientos del SDK de servidor.
 
 ## <a name="reference-documentation"></a>Documentación de referencia
 La documentación de referencia para el SDK de cliente de iOS se encuentra aquí: [Referencia de cliente de iOS de Azure Mobile Apps][2].
@@ -547,10 +547,10 @@ Puede utilizar la biblioteca de autenticación de Active Directory (ADAL) para i
 3. Mediante el Terminal, ejecute `pod install` desde el directorio que contiene el proyecto y abra el área de trabajo del Xcode generado (no el proyecto).
 4. Agregue el siguiente código a la aplicación, según el lenguaje que esté utilizando. En cada uno, realice estas sustituciones:
 
-   * Reemplace **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que aprovisionó la aplicación. El formato debería ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en [Azure Portal].
+   * Reemplace **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que aprovisionó la aplicación. El formato debe ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en [Azure Portal].
    * Reemplace **INSERT-RESOURCE-ID-HERE** por el Id. de cliente del back-end de la aplicación móvil. El Id. de cliente en la pestaña **Opciones avanzadas** de **Configuración de Azure Active Directory** en el portal.
    * Reemplace **INSERT-CLIENT-ID-HERE** por el Id. de cliente que copió de la aplicación cliente nativa.
-   * Reemplace **INSERT-REDIRECT-URI-HERE** por el punto de conexión */.auth/login/done* del sitio, mediante el esquema HTTPS. Este valor debe ser similar a *https://contoso.azurewebsites.net/.auth/login/done*.
+   * Reemplace **INSERT-REDIRECT-URI-HERE** por el punto de conexión */.auth/login/done* del sitio, mediante el esquema HTTPS. El valor debería parecerse al siguiente: *https://contoso.azurewebsites.net/.auth/login/done*.
 
 **Objective-C**:
 
@@ -689,10 +689,10 @@ Puede usar el SDK de Facebook para iOS para que los usuarios inicien sesión en 
 Puede usar Fabric para iOS para que los usuarios inicien sesión en su aplicación con Twitter. La autenticación de flujo de cliente es preferible al uso del método `loginWithProvider:completion:` , ya que proporciona una experiencia de usuario más nativa y permite realizar más personalizaciones.
 
 1. Configure su back-end de aplicación móvil para el inicio de sesión en Twitter siguiendo el tutorial [Configuración de la aplicación Servicio de aplicaciones para usar el inicio de sesión de Twitter](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md) .
-2. Agregue Fabric al proyecto siguiendo el documento [Primeros pasos en Fabric para iOS] y configurando TwitterKit.
+2. Agregue Fabric al proyecto siguiendo el documento [Fabric for iOS - Getting Started] y configurando TwitterKit.
 
    > [!NOTE]
-   > De forma predeterminada, Fabric creará automáticamente una aplicación de Twitter. Puede evitar que se cree registrando la clave de usuario y el secreto de consumidor que creó anteriormente mediante los fragmentos de código siguientes.    Asimismo, puede reemplazar los valores de clave de usuario y de secreto de consumidor que proporcione al Servicio de aplicaciones por los valores que aparecen en [Panel de Fabric]. Si elige esta opción, asegúrese de establecer la dirección URL de devolución de llamada en un valor de marcador de posición, como `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
+   > De forma predeterminada, Fabric creará automáticamente una aplicación de Twitter. Puede evitar que se cree registrando la clave de usuario y el secreto de consumidor que creó anteriormente mediante los fragmentos de código siguientes.    Asimismo, puede reemplazar los valores de clave de usuario y de secreto de consumidor que proporcione al Servicio de aplicaciones por los valores que aparecen en [Fabric Dashboard]. Si elige esta opción, asegúrese de establecer la dirección URL de devolución de llamada en un valor de marcador de posición, como `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
    >
    >
 
@@ -808,7 +808,7 @@ Puede usar el SDK de inicio de sesión de Google para iOS para que los usuarios 
                [[GIDSignIn sharedInstance] signIn];
         }
 
-   **Swift**:
+   **SWIFT**:
 
        // ...
        func authenticate() {
@@ -846,7 +846,7 @@ Puede usar el SDK de inicio de sesión de Google para iOS para que los usuarios 
 <!-- Images. -->
 
 <!-- URLs. -->
-[Inicio rápido de Aplicaciones móviles de Azure]: app-service-mobile-ios-get-started.md
+[Creación de una aplicación de Apache Cordova]: app-service-mobile-ios-get-started.md
 
 [Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
@@ -860,7 +860,7 @@ Puede usar el SDK de inicio de sesión de Google para iOS para que los usuarios 
 [Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
 [Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
-[esquema dinámico]: http://go.microsoft.com/fwlink/p/?LinkId=296271
+[Esquema dinámico]: http://go.microsoft.com/fwlink/p/?LinkId=296271
 [How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
@@ -868,8 +868,8 @@ Puede usar el SDK de inicio de sesión de Google para iOS para que los usuarios 
 [CLI to manage Mobile Services tables]: /cli/azure/get-started-with-az-cli2
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-[Panel de Fabric]: https://www.fabric.io/home
-[Primeros pasos en Fabric para iOS]: https://docs.fabric.io/ios/fabric/getting-started.html
+[Fabric Dashboard]: https://www.fabric.io/home
+[Fabric for iOS - Getting Started]: https://docs.fabric.io/ios/fabric/getting-started.html
 [1]: https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk
 [2]: http://azure.github.io/azure-mobile-apps-ios-client/
 [3]: https://msdn.microsoft.com/library/azure/dn495101.aspx
@@ -877,6 +877,6 @@ Puede usar el SDK de inicio de sesión de Google para iOS para que los usuarios 
 [5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
 [7]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[8]: ../active-directory/active-directory-devquickstarts-ios.md
+[8]:../active-directory/develop/quickstart-v1-ios.md
 [9]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
 [10]: https://developers.facebook.com/docs/ios/getting-started

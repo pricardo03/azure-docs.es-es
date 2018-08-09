@@ -2,24 +2,18 @@
 title: Formato del archivo de registro de Azure Import/Export | Microsoft Docs
 description: Obtenga información acerca del formato de los archivos de registro creados cuando se ejecutan los pasos de un trabajo del servicio Import/Export.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 16234ccaf13ce1d85cfd207ed4734e683070faa6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: b842a80762989c34ae278a397cc49c088ff77fb2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23060010"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525525"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Formato del archivo de registro del servicio Azure Import/Export
 Cuando el servicio Microsoft Azure Import/Export realiza una acción en una unidad como parte de un trabajo de importación o de exportación, los registros se escriben en blobs en bloques de la cuenta de almacenamiento asociada a dicho trabajo.  
@@ -39,8 +33,8 @@ La siguiente tabla muestra las posibles opciones:
   
 |Método de autenticación|Valor de `ImportExportStatesPath`Element|Ubicación de blobs del registro|  
 |---------------------------|----------------------------------------------|---------------------------|  
-|Clave de cuenta de almacenamiento|Valor predeterminado|Un contenedor llamado `waimportexport`, que es el contenedor predeterminado. Por ejemplo:<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
-|Clave de cuenta de almacenamiento|Valor especificado por el usuario|Un contenedor al que el usuario ha asignado un nombre. Por ejemplo:<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
+|Clave de cuenta de almacenamiento|Valor predeterminado|Un contenedor llamado `waimportexport`, que es el contenedor predeterminado. Por ejemplo: <br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
+|Clave de cuenta de almacenamiento|Valor especificado por el usuario|Un contenedor al que el usuario ha asignado un nombre. Por ejemplo: <br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
 |SAS de contenedor|Valor predeterminado|Un directorio virtual denominado `waimportexport`, que es el nombre predeterminado, debajo del contenedor especificado en el SAS.<br /><br /> Por ejemplo, si el SAS especificado para el trabajo es `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, la ubicación del registro sería `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |SAS de contenedor|Valor especificado por el usuario|Un directorio virtual al que el usuario ha asignado un nombre, debajo del contenedor especificado en el SAS.<br /><br /> Por ejemplo, si el SAS especificado para el trabajo es `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue` y el directorio virtual especificado se llama `mylogblobs`, la ubicación del registro sería `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
@@ -107,7 +101,7 @@ properties-status ::=
 
 En la siguiente tabla se describen los elementos del archivo de registro.  
   
-|Elemento XML|Tipo|Descripción|  
+|Elemento XML|Escriba|DESCRIPCIÓN|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|Elemento XML|Representa un registro de la unidad.|  
 |`Version`|Attribute, String|La versión del formato del registro.|  
@@ -116,9 +110,9 @@ En la siguiente tabla se describen los elementos del archivo de registro.
 |`Blob`|Elemento XML anidado|Representa un blob.|  
 |`Blob/BlobPath`|string|El identificador URI del blob.|  
 |`Blob/FilePath`|string|La ruta de acceso relativa al archivo en la unidad.|  
-|`Blob/Snapshot`|DateTime|La versión de instantánea del blob, solo para trabajos de exportación.|  
+|`Blob/Snapshot`|Datetime|La versión de instantánea del blob, solo para trabajos de exportación.|  
 |`Blob/Length`|Entero|La longitud total del blob, en bytes.|  
-|`Blob/LastModified`|DateTime|La fecha y hora de la última modificación del blob, solo para trabajos de exportación.|  
+|`Blob/LastModified`|Datetime|La fecha y hora de la última modificación del blob, solo para trabajos de exportación.|  
 |`Blob/ImportDisposition`|string|La disposición de importación del blob, solo para trabajos de importación.|  
 |`Blob/ImportDisposition/@Status`|Attribute, String|El estado de la disposición de importación.|  
 |`PageRangeList`|Elemento XML anidado|Representa una lista de los intervalos de páginas de un blob en páginas.|  
@@ -142,16 +136,16 @@ En la siguiente tabla se describen los elementos del archivo de registro.
 |`Metadata/Path/@Hash`|Attribute, String|Hash MD5 con codificación Base16 del archivo de metadatos.|  
 |`Properties`|Elemento XML anidado|Representa las propiedades del blob.|  
 |`Properties/@Status`|Attribute, String|Estado de procesamiento de las propiedades del blob, por ejemplo, archivo no encontrado, completado.|  
-|`Properties/GlobalPath`|String|Ruta de acceso relativa al archivo de propiedades global.|  
+|`Properties/GlobalPath`|string|Ruta de acceso relativa al archivo de propiedades global.|  
 |`Properties/GlobalPath/@Hash`|Attribute, String|Hash MD5 con codificación Base16 del archivo de propiedades global.|  
 |`Properties/Path`|string|Ruta de acceso relativa al archivo de propiedades.|  
 |`Properties/Path/@Hash`|Attribute, String|Hash MD5 con codificación Base16 del archivo de propiedades.|  
-|`Blob/Status`|String|Estado del procesamiento del blob.|  
+|`Blob/Status`|string|Estado del procesamiento del blob.|  
   
 # <a name="drive-status-codes"></a>Códigos de estado de unidad  
 En la tabla siguiente se enumera los códigos de estado para procesar una unidad.  
   
-|Código de estado|Descripción|  
+|Código de estado|DESCRIPCIÓN|  
 |-----------------|-----------------|  
 |`Completed`|La unidad ha finalizado el procesamiento sin errores.|  
 |`CompletedWithWarnings`|La unidad ha finalizado el procesamiento con advertencias en uno o más blobs según las disposiciones de importación especificadas para los blobs.|  
@@ -180,7 +174,7 @@ En la tabla siguiente se enumera los códigos de estado para procesar una unidad
 ## <a name="blob-status-codes"></a>Códigos de estado de blob  
 En la tabla siguiente se enumera los códigos de estado para procesar un blob.  
   
-|Código de estado|Descripción|  
+|Código de estado|DESCRIPCIÓN|  
 |-----------------|-----------------|  
 |`Completed`|El blob ha finalizado el procesamiento sin errores.|  
 |`CompletedWithErrors`|El blob ha finalizado el procesamiento con errores en uno o varios intervalos de páginas o bloques, metadatos o propiedades.|  
@@ -199,7 +193,7 @@ En la tabla siguiente se enumera los códigos de estado para procesar un blob.
 ## <a name="import-disposition-status-codes"></a>Códigos de estado de disposición de importación  
 En la tabla siguiente se enumeran los códigos de estado para resolver una disposición de importación.  
   
-|Código de estado|Descripción|  
+|Código de estado|DESCRIPCIÓN|  
 |-----------------|-----------------|  
 |`Created`|El blob se ha creado.|  
 |`Renamed`|Se ha cambiado el nombre del blob según la disposición de importación del cambio de nombre. El elemento `Blob/BlobPath` contiene el identificador URI del blob cuyo nombre ha cambiado.|  
@@ -210,7 +204,7 @@ En la tabla siguiente se enumeran los códigos de estado para resolver una dispo
 ## <a name="page-rangeblock-status-codes"></a>Códigos de estado de intervalo de páginas o bloque  
 En la tabla siguiente se enumeran los códigos de estado para procesar un intervalo de páginas o bloque.  
   
-|Código de estado|Descripción|  
+|Código de estado|DESCRIPCIÓN|  
 |-----------------|-----------------|  
 |`Completed`|El intervalo de páginas o bloque han finalizado el procesamiento sin errores.|  
 |`Committed`|El bloque se ha confirmado, pero no en la lista completa de bloques completo porque se han producido errores en otros bloques o han aparecido errores al colocar la propia lista de bloques completa.|  
@@ -226,7 +220,7 @@ En la tabla siguiente se enumeran los códigos de estado para procesar un interv
 ## <a name="metadata-status-codes"></a>Códigos de estado de metadatos  
 En la tabla siguiente se enumera los códigos de estado para procesar los metadatos de un blob.  
   
-|Código de estado|Descripción|  
+|Código de estado|DESCRIPCIÓN|  
 |-----------------|-----------------|  
 |`Completed`|Los metadatos han finalizado el procesamiento sin errores.|  
 |`FileNameInvalid`|El nombre del archivo de metadatos no es válido.|  
@@ -244,7 +238,7 @@ En la tabla siguiente se enumera los códigos de estado para procesar los metada
 ## <a name="properties-status-codes"></a>Códigos de estado de las propiedades  
 En la tabla siguiente se enumera los códigos de estado para procesar las propiedades de un blob.  
   
-|Código de estado|Descripción|  
+|Código de estado|DESCRIPCIÓN|  
 |-----------------|-----------------|  
 |`Completed`|Las propiedades han finalizado el procesamiento sin errores.|  
 |`FileNameInvalid`|El nombre del archivo de propiedades no es válido.|  

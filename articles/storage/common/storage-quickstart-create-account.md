@@ -3,18 +3,18 @@ title: 'Guía de inicio rápido de Azure: Creación de una cuenta de almacenamie
 description: Aprenda rápidamente a crear una nueva cuenta de almacenamiento con Azure Portal, Azure PowerShell o la CLI de Azure.
 services: storage
 author: tamram
-manager: twooley
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: tamram
-ms.openlocfilehash: 92215c759cd51ce429708ec54b17722c486b7ca6
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.component: common
+ms.openlocfilehash: 91e98f74fd6cd88533a5090a383897eaa0e60648
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856535"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524027"
 ---
 # <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
@@ -23,7 +23,7 @@ Una cuenta de Azure Storage proporciona un espacio de nombres único en la nube 
 Para comenzar a usar Azure Storage, primero tiene que crear una cuenta de almacenamiento. Puede crear una cuenta de Azure Storage mediante [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o la [CLI de Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Esta guía de inicio rápido muestra cómo usar cada una de estas opciones para crear la nueva cuenta de almacenamiento. 
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

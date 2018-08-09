@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: c98781112db7cd91bdeebdaab461afd1f0ec3fbc
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3dac2b1c90f6555abc71a52d75f8d58958d978c7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226634"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449519"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: Configuración de Netsuite para el aprovisionamiento automático de usuarios
 
 El objetivo de este tutorial es explicar los pasos que hay que realizar en Netsuite y Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD en Netsuite.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -60,33 +60,33 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la sección **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones**.
 
-2. Si ya ha configurado Netsuite para el inicio de sesión único, busque la instancia de Netsuite mediante el campo de búsqueda. En caso contrario, seleccione **Agregar** y busque **Netsuite** en la galería de aplicaciones. Seleccione Netsuite en los resultados de búsqueda y agréguelo a la lista de aplicaciones.
+1. Si ya ha configurado Netsuite para el inicio de sesión único, busque la instancia de Netsuite mediante el campo de búsqueda. En caso contrario, seleccione **Agregar** y busque **Netsuite** en la galería de aplicaciones. Seleccione Netsuite en los resultados de búsqueda y agréguelo a la lista de aplicaciones.
 
-3. Seleccione la instancia de Netsuite y luego, la pestaña **Aprovisionamiento**.
+1. Seleccione la instancia de Netsuite y luego, la pestaña **Aprovisionamiento**.
 
-4. Establezca el **modo de aprovisionamiento** en **Automático**. 
+1. Establezca el **modo de aprovisionamiento** en **Automático**. 
 
     ![Aprovisionamiento](./media/netsuite-provisioning-tutorial/provisioning.png)
 
-5. En la sección **Credenciales de administrador**, proporcione los siguientes valores de configuración:
+1. En la sección **Credenciales de administrador**, proporcione los siguientes valores de configuración:
    
     a. En el cuadro de texto **Nombre de usuario administrador**, escriba un nombre de cuenta de Netsuite que tenga asignado el perfil **Administrador del sistema** en Netsuite.com.
    
     b. En el cuadro de texto **Contraseña de administrador**, escriba la contraseña de esta cuenta.
       
-6. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación Netsuite.
+1. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación Netsuite.
 
-7. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla.
+1. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla.
 
-8. Haga clic en **Guardar**.
+1. Haga clic en **Guardar**.
 
-9. En la sección Asignaciones, seleccione **Sincronizar usuarios de Azure Active Directory con Netsuite.**
+1. En la sección Asignaciones, seleccione **Sincronizar usuarios de Azure Active Directory con Netsuite.**
 
-10. En la sección **Asignaciones de atributos**, revise los atributos de usuario que se sincronizan entre Azure AD y Netsuite. Tenga en cuenta que los atributos seleccionados como propiedades de **Coincidencia** se usarán para buscar coincidencias con las cuentas de usuario de Netsuite con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
+1. En la sección **Asignaciones de atributos**, revise los atributos de usuario que se sincronizan entre Azure AD y Netsuite. Tenga en cuenta que los atributos seleccionados como propiedades de **Coincidencia** se usarán para buscar coincidencias con las cuentas de usuario de Netsuite con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
-11. Para habilitar el servicio de aprovisionamiento de Azure AD para Netsuite, cambie el **Estado de aprovisionamiento** a **Activado** en la sección Configuración
+1. Para habilitar el servicio de aprovisionamiento de Azure AD para Netsuite, cambie el **Estado de aprovisionamiento** a **Activado** en la sección Configuración
 
-12. Haga clic en **Guardar**.
+1. Haga clic en **Guardar**.
 
 Esta acción inicia la sincronización inicial de todos los usuarios y grupos asignados a Netsuite en la sección Usuarios y grupos. Tenga en cuenta que la sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si se está ejecutando el servicio. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los registros de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación de Netsuite.
 

@@ -1,24 +1,20 @@
 ---
-title: Notas de la versión de Azure HDInsight | Microsoft Docs
+title: Notas de la versión de Azure HDInsight.
 description: Notas más recientes de la versión de Azure HDInsight. Obtenga sugerencias de desarrollo y detalles sobre Hadoop, Spark, R Server, Hive, etc.
 services: hdinsight
-documentationcenter: ''
-editor: cgronlun
-manager: jhubbard
-author: nitinme
-tags: azure-portal
-ms.assetid: a363e5f6-dd75-476a-87fa-46beb480c1fe
+editor: jasonwhowell
+author: jasonwhowell
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
-ms.author: nitinme
-ms.openlocfilehash: dd2d2373ee2c871075208672ffb1e374baa12669
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.author: jasonh
+ms.openlocfilehash: c6c320786611e9e2646000fb2272ced8fa90d194
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437831"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596042"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Notas de la versión de Azure HDInsight.
 
@@ -173,7 +169,7 @@ HDP 2.6.4 proporcionaba Hadoop Common 2.7.3 y las siguientes revisiones de Apach
 
 -   [YARN-6805](https://issues.apache.org/jira/browse/YARN-6805): NPE en LinuxContainerExecutor debido a código de salida PrivilegedOperationException NULL.
 
-### <a name="hbase"></a>hbase
+### <a name="hbase"></a>HBase
 
 En esta versión se proporciona HBase 1.1.2 y las siguientes revisiones de Apache.
 

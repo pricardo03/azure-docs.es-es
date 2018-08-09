@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: alleonar
-ms.openlocfilehash: a9b80cae69c4e5852341385b98fcccc86d7959e9
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b25d3d7bd5348d4e4ae5dc33362a9d0a2504236e
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27927981"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578609"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Uso de la eliminación temporal de Key Vault con la CLI
 
@@ -23,7 +23,7 @@ La característica de eliminación temporal de Azure Key Vault permite recuperar
 - Compatibilidad con la eliminación recuperable de una instancia de Key Vault
 - Compatibilidad con la eliminación recuperable de objetos de Key Vault: claves, secretos y certificados
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - CLI de Azure 2.0: si no tiene esta configuración para su entorno, consulte [Administración de Key Vault mediante CLI 2.0](key-vault-manage-with-cli2.md).
 
@@ -104,7 +104,7 @@ El *identificador de recurso* en la salida hace referencia al identificador de r
 Para recuperar un almacén de claves, debe especificar el nombre del almacén de claves, el grupo de recursos y la ubicación. Anote la ubicación y el grupo de recursos del almacén de claves eliminado ya que los necesitará para un proceso de recuperación del almacén de claves.
 
 ```azurecli
-az keyvault recover --location westus --name ContosoVault
+az keyvault recover --location westus --resource-group ContosoRG --name ContosoVault
 ```
 
 Cuando se recupera un almacén de claves, el resultado es un nuevo recurso con el identificador de recurso original del almacén de claves. Si se ha quitado el grupo de recursos donde existía el almacén de claves, se deberá crear un nuevo grupo de recursos con el mismo nombre antes de poder recuperar el almacén de claves.

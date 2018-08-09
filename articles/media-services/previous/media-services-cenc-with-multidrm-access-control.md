@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: e606ff09c3b3a867170b783e69879d609b69c11d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c125d5a741331d5c9476da23766057ac0c42cdbf
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075590"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493734"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Diseño de un sistema de protección de contenido con control de acceso mediante Azure Media Services
 
@@ -225,7 +225,7 @@ Para más información, consulte [Autenticación de token JWD en Azure Media Ser
 
 Para más información sobre Azure AD:
 
-* Puede encontrar información para desarrolladores en la [Guía para desarrolladores de Azure Active Directory](../../active-directory/active-directory-developers-guide.md).
+* Puede encontrar información para desarrolladores en la [Guía para desarrolladores de Azure Active Directory](../../active-directory/develop/azure-ad-developers-guide.md).
 * Puede encontrar información para administradores en [Administración del directorio de Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### <a name="some-issues-in-implementation"></a>Algunos problemas de implementación
@@ -312,9 +312,9 @@ Los servicios de entrega de licencias de DRM siempre estarán buscando la clave 
 Dado que una clave se puede sustituir en cualquier momento, siempre hay más de una clave pública válida disponible en el documento de metadatos de federación. La entrega de licencias de Media Services puede utilizar cualquiera de las claves especificadas en el documento. Como una clave se puede sustituir pronto, otra podría ser su sustituta, y así sucesivamente.
 
 ### <a name="where-is-the-access-token"></a>¿Dónde está el token de acceso?
-Si observa cómo una aplicación web llama a una aplicación de API en la sección [Identidad de aplicación con concesión de credenciales de cliente OAuth 2.0 ](../../active-directory/develop/active-directory-authentication-scenarios.md#web-application-to-web-api), el flujo de autenticación tiene lugar como se indica a continuación:
+Si observa cómo una aplicación web llama a una aplicación de API en la sección [Identidad de aplicación con concesión de credenciales de cliente OAuth 2.0 ](../../active-directory/develop/authentication-scenarios.md#web-application-to-web-api), el flujo de autenticación tiene lugar como se indica a continuación:
 
-* Un usuario inicia sesión en Azure AD en la aplicación web. Para más información, consulte la sección [Aplicación web a API web](../../active-directory/develop/active-directory-authentication-scenarios.md#web-browser-to-web-application).
+* Un usuario inicia sesión en Azure AD en la aplicación web. Para más información, consulte la sección [Aplicación web a API web](../../active-directory/develop/authentication-scenarios.md#web-browser-to-web-application).
 * El punto de conexión de autorización de Azure AD redirige al agente de usuario a la aplicación cliente con un código de autorización. El agente de usuario devuelve el código de autorización al URI de redireccionamiento de la aplicación cliente.
 * La aplicación web necesita adquirir un token de acceso para poder autenticarse ante la API web y recuperar el recurso deseado. Realiza una solicitud al punto de conexión de token de Azure AD y proporciona las credenciales, el identificador del cliente y el URI del identificador de aplicación de la API web. Presenta el código de autorización para demostrar que el usuario ha dado su consentimiento.
 * Azure AD autentica la aplicación y devuelve un token de acceso de JWT que se usa para llamar a la API web.

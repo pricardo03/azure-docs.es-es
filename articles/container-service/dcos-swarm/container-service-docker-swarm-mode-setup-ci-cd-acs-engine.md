@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 01126f3eef988eb1787bafea92e7384aad1a703c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6c41156383791fb7d72ac02dae919a25a0d15c84
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179578"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621069"
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-visual-studio-team-services"></a>Canalización completa de CI/CD para implementar una aplicación de varios contenedores en Azure Container Service con ACS Engine y modo Docker Swarm mediante Visual Studio Team Services
 
@@ -44,14 +44,14 @@ Esta es una breve explicación de los pasos:
 7. Modo Docker Swarm en el clúster extrae la versión más reciente de las imágenes 
 8. La nueva versión de la aplicación se implementa mediante Docker Stack 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar este tutorial, debe realizar las siguientes tareas:
 
 - [Crear un clúster del modo Swarm en Azure Container Service con ACS Engine](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acsengine-swarmmode)
 - [Conectar con el clúster de Swarm en Azure Container Service (servicio Contenedor de Azure)](../container-service-connect.md)
 - [Crear una instancia de Azure Container Registry](../../container-registry/container-registry-get-started-portal.md)
-- [Crear una cuenta y un proyecto de equipo de Visual Studio Team Services](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
+- [Crear una cuenta y un proyecto de equipo de Visual Studio Team Services](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)
 - [Bifurcar el repositorio de GitHub a su cuenta de GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux)
 
 >[!NOTE]

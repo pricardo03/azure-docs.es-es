@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: ambapat
-ms.openlocfilehash: a3493c9e9ef6a5bafd832510f42f33cc3f07f088
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 8bc2355c5df73d2469cab63bfbf783624228b341
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070386"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576974"
 ---
 # <a name="secure-your-key-vault"></a>Protección de un almacén de claves
 Azure Key Vault es un servicio en la nube que protege las claves de cifrado y los secretos (como certificados, cadenas de conexión y contraseñas) de las aplicaciones en la nube. Dado que estos datos son confidenciales y críticos para la empresa, desea proteger el acceso a los almacenes de claves, por lo que solo pueden acceder a él las aplicaciones y los usuarios autorizados. En este artículo se proporciona información general del modelo de acceso a un almacén de claves, se explican la autenticación y la autorización, y se describe cómo proteger el acceso a un almacén de claves de las aplicaciones en la nube con un ejemplo.
@@ -47,7 +47,7 @@ Cuando se crea un almacén de claves en una suscripción de Azure, se asocia aut
 * **acceso a usuario + aplicación**: normalmente es para aplicaciones que acceden al almacén de claves en nombre del usuario que ha iniciado sesión. Algunos ejemplos de este tipo de acceso son Azure PowerShell y Azure Portal. Hay dos maneras de otorgar acceso a los usuarios: una es conceder acceso a los usuarios para que pueden acceder al almacén de claves desde cualquier aplicación y la otra forma es conceder a los usuarios acceso al almacén de claves solo cuando usen una aplicación concreta (denominada identidad compuesta). 
 * **acceso solo a aplicación**: para las aplicaciones que ejecutan servicios de demonio, trabajos en segundo plano, etc. A la identidad de la aplicación se le concede acceso al almacén de claves.
 
-En ambos tipos de aplicaciones, la aplicación se autentica con Azure Active Directory mediante cualquiera de los [métodos de autenticación admitidos](../active-directory/active-directory-authentication-scenarios.md) y adquiere un token. El método de autenticación utilizado depende del tipo de aplicación. Después, la aplicación usa este token y envía la solicitud de la API de REST a Key Vault. En el caso del acceso al plano de administración, las solicitudes se enrutan a través del punto de conexión de Azure Resource Manager. Al acceder al plano de datos, la aplicación se comunica directamente con un punto de conexión del almacén de claves. Consulte más detalles acerca de [todo el flujo de autenticación](../active-directory/active-directory-protocols-oauth-code.md). 
+En ambos tipos de aplicaciones, la aplicación se autentica con Azure Active Directory mediante cualquiera de los [métodos de autenticación admitidos](../active-directory/develop/authentication-scenarios.md) y adquiere un token. El método de autenticación utilizado depende del tipo de aplicación. Después, la aplicación usa este token y envía la solicitud de la API de REST a Key Vault. En el caso del acceso al plano de administración, las solicitudes se enrutan a través del punto de conexión de Azure Resource Manager. Al acceder al plano de datos, la aplicación se comunica directamente con un punto de conexión del almacén de claves. Consulte más detalles acerca de [todo el flujo de autenticación](../active-directory/develop/v1-protocols-oauth-code.md). 
 
 El nombre del recurso para el que la aplicación solicita un token es diferente en función de si la aplicación accede a un plano de administración o a un plano de datos. De ahí que el nombre del recurso sea el punto de conexión del plano de administración o del plano de datos descrito en la tabla de una sección posterior, según el entorno de Azure.
 
@@ -223,7 +223,7 @@ En este ejemplo se muestra un escenario simple. Los escenarios de la vida real p
 * [Role-Based Access Control for Microsoft Azure from Ignite (Control de acceso basado en rol para Microsoft Azure de Ignite)](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
   
   Este es un vínculo a un vídeo de Channel 9 de la conferencia de MS Ignite de 2015. En esta sesión, se abordan las funciones de notificación y administración de acceso en Azure y se exploran los procedimientos recomendados en torno a la protección del acceso a suscripciones de Azure con Azure Active Directory.
-* [Autorización del acceso a aplicaciones web mediante OAuth 2.0 y Azure Active Directory](../active-directory/active-directory-protocols-oauth-code.md)
+* [Autorización del acceso a aplicaciones web mediante OAuth 2.0 y Azure Active Directory](../active-directory/develop/v1-protocols-oauth-code.md)
   
   En este artículo se todo el flujo de OAuth 2.0 para realizar la autenticación con Azure Active Directory.
 * [API de REST de administración de almacén de claves](https://msdn.microsoft.com/library/azure/mt620024.aspx)
@@ -238,7 +238,7 @@ En este ejemplo se muestra un escenario simple. Los escenarios de la vida real p
 * [Control de acceso de secretos](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
   Vínculo a la documentación de referencia del control de acceso de claves.
-* [Establecer](https://msdn.microsoft.com/library/mt603625.aspx) y [quitar](https://msdn.microsoft.com/library/mt619427.aspx) una directiva de acceso de Key Vault mediante PowerShell
+* [Establecer](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) y [quitar](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Remove-AzureRmKeyVaultAccessPolicy) una directiva de acceso de Key Vault mediante PowerShell
   
   Vínculos a documentación de referencia de los cmdlets de PowerShell para administrar la directiva de acceso de un almacén de claves.
 

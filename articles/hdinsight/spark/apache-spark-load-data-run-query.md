@@ -1,23 +1,20 @@
 ---
-title: 'Tutorial: Carga de datos y ejecución de consultas en un clúster de Apache Spark en Azure HDInsight | Microsoft Docs'
+title: 'Tutorial: Carga de datos y ejecución de consultas en un clúster de Apache Spark en Azure HDInsight '
 description: Aprenda a cargar datos y a ejecutar consultas interactivas en clústeres de Spark en Azure HDInsight.
 services: azure-hdinsight
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jasonh
 ms.date: 05/17/2018
-ms.openlocfilehash: eeb0f8134d21d42c8401f58828160d613e8ef92b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: e83c7a4ed5987108a74153897abe4839dd24418c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302056"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619437"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carga de datos y ejecución de consultas en un clúster de Apache Spark en Azure HDInsight
 
@@ -30,7 +27,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Complete [Creación de un clúster de Apache Spark en Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -92,7 +89,7 @@ Una vez creada la tabla, puede ejecutar una consulta interactiva en los datos.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Con HDInsight, los datos se almacenan en Azure Storage o Azure Data Lake Store, por lo que cualquier clúster se puede eliminar de forma segura cuando no está en uso. También se le cargará por un clúster de HDInsight aunque no esté en uso. Como en muchas ocasiones los cargos por el clúster son más que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no estén en uso. Si tiene previsto pasar inmediatamente al siguiente tutorial, es aconsejable que no elimine el clúster.
+Con HDInsight, los datos se almacenan en Azure Storage o Azure Data Lake Store, por lo que cualquier clúster se puede eliminar de forma segura cuando no está en uso. También se le cobrará por un clúster de HDInsight aunque no se esté usando. Como en muchas ocasiones los cargos por el clúster son mucho más elevados que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no se estén usando. Si tiene previsto pasar inmediatamente al siguiente tutorial, es aconsejable que no elimine el clúster.
 
 Abra el clúster en Azure Portal y seleccione **Eliminar**.
 

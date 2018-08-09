@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 578fdb5593e75e3584e81d73d7643162f7af5cbc
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: de295a93d395cee4c4dfbea4f2e7f7338036feb8
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358145"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494380"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Tutorial: 1. Compilación de aplicación con dominio personalizado
 En este tutorial, cree una aplicación que muestre cómo usar las **intenciones** para determinar la _intención_ del usuario en función de la expresión (texto) que envía a la aplicación. Cuando termine, tendrá un punto de conexión LUIS en ejecución en la nube.
@@ -84,19 +84,15 @@ Esta aplicación tiene algunas intenciones. La primera intención, **`GetJobInfo
     En la aplicación que realiza la llamada de LUIS, por ejemplo, un bot de chat, si LUIS devuelve la intención **None** para una expresión, el bot puede preguntar al usuario si desea finalizar la conversación. El bot de chat también puede dar más instrucciones para que continúe la conversación si el usuario no desea terminarla. 
 
 ## <a name="train-and-publish-the-app"></a>Entrenamiento y publicación de la aplicación
-1. En la parte superior derecha del sitio web de LUIS, haga clic en el botón **Train** (Entrenar). 
 
-    ![Botón Train (Entrenar)](./media/luis-quickstart-intents-only/train-button.png)
-
-2. El entrenamiento se completa cuando ve la barra de estado verde en la parte superior del sitio web que confirma que se ha realizado correctamente.
-
-    ![Barra de estado que indica que el entrenamiento se realizó](./media/luis-quickstart-intents-only/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>Publicación de la aplicación en un punto de conexión
 
 [!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>Consulta del punto de conexión para la intención GetJobInformation
+
 1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Vaya al final de la dirección URL en la dirección y escriba `I'm looking for a job with Natual Language Processing`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. Esta expresión no es la misma que ninguna de las expresiones de ejemplo del paso 4, por lo que es una buena prueba y debería devolver la intención `GetJobInformation` como la intención con la puntuación más alta. 
@@ -189,7 +185,8 @@ El resultado de JSON identifica la intención que tiene la puntuación más alta
 LUIS ha terminado con esta solicitud. La aplicación que realiza la llamada, como un bot de chat, puede tomar el resultado topScoringIntent y encontrar información (no almacenada en LUIS) para responder la pregunta o para finalizar la conversación. Estas son opciones programáticas para el bot o la aplicación que realiza la llamada. LUIS no hace ese trabajo. LUIS solo determina cuál es la intención del usuario. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Para hacerlo, seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione los puntos suspensivos (***...***) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

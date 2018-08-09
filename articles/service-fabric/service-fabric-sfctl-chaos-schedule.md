@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 0d09338f71d71d07ab0e037d4736cfaa1f3cff85
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 176b04b9bb16b5f183298c75f16bceb5e885e293
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763980"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492247"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Obtenga y establezca la programación de chaos.
@@ -35,6 +35,12 @@ Obtenga y establezca la programación de chaos.
 Obtenga el valor de Chaos Schedule que define cómo y cuándo se ejecuta Chaos.
 
 Obtiene la versión de Chaos Schedule en uso y la programación Chaos Schedule que define cuándo y cómo se ejecuta Chaos.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|DESCRIPCIÓN|
+| --- | --- |
+| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
 
@@ -59,6 +65,7 @@ Establezca la programación Chaos Schedule actualmente en uso por Chaos. Chaos p
 | --expiry-date-utc | La fecha y hora en que se debe dejar de usar Schedule para programar Chaos.  Valor predeterminado\: 9999-12-31T23\:59\:59.999Z. |
 | --jobs | Lista codificada en JSON de ChaosScheduleJobs que representa cuándo ejecutar Chaos y con qué parámetros se ejecuta Chaos. |
 | --start-date-utc | La fecha y hora en que se debe empezar a usar Schedule para programar Chaos.  Valor predeterminado\: 1601-01-01T00\:00\:00.000Z. |
+| --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 | --version | El número de versión de Schedule. |
 
 ### <a name="global-arguments"></a>Argumentos globales

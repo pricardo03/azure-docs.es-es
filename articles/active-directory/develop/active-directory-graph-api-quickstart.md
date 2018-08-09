@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: d4e06c7332c12ed26afbf71d1b307c6a6fb2a55b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 3298b39fc92f6e5867900ed151149ff936e2733c
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156881"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492636"
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Guía de inicio rápido de Graph API de Azure AD
 Graph API de Azure Active Directory (AD) proporciona acceso mediante programación a Azure AD a través de los extremos de la API de REST OData. Las aplicaciones pueden usar Graph API de Azure AD para ejecutar operaciones de creación, lectura, actualización y eliminación (CRUD) en objetos y datos de directorio. Por ejemplo, Graph API de Azure AD se puede usar para crear un nuevo usuario, ver o actualizar las propiedades de un usuario, cambiar la contraseña de un usuario, comprobar la pertenencia al grupo para el acceso basado en roles y deshabilitar o eliminar el usuario. Para más información sobre los escenarios de aplicaciones y características de Graph API de Azure AD, consulte [Graph API de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) y los [requisitos previos de Graph API de Azure AD](https://msdn.microsoft.com/library/hh974476.aspx). 
@@ -79,7 +79,7 @@ Para seguir esta guía de inicio rápido, puede usar el depurador web Fiddler pa
 
 En el ejemplo siguiente, usará el depurador web Fiddler para crear un nuevo grupo de seguridad, "MyTestGroup", en el directorio de Azure AD.
 
-**Obtener un token de acceso**: para obtener acceso a Azure AD Graph, los clientes primero deben autenticarse correctamente en Azure AD. Para obtener más información, consulte [Escenarios de autenticación en Azure AD](active-directory-authentication-scenarios.md).
+**Obtener un token de acceso**: para obtener acceso a Azure AD Graph, los clientes primero deben autenticarse correctamente en Azure AD. Para obtener más información, consulte [Escenarios de autenticación en Azure AD](authentication-scenarios.md).
 
 **Redactar y ejecutar una consulta**: lleve a cabo los pasos siguientes.
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0db357194aa4bd4d01b1d445cb407d983214b32b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 843b92c20b2ec930ce67659802a4287328a08650
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054140"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618876"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante Azure Portal y PowerShell
 > [!div class="op_single_selector"]
@@ -289,7 +289,7 @@ En caso de que el segmento no se valide debido a un error de directiva (por ejem
 ![Corrección de errores y validación](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Uso de Azure PowerShell
-Puede volver a ejecutar errores mediante el cmdlet **Set-AzureRmDataFactorySliceStatus**. Consulte el tema [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) para obtener información sobre la sintaxis y otros detalles del cmdlet.
+Puede volver a ejecutar errores mediante el cmdlet **Set-AzureRmDataFactorySliceStatus**. Consulte el tema [Set-AzureRmDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus) para obtener información sobre la sintaxis y otros detalles del cmdlet.
 
 **Ejemplo:**
 

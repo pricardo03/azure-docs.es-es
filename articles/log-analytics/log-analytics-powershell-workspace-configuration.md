@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
 ms.component: na
-ms.openlocfilehash: 375ae9a82af4a1f8a86b529b597ed479388e66dc
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 6dcf3a5b26dc3c7e69721b2abb8a7d58767866d6
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129343"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579058"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Administración de Log Analytics mediante PowerShell
-Puede usar los [cmdlets de PowerShell de Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) para realizar una serie de funciones en Log Analytics desde una línea de comandos o como parte de un script.  A continuación se indican algunos ejemplos de las tareas que puede realizar con PowerShell:
+Puede usar los [cmdlets de PowerShell de Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) para realizar una serie de funciones en Log Analytics desde una línea de comandos o como parte de un script.  A continuación se indican algunos ejemplos de las tareas que puede realizar con PowerShell:
 
 * Crear un área de trabajo
 * Agregar o quitar una solución
@@ -37,14 +37,14 @@ Puede usar los [cmdlets de PowerShell de Log Analytics](https://msdn.microsoft.c
 * Agregar al agente de Log Analytics a una máquina virtual de Azure
 * Configurar Log Analytics para indizar los datos recopilados mediante Diagnósticos de Azure
 
-Este artículo proporciona dos ejemplos de código que muestran algunas de las funciones que puede realizar desde PowerShell.  Puede consultar la [referencia de cmdlets de PowerShell de Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) para otras funciones.
+Este artículo proporciona dos ejemplos de código que muestran algunas de las funciones que puede realizar desde PowerShell.  Puede consultar la [referencia de cmdlets de PowerShell de Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) para otras funciones.
 
 > [!NOTE]
 > Log Analytics se llamaba anteriormente Operational Insights, razón por la cual se utiliza este nombre en los cmdlets.
 > 
 > 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Estos ejemplos funcionan con la versión 2.3.0 o posteriores del módulo AzureRm.OperationalInsights.
 
 
@@ -193,24 +193,24 @@ Para la supervisión de recursos de Azure sin agente, los recursos necesitan ten
 
 | Tipo de recurso | Registros | Métricas |
 | --- | --- | --- |
-| Puertas de enlace de aplicaciones    | Sí | Sí |
-| Cuentas de Automation     | Sí | |
-| Cuentas de Batch          | Sí | Sí |
-| Data Lake Analytics     | Sí | | 
-| Data Lake Store         | Sí | |
-| Elastic SQL Pool        |     | Sí |
-| Espacio de nombres del Centro de eventos     |     | Sí |
-| IoT Hubs                |     | Sí |
-| Key Vault               | Sí | |
-| Equilibradores de carga          | Sí | |
-| Logic Apps              | Sí | Sí |
-| Grupos de seguridad de red | Sí | |
-| Redis Cache             |     | Sí |
-| Servicios de búsqueda         | Sí | Sí |
-| Espacio de nombres de Service Bus   |     | Sí |
-| SQL (v12)               |     | Sí |
-| Sitios web               |     | Sí |
-| Granjas de servidores web        |     | Sí |
+| Puertas de enlace de aplicaciones    | SÍ | SÍ |
+| Cuentas de Automation     | SÍ | |
+| Cuentas de Batch          | SÍ | SÍ |
+| Data Lake Analytics     | SÍ | | 
+| Data Lake Store         | SÍ | |
+| Elastic SQL Pool        |     | SÍ |
+| Espacio de nombres del Centro de eventos     |     | SÍ |
+| IoT Hubs                |     | SÍ |
+| Key Vault               | SÍ | |
+| Equilibradores de carga          | SÍ | |
+| Logic Apps              | SÍ | SÍ |
+| Grupos de seguridad de red | SÍ | |
+| Redis Cache             |     | SÍ |
+| Servicios de búsqueda         | SÍ | SÍ |
+| Espacio de nombres de Service Bus   |     | SÍ |
+| SQL (v12)               |     | SÍ |
+| Sitios web               |     | SÍ |
+| Granjas de servidores web        |     | SÍ |
 
 Para obtener información detallada sobre las métricas disponibles, consulte las [métricas admitidas con Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
@@ -266,5 +266,5 @@ También puede usar el script anterior para recopilar registros de cuentas de al
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Revise los cmdlets de PowerShell de Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) para obtener información adicional sobre cómo usar PowerShell para la configuración de Log Analytics.
+* [Revise los cmdlets de PowerShell de Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) para obtener información adicional sobre cómo usar PowerShell para la configuración de Log Analytics.
 

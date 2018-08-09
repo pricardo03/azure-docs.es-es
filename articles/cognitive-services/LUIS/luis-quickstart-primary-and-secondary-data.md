@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 2e100f2019c3bb99e3909e64305ebe641e2a637e
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 87d97b078927800e4e90c39a70e2acc7163a4c84
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308976"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493054"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Tutorial: 7. Incorporación de entidad simple y lista de frases
 En este tutorial se crea una aplicación que muestra cómo se extraen datos aprendidos automáticamente de una expresión con la entidad **Simple**.
@@ -126,15 +126,8 @@ Esta aplicación de LUIS tiene nombres de trabajos en varias intenciones. Median
     Hay otras expresiones en el ejemplo, pero no contienen palabras de trabajo.
 
 ## <a name="train-the-luis-app"></a>Entrenamiento de la aplicación de LUIS
-LUIS no conoce los cambios en las intenciones y entidades (el modelo) hasta que se le entrena. 
 
-1. En la parte superior derecha del sitio web de LUIS, seleccione el botón **Train** (Entrenar).
-
-    ![Seleccionar el botón Train (Entrenar)](./media/luis-quickstart-primary-and-secondary-data/train-button.png)
-
-2. El entrenamiento se completa cuando ve la barra de estado verde en la parte superior del sitio web que confirma que se ha realizado correctamente.
-
-    ![Notificación de entrenamiento correcto](./media/luis-quickstart-primary-and-secondary-data/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicación de la aplicación para obtener la dirección URL del punto de conexión
 
@@ -367,7 +360,8 @@ El bot de chat ya tiene suficiente información para determinar la acción princ
 LUIS ha terminado con esta solicitud. La aplicación que realiza la llamada, como un bot de chat, puede tomar el resultado de topScoringIntent y los datos de la entidad para usar una API de terceros para enviar la información del trabajo a un representante del departamento de recursos humanos. Si hay otras opciones de programación para el bot o la aplicación que realiza la llamada, LUIS no realiza ese trabajo. LUIS solo determina cuál es la intención del usuario. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en la parte superior, menú de la izquierda. Seleccione los puntos suspensivos (***...***) a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

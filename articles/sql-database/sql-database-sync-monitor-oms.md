@@ -9,12 +9,12 @@ author: allenwux
 ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 9b64a5e913748cda7927877c50a964ede587ae30
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 3bad71834d11b640bbc3577bf67c10357fad36dc
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025601"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618317"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>Supervisión de SQL Data Sync con Log Analytics 
 
@@ -54,7 +54,7 @@ Descargue los dos ejemplos siguientes:
 
 -   [Vista de Data Sync Log Analytics](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 Asegúrese de que tiene configurado lo siguiente:
 
@@ -201,8 +201,6 @@ Para más información sobre SQL Data Sync, consulte:
 -   Para obtener ejemplos completos de PowerShell que muestren cómo configurar SQL Data Sync:
     -   [Uso de PowerShell para sincronizar entre varias bases de datos SQL de Azure.](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [Uso de PowerShell para realizar la sincronización entre Azure SQL Database y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
-
--   [Descarga de la documentación de la API de REST de SQL Data Sync](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 Para más información sobre SQL Database, consulte:
 

@@ -2,18 +2,18 @@
 title: Uso de Azure Import/Export para transferir datos a Azure Files | Microsoft Docs
 description: Aprenda a crear trabajos de importación en Azure Portal para transferir datos a Azure Files.
 author: alkohli
-manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 4f48097fa1ece66dd9e20a7a7939ac43cb0f48b4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.component: common
+ms.openlocfilehash: d6626b0c27f28f382d0189251fe90879020a69bf
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113484"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523638"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Uso del servicio Azure Import/Export para importar datos a Azure Files
 

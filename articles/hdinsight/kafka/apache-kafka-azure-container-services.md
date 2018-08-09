@@ -1,25 +1,20 @@
 ---
-title: Uso de Azure Kubernetes Service con Kafka en HDInsight | Microsoft Docs
+title: Uso de Azure Kubernetes Service con Kafka en HDInsight
 description: Aprenda a usar Kafka en HDInsight desde imágenes de contenedor hospedadas en Azure Kubernetes Service (AKS).
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/07/2018
-ms.author: larryfr
-ms.openlocfilehash: f54039a0e702aa3c789363969120e000760f6ef5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 339213654341b76cf4245240989cd59c7c041b0f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885968"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621252"
 ---
 # <a name="use-azure-kubernetes-service-with-kafka-on-hdinsight"></a>Uso de Azure Kubernetes Service con Kafka en HDInsight
 
@@ -30,7 +25,7 @@ Aprenda a usar Azure Kubernetes Service (AKS) con Kafka en un clúster de HDInsi
 > [!NOTE]
 > Este documento se centra en los pasos necesarios para permitir que Azure Kubernetes Service se comunique con Kafka en HDInsight. El ejemplo en sí es simplemente un cliente de Kafka básico para demostrar que la configuración funciona.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Una suscripción de Azure
@@ -43,7 +38,7 @@ En este documento se supone que está familiarizado con la creación y el uso de
 
 También se supone que ha examinado el [tutorial de Azure Kubernetes Service](../../aks/tutorial-kubernetes-prepare-app.md). En este tutorial se crea un servicio de contenedor, un clúster de Kubernetes y un registro de contenedor, y se configura la utilidad `kubectl`.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Arquitectura
 
 ### <a name="network-topology"></a>Topología de red
 

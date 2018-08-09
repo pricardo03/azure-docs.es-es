@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: de33b4618eb31707d324098e894682dd254c8ee4
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: e907a1f5ad8e75e018149e53ae0c2f9faff10a89
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358389"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493112"
 ---
 # <a name="improve-app-with-batch-test"></a>Mejora de la aplicación con pruebas por lotes
 
@@ -228,7 +228,7 @@ Aumentó la precisión de la predicción de la aplicación al encontrar errores 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Seleccione **My apps** (Mis aplicaciones) en el menú superior izquierdo. Seleccione los puntos suspensivos **...** a la derecha del nombre de la aplicación en la lista de aplicaciones y, después, seleccione **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

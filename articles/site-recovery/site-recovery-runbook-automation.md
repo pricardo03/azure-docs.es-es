@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: e9a1dfc6aa26246db5322a8f4491ab2a5bccfcf5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 55160f3c43d8cbfc5f8b3e6aaf26bcb911387c52
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917700"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578772"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Incorporación de runbooks de Azure Automation a los planes de recuperación
 En este artículo se explica cómo se integra Azure Site Recovery con Azure Automation para ayudarle a ampliar los planes de recuperación. Los planes de recuperación pueden organizar la recuperación de máquinas virtuales protegidas con Site Recovery. Los planes de recuperación funcionan para la replicación en una nube secundaria y para la replicación en Azure. Los planes de recuperación además ayudan a que la recuperación sea **coherente y precisa**, **repetible** y **automatizada**. Si conmuta por error las máquinas virtuales en Azure, la integración con Azure Automation amplía los planes de recuperación. Se puede usar para ejecutar runbooks, que ofrecen eficaces tareas de automatización.
@@ -196,7 +196,7 @@ Para cada plan de recuperación, cree variables independientes para poder volver
 
 Considere un escenario en el que quiera que un único script active una dirección IP pública en máquinas virtuales concretas. En otro escenario, podría querer aplicar diferentes NSG en diferentes máquinas virtuales (no en todas las máquinas virtuales). Puede crear un script que se pueda volver a usar para cualquier plan de recuperación. Cada plan de recuperación puede tener un número variable de máquinas virtuales. Por ejemplo, una recuperación de SharePoint tiene dos servidores front-end. Una aplicación básica de línea de negocio (LOB) tiene solo un servidor front-end. No puede crear variables independientes para cada plan de recuperación.
 
-En el siguiente ejemplo se usa una técnica nueva y se crea una [variable compleja](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) en los activos de la cuenta de Azure Automation. Para ello se especifican varios valores. Debe usar Azure PowerShell para realizar los siguientes pasos:
+En el siguiente ejemplo se usa una técnica nueva y se crea una [variable compleja](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) en los activos de la cuenta de Azure Automation. Para ello se especifican varios valores. Debe usar Azure PowerShell para realizar los siguientes pasos:
 
 1. En PowerShell, inicie sesión en la suscripción de Azure:
 

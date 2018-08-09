@@ -2,24 +2,18 @@
 title: Requerir transferencia segura en Azure Storage | Microsoft Docs
 description: Obtenga información acerca de la característica "Se requiere transferencia segura" de Azure Storage y cómo habilitarla.
 services: storage
-documentationcenter: na
 author: fhryo-msft
-manager: Jason.Hogg
-editor: fhryo-msft
-ms.assetid: ''
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
-ms.openlocfilehash: 0ec36864377d724795197851341cbb837f47c4c6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.component: common
+ms.openlocfilehash: 201bf1e5d3580902934f139b70ca5363e7cc5930
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599805"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523022"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Requerir transferencia segura en Azure Storage
 
