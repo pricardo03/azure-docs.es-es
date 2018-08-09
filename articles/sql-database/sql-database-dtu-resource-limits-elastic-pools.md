@@ -7,20 +7,23 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: ea912d2b2297cf64b51ea4c50b36b3847fcc1bf8
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 128b4bc787cd882e719ee3332d285af44b15dfe2
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131895"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412997"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Límites de recursos para grupos elásticos que utilizan el modelo de compra basado en DTU 
 
 En este artículo se proporcionan los límites de recursos detallados para grupos elásticos y grupos de bases de datos elásticas de Azure SQL Database que utilizan el modelo de compra basado en DTU. 
 
 Para los límites de recursos del modelo de compra basado en DTU para una sola base de datos, vea [DTU-based resource limits - single databases](sql-database-vcore-resource-limits-elastic-pools.md) (Límites de recursos basados en DTU: una sola base de datos). Para los límites de recursos basados en núcleo virtual, vea [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) (Límites de recursos basados en núcleo virtual: una sola base de datos) y [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md) (Límites de recursos basados en núcleo virtual: grupos elásticos).
+
+> [!IMPORTANT]
+> En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para más información, consulte [Administración del espacio de archivo en Azure SQL Database](sql-database-file-space-management.md).
 
 ## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Grupo de bases de datos elásticas: tamaños de almacenamiento y niveles de rendimiento
 

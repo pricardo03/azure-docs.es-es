@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: ba162a04d41d9ce6f0bf00e377b7717f78967e7f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: abc96497c95397a6fab72672f1525462301c5cf9
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091779"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414640"
 ---
 # <a name="azure-stack-1805-update"></a>Actualización de Azure Stack 1805
 
@@ -72,7 +72,8 @@ Esta actualización incluye las siguientes correcciones para Azure Stack.
 ## <a name="before-you-begin"></a>Antes de empezar    
 
 ### <a name="prerequisites"></a>Requisitos previos
-- Antes de aplicar la actualización de Azure Stack 1805, instale la [actualización 1804](azure-stack-update-1804.md).    
+- Antes de aplicar la actualización de Azure Stack 1805, instale la [actualización 1804](azure-stack-update-1804.md).  
+- Instale la [actualización o revisión para la versión 1804](azure-stack-update-1804.md#post-update-steps) más reciente disponible.   
 - Antes de iniciar la instalación de la actualización 1805, ejecute [Test-AzureStack](azure-stack-diagnostic-test.md) para validar el estado de Azure Stack y resolver todos los problemas operativos que se encuentren. Repase también las alertas activas y resuelva las que requieran alguna acción. 
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conocidos relacionados con el proceso de actualización   
@@ -90,6 +91,8 @@ Después de la instalación de 1805, instale todas las revisiones aplicables. Pa
 Los siguientes son problemas conocidos posteriores a la instalación de esta compilación.
 
 ### <a name="portal"></a>Portal  
+- <!-- TBD - IS ASDK --> Con esta versión de Azure Stack, no se pueden aplicar actualizaciones de controladores mediante un paquete de extensiones OEM.  No hay ninguna solución alternativa para este problema.
+
 - <!-- 2551834 - IS, ASDK --> Cuando se selecciona **Información general** para una cuenta de almacenamiento en los portales de administrador o de usuario, la información del panel *Información esencial* no aparece.  Este panel muestra información sobre la cuenta como, por ejemplo, su *grupo de recursos*, *ubicación* y el *identificador de la suscripción*.  Se puede acceder a otras opciones de Información general como *Servicios* y *Supervisión*, así como a opciones para *Abrir en el Explorador* o para *Eliminar cuenta de almacenamiento*. 
 
   Para ver la información no disponible, use el cmdlet de PowerShell [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0). 

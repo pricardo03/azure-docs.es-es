@@ -3,7 +3,7 @@ title: Solución de problemas de Azure Files en Linux | Microsoft Docs
 description: Solución de problemas de Azure File en Linux
 services: storage
 documentationcenter: ''
-author: wmgries
+author: jeffpatt24
 manager: aungoo
 editor: tamram
 tags: storage
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: wgries
-ms.openlocfilehash: 4a80b868529b18875100d8205fd8c3a664b6b9e2
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.author: jeffpatt
+ms.openlocfilehash: 5781a3c2e121b81275683d73eb3047ba949857c7
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738371"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39415718"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Solución de problemas de Azure File en Linux
 
@@ -43,11 +43,11 @@ Reduzca el número de identificadores abiertos simultáneos cerrando algunos de 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Copia de archivos lenta en y desde Azure Files en Linux
 
--   Si no tiene un requisito mínimo de tamaño de E/S específico, se recomienda que utilice 1 MB como el tamaño de E/S para disfrutar de un rendimiento óptimo.
--   Si conoce el tamaño final de un archivo que amplía mediante operaciones de escritura y el software no presenta problemas de compatibilidad cuando una cola no escrita del archivo contiene ceros, establezca el tamaño de archivo con antelación en lugar de hacer que cada escritura sea una escritura de ampliación.
--   Utilice el método de copia correcto:
-    -   Use [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para todas las transferencias entre dos recursos compartidos de archivos.
-    -   Utilice [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) entre recursos compartidos de archivos y un equipo local.
+- Si no tiene un requisito mínimo de tamaño de E/S específico, se recomienda que use 1 MiB como tamaño de E/S para disfrutar de un rendimiento óptimo.
+- Si conoce el tamaño final de un archivo que amplía mediante operaciones de escritura y el software no presenta problemas de compatibilidad cuando una cola no escrita del archivo contiene ceros, establezca el tamaño de archivo con antelación en lugar de hacer que cada escritura sea una escritura de ampliación.
+- Utilice el método de copia correcto:
+    - Use [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para todas las transferencias entre dos recursos compartidos de archivos.
+    - Utilice [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) entre recursos compartidos de archivos y un equipo local.
 
 <a id="error112"></a>
 ## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>"Error de montaje (112): El host está apagado" debido a un tiempo de espera de reconexión
@@ -58,7 +58,7 @@ Se produce un error de montaje "112" en el cliente de Linux cuando este lleva in
 
 La conexión puede estar inactiva por las razones siguientes:
 
--   Errores de comunicación de la red que impiden el restablecimiento de una conexión TCP con el servidor cuando se usa la opción de montaje predeterminada “flexible”
+-   Errores de comunicación de la red que impiden el restablecimiento de una conexión TCP con el servidor cuando se usa la opción de montaje predeterminada "flexible"
 -   Correcciones de reconexión recientes que no están presentes en los kernels anteriores
 
 ### <a name="solution"></a>Solución
@@ -66,15 +66,15 @@ La conexión puede estar inactiva por las razones siguientes:
 Este problema de reconexión en el kernel de Linux se ha corregido como parte de los siguientes cambios:
 
 - [Fix reconnect to not defer smb3 session reconnect long after socket reconnect](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93) (Corregir la reconexión para que no aplace la reconexión de la sesión de smb3 mucho después de la reconexión del socket)
--   [Call echo service immediately after socket reconnect](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7) (Llamar al servicio de eco inmediatamente después de volver a conectar el socket)
--   [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b) (CIFS: Corregir un posible daño de memoria durante la reconexión)
--   [CIFS: Fix a possible double locking of mutex during reconnect (or kernel v4.9 and later)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) (CIFS: Corregir un posible bloqueo doble de exclusión mutua durante la reconexión: para el kernel v4.9 y versiones posteriores)
+- [Call echo service immediately after socket reconnect](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7) (Llamar al servicio de eco inmediatamente después de volver a conectar el socket)
+- [CIFS: Fix a possible memory corruption during reconnect](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b) (CIFS: Corregir un posible daño de memoria durante la reconexión)
+- [CIFS: Fix a possible double locking of mutex during reconnect (or kernel v4.9 and later)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183) (CIFS: Corregir un posible bloqueo doble de exclusión mutua durante la reconexión: para el kernel v4.9 y versiones posteriores)
 
 Pero es posible que estos cambios todavía no se migren a todas las distribuciones de Linux. Esta corrección y otras correcciones de reconexión se realizan en los siguientes kernels de Linux conocidos: 4.4.40, 4.8.16 y 4.9.1. Puede obtener esta corrección actualizando a una de estas versiones de kernel recomendadas.
 
 ### <a name="workaround"></a>Solución alternativa
 
-Una solución alternativa para este problema es especificar un montaje forzado. Esta solución obliga al cliente a esperar hasta que se establezca una conexión o hasta que se interrumpa explícitamente, y puede usarse para evitar errores debidos a los tiempos de espera de la red. Sin embargo, esta solución alternativa puede provocar esperas indefinidas. Esté preparado para detener las conexiones según sea necesario.
+Una solución alternativa para este problema es especificar un montaje forzado. Esta solución obliga al cliente a esperar a que se establezca una conexión o a que se interrumpa explícitamente, y puede usarse para evitar errores debidos a los tiempos de espera de la red. Sin embargo, esta solución alternativa puede provocar esperas indefinidas. Esté preparado para detener las conexiones según sea necesario.
 
 Si no puede actualizar a las versiones más recientes del kernel, puede solucionar este problema manteniendo un archivo en el recurso compartido de archivos de Azure en el que se escribe cada 30 segundos o menos. Esta debe ser una operación de escritura, como volver a escribir la fecha de creación o modificación en el archivo. De lo contrario, podría obtener resultados almacenados en caché y la operación podría no desencadenar la reconexión.
 
@@ -139,22 +139,26 @@ Las causas comunes de este problema son las siguientes:
 
 - Está usando un cliente de distribución de Linux incompatible. Se recomienda usar las siguientes distribuciones de Linux para conectarse al recurso compartido de Azure File:
 
-    - Ubuntu Server 14.04+ 
-    - RHEL 7+ 
-    - CentOS 7+ 
-    - Debian 8 
-    - openSUSE 13.2+ 
-    - SUSE Linux Enterprise Server 12
+* **Versiones mínimas recomendadas con funcionalidades de montaje correspondientes (SMB versión 2.1 frente a SMB versión 3.0)**    
+    
+    |   | SMB 2.1 <br>(Puede montar en máquinas virtuales dentro de la misma región de Azure) | SMB 3.0 <br>(Puede montar desde el nivel local a entre regiones) |
+    | --- | :---: | :---: |
+    | Ubuntu Server | 14.04+ | 16.04 (o posterior) |
+    | RHEL | 7 (o posterior) | 7.5 (o posterior) |
+    | CentOS | 7 (o posterior) |  7.5 (o posterior) |
+    | Debian | 8 (o posterior) |   |
+    | openSUSE | 13.2 (o posterior) | 42.3 (o posterior) |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3 (o posterior) |
 
 - Las utilidades de CIFS no están instaladas en el cliente.
 - La versión 2.1 mínima de SMB/CIFS no está instalada en el cliente.
 - No se admite el cifrado SMB 3.0 en el cliente. El cifrado SMB 3.0 está disponible en Ubuntu 16.4 y versiones posteriores y en SUSE 12.3 y versiones posteriores. Otras distribuciones requieren kernel 4.11 y versiones posteriores.
 - Está intentando conectarse a una cuenta de almacenamiento a través del puerto TCP 445 que no es compatible.
-- Está intentando conectarse al recurso compartido de Azure File desde una máquina virtual de Azure y la máquina virtual no se encuentra en la misma región que la cuenta de almacenamiento.
+- Está intentando conectarse al recurso compartido de archivos de Azure desde una máquina virtual de Azure y la máquina virtual no se encuentra en la misma región que la cuenta de almacenamiento.
 
 ### <a name="solution"></a>Solución
 
-Para resolver el problema, use la [herramienta de solución de problemas para los errores de montaje de Azure Files](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Esta herramienta puede ayudarle a validar el cliente que ejecuta el entorno, detectar la configuración de cliente incompatible que podría provocar un error de acceso en Azure Files, proporcionar instrucciones preceptivas sobre la solución autónoma de problemas y recopilar los seguimientos de diagnóstico.
+Para resolver el problema, use la [herramienta de solución de problemas para los errores de montaje de Azure Files](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Esta herramienta puede ayudarle a validar el entorno de ejecución del cliente, detectar la configuración de cliente incompatible que podría provocar un error de acceso en Azure Files, proporcionar instrucciones preceptivas sobre la solución autónoma de problemas y recopilar los seguimientos de diagnóstico.
 
 ## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: no se puede acceder a "&lt;ruta de acceso&gt;": error de entrada/salida
 
@@ -170,6 +174,31 @@ Actualice el kernel de Linux a las siguientes versiones que tengan una solución
 - 4.9.48+
 - 4.12.11+
 - Todas las versiones que sean mayores o iguales que 4.13
+
+## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>No se pueden crear vínculos simbólicos. En: No se pudo crear un vínculo simbólico "t": operación no admitida
+
+### <a name="cause"></a>Causa
+De forma predeterminada el montaje de recursos compartidos de archivos de Azure en Linux mediante CIFS no permite la compatibilidad con symlinks. Verá este vínculo de error:
+```
+ln -s linked -n t
+ln: failed to create symbolic link 't': Operation not supported
+```
+### <a name="solution"></a>Solución
+El cliente CIFS de Linux no admite la creación de vínculos simbólicos de estilo Windows mediante el protocolo SMB2/3. Actualmente, el cliente Linux admite otro estilo de vínculos simbólicos llamados [symlinks Mishall+French] (https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) para operaciones de creación y seguimiento. Los clientes que necesitan vínculos simbólicos pueden usar la opción de montaje "mfsymlinks". Normalmente, se recomienda "mfsymlinks" ya que también es el formato usado por equipos Mac.
+
+Para poder usar symlinks, agregue el siguiente código al final de su comando de montaje de CIFS:
+
+```
+,mfsymlinks
+```
+
+El comando será algo como:
+
+```
+sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsynlinks
+```
+
+Una vez agregado, podrá crear symlinks como se sugiere en la [Wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 

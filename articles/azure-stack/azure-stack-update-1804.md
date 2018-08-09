@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 496aea1195885c582d3529d7ddb43210aad5fea1
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 0190298cbf6352feeb71e365f5815e174c9e30cc
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990139"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413523"
 ---
 # <a name="azure-stack-1804-update"></a>Actualización de Azure Stack 1804
 
@@ -80,7 +80,10 @@ Las siguientes están disponibles ahora, pero no requieren la actualización de 
 ## <a name="before-you-begin"></a>Antes de empezar    
 
 ### <a name="prerequisites"></a>Requisitos previos
-- Antes de aplicar la actualización de Azure Stack 1804, instale la [actualización 1803](azure-stack-update-1803.md).    
+- Antes de aplicar la actualización de Azure Stack 1804, instale la [actualización 1803](azure-stack-update-1803.md).  
+  
+- Instale la [actualización o revisión más reciente disponible para la versión 1803](azure-stack-update-1803.md#post-update-steps). 
+
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conocidos relacionados con el proceso de actualización   
 - Durante la instalación de la actualización 1804, puede que vea alertas con el título *Error – Template for FaultType UserAccounts.New is missing* (Error: Falta la plantilla para FaultType UserAccounts.New).  Puede omitir estas alertas con seguridad. Estas alertas se cerrarán automáticamente cuando se complete la actualización 1804.   
@@ -99,6 +102,8 @@ Después de la instalación de 1804, instale todas las revisiones aplicables. Pa
 Los siguientes son problemas conocidos posteriores a la instalación de la compilación **20180513.1**.
 
 #### <a name="portal"></a>Portal
+- <!-- TBD - IS ASDK --> Con esta versión de Azure Stack, no se pueden aplicar actualizaciones de controladores mediante un paquete de extensiones OEM.  No hay ninguna solución alternativa para este problema.
+
 - <!-- 1272111 - IS --> Después de instalar o actualizar a esta versión de Azure Stack, es posible que no pueda ver las unidades de escalado de Azure Stack en el portal de administración.  
   Solución alternativa: use PowerShell para ver información acerca de las unidades de escalado. Para más información, consulte el contenido de [ayuda](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) del módulo de Azure Stack 1.3.0. 
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: efc62243370ff2cc5214a4ae235139bdb5965486
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248226"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413110"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Cómo funciona el autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -50,6 +50,7 @@ Lea los pasos siguientes para obtener información sobre la lógica de la págin
        * Si los métodos de autenticación no están configurados, se recomienda al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
      * Si la directiva solo requiere dos métodos, significa que garantiza que el usuario tiene los datos correspondientes definidos para al menos dos de los métodos de autenticación habilitados por la directiva del administrador.
        * Si los métodos de autenticación no están configurados, se recomienda al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
+     * Si se asigna un rol de administrador de Azure al usuario, se aplica la directiva de contraseñas seguras de dos puertas. Puede encontrar más información sobre esta directiva en la sección [Diferencias entre directivas de restablecimiento de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
    * Comprueba si la contraseña del usuario se administra en un entorno local (federado, con autenticación de paso a través o con sincronización de hash de contraseñas).
      * Si la escritura diferida está implementada y la contraseña del usuario se administra en un entorno local, el usuario puede continuar con la autenticación y restablecer la contraseña.
      * Si la escritura diferida no está implementada y la contraseña del usuario se administra en un entorno local, se pide al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
@@ -68,6 +69,9 @@ Si SSPR está habilitado, tiene que seleccionar al menos una de las opciones sig
 
 Los usuarios solo pueden restablecer su contraseña si tienen datos en los métodos de autenticación que el administrador haya habilitado.
 
+> [!WARNING]
+> Las cuentas asignadas a los roles de administrador de Azure tendrán que usar los métodos definidos en la sección [Diferencias entre directivas de restablecimiento de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
+
 ![Autenticación][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Número de métodos de autenticación requeridos
@@ -80,13 +84,16 @@ Si un usuario no tiene los métodos necesarios mínimos registrados, verá una p
 
 #### <a name="mobile-app-and-sspr-preview"></a>Aplicación móvil y SSPR (versión preliminar)
 
-Cuando se usa una aplicación móvil, por ejemplo, la aplicación Microsoft Authenticator, como un método para restablecer la contraseña, los usuarios deben ser conscientes de lo siguiente. Para el autoservicio de restablecimiento de contraseña cuando se requiere solo un método para el restablecimiento, el código de verificación es la única opción disponible para los usuarios. Si se requieren dos métodos, los usuarios podrán realizar el restablecimiento con la notificación **EITHER** **O** con el código de verificación, además de con cualquier otro método habilitado.
+Cuando se usa una aplicación móvil, por ejemplo, la aplicación Microsoft Authenticator, como un método para restablecer la contraseña, debe ser consciente de lo siguiente.
+
+* Cuando los administradores requieren que se utilice un método para restablecer una contraseña, el código de verificación es la única opción disponible.
+* Cuando los administradores requieren que se usen dos métodos para restablecer una contraseña, los usuarios podrán utilizar **bien** la notificación **O** el código de verificación, además de con cualquier otro método habilitado.
 
 | Número de métodos requeridos para el restablecimiento | Uno | Dos |
 | :---: | :---: | :---: |
 | Características de las aplicaciones móviles disponibles | Código | Código o notificación |
 
-Los usuarios no tendrán la opción de registrar su aplicación móvil cuando se registren en el autoservicio de restablecimiento de contraseña. En su lugar, los usuarios pueden registrar su aplicación móvil en aka.ms/mfasetup o en la versión preliminar del registro de información de seguridad en aka.ms/setupsecurityinfo. 
+Los usuarios no tendrán la opción de registrar su aplicación móvil cuando se registren en el autoservicio de restablecimiento de contraseña[https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Los usuarios pueden registrar su aplicación móvil en [https://aka.ms/mfasetup](https://aka.ms/mfasetup) o en la nueva versión preliminar del registro de información de seguridad en [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 ### <a name="change-authentication-methods"></a>Cambio de métodos de autenticación
 

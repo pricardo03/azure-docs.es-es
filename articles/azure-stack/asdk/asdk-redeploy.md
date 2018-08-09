@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 06/07/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 91b8a936215e906e6e5b7e6a4fcd0dc88bef6009
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: d166916ca54f3b8c26a418ff83093e53dcdbe515
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850327"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413777"
 ---
 # <a name="redeploy-the-asdk"></a>Reimplementación del Kit de desarrollo de Azure Stack
 En este artículo, aprenderá a reimplementar el Kit de desarrollo de Azure Stack (ASDK) en un entorno que no sea de producción. Dado que la actualización del Kit de desarrollo de Azure Stack, debe volver a implementarla completamente para pasar a una versión más reciente. También puede volver a implementar el Kit de desarrollo de Azure Stack en cualquier momento en el que desea volver a empezar desde el principio.
@@ -30,7 +30,7 @@ En este artículo, aprenderá a reimplementar el Kit de desarrollo de Azure Stac
 > No se admite la actualización del Kit de desarrollo de Azure Stack a una nueva versión. Tendrá que volver a implementar el Kit de desarrollo de Azure Stack en el equipo host del kit de desarrollo cada vez que desee evaluar una versión más reciente de Azure Stack.
 
 ## <a name="remove-azure-registration"></a>Quitar el registro de Azure 
-Si se ha registrado anteriormente la instalación del Kit de desarrollo de Azure Stack con Azure, debe quitar el recurso de registro antes de volver a implementar el kit de desarrollo. Vuelva a registrar el Kit de desarrollo de Azure Stack para habilitar la redifusión de Marketplace al volver a implementar el kit de desarrollo. Si no ha registrado previamente Kit de desarrollo de Azure Stack con su suscripción de Azure, puede omitir esta sección.
+Si se ha registrado anteriormente la instalación del Kit de desarrollo de Azure Stack con Azure, debe quitar el recurso de registro antes de volver a implementar el kit de desarrollo. Vuelva a registrar el Kit de desarrollo de Azure Stack para habilitar la disponibilidad de los elementos en Marketplace cuando se vuelve a implementar el kit de desarrollo. Si no ha registrado previamente Kit de desarrollo de Azure Stack con su suscripción de Azure, puede omitir esta sección.
 
 Para quitar el recurso de registro, utilice el cmdlet **Remove-AzsRegistration** para anular el registro de Azure Stack. Después, utilice el cmdlet **Remove-AzureRMRsourceGroup** para eliminar el grupo de recursos de Azure Stack de su suscripción de Azure:
 

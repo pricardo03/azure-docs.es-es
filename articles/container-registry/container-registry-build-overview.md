@@ -6,20 +6,20 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 08/01/2018
 ms.author: marsma
-ms.openlocfilehash: 3ef91270bceb5865bdbdf9c436e4519595a3dc09
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 63bbd9b5711330207c34ac4aa05aac3a71304653
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582637"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413586"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>Automatización de aplicación de revisiones de sistema operativo y marco con ACR Build
 
 Los contenedores proporcionan nuevos niveles de virtualización, que aíslan las dependencias de aplicaciones y desarrolladores de los requisitos operativos y la infraestructura. Sin embargo, lo que permanece es la necesidad de abordar cómo se aplican las revisiones de esta virtualización de aplicaciones.
 
-**ACR Build**, un conjunto de características de Azure Container Registry, no solo proporciona funcionalidad nativa de compilación de imágenes, sino que también automatiza la [aplicación de revisiones de sistema operativo y marco](#automate-os-and-framework-patching) para sus contenedores de Docker.
+**ACR Build** es un conjunto de características que se encuentra en Azure Container Registry. Proporciona creación de imágenes de contenedores basados en la nube para Linux, Windows y ARM, y puede automatizar [las revisiones de plataforma y sistema operativo](#automate-os-and-framework-patching) para los contenedores Docker.
 
 [!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
@@ -33,7 +33,20 @@ La imagen de contenedor del desencadenador se compila automáticamente cuando el
 
 El comienzo de la administración del ciclo de vida se inicia antes de que los desarrolladores confirmen sus primeras líneas de código. La característica [Compilación rápida](container-registry-tutorial-quick-build.md) de ACR Build permite una experiencia de desarrollo de bucle interno local integrada, que descarga las compilaciones en Azure. Con las compilaciones rápidas, puede verificar las definiciones de compilación automatizadas antes de confirmar el código.
 
-Mediante el conocido formato `docker build`, el comando [az acr build][az-acr-build] de la CLI de Azure toma un contexto local, lo envía al servicio ACR Build y, de forma predeterminada, inserta la imagen compilada en su registro tras completarse. ACR Build sigue los registros de replicación geográfica, lo que permite que equipos de desarrollo dispersos aprovechen el registro replicado más cercano. Durante la versión preliminar, ACR Build está disponible en las regiones de Este de EE. UU. y Europa Occidental.
+Mediante el conocido formato `docker build`, el comando [az acr build][az-acr-build] de la CLI de Azure toma un **contexto** (el conjunto de archivos que se van a compilar), lo envía al servicio ACR Build y, de forma predeterminada, inserta la imagen compilada en su registro tras completarse.
+
+En la tabla siguiente se muestran algunos ejemplos de ubicaciones de contexto admitidos por ACR Build:
+
+| Ubicación de contexto | DESCRIPCIÓN | Ejemplo |
+| ---------------- | ----------- | ------- |
+| Sistema de archivos local | Archivos en un directorio en el sistema de archivos local. | `/home/user/projects/myapp` |
+| Rama maestra de GitHub | Archivos dentro de la rama maestra (u otra predeterminada) de un repositorio de GitHub.  | `https://github.com/gituser/myapp-repo.git` |
+| Rama de GitHub | Rama específica de un repositorio de GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| PR de GitHub | Solicitud de incorporación de cambios en un repositorio de GitHub. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
+| Subcarpeta de GitHub | Archivos en una subcarpeta en un repositorio de GitHub. En el ejemplo se muestra la combinación de especificación de PR y de subcarpeta. | `https://github.com/gituser/myapp-repo.git#pull/24/head:myfolder` |
+| Tarball remoto | Archivos en un archivo comprimido en un servidor web remoto. | `http://remoteserver/myapp.tar.gz` |
+
+ACR Build también sigue los registros de replicación geográfica, lo que permite que equipos de desarrollo dispersos aprovechen el registro replicado más cercano.
 
 ACR Build está diseñado como un primitivo de ciclo de vida de contenedor. Por ejemplo, puede integrar ACR Build en su solución de CI/CD. Al ejecutar [az login][az-login] con una [entidad de servicio][az-login-service-principal], la solución de CI/CD podría emitir entonces comandos [az acr build][az-acr-build] para iniciar las compilaciones de imágenes.
 
@@ -49,7 +62,7 @@ Aprenda a desencadenar compilaciones a la confirmación del código fuente en el
 
 La eficacia de ACR Build para mejorar realmente la canalización de compilaciones de contenedor radica en su capacidad para detectar una actualización de una imagen base. Cuando la imagen base actualizada se inserta en el registro, ACR Build puede compilar automáticamente cualquier imagen de aplicación basada en ella.
 
-Las imágenes de contenedor pueden clasificarse a grandes rasgos en imágenes *base* e imágenes de *aplicación*. Normalmente, las imágenes base incluyen el sistema operativo y los marcos de aplicaciones sobre los que se compila la aplicación, junto con otras personalizaciones. Estas imágenes base se basan normalmente en imágenes ascendentes públicas, por ejemplo, [Alpine Linux][base-alpine] o [Node.js][base-node]. Algunas de las imágenes de aplicación podrían compartir una imagen base común.
+Las imágenes de contenedor pueden clasificarse a grandes rasgos en imágenes *base* e imágenes de *aplicación*. Normalmente, las imágenes base incluyen el sistema operativo y los marcos de aplicaciones sobre los que se compila la aplicación, junto con otras personalizaciones. Estas imágenes base se basan normalmente en imágenes ascendentes públicas, por ejemplo, [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet] o [Node.js][base-node]. Algunas de las imágenes de aplicación podrían compartir una imagen base común.
 
 Cuando el mantenedor ascendente actualiza una imagen de sistema operativo o marco de aplicación, por ejemplo, con una revisión de seguridad crítica del sistema operativo, también debe actualizar las imágenes base para incluir la corrección crítica. Cada imagen de aplicación se debe entonces volver a compilar para incluir estas correcciones ascendentes ahora incluidas en la imagen base.
 
@@ -58,7 +71,7 @@ Como ACR Build detecta dinámicamente las dependencias de la imagen base cuando 
 Aprenda sobre la aplicación de revisiones de sistema operativo y marco en el tercer tutorial de ACR Build, [Automate image builds on base image update with Azure Container Registry Build](container-registry-tutorial-base-image-update.md) (Automatización de compilaciones de imágenes al actualizar la imagen base con Azure Container Registry Build).
 
 > [!NOTE]
-> En la versión preliminar inicial, la imagen base actualiza las compilaciones del desencadenador solo cuando las imágenes base y de aplicación residen ambas en el mismo registro de contenedor de Azure.
+> En la versión preliminar inicial, la imagen base actualiza las compilaciones del desencadenador solo cuando las imágenes base y de aplicación residen ambas en el mismo registro de contenedor de Azure o en repositorios de Docker Hub accesible públicamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

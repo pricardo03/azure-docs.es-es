@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: bonova
-ms.openlocfilehash: 0951281a584d3c534d82ec5760d29f4b80616d2d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ff571035c9360730546732205f34d75ace38fbff
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092000"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414323"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>¿Qué es Instancia administrada de SQL Database (versión preliminar)?
 
@@ -139,15 +139,16 @@ El nivel de servicio Crítico para la empresa se ha creado para las aplicaciones
 
 La siguiente lista describe las principales características del nivel de servicio Crítico para la empresa: 
 -   Diseñado para aplicaciones empresariales con mayor rendimiento y requisitos de alta disponibilidad 
--   Incluye un almacenamiento SSD extremadamente rápido (hasta 1 TB en Gen 4 y hasta 4 TB en Gen 5). Admite hasta 100 bases de datos por instancia 
+-   Incluye almacenamiento SSD extremadamente rápido (hasta 1 TB en Gen 4 y hasta 4 TB en Gen 5)
+-   Admite hasta 100 bases de datos por instancia 
 
 |Característica | DESCRIPCIÓN|
 |---|---|
-| Número de núcleos virtuales* | 8, 16, 24 (Gen 4)<br>8, 16, 24, 32, 40, 64, 80 (Gen 5)|
+| Número de núcleos virtuales* | 8, 16, 24, 32 (Gen 4)<br>8, 16, 24, 32, 40, 64, 80 (Gen 5)|
 | Versión de SQL Server | SQL Server (la versión más reciente disponible) |
 | Características adicionales | [OLTP en memoria (optimización en memoria)](sql-database-in-memory.md)<br> 1 réplica de solo lectura adicional ([Escalado horizontal de lectura](sql-database-read-scale-out.md))
 | Tamaño de almacenamiento mínimo | 32 GB |
-| Tamaño de almacenamiento máximo | Gen 4: 1 TB (todos los tamaños de núcleos virtuales<br> Gen 5:<ul><li>1 TB para 8 y 16 núcleos de virtuales</li><li>2 TB para 24 núcleos de virtuales</li><li>4 TB de 40, 60 y 80 núcleos virtuales</ul>|
+| Tamaño de almacenamiento máximo | Gen 4: 1 TB (todos los tamaños de núcleos virtuales<br> Gen 5:<ul><li>1 TB para 8 y 16 núcleos de virtuales</li><li>2 TB para 24 núcleos de virtuales</li><li>4 TB para 32, 40, 64 y 80 núcleos virtuales</ul>|
 | Almacenamiento máximo por base de datos | Determinado por el tamaño de almacenamiento máximo por instancia |
 | Número de archivos de datos (ROWS) por base de datos | Múltiple | 
 | Número de archivos de registro (LOG) por base de datos | 1 | 

@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: def9d5381144026b5ad0e8a076edd3c0692a08f4
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d64b834f1c6794976461c93d4ad1d05f8647e986
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29120393"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414596"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Decisiones del planeamiento de una implementación conectada de Azure en sistemas integrados de Azure Stack
 Una vez que haya decidido [cómo va a integrar Azure Stack en el entorno de nube híbrida](azure-stack-connection-models.md), puede concluir sus decisiones de implementación de Azure Stack.
@@ -40,7 +40,7 @@ Cuando se usa Azure AD para el almacén de identidades, se requieren dos cuentas
 1. **Cuenta de administrador global** (solo necesaria para las implementaciones conectadas). Se trata de una cuenta de Azure que se usa para crear aplicaciones y entidades de servicio para servicios de infraestructura de Azure Stack en Azure Active Directory. Esta cuenta debe tener permisos de administrador de directorio en el directorio en que se implementará el sistema de Azure Stack. Se convertirá en el administrador global "operador en la nube" para el inquilino de Azure AD y se usará para lo siguiente: 
     - Para aprovisionar y delegar las aplicaciones y las entidades de servicio para todos los servicios de Azure Stack que tengan que interactuar con Azure Active Directory y Graph API. 
     - Como cuenta del administrador del servicio. Es el propietario de la suscripción de proveedor predeterminada (que puede cambiar más adelante). Puede iniciar sesión en el portal de administración de Azure Stack con esta cuenta y usarla para crear ofertas y planes, establecer las cuotas y realizar otras funciones administrativas en Azure Stack.
-2. **Cuenta de facturación** (necesaria tanto para las implementaciones conectadas como para las desconectadas). Esta cuenta de Azure se utiliza para establecer la relación de facturación entre el sistema integrado de Azure Stack y el back-end de comercio de Azure. Se trata de la cuenta en la que se le facturará por los honorarios de Azure Stack. Esta cuenta también se utilizará para la redifusión de marketplace y otros muchos escenarios híbridos. 
+2. **Cuenta de facturación** (necesaria tanto para las implementaciones conectadas como para las desconectadas). Esta cuenta de Azure se utiliza para establecer la relación de facturación entre el sistema integrado de Azure Stack y el back-end de comercio de Azure. Se trata de la cuenta en la que se le facturará por los honorarios de Azure Stack. Esta cuenta también se usará para ofertar elementos de Marketplace y otros escenarios híbridos. 
 
 ### <a name="ad-fs-identity-store"></a>Almacén de identidades de AD FS
 Elija esta opción si desea usar su propio almacén de identidades, como su entidad de Active Directory corporativa, para las cuentas de administrador de servicios.  
@@ -64,12 +64,12 @@ Si va a usar una suscripción CSP, repase la tabla siguiente para identificar cu
 ### <a name="capacity-based-billing"></a>Facturación basada en la capacidad
 Si decide usar el modelo de facturación basado en la capacidad, debe adquirir un SKU del plan de capacidad de Azure Stack que se base en la capacidad del sistema. Debe saber el número de núcleos físicos en Azure Stack para adquirir la cantidad correcta. 
 
-La facturación de la capacidad requiere una suscripción de Azure con Contrato Enterprise (EA) para el registro. La razón es que el registro configura la redifusión, lo que requiere una suscripción de Azure. La suscripción no se utiliza para el uso de Azure Stack.
+La facturación de la capacidad requiere una suscripción de Azure con Contrato Enterprise (EA) para el registro. El motivo es que el registro configura la disponibilidad de artículo en Marketplace, lo que requiere una suscripción a Azure. La suscripción no se utiliza para el uso de Azure Stack.
 
 ## <a name="learn-more"></a>Más información
 - Para obtener información acerca de los casos de uso, las compras, los asociados y los distribuidores de hardware de OEM, consulte la página del producto de [Azure Stack](https://azure.microsoft.com/overview/azure-stack/).
 - Para obtener información acerca del mapa de ruta y la disponibilidad geográfica para los sistemas integrados de Azure Stack, consulte las notas del producto: [Azure Stack: una extensión de Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Para más información acerca de los paquetes y precios de Microsoft Azure Stack [descargue el archivo .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Integración de la red del centro de datos](azure-stack-network.md)

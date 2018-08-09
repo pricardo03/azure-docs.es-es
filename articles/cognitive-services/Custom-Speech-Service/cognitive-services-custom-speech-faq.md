@@ -135,7 +135,7 @@ Debe aspirar a superar el modelo de línea base para que la personalización sea
 
 **Respuesta**: Esta es una pregunta difícil de responder de forma precisa, ya que depende de lo diferentes que sean el vocabulario y las frases que se usan en la aplicación de los modelos de idioma de partida. Para todas las palabras nuevas, es útil proporcionar el máximo de ejemplos posible de utilización de estas palabras. Para frases comunes que se usan en la aplicación, también es útil incluirlas en los datos de lenguaje, ya que indican al sistema que escuche estos términos también.
 Es habitual que haya al menos cien y, normalmente, varios cientos de expresiones en el conjunto de datos de lenguaje o más.
-Además, si se espera que determinados tipos de consultas sean más habituales que otras, puede insertar varias copias de las consultas comunes en el conjunto de datos.
+Además, si se espera que determinados tipos * de consultas sean más habituales que otras, puede insertar varias copias de las consultas comunes en el conjunto de datos.
 
 **Pregunta**: ¿Puedo simplemente cargar una lista de palabras?
 

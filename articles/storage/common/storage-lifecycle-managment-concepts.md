@@ -9,12 +9,12 @@ ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: 9721935f005bbd9a5dc261fe801ecc14744b004f
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: ec314925635d34baa7b3edeeb397805964b6353d
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752799"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413134"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Administración del ciclo de vida de Azure Blob Storage (versión preliminar)
 
@@ -70,7 +70,7 @@ Si la característica se aprueba y registra correctamente, debe recibir el estad
 
 ## <a name="add-or-remove-policies"></a>Adición o eliminación de directivas 
 
-Puede agregar, editar o eliminar una directiva en Azure Portal, con [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), API de REST o herramientas de cliente en los siguientes lenguajes: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0) y [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Puede agregar, editar o eliminar una directiva en Azure Portal, con [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [API REST](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) o herramientas de cliente en los siguientes lenguajes: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0) y [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -133,7 +133,7 @@ Los parámetros necesarios dentro de una regla son:
 
 ## <a name="rules"></a>Reglas
 
-Cada definición de regla incluye un conjunto de filtros y un conjunto de acciones. La regla de ejemplo siguiente modifica el nivel de blobs en bloques base con el prefijo `foo`. En la directiva, estas reglas se definen como:
+Cada definición de regla incluye un conjunto de filtros y un conjunto de acciones. La regla de ejemplo siguiente modifica el nivel de blobs en bloques base con el prefijo `container1/foo`. En la directiva, estas reglas se definen como:
 
 - Establecer el nivel del blob en almacenamiento de acceso esporádico 30 días después de la última modificación
 - Establecer el nivel del blob en almacenamiento de archivo 90 días después de la última modificación
@@ -150,7 +150,7 @@ Cada definición de regla incluye un conjunto de filtros y un conjunto de accion
       "definition": {
         "filters": {
           "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "foo" ]
+          "prefixMatch": [ "container1/foo" ]
         },
         "actions": {
           "baseBlob": {
@@ -177,8 +177,8 @@ Durante la versión preliminar, los filtros válidos incluyen:
 
 | Nombre de filtro | Tipo de filtro | Notas | Es obligatorio |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Una matriz de valores de enumeración predefinidos. | En la versión preliminar, solo se admite `blockBlob`. | Sí |
-| prefixMatch | Una matriz de cadenas de prefijos con los que debe hacer coincidencias. | Si no está definida, esta regla se aplica a todos los blobs dentro de la cuenta. | Sin  |
+| blobTypes   | Una matriz de valores de enumeración predefinidos. | En la versión preliminar, solo se admite `blockBlob`. | SÍ |
+| prefixMatch | Una matriz de cadenas de prefijos con los que debe hacer coincidencias. Una cadena de prefijos debe comenzar con el nombre de un contenedor. Por ejemplo, si todos los blobs bajo "https://myaccount.blob.core.windows.net/mycontainer/mydir/.." deben coincidir con una regla, el prefijo es "mycontainer/mydir". | Si no está definida, esta regla se aplica a todos los blobs dentro de la cuenta. | Sin  |
 
 ### <a name="rule-actions"></a>Acciones de regla
 
@@ -207,7 +207,7 @@ Los ejemplos siguientes muestran cómo abordar escenarios comunes con las reglas
 
 ### <a name="move-aging-data-to-a-cooler-tier"></a>Cambio de los datos antiguos a un nivel de acceso más esporádico
 
-En el ejemplo siguiente se demuestra cómo realizar la transición de blobs en bloques con el prefijo `foo` o `bar`. La directiva realiza la transición de los blobs que no se han modificado durante más de 30 días al almacenamiento de acceso esporádico, y los blobs no modificados en 90 días al nivel de acceso de archivo:
+En el ejemplo siguiente se demuestra cómo realizar la transición de blobs en bloques con el prefijo `container1/foo` o `container2/bar`. La directiva realiza la transición de los blobs que no se han modificado durante más de 30 días al almacenamiento de acceso esporádico, y los blobs no modificados en 90 días al nivel de acceso de archivo:
 
 ```json
 {
@@ -220,7 +220,7 @@ En el ejemplo siguiente se demuestra cómo realizar la transición de blobs en b
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "foo", "bar" ]
+            "prefixMatch": [ "container1/foo", "container2/bar" ]
           },
           "actions": {
             "baseBlob": {
@@ -236,7 +236,7 @@ En el ejemplo siguiente se demuestra cómo realizar la transición de blobs en b
 
 ### <a name="archive-data-at-ingest"></a>Archivado de datos en la ingesta 
 
-Algunos datos permanecen inactivos en la nube y, una vez almacenados, no se accede a ellos prácticamente nunca. Es mejor archivar estos datos en cuanto se ingieren. La siguiente directiva del ciclo de vida está configurada para archivar datos en la ingesta. Este ejemplo realiza la transición de los blobs en bloques en la cuenta de almacenamiento con el prefijo `archive` inmediatamente al nivel de acceso de archivo. La transición inmediata se realiza al actuar en los blobs 0 días después de la hora de la última modificación:
+Algunos datos permanecen inactivos en la nube y, una vez almacenados, no se accede a ellos prácticamente nunca. Es mejor archivar estos datos en cuanto se ingieren. La siguiente directiva del ciclo de vida está configurada para archivar datos en la ingesta. Este ejemplo realiza la transición de los blobs en bloques en la cuenta de almacenamiento en el contenedor `archivecontainer` inmediatamente al nivel de acceso de archivo. La transición inmediata se realiza al actuar en los blobs 0 días después de la hora de la última modificación:
 
 ```json
 {
@@ -249,7 +249,7 @@ Algunos datos permanecen inactivos en la nube y, una vez almacenados, no se acce
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "archive" ]
+            "prefixMatch": [ "archivecontainer" ]
           },
           "actions": {
             "baseBlob": { 
@@ -292,7 +292,7 @@ Se espera que algunos datos expiren días o meses después de su creación, a fi
 
 ### <a name="delete-old-snapshots"></a>Eliminación de instantáneas antiguas
 
-En el caso de los datos que se modifican y a los que se accede con regularidad a lo largo de su ciclo de vida, las instantáneas suelen utilizarse para realizar un seguimiento de las versiones anteriores de los datos. Puede crear una directiva que elimine las instantáneas anteriores en función de la antigüedad de la instantánea. La antigüedad de la instantánea se determina mediante la evaluación de la hora de creación de la instantánea. Esta regla de directiva elimina las instantáneas de blobs en bloques con el prefijo `activeData` con una antigüedad de 90 días o más a contar desde el momento de la creación de la instantánea.
+En el caso de los datos que se modifican y a los que se accede con regularidad a lo largo de su ciclo de vida, las instantáneas suelen utilizarse para realizar un seguimiento de las versiones anteriores de los datos. Puede crear una directiva que elimine las instantáneas anteriores en función de la antigüedad de la instantánea. La antigüedad de la instantánea se determina mediante la evaluación de la hora de creación de la instantánea. Esta regla de directiva elimina las instantáneas de blobs en bloques en el contenedor `activedata` con una antigüedad de 90 días o más a contar desde el momento de la creación de la instantánea.
 
 ```json
 {
@@ -305,7 +305,7 @@ En el caso de los datos que se modifican y a los que se accede con regularidad a
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "activeData" ]
+            "prefixMatch": [ "activedata" ]
           },
           "actions": {            
             "snapshot": {

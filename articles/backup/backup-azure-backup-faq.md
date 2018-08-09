@@ -7,14 +7,14 @@ manager: carmonm
 keywords: copia de seguridad y recuperación ante desastres; servicio de copia de seguridad
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/9/2018
+ms.date: 8/1/2018
 ms.author: markgal
-ms.openlocfilehash: ac3c90fef602c5f840fff9ccd03efc360ca16200
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 33a3a1c0fd375f6ed88e13f910c46e71f216b892
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605831"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412958"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Preguntas sobre el servicio Azure Backup
 En este artículo se responden a preguntas habituales sobre los componentes de Azure Backup. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. Para realizar cualquier pregunta acerca de Azure Backup, haga clic en **Comentarios** (a la derecha). Los comentarios aparecen en la parte inferior de este artículo. Para poder escribir comentarios se requiere una cuenta de Livefyre. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -33,8 +33,11 @@ Puede registrar hasta 1000 máquinas virtuales de Azure por almacén. Si usa el 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Si la organización tiene un almacén, ¿cómo se pueden aislar los datos de un servidor desde otro servidor al restaurar los datos?<br/>
 Los servidores registrados en el mismo almacén podrán recuperar los datos cuya copia de seguridad hayan realizado otros servidores *que usen la misma frase de contraseña*. Si tiene servidores cuyos datos de copia de seguridad desee aislar de otros servidores de la organización, utilice una frase de contraseña específica para dichos servidores. Por ejemplo, los servidores de recursos humanos podrían usar una frase de contraseña de cifrado, los servidores de contabilidad, otra y los servidores de almacenamiento, otra distinta.
 
-### <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>¿Puedo "migrar" mi almacén o datos de copia de seguridad de una suscripción a otra? <br/>
-Nº El almacén se crea en un nivel de suscripción y no se puede reasignar a otra suscripción una vez que se crea.
+### <a name="can-i-migrate-my-vault-between-subscriptions-br"></a>¿Puedo migrar mi almacén entre suscripciones? <br/>
+No. El almacén se crea en un nivel de suscripción y no se puede reasignar a otra suscripción.
+
+### <a name="can-i-migrate-backup-data-to-another-vault-br"></a>¿Puedo migrar datos de copia de seguridad a otro almacén? <br/>
+No. Los datos de copia de seguridad almacenados en un almacén no se pueden mover a otro almacén.
 
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Los almacenes de Recovery Services se basan en Resource Manager. ¿Son todavía compatibles los almacenes de Backup? <br/>
 Los almacenes de Backup se han convertido en almacenes de Recovery Services. Si no ha convertido el almacén Backup en un almacén de Recovery Services, esto se hizo automáticamente. 
@@ -60,7 +63,7 @@ Sí. Se puede usar Azure Backup Server para realizar una copia de seguridad de V
 Sí.
 
 ### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>¿Puedo registrar mi servidor DPM en varios almacenes? <br/>
-Nº Un servidor DPM o MABS solo se puede registrar en un único almacén.
+No. Un servidor DPM o MABS solo se puede registrar en un único almacén.
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>¿Qué versión de System Center Data Protection Manager se admite?
 
@@ -74,11 +77,11 @@ Sí. Sin embargo, para usar Azure Backup con System Center Data Protection Manag
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>¿Puedo usar DPM para realizar copias de seguridad de aplicaciones en Azure Stack?
 
-Nº Aunque puede usar Azure Backup para proteger Azure Stack, Azure Backup no admite actualmente el uso de DPM para realizar copias de seguridad de aplicaciones en Azure Stack.
+No. Aunque puede usar Azure Backup para proteger Azure Stack, Azure Backup no admite actualmente el uso de DPM para realizar copias de seguridad de aplicaciones en Azure Stack.
 
 ## <a name="how-azure-backup-works"></a>Cómo funciona Azure Backup
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Si se cancela un trabajo de copia de seguridad una vez que se ha iniciado, ¿se eliminan los datos de copia de seguridad transferidos? <br/>
-Nº Todos los datos transferidos al almacén, antes de que se cancelara el trabajo de copia de seguridad, permanecen en el almacén. Azure Backup usa un mecanismo para agregar ocasionalmente agregar puntos de control a los datos de copia de seguridad durante la copia de seguridad. Debido a que hay puntos de control en los datos de copia de seguridad, el siguiente proceso de copia de seguridad puede validar la integridad de los archivos. El siguiente trabajo de copia de seguridad será incremental a los datos que ya están en la copia de seguridad. Las copias de seguridad incrementales solo transfieren los datos nuevos o modificados, lo que equivale a una mejor utilización del ancho de banda.
+No. Todos los datos transferidos al almacén, antes de que se cancelara el trabajo de copia de seguridad, permanecen en el almacén. Azure Backup usa un mecanismo para agregar ocasionalmente agregar puntos de control a los datos de copia de seguridad durante la copia de seguridad. Debido a que hay puntos de control en los datos de copia de seguridad, el siguiente proceso de copia de seguridad puede validar la integridad de los archivos. El siguiente trabajo de copia de seguridad será incremental a los datos que ya están en la copia de seguridad. Las copias de seguridad incrementales solo transfieren los datos nuevos o modificados, lo que equivale a una mejor utilización del ancho de banda.
 
 Si cancela un trabajo de copia de seguridad para una máquina virtual de Azure, se omiten los datos transferidos. El siguiente trabajo de copia de seguridad transfiere los datos incrementales desde el último trabajo de copia de seguridad correcto.
 
@@ -147,7 +150,7 @@ No, tanto DPM como Windows Server o el cliente Windows tienen directivas de rete
 Sí, la estructura de retención de Azure Backup permite tener una flexibilidad completa en la definición de la directiva de retención según sus requisitos.
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>¿Puedo programar una copia de seguridad a las 6 p.m. y establecer las directivas de retención a una hora diferente?<br/>
-Nº Las directivas de retención solo pueden aplicarse a puntos de copia de seguridad. En la siguiente ilustración, la directiva de retención se ha especificado para las copias de seguridad de las 12 a.m. y las 6 p.m. <br/>
+No. Las directivas de retención solo pueden aplicarse a puntos de copia de seguridad. En la siguiente ilustración, la directiva de retención se ha especificado para las copias de seguridad de las 12 a.m. y las 6 p.m. <br/>
 
 ![Programación de copia de seguridad y retención](./media/backup-azure-backup-faq/Schedule.png)
 <br/>
@@ -165,7 +168,7 @@ Puede crear hasta 9999 puntos de recuperación por instancia protegida. Una inst
 No hay ningún límite en cuanto al número de recuperaciones de Azure Backup.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure-br"></a>Al restaurar los datos, ¿tengo que pagar por el tráfico de salida de Azure? <br/>
-Nº Sus recuperaciones son gratuitas y no se cobra por el tráfico de salida.
+No. Sus recuperaciones son gratuitas y no se cobra por el tráfico de salida.
 
 ### <a name="what-happens-when-i-change-my-backup-policy"></a>¿Qué ocurre cuando se cambia mi directiva de copia de seguridad?
 Cuando se aplica una nueva directiva, se sigue la programación y retención de la nueva directiva. Si se amplía la retención, los puntos de recuperación existentes se marcarán para mantenerlos de acuerdo con la nueva directiva. Si se reduce la retención, se marcan para eliminarse y, posteriormente, se eliminan en el siguiente trabajo de limpieza.

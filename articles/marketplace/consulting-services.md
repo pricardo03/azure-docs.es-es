@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0bfb06add64f5f1cd6ccfb772f604ab588bb1baf
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: d89fef56a9fdab799170ed1ccd3261470d66bf95
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950413"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414708"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Servicios de consultoría de Azure Marketplace
 Los servicios de consultoría de Azure Marketplace brindan a los asociados de Microsoft el objetivo de conectar a los clientes con servicios que les permitan mejorar y extender el uso que hacen de Azure. Azure Marketplace es compatible con la lista de ofertas de servicios de consultoría de los asociados de System Integrator (SI) de Microsoft. 
@@ -31,17 +31,17 @@ Los escaparates de Marketplace se organizan de acuerdo con las audiencias y los 
 
 |         |Azure Marketplace  |AppSource |
 |---------|---------|---------|
-|Público   |Profesionales de TI y desarrolladores de la nube|Usuarios de negocios / responsables de la línea de negocio|
+|**Audiencia**   |**Profesionales de TI y desarrolladores de la nube**|**Usuarios de negocios y responsables de la línea de negocio**|
 |Relevancia de la solución     |Aplicaciones técnicas integradas o desarrolladas para Azure|Aplicaciones empresariales que aprovechan o extienden D365, Power BI, O365 o Azure. (Complemento o complementos de aplicaciones terminadas)|
 |Opciones de publicación     |Contacto, versión de prueba, transacción o servicios de consultoría|Contacto, versión de prueba o servicios de consultoría|
 |Experiencia de producto      |Portal de administración de Azure|Aplicaciones cliente de Office, Dynamics 365, Office 365| 
 |Otros      |Publicación local mediante de Azure Stack|Servicios de consultoría de Dynamics y Power BI|
 
->[!Note]
->Los servicios de consultoría en Azure Marketplace deben aprovechar las ofertas orientadas a una audiencia técnica centrada en *soluciones y servicios técnicos de Azure*
-
-
 Las ofertas de servicios basadas en Microsoft Dynamics 365, Office 365 y Power BI son aptas para ser anunciadas en AppSource. Para obtener más información, consulte las [instrucciones sobre listas de consultoría de Microsoft AppSource](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+
+>[!Note]
+>Los servicios de consultoría de Azure Marketplace deben aprovechar las ofertas orientadas a una **audiencia técnica centrada en *soluciones y servicios técnicos de Azure* **
+
 
 >[!TIP]
 >Esta información está destinada únicamente a los servicios de Azure Marketplace. Para publicar en el escaparate de Azure Marketplace, esto se selecciona al elegir "Azure" en el menú desplegable "Primary Product" (Producto principal) en Cloud Partner Portal. Para publicar en AppSource, esto se selecciona al elegir "Dynamics 365", "Power BI" o "Power Apps" en el menú desplegable "Primary Product" (Producto principal) en Cloud Partner Portal.
@@ -59,7 +59,7 @@ Los partners también deben tener una **competencia Silver o Gold** en el área 
 Para obtener más información, consulte las [competencias a través de Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies). 
  
 
-Los asociados de SI pueden enviar ofertas de servicios de consultoría para los siguientes 18 países. 
+**Los asociados de SI pueden enviar ofertas de servicios de consultoría para los siguientes 18 países**:
 
 |Países válidos |  |  |
 |---------|---------|---------|
@@ -70,7 +70,7 @@ Los asociados de SI pueden enviar ofertas de servicios de consultoría para los 
 |Finlandia     |México         |Reino Unido         |
 |Francia     |Países Bajos         |Estados Unidos         |
 
-El lanzamiento de los servicios de consultoría de Azure Marketplace se implementará primero en Australia, Canadá, Reino Unido y Estados Unidos. Los catálogos para otros países empezarán a funcionar una vez que los asociados hayan enviado un número significativo, y una atractiva selección, de ofertas de servicios, y Microsoft las haya aprobado.
+El lanzamiento de los servicios de consultoría de Azure Marketplace se realizará en la región geográfica específica. El primer lanzamiento será en Estados Unidos, Canadá, Reino Unido y Australia. Los catálogos para otros países empezarán a funcionar una vez que los asociados hayan enviado un número significativo, y una atractiva selección, de ofertas de servicios, y Microsoft las haya aprobado.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Procedimientos para registrar los servicios de consultoría en Azure Marketplace
 Comience registrando los servicios de consultoría en [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup). Los anunciantes pueden hacer referencia a [Conviértase en anunciante en los escaparates de Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher) para obtener una lista de comprobación completa de los requisitos del registro. 
@@ -121,7 +121,7 @@ Las ofertas deben incluirse en uno de los siguientes cinco tipos de servicios (p
 * **Prueba de concepto**: una implementación de ámbito limitado para determinar si una solución cumple los requisitos del cliente. 
 * **Taller**: una interacción interactiva que se lleva a cabo en las instalaciones del cliente. Puede implicar aprendizaje, sesiones informativas, evaluaciones o demostraciones que se crean en los datos o entorno del cliente. 
 
-Nota: Excepto en el caso del tipo de servicio *Sesión informativa*, los servicios de consultoría se pueden ofrecer en persona (es decir, in situ en la ubicación del cliente o en la instalación del asociado) o de manera virtual (es decir, mediante teleconferencia, conferencia web o implementación remota). Las sesiones informativas se deben ofrecer en persona.
+**Nota:** Excepto en el caso del tipo de servicio *Sesión informativa*, los servicios de consultoría se pueden ofrecer en persona (es decir, in situ en la ubicación del cliente o en la instalación del asociado) o de manera virtual (es decir, mediante teleconferencia, conferencia web o implementación remota). Las sesiones informativas se deben ofrecer en persona.
 
 Una vez configurados los elementos necesarios mencionados anteriormente, el equipo de revisión de contenido confirmará que la descripción de la oferta es informativa y completa para la audiencia de destino. 
 
@@ -144,11 +144,11 @@ Al revisar las descripciones y los resúmenes de las ofertas, el equipo seguirá
 
 |Tipo de oferta  |Obligatorio |Recomendado  |
 |---------|---------|---------|
-|Evaluación    |   Incluir una agenda detallada para las evaluaciones de varios días o varias semanas y explicar lo que el cliente puede esperar      |    Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda     |
-|Sesión informativa    |   Explicar lo que el cliente puede esperar. Recuerde que también se deben ofrecer sesiones informativas presenciales. Si va a proporcionar un servicio virtual, elija un tipo de oferta diferente    |  Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda       |
-|Implementación    |  Incluir una agenda detallada para las implementaciones de varios días o varias semanas y explicar los cambios de ingeniería, los artefactos técnicos u otros que los clientes puedan esperar como resultado de la interacción       |    Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda     |
-|Prueba de concepto    |    Explicar los cambios de ingeniería, los artefactos técnicos u otros que los clientes puedan esperar como resultado de la interacción     | Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda        |
-|Taller    |   Incluir una agenda detallada diaria, semanal o mensual, en función de la duración elegida para la oferta. Explicar cuáles son los objetivos de aprendizaje y de otro tipo del taller     |   Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda      |
+|**Valoración**    |   Incluir una agenda detallada para las evaluaciones de varios días o varias semanas y explicar lo que el cliente puede esperar      |    Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda     |
+|**Sesión informativa**    |   Explicar lo que el cliente puede esperar. Recuerde que también se deben ofrecer sesiones informativas presenciales. Si va a proporcionar un servicio virtual, elija un tipo de oferta diferente    |  Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda       |
+|**Implementación**    |  Incluir una agenda detallada para las implementaciones de varios días o varias semanas y explicar los cambios de ingeniería, los artefactos técnicos u otros que los clientes puedan esperar como resultado de la interacción       |    Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda     |
+|**Prueba de concepto**    |    Explicar los cambios de ingeniería, los artefactos técnicos u otros que los clientes puedan esperar como resultado de la interacción     | Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda        |
+|**Taller**    |   Incluir una agenda detallada diaria, semanal o mensual, en función de la duración elegida para la oferta. Explicar cuáles son los objetivos de aprendizaje y de otro tipo del taller     |   Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda      |
 
 En Cloud Partner Portal, puede aplicar formato al anuncio mediante [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Se trata de un lenguaje de diseño ligero que le ayudará a pulir los anuncios. 
 
@@ -160,3 +160,12 @@ En Cloud Partner Portal, puede aplicar formato al anuncio mediante [Markdown](ht
 *   Salto de línea después del título
 *   ** = negrita (sin espacio) (p. ej.: **sin espacio**) • Resumen de la oferta en cursiva •  Agenda y objetivos es un encabezado
 
+## <a name="next-steps"></a>Pasos siguientes
+
+Si aún no lo ha hecho, 
+
+- [Regístrese](https://azuremarketplace.microsoft.com/sell) en Marketplace
+
+Si se ha registrado y trabaja en Cloud Partner Portal, 
+
+- [Inicie sesión en Cloud Partner Portal](https://cloudpartner.azure.com) para crear o completar la oferta

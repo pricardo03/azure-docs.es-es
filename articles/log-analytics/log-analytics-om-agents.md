@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/05/2018
+ms.date: 08/01/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 29ab649f8fe06ae598ff138ff98eb2611ec38e1f
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 37cabadb18bf065de64b7ae24c4ed19994e60625
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128884"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413644"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Conexión de Operations Manager con Log Analytics
 Para mantener su inversión existente en System Center Operations Manager y usar las capacidades ampliadas con Log Analytics, puede integrar Operations Manager con el área de trabajo de Log Analytics.  Esto le permite aprovechar las oportunidades de Log Analytics mientras sigue utilizando Operations Manager para:
@@ -39,12 +39,21 @@ En el siguiente diagrama se muestra la conexión entre los agentes y servidores 
 
 Si las directivas de seguridad de TI no permiten que los equipos de la red se conecten a Internet, se pueden configurar los servidores de administración para que se conecten a la puerta de enlace de OMS a fin de recibir información de configuración y enviar los datos recopilados según las soluciones que haya habilitado.  Para ver información adicional y los pasos sobre cómo configurar el grupo de administración de Operations Manager para que se comunique a través de una puerta de enlace de OMS con el servicio Log Analytics, consulte [Conexión de equipos sin acceso a OMS mediante la puerta de enlace de OMS](log-analytics-oms-gateway.md).  
 
-## <a name="system-requirements"></a>Requisitos del sistema
-Antes de comenzar, revise los detalles siguientes para comprobar que cumple los requisitos previos.
+## <a name="prerequisites"></a>Requisitos previos 
+Antes de comenzar, revise los siguientes requisitos.
 
-* Log Analytics solo admite System Center Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 y versiones posteriores y Operations Manager 2012 R2 UR2 y versiones posteriores.  Se agregó compatibilidad con proxy en Operations Manager 2012 SP1 UR7 y Operations Manager 2012 R2 UR3.
-* Todos los agentes de Operations Manager deben cumplir los requisitos mínimos de compatibilidad. Asegúrese de que los agentes están actualizados con los requisitos mínimos ya que, de lo contrario, se podría producir un error en el agente de tráfico de Windows y el registro de eventos de Operations Manager se podría llenar con muchos errores.
-* Un área de trabajo de Log Analytics.  Para más información, consulte [Introducción a Log Analytics](log-analytics-get-started.md).
+* Log Analytics solo admite System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 y versiones posteriores, y Operations Manager 2012 R2 UR2 y versiones posteriores.  Se agregó compatibilidad con proxy en Operations Manager 2012 SP1 UR7 y Operations Manager 2012 R2 UR3.
+* Todos los agentes de Operations Manager deben cumplir los requisitos mínimos de compatibilidad. Asegúrese de que los agentes están actualizados con los requisitos mínimos ya que, de lo contrario, se podría producir un error de comunicación en el agente de Windows así como errores en el registro de eventos de Operations Manager.
+* Un área de trabajo de Log Analytics.  Para más información, consulte [Recopilar datos de equipos en su entorno con Log Analytics](log-analytics-concept-hybrid.md).
+* El usuario se autentica en Azure con una cuenta que es miembro del [rol Colaborador de Log Analytics](log-analytics-manage-access.md#manage-accounts-and-users).  
+
+>[!NOTE]
+>Los cambios recientes en las API de Azure impedirán que los clientes puedan configurar con éxito la integración entre el grupo de administración y Log Analytics por primera vez. Para los clientes que ya han integrado su grupo de administración con el servicio, no se verán afectados a menos que necesiten reconfigurar su conexión existente.  
+>Se ha publicado un nuevo módulo de administración para cada versión de Operations Manager:  
+>* Para System Center Operations Manager 1801, descargue el módulo de administración [aquí](https://www.microsoft.com/download/details.aspx?id=57173)  
+>* Para System Center 2016 - Operations Manager, descargue el módulo de administración [aquí](https://www.microsoft.com/download/details.aspx?id=57172)  
+>* Para System Center Operations Manager 2012 R2, descargue el módulo de administración de [aquí](https://www.microsoft.com/en-us/download/details.aspx?id=57171)  
+
 
 ### <a name="network"></a>Red
 A continuación, se muestra la información de configuración de proxy y firewall requerida para que el agente de Operations Manager, los servidores de administración y la Consola del operador se comuniquen con Log Analytics.  El tráfico de cada componente es tráfico de salida de la red al servicio Log Analytics.     
@@ -52,15 +61,15 @@ A continuación, se muestra la información de configuración de proxy y firewal
 |Recurso | Número de puerto| Omitir inspección de HTTP|  
 |---------|------|-----------------------|  
 |**Agent**|||  
-|\*.ods.opinsights.azure.com| 443 |Sí|  
-|\*.oms.opinsights.azure.com| 443|Sí|  
-|\*blob.core.windows.net| 443|Sí|  
-|\*.azure-automation.net| 443|Sí|  
+|\*.ods.opinsights.azure.com| 443 |SÍ|  
+|\*.oms.opinsights.azure.com| 443|SÍ|  
+|\*blob.core.windows.net| 443|SÍ|  
+|\*.azure-automation.net| 443|SÍ|  
 |**Servidor de administración**|||  
 |\*.service.opinsights.azure.com| 443||  
-|\*blob.core.windows.net| 443| Sí|  
-|\*.ods.opinsights.azure.com| 443| Sí|  
-|*.azure-automation.net | 443| Sí|  
+|\*blob.core.windows.net| 443| SÍ|  
+|\*.ods.opinsights.azure.com| 443| SÍ|  
+|*.azure-automation.net | 443| SÍ|  
 |**Consola de Operations Manager a OMS**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -76,11 +85,11 @@ A continuación, se muestra la información de configuración de proxy y firewal
 ## <a name="connecting-operations-manager-to-log-analytics"></a>Conectar Operations Manager con Log Analytics
 Ejecute la siguiente serie de pasos para configurar el grupo de administración de Operations Manager para conectarse a una de las áreas de trabajo de Log Analytics.
 
-Si se trata de la primera vez que se registra el grupo de administración de Operations Manager con un área de trabajo de Log Analytics y los servidores de administración deben comunicarse con el servicio a través de un proxy o un servidor de la puerta de enlace de OMS, la opción para especificar la configuración de proxy para el grupo de administración no está disponible en la Consola del operador.  El grupo de administración tiene que estar registrado correctamente con el servicio para que esta opción esté disponible.  Tiene que actualizar la configuración de proxy del sistema con Netsh en el sistema desde el que se esté ejecutando la consola del operador para configurar la integración y todos los servidores de administración del grupo de administración.  
+Durante el registro inicial del grupo de administración de Operations Manager con un área de trabajo de Log Analytics, la opción para especificar la configuración de proxy para el grupo de administración no está disponible en la consola del operador.  El grupo de administración tiene que estar registrado correctamente con el servicio para que esta opción esté disponible.  Para solucionar esto, tiene que actualizar la configuración de proxy del sistema con Netsh en el sistema desde el que se esté ejecutando la consola del operador para configurar la integración y todos los servidores de administración del grupo de administración.  
 
 1. Abra un símbolo del sistema con privilegios elevados.
    a. Vaya a **Inicio** y escriba **cmd**.
-   b. Haga clic con el botón derecho en el **símbolo del sistema** y seleccione Ejecutar como administrador**.
+   b. Haga clic con el botón derecho en el **símbolo del sistema** y seleccione Ejecutar como administrador\*\*.
 2. Escriba el siguiente comando y presione **Entrar**:
 
     `netsh winhttp set proxy <proxy>:<port>`
@@ -91,7 +100,7 @@ Después de completar la integración con Log Analytics, puede quitar la configu
 2. Expanda el nodo de Operations Management Suite y haga clic en **Conexión**.
 3. Haga clic en el vínculo **Register to Operations Management Suite** (Registrar en Operations Management Suite).
 4. En la página **Operations Management Suite Onboarding Wizard** (Asistente para incorporación a Operations Management Suite), escriba la dirección de correo electrónico o el número de teléfono y la contraseña de la cuenta de administrador que está asociada a su nueva área de trabajo de OMS y haga clic en **Iniciar sesión**.
-5. Una vez se haya autenticado correctamente, en la página **Operations Management Suite Onboarding Wizard: Select Workspace** (Asistente para incorporación a Operations Management Suite: Seleccionar área de trabajo), se le pedirá que seleccione el área de trabajo de Log Analytics.  Si tiene más de un área de trabajo, seleccione el que desee registrar con el grupo de administración de Operations Manager en la lista desplegable y haga clic en **Siguiente**.
+5. Una vez se haya autenticado correctamente, en la página **Operations Management Suite Onboarding Wizard: Select Workspace** (Asistente para incorporación a Operations Management Suite: Seleccionar área de trabajo), se le pedirá que seleccione el inquilino de Azure, la suscripción y el área de trabajo de Log Analytics.  Si tiene más de un área de trabajo, seleccione el que desee registrar con el grupo de administración de Operations Manager en la lista desplegable y haga clic en **Siguiente**.
    
    > [!NOTE]
    > Operations Manager solo admite un área de trabajo de Log Analytics a la vez. Se quitan de Log Analytics la conexión y los equipos que se registraron en Log Analytics con el área de trabajo anterior.
@@ -143,7 +152,7 @@ Después de finalizar la configuración, el grupo de administración de Operatio
 
 Puede invalidar estas dos reglas para evitar la descarga automática mediante la deshabilitación o modificación de la frecuencia de sincronización del servidor de administración con OMS para determinar si está disponible un nuevo módulo de administración y si debe descargarse.  Siga los pasos [Cómo reemplazar una regla o monitor](https://technet.microsoft.com/library/hh212869.aspx) para modificar el parámetro **Frequency** con un valor en segundos para cambiar la programación de sincronización o modificar el parámetro **Enabled** para deshabilitar las reglas.  Dirige las invalidaciones para todos los objetos de la clase del grupo de administración de Operations Manager.
 
-Si desea seguir el proceso de control de cambios existente para controlar las versiones del módulo de administración en el grupo de administración de producción, puede deshabilitar las reglas y habilitarlas durante determinadas horas cuando se permiten las actualizaciones. Si tiene un grupo de desarrollo o de administración de control de calidad en el entorno y tiene conectividad a Internet, puede configurar ese grupo de administración con un área de trabajo de Log Analytics para admitir este escenario.  Esto le permite revisar y evaluar las versiones iterativas de los módulos de administración de Log Analytics antes de publicarlas en el grupo de administración de producción.
+Para seguir el proceso de control de cambios existente para controlar las versiones del módulo de administración en el grupo de administración de producción, puede deshabilitar las reglas y habilitarlas durante determinadas horas cuando se permiten las actualizaciones. Si tiene un grupo de desarrollo o de administración de control de calidad en el entorno y tiene conectividad a Internet, puede configurar ese grupo de administración con un área de trabajo de Log Analytics para admitir este escenario.  Esto le permite revisar y evaluar las versiones iterativas de los módulos de administración de Log Analytics antes de publicarlas en el grupo de administración de producción.
 
 ## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Cambiar un grupo de Operations Manager a una nueva área de trabajo de Log Analytics
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
@@ -193,7 +202,7 @@ Los módulos de administración para las soluciones que ha habilitado y que se i
 4. Para quitar los módulos de administración restantes que tienen una dependencia en otros módulos de administración de System Center Advisor, use el script *RecursiveRemove.ps1* que descargó antes desde el centro de scripts de TechNet.  
  
     > [!NOTE]
-    > No elimine los módulos de administración de Microsoft System Center Advisor ni Microsoft System Center Advisor Internal.  
+    > El paso para quitar los módulos de administración de Advisor con PowerShell no eliminará automáticamente los módulos de administración interna de Microsoft System Center Advisor o Microsoft System Center Advisor.  No intente eliminarlos.  
     >  
 
 5. Abra la consola de operaciones de Operations Manager con una cuenta que sea miembro del rol Administradores de Operations Manager.
@@ -201,6 +210,7 @@ Los módulos de administración para las soluciones que ha habilitado y que se i
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
+
 7. En el portal de OMS, haga clic en el icono **Configuración**.
 8. Seleccione **Connected Sources**(Orígenes conectados).
 9. En la tabla de la sección de System Center Operations Manager, verá el nombre del grupo de administración que desea quitar del área de trabajo.  En la columna **Last Data** (Últimos datos), haga clic en **Quitar**.  

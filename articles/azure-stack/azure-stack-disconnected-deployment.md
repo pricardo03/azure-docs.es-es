@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 49697a57e59b652fed4997d57bc7ae15cc596cf7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4574b140e2e17462a5ff696b913bb4ef7bcb0ad0
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151134"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412763"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Decisiones de planeamiento de implementación desconectada de Azure en sistemas integrados de Azure Stack
 Una vez que haya decidido [cómo va a integrar Azure Stack en el entorno de nube híbrida](azure-stack-connection-models.md), puede concluir sus decisiones de implementación de Azure Stack.
@@ -46,7 +46,7 @@ Azure Stack se ha diseñado para funcionar mejor cuando se conecta a Azure, por 
 |Implementación de máquina virtual con extensión Docker para ejecutar comandos de Docker|Limitación: Docker buscará en Internet la versión más reciente y se producirá un error en esta comprobación.|
 |Vínculos de documentación en el Portal de Azure Stack|No disponible: los vínculos como Enviar comentarios, Ayuda, Guía de inicio rápido, etc., que utilizan una dirección URL de Internet, no funcionarán.|
 |Corrección o mitigación de alertas que hace referencia a una guía de corrección en línea|No disponible: no funcionará ningún vínculo de corrección de alertas que utilice una dirección URL de Internet.|
-|Redifusión de Marketplace: la capacidad para seleccionar y agregar paquetes de la Galería directamente desde Azure Marketplace|Limitación: cuando Azure Stack se implementa en un modo sin conexión (sin conectividad a Internet), no puede descargar elementos de Marketplace a través del portal de Azure Stack. Sin embargo, puede usar la [herramienta de redifusión de Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) para descargar los elementos de Marketplace en un equipo que tenga conectividad a Internet y transferirlos después a su entorno de Azure Stack.|
+|Marketplace: la capacidad para seleccionar y agregar paquetes de la galería directamente desde Azure Marketplace|Limitación: cuando Azure Stack se implementa en un modo sin conexión (sin conectividad a Internet), no puede descargar elementos de Marketplace a través del portal de Azure Stack. Sin embargo, puede usar la [herramienta de redifusión de Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) para descargar los elementos de Marketplace en un equipo que tenga conectividad a Internet y transferirlos después a su entorno de Azure Stack.|
 |Uso de cuentas de federación de Azure Active Directory para administrar una implementación de Azure Stack|No disponible: esta característica requiere conectividad con Azure. En su lugar se debe usar AD FS con una instancia local de Active Directory.|
 |Servicios de aplicaciones|Limitación: las aplicaciones web pueden requerir acceso a Internet para contenidos actualizados.|
 |Interfaz de línea de comandos (CLI)|Limitación: la CLI ha reducido la funcionalidad en lo que se refiere a autenticación y aprovisionamiento de entidades de servicio.|

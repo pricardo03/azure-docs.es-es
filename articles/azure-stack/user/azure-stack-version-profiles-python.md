@@ -14,12 +14,12 @@ ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: d17ba9ed4548a986d6846d934aee197609ec80ca
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 23b5b5d79f0f905d7c4a173247232ede2cad2877
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "34806843"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412454"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Usar perfiles de la versión de la API con Python en Azure Stack
 
@@ -45,7 +45,7 @@ El SDK de Python es compatible con los perfiles de la versión de la API para su
 4.  Cree una entidad de servicio y guarde su identificador y su secreto. Para obtener las instrucciones para crear una entidad de servicio para Azure Stack, consulte [Proporcionar a las aplicaciones acceso a Azure Stack](../azure-stack-create-service-principals.md). 
 5.  Asegúrese de que la entidad de servicio tenga rol de colaborador o propietario en la suscripción. Para obtener instrucciones sobre cómo asignar roles a la entidad de servicio, consulte [Proporcionar a las aplicaciones acceso a Azure Stack](../azure-stack-create-service-principals.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para usar el SDK para Python de Azure con Azure Stack, debe proporcionar los siguientes valores y, a continuación, establecer valores con variables de entorno. Consulte las instrucciones bajo la tabla de su sistema operativo sobre cómo configurar las variables de entorno. 
 
@@ -121,7 +121,7 @@ Los ejemplos no aparecen necesariamente en el mismo orden de la lista anterior.
 
 6.  Establezca las siguientes variables y exporte estas variables de entorno al shell actual. 
 
-    ````bash
+    ```bash
     export AZURE_TENANT_ID={your tenant id}
     export AZURE_CLIENT_ID={your client id}
     export AZURE_CLIENT_SECRET={your client secret}
@@ -129,32 +129,29 @@ Los ejemplos no aparecen necesariamente en el mismo orden de la lista anterior.
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
     ```
 
-7.  In order to run this sample, Ubuntu 16.04-LTS and WindowsServer 2012-R2-Datacenter images must be present in Azure Stack market place. These can be either [downloaded from Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) or [added to Platform Image Repository](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
+7.  Para ejecutar este ejemplo, las imágenes Ubuntu 16.04-LTS y WindowsServer 2012 R2-Datacenter deben estar presentes en Marketplace de Azure Stack. Se pueden [descargar de Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) o [agregarse a Platform Image Repository](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
 
-8. Run the sample.
+8. Ejecute el ejemplo.
 
     ```
     python unmanaged-disks\example.py
     ```
 
-## Notes
+## <a name="notes"></a>Notas
 
-You may be tempted to try to retrieve a VM's OS disk by using
-`virtual_machine.storage_profile.os_disk`.
-In some cases, this may do what you want,
-but be aware that it gives you an `OSDisk` object.
-In order to update the OS Disk's size, as `example.py` does,
-you need not an `OSDisk` object but a `Disk` object.
-`example.py` gets the `Disk` object with the following:
+Puede tener la tentación de intentar recuperar el disco del sistema operativo de una máquina virtual mediante `virtual_machine.storage_profile.os_disk`.
+Eso en algunos casos podría servirle para lo que quiere, pero tenga en cuenta que le proporciona un objeto `OSDisk`.
+Para actualizar el tamaño del disco del sistema operativo, como hace `example.py`, no necesita un objeto `OSDisk`, sino un objeto `Disk`.
+`example.py` obtiene el objeto `Disk` con lo siguiente:
 
 ```python
 os_disk_name = virtual_machine.storage_profile.os_disk.name
 os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
 ```
 
-## Next steps
+## <a name="next-steps"></a>Pasos siguientes
 
-- [Azure Python Development Center](https://azure.microsoft.com/develop/python/)
-- [Azure Virtual Machines documentation](https://azure.microsoft.com/services/virtual-machines/)
-- [Learning Path for Virtual Machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
-- If you don't have a Microsoft Azure subscription, you can get a FREE trial account [here](http://go.microsoft.com/fwlink/?LinkId=330212).
+- [Centro para desarrolladores de Python de Azure](https://azure.microsoft.com/develop/python/)
+- [Documentación de Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
+- [Ruta de aprendizaje de Virtual Machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
+- Si no tiene una suscripción a Microsoft Azure, puede obtener una cuenta de evaluación GRATUITA [aquí](http://go.microsoft.com/fwlink/?LinkId=330212).

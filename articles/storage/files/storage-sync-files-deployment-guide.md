@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: d3ff80391214dbc5d29f04c4a1972b46e68d73d4
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 3f377c24a53313ff8c9243152281344200167856
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215152"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414248"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementación de Azure File Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -83,7 +83,7 @@ El agente de Azure File Sync es un paquete descargable que permite la sincroniza
 Puede descargar el agente desde el [Centro de descarga de Microsoft](https://go.microsoft.com/fwlink/?linkid=858257). Una finalice la descarga, haga doble clic en el paquete MSI para iniciar la instalación del agente de Azure File Sync.
 
 > [!Important]  
-> Si piensa usar Azure File Sync con un clúster de conmutación por error, el agente de Azure File Sync se debe instalar en todos los nodos del clúster.
+> Si piensa usar Azure File Sync con un clúster de conmutación por error, el agente de Azure File Sync se debe instalar en todos los nodos del clúster. Cada nodo del clúster debe estar registrado para funcionar con Azure File Sync.
 
 Se recomienda hacer lo siguiente:
 - Dejar la ruta de instalación predeterminada (C:\Archivos de programa\Azure\StorageSyncAgent), para simplificar las operaciones de solución de problemas y mantenimiento del servidor.
@@ -93,6 +93,9 @@ Al término de la instalación del agente de Azure File Sync, la interfaz de usu
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 Ejecute el siguiente código de PowerShell para descargar la versión adecuada del agente de Azure File Sync para su sistema operativo e instálelo en el sistema.
+
+> [!Important]  
+> Si piensa usar Azure File Sync con un clúster de conmutación por error, el agente de Azure File Sync se debe instalar en todos los nodos del clúster. Cada nodo del clúster debe estar registrado para funcionar con Azure File Sync.
 
 ```PowerShell
 # Gather the OS version

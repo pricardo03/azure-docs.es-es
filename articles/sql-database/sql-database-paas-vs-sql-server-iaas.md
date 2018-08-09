@@ -8,23 +8,36 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: afc48a36b8c26bde4d86ff6277bb2c511d14bace
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: a6d6a7639d3db0cc7d194ca9fae126ad9a2cc3ba
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091871"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413661"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Selección de una opción de SQL Server en la nube: Base de datos (PaaS) SQL de Azure o SQL Server en máquinas virtuales de Azure (IaaS)
 
 En Azure, puede hacer que las cargas de trabajo de SQL Server se ejecuten en una infraestructura hospedada (IaaS) o como un servicio hospedado ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)):
 
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): motor de base de datos de SQL basado en SQL Server Enterprise Edition y optimizado para el desarrollo de aplicaciones modernas. Azure SQL Database ofrece dos versiones de SQL como servicio hospedado: servidores lógicos e [instancias administradas Azure SQL Database (versión preliminar)](sql-database-managed-instance.md). Con ambas versiones, Azure SQL Database agrega características adicionales que no están disponibles en SQL Server, como la administración y la inteligencia integradas. Con la primera versión, puede tener un servidor lógico que contenga [bases de datos únicas](sql-database-servers-databases.md) y puede agrupar servidores en un [grupo elástico](sql-database-elastic-pool.md) para compartir los recursos y reducir los costos. Un servidor lógico de Azure SQL Database que contiene bases de datos únicas y agrupadas ofrece la mayoría de las características de ámbito de base de datos de SQL Server. Con Instancia administrada de Azure SQL Database, Azure SQL Database ofrece recursos compartidos para las bases de datos y otras características adicionales con ámbito de instancia. Instancia administrada de Azure SQL Database admite la migración de bases de datos con mínimos cambios en las bases de datos o ninguno.
-* [SQL Server en Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server instalado y hospedado en la nube en máquinas virtuales (VM) de Windows Server o Linux que se ejecutan en Azure, conocido también como infraestructura como servicio (IaaS). SQL Server en Azure Virtual Machines es una buena opción para migrar aplicaciones y bases de datos de SQL Server locales sin realizar ningún cambio en las bases de datos. Todas las versiones y ediciones recientes de SQL Server están disponibles para la instalación en una máquina virtual de IaaS. La diferencia más importante de SQL Database es que las máquinas virtuales de SQL Server permiten un control total sobre el motor de base de datos. Puede elegir cuándo se iniciará el mantenimiento o la revisión, cambiar el modelo de recuperación de registro simple o masivo para permitir un registro sin carga más rápido, pausar o iniciar el motor cuando sea necesario y personalizar completamente el motor de base de datos de SQL Server. Este control adicional incluye la responsabilidad agregada de administrar las máquinas virtuales.
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): motor de base de datos de SQL basado en SQL Server Enterprise Edition y optimizado para el desarrollo de aplicaciones modernas. Azure SQL Database ofrece varias opciones de implementación:
+  - Puede implementar una base de datos única a un [servidor lógico](sql-database-logical-servers.md).
+  - Puede implementar un [grupo elástico](sql-database-elastic-pool.md) en un [servidor lógico](sql-database-logical-servers.md) para compartir recursos y reducir costos. 
 
-Obtenga información acerca de qué opción se ajusta a la plataforma de datos de Microsoft y consiga ayuda sobre la opción más adecuada para sus requisitos empresariales. Si asigna mayor prioridad al ahorro o bien antepone la mínima administración a todo lo demás, este artículo puede ayudarle a decidir el enfoque correcto, en función de los requisitos empresariales que más le preocupan.
+      > [!NOTE]
+      > Una base de datos Azure SQL Database que contiene bases de datos únicas y agrupadas ofrece la mayoría de las características de ámbito de base de datos de SQL Server.
+
+      En la siguiente ilustración se muestran estas opciones de implementación:
+
+      ![deployment-options](./media/sql-database-technical-overview/deployment-options.png) 
+  - También puede implementar en una [Instancia administrada de Azure SQL Database (versión preliminar)](sql-database-managed-instance.md). 
+
+      > [!NOTE]
+      > Con ambas versiones, Azure SQL Database agrega características adicionales que no están disponibles en SQL Server, como la administración y la inteligencia integradas. Con la primera versión de Instancia administrada de Azure SQL Database, Azure SQL Database ofrece recursos compartidos para las bases de datos y otras características adicionales con ámbito de instancia. Instancia administrada de Azure SQL Database admite la migración de bases de datos con mínimos cambios en las bases de datos o ninguno.
+- [SQL Server en Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/): SQL Server instalado y hospedado en la nube en máquinas virtuales (VM) de Windows Server o Linux que se ejecutan en Azure, conocido también como infraestructura como servicio (IaaS). SQL Server en Azure Virtual Machines es una buena opción para migrar aplicaciones y bases de datos de SQL Server locales sin realizar ningún cambio en las bases de datos. Todas las versiones y ediciones recientes de SQL Server están disponibles para la instalación en una máquina virtual de IaaS. La diferencia más importante de SQL Database es que las máquinas virtuales de SQL Server permiten un control total sobre el motor de base de datos. Puede elegir cuándo se iniciará el mantenimiento o la revisión, cambiar el modelo de recuperación de registro simple o masivo para permitir un registro sin carga más rápido, pausar o iniciar el motor cuando sea necesario y personalizar completamente el motor de base de datos de SQL Server. Este control adicional incluye la responsabilidad agregada de administrar las máquinas virtuales.
+
+Obtenga información acerca de qué opción de implementación se ajusta a la plataforma de datos de Microsoft y consiga ayuda sobre la opción más adecuada para sus requisitos empresariales. Si asigna mayor prioridad al ahorro o bien antepone la mínima administración a todo lo demás, este artículo puede ayudarle a decidir el enfoque correcto, en función de los requisitos empresariales que más le preocupan.
 
 ## <a name="microsofts-sql-data-platform"></a>Plataforma de datos de Microsoft SQL
 
@@ -45,7 +58,7 @@ En las secciones siguientes, obtendrá información sobre SQL Server en la nube 
 
 ## <a name="a-closer-look-at-azure-sql-database-and-sql-server-on-azure-vms"></a>Azure SQL Database y SQL Server en Azure Virtual Machines en detalle
 
-**Azure SQL Database** es una base de datos relacional como servicio (DBaaS), hospedada en la nube de Azure, que se engloba en la categoría del sector denominada *Plataforma como servicio (PaaS)*. [Base de datos SQL](sql-database-technical-overview.md) se compila en hardware y software estandarizados que Microsoft posee, hospeda y mantiene. Con SQL Database, puede usar la funcionalidad y las características integradas que requieren configuración extensiva en SQL Server. Al utilizar SQL Database, se emplea el método de pago por uso de opciones para escalar vertical u horizontalmente a fin de aumentar la potencia de forma ininterrumpida. Azure SQL Database, que ofrece compatibilidad tanto con [bases de datos únicas](sql-database-servers-databases.md) como con [grupos elásticos](sql-database-elastic-pool.md) para el uso compartido de recursos, es un entorno ideal para desarrollar nuevas aplicaciones en la nube. Asimismo, con [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md), puede usar su propia licencia. Además, esta opción proporciona todas las ventajas de PaaS de Azure SQL Database, pero incluye funcionalidades que anteriormente solo estaban disponibles en las máquinas virtuales de SQL. Esto incluye una red virtual nativa (VNet) y un nivel próximo al 100 % de compatibilidad con la instancia local de SQL Server. [Instancia administrada](sql-database-managed-instance.md) es ideal para las migraciones de bases de datos locales a Azure con mínimos cambios necesarios. 
+**Azure SQL Database** es una base de datos relacional como servicio (DBaaS), hospedada en la nube de Azure, que se engloba en la categoría del sector denominada *Plataforma como servicio (PaaS)*. [Base de datos SQL](sql-database-technical-overview.md) se compila en hardware y software estandarizados que Microsoft posee, hospeda y mantiene. Con SQL Database, puede usar la funcionalidad y las características integradas que requieren configuración extensiva en SQL Server. Al utilizar SQL Database, se emplea el método de pago por uso de opciones para escalar vertical u horizontalmente a fin de aumentar la potencia de forma ininterrumpida. Azure SQL Database es el entorno ideal para desarrollar nuevas aplicaciones en la nube. Asimismo, con [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md), puede usar su propia licencia. Además, esta opción proporciona todas las ventajas de PaaS de Azure SQL Database, pero incluye funcionalidades que anteriormente solo estaban disponibles en las máquinas virtuales de SQL. Esto incluye una red virtual nativa (VNet) y un nivel próximo al 100 % de compatibilidad con la instancia local de SQL Server. [Instancia administrada](sql-database-managed-instance.md) es ideal para las migraciones de bases de datos locales a Azure con mínimos cambios necesarios. 
 
 **SQL Server en Azure Virtual Machines** que se engloba en la categoría del sector denominada *Infraestructura como servicio (IaaS)* y permite ejecutar SQL Server en una máquina virtual en la nube. Las [máquinas virtuales de SQL Server](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) también se ejecutan en hardware estandarizado que Microsoft posee, hospeda y mantiene. Cuando se usa SQL Server en una máquina virtual, puede usar la licencia de pago por uso de SQL Server ya incluida en una imagen de SQL Server o usar fácilmente una licencia existente. También puede detener o reanudar la máquina virtual según sea necesario.
 
@@ -72,7 +85,7 @@ En la siguiente tabla se resumen las principales características de SQL Databas
 
 ## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>Motivaciones empresariales al elegir Azure SQL Database o SQL Server en Azure Virtual Machines
 ### <a name="cost"></a>Coste
-Si se encuentra en una empresa incipiente con falta de medios o en un equipo de una compañía bien establecida que opera con restricciones presupuestarias, los fondos limitados suelen ser el factor principal a la hora de decidir cómo hospedar la base de datos. En esta sección, obtendrá información relativa a los conceptos básicos sobre facturación y licencias en Azure con respecto a estas dos opciones de bases de datos relacionales: SQL Database y SQL Server en máquinas virtuales de Azure. También aprenderá a calcular el costo total de la aplicación.
+Si se encuentra en una startup con falta de medios o en un equipo de una compañía bien establecida que opera con restricciones presupuestarias, los fondos limitados suelen ser el factor principal a la hora de decidir cómo hospedar la base de datos. En esta sección, obtendrá información relativa a los conceptos básicos sobre facturación y licencias en Azure con respecto a estas dos opciones de bases de datos relacionales: SQL Database y SQL Server en máquinas virtuales de Azure. También aprenderá a calcular el costo total de la aplicación.
 
 #### <a name="billing-and-licensing-basics"></a>Conceptos básicos sobre facturación y licencias
 
