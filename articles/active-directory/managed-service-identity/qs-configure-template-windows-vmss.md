@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 562bf5e5239114a8dad16727089f94f378db82ff
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: bee75bcefb370382825c6867ea504e14102aa107
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258871"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628290"
 ---
 # <a name="configure-managed-service-identity-on-virtual-machine-scale-using-a-template"></a>Configuración de Managed Service Identity en un conjunto de escalado de máquinas virtuales mediante una plantilla
 
@@ -49,7 +49,7 @@ Al igual que con Azure Portal y los scripts, las plantillas de [Azure Resource M
    - Usar un [editor de JSON (por ejemplo, VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md) local y, a continuación, cargarla e implementarla con PowerShell o la CLI.
    - Usar el [proyecto del grupo de recursos de Azure](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) de Visual Studio tanto para crear como para implementar una plantilla.  
 
-Independientemente de la opción que elija, la sintaxis de la plantilla es la misma durante la implementación inicial y posteriores implementaciones. La habilitación de Managed Service Identity en una máquina virtual existente o nueva se realiza de la misma forma. Además, de forma predeterminada, Azure Resource Manager realiza una [actualización incremental](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) en las implementaciones.
+Independientemente de la opción que elija, la sintaxis de la plantilla es la misma durante la implementación inicial y posteriores implementaciones. La habilitación de Managed Service Identity en una máquina virtual existente o nueva se realiza de la misma forma. Además, de forma predeterminada, Azure Resource Manager realiza una [actualización incremental](../../azure-resource-manager/deployment-modes.md) en las implementaciones.
 
 ## <a name="system-assigned-identity"></a>Identidad asignada por el sistema
 
