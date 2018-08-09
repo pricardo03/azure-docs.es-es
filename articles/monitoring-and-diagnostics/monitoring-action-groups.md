@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/1/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 63216d56fb3acbb954086fbf026441e69073621e
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 091a097fc9fafd5bdc6a2521f4fa2a1b6b77ba4c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263072"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422560"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 ## <a name="overview"></a>Información general ##
@@ -33,21 +33,21 @@ Para más información sobre el uso de plantillas de Azure Resource Manager para
 1. En el [portal](https://portal.azure.com), seleccione **Monitor**. La hoja **Supervisión** consolida todos los valores y datos de supervisión en una vista.
 
     ![Servicio "Monitor"](./media/monitoring-action-groups/home-monitor.png)
-2. En la sección **Configuración**, seleccione **Grupos de acciones**.
+1. En la sección **Configuración**, seleccione **Grupos de acciones**.
 
     ![Pestaña "Grupos de acciones"](./media/monitoring-action-groups/action-groups-blade.png)
-3. Seleccione **Agregar grupo de acciones** y rellene los campos.
+1. Seleccione **Agregar grupo de acciones** y rellene los campos.
 
     ![Comando "Agregar grupo de acciones"](./media/monitoring-action-groups/add-action-group.png)
-4. Escriba un nombre en el cuadro de texto **Nombre del grupo de acciones** y especifique un nombre en el cuadro de texto **Nombre corto**. El nombre corto se utiliza en lugar del nombre completo del grupo de acciones cuando se envían notificaciones mediante este grupo.
+1. Escriba un nombre en el cuadro de texto **Nombre del grupo de acciones** y especifique un nombre en el cuadro de texto **Nombre corto**. El nombre corto se utiliza en lugar del nombre completo del grupo de acciones cuando se envían notificaciones mediante este grupo.
 
       ![Cuadro de diálogo "Agregar grupo de acciones"](./media/monitoring-action-groups/action-group-define.png)
 
-5. El cuadro de texto **Suscripción** se rellena automáticamente con la suscripción actual. La suscripción es aquella en la que se guarda el grupo de acciones.
+1. El cuadro de texto **Suscripción** se rellena automáticamente con la suscripción actual. La suscripción es aquella en la que se guarda el grupo de acciones.
 
-6. Seleccione el **Grupo de recursos** en el que se guarda el grupo de acciones.
+1. Seleccione el **Grupo de recursos** en el que se guarda el grupo de acciones.
 
-7. Defina una lista de acciones proporcionando los siguientes valores para cada acción:
+1. Defina una lista de acciones proporcionando los siguientes valores para cada acción:
 
     a. **Nombre**: escriba un identificador único para esta acción.
 
@@ -55,7 +55,7 @@ Para más información sobre el uso de plantillas de Azure Resource Manager para
 
     c. **Detalles**: según el tipo de acción, proporcione un número de teléfono, una dirección de correo electrónico o un identificador URI de webhook, una aplicación de Azure, una conexión de ITSM o un runbook de Automation. Para la acción de ITSM, especifique además **Elemento de trabajo** y otros campos que requiera la herramienta ITSM.
 
-8. Seleccione **Aceptar** para crear el grupo de acciones.
+1. Seleccione **Aceptar** para crear el grupo de acciones.
 
 ## <a name="action-specific-information"></a>Información específica de la acción
 <dl>

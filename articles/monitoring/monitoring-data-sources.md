@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: bwren
-ms.openlocfilehash: 262099bbe45e483efd269445aa8042b30668ebe3
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 48cbfac78b41b47419799584837e094d45757628
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036530"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627464"
 ---
 # <a name="sources-of-monitoring-data-in-azure"></a>Orígenes de datos de supervisión en Azure
 En este artículo se describen los datos disponibles para supervisar el estado y rendimiento de los recursos de Azure y las aplicaciones que se ejecutan en ellos.  Recopilar y analizar estos datos con las herramientas descritas en [Collecting monitoring data in Azure](monitoring-data-collection.md) (Recopilar datos de supervisión en Azure)
@@ -42,7 +42,7 @@ Puede ver el registro de actividad de un recurso determinado en su página de Az
 
 
 ### <a name="azure-active-directory-audit-logs"></a>Registros de auditoría de Azure Active Directory
-Los [informes de Azure Active Directory](../active-directory/active-directory-reporting-azure-portal.md), contienen el historial de actividad de inicio de sesión y la traza de auditoría de los cambios realizados en un inquilino determinado. Actualmente, no se pueden combinar datos de auditoría de Azure Active Directory con otros datos de supervisión, ya que solo está accesible a través de Azure Active Directory y la [API de informes de Azure Active Directory](../active-directory/active-directory-reporting-api-getting-started-azure-portal.md).
+Los [informes de Azure Active Directory](../active-directory/reports-monitoring/overview-reports.md), contienen el historial de actividad de inicio de sesión y la traza de auditoría de los cambios realizados en un inquilino determinado. Actualmente, no se pueden combinar datos de auditoría de Azure Active Directory con otros datos de supervisión, ya que solo está accesible a través de Azure Active Directory y la [API de informes de Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md).
 
 
 ## <a name="azure-services"></a>Servicios de Azure

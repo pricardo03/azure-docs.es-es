@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-ms.openlocfilehash: dacc133f1c6d15aa1fc886ab9086109951478929
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6e3d8a3951a42e448eff005b055b3cf5169179f1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219907"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443456"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Tutorial: Integración de Azure Active Directory con FirmPlay - Employee Advocacy for Recruiting
 
@@ -33,7 +33,7 @@ La integración de FirmPlay - Employee Advocacy for Recruiting con Azure AD le p
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con FirmPlay - Employee Advocacy for Recruiting, necesita los siguientes elementos:
 
@@ -55,7 +55,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de FirmPlay - Employee Advocacy for Recruiting desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 
 ## <a name="adding-firmplay---employee-advocacy-for-recruiting-from-the-gallery"></a>Adición de FirmPlay - Employee Advocacy for Recruiting desde la galería
@@ -67,19 +67,19 @@ Para configurar la integración de FirmPlay - Employee Advocacy for Recruiting e
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
+1. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **FirmPlay - Employee Advocacy for Recruiting**.
+1. En el cuadro de búsqueda, escriba **FirmPlay - Employee Advocacy for Recruiting**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/firmplay-tutorial/tutorial_firmplay_001.png)
 
-5. En el panel de resultados, seleccione **FirmPlay - Employee Advocacy for Recruiting** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **FirmPlay - Employee Advocacy for Recruiting** y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/firmplay-tutorial/tutorial_firmplay_0001.png)
 
@@ -94,10 +94,10 @@ Esta relación de vínculo se establece asignando el valor del **nombre de usuar
 Para configurar y probar el inicio de sesión único de Azure AD con FirmPlay - Employee Advocacy for Recruiting, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de FirmPlay - Employee Advocacy for Recruiting](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)**: para tener un equivalente de Britta Simon en FirmPlay - Employee Advocacy for Recruiting que esté vinculado a la representación de Azure AD de ese usuario.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de FirmPlay - Employee Advocacy for Recruiting](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)**: para tener un equivalente de Britta Simon en FirmPlay - Employee Advocacy for Recruiting que esté vinculado a la representación de Azure AD de ese usuario.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -109,44 +109,44 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_firmplay_01.png)
 
-3. En la sección **Dominio y direcciones URL de FirmPlay - Employee Advocacy for Recruiting**, en el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL usando el patrón siguiente: `https://<your-subdomain>.firmplay.com/`
+1. En la sección **Dominio y direcciones URL de FirmPlay - Employee Advocacy for Recruiting**, en el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL usando el patrón siguiente: `https://<your-subdomain>.firmplay.com/`
 
     ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_firmplay_02.png)
 
     > [!NOTE] 
     > Tenga en cuenta que este no es el valor real. Tiene que actualizar este valor con la dirección URL de inicio de sesión real. Póngase en contacto con [FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com) para obtener este valor. 
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **Crear un nuevo certificado**.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Crear un nuevo certificado**.
 
     ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_firmplay_03.png)     
 
-5. En el cuadro de diálogo **Crear nuevo certificado**, haga clic en el icono del calendario y seleccione una valor en **Fecha de expiración**. Luego haga clic en el botón **Guardar**.
+1. En el cuadro de diálogo **Crear nuevo certificado**, haga clic en el icono del calendario y seleccione una valor en **Fecha de expiración**. Luego haga clic en el botón **Guardar**.
 
     ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_general_300.png)
 
-6. En la sección **Certificado de firma de SAML**, seleccione **Make new certificate active** (Activar el nuevo certificado) y haga clic en el botón **Guardar**.
+1. En la sección **Certificado de firma de SAML**, seleccione **Make new certificate active** (Activar el nuevo certificado) y haga clic en el botón **Guardar**.
 
     ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_firmplay_04.png)
 
-7. En la ventana emergente **Rollover certificate** (Certificado de sustitución), haga clic en **Aceptar**.
+1. En la ventana emergente **Rollover certificate** (Certificado de sustitución), haga clic en **Aceptar**.
 
     ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_general_400.png)
 
-8. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo. 
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo. 
 
     ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_firmplay_05.png) 
 
-9. En la sección **FirmPlay - Employee Advocacy for Recruiting**, haga clic en **Configurar FirmPlay - Employee Advocacy for Recruiting** para abrir el cuadro de diálogo **Configurar inicio de sesión**.
+1. En la sección **FirmPlay - Employee Advocacy for Recruiting**, haga clic en **Configurar FirmPlay - Employee Advocacy for Recruiting** para abrir el cuadro de diálogo **Configurar inicio de sesión**.
 
     ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_firmplay_06.png) 
 
     ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_firmplay_07.png)
 
-10. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el equipo de soporte técnico de [FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com) y proporcione lo siguiente: 
+1. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el equipo de soporte técnico de [FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com) y proporcione lo siguiente: 
 
     • El **archivo de certificado** descargado
 
@@ -168,15 +168,15 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
 
     ![Creación de un usuario de prueba de Azure AD](./media/firmplay-tutorial/create_aaduser_01.png) 
 
-2. Vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios** para mostrar la lista de usuarios.
+1. Vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios** para mostrar la lista de usuarios.
     
     ![Creación de un usuario de prueba de Azure AD](./media/firmplay-tutorial/create_aaduser_02.png) 
 
-3. En la parte superior del diálogo, haga clic en **Agregar** para abrir el diálogo **Usuario**.
+1. En la parte superior del diálogo, haga clic en **Agregar** para abrir el diálogo **Usuario**.
  
     ![Creación de un usuario de prueba de Azure AD](./media/firmplay-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/firmplay-tutorial/create_aaduser_04.png) 
 
@@ -207,23 +207,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **FirmPlay - Employee Advocacy for Recruiting**.
+1. En la lista de aplicaciones, seleccione **FirmPlay - Employee Advocacy for Recruiting**.
 
     ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_firmplay_50.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 
 

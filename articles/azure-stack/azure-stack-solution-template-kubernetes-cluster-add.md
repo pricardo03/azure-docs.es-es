@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 0ba0e1f3d9e0f1cbb6ba4109a21fc29dc41df5fc
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: ed2d55b8346acb79563a882bbaf2f46110dcf1bb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603460"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442724"
 ---
 # <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Agregar un clúster de Kubernetes a Marketplace de Azure Stack
 
@@ -38,17 +38,17 @@ Cree un plan, una oferta y una suscripción para el elemento de Marketplace de c
 
 1. Inicie sesión en el [portal de administración](https://adminportal.local.azurestack.external).
 
-2. Cree un plan como plan base. Para obtener instrucciones, vea [Creación de un plan en Azure Stack](azure-stack-create-plan.md).
+1. Cree un plan como plan base. Para obtener instrucciones, vea [Creación de un plan en Azure Stack](azure-stack-create-plan.md).
 
-3. Cree una oferta. Para obtener instrucciones, vea [Creación de una oferta en Azure Stack](azure-stack-create-offer.md).
+1. Cree una oferta. Para obtener instrucciones, vea [Creación de una oferta en Azure Stack](azure-stack-create-offer.md).
 
-4. Seleccione **Ofertas** y busque la que ha creado.
+1. Seleccione **Ofertas** y busque la que ha creado.
 
-5. Seleccione **Información general** en la hoja Oferta.
+1. Seleccione **Información general** en la hoja Oferta.
 
-6. Seleccione **Cambiar estado**. Seleccione **Público**.
+1. Seleccione **Cambiar estado**. Seleccione **Público**.
 
-7. Seleccione **+ Nuevo** > **Offers and Plans (Ofertas y planes)** > **Suscripción** para crear una suscripción.
+1. Seleccione **+ Nuevo** > **Offers and Plans (Ofertas y planes)** > **Suscripción** para crear una suscripción.
 
     a. Especifique un **Nombre para mostrar**.
 
@@ -66,13 +66,13 @@ Agregue la siguiente imagen de Ubuntu Server en Marketplace:
 
 1. Inicie sesión en el [portal de administración](https://adminportal.local.azurestack.external).
 
-2. Seleccione **Más servicios** > **Marketplace Management** (Administración de Marketplace).
+1. Seleccione **Más servicios** > **Marketplace Management** (Administración de Marketplace).
 
-3. Seleccione **+ Add from Azure** (+ Agregar desde Azure).
+1. Seleccione **+ Add from Azure** (+ Agregar desde Azure).
 
-4. Escriba `UbuntuServer`.
+1. Escriba `UbuntuServer`.
 
-5. Seleccione el servidor con el perfil siguiente:
+1. Seleccione el servidor con el perfil siguiente:
     - **Publicador**: Canonical
     - **Oferta**: UbuntuServer
     - **SKU**: 16.04-LTS
@@ -81,7 +81,7 @@ Agregue la siguiente imagen de Ubuntu Server en Marketplace:
     > [!Note]  
     > Podría aparecer más de una versión de Ubuntu Server 16.04 LTS. Debe agregar la versión que coincida. El clúster de Kubernetes requiere la versión exacta del elemento.
 
-6. Seleccione **Descargar**.
+1. Seleccione **Descargar**.
 
 ## <a name="add-a-custom-script-for-linux"></a>Agregar un script personalizado para Linux
 
@@ -89,13 +89,13 @@ Agregue el clúster de Kubernetes desde Marketplace:
 
 1. Abra el [portal de administración](https://adminportal.local.azurestack.external).
 
-2. Seleccione **Más servicios** > **Marketplace Management** (Administración de Marketplace).
+1. Seleccione **Más servicios** > **Marketplace Management** (Administración de Marketplace).
 
-3. Seleccione **+ Add from Azure** (+ Agregar desde Azure).
+1. Seleccione **+ Add from Azure** (+ Agregar desde Azure).
 
-4. Escriba `Custom Script for Linux`.
+1. Escriba `Custom Script for Linux`.
 
-5. Seleccione el script con el perfil siguiente:
+1. Seleccione el script con el perfil siguiente:
     - **Oferta**: Script personalizado para Linux 2.0
     - **Versión**: 2.0.3
     - **Publicador**: Microsoft Corp.
@@ -103,22 +103,22 @@ Agregue el clúster de Kubernetes desde Marketplace:
     > [!Note]  
     > Podría aparecer más de una versión del script personalizado para Linux. Debe agregar la versión que coincida. El clúster de Kubernetes requiere la versión exacta del elemento.
 
-6. Seleccione **Descargar**.
+1. Seleccione **Descargar**.
 
 
 ## <a name="add-the-kubernetes-cluster-to-the-marketplace"></a>Agregar el clúster de Kubernetes a Marketplace
 
 1. Abra el [portal de administración](https://adminportal.local.azurestack.external).
 
-2. Seleccione **Más servicios** > **Marketplace Management** (Administración de Marketplace).
+1. Seleccione **Más servicios** > **Marketplace Management** (Administración de Marketplace).
 
-3. Seleccione **+ Add from Azure** (+ Agregar desde Azure).
+1. Seleccione **+ Add from Azure** (+ Agregar desde Azure).
 
-4. Escriba `Kubernetes Cluster`.
+1. Escriba `Kubernetes Cluster`.
 
-5. Seleccione `Kubernetes Cluster`.
+1. Seleccione `Kubernetes Cluster`.
 
-6. Seleccione **Descargar**.
+1. Seleccione **Descargar**.
 
     > [!note]  
     > El elemento podría tardar cinco minutos en aparecer en Marketplace.
@@ -133,9 +133,9 @@ Para quitar el elemento del clúster de Kubernetes:
 
 1. Anote el nombre del elemento actual, por ejemplo, `Microsoft.AzureStackKubernetesCluster.0.1.0`.
 
-2. Conéctese a Azure Stack con PowerShell.
+1. Conéctese a Azure Stack con PowerShell.
 
-3. Use el siguiente cmdlet de PowerShell para quitar el elemento:
+1. Use el siguiente cmdlet de PowerShell para quitar el elemento:
 
     ```PowerShell  
     $Itemname="Microsoft.AzureStackKubernetesCluster.0.1.0"

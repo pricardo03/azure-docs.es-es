@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 377cb9df8ce09581a5fd5d9d7a7d55368daf44ca
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: a1054d7632c8323990ca7430d2d5203f0ad10ee4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082451"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422123"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carga incremental de datos de varias tablas de SQL Server a Azure SQL Database
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales de varias tablas de una instancia local de SQL Server a una base de datos SQL de Azure.    
@@ -44,10 +44,10 @@ Estos son los pasos importantes para crear esta solución:
 1. **Seleccione la columna de marca de agua**.
     Seleccione una columna de cada tabla del almacén de datos de origen que pueda usarse para identificar los registros nuevos o actualizados de cada ejecución. Normalmente, los datos de esta columna seleccionada (por ejemplo, last_modify_time o id.) siguen aumentando cuando se crean o se actualizan las filas. El valor máximo de esta columna se utiliza como una marca de agua.
 
-2. **Prepare el almacén de datos para almacenar el valor de marca de agua**.   
+1. **Prepare el almacén de datos para almacenar el valor de marca de agua**.   
     En este tutorial, el valor de marca de agua se almacena en una base de datos SQL.
 
-3. **Cree una canalización con las siguientes actividades:** 
+1. **Cree una canalización con las siguientes actividades:** 
     
     a. Cree una actividad ForEach que recorra en iteración una lista de nombres de tabla de origen que se pase como parámetro a la canalización. Para cada tabla de origen, invoca las siguientes actividades para realizar la carga diferencial de esa tabla.
 
@@ -72,9 +72,9 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 1. Abra SQL Server Management Studio y conéctese a la base de datos SQL Server local.
 
-2. En el **Explorador de servidores**, haga clic con el botón derecho en la base de datos y elija **Nueva consulta**.
+1. En el **Explorador de servidores**, haga clic con el botón derecho en la base de datos y elija **Nueva consulta**.
 
-3. Ejecute el siguiente comando SQL en la base de datos para crear las tablas denominadas `customer_table` y `project_table`:
+1. Ejecute el siguiente comando SQL en la base de datos para crear las tablas denominadas `customer_table` y `project_table`:
 
     ```sql
     create table customer_table
@@ -111,9 +111,9 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>Creación de tablas de destino en Azure SQL Database
 1. Abra SQL Server Management Studio y conéctese a la base de datos SQL Server.
 
-2. En el **Explorador de servidores**, haga clic con el botón derecho en la base de datos y elija **Nueva consulta**.
+1. En el **Explorador de servidores**, haga clic con el botón derecho en la base de datos y elija **Nueva consulta**.
 
-3. Ejecute el siguiente comando SQL en la base de datos SQL para crear las tablas denominadas `customer_table` y `project_table`:  
+1. Ejecute el siguiente comando SQL en la base de datos SQL para crear las tablas denominadas `customer_table` y `project_table`:  
     
     ```sql
     create table customer_table
@@ -142,7 +142,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
         WatermarkValue datetime,
     );
     ```
-2. Inserte los valores del límite inicial de ambas tablas de origen en la tabla de límites.
+1. Inserte los valores del límite inicial de ambas tablas de origen en la tabla de límites.
 
     ```sql
 
@@ -234,19 +234,19 @@ Instale los módulos más recientes de Azure PowerShell siguiendo las instruccio
 
     Si el grupo de recursos ya existe, puede que no desee sobrescribirlo. Asigne otro valor a la variable `$resourceGroupName` y vuelva a ejecutar el comando.
 
-2. Defina una variable para la ubicación de la factoría de datos. 
+1. Defina una variable para la ubicación de la factoría de datos. 
 
     ```powershell
     $location = "East US"
     ```
-3. Para crear el grupo de recursos de Azure, ejecute el comando siguiente: 
+1. Para crear el grupo de recursos de Azure, ejecute el comando siguiente: 
 
     ```powershell
     New-AzureRmResourceGroup $resourceGroupName $location
     ``` 
     Si el grupo de recursos ya existe, puede que no desee sobrescribirlo. Asigne otro valor a la variable `$resourceGroupName` y vuelva a ejecutar el comando.
 
-4. Defina una variable para el nombre de la factoría de datos. 
+1. Defina una variable para el nombre de la factoría de datos. 
 
     > [!IMPORTANT]
     >  Actualice el nombre de la factoría de datos para que sea globalmente único. Por ejemplo, ADFIncMultiCopyTutorialFactorySP1127. 
@@ -254,7 +254,7 @@ Instale los módulos más recientes de Azure PowerShell siguiendo las instruccio
     ```powershell
     $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
     ```
-5. Para crear la factoría de datos, ejecute el siguiente cmdlet, **Set-AzureRmDataFactoryV2**: 
+1. Para crear la factoría de datos, ejecute el siguiente cmdlet, **Set-AzureRmDataFactoryV2**: 
     
     ```powershell       
     Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
@@ -336,9 +336,9 @@ En este paso, vinculará la base de datos SQL Server local a la factoría de dat
     > - Antes de guardar el archivo, reemplace los valores de &lt;nombre del servidor>, &lt;nombre de base de datos>, &lt;nombre de usuario> y &lt;contraseña> por los de la base de datos SQL Server.
     > - Si necesita usar un carácter de barra diagonal (`\`) en el nombre de servidor o en la cuenta de usuario, utilice el carácter de escape (`\`). Un ejemplo es `mydomain\\myuser`.
 
-2. En PowerShell, cambie a la carpeta C:\ADFTutorials\IncCopyMultiTableTutorial.
+1. En PowerShell, cambie a la carpeta C:\ADFTutorials\IncCopyMultiTableTutorial.
 
-3. Ejecute el cmdlet **Set-AzureRmDataFactoryV2LinkedService** para crear el servicio vinculado AzureStorageLinkedService. En el ejemplo siguiente, debe pasar los valores de los parámetros *ResourceGroupName* y *DataFactoryName*: 
+1. Ejecute el cmdlet **Set-AzureRmDataFactoryV2LinkedService** para crear el servicio vinculado AzureStorageLinkedService. En el ejemplo siguiente, debe pasar los valores de los parámetros *ResourceGroupName* y *DataFactoryName*: 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
@@ -370,7 +370,7 @@ En este paso, vinculará la base de datos SQL Server local a la factoría de dat
         }
     }
     ```
-2. En PowerShell, ejecute el cmdlet **Set-AzureRmDataFactoryV2LinkedService** para crear el servicio vinculado AzureSQLDatabaseLinkedService. 
+1. En PowerShell, ejecute el cmdlet **Set-AzureRmDataFactoryV2LinkedService** para crear el servicio vinculado AzureSQLDatabaseLinkedService. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -411,7 +411,7 @@ En este paso, creará conjuntos de datos para representar el origen de datos, el
 
     El nombre de tabla es un nombre ficticio. La actividad de copia en la canalización usa una consulta SQL para cargar los datos en lugar de cargar la tabla entera.
 
-2. Ejecute el cmdlet **Set-AzureRmDataFactoryV2Dataset** para crear el conjunto de datos SourceDataset.
+1. Ejecute el cmdlet **Set-AzureRmDataFactoryV2Dataset** para crear el conjunto de datos SourceDataset.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -455,7 +455,7 @@ En este paso, creará conjuntos de datos para representar el origen de datos, el
     }
     ```
 
-2. Ejecute el cmdlet **Set-AzureRmDataFactoryV2Dataset** para crear el conjunto de datos SinkDataset.
+1. Ejecute el cmdlet **Set-AzureRmDataFactoryV2Dataset** para crear el conjunto de datos SinkDataset.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -491,7 +491,7 @@ En este paso, creará un conjunto de datos para almacenar un valor de límite m�
         }
     }    
     ```
-2. Ejecute el cmdlet **Set-AzureRmDataFactoryV2Dataset** para crear el conjunto de datos WatermarkDataset.
+1. Ejecute el cmdlet **Set-AzureRmDataFactoryV2Dataset** para crear el conjunto de datos WatermarkDataset.
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
@@ -512,11 +512,11 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
 
 1. Usa la actividad de búsqueda para recuperar el valor de marca de agua antiguo (valor inicial o que se usó en la última iteración).
 
-2. Usa la actividad de búsqueda para recuperar el nuevo valor de marca de agua (valor máximo de la columna de marca de agua en la tabla de origen).
+1. Usa la actividad de búsqueda para recuperar el nuevo valor de marca de agua (valor máximo de la columna de marca de agua en la tabla de origen).
 
-3. Usa la actividad de copia para copiar datos entre estos dos valores de marca de agua desde la base de datos de origen a la base de datos de destino.
+1. Usa la actividad de copia para copiar datos entre estos dos valores de marca de agua desde la base de datos de origen a la base de datos de destino.
 
-4. Usa el procedimiento almacenado para actualizar el valor de marca de agua antiguo que se usará en el primer paso de la iteración siguiente. 
+1. Usa el procedimiento almacenado para actualizar el valor de marca de agua antiguo que se usará en el primer paso de la iteración siguiente. 
 
 ### <a name="create-the-pipeline"></a>Creación de la canalización
 1. Cree un archivo JSON llamado IncrementalCopyPipeline.json en la misma carpeta con el siguiente contenido: 
@@ -653,7 +653,7 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
         }
     }
     ```
-2. Ejecute el cmdlet **Set-AzureRmDataFactoryV2Pipeline** para crear la canalización IncrementalCopyPipeline.
+1. Ejecute el cmdlet **Set-AzureRmDataFactoryV2Pipeline** para crear la canalización IncrementalCopyPipeline.
     
    ```powershell
    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
@@ -692,7 +692,7 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
         ]
     }
     ```
-2. Ejecute la canalización IncrementalCopyPipeline mediante el cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Reemplace los marcadores de posición por su propio grupo de recursos y el nombre de la factoría de datos.
+1. Ejecute la canalización IncrementalCopyPipeline mediante el cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Reemplace los marcadores de posición por su propio grupo de recursos y el nombre de la factoría de datos.
 
     ```powershell
     $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
@@ -702,26 +702,26 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-2. Haga clic en **Todos los servicios**, busque con la palabra clave *Factorías de datos* y seleccione **Factorías de datos**. 
+1. Haga clic en **Todos los servicios**, busque con la palabra clave *Factorías de datos* y seleccione **Factorías de datos**. 
 
     ![Menú Factorías de datos](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-data-factories-menu-1.png)
 
-3. Busque su factoría de datos en la lista y selecciónela para abrir la página **Factoría de datos**. 
+1. Busque su factoría de datos en la lista y selecciónela para abrir la página **Factoría de datos**. 
 
     ![Búsqueda de la factoría de datos](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-search-data-factory-2.png)
 
-4. En la página **Factoría de datos**, seleccione **Supervisión y administración**. 
+1. En la página **Factoría de datos**, seleccione **Supervisión y administración**. 
 
     ![Icono Supervisión y administración](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-monitor-manage-tile-3.png)
 
-5. La **aplicación de integración de datos** se abre en otra pestaña. Puede ver todas las ejecuciones de canalización y sus estados. Tenga en cuenta que, en el ejemplo siguiente, el estado de ejecución de la canalización es **Correcto**. Para comprobar los parámetros pasados a la canalización, seleccione el vínculo en la columna **Parámetros**. Si se ha producido un error, verá un vínculo en la columna **Error**. Seleccione el vínculo en la columna **Acciones**. 
+1. La **aplicación de integración de datos** se abre en otra pestaña. Puede ver todas las ejecuciones de canalización y sus estados. Tenga en cuenta que, en el ejemplo siguiente, el estado de ejecución de la canalización es **Correcto**. Para comprobar los parámetros pasados a la canalización, seleccione el vínculo en la columna **Parámetros**. Si se ha producido un error, verá un vínculo en la columna **Error**. Seleccione el vínculo en la columna **Acciones**. 
 
     ![Ejecuciones de la canalización](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-4.png)    
-6. Al seleccionar el vínculo de la columna **Acciones**, verá la página siguiente que muestra todas las ejecuciones de actividad de la canalización: 
+1. Al seleccionar el vínculo de la columna **Acciones**, verá la página siguiente que muestra todas las ejecuciones de actividad de la canalización: 
 
     ![Ejecuciones de actividad](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-activity-runs-5.png)
 
-7. Para volver a la vista de **ejecuciones de canalización**, haga clic en **Canalizaciones** como se muestra en la imagen. 
+1. Para volver a la vista de **ejecuciones de canalización**, haga clic en **Canalizaciones** como se muestra en la imagen. 
 
 ## <a name="review-the-results"></a>Revisión del resultado
 En SQL Server Management Studio, ejecute las consultas siguientes contra la base de datos SQL de Azure de destino para comprobar que los datos se copiaron de las tablas de origen a las tablas de destino: 
@@ -799,15 +799,15 @@ VALUES
     ```powershell
     $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
     ```
-2. Supervise las ejecuciones de canalización siguiendo las instrucciones de la sección [Supervisión de la canalización](#monitor-the-pipeline). Como el estado de la canalización es **En curso**, verá otro vínculo de acción en **Acciones** para cancelar la ejecución de canalización. 
+1. Supervise las ejecuciones de canalización siguiendo las instrucciones de la sección [Supervisión de la canalización](#monitor-the-pipeline). Como el estado de la canalización es **En curso**, verá otro vínculo de acción en **Acciones** para cancelar la ejecución de canalización. 
 
     ![Ejecuciones de canalización En curso](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-6.png)
 
-3. Haga clic en **Actualizar** para actualizar la lista hasta que la ejecución de canalización se realice correctamente. 
+1. Haga clic en **Actualizar** para actualizar la lista hasta que la ejecución de canalización se realice correctamente. 
 
     ![Actualización de ejecuciones de canalización](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-pipeline-runs-succeded-7.png)
 
-4. De manera opcional, seleccione el vínculo **View Activity Runs** (Ver ejecuciones de actividad) en **Acciones** para ver todas las ejecuciones de actividad asociadas a esta ejecución de canalización. 
+1. De manera opcional, seleccione el vínculo **View Activity Runs** (Ver ejecuciones de actividad) en **Acciones** para ver todas las ejecuciones de actividad asociadas a esta ejecución de canalización. 
 
 ## <a name="review-the-final-results"></a>Revisión de los resultados finales
 En SQL Server Management Studio, ejecute las siguientes consultas en la base de datos de destino para comprobar que los datos nuevos o actualizados se han copiado de las tablas de origen a las tablas de destino. 

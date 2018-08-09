@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 74ce913548fbcefdc441d0d2b772c864dacd4482
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b20f19c504a7967d01d51d976315fa49c2317885
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38485451"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424809"
 ---
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Implementación de un clúster de Kubernetes para los contenedores de Windows
 
@@ -34,7 +34,7 @@ Si decide instalar y usar la CLI localmente, para esta guía de inicio rápido e
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un grupo lógico en el que se implementan y se administran los recursos de Azure. 
+Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un grupo lógico en el que se implementan y se administran los recursos de Azure. 
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-kubernetes-cluster"></a>Creación de un clúster de Kubernetes
-Cree un clúster de Kubernetes en Azure Container Service con el comando [az acs create](/cli/azure/acs#az_acs_create). 
+Cree un clúster de Kubernetes en Azure Container Service con el comando [az acs create](/cli/azure/acs#az-acs-create). 
 
 En el ejemplo siguiente se crea un clúster denominado *myK8sCluster* con un nodo maestro de Linux y dos nodos de agente de Windows. Este ejemplo crea claves SSH necesarias para conectar con el maestro de Linux. En este ejemplo se utiliza *azureuser* como nombre de usuario administrativo y *myPassword12* como contraseña en los nodos de Windows. Actualice estos valores a un valor apropiado para su entorno. 
 
@@ -184,7 +184,7 @@ Puede usar un explorador web de su elección para ver la página de bienvenida p
 
 
 ## <a name="delete-cluster"></a>Eliminación de clúster
-Cuando un clúster ya no se necesite, puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para quitar el grupo de recursos, el servicio de contenedor y todos los recursos relacionados.
+Cuando un clúster ya no se necesite, puede usar el comando [az group delete](/cli/azure/group#az-group-delete) para quitar el grupo de recursos, el servicio de contenedor y todos los recursos relacionados.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

@@ -6,13 +6,14 @@ author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/04/2018
-ms.author: bryanla
-ms.openlocfilehash: b57e688b5f830c8c7d34315a68be94e4e4c99466
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.author: anshan
+manager: cshankar
+ms.openlocfilehash: 7faec1608845d218a738c70f147f79248a549dde
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295854"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626779"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Tutorial: Creación de un entorno de Azure Time Series Insights
 
@@ -25,7 +26,7 @@ Este tutorial le guiará a través del proceso de creación de un entorno de Tim
 > * Ejecución de una simulación de dispositivo para transmitir datos al entorno de TSI
 > * Comprobar los datos de telemetría simulados
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar. 
 
@@ -51,7 +52,7 @@ En primer lugar, cree un entorno de TSI en la suscripción de Azure:
 
 4. En la página **Entorno de Time Series Insights**, rellene los parámetros necesarios:
    
-   .|DESCRIPCIÓN
+   Parámetro|DESCRIPCIÓN
    ---|---
    **Nombre del entorno** | Elija un nombre único para el entorno de TSI. El nombre lo utiliza el explorador de TSI y la API de consulta.
    **Suscripción** | Las suscripciones son contenedores para recursos de Azure. Elija la suscripción donde desea crear el entorno de TSI.
@@ -78,7 +79,7 @@ A continuación, cree la solución Simulación de dispositivo, que generará dat
 
 2. Escriba los parámetros necesarios en la página **Crear la solución Simulación de dispositivo**:
 
-   .|DESCRIPCIÓN
+   Parámetro|DESCRIPCIÓN
    ---|---
    **Nombre de la solución** | Un valor único que se utiliza para la creación de un nuevo grupo de recursos. Los recursos de Azure enumerados se crean y se asigna al grupo de recursos.
    **Suscripción** | Especifique la misma suscripción usada para la creación del entorno de TSI, en la sección anterior.
@@ -138,7 +139,7 @@ Conecte ahora el nuevo punto de conexión del evento "grupo de consumidores" de 
 
 3. Escriba los parámetros necesarios en la página **Nuevo origen del evento**: 
 
-   .|DESCRIPCIÓN
+   Parámetro|DESCRIPCIÓN
    ---|---
    **Nombre de origen de evento** | Requiere un valor único, que se utiliza para denominar el origen del evento.
    **Origen** | Seleccione IoT Hub.
@@ -170,7 +171,7 @@ Puede que recuerde de la sección [Creación de una simulación de dispositivo](
 
 3. Cuando se carga la página **Configuración de simulación**, escriba los parámetros necesarios: 
 
-   .|DESCRIPCIÓN
+   Parámetro|DESCRIPCIÓN
    ---|---
    **Target IoT Hub** (IoT Hub de destino) | Seleccione Use pre-provisioned IoT Hub (Usar IoT Hub aprovisionado previamente).
    **Device model** (Modelo de dispositivo) | Seleccione Chiller (Refrigerador).

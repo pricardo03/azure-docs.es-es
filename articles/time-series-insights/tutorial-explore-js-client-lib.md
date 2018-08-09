@@ -2,18 +2,18 @@
 title: Exploración de la biblioteca de cliente JavaScript de Azure Time Series Insights
 description: Obtenga información acerca de la biblioteca de cliente JavaScript de Azure Time Series Insights y el modelo de programación relacionado.
 author: ashannon7
-manager: timlt
+manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
-ms.author: bryanla
-ms.openlocfilehash: 70e29b1a6b8a4443ae6545ec7960f1d2370218e3
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.author: anshan
+ms.openlocfilehash: 445584ef8f9a2534d7f183a4452df19ee87d0025
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969935"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627001"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutorial: Exploración de la biblioteca de cliente JavaScript de Azure Time Series Insights
 
@@ -28,7 +28,7 @@ En este tutorial, obtendrá información sobre lo siguiente:
 > * La biblioteca cliente JavaScript de TSI.
 > * Cómo usa la aplicación de ejemplo la biblioteca para visualizar datos de TSI.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Este tutorial usa la característica "Herramientas de desarrollo" (también conocida como DevTools o F12) que se encuentra en los exploradores web más modernos, entre los que se incluyen [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), etc. Si aún no conoce esta característica, puede probarla e indagar sobre ella en el explorador antes de continuar.
 
@@ -131,7 +131,7 @@ Las acciones de rellenar y representar controles de gráfico siguen un patrón g
 
    **parámetros aggregateExpression**
 
-   | . | DESCRIPCIÓN | Ejemplo |
+   | Parámetro | DESCRIPCIÓN | Ejemplo |
    | --------- | ----------- | ------- |
    | `predicateObject` | Expresión de filtrado de datos. |`{predicateString: "Factory = 'Factory3'"}` |
    | `measureObject`   | El nombre de propiedad de la medida que se usa. | `{property: 'Temperature', type: "Double"}` |
@@ -150,7 +150,7 @@ Las acciones de rellenar y representar controles de gráfico siguen un patrón g
 
    **parámetros getAggregates**
 
-   | . | DESCRIPCIÓN | Ejemplo |
+   | Parámetro | DESCRIPCIÓN | Ejemplo |
    | --------- | ----------- | ------- |
    | `token`     | El token de acceso de la API de TSI. |  `authContext.getTsiToken()`Para más información, consulte la [sección de autenticación](#authentication). |
    | `envFQDN`   | El nombre de dominio completo (FQDN) del entorno de TSI. | En Azure Portal, por ejemplo: `10000000-0000-0000-0000-100000000108.env.timeseries.azure.com`. |

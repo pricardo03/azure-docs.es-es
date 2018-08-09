@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 6c13bb4c10adeeba59ff8d0f2c8d7120d6fae43a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a5910689f34c511c6cf7d8a044ef4358d2e0570d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050653"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445587"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Tutorial: integración de Azure Active Directory con TeamSeer
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de TeamSeer desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-teamseer-from-the-gallery"></a>Incorporación de TeamSeer desde la galería
 Para configurar la integración de TeamSeer en Azure AD, será preciso que agregue TeamSeer desde la galería a la lista de aplicaciones SaaS administradas.
@@ -63,19 +63,19 @@ Para configurar la integración de TeamSeer en Azure AD, será preciso que agreg
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **TeamSeer**.
+1. En el cuadro de búsqueda, escriba **TeamSeer**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/teamseer-tutorial/tutorial_teamseer_search.png)
 
-5. En el panel de resultados, seleccione **TeamSeer** y haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **TeamSeer** y haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/teamseer-tutorial/tutorial_teamseer_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Para establecer la relación de vínculo, en TeamSeer, asigne el valor de **nomb
 Para configurar y probar el inicio de sesión único de Azure AD con TeamSeer, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de TeamSeer](#creating-a-teamseer-test-user)**: para tener un homólogo de Britta Simon en TeamSeer vinculado a la representación del usuario de Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de TeamSeer](#creating-a-teamseer-test-user)**: para tener un homólogo de Britta Simon en TeamSeer vinculado a la representación del usuario de Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,11 +104,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/teamseer-tutorial/tutorial_teamseer_samlbase.png)
 
-3. En la sección de **TeamSeer Domain and URLs** (Dominio y direcciones URL de TeamSeer), lleve a cabo los pasos siguientes:
+1. En la sección de **TeamSeer Domain and URLs** (Dominio y direcciones URL de TeamSeer), lleve a cabo los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/teamseer-tutorial/tutorial_teamseer_url.png)
 
@@ -117,33 +117,33 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de TeamSeer](http://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html) para obtener este valor. 
  
-4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/teamseer-tutorial/tutorial_teamseer_certificate.png) 
 
-5. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/teamseer-tutorial/tutorial_general_400.png)
 
-6. En la sección **TeamSeer Configuration** (Configuración de TeamSeer), haga clic en **Configure TeamSeer** (Configurar TeamSeer) para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de servicio de inicio de sesión único de SAML** de la sección **Referencia rápida**.
+1. En la sección **TeamSeer Configuration** (Configuración de TeamSeer), haga clic en **Configure TeamSeer** (Configurar TeamSeer) para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de servicio de inicio de sesión único de SAML** de la sección **Referencia rápida**.
 
     ![Configurar inicio de sesión único](./media/teamseer-tutorial/tutorial_teamseer_configure.png)
 
-7. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de TeamSeer como administrador.
+1. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de TeamSeer como administrador.
 
-8. Vaya a **Administrador de RR. HH**.
+1. Vaya a **Administrador de RR. HH**.
    
     ![Administración de RR. HH.](./media/teamseer-tutorial/ic789634.png "Administración de RR. HH.")
 
-9. Haga clic en **Configuración**.
+1. Haga clic en **Configuración**.
    
     ![Instalación](./media/teamseer-tutorial/ic789635.png "Instalación")
 
-10. Haga clic en **Configurar detalles del proveedor SAML**.
+1. Haga clic en **Configurar detalles del proveedor SAML**.
    
     ![Configuración de SAML](./media/teamseer-tutorial/ic789636.png "Configuración de SAML")
 
-11. En la sección de detalles del proveedor SAML, lleve a cabo estos pasos:
+1. En la sección de detalles del proveedor SAML, lleve a cabo estos pasos:
    
     ![Configuración de SAML](./media/teamseer-tutorial/ic789637.png "Configuración de SAML")   
 
@@ -151,7 +151,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
           
     b. Abra el certificado codificado en base 64 en el bloc de notas, copie su contenido en el portapapeles y péguelo en el cuadro de texto **IdP Public Certificate** (Certificado público del proveedor de identidades).
 
-12. Para completar la configuración del proveedor SAML, lleve a cabo estos pasos:
+1. Para completar la configuración del proveedor SAML, lleve a cabo estos pasos:
     
     ![Configuración de SAML](./media/teamseer-tutorial/ic789638.png "Configuración de SAML") 
 
@@ -176,15 +176,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/teamseer-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Creación de un usuario de prueba de Azure AD](./media/teamseer-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Creación de un usuario de prueba de Azure AD](./media/teamseer-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/teamseer-tutorial/create_aaduser_04.png) 
 
@@ -204,7 +204,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en TeamSeer, deben ap
 
 1. Inicie sesión en su sitio de la compañía de **TeamSeer** como administrador.
 
-2. Lleve a cabo los siguiente pasos:
+1. Lleve a cabo los siguiente pasos:
    
     ![Administración de RR. HH.](./media/teamseer-tutorial/ic789640.png "Administración de RR. HH.")  
  
@@ -212,7 +212,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en TeamSeer, deben ap
   
     b. Haga clic en **Ejecutar el Asistente para nuevos usuarios**.
 
-3. En la sección **Detalles del usuario** , lleve a cabo estos pasos:
+1. En la sección **Detalles del usuario** , lleve a cabo estos pasos:
    
     ![Detalles del usuario](./media/teamseer-tutorial/ic789641.png "Detalles del usuario")
 
@@ -220,7 +220,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en TeamSeer, deben ap
   
     b. Haga clic en **Next**.
 
-4. Siga las instrucciones en pantalla para agregar un nuevo usuario y haga clic en **Finalizar**.
+1. Siga las instrucciones en pantalla para agregar un nuevo usuario y haga clic en **Finalizar**.
 
 >[!NOTE]
 >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de TeamSeer ofrecida por TeamSeer para aprovisionar cuentas de usuario de Azure AD. 
@@ -237,23 +237,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **TeamSeer**.
+1. En la lista de aplicaciones, seleccione **TeamSeer**.
 
     ![Configurar inicio de sesión único](./media/teamseer-tutorial/tutorial_teamseer_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 

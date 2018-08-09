@@ -4,23 +4,23 @@ description: En este artículo se describe cómo agregar un origen de evento que
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: edett
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 1cc8518e84bd9fe7a1f03a2f5d6ccdbac8fb78e3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b6beecbf64cee925f62ac4c82919926fcb79940a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330601"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627379"
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Adición de un origen de eventos de IoT Hub al entorno de Time Series Insights
 Este tutorial describe cómo usar Azure Portal para agregar un origen de eventos que se lea desde un centro de IoT Hub a su entorno de Time Series Insights.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 - Cree el entorno de Time Series Insights. Para obtener más información, consulte [Creación de un entorno de Azure Time Series Insights](time-series-insights-get-started.md). 
 - Cree un centro de IoT Hub. Para obtener más información acerca de los centros de IoT Hub, consulte [Creación de una instancia de IoT Hub mediante Azure Portal](../iot-hub/iot-hub-create-through-portal.md).
 - El centro de IoT Hub debe tener eventos de mensajes activos en proceso de envío.
@@ -93,7 +93,7 @@ Para agregar un grupo de consumidores a IoT Hub, siga estos pasos:
 
 11. Seleccione **Crear** para agregar el nuevo origen del evento.
 
-   ![Click Create](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
+   ![Haga clic en Crear.](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
 
    Tras la creación del origen de eventos, Time Series Insights iniciará automáticamente la transmisión de datos al entorno.
 

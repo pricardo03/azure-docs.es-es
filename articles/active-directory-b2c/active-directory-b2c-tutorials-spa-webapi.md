@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 5b99f60c1bd81b77a5fc2be5575f65fc63eb0c11
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: a2fbdebfc800c33a99b19b366209aeabb03fe115
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34711100"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590840"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Tutorial: Conceder acceso a una API web de ASP.NET Core desde una aplicación de una sola página mediante Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Realice el tutorial [Authenticate users with Azure Active Directory B2C in a single page application](active-directory-b2c-tutorials-spa.md) (Autenticación de los usuarios con Azure Active Directory B2C en una aplicación de una sola página).
 * Instalar [Visual Studio 2017](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**.
@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="register-web-api"></a>Registro de una API web
 
-Los recursos de API web tienen que registrarse en el inquilino antes de que puedan aceptar y responder a [solicitudes de recursos protegidos](../active-directory/develop/active-directory-dev-glossary.md#resource-server) por [aplicaciones cliente](../active-directory/develop/active-directory-dev-glossary.md#client-application) que presenten un [token de acceso](../active-directory/develop/active-directory-dev-glossary.md#access-token) de Azure Active Directory. El registro establece el [objeto de aplicación y de entidad de servicio](../active-directory/develop/active-directory-dev-glossary.md#application-object) en el inquilino. 
+Los recursos de API web tienen que registrarse en el inquilino antes de que puedan aceptar y responder a [solicitudes de recursos protegidos](../active-directory/develop/developer-glossary.md#resource-server) por [aplicaciones cliente](../active-directory/develop/developer-glossary.md#client-application) que presenten un [token de acceso](../active-directory/develop/developer-glossary.md#access-token) de Azure Active Directory. El registro establece el [objeto de aplicación y de entidad de servicio](../active-directory/develop/developer-glossary.md#application-object) en el inquilino. 
 
 Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
 
@@ -57,10 +57,10 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador g
     | Configuración      | Valor sugerido  | Descripción                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Name** | Hello Core API | Escriba un **Nombre** que describa su API web para los desarrolladores. |
-    | **Incluir aplicación web o API web** | Sí | Seleccione **Sí** para una API web. |
-    | **Permitir flujo implícito** | Sí | Seleccione **Sí**, ya que la API utiliza el [inicio de sesión con OpenID Connect](active-directory-b2c-reference-oidc.md). |
+    | **Incluir aplicación web o API web** | SÍ | Seleccione **Sí** para una API web. |
+    | **Permitir flujo implícito** | SÍ | Seleccione **Sí**, ya que la API utiliza el [inicio de sesión con OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL de respuesta** | `http://localhost:44332` | Las direcciones URL de respuesta son puntos de conexión en los que Azure AD B2C devolverá los tokens que su API solicite. En este tutorial, la API web de ejemplo se ejecuta localmente (localhost) y escucha en el puerto 5000. |
-    | **URI de id. de aplicación** | HelloCoreAPI | El URI identifica de forma única la API en el inquilino. Esto le permite registrar varias API por inquilino. Los [ámbitos](../active-directory/develop/active-directory-dev-glossary.md#scopes) controlan el acceso al recurso de API protegido y se definen por cada URI de identificador de aplicación. |
+    | **URI de id. de aplicación** | HelloCoreAPI | El URI identifica de forma única la API en el inquilino. Esto le permite registrar varias API por inquilino. Los [ámbitos](../active-directory/develop/developer-glossary.md#scopes) controlan el acceso al recurso de API protegido y se definen por cada URI de identificador de aplicación. |
     | **Cliente nativo** | Sin  | Como es una API web y no un cliente nativo, seleccione No. |
     
 3. Haga clic en **Crear** para registrar la API.
@@ -75,7 +75,7 @@ El registro de la API web con Azure AD B2C define una relación de confianza. Co
 
 ## <a name="define-and-configure-scopes"></a>Definición y configuración de ámbitos
 
-Los [ámbitos](../active-directory/develop/active-directory-dev-glossary.md#scopes) proporcionan una manera de controlar el acceso a los recursos protegidos. La API web utiliza los ámbitos para implementar el control de acceso basado en el ámbito. Por ejemplo, algunos usuarios pueden tener tanto acceso de lectura como de escritura, mientras que otros usuarios pueden tener permisos de solo lectura. En este tutorial, definirá los permisos de lectura para la API web.
+Los [ámbitos](../active-directory/develop/developer-glossary.md#scopes) proporcionan una manera de controlar el acceso a los recursos protegidos. La API web utiliza los ámbitos para implementar el control de acceso basado en el ámbito. Por ejemplo, algunos usuarios pueden tener tanto acceso de lectura como de escritura, mientras que otros usuarios pueden tener permisos de solo lectura. En este tutorial, definirá los permisos de lectura para la API web.
 
 ### <a name="define-scopes-for-the-web-api"></a>Definición de ámbitos para la API web
 
@@ -111,7 +111,7 @@ Para llamar a una API web protegida desde una aplicación, deberá conceder a su
 
 5. Haga clic en **OK**.
 
-Su **aplicación de una sola página de ejemplo** está registrada para llamar a la API **Hello Core API** protegida. Un usuario se [autentica](../active-directory/develop/active-directory-dev-glossary.md#authentication) con Azure AD B2C para usar la aplicación web de escritorio WPF. La aplicación de escritorio obtiene una [concesión de autorización](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) de Azure AD B2C para acceder a la API web protegida.
+Su **aplicación de una sola página de ejemplo** está registrada para llamar a la API **Hello Core API** protegida. Un usuario se [autentica](../active-directory/develop/developer-glossary.md#authentication) con Azure AD B2C para usar la aplicación web de escritorio WPF. La aplicación de escritorio obtiene una [concesión de autorización](../active-directory/develop/developer-glossary.md#authorization-grant) de Azure AD B2C para acceder a la API web protegida.
 
 ## <a name="update-code"></a>Actualización del código
 

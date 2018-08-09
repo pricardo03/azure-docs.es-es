@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 5c6a4ac68694c74f9a7ed99a2d7b4939b84dc33f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9d398d810a2d43b3754fd8950376c605d4654f38
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054886"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621538"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de artículos sobre la administración de aplicaciones en Azure Active Directory
 Esta página proporciona una lista completa de todos los documentos escritos sobre las diversas características relacionadas con aplicaciones de Azure Active Directory (Azure AD).
@@ -41,7 +41,7 @@ Esta sección proporciona acceso rápido a las guías de solución de problemas 
 
 | Área de características |  |
 |:---:| --- |
-| Inicio de sesión único federado |[Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](active-directory-saml-debugging.md) |
+| Inicio de sesión único federado |[Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](develop/howto-v1-debug-saml-sso-issues.md) |
 | Inicio de sesión único con contraseña |[Solución de problemas de la extensión del Panel de acceso para Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Proxy de aplicación |[Solucionar problemas del proxy de aplicación](manage-apps/application-proxy-troubleshoot.md) |
 | Inicio de sesión único entre un AD local y Azure AD |[Solución de problemas de sincronización de hash de contraseñas](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Solución de problemas de escritura diferida de contraseñas](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
@@ -54,10 +54,10 @@ El inicio de sesión único permite a los usuarios acceder a varias aplicaciones
 | Guía de artículos |  |
 |:---:| --- |
 | Una introducción a la federación y otros tipos de inicio de sesión |[Inicio de sesión único con Azure AD](manage-apps/what-is-single-sign-on.md) |
-| Miles de aplicaciones SaaS integradas previamente con Azure AD con pasos de configuración de inicio de sesión único simplificados |[Introducción a la Galería de aplicaciones de Azure AD](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Lista completa de las aplicaciones integradas previamente que admiten federación](saas-apps/tutorial-list.md)<br /><br />[Anuncio de la aplicación en la Galería de aplicaciones de Azure AD](active-directory-app-gallery-listing.md) |
+| Miles de aplicaciones SaaS integradas previamente con Azure AD con pasos de configuración de inicio de sesión único simplificados |[Introducción a la Galería de aplicaciones de Azure AD](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Lista completa de las aplicaciones integradas previamente que admiten federación](saas-apps/tutorial-list.md)<br /><br />[Anuncio de la aplicación en la Galería de aplicaciones de Azure AD](develop/howto-app-gallery-listing.md) |
 | Tutoriales de más de 150 aplicaciones en los que se explica cómo configurar el inicio de sesión único de aplicaciones como [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md) y [Workday](saas-apps/workday-tutorial.md), entre otras |[Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](saas-apps/tutorial-list.md) |
 | Configuración y personalización manual de una configuración de inicio de sesión único |[Configuración del inicio de sesión único federado en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Personalización de notificaciones emitidas en el token SAML para aplicaciones previamente integradas en Azure Active Directory](active-directory-saml-claims-customization.md) |
-| Guía de solución de problemas de aplicaciones federadas que utilizan el protocolo SAML |[Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](active-directory-saml-debugging.md) |
+| Guía de solución de problemas de aplicaciones federadas que utilizan el protocolo SAML |[Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](develop/howto-v1-debug-saml-sso-issues.md) |
 | Configuración de la fecha de expiración del certificado de la aplicación y renovación de certificados |[Administración de certificados para inicio de sesión único federado en Azure Active Directory](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
 El inicio de sesión único federado está disponible para todas las ediciones de Azure AD para un máximo de diez aplicaciones por usuario. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) admite un número ilimitado de aplicaciones. Si la organización tiene [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), se pueden [utilizar grupos para asignar el acceso a las aplicaciones federadas](#managing-access-to-applications).
@@ -109,7 +109,7 @@ Una vez configurado el inicio de sesión único en las aplicaciones y los recurs
 | Guía de artículos |  |
 |:---:| --- |
 | Una introducción a las funcionalidades de acceso condicional que se ofrecen a través de Azure AD, Office 365 e Intune |[Administración de riesgos con el acceso condicional](active-directory-conditional-access-azure-portal.md) |
-| Habilitación del acceso condicional para los siguientes tipos de recursos |[Introducción al acceso condicional de Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Directivas de dispositivo de acceso condicional para servicios de Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](active-directory-conditional-access-azure-portal.md)<br /><br />[Acceso condicional para aplicaciones locales publicadas mediante el proxy de aplicación de Azure AD](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
+| Habilitación del acceso condicional para los siguientes tipos de recursos |[Introducción al acceso condicional de Azure Active Directory](conditional-access/app-based-conditional-access.md)<br /><br />[Directivas de dispositivo de acceso condicional para servicios de Office 365](active-directory-conditional-access-device-policies.md)<br /><br />[Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](active-directory-conditional-access-azure-portal.md)<br /><br />[Acceso condicional para aplicaciones locales publicadas mediante el proxy de aplicación de Azure AD](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Registro de los dispositivos en Azure Active Directory, con el fin de habilitar directivas de acceso condicional basado en dispositivo |[Introducción al Registro de dispositivos de Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Registro automático de dispositivos en Azure Active Directory para dispositivos Windows unidos a un dominio](active-directory-conditional-access-automatic-device-registration.md)<br />: [Pasos para dispositivos Windows 8.1](active-directory-conditional-access-automatic-device-registration-setup.md)<br />: [Pasos para dispositivos Windows 7](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | Uso de la aplicación Microsoft Authenticator para la comprobación en dos pasos |[Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
@@ -143,8 +143,8 @@ Si su organización desarrolla o mantiene aplicaciones de línea de negocio (LoB
 
 | Guía de artículos |  |
 |:---:| --- |
-| Guía para profesionales de TI y desarrolladores de aplicaciones para la integración de aplicaciones en Azure AD |[Azure AD y aplicaciones: desarrollo de aplicaciones de línea de negocio](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Guía del desarrollador de Azure Active Directory](active-directory-developers-guide.md) |
-| Procedimiento para los proveedores de aplicaciones puedan agregar sus aplicaciones a la Galería de aplicaciones de Azure AD |[Anuncio de la aplicación en la Galería de aplicaciones de Azure Active Directory](active-directory-app-gallery-listing.md) |
+| Guía para profesionales de TI y desarrolladores de aplicaciones para la integración de aplicaciones en Azure AD |[Azure AD y aplicaciones: desarrollo de aplicaciones de línea de negocio](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Guía del desarrollador de Azure Active Directory](develop/azure-ad-developers-guide.md) |
+| Procedimiento para los proveedores de aplicaciones puedan agregar sus aplicaciones a la Galería de aplicaciones de Azure AD |[Anuncio de la aplicación en la Galería de aplicaciones de Azure Active Directory](develop/howto-app-gallery-listing.md) |
 | Administración del acceso a aplicaciones desarrolladas mediante Azure Active Directory |[Azure AD y aplicaciones: necesidad de asignación de usuario](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Asignación de usuarios a una aplicación](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[Asignación de grupos a una aplicación](active-directory-applications-guiding-developers-assigning-groups.md) |
 
 Si está desarrollando aplicaciones orientadas al consumidor, puede que le interese utilizar [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) , con el fin de que no tenga que desarrollar su propio sistema de identidad para administrar los usuarios. [Más información](../active-directory-b2c/active-directory-b2c-overview.md).

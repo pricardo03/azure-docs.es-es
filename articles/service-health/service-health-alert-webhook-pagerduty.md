@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 6e9fcf20d368e270f9af4551c539acd873335498
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5f6f3f61b5f7a06ac4056499edfb811780838cdc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30178919"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441884"
 ---
 # <a name="configure-service-health-alerts-with-pagerduty"></a>Configuración de alertas de estado del servicio con PagerDuty
 
@@ -28,13 +28,13 @@ Este artículo muestra cómo configurar las notificaciones de estado del servici
 ## <a name="creating-a-service-health-integration-url-in-pagerduty"></a>Creación de una dirección URL de integración de estado del servicio en PagerDuty
 1.  Asegúrese de que se ha registrado y ha iniciado sesión en su cuenta de [PagerDuty](https://www.pagerduty.com/).
 
-2.  Vaya hasta la sección **Services** (Servicios) en PagerDuty.
+1.  Vaya hasta la sección **Services** (Servicios) en PagerDuty.
 
     ![La sección "Services" (Servicios) en PagerDuty](./media/webhook-alerts/pagerduty-services-section.png)
 
-3.  Seleccione **Add New Service** (Agregar nuevo servicio) o abra un servicio existente que haya configurado.
+1.  Seleccione **Add New Service** (Agregar nuevo servicio) o abra un servicio existente que haya configurado.
 
-4.  En **Integration Settings** (Configuración de la integración), seleccione lo siguiente:
+1.  En **Integration Settings** (Configuración de la integración), seleccione lo siguiente:
 
     a. **Integration Type** (Tipo de integración): Microsoft Azure
 
@@ -42,9 +42,9 @@ Este artículo muestra cómo configurar las notificaciones de estado del servici
 
     !["Integration Settings" (Configuración de la integración) en PagerDuty](./media/webhook-alerts/pagerduty-integration-settings.png)
 
-5.  Rellene los demás campos obligatorios y seleccione **Add** (Agregar).
+1.  Rellene los demás campos obligatorios y seleccione **Add** (Agregar).
 
-6.  Abra esta nueva integración y copie y guarde la **dirección URL de la integración**.
+1.  Abra esta nueva integración y copie y guarde la **dirección URL de la integración**.
 
     ![La "dirección URL de integración" en PagerDuty](./media/webhook-alerts/pagerduty-integration-url.png)
 
@@ -52,7 +52,7 @@ Este artículo muestra cómo configurar las notificaciones de estado del servici
 ### <a name="for-a-new-action-group"></a>Para un nuevo grupo de acciones:
 1. Siga los pasos del 1 al 8 en [Creación de una alerta basada en una notificación de mantenimiento del servicio para un nuevo grupo de acciones con Azure Portal](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
 
-2. Defina la lista de **acciones**:
+1. Defina la lista de **acciones**:
 
     a. **Tipo de acción**: *webhook*
 
@@ -60,16 +60,16 @@ Este artículo muestra cómo configurar las notificaciones de estado del servici
 
     c. **Nombre**: el identificador, alias o nombre de webhook.
 
-3. Seleccione **Guardar** cuando termine para crear la alerta.
+1. Seleccione **Guardar** cuando termine para crear la alerta.
 
 ### <a name="for-an-existing-action-group"></a>Para un grupo de acciones existentes:
 1. En [Azure Portal](https://portal.azure.com/), seleccione **Supervisión**.
 
-2. En la sección **Configuración**, seleccione **Grupos de acciones**.
+1. En la sección **Configuración**, seleccione **Grupos de acciones**.
 
-3. Busque el grupo de acciones que desee editar.
+1. Busque el grupo de acciones que desee editar.
 
-4. Defina la lista de **acciones**:
+1. Defina la lista de **acciones**:
 
     a. **Tipo de acción**: *webhook*
 
@@ -77,12 +77,12 @@ Este artículo muestra cómo configurar las notificaciones de estado del servici
 
     c. **Nombre**: el identificador, alias o nombre de webhook.
 
-5. Cuando termine de actualizar el grupo de acciones, seleccione **Guardar**.
+1. Cuando termine de actualizar el grupo de acciones, seleccione **Guardar**.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Prueba de la integración de webhook a través de una solicitud HTTP POST
 1. Cree la carga de estado del servicio que desee enviar. Puede encontrar una carga de webhook de estado del servicio de ejemplo en [Webhooks para alertas del registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
-2. Cree una solicitud HTTP POST de la siguiente manera:
+1. Cree una solicitud HTTP POST de la siguiente manera:
 
     ```
     POST        https://events.pagerduty.com/integration/<IntegrationKey>/enqueue
@@ -91,9 +91,9 @@ Este artículo muestra cómo configurar las notificaciones de estado del servici
 
     BODY        <service health payload>
     ```
-3. Debería recibir `202 Accepted` con un mensaje que contiene el "identificador del evento."
+1. Debería recibir `202 Accepted` con un mensaje que contiene el "identificador del evento."
 
-4. Vaya a [PagerDuty](https://www.pagerduty.com/) para confirmar que la integración se ha configurado correctamente.
+1. Vaya a [PagerDuty](https://www.pagerduty.com/) para confirmar que la integración se ha configurado correctamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información acerca de cómo [configurar notificaciones de webhook para los sistemas de administración de problemas existentes](service-health-alert-webhook-guide.md).

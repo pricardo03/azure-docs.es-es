@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 8c2501b5e89e81709de074c0b0c93b317ecebd7b
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 47a78b71f51e4fe975341b8e9425f47fd8c4d31c
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316601"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503543"
 ---
 # <a name="manage-key-vault-using-cli-20"></a>Administración de Key Vault mediante CLI 2.0
 
@@ -39,7 +39,7 @@ Azure Key Vault está disponible en la mayoría de las regiones. Para obtener m�
 
 Para obtener información general sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para usar los comandos de la CLI de Azure, debe tener los siguientes elementos:
 
 * Una suscripción a Microsoft Azure. Si no tiene una, puede registrarse para una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial).
@@ -186,7 +186,7 @@ Las aplicaciones que utilizan un Almacén de claves deben autenticarse utilizand
 
 Para obtener un token, la aplicación debe presentar estos dos valores a Azure Active Directory. La configuración de una aplicación para obtener un token dependerá de la aplicación. Para la [aplicación de ejemplo de Key Vault](https://www.microsoft.com/download/details.aspx?id=45343), el propietario de la aplicación establece estos valores en el archivo app.config.
 
-Para obtener los pasos detallados sobre cómo registrar una aplicación con Azure Active Directory, debería revisar los artículos titulados [Integración de aplicaciones con Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md) y [Creación de una entidad de servicio de Azure con la CLI de Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli).
+Para obtener los pasos detallados sobre cómo registrar una aplicación con Azure Active Directory, debería revisar los artículos titulados [Integración de aplicaciones con Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md), [Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md) y [Creación de una entidad de servicio de Azure con la CLI de Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Para registrar una aplicación en Azure Active Directory:
 

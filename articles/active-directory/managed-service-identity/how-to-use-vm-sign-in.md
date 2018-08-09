@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 4a811c5354a9ff2aaa48a300d9b2655f91fdab23
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 205938bbf615face0768028717a333c13c1fafa1
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901099"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590320"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Uso de una identidad de servicio administrada (MSI) en una máquina virtual de Azure para el inicio de sesión 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 En este artículo se proporcionan ejemplos de script de PowerShell y de la CLI para el inicio de sesión mediante una entidad de servicio de MSI, así como instrucciones sobre temas importantes como el tratamiento de errores.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -38,7 +38,7 @@ Si tiene previsto usar los ejemplos de Azure PowerShell o de la CLI de Azure en 
 
 ## <a name="overview"></a>Información general
 
-Una MSI proporciona un [objeto de entidad de servicio](../develop/active-directory-dev-glossary.md#service-principal-object), que se [crea tras la habilitación de MSI](overview.md#how-does-it-work) en la máquina virtual. Se le puede dar a la entidad de servicio acceso a los recursos de Azure, y los clientes de script o de línea de comandos pueden usar esta entidad como identidad para iniciar sesión y acceder a los recursos. Tradicionalmente, para acceder a los recursos protegidos con su propia identidad, un cliente de script debía hacer lo siguiente:  
+Una MSI proporciona un [objeto de entidad de servicio](../develop/developer-glossary.md#service-principal-object), que se [crea tras la habilitación de MSI](overview.md#how-does-it-work) en la máquina virtual. Se le puede dar a la entidad de servicio acceso a los recursos de Azure, y los clientes de script o de línea de comandos pueden usar esta entidad como identidad para iniciar sesión y acceder a los recursos. Tradicionalmente, para acceder a los recursos protegidos con su propia identidad, un cliente de script debía hacer lo siguiente:  
 
    - Registrarse y ser aceptado en Azure AD como una aplicación cliente confidencial/web
    - Iniciar sesión con su entidad de servicio mediante las credenciales de la aplicación (que probablemente estaban insertadas en el script)

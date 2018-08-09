@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 5b751546320ca6728573954290bd2258e837775f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2270080f8612c69a69955202ececab44136f335c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723228"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445543"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Tutorial 3: Clasificación de Iris: implementación de un modelo
 Azure Machine Learning (versión preliminar) es una solución de análisis de ciencia de datos completa, integrada y avanzada dirigida a los científicos de datos profesionales. Estos pueden usarla para preparar datos, desarrollar experimentos e implementar modelos a escala de nube.
@@ -34,7 +34,7 @@ Este tutorial es la **tercera de una serie de tres partes**. Aquí se usará Mac
 
 Este tutorial usa el [conjunto de datos Iris](https://en.wikipedia.org/wiki/Iris_flower_data_set) atemporal. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesita:
 - Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
@@ -47,11 +47,11 @@ En la parte anterior del tutorial, el script **iris_sklearn.py** se ejecutó loc
 
 1. Abra la aplicación Machine Learning Workbench y abra el proyecto **myIris** que ha creado en las partes anteriores de la serie de tutoriales.
 
-2. Después de que el proyecto esté abierto, haga clic en el icono de carpeta **Files** (Archivos), en el panel izquierdo, para abrir la lista de archivos de la carpeta del proyecto.
+1. Después de que el proyecto esté abierto, haga clic en el icono de carpeta **Files** (Archivos), en el panel izquierdo, para abrir la lista de archivos de la carpeta del proyecto.
 
-3. Seleccione el archivo **iris_sklearn.py**. El código Python se abre en una nueva pestaña del editor de texto de Workbench.
+1. Seleccione el archivo **iris_sklearn.py**. El código Python se abre en una nueva pestaña del editor de texto de Workbench.
 
-4. Revise el archivo **iris_sklearn.py** para ver dónde se generó el archivo pickle. Seleccione Ctrl+F para abrir el cuadro de diálogo **Buscar** y, a continuación, busque la palabra **pickle** en el código Python.
+1. Revise el archivo **iris_sklearn.py** para ver dónde se generó el archivo pickle. Seleccione Ctrl+F para abrir el cuadro de diálogo **Buscar** y, a continuación, busque la palabra **pickle** en el código Python.
 
    Este fragmento de código muestra cómo se generó el archivo de salida de pickle. El archivo pickle de salida se denomina **model.pkl** en el disco. 
 
@@ -62,7 +62,7 @@ En la parte anterior del tutorial, el script **iris_sklearn.py** se ejecutó loc
    f.close()
    ```
 
-5. Busque el archivo pickle del modelo en los archivos de salida de una ejecución anterior.
+1. Busque el archivo pickle del modelo en los archivos de salida de una ejecución anterior.
    
    Cuando ejecutó el script **iris_sklearn.py**, el archivo de modelo se escribió en la carpeta **outputs** denominada **model.pkl**. Esta carpeta se hospeda en el entorno de ejecución que elije para ejecutar el script, y no en la carpeta del proyecto local. 
    
@@ -83,29 +83,29 @@ Para implementar el servicio web junto con el archivo de modelo, también necesi
 
 1. Abra la aplicación Machine Learning Workbench y abra el proyecto **myIris** que ha creado en la parte anterior de la serie de tutoriales.
 
-2. Después de que el proyecto esté abierto, haga clic en el icono de carpeta **Files** (Archivos), en el panel izquierdo, para abrir la lista de archivos de la carpeta del proyecto.
+1. Después de que el proyecto esté abierto, haga clic en el icono de carpeta **Files** (Archivos), en el panel izquierdo, para abrir la lista de archivos de la carpeta del proyecto.
 
-3. Seleccione el archivo **score_iris.py**. Se abre el script de Python. Este archivo se usa como el archivo de puntuación.
+1. Seleccione el archivo **score_iris.py**. Se abre el script de Python. Este archivo se usa como el archivo de puntuación.
 
    ![Archivo de puntuación](media/tutorial-classifying-iris/model_data_collection.png)
 
-4. Para obtener el archivo de esquema, ejecute el script. Seleccione el entorno **local** y el script **score_iris.py** en la barra de comandos y, luego, seleccione **Run** (Ejecutar). 
+1. Para obtener el archivo de esquema, ejecute el script. Seleccione el entorno **local** y el script **score_iris.py** en la barra de comandos y, luego, seleccione **Run** (Ejecutar). 
 
    Este script crea un archivo JSON en la carpeta **Outputs** (Salidas), que captura el esquema de datos de entrada requerido por el modelo.
 
-6. Observe el panel **Jobs** (Trabajos) en el lado derecho de **Project Dashboard** (Panel del proyecto). Espere a que el último trabajo denominado **score_iris.py** aparezca con el estado **Completed** (Completado) en verde. A continuación, seleccione el hipervínculo **score_iris.py** correspondiente a la última ejecución del trabajo para ver los detalles de dicha ejecución. 
+1. Observe el panel **Jobs** (Trabajos) en el lado derecho de **Project Dashboard** (Panel del proyecto). Espere a que el último trabajo denominado **score_iris.py** aparezca con el estado **Completed** (Completado) en verde. A continuación, seleccione el hipervínculo **score_iris.py** correspondiente a la última ejecución del trabajo para ver los detalles de dicha ejecución. 
 
-7. En la página **Run Properties** (Propiedades de ejecución), en la sección **Salidas**, seleccione el archivo recién creado **service_schema.json**. Active la casilla situada junto al nombre de archivo y, a continuación, seleccione **Download** (Descargar). Guárdelo en la carpeta raíz del proyecto.
+1. En la página **Run Properties** (Propiedades de ejecución), en la sección **Salidas**, seleccione el archivo recién creado **service_schema.json**. Active la casilla situada junto al nombre de archivo y, a continuación, seleccione **Download** (Descargar). Guárdelo en la carpeta raíz del proyecto.
 
-8. Vuelva a la pestaña anterior donde abrió el script **score_iris.py**. Mediante la recopilación de datos, puede capturar entradas y predicciones de modelos desde el servicio web. Los pasos siguientes son de especial interés para la recopilación de datos.
+1. Vuelva a la pestaña anterior donde abrió el script **score_iris.py**. Mediante la recopilación de datos, puede capturar entradas y predicciones de modelos desde el servicio web. Los pasos siguientes son de especial interés para la recopilación de datos.
 
-9. Examine el código de la parte superior del archivo, que importa la clase **ModelDataCollector**, ya que contiene la funcionalidad de recopilación de datos del modelo:
+1. Examine el código de la parte superior del archivo, que importa la clase **ModelDataCollector**, ya que contiene la funcionalidad de recopilación de datos del modelo:
 
    ```python
    from azureml.datacollector import ModelDataCollector
    ```
 
-10. Revise las siguientes líneas de código de la función **init()**, que crea instancias de **ModelDataCollector**:
+1. Revise las siguientes líneas de código de la función **init()**, que crea instancias de **ModelDataCollector**:
 
     ```python
     global inputs_dc, prediction_dc
@@ -113,7 +113,7 @@ Para implementar el servicio web junto con el archivo de modelo, también necesi
     prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")`
     ```
 
-11. Revise las siguientes líneas de código de la función **run(input_df)**, que recopila los datos de entrada y predicción:
+1. Revise las siguientes líneas de código de la función **run(input_df)**, que recopila los datos de entrada y predicción:
 
     ```python
     inputs_dc.collect(input_df)
@@ -139,7 +139,7 @@ Puede usar el _modo local_ para desarrollo y pruebas. El motor de Docker debe ej
    Se abrirá el símbolo de la línea de comandos en la ubicación actual de la carpeta del proyecto **c:\temp\myIris>**.
 
 
-2. Asegúrese de que el proveedor de recursos de Azure **Microsoft.ContainerRegistry** esté registrado en su suscripción. Debe registrar este proveedor de recursos antes de poder crear un entorno en el paso 3. Puede comprobar si ya está registrado mediante el comando siguiente:
+1. Asegúrese de que el proveedor de recursos de Azure **Microsoft.ContainerRegistry** esté registrado en su suscripción. Debe registrar este proveedor de recursos antes de poder crear un entorno en el paso 3. Puede comprobar si ya está registrado mediante el comando siguiente:
    ``` 
    az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table 
    ``` 
@@ -169,7 +169,7 @@ Puede usar el _modo local_ para desarrollo y pruebas. El motor de Docker debe ej
    >[!NOTE] 
    Si va a realizar la implementación en un clúster de ACS, debe registrar el proveedor de recursos **Microsoft.ContainerService** y usar exactamente el mismo método.
 
-3. Cree el entorno. Debe ejecutar este paso una vez por cada entorno. Por ejemplo, ejecútelo una vez para el entorno de desarrollo y otra vez para producción. Use el _modo local_ para este primer entorno. Puede probar los modificadores `-c` o `--cluster` en el siguiente comando para configurar un entorno en _modo clúster_posteriormente.
+1. Cree el entorno. Debe ejecutar este paso una vez por cada entorno. Por ejemplo, ejecútelo una vez para el entorno de desarrollo y otra vez para producción. Use el _modo local_ para este primer entorno. Puede probar los modificadores `-c` o `--cluster` en el siguiente comando para configurar un entorno en _modo clúster_posteriormente.
 
    El siguiente comando de configuración requiere que tenga acceso de colaborador a la suscripción. Si no lo tiene, al menos necesita tener acceso de colaborador al grupo de recursos en el que va a realizar la implementación. En ese caso, es preciso que especifique el nombre del grupo de recursos como parte del comando de configuración mediante la marca `-g`. 
 
@@ -191,17 +191,17 @@ Puede usar el _modo local_ para desarrollo y pruebas. El motor de Docker debe ej
 
    ![Estado de aprovisionamiento](media/tutorial-classifying-iris/provisioning_state.png)
  
-3. Si no ha creado una cuenta de Administración de modelos en alguna de las partes anteriores de este tutorial, hágalo ahora. Esta es una instalación que solo se realiza una vez.
+1. Si no ha creado una cuenta de Administración de modelos en alguna de las partes anteriores de este tutorial, hágalo ahora. Esta es una instalación que solo se realiza una vez.
    ```azurecli
    az ml account modelmanagement create --location <e.g. eastus2> -n <new model management account name> -g <existing resource group name> --sku-name S1
    ```
    
-4. Establezca la cuenta de Administración de modelos.
+1. Establezca la cuenta de Administración de modelos.
    ```azurecli
    az ml account modelmanagement set -n <youracctname> -g <yourresourcegroupname>
    ```
 
-5. Configure el entorno.
+1. Configure el entorno.
 
    Una vez finalizada la instalación, use el siguiente comando para establecer las variables de entorno necesarias para hacer funcionar el entorno. Use el mismo nombre de entorno que utilizó anteriormente en el paso 3. Use el mismo nombre de grupo de recursos que obtuvo en la ventana de comandos cuando se completó el proceso de instalación.
 
@@ -209,7 +209,7 @@ Puede usar el _modo local_ para desarrollo y pruebas. El motor de Docker debe ej
    az ml env set -n <deployment environment name> -g <existing resource group name>
    ```
 
-6. Para comprobar que ha configurado correctamente su entorno de operacionalización para la implementación del servicio web local, escriba el siguiente comando:
+1. Para comprobar que ha configurado correctamente su entorno de operacionalización para la implementación del servicio web local, escriba el siguiente comando:
 
    ```azurecli
    az ml env show
@@ -247,13 +247,13 @@ Ya está listo para crear el servicio web en tiempo real.
    >[!IMPORTANT]
    >El nombre del servicio, que también es el nuevo nombre de la imagen de Docker, debe estar en minúsculas. De lo contrario, obtiene un error. 
 
-2. Al ejecutar el comando, el modelo y los archivos de puntuación se cargan en la cuenta de almacenamiento que creó como parte de la configuración del entorno. El proceso de implementación compila una imagen de Docker con el modelo, el esquema y el archivo de puntuación que contiene, y lo inserta en la instancia de Azure Container Registry: **\<ACR_name\>.azureacr.io/\<imagename\>:\<version\>**. 
+1. Al ejecutar el comando, el modelo y los archivos de puntuación se cargan en la cuenta de almacenamiento que creó como parte de la configuración del entorno. El proceso de implementación compila una imagen de Docker con el modelo, el esquema y el archivo de puntuación que contiene, y lo inserta en la instancia de Azure Container Registry: **\<ACR_name\>.azureacr.io/\<imagename\>:\<version\>**. 
 
    El comando extrae la imagen localmente en el equipo y luego inicia un contenedor de Docker basado en esa imagen. Si su entorno está configurado en modo de clúster, el contenedor de Docker se implementa en su lugar en el clúster de Kubernetes de Azure Cloud Services.
 
    Como parte de la implementación, se crea un punto de conexión de REST de HTTP para el servicio web en la máquina local. Después de unos minutos, el comando debe finalizar con un mensaje de confirmación. El servicio web está listo para la acción.
 
-3. Para ver el contenedor de Docker en ejecución, use el comando **docker ps**:
+1. Para ver el contenedor de Docker en ejecución, use el comando **docker ps**:
 
    ```azurecli
    docker ps
@@ -271,7 +271,7 @@ En primer lugar, registre el modelo. A continuación, genere el manifiesto, comp
    ```
    Este comando genera un identificador de modelo.
 
-2. Cree un manifiesto.
+1. Cree un manifiesto.
 
    Para crear un manifiesto, use el siguiente comando y proporcione el identificador de modelo del paso anterior:
 
@@ -280,7 +280,7 @@ En primer lugar, registre el modelo. A continuación, genere el manifiesto, comp
    ```
    Este comando genera un identificador de manifiesto.
 
-3. Cree una imagen de Docker.
+1. Cree una imagen de Docker.
 
    Para crear una imagen de Docker, use el siguiente comando y especifique la salida del valor del identificador de manifiesto del paso anterior. Opcionalmente, también puede incluir las dependencias de conda mediante el modificador `-c`.
 
@@ -289,7 +289,7 @@ En primer lugar, registre el modelo. A continuación, genere el manifiesto, comp
    ```
    Este comando genera un identificador de imagen de Docker.
    
-4. Cree el servicio.
+1. Cree el servicio.
 
    Para crear un servicio, use el siguiente comando y proporcione el valor del identificador de imagen del paso anterior:
 
@@ -310,7 +310,7 @@ Para probar el servicio web **irisapp** en ejecución, use un registro codificad
    az ml service usage realtime -i <web service ID>
    ```
 
-2. Para probar el servicio, ejecute el comando de ejecución del servicio devuelto:
+1. Para probar el servicio, ejecute el comando de ejecución del servicio devuelto:
     
    ```azurecli
    az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
@@ -322,20 +322,20 @@ Para probar el servicio web **irisapp** en ejecución, use un registro codificad
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-2. Busque todas las cuentas de almacenamiento. Para ello, seleccione **Todos los servicios**.
+1. Busque todas las cuentas de almacenamiento. Para ello, seleccione **Todos los servicios**.
 
-3. En el cuadro de búsqueda, escriba **Cuentas de almacenamiento** y, a continuación, seleccione Entrar.
+1. En el cuadro de búsqueda, escriba **Cuentas de almacenamiento** y, a continuación, seleccione Entrar.
 
-4. En el cuadro de búsqueda **Cuentas de almacenamiento**, seleccione el recurso **Cuenta de almacenamiento** que coincida con su entorno. 
+1. En el cuadro de búsqueda **Cuentas de almacenamiento**, seleccione el recurso **Cuenta de almacenamiento** que coincida con su entorno. 
 
    > [!TIP]
    > Para determinar qué cuenta de almacenamiento está en uso:
    > 1. Abra Machine Learning Workbench.
-   > 2. Seleccione el proyecto en el que está trabajando.
-   > 3. Abra un símbolo de la línea de comandos desde el menú **File** (Archivo).
-   > 4. En el símbolo de la línea de comandos, escriba `az ml env show -v` y compruebe el valor de *storage_account*. Este es el nombre de la cuenta de almacenamiento.
+   > 1. Seleccione el proyecto en el que está trabajando.
+   > 1. Abra un símbolo de la línea de comandos desde el menú **File** (Archivo).
+   > 1. En el símbolo de la línea de comandos, escriba `az ml env show -v` y compruebe el valor de *storage_account*. Este es el nombre de la cuenta de almacenamiento.
 
-5. Cuando se abra el panel **Storage account** (Cuenta de almacenamiento), seleccione **Blobs** en la sección **Services** (Servicios). Busque el contenedor denominado **modeldata**. 
+1. Cuando se abra el panel **Storage account** (Cuenta de almacenamiento), seleccione **Blobs** en la sección **Services** (Servicios). Busque el contenedor denominado **modeldata**. 
  
    Si no ve los datos, es probable que deba esperar hasta 10 minutos tras la primera solicitud de servicio web para ver que los datos se propagan a la cuenta de almacenamiento.
 
@@ -345,7 +345,7 @@ Para probar el servicio web **irisapp** en ejecución, use un registro codificad
    /modeldata/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<day>/data.csv
    ```
 
-6. Puede consumir estos datos desde Azure Blob Storage. Hay una gran variedad de herramientas que usan el software de Microsoft y herramientas de código abierto como:
+1. Puede consumir estos datos desde Azure Blob Storage. Hay una gran variedad de herramientas que usan el software de Microsoft y herramientas de código abierto como:
 
    * Machine Learning: abra el archivo CSV y agréguelo como un origen de datos.
 

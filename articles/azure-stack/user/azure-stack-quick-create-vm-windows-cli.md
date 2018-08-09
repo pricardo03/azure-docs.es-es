@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 04/23/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 381c1c37b0675d97adc058979a5d9b5c4fd2cc8b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4d062b937eb005b8c30a6f7f59b00f80095a7924
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32155163"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422297"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Guía de inicio rápido: Creación de una máquina virtual Windows Server con la CLI de Azure en Azure Stack
 
@@ -32,7 +32,7 @@ Puede crear una máquina virtual Windows Server 2016 mediante la CLI de Azure. S
 * Instalar al servidor web IIS y ver la página principal predeterminada.
 * Realizar la limpieza de los recursos.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Asegúrese de que el operador de Azure Stack haya agregado la imagen **Windows Server 2016** a Marketplace de Azure Stack.
 
@@ -40,7 +40,7 @@ Puede crear una máquina virtual Windows Server 2016 mediante la CLI de Azure. S
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos es un contenedor lógico en el que puede implementar y administrar los recursos de Azure Stack. En el entorno de Azure Stack, ejecute el comando [az group create](/cli/azure/group#az_group_create) para crear un grupo de recursos.
+Un grupo de recursos es un contenedor lógico en el que puede implementar y administrar recursos de Azure Stack. En el entorno de Azure Stack, ejecute el comando [az group create](/cli/azure/group#az-group-create) para crear un grupo de recursos.
 
 >[!NOTE]
  Se asignan valores para todas las variables en los ejemplos de código. Sin embargo, puede asignar nuevos valores si lo desea.
@@ -53,7 +53,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>de una máquina virtual
 
-Cree una máquina virtual con el comando [az vm create](/cli/azure/vm#az_vm_create). En el ejemplo siguiente se crea una máquina virtual denominada myVM. En este ejemplo se usa Demouser como el nombre de usuario administrativo y Demouser@123 como la contraseña del usuario. Actualice estos valores a un valor apropiado para su entorno.
+Cree una máquina virtual con el comando [az vm create](/cli/azure/vm#az-vm-create). En el ejemplo siguiente se crea una máquina virtual denominada myVM. En este ejemplo se usa Demouser como el nombre de usuario administrativo y Demouser@123 como la contraseña del usuario. Actualice estos valores a un valor apropiado para su entorno.
 
 ```cli
 az vm create \
@@ -102,7 +102,7 @@ Puede usar un explorador web de su elección para ver la página de bienvenida p
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Realice a limpieza de los recursos que ya no necesita. Puede usar el comando [az group delete](/cli/azure/group#az_group_delete) para eliminar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
+Borre los recursos que ya no necesite. Puede usar el comando [az group delete](/cli/azure/group#az-group-delete) para eliminar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
 
 ```cli
 az group delete --name myResourceGroup

@@ -2,24 +2,18 @@
 title: Guía de solución de problemas del Explorador de Azure Storage | Microsoft Docs
 description: Información general sobre las dos funciones de depuración de Azure
 services: virtual-machines
-documentationcenter: ''
 author: Deland-Han
-manager: cshepard
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: eeb23b52d5910c3da39d29d3a9c47f598ed5fc5a
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.component: common
+ms.openlocfilehash: eb72d92496addacd82e4d30df625b4f9c0c823e5
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188685"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521037"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 

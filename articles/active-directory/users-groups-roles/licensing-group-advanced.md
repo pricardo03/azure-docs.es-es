@@ -14,12 +14,12 @@ ms.component: users-groups-roles
 ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecb0919b68516fdb886ea745d963349ff29f83b4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 15b52920774a878cd386ced5966d507768a8af70
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867331"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627396"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory
 
@@ -146,13 +146,13 @@ Puede usar un script de PowerShell para comprobar si los usuarios tienen una lic
 
 ## <a name="use-audit-logs-to-monitor-group-based-licensing-activity"></a>Usar registros de auditoría para supervisar la actividad de licencias basadas en grupos
 
-Puede usar los [registros de auditoría de Azure AD](./../active-directory-reporting-activity-audit-logs.md#audit-logs) para ver todas las actividades relacionadas con las licencias basadas en grupos, incluido:
+Puede usar los [registros de auditoría de Azure AD](../reports-monitoring/concept-audit-logs.md#audit-logs) para ver todas las actividades relacionadas con las licencias basadas en grupos, incluido:
 - quién cambió las licencias en los grupos
 - cuándo empezó el sistema a procesar un cambio de la licencia de grupo y cuándo terminó
 - qué cambios de licencia se realizaron en un usuario como resultado de una asignación de licencia de grupo.
 
 >[!NOTE]
-> Los registros de auditoría están disponibles en la mayoría de las hojas de la sección Azure Active Directory del portal. Dependiendo de dónde tenga acceso a ellas, se pueden aplicar filtros previos para mostrar solo la actividad pertinente para el contexto de la hoja. Si no ve los resultados esperados, examine [las opciones de filtrado](./../active-directory-reporting-activity-audit-logs.md#filtering-audit-logs) u obtenga acceso a los registros de auditoría sin filtrar en [**Azure Active Directory > Actividad > Registros de auditoría**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
+> Los registros de auditoría están disponibles en la mayoría de las hojas de la sección Azure Active Directory del portal. Dependiendo de dónde tenga acceso a ellas, se pueden aplicar filtros previos para mostrar solo la actividad pertinente para el contexto de la hoja. Si no ve los resultados esperados, examine [las opciones de filtrado](../reports-monitoring/concept-audit-logs.md#filtering-audit-logs) u obtenga acceso a los registros de auditoría sin filtrar en [**Azure Active Directory > Actividad > Registros de auditoría**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
 
 ### <a name="find-out-who-modified-a-group-license"></a>Averiguar quién ha modificado una licencia de grupo
 

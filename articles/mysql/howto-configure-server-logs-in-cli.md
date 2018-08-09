@@ -10,17 +10,17 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 85c7840c0e919e77e807e6114c4d0c65601ff334
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 57b72ded77484dc1c8ca4c62811b62e171365db4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265833"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423464"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configuración y acceso a los registros del servidor con la CLI de Azure
 Puede descargar los registros de servidor de Azure Database for MySQL mediante la CLI de Azure, la utilidad de línea de comandos de Azure.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para seguir esta guía, necesitará:
 - [Servidor de Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 - La [CLI de Azure 2.0](/cli/azure/install-azure-cli) o Azure Cloud Shell en el explorador
@@ -41,14 +41,14 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 ```
 
 ## <a name="list-logs-for-azure-database-for-mysql-server"></a>Enumeración de registros del servidor de Azure Database for MySQL
-Para mostrar la lista de archivos de registro disponibles para el servidor, ejecute el comando [az mysql server-logs list](/cli/azure/mysql/server-logs#az_mysql_server_logs_list).
+Para mostrar la lista de archivos de registro disponibles para el servidor, ejecute el comando [az mysql server-logs list](/cli/azure/mysql/server-logs#az-mysql-server-logs-list).
 
 Puede enumerar archivos de registro del servidor **mydemoserver.mysql.database.azure.com** en el grupo de recursos **myresourcegroup**. A continuación, dirija la lista de archivos de registro a un archivo de texto denominado **log\_files\_list.txt**.
 ```azurecli-interactive
 az mysql server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## <a name="download-logs-from-the-server"></a>Descarga de registros del servidor
-Con el comando [az mysql server-logs download](/cli/azure/mysql/server-logs#az_mysql_server_logs_download), puede descargar archivos de registro individuales para su servidor. 
+Con el comando [az mysql server-logs download](/cli/azure/mysql/server-logs#az-mysql-server-logs-download), puede descargar archivos de registro individuales para su servidor. 
 
 Use el ejemplo siguiente para descargar el archivo de registro específico para el servidor **mydemoserver.mysql.database.azure.com** en el grupo de recursos **myresourcegroup** a su entorno local.
 ```azurecli-interactive

@@ -1,6 +1,6 @@
 ---
-title: Administración de la expiración del contenido web en la red CDN de Azure | Microsoft Docs
-description: Aprenda a administrar la caducidad del contenido de Azure Web Apps/Cloud Services, ASP.NET o IIS en la red CDN de Azure.
+title: Administración de la expiración del contenido web en Azure CDN | Microsoft Docs
+description: Aprenda a administrar la caducidad del contenido de Azure Web Apps/Cloud Services, ASP.NET o IIS en Azure CDN.
 services: cdn
 documentationcenter: .NET
 author: dksimpson
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: mazha
-ms.openlocfilehash: ec5470587454a35bc7606a3518d61bd3491d653b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fc74d7fdd082cf497b7cabf30d96509ebe8b6b68
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765548"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426030"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Administración de la expiración del contenido web en Azure CDN
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ El método preferido para establecer el encabezado `Cache-Control` de un servido
 
 1. En Azure Portal, seleccione un perfil de CDN y luego seleccione un punto de conexión para el servidor web.
 
-2. En el panel izquierdo, debajo de Configuración, haga clic en **Reglas de caché**.
+1. En el panel izquierdo, debajo de Configuración, haga clic en **Reglas de caché**.
 
    ![Botón Reglas de caché de CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
 
@@ -60,13 +60,13 @@ El método preferido para establecer el encabezado `Cache-Control` de un servido
 
 1. En **Reglas de almacenamiento en caché globales**, establezca **Comportamiento del almacenamiento en caché de cadenas de consulta** en **Ignorar cadenas de consulta**, y establezca **Comportamiento de almacenamiento en caché** en **Invalidar**.
       
-2. Para **Duración de expiración de caché**, escriba 3600 en el cuadro **Segundos** o 1 en el cuadro **Horas**. 
+1. Para **Duración de expiración de caché**, escriba 3600 en el cuadro **Segundos** o 1 en el cuadro **Horas**. 
 
    ![Ejemplo de reglas de almacenamiento en caché globales de CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
 
    Esta regla de almacenamiento en caché global establece una duración de caché de una hora y afecta a todas las solicitudes para el punto de conexión. Invalida todos los encabezados HTTP `Cache-Control` o `Expires` que envía el servidor de origen especificado por el punto de conexión.   
 
-3. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
 **Para establecer encabezados Cache-Control del archivo de servidor web con reglas de almacenamiento en caché personalizadas:**
 
@@ -80,7 +80,7 @@ El método preferido para establecer el encabezado `Cache-Control` de un servido
 
     La primera regla de almacenamiento en caché personalizada establece una duración de caché de cuatro horas para los archivos en la carpeta `/webfolder1` en el servidor de origen especificado por el punto de conexión. La segunda regla invalida la primera regla para el archivo `file1.txt` únicamente y establece una duración de caché de dos horas para él.
 
-2. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
 
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Establecimiento de los encabezados Cache-Control mediante archivos de configuración
@@ -113,10 +113,10 @@ Para las aplicaciones de ASP.NET, puede controlar el comportamiento de almacenam
 
 Para almacenar en caché mediante programación el contenido de la aplicación de ASP.NET, siga estos pasos:
    1. Compruebe que el contenido esté marcado como almacenable en caché. Para ello, establezca `HttpCacheability` en `Public`. 
-   2. Establezca un validador de caché mediante una llamada a uno de los métodos siguientes `HttpCachePolicy`:
+   1. Establezca un validador de caché mediante una llamada a uno de los métodos siguientes `HttpCachePolicy`:
       - Llame a `SetLastModified` para establecer un valor de marca de tiempo para el encabezado `Last-Modified`.
       - Llame a `SetETag` para establecer un valor para el encabezado `ETag`.
-   3. Si lo desea, especifique una hora de expiración de caché mediante una llamada a `SetExpires` para establecer un valor para el encabezado `Expires`. En caso contrario, se aplica la heurística de caché predeterminada descrita anteriormente en este documento.
+   1. Si lo desea, especifique una hora de expiración de caché mediante una llamada a `SetExpires` para establecer un valor para el encabezado `Expires`. En caso contrario, se aplica la heurística de caché predeterminada descrita anteriormente en este documento.
 
 Por ejemplo, para almacenar en caché el contenido durante una hora, agregue el siguiente código de C#:  
 

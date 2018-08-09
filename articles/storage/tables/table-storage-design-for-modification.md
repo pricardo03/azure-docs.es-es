@@ -2,23 +2,18 @@
 title: Diseño de tablas de almacenamiento de Azure para la modificación de datos | Microsoft Docs
 description: Diseñe tablas para la modificación de datos en el almacenamiento en tablas de Azure.
 services: storage
-documentationcenter: na
 author: MarkMcGeeAtAquent
-manager: kfile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 04/23/2018
 ms.author: sngun
-ms.openlocfilehash: 6c008175f01521ce4f96d13e58244dc72d9f6990
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: tables
+ms.openlocfilehash: 5f67a8ffde24d3c3e39065806b07bdd5cba2857a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660381"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522050"
 ---
 # <a name="design-for-data-modification"></a>Diseño para la modificación de datos
 Este artículo se centra en las consideraciones de diseño para optimizar las inserciones, actualizaciones y eliminaciones. En algunos casos, deberá evaluar el equilibrio entre los diseños que se optimizan para realizar una consulta en diseños que optimizan la modificación de datos como lo hace usted en los diseños de bases de datos relacionales (aunque las técnicas para administrar las ventajas y desventajas de diseño son diferentes en una base de datos relacional). En la sección [Patrones de diseño de tabla](#table-design-patterns) se describen algunos modelos de diseño detallados para Table service y se destacan algunas de estas ventajas e inconvenientes. En la práctica, encontrará que muchos diseños optimizados para consultar entidades también funcionan bien para la modificación de entidades.  
@@ -53,4 +48,4 @@ En muchos casos, un diseño para los resultados de consultas eficaces en modific
 Los siguientes patrones del artículo [Patrones de diseño de tablas](table-storage-design-patterns.md) abordan las ventajas e inconvenientes de diseñar para consultas eficaces y diseñar para la modificación eficaz de los datos:  
 
 * [Patrón de clave compuesta](table-storage-design-patterns.md#compound-key-pattern) : utilice valores **RowKey** compuestos para permitir a un cliente buscar datos relacionados con una consulta de punto único.  
-* [Patrón final del registro](table-storage-design-patterns.md#log-tail-pattern): recupere las entidades *n* agregadas recientemente a una partición utilizando un valor **RowKey** que se ordene en orden de fecha y hora inverso.  
+* [Patrón final del registro](table-storage-design-patterns.md#log-tail-pattern) : recupere las entidades *n* agregadas recientemente a una partición utilizando un valor **RowKey** que se ordene en orden de fecha y hora inverso.  

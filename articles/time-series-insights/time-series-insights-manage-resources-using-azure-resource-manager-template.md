@@ -4,19 +4,18 @@ description: En este artículo se describe cómo administrar el entorno de Azure
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: edett
-manager: jhubbard
-ms.reviewer: anshan
+ms.author: anshan
+manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 561483b801773b39ed2ff61efa1496eba472530d
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 3ca9af8c2c504f75322e00fdaaeac9a3e727a820
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293360"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627134"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creación de recursos de Time Series Insights mediante plantillas de Azure Resource Manager
 
@@ -25,7 +24,7 @@ En este artículo se describe cómo crear e implementar recursos de Time Series 
 Time Series Insights admite los siguientes recursos:
    | Recurso | DESCRIPCIÓN |
    | --- | --- |
-   | Environment | Un entorno de Time Series Insights es una agrupación lógica de eventos que se leen de los agentes de eventos, se almacenan y están disponibles para consulta. Para más información, consulte [Planeamiento del entorno de Azure Time Series Insights](time-series-insights-environment-planning.md). |
+   | Entorno | Un entorno de Time Series Insights es una agrupación lógica de eventos que se leen de los agentes de eventos, se almacenan y están disponibles para consulta. Para más información, consulte [Planeamiento del entorno de Azure Time Series Insights](time-series-insights-environment-planning.md). |
    | Origen de eventos | Un origen de eventos es una conexión a un agente de eventos del que Time Series Insights lee e ingiere eventos en el entorno. Los orígenes de eventos actualmente admitidos son IoT Hub y Event Hub. |
    | Conjuntos de datos de referencia | Los conjuntos de datos de referencia proporcionan metadatos sobre los eventos del entorno. Los metadatos de los conjuntos de datos de referencia se combinarán con los eventos durante la entrada. Los conjuntos de datos de referencia se definen como recursos según sus propiedades de eventos principales. Los metadatos reales que constituye el conjunto de datos de referencia se cargan o se modifican mediante las API de plano de datos. |
    | Directiva de acceso | Las directivas de acceso conceden permisos para emitir consultas de datos, manipular datos de referencia en el entorno y compartir consultas guardadas y perspectivas asociadas con el entorno. Para más información, consulte [Concesión de acceso a los datos de un entorno de Time Series Insights mediante Azure Portal](time-series-insights-data-access.md). |
@@ -88,7 +87,7 @@ Para crear un archivo de parámetros, copie el archivo [201-timeseriesinsights-e
 
 #### <a name="required-parameters"></a>Parámetros obligatorios
 
-   | . | DESCRIPCIÓN |
+   | Parámetro | DESCRIPCIÓN |
    | --- | --- |
    | eventHubNamespaceName | El espacio de nombres del centro de eventos de origen. |
    | eventHubName | El nombre del centro de eventos de origen. |
@@ -98,7 +97,7 @@ Para crear un archivo de parámetros, copie el archivo [201-timeseriesinsights-e
 
 #### <a name="optional-parameters"></a>Parámetros opcionales
 
-   | . | DESCRIPCIÓN |
+   | Parámetro | DESCRIPCIÓN |
    | --- | --- |
    | existingEventHubResourceId | Un identificador de recurso opcional de un centro de eventos existente que se conectará al entorno de Time Series Insights mediante el origen de eventos. **NOTA:** El usuario que implementa la plantilla debe tener privilegios para realizar la operación listkeys en el centro de eventos. Si no se pasa ningún valor, se crea un nuevo centro de eventos mediante la plantilla. |
    | environmentDisplayName | Un nombre descriptivo opcional que se muestra en las herramientas o las interfaces de usuario en el lugar del nombre del entorno. |
@@ -196,7 +195,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <p
 
 ### <a name="create-the-deployment"></a>Creación de la implementación
 
-Para crear la nueva implementación, ejecute el cmdlet `New-AzureRmResourceGroupDeployment` y proporcione los parámetros necesarios cuando se le solicite. Los parámetros incluyen un nombre para la implementación, el nombre del grupo de recursos y la ruta de acceso o la dirección URL al archivo de plantilla. Si no se especifica el parámetro **Modo**, se usa el valor predeterminado **Incremental**. Para más información, vea [Implementaciones incrementales y completas](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments).
+Para crear la nueva implementación, ejecute el cmdlet `New-AzureRmResourceGroupDeployment` y proporcione los parámetros necesarios cuando se le solicite. Los parámetros incluyen un nombre para la implementación, el nombre del grupo de recursos y la ruta de acceso o la dirección URL al archivo de plantilla. Si no se especifica el parámetro **Modo**, se usa el valor predeterminado **Incremental**. Para más información, vea [Implementaciones incrementales y completas](../azure-resource-manager/deployment-modes.md).
 
 El siguiente comando le solicita los cinco parámetros necesarios en la ventana de PowerShell:
 
@@ -216,7 +215,7 @@ También puede utilizar parámetros en línea cuando ejecute el cmdlet de implem
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-Para ejecutar una implementación [completa](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments), establezca el parámetro **Modo** en **Completo**:
+Para ejecutar una implementación [completa](../azure-resource-manager/deployment-modes.md), establezca el parámetro **Modo** en **Completo**:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json

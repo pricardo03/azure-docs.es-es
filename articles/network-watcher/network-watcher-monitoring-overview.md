@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 47b3ca20b32188f3cf102934c7f21d6418f3c2f6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 31a3a0618330b74c611afcdf70560ce47eeb85e3
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639350"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626362"
 ---
 # <a name="what-is-azure-network-watcher"></a>¿Qué es Azure Network Watcher?
 
@@ -35,7 +35,7 @@ Los puntos de conexión pueden ser otra máquina virtual (VM), un nombre de domi
 
 Si un punto de conexión queda inaccesible, la solución de problemas de conexión le informa de la razón. Las razones posibles son un problema de resolución de nombres DNS, la CPU, memoria o firewall en el sistema operativo de una máquina virtual o el tipo de salto de una ruta personalizada o una regla de seguridad para la máquina virtual o la subred de la conexión saliente. Obtenga más información sobre las [reglas de seguridad](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) y los [tipos de salto de enrutamiento](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) en Azure.
 
-Monitor de conexión también proporciona la latencia mínima, media y máxima observada con el tiempo. Después de conocer la latencia de una conexión, es posible que usted pueda reducir la latencia moviendo los recursos de Azure a diferentes regiones de Azure. Obtenga más información sobre cómo determinar las [latencias relativas entre las regiones de Azure y los proveedores de acceso a Internet](#determine-relative-latencies-between-azure- regions-and-internet-service-providers) y cómo supervisar la comunicación entre una máquina virtual y un punto de conexión con [monitor de conexión](connection-monitor.md). Si, no obstante, prefiere probar una conexión en un punto determinado en el tiempo, en lugar de supervisar la conexión con el tiempo, como se hace con monitor de conexión, use la funcionalidad [solución de problemas de conexión](#connection-troubleshoot).
+Monitor de conexión también proporciona la latencia mínima, media y máxima observada con el tiempo. Después de conocer la latencia de una conexión, es posible que usted pueda reducir la latencia moviendo los recursos de Azure a diferentes regiones de Azure. Obtenga más información sobre cómo determinar las [latencias relativas entre las regiones de Azure y los proveedores de acceso a Internet](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) y cómo supervisar la comunicación entre una máquina virtual y un punto de conexión con [monitor de conexión](connection-monitor.md). Si, no obstante, prefiere probar una conexión en un punto determinado en el tiempo, en lugar de supervisar la conexión con el tiempo, como se hace con monitor de conexión, use la funcionalidad [solución de problemas de conexión](#connection-troubleshoot).
 
 ### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Visualización de recursos de una red virtual y sus relaciones
 

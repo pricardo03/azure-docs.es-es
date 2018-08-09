@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: bbfee75497681df0d51e164b3035b9b88c67ccaa
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 94ded0ef1bf77de20973a87a1ca2d6d1dd3fdf3f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39052142"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426659"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Tutorial: Integración de Azure Active Directory con Jitbit Helpdesk
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de Jitbit Helpdesk desde la Galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-jitbit-helpdesk-from-the-gallery"></a>Incorporación de Jitbit Helpdesk desde la Galería
 Para configurar la integración de Jitbit Helpdesk en Azure AD, será preciso que agregue Jitbit Helpdesk desde la galería a la lista de aplicaciones SaaS administradas.
@@ -63,19 +63,19 @@ Para configurar la integración de Jitbit Helpdesk en Azure AD, será preciso qu
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **Jitbit Helpdesk**.
+1. En el cuadro de búsqueda, escriba **Jitbit Helpdesk**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_search.png)
 
-5. En el panel de resultados, seleccione **Jitbit Helpdesk** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **Jitbit Helpdesk** y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Para establecer la relación de vínculo, en Jitbit Helpdesk, asigne el valor de
 Para configurar y probar el inicio de sesión único de Azure AD con Jitbit Helpdesk, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Jitbit Helpdesk](#creating-a-jitbit-helpdesk-test-user)**: el objetivo es tener un homólogo de Britta Simon en Jitbit Helpdesk que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de Jitbit Helpdesk](#creating-a-jitbit-helpdesk-test-user)**: el objetivo es tener un homólogo de Britta Simon en Jitbit Helpdesk que esté vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,11 +104,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Jitbit Helpdesk**, lleve a cabo los pasos siguientes:
+1. En la sección **Dominio y direcciones URL de Jitbit Helpdesk**, lleve a cabo los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_url.png)
 
@@ -128,29 +128,29 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
  
 
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_certificate.png) 
 
-5. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/jitbit-helpdesk-tutorial/tutorial_general_400.png)
 
-6. En la sección **Configuración de Jitbit Helpdesk**, haga clic en **Configurar Jitbit Helpdesk** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de servicio de inicio de sesión único de SAML** de la sección **Referencia rápida**.
+1. En la sección **Configuración de Jitbit Helpdesk**, haga clic en **Configurar Jitbit Helpdesk** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de servicio de inicio de sesión único de SAML** de la sección **Referencia rápida**.
 
     ![Configurar inicio de sesión único](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_configure.png) 
 
-7. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de Jitbit Helpdesk.
+1. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de Jitbit Helpdesk.
 
-8. En la barra de herramientas de la parte superior, haga clic en **Administración**.
+1. En la barra de herramientas de la parte superior, haga clic en **Administración**.
    
     ![Administración](./media/jitbit-helpdesk-tutorial/ic777681.png "Administración")
 
-9. Haga clic en **Configuración general**.
+1. Haga clic en **Configuración general**.
    
     ![Usuarios, compañías y permisos](./media/jitbit-helpdesk-tutorial/ic777680.png "Usuarios, compañías y permisos")
 
-10. En la sección **Configuración de autenticación** , realice estos pasos:
+1. En la sección **Configuración de autenticación** , realice estos pasos:
    
     ![Configuración de la autenticación](./media/jitbit-helpdesk-tutorial/ic777683.png "Configuración de la autenticación")
     
@@ -177,15 +177,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/jitbit-helpdesk-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Creación de un usuario de prueba de Azure AD](./media/jitbit-helpdesk-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Creación de un usuario de prueba de Azure AD](./media/jitbit-helpdesk-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/jitbit-helpdesk-tutorial/create_aaduser_04.png) 
 
@@ -205,19 +205,19 @@ Para permitir que los usuarios de Azure AD inicien sesión en Jitbit Helpdesk, d
 
 1. Inicie sesión en su inquilino de **Jitbit Helpdesk** .
 
-2. En el menú de la parte superior, haga clic en **Administration**(Administración).
+1. En el menú de la parte superior, haga clic en **Administration**(Administración).
    
     ![Administración](./media/jitbit-helpdesk-tutorial/ic777681.png "Administración")
 
-3. Haga clic en **Usuarios, compañías y permisos**.
+1. Haga clic en **Usuarios, compañías y permisos**.
    
     ![Usuarios, compañías y permisos](./media/jitbit-helpdesk-tutorial/ic777682.png "Usuarios, compañías y permisos")
 
-4. Haga clic en **Agregar usuario**.
+1. Haga clic en **Agregar usuario**.
    
     ![Agregar usuario](./media/jitbit-helpdesk-tutorial/ic777685.png "Agregar usuario")
    
-5. En la sección Crear, escriba los datos de la cuenta de Azure AD que desee aprovisionar como sigue:
+1. En la sección Crear, escriba los datos de la cuenta de Azure AD que desee aprovisionar como sigue:
 
     ![Crear](./media/jitbit-helpdesk-tutorial/ic777686.png "Crear")
    
@@ -248,23 +248,23 @@ En esta sección, concederá acceso a Britta Simon a Jitbit Helpdesk para que us
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **Jitbit Helpdesk**.
+1. En la lista de aplicaciones, seleccione **Jitbit Helpdesk**.
 
     ![Configurar inicio de sesión único](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 

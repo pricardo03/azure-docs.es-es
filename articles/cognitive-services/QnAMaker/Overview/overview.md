@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 06/15/2018
 ms.author: nolachar
 ms.openlocfilehash: f34cec047c18a6db10b5adda82800c51d44c1155
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
+ms.lasthandoff: 08/06/2018
 ms.locfileid: "36295152"
 ---
 # <a name="what-is-qna-maker"></a>¿Qué es QnA Maker?
@@ -48,7 +48,7 @@ La pila de QnA Maker consta de las siguientes partes:
 
 2. **Entorno de tiempo de ejecución de QnA Maker (plano de datos)**: los datos y el entorno de tiempo de ejecución se implementan en la suscripción de Azure del usuario en una región de su elección. El contenido de preguntas y respuestas del cliente se almacena en [Azure Search](https://azure.microsoft.com/services/search/) y el entorno de tiempo de ejecución se implementa como un [servicio de aplicaciones](https://azure.microsoft.com/services/app-service/). Si lo desea, también puede elegir implementar un recurso de [Application Insights](https://azure.microsoft.com/services/application-insights/) para el análisis.
 
-![Architecture](../media/qnamaker-overview-learnabout/architecture.png)
+![Arquitectura](../media/qnamaker-overview-learnabout/architecture.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

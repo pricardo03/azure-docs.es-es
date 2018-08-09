@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/18/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 84bd82f479ce516152f50d5753e8d91940724c93
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 120fd3552ad36b3d19179f39ca95ce2b3ee2c2e6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263531"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426625"
 ---
 # <a name="create-activity-log-alerts-classic"></a>Creación de alertas del registro de actividad (clásica)
 
@@ -58,31 +58,31 @@ Para más información acerca de las notificaciones de mantenimiento del servici
 1. En el [portal](https://portal.azure.com), seleccione **Monitor**.
 
     ![Servicio "Monitor"](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. En la sección **Registro de actividad**, seleccione **Alertas (clásica)**.
+1. En la sección **Registro de actividad**, seleccione **Alertas (clásica)**.
 
     ![Pestaña "Alertas"](./media/monitoring-activity-log-alerts/alerts-blades.png)
-3. Seleccione **Agregar alerta de registro de actividad** y rellene los campos.
+1. Seleccione **Agregar alerta de registro de actividad** y rellene los campos.
 
-4. Escriba un nombre en el cuadro de texto **Nombre de alerta del registro de actividad** y seleccione una **Descripción**.
+1. Escriba un nombre en el cuadro de texto **Nombre de alerta del registro de actividad** y seleccione una **Descripción**.
 
     ![Comando "Agregar alerta de registro de actividad"](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
 
-5. El cuadro de texto **Suscripción** se rellena automáticamente con la suscripción actual. La suscripción es aquella en la que se guarda el grupo de acciones. Esta es la suscripción en la que se implementa el recurso de alerta y desde la que se supervisan los eventos del registro de actividad.
+1. El cuadro de texto **Suscripción** se rellena automáticamente con la suscripción actual. La suscripción es aquella en la que se guarda el grupo de acciones. Esta es la suscripción en la que se implementa el recurso de alerta y desde la que se supervisan los eventos del registro de actividad.
 
     ![Cuadro de diálogo "Agregar alerta de registro de actividad"](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
 
-6. Seleccione el **Grupo de recursos** en el que se crea el recurso de la alerta. Este no es el grupo de recursos supervisado por la alerta. En su lugar, es el grupo de recursos donde se encuentra el recurso de la alerta.
+1. Seleccione el **Grupo de recursos** en el que se crea el recurso de la alerta. Este no es el grupo de recursos supervisado por la alerta. En su lugar, es el grupo de recursos donde se encuentra el recurso de la alerta.
 
-7. Opcionalmente, seleccione una **Categoría de evento** para modificar los filtros adicionales que se muestran. Para eventos administrativos, los filtros incluyen **Grupo de recursos**, **Recurso**, **Tipo de recurso**, **Nombre de la operación**, **Nivel**, **Estado** y **Evento iniciado por**. Estos valores identifican los eventos que debe supervisar esta alerta.
+1. Opcionalmente, seleccione una **Categoría de evento** para modificar los filtros adicionales que se muestran. Para eventos administrativos, los filtros incluyen **Grupo de recursos**, **Recurso**, **Tipo de recurso**, **Nombre de la operación**, **Nivel**, **Estado** y **Evento iniciado por**. Estos valores identifican los eventos que debe supervisar esta alerta.
 
     >[!NOTE]
     >Debe especificar al menos uno de los criterios anteriores en la alerta. No puede crear una alerta que se active cada vez que se crea un evento en los registros de actividad.
     >
     >
 
-8. Escriba un nombre en el cuadro de texto **Nombre del grupo de acciones** y especifique un nombre en el cuadro de texto **Nombre corto**. El nombre corto se utiliza en lugar del nombre completo del grupo de acciones cuando se envían notificaciones mediante este grupo.
+1. Escriba un nombre en el cuadro de texto **Nombre del grupo de acciones** y especifique un nombre en el cuadro de texto **Nombre corto**. El nombre corto se utiliza en lugar del nombre completo del grupo de acciones cuando se envían notificaciones mediante este grupo.
 
-9.  Defina una lista de acciones proporcionando la siguiente información de la acción:
+1.  Defina una lista de acciones proporcionando la siguiente información de la acción:
 
     a. **Nombre**: escriba el nombre, alias o identificador de la acción.
 
@@ -90,7 +90,7 @@ Para más información acerca de las notificaciones de mantenimiento del servici
 
     c. **Detalles**: según el tipo de acción, proporcione un número de teléfono, una dirección de correo electrónico o un identificador URI de webhook.
 
-10. Seleccione **Aceptar** para crear la alerta.
+1.  Seleccione **Aceptar** para crear la alerta.
 
 La alerta tarda unos minutos en propagarse completamente y, a continuación, se activa. Se desencadena cuando los nuevos eventos coinciden con los criterios de la alerta.
 
@@ -104,9 +104,9 @@ Para más información, consulte [Conocer el esquema de webhook que se utiliza e
 ## <a name="create-an-alert-on-an-activity-log-event-for-an-existing-action-group-by-using-the-azure-portal"></a>Creación de una alerta para un evento del registro de actividad para un grupo de acciones ya existente con Azure Portal
 1. Siga los pasos del 1 al 7 de la sección anterior para crear la alerta del registro de actividad.
 
-2. En **Notificar a través de**, seleccione el botón grupo de acciones **Existente**. Seleccione un grupo de acciones existente de la lista.
+1. En **Notificar a través de**, seleccione el botón grupo de acciones **Existente**. Seleccione un grupo de acciones existente de la lista.
 
-3. Seleccione **Aceptar** para crear la alerta.
+1. Seleccione **Aceptar** para crear la alerta.
 
 La alerta tarda unos minutos en propagarse completamente y, a continuación, se activa. Se desencadena cuando los nuevos eventos coinciden con los criterios de la alerta.
 

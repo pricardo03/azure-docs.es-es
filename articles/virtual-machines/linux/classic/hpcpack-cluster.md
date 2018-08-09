@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 57ad5d5d2e7e068f47d51408527f1f7553917279
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2d4091d8ad6a778405ee6bb916c399e0b144f21d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841700"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441534"
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure
 Configure un clúster de [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) en Azure que contenga un nodo principal en el que se ejecute Windows Server y varios nodos de proceso en los que se ejecute una distribución de Linux compatible. Explore las opciones para mover datos entre los nodos de Linux y el nodo principal de Windows del clúster. Aprenda a enviar trabajos de HPC de Linux al clúster.
@@ -41,7 +41,7 @@ En este artículo puede ver dos opciones para implementar un clúster de HPC Pac
 
 Para más información sobre las opciones de implementación de clústeres de HPC Pack en Azure, consulte las [opciones para crear y administrar un clúster de informática de alto rendimiento (HPC) en Azure con Microsoft HPC Pack](../hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 * **Suscripción de Azure** : puede usar una suscripción en el servicio Azure Global o Azure China. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos.
 * **Cuota de núcleos** : tal vez tenga que aumentar la cuota de núcleos, especialmente si decide implementar varios nodos de clúster con tamaños de máquina virtual de múltiples núcleos. Para aumentar una cuota, abra una solicitud de soporte técnico al cliente en línea sin cargo alguno.
 * **Distribuciones de Linux** : HPC Pack admite actualmente las siguientes distribuciones de Linux para nodos de proceso. Puede usar versiones de Marketplace de estas distribuciones cuando estén disponibles o proporcionar las suyas.
@@ -64,24 +64,24 @@ Requisitos previos adicionales si implementa el clúster mediante el script de i
 
 ### <a name="deployment-option-1-use-a-resource-manager-template"></a>Opción de implementación 1. Usar una plantilla de Resource Manager
 1. Vaya a la plantilla [Clúster de HPC Pack para cargas de trabajo de Linux](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) en Azure Marketplace y haga clic en **Implementar**.
-2. En el Portal de Azure, revise la información y luego haga clic en **Crear**.
+1. En el Portal de Azure, revise la información y luego haga clic en **Crear**.
    
     ![Creación del portal][portal]
-3. En la hoja **Datos básicos** , escriba un nombre para el clúster, que también dará nombre a la máquina virtual del nodo principal. Puede elegir un grupo de recursos existente o crear un grupo para la implementación en una ubicación que esté a su disposición. La ubicación afecta a la disponibilidad de algunos tamaños de VM y otros servicios de Azure (ver [Productos disponibles por región](https://azure.microsoft.com/regions/services/)).
-4. En la hoja **Configuración del nodo principal** , para una primera implementación, puede generalmente aceptar la configuración predeterminada. 
+1. En la hoja **Datos básicos** , escriba un nombre para el clúster, que también dará nombre a la máquina virtual del nodo principal. Puede elegir un grupo de recursos existente o crear un grupo para la implementación en una ubicación que esté a su disposición. La ubicación afecta a la disponibilidad de algunos tamaños de VM y otros servicios de Azure (ver [Productos disponibles por región](https://azure.microsoft.com/regions/services/)).
+1. En la hoja **Configuración del nodo principal** , para una primera implementación, puede generalmente aceptar la configuración predeterminada. 
    
    > [!NOTE]
    > **Dirección URL de script de configuración posterior** es una configuración opcional para especificar un script de Windows PowerShell disponible públicamente que desea ejecutar en la máquina virtual del nodo principal después de que se ejecute. 
    > 
    > 
-5. En la hoja **Configuración del nodo de proceso** , seleccione un nombre de modelo para los nodos, el número y tamaño de los nodos y la distribución de Linux que implementar.
-6. En la hoja **Infrastructure settings** (Configuración de infraestructura), escriba los nombres de la red virtual y el dominio de Active Directory, el dominio y las credenciales de administrador de la máquina virtual y un patrón de nomenclatura para las cuentas de almacenamiento.
+1. En la hoja **Configuración del nodo de proceso** , seleccione un nombre de modelo para los nodos, el número y tamaño de los nodos y la distribución de Linux que implementar.
+1. En la hoja **Infrastructure settings** (Configuración de infraestructura), escriba los nombres de la red virtual y el dominio de Active Directory, el dominio y las credenciales de administrador de la máquina virtual y un patrón de nomenclatura para las cuentas de almacenamiento.
    
    > [!NOTE]
    > HPC Pack utiliza el dominio de Active Directory para autenticar los usuarios del clúster. 
    > 
    > 
-7. Una vez ejecutadas las pruebas de validación y revisados los términos de uso, haga clic en **Comprar**.
+1. Una vez ejecutadas las pruebas de validación y revisados los términos de uso, haga clic en **Comprar**.
 
 ### <a name="deployment-option-2-use-the-iaas-deployment-script"></a>Opción de implementación 2. Uso del script de implementación de IaaS
 A continuación se muestran requisitos previos adicionales para implementar el clúster mediante el script de implementación de IaaS de HPC Pack:
@@ -135,12 +135,12 @@ Modifique el archivo según sea necesario para su entorno y la configuración de
 **Para ejecutar el script de implementación de HPC Pack IaaS**
 
 1. Abra Windows PowerShell en el equipo cliente como administrador.
-2. Cambie el directorio a la carpeta donde está instalado el script (E:\IaaSClusterScript en este ejemplo).
+1. Cambie el directorio a la carpeta donde está instalado el script (E:\IaaSClusterScript en este ejemplo).
    
     ```powershell
     cd E:\IaaSClusterScript
     ```
-3. Ejecute el comando siguiente para implementar el clúster de HPC Pack. En este ejemplo se supone que el archivo de configuración se encuentra en E:\HPCDemoConfig.xml.
+1. Ejecute el comando siguiente para implementar el clúster de HPC Pack. En este ejemplo se supone que el archivo de configuración se encuentra en E:\HPCDemoConfig.xml.
    
     ```powershell
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
@@ -223,7 +223,7 @@ Si lo prefiere, puede montar una carpeta compartida del nodo principal en los no
     ![Permisos del recurso compartido de archivos][fileshareperms]
    
     ![Uso compartido de archivos][filesharing]
-2. Abra una ventana de Windows PowerShell y ejecute los comandos siguientes:
+1. Abra una ventana de Windows PowerShell y ejecute los comandos siguientes:
    
     ```powershell
     clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
@@ -252,7 +252,7 @@ El servicio NFS le permite compartir y migrar archivos entre equipos que ejecuta
     ![Permisos de NTFS de NFS][nfsperm]
    
     ![Propiedades de administración de NFS][nfsmanage]
-2. Abra una ventana de Windows PowerShell y ejecute los comandos siguientes:
+1. Abra una ventana de Windows PowerShell y ejecute los comandos siguientes:
    
     ```powershell
     clusrun /nodegroup:LinuxNodes mkdir -p /nfsshare

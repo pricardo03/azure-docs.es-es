@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance-reports
+ms.component: compliance
 ms.date: 07/31/2018
 ms.author: rolyon
-ms.openlocfilehash: 970e748d7174a9b443fc96f52ac94e082a6c9d44
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: edf8eccf8c0a1cba70ac178ac5863a68b26f14a3
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398961"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622082"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Característica Azure Active Directory Terms of Use
 Azure AD Terms of Use ofrece un método sencillo que pueden usar las organizaciones para presentar información a los usuarios finales. Esta presentación garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes de los requisitos legales o de cumplimiento. En este artículo se describe cómo empezar a trabajar con Azure AD Terms of Use.
@@ -73,7 +73,7 @@ Una vez que haya finalizado el documento de términos de uso, use el procedimien
 
 5. En **Require users to expand the Terms of use** (Exigir que los usuarios expandan los términos de uso), seleccione Activado o Desactivado.  Si este valor se establece en Activado, los usuarios finales deberán consultar los términos de uso antes de aceptarlos.
 
-6. En **Acceso condicional**, puede **forzar** los términos de uso cargados mediante la selección de una plantilla en la lista desplegable o una directiva de acceso condicional personalizada.  Las directivas personalizadas de acceso condicional permiten términos de uso pormenorizados, hasta una aplicación de nube o un grupo de usuarios específicos.  Para más información, consulte el artículo sobre [configuración de directivas de acceso condicional](active-directory-conditional-access-best-practices.md).
+6. En **Acceso condicional**, puede **forzar** los términos de uso cargados mediante la selección de una plantilla en la lista desplegable o una directiva de acceso condicional personalizada.  Las directivas personalizadas de acceso condicional permiten términos de uso pormenorizados, hasta una aplicación de nube o un grupo de usuarios específicos.  Para más información, consulte el artículo sobre [configuración de directivas de acceso condicional](conditional-access/best-practices.md).
 
     >[!IMPORTANT]
     >Los controles de la directiva de acceso condicional (incluidos los términos de uso) no admiten el cumplimiento en las cuentas de servicio.  Se recomienda excluir todas las cuentas de servicio de la directiva de acceso condicional.
@@ -240,4 +240,4 @@ R: Puede [revisar los Términos de uso aceptados previamente](#how-users-can-rev
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Procedimientos recomendados para el acceso condicional en Azure Active Directory](active-directory-conditional-access-best-practices.md)
+- [Procedimientos recomendados para el acceso condicional en Azure Active Directory](conditional-access/best-practices.md)

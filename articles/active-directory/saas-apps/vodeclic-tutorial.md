@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: dad37a0d66ff1af9ad7e7f3b6a807ef1104da39f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fb985b389139bfd8d54e6c54d101bbfa8a68a6d4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041099"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Tutorial: Integración de Azure Active Directory con Vodeclic
 
@@ -53,7 +53,7 @@ Para probar los pasos de este tutorial, siga estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Vodeclic desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="add-vodeclic-from-the-gallery"></a>Adición de Vodeclic desde la galería
 Para configurar la integración de Vodeclic en Azure AD, debe agregar Vodeclic desde la galería a la lista de aplicaciones SaaS administradas.
@@ -64,15 +64,15 @@ Para configurar la integración de Vodeclic en Azure AD, debe agregar Vodeclic d
 
     ![Botón Azure Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales][2]
     
-3. Para agregar una nueva aplicación, seleccione el botón **Nueva aplicación** en la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, seleccione el botón **Nueva aplicación** en la parte superior del cuadro de diálogo.
 
     ![Botón Nueva aplicación][3]
 
-4. En el cuadro de búsqueda, escriba **Vodeclic**. En el panel de resultados, seleccione **Vodeclic** y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el cuadro de búsqueda, escriba **Vodeclic**. En el panel de resultados, seleccione **Vodeclic** y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Vodeclic en la lista de resultados](./media/vodeclic-tutorial/tutorial_vodeclic_addfromgallery.png)
 
@@ -87,10 +87,10 @@ En Vodeclic, asigne a **Nombre de usuario** el mismo valor definido en **nombre 
 Para configurar y probar el inicio de sesión único de Azure AD con Vodeclic, complete los siguientes bloques de creación:
 
 1. [Configurar el inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on), para permitir que los usuarios usen esta característica.
-2. [Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user), para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. [Crear un usuario de prueba de Vodeclic](#create-a-vodeclic-test-user), para tener un homólogo de Britta Simon en Vodeclic que esté vinculado a la representación del usuario en Azure AD.
-4. [Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user), para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. [Prueba del inicio de sesión único](#test-single-sign-on), para comprobar si funciona la configuración.
+1. [Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user), para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. [Crear un usuario de prueba de Vodeclic](#create-a-vodeclic-test-user), para tener un homólogo de Britta Simon en Vodeclic que esté vinculado a la representación del usuario en Azure AD.
+1. [Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user), para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. [Prueba del inicio de sesión único](#test-single-sign-on), para comprobar si funciona la configuración.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -102,11 +102,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo de inicio de sesión único**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo de inicio de sesión único**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Cuadro de diálogo Inicio de sesión único](./media/vodeclic-tutorial/tutorial_vodeclic_samlbase.png)
 
-3. Si quiere configurar la aplicación en el modo iniciado mediante **IDP**, realice los siguientes pasos en la sección **Dominio y direcciones URL de Vodeclic**:
+1. Si quiere configurar la aplicación en el modo iniciado mediante **IDP**, realice los siguientes pasos en la sección **Dominio y direcciones URL de Vodeclic**:
 
     ![Información de inicio de sesión único de dominio y direcciones URL de Vodeclic](./media/vodeclic-tutorial/tutorial_vodeclic_url.png)
 
@@ -114,7 +114,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. En el cuadro **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.lms.vodeclic.net/auth/saml/callback`
 
-4. Si quiere configurar la aplicación en el modo iniciado mediante **SP**, haga clic en la casilla **Mostrar configuración avanzada de URL** y realice los siguientes pasos:
+1. Si quiere configurar la aplicación en el modo iniciado mediante **SP**, haga clic en la casilla **Mostrar configuración avanzada de URL** y realice los siguientes pasos:
 
     ![Información de inicio de sesión único de dominio y direcciones URL de Vodeclic](./media/vodeclic-tutorial/tutorial_vodeclic_url1.png)
 
@@ -123,15 +123,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Estos valores no son reales. Actualice estos valores con el identificador, la URL de respuesta y la dirección URL de inicio de sesión reales. Póngase en contacto con el [equipo de soporte técnico para clientes de Vodeclic](mailto:hotline@vodeclic.com) para obtener estos valores.
 
-5. En la sección **Certificado de firma de SAML**, seleccione **XML de metadatos**. Luego, guarde el archivo de metadatos en el equipo.
+1. En la sección **Certificado de firma de SAML**, seleccione **XML de metadatos**. Luego, guarde el archivo de metadatos en el equipo.
 
     ![Vínculo de descarga del certificado](./media/vodeclic-tutorial/tutorial_vodeclic_certificate.png) 
 
-6. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
     ![Botón Configurar inicio de sesión único](./media/vodeclic-tutorial/tutorial_general_400.png)
     
-7. Para configurar el inicio de sesión único en **Vodeclic**, envíe el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Vodeclic](mailto:hotline@vodeclic.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+1. Para configurar el inicio de sesión único en **Vodeclic**, envíe el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Vodeclic](mailto:hotline@vodeclic.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación. Después de agregar esta aplicación desde la sección **Active Directory** > **Aplicaciones empresariales**, seleccione la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada en la [documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -148,15 +148,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Botón Azure Active Directory](./media/vodeclic-tutorial/create_aaduser_01.png)
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos**. Después, seleccione **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos**. Después, seleccione **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/vodeclic-tutorial/create_aaduser_02.png)
 
-3. En la parte superior del cuadro de diálogo **Todos los usuarios**, seleccione **Agregar** para abrir el cuadro de diálogo **Usuario**.
+1. En la parte superior del cuadro de diálogo **Todos los usuarios**, seleccione **Agregar** para abrir el cuadro de diálogo **Usuario**.
 
     ![Botón Agregar](./media/vodeclic-tutorial/create_aaduser_03.png)
 
-4. En el cuadro de diálogo **Usuario**, realice los pasos siguientes:
+1. En el cuadro de diálogo **Usuario**, realice los pasos siguientes:
 
     ![Cuadro de diálogo Usuario](./media/vodeclic-tutorial/create_aaduser_04.png)
 
@@ -187,23 +187,23 @@ En esta sección dará permiso a Britta Simon para que use el inicio de sesión 
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **Vodeclic**.
+1. En la lista de aplicaciones, seleccione **Vodeclic**.
 
     ![Vínculo a Vodeclic en la lista de aplicaciones](./media/vodeclic-tutorial/tutorial_vodeclic_app.png)  
 
-3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
+1. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"][202]
 
-4. Seleccione el botón **Agregar**. Después, seleccione **Usuarios y grupos**, en el cuadro de diálogo **Agregar asignación**.
+1. Seleccione el botón **Agregar**. Después, seleccione **Usuarios y grupos**, en el cuadro de diálogo **Agregar asignación**.
 
     ![Panel Agregar asignación][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista **Usuarios**.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista **Usuarios**.
 
-6. En el cuadro de diálogo **Usuarios y grupos**, haga clic en el botón **Seleccionar**.
+1. En el cuadro de diálogo **Usuarios y grupos**, haga clic en el botón **Seleccionar**.
 
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
     
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

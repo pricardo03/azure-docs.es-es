@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/18/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 233129a6ddb655483812fdd222b55a6c3623a9b4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: dfaee72be883ee8902fe4550890d757f114ff932
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114958"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426115"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creación de una cuenta de Batch con Azure Portal
 
@@ -34,11 +34,11 @@ Para más información acerca de los escenarios y las cuentas de Batch, consulte
 
 1. Inicie sesión en [Azure Portal][azure_portal].
 
-2. Seleccione **Crear un recurso** > **Proceso** > **Servicio de Batch**.
+1. Seleccione **Crear un recurso** > **Proceso** > **Servicio de Batch**.
 
     ![Batch en Marketplace][marketplace_portal]
 
-3. Especifique los detalles de la opción **Nueva cuenta de Batch**. Vea los siguientes detalles.
+1. Especifique los detalles de la opción **Nueva cuenta de Batch**. Vea los siguientes detalles.
 
     ![Crear una cuenta de Batch][account_portal]
 
@@ -56,7 +56,7 @@ Para más información acerca de los escenarios y las cuentas de Batch, consulte
 
     f. **Modo de asignación de grupo**: para la mayoría de los escenarios, acepte el valor predeterminado de **Servicio Batch**.
 
-4. Seleccione **Crear** para crear la cuenta.
+1. Seleccione **Crear** para crear la cuenta.
 
 
 
@@ -85,22 +85,22 @@ Al crear la primera cuenta de Batch en el modo de suscripción de usuario, tiene
 
 1. Inicie sesión en [Azure Portal][azure_portal].
 
-2. Seleccione **Todos los servicios** > **Suscripciones** y seleccione la suscripción que desea usar para la cuenta de Batch.
+1. Seleccione **Todos los servicios** > **Suscripciones** y seleccione la suscripción que desea usar para la cuenta de Batch.
 
-3. En la página **Suscripción**, seleccione **Proveedores de recursos** y busque **Microsoft.Batch**. Compruebe que el proveedor de recursos **Microsoft.Batch** está registrado en la suscripción. Si no lo está, seleccione el vínculo **Registrar**.
+1. En la página **Suscripción**, seleccione **Proveedores de recursos** y busque **Microsoft.Batch**. Compruebe que el proveedor de recursos **Microsoft.Batch** está registrado en la suscripción. Si no lo está, seleccione el vínculo **Registrar**.
 
     ![Registro del proveedor Microsoft.Batch][register_provider]
 
-3. En la página **Suscripción**, seleccione **Access control (IAM)** > **Agregar**.
+1. En la página **Suscripción**, seleccione **Access control (IAM)** > **Agregar**.
 
     ![Control de acceso a la suscripción][subscription_access]
 
-4. En la página **Agregar permisos**, seleccione el rol **Colaborador** y busque Batch API. Busque cada una de estas cadenas hasta que encuentre la API:
+1. En la página **Agregar permisos**, seleccione el rol **Colaborador** y busque Batch API. Busque cada una de estas cadenas hasta que encuentre la API:
     1. **MicrosoftAzureBatch**.
-    2. **Microsoft Azure Batch**. Los inquilinos más recientes de Azure AD pueden utilizar este nombre.
-    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** es el identificador de Batch API. 
+    1. **Microsoft Azure Batch**. Los inquilinos más recientes de Azure AD pueden utilizar este nombre.
+    1. **ddbf3205-c6bd-46ae-8127-60eb93363864** es el identificador de Batch API. 
 
-5. Una vez que encuentre Batch API, selecciónela y elija **Guardar**.
+1. Una vez que encuentre Batch API, selecciónela y elija **Guardar**.
 
     ![Adición de permisos de Batch][add_permission]
 
@@ -109,7 +109,7 @@ En el modo de suscripción de usuario, se requiere una instancia de Azure Key Va
 
 1. En [Azure Portal][azure_portal], seleccione **Nuevo** > **Seguridad** > **Key Vault**.
 
-2. En la página **Crear Key Vault**, escriba un nombre para el almacén de claves y cree un grupo de recursos en la región que desee para su cuenta de Batch. Deje los valores predeterminados para el resto de la configuración y, a continuación, seleccione **Crear**.
+1. En la página **Crear Key Vault**, escriba un nombre para el almacén de claves y cree un grupo de recursos en la región que desee para su cuenta de Batch. Deje los valores predeterminados para el resto de la configuración y, a continuación, seleccione **Crear**.
 
 Al crear la cuenta de Batch en el modo de suscripción de usuario, use el grupo de recursos del almacén de claves, especifique **Suscripción de usuario** como modo de asignación de grupos y seleccione el almacén de claves.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 909e6441b75e4a43ebf1d9e690a14a0d65c74367
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9ff4d38240bf44cdb3112730b6f6962feed09a6a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040773"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444443"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Tutorial: integración de Azure Active Directory con Wdesk
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Wdesk desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-wdesk-from-the-gallery"></a>Adición de Wdesk desde la galería
 Para configurar la integración de Wdesk en Azure AD, es preciso agregar Wdesk desde la galería a la lista de aplicaciones SaaS administradas.
@@ -63,19 +63,19 @@ Para configurar la integración de Wdesk en Azure AD, es preciso agregar Wdesk d
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **Wdesk**.
+1. En el cuadro de búsqueda, escriba **Wdesk**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/wdesk-tutorial/tutorial_wdesk_search.png)
 
-5. En el panel de resultados, seleccione **Wdesk** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **Wdesk** y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/wdesk-tutorial/tutorial_wdesk_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Para establecer esta relación de vínculo, se asigna el valor del **nombre de u
 Para configurar y probar el inicio de sesión único de Azure AD con Wdesk, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Wdesk](#creating-a-wdesk-test-user)**: el objetivo es tener un homólogo de Britta Simon en Wdesk que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de Wdesk](#creating-a-wdesk-test-user)**: el objetivo es tener un homólogo de Britta Simon en Wdesk que esté vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,11 +104,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/wdesk-tutorial/tutorial_wdesk_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Wdesk**, si quiere configurar la aplicación en el modo iniciado por **IDP**, realice los siguientes pasos:
+1. En la sección **Dominio y direcciones URL de Wdesk**, si quiere configurar la aplicación en el modo iniciado por **IDP**, realice los siguientes pasos:
 
     ![Configurar inicio de sesión único](./media/wdesk-tutorial/tutorial_wdesk_url.png)
 
@@ -116,7 +116,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`.
 
-4. Active **Mostrar configuración avanzada de URL**. Si desea configurar la aplicación en modo iniciado por **SP**, realice el siguientes paso:
+1. Active **Mostrar configuración avanzada de URL**. Si desea configurar la aplicación en modo iniciado por **SP**, realice el siguientes paso:
 
     ![Configurar inicio de sesión único](./media/wdesk-tutorial/tutorial_wdesk_url1.png)
 
@@ -125,29 +125,29 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Estos valores se obtienen de portal de WDesk al configurar el SSO. 
   
-5. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
     ![Configurar inicio de sesión único](./media/wdesk-tutorial/tutorial_wdesk_certificate.png) 
 
-6. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/wdesk-tutorial/tutorial_general_400.png)
     
-7. En otra ventana del explorador web, inicie sesión en Wdesk como Security Administrator.
+1. En otra ventana del explorador web, inicie sesión en Wdesk como Security Administrator.
 
-8. En la parte inferior izquierda, haga clic en **Admin** (Administración) y elija **Account Admin** (Administrador de cuenta):
+1. En la parte inferior izquierda, haga clic en **Admin** (Administración) y elija **Account Admin** (Administrador de cuenta):
  
      ![Configurar inicio de sesión único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
-9. En Wdesk Admin, navegue hasta **Security** (Seguridad) y, después, **SAML** > **SAML Settings** (Configuración de SAML):
+1. En Wdesk Admin, navegue hasta **Security** (Seguridad) y, después, **SAML** > **SAML Settings** (Configuración de SAML):
 
     ![Configurar inicio de sesión único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
 
-10. En **General Settings** (Configuración general), seleccione la casilla **Enable SAML Single Sign On** (Habilitar inicio de sesión único de SAML):
+1. En **General Settings** (Configuración general), seleccione la casilla **Enable SAML Single Sign On** (Habilitar inicio de sesión único de SAML):
 
     ![Configurar inicio de sesión único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
 
-11. En **Service Provider Details** (Detalles del proveedor de servicios), siga estos pasos:
+1. En **Service Provider Details** (Detalles del proveedor de servicios), siga estos pasos:
 
     ![Configurar inicio de sesión único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
 
@@ -159,11 +159,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
       d. Haga clic en **Guardar** en Azure Portal para guardar los cambios.      
 
-12. Haga clic en **Configure IdP Settings** (Configurar valores de IdP) para abrir el cuadro de diálogo **Edit IdP Settings** (Editar valores de IdP). Haga clic en **Choose File** (Elegir archivo) para buscar el archivo **Metadata.xml** que guardó en Azure Portal y cárguelo.
+1. Haga clic en **Configure IdP Settings** (Configurar valores de IdP) para abrir el cuadro de diálogo **Edit IdP Settings** (Editar valores de IdP). Haga clic en **Choose File** (Elegir archivo) para buscar el archivo **Metadata.xml** que guardó en Azure Portal y cárguelo.
     
     ![Configurar inicio de sesión único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
   
-13. Haga clic en **Guardar cambios**.
+1. Haga clic en **Guardar cambios**.
 
     ![Configurar inicio de sesión único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
 
@@ -181,15 +181,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/wdesk-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Creación de un usuario de prueba de Azure AD](./media/wdesk-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Creación de un usuario de prueba de Azure AD](./media/wdesk-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/wdesk-tutorial/create_aaduser_04.png) 
 
@@ -208,21 +208,21 @@ Para permitir que los usuarios de Azure AD inicien sesión en Wdesk, tienen que 
 **Para aprovisionar una cuenta de usuario, realice estos pasos:**
 
 1. Inicie sesión en Wdesk como administrador de seguridad.
-2. Navegue hasta **Admin** (Administración)  > **Account Admin** (Administrador de cuenta).
+1. Navegue hasta **Admin** (Administración)  > **Account Admin** (Administrador de cuenta).
 
      ![Configurar inicio de sesión único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
-3. Haga clic en **Members** (Miembros) en **People** (Contactos).
+1. Haga clic en **Members** (Miembros) en **People** (Contactos).
 
-4. A continuación, haga clic en **Add Member** (Agregar miembro) para abrir el cuadro de diálogo **(Agregar miembro)**. 
+1. A continuación, haga clic en **Add Member** (Agregar miembro) para abrir el cuadro de diálogo **(Agregar miembro)**. 
    
     ![Creación de un usuario de prueba de Azure AD](./media/wdesk-tutorial/createuser1.png)  
 
-5. En el cuadro de texto **User** (Usuario), escriba el nombre del usuario así **brittasimon@contoso.com** y haga clic en el botón **Continue** (Continuar).
+1. En el cuadro de texto **User** (Usuario), escriba el nombre del usuario así **brittasimon@contoso.com** y haga clic en el botón **Continue** (Continuar).
 
     ![Creación de un usuario de prueba de Azure AD](./media/wdesk-tutorial/createuser3.png)
 
-6.  Escriba los detalles que se muestran a continuación:
+1.  Escriba los detalles que se muestran a continuación:
   
     ![Creación de un usuario de prueba de Azure AD](./media/wdesk-tutorial/createuser4.png)
  
@@ -232,7 +232,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Wdesk, tienen que 
 
     c. En el cuadro de texto **Last Name** (Apellidos), escriba el nombre de usuario, en este caso **Simon**.
 
-7. Haga clic en el botón **Save Member** (Guardar miembro).  
+1. Haga clic en el botón **Save Member** (Guardar miembro).  
 
     ![Creación de un usuario de prueba de Azure AD](./media/wdesk-tutorial/createuser5.png)
 
@@ -248,23 +248,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **Wdesk**.
+1. En la lista de aplicaciones, seleccione **Wdesk**.
 
     ![Configurar inicio de sesión único](./media/wdesk-tutorial/tutorial_wdesk_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 

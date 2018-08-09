@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f1388843f2c5d3ea607b876ece288db1370329a2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 173588c0200666c52f3ac0a5d2e70d667cfe3294
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461544"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445568"
 ---
 # <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>Tutorial: Protección de la conexión con Azure SQL Database mediante una identidad de servicio administrada
 
@@ -38,7 +38,7 @@ Aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Este artículo continúa donde terminó [Tutorial: Compilación de una aplicación ASP.NET en Azure con SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). Si no lo ha hecho ya, siga este tutorial primero. Como alternativa, puede adaptar los pasos para su propia aplicación ASP.NET con SQL Database.
 
@@ -48,7 +48,7 @@ Este artículo continúa donde terminó [Tutorial: Compilación de una aplicaci�
 
 ## <a name="enable-managed-service-identity"></a>Habilitar la identidad de servicio administrada
 
-Para habilitar una identidad de servicio para la aplicación de Azure, use el comando [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az_webapp_identity_assign) de Cloud Shell. En el siguiente comando, reemplace *\<app name>*.
+Para habilitar una identidad de servicio para la aplicación de Azure, use el comando [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) de Cloud Shell. En el siguiente comando, reemplace *\<app name>*.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -73,7 +73,7 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>Concesión del acceso de la base de datos a la identidad
 
-A continuación, conceda a la base de datos acceso a la identidad de servicio de la aplicación, mediante el comando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az_sql_server_ad-admin_create) en Cloud Shell. En el siguiente comando, reemplace *\<server_name>* y <principalid_from_last_step>. Escriba un nombre de administrador para *\<admin_user>*.
+A continuación, conceda a la base de datos acceso a la identidad de servicio de la aplicación, mediante el comando [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) en Cloud Shell. En el siguiente comando, reemplace *\<server_name>* y <principalid_from_last_step>. Escriba un nombre de administrador para *\<admin_user>*.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
@@ -83,7 +83,7 @@ La identidad de servicio administrada ya tiene acceso al servidor de Azure SQL D
 
 ## <a name="modify-connection-string"></a>Modificación de la cadena de conexión
 
-Modifique la conexión que estableció anteriormente para la aplicación mediante el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) de Cloud Shell. En el siguiente comando, reemplace *\<app name>* por el nombre de la aplicación, y reemplace *\<server_name>* y *\<db_name>* por los nombres correspondientes de su instancia de SQL Database.
+Modifique la conexión que estableció anteriormente para la aplicación mediante el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) de Cloud Shell. En el siguiente comando, reemplace *\<app name>* por el nombre de la aplicación, y reemplace *\<server_name>* y *\<db_name>* por los nombres correspondientes de su instancia de SQL Database.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='Server=tcp:<server_name>.database.windows.net,1433;Database=<db_name>;' --connection-string-type SQLAzure

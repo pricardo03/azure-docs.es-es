@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: ffb00ce85a06812dfc42dfbbba74f712c1877615
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a9248e2310e509bbc4f527608246b47543a03fc4
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212399"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502184"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Comprobación del estado de un dominio administrado con Azure AD Domain Services
 
@@ -52,7 +52,7 @@ El estado de la parte superior derecha de la página de mantenimiento indica el 
 Los monitores son aspectos del dominio administrado que Azure AD Domain Services supervisa de forma regular. La mejor manera de mantener los monitores en un estado correcto es resolver todas las alertas activas de su dominio administrado.
 
 Actualmente, Azure AD Domain Services supervisa lo siguiente:
- - Backup
+ - Copia de seguridad
  - Sincronización con Azure AD
 
 ### <a name="the-backup-monitor"></a>Monitor de "copia de seguridad"

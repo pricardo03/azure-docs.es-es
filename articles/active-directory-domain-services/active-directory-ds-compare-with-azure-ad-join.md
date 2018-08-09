@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 8bfc62f978b85399a64da32636627efc7ae234da
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e4357738417a202d5dd5a97907b5240cf855f395
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212560"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504121"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Elección entre Azure Active Directory Join y Azure Active Directory Domain Services
 En este artículo se describen las diferencias entre Azure Active Directory (AD) Join y Azure AD Domain Services para ayudarle a elegir lo que más le convenga según sus casos de uso.

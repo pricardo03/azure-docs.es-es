@@ -2,24 +2,18 @@
 title: Recuperación de información de estado de un trabajo del servicio Azure Import/Export | Microsoft Docs
 description: Descubra cómo obtener información de estado de trabajos del servicio Microsoft Azure Import/Export.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 22d7e5f0-94da-49b4-a1ac-dd4c14a423c2
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
-ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 76b2f73442261da4c791aaae8532d7a0dbbb6d95
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059910"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520613"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Recuperación de la información de estado de un trabajo de Import/Export
 Puede llamar a la operación [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) para obtener información sobre trabajos tanto de importación como de exportación. Entre la información devuelta se incluyen los siguientes datos:
@@ -41,7 +35,7 @@ En la tabla y el diagrama de estado siguientes se describen los estados por los 
 
 En la tabla siguiente se describe cada estado por el que puede pasar un trabajo.
 
-|Estado de trabajo|Descripción|
+|Estado de trabajo|DESCRIPCIÓN|
 |---------------|-----------------|
 |`Creating`|Después de llamar a la operación Put Job, se crea un trabajo y su estado se establece en `Creating`. Mientras el trabajo se encuentra en el estado `Creating`, el servicio Import/Export asume que las unidades no se han enviado al centro de datos. Un trabajo puede permanecer en el estado `Creating` durante dos semanas, después de lo cual el servicio lo eliminará automáticamente.<br /><br /> Si se llama a la operación Update Job Properties mientras el trabajo está en el estado `Creating`, el trabajo permanece en el estado `Creating` y el intervalo de tiempo de espera se restablece en dos semanas.|
 |`Shipping`|Después de enviar el paquete, debe llamar a la operación Update Job Properties para actualizar el estado del trabajo a `Shipping`. El estado de envío solo se puede restablecer si se ha definido `DeliveryPackage` (el transportista y el número de seguimiento) y las propiedades de `ReturnAddress` para el trabajo.<br /><br /> El trabajo permanecerá en el estado Shipping durante un máximo de dos semanas. Si después de dos semanas no se han recibido las unidades, se notificará a los operadores del servicio Import/Export.|
@@ -70,7 +64,7 @@ En la tabla y el diagrama siguiente se describe el ciclo de vida de una unidad i
 
 En la tabla siguiente se describe cada estado por el que puede pasar una unidad.
 
-|Estado de la unidad|Descripción|
+|Estado de la unidad|DESCRIPCIÓN|
 |-----------------|-----------------|
 |`Specified`|Para un trabajo de importación, cuando se crea el trabajo con la operación Put Job, el estado inicial de una unidad es `Specified`. Para un trabajo de exportación, ya que no se especifica ninguna unidad cuando se crea el trabajo, el estado inicial de la unidad es `Received`.|
 |`Received`|La unidad cambia al estado `Received` cuando el operador del servicio Import/Export ha procesado las unidades recibidas del transportista para un trabajo de importación. Para un trabajo de exportación, el estado inicial de la unidad es `Received`.|

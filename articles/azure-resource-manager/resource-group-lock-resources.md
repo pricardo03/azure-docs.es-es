@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1a0f813e1857d2f1c1cc36b34b6339d26fa91c13
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7a630de281932358b0cecf841dc745a4d818aad4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488608"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424177"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloqueo de recursos para impedir cambios inesperados 
 
@@ -158,7 +158,7 @@ Remove-AzureRmResourceLock -LockId $lockId
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Bloquee recursos implementados con la CLI de Azure mediante el comando [az lock create](/cli/azure/lock#az_lock_create).
+Bloquee recursos implementados con la CLI de Azure mediante el comando [az lock create](/cli/azure/lock#az-lock-create).
 
 Para bloquear un recurso, proporcione el nombre del recurso, su tipo y el nombre del grupo de recursos.
 
@@ -172,7 +172,7 @@ Para bloquear un grupo de recursos, proporcione el nombre del grupo de recursos.
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-Para obtener información sobre un bloqueo, use [az lock list](/cli/azure/lock#az_lock_list). Para obtener todos los bloqueos en su suscripción, use:
+Para obtener información sobre un bloqueo, use [az lock list](/cli/azure/lock#az-lock-list). Para obtener todos los bloqueos en su suscripción, use:
 
 ```azurecli
 az lock list

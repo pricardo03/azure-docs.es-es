@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/29/2018
 ms.author: glenga
-ms.openlocfilehash: 91c16ad5a6bf8babffc0b83d801626932688631e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3ff02816cdd5641cdcd78a12206b80be6d518373
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699961"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423715"
 ---
 # <a name="zip-push-deployment-for-azure-functions"></a>Implementación para insertar archivos ZIP en Azure Functions 
 En este artículo se describe la manera de implementar los archivos de proyecto de la aplicación de función en Azure desde un archivo ZIP (comprimido). Aprenda a realizar una implementación de inserción mediante el uso de la CLI de Azure y con las API de REST. 
@@ -73,7 +73,7 @@ Igualmente, también puede descargar un archivo .zip desde un repositorio de Git
 
 ## <a name="cli"></a>Implementación con la CLI de Azure
 
-Puede usar la CLI de Azure para desencadenar una implementación de inserción. Para implementar el archivo .zip en la aplicación de función, use el comando [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config_zip). Para usar este comando, debe usar la versión 2.0.21 o posterior de la CLI de Azure. Para ver qué versión de CLI de Azure está usando, use el comando `az --version`.
+Puede usar la CLI de Azure para desencadenar una implementación de inserción. Para implementar el archivo .zip en la aplicación de función, use el comando [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Para usar este comando, debe usar la versión 2.0.21 o posterior de la CLI de Azure. Para ver qué versión de CLI de Azure está usando, use el comando `az --version`.
 
 En el siguiente comando, reemplace el marcador de posición `<zip_file_path>` por la ruta de acceso a la ubicación del archivo .zip. Reemplace también `<app_name>` por el nombre exclusivo de la aplicación de función. 
 

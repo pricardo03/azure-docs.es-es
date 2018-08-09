@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 3dc516e24f140ad5ef7443a4cff5962e7d584065
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 95def1ce278b0a816f19e3cd4e1b47bd3f68f1a9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042374"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440296"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>Tutorial: integración de Azure Active Directory con HappyFox
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de HappyFox desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-happyfox-from-the-gallery"></a>Incorporación de HappyFox desde la galería
 Para configurar la integración de HappyFox en Azure AD, será preciso que lo agregue desde la galería a la lista de aplicaciones SaaS administradas.
@@ -63,19 +63,19 @@ Para configurar la integración de HappyFox en Azure AD, será preciso que lo ag
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **HappyFox**.
+1. En el cuadro de búsqueda, escriba **HappyFox**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/happyfox-tutorial/tutorial_happyfox_search.png)
 
-5. En el panel de resultados, seleccione **HappyFox** y haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **HappyFox** y haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/happyfox-tutorial/tutorial_happyfox_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Para establecer la relación de vínculo, en HappyFox, asigne el valor de **nomb
 Para configurar y probar el inicio de sesión único de Azure AD con HappyFox, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de HappyFox](#creating-a-happyfox-test-user)**: para tener un homólogo de Britta Simon en HappyFox vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de HappyFox](#creating-a-happyfox-test-user)**: para tener un homólogo de Britta Simon en HappyFox vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,11 +104,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/happyfox-tutorial/tutorial_happyfox_samlbase.png)
 
-3. En la sección **HappyFox Domain and URLs** (Dominio y direcciones URL de HappyFox), lleve a cabo los pasos siguientes:
+1. En la sección **HappyFox Domain and URLs** (Dominio y direcciones URL de HappyFox), lleve a cabo los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/happyfox-tutorial/tutorial_happyfox_url.png)
 
@@ -119,35 +119,35 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de HappyFox](https://support.happyfox.com/home) para obtener estos valores. 
  
-4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/happyfox-tutorial/tutorial_happyfox_certificate.png) 
 
-5. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/happyfox-tutorial/tutorial_general_400.png)
 
-6. En la sección **HappyFox Configuration** (Configuración de HappyFox), haga clic en **Configure HappyFox** (Configurar HappyFox) para abrir la ventana **Configurar inicio de sesión**. Copie el valor de **SAML Single Sign-On Service URL** (URL del servicio de inicio de sesión único de SAML) de la sección de **referencia rápida**.
+1. En la sección **HappyFox Configuration** (Configuración de HappyFox), haga clic en **Configure HappyFox** (Configurar HappyFox) para abrir la ventana **Configurar inicio de sesión**. Copie el valor de **SAML Single Sign-On Service URL** (URL del servicio de inicio de sesión único de SAML) de la sección de **referencia rápida**.
 
     ![Configurar inicio de sesión único](./media/happyfox-tutorial/tutorial_happyfox_configure.png) 
 
-7. Inicie sesión en el portal del personal de HappyFox y vaya a **Manage** (Administrar), haga clic en la pestaña **Integrations** (Integraciones).
+1. Inicie sesión en el portal del personal de HappyFox y vaya a **Manage** (Administrar), haga clic en la pestaña **Integrations** (Integraciones).
 
     ![Configurar inicio de sesión único](./media/happyfox-tutorial/header.png) 
 
-8. En la pestaña de integraciones, haga clic en **Configure** (Configurar) en **SAML Integration** (Integración de SAML) para abrir la configuración del inicio de sesión único.
+1. En la pestaña de integraciones, haga clic en **Configure** (Configurar) en **SAML Integration** (Integración de SAML) para abrir la configuración del inicio de sesión único.
 
     ![Configurar inicio de sesión único](./media/happyfox-tutorial/configure.png) 
 
-9. En la sección de configuración de SAML, pegue el valor de **SAML Single Sign-On Service URL** (URL del servicio de inicio de sesión único de SAML) que ha copiado de Azure Portal en el cuadro de texto **SSO Target URL** (Dirección URL de destino de SSO).
+1. En la sección de configuración de SAML, pegue el valor de **SAML Single Sign-On Service URL** (URL del servicio de inicio de sesión único de SAML) que ha copiado de Azure Portal en el cuadro de texto **SSO Target URL** (Dirección URL de destino de SSO).
 
     ![Configurar inicio de sesión único](./media/happyfox-tutorial/targeturl.png)
 
-10. Abra el certificado descargado desde Azure Portal en el bloc de notas y pegue el contenido en la sección**IdP Signature** (Firma del proveedor de identidades).
+1. Abra el certificado descargado desde Azure Portal en el bloc de notas y pegue el contenido en la sección**IdP Signature** (Firma del proveedor de identidades).
  
     ![Configurar inicio de sesión único](./media/happyfox-tutorial/cert.png)
 
-11. Haga clic en el botón **Guardar configuración**.
+1. Haga clic en el botón **Guardar configuración**.
 
     ![Configurar inicio de sesión único](./media/happyfox-tutorial/savesettings.png)
 
@@ -166,15 +166,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/happyfox-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Creación de un usuario de prueba de Azure AD](./media/happyfox-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Creación de un usuario de prueba de Azure AD](./media/happyfox-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/happyfox-tutorial/create_aaduser_04.png) 
 
@@ -202,23 +202,23 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **HappyFox**.
+1. En la lista de aplicaciones, seleccione **HappyFox**.
 
     ![Configurar inicio de sesión único](./media/happyfox-tutorial/tutorial_happyfox_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 
@@ -228,7 +228,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
     ![Complemento](./media/happyfox-tutorial/saml.png) 
 
-2. Haga clic en el botón **"SAML"** para iniciar sesión en HappyFox con su cuenta de Azure AD.
+1. Haga clic en el botón **"SAML"** para iniciar sesión en HappyFox con su cuenta de Azure AD.
 
 Para más información sobre el Panel de acceso, vea la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
 

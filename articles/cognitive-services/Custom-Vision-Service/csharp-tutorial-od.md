@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: areddish
 ms.openlocfilehash: e3def864267a590c86a2dd6663561d8488081ad6
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
+ms.lasthandoff: 08/06/2018
 ms.locfileid: "36301087"
 ---
 # <a name="use-custom-vision-api-to-build-an-object-detection-project-in-c35"></a>Uso de Custom Vision API para compilar un proyecto de detección de objetos en C&#35. 
 Aprenda a usar una aplicación Windows básica que usa Computer Vision API para crear un proyecto de detección de objetos. Después de crearlo, puede agregar regiones etiquetadas, cargar imágenes, entrenar el proyecto, obtener la dirección URL predeterminada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Use este ejemplo de código abierto como plantilla para compilar su propia aplicación para Windows con Custom Vision API.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="get-the-custom-vision-sdk-and-samples"></a>Obtener el SDK y ejemplos de Custom Vision
 Para compilar este ejemplo, necesita los paquetes NuGet del SDK de Custom Vision:

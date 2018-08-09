@@ -16,12 +16,12 @@ ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 9329cb0dbfa24cf239b820573ef7f642cdca9103
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 6bd722801202f5cdff2882c29895ae06fecbbcb8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248166"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425370"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Tutorial: Máquinas virtuales disponibles para los usuarios de Azure Stack
 
@@ -50,23 +50,23 @@ Las ofertas son grupos de uno o varios planes que los proveedores presentan a lo
 
    ![Nueva oferta](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-2. En **Nueva oferta**, escriba el **Nombre para mostrar** y el **Nombre de recurso** y, después, seleccione un **Grupo de recursos** nuevo o existente. El nombre para mostrar es el nombre descriptivo de la oferta. Solo el operador de la nube puede ver el nombre del recurso. Es el nombre que usan los administradores para trabajar con la oferta como un recurso de Administrador de recursos de Azure.
+1. En **Nueva oferta**, escriba el **Nombre para mostrar** y el **Nombre de recurso** y, después, seleccione un **Grupo de recursos** nuevo o existente. El nombre para mostrar es el nombre descriptivo de la oferta. Solo el operador de la nube puede ver el nombre del recurso. Es el nombre que usan los administradores para trabajar con la oferta como un recurso de Azure Resource Manager.
 
    ![Nombre para mostrar](media/azure-stack-tutorial-tenant-vm/image02.png)
 
-3. Seleccione **Planes base** y, en la sección **Plan**, seleccione **Agregar** para agregar un nuevo plan a la oferta.
+1. Seleccione **Planes base** y, en la sección **Plan**, seleccione **Agregar** para agregar un nuevo plan a la oferta.
 
    ![Agregar un plan](media/azure-stack-tutorial-tenant-vm/image03.png)
 
-4. En la sección **Nuevo plan**, rellene el **nombre para mostrar** y el **nombre del recurso**. El nombre para mostrar es el nombre descriptivo del plan que ven los usuarios. Solo el operador de la nube puede ver el nombre del recurso. Es el nombre que usan los operadores de la nube para trabajar con el plan como recurso de Azure Resource Manager.
+1. En la sección **Nuevo plan**, rellene el **nombre para mostrar** y el **nombre del recurso**. El nombre para mostrar es el nombre descriptivo del plan que ven los usuarios. Solo el operador de la nube puede ver el nombre del recurso. Es el nombre que usan los operadores de la nube para trabajar con el plan como recurso de Azure Resource Manager.
 
    ![Nombre para mostrar del plan](media/azure-stack-tutorial-tenant-vm/image04.png)
 
-5. Seleccione **Servicios**. En la lista Servicios, seleccione **Microsoft.Compute**, **Microsoft.Network** y **Microsoft.Storage**. Elija **Seleccionar** para agregar estos servicios al plan.
+1. Seleccione **Servicios**. En la lista Servicios, seleccione **Microsoft.Compute**, **Microsoft.Network** y **Microsoft.Storage**. Elija **Seleccionar** para agregar estos servicios al plan.
 
    ![Servicios del plan](media/azure-stack-tutorial-tenant-vm/image05.png)
 
-6. Seleccione **Cuotas** y, a continuación, seleccione el primer servicio para el que desea crear una cuota. Para una cuota de IaaS, utilice el siguiente ejemplo como guía para configurar cuotas para los servicios Compute, Network y Storage.
+1. Seleccione **Cuotas** y, a continuación, seleccione el primer servicio para el que desea crear una cuota. Para una cuota de IaaS, utilice el siguiente ejemplo como guía para configurar cuotas para los servicios Compute, Network y Storage.
 
    - Primero, cree una cuota para el servicio Compute. En la lista de espacio de nombres, seleccione **Microsoft.Compute** y, después, seleccione **Crear nueva cuota**.
 
@@ -82,15 +82,15 @@ Las ofertas son grupos de uno o varios planes que los proveedores presentan a lo
 
       Repita estos pasos para los servicios Network y Storage. Cuando haya terminado, seleccione **Aceptar** en **Cuotas** para guardar todas las cuotas.
 
-7. En **Nuevo plan**, seleccione **Aceptar**.
+1. En **Nuevo plan**, seleccione **Aceptar**.
 
-8. En **Plan**, seleccione el nuevo plan y, después, **Seleccionar**.
+1. En **Plan**, seleccione el nuevo plan y, después, **Seleccionar**.
 
-9. En **Nueva oferta**, seleccione **Crear**. Verá una notificación cuando se crea la oferta.
+1. En **Nueva oferta**, seleccione **Crear**. Verá una notificación cuando se crea la oferta.
 
-10. En el menú del panel, seleccione **Ofertas** y, a continuación, haga clic en la oferta que ha creado.
+1. En el menú del panel, seleccione **Ofertas** y, a continuación, haga clic en la oferta que ha creado.
 
-11. Seleccione **Cambiar estado** y, después, elija **Público**.
+1. Seleccione **Cambiar estado** y, después, elija **Público**.
 
     ![Estado público](media/azure-stack-tutorial-tenant-vm/image09.png)
 
@@ -123,7 +123,7 @@ Ahora que ha creado una oferta, puede probarla. Inicie sesión como usuario, sus
    >[!NOTE]
    >Después de suscribirse a una oferta, es posible que tenga que actualizar el portal para ver los servicios que forman parte de la nueva suscripción.
 
-2. **Aprovisionamiento de una máquina virtual**
+1. **Aprovisionamiento de una máquina virtual**
 
    Desde el portal de usuarios puede aprovisionar una máquina virtual mediante la nueva suscripción.
 

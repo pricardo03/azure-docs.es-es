@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e57a2e72479d36908ef1e9f537506bb67ae311fe
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d6d6282c3e997a41a27fb65ed7c06fd1bc7916f2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048414"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444667"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Compilación de la primera instancia de Data Factory mediante Azure Portal
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ La canalización de este tutorial tiene una sola actividad: una actividad de Azu
 > 
 > pero cualquier canalización puede tener más de una actividad. También puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Lea el [tutorial introductorio](data-factory-build-your-first-pipeline.md) y siga los pasos de la sección de requisitos previos.
 
 En este artículo no se ofrece información general conceptual sobre el servicio Data Factory. Para más información acerca del servicio, consulte [Introducción a Azure Data Factory](data-factory-introduction.md).  
@@ -56,11 +56,11 @@ Para crear una factoría de datos, siga estos pasos:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-2. Seleccione **Nuevo** > **Data + Analytics** > **Data Factory**.
+1. Seleccione **Nuevo** > **Data + Analytics** > **Data Factory**.
 
    ![Hoja Creación](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
 
-3. En la hoja **Nueva factoría de datos**, en **Nombre**, escriba **GetStartedDF**.
+1. En la hoja **Nueva factoría de datos**, en **Nombre**, escriba **GetStartedDF**.
 
    ![Hoja Nueva Factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
@@ -70,25 +70,25 @@ Para crear una factoría de datos, siga estos pasos:
    > El nombre de la factoría de datos se puede registrar como nombre DNS en el futuro y puede convertirse en visible públicamente.
    >
    >
-4. En **Suscripción**, seleccione la suscripción de Azure en la que desea que se cree la factoría de datos.
+1. En **Suscripción**, seleccione la suscripción de Azure en la que desea que se cree la factoría de datos.
 
-5. Seleccione un grupo de recursos existente o cree uno nuevo. Para este tutorial, cree un grupo de recursos llamado **ADFGetStartedRG**.
+1. Seleccione un grupo de recursos existente o cree uno nuevo. Para este tutorial, cree un grupo de recursos llamado **ADFGetStartedRG**.
 
-6. En **Ubicación**, seleccione la ubicación de la factoría de datos. La lista desplegable solo muestra las regiones que admite el servicio Data Factory.
+1. En **Ubicación**, seleccione la ubicación de la factoría de datos. La lista desplegable solo muestra las regiones que admite el servicio Data Factory.
 
-7. Seleccione la casilla **Anclar al panel**.
+1. Seleccione la casilla **Anclar al panel**.
 
-8. Seleccione **Crear**.
+1. Seleccione **Crear**.
 
    > [!IMPORTANT]
    > Para crear instancias de Data Factory, es preciso ser miembro del rol [Colaborador de Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) en el nivel de grupo de recursos o suscripción.
    >
    >
-9. En el panel, verá el icono siguiente con el estado **Deploying Data Factory** (Implementando Data Factory):    
+1. En el panel, verá el icono siguiente con el estado **Deploying Data Factory** (Implementando Data Factory):    
 
    ![Estado Deploying Data Factory (Implementando Data Factory)](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 
-10. Tras crear la factoría de datos, se ve la página de la **factoría de datos**, que muestra su contenido.     
+1. Tras crear la factoría de datos, se ve la página de la **factoría de datos**, que muestra su contenido.     
 
     ![Hoja Factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
@@ -104,17 +104,17 @@ En este paso, vinculará su cuenta de almacenamiento con su factoría de datos. 
 
    ![Icono Crear e implementar](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
 
-2. Seleccione **Nuevo almacén de datos** y elija **Azure Storage**.
+1. Seleccione **Nuevo almacén de datos** y elija **Azure Storage**.
 
    ![Hoja Nuevo almacén de datos](./media/data-factory-build-your-first-pipeline-using-editor/new-data-store-azure-storage-menu.png)
 
-3. Vera el script JSON para crear un servicio vinculado de Storage en el editor.
+1. Vera el script JSON para crear un servicio vinculado de Storage en el editor.
 
    ![Servicio vinculado de Storage](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-4. Reemplace **account name** por el nombre de su cuenta de almacenamiento. Reemplace **account key** por la clave de acceso de la cuenta de almacenamiento. Para aprender a obtener la clave de acceso de almacenamiento, consulte cómo ver, copiar y regenerar las claves de acceso de almacenamiento en [Administración de la cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Reemplace **account name** por el nombre de su cuenta de almacenamiento. Reemplace **account key** por la clave de acceso de la cuenta de almacenamiento. Para aprender a obtener la clave de acceso de almacenamiento, consulte cómo ver, copiar y regenerar las claves de acceso de almacenamiento en [Administración de la cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
-5. Seleccione **Implementar** en la barra de comandos para implementar el servicio vinculado.
+1. Seleccione **Implementar** en la barra de comandos para implementar el servicio vinculado.
 
     ![Botón Implementar](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
@@ -129,7 +129,7 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 
     ![Nuevo proceso](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 
-2. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1. El fragmento de código JSON describe las propiedades que se usan para crear el clúster de HDInsight a petición.
+1. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1. El fragmento de código JSON describe las propiedades que se usan para crear el clúster de HDInsight a petición.
 
     ```JSON
     {
@@ -167,11 +167,11 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 
      Para más información, consulte [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
-3. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
+1. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
 
     ![Opción Implementar](./media/data-factory-build-your-first-pipeline-using-editor/ondemand-hdinsight-deploy.png)
 
-4. Asegúrese de que puede ver tanto **AzureStorageLinkedService** como **HDInsightOnDemandLinkedService** en la vista de árbol de la izquierda.
+1. Asegúrese de que puede ver tanto **AzureStorageLinkedService** como **HDInsightOnDemandLinkedService** en la vista de árbol de la izquierda.
 
     ![Vista de árbol con servicios vinculados](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
@@ -183,7 +183,7 @@ En este paso, creará conjuntos de datos que representan los datos de entrada y 
 
     ![Nuevo conjunto de datos](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 
-2. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1. En el fragmento de código JSON, cree un conjunto de datos llamado **AzureBlobInput** que represente los datos de entrada para una actividad de la canalización. Además, especifique que los datos de entrada están en el contenedor de blobs llamado **adfgetstarted** y en la carpeta llamada **inputdata**.
+1. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1. En el fragmento de código JSON, cree un conjunto de datos llamado **AzureBlobInput** que represente los datos de entrada para una actividad de la canalización. Además, especifique que los datos de entrada están en el contenedor de blobs llamado **adfgetstarted** y en la carpeta llamada **inputdata**.
 
     ```JSON
     {
@@ -223,14 +223,14 @@ En este paso, creará conjuntos de datos que representan los datos de entrada y 
 
     Para más información acerca de estas propiedades de JSON, consulte el artículo acerca del [conector de blobs de Azure](data-factory-azure-blob-connector.md#dataset-properties).
 
-3. Seleccione **Implementar** en la barra de comandos para implementar el conjunto de datos recién creado. Vera el conjunto de datos en la vista de árbol de la izquierda.
+1. Seleccione **Implementar** en la barra de comandos para implementar el conjunto de datos recién creado. Vera el conjunto de datos en la vista de árbol de la izquierda.
 
 ### <a name="create-the-output-dataset"></a>Creación del conjunto de datos de salida
 Ahora, cree el conjunto de datos de salida que representa los datos de salida almacenados en el almacenamiento de blobs.
 
 1. En Data Factory Editor, seleccione **More** > **New dataset** > **Azure Blob Storage** (Más > Nuevo conjunto de datos > Azure Blob Storage).
 
-2. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1. En el fragmento de código JSON, cree un conjunto de datos llamado **AzureBlobOutput** para especificar la estructura de los datos que genera el script de Hive. Especifique también que los resultados se almacenen en el contenedor de blobs **adfgetstarted** y en la carpeta **partitioneddata**. La sección **availability** especifica que el conjunto de datos de salida se genera mensualmente.
+1. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1. En el fragmento de código JSON, cree un conjunto de datos llamado **AzureBlobOutput** para especificar la estructura de los datos que genera el script de Hive. Especifique también que los resultados se almacenen en el contenedor de blobs **adfgetstarted** y en la carpeta **partitioneddata**. La sección **availability** especifica que el conjunto de datos de salida se genera mensualmente.
 
     ```JSON
     {
@@ -254,9 +254,9 @@ Ahora, cree el conjunto de datos de salida que representa los datos de salida al
     ```
     Para ver las descripciones de estas propiedades, consulte la sección "Create the input dataset" (Creación del conjunto de datos de entrada). No establezca la propiedad externa en un conjunto de datos de salida, ya que este lo genera el servicio Data Factory.
 
-3. Seleccione **Implementar** en la barra de comandos para implementar el conjunto de datos recién creado.
+1. Seleccione **Implementar** en la barra de comandos para implementar el conjunto de datos recién creado.
 
-4. Compruebe que el conjunto de datos se creó correctamente.
+1. Compruebe que el conjunto de datos se creó correctamente.
 
     ![Vista de árbol con servicios vinculados](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
@@ -267,7 +267,7 @@ En este paso, creará la primera canalización con una actividad de Hive de HDIn
 
     ![Opción Nueva canalización](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 
-2. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1.
+1. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1.
 
    > [!IMPORTANT]
    > Reemplace **storageaccountname** por el nombre de su cuenta de almacenamiento en el fragmento de código JSON.
@@ -333,7 +333,7 @@ En este paso, creará la primera canalización con una actividad de Hive de HDIn
    > Para más información acerca de las propiedades de JSON que se usan en el ejemplo, consulte la sección "JSON de canalización" en [Canalizaciones y actividades en Azure Data Factory](data-factory-create-pipelines.md).
    >
    >
-3. Confirme lo siguiente:
+1. Confirme lo siguiente:
 
    a. El archivo **input.log** se encuentra en la carpeta **inputdata** del contenedor **adfgetstarted** del almacenamiento de blobs.
 
@@ -341,9 +341,9 @@ En este paso, creará la primera canalización con una actividad de Hive de HDIn
 
    c. Ha reemplazado **storageaccountname** por el nombre de su cuenta de almacenamiento en el archivo JSON de la canalización.
 
-4. Seleccione **Implementar** en la barra de comandos para implementar la canalización. Dado que las horas de **inicio** y **finalización** están establecidas en el pasado e **isPaused** está establecido en **false**, la canalización (la actividad de la canalización) se ejecuta inmediatamente después de realizar la implementación.
+1. Seleccione **Implementar** en la barra de comandos para implementar la canalización. Dado que las horas de **inicio** y **finalización** están establecidas en el pasado e **isPaused** está establecido en **false**, la canalización (la actividad de la canalización) se ejecuta inmediatamente después de realizar la implementación.
 
-5. Confirme que la canalización aparece en la vista de árbol.
+1. Confirme que la canalización aparece en la vista de árbol.
 
     ![Vista de árbol con canalización](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 
@@ -355,31 +355,31 @@ En este paso, creará la primera canalización con una actividad de Hive de HDIn
 
     ![Icono Diagrama](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
 
-2. En la vista **Diagrama**, se puede encontrar información general acerca de las canalizaciones y los conjuntos de datos que se usan en este tutorial.
+1. En la vista **Diagrama**, se puede encontrar información general acerca de las canalizaciones y los conjuntos de datos que se usan en este tutorial.
 
     ![Vista Diagrama](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png)
 
-3. Para ver todas las actividades de la canalización, haga clic con el botón derecho en la canalización en el diagrama y seleccione **Abrir canalización**.
+1. Para ver todas las actividades de la canalización, haga clic con el botón derecho en la canalización en el diagrama y seleccione **Abrir canalización**.
 
     ![Menú Abrir canalización](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-menu.png)
 
-4. Confirme que ve **Actividad de Hive** en la canalización.
+1. Confirme que ve **Actividad de Hive** en la canalización.
 
     ![Vista Abrir canalización](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-view.png)
 
     Para volver a la vista anterior, seleccione **Data Factory** en el menú superior.
 
-5. En la vista **Diagrama**, haga doble clic en el conjunto de datos **AzureBlobInput**. Confirme que el estado del segmento es **Listo**. Es posible que el segmento tarde un par de minutos en aparecer con ese estado. Si no aparece después de un tiempo, compruebe si el archivo de entrada (**input.log**) está en el contenedor (**adfgetstarted**) y en la carpeta (**inputdata**) correctos.
+1. En la vista **Diagrama**, haga doble clic en el conjunto de datos **AzureBlobInput**. Confirme que el estado del segmento es **Listo**. Es posible que el segmento tarde un par de minutos en aparecer con ese estado. Si no aparece después de un tiempo, compruebe si el archivo de entrada (**input.log**) está en el contenedor (**adfgetstarted**) y en la carpeta (**inputdata**) correctos.
 
    ![Segmento de entrada en estado Listo](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
 
-6. Cierre la hoja **AzureBlobInput**.
+1. Cierre la hoja **AzureBlobInput**.
 
-7. En la vista **Diagrama**, haga doble clic en el conjunto de datos **AzureBlobOutput**. Se ve el segmento que se está procesando.
+1. En la vista **Diagrama**, haga doble clic en el conjunto de datos **AzureBlobOutput**. Se ve el segmento que se está procesando.
 
    ![Procesamiento de conjunto de datos en curso](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 
-8. Cuando finalice el procesamiento, verá que el segmento está en estado **Listo**.
+1. Cuando finalice el procesamiento, verá que el segmento está en estado **Listo**.
 
    ![Conjunto de datos en estado Listo](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)  
 
@@ -388,15 +388,15 @@ En este paso, creará la primera canalización con una actividad de Hive de HDIn
    >
    >
 
-9. Cuando el segmento esté en estado **Listo**, busque los datos de salida en la carpeta **partitioneddata** del contenedor **adfgetstarted** del almacenamiento de blobs.  
+1. Cuando el segmento esté en estado **Listo**, busque los datos de salida en la carpeta **partitioneddata** del contenedor **adfgetstarted** del almacenamiento de blobs.  
 
    ![Datos de salida](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
 
-10. Seleccione el segmento para ver más información del mismo en una hoja **Segmento de datos**.
+1. Seleccione el segmento para ver más información del mismo en una hoja **Segmento de datos**.
 
     ![Información de Segmento de datos](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)
 
-11. En la lista **Ejecuciones de actividad**, seleccione una ejecución de actividad para obtener más información sobre ella (en este escenario, es una actividad de Hive). La información aparece en la hoja **Detalles de la ejecución de actividad**.   
+1. En la lista **Ejecuciones de actividad**, seleccione una ejecución de actividad para obtener más información sobre ella (en este escenario, es una actividad de Hive). La información aparece en la hoja **Detalles de la ejecución de actividad**.   
 
     ![Ventana Detalles de la ejecución de actividad](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
 
@@ -415,11 +415,11 @@ Para supervisar las canalizaciones también se puede usar la aplicación Supervi
 
     ![Icono Supervisión y administración](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png)
 
-2. En la aplicación Supervisión y administración, cambie el valor de **Hora de inicio** y **Hora de finalización** para que coincidan con las horas de inicio y finalización de la canalización. Seleccione **Aplicar**.
+1. En la aplicación Supervisión y administración, cambie el valor de **Hora de inicio** y **Hora de finalización** para que coincidan con las horas de inicio y finalización de la canalización. Seleccione **Aplicar**.
 
     ![Aplicación Supervisión y administración](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
 
-3. Seleccione una ventana de actividad en la lista **Ventanas de actividad** para ver información acerca de ella.
+1. Seleccione una ventana de actividad en la lista **Ventanas de actividad** para ver información acerca de ella.
 
     ![Lista Activity Windows (Ventanas de actividad)](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-details.png)
 
@@ -437,7 +437,7 @@ En este tutorial, ha creado una factoría de datos para procesar datos mediante 
 En este artículo, ha creado una canalización con una actividad de transformación (actividad de HDInsight) que ejecuta un script de Hive en un clúster de HDInsight a petición. Para ver como usar una actividad de copia para copiar datos del almacenamiento de blobs a una base de datos SQL, consulte [Tutorial: Copy data from Blob storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Tutorial: Copiar datos de Blob Storage a SQL Database).
 
 ## <a name="see-also"></a>Otras referencias
-| Tema. | DESCRIPCIÓN |
+| Tema | DESCRIPCIÓN |
 |:--- |:--- |
 | [Procesos](data-factory-create-pipelines.md) |Este artículo le ayuda a conocer las canalizaciones y actividades de Data Factory y cómo usarlas para construir flujos de trabajo controlados por datos de un extremo a otro para su escenario o negocio. |
 | [Conjuntos de datos](data-factory-create-datasets.md) |Este artículo le ayuda a conocer los conjuntos de datos de Data Factory. |

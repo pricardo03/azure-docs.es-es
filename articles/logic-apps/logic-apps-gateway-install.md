@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.reviewer: yshoukry, LADocs
 ms.suite: integration
-ms.openlocfilehash: 09e3879ed91a0e9c6d27940cae53f3e3f0397d7b
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 616e3d81d577fd30e65117ec15c65250d3b3e27e
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145213"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503655"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de la puerta de enlace de datos local para Azure Logic Apps
 
@@ -84,7 +84,7 @@ Para información sobre cómo usar la puerta de enlace con otros servicios, cons
   > [!TIP]
   > Si se suscribió a una oferta de Office 365 y no indicó el correo electrónico real del trabajo, puede que tenga una dirección de inicio de sesión similar a la de este ejemplo: `username@domain.onmicrosoft.com` 
   >
-  > Para usar una cuenta de Microsoft que tenga una [suscripción a Visual Studio Standard](https://visualstudio.microsoft.com/vs/pricing/), [cree primero un directorio (inquilino) en Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md) o use el directorio predeterminado con su cuenta de Microsoft. 
+  > Para usar una cuenta de Microsoft que tenga una [suscripción a Visual Studio Standard](https://visualstudio.microsoft.com/vs/pricing/), [cree primero un directorio (inquilino) en Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md) o use el directorio predeterminado con su cuenta de Microsoft. 
   > Agregue un usuario con una contraseña al directorio y, a continuación, conceda acceso a la suscripción a ese usuario. 
   > A continuación, puede iniciar sesión durante la instalación de la puerta de enlace con este nombre de usuario y contraseña.
 

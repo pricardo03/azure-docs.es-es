@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 01/04/2018
 ms.author: jingwang
-ms.openlocfilehash: b080029cdf7e7200663830abad02ae7e61dbdb99
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e9ace23108b33c1e03db2159dd1da68be8d88e0a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053361"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422018"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copia de datos de una base de datos de SQL Server local en Azure Blob Storage con la herramienta Copy Data
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Uso de la herramienta Copy Data para crear una canalización.
 > * Supervisión de las ejecuciones de canalización y actividad.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 ### <a name="azure-subscription"></a>Suscripción de Azure
 Antes de empezar, si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/).
 
@@ -48,13 +48,13 @@ En este tutorial se usa una base de datos de SQL Server local como almacén de d
 
 1. Inicie SQL Server Management Studio. Si no está instalada en su máquina, vaya a [Descarga de SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). 
 
-2. Conéctese a una instancia de SQL Server con sus credenciales. 
+1. Conéctese a una instancia de SQL Server con sus credenciales. 
 
-3. Cree una base de datos de ejemplo. En la vista de árbol, haga clic con el botón derecho en **Bases de datos** y, luego, seleccione **Nueva base de datos**. 
+1. Cree una base de datos de ejemplo. En la vista de árbol, haga clic con el botón derecho en **Bases de datos** y, luego, seleccione **Nueva base de datos**. 
 
-4. En el cuadro de diálogo **Nueva base de datos**, escriba el nombre de la base de datos y haga clic en **Aceptar**. 
+1. En el cuadro de diálogo **Nueva base de datos**, escriba el nombre de la base de datos y haga clic en **Aceptar**. 
 
-5. Para crear la tabla **emp** e insertar en ella algunos datos de ejemplo, ejecute el siguiente script de consulta en la base de datos. En la vista de árbol, haga clic con el botón derecho en la base de datos que ha creado y, después, haga clic en **Nueva consulta**.
+1. Para crear la tabla **emp** e insertar en ella algunos datos de ejemplo, ejecute el siguiente script de consulta en la base de datos. En la vista de árbol, haga clic con el botón derecho en la base de datos que ha creado y, después, haga clic en **Nueva consulta**.
 
     ```sql
     CREATE TABLE dbo.emp
@@ -78,17 +78,17 @@ En este tutorial, use el nombre y la clave de su cuenta de almacenamiento. Para 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con el nombre de usuario y la contraseña de Azure. 
 
-2. En el panel izquierdo, seleccione **Más servicios**. Use la palabra clave **Almacenamiento** para filtrar el resultado y, luego, seleccione **Cuentas de almacenamiento**.
+1. En el panel izquierdo, seleccione **Más servicios**. Use la palabra clave **Almacenamiento** para filtrar el resultado y, luego, seleccione **Cuentas de almacenamiento**.
 
     ![Búsqueda de cuenta de almacenamiento](media/tutorial-hybrid-copy-powershell/search-storage-account.png)
 
-3. En la lista de cuentas de almacenamiento, filtre por su cuenta de almacenamiento, si fuera necesario. Después, seleccione su cuenta de almacenamiento. 
+1. En la lista de cuentas de almacenamiento, filtre por su cuenta de almacenamiento, si fuera necesario. Después, seleccione su cuenta de almacenamiento. 
 
-4. En la ventana **Cuenta de almacenamiento**, seleccione **Claves de acceso**.
+1. En la ventana **Cuenta de almacenamiento**, seleccione **Claves de acceso**.
 
     ![Claves de acceso](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
 
-5. En los cuadros **Nombre de la cuenta de almacenamiento** y **key1**, copie los valores y péguelos en el Bloc de notas, u otro editor, para su uso posterior en el tutorial. 
+1. En los cuadros **Nombre de la cuenta de almacenamiento** y **key1**, copie los valores y péguelos en el Bloc de notas, u otro editor, para su uso posterior en el tutorial. 
 
 #### <a name="create-the-adftutorial-container"></a>Creación del contenedor adftutorial 
 En esta sección se crea un contenedor de blobs denominado **adftutorial** en la instancia de Blob Storage. 
@@ -97,19 +97,19 @@ En esta sección se crea un contenedor de blobs denominado **adftutorial** en la
 
     ![Selección de la opción Blobs](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 
-2. En la ventana **Blob service**, seleccione **Contenedor**. 
+1. En la ventana **Blob service**, seleccione **Contenedor**. 
 
     ![Botón Contenedor](media/tutorial-hybrid-copy-powershell/add-container-button.png)
 
-3. En la ventana **Nuevo contenedor**, en el cuadro **Nombre**, escriba **adftutorial**y, después, seleccione **Aceptar**. 
+1. En la ventana **Nuevo contenedor**, en el cuadro **Nombre**, escriba **adftutorial**y, después, seleccione **Aceptar**. 
 
     ![Nuevo contenedor](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 
-4. En la lista de contenedores, seleccione **adftutorial**.
+1. En la lista de contenedores, seleccione **adftutorial**.
 
     ![Selección de contenedor](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
 
-5. Mantenga abierta la ventana **Contenedor** de **adftutorial**. Úselo para comprobar la salida al final de este tutorial. Data Factory crea automáticamente la carpeta de salida de este contenedor, por lo que no es necesario que el usuario la cree.
+1. Mantenga abierta la ventana **Contenedor** de **adftutorial**. Úselo para comprobar la salida al final de este tutorial. Data Factory crea automáticamente la carpeta de salida de este contenedor, por lo que no es necesario que el usuario la cree.
 
     ![Ventana Contenedor](media/tutorial-hybrid-copy-powershell/container-page.png)
 
@@ -119,32 +119,32 @@ En esta sección se crea un contenedor de blobs denominado **adftutorial** en la
 1. En el menú izquierdo, seleccione **Nuevo** > **Datos y análisis** > **Data Factory**. 
   
    ![Creación de nueva factoría de datos](./media/tutorial-hybrid-copy-data-tool/new-azure-data-factory-menu.png)
-2. En la página **Nueva factoría de datos**, en **Nombre**, escriba **ADFTutorialDataFactory**. 
+1. En la página **Nueva factoría de datos**, en **Nombre**, escriba **ADFTutorialDataFactory**. 
    
      ![Nueva factoría de datos](./media/tutorial-hybrid-copy-data-tool/new-azure-data-factory.png)
 
    El nombre de la factoría de datos tiene que ser *único a nivel global*. Si ve el siguiente mensaje de error en el campo de nombre, cambie el nombre de la factoría de datos (por ejemplo, suNombreADFTutorialDataFactory). Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Azure Data Factory: reglas de nomenclatura](naming-rules.md).
 
    ![Nombre de la nueva factoría de datos](./media/tutorial-hybrid-copy-data-tool/name-not-available-error.png)
-3. Seleccione la **suscripción** de Azure en la que quiere crear la factoría de datos. 
-4. Para **Grupo de recursos**, realice uno de los siguientes pasos:
+1. Seleccione la **suscripción** de Azure en la que quiere crear la factoría de datos. 
+1. Para **Grupo de recursos**, realice uno de los siguientes pasos:
   
       - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable.
 
       - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos. 
         
       Para más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).
-5. En **Versión**, seleccione **V2**.
-6. En **Ubicación**, seleccione la ubicación de la factoría de datos. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (por ejemplo, Azure Storage y SQL Database) y los procesos (por ejemplo, Azure HDInsight) que usa Data Factory pueden estar en otras ubicaciones o regiones.
-7. Seleccione **Anclar al panel**. 
-8. Seleccione **Crear**.
-9. En el panel, verá el icono siguiente con el estado **Deploying Data Factory** (Implementando Data Factory):
+1. En **Versión**, seleccione **V2**.
+1. En **Ubicación**, seleccione la ubicación de la factoría de datos. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (por ejemplo, Azure Storage y SQL Database) y los procesos (por ejemplo, Azure HDInsight) que usa Data Factory pueden estar en otras ubicaciones o regiones.
+1. Seleccione **Anclar al panel**. 
+1. Seleccione **Crear**.
+1. En el panel, verá el icono siguiente con el estado **Deploying Data Factory** (Implementando Data Factory):
 
     ![Icono de implementación de una factoría de datos](media/tutorial-hybrid-copy-data-tool/deploying-data-factory.png)
-10. Una vez finalizada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
+1. Una vez finalizada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
   
     ![Página principal Factoría de datos](./media/tutorial-hybrid-copy-data-tool/data-factory-home-page.png)
-11. Haga clic en **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Data Factory en una pestaña independiente. 
+1. Haga clic en **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Data Factory en una pestaña independiente. 
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Uso de la herramienta Copy Data para crear una canalización
 
@@ -152,43 +152,43 @@ En esta sección se crea un contenedor de blobs denominado **adftutorial** en la
 
    ![Icono de la herramienta Copy Data](./media/tutorial-hybrid-copy-data-tool/copy-data-tool-tile.png)
 
-2. En la página **Properties** (Propiedades) de la herramienta Copy Data, en **Task name** (Nombre de la tarea), especifique **CopyFromOnPremSqlToAzureBlobPipeline**. Luego, seleccione **Siguiente**. La herramienta Copy Data crea una canalización con el nombre que especificó para este campo. 
+1. En la página **Properties** (Propiedades) de la herramienta Copy Data, en **Task name** (Nombre de la tarea), especifique **CopyFromOnPremSqlToAzureBlobPipeline**. Luego, seleccione **Siguiente**. La herramienta Copy Data crea una canalización con el nombre que especificó para este campo. 
 
    ![Nombre de tarea](./media/tutorial-hybrid-copy-data-tool/properties-page.png)
 
-3. En la página **Almacén de datos de origen**, haga clic en **Crear nueva conexión**. 
+1. En la página **Almacén de datos de origen**, haga clic en **Crear nueva conexión**. 
 
    ![Creación de nuevo servicio vinculado](./media/tutorial-hybrid-copy-data-tool/create-new-source-data-store.png)
 
-4. En **New Linked Service** (Nuevo servicio vinculado), busque **SQL Server**y, a continuación, seleccione **Siguiente**. 
+1. En **New Linked Service** (Nuevo servicio vinculado), busque **SQL Server**y, a continuación, seleccione **Siguiente**. 
 
    ![Selección de SQL Server](./media/tutorial-hybrid-copy-data-tool/select-source-data-store.png)
 
-5. En New Linked Service (Nuevo servicio vinculado) (SQL Server) **Nombre****, escriba **SqlServerLinkedService**. Seleccione **+Nuevo** en la opción **Connect via integration runtime** (Conectar mediante IR). Tiene que crear un entorno de ejecución de integración, descargarlo en la máquina y registrarlo en Data Factory. El entorno de ejecución de integración autohospedado copia datos entre el entorno local y la nube.
+1. En New Linked Service (Nuevo servicio vinculado) (SQL Server) **Nombre****, escriba **SqlServerLinkedService**. Seleccione **+Nuevo** en la opción **Connect via integration runtime** (Conectar mediante IR). Tiene que crear un entorno de ejecución de integración, descargarlo en la máquina y registrarlo en Data Factory. El entorno de ejecución de integración autohospedado copia datos entre el entorno local y la nube.
 
    ![Creación de un entorno de ejecución de integración autohospedado](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-link.png)
 
-6. En el cuadro de diálogo **Integration Runtime Setup** (Configuración de Integration Runtime), seleccione **Private Network** (Red privada). Luego, seleccione **Siguiente**. 
+1. En el cuadro de diálogo **Integration Runtime Setup** (Configuración de Integration Runtime), seleccione **Private Network** (Red privada). Luego, seleccione **Siguiente**. 
 
    ![](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog0.png)
 
-7. En el cuadro de diálogo **Integration Runtime Setup** (Configuración de Integration Runtime), en el campo **Name** (Nombre) escriba **TutorialIntegrationRuntime**. Luego, seleccione **Siguiente**. 
+1. En el cuadro de diálogo **Integration Runtime Setup** (Configuración de Integration Runtime), en el campo **Name** (Nombre) escriba **TutorialIntegrationRuntime**. Luego, seleccione **Siguiente**. 
 
    ![Nombre del entorno de ejecución de integración](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog.png)
 
-8. Seleccione **Click here to launch the express setup for this computer** (Haga clic aquí para iniciar la configuración rápida en este equipo). Esta acción instala el entorno de ejecución de integración en la máquina y la registra en Data Factory. Como alternativa, puede usar la instalación manual para descargar el archivo de instalación, ejecutarlo y registrar la instancia de Integration Runtime con la clave. 
+1. Seleccione **Click here to launch the express setup for this computer** (Haga clic aquí para iniciar la configuración rápida en este equipo). Esta acción instala el entorno de ejecución de integración en la máquina y la registra en Data Factory. Como alternativa, puede usar la instalación manual para descargar el archivo de instalación, ejecutarlo y registrar la instancia de Integration Runtime con la clave. 
 
     ![Vínculo Launch express setup on this computer (Iniciar configuración rápida en este equipo)](./media/tutorial-hybrid-copy-data-tool/launch-express-setup-link.png)
 
-9. Ejecute la aplicación descargada. Verá el estado de la configuración rápida en la ventana. 
+1. Ejecute la aplicación descargada. Verá el estado de la configuración rápida en la ventana. 
 
     ![Estado de la configuración rápida](./media/tutorial-hybrid-copy-data-tool/express-setup-status.png)
 
-10. Confirme que **TutorialIntegrationRuntime** está seleccionado en el campo **Integration Runtime**.
+1. Confirme que **TutorialIntegrationRuntime** está seleccionado en el campo **Integration Runtime**.
 
     ![Integration Runtime seleccionado](./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png)
 
-11. En **Specify the on-premises SQL Server database** (Especificar la base de datos de SQL Server local), realice los pasos siguientes: 
+1. En **Specify the on-premises SQL Server database** (Especificar la base de datos de SQL Server local), realice los pasos siguientes: 
 
       a. En **Name** (Nombre), escriba **SqlServerLinkedService**.
 
@@ -202,25 +202,25 @@ En esta sección se crea un contenedor de blobs denominado **adftutorial** en la
 
       f. Escriba la **contraseña** del usuario. Seleccione **Finalizar**. 
 
-12. Seleccione **Next** (Siguiente).
+1. Seleccione **Next** (Siguiente).
 
      ![](./media/tutorial-hybrid-copy-data-tool/select-source-linked-service.png)
 
-13. En la página **Select tables from which to copy the data or use a custom query** (Seleccionar tablas de donde copiar los datos o usar una consulta personalizada), seleccione la tabla **[dbo].[emp]** de la lista y luego seleccione **Next** (Siguiente). Puede seleccionar cualquier otra tabla en función de la base de datos.
+1. En la página **Select tables from which to copy the data or use a custom query** (Seleccionar tablas de donde copiar los datos o usar una consulta personalizada), seleccione la tabla **[dbo].[emp]** de la lista y luego seleccione **Next** (Siguiente). Puede seleccionar cualquier otra tabla en función de la base de datos.
 
      ![Selección de la tabla de productos](./media/tutorial-hybrid-copy-data-tool/select-emp-table.png)
 
-14. En la página **Almacén de datos de destino**, seleccione **Crear nueva conexión**
+1. En la página **Almacén de datos de destino**, seleccione **Crear nueva conexión**
 
      //image create-new-sink-connection.png
 
      ![Creación de servicio vinculado de destino](./media/tutorial-hybrid-copy-data-tool/create-new-sink-connection.png)
 
-15. En **New Linked Service** (Nuevo servicio vinculado), busque y seleccione **Azure Blob** y, para terminar, seleccione **Continuar**. 
+1. En **New Linked Service** (Nuevo servicio vinculado), busque y seleccione **Azure Blob** y, para terminar, seleccione **Continuar**. 
 
      ![Selección de Blob Storage](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
 
-16. En el cuadro de diálogo **New Linked Service (Azure Blob Storage)** [Nuevo servicio vinculado (Azure Blob Storage)], realice los siguientes pasos: 
+1. En el cuadro de diálogo **New Linked Service (Azure Blob Storage)** [Nuevo servicio vinculado (Azure Blob Storage)], realice los siguientes pasos: 
 
      a. En **Name**** (Nombre), escriba **AzureStorageLinkedService**.
 
@@ -232,43 +232,43 @@ En esta sección se crea un contenedor de blobs denominado **adftutorial** en la
 
      ![Especificar la cuenta de almacenamiento](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
 
-17. En el cuadro de diálogo **Almacén de datos de destino**, seleccione **Siguiente**. En **Propiedades de conexión**, seleccione el **servicio Azure Storage** como **Azure Blob Storage**. Seleccione **Next** (Siguiente). 
+1. En el cuadro de diálogo **Almacén de datos de destino**, seleccione **Siguiente**. En **Propiedades de conexión**, seleccione el **servicio Azure Storage** como **Azure Blob Storage**. Seleccione **Next** (Siguiente). 
 
      ![propiedades de la conexión](./media/tutorial-hybrid-copy-data-tool/select-connection-properties.png)
 
-18. En el cuadro de diálogo **Choose the output file or folder** (Elegir el archivo o la carpeta de salida), en **Folder path** (Ruta de acceso a la carpeta) escriba **adftutorial/fromonprem**. El contenedor **adftutorial** se creó como parte de los requisitos previos. Si no existe la carpeta de salida (en este caso **fromonprem**), Data Factory la crea automáticamente. También puede usar el botón **Browse** (Examinar) para examinar Blob Storage y sus contenedores o carpetas. Si no especifica ningún valor en **nombre de archivo**, de forma predeterminada se usará el nombre del origen (en este caso **dbo.emp**).
+1. En el cuadro de diálogo **Choose the output file or folder** (Elegir el archivo o la carpeta de salida), en **Folder path** (Ruta de acceso a la carpeta) escriba **adftutorial/fromonprem**. El contenedor **adftutorial** se creó como parte de los requisitos previos. Si no existe la carpeta de salida (en este caso **fromonprem**), Data Factory la crea automáticamente. También puede usar el botón **Browse** (Examinar) para examinar Blob Storage y sus contenedores o carpetas. Si no especifica ningún valor en **nombre de archivo**, de forma predeterminada se usará el nombre del origen (en este caso **dbo.emp**).
            
      ![Elección del archivo o la carpeta de salida](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
 
-19. En el cuadro de diálogo **File format settings** (Configuración de formato de archivo), seleccione **Next** (Siguiente). 
+1. En el cuadro de diálogo **File format settings** (Configuración de formato de archivo), seleccione **Next** (Siguiente). 
 
      ![Página File format settings (Configuración de formato de archivo)](./media/tutorial-hybrid-copy-data-tool/file-format-settings-page.png)
 
-20. En el cuadro de diálogo **Configuración**, seleccione **Next** (Siguiente). 
+1. En el cuadro de diálogo **Configuración**, seleccione **Next** (Siguiente). 
 
      ![Página Configuración](./media/tutorial-hybrid-copy-data-tool/settings-page.png)
 
-21. En el cuadro de diálogo **Summary** (Resumen), revise los valores de configuración y seleccione **Next** (Siguiente). 
+1. En el cuadro de diálogo **Summary** (Resumen), revise los valores de configuración y seleccione **Next** (Siguiente). 
 
      ![Página de resumen](./media/tutorial-hybrid-copy-data-tool/summary-page.png)
 
-22. En la página **Deployment** (Implementación), seleccione **Monitor** (Supervisión) para supervisar la canalización o la tarea que ha creado.
+1. En la página **Deployment** (Implementación), seleccione **Monitor** (Supervisión) para supervisar la canalización o la tarea que ha creado.
 
      ![Página Deployment (Implementación)](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
 
-23. En la pestaña **Monitor** (Supervisión), puede ver el estado de la canalización que ha creado. Puede usar los vínculos de la columna **Action** (Acción) para ver las ejecuciones de actividad asociadas a la de la canalización y volver a ejecutar la canalización. 
+1. En la pestaña **Monitor** (Supervisión), puede ver el estado de la canalización que ha creado. Puede usar los vínculos de la columna **Action** (Acción) para ver las ejecuciones de actividad asociadas a la de la canalización y volver a ejecutar la canalización. 
 
      ![La supervisión de la canalización se ejecuta](./media/tutorial-hybrid-copy-data-tool/monitor-pipeline-runs.png)
 
-24. Seleccione el vínculo **View Activity Runs** (Ver ejecuciones de actividad) de la columna **Actions** (Acciones) para ver las ejecuciones de actividad asociadas a las de la canalización. Para ver detalles acerca de la operación de copia, seleccione el vínculo **Details** (Detalles) (icono de gafas) en la columna **Actions** (Acciones). Para volver a la vista **Pipeline Runs** (Ejecuciones de canalización) seleccione **Pipelines** (Canalizaciones) en la parte superior.
+1. Seleccione el vínculo **View Activity Runs** (Ver ejecuciones de actividad) de la columna **Actions** (Acciones) para ver las ejecuciones de actividad asociadas a las de la canalización. Para ver detalles acerca de la operación de copia, seleccione el vínculo **Details** (Detalles) (icono de gafas) en la columna **Actions** (Acciones). Para volver a la vista **Pipeline Runs** (Ejecuciones de canalización) seleccione **Pipelines** (Canalizaciones) en la parte superior.
 
      ![Supervisión de las ejecuciones de actividad](./media/tutorial-hybrid-copy-data-tool/monitor-activity-runs.png)
 
-25. Confirme que ve un archivo de salida en la carpeta **fromonprem** del contenedor **adftutorial**. 
+1. Confirme que ve un archivo de salida en la carpeta **fromonprem** del contenedor **adftutorial**. 
 
      ![Blob de salida](./media/tutorial-hybrid-copy-data-tool/output-blob.png)
 
-26. Seleccione la pestaña **Edit** (Editar) de la izquierda para cambiar al modo de edición. Con el editor puede actualizar los servicios vinculados, los conjuntos de datos y las canalizaciones creados mediante la herramienta. Seleccione **Code** (Código) para ver el código JSON asociado con la entrada abierta en el editor. Para más información sobre cómo editar estas entidades en la interfaz de usuario de Data Factory, consulte [la versión de Azure Portal de este tutorial](tutorial-copy-data-portal.md).
+1. Seleccione la pestaña **Edit** (Editar) de la izquierda para cambiar al modo de edición. Con el editor puede actualizar los servicios vinculados, los conjuntos de datos y las canalizaciones creados mediante la herramienta. Seleccione **Code** (Código) para ver el código JSON asociado con la entrada abierta en el editor. Para más información sobre cómo editar estas entidades en la interfaz de usuario de Data Factory, consulte [la versión de Azure Portal de este tutorial](tutorial-copy-data-portal.md).
 
      ![Pestaña Edit (Editar)](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 

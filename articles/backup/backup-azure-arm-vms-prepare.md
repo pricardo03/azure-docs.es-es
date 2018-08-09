@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/21/2018
 ms.author: markgal
-ms.openlocfilehash: 06898877a4f13182230c6d5fb12544f90525d84d
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 40a83b93443ebe1482f89a114505a1ba27b93bd2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960175"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445750"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager
 
@@ -69,29 +69,29 @@ Un almacén de Recovery Services es una entidad que almacena las copias de segur
 Para crear un almacén de Recovery Services:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2. En el menú de la **izquierda**, seleccione **Más servicios**y, después, escriba **Recovery Services**. En cuanto empiece a escribirlo, la entrada filtra la lista de recursos. Seleccione **Almacenes de Recovery Services**.
+1. En el menú de la **izquierda**, seleccione **Más servicios**y, después, escriba **Recovery Services**. En cuanto empiece a escribirlo, la entrada filtra la lista de recursos. Seleccione **Almacenes de Recovery Services**.
 
     ![Escribir en el cuadro y seleccionar "Almacenes de Recovery Services" en los resultados](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
     Aparece la lista de almacenes de Recovery Services.
-3. En el menú **Almacenes de Recovery Services**, seleccione **Agregar**.
+1. En el menú **Almacenes de Recovery Services**, seleccione **Agregar**.
 
     ![Creación del almacén de Recovery Services, paso 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
     Se abre el panel **Almacenes de Recovery Services**. En él se le solicita que rellene los campos **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
 
     ![Panel "Almacenes de Recovery Services"](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
-4. En **Nombre**, escriba un nombre descriptivo que identifique el almacén. El nombre debe ser único para la suscripción de Azure. y tener entre 2 y 50 caracteres. Debe comenzar por una letra y solo puede contener letras, números y guiones.
-5. Seleccione **Suscripción** para ver la lista de suscripciones disponibles. Si no está seguro de la suscripción que va a utilizar, use la predeterminada (o sugerida). Solo hay varias opciones si la cuenta profesional o educativa está asociada a varias suscripciones de Azure.
-6. Seleccione **Grupo de recursos** para ver la lista de grupos de recursos disponibles, o bien seleccione **Nuevo** para crear uno. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-7. Haga clic en **Ubicación** para seleccionar la región geográfica del almacén. El almacén *debe* estar en la misma región que las máquinas virtuales que desea proteger.
+1. En **Nombre**, escriba un nombre descriptivo que identifique el almacén. El nombre debe ser único para la suscripción de Azure. y tener entre 2 y 50 caracteres. Debe comenzar por una letra y solo puede contener letras, números y guiones.
+1. Seleccione **Suscripción** para ver la lista de suscripciones disponibles. Si no está seguro de la suscripción que va a utilizar, use la predeterminada (o sugerida). Solo hay varias opciones si la cuenta profesional o educativa está asociada a varias suscripciones de Azure.
+1. Seleccione **Grupo de recursos** para ver la lista de grupos de recursos disponibles, o bien seleccione **Nuevo** para crear uno. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+1. Haga clic en **Ubicación** para seleccionar la región geográfica del almacén. El almacén *debe* estar en la misma región que las máquinas virtuales que desea proteger.
 
    > [!IMPORTANT]
    > Si no está seguro de cuál es ubicación en la que se encuentra la máquina virtual, cierre el cuadro de diálogo de creación del almacén y vaya a la lista de máquinas virtuales del portal. Si tiene máquinas virtuales en varias regiones, debe crear un almacén de Recovery Services en cada una de ellas. Cree el almacén en la primera ubicación antes de pasar a la siguiente ubicación. No hay necesidad de especificar cuentas de almacenamiento para almacenar los datos de la copia de seguridad. Tanto el almacén de Recovery Services como el de Azure Backup lo controlan automáticamente.
    >
    >
 
-8. Seleccione **Crear**. La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones del estado en la parte superior derecha del portal. Tras crear el almacén, este ya aparece en la lista de almacenes de Recovery Services. Si no lo ve, haga clic en **Actualizar**.
+1. Seleccione **Crear**. La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones del estado en la parte superior derecha del portal. Tras crear el almacén, este ya aparece en la lista de almacenes de Recovery Services. Si no lo ve, haga clic en **Actualizar**.
 
     ![Lista de copias de seguridad](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
@@ -107,13 +107,13 @@ Para editar la configuración de replicación de almacenamiento:
 
    ![Elegir el almacén en la lista de almacenes de Backup](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
 
-2. En el panel **Configuración**, desplácese hacia abajo con el control deslizante vertical hasta la sección **Administrar** y haga clic en **Infraestructura de Backup**. En la sección **General**, seleccione **Configuración de copia de seguridad**. En el panel **Configuración de copia de seguridad**, elija la opción de replicación del almacenamiento para su almacén. De forma predeterminada, el almacén tiene almacenamiento con redundancia geográfica.
+1. En el panel **Configuración**, desplácese hacia abajo con el control deslizante vertical hasta la sección **Administrar** y haga clic en **Infraestructura de Backup**. En la sección **General**, seleccione **Configuración de copia de seguridad**. En el panel **Configuración de copia de seguridad**, elija la opción de replicación del almacenamiento para su almacén. De forma predeterminada, el almacén tiene almacenamiento con redundancia geográfica.
 
    ![Lista de copias de seguridad](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
    Si usa Azure como punto de conexión del almacenamiento de copia de seguridad principal, siga utilizando el almacenamiento con redundancia geográfica. Si se usa Azure como punto de conexión de almacenamiento de copia de seguridad no principal, elija el almacenamiento con redundancia local. Para más información acerca de las opciones de almacenamiento, consulte [Replicación de Azure Storage](../storage/common/storage-redundancy.md).
 
-3. Si cambia el tipo de replicación de Storage, seleccione **Guardar**.
+1. Si cambia el tipo de replicación de Storage, seleccione **Guardar**.
     
 Tras elegir la opción de almacenamiento del almacén, está listo para asociar la máquina virtual con el almacén. Para comenzar la asociación, es preciso detectar y registrar las máquinas virtuales de Azure.
 
@@ -135,20 +135,20 @@ Antes de registrar una máquina virtual en un almacén de Recovery Services, eje
       Se abren el panel **Configuración** y el panel del almacén elegido.
 
       ![Panel Configuración y panel del almacén](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
-2. En el menú del panel del almacén, seleccione **Backup**.
+1. En el menú del panel del almacén, seleccione **Backup**.
 
    ![Botón Backup](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
    Se abren los paneles **Backup** y **Objetivo de Backup**.
 
-3. En el panel **Objetivo de Backup**, en **¿Dónde se ejecuta su carga de trabajo?** seleccione **Azure** y en **¿De qué desea realizar copias de seguridad?**, seleccione **Máquina virtual**. Después seleccione **Aceptar**.
+1. En el panel **Objetivo de Backup**, en **¿Dónde se ejecuta su carga de trabajo?** seleccione **Azure** y en **¿De qué desea realizar copias de seguridad?**, seleccione **Máquina virtual**. Después seleccione **Aceptar**.
 
    ![Paneles Backup y Objetivo de Backup](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
    En este paso se registra la extensión de la máquina virtual en el almacén. El panel **Objetivo de Backup** se cierra y se abre el panel **Directiva de copia de seguridad**.
 
    ![Paneles "Backup" y "Directiva de copia de seguridad"](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
-4. En el panel **Directiva de copia de seguridad**, seleccione la que desee aplicar al almacén.
+1. En el panel **Directiva de copia de seguridad**, seleccione la que desee aplicar al almacén.
 
    ![Seleccionar directiva de copia de seguridad](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
@@ -156,13 +156,13 @@ Antes de registrar una máquina virtual en un almacén de Recovery Services, eje
     Haga clic en **Aceptar** para asociar la directiva de copia de seguridad con el almacén.
 
    El panel **Directiva de copia de seguridad** se cierra y se abre el panel **Seleccionar máquinas virtuales**.
-5. En el panel **Seleccionar máquinas virtuales**, elija las máquinas virtuales que se asociarán con la directiva especificada y seleccione **Aceptar**.
+1. En el panel **Seleccionar máquinas virtuales**, elija las máquinas virtuales que se asociarán con la directiva especificada y seleccione **Aceptar**.
 
    ![Panel "Seleccionar máquinas virtuales"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
    Se valida la máquina virtual seleccionada. Si no ve las máquinas virtuales que espera ver, compruebe que las máquinas virtuales están en la misma región de Azure que el almacén de Recovery Services. Si sigue sin ver las máquinas virtuales, compruebe que no están ya protegidas con otro almacén. El panel del almacén muestra la región en la que existe el almacén de Recovery Services.
 
-6. Ahora que ha definido toda la configuración del almacén, en el panel **Backup**, haga clic en **Habilitar copia de seguridad**. En este paso se implementa la directiva en el almacén y en las máquinas virtuales. Este paso no crea el punto de recuperación inicial de la máquina virtual.
+1. Ahora que ha definido toda la configuración del almacén, en el panel **Backup**, haga clic en **Habilitar copia de seguridad**. En este paso se implementa la directiva en el almacén y en las máquinas virtuales. Este paso no crea el punto de recuperación inicial de la máquina virtual.
 
    ![Botón "Habilitar copia de seguridad"](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
@@ -241,15 +241,15 @@ Para usar a un proxy HTTP para comunicarse con la red pública de Internet, siga
 En este procedimiento se establece la configuración del servidor proxy para la cuenta de sistema local.
 
 1. Descargue [PsExec](https://technet.microsoft.com/sysinternals/bb897553).
-2. Abra Internet Explorer ejecutando el comando siguiente desde un símbolo del sistema con privilegios elevados:
+1. Abra Internet Explorer ejecutando el comando siguiente desde un símbolo del sistema con privilegios elevados:
 
     ```
     psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
     ```
 
-3. En Internet Explorer, vaya a **Herramientas** > **Opciones de Internet** > **Conexiones** > **Configuración de LAN**.
-4. Compruebe la configuración del proxy de la cuenta del sistema. Establezca la dirección IP y el puerto del proxy.
-5. Cierre Internet Explorer.
+1. En Internet Explorer, vaya a **Herramientas** > **Opciones de Internet** > **Conexiones** > **Configuración de LAN**.
+1. Compruebe la configuración del proxy de la cuenta del sistema. Establezca la dirección IP y el puerto del proxy.
+1. Cierre Internet Explorer.
 
 El siguiente script establece una configuración del proxy a nivel de todo el equipo y la usa para el tráfico HTTP o HTTPS saliente. Si ha configurado un servidor proxy en una cuenta de usuario actual (no en una cuenta de sistema local), utilice este script para aplicarlo a SYSTEMACCOUNT.
 
@@ -283,10 +283,10 @@ HttpProxy.Port=<proxy port>
 
 #### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Paso 2: Permiso para las conexiones entrantes en el servidor proxy
 1. En el servidor proxy, abra Firewall de Windows. La forma más fácil de acceder al firewall es buscar **Firewall de Windows con seguridad avanzada**.
-2. En el cuadro de diálogo **Firewall de Windows con seguridad avanzada**, haga clic en **Reglas de entrada** y seleccione **Nueva regla**.
-3. En el Asistente para nueva regla de entrada, en la página **Tipo de regla**, seleccione la **Personalizada** y, después, **Siguiente**.
-4. En la página **Programa**, seleccione **Todos los programas** y seleccione **Siguiente**.
-5. En la página **Protocolo y puertos**, escriba la siguiente información y seleccione **Siguiente**:
+1. En el cuadro de diálogo **Firewall de Windows con seguridad avanzada**, haga clic en **Reglas de entrada** y seleccione **Nueva regla**.
+1. En el Asistente para nueva regla de entrada, en la página **Tipo de regla**, seleccione la **Personalizada** y, después, **Siguiente**.
+1. En la página **Programa**, seleccione **Todos los programas** y seleccione **Siguiente**.
+1. En la página **Protocolo y puertos**, escriba la siguiente información y seleccione **Siguiente**:
    * En **Tipo de protocolo**, seleccione **TCP**.
    * En **Puerto Local**, seleccione **Puertos específicos**. En el siguiente cuadro, especifique el número del puerto del proxy que se ha configurado.
    * En **Puerto remoto**, seleccione **Todos los puertos**.

@@ -17,12 +17,12 @@ ms.date: 05/01/2017
 ms.author: celested
 ms.reviewer: hirsin, jmprieur, elisol, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1c91c1ed8358f58ab7a4d9a697ec2d7933c4f137
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8cf592ddd2c4a68e15856d968b77813604713b78
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316745"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592047"
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Inicio de sesión de usuarios de cuentas Microsoft y Azure Active Directory en una sola aplicación
 Antes, los desarrolladores de aplicaciones que querían admitir cuentas de Microsoft personales y profesionales de Azure Active Directory debían realizar la integración con dos sistemas independientes. El punto de conexión de la versión 2.0 de Azure Active Directory (Azure AD) presenta una nueva versión de la API de autenticación que simplifica este proceso. El punto de conexión de la versión 2.0 de Azure AD permite iniciar sesión con ambos tipos de cuenta mediante el uso de una única integración. Las aplicaciones que usan el punto de conexión de la versión 2.0 de Azure AD también pueden usar las API de REST de [Microsoft Graph API](https://graph.microsoft.io) con cualquier tipo de cuenta.
@@ -36,7 +36,7 @@ Elija su plataforma favorita de la lista siguiente para crear una aplicación me
 ## <a name="learn-more-about-the-azure-ad-v20-endpoint"></a>Obtener más información sobre el punto de conexión de la versión 2.0 de Azure AD
 Obtener información sobre lo que puede hacer con el punto de conexión de la versión 2.0 de Azure AD:
 
-* Descubra los [tipos de aplicaciones que se pueden crear con el punto de conexión de la versión 2.0 de Azure AD](active-directory-v2-flows.md).
+* Descubra los [tipos de aplicaciones que se pueden crear con el punto de conexión de la versión 2.0 de Azure AD](v2-app-types.md).
 * Conozca las [limitaciones y restricciones](active-directory-v2-limitations.md) del punto de conexión de la versión 2.0 de Azure AD.
 * Vea este vídeo para una introducción al punto de conexión de la versión 2.0 de Azure AD:
 
@@ -46,12 +46,12 @@ Obtener información sobre lo que puede hacer con el punto de conexión de la ve
 Explore información detallada sobre la plataforma del punto de conexión de la versión 2.0 de Azure AD:
 
 * [Referencia de protocolos de la versión 2.0 de Azure AD](active-directory-v2-protocols.md)
-* [Referencia de tokens de la versión 2.0 de Azure AD](active-directory-v2-tokens.md)
-* [Referencia de las bibliotecas de autenticación de la versión 2.0 de Azure AD](active-directory-v2-libraries.md)
-* [Ámbitos y consentimiento en el punto de conexión de la versión 2.0 de Azure AD](active-directory-v2-scopes.md)
+* [Referencia de tokens de la versión 2.0 de Azure AD](v2-id-and-access-tokens.md)
+* [Referencia de las bibliotecas de autenticación de la versión 2.0 de Azure AD](reference-v2-libraries.md)
+* [Ámbitos y consentimiento en el punto de conexión de la versión 2.0 de Azure AD](v2-permissions-and-consent.md)
 * [Microsoft Graph API](https://graph.microsoft.io)
 
 > [!NOTE]
-> Si solo necesita iniciar sesión en cuentas profesionales o educativas desde Azure Active Directory, comience con la [Guía del desarrollador de Azure AD](active-directory-developers-guide.md). El punto de conexión de la versión 2.0 de Azure AD está diseñado para que lo usen desarrolladores que deban iniciar sesión explícitamente en cuentas personales de Microsoft.
+> Si solo necesita iniciar sesión en cuentas profesionales o educativas desde Azure Active Directory, comience con la [Guía del desarrollador de Azure AD](azure-ad-developers-guide.md). El punto de conexión de la versión 2.0 de Azure AD está diseñado para que lo usen desarrolladores que deban iniciar sesión explícitamente en cuentas personales de Microsoft.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

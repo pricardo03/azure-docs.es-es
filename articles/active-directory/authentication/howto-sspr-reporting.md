@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2560296c088491b7ae0cd414f88ae337c1383c9a
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 5931958d17ea119e58c066a78a44169be2b9f451
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258803"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627532"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opciones de creación de informes para la administración de contraseñas de Azure AD
 
@@ -40,7 +40,7 @@ Las siguientes preguntas se pueden responder mediante informes existentes en [Az
 
 ## <a name="power-bi-content-pack"></a>Paquete de contenido de Power BI
 
-Si es usuario de Power BI, hay un paquete de contenido para Azure AD que incluye informes fáciles de usar con SSPR. Para obtener más información sobre cómo usar e implementar el paquete de contenido, vea [Uso del paquete de contenido de Power BI de Azure Active Directory](../active-directory-reporting-power-bi-content-pack-how-to.md). Con el paquete de contenido, puede crear sus propios paneles y compartirlos con otras personas de la organización.
+Si es usuario de Power BI, hay un paquete de contenido para Azure AD que incluye informes fáciles de usar con SSPR. Para obtener más información sobre cómo usar e implementar el paquete de contenido, vea [Uso del paquete de contenido de Power BI de Azure Active Directory](../reports-monitoring/howto-power-bi-content-pack.md). Con el paquete de contenido, puede crear sus propios paneles y compartirlos con otras personas de la organización.
 
 ## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>Visualización de los informes de administración de contraseñas en Azure Portal
 

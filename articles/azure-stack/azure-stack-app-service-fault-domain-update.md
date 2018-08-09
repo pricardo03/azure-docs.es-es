@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: anwestg
-ms.openlocfilehash: ce57e153dcab6a386150ebefe1ecb4a018514247
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 53766099f283f802482fe8e84144502d386b1d69
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130377"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440158"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Redistribución de Azure App Service en Azure Stack entre dominios de error
 
@@ -48,12 +48,12 @@ Para redistribuir los conjuntos de escalado implementados para el proveedor de r
 Para escalar horizontalmente los conjuntos de escalado, siga estos pasos:
 
 1. Inicie sesión en el Portal de administración de Azure Stack.
-2. Seleccione **Más servicios**.
-3. En COMPUTE, seleccione **Conjuntos de escalado de máquinas virtuales**. Los conjuntos de escalado implementados como parte de la implementación de App Service se enumerarán con la información del recuento de instancias. La captura de pantalla siguiente muestra un ejemplo de conjunto de escalado.
+1. Seleccione **Más servicios**.
+1. En COMPUTE, seleccione **Conjuntos de escalado de máquinas virtuales**. Los conjuntos de escalado implementados como parte de la implementación de App Service se enumerarán con la información del recuento de instancias. La captura de pantalla siguiente muestra un ejemplo de conjunto de escalado.
 
       ![Azure App Service Scale Sets enumerados en la experiencia de usuario con Virtual Machine Scale Sets][1]
 
-4. Escale cada conjunto horizontalmente. Por ejemplo, si tiene tres instancias existentes en el conjunto de escalado, debe escalarlas horizontalmente a seis, para que las tres instancias nuevas se implementen en los dominios de error. En el siguiente ejemplo de PowerShell se muestra el escalamiento horizontal del conjunto de escalado.
+1. Escale cada conjunto horizontalmente. Por ejemplo, si tiene tres instancias existentes en el conjunto de escalado, debe escalarlas horizontalmente a seis, para que las tres instancias nuevas se implementen en los dominios de error. En el siguiente ejemplo de PowerShell se muestra el escalamiento horizontal del conjunto de escalado.
 
    ```powershell
    Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
@@ -69,13 +69,13 @@ Para escalar horizontalmente los conjuntos de escalado, siga estos pasos:
    >[!NOTE]
    >Este paso puede tardar algunas horas en finalizar, según el tipo de rol y del número de instancias.
 
-5. En **Roles de administración de App Service**, supervise el estado de las nuevas instancias de rol. Para comprobar el estado de una instancia de rol individual, seleccione el tipo de rol en la lista.
+1. En **Roles de administración de App Service**, supervise el estado de las nuevas instancias de rol. Para comprobar el estado de una instancia de rol individual, seleccione el tipo de rol en la lista.
 
     ![Azure App Service en roles de Azure Stack][2]
 
-6. Cuando el estado de las nuevas instancias de rol sea **Listo**, vuelva a **Conjunto de escalado de máquinas virtuales** y **elimine** las instancias de rol antiguas.
+1. Cuando el estado de las nuevas instancias de rol sea **Listo**, vuelva a **Conjunto de escalado de máquinas virtuales** y **elimine** las instancias de rol antiguas.
 
-7. Repita estos pasos para **cada** conjunto de escalado de máquinas virtuales.
+1. Repita estos pasos para **cada** conjunto de escalado de máquinas virtuales.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

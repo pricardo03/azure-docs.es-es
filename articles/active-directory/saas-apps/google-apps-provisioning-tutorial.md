@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 4c685e03e5b7532f50d1eee1590eebedfba2b7c2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 26715c6abb9c2c940090c84b64a30f7fb701d059
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212911"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445696"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configuración de G Suite para aprovisionar usuarios automáticamente
 
@@ -28,7 +28,7 @@ El objetivo de este tutorial es explicar cómo aprovisionar y cancelar automáti
 > [!NOTE]
 > Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](./../active-directory-saas-app-provisioning.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con G Suite, se necesitan los siguientes elementos:
 
@@ -71,18 +71,18 @@ Esta sección lo guiará a través del proceso de conexión de Azure AD a la API
    
     ![Selección de seguridad.][10]
 
-2. En la página **Security** (Seguridad), haga clic en **API Reference** (Referencia de API).
+1. En la página **Security** (Seguridad), haga clic en **API Reference** (Referencia de API).
    
     ![Selección de Referencia de API.][15]
 
-3. Seleccione **Enable API access**.
+1. Seleccione **Enable API access**.
    
     ![Selección de Referencia de API.][16]
 
     > [!IMPORTANT]
     > El nombre en Azure Active Directory de cada uno de los usuarios que quiera aprovisionar en G Suite *tiene que* estar vinculado a un dominio personalizado. Por ejemplo, G Suite no acepta los nombres de usuario parecidos a bob@contoso.onmicrosoft.com. Por otro lado, bob@contoso.com se acepta. Puede cambiar el dominio de un usuario existente editando sus propiedades en Azure AD. En los pasos siguientes se han incluido instrucciones sobre cómo establecer un dominio personalizado para Azure Active Directory y G Suite.
       
-4. Si todavía no ha agregado un nombre de dominio personalizado para Azure Active Directory, siga los pasos a continuación:
+1. Si todavía no ha agregado un nombre de dominio personalizado para Azure Active Directory, siga los pasos a continuación:
   
     a. En el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory**. En la lista de directorios, seleccione el directorio. 
 
@@ -108,7 +108,7 @@ Esta sección lo guiará a través del proceso de conexión de Azure AD a la API
     Para el aprovisionamiento de usuarios, el dominio personalizado debe coincidir con el nombre de dominio de la instancia de Azure AD de origen. Si no coinciden, puede resolver el problema si implementa la personalización de asignación de atributos.
 
 
-5. Ahora que ha comprobado todos los dominios con Azure AD, tiene que volverlos a comprobar con Google Apps. Para cada dominio que no esté registrado aún con Google, realice los pasos siguientes:
+1. Ahora que ha comprobado todos los dominios con Azure AD, tiene que volverlos a comprobar con Google Apps. Para cada dominio que no esté registrado aún con Google, realice los pasos siguientes:
    
     a. En la [Consola de administración de Google Apps](http://admin.google.com/), haga clic en **Domains** (Dominios).
      
@@ -129,46 +129,46 @@ Esta sección lo guiará a través del proceso de conexión de Azure AD a la API
      > [!WARNING]
      > Si cambia el dominio principal del inquilino de G Suite y ya ha configurado el inicio de sesión único con Azure AD, tendrá que repetir el paso 3 en [Paso 2: Habilitar el inicio de sesión único](#step-two-enable-single-sign-on).
        
-6. En la [Consola de administración de Google Apps](http://admin.google.com/), seleccione **Admin Roles** (Funciones de administrador).
+1. En la [Consola de administración de Google Apps](http://admin.google.com/), seleccione **Admin Roles** (Funciones de administrador).
    
      ![Selección de Google Apps][26]
 
-7. Determine qué cuenta de administrador quiere usar para administrar el aprovisionamiento de usuarios. Para el **rol administrativo** de esa cuenta, edite los **privilegios** para ese rol. Asegúrese de que habilita todos los **privilegios de la API de administración** para que esta cuenta pueda usarse para el aprovisionamiento.
+1. Determine qué cuenta de administrador quiere usar para administrar el aprovisionamiento de usuarios. Para el **rol administrativo** de esa cuenta, edite los **privilegios** para ese rol. Asegúrese de que habilita todos los **privilegios de la API de administración** para que esta cuenta pueda usarse para el aprovisionamiento.
    
      ![Selección de Google Apps][27]
    
     > [!NOTE]
     > Si va a configurar un entorno de producción, el procedimiento recomendado es crear una nueva cuenta de administrador en G Suite específicamente para este paso. Estas cuentas tienen que tener un rol de administrador asociado que tenga los privilegios necesarios de la API.
      
-8. En [Azure Portal](https://portal.azure.com), vaya a la sección **Azure Active Directory**  > **Aplicaciones empresariales** > **Todas las aplicaciones**.
+1. En [Azure Portal](https://portal.azure.com), vaya a la sección **Azure Active Directory**  > **Aplicaciones empresariales** > **Todas las aplicaciones**.
 
-9. Si ya ha configurado G Suite para el inicio de sesión único, busque la instancia de G Suite mediante el campo de búsqueda. En caso contrario, haga clic en **Agregar** y busque **G Suite** o **Google Apps** en la galería de aplicaciones. Seleccione la aplicación en los resultados de la búsqueda y agréguela a la lista de aplicaciones.
+1. Si ya ha configurado G Suite para el inicio de sesión único, busque la instancia de G Suite mediante el campo de búsqueda. En caso contrario, haga clic en **Agregar** y busque **G Suite** o **Google Apps** en la galería de aplicaciones. Seleccione la aplicación en los resultados de la búsqueda y agréguela a la lista de aplicaciones.
 
-10. Seleccione la instancia de G Suite y, después, la pestaña **Aprovisionamiento**.
+1. Seleccione la instancia de G Suite y, después, la pestaña **Aprovisionamiento**.
 
-11. Establezca el **modo de aprovisionamiento** en **Automático**. 
+1. Establezca el **modo de aprovisionamiento** en **Automático**. 
 
      ![Aprovisionamiento](./media/google-apps-provisioning-tutorial/provisioning.png)
 
-12. En **Credenciales de administrador**, haga clic en **Autorizar**. Se abrirá un cuadro de diálogo de autorización de Google en una nueva ventana del explorador.
+1. En **Credenciales de administrador**, haga clic en **Autorizar**. Se abrirá un cuadro de diálogo de autorización de Google en una nueva ventana del explorador.
 
-13. Confirme que quiere conceder permiso de Azure Active Directory para realizar cambios en el inquilino de G Suite. Seleccione **Aceptar**.
+1. Confirme que quiere conceder permiso de Azure Active Directory para realizar cambios en el inquilino de G Suite. Seleccione **Aceptar**.
     
      ![Confirme los permisos.][28]
 
-14. En Azure Portal, seleccione **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación. Si la conexión no se establece, asegúrese de que la cuenta de G Suite tiene permisos de administrador de equipo. Luego vuelva a intentar el paso **Autorizar**.
+1. En Azure Portal, seleccione **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación. Si la conexión no se establece, asegúrese de que la cuenta de G Suite tiene permisos de administrador de equipo. Luego vuelva a intentar el paso **Autorizar**.
 
-15. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento en el campo **Correo electrónico de notificación**. Luego active la casilla.
+1. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento en el campo **Correo electrónico de notificación**. Luego active la casilla.
 
-16. Seleccione **Guardar.**
+1. Seleccione **Guardar.**
 
-17. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Google Apps** (Sincronizar usuarios de Azure Active Directory con Google Apps).
+1. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Google Apps** (Sincronizar usuarios de Azure Active Directory con Google Apps).
 
-18. En la sección **Attribute Mappings** (Asignaciones de atributos), revise los atributos de usuario que se sincronizan entre Azure AD y G Suite. Los atributos que son propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de G Suite con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**.
+1. En la sección **Attribute Mappings** (Asignaciones de atributos), revise los atributos de usuario que se sincronizan entre Azure AD y G Suite. Los atributos que son propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de G Suite con el objetivo de realizar operaciones de actualización. Para confirmar los cambios, seleccione **Guardar**.
 
-19. Para habilitar el servicio de aprovisionamiento de Azure AD para G Suite, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
+1. Para habilitar el servicio de aprovisionamiento de Azure AD para G Suite, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
-20. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
 Este proceso inicia la sincronización inicial de todos los usuarios y grupos asignados a G Suite en la sección Usuarios y grupos. La primera sincronización tarda más tiempo en realizarse que las sincronizaciones posteriores, que, mientras el servicio esté en ejecución, tendrán lugar aproximadamente cada 40 minutos. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y utilizar los vínculos a los registros de actividad de aprovisionamiento. En estos registros, se describen todas las acciones que lleva a cabo el servicio de aprovisionamiento en la aplicación.
 

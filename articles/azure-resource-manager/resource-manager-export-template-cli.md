@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1d73142931a5cfa84cb24df7a85c799a0f508385
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d4a1a687700badc550d37bf74f6a7e1680388897
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358836"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440322"
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Exportación de plantillas de Azure Resource Manager con CLI de Azure
 
@@ -45,7 +45,7 @@ az group deployment create \
 
 ## <a name="save-template-from-deployment-history"></a>Guardado de una plantilla desde el historial de implementación
 
-Puede recuperar una plantilla desde el historial de implementación mediante el comando [z group deployment export](/cli/azure/group/deployment#az_group_deployment_export). En el ejemplo siguiente se guarda la plantilla implementada previamente:
+Puede recuperar una plantilla desde el historial de implementación mediante el comando [z group deployment export](/cli/azure/group/deployment#az-group-deployment-export). En el ejemplo siguiente se guarda la plantilla implementada previamente:
 
 ```azurecli
 az group deployment export --name NewStorage --resource-group ExampleGroup
@@ -56,7 +56,7 @@ Devuelve la plantilla. Copie el JSON y guárdelo como un archivo. Tenga en cuent
 
 ## <a name="export-resource-group-as-template"></a>Exportación de un grupo de recursos como una plantilla
 
-En lugar de recuperar una plantilla del historial de implementación, puede recuperar una plantilla que represente el estado actual de un grupo de recursos mediante el uso del comando [az group export](/cli/azure/group#az_group_export). Utilice este comando si ha realizado muchos cambios en el grupo de recursos y ninguna plantilla existente representa todos los cambios. Se ha diseñado como una instantánea del grupo de recursos, el cual puede usar para volver a implementar en el mismo grupo de recursos. Para usar la plantilla exportada para otras soluciones, debe modificarla de forma significativa.
+En lugar de recuperar una plantilla del historial de implementación, puede recuperar una plantilla que represente el estado actual de un grupo de recursos mediante el uso del comando [az group export](/cli/azure/group#az-group-export). Utilice este comando si ha realizado muchos cambios en el grupo de recursos y ninguna plantilla existente representa todos los cambios. Se ha diseñado como una instantánea del grupo de recursos, el cual puede usar para volver a implementar en el mismo grupo de recursos. Para usar la plantilla exportada para otras soluciones, debe modificarla de forma significativa.
 
 ```azurecli
 az group export --name ExampleGroup

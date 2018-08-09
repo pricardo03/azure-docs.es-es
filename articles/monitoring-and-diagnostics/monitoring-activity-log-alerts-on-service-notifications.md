@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: 1cd82f7ffa9360dbc35f9c9d790df34355d9dd1a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6e1a72c428425c73ff0446fc0d41b1b18333c3e3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035720"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423895"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Creación de alertas del registro de actividad en notificaciones del servicio
 ## <a name="overview"></a>Información general
@@ -43,32 +43,32 @@ Para obtener información sobre cómo configurar las alertas de notificación de
 
     ![El servicio "Estado del servicio"](./media/monitoring-activity-log-alerts-on-service-notifications/home-servicehealth.png)
 
-2. En la sección **Alertas**, seleccione **Alertas de estado**.
+1. En la sección **Alertas**, seleccione **Alertas de estado**.
 
     ![La pestaña "Alertas de estado"](./media/monitoring-activity-log-alerts-on-service-notifications/alerts-blades-sh.png)
 
-3. Seleccione **Crear alerta de estado de servicio** y rellene los campos.
+1. Seleccione **Crear alerta de estado de servicio** y rellene los campos.
 
     ![El comando "Crear alerta de estado de servicio"](./media/monitoring-activity-log-alerts-on-service-notifications/service-health-alert.png)
 
-4. Seleccione la **suscripción**, los **servicios** y las **regiones** para los que desea recibir alertas.
+1. Seleccione la **suscripción**, los **servicios** y las **regiones** para los que desea recibir alertas.
 
     ![Cuadro de diálogo "Agregar alerta de registro de actividad"](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-new-ux.png)
 
 > [!NOTE]
 > Esta suscripción se usa para guardar la alerta del registro de actividad. El recurso de la alerta se implementa en esta suscripción y supervisa los eventos en el registro de actividad para dicho recurso.
 
-5. Elija los **Tipos de evento** para los que quiere recibir alertas: *Problema de servicio*, *Mantenimiento planeado* y *Avisos de estado* 
+1. Elija los **Tipos de evento** para los que quiere recibir alertas: *Problema de servicio*, *Mantenimiento planeado* y *Avisos de estado* 
 
-6. Para definir los detalles de la alerta, escriba un **nombre de regla de alertas** y una **descripción**.
+1. Para definir los detalles de la alerta, escriba un **nombre de regla de alertas** y una **descripción**.
 
-7. Seleccione el **grupo de recursos** donde quiere guardar la alerta.
+1. Seleccione el **grupo de recursos** donde quiere guardar la alerta.
 
-8. Para crear un nuevo grupo de acciones, seleccione **Nuevo grupo de acciones**. Escriba un nombre en el cuadro de texto **Nombre del grupo de acciones** y especifique un nombre en el cuadro de texto **Nombre corto**. Se hace referencia al nombre corto en las notificaciones que se envían cuando se desencadena esta alerta.
+1. Para crear un nuevo grupo de acciones, seleccione **Nuevo grupo de acciones**. Escriba un nombre en el cuadro de texto **Nombre del grupo de acciones** y especifique un nombre en el cuadro de texto **Nombre corto**. Se hace referencia al nombre corto en las notificaciones que se envían cuando se desencadena esta alerta.
 
     ![Creación de un nuevo grupo de acciones](./media/monitoring-activity-log-alerts-on-service-notifications/action-group-creation.png)
 
-9. A continuación, defina una lista de destinatarios proporcionando:
+1. A continuación, defina una lista de destinatarios proporcionando:
 
     a. **Nombre**: el nombre, alias o identificador del destinatario.
 
@@ -76,7 +76,7 @@ Para obtener información sobre cómo configurar las alertas de notificación de
 
     c. **Detalles**: según el tipo de acción elegido, proporcione un número de teléfono, una dirección de correo electrónico, un identificador URI de webhook, etc.
 
-10. Seleccione **Aceptar** para crear el grupo de acciones y luego en **Crear regla de alertas** para completar la alerta.
+1. Seleccione **Aceptar** para crear el grupo de acciones y luego en **Crear regla de alertas** para completar la alerta.
 
 En unos minutos, la alerta está activa y comienza a desencadenarse en función de las condiciones especificadas durante la creación.
 
@@ -91,9 +91,9 @@ Obtenga información acerca de cómo [configurar notificaciones de webhook para 
 
 1. Siga los pasos del 1 al 7 de la sección anterior para crear la notificación de mantenimiento del servicio. 
 
-2. En **Definir grupo de acciones**, haga clic en el botón **Seleccionar grupo de acciones**. Seleccione el grupo adecuado.
+1. En **Definir grupo de acciones**, haga clic en el botón **Seleccionar grupo de acciones**. Seleccione el grupo adecuado.
 
-3. Seleccione **Agregar** para agregar el grupo de acciones y luego **Crear regla de alertas** para completar la alerta.
+1. Seleccione **Agregar** para agregar el grupo de acciones y luego **Crear regla de alertas** para completar la alerta.
 
 En unos minutos, la alerta está activa y comienza a desencadenarse en función de las condiciones especificadas durante la creación.
 

@@ -17,21 +17,21 @@ ms.date: 07/12/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4fbde5306efb2de5cfe3ffd0a49b9e24a7b67e8c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: edf0b52e5889fe8fa875de65fcaa8c2a22df1a7f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003965"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590756"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>¿Debo usar el punto de conexión v2.0?
 
-Cuando compila aplicaciones que se integran con Azure Active Directory (Azure AD), debe decidir si los protocolos de autenticación y el punto de conexión v2.0 cumplen con sus necesidades. El punto de conexión original de Azure AD sigue siendo compatible y, en algunos aspectos, tiene más características que la versión 2.0. Sin embargo, el punto de conexión v2.0 [presenta ventajas importantes](active-directory-v2-compare.md) para los desarrolladores.
+Cuando compila aplicaciones que se integran con Azure Active Directory (Azure AD), debe decidir si los protocolos de autenticación y el punto de conexión v2.0 cumplen con sus necesidades. El punto de conexión original de Azure AD sigue siendo compatible y, en algunos aspectos, tiene más características que la versión 2.0. Sin embargo, el punto de conexión v2.0 [presenta ventajas importantes](azure-ad-endpoint-comparison.md) para los desarrolladores.
 
 Esta es nuestra recomendación simplificada para desarrolladores en este momento:
 
 * Si tiene que admitir cuentas personales de Microsoft en la aplicación, use el punto de conexión v2.0. Pero antes, asegúrese de comprender las limitaciones que se analizan en este artículo.
-* Si la aplicación solo tiene que admitir cuentas profesionales y educativas de Microsoft, no use el punto de conexión v2.0. En su lugar, consulte la [Guía del desarrollador de Azure AD](active-directory-developers-guide.md).
+* Si la aplicación solo tiene que admitir cuentas profesionales y educativas de Microsoft, no use el punto de conexión v2.0. En su lugar, consulte la [Guía del desarrollador de Azure AD](azure-ad-developers-guide.md).
 
 Desarrollaremos el punto de conexión v2.0 para eliminar las restricciones que mencionamos en este artículo, por lo que siempre debe usar este punto de conexión. Mientras tanto, use este artículo para determinar si el punto de conexión v2.0 es correcto para usted. Actualizaremos este artículo constantemente para reflejar el estado actual del punto de conexión v2.0. Consúltelo de nuevo para volver a evaluar los requisitos en relación con las funcionalidades de v2.0.
 
@@ -39,11 +39,11 @@ Si tiene una aplicación de Azure AD existente que no usa el punto de conexión 
 
 ## <a name="restrictions-on-app-types"></a>Restricciones en los tipos de aplicación
 
-Actualmente, el punto de conexión v2.0 no admite los siguientes tipos de aplicaciones. Para una descripción de los tipos de aplicación admitidos, consulte [Tipos de aplicación para el punto de conexión v2.0 de Azure Active Directory](active-directory-v2-flows.md).
+Actualmente, el punto de conexión v2.0 no admite los siguientes tipos de aplicaciones. Para una descripción de los tipos de aplicación admitidos, consulte [Tipos de aplicación para el punto de conexión v2.0 de Azure Active Directory](v2-app-types.md).
 
 ### <a name="standalone-web-apis"></a>API web independiente
 
-Puede usar el punto de conexión v2.0 para [compilar una API web protegida con OAuth 2.0](active-directory-v2-flows.md#web-apis). Sin embargo, esa API web puede recibir tokens solo desde una aplicación con el mismo identificador de aplicación. No se puede obtener una API web desde un cliente con un identificador de aplicación distinto. El cliente no podrá solicitar ni obtener permisos para su API web.
+Puede usar el punto de conexión v2.0 para [compilar una API web protegida con OAuth 2.0](v2-app-types.md#web-apis). Sin embargo, esa API web puede recibir tokens solo desde una aplicación con el mismo identificador de aplicación. No se puede obtener una API web desde un cliente con un identificador de aplicación distinto. El cliente no podrá solicitar ni obtener permisos para su API web.
 
 Para ver cómo compilar una API web que acepta tokens de un cliente con el mismo identificador de aplicación, consulte los ejemplos de API web del punto de conexión v2.0 en la sección [Introducción](active-directory-appmodel-v2-overview.md#getting-started).
 
@@ -91,16 +91,16 @@ Puede agregar los dos últimos porque son subdominios del primero URI de redirec
 
 Tenga en cuenta también que solo puede tener 20 direcciones URL de respuesta para una aplicación concreta.
 
-Para información sobre cómo registrar una aplicación en el portal de registro de aplicaciones, consulte [Cómo registrar una aplicación con el punto de conexión v2.0](active-directory-v2-app-registration.md).
+Para información sobre cómo registrar una aplicación en el portal de registro de aplicaciones, consulte [Cómo registrar una aplicación con el punto de conexión v2.0](quickstart-v2-register-an-app.md).
 
 ## <a name="restrictions-on-libraries-and-sdks"></a>Restricciones en las bibliotecas y SDK
 
 En este momento, la compatibilidad del punto de conexión v2.0 con las bibliotecas es limitada. Si desea usar el punto de conexión v2.0 en una aplicación de producción, tiene las opciones siguientes:
 
 * Si compila una aplicación web, puede usar sin riesgo el software intermedio de lado servidor con carácter de disponibilidad general de Microsoft para realizar el inicio de sesión y la validación de tokens. Incluye el software intermedio OWIN Open ID Connect para ASP.NET y el complemento NodeJS Passport. Para ejemplos de código que usan el software intermedio de Microsoft, consulte la sección [Introducción](active-directory-appmodel-v2-overview.md#getting-started).
-* Si crea una aplicación de escritorio o para dispositivos móviles, puede usar una de las bibliotecas de autenticación de Microsoft (MSAL) de versión preliminar. Estas bibliotecas están en una versión de versión preliminar compatible con producción, por lo que su uso en aplicaciones de producción es seguro. Puede obtener más información sobre los términos y condiciones de la versión preliminar y las bibliotecas disponibles en la [referencia de bibliotecas de autenticación](active-directory-v2-libraries.md).
+* Si crea una aplicación de escritorio o para dispositivos móviles, puede usar una de las bibliotecas de autenticación de Microsoft (MSAL) de versión preliminar. Estas bibliotecas están en una versión de versión preliminar compatible con producción, por lo que su uso en aplicaciones de producción es seguro. Puede obtener más información sobre los términos y condiciones de la versión preliminar y las bibliotecas disponibles en la [referencia de bibliotecas de autenticación](reference-v2-libraries.md).
 * En el caso de otras plataformas no cubiertas por las bibliotecas de Microsoft, pueden integrarse con el punto de conexión v2.0 enviando y recibiendo mensajes de protocolo directamente en el código de su aplicación. Los protocolos v2.0 OpenID Connect y OAuth [se documentan explícitamente](active-directory-v2-protocols.md) para ayudarle a realizar dicha integración.
-* Por último, puede usar las bibliotecas de código abierto de Open ID Connect y OAuth para integrarse con el punto de conexión v2.0. El protocolo v2.0 debe ser compatible con muchas bibliotecas de código abierto de los protocolos sin cambios importantes. La disponibilidad de estos tipos de bibliotecas varía según el lenguaje y la plataforma. Los sitios web [Open ID Connect](http://openid.net/connect/) y [OAuth 2.0](http://oauth.net/2/) mantienen una lista de las implementaciones populares. Para más información, consulte [Azure Active Directory v2.0 y bibliotecas de autenticación](active-directory-v2-libraries.md) y la lista de bibliotecas de cliente de código abierto y los ejemplos que se probaron con el punto de conexión v2.0.
+* Por último, puede usar las bibliotecas de código abierto de Open ID Connect y OAuth para integrarse con el punto de conexión v2.0. El protocolo v2.0 debe ser compatible con muchas bibliotecas de código abierto de los protocolos sin cambios importantes. La disponibilidad de estos tipos de bibliotecas varía según el lenguaje y la plataforma. Los sitios web [Open ID Connect](http://openid.net/connect/) y [OAuth 2.0](http://oauth.net/2/) mantienen una lista de las implementaciones populares. Para más información, consulte [Azure Active Directory v2.0 y bibliotecas de autenticación](reference-v2-libraries.md) y la lista de bibliotecas de cliente de código abierto y los ejemplos que se probaron con el punto de conexión v2.0.
 
 ## <a name="restrictions-on-protocols"></a>Restricciones en los protocolos
 

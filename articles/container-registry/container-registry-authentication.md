@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8fcebae21d73db75e19bd1091faa8f389f0ba40
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 30ca8fe89105584b1062c5a068e107bdfde154fc
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165527"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579527"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autenticación con un registro de contenedor privado de Docker
 
@@ -26,7 +26,7 @@ Azure Container Registry no es compatible con las operaciones de Docker no auten
 
 ## <a name="individual-login-with-azure-ad"></a>Inicio de sesión individual con Azure AD
 
-Cuando trabaje con el registro directamente, como la extracción e inserción de imágenes en su estación de trabajo de desarrollo, autentique mediante el comando [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) en la [CLI de Azure](/cli/azure/install-azure-cli):
+Cuando trabaje con el registro directamente, como la extracción e inserción de imágenes en su estación de trabajo de desarrollo, autentique mediante el comando [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) en la [CLI de Azure](/cli/azure/install-azure-cli):
 
 ```azurecli
 az acr login --name <acrName>
@@ -36,7 +36,7 @@ Cuando inicie sesión con `az acr login`, la CLI utiliza el token creado cuando 
 
 ## <a name="service-principal"></a>Entidad de servicio
 
-Puede asignar una [entidad de servicio](../active-directory/develop/active-directory-application-objects.md) en el registro, y la aplicación o servicio puede usarla para la autenticación desatendida. Las entidades de servicio permiten el [acceso basado en roles](../role-based-access-control/role-assignments-portal.md) a un registro, y puede asignar varias entidades de seguridad de servicio a un registro. Las distintas entidades de servicio le permiten definir un acceso diferente para distintas aplicaciones.
+Puede asignar una [entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md) en el registro, y la aplicación o servicio puede usarla para la autenticación desatendida. Las entidades de servicio permiten el [acceso basado en roles](../role-based-access-control/role-assignments-portal.md) a un registro, y puede asignar varias entidades de seguridad de servicio a un registro. Las distintas entidades de servicio le permiten definir un acceso diferente para distintas aplicaciones.
 
 Los roles disponibles son los siguientes:
 
@@ -51,7 +51,7 @@ Las entidades de servicio permiten la conectividad desatendida en un registro en
   * *Colaborador*: soluciones de integración e implementación continua (por ejemplo, Visual Studio Team Services (VSTS) o Jenkins) que crean imágenes de contenedor y las insertan en un registro.
 
 > [!TIP]
-> Puede volver a generar la contraseña de una entidad de servicio mediante el comando [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_reset_credentials).
+> Puede volver a generar la contraseña de una entidad de servicio mediante el comando [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials).
 >
 
 También puede iniciar sesión directamente con una entidad de servicio. Proporcione el id. de la aplicación y la contraseña de la entidad de servicio al comando `docker login`:
@@ -82,7 +82,7 @@ docker login myregistry.azurecr.io -u myAdminName -p myPassword1
 
 Una vez más, Docker recomienda el uso del parámetro `--password-stdin` en lugar de proporcionarlo en la línea de comandos para aumentar la seguridad. También puede especificar solo el nombre de usuario, sin `-p` y escribir la contraseña cuando se le solicite.
 
-Para habilitar el usuario administrador para un registro existente, puede usar el parámetro `--admin-enabled` del comando [az acr update](/cli/azure/acr?view=azure-cli-latest#az_acr_update) en la CLI de Azure:
+Para habilitar el usuario administrador para un registro existente, puede usar el parámetro `--admin-enabled` del comando [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) en la CLI de Azure:
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

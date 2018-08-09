@@ -9,12 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 120c78d9adb83ca58ae61700ae70d07ead42ebd0
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 9981db7e2994b9a4f20f99f4997a89b0368d343c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226567"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423681"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Site Recovery Deployment Planner en el escenario de Hyper-V en Azure
 
@@ -96,7 +96,7 @@ La herramienta tiene tres fases principales de Hyper-V: obtener la lista de máq
 
             set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
-2.  Cada host Hyper-V cuyo perfil debe realizarse debe tener:
+1.  Cada host Hyper-V cuyo perfil debe realizarse debe tener:
 
     a. La máquina virtual en la que la herramienta se va a ejecutar en su lista TrustedHosts. Ejecute el siguiente comando desde una sesión de PowerShell con privilegios elevados en el host Hyper-V.
 
@@ -111,10 +111,10 @@ La herramienta tiene tres fases principales de Hyper-V: obtener la lista de máq
 1.  Descargue la versión más reciente de [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner).
 La herramienta está empaquetada en una carpeta en formato zip. La misma herramienta admite VMware tanto en Azure como en Hyper-V en escenarios de recuperación ante desastres de Azure. Puede utilizar esta herramienta para el escenario de recuperación ante desastres de Hyper-V en el sitio secundario también, pero omitir la recomendación de infraestructura de Azure del informe.
 
-2.  Copie la carpeta .zip en la instancia de Windows Server desde la que desea ejecutar la herramienta. Puede ejecutar la herramienta en un equipo Windows Server 2012 R2 o Windows Server 2016. El servidor debe tener acceso a la red para conectarse al clúster de Hyper-V o al host de Hyper-V que contiene las máquinas virtuales cuyo perfil se va a generar. Se recomienda que tenga la misma configuración de hardware de la máquina virtual, donde la herramienta se vaya a ejecutar, que la del servidor Hyper-V que desee proteger. Dicha configuración garantiza que el rendimiento obtenido que indica la herramienta coincide con el rendimiento real que Azure Site Recovery puede lograr durante la replicación. El cálculo del rendimiento depende del ancho de banda de red disponible en el servidor y de la configuración del hardware (CPU, almacenamiento, etc.) del servidor. El rendimiento se calcula desde el servidor donde se ejecuta la herramienta en Azure. Si la configuración del servidor difiere de la del servidor Hyper-V, el rendimiento obtenido del que informa la herramienta puede ser impreciso.
+1.  Copie la carpeta .zip en la instancia de Windows Server desde la que desea ejecutar la herramienta. Puede ejecutar la herramienta en un equipo Windows Server 2012 R2 o Windows Server 2016. El servidor debe tener acceso a la red para conectarse al clúster de Hyper-V o al host de Hyper-V que contiene las máquinas virtuales cuyo perfil se va a generar. Se recomienda que tenga la misma configuración de hardware de la máquina virtual, donde la herramienta se vaya a ejecutar, que la del servidor Hyper-V que desee proteger. Dicha configuración garantiza que el rendimiento obtenido que indica la herramienta coincide con el rendimiento real que Azure Site Recovery puede lograr durante la replicación. El cálculo del rendimiento depende del ancho de banda de red disponible en el servidor y de la configuración del hardware (CPU, almacenamiento, etc.) del servidor. El rendimiento se calcula desde el servidor donde se ejecuta la herramienta en Azure. Si la configuración del servidor difiere de la del servidor Hyper-V, el rendimiento obtenido del que informa la herramienta puede ser impreciso.
 Configuración recomendada de la máquina virtual: 8 vCPU, 16 GB de RAM, disco duro de 300 GB.
 
-3.  Extraiga la carpeta .zip.
+1.  Extraiga la carpeta .zip.
 La carpeta contiene varios archivos y subcarpetas. El archivo ejecutable es ASRDeploymentPlanner.exe y está en la carpeta primaria.
 
 Ejemplo: copie el archivo .zip en la unidad E:\ y extráigalo. E:\ASR Deployment Planner_v2.2.zip

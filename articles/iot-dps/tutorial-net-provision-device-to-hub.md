@@ -1,8 +1,8 @@
 ---
 title: Aprovisionamiento de un dispositivo mediante el servicio Azure IoT Hub Device Provisioning (.NET) | Microsoft Docs
 description: Aprovisionar el dispositivo en una única instancia de IoT Hub mediante el servicio Azure IoT Hub Device Provisioning (.NET)
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: e31c06268245946bd80e1328f4d7176f1e9a660f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1d82ccdf85b34416dc630b9fcad969d87cc53ff1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629888"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520673"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Inscripción del dispositivo en una instancia de IoT Hub mediante el cliente del servicio Azure IoT Hub Device Provisioning (.NET)
 
@@ -26,7 +26,7 @@ En el tutorial anterior, aprendió a configurar un dispositivo para conectarse a
 > * Iniciar el dispositivo
 > * Comprobar que el dispositivo está registrado
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de continuar, asegúrese de configurar el dispositivo y su *módulo de seguridad de hardware* como se describe en el tutorial [Configuración del dispositivo para el aprovisionamiento mediante el servicio Azure IoT Hub Device Provisioning](./tutorial-set-up-device.md).
 

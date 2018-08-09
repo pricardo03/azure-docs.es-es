@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 7fac8b99941122dec8849017ec1d125b01121c64
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ecdd37db662c6861e35f80bfbf4ac8ff7e0d08c9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217221"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443283"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Tutorial: integración de Azure Active Directory con UserEcho
 
@@ -33,7 +33,7 @@ Integrar UserEcho con Azure AD proporciona las siguientes ventajas:
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con UserEcho, necesita los siguientes elementos:
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de UserEcho desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-userecho-from-the-gallery"></a>Incorporación de UserEcho desde la galería
 Para configurar la integración de UserEcho en Azure AD, deberá agregar UserEcho desde la galería a la lista de aplicaciones SaaS administradas.
@@ -63,19 +63,19 @@ Para configurar la integración de UserEcho en Azure AD, deberá agregar UserEch
 
     ![Active Directory][1]
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![APLICACIONES][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![APLICACIONES][3]
 
-4. En el cuadro de búsqueda, escriba **UserEcho**.
+1. En el cuadro de búsqueda, escriba **UserEcho**.
 
     ![Creación de un usuario de prueba de Azure AD](./media/userecho-tutorial/tutorial_userecho_search.png)
 
-5. En el panel de resultados, seleccione **UserEcho** y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+1. En el panel de resultados, seleccione **UserEcho** y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Creación de un usuario de prueba de Azure AD](./media/userecho-tutorial/tutorial_userecho_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Para establecer la relación de vínculo, en UserEcho, asigne el valor de **nomb
 Para configurar y probar el inicio de sesión único de Azure AD con UserEcho, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de UserEcho](#creating-a-userecho-test-user)**: para tener un homólogo de Britta Simon en UserEcho que esté vinculado a su representación en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de UserEcho](#creating-a-userecho-test-user)**: para tener un homólogo de Britta Simon en UserEcho que esté vinculado a su representación en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -104,11 +104,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de UserEcho**, lleve a cabo los pasos siguientes:
+1. En la sección **Dominio y direcciones URL de UserEcho**, lleve a cabo los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_url.png)
 
@@ -119,33 +119,33 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE] 
     > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de UserEcho](https://feedback.userecho.com/) para obtener estos valores. 
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_certificate.png) 
 
-5. Haga clic en el botón **Guardar** .
+1. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_general_400.png)
 
-6. En la sección **Configuración de UserEcho**, haga clic en **Configurar UserEcho** para abrir la ventana **Configurar inicio de sesión**. Copie las **direcciones URL del servicio de inicio de sesión único de SAML y de cierre de sesión** de la sección **Referencia rápida**.
+1. En la sección **Configuración de UserEcho**, haga clic en **Configurar UserEcho** para abrir la ventana **Configurar inicio de sesión**. Copie las **direcciones URL del servicio de inicio de sesión único de SAML y de cierre de sesión** de la sección **Referencia rápida**.
 
     ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_configure.png) 
 
-7. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de UserEcho como administrador.
+1. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de UserEcho como administrador.
 
-8. En la barra de herramientas de la parte superior, haga clic en el nombre de usuario para expandir el menú y, después, haga clic en **Instalación**.
+1. En la barra de herramientas de la parte superior, haga clic en el nombre de usuario para expandir el menú y, después, haga clic en **Instalación**.
    
     ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_06.png) 
 
-9. Haga clic en **Integraciones**.
+1. Haga clic en **Integraciones**.
    
     ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_07.png) 
 
-10. Haga clic en **Sitio web** y, después, en **Inicio de sesión único (SAML2)**.
+1. Haga clic en **Sitio web** y, después, en **Inicio de sesión único (SAML2)**.
    
     ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_08.png) 
 
-11. Siga estos pasos en la página **Inicio de sesión único (SAML)** :
+1. Siga estos pasos en la página **Inicio de sesión único (SAML)** :
    
     ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_09.png)
     
@@ -174,15 +174,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Creación de un usuario de prueba de Azure AD](./media/userecho-tutorial/create_aaduser_01.png) 
 
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios**.
     
     ![Creación de un usuario de prueba de Azure AD](./media/userecho-tutorial/create_aaduser_02.png) 
 
-3. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
+1. Para abrir el cuadro de diálogo **Usuario**, haga clic en **Agregar** en la parte superior del cuadro de diálogo.
  
     ![Creación de un usuario de prueba de Azure AD](./media/userecho-tutorial/create_aaduser_03.png) 
 
-4. En la página de diálogo **Usuario**, realice los siguientes pasos:
+1. En la página de diálogo **Usuario**, realice los siguientes pasos:
  
     ![Creación de un usuario de prueba de Azure AD](./media/userecho-tutorial/create_aaduser_04.png) 
 
@@ -202,23 +202,23 @@ El objetivo de esta sección es crear una usuaria de prueba llamada Britta Simon
 
 1. Inicie sesión en el sitio de compañía de UserEcho como administrador.
 
-2. En la barra de herramientas de la parte superior, haga clic en el nombre de usuario para expandir el menú y, después, haga clic en **Instalación**.
+1. En la barra de herramientas de la parte superior, haga clic en el nombre de usuario para expandir el menú y, después, haga clic en **Instalación**.
    
     ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_06.png)
 
-3. Haga clic en **Usuarios** para expandir la sección **Usuarios**.
+1. Haga clic en **Usuarios** para expandir la sección **Usuarios**.
    
     ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_10.png)
 
-4. Haga clic en **Usuarios**.
+1. Haga clic en **Usuarios**.
    
     ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_11.png)
 
-5. Haga clic en **Invitar a un nuevo usuario**.
+1. Haga clic en **Invitar a un nuevo usuario**.
    
     ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_12.png)
 
-6. En el cuadro de diálogo **Invitar a un nuevo usuario** , realice los pasos siguientes:
+1. En el cuadro de diálogo **Invitar a un nuevo usuario** , realice los pasos siguientes:
    
     ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_13.png)
 
@@ -242,23 +242,23 @@ En esta sección, concederá acceso a Britta Simon a UserEcho para que use el in
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **UserEcho**.
+1. En la lista de aplicaciones, seleccione **UserEcho**.
 
     ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_app.png) 
 
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Asignar usuario][202] 
 
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Asignar usuario][203]
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
     
 ### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 

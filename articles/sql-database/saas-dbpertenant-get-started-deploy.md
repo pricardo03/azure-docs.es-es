@@ -10,12 +10,12 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 95d4fc1886e16785b6de8f3a395b218b66d193ff
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cc3e870d67f3c38fe4173275b6fd210d0c4ee05a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645368"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423572"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementación y exploración de una aplicación SaaS multiinquilino que usa el patrón de base de datos por inquilino con SQL Database
 
@@ -35,7 +35,7 @@ En este tutorial, obtendrá información:
 
 Una [serie de tutoriales relacionados](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) ofrece la posibilidad de explorar varios patrones de diseño y administración de SaaS. Los tutoriales se basan en esta implementación inicial. Cuando use los tutoriales, podrá examinar los scripts que se proporcionan para ver cómo se implementan los distintos patrones de SaaS. Los scripts muestran cómo las características de SQL Database simplifican el desarrollo de aplicaciones de SaaS.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, asegúrese de que Azure PowerShell está instalado. Para más información, consulte el artículo de [introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -56,7 +56,7 @@ Elija los nombres ahora y escríbalos.
 
    <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-2. Escriba valores para los parámetros requeridos en la plantilla.
+1. Escriba valores para los parámetros requeridos en la plantilla.
 
     > [!IMPORTANT]
     > Para realizar la demostración, se ha eliminado intencionadamente la protección de varios firewalls de autenticación y del servidor. Es recomendable crear un grupo de recursos nuevo. No use grupos de recursos, servidores o grupos existentes. No use esta aplicación, los scripts ni ninguno de los recursos de implementación para producción. Elimine este grupo de recursos cuando haya terminado con la aplicación para detener la facturación relacionada con él.
@@ -65,13 +65,13 @@ Elija los nombres ahora y escríbalos.
     - **Ubicación**: seleccione una ubicación de la lista desplegable.
     - **Usuario**: use el valor de nombre de usuario que eligió antes.
 
-3. Implemente la aplicación.
+1. Implemente la aplicación.
 
     a. Seleccione para aceptar los términos y condiciones.
 
     b. Seleccione **Comprar**.
 
-4. Para supervisar el estado de la implementación, seleccione **Notificaciones** (el icono de campana que se encuentra a la derecha del cuadro de búsqueda). La implementación de la aplicación SaaS Wingtip Tickets tarda aproximadamente cinco minutos.
+1. Para supervisar el estado de la implementación, seleccione **Notificaciones** (el icono de campana que se encuentra a la derecha del cuadro de búsqueda). La implementación de la aplicación SaaS Wingtip Tickets tarda aproximadamente cinco minutos.
 
    ![Implementación correcta](media/saas-dbpertenant-get-started-deploy/succeeded.png)
 
@@ -83,11 +83,11 @@ Mientras la aplicación se implementa, descargue el código fuente y los scripts
 > Es posible que Windows bloquee el contenido ejecutable (scripts y archivos DLL) al descargar y extraer archivos ZIP de un origen externo. Siga los pasos para desbloquear el archivo ZIP antes de extraer los scripts. El desbloqueo garantiza que se puedan ejecutar los scripts.
 
 1. Vaya al [repositorio de GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
-2. Seleccione **Clone or download**(Clonar o descargar).
-3. Seleccione **Download ZIP** (Descargar archivo ZIP) y guarde el archivo.
-4. Haga clic con el botón derecho en el archivo **WingtipTicketsSaaS-DbPerTenant-master.zip** y seleccione **Properties** (Propiedades).
-5. En la pestaña **General**, seleccione **Desbloquear** > **Aplicar**.
-6. Seleccione **Aceptar** y extraiga los archivos.
+1. Seleccione **Clone or download**(Clonar o descargar).
+1. Seleccione **Download ZIP** (Descargar archivo ZIP) y guarde el archivo.
+1. Haga clic con el botón derecho en el archivo **WingtipTicketsSaaS-DbPerTenant-master.zip** y seleccione **Properties** (Propiedades).
+1. En la pestaña **General**, seleccione **Desbloquear** > **Aplicar**.
+1. Seleccione **Aceptar** y extraiga los archivos.
 
 Los scripts se encuentran en la carpeta ...\\WingtipTicketsSaaS-DbPerTenant-master\\Learning Modules.
 
@@ -96,8 +96,8 @@ Los scripts se encuentran en la carpeta ...\\WingtipTicketsSaaS-DbPerTenant-mast
 Antes de ejecutar cualquier script, actualice los valores del grupo de recursos y del usuario en el archivo de configuración del usuario. Establezca estas variables en los valores usados durante la implementación.
 
 1. En PowerShell ISE, abra ...\\Learning Modules\\**UserConfig.psm1** 
-2. Actualice **ResourceGroupName** y **Name** con los valores específicos para la implementación (solo en las líneas 10 y 11).
-3. Guarde los cambios.
+1. Actualice **ResourceGroupName** y **Name** con los valores específicos para la implementación (solo en las líneas 10 y 11).
+1. Guarde los cambios.
 
 A estos valores se hacen referencia en casi todos los scripts.
 
@@ -113,7 +113,7 @@ Una página de **Event Hubs** central proporciona una lista de vínculos a los i
 
     ![Centro de eventos](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
-2. Seleccione **Fabrikam Jazz Club** en Events Hub.
+1. Seleccione **Fabrikam Jazz Club** en Events Hub.
 
     ![Eventos](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
@@ -148,8 +148,8 @@ Ahora que se implementó la aplicación, vamos a ponerla en marcha.
 El script de PowerShell *Demo-LoadGenerator* inicia una carga de trabajo que se ejecuta en las bases de datos de todos los inquilinos. La carga real en muchas aplicaciones de SaaS es esporádica e imprevisible. Para simular este tipo de carga, el generador produce una carga con picos o ráfagas de actividad en cada inquilino. Las ráfagas tienen lugar a intervalos aleatorios. El modelo de carga tarda varios minutos en emerger. Permita que el generador se ejecute durante al menos tres o cuatro minutos antes de supervisar la carga.
 
 1. En PowerShell ISE, abra el script ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1*.
-2. Presione F5 para ejecutar el script e iniciar el generador de carga. Deje los valores predeterminados de parámetro por ahora.
-3. Inicie sesión en su cuenta de Azure y, si es necesario, seleccione la suscripción que desea usar.
+1. Presione F5 para ejecutar el script e iniciar el generador de carga. Deje los valores predeterminados de parámetro por ahora.
+1. Inicie sesión en su cuenta de Azure y, si es necesario, seleccione la suscripción que desea usar.
 
 El script del generador de carga inicia un trabajo en segundo plano para cada base de datos en el catálogo y, a continuación, se detiene. Si vuelve a ejecutar el script del generador de carga, detiene los trabajos en segundo plano que se estén ejecutando antes de iniciar los nuevos.
 
@@ -169,16 +169,16 @@ Si quiere controlar y supervisar los trabajos en segundo plano, use los cmdlets 
 
     - Ambos archivos. ps1 se almacenan en las carpetas Learning Modules\\Utilities\\.
 
-2. *LoadGenerator.ps1* recorre en bucle todas las bases de datos de inquilino del catálogo.
+1. *LoadGenerator.ps1* recorre en bucle todas las bases de datos de inquilino del catálogo.
 
-3. *LoadGenerator.ps1* inicia un trabajo de PowerShell en segundo plano para cada base de datos de inquilinos:
+1. *LoadGenerator.ps1* inicia un trabajo de PowerShell en segundo plano para cada base de datos de inquilinos:
 
     - De manera predeterminada, los trabajos en segundo plano se ejecutan durante 120 minutos.
     - Cada trabajo provoca una carga basada en CPU en una base de datos de inquilinos al ejecutar *sp_CpuLoadGenerator*. La intensidad y la duración de la carga varía según `$DemoScenario`. 
     - *sp_CpuLoadGenerator* recorre en bucle una instrucción SQL SELECT que provoca una carga elevada de CPU. El intervalo de tiempo entre las emisiones de SELECT varía en función de los valores de los parámetros para crear una carga de CPU controlable. Los niveles de carga y los intervalos son aleatorios para simular cargas más realistas.
     - Este archivo .sql está almacenado en *WingtipTenantDB\\dbo\\StoredProcedures\\*.
 
-4. Si `$OneTime = $false`, el generador de carga inicia los trabajos en segundo plano y sigue ejecutándose. Cada 10 segundos, supervisa si se aprovisionó algún inquilino nuevo. Si establece `$OneTime = $true`, LoadGenerator inicia los trabajos en segundo plano y luego detiene la ejecución en primer plano. Para este tutorial, deje `$OneTime = $false`.
+1. Si `$OneTime = $false`, el generador de carga inicia los trabajos en segundo plano y sigue ejecutándose. Cada 10 segundos, supervisa si se aprovisionó algún inquilino nuevo. Si establece `$OneTime = $true`, LoadGenerator inicia los trabajos en segundo plano y luego detiene la ejecución en primer plano. Para este tutorial, deje `$OneTime = $false`.
 
   Use Ctrl-C o detener la operación Ctrl-Interrumpir si desea detener o reiniciar el generador de carga. 
 
@@ -193,8 +193,8 @@ Antes de continuar con la siguiente sección, deje el generador de carga en ejec
 La implementación inicial crea tres inquilinos de ejemplo. Ahora creará otro inquilino para ver cómo afecta esto a la aplicación implementada. En la aplicación Wingtip, se explica el flujo de trabajo para aprovisionar nuevos inquilinos en el [tutorial de catalogación y aprovisionamiento](saas-dbpertenant-provision-and-catalog.md). En esta fase, se crea a un nuevo inquilino, lo que lleva menos de un minuto.
 
 1. Abra un nuevo PowerShell ISE.
-2. Abra ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1*.
-3. Para ejecutar el script, presione F5. Deje los valores predeterminados por ahora.
+1. Abra ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1*.
+1. Para ejecutar el script, presione F5. Deje los valores predeterminados por ahora.
 
    > [!NOTE]
    > Muchos scripts SaaS de Wingtip usan *$PSScriptRoot* para examinar las carpetas para llamar a funciones en otros scripts. Esta variable solo se evalúa cuando se ejecuta el script completo presionando F5. Resaltar y ejecutar una selección con F8 puede provocar errores. Para ejecutar los scripts, presione F5.
@@ -220,11 +220,11 @@ Ahora que ha empezado a ejecutar una carga en la colección de inquilinos, veamo
 
    ![Bases de datos](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
-2. Vuelva a la lista de servidores SQL Server.
+1. Vuelva a la lista de servidores SQL Server.
 
-3. Abra el servidor **tenants1-dpt-&lt;USUARIO&gt;** que contiene las bases de datos de los inquilinos.
+1. Abra el servidor **tenants1-dpt-&lt;USUARIO&gt;** que contiene las bases de datos de los inquilinos.
 
-4. Observe los siguientes elementos:
+1. Observe los siguientes elementos:
 
     - Todas las bases de datos de inquilinos son **elásticas estándar** en un conjunto estándar de 50 eDTU.
     - La base de datos Red Maple Racing es la base de datos de inquilino que aprovisionó anteriormente.

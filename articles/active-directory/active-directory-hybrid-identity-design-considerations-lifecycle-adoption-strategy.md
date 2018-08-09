@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 911e65719bff0a86e3280482296bbb320fd30377
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: fb52949bf5616c8639caa1f3fab860597648ec89
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801837"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504597"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinación de la estrategia de adopción de ciclo de vida de identidad híbrida
 En esta tarea, va a definir la estrategia de administración de identidades para que su solución de identidad híbrida cumpla los requisitos empresariales que definió en [Determinación de las tareas de administración de identidad híbrida](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -73,7 +73,7 @@ Los servicios de Azure AD basados en licencias (basados en derechos) funcionan m
 
 ## <a name="integration-with-other-3rd-party-providers"></a>Integración con otros proveedores
 
-Azure Active Directory ofrece inicio de sesión único y seguridad mejorada de acceso a aplicaciones para miles de aplicaciones SaaS y aplicaciones web locales. Para más información, consulte [Integración de aplicaciones con Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
+Azure Active Directory ofrece inicio de sesión único y seguridad mejorada de acceso a aplicaciones para miles de aplicaciones SaaS y aplicaciones web locales. Para más información, consulte [Integración de aplicaciones con Azure Active Directory](develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 ## <a name="define-synchronization-management"></a>Definición de la administración de sincronización
 la integración de directorios locales con Azure AD hace que los usuarios sean más productivos proporcionando una identidad común para tener acceso a recursos de nube y locales. Con esta integración, los usuarios y las organizaciones pueden aprovechar lo siguiente:
