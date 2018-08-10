@@ -3,23 +3,20 @@ title: 'Configuración de clústeres de Hadoop, Spark, Kafka, HBase o R Server: 
 description: Configure clústeres de Hadoop, Kafka, Spark, HBase, R Server o Storm para HDInsight desde un explorador, la CLI de Azure, Azure PowerShell, REST o el SDK.
 keywords: configuración de clústeres de hadoop, configuración de clústeres de kafka, configuración de clústeres de spark, qué es un clúster en hadoop
 services: storage
-documentationcenter: ''
 author: jamesbak
-manager: jahogg
 tags: azure-portal
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 725e79596a919cba4214dba8b3cc86e9bb48cc79
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: e0816e8609ba1ab0ef1b4f685731339378fee844
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136645"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525593"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Guía de inicio rápido: Configuración de clústeres en HDInsight
 
@@ -38,7 +35,7 @@ La tabla siguiente muestra los distintos métodos que se pueden usar para config
 
 | Clústeres creados con | Explorador web | Línea de comandos | API DE REST | SDK | 
 | --- |:---:|:---:|:---:|:---:|
-| [Portal de Azure](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure Portal](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](../../hdinsight/hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [CLI de Azure (ver 1.0)](../../hdinsight/hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](../../hdinsight/hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
@@ -153,7 +150,7 @@ Mientras que exista el clúster se le facturará por el uso de nodos. La factura
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Número de nodos de cada tipo de clúster
 Cada tipo de clúster tiene su propio número de nodos, terminología para los nodos y tamaño de máquina virtual predeterminado. En la siguiente tabla, el número de nodos de cada tipo de nodo se muestra entre paréntesis.
 
-| type | Nodos | Diagrama |
+| Escriba | Nodos | Diagrama |
 | --- | --- | --- |
 | Hadoop |Nodo principal (2), nodo de datos (más de 1) |![Nodos de clúster de Hadoop en HDInsight](media/quickstart-create-connect-hdi-cluster/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |Servidor principal (2), servidor de región (más de 1), nodo maestro/ZooKeeper (3) |![Nodos de clúster de HBase en HDInsight](media/quickstart-create-connect-hdi-cluster/hdinsight-hbase-cluster-type-setup.png) |

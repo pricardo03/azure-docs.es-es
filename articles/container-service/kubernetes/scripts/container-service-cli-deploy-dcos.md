@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 18ee5eb7f097d8d8738d72a29bcb73b8265b5416
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: db136fb1c68c243086d3e83424ed2c9864638c8f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32161963"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433392"
 ---
 # <a name="create-an-azure-container-service-dcos-cluster"></a>Creación de un clúster de Azure Container Service con DC/OS
 
@@ -57,8 +57,8 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 
 | Get-Help | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az acs create](https://docs.microsoft.com/cli/azure/acs#az_acs_create) | Crea un clúster de ACS. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az acs create](https://docs.microsoft.com/cli/azure/acs#az-acs-create) | Crea un clúster de ACS. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
