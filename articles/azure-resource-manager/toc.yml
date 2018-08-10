@@ -32,6 +32,8 @@
       maintainContext: true
     - name: Plantillas para mantener la coherencia en la nube
       href: templates-cloud-consistency.md
+    - name: Modos de implementación
+      href: deployment-modes.md
 - name: Procedimientos
   items:
     - name: Crear plantillas

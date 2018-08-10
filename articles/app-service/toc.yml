@@ -25,6 +25,8 @@
       href: app-service-web-get-started-java.md
     - name: Creación de sitio HTML estático
       href: app-service-web-get-started-html.md
+    - name: Ejecución del contenedor de Windows personalizado
+      href: app-service-web-get-started-windows-container.md
 - name: Tutoriales
   items:
     - name: Aplicación con base de datos

@@ -216,9 +216,9 @@
           href: nested-virtualization.md
     - name: Administrar costos
       items:
-        - name: Pago por adelantado de instancias reservadas de máquina virtual
+        - name: 'Pago por adelantado de máquinas virtuales: Azure Reservations'
           href: prepay-reserved-vm-instances.md
-        - name: ¿Qué son las instancias reservadas de máquina virtual?
+        - name: ¿Qué es Azure Reservations?
           href: ../../billing/billing-save-compute-costs-reservations.md
         - name: Flexibilidad de tamaño de instancia de máquina virtual
           href: reserved-vm-instance-size-flexibility.md

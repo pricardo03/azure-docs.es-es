@@ -110,9 +110,17 @@
     - name: Datos de consulta
       items:
         - name: Documentación de lenguaje
-          href: 'https://docs.loganalytics.io'
-        - name: Transición desde el lenguaje heredado
-          href: log-analytics-log-search-transition.md
+          items:
+            - name: Transición desde el lenguaje heredado
+              href: log-analytics-log-search-transition.md
+            - name: Introducción al portal de Analytics
+              href: query-language/get-started-analytics-portal.md
+            - name: Introducción a las consultas
+              href: query-language/get-started-queries.md
+            - name: Consultas de búsqueda
+              href: query-language/search-queries.md
+            - name: Referencia de lenguaje
+              href: 'https://docs.loganalytics.io'
         - name: Búsquedas entre recursos
           href: log-analytics-cross-workspace-search.md
         - name: Actuación a partir de resultados de búsqueda

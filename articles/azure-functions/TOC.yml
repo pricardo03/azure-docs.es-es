@@ -171,6 +171,8 @@
           href: functions-how-to-use-azure-function-app-settings.md
         - name: Establecimiento de la versión del entorno de ejecución
           href: set-runtime-version.md
+        - name: Deshabilitar una función
+          href: disable-function.md
     - name: Supervisión
       href: functions-monitoring.md
     - name: Integrate
