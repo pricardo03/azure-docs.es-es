@@ -140,7 +140,7 @@ Se ejecuta un motor basado en reglas en segundo plano para recopilar datos y dia
 > [!NOTE] 
 > Actualmente, se admiten las versiones de Windows que incluyen .NET Framework 3.5 o versiones posteriores.
 
-### <a name="performance-counter-trace-"></a>Seguimiento de contadores de rendimiento (**)
+### <a name="performance-counter-trace-"></a>Seguimiento de contadores de rendimiento (\*\*)
 
 Recopila los siguientes contadores de rendimiento:
 
