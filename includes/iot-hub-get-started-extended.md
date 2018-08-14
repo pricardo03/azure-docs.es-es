@@ -7,6 +7,7 @@ Use otras herramientas y servicios de Azure. Cuando el dispositivo se ha conecta
 | [Administración de mensajes de IoT Hub][Mg_IoT_Hub_Msg]                  | herramienta iothub-explorer               |
 | [Administración de mensajes de IoT Hub][Mg_IoT_Toolkit]                  | Extensión del kit de herramientas de IoT de Azure de VS Code|
 | [Administración de su dispositivo IoT][Mg_IoT_Dv]                        | CLI de Azure 2.0 y la extensión de IoT|
+| [Administración de su dispositivo IoT][Mg_IoT_Dv_Toolkit]                | Extensión del kit de herramientas de IoT de Azure de VS Code|
 | [Guardado de los mensajes de IoT Hub en Azure Storage][Sv_IoT_Msg_Stor]  | Almacenamiento de tablas de Azure                |
 | [Visualización de datos de sensor][Vis_Data_PBI]                      | Microsoft Power BI                 |
 | [Visualización de datos de sensor][Vis_Data_Web]                      | Azure Web Apps                     |
@@ -21,6 +22,7 @@ Cuando se hayan completado estos tutoriales, puede explorar aún más las funcio
 [Mg_IoT_Hub_Msg]: ../articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md
 [Mg_IoT_Toolkit]: ../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
 [Mg_IoT_Dv]: ../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md
+[Mg_IoT_Dv_Toolkit]: ../articles/iot-hub/iot-hub-device-management-iot-toolkit.md
 [Sv_IoT_Msg_Stor]: ../articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md
 [Vis_Data_Web]: ../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md
 [Vis_Data_PBI]: ../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md

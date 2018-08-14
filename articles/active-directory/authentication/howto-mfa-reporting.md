@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: bb5a005ba553d6392bf1427a4c2bba9ac5aad191
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: dc4cd28fe61c422f65f47c74c7cbc4686d73ab77
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358673"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628841"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Informes en Azure Multi-Factor Authentication
 
@@ -50,7 +50,7 @@ El informe de inicios de sesión puede proporcionarle información acerca del us
 - ¿Cuántos usuarios no pueden completar el desafío de MFA?
 - ¿Cuáles son los problemas de MFA más habituales a los que se enfrentan los usuarios finales?
 
-Estos datos están disponibles a través de [Azure Portal](https://portal.azure.com) y la [API de informes](../active-directory-reporting-api-getting-started-azure-portal.md).
+Estos datos están disponibles a través de [Azure Portal](https://portal.azure.com) y la [API de informes](../reports-monitoring/concept-reporting-api.md).
 
 ![Nube](./media/howto-mfa-reporting/sign-in-report.png)
 

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 8ead74be1c1749d2c40d265af7c596e7a180a057
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 069a3022cf9b6423b95e8f9f35686965d2654be7
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835368"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39631085"
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Reciclaje de un servicio web nuevo basado en Resource Manager mediante los cmdlets de PowerShell para administración de Machine Learning
 Al volver a entrenar un servicio web nuevo, actualice la definición del servicio web predictiva para hacer referencia al nuevo modelo entrenado.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Debe configurar un experimento de entrenamiento y predictivo tal como se muestra en los [modelos de reciclaje de Machine Learning mediante programación](retrain-models-programmatically.md).
 
 > [!IMPORTANT]
@@ -34,7 +34,7 @@ Debe configurar un experimento de entrenamiento y predictivo tal como se muestra
 
 Para obtener más información sobre la implementación de servicios web, vea el artículo sobre [implementación de un servicio web Azure Machine Learning](publish-a-machine-learning-web-service.md).
 
-Este proceso requiere haber instalado los cmdlets de Azure Machine Learning. Para obtener información de instalación de los cmdlets de Machine Learning, vea la referencia sobre los [cmdlets de Azure Machine Learning](https://msdn.microsoft.com/library/azure/mt767952.aspx) en MSDN.
+Este proceso requiere haber instalado los cmdlets de Azure Machine Learning. Para obtener información de instalación de los cmdlets de Machine Learning, vea la referencia sobre los [cmdlets de Azure Machine Learning](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/) en MSDN.
 
 La siguiente información se copia desde la salida reentrenamiento:
 
@@ -54,7 +54,7 @@ Los pasos son:
 Primero debe iniciar sesión en la cuenta de Azure en el entorno de PowerShell mediante el cmdlet [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
 
 ## <a name="get-the-web-service-definition"></a>Obtenga la definición de servicio web
-A continuación, obtenga el servicio web, llamando al cmdlet [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) . La definición de servicio web es una representación interna del modelo entrenado del servicio web y no es modificable directamente. Asegúrese de que va a recuperar la definición de servicio web para el experimento predictivo y no para el experimento de entrenamiento.
+A continuación, obtenga el servicio web, llamando al cmdlet [Get-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/get-azurermmlwebservice) . La definición de servicio web es una representación interna del modelo entrenado del servicio web y no es modificable directamente. Asegúrese de que va a recuperar la definición de servicio web para el experimento predictivo y no para el experimento de entrenamiento.
 
     $wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
@@ -73,7 +73,7 @@ Como alternativa, para determinar el nombre del grupo de recursos de un servicio
 
 
 ## <a name="export-the-web-service-definition-as-json"></a>Exporte la definición de servicio web como JSON
-Para modificar la definición para el modelo entrenado para usar el modelo recién entrenado, primero debe usar el cmdlet [Export-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767935.aspx) para exportar a un archivo con formato JSON.
+Para modificar la definición para el modelo entrenado para usar el modelo recién entrenado, primero debe usar el cmdlet [Export-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice) para exportar a un archivo con formato JSON.
 
     Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
@@ -94,13 +94,13 @@ En los recursos, busque [modelo entrenado], actualice el valor de *uri* en el no
       },
 
 ## <a name="import-the-json-into-a-web-service-definition"></a>Importe JSON en una definición de servicio web
-Debe utilizar el cmdlet [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) para convertir el archivo JSON modificado en una definición de servicio web que puede usar para actualizar la definición del servicio web.
+Debe utilizar el cmdlet [Import-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/import-azurermmlwebservice) para convertir el archivo JSON modificado en una definición de servicio web que puede usar para actualizar la definición del servicio web.
 
     $wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 
 ## <a name="update-the-web-service-with-new-web-service-definition"></a>Actualice el servicio web con la nueva definición de servicio web
-Por último, utilice el cmdlet [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) para actualizar la definición del servicio web.
+Por último, utilice el cmdlet [Update-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/update-azurermmlwebservice) para actualizar la definición del servicio web.
 
     Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'  -ServiceUpdates $wsd
 

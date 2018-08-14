@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: cfbf4dc08ccea95f99216f6cc82c1ee56d65768a
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: f70e0bcb68f059618f9b398a00e23498a10df23e
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943358"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39582888"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Llamar a Microsoft Graph API desde una aplicación de página única de JavaScript (SPA)
 
@@ -47,6 +47,6 @@ Esta guía utiliza la siguiente biblioteca:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de autenticación de Microsoft para la vista preliminar de JavaScript|
 
 > [!NOTE]
-> *msal.js* apunta al *punto de conexión de Azure Active Directory v2*, lo que permite que las cuentas personales, profesionales y educativas inicien sesión y adquieran tokens. El *punto de conexión de Azure Active Directory v2* tiene [algunas limitaciones](..\articles\active-directory\develop\active-directory-v2-limitations.md). Si solo le interesan las cuentas educativas y profesionales, use *adal.js* en el *punto de conexión V1*. Para comprender las diferencias entre los puntos de conexión v1 y v2, lea la [comparación entre v1 y v2](..\articles\active-directory\develop\active-directory-v2-compare.md).
+> *msal.js* apunta al *punto de conexión de Azure Active Directory v2*, lo que permite que las cuentas personales, profesionales y educativas inicien sesión y adquieran tokens. El *punto de conexión de Azure Active Directory v2* tiene [algunas limitaciones](..\articles\active-directory\develop\active-directory-v2-limitations.md). Si solo le interesan las cuentas educativas y profesionales, use *adal.js* en el *punto de conexión V1*. Para comprender las diferencias entre los puntos de conexión v1 y v2, lea la [comparación entre v1 y v2](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->

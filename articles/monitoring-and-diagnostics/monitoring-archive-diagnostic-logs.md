@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 266404a69c691cfbbfabc49e4d78deb11db74b52
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 17b03ee9521ddf1980e27ee9a63d2ba74ea6e6b7
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249162"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629691"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archivo de registros de diagnóstico de Azure
 
@@ -163,5 +163,5 @@ En el archivo PT1H.json, cada evento se almacena en la matriz de "registros" con
 
 * [Descargar blobs para el análisis](../storage/storage-dotnet-how-to-use-blobs.md)
 * [Streaming de registros de diagnóstico a un espacio de nombres de Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-* [Archivar registros de Azure Active Directory con Azure Monitor](../active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md)
+* [Archivar registros de Azure Active Directory con Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Información general sobre los registros de diagnóstico de Azure](monitoring-overview-of-diagnostic-logs.md)

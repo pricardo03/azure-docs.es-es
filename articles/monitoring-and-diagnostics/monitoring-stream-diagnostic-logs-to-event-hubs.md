@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5b4a15204a934bf55810fcdccd48a7a15a48c5ed
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9d4d7633428cd174a31214db2db6b6d9928230bd
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258191"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627923"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Transmisión de registros de diagnóstico de Azure a un centro de eventos
 Los **[registros de diagnóstico de Azure](monitoring-overview-of-diagnostic-logs.md)** se pueden transmitir casi en tiempo real a cualquier aplicación mediante la opción "Exportar a Event Hubs" integrada en el Portal o habilitando el identificador de regla de autorización de Event Hubs en una configuración de diagnóstico por medio de los cmdlets de Azure PowerShell o la CLI de Azure 2.0.
@@ -195,6 +195,6 @@ También puede transmitir los registros de diagnóstico de los recursos de Compu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Streaming de registros de Azure Active Directory con Azure Monitor](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md)
+* [Streaming de registros de Azure Active Directory con Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 * [Más información sobre los registros de Diagnósticos de Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Introducción a Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

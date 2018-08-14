@@ -1,4 +1,3 @@
-
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Adición de información de registro de la aplicación a su aplicación
 
 En este paso, debe agregar el identificador de cliente a su proyecto.

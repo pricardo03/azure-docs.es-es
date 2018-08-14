@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 15a743f524c58e56247ec46fee27611b33595bad
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 79b499f8063e5c15f76d89182955cbd90fb1039f
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258701"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629317"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configuración de Managed Service Identity (MSI) en una máquina virtual mediante una plantilla
 
@@ -47,7 +47,7 @@ Al igual que con Azure Portal y los scripts, las plantillas de [Azure Resource M
    - Usar un [editor de JSON (por ejemplo, VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md) local y, a continuación, cargarla e implementarla con PowerShell o la CLI.
    - Usar el [proyecto del grupo de recursos de Azure](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) de Visual Studio tanto para crear como para implementar una plantilla.  
 
-Independientemente de la opción que elija, la sintaxis de la plantilla es la misma durante la implementación inicial y posteriores implementaciones. La habilitación de una identidad asignada por el sistema o el usuario en una VM existente o nueva se realiza de la misma forma. Asimismo, de forma predeterminada, Azure Resource Manager realiza una [actualización incremental](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) en las implementaciones.
+Independientemente de la opción que elija, la sintaxis de la plantilla es la misma durante la implementación inicial y posteriores implementaciones. La habilitación de una identidad asignada por el sistema o el usuario en una VM existente o nueva se realiza de la misma forma. Asimismo, de forma predeterminada, Azure Resource Manager realiza una [actualización incremental](../../azure-resource-manager/deployment-modes.md) en las implementaciones.
 
 ## <a name="system-assigned-identity"></a>Identidad asignada por el sistema
 
@@ -191,7 +191,7 @@ En esta sección, asignará una identidad asignada por el usuario a una máquina
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
+                "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
             ]
         },
     ```

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 18eac72d75680ab12c4a0bea9dfc5ac8a5fce566
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 78796b5dc62cb573f149c24d90205d26fb139cf7
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24103436"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628654"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: nombre del emisor y clave del emisor
 
@@ -27,7 +27,7 @@ ms.locfileid: "24103436"
 
 Azure BizTalk Services usan el nombre y la clave de emisor de Service Bus, además del nombre y la clave de emisor del servicio Access Control. Concretamente:
 
-| Tarea | Nombre de emisor y clave de emisor |
+| Task | Nombre de emisor y clave de emisor |
 | --- | --- |
 | Implementación de la aplicación desde Visual Studio |Nombre y clave de emisor del servicio de control de acceso |
 | Configuración del Portal de Azure BizTalk Services |Nombre y clave de emisor del servicio de control de acceso |
@@ -71,13 +71,13 @@ Resumiendo:
 Nombre de emisor = SharedSecretIssuer  
 Clave de emisor = SharedSecretKey
 
-Más información sobre el cmdlet [New-AzureSBNamespace](https://msdn.microsoft.com/library/dn495165.aspx). 
+Más información sobre el cmdlet [New-AzureSBNamespace](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace). 
 
 ## <a name="service-bus-issuer-name-and-issuer-key"></a>Nombre de emisor y clave de emisor de Service Bus
 Los servicios de adaptador de BizTalk usan el nombre y la clave de emisor de Service Bus. En su proyecto de BizTalk Services en Visual Studio, se usan los servicios de adaptador de BizTalk para conectarse a un sistema local de línea de negocio (LOB). Para conectarse, debe crear el relé de LOB y especificar los detalles de su sistema de LOB. Para ello, debe especificar el nombre y la clave de emisor de Service Bus.
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Recuperación del nombre y la clave de emisor de Service Bus
-1. Inicie sesión en el [Portal de Azure](http://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](http://portal.azure.com).
 2. Busque **Service Bus**y seleccione el espacio de nombres. 
 3. Abra las propiedades de **Directivas de acceso compartido**, seleccione la directiva y vea la **Cadena de conexión** para el nombre y los valores de clave.  
 

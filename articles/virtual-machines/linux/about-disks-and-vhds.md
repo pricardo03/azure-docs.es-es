@@ -1,21 +1,20 @@
 ---
 title: Información acerca del almacenamiento de discos no administrados (blobs de página) y administrados de las VM de Linux de Microsoft Azure | Microsoft Docs
 description: Obtenga información acerca de los conceptos básicos del almacenamiento de discos no administrados (blobs de página) y administrados de las máquinas virtuales de Linux en Azure.
-services: virtual-machines
+services: virtual-machines-linux,storage
 author: roygara
-manager: twooley
-ms.service: virtual-machines
-ms.workload: storage
+ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.openlocfilehash: a1c867e97879b1830a8596683b8314fd6535aa7c
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.component: disks
+ms.openlocfilehash: feb3e60ee1b43ec85c81912fbce086858bb33742
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036006"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715937"
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>Acerca del almacenamiento de discos para VM de Linux en Azure
 Como cualquier otro equipo, las máquinas virtuales de Azure usan discos como un lugar para almacenar un sistema operativo, aplicaciones y datos. Todas las máquinas virtuales de Azure tienen al menos dos discos: un disco del sistema operativo Linux y un disco temporal. El disco de sistema operativo se crea a partir de una imagen, y tanto el disco de sistema operativo como la imagen son discos duros virtuales (VHD) almacenados en una cuenta de Azure Storage. Las máquinas virtuales también pueden tener uno o más discos de datos que también se almacenan en discos duros virtuales.

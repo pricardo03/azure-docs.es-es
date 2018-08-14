@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 27068c1154a4cc5776bbcc74922ca31c4f28ced6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4e6600d81fedd884cf415d055aedd29d163b3365
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399924"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629657"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Planeamiento de la implementación de unión a Azure Active Directory híbrido
 
@@ -31,7 +31,7 @@ De forma similar a un usuario, un dispositivo se está convirtiendo en otra iden
 - Unión a Azure AD híbrido
 - Registro de Azure AD
 
-Al traer sus dispositivos a Azure AD, está maximizando la productividad de los usuarios a través de un inicio de sesión único (SSO) en los recursos de nube y del entorno local. Al mismo tiempo, puede proteger el acceso a los recursos de nube y de entorno local con [acceso condicional](../active-directory-conditional-access-azure-portal.md).
+Al traer sus dispositivos a Azure AD, está maximizando la productividad de los usuarios mediante un inicio de sesión único (SSO) en los recursos de nube y del entorno local. Al mismo tiempo, puede proteger el acceso a los recursos de nube y de entorno local con [acceso condicional](../active-directory-conditional-access-azure-portal.md).
 
 Si tiene un entorno local de Active Directory y quiere unir sus dispositivos unidos a un dominio a Azure AD, puede hacerlo configurando dispositivos híbridos unidos a Azure AD. En este artículo se proporcionan los pasos relacionados con la implementación de una unión a Azure AD híbrido en su entorno. 
 
@@ -96,6 +96,13 @@ Si está confiando en la Herramienta de preparación del sistema (Sysprep), aseg
 Si está confiando en una instantánea de máquina virtual (VM) para crear otras máquinas virtuales, asegúrese de usar una instantánea de VM que no se haya configurado para la unión a Azure AD híbrido.
 
 El registro de dispositivos Windows de nivel inferior no es compatible con los dispositivos configurados para el perfil de usuario móvil o las credenciales móviles. Si confía en la itinerancia de la configuración o de los perfiles, use Windows 10.
+
+- El registro de dispositivos de Windows de nivel inferior **se** admite en entornos no federados a través del inicio de sesión único de conexión directa [Inicio de sesión único de conexión directa de Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
+ 
+- El registro de dispositivos de Windows de nivel inferior **no** se admite al usar la autenticación de paso a través de Azure AD sin el inicio de sesión único de conexión directa.
+
+- El registro de dispositivos de Windows de nivel inferior **no se** admite en dispositivos que usan perfiles móviles. Si confía en la itinerancia de la configuración o de los perfiles, use Windows 10.
+
 
 No se admite el registro de Windows Server que ejecuta el rol de controlador de dominio (DC).
 

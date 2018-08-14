@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: e773435d89a511e6f1f369cc3fd5dc6f06507e45
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 7aa5b00d1497e384377ba4423431eac57c1aa4c9
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808764"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630410"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la configuración y administración de Web Apps en Azure
 
@@ -106,7 +106,7 @@ Para más información, consulte las [preguntas más frecuentes sobre los domini
 
 ## <a name="why-do-i-see-the-message-partially-succeeded-when-i-try-to-back-up-my-web-app"></a>¿Por qué aparece un mensaje "Realizado parcialmente" cuando intento hacer una copia de seguridad de mi aplicación web?
 
-Una causa común de errores en la copia de seguridad es que algunos archivos están en uso por la aplicación. Estos archivos se bloquean mientras se realiza la copia de seguridad. Como consecuencia, no se puede hacer una copia de seguridad de ellos y podría aparecer el estado "Realizado parcialmente". Existe una posibilidad de impedir que esto ocurra y es excluir los archivos del proceso de copia de seguridad. Puede elegir hacer copia de seguridad solo de lo necesario. Para más información, consulte [Backup just the important parts of your site with Azure web apps](http://www.zainrizvi.io/2015/06/05/creating-partial-backups-of-your-site-with-azure-web-apps/) (Copia de seguridad de solo las partes importantes de un sitio con aplicaciones web de Azure).
+Una causa común de errores en la copia de seguridad es que algunos archivos están en uso por la aplicación. Estos archivos se bloquean mientras se realiza la copia de seguridad. Como consecuencia, no se puede hacer una copia de seguridad de ellos y podría aparecer el estado "Realizado parcialmente". Existe una posibilidad de impedir que esto ocurra y es excluir los archivos del proceso de copia de seguridad. Puede elegir hacer copia de seguridad solo de lo necesario. Para más información, consulte [Backup just the important parts of your site with Azure web apps](http://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/) (Copia de seguridad de solo las partes importantes de un sitio con aplicaciones web de Azure).
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>¿Cómo se quita un encabezado de la respuesta HTTP?
 
@@ -288,7 +288,7 @@ Para obtener documentación detallada sobre la autenticación y la autorización
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>¿Cómo se redirige el dominio *.azurewebsites.net predeterminado a un dominio personalizado de la aplicación web de Azure?
 
-Cuando se crea un nuevo sitio web mediante Web Apps en Azure, se asigna un dominio *sitename*.azurewebsites.net predeterminado a su sitio. Si agrega un nombre de host personalizado al sitio y no desea que los usuarios puedan acceder a su dominio *.azurewebsites.net predeterminado, puede redirigir la dirección URL predeterminada. Para aprender a redirigir todo el tráfico desde el dominio predeterminado de su sitio web a su dominio personalizado, consulte [Redirect the default domain to your custom domain in Azure web apps](http://www.zainrizvi.io/2016/04/07/block-default-azure-websites-domain/) (Redirección del dominio predeterminado al dominio personalizado en aplicaciones web de Azure).
+Cuando se crea un nuevo sitio web mediante Web Apps en Azure, se asigna un dominio *sitename*.azurewebsites.net predeterminado a su sitio. Si agrega un nombre de host personalizado al sitio y no desea que los usuarios puedan acceder a su dominio *.azurewebsites.net predeterminado, puede redirigir la dirección URL predeterminada. Para aprender a redirigir todo el tráfico desde el dominio predeterminado de su sitio web a su dominio personalizado, consulte [Redirect the default domain to your custom domain in Azure web apps](http://zainrizvi.io/blog/block-default-azure-websites-domain/) (Redirección del dominio predeterminado al dominio personalizado en aplicaciones web de Azure).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>¿Cómo se determina qué versión de .NET está instalada en App Service?
 

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 08/08/2018
 ms.author: carlrab
-ms.openlocfilehash: a1333680225923a4e27f96e61a5b6530f32a9329
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c4d1170bd2fe4acb135c88191b447f734e312723
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647891"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715964"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Supervisar Azure SQL Database con vistas de administración dinámica
 Microsoft Azure SQL Database habilita un subconjunto de vistas de administración dinámica para diagnosticar problemas de rendimiento, que pueden deberse a consultas bloqueadas o de ejecución prolongada, cuellos de botella de recursos, planes de consulta deficientes, etc. En este tema se ofrece información sobre cómo encontrar problemas comunes de rendimiento con vistas de administración dinámica.
@@ -40,8 +40,9 @@ La siguiente consulta devuelve el tamaño de la base de datos en megabytes:
 
 ```
 -- Calculates the size of the database.
-SELECT SUM(reserved_page_count)*8.0/1024
-FROM sys.dm_db_partition_stats;
+SELECT SUM(CAST(FILEPROPERTY(name, 'SpaceUsed') AS bigint) * 8192.) / 1024 / 1024 AS DatabaseSizeInMB
+FROM sys.database_files
+WHERE type_desc = 'ROWS';
 GO
 ```
 

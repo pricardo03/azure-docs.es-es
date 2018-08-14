@@ -1,25 +1,21 @@
 ---
 title: Migración de máquinas virtuales Windows a Azure Premium Storage con Azure Site Recovery | Microsoft Docs
 description: Migre las máquinas virtuales existentes a Azure Premium Storage mediante Site Recovery. Premium Storage le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en Azure Virtual Machines.
-services: virtual-machines-windows
+services: virtual-machines-windows,storage
 cloud: Azure
-documentationcenter: na
 author: luywang
-manager: jeconnoc
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 8a7becc1dc5a2556ace249b7a743836ebf4cc048
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: disks
+ms.openlocfilehash: 5d3c2f09a6e4c45aa477cd85911147eab6de7a2c
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779458"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714713"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migración a Premium Storage mediante Azure Site Recovery
 
@@ -69,7 +65,7 @@ Estos son los requisitos de Azure para este escenario de migración:
 * Una red virtual de Azure a la que se conectarán las máquinas virtuales cuando se creen en la conmutación por error. La red virtual de Azure debe estar en la misma región en que se ejecuta Site Recovery.
 * Una cuenta de almacenamiento estándar de Azure para almacenar los registros de replicación. Puede ser la misma que para los discos de máquina virtual que se migran.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Comprender los componentes del escenario de migración relevantes de la sección anterior.
 * Planear el tiempo de inactividad, para lo que se debe conocer la [conmutación por error en Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -80,7 +76,7 @@ Puede usar Site Recovery para migrar máquinas virtuales de IaaS de Azure entre 
 
 ### <a name="step-1-create-a-recovery-services-vault"></a>Paso 1: Creación de un almacén de Recovery Services
 
-1. Abra el [Azure Portal](https://portal.azure.com).
+1. Abra [Azure Portal](https://portal.azure.com).
 2. Seleccione **Crear un recurso** > **Administración** > **Backup and Site Recovery (OMS)**. También puede seleccionar **Examinar** > **Almacén de Recovery Services** > **Agregar**. 
 3. Especifique la región en la que se van a replicar las máquinas virtuales. A efectos de la migración en la misma región, seleccione la región donde están máquinas virtuales de origen y las cuentas de almacenamiento de origen. 
 

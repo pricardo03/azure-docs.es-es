@@ -1,11 +1,11 @@
 ### <a name="prepare-for-a-push-installation-on-a-linux-server"></a>Preparación de una instalación de inserción en un servidor Linux
 
 1. Asegúrese de que hay conectividad de red entre la el equipo con Linux y el servidor de procesos.
-2. Cree una cuenta que el servidor de procesos pueda utilizar para acceder al equipo. La cuenta debe ser un usuario **raíz** en el servidor Linux de origen. Esta cuenta solo se usa para la instalación de inserción y para las actualizaciones.
-3. Compruebe que el archivo /etc/hosts del servidor Linux de origen tiene entradas que asignan el nombre de host local a las direcciones IP asociadas con todos los adaptadores de red.
-4. Instale los paquetes openssh, openssh-server y openssl más recientes en el equipo que desea replicar.
-5. Asegúrese de que Secure Shell (SSH) está habilitado y se ejecuta en el puerto 22.
-6. Habilitación de la autenticación de la contraseña y el subsistema SFTP en el archivo sshd_config. Siga estos pasos:
+1. Cree una cuenta que el servidor de procesos pueda utilizar para acceder al equipo. La cuenta debe ser un usuario **raíz** en el servidor Linux de origen. Esta cuenta solo se usa para la instalación de inserción y para las actualizaciones.
+1. Compruebe que el archivo /etc/hosts del servidor Linux de origen tiene entradas que asignan el nombre de host local a las direcciones IP asociadas con todos los adaptadores de red.
+1. Instale los paquetes openssh, openssh-server y openssl más recientes en el equipo que desea replicar.
+1. Asegúrese de que Secure Shell (SSH) está habilitado y se ejecuta en el puerto 22.
+1. Habilitación de la autenticación de la contraseña y el subsistema SFTP en el archivo sshd_config. Siga estos pasos:
 
     a. Inicie sesión como usuario **raíz**.
 
@@ -19,7 +19,7 @@
 
     e. Reinicie el servicio **sshd**.
 
-7. Agregue la cuenta que creó en CSPSConfigtool. Siga estos pasos:
+1. Agregue la cuenta que creó en CSPSConfigtool. Siga estos pasos:
 
     a. Inicie sesión en el servidor de configuración.
 

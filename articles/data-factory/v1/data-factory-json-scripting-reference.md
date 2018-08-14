@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6c96cf220e34f1509375e5314e0b54e175575834
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c5909c1f511d3a7816ebafc3ea8b326edb7f14e3
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114215"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629504"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referencia de scripting JSON
 > [!NOTE]
@@ -584,7 +584,7 @@ Si va a copiar datos a Azure Blob Storage, establezca el **tipo de receptor** de
 
 Para obtener más información, vea el artículo [Conector de Azure Blob](data-factory-azure-blob-connector.md#copy-activity-properties). 
 
-## <a name="azure-data-lake-store"></a>Almacén de Azure Data Lake
+## <a name="azure-data-lake-store"></a>Azure Data Lake Store
 
 ### <a name="linked-service"></a>Servicio vinculado
 Para definir un servicio vinculado de Azure Data Lake Store, establezca el tipo de servicio vinculado en **AzureDataLakeStore** y especifique las siguientes propiedades en la sección **typeProperties**:  
@@ -3733,7 +3733,7 @@ Para definir un servicio vinculado de HDFS, establezca el **tipo** de servicio v
 | userName |Nombre de usuario para la autenticación de Windows |Sí (para la autenticación de Windows) |
 | contraseña |Contraseña para la autenticación de Windows |Sí (para la autenticación de Windows) |
 | gatewayName |Nombre de la puerta de enlace que el servicio Factoría de datos debe usar para conectarse a HDFS. |SÍ |
-| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) de la credencial de acceso. |Sin  |
+| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) de la credencial de acceso. |Sin  |
 
 #### <a name="example-using-anonymous-authentication"></a>Ejemplo: Uso de autenticación anónima
 
@@ -4463,7 +4463,7 @@ Para definir un servicio vinculado de ODBC, establezca el **tipo** de servicio v
 }
 ```
 #### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>Ejemplo: Uso de la autenticación básica con credenciales cifradas
-Las credenciales se pueden cifrar mediante el cmdlet [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (versión 1.0 de Azure PowerShell) o [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (versión 0.9 o una versión anterior de Azure PowerShell).  
+Las credenciales se pueden cifrar mediante el cmdlet [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (versión 1.0 de Azure PowerShell) o [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (versión 0.9 o una versión anterior de Azure PowerShell).  
 
 ```json
 {
@@ -4966,7 +4966,7 @@ En la siguiente tabla se ofrecen descripciones de las propiedades que se usan en
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| type |La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. |SÍ |
+| Escriba |La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. |SÍ |
 | accountName |Nombre de la cuenta de Análisis de Azure Data Lake |SÍ |
 | dataLakeAnalyticsUri |Identificador URI de Análisis de Azure Data Lake. |Sin  |
 | authorization |El código de autorización se recupera automáticamente después de hacer clic en el botón **Autorizar** situado en el Editor de Factoría de datos y de completar el inicio de sesión de OAuth. |SÍ |

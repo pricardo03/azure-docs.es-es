@@ -14,12 +14,12 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 625894738b6cbf680baef0a1eeeea518586e4506
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 52ae7da666acaf234920a7f03afe3766f29a1e85
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37871444"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629130"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Adquisición de un directorio no administrado como administrador en Azure Active Directory
 En este artículo se describen dos maneras de adquirir un nombre de dominio DNS en un directorio no administrado en Azure Active Directory (Azure AD). Cuando un usuario de autoservicio se regista en un servicio en la nube que usa Azure AD, se agrega a un directorio de Azure AD no administrado en función del dominio de su correo electrónico. Para más información sobre el registro de autoservicio o "viral" en un servicio, consulte [¿Qué es el registro de autoservicio de Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-self-service-signup)
@@ -104,7 +104,7 @@ La adquisición de administración externa no es compatible con ningún servicio
 
 #### <a name="more-information-about-rms-for-individuals"></a>Más información acerca de RMS para individuos
 
-En el caso de [RMS para individuos](/information-protection/understand-explore/rms-for-individuals), cuando el inquilino no administrado está en la misma región que el inquilino que posee, tanto la [clave de inquilino de Azure Information Protection](/information-protection/plan-design/plan-implement-tenant-key) como las [plantillas de protección predeterminadas](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates), que se crean automáticamente, se mueven con el nombre de dominio. 
+En el caso de [RMS para individuos](/azure/information-protection/rms-for-individuals), cuando el inquilino no administrado está en la misma región que el inquilino que posee, tanto la [clave de inquilino de Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) como las [plantillas de protección predeterminadas](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates), que se crean automáticamente, se mueven con el nombre de dominio. 
 
 Si inquilino no administrado está en otra región, la clave y las plantillas no se mueven. Por ejemplo, el inquilino no administrado está en Europa y el inquilino que posee se encuentra en Norteamérica. 
 

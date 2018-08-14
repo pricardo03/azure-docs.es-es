@@ -37,7 +37,7 @@ Hay una relación entre el rendimiento y la IOPS, tal como se muestra en la sigu
 
 Por lo tanto, es importante determinar los valores óptimos de rendimiento e IOPS que requiere su aplicación. Si intenta optimizar uno, el otro también se ve afectado. En una sección posterior, *Optimización del rendimiento de las aplicaciones*, trataremos con más detalle cómo optimizar el rendimiento y la IOPS.
 
-## <a name="latency"></a>Latency
+## <a name="latency"></a>Latencia
 La latencia es el tiempo que tarda una aplicación en recibir una sola solicitud, enviarla a los discos de almacenamiento y enviar la respuesta al cliente. Se trata de una medida crítica del rendimiento de una aplicación, además de la IOPS y el rendimiento. La latencia de un disco de almacenamiento premium es el tiempo que tarda en recuperar la información de una solicitud y comunicarla de nuevo a la aplicación. Premium Storage proporciona latencias bajas coherentes. Si habilita el almacenamiento en caché de host ReadOnly en discos de almacenamiento premium, puede obtener una latencia de lectura mucho menor. Trataremos el almacenamiento en caché de disco con más detalle en la sección *Optimización del rendimiento de las aplicaciones*.
 
 Cuando se optimiza la aplicación para obtener una IOPS y un rendimiento mayores, afectará a la latencia de la aplicación. Después de ajustar el rendimiento de las aplicaciones, siempre se evalúa la latencia de la aplicación para evitar un comportamiento inesperado de alta latencia.
@@ -61,7 +61,7 @@ A continuación, mida los requisitos para obtener el máximo rendimiento de sus 
 | Tamaño de las solicitudes de E/S | | | |
 | Rendimiento medio | | | |
 | Máx. Throughput | | | |
-| Mín. Latency | | | |
+| Mín. Latencia | | | |
 | Latencia media | | | |
 | Máx. CPU | | | |
 | Promedio de CPU | | | |
@@ -253,7 +253,7 @@ A continuación se muestra la configuración de caché de disco recomendada para
 Mediante la configuración del almacenamiento en caché ReadOnly en discos de datos de Premium Storage, puede lograr una baja latencia de lectura y obtener una IOPS de lectura y un rendimiento de la aplicación muy altos. Esto se debe a dos razones:
 
 1. Las lecturas realizadas desde la memoria caché, que se encuentra en la memoria de la máquina virtual y el SSD local, son mucho más rápidas que las lecturas desde el disco de datos, que se encuentra en el almacenamiento de blobs de Azure.  
-2. Premium Storage no cuenta las lecturas que se atienden desde la caché para la IOPS y el rendimiento del disco. Por lo tanto, la aplicación es capaz de lograr una IOPS y un rendimiento totales mayores.
+1. Premium Storage no cuenta las lecturas que se atienden desde la caché para la IOPS y el rendimiento del disco. Por lo tanto, la aplicación es capaz de lograr una IOPS y un rendimiento totales mayores.
 
 *ReadWrite*  
 De forma predeterminada, los discos del sistema operativo tienen habilitada la caché ReadWrite. Recientemente hemos agregado también compatibilidad para el almacenamiento en caché ReadWrite en los discos de datos. Si usa el almacenamiento en caché ReadWrite, debe tener una manera adecuada de escribir los datos de la memoria caché en discos persistentes. Por ejemplo, SQL Server administra por sí mismo la escritura de los datos en caché en los discos de almacenamiento persistentes. El uso de la memoria caché ReadWrite con una aplicación que no administre la persistencia de los datos necesarios puede provocar la pérdida de los datos, si se bloquea la máquina virtual.
@@ -263,7 +263,7 @@ Por ejemplo, puede aplicar estas directrices a un SQL Server que funciona en Pre
 1. Configure la caché "ReadOnly" de los discos de Premium Storage que hospedan archivos de datos.  
    a.  Las rápidas lecturas de la caché reducen el tiempo de consulta de SQL Server, ya que las páginas de datos se recuperan mucho más rápido de la memoria caché que directamente desde los discos de datos.  
    b.  Atender las lecturas de la caché significa que hay un rendimiento adicional de los discos de datos premium. SQL Server puede usar este rendimiento adicional para recuperar más páginas de datos y otras operaciones, como copia de seguridad/restauración, cargas por lotes y volver a generar un índice.  
-2. Configure la caché "None" en los discos de Premium Storage que hospedan los archivos de registro.  
+1. Configure la caché "None" en los discos de Premium Storage que hospedan los archivos de registro.  
    a.  Los archivos de registro tienen sobre todo muchas operaciones de escritura. Por lo tanto, no se benefician de la caché ReadOnly.
 
 ## <a name="disk-striping"></a>Seccionamiento del disco
@@ -381,12 +381,12 @@ Realice los siguientes pasos para preparar la memoria caché
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1MB |100 |0 |
    | RandomReads\_1MB |1MB |100 |100 |
-2. Ejecute la prueba Iometer para inicializar el disco de la caché con los parámetros siguientes. Use tres subprocesos de trabajo para el volumen de destino y una profundidad de la cola de 128. Establezca la duración del “tiempo de ejecución” de la prueba en 2 horas en la pestaña "Test Setup" (Configuración de prueba).
+1. Ejecute la prueba Iometer para inicializar el disco de la caché con los parámetros siguientes. Use tres subprocesos de trabajo para el volumen de destino y una profundidad de la cola de 128. Establezca la duración del “tiempo de ejecución” de la prueba en 2 horas en la pestaña "Test Setup" (Configuración de prueba).
 
    | Escenario | Volumen de destino | NOMBRE | Duration |
    | --- | --- | --- | --- |
    | Inicializar caché de disco |CacheReads |RandomWrites\_1MB |2 horas |
-3. Ejecute la prueba Iometer para el preparar el disco de la caché con los parámetros siguientes. Use tres subprocesos de trabajo para el volumen de destino y una profundidad de la cola de 128. Establezca la duración del “tiempo de ejecución” de la prueba en 2 horas en la pestaña "Test Setup" (Configuración de prueba).
+1. Ejecute la prueba Iometer para el preparar el disco de la caché con los parámetros siguientes. Use tres subprocesos de trabajo para el volumen de destino y una profundidad de la cola de 128. Establezca la duración del “tiempo de ejecución” de la prueba en 2 horas en la pestaña "Test Setup" (Configuración de prueba).
 
    | Escenario | Volumen de destino | NOMBRE | Duración |
    | --- | --- | --- | --- |

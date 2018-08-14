@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: ee03ed3159ad2fc1cd8da4a84fd1be34d0b656c8
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e6cb83eb6aaaea38686c63d0f3f70738efa4bcff
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224337"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630763"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Preguntas más frecuentes sobre itinerancia de datos y configuración
 Este artículo responde a algunas preguntas que los administradores de TI podrían tener sobre la sincronización de datos de aplicación y la configuración.
@@ -99,7 +99,7 @@ Enterprise State Roaming almacena todos los datos sincronizados en la nube de Az
 ## <a name="who-owns-the-data-thats-being-roamed"></a>¿Quién administra los datos que usan un perfil itinerante?
 Las empresas tienen la propiedad de los datos que usan un perfil itinerante mediante Enterprise State Roaming. Los datos se almacenan en un centro de datos de Azure. Todos los datos de usuario se cifran en tránsito y en reposo en la nube mediante el servicio Azure Rights Management de Azure Information Protection. Esto es una mejora comparado con la sincronización de la configuración basada en la cuenta de Microsoft, donde solo ser cifran determinados datos confidenciales, como las credenciales de usuario, antes de dejar el dispositivo.
 
-Microsoft se compromete a proteger los datos de los clientes. Los datos de configuración de los usuarios empresariales se cifran automáticamente mediante el servicio Azure Rights Management cada vez que salen de un dispositivo Windows 10, de tal forma que ningún usuario pueda leer estos datos. Si la organización tiene una suscripción de pago para el servicio Azure Rights Management, puede utilizar otras características de protección, como el seguimiento y la revocación de documentos, proteger automáticamente correos electrónicos que contienen información confidencial y administrar sus propias claves (la solución "bring your own key" solución, también conocida como BYOK). Para más información sobre estas características y cómo funciona este servicio de protección, consulte [¿Qué es Azure Rights Management?](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection)
+Microsoft se compromete a proteger los datos de los clientes. Los datos de configuración de los usuarios empresariales se cifran automáticamente mediante el servicio Azure Rights Management cada vez que salen de un dispositivo Windows 10, de tal forma que ningún usuario pueda leer estos datos. Si la organización tiene una suscripción de pago para el servicio Azure Rights Management, puede utilizar otras características de protección, como el seguimiento y la revocación de documentos, proteger automáticamente correos electrónicos que contienen información confidencial y administrar sus propias claves (la solución "bring your own key" solución, también conocida como BYOK). Para más información sobre estas características y cómo funciona este servicio de protección, consulte [¿Qué es Azure Rights Management?](/azure/information-protection/what-is-information-protection)
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>¿Puedo administrar la sincronización para una aplicación o configuración específica?
 En Windows 10, no hay ninguna configuración de MDM o de directiva de grupo para deshabilitar la itinerancia en una aplicación individual. Los administradores de inquilinos pueden deshabilitar la sincronización de los datos de la aplicación en todas las aplicaciones en un dispositivo administrado, pero no hay ningún control más preciso de nivel de aplicación o dentro de la aplicación.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 03db1bf84e200d8b66f0395cbd96813e2248eefe
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 7f093a1878bc3cf7e91cc14ec7a68b1a84764a49
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806373"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39486011"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Copia de seguridad y recuperación ante desastres para discos IaaS de Azure
 
@@ -148,15 +148,15 @@ Use los pasos siguientes para habilitar las copias de seguridad de las máquinas
 
     b. En el menú **Almacenes de Recovery Services**, haga clic en **Agregar** y siga estos pasos para crear otro almacén en la misma región que la máquina virtual. Por ejemplo, si la máquina virtual se encuentra en la región del oeste de EE. UU, elija Oeste de EE. UU. para el almacén.
 
-2.  Compruebe la replicación de almacenamiento para el almacén recién creado. Obtenga acceso al almacén en **Almacenes de Recovery Services** y vaya a **Configuración** > **Configuración de copia de seguridad**. Asegúrese de que la opción de **almacenamiento con redundancia geográfica** está seleccionada de manera predeterminada. Así se asegura de que el almacén se replique automáticamente en un centro de datos secundario. Por ejemplo, el almacén de la región oeste de EE. UU. se replica automáticamente en la región este de EE. UU.
+1.  Compruebe la replicación de almacenamiento para el almacén recién creado. Obtenga acceso al almacén en **Almacenes de Recovery Services** y vaya a **Configuración** > **Configuración de copia de seguridad**. Asegúrese de que la opción de **almacenamiento con redundancia geográfica** está seleccionada de manera predeterminada. Así se asegura de que el almacén se replique automáticamente en un centro de datos secundario. Por ejemplo, el almacén de la región oeste de EE. UU. se replica automáticamente en la región este de EE. UU.
 
-3.  Configure la directiva de copia de seguridad y seleccione la máquina virtual en la misma interfaz de usuario.
+1.  Configure la directiva de copia de seguridad y seleccione la máquina virtual en la misma interfaz de usuario.
 
-4.  Asegúrese de que Backup Agent está instalado en la máquina virtual. Si la máquina virtual se crea con una imagen de la galería de Azure, ya tiene instalado el agente de copia de seguridad. En caso contrario (es decir, si usa una imagen personalizada), siga las instrucciones para [instalar el agente de VM en una máquina virtual](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
+1.  Asegúrese de que Backup Agent está instalado en la máquina virtual. Si la máquina virtual se crea con una imagen de la galería de Azure, ya tiene instalado el agente de copia de seguridad. En caso contrario (es decir, si usa una imagen personalizada), siga las instrucciones para [instalar el agente de VM en una máquina virtual](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
 
-5.  Asegúrese de que la máquina virtual permite la conectividad de red para que funcione el servicio Backup. Siga las instrucciones para la [conectividad de red](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+1.  Asegúrese de que la máquina virtual permite la conectividad de red para que funcione el servicio Backup. Siga las instrucciones para la [conectividad de red](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
-6.  Una vez completados los pasos anteriores, la copia de seguridad se ejecuta a intervalos regulares, tal y como se especifica en la directiva de copia de seguridad. Si es necesario, puede desencadenar la primera copia de seguridad manualmente desde el panel de almacén en Azure Portal.
+1.  Una vez completados los pasos anteriores, la copia de seguridad se ejecuta a intervalos regulares, tal y como se especifica en la directiva de copia de seguridad. Si es necesario, puede desencadenar la primera copia de seguridad manualmente desde el panel de almacén en Azure Portal.
 
 Para la automatización de Azure Backup mediante scripts, consulte [Cmdlets de PowerShell para copia de seguridad de máquina virtual](../articles/backup/backup-azure-vms-automation.md).
 
@@ -188,9 +188,9 @@ Para evitar esta situación, el proceso de copia de seguridad debe implementar l
 
 1.  Inmovilice todos los discos.
 
-2.  Vacíe todas las escrituras pendientes.
+1.  Vacíe todas las escrituras pendientes.
 
-3.  [Cree una instantánea de un blob](../articles/storage/blobs/storage-blob-snapshots.md) para todos los discos.
+1.  [Cree una instantánea de un blob](../articles/storage/blobs/storage-blob-snapshots.md) para todos los discos.
 
 Algunas aplicaciones de Windows como SQL Server ofrecen un mecanismo de copia de seguridad coordinado a través de un servicio de instantáneas de volumen para crear copias de seguridad coherentes con la aplicación. En Linux, puede usar una herramienta como *fsfreeze* para coordinar los discos. Esta herramienta brinda copias de seguridad coherentes con el archivo, pero no instantáneas coherentes con la aplicación. Este proceso es complejo, por lo que debe plantarse el uso de [Azure Backup](../articles/backup/backup-azure-vms-introduction.md) o una solución de copia de seguridad de terceros que ya lo implementen.
 
@@ -202,11 +202,11 @@ Otra posibilidad para crear copias de seguridad coherentes es apagar la máquina
 
 1. Apague la máquina virtual.
 
-2. Cree una instantánea de cada blob de disco duro virtual, que solo tarda unos segundos.
+1. Cree una instantánea de cada blob de disco duro virtual, que solo tarda unos segundos.
 
     Para crear una instantánea, puede usar [PowerShell](../articles/storage/common/storage-powershell-guide-full.md), la [API de REST de Azure Storage](https://msdn.microsoft.com/library/azure/ee691971.aspx), la [CLI de Azure](/cli/azure/) o cualquiera de las bibliotecas de cliente de Azure Storage, como [la biblioteca del cliente de Storage para .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx).
 
-3. Inicie la máquina virtual, con lo que finaliza el tiempo de inactividad. Todo el proceso se completa habitualmente en unos minutos.
+1. Inicie la máquina virtual, con lo que finaliza el tiempo de inactividad. Todo el proceso se completa habitualmente en unos minutos.
 
 Este proceso produce una colección de instantáneas coherentes de todos los discos, lo que proporciona un punto de restauración de copia de seguridad para la máquina virtual.
 

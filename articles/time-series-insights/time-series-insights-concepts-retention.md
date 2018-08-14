@@ -5,17 +5,17 @@ ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
 ms.author: anshan
-manager: kfile
+manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: c8fad0d626fc0b9754f7f04c8000f48976eb766b
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 204a9d64d14fe190cb0de73c964bb95b4b9b475f
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293102"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628773"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Descripción de la retención de datos en Time Series Insights
 En este artículo se describen dos parámetros de configuración que inciden en la retención de datos en el entorno Time Series Insights (TSI).

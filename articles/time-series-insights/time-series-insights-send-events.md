@@ -4,19 +4,19 @@ description: En este tutorial se explica cómo crear y configurar el centro de e
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: venkatja
-manager: jhubbard
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.author: anshan
+manager: cshankar
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: fb550942debf26691a0deac2a1ad8093128e4e63
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 30b83c54d314934f1de170955eec22e7b2a264b8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294520"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629759"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Envío de eventos a un entorno de Time Series Insights mediante un centro de eventos
 En este artículo se explica cómo crear y configurar el centro de eventos, y cómo ejecutar una aplicación de ejemplo para insertar eventos. Si tiene un centro de eventos con eventos en formato JSON, pase por alto este tutorial y vea su entorno en [Time Series Insights](https://insights.timeseries.azure.com).

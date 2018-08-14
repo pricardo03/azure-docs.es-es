@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/30/2018
 ms.author: mstewart
-ms.openlocfilehash: 772ab272603d0f8e0badf899c439592b20b7c8a3
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 50d43984e1df693cb5a6fd944805972ff775f3bb
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392582"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714519"
 ---
 #  <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Habilitación de Azure Disk Encryption para máquinas virtuales IaaS de Windows 
 
-Puede habilitar muchos escenarios de cifrado de disco, y los pasos pueden variar en función del escenario. En las secciones siguientes se tratan con más detalle los escenarios de máquinas virtuales IaaS de Windows. Para poder usar el cifrado de disco, es necesario satisfacer los [requisitos previos de Azure Disk Encryption](/articles/security/azure-security-disk-encryption-prerequisites.md). 
+Puede habilitar muchos escenarios de cifrado de disco, y los pasos pueden variar en función del escenario. En las secciones siguientes se tratan con más detalle los escenarios de máquinas virtuales IaaS de Windows. Para poder usar el cifrado de disco, es necesario satisfacer los [requisitos previos de Azure Disk Encryption](../security/azure-security-disk-encryption-prerequisites.md). 
 
 Tome una [instantánea](../virtual-machines/windows/snapshot-copy-managed-disk.md) o realice una copia de seguridad antes de cifrar los discos. Las copias de seguridad garantizan que, en caso de un error inesperado durante el cifrado, es posible una opción de recuperación. Las máquinas virtuales con discos administrados requieren una copia de seguridad antes del cifrado. Una vez realizada la copia de seguridad, puede usar el cmdlet Set-AzureRmVMDiskEncryptionExtension para cifrar los discos administrados mediante la especificación del parámetro -skipVmBackup. Para más información sobre cómo realizar la copia de seguridad y restauración de máquinas virtuales cifradas, consulte el artículo sobre [Azure Backup](../backup/backup-azure-vms-encryption.md). 
 
@@ -361,4 +361,4 @@ Puede deshabilitar el cifrado con Azure PowerShell, la CLI de Azure o una planti
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Habilitar Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md)
+> [Habilitación de Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md)

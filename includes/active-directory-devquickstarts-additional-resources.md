@@ -1,5 +1,5 @@
 ## <a name="additional-resources"></a>Recursos adicionales
-* [Guía del desarrollador de Azure AD](../articles/active-directory/develop/active-directory-developers-guide.md)
+* [Guía del desarrollador de Azure AD](../articles/active-directory/develop/azure-ad-developers-guide.md)
 * [Ejemplos de Azure AD en GitHub](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=active-directory)
 * [CloudIdentity.com](http://cloudidentity.com)
 

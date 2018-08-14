@@ -4,26 +4,26 @@ description: En este artículo se describe cómo usar el explorador de Azure Tim
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: kfile
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: d3b8973e8798e5b1f32d9e882db8a06ad7486ed8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: dfdc538719b0c7571ba04f4134819d7142f109d3
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295345"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629147"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorador de Azure Time Series Insights
 En este artículo se analizan las distintas características y opciones disponibles dentro de la aplicación web del explorador de Time Series Insights. Puede usar el explorador de Time Series Insights en el explorador web para crear visualizaciones de los datos.
  
 Azure Time Series Insights es un servicio de análisis, almacenamiento y administración totalmente administrado que facilita el análisis y la exploración de miles de millones de eventos de IoT de forma simultánea. Ofrece una visión global de los datos que permite validar rápidamente la solución de IoT y evitar el costoso tiempo de inactividad de los dispositivos críticos. Puede detectar las tendencias ocultas, descubrir anomalías y realizar análisis de causa principal casi en tiempo real. El explorador de Time Series Insights está actualmente en versión preliminar pública.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de que pueda usar el explorador de Time Series Insights, debe:
 - Crear un entorno de Time Series Insights
