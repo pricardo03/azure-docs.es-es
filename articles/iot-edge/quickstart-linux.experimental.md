@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8ee43a1e3b448faae79a7e3086e2e1d639c341f2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dfbe931bbe5887e9c0545558c4d2b2565718dd0a
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611934"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578497"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Guía de inicio rápido: Implementación del primer módulo de IoT Edge en un dispositivo Linux x64
 
@@ -33,7 +33,7 @@ Esta guía de inicio rápido convierte su equipo o maquina virtual Linux en un d
 
 Si no tiene una suscripción activa a Azure, cree una [cuenta gratuita][lnk-account] antes de comenzar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En esta guía de inicio rápido se usa una máquina Linux como dispositivo IoT Edge. Si no tiene uno disponible para probar, siga las instrucciones de [Creación de una máquina virtual Linux en Azure Portal](../virtual-machines/linux/quick-create-portal.md). 
 * No tiene que seguir los pasos para instalar y ejecutar el servidor web. Una vez conectado a la máquina virtual, puede detenerse.  
@@ -192,7 +192,7 @@ Después de un cierre de sesión y el inicio de sesión, *sudo* no es necesario 
 
 Puede que el módulo del sensor de temperatura esté esperando para conectarse al centro de IoT Edge si la última línea que se ve en el registro es `Using transport Mqtt_Tcp_Only`. Intente terminar el módulo y dejar que el agente de Edge lo reinicie. Puede terminarlo mediante el comando `sudo docker stop tempSensor`.
 
-Puede ver también la telemetría que el dispositivo envía mediante la [herramienta del explorador de IoT Hub][lnk-iothub-explorer] o la [extensión de Azure IoT Toolkit para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+También puede ver los datos de telemetría que envía el dispositivo con la [extensión Azure IoT Toolkit para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -263,4 +263,3 @@ Esta guía de inicio rápido es el requisito previo para todos los demás tutori
 <!-- Links -->
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

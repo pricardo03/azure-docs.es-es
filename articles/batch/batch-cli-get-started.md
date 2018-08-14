@@ -12,27 +12,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 09/28/2017
+ms.date: 07/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df808078ffe6eedf8abaa32a94edaaf1355b7fc6
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 2360c5a672975cec48f5c17b098125b8287799c3
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129911"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493703"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Administración de recursos de Batch con la CLI de Azure
 
-La CLI 2.0 de Azure es la nueva experiencia de línea de comandos de Azure para administrar recursos de Azure. Se puede usar en macOS, Linux y Windows. La CLI de Azure 2.0 está optimizada para administrar recursos de Azure desde la línea de comandos. Puede usarla para administrar cuentas de Azure Batch y administrar recursos, como grupos, trabajos y tareas. Con la CLI de Azure, puede realizar mediante scripts muchas de las mismas tareas que lleva a cabo con las API de Batch, Azure Portal y los cmdlets PowerShell de Batch.
+La CLI de Azure 2.0 es la forma de usar la línea de comandos de Azure para administrar los recursos de Azure. Se puede usar en macOS, Linux y Windows. La CLI de Azure 2.0 está optimizada para administrar recursos de Azure desde la línea de comandos. Puede usarla para administrar cuentas de Azure Batch y administrar recursos, como grupos, trabajos y tareas. Con la CLI de Azure, puede realizar mediante scripts muchas de las mismas tareas que lleva a cabo con las API de Batch, Azure Portal y los cmdlets PowerShell de Batch.
 
 En este artículo se proporciona una introducción al uso de la [CLI de Azure versión 2.0](https://docs.microsoft.com/cli/azure) con Batch. Consulte [Introducción a la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) para información general sobre el uso de la CLI con Azure.
 
-Microsoft recomienda usar la versión más reciente de la CLI de Azure, la versión 2.0. Para más información acerca de la versión 2.0, consulte [Azure Command Line 2.0 now generally available](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/) (La línea de comandos de Azure 2.0 está ahora disponible con carácter general).
-
 ## <a name="set-up-the-azure-cli"></a>Configuración de la CLI de Azure
 
-Para instalar la CLI de Azure, siga los pasos descritos en [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+También puede ejecutar la CLI de Azure más reciente en [Azure Cloud Shell](../cloud-shell/overview.md). Para instalar la CLI de Azure de forma local, siga los pasos descritos en [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 > [!TIP]
 > Se recomienda actualizar su instalación de la CLI de Azure con frecuencia para aprovechar las mejoras y actualizaciones del servicio.
@@ -67,10 +65,10 @@ Para utilizar la CLI de Azure con Batch, debe iniciar sesión y autenticarse. Ha
 
 Hay varias maneras diferentes de iniciar sesión en Azure, las cuales se describen en detalle en [Inicio de sesión con la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli):
 
-1. [Inicie sesión de forma interactiva](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). Inicie sesión de forma interactiva cuando ejecute comandos de la CLI de Azure desde la línea de comandos.
-2. [Inicie sesión con una entidad de servicio](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). Inicie sesión con una entidad de servicio cuando ejecute comandos de la CLI de Azure desde un script o una aplicación.
+1. [Inicie sesión de forma interactiva](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-interactive-log-in). Inicie sesión de forma interactiva cuando ejecute comandos de la CLI de Azure desde la línea de comandos.
+2. [Inicie sesión con una entidad de servicio](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). Inicie sesión con una entidad de servicio cuando ejecute comandos de la CLI de Azure desde un script o una aplicación.
 
-Para este artículo, se muestra cómo iniciar sesión de forma interactiva en Azure. Escriba [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login) en la línea de comandos:
+Para este artículo, se muestra cómo iniciar sesión de forma interactiva en Azure. Escriba [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) en la línea de comandos:
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -85,7 +83,7 @@ Los ejemplos en la sección [Scripts de shell de ejemplo](#sample-shell-scripts)
 
 ### <a name="log-in-to-your-batch-account"></a>Inicio de sesión en la cuenta de Batch
 
-Para usar la CLI de Azure para administrar recursos de Batch, como grupos, trabajos y tareas, debe iniciar sesión en su cuenta de Batch y autenticarse. Para iniciar sesión en el servicio Batch, use el comando [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login). 
+Para usar la CLI de Azure para administrar recursos de Batch, como grupos, trabajos y tareas, debe iniciar sesión en su cuenta de Batch y autenticarse. Para iniciar sesión en el servicio Batch, use el comando [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az-batch-account-login). 
 
 Tiene dos opciones para autenticarse en su cuenta de Batch:
 
@@ -97,7 +95,7 @@ Tiene dos opciones para autenticarse en su cuenta de Batch:
 
     Una ventaja de Azure AD es que ofrece control de acceso basado en rol (RBAC). Con RBAC, el acceso de un usuario depende de su rol asignado, y no de si posee o no las claves de cuenta. En lugar de administrar claves de cuenta, puede administrar roles RBAC y dejar que Azure AD se encargue del acceso y la autenticación.  
 
-     Para iniciar sesión en su cuenta de Batch con Azure AD, llame al comando [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login): 
+     Para iniciar sesión en su cuenta de Batch con Azure AD, llame al comando [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az-batch-account-login): 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
@@ -117,9 +115,9 @@ Tiene dos opciones para autenticarse en su cuenta de Batch:
 
 Los ejemplos en la sección [Scripts de shell de ejemplo](#sample-shell-scripts) muestran cómo iniciar sesión en su cuenta de Batch con la CLI de Azure mediante Azure AD y la clave compartida.
 
-## <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Uso de plantillas y transferencia de archivos de la CLI de Azure Batch (versión preliminar)
+## <a name="use-azure-batch-cli-extension-commands"></a>Uso de los comandos de la extensión de la CLI de Azure Batch
 
-Puede utilizar la CLI de Azure para ejecutar trabajos completos de Batch sin escribir código. Los archivos de plantilla de Batch admiten la creación de grupos, trabajos y tareas con la CLI de Azure. También puede utilizar la CLI de Azure para cargar archivos de entrada de trabajos en la cuenta de Azure Storage asociada con la cuenta de Batch y descargar los archivos de salida de trabajos. Para más información, consulte [Uso de plantillas y transferencia de archivos de la CLI de Azure Batch (versión preliminar)](batch-cli-templates.md).
+Si instala la extensión de la CLI de Azure Batch, puede utilizar la CLI de Azure para ejecutar trabajos completos de Batch sin escribir código. Los comandos de Batch admitidos por la extensión le permiten usar plantillas de JSON para crear grupos, trabajos y tareas con la CLI de Azure. También puede utilizar los comandos de la CLI de extensión para cargar archivos de entrada de trabajos en la cuenta de Azure Storage asociada con la cuenta de Batch y descargar los archivos de salida de trabajos. Para más información, consulte [Uso de plantillas y transferencia de archivos de la CLI de Azure Batch](batch-cli-templates.md).
 
 ## <a name="script-examples"></a>Ejemplos de script
 
@@ -181,7 +179,7 @@ Las siguientes sugerencias pueden ayudarle cuando esté solucionando problemas d
 
 * Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure).
 * Para más información sobre los recursos de Batch, consulte [Introducción a Azure Batch para desarrolladores](batch-api-basics.md).
-* Para más información sobre el uso de plantillas de Batch para crear grupos, trabajos y tareas sin escribir código, consulte [Uso de plantillas y transferencia de archivos de la CLI de Azure Batch (versión preliminar)](batch-cli-templates.md).
+* Para más información sobre el uso de plantillas de Batch para crear grupos, trabajos y tareas sin escribir código, consulte [Uso de plantillas y transferencia de archivos de la CLI de Azure Batch](batch-cli-templates.md).
 
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx

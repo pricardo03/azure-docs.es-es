@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/22/2018
+ms.date: 08/01/2018
 ms.author: shvija
-ms.openlocfilehash: d339ad79eb632f1e6fa91b1fca56488c3ae67d86
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: c5cec92094a2e76d02487adff43abf040aedfe0e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435354"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425816"
 ---
 # <a name="what-is-azure-event-hubs"></a>¿Qué es Azure Event Hubs?
 
@@ -38,25 +38,13 @@ Los datos solo son valiosos cuando existe una forma sencilla de procesarlos y ob
 
 Event Hubs representa la "puerta principal" de una canalización de eventos, conocida a menudo como un *agente de ingesta de eventos* en las arquitecturas de la solución. Un agente de ingesta de eventos es un componente o servicio que se encuentra entre los publicadores de eventos y los consumidores de eventos para desacoplar la producción de un flujo de eventos del consumo de esos eventos. Event Hubs ofrece una plataforma de streaming unificada con búfer de retención de tiempo, lo que desacopla los productores de eventos de los consumidores de eventos. 
 
-## <a name="key-features"></a>Principales características
-
-Event Hubs proporciona una funcionalidad de control del flujo de mensajes pero tiene características diferentes de la mensajería empresarial tradicional. Las funcionalidades de Event Hubs se basan en un alto rendimiento y en escenarios de procesamiento de eventos. Event Hubs contiene los siguientes [componentes clave](event-hubs-features.md):
-
-- **Productores de eventos**: una entidad que envía datos a un centro de eventos. Los publicadores de eventos pueden publicar eventos mediante HTTPS, AMQP 1.0 o Apache Kafka (1.0 y posterior)
-- **Particiones**: cada consumidor solo lee un subconjunto específico, o partición, de la secuencia de mensajes.
-- **Grupos de consumidores**: vista (estado, posición o desplazamiento) de todo un centro de eventos. Los grupos de consumidores habilitan varias aplicaciones consumidoras para que cada una tenga una vista separada del flujo de eventos y para que lean el flujo de forma independiente a su propio ritmo y con sus propios desplazamientos.
-- **Unidades de procesamiento**: unidades de capacidad compradas previamente que controlan la capacidad de rendimiento de Event Hubs.
-- **Receptores de eventos**: cualquier entidad que lea datos de evento de un centro de eventos. Todos los consumidores de Event Hubs se conectan a través de la sesión de AMQP 1.0, y los eventos se entregan a través de la sesión a medida que están disponibles.
-
-La siguiente ilustración muestra la arquitectura de procesamiento del flujo de Event Hubs:
-
-![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
+En las secciones siguientes se describen las características clave del servicio Azure Event Hubs: 
 
 ## <a name="fully-managed-paas"></a>PaaS completamente administrada 
 
 Event Hubs es un servicio administrado con poca sobrecarga de administración o configuración, para que pueda centrarse en las soluciones empresariales. [Event Hubs para ecosistemas de Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) le ofrece la experiencia de PaaS de Kafka sin tener que administrar, configurar ni ejecutar los clústeres.
 
-## <a name="real-time-and-batching"></a>Procesamiento por lotes y en tiempo real
+## <a name="support-for-real-time-and-batch-processing"></a>Compatibilidad con procesamiento por lotes y en tiempo real
 
 Ingiera, almacene en búfer y procese la secuencia en tiempo real para obtener información práctica y útil. Event Hubs usa un [modelo de consumidor con particiones](event-hubs-features.md#partitions), que permite que varias aplicaciones procesen la secuencia de manera simultánea y permite controlar la velocidad del procesamiento.
 
@@ -73,6 +61,21 @@ Con Event Hubs, puede comenzar con los flujos de datos en megabytes y aumentar a
 [Event Hubs para ecosistemas de Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) permite que aplicaciones y clientes de [Apache Kafka (1.0 y posteriores)](https://kafka.apache.org/) se comunique con Event Hubs sin que tenga que administrar ningún clúster.
  
 Con un ecosistema amplio disponible en diversos [lenguajes (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs), puede empezar a procesar fácilmente los flujos desde Event Hubs. Todos los lenguajes de cliente compatibles proporcionan integración de nivel bajo.
+
+## <a name="key-architecture-components"></a>Componentes clave de la arquitectura
+
+Event Hubs proporciona una funcionalidad de control del flujo de mensajes pero tiene características diferentes de la mensajería empresarial tradicional. Las funcionalidades de Event Hubs se basan en un alto rendimiento y en escenarios de procesamiento de eventos. Event Hubs contiene los siguientes [componentes clave](event-hubs-features.md):
+
+- **Productores de eventos**: una entidad que envía datos a un centro de eventos. Los publicadores de eventos pueden publicar eventos mediante HTTPS, AMQP 1.0 o Apache Kafka (1.0 y posterior)
+- **Particiones**: cada consumidor solo lee un subconjunto específico, o partición, de la secuencia de mensajes.
+- **Grupos de consumidores**: vista (estado, posición o desplazamiento) de todo un centro de eventos. Los grupos de consumidores habilitan varias aplicaciones consumidoras para que cada una tenga una vista separada del flujo de eventos y para que lean el flujo de forma independiente a su propio ritmo y con sus propios desplazamientos.
+- **Unidades de procesamiento**: unidades de capacidad compradas previamente que controlan la capacidad de rendimiento de Event Hubs.
+- **Receptores de eventos**: cualquier entidad que lea datos de evento de un centro de eventos. Todos los consumidores de Event Hubs se conectan a través de la sesión de AMQP 1.0, y los eventos se entregan a través de la sesión a medida que están disponibles.
+
+La siguiente ilustración muestra la arquitectura de procesamiento del flujo de Event Hubs:
+
+![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

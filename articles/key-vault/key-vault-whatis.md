@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: barclayn
-ms.openlocfilehash: cd9dd4d400177e511f23c2677b77198a50420a35
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 08331a399044eba17060d15f24af1863df38caf5
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283003"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480260"
 ---
 # <a name="what-is-azure-key-vault"></a>¿Qué es Azure Key Vault?
 
@@ -33,6 +33,8 @@ Azure Key Vault es una herramienta para almacenar y acceder a los secretos de fo
 A continuación se muestran algunos términos clave:
 - **Inquilino**: un inquilino es la organización que posee y administra una instancia específica de los servicios en la nube de Microsoft. Se usa a menudo de manera exacta para hacer referencia al conjunto de servicios de Azure y Office 365 de una organización
 - **Propietario del almacén**: puede crear un almacén de claves y obtener acceso completo y control sobre él. El propietario del almacén también puede configurar una auditoría para registrar quién accede a los secretos y claves. Los administradores pueden controlar el ciclo de vida de la clave. Pueden revertir a una nueva versión de la clave, realizar copias de seguridad, etc.
+- **Recurso**: elemento administrable que está disponible a través de Azure. Algunos recursos comunes son una máquina virtual, una cuenta de almacenamiento, una aplicación web, una base de datos y una red virtual, pero hay muchos más.
+- **Grupo de recursos**: contenedor que almacena los recursos relacionados con una solución de Azure. El grupo de recursos puede incluir todos los recursos de la solución o solo aquellos que se desean administrar como grupo. Para decidir cómo asignar los recursos a los grupos de recursos, tenga en cuenta lo que más conviene a su organización. Consulte Grupos de recursos.
 - **Consumidor del almacén**: puede realizar acciones en los recursos del almacén de claves si el propietario del almacén le concede acceso con los permisos correspondientes.
 - **[Azure Active Directory](../active-directory/active-directory-whatis.md)** es el servicio de Azure AD para un inquilino determinado. Cada directorio tiene uno o varios dominios. Un directorio puede tener varias suscripciones asociadas, pero solo un inquilino. 
 - **Identificador de inquilino de Azure**: se trata de una manera única para identificar una instancia de Azure Active Directory dentro de una suscripción de Azure. 

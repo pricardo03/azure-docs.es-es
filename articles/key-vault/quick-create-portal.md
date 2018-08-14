@@ -1,6 +1,6 @@
 ---
-title: 'Guía de inicio rápido de Azure: Creación de una instancia de Key Vault mediante el portal | Microsoft Docs'
-description: Guía de inicio rápido que muestra cómo crear una instancia de Azure Key Vault mediante el portal
+title: 'Inicio rápido de Azure: Establecimiento y recuperación de un secreto de Key Vault mediante Azure Portal | Microsoft Docs'
+description: Guía de inicio rápido que muestra cómo establecer y recuperar un secreto de Azure Key Vault mediante Azure Portal
 services: key-vault
 author: barclayn
 manager: mbaldwin
@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 251cd7eaba439708e7ef4e1ee8ccbd7efe7d66bb
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 5a203f8c92a1dc03a50415e78e509eafa62ebf4c
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068887"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480105"
 ---
-# <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Guía de inicio rápido: Creación de una instancia de Key Vault mediante Azure Portal
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal
 
 Azure Key Vault es un servicio en la nube que funciona como un almacén de secretos seguro. Puede almacenar de forma segura claves, contraseñas, certificados y otros secretos. Para más información sobre Key Vault, puede consultar esta [introducción](key-vault-overview.md). Las instancias de Azure Key Vault se pueden crear y administrar a través de Azure Portal. En esta guía de inicio rápido, va a crear un almacén de claves. Una vez que haya terminado, almacenará un secreto.
 

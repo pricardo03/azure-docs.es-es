@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 8fdad8d8e62365c33b47e67b483c929aaab0083e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7a3e91e8f928f6e7e2df7a26f52bd44b3b3a81b2
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38318021"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618961"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Tutorial: Creación de una aplicación web Node.js y MongoDB en Azure
 
@@ -44,7 +44,7 @@ Temas que se abordarán:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -132,7 +132,11 @@ Para MongoDB, en este tutorial se usa [Azure Cosmos DB](/azure/documentdb/). Cos
 
 ### <a name="create-a-cosmos-db-account"></a>Creación de una cuenta de Cosmos DB
 
-En Cloud Shell, cree una cuenta de Cosmos DB con el comando [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create).
+> [!NOTE]
+> Hay un costo por la creación de las bases de datos de Azure Cosmos DB en este tutorial en su propia suscripción de Azure. Para usar una cuenta gratuita de Azure Cosmos DB durante siete días, puede usar la experiencia [Pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/en-us/try/cosmosdb/). Simplemente haga clic en el botón **Crear** en el icono de MongoDB para crear una base de datos gratuita de MongoDB en Azure. Una vez creada la base de datos, vaya a **Cadena de conexión** en el portal y recupere la cadena de conexión de Azure Cosmos DB para su uso posterior en el tutorial.
+>
+
+En Cloud Shell, cree una cuenta de Cosmos DB con el comando [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).
 
 En el siguiente comando, sustituya un nombre único de Cosmos DB por el marcador de posición *\<cosmosdb_name>*. Este nombre se usa como parte del punto de conexión de Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`, por lo que el nombre debe ser único en todas las cuentas de Cosmos DB de Azure. El nombre debe contener solo letras minúsculas, números y el carácter de guión (-), y debe tener una longitud de entre 3 y 50 caracteres.
 
@@ -166,7 +170,7 @@ En este paso, conectará la aplicación de ejemplo MEAN.js a la base de datos Co
 
 ### <a name="retrieve-the-database-key"></a>Recuperación de la clave de base de datos
 
-Para conectarse a la base de datos Cosmos DB, necesita la clave de base de datos. En Cloud Shell, use el comando [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) para recuperar la clave principal.
+Para conectarse a la base de datos Cosmos DB, necesita la clave de base de datos. En Cloud Shell, use el comando [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) para recuperar la clave principal.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -263,7 +267,7 @@ En este paso, implementará la aplicación Node.js conectada a MongoDB en Azure 
 
 De forma predeterminada, el proyecto MEAN.js mantiene _config/env/local-production.js_ fuera del repositorio de Git. Por lo tanto, para su aplicación web de Azure, use la configuración de aplicación para definir la cadena de conexión de MongoDB.
 
-Para establecer la configuración de la aplicación, utilice el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) en Cloud Shell. 
+Para establecer la configuración de la aplicación, utilice el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) en Cloud Shell. 
 
 En el ejemplo siguiente se configura una opción de configuración de aplicación `MONGODB_URI` en la aplicación web de Azure. Reemplace los marcadores de posición  *\<app_name >*,  *\<cosmosdb_name >* y  *\<primary_master_key >*.
 
@@ -467,7 +471,7 @@ Si agregó anteriormente artículos, aún puede verlos. Los datos existentes en 
 
 Mientras se ejecuta la aplicación de Node.js en Azure App Service, los registros de la consola se canalizan a su terminal. De este modo, puede obtener los mismos mensajes de diagnóstico para ayudarle a depurar errores de la aplicación.
 
-Para iniciar la transmisión del registro, use el comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) en Cloud Shell.
+Para iniciar la transmisión del registro, use el comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) en Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

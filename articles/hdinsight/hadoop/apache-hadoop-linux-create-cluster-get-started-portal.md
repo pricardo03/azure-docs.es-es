@@ -1,25 +1,21 @@
 ---
-title: 'Inicio rápido: Introducción a Hadoop y Hive en Azure HDInsight con Azure Portal | Microsoft Docs'
+title: 'Guía de inicio rápido: Introducción a Hadoop y Hive en Azure HDInsight con Azure Portal '
 description: Aprenda a crear clústeres de HDInsight con Azure Portal y a consultar datos con Hive.
 keywords: introducción a hadoop, hadoop linux, inicio rápido de hadoop, introducción a hive, inicio rápido en hive
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: nitinme
-ms.openlocfilehash: dd803fed4bc6a25904b2ea00a5b21af606ad7153
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: jasonh
+ms.openlocfilehash: 67fa5debac4039bf3ae9c3ef62418f033e2fa9c2
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097903"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598976"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-the-azure-portal"></a>Inicio rápido: Introducción a Hadoop y Hive en Azure HDInsight con Azure Portal
 

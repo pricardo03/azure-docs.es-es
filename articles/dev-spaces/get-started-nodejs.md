@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: douge
-ms.openlocfilehash: 76efbbb000635589af8e060bd30d62d021cee89c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bf9b0262e52c4f956082b00faae1b6bb1c31d8d9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38623488"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526256"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Introducción a Azure Dev Spaces con Node.js
 
@@ -29,7 +29,9 @@ Ahora está preparado para crear un entorno de desarrollo basado en Kubernetes e
 [!INCLUDE[](includes/portal-aks-cluster.md)]
 
 ## <a name="install-the-azure-cli"></a>Instalación de la CLI de Azure
-Azure Dev Spaces requiere una configuración mínima de la máquina local. La mayor parte de la configuración del entorno de desarrollo se almacena en la nube y se puede compartir con otros usuarios. Para comenzar, descargue y ejecute la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Azure Dev Spaces requiere una configuración mínima de la máquina local. La mayor parte de la configuración del espacio de desarrollo se almacena en la nube y se puede compartir con otros usuarios. El equipo local puede ejecutar Windows, Mac o Linux. Para Linux, se admiten las siguientes distribuciones: Ubuntu (18.04, 16.04 y 14.04), Debian 8 y 9, RHEL 7, Fedora 26 +, CentOS 7, openSUSE 42.2 y SLES 12.
+
+Para comenzar, descargue y ejecute la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 > [!IMPORTANT]
 > Si ya tiene instalada la CLI de Azure, asegúrese de que usa la versión 2.0.38, o cualquier versión superior.

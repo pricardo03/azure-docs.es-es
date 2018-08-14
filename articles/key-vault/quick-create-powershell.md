@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido de Azure: Creación de una instancia de Key Vault mediante PowerShell | Microsoft Docs'
+title: 'Inicio rápido de Azure: Establecimiento y recuperación de un secreto de Key Vault mediante PowerShell | Microsoft Docs'
 description: ''
 services: key-vault
 author: barclayn
@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 4acd8286cb8635f9a76815c936328a7c441e3115
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d4f512a9450422d819d0134f9f5d291db4ef9b20
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187155"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480070"
 ---
-# <a name="quickstart-create-an-azure-key-vault-using-powershell"></a>Guía de inicio rápido: Creación de una instancia de Azure Key Vault mediante PowerShell
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante PowerShell
 
 Azure Key Vault es un servicio en la nube que funciona como un almacén de secretos seguro. Puede almacenar de forma segura claves, contraseñas, certificados y otros secretos. Para más información sobre Key Vault, puede consultar esta [introducción](key-vault-overview.md). En esta guía de inicio rápido, va a usar PowerShell para crear un almacén de claves. Posteriormente, va a almacenar un secreto en el almacén recién creado.
 

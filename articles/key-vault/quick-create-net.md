@@ -1,6 +1,6 @@
 ---
-title: 'Guía de inicio rápido de Azure: Configuración de una aplicación web de Azure para que lea un secreto del almacén de claves | Microsoft Docs'
-description: Guía de inicio rápido que muestra cómo configurar una aplicación ASP.NET Core para que lea un secreto del almacén de claves
+title: 'Inicio rápido de Azure: Configuración de una aplicación web de Azure para establecer y recuperar un secreto de Key Vault | Microsoft Docs'
+description: Guía de inicio rápido que muestra cómo configurar una aplicación ASP.NET Core para que lea un secreto de Key Vault
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 07a7bc5713f093e34a775aacab27094780ac6c7e
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 8b5624ae3083d92213b4ee919dc0860bf5ff4ab7
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247832"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480209"
 ---
-# <a name="quickstart-set-and-read-a-secret-from-key-vault-in-a-net-web-app"></a>Guía de inicio rápido: Establecer y leer un secreto del almacén de claves en una aplicación Web .NET
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-net-web-app"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de .NET
 
 En esta guía de inicio rápido, encontrará los pasos necesarios para conseguir que una aplicación web de Azure lea información del almacén de claves mediante identidades de servicio administradas. Aprenderá a:
 
@@ -56,7 +56,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
+Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
 Seleccione el nombre del grupo de recursos y rellene el marcador de posición.
 En el ejemplo siguiente se crea un grupo de recursos llamado *<YourResourceGroupName>* en la ubicación *eastus*.

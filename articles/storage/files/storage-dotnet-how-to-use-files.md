@@ -2,24 +2,19 @@
 title: Desarrollo para Azure Files con .NET | Microsoft Docs
 description: Aprenda a desarrollar aplicaciones y servicios .NET que usen Azure Files para almacenar datos de archivos.
 services: storage
-documentationcenter: .net
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: 6a889ee1-1e60-46ec-a592-ae854f9fb8b6
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/22/2017
 ms.author: renash
-ms.openlocfilehash: 95f890ccbe03fc734b54ac8c5edee2ec7b56d9c6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: files
+ms.openlocfilehash: d9ec9929de6b21aeddf35faf72cf1b2f1bb4c88a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737636"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39561957"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Desarrollo para Azure Files con .NET
 
@@ -220,7 +215,7 @@ if (share.Exists())
 
     // Create a new CloudFile object from the SAS, and write some text to the file.
     CloudFile fileSas = new CloudFile(fileSasUri);
-    fileSas.UploadText("This write operation is authenticated via SAS.");
+    fileSas.UploadText("This write operation is authorized via SAS.");
     Console.WriteLine(fileSas.DownloadText());
 }
 ```
@@ -233,7 +228,7 @@ A partir de la versión 5.x de la biblioteca de cliente de Azure Storage, puede 
 También puede usar AzCopy para copiar un archivo en otro o para copiar un blob en un archivo o viceversa. Consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 > [!NOTE]
-> Si va a copiar un blob en un archivo, o un archivo en un blob, debe usar una firma de acceso compartido (SAS) para autenticar el objeto de origen, incluso si está copiando en la misma cuenta de almacenamiento.
+> Si va a copiar un blob en un archivo o un archivo en un blob, debe usar una firma de acceso compartido (SAS) para autorizar el acceso al objeto de origen, incluso si está copiando en la misma cuenta de almacenamiento.
 > 
 > 
 
@@ -281,7 +276,7 @@ if (share.Exists())
 }
 ```
 
-**Copiar un archivo en un blob** en el ejemplo siguiente se crea un archivo y se copia en un blob en la misma cuenta de almacenamiento. El ejemplo se crea una SAS para el archivo de origen, que el servicio usa para autenticar el acceso al archivo de origen durante la operación de copia.
+**Copiar un archivo en un blob** en el ejemplo siguiente se crea un archivo y se copia en un blob en la misma cuenta de almacenamiento. El ejemplo crea una SAS para el archivo de origen, que el servicio usa para autorizar el acceso al archivo de origen durante la operación de copia.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -307,7 +302,7 @@ CloudBlockBlob destBlob = container.GetBlockBlobReference("sample-blob.txt");
 
 // Create a SAS for the file that's valid for 24 hours.
 // Note that when you are copying a file to a blob, or a blob to a file, you must use a SAS
-// to authenticate access to the source object, even if you are copying within the same
+// to authorize access to the source object, even if you are copying within the same
 // storage account.
 string fileSas = sourceFile.GetSharedAccessSignature(new SharedAccessFilePolicy()
 {
@@ -327,7 +322,7 @@ Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
 Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 ```
 
-Puede copiar un blob en un archivo de la misma manera. Si el objeto de origen es un blob, cree una SAS para autenticar el acceso a dicho blob durante la operación de copia.
+Puede copiar un blob en un archivo de la misma manera. Si el objeto de origen es un blob, cree una SAS para autorizar el acceso a dicho blob durante la operación de copia.
 
 ## <a name="share-snapshots-preview"></a>Instantáneas de recursos compartidos (versión preliminar)
 A partir de la versión 8.5 de la Biblioteca de cliente de Azure Storage, se puede crear una instantánea de recurso compartido (versión preliminar). Las instantáneas de recursos compartidos también se pueden enumerar, explorar y eliminar. Las instantáneas de recurso compartido son de solo lectura, por lo que en ellas no se permiten operaciones de escritura.

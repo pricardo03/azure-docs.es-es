@@ -1,24 +1,19 @@
 ---
-title: 'Guía de inicio rápido: Introducción a Apache Kafka en Azure HDInsight | Microsoft Docs'
+title: 'Guía de inicio rápido de introducción a Apache Kafka: Azure HDInsight'
 description: En esta guía de inicio rápido, aprenderá a crear un clúster de Apache Kafka en Azure HDInsight con Azure Portal. También aprenderá sobre los temas, los suscriptores y los consumidores de Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
 ms.custom: mvc,hdinsightactive
-ms.devlang: ''
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 10d4d4b3c0236cf8a1edd6976fe5af573703b237
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e8f8ad9b7cc14d6a3d28832e4d14ef55e8c530c6
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33779232"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618116"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Guía de inicio rápido: Creación de un clúster de Kafka en HDInsight
 
@@ -33,7 +28,7 @@ En esta guía de inicio rápido, aprenderá a crear un clúster de [Apache Kafka
 >
 > Para obtener más información, consulte el documento [Connect to Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) (Conexión a Kafka en HDInsight mediante una instancia de Azure Virtual Network).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -60,7 +55,7 @@ En esta guía de inicio rápido, aprenderá a crear un clúster de [Apache Kafka
 
     | Propiedad | Valor |
     | --- | --- |
-    | La suscripción | Su suscripción de Azure. |
+    | Subscription | Su suscripción de Azure. |
     | Grupos de recursos | Grupo de recursos en que se crea el clúster. |
     | Ubicación | Región de Azure en que se crea el clúster. |
     | Cluster Name | El nombre del clúster de Kafka. |
@@ -78,7 +73,7 @@ En esta guía de inicio rápido, aprenderá a crear un clúster de [Apache Kafka
 
 ## <a name="connect-to-the-cluster"></a>Conexión al clúster
 
-1. Para conectarse al nodo principal del clúster de Kafka, use el siguiente comando. Reemplace `sshuser` por el nombre de usuario de SSH. Reemplace `mykafka` por el nombre del clúster de Kafka.
+1. Para conectarse con el nodo principal del clúster de Kafka, use el siguiente comando. Reemplace `sshuser` por el nombre de usuario de SSH. Reemplace `mykafka` por el nombre del clúster de Kafka.
 
     ```bash
     ssh sshuser@mykafka-ssh.azurehdinsight.net
@@ -188,9 +183,9 @@ Kafka almacena flujos de datos en *temas*. Puede usar la utilidad `kafka-topics.
     * Cada partición se replica en tres nodos de trabajo del clúster.
 
         > [!IMPORTANT]
-        > Si ha creado el clúster en una región de Azure que proporciona tres dominios de error, use un factor de replicación de 3. De lo contrario, use un factor de replicación de 4.
+        > Si ha creado el clúster en una región de Azure que proporciona tres dominios de error, use un factor de replicación de 3. De lo contrario, use un factor de replicación de 4.
         
-        En regiones con tres dominios de error, un factor de replicación de 3 permite que las réplicas se distribuyan entre los dominios de error. En regiones con dos dominios de error, un factor de replicación de cuatro permite que las réplicas se distribuyan equitativamente entre los dominios.
+        En regiones con tres dominios de error, un factor de replicación de 3 permite que las réplicas se distribuyan entre los dominios de error. En regiones con dos dominios de error, un factor de replicación de cuatro permite que las réplicas se distribuyan equitativamente entre los dominios.
         
         Para información sobre el número de dominios de error de una región, consulte el documento sobre la [disponibilidad de las máquinas virtuales Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 

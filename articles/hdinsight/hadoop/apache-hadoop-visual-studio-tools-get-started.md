@@ -1,28 +1,21 @@
 ---
-title: Conexión a Azure HDInsight mediante Herramientas de Data Lake para Visual Studio | Microsoft Docs
+title: Conexión a Azure HDInsight mediante Herramientas de Data Lake para Visual Studio
 description: Aprenda a instalar y utilizar Data Lake Tools para Visual Studio para conectarse a clústeres de Hadoop en Azure HDInsight y luego a ejecutar consultas de Hive.
 keywords: herramientas hadoop, consulta hive, visual studio, visual studio hadoop
-services: HDInsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ce9c572a-1e98-46bf-9581-13a9767f1fa5
+services: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 1707a681315fbb53f21df95664188463968bb855
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9433c54cdbcc534f12fa78b9750cfdbc10682c51
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202482"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599374"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-hive-queries"></a>Conectarse a Azure HDInsight y ejecutar consultas de Hive con Herramientas de Data Lake para Visual Studio
 
@@ -34,7 +27,7 @@ Para más información acerca de cómo conectarse a un clúster de Storm, consul
 
 Data Lake Tools para Visual Studio se puede utilizar para acceder a Azure Data Lake Analytics y a HDInsight. Para más información acerca de Data Lake Tools, consulte [Desarrollo de scripts U-SQL mediante Data Lake Tools para Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial y usar Data Lake Tools para Visual Studio, se necesitan los siguientes elementos:
 
@@ -151,7 +144,7 @@ Para crear una tabla de Hive:
     ![Captura de la ventana Crear tabla de Visual Studio Tools en HDInsight](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.create.hive.table.png "Creación de tablas de Hive")
 
 ### <a name="run.queries"></a>Validación y ejecución de consultas de Hive
-Para crear y ejecutar consultas de Hive tiene dos opciones:
+Para crear y ejecutar consultas de Hive, tiene dos opciones:
 
 * Crear consultas ad hoc
 * Crear una aplicación de Hive

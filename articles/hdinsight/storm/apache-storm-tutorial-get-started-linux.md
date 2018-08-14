@@ -1,27 +1,21 @@
 ---
-title: Ejemplos de Storm-Starter en Apache Storm de HDInsight - Azure | Microsoft Docs
+title: Ejemplos de Storm-Starter en Apache Storm en HDInsight - Azure
 description: Aprenda a realizar análisis de macrodatos y a procesar datos en tiempo real mediante Apache Storm y los ejemplos de storm-starter de HDInsight.
 keywords: storm-starter, ejemplo de apache storm
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: d710dcac-35d1-4c27-a8d6-acaf8146b485
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: java
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 02/27/2018
-ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: a5abce003849258cf02616dc34b15597b3c6ea19
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 3c874e296f984355800868eb530c52fa9fcc0104
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099388"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620195"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Introducción a Apache Storm en HDInsight con los ejemplos de Storm-Starter
 
@@ -73,7 +67,7 @@ Siga estos pasos para crear un clúster de Storm en HDInsight:
 
 4. Después de seleccionar el tipo de clúster, use el botón __Seleccionar__ para establecer el tipo de clúster. A continuación, use el botón __Siguiente__ para finalizar la configuración básica.
 
-5. Desde la sección **Storage**, seleccione o cree una cuenta de Storage. Para seguir los pasos de este documento, deje los demás campos de esta sección con los valores predeterminados. Use el botón __Siguiente__ para guardar la configuración de almacenamiento. Para más información sobre cómo usar Data Lake Storage Gen2, consulte [Guía de inicio rápido: Configuración de clústeres en HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+5. Desde la sección **Storage**, seleccione o cree una cuenta de Storage. Para seguir los pasos de este documento, deje los demás campos de esta sección con los valores predeterminados. Use el botón __Siguiente__ para guardar la configuración de almacenamiento. Para más información sobre el uso de Data Lake Storage Gen2, consulte [Guía de inicio rápido: Configuración de clústeres en HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     ![Configuración de la cuenta de almacenamiento de HDInsight](./media/apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 

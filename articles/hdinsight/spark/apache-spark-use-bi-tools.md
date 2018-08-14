@@ -1,25 +1,20 @@
 ---
-title: 'Tutorial: Análisis de datos de Apache Spark mediante Power BI en Azure HDInsight | Microsoft Docs'
+title: 'Tutorial: Análisis de datos de Apache Spark mediante Power BI en Azure HDInsight '
 description: Use Microsoft Power BI para visualizar datos de Spark almacenados en clústeres de HDInsight
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.author: jgao
-ms.openlocfilehash: ece0132573f25f4d288309d2e7bb6710f8fd9519
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0b8024d8e5f239ff1bae2fe09f8cbe0a1b03a416
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771174"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618733"
 ---
 # <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Análisis de datos de Apache Spark mediante Power BI en HDInsight 
 
@@ -31,7 +26,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Complete el artículo [Ejecución de consultas interactivas en clústeres de Spark en HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) y [suscripción de prueba de Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (opcional).
@@ -48,7 +43,7 @@ El bloc de notas de Jupyter que creó en el [tutorial anterior](apache-spark-loa
     SHOW TABLES
     ```
 
-    El resultado tendrá un aspecto similar al siguiente:
+    El resultado tendrá una apariencia similar a la siguiente:
 
     ![Se muestran tablas en Spark](./media/apache-spark-use-bi-tools/show-tables.png)
 
@@ -61,7 +56,7 @@ El bloc de notas de Jupyter que creó en el [tutorial anterior](apache-spark-loa
     SELECT * FROM hvac LIMIT 10
     ```
 
-    El resultado tendrá un aspecto similar al siguiente:
+    El resultado tendrá una apariencia similar a la siguiente:
 
     ![Se muestran las filas de la tabla hvac en Spark](./media/apache-spark-use-bi-tools/select-limit.png)
 
@@ -217,7 +212,7 @@ El objeto visual se ancla al panel. Puede agregar otros elementos visuales al in
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha aprendido a:
+En este tutorial aprendió lo siguiente:
 
 - Visualizar datos de Spark mediante Power BI.
 

@@ -4,19 +4,19 @@ description: En este artículo se describe cómo seguir los procedimientos recom
 services: time-series-insights
 ms.service: time-series-insights
 author: ashannon7
-ms.author: jasonh
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: f0f414e43231fc6d873d639902fd4f71e48f1002
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 2c06463d95467543a426079addf981aa42d53eb6
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751176"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630643"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Planee el entorno de Azure Time Series Insights
 
@@ -94,7 +94,7 @@ Un conjunto de datos de referencia es una colección de elementos que aumentan l
 
 Tenga en cuenta que los datos de referencia no se combinan de manera retroactiva. Esto significa que solo los datos de entrada actuales y futuros se combinan y unen con el conjunto de datos de referencia una vez que se configuran y cargan.  Si va a enviar una gran cantidad de datos históricos a TSI y no cargar ni crea primero datos de referencia en TSI, deberá volver a realizar el trabajo (sugerencia, esto no es agradable).  
 
-Para más información sobre cómo crear, cargar y administrar los datos de referencia en TSI, diríjase a nuestra documentación sobre los *datos de referencia*[](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Para más información sobre cómo crear, cargar y administrar los datos de referencia en TSI, diríjase a nuestra *documentación sobre* los [datos de referencia ](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## <a name="business-disaster-recovery"></a>Recuperación ante desastres de la empresa
 Como servicio de Azure, Time Series Insights proporciona alta disponibilidad (HA) mediante redundancias en el nivel de región de Azure, sin que la solución requiera ningún trabajo adicional. La plataforma Microsoft Azure también incluye características para ayudarle a crear soluciones con funcionalidades de recuperación ante desastres o disponibilidad entre regiones. Si desea proporcionar alta disponibilidad global entre regiones para dispositivos o usuarios, aproveche estas características de recuperación ante desastres de Azure. En el artículo [Guía técnica sobre la continuidad empresarial de Azure](../resiliency/resiliency-technical-guidance.md) , se describen las características integradas en Azure para la continuidad empresarial y la recuperación ante desastres. El documento [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure] [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure] proporciona una guía de arquitectura enfocada a estrategias para que las aplicaciones de Azure logren alta disponibilidad y recuperación ante desastres.

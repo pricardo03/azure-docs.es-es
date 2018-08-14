@@ -1,6 +1,6 @@
 ---
-title: Recopilación de datos de equipos Windows locales con Azure Log Analytics | Microsoft Docs
-description: Obtenga información sobre cómo implementar el agente de Log Analytics para Windows en equipos fuera de Azure y habilitar la colección de datos con Log Analytics.
+title: Configuración del agente de Azure Log Analytics para el equipo Windows híbrido | Microsoft Docs
+description: Aprenda a implementar el agente de Log Analytics para Windows en equipos fuera de Azure y a habilitar la colección de datos con Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/02/2018
+ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: b3c3e020a685147411fc784c41d9eca8b7dd8db0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 91a656b055dbe882bdd5e5c208cc5d8955c74041
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131000"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480446"
 ---
-# <a name="collect-data-from-windows-computers-hosted-in-your-environment"></a>Recopilación de datos de equipos Windows hospedados en el entorno
-[Azure Log Analytics](log-analytics-overview.md) puede recopilar datos directamente de los equipos Windows físicos o virtuales y otros recursos del entorno en un único repositorio para una correlación y análisis detallados.  En esta guía de inicio rápido se muestra cómo configurar y recopilar datos de equipos Windows con unos pasos sencillos.  Para máquinas virtuales Windows de Azure, vea el tema [Recopilación de datos acerca de máquinas virtuales de Azure](log-analytics-quick-collect-azurevm.md).  
+# <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Configuración del agente de Log Analytics para los equipos Windows en un entorno híbrido
+[Azure Log Analytics](log-analytics-overview.md) puede recopilar datos directamente de los equipos Windows físicos o virtuales en un centro de datos o en otro entorno en la nube dentro de un único repositorio para llevar a cabo una correlación y un análisis detallados.  En esta guía de inicio rápido se muestra cómo configurar y recopilar datos de equipos Windows con unos pasos sencillos.  Para máquinas virtuales Windows de Azure, vea el tema [Recopilación de datos acerca de máquinas virtuales de Azure](log-analytics-quick-collect-azurevm.md).  
 
 Para comprender la configuración compatible, revise los [sistemas operativos Windows admitidos](log-analytics-concept-hybrid.md#supported-windows-operating-systems) y la [configuración del firewall de red](log-analytics-concept-hybrid.md#network-firewall-requirements).
  

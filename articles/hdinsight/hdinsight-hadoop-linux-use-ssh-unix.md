@@ -1,28 +1,21 @@
 ---
-title: Uso de SSH con Hadoop en Azure HDInsight | Microsoft Docs
+title: Uso de SSH con Hadoop en Azure HDInsight
 description: Puede acceder a HDInsight mediante Secure Shell (SSH). Este documento proporciona información sobre cómo conectarse a HDInsight utilizando los comandos ssh y scp desde clientes Windows, Linux, Unix o macOS.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+editor: jasonwhowell
 keywords: comandos hadoop en linux, comandos hadoop linux, hadoop macos, ssh hadoop, ssh hadoop clúster
-ms.assetid: a6a16405-a4a7-4151-9bbf-ab26972216c5
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/26/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 2750ddaba4b3fe25e18b6d3b7e9a65656165818f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 589e6d56fca1e987cb9fd086d76dc6fb8a686333
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446612"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594359"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Conexión a través de SSH con HDInsight (Hadoop)
 
@@ -225,7 +218,7 @@ Si la cuenta SSH se protege utilizando __claves SSH__, asegúrese de que el reen
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    Si no se devuelve nada, `ssh-agent` no se está ejecutando. Consulte la información de los scripts de inicio del agente en [Using ssh-agent with ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Uso de ssh-agent con ssh) o la documentación del cliente SSH para más información.
+    Si no se devuelve nada, `ssh-agent` no se está ejecutando. Consulte la información de los scripts de inicio del agente en [Using ssh-agent with ssh http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) (Uso de ssh-agent con ssh) o la documentación del cliente SSH para más información.
 
 4. Una vez que haya comprobado que **ssh-agent** está en ejecución, use lo siguiente para agregar la clave privada SSH al agente:
 

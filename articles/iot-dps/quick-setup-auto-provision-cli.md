@@ -1,20 +1,20 @@
 ---
 title: Configuración del aprovisionamiento de dispositivos mediante la CLI de Azure | Microsoft Docs
 description: 'Guía de inicio rápido de Azure: configuración del servicio Azure IoT Hub Device Provisioning mediante la CLI de Azure'
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 02/26/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2cf611e12402b22587faa83fefc4651e7307c41c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cf2e108aa7cab6be2996cb535d27d597e462617c
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38482142"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626546"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Configuración del servicio Azure IoT Hub Device Provisioning con la CLI de Azure
 
@@ -32,7 +32,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
+Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
 En el ejemplo siguiente, se crea un grupo de recursos llamado *my-sample-resource-group* en la ubicación *westus*.
 
@@ -47,7 +47,7 @@ az group create --name my-sample-resource-group --location westus
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
-Para crear un centro de IoT, use el comando [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create). 
+Para crear un centro de IoT, use el comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create).
 
 En el ejemplo siguiente, se crea un centro de IoT llamado *my-sample-hub* en la ubicación *westus*.  
 
@@ -57,7 +57,7 @@ az iot hub create --name my-sample-hub --resource-group my-sample-resource-group
 
 ## <a name="create-a-provisioning-service"></a>Creación de un servicio de aprovisionamiento
 
-Para crear un servicio de aprovisionamiento, use el comando [az iot dps create](/cli/azure/iot/dps#az_iot_dps_create). 
+Para crear un servicio de aprovisionamiento, use el comando [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create). 
 
 En el ejemplo siguiente, se crea un servicio de aprovisionamiento llamado *my-sample-dps* en la ubicación *westus*.  
 
@@ -72,7 +72,7 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 
 ## <a name="get-the-connection-string-for-the-iot-hub"></a>Obtención de la cadena de conexión del centro de IoT
 
-La cadena de conexión de un centro de IoT se necesita para vincularlo el servicio de aprovisionamiento de dispositivos. Utilice el comando [az iot hub show-connection-string](/cli/azure/iot/hub#az_iot_hub_show_connection_string) para obtener la cadena de conexión y use su resultado para establecer una variable que utilizará al vincular los dos recursos. 
+La cadena de conexión de un centro de IoT se necesita para vincularlo el servicio de aprovisionamiento de dispositivos. Utilice el comando [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) para obtener la cadena de conexión y use su resultado para establecer una variable que utilizará al vincular los dos recursos. 
 
 En el siguiente ejemplo se establece la variable *hubConnectionString* en el valor de la cadena de conexión de la clave principal de la directiva *iothubowner* del centro. Puede especificar otra directiva con el parámetro `--policy-name`. El comando usa las opciones [query](/cli/azure/query-azure-cli) y [output](/cli/azure/format-output-azure-cli#tsv-output-format) de la CLI de Azure para extraer la cadena de conexión de la salida del comando.
 
@@ -92,7 +92,7 @@ echo $hubConnectionString
 
 ## <a name="link-the-iot-hub-and-the-provisioning-service"></a>Vinculación del centro de IoT y el servicio de aprovisionamiento
 
-El centro de IoT y el servicio de aprovisionamiento se vinculan con el comando [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az_iot_dps_linked_hub_create). 
+El centro de IoT y el servicio de aprovisionamiento se vinculan con el comando [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-create). 
 
 En el ejemplo siguiente se vincula un centro de IoT llamado *my-sample-hub* de la ubicación *westus* y servicio de aprovisionamiento de dispositivos llamado *my-sample-dps*. Utiliza la cadena de conexión para el centro *my-sample-hub* almacenado en la variable *hubConnectionString* en el paso anterior.
 
@@ -102,7 +102,7 @@ az iot dps linked-hub create --dps-name my-sample-dps --resource-group my-sample
 
 ## <a name="verify-the-provisioning-service"></a>Comprobación del servicio de aprovisionamiento
 
-Para obtener los detalles del servicio de aprovisionamiento, use el comando [az iot dps show](/cli/azure/iot/dps#az_iot_dps_show).
+Para obtener los detalles del servicio de aprovisionamiento, use el comando [az iot dps show](/cli/azure/iot/dps#az-iot-dps-show).
 
 El ejemplo siguiente obtiene los detalles de un servicio de aprovisionamiento llamado *my-sample-dps*. El centro de IoT vinculado se muestra en la colección *properties.iotHubs*.
 
@@ -114,18 +114,18 @@ az iot dps show --name my-sample-dps
 
 Otras guías de inicio rápido de esta colección se basan en los valores de esta. Si tiene previsto seguir trabajando con las siguientes guías de inicio rápido o tutoriales, no elimine los recursos creados en esta guía de inicio rápido. Si no planea continuar, puede utilizar los siguientes comandos para eliminar el servicio de aprovisionamiento, el centro de IoT o el grupo de recursos y todos sus recursos.
 
-Para eliminar el servicio de aprovisionamiento, ejecute el comando [az iot dps delete](/cli/azure/iot/dps#az_iot_dps_delete):
+Para eliminar el servicio de aprovisionamiento, ejecute el comando [az iot dps delete](/cli/azure/iot/dps#az-iot-dps-delete):
 
 ```azurecli-interactive
 az iot dps delete --name my-sample-dps --resource-group my-sample-resource-group
 ```
-Para eliminar el centro de IoT, ejecute el comando [az group delete](/cli/azure/iot/hub#az_iot_hub_delete):
+Para eliminar el centro de IoT, ejecute el comando [az group delete](/cli/azure/iot/hub#az-iot-hub-delete):
 
 ```azurecli-interactive
 az iot hub delete --name my-sample-hub --resource-group my-sample-resource-group
 ```
 
-Para eliminar un grupo de recursos y todos sus recursos, use el comando [az group delete](/cli/azure/group#az_group_delete):
+Para eliminar un grupo de recursos y todos sus recursos, use el comando [az group delete](/cli/azure/group#az-group-delete):
 
 ```azurecli-interactive
 az group delete --name my-sample-resource-group

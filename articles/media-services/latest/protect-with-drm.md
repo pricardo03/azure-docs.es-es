@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/15/2018
 ms.author: juliako
-ms.openlocfilehash: 2ceae5b530d1967ccca2b33c05c183302684be41
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8bfe2fb7274fb8c6dcf977e8bd72af525d8ce8a5
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116774"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528177"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>Uso del cifrado dinámico de DRM y el servicio de entrega de licencias
 
@@ -54,7 +54,7 @@ Este artículo se basa en el ejemplo de [Cifrado con DRM](https://github.com/Azu
     ![proteger con drm](./media/protect-with-drm/playready_encrypted_url.png)
 
 > [!NOTE]
-> Puede cifrar cada recurso con varios tipos de cifrado (AES-128, PlayReady, Widevine, FairPlay). Consulte [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types) (Protocolos de streaming y tipos de cifrado) para ver lo que tiene sentido combinar.
+> Puede cifrar cada recurso con varios tipos de cifrado (AES-128, PlayReady, Widevine, FairPlay). Consulte [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types) (Protocolos de streaming y tipos de cifrado) para ver lo que conviene combinar.
 
 El ejemplo descrito en este artículo genera el siguiente resultado:
 
@@ -65,6 +65,7 @@ El ejemplo descrito en este artículo genera el siguiente resultado:
 Los siguientes requisitos son necesarios para completar el tutorial.
 
 * Revise el artículo [Content protection overview](content-protection-overview.md) (Información general de la protección de contenido).
+* Revise el [Diseño del sistema de protección de contenidos con drm múltiple con control de acceso](design-multi-drm-system-with-access-control.md)
 * Instalación de Visual Studio Code o Visual Studio
 * Cree una cuenta de Azure Media Services tal como se describe en [este inicio rápido](create-account-cli-quickstart.md).
 * Obtener las credenciales necesarias para usar las instancias de Media Services API siguiendo las instrucciones de [Acceso a API](access-api-cli-how-to.md).
@@ -72,7 +73,7 @@ Los siguientes requisitos son necesarios para completar el tutorial.
 
 ## <a name="download-code"></a>Descarga de código
 
-Clone un repositorio GitHub que contenga el ejemplo de .NET completo, que se explica en este artículo, en la máquina con el siguiente comando:
+Clone en la máquina un repositorio GitHub que contenga el ejemplo de .NET completo que se explica en este artículo, con el siguiente comando:
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
@@ -119,7 +120,7 @@ El **trabajo** normalmente pasa por los siguientes estados: **Programado**, **En
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 
-## <a name="create-a-contentkeypolicy"></a>Creación de un objeto ContentKeyPolicy
+## <a name="create-a-contentkeypolicy"></a>Crear un objeto ContentKeyPolicy
 
 Una clave de contenido proporciona acceso seguro a los recursos. Debe crear una directiva de clave de contenido que configure cómo se entrega la clave de contenido a los clientes finales. La clave de contenido está asociada con el objeto StreamingLocator. Media Services también proporciona el servicio de entrega de claves que distribuye claves de cifrado y licencias a los usuarios autorizados. 
 
@@ -141,8 +142,8 @@ Cuando un reproductor solicita una secuencia, Media Services usa la clave especi
 
 Una vez finalizada la codificación y establecida la directiva de clave de contenido, el siguiente paso es poner el vídeo del recurso de salida a disposición de los clientes para su reproducción. Puede lograrlo en dos pasos: 
 
-1. Creación de un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)
-2. Genere direcciones URL de streaming que los clientes puedan usar. 
+1. Cree un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators).
+2. Compile direcciones URL de streaming que los clientes puedan usar. 
 
 El proceso de creación de un objeto **StreamingLocator** se denomina publicación. De forma predeterminada, el objeto **StreamingLocator** es válido inmediatamente después de realizar las llamadas a la API y dura hasta que se elimina, a menos que configure las horas de inicio y de finalización opcionales. 
 

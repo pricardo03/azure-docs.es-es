@@ -4,17 +4,18 @@ description: Tutorial sobre cómo usar Active Directory B2C para proteger ASP.NE
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
 ms.author: davidmu
 ms.date: 01/23/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: f61a3b103d8738e1b86fb64aff99dab9c6986fdf
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 469a3662b5bc4db467dde3285d557ac8bbae368e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39609096"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Tutorial: Conceder acceso a una API web de ASP.NET desde una aplicación web mediante Azure Active Directory B2C
 
@@ -30,37 +31,43 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Completar el [Tutorial: Uso de Azure Active Directory B2C para la autenticación de usuarios en una aplicación web para ASP.NET](active-directory-b2c-tutorials-web-app.md).
 * Instalar [Visual Studio 2017](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**.
 
 ## <a name="register-web-api"></a>Registro de una API web
 
-Los recursos de API web tienen que registrarse en el inquilino antes de que puedan aceptar y responder a [solicitudes de recursos protegidos](../active-directory/develop/active-directory-dev-glossary.md#resource-server) por [aplicaciones cliente](../active-directory/develop/active-directory-dev-glossary.md#client-application) que presenten un [token de acceso](../active-directory/develop/active-directory-dev-glossary.md#access-token) de Azure Active Directory. El registro establece el [objeto de aplicación y de entidad de servicio](../active-directory/develop/active-directory-dev-glossary.md#application-object) en el inquilino. 
+Los recursos de API web tienen que registrarse en el inquilino antes de que puedan aceptar y responder a [solicitudes de recursos protegidos](../active-directory/develop/developer-glossary.md#resource-server) por [aplicaciones cliente](../active-directory/develop/developer-glossary.md#client-application) que presenten un [token de acceso](../active-directory/develop/developer-glossary.md#access-token) de Azure Active Directory. El registro establece el [objeto de aplicación y de entidad de servicio](../active-directory/develop/developer-glossary.md#application-object) en el inquilino. 
 
-Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
 
-[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
+2. Asegúrese de que está usando el directorio que contiene su inquilino de Azure AD B2C cambiando a él en la esquina superior derecha de Azure Portal. Seleccione la información de la suscripción y, después, seleccione **Cambiar directorio**.
 
-1. Seleccione **Azure AD B2C** en la lista de servicios de Azure Portal.
+    ![Cambio de directorios](./media/active-directory-b2c-tutorials-web-api/switch-directories.png)
 
-2. En la configuración de B2C, haga clic en **Aplicaciones** y luego en **Agregar**.
+3. Elija el directorio que contiene el inquilino.
+
+    ![Selección de directorio](./media/active-directory-b2c-tutorials-web-api/select-directory.png)
+
+4. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**. Ahora debería estar utilizando el inquilino que ha creado en el tutorial anterior.
+
+5. Seleccione **Aplicaciones** y, a continuación, **Agregar**.
 
     Para registrar la API web de ejemplo en el inquilino, utilice la siguiente configuración.
     
-    ![Incorporación de una nueva API](media/active-directory-b2c-tutorials-web-api/web-api-registration.png)
+    ![Incorporación de una nueva API](./media/active-directory-b2c-tutorials-web-api/web-api-registration.png)
     
     | Configuración      | Valor sugerido  | Descripción                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Name** | Mi API web de ejemplo | Escriba un **Nombre** que describa su API web para los desarrolladores. |
-    | **Incluir aplicación web o API web** | Sí | Seleccione **Sí** para una API web. |
-    | **Permitir flujo implícito** | Sí | Seleccione **Sí**, ya que la API utiliza el [inicio de sesión con OpenID Connect](active-directory-b2c-reference-oidc.md). |
+    | **Incluir aplicación web o API web** | SÍ | Seleccione **Sí** para una API web. |
+    | **Permitir flujo implícito** | SÍ | Seleccione **Sí**, ya que la API utiliza el [inicio de sesión con OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL de respuesta** | `https://localhost:44332` | Las direcciones URL de respuesta son puntos de conexión en los que Azure AD B2C devolverá los tokens que su API solicite. En este tutorial, la API web de ejemplo se ejecuta localmente (localhost) y escucha en el puerto 44332. |
-    | **URI de id. de aplicación** | myAPISample | El URI identifica de forma única la API en el inquilino. Esto le permite registrar varias API por inquilino. Los [ámbitos](../active-directory/develop/active-directory-dev-glossary.md#scopes) controlan el acceso al recurso de API protegido y se definen por cada URI de identificador de aplicación. |
+    | **URI de id. de aplicación** | myAPISample | El URI identifica de forma única la API en el inquilino. Esto le permite registrar varias API por inquilino. Los [ámbitos](../active-directory/develop/developer-glossary.md#scopes) controlan el acceso al recurso de API protegido y se definen por cada URI de identificador de aplicación. |
     | **Cliente nativo** | Sin  | Como es una API web y no un cliente nativo, seleccione No. |
     
-3. Haga clic en **Crear** para registrar la API.
+6. Haga clic en **Crear** para registrar la API.
 
 Las API registradas aparecen en la lista de aplicaciones del inquilino de Azure AD B2C. Seleccione la API web de la lista. Se muestra el panel de propiedades de la API web.
 
@@ -72,7 +79,7 @@ El registro de la API web con Azure AD B2C define una relación de confianza. Co
 
 ## <a name="define-and-configure-scopes"></a>Definición y configuración de ámbitos
 
-Los [ámbitos](../active-directory/develop/active-directory-dev-glossary.md#scopes) proporcionan una manera de controlar el acceso a los recursos protegidos. La API web utiliza los ámbitos para implementar el control de acceso basado en el ámbito. Por ejemplo, algunos usuarios pueden tener tanto acceso de lectura como de escritura, mientras que otros usuarios pueden tener permisos de solo lectura. En este tutorial, definirá los permisos de lectura y escritura para la API web.
+Los [ámbitos](../active-directory/develop/developer-glossary.md#scopes) proporcionan una manera de controlar el acceso a los recursos protegidos. La API web utiliza los ámbitos para implementar el control de acceso basado en el ámbito. Por ejemplo, los usuarios de la API web pueden tener ambos accesos de lectura y de escritura, o pueden tener solo acceso de lectura. En este tutorial, utilizará ámbitos para definir los permisos de lectura y escritura para la API web.
 
 ### <a name="define-scopes-for-the-web-api"></a>Definición de ámbitos para la API web
 
@@ -109,7 +116,7 @@ Para llamar a una API web protegida desde una aplicación, deberá conceder a su
 
 5. Haga clic en **OK**.
 
-**Mi aplicación web de ejemplo** está registrada para llamar a **Mi API web de ejemplo** protegida. Un usuario [se autentica](../active-directory/develop/active-directory-dev-glossary.md#authentication) con Azure AD B2C para utilizar la aplicación web. La aplicación web obtiene una [concesión de autorización](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) de Azure AD B2C para tener acceso a la API web protegida.
+**Mi aplicación web de ejemplo** está registrada para llamar a **Mi API web de ejemplo** protegida. Un usuario [se autentica](../active-directory/develop/developer-glossary.md#authentication) con Azure AD B2C para utilizar la aplicación web. La aplicación web obtiene una [concesión de autorización](../active-directory/develop/developer-glossary.md#authorization-grant) de Azure AD B2C para tener acceso a la API web protegida.
 
 ## <a name="update-code"></a>Actualización del código
 

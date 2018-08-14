@@ -1,32 +1,26 @@
 ---
-title: Introducción a ML Services en HDInsight - Azure | Microsoft Docs
+title: 'Introducción a ML Services en HDInsight: Azure'
 description: Aprenda a crear un motor Apache Spark en un clúster de HDInsight que incluya ML Services y a enviar un script de R al clúster.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-ms.assetid: b5e111f3-c029-436c-ba22-c54a4a3016e3
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: efc7ada12f722b0447712594de496e933bde3d36
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7965a91efe58102268f4d54275e7fa3fc4ff74d3
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053439"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617792"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Introducción a ML Services en Azure HDInsight
 
 Azure HDInsight le permite crear un clúster de ML Services. Esta opción permite que los scripts de R usen Spark y MapReduce para ejecutar cálculos distribuidos. En este artículo, se ofrece información sobre cómo crear un clúster de ML Services en HDInsight y después ejecutar un script de R que demuestre cómo usar Spark para cálculos de R distribuidos.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Una suscripción a Azure**: antes de comenzar este tutorial, debe tener una suscripción a Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) (Obtener una evaluación gratuita de Azure para probar Hadoop en HDInsight) para más información.
 * **Un cliente de Secure Shell (SSH)**: el cliente de SSH se usa para conectarse al clúster de HDInsight de forma remota y ejecutar comandos directamente desde el clúster. Para más información, consulte [Uso SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).

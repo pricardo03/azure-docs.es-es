@@ -8,14 +8,14 @@ ms.service: event-grid
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
-ms.date: 04/05/2018
+ms.date: 08/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 82baa50d9610e49075a8fdcdec6391c38c2edc49
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 059dc81fd5b8ef2573a228dafc0bab30d0e2037b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31426020"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526045"
 ---
 # <a name="azure-cli-samples-for-event-grid"></a>Ejemplos de la CLI de Azure para Event Grid
 
@@ -28,6 +28,7 @@ En la tabla siguiente se incluyen vínculos a ejemplos de la CLI de Azure para E
 | [Suscripción a Blob Storage](scripts/event-grid-cli-blob.md)| Permite la suscripción a eventos de una cuenta de Blob Storage. |
 | [Suscripción a un tema personalizado](scripts/event-grid-cli-subscribe-custom-topic.md)| Permite la suscripción a eventos de un tema personalizado. |
 | [Suscripción a grupos de recursos](scripts/event-grid-cli-resource-group.md)| Crea una suscripción a eventos de un grupo de recursos. |
+| [Suscríbase a un grupo de recursos y filtre por un recurso](scripts/event-grid-cli-resource-group-filter.md)| Se suscribe a eventos de un grupo de recursos y filtra los eventos de un recurso. |
 |**Temas de Event Grid**||
-| [Creación de un tema personalizado](scripts/event-grid-cli-create-custom-topic.md) | Crea un disco administrado desde un disco duro virtual especializado como un disco del sistema operativo, o desde un disco duro virtual de datos como un disco de datos.  |
+| [Creación de un tema personalizado](scripts/event-grid-cli-create-custom-topic.md) | Crea un tema personalizado de Event Grid y devuelve el punto de conexión y la clave.  |
 | | |

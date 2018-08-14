@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: jaredro
-ms.openlocfilehash: e5cb701295854c6908af04b5de5aec2ca5bd978c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 122a227429dace3ee4a85565d47366d31b6c3ddf
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285166"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576838"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -62,7 +62,8 @@ En la tabla siguiente se proporciona información sobre las regiones y los lími
 | **Región geopolítica** | **Regiones de Azure** | **Ubicaciones de ExpressRoute** |
 | --- | --- | --- |
 | **Nube del gobierno de Estados Unidos** |Arizona Gob. EE. UU., Iowa Gob. EE. UU., Texas Gob. EE.UU., Virginia Gob. EE.UU., US DoD Central, US DoD Este  |Chicago, Dallas, New York, Phoenix, San Antonio, Seattle, Silicon Valley, Washington DC |
-| **China** |Este de China, Norte de China |Beijing, Shanghai |
+| **Este de China** |Este de China, Este de China 2 |Shanghai |
+| **Norte de China** |Norte de China, Norte de China 2 |Beijing |
 | **Alemania** |Centro de Alemania, Alemania oriental |Berlín+, Fráncfort |
 
 No se admite la conectividad entre las regiones geopolíticas en el SKU de ExpressRoute estándar. Debe habilitar el complemento premium de ExpressRoute para admitir conectividad global. No se admite la conectividad con entornos de nube nacionales. Puede trabajar con su proveedor de conectividad si surge tal necesidad.
@@ -139,7 +140,7 @@ Para más información, consulte [ExpressRoute en China](http://www.windowsazure
 ### <a name="germany"></a>Alemania
 | **Ubicación** | **Proveedores de servicios** |
 | --- | --- |
-| **Berlín** |Colt+, e-shelter, Megaport+, T-Systems |
+| **Berlín** |e-shelter, Megaport+, T-Systems |
 | **Fráncfort** |Colt, Equinix e Interxion |
 
 ## <a name="c1partners"></a>Conectividad a través de proveedores de intercambio

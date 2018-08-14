@@ -14,12 +14,12 @@ ms.date: 07/20/2018
 ms.author: lizross
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 7804d6b0d4a100997fb545e678458424dac6ceed
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 45637122af3df1906a8c3b4b16233f6361eecca3
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39227289"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528333"
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Guía de inicio rápido: Incorporación de personalización de marca de empresa a su página de inicio de sesión de Azure AD
 Para evitar confusiones, muchas empresas quieren aplicar un aspecto coherente en todos los sitios web y servicios que administran. Azure Active Directory (Azure AD) ofrece esta funcionalidad, ya que permite personalizar la apariencia de la página de inicio de sesión con el logotipo de la empresa y combinaciones de colores personalizadas. La página de inicio de sesión se abre al iniciar sesión en aplicaciones web como Office 365 que usan Azure AD como proveedor de identidades. Interactuará con esta página para especificar las credenciales.
@@ -71,7 +71,7 @@ Se utiliza este color en lugar de la imagen de fondo en las conexiones de ancho 
 ### <a name="square-logo-image"></a>Imagen de logotipo cuadrado
 DESCRIPCIÓN | Restricciones | Recomendaciones
 ------- | ------- | ----------
-Esta imagen aparece durante la configuración de nuevos equipos con Enterprise Windows 10. Proporciona contexto a los empleados al configurar su nuevo equipo de trabajo. La imagen se muestra para los inquilinos que usan [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) para implementar sus dispositivos de trabajo y en las páginas de escritura de contraseña en otras experiencias con Windows 10. | PNG (preferido) o JPG transparentes<br>Dimensiones de la imagen: 240 x 240 px<br>Tamaño de archivo: &lt; 10 KB | Use el logotipo de su organización aquí.<br> Use una imagen transparente.<br>No dé por hecho que el fondo será blanco.<br>No agregue relleno al logotipo en la imagen o, de lo contrario, el logotipo se verá desproporcionadamente pequeño.
+Esta imagen aparece durante la configuración de nuevos equipos con Enterprise Windows 10. Proporciona contexto a los empleados al configurar su nuevo equipo de trabajo. La imagen se muestra para los inquilinos que usan [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) para implementar sus dispositivos de trabajo y en las páginas de escritura de contraseña en otras experiencias con Windows 10.<br>El logotipo cuadrado se usa exclusivamente en la autenticación de Windows. La versión de tema oscuro está en desuso y ya no se utiliza en ningún lugar. | PNG (preferido) o JPG transparentes<br>Dimensiones de la imagen: 240 x 240 px<br>Tamaño de archivo: &lt; 10 KB | Use el logotipo de su organización aquí.<br> Use una imagen transparente.<br>No dé por hecho que el fondo será blanco.<br>No agregue relleno al logotipo en la imagen o, de lo contrario, el logotipo se verá desproporcionadamente pequeño.
 
 ### <a name="show-option-to-remain-signed-in"></a>Visualización de la opción para seguir conectado
 DESCRIPCIÓN | Restricciones | Recomendaciones

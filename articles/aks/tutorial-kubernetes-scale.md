@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 22f7f9aee791d315300ffdc4dc9f708a80a5baf7
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 61654ae972965800909544554cc93dae511e1ff1
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127417"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480279"
 ---
 # <a name="tutorial-scale-application-in-azure-kubernetes-service-aks"></a>Tutorial: Escalado de una aplicación en Azure Kubernetes Service (AKS)
 
@@ -34,34 +34,6 @@ En los tutoriales posteriores, la aplicación Azure Vote se actualiza a una nuev
 En tutoriales anteriores se ha empaquetado una aplicación en una imagen de contenedor, esta imagen se ha cargado en Azure Container Registry y se ha creado un clúster de Kubernetes. La aplicación se ejecutó después en el clúster de Kubernetes.
 
 Si no ha realizado estos pasos y quiere continuar, vuelva al [tutorial 1: Creación de imágenes de contenedor][aks-tutorial-prepare-app].
-
-## <a name="scale-aks-nodes"></a>Escalado de nodos de AKS
-
-Si creó el clúster de Kubernetes mediante los comandos en el tutorial anterior, este tiene un nodo. Puede ajustar el número de nodos manualmente si tiene previsto usar más o menos cargas de trabajo de contenedor en el clúster.
-
-En el ejemplo siguiente, el número de nodos aumenta a tres en el clúster de Kubernetes denominado *myAKSCluster*. El comando tarda unos minutos en completarse.
-
-```azurecli
-az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
-```
-
-La salida es parecida a esta:
-
-```
-"agentPoolProfiles": [
-  {
-    "count": 3,
-    "dnsPrefix": null,
-    "fqdn": null,
-    "name": "myAKSCluster",
-    "osDiskSizeGb": null,
-    "osType": "Linux",
-    "ports": null,
-    "storageProfile": "ManagedDisks",
-    "vmSize": "Standard_D2_v2",
-    "vnetSubnetId": null
-  }
-```
 
 ## <a name="manually-scale-pods"></a>Escalado manual de pods
 
@@ -142,6 +114,34 @@ azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        
 ```
 
 Después de unos minutos con carga mínima en la aplicación Azure Vote, el número de réplicas del pod se reduce automáticamente a tres.
+
+## <a name="manually-scale-aks-nodes"></a>Escalado manual de nodos de AKS
+
+Si creó el clúster de Kubernetes mediante los comandos en el tutorial anterior, este tiene un nodo. Puede ajustar el número de nodos manualmente si tiene previsto usar más o menos cargas de trabajo de contenedor en el clúster.
+
+En el ejemplo siguiente, el número de nodos aumenta a tres en el clúster de Kubernetes denominado *myAKSCluster*. El comando tarda unos minutos en completarse.
+
+```azurecli
+az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
+```
+
+La salida es parecida a esta:
+
+```
+"agentPoolProfiles": [
+  {
+    "count": 3,
+    "dnsPrefix": null,
+    "fqdn": null,
+    "name": "myAKSCluster",
+    "osDiskSizeGb": null,
+    "osType": "Linux",
+    "ports": null,
+    "storageProfile": "ManagedDisks",
+    "vmSize": "Standard_D2_v2",
+    "vnetSubnetId": null
+  }
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

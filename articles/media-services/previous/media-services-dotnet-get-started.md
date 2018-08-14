@@ -14,19 +14,19 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: a685043f0bc9841d2cc86f2c49469e8287a03b78
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 12a6f731dfb1c106c28d18caa95710751736629c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952270"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434591"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introducción a la entrega de contenido a petición mediante .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 Este tutorial le guiará por los pasos necesarios para implementar un servicio básico de entrega de contenido de vídeo bajo demanda (VoD) con la aplicación de Azure Media Services (AMS) mediante el SDK de .NET para Azure Media Services.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Estos son los requisitos previos para completar el tutorial.
 
@@ -155,7 +155,7 @@ En Media Services, cargará (o especificará) los archivos digitales en un recur
 
 El método **UploadFile** definido a continuación llama a **CreateFromFile** (definido en las extensiones del SDK para .NET). **CreateFromFile** crea un nuevo recurso en el que se carga el archivo de origen especificado.
 
-El método **CreateFromFile** toma \*\*AssetCreationOptions, que permite especificar una de las siguientes opciones de creación de recursos:
+El método **CreateFromFile** toma **AssetCreationOptions**, que permite especificar una de las siguientes opciones de creación de recursos:
 
 * **Ninguno** : no se utiliza cifrado. Este es el valor predeterminado. Tenga en cuenta que al usar esta opción el contenido no está protegido en tránsito o en reposo en el almacenamiento.
   Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción.

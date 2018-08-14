@@ -9,12 +9,12 @@ ms.date: 07/30/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c9d1931f1b78bb19f5e321a19baca45265ea7ab4
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 31560cbd4d8b4572ce930db7ffb8753f3e4a4bc0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413168"
+ms.locfileid: "39425925"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desarrollo de un módulo IoT Edge con C en el dispositivo simulado
 
@@ -49,18 +49,26 @@ Recursos de desarrollo:
 * [Extensión de Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) para Visual Studio Code.
 * [Docker CE](https://docs.docker.com/install/). 
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-container-registry"></a>Creación de un Registro de contenedor
 En este tutorial, puede usar la extensión de Azure IoT Edge para VS Code a fin de generar un módulo y crear una **imagen de contenedor** a partir de los archivos. Después, insertará esta imagen en un **Registro** donde se almacenan y administran las imágenes. Por último, implementará la imagen en el Registro para que se ejecute en el dispositivo IoT Edge.  
 
 En este tutorial, puede usar cualquier Registro compatible con Docker. Dos de los servicios de Registro de Docker más populares que están disponibles en la nube son [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) y [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). En este tutorial, utilizaremos Azure Container Registry. 
 
-1. En [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso** > **Contenedores** > **Azure Container Registry**.
-2. Asigne un nombre al Registro, seleccione una suscripción, elija un grupo de recursos y establezca la SKU en el nivel **Básico**. 
-3. Seleccione **Crear**.
-4. Una vez que se haya creado el Registro de contenedor, desplácese hasta él y seleccione **Claves de acceso**. 
-5. Establezca **Usuario administrador** en **Habilitar**.
-6. Copie los valores de **Servidor de inicio de sesión**, **Nombre de usuario** y **Contraseña**. Usará estos valores más adelante en este tutorial al publicar la imagen de Docker en el registro y al agregar las credenciales del registro al tiempo de ejecución de Edge. 
+El siguiente comando de la CLI de Azure crea un registro en un grupo de recursos denominado **IoTEdgeResources**. Reemplace **{acr_name}** por un nombre único para el registro. 
+
+   ```azurecli-interactive
+   az acr create --resource-group IoTEdgeResources --name {acr_name} --sku Basic --admin-enabled true
+   ```
+
+Recupere las credenciales para el registro. 
+
+   ```azurecli-interactive
+   az acr credential show --name {acr_name}
+   ```
+
+Copie los valores de **Nombre de usuario** y una de las contraseñas. Usará estos valores más adelante en este tutorial al publicar la imagen de Docker en el registro y al agregar las credenciales del registro al tiempo de ejecución de Edge. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Creación de un proyecto de módulo IoT Edge
 En los siguientes pasos puede ver cómo crear un proyecto de módulo IoT Edge basado en .NET Core 2.0 mediante Visual Studio Code y la extensión de Azure IoT Edge.
@@ -294,32 +302,26 @@ Puede ver la dirección de la imagen de contenedor completa con la etiqueta en e
  
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
-
 Si va a seguir con el siguiente artículo recomendado, puede conservar los recursos y las configuraciones que ya ha creado para volverlos a utilizar.
 
 En caso contrario, para evitar gastos, puede eliminar las configuraciones locales y los recursos de Azure que creó en este artículo. 
 
 > [!IMPORTANT]
-> La eliminación de los recursos de Azure y del grupo de recursos es un proceso irreversible. Una vez eliminados, el grupo de recursos y todos los recursos que contiene se suprimirán permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado una instancia de IoT Hub en un grupo de recursos ya existente que contiene recursos que desea conservar, puede eliminar solo esa instancia en lugar de eliminar todo el grupo de recursos.
+> La eliminación de los grupos de recursos de Azure es un proceso irreversible. Una vez eliminados, el grupo de recursos y todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado una instancia de IoT Hub en un grupo de recursos ya existente que contiene recursos que desea conservar, puede eliminar solo esa instancia en lugar de eliminar todo el grupo de recursos.
 >
 
 Para eliminar solo la instancia de IoT Hub, ejecute el siguiente comando usando el nombre del centro y el nombre del grupo de recursos:
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 
 Para eliminar un grupo de recursos entero por el nombre:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Grupos de recursos**.
-
-2. Escriba el nombre del grupo de recursos que contiene la instancia de IoT Hub en el cuadro de texto **Filtrar por nombre...**. 
-
-3. A la derecha del grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos**.
-
-4. Se le pedirá que confirme la eliminación del grupo de recursos. Escriba otra vez el nombre del grupo de recursos para confirmar y haga clic en **Eliminar**. Transcurridos unos instantes, el grupo de recursos y todos los recursos que contiene se eliminan.
+   ```azurecli-interactive
+   az group delete --name IoTEdgeResources 
+   ```
 
 
 

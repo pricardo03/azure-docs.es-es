@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 10/13/2017
 ms.author: asutton
 ms.custom: ''
-ms.openlocfilehash: 9834dbbc2232fc286451bcdcd19dfc639f49d3bf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 504504f278907536e89055cd5c912d2d1f280931
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30903482"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627209"
 ---
 # <a name="what-is-batch-ai-in-azure"></a>¿En qué consiste Batch AI en Azure?
 Batch AI es un servicio administrado que permite a los científicos de datos y a los investigadores de la AI entrenar la inteligencia artificial y otros modelos de aprendizaje automático en clústeres de máquinas virtuales de Azure, incluidas máquinas virtuales con compatibilidad con GPU. Puede describir los requisitos de su trabajo, dónde encontrar las entradas y almacenar las salidas, y Batch AI se encarga del resto.  
@@ -40,7 +40,7 @@ Batch AI proporciona administración de recursos y programación de trabajos esp
 * Escalado automático o manual de clústeres de máquinas virtuales mediante GPU o CPU 
 * Configuración de la comunicación SSH entre máquinas virtuales y para el acceso remoto 
 * Compatibilidad con cualquier plataforma de aprendizaje profundo o de aprendizaje automático, con configuración optimizada para conjuntos de herramientas populares como [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) (CNTK), [TensorFlow](https://www.tensorflow.org/) y [Chainer](https://chainer.org/) 
-* Cola de trabajo basado en prioridades para compartir clústeres y aprovechar las ventajas de las instancias reservadas y de las máquinas virtuales de prioridad baja  
+* Cola de trabajo basada en prioridades para compartir clústeres y aprovechar las ventajas de las máquinas virtuales de prioridad baja y de las reservas de Azure  
 * Opciones de almacenamiento flexibles, entre ellas Azure Files y un servidor NFS administrado 
 * Montaje de recursos compartidos de archivos remotos en la máquina virtual y el contenedor opcional 
 * Aportación del estado del trabajo y reinicio en caso de errores de la máquina virtual 

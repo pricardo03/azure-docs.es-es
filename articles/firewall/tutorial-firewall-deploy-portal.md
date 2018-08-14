@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be11ea2195705b344638b93ea2657481897d6ef7
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 84696b4135570168f8093b15f9a2deb4790eeebe
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358953"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480890"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal
 
@@ -166,7 +166,7 @@ Use la información de la tabla siguiente para configurar la **configuración** 
    |Grupos de recursos     |**Usar existente**: Test-FW-RG |
    |Ubicación     |Seleccione la misma ubicación que usó anteriormente.|
    |Elegir una red virtual     |**Usar existente**: Test-FW-VN|
-   |Dirección IP pública     |Crear nuevo|
+   |Dirección IP pública     |**Cree uno nuevo**. La dirección IP pública tiene que ser del tipo de SKU estándar.|
 
 2. Haga clic en **Revisar + crear**.
 3. Revise el resumen y luego haga clic en **Crear** para crear el firewall.
@@ -175,10 +175,6 @@ Use la información de la tabla siguiente para configurar la **configuración** 
 4. Una vez finalizada la implementación, vaya al grupo de recursos **Test-FW-RG** y haga clic en el firewall **Test-FW01**.
 6. Anote la dirección IP privada. Se usará más adelante al crear la ruta predeterminada.
 
-> [!NOTE]
-> La dirección IP pública tiene que ser del tipo de SKU estándar.
-
-[//]: # (No olvide tener anotar la dirección IP privada del firewall.)
 
 ## <a name="create-a-default-route"></a>Crear una ruta predeterminada
 
@@ -279,7 +275,7 @@ Con ello, ha comprobado que funcionan las reglas de firewall:
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando no los necesite, elimine el grupo de recursos **Test-FW-RG** para eliminar todos los recursos relacionados con el firewall.
+Puede conservar los recursos relacionados con el firewall para el siguiente tutorial o, si ya no los necesita, eliminar el grupo de recursos **Test-FW-RG** para eliminarlos todos.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

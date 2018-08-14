@@ -7,15 +7,15 @@ manager: carmonm
 keywords: copia de seguridad y restauración; servicios de recuperación; soluciones de copia de seguridad
 ms.service: backup
 ms.topic: overview
-ms.date: 3/1/2018
+ms.date: 8/2/2018
 ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: bbcb05fcc17b958711b704c75a53cf4af4d41bd0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0a5b9e6cdb5329705cb3c6d4676dfc8d987119e4
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607106"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480980"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Introducción a las características de Azure Backup
 Azure Backup es el servicio de Azure que puede usar para realizar una copia de seguridad de los datos (protegerlos) y recuperarlos en la nube de Microsoft. Reemplaza su solución de copia de seguridad local o remota existente por una solución confiable, segura y rentable basada en la nube. Azure Backup ofrece varios componentes que se descargan e implementan en el equipo o servidor adecuados, o en la nube. El componente, o agente, que se implemente depende de lo que quiera proteger. Todos los componentes de Azure Backup (sin importar si va a proteger los datos de forma local o en la nube) se pueden usar para realizar una copia de seguridad de datos en un almacén de Azure Recovery Services. Para más información sobre qué componente usar para proteger datos, aplicaciones o cargas de trabajo específicos, consulte la [tabla de componentes de Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (más adelante en este artículo).
@@ -116,11 +116,11 @@ En las secciones siguientes se proporcionan tablas que resumen la disponibilidad
 ### <a name="storage"></a>Storage
 | Característica | Agente de Azure Backup | System Center DPM | Azure Backup Server | Copia de seguridad de máquina virtual de IaaS de Azure |
 | --- | --- | --- | --- | --- |
-| Almacén de Recovery Services |![Sí][green] |![Sí][green] |![Sí][green] |![Sí][green] |
-| Almacenamiento en disco | |![Sí][green] |![Sí][green] | |
-| Almacenamiento en cinta | |![Sí][green] | | |
-| Compresión <br/>(en el almacén de Recovery Services) |![Sí][green] |![Sí][green] |![Sí][green] | |
-| Copia de seguridad incremental |![Sí][green] |![Sí][green] |![Sí][green] |![Sí][green] |
+| Almacén de Recovery Services |![SÍ][green] |![Sí][green] |![Sí][green] |![SÍ][green] |
+| Almacenamiento en disco | |![SÍ][green] |![SÍ][green] | |
+| Almacenamiento en cinta | |![SÍ][green] | | |
+| Compresión <br/>(en el almacén de Recovery Services) |![SÍ][green] |![Sí][green] |![SÍ][green] | |
+| Copia de seguridad incremental |![SÍ][green] |![Sí][green] |![Sí][green] |![SÍ][green] |
 | Desduplicación de disco | |![Parcialmente][yellow] |![Parcialmente][yellow] | | |
 
 ![clave de tabla](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -157,8 +157,8 @@ La **copia de seguridad incremental** logra una alta eficacia de almacenamiento 
 ### <a name="security"></a>Seguridad
 | Característica | Agente de Azure Backup | System Center DPM | Azure Backup Server | Copia de seguridad de máquina virtual de IaaS de Azure |
 | --- | --- | --- | --- | --- |
-| Seguridad de las redes<br/> (en Azure) |![Sí][green] |![Sí][green] |![Sí][green] |![Parcialmente][yellow] |
-| Seguridad de los datos<br/> (en Azure) |![Sí][green] |![Sí][green] |![Sí][green] |![Parcialmente][yellow] |
+| Seguridad de las redes<br/> (en Azure) |![SÍ][green] |![Sí][green] |![Sí][green] |![SÍ][green] |
+| Seguridad de los datos<br/> (en Azure) |![SÍ][green] |![Sí][green] |![Sí][green] |![SÍ][green] |
 
 ![clave de tabla](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -171,13 +171,13 @@ Todo el tráfico de copia de seguridad de los servidores al almacén de Recovery
 >
 
 #### <a name="data-security"></a>Seguridad de los datos
-La realización de copias de seguridad de máquinas virtuales de Azure requiere la configuración del cifrado *en* la máquina virtual. Use BitLocker en máquinas virtuales Windows y **dm-crypt** en máquinas virtuales Linux. Azure Backup no cifra automáticamente los datos de copia de seguridad que circulan a través de esta ruta.
+La realización de copias de seguridad de máquinas virtuales de Azure requiere la configuración del cifrado *en* la máquina virtual. Azure Backup admite Azure Disk Encryption, que usa BitLocker en máquinas virtuales Windows y **dm-crypt** en máquinas virtuales Linux. En el back-end, Azure Backup usa el [cifrado del servicio Azure Storage](../storage/common/storage-service-encryption.md), que protege los datos en reposo.
 
 ### <a name="network"></a>Red
 | Característica | Agente de Azure Backup | System Center DPM | Azure Backup Server | Copia de seguridad de máquina virtual de IaaS de Azure |
 | --- | --- | --- | --- | --- |
-| Compresión de red <br/>(en el **servidor de copia de seguridad**) | |![Sí][green] |![Sí][green] | |
-| Compresión de red <br/>(en el **almacén de Recovery Services**) |![Sí][green] |![Sí][green] |![Sí][green] | |
+| Compresión de red <br/>(en el **servidor de copia de seguridad**) | |![SÍ][green] |![SÍ][green] | |
+| Compresión de red <br/>(en el **almacén de Recovery Services**) |![SÍ][green] |![Sí][green] |![SÍ][green] | |
 | Protocolo de red <br/>(en el **servidor de copia de seguridad**) | |TCP |TCP | |
 | Protocolo de red <br/>(en el **almacén de Recovery Services**) |HTTPS |HTTPS |HTTPS |HTTPS |
 
@@ -225,7 +225,7 @@ Azure Backup protege los datos locales y en la nube. Azure Site Recovery coordin
 
 Los siguientes conceptos pueden ayudarle a tomar decisiones importantes en torno a la copia de seguridad y la recuperación ante desastres.
 
-| Concepto | Detalles | Backup | Recuperación ante desastres (DR) |
+| Concepto | Detalles | Copia de seguridad | Recuperación ante desastres (DR) |
 | --- | --- | --- | --- |
 | Objetivo de punto de recuperación (RPO) |La cantidad aceptable de pérdida de datos si debe realizarse una recuperación. |Las soluciones de copia de seguridad tienen una gran variabilidad en su RPO aceptable. Las copias de seguridad de máquina virtual normalmente tienen un RPO de un día, mientras que las copias de seguridad de base de datos tienen RPO bajos, de hasta 15 minutos. |Las soluciones de recuperación ante desastres tienen RPO bajos. La copia de DR puede estar detrás de algunos segundos o minutos. |
 | Objetivo de tiempo de recuperación (RTO) |La cantidad de tiempo que se tarda en completar una recuperación o restauración. |Debido a un RPO mayor, la cantidad de datos que una solución de copia de seguridad debe procesar es normalmente mucho mayor, lo que da lugar a RTO más largos. Por ejemplo, la restauración de datos de cintas puede tardar días, dependiendo del tiempo necesario para transportar la cinta desde una ubicación externa. |Las soluciones de recuperación ante desastres tienen RTO más pequeños, ya que están más en sincronización con el origen. Además, se necesita procesar menos cambios. |

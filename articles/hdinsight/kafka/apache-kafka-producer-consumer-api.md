@@ -1,24 +1,20 @@
 ---
-title: 'Tutorial: Uso de Producer API y Consumer API de Apache Kafka: Azure HDInsight | Microsoft Docs'
+title: 'Tutorial: Uso de Producer API y Consumer API de Apache Kafka: Azure HDInsight '
 description: Aprenda a usar Producer y Consumer API de Apache Kafka con Kafka en HDInsight. En este tutorial, aprenderá a usar estas API con Kafka en HDInsight desde una aplicación de Java.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2018
-ms.author: larryfr
-ms.openlocfilehash: b602f8bfe316e9c11dbff18273f37c99407c3da6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8b20b2aa75c3872df1082ef1059000d80a2dd472
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771157"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621103"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Uso de Producer API y Consumer API de Apache Kafka
 
@@ -29,9 +25,9 @@ Producer API de Kafka permite a las aplicaciones enviar flujos de datos al clús
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Configurar su entorno de desarrollo
-> * Configurar su entorno de implementación
-> * Comprender el código
+> * Configuración de su entorno de desarrollo
+> * Configuración del entorno de implementación
+> * Comprensión del código
 > * Compilar e implementar la aplicación
 > * Ejecutar la aplicación en el clúster
 
@@ -302,17 +298,22 @@ public class Run {
         ```bash
         /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
         ```
+    4. También puede usar el archivo jar para crear un tema. Por ejemplo para crear el tema `test2`, use el siguiente comando:
+
+        ```bash
+        java -jar kafka-producer-consumer.jar create test2 $KAFKABROKERS
+        ```
 
 3. Para ejecutar el productor y escribir datos en el tema, utilice el siguiente comando:
 
     ```bash
-    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS
     ```
 
 4. Cuando finalice el productor, use el comando siguiente para leer desde el tema:
    
     ```bash
-    java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS
     ```
    
     Se muestran los registros leídos, junto con un número de registros.
@@ -326,14 +327,14 @@ Los consumidores de Kafka usan un grupo de consumidores al leer los registros. U
 La aplicación del consumidor acepta un parámetro que se usa como identificador del grupo. Por ejemplo, el comando siguiente inicia un consumidor mediante un identificador de grupo `mygroup`:
    
 ```bash
-java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
+java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup
 ```
 
 Para ver este proceso en acción, use el siguiente comando:
 
 ```bash
-tmux new-session 'java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup' \; split-w
-indow -h 'java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup' \; attach
+tmux new-session 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup' \; split-w
+indow -h 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup' \; attach
 ```
 
 Este comando usa `tmux` para dividir el terminal en dos columnas. Se inicia un consumidor en cada una de ellas, con el mismo valor de identificador de grupo. Una vez que los consumidores terminan de leer, fíjese en que cada uno de ellos lee solo una parte de los registros. Use __Ctrl + C __ dos veces para salir `tmux`.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 2d70aff4cc569a194740fdab9373b7e11a1fcb15
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: c2297f072786bdc1e80255dee278d640b0c0d26d
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084355"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629521"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Implementación y administración de Notification Hubs mediante PowerShell
 ## <a name="overview"></a>Información general
@@ -32,7 +32,7 @@ Si también necesita crear un nuevo espacio de nombres de Service Bus para sus N
 
 No se admite la administración de Centros de notificaciones directamente mediante los cmdlets incluidos con Azure PowerShell. El mejor enfoque en PowerShell es hacer referencia al ensamblado Microsoft.Azure.NotificationHubs.dll. El ensamblado se distribuye con el [paquete NuGet de Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Azure es una plataforma basada en suscripción. Para más información sobre cómo obtener una suscripción, consulte [Opciones de compra], [Ofertas para miembros] o [Evaluación gratuita].
 * Un equipo con Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell].
@@ -159,7 +159,7 @@ Además, puede descargar algunos scripts listos para usar:
 [Evaluación gratuita]: http://azure.microsoft.com/pricing/free-trial/
 [Instalación y configuración de Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [API de .NET para Notification Hubs]: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
-[Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
-[New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
-[Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
+[Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace
+[New-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace
+[Get-AzureSBAuthorizationRule]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbauthorizationrule
 

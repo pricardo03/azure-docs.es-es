@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: douge
-ms.openlocfilehash: d0cb1c113724af5d07abf75e6d3a45b54e5202dc
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 02b15295cce1a1a018b0532948f9ba113c2f8c14
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950777"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522978"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Guía de inicio rápido: Creación de un espacio de desarrollo de Kubernetes con Azure Dev Spaces (Node.js)
 
@@ -29,7 +29,7 @@ En esta guía, aprenderá a:
 > [!Note]
 > **Si se queda bloqueado** en cualquier momento, consulte la sección [Solución de problemas](troubleshooting.md) o publique un comentario en esta página. También puede probar con este [tutorial](get-started-nodejs.md), que es más detallado.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción de Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
 - Un [clúster de Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks) que ejecute Kubernetes 1.10.3, en las regiones Este de EE. UU., Centro de EE. UU., Oeste de EE. UU. 2, Europa Occidental o Este de Canadá, con **Enrutamiento de aplicación HTTP** habilitado.
@@ -39,6 +39,10 @@ En esta guía, aprenderá a:
 - Visual Studio Code, que se puede descargar [aquí](https://code.visualstudio.com/download).
 
 ## <a name="set-up-azure-dev-spaces"></a>Configuración de Azure Dev Spaces
+
+La CLI de Azure y la extensión Azure Dev Spaces se pueden instalar y ejecutar en equipos Windows, Mac o Linux. Para Linux, se admiten las siguientes distribuciones: Ubuntu (18.04, 16.04 y 14.04), Debian 8 y 9, RHEL 7, Fedora 26 +, CentOS 7, openSUSE 42.2 y SLES 12.
+
+Siga estos pasos para configurar Azure Dev Spaces:
 
 1. Instale la [CLI de Azure ](/cli/azure/install-azure-cli?view=azure-cli-latest) (versión 2.0.38 o superior).
 1. Configure Dev Spaces en su clúster de AKS: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`

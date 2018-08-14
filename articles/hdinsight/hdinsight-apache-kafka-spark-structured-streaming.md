@@ -1,23 +1,20 @@
 ---
-title: 'Tutorial: Spark Structured Streaming con Kafka: Azure HDInsight | Microsoft Docs'
+title: 'Tutorial: Apache Spark Structured Streaming con Kafka: Azure HDInsight '
 description: Aprenda a usar el streaming de Apache Spark para obtener datos dentro o fuera de Apache Kafka. En este tutorial, se transmiten datos con Jupyter Notebook de Spark en HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: larryfr
-ms.openlocfilehash: 8c7c1b37102e94f00ac6077958952eb52b342668
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: jasonh
+ms.openlocfilehash: 47879350c56b9e8b943e1bff61359727746b697d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939266"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598320"
 ---
 # <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Tutorial: Uso de Spark Structured Streaming con Kafka en HDInsight
 
@@ -36,7 +33,7 @@ En este tutorial, aprenderá a:
 
 Cuando haya terminado los pasos indicados en este documento, no olvide eliminar los clústeres para evitar gastos innecesarios.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Experiencia en el uso de Jupyter Notebooks con Spark en HDInsight. Para más información, consulte el documento [Ejecución de consultas interactivas en clústeres de Spark en HDInsight](spark/apache-spark-load-data-run-query.md).
 
@@ -145,7 +142,7 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
 
     | Configuración | Valor |
     | --- | --- |
-    | La suscripción | Su suscripción de Azure |
+    | Subscription | Su suscripción de Azure |
     | Grupos de recursos | El grupo de recursos que contiene los recursos. |
     | Ubicación | La región de Azure en que se crean los recursos. |
     | Spark Cluster Name (Nombre de clúster de Spark) | El nombre del clúster de Spark. Los seis primeros caracteres deben ser distintos del nombre de clúster de Kafka. |

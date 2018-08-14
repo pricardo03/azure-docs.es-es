@@ -1,24 +1,20 @@
 ---
-title: 'Tutorial: Uso de Streams API de Apache Kafka: Azure HDInsight | Microsoft Docs'
+title: 'Tutorial: Uso de Streams API de Apache Kafka: Azure HDInsight '
 description: Aprenda a usar Streams API de Apache Kafka con Kafka en HDInsight. Esta API permite realizar el procesamiento de flujos entre temas de Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/17/2018
-ms.author: larryfr
-ms.openlocfilehash: 5391d6ae101a97e9b62215621267e591b2a995f5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d285575802dd830247533420154f6f5e868272a2
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626401"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621052"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Tutorial: Streams API de Apache Kafka
 
@@ -40,7 +36,7 @@ En este tutorial, aprenderá a:
 > * Configurar temas de Kafka
 > * Ejecución del código
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un clúster de Kafka en HDInsight 3.6. Para aprender a crear un clúster de Kafka en HDInsight, consulte el documento [Inicio de Apache Kafka en HDInsight](apache-kafka-get-started.md).
 
@@ -225,7 +221,7 @@ Use los siguientes pasos para compilar e implementar el proyecto en el clúster 
 2. Para enviar registros al tema `test`, use el comando siguiente para iniciar la aplicación de producción:
 
     ```bash
-    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS
     ```
 
 3. Una vez finalizada la producción, use el siguiente comando para ver la información almacenada en el tema `wordcounts`:

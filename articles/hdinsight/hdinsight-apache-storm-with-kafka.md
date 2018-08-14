@@ -1,25 +1,20 @@
 ---
-title: 'Tutorial: Apache Kafka con Storm en HDInsight - Azure | Microsoft Docs'
+title: 'Tutorial: Apache Kafka con Storm en HDInsight en Azure '
 description: Aprenda a crear una canalización de streaming mediante Apache Storm y Apache Kafka en HDInsight. En este tutorial, se usan los componentes KafkaBolt y KafkaSpout para hacer streaming de los datos de Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/21/2018
-ms.author: larryfr
-ms.openlocfilehash: b973890caddf598d5ba4e96a04a18df46cdb5cf8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: jasonh
+ms.openlocfilehash: a20cf616b119d208c9b2baa0f2cf608aa44c21ad
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626297"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595168"
 ---
 # <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>Tutorial: Uso de Apache Storm con Kafka en HDInsight
 
@@ -38,7 +33,7 @@ En este tutorial, aprenderá a:
 > * Detención de las topologías
 > * Limpieza de recursos
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Debe estar familiarizado con la creación de temas de Kafka. Para más información, consulte el documento [Inicio de Apache Kafka en HDInsight](./kafka/apache-kafka-get-started.md).
 
