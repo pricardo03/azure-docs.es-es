@@ -73,7 +73,7 @@ Al ejecutar localmente el script U-SQL, se crea un directorio de trabajo durante
 | | |\_ScopeCodeGenEngine\_.*|Salida del compilador|Código nativo generado|
 | | |ensamblados de referencia|Referencia de ensamblado|Archivos de ensamblados de referencia|
 | | |deployed_resources|Implementación de recursos|Archivos de implementación de recursos|
-| | |xxxxxxxx.xxx[1..n]\_\*.*|Registro de ejecución|Registro de pasos de ejecución|
+| | |xxxxxxxx.xxx[1..n]\_\*.\*|Registro de ejecución|Registro de pasos de ejecución|
 
 
 ## <a name="use-the-sdk-from-the-command-line"></a>Uso del SDK desde la línea de comandos
