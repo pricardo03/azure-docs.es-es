@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: acade3d828c785af9468baa30086d3b79542f9b7
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: f24d273afa47466fe53b93d9c9c22bbcb1fc6959
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763979"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493526"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Almacene y consulte las propiedades con nombres de Service Fabric.
@@ -115,7 +115,7 @@ Crea o actualiza la propiedad de Service Fabric especificada con un nombre concr
 | --name-id       [obligatorio] | Nombre de Service Fabric, sin el esquema de URI "fabric\:". |
 | --property-name [obligatorio] | El nombre de la propiedad de Service Fabric. |
 | --value         [obligatorio] | Describe un valor de propiedad de Service Fabric. Se trata de una cadena JSON. <br><br> La cadena json tiene dos campos, el "tipo" de los datos y el "valor" de los datos. El valor de "tipo" debe ser el primer elemento en aparecer en la cadena JSON, y puede ser "Binary", "Int64", "Double", "String" o "Guid". El valor debe poder compatible con la serialización para los tipos especificados. Los valores de "tipo" y "datos" deben proporcionarse como cadenas. |
-| --custom-id-type | El identificador del tipo personalizado de la propiedad. Con esta propiedad, el usuario es capaz de etiquetar el tipo del valor de la propiedad. |
+| --custom-id-type | Identificador de tipo personalizado de la propiedad. Con esta propiedad, el usuario es capaz de etiquetar el tipo del valor de la propiedad. |
 | --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
@@ -127,6 +127,7 @@ Crea o actualiza la propiedad de Service Fabric especificada con un nombre concr
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
 | --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.

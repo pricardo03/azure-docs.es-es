@@ -1,25 +1,19 @@
 ---
 title: Configuración de una cadena de conexión para Azure Storage | Microsoft Docs
-description: Configure una cadena de conexión para una cuenta de Azure Storage. Una cadena de conexión contiene la información necesaria para autenticar el acceso a una cuenta de almacenamiento desde una aplicación en tiempo de ejecución.
+description: Configure una cadena de conexión para una cuenta de Azure Storage. Una cadena de conexión contiene la información necesaria para autorizar el acceso a una cuenta de almacenamiento desde una aplicación en tiempo de ejecución.
 services: storage
-documentationcenter: ''
 author: craigshoemaker
-manager: jeconnoc
-editor: tysonn
-ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cshoe
-ms.openlocfilehash: dee0fd68ccaf80ff6e44ee10fa24bb19e220d0d5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: common
+ms.openlocfilehash: 1c6ba727bf9c19b5da0d0d0313377d5d4ad1e2ac
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30240836"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39530465"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configuración de las cadenas de conexión de Azure Storage
 
@@ -32,7 +26,7 @@ Una cadena de conexión incluye la información de autenticación que requiere u
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
 ## <a name="storing-your-connection-string"></a>Almacenamiento de la cadena de conexión
-La aplicación necesita acceder a la cadena de conexión en tiempo de ejecución para autenticar las solicitudes realizadas a Azure Storage. Tiene varias opciones para almacenar una cadena de conexión:
+La aplicación necesita acceder a la cadena de conexión en tiempo de ejecución para autorizar las solicitudes realizadas a Azure Storage. Tiene varias opciones para almacenar una cadena de conexión:
 
 * Una aplicación que se ejecuta en el escritorio o en un dispositivo puede almacenar la cadena de conexión en un archivo **app.config** o **web.config**. Agregue la cadena de conexión a la sección **AppSettings** en estos archivos.
 * Una aplicación que se ejecuta en un servicio en la nube de Azure puede almacenar la cadena de conexión en el [archivo de esquema de configuración de servicio de Azure (.cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Agregue la cadena de conexión a la sección **ConfigurationSettings** del archivo de configuración del servicio.

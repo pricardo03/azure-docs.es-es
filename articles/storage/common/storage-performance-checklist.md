@@ -2,24 +2,18 @@
 title: Lista de comprobación de rendimiento y escalabilidad de Azure Storage | Microsoft Docs
 description: Lista de comprobación de prácticas probadas para su uso con Azure Storage para desarrollar aplicaciones de alto rendimiento.
 services: storage
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: 959d831b-a4fd-4634-a646-0d2c0c462ef8
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.openlocfilehash: 945289a172270eea56625287baf437fd4b70c7f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: common
+ms.openlocfilehash: 32881f815a714e355adf05c07a3cf114933f3fe9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30246226"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39530464"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de comprobación de rendimiento y escalabilidad de Microsoft Azure Storage
 ## <a name="overview"></a>Información general
@@ -83,7 +77,7 @@ Este artículo organiza las prácticas probadas en los siguientes grupos. Práct
 | &nbsp; | Colas |Recuperación en masa |[¿Recupera varios mensajes en una sola operación "Get"?](#subheading42) |
 | &nbsp; | Colas |Frecuencia de sondeo |[¿Realiza sondeos con la suficiente frecuencia para reducir la latencia percibida de su aplicación?](#subheading43) |
 | &nbsp; | Colas |Actualizar mensaje |[¿Usa UpdateMessage para almacenar el progreso en mensajes de procesamiento evitando tener que volver a procesar todo el mensaje si se produce un error?](#subheading44) |
-| &nbsp; | Colas |Architecture |[¿Usa colas para hacer que toda su aplicación sea más escalable manteniendo cargas de trabajo de ejecución prolongada fuera de la ruta de acceso crítica y escala después de forma independiente?](#subheading45) |
+| &nbsp; | Colas |Arquitectura |[¿Usa colas para hacer que toda su aplicación sea más escalable manteniendo cargas de trabajo de ejecución prolongada fuera de la ruta de acceso crítica y escala después de forma independiente?](#subheading45) |
 
 ## <a name="allservices"></a>Todos los servicios
 En esta sección se enumeran las prácticas probadas aplicables al uso de cualquier servicio de Azure Storage (Blob, Table, Queue o Files).  
@@ -141,12 +135,12 @@ En cualquier entorno distribuido, la ubicación del cliente cerca del servidor o
 Si las aplicaciones cliente no están hospedadas dentro de Azure (como por ejemplo aplicaciones de dispositivos móviles o servicios empresariales locales), una vez más la ubicación de la cuenta de almacenamiento en una región próxima a los dispositivos a los que obtendrá acceso, generalmente reducirá la latencia. Si los clientes están muy distribuidos (por ejemplo algunos en Norteamérica y otros en Europa), debe plantearse el uso de varias cuentas de almacenamiento: una ubicada en una región de Norteamérica y otra en una región de Europa. Esto ayudará a reducir la latencia para los usuarios de ambas regiones. Este enfoque normalmente es más sencillo de implementar si los datos que almacena la aplicación son específicos de usuarios individuales y no se requiere la replicación de datos entre cuentas de almacenamiento.  Para distribución de contenido amplio, se recomienda una red CDN (consulte la siguiente sección para obtener más detalles).  
 
 ### <a name="subheading5"></a>Distribución de contenido
-Algunas veces, una aplicación necesita servir el mismo contenido a muchos usuarios (por ejemplo, un vídeo de demostración de producto o usado en la página principal de un sitio web) ubicados bien en la misma región, bien en varias regiones. En este escenario, debe usar una instancia de Content Delivery Network (CDN), como por ejemplo Azure CDN, y dicha red CDN debe usar Azure Storage como origen de los datos. A diferencia de la cuenta de Azure Storage que existe en una sola región y que no puede entregar contenido con baja latencia a otras regiones, la red CDN de Azure usa servidores en varios centros de datos alrededor del mundo. Además, una red CDN normalmente puede admitir límites de salida mucho más altos que una sola cuenta de almacenamiento.  
+Algunas veces, una aplicación necesita servir el mismo contenido a muchos usuarios (por ejemplo, un vídeo de demostración de producto o usado en la página principal de un sitio web) ubicados bien en la misma región, bien en varias regiones. En este escenario, debe usar una instancia de Content Delivery Network (CDN), como por ejemplo Azure CDN, y dicha red CDN debe usar Azure Storage como origen de los datos. A diferencia de la cuenta de Azure Storage que existe en una sola región y que no puede entregar contenido con baja latencia a otras regiones, Azure CDN usa servidores en varios centros de datos alrededor del mundo. Además, una red CDN normalmente puede admitir límites de salida mucho más altos que una sola cuenta de almacenamiento.  
 
-Para obtener más información acerca de la red CDN de Azure, consulte [Red CDN de Azure](https://azure.microsoft.com/services/cdn/).  
+Para obtener más información acerca de Azure CDN, consulte [Azure CDN](https://azure.microsoft.com/services/cdn/).  
 
 ### <a name="subheading6"></a>Uso de SAS y CORS
-Cuando hace falta autorizar código, como por ejemplo JavaScript, en el explorador web de un usuario o en una aplicación para teléfonos móviles para acceder a los datos en Azure Storage, un enfoque es usar una aplicación de rol web como proxy: el dispositivo del usuario se autentica con el rol web que, a su vez, se autentica con el servicio de Storage. De esta forma, puede evitar la exposición de sus claves de cuenta de almacenamiento en dispositivos no seguros. Sin embargo, este enfoque coloca una gran sobrecarga sobre el rol web, ya que todos los datos transferidos entre el dispositivo del usuario y el servicio de Storage deben pasar a través de dicho rol. Puede evitar el uso de un rol web como un proxy para el servicio de almacenamiento usando firmas de acceso compartido (SAS), algunas veces junto con encabezados de uso compartido de recursos entre orígenes (CORS). Mediante SAS se puede permitir que el dispositivo del usuario realice solicitudes directamente a un servicio de Storage por medio de un token de acceso limitado. Por ejemplo, si un usuario desea cargar una foto en su aplicación, su rol web puede generar y enviar al dispositivo del usuario un token SAS que conceda el permiso para escribir en un blob o contenedor concretos durante los próximos 30 minutos (tras los cuales el token SAS expira).
+Cuando necesita autorizar código, como, por ejemplo JavaScript, en un explorador web del usuario o en una aplicación para teléfonos móviles para obtener acceso a datos de Azure Storage, un enfoque es usar una aplicación de rol web como proxy: el dispositivo del usuario se autentica con el rol web que, a su vez, autoriza el acceso a los recursos de almacenamiento. De esta forma, puede evitar la exposición de sus claves de cuenta de almacenamiento en dispositivos no seguros. Sin embargo, este enfoque coloca una gran sobrecarga sobre el rol web, ya que todos los datos transferidos entre el dispositivo del usuario y el servicio de Storage deben pasar a través de dicho rol. Puede evitar el uso de un rol web como un proxy para el servicio de almacenamiento usando firmas de acceso compartido (SAS), algunas veces junto con encabezados de uso compartido de recursos entre orígenes (CORS). Mediante SAS se puede permitir que el dispositivo del usuario realice solicitudes directamente a un servicio de Storage por medio de un token de acceso limitado. Por ejemplo, si un usuario desea cargar una foto en su aplicación, su rol web puede generar y enviar al dispositivo del usuario un token SAS que conceda el permiso para escribir en un blob o contenedor concretos durante los próximos 30 minutos (tras los cuales el token SAS expira).
 
 Normalmente, un explorador no permitirá que haya código JavaScript en una página hospedada por un sitio web en un dominio que realice operaciones específicas, como “PUT”, en otro dominio. Por ejemplo, si hospeda un rol web en “contosomarketing.cloudapp.net” y desea usar el código JavaScript del cliente para cargar un blob en la cuenta de almacenamiento en “contosoproducts.blob.core.windows.net”, la “misma directiva de origen” del explorador prohibirá esta operación. CORS es una característica de explorador que permite al dominio de destino (en este caso la cuenta de almacenamiento) comunicar al explorador en el que confía solicitudes que se originan en el dominio de origen (en este caso el rol web).  
 

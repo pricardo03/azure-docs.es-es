@@ -3,7 +3,7 @@ title: Administración de recomendaciones de seguridad en Azure Security Center 
 description: Este documento explica cómo las recomendaciones del Centro de seguridad de Azure ayudan a proteger los recursos de Azure y a cumplir con las directivas de seguridad.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2018
-ms.author: terrylan
-ms.openlocfilehash: caeef52ed8eb456bbec015f1766a95aa5ceb49f8
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 0581ddc4289f604533bae3650618fada15e02bef
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367113"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522244"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Administración de recomendaciones de seguridad en el Centro de seguridad de Azure
 En este documento se explica cómo usar las recomendaciones del Centro de seguridad de Azure para proteger los recursos de Azure.
@@ -50,6 +50,8 @@ Después de establecer una directiva de seguridad, el Centro de seguridad analiz
 Para ver los detalles de cada recomendación, seleccione el icono **Recomendaciones** en **Información general**. **Recomendaciones** se abre.
 
 ![Filtrar recomendaciones][2]
+
+Puede filtrar las recomendaciones. Para ello, seleccione **Filtro** en la hoja **Recomendaciones**. Se abrirá la hoja **Filtro** , donde podrá seleccionar los valores de gravedad y de estado que quiera ver.
 
 Las recomendaciones aparecen en un formato de tabla, donde cada línea representa una recomendación determinada. Las columnas de esta tabla son:
 
@@ -124,13 +126,6 @@ Use la tabla siguiente como referencia para ayudarle a entender las recomendacio
 | Quitar las cuentas externas con permisos de propietario de la suscripción | Se recomienda eliminar las cuentas externas con permisos de propietario de la suscripción a fin de evitar el acceso no supervisado. |
 | Quitar las cuentas en desuso de la suscripción | Se recomienda quitar las cuentas en desuso de la suscripción. |
 | Quitar de la suscripción las cuentas en desuso con permisos de propietario | Se recomienda quitar las cuentas en desuso con permisos de propietario de la suscripción. |
-Puede filtrar y descartar las recomendaciones.
-
-1. Seleccione **Filtro** en la hoja **Recomendaciones**. Se abrirá la hoja **Filtro** , donde podrá seleccionar los valores de gravedad y de estado que quiera ver.
-
-2. Si determina que una recomendación no corresponde, puede descartar la recomendación y, luego, filtrarla para que no aparezca en la vista. Hay dos formas de descartar una recomendación. Una forma es hacer clic con el botón derecho en un elemento y seleccionar **Descartar**. La otra es mover el puntero sobre un elemento, hacer clic en los tres puntos que aparecen a la derecha y seleccionar **Descartar**. Para ver las recomendaciones descartadas, haga clic en **Filtro** y seleccione **Descartadas**.
-
-    ![Descartar recomendación][3]
 
 ### <a name="apply-recommendations"></a>Aplicación de recomendaciones
 Después de revisar todas las recomendaciones, decida cuáles son las primeras que debe aplicar. Se recomienda usar la clasificación de gravedad como parámetro principal para evaluar las recomendaciones que se deben aplicar primero.
@@ -150,4 +145,3 @@ En este documento, se han presentando las recomendaciones de seguridad del Centr
 <!--Image references-->
 [1]: ./media/security-center-recommendations/recommendations-tile.png
 [2]: ./media/security-center-recommendations/filter-recommendations.png
-[3]: ./media/security-center-recommendations/dismiss-recommendations.png

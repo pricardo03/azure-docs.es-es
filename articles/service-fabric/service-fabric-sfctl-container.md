@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: cd3725ac547a1ed1fd9207dc48ba3b6227e85ef1
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 27108d27ee27346e4cba44e6778faff56df70a36
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763983"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495135"
 ---
 # <a name="sfctl-container"></a>sfctl container
 Ejecute los comandos relacionados con el contenedor en un nodo de clúster.
@@ -39,9 +39,9 @@ Invoque API de REST de contenedor.
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --application-id           [obligatorio] | Identidad de aplicación. |
-| --code-package-instance-id [obligatorio] | Identificador de instancia de paquete de código, que se puede recuperar por " 'service code-package-list". |
+| --code-package-instance-id [obligatorio] | Identificador de instancia de paquete de código, que se puede recuperar por "service code-package-list". |
 | --code-package-name        [obligatorio] | Nombre del paquete de código. |
-| --container-api-uri-path   [obligatorio] | Ruta acceso de URI de la API REST del contenedor, use "{ID}" en lugar de identificador/nombre de contenedor. |
+| --container-api-uri-path   [obligatorio] | Ruta acceso de URI de la API REST del contenedor, use "{id}" en lugar de identificador/nombre de contenedor. |
 | --node-name [Obligatorio] | El nombre del nodo. |
 | --service-manifest-name [Obligatorio] | Nombre de manifiesto de servicio. |
 | --container-api-body | Cuerpo de la solicitud HTTP para la API REST del contenedor. |
@@ -83,6 +83,7 @@ Recuperación de los registros de contenedores.
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
 | --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.

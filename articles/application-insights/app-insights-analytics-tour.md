@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8295abfae8d82a7c7762c6b27a8bac7487f6afff
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 470779f80e998c3908cf28328cfb415d98c5e06c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335288"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579262"
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Un paseo por Analytics de Application Insights
 [Analytics](app-insights-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Log Analytics.
@@ -226,7 +226,7 @@ El uso de [`extend`](https://docs.loganalytics.io/docs/Language-Reference/Tabula
 
 ### <a name="convert-to-local-time"></a>Conversión a la hora local
 
-Las marcas de tiempo siempre se expresan en formato UTC. Por lo que si se encuentra en la costa Pacífico y es temporada de invierno, sería de esta forma:
+Las marcas de tiempo siempre se expresan en formato UTC. Por lo que si se encuentra en la costa Pacífico y es invierno, la hora local es -8 horas con respecto a UTC, sería algo así:
 
 ```AIQL
 
@@ -238,7 +238,7 @@ Las marcas de tiempo siempre se expresan en formato UTC. Por lo que si se encuen
 ## <a name="summarizehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssummarize-operator-aggregate-groups-of-rows"></a>[Summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator): adición de grupos de filas
 `Summarize` aplica una *función de agregación* específica sobre grupos de filas.
 
-Por ejemplo, el tiempo que su aplicación web tarda en responder a una solicitud se notifica en el campo `duration`. Veamos el tiempo medio de respuesta de todas las solicitudes:
+Por ejemplo, el tiempo que su aplicación web tarda en responder a una solicitud se notifica en el campo `duration`. Veamos el tiempo medio de respuesta para todas las solicitudes:
 
 ![](./media/app-insights-analytics-tour/410.png)
 
@@ -461,7 +461,7 @@ Para obtener un desglose independiente para cada país, simplemente tiene que co
 ## <a name="join"></a>Unión
 Tenemos acceso a varias tablas, incluidas las solicitudes y las excepciones.
 
-Para encontrar las excepciones relacionadas con una solicitud que devolvió una respuesta de error, podemos combinar las tablas en `session_Id`:
+Para encontrar las excepciones relacionadas con una solicitud que devolvió una respuesta de error, podemos combinar las tablas en `operation_Id`:
 
 ```AIQL
 

@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: af9a2e47a5e91d9b32a787f8f40ba06b5a1596e7
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: f6ba0fccc6fadffb5f4d1a22b2c2fbcc38f9f0df
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265053"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494988"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
 
 ## <a name="what-is-password-hash-synchronization"></a>¿Qué es la sincronización de hash de contraseñas?
-Las probabilidades de que se quede bloqueado sin poder realizar su trabajo debido a una contraseña olvidada guarda relación con el número de contraseñas diferentes que tenga que recordar. Cuantas más contraseñas tenga que recordar, más probabilidades tiene de olvidar alguna. Las preguntas y llamadas para el restablecimiento de contraseñas y otros problemas relacionados con las mismas, son los temas que más recursos del departamento de soporte técnico utilizan.
+La probabilidad de que se quede bloqueado sin poder realizar su trabajo debido a una contraseña olvidada guarda relación con el número de contraseñas diferentes que tenga que recordar. Cuantas más contraseñas tenga que recordar, más probabilidades tiene de olvidar alguna. Las preguntas y llamadas para el restablecimiento de contraseñas y otros problemas relacionados con las mismas, son los temas que más recursos del departamento de soporte técnico utilizan.
 
-La sincronización de hash de contraseñas es una característica que sirve para sincronizar contraseñas de usuario de una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
+La sincronización de hashes de contraseñas es una característica que se utiliza para sincronizar un hash del hash de la contraseña de un usuario desde una instancia de Active Directory local con una instancia de Azure AD en la nube.
 Utilice esta característica para iniciar sesión en servicios de Azure AD como Office 365, Microsoft Intune, CRM Online y Azure Active Directory Domain Services (Azure AD DS). Inicie sesión en el servicio con la misma contraseña que usa para iniciar sesión en la instancia local de Active Directory.
 
 ![Qué es Azure AD Connect](./media/active-directory-aadconnectsync-implement-password-hash-synchronization/arch1.png)

@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 0ae05456d957c6ebabe0faec7da4175618b191ef
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: afc82ea666fdbef89348e7453df92b8d8e1adc86
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036775"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493679"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL Database 
 
@@ -51,7 +51,7 @@ Si va a conectarse desde fuera de Azure, las conexiones tienen una directiva de 
 ![Descripción general de la arquitectura](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Al usar los puntos de conexión de servicio con Azure SQL Database, de forma predeterminada la directiva es **Redirigir**. Por tanto, para habilitar la conectividad desde dentro de la red virtual, debe permitir el tráfico saliente a todas las direcciones IP de Azure SQL Database, no solo a las direcciones IP de puerta de enlace. Esto puede hacerse con la ayuda de las etiquetas de servicio del NSG (grupo de seguridad de red); si quiere permitir el tráfico saliente solo a las direcciones IP de puerta de enlace, cambie la configuración a **Proxy**.
+> Al usar los puntos de conexión de servicio con Azure SQL Database, de forma predeterminada la directiva es **Proxy**. Para habilitar la conectividad desde dentro de la red virtual, permita conexiones salientes a las direcciones IP de puerta de Azure SQL Database Gateway especificadas en la lista siguiente. Al usar los puntos de conexión de servicio se recomienda cambiar la directiva de conexión a **Redirigir** para habilitar un mejor rendimiento. Si cambia la directiva de conexión a **Redirigir**, no será suficiente permitir el tráfico saliente en el NSG a las direcciones IP de puerta de enlace de Azure SQLDB que se enumeran a continuación; debe permitir tráfico saliente a todas las direcciones IP de Azure SQLDB. Esto puede realizarse con la ayuda de las etiquetas de servicio de NSG (grupos de seguridad de red). Para más información, consulte [Etiquetas de servicio](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Direcciones IP de la puerta de enlace de Azure SQL Database
 

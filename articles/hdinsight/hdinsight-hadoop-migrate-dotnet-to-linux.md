@@ -1,25 +1,20 @@
 ---
-title: Uso de .NET con MapReduce de Hadoop en HDInsight basado en Linux - Azure | Microsoft Docs
+title: 'Uso de .NET con MapReduce de Hadoop en HDInsight basado en Linux: Azure'
 description: Aprenda a usar aplicaciones de .NET para streaming de MapReduce en HDInsight basado en Linux.
 services: hdinsight
-documentationCenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: 36b8f51122bad6614e63dfc58e09e5c1ca08f83d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 8650bad4d980efba78fe753200bca364bda26488
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400075"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595984"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migración de soluciones .NET para HDInsight basado en Windows a HDInsight basado en Linux
 

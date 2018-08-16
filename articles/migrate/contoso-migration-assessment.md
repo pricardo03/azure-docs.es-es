@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/02/2018
 ms.author: raynew
-ms.openlocfilehash: e2fbe766391759f2bbe4a95e75897b2bc9523c0c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 50d1b8fca8e5377c35810e08258a0ecc3770ae75
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399080"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422331"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migración de Contoso: valorar las cargas de trabajo locales para la migración a Azure
 
@@ -99,7 +99,7 @@ En este escenario, Contoso descarga y ejecuta Data Migration Assistant para valo
 - Contoso es un nombre ficticio que representa una organización empresarial típica.
 - Contoso tiene un centro de datos local (**contoso-datacenter**), con controladores de dominio locales (**CONTOSODC1**, **CONTOSODC2**).
 - Las máquinas virtuales de VMware se encuentran en hosts VMware ESXi que ejecutan la versión 6.5 (**contosohost1**, **contosohost2**).
-- El entorno de VMware lo administra vCenter Server 6.5 (**venter** que se ejecuta en una máquina virtual).
+- El entorno de VMware lo administra vCenter Server 6.5 (**vcenter.contoso.com**, en ejecución en una máquina virtual).
 - La aplicación de viajes SmartHotel tiene estas características:
     - La aplicación se divide en varios niveles entre las dos máquinas virtuales de VMware (**WEBVM** y **SQLVM**).
     - Las máquinas virtuales se encuentran en un host VMware ESXi **contosohost1.contoso.com** (versión 6.5).
@@ -123,12 +123,10 @@ Contoso y otros usuarios deben cumplir los siguientes requisitos previos para la
 - Al menos dos máquinas virtuales VMware locales, y en una de ellas debe ejecutarse una base de datos de SQL Server.
 - Permisos para instalar agentes de Azure Migrate en todas las máquinas virtuales.
 - Las máquinas virtuales deben tener conectividad directa a Internet.  
-        
-- Puede restringir el acceso a Internet a las [direcciones URL necesarias](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-
-- Si las máquinas virtuales no tienen conexión a Internet, la [puerta de enlace OMS](../log-analytics/log-analytics-oms-gateway.md) de Azure Log Analytics debe estar instalada en ellas.
+        - Puede restringir el acceso a Internet a las [direcciones URL requeridas](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+        Si las máquinas virtuales no tienen conexión a Internet, la [puerta de enlace OMS](../log-analytics/log-analytics-oms-gateway.md) de Azure Log Analytics debe estar instalada en ellas y se debe dirigir el tráfico a través de esta.
 - El FQDN de la máquina virtual que ejecuta la instancia de SQL Server, para la evaluación de la base de datos.
-- La instancia de Firewall de Windows que se ejecuta en la máquina virtual de SQL Server debe permitir conexiones externas en el puerto TCP 1433 (valor predeterminado). El programa de instalación permite que Data Migration Assistant se conecte.
+- La instancia de Firewall de Windows que se ejecuta en la máquina virtual de SQL Server debe permitir conexiones externas en el puerto TCP 1433 (valor predeterminado). Esta configuración permite que Data Migration Assistant se conecte.
 
 ## <a name="assessment-overview"></a>Introducción a la valoración
 
@@ -297,7 +295,7 @@ Antes de implementar la máquina virtual, Contoso comprueba que el archivo OVA s
 
 ### <a name="create-the-collector-appliance"></a>Creación del dispositivo de recopilador
 
-Ahora, Contoso puede importar el archivo descargado en la instancia de vCenter Server y aprovisionar la máquina virtual del servidor de configuración:
+Ahora, Contoso puede importar el archivo descargado en la instancia de vCenter Server y aprovisionar la máquina virtual del dispositivo recopilador:
 
 1. En la consola de vSphere Client, seleccione **File** (Archivo) > **Deploy OVF Template** (Implementar plantilla de OVF).
 
@@ -353,7 +351,7 @@ Una vez completada la recopilación, Contoso comprueba que las máquinas virtual
 
 ## <a name="step-5-prepare-for-dependency-analysis"></a>Paso 5: Preparar el análisis de dependencias
 
-Para ver las dependencias existentes entre las máquinas virtuales a las que Contoso quiere acceder, descarga e instala los agentes en las máquinas virtuales de la aplicación. Contoso instala los agentes en todas las máquinas virtuales para sus aplicaciones, tanto para Windows como para Linux.
+Para ver las dependencias existentes entre las máquinas virtuales que Contoso quiere evaluar, este descarga e instala los agentes en las máquinas virtuales de la aplicación. Contoso instala los agentes en todas las máquinas virtuales para sus aplicaciones, tanto para Windows como para Linux.
 
 ### <a name="take-a-snapshot"></a>Realización de una instantánea
 

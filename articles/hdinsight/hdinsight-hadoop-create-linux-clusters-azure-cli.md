@@ -1,25 +1,20 @@
 ---
-title: Creación de clústeres de Hadoop mediante la línea de comandos - Azure HDInsight | Microsoft Docs
+title: Creación de clústeres de Hadoop mediante la línea de comandos en Azure HDInsight
 description: Aprenda a crear clústeres de HDInsight con la CLI multiplataforma de Azure 1.0.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 50b01483-455c-4d87-b754-2229005a8ab9
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: e56829c771ae47933f79c519920a20c1308873fe
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 7185e492a2cc42835ce1fa7043a963c7d5d0afb4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31397593"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594804"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Creación de clústeres de HDInsight mediante la CLI de Azure
 
@@ -32,7 +27,7 @@ Los pasos de este tutorial describen la creación de un clúster de HDInsight 3.
 >
 > También se pueden crear y administrar clústeres de HDInsight con Azure PowerShell. Para más información, consulte el documento sobre la [creación de clústeres de HDInsight con Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -47,7 +42,7 @@ Los pasos de este tutorial describen la creación de un clúster de HDInsight 3.
 
 Siga los pasos que se documentan en [Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)](/cli/azure/authenticate-azure-cli) y conéctese a su suscripción con el método **login** .
 
-## <a name="create-a-cluster"></a>Crear un clúster
+## <a name="create-a-cluster"></a>Creación de un clúster
 
 Los siguientes pasos deben realizarse desde una línea de comandos como PowerShell o Bash.
 

@@ -12,17 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/6/2018
+ms.date: 8/3/2018
 ms.author: raiye
-ms.openlocfilehash: 440f988744a99d4857c6b9fa58f52e0f1eef1a3f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: aa7ee049177fccbcca7d648ca749eb9fb35a0f53
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902170"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522312"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
+
+
+## <a name="july-guest-os"></a>SO invitado de julio
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+| Ver. 18-07 | [4338814] |Seguridad de Windows 10 |5.21 |10 de julio de 2018 |
+| Ver. 18-07 | [4338823] |Indicador de seguridad de Windows |2.76 |10 de julio de 2018 |
+| Ver. 18-07 | [4338820] |Indicador de seguridad de Windows |3.63 |10 de julio de 2018 |
+| Ver. 18-07 | [4338824] |Indicador de seguridad de Windows |4.56 |10 de julio de 2018 |
+| Ver. 18-07 | [4345459] |Actualización del paquete acumulativo de actualizaciones de seguridad |2.76 |10 de julio de 2018 |
+| Ver. 18-07 | [4345425] |Actualización del paquete acumulativo de actualizaciones de seguridad |3.63 |10 de julio de 2018 |
+| Ver. 18-07 | [4345424] |Actualización del paquete acumulativo de actualizaciones de seguridad |4.56 |10 de julio de 2018 |
+| Ver. 18-07 | [4345418] |Actualización del paquete acumulativo de actualizaciones de seguridad |5.21 |10 de julio de 2018 |
+| Ver. 18-07 | [4338612], [4338602] |Seguridad de .NET 3.5 y 4.x |2.76 |10 de julio de 2018 |
+| Ver. 18-07 | [4338601], [4338604] |Seguridad de .NET 3.5, 4.x y 4.5x |3.63 |10 de julio de 2018 |
+| Ver. 18-07 | [4338613], [4338600], [4338605] |Seguridad de .NET 3.5, 4.x y 4.5x |4.56|10 de julio de 2018 |
+| Ver. 18-07 | [4338832] |Intermitente |3.63, 4.76, 5.21 |10 de julio de 2018 |
+| Ver. 18-07 | [4339093] |Internet Explorer |2.76, 3.63, 4.76 |10 de julio de 2018 |
+| N/D | [4284826] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, junio |2.76 |12 de junio de 2018 |
+| N/D | [4284855] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, junio |3.63 |12 de junio de 2018 |
+| N/D | [4284815] |Paquete acumulativo de actualizaciones no relacionadas con la seguridad, junio |4.56 |12 de junio de 2018 |
 
 ## <a name="june-guest-os"></a>SO invitado de junio
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
@@ -674,6 +695,28 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D |[2999802] |Se imprimen líneas sólidas en lugar de líneas de puntos en Windows |4,15; 3,22; 2,34 |13 de enero de 2015 |
 | N/D |[2896881] |Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows |4,15; 3,22; 2,34 |13 de enero de 2015 |
 
+
+
+[4338814]: http://support.microsoft.com/kb/4338814
+[4338823]: http://support.microsoft.com/kb/4338823
+[4338820]: http://support.microsoft.com/kb/4338820
+[4338824]: http://support.microsoft.com/kb/4338824
+[4345459]: http://support.microsoft.com/kb/4345459
+[4345425]: http://support.microsoft.com/kb/4345425
+[4345424]: http://support.microsoft.com/kb/4345424
+[4345418]: http://support.microsoft.com/kb/4345418
+[4338612]: http://support.microsoft.com/kb/4338612
+[4338602]: http://support.microsoft.com/kb/4338602
+[4338601]: http://support.microsoft.com/kb/4338601
+[4338604]: http://support.microsoft.com/kb/4338604
+[4338613]: http://support.microsoft.com/kb/4338613
+[4338600]: http://support.microsoft.com/kb/4338600
+[4338605]: http://support.microsoft.com/kb/4338605
+[4338832]: http://support.microsoft.com/kb/4338832
+[4284826]: http://support.microsoft.com/kb/4284826
+[4284855]: http://support.microsoft.com/kb/4284855
+[4284815]: http://support.microsoft.com/kb/4284815
+[4339093]: http://support.microsoft.com/kb/4339093
 
 [4284880]: http://support.microsoft.com/kb/4284880
 [4284867]: http://support.microsoft.com/kb/4284867

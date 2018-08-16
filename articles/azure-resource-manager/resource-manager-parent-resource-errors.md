@@ -4,21 +4,19 @@ description: Describe cómo resolver errores cuando se trabaja con un recurso pr
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/13/2017
+ms.date: 08/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: c996a644f206051cb58522065f87f95a4058cdee
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3042ea1a523f12ae0311545a1b9bc67306f266dd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357782"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447309"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Resolución de errores para recursos primarios
 
@@ -35,7 +33,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 ## <a name="cause"></a>Causa
 
-Cuando un recurso es un elemento secundario de otro recurso, el primario tiene que existir antes de crear el secundario. El nombre del recurso secundario incluye el nombre primario. Por ejemplo, se podría definir una instancia de SQL Database como:
+Cuando un recurso es un elemento secundario de otro recurso, el primario tiene que existir antes de crear el secundario. El nombre del recurso secundario define la conexión con el recurso primario. El nombre del recurso secundario tiene el formato `<parent-resource-name>/<child-resource-name>`. Por ejemplo, se podría definir una instancia de SQL Database como:
 
 ```json
 {
@@ -44,16 +42,48 @@ Cuando un recurso es un elemento secundario de otro recurso, el primario tiene q
   ...
 ```
 
-Sin embargo, si no especifica una dependencia en el servidor, puede iniciar la implementación de la base de datos antes de que implemente el servidor.
+Si implementa el servidor y la base de datos en la misma plantilla pero no especifica una dependencia en el servidor, puede iniciar la implementación de la base de datos antes de que implemente el servidor. 
+
+Si el recurso primario ya existe y no se implementa en la misma plantilla, recibirá este error cuando Resource Manager no pueda asociar el recurso secundario con el primario. Este error se puede producir cuando no se encuentra el recurso secundario en el formato correcto, o si el recurso secundario se implementa en un grupo de recursos que es diferente del grupo de recursos del recurso primario.
 
 ## <a name="solution"></a>Solución
 
-Para resolver este error, incluya una dependencia.
+Para resolver este error cuando se implementan recursos primarios y secundarios en la misma plantilla, incluya una dependencia.
 
 ```json
 "dependsOn": [
     "[variables('databaseServerName')]"
 ]
+```
+
+Para resolver este error cuando el recurso primario se implementó previamente en una plantilla diferente, no establezca una dependencia. En su lugar, implemente el recurso secundario en el mismo grupo de recursos y proporcione el nombre del recurso primario.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sqlServerName": {
+            "type": "string"
+        },
+        "databaseName": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2014-04-01",
+            "type": "Microsoft.Sql/servers/databases",
+            "location": "[resourceGroup().location]",
+            "name": "[concat(parameters('sqlServerName'), '/', parameters('databaseName'))]",
+            "properties": {
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "edition": "Basic"
+            }
+        }
+    ],
+    "outputs": {}
+}
 ```
 
 Para más información consulte [Definición del orden de implementación de recursos en plantillas de Azure Resource Manager](resource-group-define-dependencies.md).

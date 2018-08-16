@@ -1,25 +1,20 @@
 ---
-title: 'Uso de las Vistas de Ambari para trabajar con Hive en HDInsight (Hadoop): Azure | Microsoft Docs'
+title: 'Uso de las vistas de Ambari para trabajar con Hive en HDInsight (Hadoop): Azure'
 description: Obtenga información acerca de cómo usar la Vista de Hive desde el explorador web para enviar consultas de Hive. La Vista de Hive es parte de la interfaz de usuario web Ambari que se proporciona con el clúster de HDInsight basado en Linux.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 1abe9104-f4b2-41b9-9161-abbc43de8294
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 6c07e9a45cbfbc5e6ed6787277dcfa1bf4cf4b2b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 933f9f88e4924cba7a3ea71c488e23ce5d647463
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201499"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597497"
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Uso de Ambari Hive View con Hadoop en HDInsight
 
@@ -27,7 +22,7 @@ ms.locfileid: "34201499"
 
 Aprenda a ejecutar consultas de Hive utilizando Ambari Hive View. La vista de Hive permite crear, optimizar y ejecutar consultas de Hive directamente desde el explorador web.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un clúster de Hadoop en HDInsight basado en Linux versión 3.4 o posterior.
 
@@ -38,7 +33,7 @@ Aprenda a ejecutar consultas de Hive utilizando Ambari Hive View. La vista de Hi
 
 ## <a name="run-a-hive-query"></a>Ejecución de una consulta de Hive
 
-1. Abra el [Azure Portal](https://portal.azure.com).
+1. Abra [Azure Portal](https://portal.azure.com).
 
 2. Seleccione el clúster de HDInsight y después **Vistas de Ambari** en la sección **Vínculos rápidos**.
 

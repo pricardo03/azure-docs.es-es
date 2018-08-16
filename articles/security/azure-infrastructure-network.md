@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: a6800b18d1bb588c747d4e9ef7049ac4cbb82f60
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 5a0f0594a9ccb27a0f76a679e454e9a3ffe19a43
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213480"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505400"
 ---
 # <a name="azure-network-architecture"></a>Arquitectura de red de Azure
 La arquitectura de red de Azure sigue una versión modificada del modelo estándar de núcleo/distribución/acceso del sector, con distintas capas de hardware. Las capas incluyen:
@@ -38,7 +38,7 @@ La arquitectura de red de un clúster de Azure en un centro de datos consta de l
 - Digi CM
 - Unidades de distribución de energía
 
-Azure tiene dos arquitecturas diferentes. Algunos clientes y servicios compartidos existentes de Azure residen en la arquitectura LAN predeterminada (DLA), mientras que las nuevas regiones y clientes virtuales residen en la arquitectura de Quantum 10 (Q10). La arquitectura DLA es un diseño de árbol tradicional con enrutadores de acceso activo-pasivo y listas de control de acceso (ACL) de seguridad aplicadas en los enrutadores de acceso. La arquitectura de Quantum 10 es un diseño de enrutadores en malla o CLOS, donde no se aplican ACL a los enrutadores. En su lugar, las ACL se aplican debajo del enrutamiento, mediante equilibrio de carga de (SLB) o redes VLAN definidas por software.
+Azure tiene dos arquitecturas diferentes. Algunos clientes y servicios compartidos existentes de Azure residen en la arquitectura LAN predeterminada (DLA), mientras que las nuevas regiones y clientes virtuales residen en la arquitectura de Quantum 10 (Q10). La arquitectura DLA es un diseño de árbol tradicional con enrutadores de acceso activo-pasivo y listas de control de acceso (ACL) de seguridad aplicadas en los enrutadores de acceso. La arquitectura de Quantum 10 es un diseño de enrutadores en malla o cerrado, donde no se aplican ACL a los enrutadores. En su lugar, las ACL se aplican debajo del enrutamiento, mediante equilibrio de carga de (SLB) o redes VLAN definidas por software.
 
 En el siguiente diagrama se proporciona una descripción general de la arquitectura de red dentro de un clúster de Azure:
 

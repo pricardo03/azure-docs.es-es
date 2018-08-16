@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: bc0ec09e28c5540eb919ac4e5f970f877ae27e44
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 094c1776c0760c04d85aff6ad3d812a2ad7afa56
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37919094"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527004"
 ---
 # <a name="install-the-mobility-service"></a>Instalación de Mobility Service 
 
@@ -26,9 +26,10 @@ Mobility Service de Azure Site Recovery se instala en las máquinas virtuales de
 
 
 >[!IMPORTANT]
-> A partir de la versión 9.7.0.0, en las máquinas virtuales Windows, el instalador de Mobility Service también instala la versión más reciente disponible del [Agente de máquina virtual de Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent). Cuando un equipo conmuta por error a Azure, el equipo cumple el requisito previo de instalación del agente para usar cualquier extensión de máquina virtual.
+> A partir de la versión 9.7.0.0, **en las máquinas virtuales Windows**, el instalador de Mobility Service también instala la versión más reciente disponible del [Agente de máquina virtual de Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent). Cuando un equipo conmuta por error a Azure, el equipo cumple el requisito previo de instalación del agente para usar cualquier extensión de máquina virtual.
+> </br>En **máquinas virtuales Linux**, WALinuxAgent tiene que instalarse manualmente.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Complete estos pasos de requisitos previos antes de instalar manualmente Mobility Service en el servidor:
 1. Inicie sesión en el servidor de configuración y, a continuación, abra una ventana del símbolo del sistema como administrador.
 2. Cambie el directorio a la carpeta Bin y, a continuación, cree un archivo de frase de contraseña.
@@ -42,11 +43,14 @@ Complete estos pasos de requisitos previos antes de instalar manualmente Mobilit
 
 ### <a name="mobility-service-installer-to-operating-system-mapping"></a>Instalador de Mobility Service para la asignación de sistemas operativos
 
+Para ver una lista de las versiones de sistema operativo con un paquete de Mobility Service compatible, consulte la lista de [sistemas operativos admitidos para máquinas virtuales de VMware y servidores físicos](vmware-physical-azure-support-matrix.md#replicated-machines).
+
 | Nombre de plantilla de archivo de instalador| Sistema operativo |
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64 bits) </br> Windows Server 2012 (64 bits) </br> Windows Server 2012 R2 (64 bits) </br> Windows Server 2016 (64 bits) |
-|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (solo 64 bits) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (solo 64 bits) |
-|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (solo 64 bits) </br> CentOS 7.0, 7.1, 7.2, 7.3 (solo 64 bits) |
+|Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 6.* (solo 64 bits) </br> CentOS 6.* (solo 64 bits) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.* (solo 64 bits) </br> CentOS 7.* (solo 64 bits) |
+|Microsoft-ASR\_UA\*SLES12-64\*release.tar.gz | SUSE Linux Enterprise Server 12 SP1, SP2, SP3 (solo 64 bits)|
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (solo 64 bits)|
 |Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (solo 64-bit)|
 |Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (solo 64 bits)|
@@ -54,7 +58,6 @@ Complete estos pasos de requisitos previos antes de instalar manualmente Mobilit
 |Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS Server (solo 64 bits)|
 |Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (solo 64 bits)|
 |Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (solo 64 bits)|
-
 
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Instalación manual de Mobility Service mediante la GUI
 

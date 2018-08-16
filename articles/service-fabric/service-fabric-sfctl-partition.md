@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: a9455683c5fad7fad4dda62fd967da617d8a8496
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 93478e5d13ef649b86ebc047f4e53f1486e2ff68
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763653"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493960"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Consulte y administre las particiones para cualquier servicio.
@@ -98,16 +98,16 @@ Obtiene el progreso de una operación de pérdida de datos que se ha iniciado co
 ## <a name="sfctl-partition-health"></a>sfctl partition health
 Obtiene el estado de la partición de Service Fabric especificada.
 
-Obtiene la información de mantenimiento de la partición especificada. Use EventsHealthStateFilter para filtrar la colección de eventos de estado notificados en el servicio en función del estado de mantenimiento. Use ReplicasHealthStateFilter para filtrar la colección de objetos ReplicaHealthState en la partición. Si especifica una partición que no existe en el almacén de estado, esta solicitud devuelve un error.
+Use EventsHealthStateFilter para filtrar la colección de eventos de estado notificados en el servicio en función del estado de mantenimiento. Use ReplicasHealthStateFilter para filtrar la colección de objetos ReplicaHealthState en la partición. Si especifica una partición que no existe en el almacén de estado, esta solicitud devuelve un error.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --partition-id [Obligatorio] | La identidad de la partición. |
-| --events-health-state-filter | Permite filtrar la colección de objetos HealthEvent devueltos según el estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los eventos que coinciden con el filtro. Todos los eventos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit 'OR'. Por ejemplo, si el valor proporcionado es 6, se devuelven todos los eventos con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
+| --events-health-state-filter | Permite filtrar la colección de objetos HealthEvent devueltos según el estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los eventos que coinciden con el filtro. Todos los eventos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit "OR". Por ejemplo, si el valor proporcionado es 6, se devuelven todos los eventos con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
 | --exclude-health-statistics | Indica si las estadísticas de mantenimiento se deben devolver como parte del resultado de la consulta. El valor predeterminado es false. Las estadísticas muestran el número de entidades secundarias en estado de mantenimiento Ok, Warning y Error. |
-| --replicas-health-state-filter | Permite filtrar la colección de objetos ReplicaHealthState en la partición. El valor puede obtenerse de los miembros o de las operaciones bit a bit en miembros de HealthStateFilter. Se devolverán únicamente las réplicas que coinciden con el filtro. Todas las réplicas se utilizarán para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit 'OR'. Por ejemplo, si el valor proporcionado es 6, se devolverán todos los eventos con el valor HealthState de OK (2) y Warning (4). Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento.  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
+| --replicas-health-state-filter | Permite filtrar la colección de objetos ReplicaHealthState en la partición. El valor puede obtenerse de los miembros o de las operaciones bit a bit en miembros de HealthStateFilter. Se devolverán únicamente las réplicas que coinciden con el filtro. Todas las réplicas se utilizarán para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit "OR". Por ejemplo, si el valor proporcionado es 6, se devolverán todos los eventos con el valor HealthState de OK (2) y Warning (4). Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento.  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
 | --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globales
@@ -145,7 +145,7 @@ Obtiene la información sobre la partición especificada. La respuesta incluye e
 ## <a name="sfctl-partition-list"></a>sfctl partition list
 Obtiene la lista de particiones de un servicio de Service Fabric.
 
-Obtiene la lista de particiones de un servicio de Service Fabric. La respuesta incluye el identificador de partición, la información de esquemas de partición, las claves admitidas por la partición, el estado, el mantenimiento y otros detalles acerca de la partición.
+La respuesta incluye el identificador de partición, la información de esquemas de partición, las claves admitidas por la partición, el estado, el mantenimiento y otros detalles acerca de la partición.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -212,7 +212,7 @@ Restablece la carga actual de una partición de Service Fabric a la carga de for
 ## <a name="sfctl-partition-quorum-loss"></a>sfctl partition quorum-loss
 Induce la pérdida de cuórum para una partición determinada del servicio con estado.
 
-Induce la pérdida de cuórum para una partición determinada del servicio con estado.  Esta API es útil en una situación de pérdida de cuórum temporal en el servicio. Llame a la API GetQuorumLossProgress con el mismo OperationId para devolver información sobre la operación iniciada con esta API. Esto solo se puede llamar en servicios de persistencia con estado (HasPersistedState==true).  No utilice esta API en servicios sin estado o en servicios con estado solo en memoria.
+Esta API es útil en una situación de pérdida de cuórum temporal en el servicio. Llame a la API GetQuorumLossProgress con el mismo OperationId para devolver información sobre la operación iniciada con esta API. Esto solo se puede llamar en servicios de persistencia con estado (HasPersistedState==true).  No utilice esta API en servicios sin estado o en servicios con estado solo en memoria.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -262,7 +262,7 @@ Obtiene el progreso de una operación de pérdida de cuórum iniciada mediante S
 ## <a name="sfctl-partition-recover"></a>sfctl partition recover
 Indica al clúster de Service Fabric que debería intentar recuperar una partición específica que actualmente está atascada en pérdida de cuórum.
 
-Indica al clúster de Service Fabric que debería intentar recuperar una partición específica que actualmente está atascada en pérdida de cuórum. Esta operación solo debe realizarse si se sabe que no pueden recuperarse las réplicas que están fuera de servicio. El uso incorrecto de esta API puede provocar la pérdida potencial de datos.
+Esta operación solo debe realizarse si se sabe que no pueden recuperarse las réplicas que están fuera de servicio. El uso incorrecto de esta API puede provocar la pérdida potencial de datos.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -284,7 +284,7 @@ Indica al clúster de Service Fabric que debería intentar recuperar una partici
 ## <a name="sfctl-partition-recover-all"></a>sfctl partition recover-all
 Indica al clúster de Service Fabric que debería intentar recuperar cualquier servicio (incluidos los servicios del sistema) que actualmente esté atascado en pérdida de cuórum.
 
-Indica al clúster de Service Fabric que debería intentar recuperar cualquier servicio (incluidos los servicios del sistema) que actualmente esté atascado en pérdida de cuórum. Esta operación solo debe realizarse si se sabe que no pueden recuperarse las réplicas que están fuera de servicio. El uso incorrecto de esta API puede provocar la pérdida potencial de datos.
+Esta operación solo debe realizarse si se sabe que no pueden recuperarse las réplicas que están fuera de servicio. El uso incorrecto de esta API puede provocar la pérdida potencial de datos.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -311,10 +311,10 @@ Informa del estado de mantenimiento de la partición de Service Fabric especific
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --health-property [obligatorio] | La propiedad de la información de mantenimiento. <br><br> Una entidad puede tener informes de mantenimiento para diferentes propiedades. La propiedad es una cadena y no una enumeración fija para permitir al informador la flexibilidad de categorizar la condición de estado que desencadena el informe. Por ejemplo, un informador con SourceId "LocalWatchdog" puede supervisar el estado del disco disponible en un nodo, por lo que puede informar de la propiedad "AvailableDisk" en ese nodo. El mismo informador puede supervisar la conectividad del nodo, por lo que puede informar de una propiedad "Connectivity" en el mismo nodo. En el almacén de estado, estos informes se tratan como eventos de mantenimiento independientes del nodo especificado. Junto con SourceId, la propiedad identifica la información de mantenimiento de manera única. |
-| --health-state    [obligatorio] | Los valores posibles incluyen\: 'Invalid', 'Ok', 'Warning', 'Error', 'Unknown'. |
+| --health-property [Obligatorio] | La propiedad de la información de mantenimiento. <br><br> Una entidad puede tener informes de mantenimiento para diferentes propiedades. La propiedad es una cadena y no una enumeración fija para permitir al informador la flexibilidad de categorizar la condición de estado que desencadena el informe. Por ejemplo, un informador con SourceId "LocalWatchdog" puede supervisar el estado del disco disponible en un nodo, por lo que puede informar de la propiedad "AvailableDisk" en ese nodo. El mismo informador puede supervisar la conectividad del nodo, por lo que puede informar de una propiedad "Connectivity" en el mismo nodo. En el almacén de estado, estos informes se tratan como eventos de mantenimiento independientes del nodo especificado. Junto con SourceId, la propiedad identifica la información de mantenimiento de manera única. |
+| --health-state    [Obligatorio] | Los valores posibles incluyen\: 'Invalid', 'Ok', 'Warning', 'Error', 'Unknown'. |
 | --partition-id [Obligatorio] | La identidad de la partición. |
-| --source-id       [obligatorio] | El nombre de origen que identifica el componente de cliente/guardián/sistema que genera la información de estado. |
+| --source-id       [Obligatorio] | El nombre de origen que identifica el componente de cliente/guardián/sistema que genera la información de estado. |
 | --description | La descripción de la información de mantenimiento. <br><br> Representa el texto libre utilizado para agregar información legible por el ser humano sobre el informe. La longitud máxima de la cadena de la descripción es de 4096 caracteres. Si la cadena proporcionada es más larga, se truncará automáticamente. Cuando está truncado, los últimos caracteres de la descripción contienen un marcador "[Truncado]" y el tamaño total de la cadena es de 4096 caracteres. La presencia del marcador indica a los usuarios que el truncamiento se ha producido. Tenga en cuenta que, cuando se trunca, la descripción tiene menos de 4096 caracteres de la cadena original. |
 | --immediate | Una marca que indica si el informe se debe enviar inmediatamente. <br><br> Se envía un informe de mantenimiento a una aplicación de puerta de enlace de Service Fabric, que la reenvía al almacén de estado. Si Immediate se establece en true, el informe se envía inmediatamente de la puerta de enlace HTTP al almacén de estado, independientemente de la configuración de cliente de Fabric que esté usando la aplicación de la puerta de enlace HTTP. Esto es útil para los informes críticos que deben enviarse tan pronto como sea posible. En función del tiempo y otras condiciones, el envío del informe puede aún generar un error, por ejemplo, si se cierra la puerta de enlace HTTP o el mensaje no llega a la puerta de enlace. Si Immediate se establece en false, el informe se envía en función de la configuración de cliente de mantenimiento de la puerta de enlace HTTP. Por lo tanto, se procesará por lotes de acuerdo con la configuración de HealthReportSendInterval. Esta es la configuración recomendada porque permite que el cliente de mantenimiento optimice los mensajes de notificación de estado destinados al almacén de estado, así como el procesamiento de informes de mantenimiento. De forma predeterminada, los informes no se envían inmediatamente. |
 | --remove-when-expired | Valor que indica si el informe se quita del almacén de estado cuando expire. <br><br> Si se establece en true, el informe se quita del almacén de estado una vez que expire. Si se establece en false, el informe se trata como un error cuando expire. El valor de esta propiedad es false de forma predeterminada. Cuando los clientes notifican periódicamente, deben establecer RemoveWhenExpired en false (valor predeterminado). De esta manera, si el notificador tiene problemas (por ejemplo, un interbloqueo) y no puede informar, la entidad se evalúa al llegar el error cuando expira el informe de mantenimiento. De este modo, se marca que la entidad está en estado de mantenimiento Error. |
@@ -402,6 +402,7 @@ Obtiene el nombre del servicio para la partición especificada. Si el identifica
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
 | --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.

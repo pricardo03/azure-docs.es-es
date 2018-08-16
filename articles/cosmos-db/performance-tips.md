@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 89c1daf1d5d257e02a8253a82d543605ff4cacb0
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: c300782432350c1997e25313b4301d94c29e2ed6
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126357"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480999"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -75,7 +75,8 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
     ![Ilustración de la directiva de conexión de Azure Cosmos DB](./media/performance-tips/connection-policy.png)
 
-2. **Llamada a OpenAsync para evitar la latencia de inicio en la primera solicitud**
+2. 
+  **Llamada a OpenAsync para evitar la latencia de inicio en la primera solicitud**
 
     De forma predeterminada, la primera solicitud tendrá una latencia mayor porque debe capturar la tabla de enrutamiento de direcciones. Para evitar esta latencia de inicio en la primera solicitud, se debe llamar a OpenAsync() una vez durante la inicialización de esta manera.
 
@@ -132,9 +133,10 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
     Si va a realizar pruebas en niveles de alto rendimiento (>50 000 RU/s), la aplicación cliente puede volverse un cuello de botella debido a que la máquina limita el uso de CPU o de la red. Si llega a este punto, puede seguir insertando la cuenta de Azure Cosmos DB mediante la escala horizontal de las aplicaciones cliente en varios servidores.
 8. **Almacenamiento en caché de los identificadores URI de documentos para una latencia menor en las operaciones de lectura**
 
-    Siempre que sea posible, almacene en caché los identificadores URI para obtener el mejor rendimiento en las operaciones de lectura.
+    Siempre que sea posible, almacene en caché los identificadores URI para obtener el mejor rendimiento en las operaciones de lectura. Tendrá que definir la lógica para almacenar en caché el valor del identificador del recurso al crear el recurso. Las búsquedas basadas en el identificador del recurso son más rápidas que las búsquedas basadas en el nombre, por lo que almacenar en caché estos valores mejora el rendimiento. 
+
    <a id="tune-page-size"></a>
-9. **Ajuste del tamaño de página en consultas y fuentes de lectura para aumentar el rendimiento**
+1. **Ajuste del tamaño de página en consultas y fuentes de lectura para aumentar el rendimiento**
 
     Al realizar una lectura masiva de documentos mediante la funcionalidad de fuentes de lectura (por ejemplo, ReadDocumentFeedAsync) o al emitir una consulta SQL, los resultados se devuelven de forma segmentada si el conjunto de resultados es demasiado grande. De forma predeterminada, se devuelven resultados en fragmentos de 1 MB o de 100 artículos, el límite que se alcance primero.
 

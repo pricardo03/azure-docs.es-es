@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9fb2d2ccabf79a95a108d4ecf39a4957fc9ffff4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 2452389605db0654fb9d8dc06d89a8195f9ae372
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113681"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480851"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: flujo de código de autorización de OAuth 2.0
 Puede usar la concesión de un código de autorización de OAuth 2.0 en las aplicaciones instaladas en un dispositivo para obtener acceso a recursos protegidos, como las API web. Mediante la implementación de OAuth 2.0 de Azure Active Directory B2C (Azure AD B2C) puede agregar tareas de registro, inicio de sesión y otras tareas de administración de identidades a las aplicaciones móviles y de escritorio. Este artículo es independiente del lenguaje y en él describimos cómo enviar y recibir mensajes HTTP sin usar ninguna biblioteca de código abierto.
 
 <!-- TODO: Need link to libraries -->
 
-El flujo de código de autorización de OAuth 2.0 se describe en la [sección 4.1 de la especificación de OAuth 2.0](http://tools.ietf.org/html/rfc6749). Puede usarlo para llevar a cabo la autenticación y la autorización en la mayoría de los [tipos de aplicación](active-directory-b2c-apps.md), incluidas las aplicaciones web y las aplicaciones instaladas de forma nativa. Puede usar el flujo de código de autorización de OAuth 2.0 para adquirir tokens de acceso de forma segura para las aplicaciones, que se pueden usar para obtener acceso a los recursos protegidos por un [servidor de autorización](active-directory-b2c-reference-protocols.md).
+El flujo de código de autorización de OAuth 2.0 se describe en la [sección 4.1 de la especificación de OAuth 2.0](http://tools.ietf.org/html/rfc6749). Puede usarlo para llevar a cabo la autenticación y la autorización en la mayoría de los [tipos de aplicación](active-directory-b2c-apps.md), incluidas las aplicaciones web y las aplicaciones instaladas de forma nativa. Puede usar el flujo de código de autorización de OAuth 2.0 para adquirir de forma segura tokens de acceso y tokens de actualización para las aplicaciones, que se pueden usar para acceder a recursos protegidos por un [servidor de autorización](active-directory-b2c-reference-protocols.md).  El token de actualización permite que el cliente adquiera nuevos tokens de acceso (y de actualización) cuando expira el token de acceso, normalmente al cabo de una hora.
 
 Este artículo se centra en el flujo de código de autorización de OAuth 2.0 de **clientes públicos**. Un cliente público es cualquier aplicación cliente que no es de confianza para mantener la integridad de una contraseña secreta de forma segura. Esto incluye las aplicaciones móviles, las aplicaciones de escritorio y prácticamente cualquier aplicación que se ejecute en un dispositivo y necesite obtener tokens de acceso. 
 
@@ -73,7 +73,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| . | ¿Necesario? | DESCRIPCIÓN |
+| Parámetro | ¿Necesario? | DESCRIPCIÓN |
 | --- | --- | --- |
 | client_id |Obligatorio |Identificador de aplicación asignado a la aplicación en [Azure Portal](https://portal.azure.com). |
 | response_type |Obligatorio |El tipo de respuesta, que debe incluir `code` para el flujo de código de autorización. |
@@ -96,7 +96,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 &state=arbitrary_data_you_can_receive_in_the_response                // the value provided in the request
 ```
 
-| . | DESCRIPCIÓN |
+| Parámetro | DESCRIPCIÓN |
 | --- | --- |
 | código |El código de autorización que la aplicación solicitó. La aplicación puede usar el código de autorización para solicitar un token de acceso para un recurso de destino. Los códigos de autorización tienen una duración muy breve. Normalmente, caducan al cabo de unos 10 minutos. |
 | state |Vea la descripción completa en la tabla de la sección anterior. Si un parámetro `state` está incluido en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debe comprobar que los valores `state` de la solicitud y de la respuesta sean idénticos. |
@@ -110,7 +110,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| . | DESCRIPCIÓN |
+| Parámetro | DESCRIPCIÓN |
 | --- | --- |
 | error |Una cadena de código de error que se puede usar para clasificar los tipos de errores que se producen. También puede usar la cadena para reaccionar frente a errores. |
 | error_description |Un mensaje de error específico que puede ayudarlo a identificar la causa raíz de un error de autenticación. |
@@ -128,7 +128,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 ```
 
-| . | ¿Necesario? | DESCRIPCIÓN |
+| Parámetro | ¿Necesario? | DESCRIPCIÓN |
 | --- | --- | --- |
 | p |Obligatorio |La directiva usada para adquirir el código de autorización. No puede usar una directiva diferente en esta solicitud. Tenga en cuenta que este parámetro se agrega a la *cadena de consulta*, no al cuerpo de POST. |
 | client_id |Obligatorio |Identificador de aplicación asignado a la aplicación en [Azure Portal](https://portal.azure.com). |
@@ -149,7 +149,7 @@ Una respuesta correcta del token tiene el siguiente aspecto:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| . | DESCRIPCIÓN |
+| Parámetro | DESCRIPCIÓN |
 | --- | --- |
 | not_before |Hora a la que el token se considera válido, en tiempo de época. |
 | token_type |El valor del tipo de token. El único tipo que admite Azure AD es portador. |
@@ -167,7 +167,7 @@ Las respuestas de error tienen un aspecto similar al siguiente:
 }
 ```
 
-| . | DESCRIPCIÓN |
+| Parámetro | DESCRIPCIÓN |
 | --- | --- |
 | error |Una cadena de código de error que se puede usar para clasificar los tipos de errores que se producen. También puede usar la cadena para reaccionar frente a errores. |
 | error_description |Un mensaje de error específico que puede ayudarlo a identificar la causa raíz de un error de autenticación. |
@@ -192,7 +192,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_secret=JqQX2PNo9bpM0uEihUPzyrh&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| . | ¿Necesario? | DESCRIPCIÓN |
+| Parámetro | ¿Necesario? | DESCRIPCIÓN |
 | --- | --- | --- |
 | p |Obligatorio |La directiva usada para adquirir el token de actualización original. No puede usar una directiva diferente en esta solicitud. Tenga en cuenta que este parámetro se agrega a la *cadena de consulta*, no al cuerpo de POST. |
 | client_id |Obligatorio |Identificador de aplicación asignado a la aplicación en [Azure Portal](https://portal.azure.com). |
@@ -214,7 +214,7 @@ Una respuesta correcta del token tiene el siguiente aspecto:
     "refresh_token": "AAQfQmvuDy8WtUv-sd0TBwWVQs1rC-Lfxa_NDkLqpg50Cxp5Dxj0VPF1mx2Z...",
 }
 ```
-| . | DESCRIPCIÓN |
+| Parámetro | DESCRIPCIÓN |
 | --- | --- |
 | not_before |Hora a la que el token se considera válido, en tiempo de época. |
 | token_type |El valor del tipo de token. El único tipo que admite Azure AD es portador. |
@@ -232,7 +232,7 @@ Las respuestas de error tienen un aspecto similar al siguiente:
 }
 ```
 
-| . | DESCRIPCIÓN |
+| Parámetro | DESCRIPCIÓN |
 | --- | --- |
 | error |Una cadena de código de error que se puede usar para clasificar los tipos de errores que se producen. También puede usar la cadena para reaccionar frente a errores. |
 | error_description |Un mensaje de error específico que puede ayudarlo a identificar la causa raíz de un error de autenticación. |

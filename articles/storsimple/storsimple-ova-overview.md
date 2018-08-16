@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/21/2018
+ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: 524a587c4547808162b36ff9aa6c08b362465b0b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 78ed53e5e2f5d04943e6c32ddfedf037cb9e1f73
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651212"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480961"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introducción a la matriz virtual de StorSimple
 
@@ -76,8 +76,8 @@ A continuación, presentamos un resumen de las cargas de trabajo de StorSimple.
 
 |Escenario     |Carga de trabajo     |Compatible      |Restricciones               |
 |-------------|-------------|---------------|---------------------------|
-|ROBO  |Uso compartido de archivos     |Sí      |Consulte los [límites máximos del servidor de archivos](storsimple-ova-limits.md).<br></br>Consulte los [requisitos del sistema para versiones de SMB compatibles](storsimple-ova-system-requirements.md).| Todas las versiones     |
-|Archivado en la nube  |Uso compartido de archivos     |Sí      |Consulte los [límites máximos del servidor de archivos](storsimple-ova-limits.md).<br></br>Consulte los [requisitos del sistema para versiones de SMB compatibles](storsimple-ova-system-requirements.md).| Todas las versiones     |
+|Oficina remota/sucursal (ROBO)  |Uso compartido de archivos     |SÍ      |Consulte los [límites máximos del servidor de archivos](storsimple-ova-limits.md).<br></br>Consulte los [requisitos del sistema para versiones de SMB compatibles](storsimple-ova-system-requirements.md).| Todas las versiones     |
+|Archivado en la nube  |Uso compartido de archivos     |SÍ      |Consulte los [límites máximos del servidor de archivos](storsimple-ova-limits.md).<br></br>Consulte los [requisitos del sistema para versiones de SMB compatibles](storsimple-ova-system-requirements.md).| Todas las versiones     |
 
 StorSimple Virtual Array es ideal para los datos a los que se accede con poca frecuencia. Mientras que la matriz virtual tiene una memoria caché local para mejorar el rendimiento, los usuarios deben suponer que los archivos de los servicios de dispositivo están en el nivel más bajo de almacenamiento (la nube). Cada matriz virtual puede escribir y leer en Azure Storage a una velocidad aproximada de 100 Mbps. Ese vínculo se comparte entre todas las solicitudes que entran en el dispositivo y puede convertirse en un cuello de botella, tal como se muestra en el diagrama siguiente.
 

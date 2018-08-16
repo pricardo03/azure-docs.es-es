@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 3303a0fb1ca4c4a8f6695c2e4338c1b0a0fc9f40
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: a6df90a1ae1dddbf7f76a7ef6c7e13d9e645dd9c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358639"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528432"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Inicie sesión con el teléfono, no la contraseña
 
@@ -70,7 +70,7 @@ Las nuevas cuentas se activan automáticamente, por lo que puede empezar a usar 
 
 ### <a name="to-use-phone-sign-in-to-sign-in-to-your-personal-account"></a>Para usar el inicio de sesión con teléfono para iniciar sesión en su cuenta personal
 
-1.  Vaya a la página de inicio de sesión de su cuenta Microsoft personal y, en lugar de escribir su contraseña, seleccione el vínculo **Use una aplicación en su lugar**.
+1.  Vaya a la página de inicio de sesión de su cuenta personal de Microsoft y, en lugar de escribir su contraseña, seleccione el vínculo **Usar la aplicación Microsoft Authenticator en su lugar**.
 
     Microsoft le enviará una notificación al teléfono. 
 
@@ -91,8 +91,8 @@ Las nuevas cuentas se activan automáticamente, por lo que puede empezar a usar 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
--   Si tiene más preguntas generales sobre la aplicación, consulte [Preguntas más frecuentes de la aplicación Microsoft Authenticator](microsoft-authenticator-app-faq.md)
+-   Si tiene más preguntas generales sobre la aplicación, consulte [Preguntas más frecuentes de la aplicación Microsoft Authenticator](microsoft-authenticator-app-faq.md).
 
 -   Si desea más información sobre la verificación en dos pasos, vea [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md)
 
--   Para más información sobre la información de seguridad, consulte [Manage your security info](security-info-manage-settings.md) (Administrar la información de seguridad)
+-   Si desea más información sobre la información de seguridad, consulte [Manage your security info](security-info-manage-settings.md) (Administrar la información de seguridad)

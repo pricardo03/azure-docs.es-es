@@ -2,24 +2,18 @@
 title: Implementar Azure File Sync | Microsoft Docs
 description: Aprenda a implementar Azure File Sync de principio a fin.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 3f377c24a53313ff8c9243152281344200167856
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.component: files
+ms.openlocfilehash: b84de7475c54d2bc35dcc10b0bbfb0c1839c5631
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414248"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522142"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementación de Azure File Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -249,7 +243,7 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 ---
 
 ## <a name="create-a-sync-group-and-a-cloud-endpoint"></a>Creación de un grupo de sincronización y un punto de conexión en la nube
-Un grupo de sincronización define la topología de sincronización de un conjunto de archivos. Los puntos de conexión dentro de un grupo de sincronización se mantienen sincronizados entre sí. Un grupo de sincronización debe contener al menos un punto de conexión en la nube, que representa un recurso compartido de archivos de Azure y uno o más puntos de conexión de servidor. Un punto de conexión de servidor representa una ruta de acceso en un servidor registrado. Un servidor puede tener puntos de conexión de servidor en varios grupos de sincronización. Puede crear tantos grupos de sincronización como sea necesario para describir correctamente la topología de sincronización deseada.
+Un grupo de sincronización define la topología de sincronización de un conjunto de archivos. Los puntos de conexión dentro de un grupo de sincronización se mantienen sincronizados entre sí. Un grupo de sincronización debe contener al menos un punto de conexión en la nube, que representa un recurso compartido de archivos de Azure y uno o varios puntos de conexión de servidor. Un punto de conexión de servidor representa una ruta de acceso en un servidor registrado. Un servidor puede tener puntos de conexión de servidor en varios grupos de sincronización. Puede crear tantos grupos de sincronización como sea necesario para describir correctamente la topología de sincronización deseada.
 
 Un punto de conexión en la nube es un puntero a un recurso compartido de archivos de Azure. Todos los puntos de conexión de servidor se sincronizarán con un punto de conexión en la nube, lo que hace que el punto de conexión en la nube actúe como concentrador. La cuenta de almacenamiento para el recurso compartido de archivos de Azure debe encontrarse en la misma región que el servicio de sincronización de almacenamiento. Se sincronizará la totalidad del recurso compartido de archivos de Azure, con una excepción: una carpeta especial, comparable a la carpeta oculta "System Volume Information" de un volumen NTFS, se aprovisionará. Este directorio se llama ".SystemShareInformation". Contiene metadatos de sincronización importantes que no se sincronizarán con otros puntos de conexión. No la utilice ni elimine.
 

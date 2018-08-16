@@ -9,17 +9,17 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: be1b35d2e7dc3d3e2efab825f318983e2943b0d2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5fbdccf4e14ce1201b21f0490e9c890c77c3e2f0
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194366"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577762"
 ---
 # <a name="manage-azure-automation-account"></a>Administración de la cuenta de Azure Automation
 En algún momento antes de que expire su cuenta de Automation, debe renovar el certificado. Si cree que se ha puesto en peligro la cuenta de ejecución, puede eliminarla y volver a crearla. En esta sección se describe cómo realizar estas operaciones.
 
-## <a name="self-signed-certificate-renewal"></a>Renovación de certificado autofirmado
+## <a name="cert-renewal"></a>Renovación de certificado autofirmado
 El certificado autofirmado que creó para la cuenta de ejecución expira un año a partir de la fecha de creación. Se puede renovar en cualquier momento antes de que expire. Cuando se renueva, el certificado válido actual se conserva para tener la seguridad de que los runbooks que están en cola o que se están ejecutando activamente y que se autentican con la cuenta de ejecución, no resultan afectados negativamente. El certificado es válido hasta la fecha de expiración.
 
 > [!NOTE]
@@ -77,6 +77,6 @@ Al seleccionar la cuenta de ejecución, el panel **Propiedades** muestra el mens
 Rápidamente puede resolver estos problemas de la cuenta de ejecución con solo eliminarla cuenta y volver a crearla.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información acerca de las entidades de servicio, consulte [Objetos Application y objetos ServicePrincipal](../active-directory/active-directory-application-objects.md).
+* Para más información acerca de las entidades de servicio, consulte [Objetos Application y objetos ServicePrincipal](../active-directory/develop/app-objects-and-service-principals.md).
 * Para más información acerca del control de acceso basado en rol de Azure Automation, consulte [Control de acceso basado en rol en Azure Automation](automation-role-based-access-control.md).
 * Para más información acerca de los certificados y de los servicios de Azure, consulte [Introducción a los certificados para Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).

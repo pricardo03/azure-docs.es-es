@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 889762ae0b401438f25546738268c584ddd58389
-ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
+ms.openlocfilehash: 88bf82805ba46abf79b7899e0428a83485062302
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "35382958"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504974"
 ---
 # <a name="call-bing-custom-search-endpoint-python"></a>Llamada a un punto de conexión de Bing Custom Search (Python)
 
@@ -34,13 +34,18 @@ Para completar este inicio rápido necesita instalar:
 Para llamar al punto de conexión Bing Custom Search, siga estos pasos:
 
 1. Cree una carpeta para el código.
+
 2. Desde un terminal o símbolo del sistema de administrador, vaya a la carpeta que acaba de crear.
+
 3. Instale el módulo de Python **requests**:
+
     <pre>
     pip install pipenv
     pipenv install requests
     </pre>
+    
 7. Cree el archivo BingCustomSearch.py y copie en él el código siguiente.
+
 8. Reemplace los valores de **YOUR-SUBSCRIPTION-KEY** y **YOUR-CUSTOM-CONFIG-ID** por su clave y su identificador de configuración (consulte el paso 1).
 
     ``` Python

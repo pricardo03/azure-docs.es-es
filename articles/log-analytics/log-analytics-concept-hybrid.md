@@ -1,5 +1,5 @@
 ---
-title: Recopilación de datos del entorno con Azure Log Analytics | Microsoft Docs
+title: Recopilación de datos en un entorno híbrido con el agente de Azure Log Analytics | Microsoft Docs
 description: En este tema se le ayudará a comprender cómo recopilar datos y supervisar equipos hospedados localmente o en entornos de nube con Log Analytics.
 services: log-analytics
 documentationcenter: ''
@@ -12,25 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 2a21c7867bf0dd2d6ca6ee0bd9025739315c8d0a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 96feb52bd5702c899faa8d845969ae8ba0995504
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003325"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495363"
 ---
-# <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Recopilar datos de equipos en su entorno con Log Analytics
+# <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Recopilación de datos en un entorno híbrido con el agente de Log Analytics
 
-Log Analytics permite recopilar y actuar sobre datos de equipos Windows o Linux que residen en:
+Azure Log Analytics permite recopilar y actuar sobre datos de equipos que ejecutan el sistema operativo Windows o Linux que, a su vez, se ejecutan en:
 
 * [Máquinas virtuales de Azure](log-analytics-quick-collect-azurevm.md) con la extensión de VM de Log Analytics 
 * Centros de datos, como servidores físicos o máquinas virtuales
 * Máquinas virtuales en un servicio hospedado en la nube, como Amazon Web Services (AWS)
 
-Los equipos hospedados en su entorno pueden estar conectados directamente a Log Analytics, o si ya supervisa estos equipos con System Center Operations Manager 2012 R2, 2016 o la versión 1801, puede integrar el grupo de administración de Operations Manager con Log Analytics para mantener sus estrategias y procesos de las operaciones de servicio.  
+Los equipos hospedados en su entorno pueden estar conectados directamente a Log Analytics o, si ya supervisa estos equipos con System Center Operations Manager 2012 R2 o posterior, puede integrar el grupo de administración de Operations Manager con Log Analytics para mantener sus estrategias y procesos de las operaciones de servicio.  
 
 ## <a name="overview"></a>Información general
 
@@ -38,9 +38,9 @@ Los equipos hospedados en su entorno pueden estar conectados directamente a Log 
 
 Antes de analizar datos recopilados y actuar sobre ellos, deberá instalar y conectar agentes en todos los equipos que quiera que puedan enviar datos al servicio Log Analytics. Puede instalar los agentes en los equipos locales a través del programa de instalación, a través de la línea de comandos o utilizando Configuración de estado deseado (DSC) en Azure Automation. 
 
-El agente para Linux y Windows se comunica con el servicio Log Analytics en el puerto TCP 443 y, si el equipo se conecta a un servidor proxy o a un firewall para comunicarse a través de Internet, consulte la [sección de requisitos previos](#prerequisites) para comprender qué configuración de red debe aplicarse.  Si las directivas de seguridad de TI no permite que los equipos de la red se conecten a Internet, puede configurar una [puerta de enlace de OMS](log-analytics-oms-gateway.md) y, a continuación, configurar el agente para conectarse a Log Analytics a través de la puerta de enlace. El agente, a continuación, puede recibir información de configuración y enviar los datos recopilados según qué reglas de recopilación de datos y soluciones haya habilitado. 
+El agente para Linux y Windows se comunica con el servicio Log Analytics en el puerto TCP 443 y, si el equipo se conecta a un servidor proxy o a un firewall para comunicarse a través de Internet, consulte los requisitos siguientes para comprender qué configuración de red debe aplicarse.  Si las directivas de seguridad de TI no permiten que los equipos de la red se conecten a Internet, puede configurar una [puerta de enlace de OMS](log-analytics-oms-gateway.md) y luego configurar el agente para conectarse a Log Analytics a través de la puerta de enlace. El agente, a continuación, puede recibir información de configuración y enviar los datos recopilados según qué reglas de recopilación de datos y soluciones haya habilitado. 
 
-Si va a supervisar el equipo con System Center 2016 - Operations Manager u Operations Manager 2012 R2, puede tener hosts múltiples con el servicio Log Analytics para recopilar datos y reenviarlos al servicio, y ser supervisados por [Operations Manager](log-analytics-om-agents.md). Los equipos de Linux supervisados por un grupo de administración de Operations Manager que se integra con Log Analytics no reciben la configuración de los orígenes de datos y reenvían los datos recopilados a través del grupo de administración. El agente de Windows puede informar acerca de hasta cuatro áreas de trabajo, mientras que el agente de Linux solo puede informar acerca de una sola área de trabajo.  
+Si va a supervisar el equipo con System Center Operations Manager 2012 R2 o posterior, puede tener hosts múltiples con el servicio Log Analytics para recopilar datos y reenviarlos al servicio, y ser supervisados por [Operations Manager](log-analytics-om-agents.md). Los equipos de Linux supervisados por un grupo de administración de Operations Manager que se integra con Log Analytics no reciben la configuración de los orígenes de datos y reenvían los datos recopilados a través del grupo de administración. El agente de Windows puede informar acerca de hasta cuatro áreas de trabajo, mientras que el agente de Linux solo puede informar acerca de una sola área de trabajo.  
 
 El agente para Windows y Linux no es solo para conectarse a Log Analytics, sino que también admite Azure Automation para hospedar el rol de trabajo Hybrid Runbook Worker y soluciones de administración como Change Tracking y Update Management.  Para obtener más información acerca de la función Hybrid Runbook Worker, consulte [Hybrid Runbook Worker de Azure Automation](../automation/automation-hybrid-runbook-worker.md).  
 
@@ -79,7 +79,7 @@ Si tiene previsto usar Hybrid Runbook Worker de Azure Automation para conectarse
 
 El agente de Linux y Windows admite la comunicación a través de un servidor proxy o la puerta de enlace de OMS para el servicio Log Analytics mediante el protocolo HTTPS.  Se admite la autenticación anónima y básica (nombre de usuario/contraseña).  Si el agente de Windows está conectado directamente al servicio, la configuración de proxy se especifica durante la instalación o [después de la implementación](log-analytics-agent-manage.md#update-proxy-settings) desde el Panel de control o con PowerShell.  
 
-Con el agente de Linux, el servidor proxy se especifica durante o [después de la instalación](/log-analytics-agent-manage.md#update-proxy-settings) mediante la modificación del archivo de configuración proxy.conf.  El valor de configuración del proxy del agente de Linux tiene la siguiente sintaxis:
+Con el agente de Linux, el servidor proxy se especifica durante o [después de la instalación](log-analytics-agent-manage.md#update-proxy-settings) mediante la modificación del archivo de configuración proxy.conf.  El valor de configuración del proxy del agente de Linux tiene la siguiente sintaxis:
 
 `[protocol://][user:password@]proxyhost[:port]`
 

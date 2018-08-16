@@ -2,23 +2,18 @@
 title: Introducción al seguimiento de estado para Azure Application Gateway
 description: Aprenda sobre las funciones de supervisión de la puerta de enlace de aplicaciones de Azure
 services: application-gateway
-documentationcenter: na
 author: vhorne
 manager: jpconnock
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 3/30/2018
+ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: 2f62f01c1178f9529eb46051f088affccc5279a7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b34e5317a35d694e8521e73b0846da973661d9df
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30310912"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39530434"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones
 
@@ -27,9 +22,6 @@ La puerta de enlace de aplicaciones de Azure supervisa de forma predeterminada e
 ![ejemplo de sondeo de Application Gateway][1]
 
 Aparte del uso de la supervisión del sondeo de estado, también puede personalizar el sondeo de estado para adaptarlo a las necesidades de su aplicación. En este artículo trataremos ambos sondeos de estado: el personalizado y el predeterminado.
-
-> [!NOTE]
-> Si hay un grupo de seguridad de red en la subred de Application Gateway, se deberían abrir los intervalos de puertos 65503-65534 en la subred de Application Gateway destinada al tráfico de entrada. Estos puertos son necesarios para que funcione correctamente la API de estado de back-end.
 
 ## <a name="default-health-probe"></a>Sondeo de estado predeterminado
 
@@ -46,7 +38,7 @@ De forma predeterminada, una respuesta HTTP (S) con el código de estado 200 se 
 Estos son los criterios de coincidencia: 
 
 - **Coincidencia de código de estado de respuesta HTTP**: criterio de coincidencia de sondeo para aceptar el código de respuesta, o los intervalos de códigos de respuesta, HTTP especificados por el usuario. Se admiten códigos de estado de respuesta individuales, o un intervalo de códigos de estado de respuesta, separados por coma.
-- **Coincidencia de cuerpo de respuesta HTTP**: criterio de coincidencia de sondeo que examina el cuerpo de la respuesta HTTP y busca la coincidencia con una cadena especificada por el usuario. Tenga en cuenta que la coincidencia solo busca la existencia de la cadena especificada por el usuario en el cuerpo de la respuesta, no es una coincidencia de expresión regular completa.
+- **Coincidencia de cuerpo de respuesta HTTP**: criterio de coincidencia de sondeo que examina el cuerpo de la respuesta HTTP y busca la coincidencia con una cadena especificada por el usuario. La coincidencia solo busca la existencia de la cadena especificada por el usuario en el cuerpo de la respuesta, no es una coincidencia de expresión regular completa.
 
 Los criterios de coincidencia se pueden especificar mediante el cmdlet `New-AzureRmApplicationGatewayProbeHealthResponseMatch`.
 
@@ -63,14 +55,20 @@ Una vez que se especifican los criterios de coincidencia, se pueden asociar a la
 | Propiedad de sondeo | Valor | DESCRIPCIÓN |
 | --- | --- | --- |
 | Dirección URL de sondeo |http://127.0.0.1:\<port\>/ |Ruta de acceso URL |
-| Intervalo |30 |Intervalo de sondeo en segundos |
-| Tiempo de espera |30 |Tiempo de espera del sondeo en segundos |
-| Umbral incorrecto |3 |Número de reintentos de sondeo. El servidor back-end se marca como inactivo después de que el número de errores de sondeo consecutivos alcanza el umbral incorrecto. |
+| Intervalo |30 |Cantidad de tiempo en segundos que se debe esperar antes de que se envíe el siguiente sondeo de estado.|
+| Tiempo de espera |30 |Cantidad de tiempo en segundos que la puerta de enlace de la aplicación espera una respuesta de sondeo antes de marcar dicho sondeo como incorrecto. Si un sondeo devuelve un estado correcto, el back-end correspondiente se marca inmediatamente como correcto.|
+| Umbral incorrecto |3 |Controla cuántos sondeos se van a enviar si se produce un error en el sondeo de estado normal. Estos sondeos de estado adicionales se envían en sucesión rápida para determinar el estado de back-end rápidamente y no esperar al intervalo de sondeo. El servidor back-end se marca como inactivo después de que el número de errores de sondeo consecutivos alcanza el umbral incorrecto. |
 
 > [!NOTE]
 > El puerto es el mismo que la configuración de HTTP del back-end.
 
-El sondeo predeterminado solo examina la propiedadhttp://127.0.0.1:\<port\> para determinar el estado de mantenimiento. Si necesita configurar el sondeo de estado para ir a una dirección URL personalizada o modificar alguna otra configuración, debe usar sondeos personalizada tal como se describe en los siguientes pasos:
+El sondeo predeterminado solo se fija en http://127.0.0.1:\<port\> para determinar el estado de mantenimiento. Si necesita configurar el sondeo de estado para ir a una dirección URL personalizada o modificar alguna otra configuración, debe usar sondeos personalizados.
+
+### <a name="probe-intervals"></a>Intervalos de sondeo
+
+Todas las instancias de Application Gateway sondean el back-end de manera independiente unas de otras. La misma configuración de sondeo se aplica a cada instancia de Application Gateway. Por ejemplo, si la configuración de sondeo es enviar sondeos de estado cada 30 segundos y Application Gateway tiene dos instancias, entonces ambas instancias envían el sondeo de estado cada 30 segundos.
+
+También si hay varios agentes de escucha, de manera que cada uno de ellos sondea el back-end de manera independiente unos de otros. Por ejemplo, si existen dos agentes de escucha que apuntan al mismo grupo de back-ends en dos puertos diferentes (definidos por dos configuraciones http de back-end), entonces cada agente de escucha sondea el mismo back-end de forma independiente. En este caso, hay dos sondeos procedentes de cada instancia de Application Gateway para los dos agentes de escucha. Si hay dos instancias de la puerta de Application Gateway en este escenario, la máquina virtual de back-end vería cuatro sondeos por el intervalo de sondeo configurado.
 
 ## <a name="custom-health-probe"></a>Sondeo de estado personalizado
 
@@ -93,6 +91,12 @@ La siguiente tabla proporciona definiciones de las propiedades de un sondeo de m
 > [!IMPORTANT]
 > Si la instancia de Puerta de enlace de aplicaciones está configurada para un único sitio, de forma predeterminada, el nombre de host debe especificarse como 127.0.0.1, salvo que se configure de otra manera en la sonda personalizada.
 > A modo de referencia se envía un sondeo personalizado a \<protocolo\>://\<host\>:\<puerto\>\<ruta de acceso\>. El puerto usado será el definido en la configuración de HTTP del back-end.
+
+## <a name="nsg-considerations"></a>Consideraciones sobre NSG
+
+Si hay un grupo de seguridad de red (NSG) en una subred de Application Gateway, se deben abrir los intervalos de puertos 65503-65534 en la subred de Application Gateway para el tráfico de entrada. Estos puertos son necesarios para que funcione correctamente la API de estado de back-end.
+
+Además, no se puede bloquear la conectividad saliente de Internet y se debe permitir el tráfico desde la etiqueta AzureLoadBalancer.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Tras conocer todo lo referente a la supervisión del mantenimiento de Application Gateway, puede configurar un [sondeo de mantenimiento personalizado](application-gateway-create-probe-portal.md) en Azure Portal o un [sondeo de mantenimiento personalizado](application-gateway-create-probe-ps.md) mediante PowerShell y el modelo de implementación con Azure Resource Manager.

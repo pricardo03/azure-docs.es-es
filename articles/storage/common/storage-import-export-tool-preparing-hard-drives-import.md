@@ -2,24 +2,18 @@
 title: Preparación de unidades de disco duro para un trabajo de importación de Azure Import/Export | Microsoft Docs
 description: Aprenda a preparar unidades de disco duro mediante la herramienta WAImportExport para crear un trabajo de importación para el servicio Azure Import/Export.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
-ms.openlocfilehash: 2854822907e818297c8d2f74cab48b0afa0d646c
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.component: common
+ms.openlocfilehash: 9d8509e97ad83dd636f0a1b1892a2fa67c69e0b7
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2017
-ms.locfileid: "23469244"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521802"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparación de unidades de disco duro para un trabajo de importación
 
@@ -42,11 +36,11 @@ La herramienta WAImportExport es la herramienta de preparación y reparación de
 
 ### <a name="repairing-a-partially-failed-import-job"></a>Reparación de un trabajo de importación con errores
 
-- **Copie el archivo de registro** que se genera cuando el servicio Azure Import/Export copia los datos entre la cuenta de almacenamiento y el disco. Se encuentra en la cuenta de almacenamiento de destino.
+- **Copie el archivo de registro** que se genera cuando el servicio Azure Import/Export copia los datos entre la cuenta de Storage y Disk. Se encuentra en la cuenta de almacenamiento de destino.
 
 ### <a name="repairing-a-partially-failed-export-job"></a>Reparación de un trabajo de exportación con errores
 
-- **Copie el archivo de registro** que se genera cuando el servicio Azure Import/Export copia los datos entre la cuenta de almacenamiento y el disco. Se encuentra en la cuenta de almacenamiento de origen.
+- **Copie el archivo de registro** que se genera cuando el servicio Azure Import/Export copia los datos entre la cuenta de Storage y Disk. Se encuentra en la cuenta de almacenamiento de origen.
 - **Archivo de manifiesto**: [opcional] se encuentra en la unidad exportada que devolvió Microsoft.
 
 ## <a name="download-and-install-waimportexport"></a>Descarga e instalación de WAImportExport
@@ -82,7 +76,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 
 ### <a name="dataset-csv-file-fields"></a>Campos del archivo CSV de conjunto de datos
 
-| Campo | Descripción |
+| Campo | DESCRIPCIÓN |
 | --- | --- |
 | BasePath | **[Obligatorio]**<br/>El valor de este parámetro representa el origen donde se encuentran los datos que desea importar. La herramienta copiará de forma recursiva todos los datos que se encuentran en esta ruta de acceso.<br><br/>**Valores permitidos**: estos deben constituir una ruta de acceso válida en el equipo local o una ruta de acceso a un recurso compartido válida, que sean accesibles para el usuario. La ruta del directorio debe ser una ruta absoluta (no una ruta de acceso relativa). Si la ruta de acceso finaliza en "\\", representa un directorio; por otro lado, una ruta de acceso que no termine en "\\" representa un archivo.<br/>No se permite ninguna expresión regular en este campo. Si la ruta de acceso contiene espacios, póngala entre "".<br><br/>**Ejemplo**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
 | DstBlobPathOrPrefix | **[Obligatorio]**<br/> La ruta de acceso al directorio virtual de destino en la cuenta de Windows Azure Storage. El directorio virtual puede existir ya o no. Si no existe, el servicio Import/Export creará uno.<br/><br/>Asegúrese de utilizar nombres de contenedor válidos al especificar los directorios virtuales de destino o blobs. Tenga en cuenta que los nombres de contenedor deben estar en minúsculas. Para más información sobre las reglas de nomenclatura de contenedores, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Si solo se especifica la raíz, la estructura de directorios del origen se replica en el contenedor de blob de destino. Si se desea una estructura de directorios diferente que la del origen, se necesitan varias filas de asignación en el archivo CSV.<br/><br/>Puede especificar un contenedor o un prefijo de blob como music/70s/. El directorio de destino debe comenzar con el nombre del contenedor, seguido por una barra diagonal "/" y puede incluir opcionalmente un directorio virtual de blobs que termina por "/".<br/><br/>Si el contenedor de destino es el contenedor raíz, debe especificar de forma explícita el contenedor raíz, incluida la barra diagonal, como $root/. Puesto que los blobs del contenedor raíz no pueden incluir "/" en sus nombres, los subdirectorios del directorio de origen no se copiarán si el directorio de destino es el contenedor raíz.<br/><br/>**Ejemplo**<br/>Si la ruta de acceso del blob de destino es https://mystorageaccount.blob.core.windows.net/video, el valor de este campo puede ser video/  |
@@ -205,7 +199,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 
 ## <a name="waimportexport-parameters"></a>Parámetros de WAImportExport
 
-| Parámetros | Descripción |
+| Parámetros | DESCRIPCIÓN |
 | --- | --- |
 |     /j:&lt;JournalFile&gt;  | **Obligatorio**<br/> Ruta de acceso al archivo de diario. Un archivo de diario realiza un seguimiento de un conjunto de unidades y registra el progreso de la preparación de estas. Siempre se debe especificar el archivo de diario.  |
 |     /logdir:&lt;LogDirectory&gt;  | **Opcional**. El directorio de registro.<br/> En este directorio se escribirán los archivos de registro detallados, así como algunos archivos temporales. Si no se especifica, se usará el directorio actual como directorio de registro. El directorio de registro se puede especificar solo una vez para el mismo archivo de diario.  |
@@ -301,7 +295,7 @@ StorageAccountKey: *******
 [EndUpdateRecord]
 ```
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a>Preguntas más frecuentes
 
 ### <a name="general"></a>General
 
@@ -315,7 +309,7 @@ Si el tamaño de los datos es mayor que el del disco, la herramienta WAImportExp
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>¿Dónde puedo encontrar la versión anterior de la herramienta WAImportExport?
 
-La herramienta WAImportExport tiene todas las funcionalidades que tenía la herramienta WAImportExport V1. La herramienta WAImportExport permite a los usuarios especificar varios orígenes y escribir en varias unidades. Además, uno puede administrar fácilmente varias ubicaciones de origen desde las que se deben copiar los datos en un solo archivo CSV. Sin embargo, en caso de que necesite soporte de SAS o si desea copiar un único origen en un único disco, puede [descargar la herramienta WAImportExport V1] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) y consultar la [referencia de WAImportExport V1](storage-import-export-tool-how-to-v1.md) para obtener ayuda con el uso de WAImportExport V1.
+La herramienta WAImportExport tiene todas las funcionalidades que tenía la herramienta WAImportExport V1. La herramienta WAImportExport permite a los usuarios especificar varios orígenes y escribir en varias unidades. Además, uno puede administrar fácilmente varias ubicaciones de origen desde las que se deben copiar los datos en un solo archivo CSV. Sin embargo, en caso de que necesite compatibilidad con SAS o si desea copiar un único origen en un único disco, puede [descargar la herramienta WAImportExport V1] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) y consultar la [referencia de WAImportExport V1](storage-import-export-tool-how-to-v1.md) para obtener ayuda con el uso de WAImportExport V1.
 
 #### <a name="what-is-a-session-id"></a>¿Qué es un identificador de sesión?
 
@@ -413,7 +407,7 @@ La herramienta WAImportExport lee y escribe archivos lote por lote, un lote cont
 * [Configuración de la herramienta Azure Import/Export](storage-import-export-tool-setup.md)
 * [Establecimiento de las propiedades y metadatos durante el proceso de importación](storage-import-export-tool-setting-properties-metadata-import.md)
 * [Flujo de trabajo de ejemplo para preparar las unidades de disco duro para un trabajo de importación](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
-* [Quick reference for frequently used commands for import jobs](storage-import-export-tool-quick-reference.md) (Referencia rápida para comandos usados con frecuencia) 
+* [Referencia rápida de comandos usados con frecuencia para trabajos de importación](storage-import-export-tool-quick-reference.md) 
 * [Revisión del estado del trabajo con archivos de registro de copia](storage-import-export-tool-reviewing-job-status-v1.md)
 * [Reparación de un trabajo de importación](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Reparación de un trabajo de exportación](storage-import-export-tool-repairing-an-export-job-v1.md)

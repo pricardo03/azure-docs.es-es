@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/04/2018
+ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f51103045f6a0cac1b1ed4f32200eaf7bef9cf24
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1328ce8c306188c32bce5385f58f118a63c08deb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193883"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426540"
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>Procedimiento para desvincular su cuenta de Automation de un área de trabajo de Log Analytics
 
@@ -24,7 +24,7 @@ Azure Automation se integra con Log Analytics no solo para admitir la supervisi�
 * [Seguimiento de cambios](../log-analytics/log-analytics-change-tracking.md)
 * [Inicio y detención de máquinas virtuales durante las horas de trabajo](automation-solution-vm-management.md)
 
-Si decide que ya no desea integrar su cuenta de Automation con Log Analytics, puede desvincular la cuenta directamente desde Azure Portal.  Antes de continuar, primero deberá quitar las soluciones mencionadas anteriormente; en caso contrario, este proceso no podrá continuar. Revise el tema de la solución concreto que ha importado para conocer los pasos necesarios para quitarla.
+Si decide que ya no desea integrar su cuenta de Automation con Log Analytics, puede desvincular la cuenta directamente desde Azure Portal.  Antes de continuar, primero deberá quitar las soluciones mencionadas anteriormente; en caso contrario, este proceso no podrá continuar. Revise el artículo de la solución concreta que ha importado para conocer los pasos necesarios para quitarla.
 
 Después de quitar estas soluciones, puede realizar los pasos siguientes para desvincular la cuenta de Automation.
 
@@ -33,9 +33,7 @@ Después de quitar estas soluciones, puede realizar los pasos siguientes para de
 
 ## <a name="unlink-workspace"></a>Unlink workspace (Desvincular área de trabajo)
 
-1. En Azure Portal, abra su cuenta de Automation y, en la página de la cuenta de Automation, seleccione **Desvincular área de trabajo**  en la sección **Recursos relacionados** de la izquierda.
-
-   ![Opción Desvincular área de trabajo](media/automation-unlink-from-log-analytics/automation-unlink-workspace-option.png)
+1. En Azure Portal, abra su cuenta de Automation y, en la página de la cuenta de Automation, seleccione **Área de trabajo vinculada** en la sección **Recursos relacionados** de la izquierda.
 
 1. En la página Desvincular área de trabajo, haga clic en **Desvincular área de trabajo**.
 
@@ -47,9 +45,9 @@ Después de quitar estas soluciones, puede realizar los pasos siguientes para de
 
 Si ha usado la solución de administración de actualizaciones, también puede quitar los siguientes elementos que ya no necesite después de quitar la solución.
 
-* Actualice las programaciones.  Cada uno tendrá nombres que coinciden con las implementaciones de actualizaciones que se ha creado.
+* Programaciones de actualizaciones: cada una tendrá nombres que coinciden con las implementaciones de las actualizaciones que ha creado.
 
-* Se crean grupos de trabajo híbridos para la solución.  Cada uno de ellos se llamará de forma similar a machine1.contoso.com_9ceb8108 - 26 c 9-4051-b6b3-227600d715c8).
+* Los grupos de Hybrid Worker que se han creado para la solución: cada uno de ellos se llamará de forma similar a machine1.contoso.com_9ceb8108 - 26 c 9-4051-b6b3-227600d715c8).
 
 Si ha usado la solución de inicio y detención de máquinas virtuales durante las horas de trabajo, también puede quitar los siguientes elementos que ya no necesite después de quitar la solución.
 

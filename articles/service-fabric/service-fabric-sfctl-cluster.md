@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 60f3f74778f0fb32677c3b87b3140131ccd37bea
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4b0491d59e4ac495750a338ad743aab69ff47a4e
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763636"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494250"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Seleccione, administre y opere clústeres de Service Fabric.
@@ -38,6 +38,7 @@ Seleccione, administre y opere clústeres de Service Fabric.
 | recover-system | Indica al clúster de Service Fabric que debería intentar recuperar los servicios del sistema que actualmente están atascados en pérdida de cuórum. |
 | report-health | Envía un informe de estado sobre el clúster de Service Fabric. |
 | select | Se conecta a un punto de conexión del clúster de Service Fabric. |
+| show-connection | Muestra el clúster de Service Fabric al que está conectada esta instancia de sfctl. |
 | unprovision | Deshace el aprovisionamiento del código o los paquetes de configuración de un clúster de Service Fabric. |
 | upgrade | Comienza a actualizar la versión del código o de la configuración de un clúster de Service Fabric. |
 | upgrade-resume | Hace que la actualización del clúster avance al siguiente dominio de actualización. |
@@ -92,14 +93,14 @@ Obtiene una lista de versiones de configuración de Fabric que se aprovisionan e
 ## <a name="sfctl-cluster-health"></a>sfctl cluster health
 Obtiene el estado de un clúster de Service Fabric.
 
-Obtiene el estado de un clúster de Service Fabric. Use EventsHealthStateFilter para filtrar la colección de eventos de estado notificados en el clúster en función del estado de mantenimiento. Asimismo, utilice NodesHealthStateFilter y ApplicationsHealthStateFilter para filtrar la colección de nodos y aplicaciones devueltas, según su estado de mantenimiento agregado.
+Use EventsHealthStateFilter para filtrar la colección de eventos de estado notificados en el clúster en función del estado de mantenimiento. Asimismo, utilice NodesHealthStateFilter y ApplicationsHealthStateFilter para filtrar la colección de nodos y aplicaciones devueltas, según su estado de mantenimiento agregado.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
 | --applications-health-state-filter | Permite el filtrado de los objetos de estado de mantenimiento de aplicaciones devueltos en el resultado de la consulta de mantenimiento del clúster en función de su estado de mantenimiento. Los valores posibles para este parámetro incluyen un valor entero obtenido de los miembros u operaciones bit a bit en miembros de la enumeración HealthStateFilter. Solo se devuelven las aplicaciones que coinciden con el filtro. Todas las aplicaciones se usan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit 'OR'. Por ejemplo, si el valor proporcionado es 6, se devuelve el estado de mantenimiento de las aplicaciones con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
-| --events-health-state-filter | Permite filtrar la colección de objetos HealthEvent devueltos según el estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los eventos que coinciden con el filtro. Todos los eventos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit 'OR'. Por ejemplo, si el valor proporcionado es 6, se devuelven todos los eventos con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
+| --events-health-state-filter | Permite filtrar la colección de objetos HealthEvent devueltos según el estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los eventos que coinciden con el filtro. Todos los eventos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit "OR". Por ejemplo, si el valor proporcionado es 6, se devuelven todos los eventos con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
 | --exclude-health-statistics | Indica si las estadísticas de mantenimiento se deben devolver como parte del resultado de la consulta. El valor predeterminado es false. Las estadísticas muestran el número de entidades secundarias en estado de mantenimiento Ok, Warning y Error. |
 | --include-system-application-health-statistics | Indica si las estadísticas de mantenimiento deben incluir las estadísticas de mantenimiento de aplicaciones fabric\:/System. El valor predeterminado es false. Si IncludeSystemApplicationHealthStatistics se establece en true, las estadísticas de mantenimiento incluyen las entidades que pertenecen a la aplicación fabric\:/System. En caso contrario, el resultado de la consulta incluye las estadísticas de estado solo para las aplicaciones de usuario. Las estadísticas de mantenimiento deben incluirse en el resultado de la consulta para que se aplique este parámetro. |
 | --nodes-health-state-filter | Permite filtrar los objetos de estado de mantenimiento de nodos devueltos en el resultado de la consulta de mantenimiento del clúster en función de su estado de mantenimiento. Los valores posibles para este parámetro incluyen el valor entero de uno de los siguientes estados de mantenimiento. Se devuelven únicamente los nodos que coinciden con el filtro. Todos los nodos se utilizan para evaluar el estado de mantenimiento agregado. Si no se especifica, se devuelven todas las entradas. Los valores de estado se marcan según la enumeración, por lo que el valor puede ser una combinación de estos valores obtenidos mediante el operador bit a bit 'OR'. Por ejemplo, si el valor proporcionado es 6, se devuelve el estado de mantenimiento de los nodos con el valor HealthState de Ok (2) y Warning (4).  <br> - Default: valor predeterminado. Coincide con cualquier HealthState. El valor predeterminado es cero.  <br> - None: filtro que no coincide con ningún valor de HealthState. Se utiliza para no devolver ningún resultado en una determinada colección de estados. El valor es 1.  <br> - Ok: filtro que asocia la entrada con el valor de HealthState de Ok. El valor es 2.  <br> - Warning: filtro que asocia la entrada con el valor de HealthState de Warning. El valor es 4.  <br> - Error: filtro que asocia la entrada con el valor de HealthState de Error. El valor es 8.  <br> - All: filtro que asocia la entrada con cualquier valor de HealthState. El valor es 65535. |
@@ -141,7 +142,7 @@ Cancela una operación de error provocada por el usuario.
 
 Las siguientes API inician operaciones de error que se pueden cancelar mediante el uso de CancelOperation: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Si force es false, la operación inducida por el usuario especificado se detendrá y se limpiará correctamente.  Si force es true, se anulará el comando y puede quedar algún estado interno.  Debe utilizarse con cuidado la especificación de force como true. No se permite llamar a esta API con force establecido en true hasta que esta API se haya llamado en el mismo comando de prueba con force establecido en false primero, o a menos que el comando de prueba ya tenga un elemento OperationState de OperationState.RollingBack. 
 
-Aclaración\: OperationState.RollingBack significa que el sistema limpia o limpiará el estado interno del sistema causado por la ejecución del comando. No restaurará los datos si el comando de prueba iba a causar pérdida de datos.  Por ejemplo, si llama a StartDataLoss y luego llama a esta API, el sistema solo limpiará el estado interno de la ejecución del comando. No restaurará datos de la partición de destino si el comando ha progresado lo suficiente para provocar la pérdida de datos. 
+ Aclaración\: OperationState.RollingBack significa que el sistema limpia o limpiará el estado interno del sistema causado por la ejecución del comando. No restaurará los datos si el comando de prueba iba a causar pérdida de datos.  Por ejemplo, si llama a StartDataLoss y luego llama a esta API, el sistema solo limpiará el estado interno de la ejecución del comando. No restaurará datos de la partición de destino si el comando ha progresado lo suficiente para provocar la pérdida de datos. 
 
 > [!NOTE]
 > Si esta API se invoca con force== true, el estado interno puede quedar atrás.
@@ -150,7 +151,7 @@ Aclaración\: OperationState.RollingBack significa que el sistema limpia o limpi
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --operation-id [Requerido] | Un GUID que identifica una llamada de esta API.  Se pasa a la API GetProgress correspondiente. |
+| --operation-id [obligatorio] | Un GUID que identifica una llamada de esta API.  Se pasa a la API GetProgress correspondiente. |
 | --force | Indica si se debe revertir correctamente y limpiar el estado interno del sistema modificado mediante la ejecución de la operación inducida por el usuario. |
 | --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
 
@@ -234,17 +235,17 @@ Indica al clúster de Service Fabric que debería intentar recuperar los servici
 ## <a name="sfctl-cluster-report-health"></a>sfctl cluster report-health
 Envía un informe de estado sobre el clúster de Service Fabric.
 
-El informe debe contener la información sobre el origen del informe de mantenimiento y la propiedad sobre la cual se informa. El informe se envía a un nodo de puerta de enlace de Service Fabric, que lo reenvía al almacén de estado. El portal puede aceptar el informe, pero el almacén de estado puede rechazarlo después de una validación adicional. Por ejemplo, el almacén de estado puede rechazar el informe debido a un parámetro no válido, como un número de secuencia obsoleto. Para ver si el informe se ha aplicado en el almacén de estado, compruebe que aparece en la sección HealthEvents del clúster.
+El informe debe contener la información sobre el origen del informe de mantenimiento y la propiedad sobre la cual se informa. El informe se envía a un nodo de puerta de enlace de Service Fabric, que lo reenvía al almacén de estado. La puerta de enlace puede aceptar el informe, pero el almacén de estado puede rechazarlo después de una validación adicional. Por ejemplo, el almacén de estado puede rechazar el informe debido a un parámetro no válido, como un número de secuencia obsoleto. Para ver si el informe se ha aplicado en el almacén de estado, compruebe que aparece en la sección HealthEvents del clúster.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --health-property [Obligatorio] | La propiedad de la información de mantenimiento. <br><br> Una entidad puede tener informes de mantenimiento para diferentes propiedades. La propiedad es una cadena y no una enumeración fija para permitir al informador la flexibilidad de categorizar la condición de estado que desencadena el informe. Por ejemplo, un informador con SourceId "LocalWatchdog" puede supervisar el estado del disco disponible en un nodo, por lo que puede informar de la propiedad "AvailableDisk" en ese nodo. El mismo informador puede supervisar la conectividad del nodo, por lo que puede informar de una propiedad "Connectivity" en el mismo nodo. En el almacén de estado, estos informes se tratan como eventos de mantenimiento del nodo especificado. Junto con SourceId, la propiedad identifica la información de mantenimiento de manera única. |
+| --health-property [Obligatorio] | La propiedad de la información de mantenimiento. <br><br> Una entidad puede tener informes de mantenimiento para diferentes propiedades. La propiedad es una cadena y no una enumeración fija para permitir al informador la flexibilidad de categorizar la condición de estado que desencadena el informe. Por ejemplo, un informador con SourceId "LocalWatchdog" puede supervisar el estado del disco disponible en un nodo, por lo que puede informar de la propiedad "AvailableDisk" en ese nodo. El mismo informador puede supervisar la conectividad del nodo, por lo que puede informar de una propiedad "Connectivity" en el mismo nodo. En el almacén de estado, estos informes se tratan como eventos de mantenimiento independientes del nodo especificado. Junto con SourceId, la propiedad identifica la información de mantenimiento de manera única. |
 | --health-state    [Obligatorio] | Los valores posibles incluyen\: 'Invalid', 'Ok', 'Warning', 'Error', 'Unknown'. |
 | --source-id       [Obligatorio] | El nombre de origen que identifica el componente de cliente/guardián/sistema que genera la información de estado. |
 | --description | La descripción de la información de mantenimiento. <br><br> Representa el texto libre utilizado para agregar información legible por el ser humano sobre el informe. La longitud máxima de la cadena de la descripción es de 4096 caracteres. Si la cadena proporcionada es más larga, se truncará automáticamente. Cuando está truncado, los últimos caracteres de la descripción contienen un marcador "[Truncado]" y el tamaño total de la cadena es de 4096 caracteres. La presencia del marcador indica a los usuarios que el truncamiento se ha producido. Tenga en cuenta que, cuando se trunca, la descripción tiene menos de 4096 caracteres de la cadena original. |
-| --immediate | Una marca que indica si el informe se debe enviar inmediatamente. <br><br> Se envía un informe de mantenimiento a una aplicación de puerta de enlace de Service Fabric, que la reenvía al almacén de estado. Si el parámetro --inmediate se establece en true, el informe se envía inmediatamente de la puerta de enlace HTTP al almacén de estado, con independencia de la configuración de cliente de Fabric que esté usando la aplicación de la puerta de enlace HTTP. Esto es útil para los informes críticos que deben enviarse tan pronto como sea posible. En función del tiempo y otras condiciones, el envío del informe puede aún generar un error, por ejemplo, si se cierra la puerta de enlace HTTP o el mensaje no llega a la puerta de enlace. Si el parámetro --inmediate se establece en false, el informe se envía en función de la configuración de cliente de mantenimiento de la puerta de enlace HTTP. Por lo tanto, se procesará por lotes de acuerdo con la configuración de HealthReportSendInterval. Esta es la configuración recomendada porque permite que el cliente de mantenimiento optimice los mensajes de notificación de estado destinados al almacén de estado, así como el procesamiento de informes de mantenimiento. De forma predeterminada, los informes no se envían inmediatamente. |
+| --immediate | Una marca que indica si el informe se debe enviar inmediatamente. <br><br> Se envía un informe de mantenimiento a una aplicación de puerta de enlace de Service Fabric, que la reenvía al almacén de estado. Si Immediate se establece en true, el informe se envía inmediatamente de la puerta de enlace HTTP al almacén de estado, independientemente de la configuración de cliente de Fabric que esté usando la aplicación de la puerta de enlace HTTP. Esto es útil para los informes críticos que deben enviarse tan pronto como sea posible. En función del tiempo y otras condiciones, el envío del informe puede aún generar un error, por ejemplo, si se cierra la puerta de enlace HTTP o el mensaje no llega a la puerta de enlace. Si Immediate se establece en false, el informe se envía en función de la configuración de cliente de mantenimiento de la puerta de enlace HTTP. Por lo tanto, se procesará por lotes de acuerdo con la configuración de HealthReportSendInterval. Esta es la configuración recomendada porque permite que el cliente de mantenimiento optimice los mensajes de notificación de estado destinados al almacén de estado, así como el procesamiento de informes de mantenimiento. De forma predeterminada, los informes no se envían inmediatamente. |
 | --remove-when-expired | Valor que indica si el informe se quita del almacén de estado cuando expire. <br><br> Si se establece en true, el informe se quita del almacén de estado una vez que expire. Si se establece en false, el informe se trata como un error cuando expire. El valor de esta propiedad es false de forma predeterminada. Cuando los clientes notifican periódicamente, deben establecer RemoveWhenExpired en false (valor predeterminado). De esta manera, si el notificador tiene problemas (por ejemplo, un interbloqueo) y no puede informar, la entidad se evalúa al llegar el error cuando expira el informe de mantenimiento. De este modo, se marca que la entidad está en estado de mantenimiento Error. |
 | --sequence-number | El número de secuencia para este informe de estado como una cadena numérica. <br><br> El número de secuencia del informe se usa por el almacén de estado para detectar informes obsoletos. Si no se especifica, se genera automáticamente un número de secuencia por el cliente de estado cuando se agrega un informe. |
 | --timeout -t | Tiempo de espera del servidor en segundos.  Valor predeterminado\: 60. |
@@ -287,10 +288,23 @@ Si se conecta al clúster seguro, especifique una ruta de acceso absoluta a un a
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
 | --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
+## <a name="sfctl-cluster-show-connection"></a>sfctl cluster show-connection
+Muestra el clúster de Service Fabric al que está conectada esta instancia de sfctl.
+
+### <a name="global-arguments"></a>Argumentos globales
+
+|Argumento|DESCRIPCIÓN|
+| --- | --- |
+| --debug | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración. |
+| --help -h | Muestra este mensaje de ayuda y sale. |
+| --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
+| --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
+| --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+
 ## <a name="sfctl-cluster-unprovision"></a>sfctl cluster unprovision
 Deshace el aprovisionamiento del código o los paquetes de configuración de un clúster de Service Fabric.
 
-Deshace el aprovisionamiento del código o los paquetes de configuración de un clúster de Service Fabric. Es posible deshacer el aprovisionamiento de código y la configuración por separado.
+Es posible deshacer el aprovisionamiento de código y la configuración por separado.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -325,7 +339,7 @@ Valida los parámetros de actualización suministrados e inicia la actualizació
 | --config-version | La versión de configuración del clúster. |
 | --delta-health-evaluation | Permite la evaluación de mantenimiento delta en lugar de absoluta tras la finalización de cada dominio de actualización. |
 | --delta-unhealthy-nodes | El porcentaje máximo permitido de degradación del mantenimiento de los nodos durante las actualizaciones del clúster.  Valor predeterminado\: 10. <br><br> El delta se mide entre el estado de los nodos al principio de la actualización y el estado de los nodos en el momento de la evaluación de mantenimiento. La comprobación se realiza después de que finaliza la actualización de cada dominio de actualización para asegurarse de que el estado global del clúster está dentro de los límites permitidos. |
-| --failure-action | Los valores posibles son\: 'Invalid', 'Rollback', 'Manual'. |
+| --failure-action | Los valores posibles son\: "Invalid", "Rollback", "Manual". |
 | --force-restart | Fuerza el reinicio. |
 | --health-check-retry | Tiempo de espera de reintentos de comprobación de mantenimiento medido en milisegundos. |
 | --health-check-stable | Duración estable de comprobación de mantenimiento medida en milisegundos. |
@@ -425,7 +439,7 @@ Actualiza los parámetros de actualización de una actualización de clúster de
 | --app-type-health-map | Diccionario codificado en JSON de pares de nombres de tipo de aplicación y porcentaje máximo con estado incorrecto antes de producirse el error. |
 | --delta-health-evaluation | Permite la evaluación de mantenimiento delta en lugar de absoluta tras la finalización de cada dominio de actualización. |
 | --delta-unhealthy-nodes | El porcentaje máximo permitido de degradación del mantenimiento de los nodos durante las actualizaciones del clúster.  Valor predeterminado\: 10. <br><br> El delta se mide entre el estado de los nodos al principio de la actualización y el estado de los nodos en el momento de la evaluación de mantenimiento. La comprobación se realiza después de que finaliza la actualización de cada dominio de actualización para asegurarse de que el estado global del clúster está dentro de los límites permitidos. |
-| --failure-action | Los valores posibles son\: 'Invalid', 'Rollback', 'Manual'. |
+| --failure-action | Los valores posibles son\: "Invalid", "Rollback", "Manual". |
 | --force-restart | Fuerza el reinicio. |
 | --health-check-retry | Tiempo de espera de reintentos de comprobación de mantenimiento medido en milisegundos. |
 | --health-check-stable | Duración estable de comprobación de mantenimiento medida en milisegundos. |
@@ -450,8 +464,6 @@ Actualiza los parámetros de actualización de una actualización de clúster de
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
 | --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.

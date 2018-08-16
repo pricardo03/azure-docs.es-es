@@ -4,7 +4,7 @@ description: Obtenga información acerca de qué lenguajes se admiten (versión 
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 ms.service: functions
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 00f291e903948bf43bc997816b6072186cf1f889
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 2de2ebdea41ca35e853b37ab804e516eb7f4df9f
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343090"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494455"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Lenguajes admitidos en Azure Functions
 
@@ -43,11 +43,11 @@ Hay tres niveles de soporte:
 
 En la versión 1.x, los lenguajes experimentales no escalan bien y no admiten todos los enlaces. Por ejemplo, Python es lento porque el sistema de tiempo de ejecución de Functions ejecuta *python.exe* con cada invocación de función. Y aunque Python admite los enlaces HTTP, no puede acceder al objeto de solicitud.
 
-En la versión experimental, solo se admite la versión 4.0 de PowerShell porque es lo que se instala en las máquinas virtuales en las que se ejecutan las aplicaciones de función. Si desea ejecutar scripts de PowerShell, considere la posibilidad de usar [Azure Automation](https://azure.microsoft.com/services/automation/).
-
-El sistema de tiempo de ejecución 2.x no admite lenguajes experimentales. En la versión 2.x, solo se admitirá un lenguaje cuando escale bien y admita desencadenadores avanzados.
+En la versión experimental, solo se admite la versión 5.1 de PowerShell porque es la que se instala de forma predeterminada en las máquinas virtuales en las que se ejecutan las aplicaciones de función. Si desea ejecutar scripts de PowerShell, considere la posibilidad de usar [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 Si desea usar uno de los lenguajes que solo están disponibles en la versión 1.x, mantenga el sistema de tiempo de ejecución 1.x. No use los lenguajes experimentales para nada importante, porque no cuentan con soporte oficial. Para solicitar ayuda, puede [crear incidencias en GitHub](https://github.com/Azure/azure-webjobs-sdk-script/issues), pero no abra casos de soporte técnico para problemas con lenguajes experimentales. 
+
+La versión 2.x del sistema de tiempo de ejecución no admite lenguajes experimentales. La compatibilidad para nuevos idiomas solamente se agrega cuando el idioma puede admitirse en producción. 
 
 ### <a name="language-extensibility"></a>Extensibilidad de lenguaje
 

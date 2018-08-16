@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: ffdbff7edc5af187071615c8b1e61790b3a38429
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d7f33bf0657ca2a6888387b7651706f9de537bb4
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763984"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494363"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Administre clústeres de Service Fabric independientes.
@@ -35,7 +35,7 @@ Administre clústeres de Service Fabric independientes.
 ## <a name="sfctl-sa-cluster-config"></a>sfctl sa-cluster config
 Obtenga la configuración del clúster independiente de Service Fabric.
 
-Obtenga la configuración del clúster independiente de Service Fabric. La configuración de clúster contiene propiedades del clúster que incluyen distintos tipos de nodos en el clúster, las configuraciones de seguridad, los errores y las topologías de dominio de actualización, etc.
+La configuración de clúster contiene propiedades del clúster que incluyen distintos tipos de nodos en el clúster, las configuraciones de seguridad, los errores y las topologías de dominio de actualización, etc.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -63,7 +63,8 @@ Valide los parámetros de actualización de configuración suministrados e inici
 
 |Argumento|DESCRIPCIÓN|
 | --- | --- |
-| --cluster-config            [obligatorio] | La configuración de clúster. |
+| --cluster-config            [obligatorio] | La configuración del clúster que se aplicará al clúster. |
+| --application-health-policies | Diccionario codificado en JSON de pares de nombres de tipo de aplicación y porcentaje máximo con estado incorrecto antes de producirse el error. |
 | --delta-unhealthy-nodes | El porcentaje máximo permitido de degradación de mantenimiento delta durante la actualización. Los valores permitidos son enteros entre 0 y 100. |
 | --health-check-retry | El período de tiempo entre intentos para realizar comprobaciones de mantenimiento si la aplicación o el clúster no son correctos.  Valor predeterminado\: PT0H0M0S. |
 | --health-check-stable | El período de tiempo que la aplicación o el clúster debe permanecer en buen estado.  Valor predeterminado\: PT0H0M0S. |
@@ -85,6 +86,10 @@ Valide los parámetros de actualización de configuración suministrados e inici
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
 | --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
 
+### <a name="examples"></a>Ejemplos
+
+Iniciar una actualización de configuración de clúster sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
+
 ## <a name="sfctl-sa-cluster-upgrade-status"></a>sfctl sa-cluster upgrade-status
 Obtenga el estado de actualización de configuración de clúster de un clúster de Service Fabric independiente.
 
@@ -105,6 +110,7 @@ Obtenga los detalles del estado de actualización de configuración de clúster 
 | --output -o | Formato de salida.  Valores permitidos\: json, jsonc, table y tsv.  Valor predeterminado\: json. |
 | --query | Cadena de consulta de JMESPath. Consulte http\://jmespath.org/ para obtener más información y ejemplos. |
 | --verbose | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos. |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.

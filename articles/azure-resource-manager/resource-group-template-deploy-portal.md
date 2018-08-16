@@ -4,25 +4,23 @@ description: Utilice el Portal de Azure y Azure Resource Manager para implementa
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2017
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 79bc42394513efc2ac03ea9d7170f035d71edb4f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c16d584f17aa2c209c9c0ec94d35f6fe78ba1907
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603736"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494098"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure
 
-En este tema se muestra cómo utilizar [Azure Portal](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) para implementar los recursos de Azure. Para obtener más información sobre cómo administrar los recursos, consulte [Administración de los recursos de Azure a través del Portal](resource-group-portal.md).
+En este artículo se muestra cómo utilizar [Azure Portal](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) para implementar los recursos de Azure. Para obtener más información sobre cómo administrar los recursos, consulte [Administración de los recursos de Azure a través del Portal](resource-group-portal.md).
 
 ## <a name="create-resource-group"></a>Creación de un grupo de recursos
 
@@ -79,6 +77,9 @@ Una vez creado el grupo de recursos, puede implementar recursos en él desde Mar
 ## <a name="deploy-resources-from-custom-template"></a>Implementación de recursos desde plantilla personalizada
 
 Si desea ejecutar una implementación sin usar las plantillas de Marketplace, puede crear una plantilla personalizada que defina la infraestructura para la solución. Para más información sobre cómo crear plantillas, vea [Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
+
+> [!NOTE]
+> La interfaz del portal no admite referencias a un [secreto desde Key Vault](resource-manager-keyvault-parameter.md). En su lugar, use [PowerShell](resource-group-template-deploy.md) o la [CLI de Azure](resource-group-template-deploy-cli.md) para implementar la plantilla localmente o desde un URI externo.
 
 1. Para implementar una plantilla personalizada a través del portal, haga clic en **Crear un recurso** y busque **Implementación de plantillas** hasta que pueda seleccionarla de entre las opciones.
 

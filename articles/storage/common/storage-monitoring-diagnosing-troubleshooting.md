@@ -2,24 +2,18 @@
 title: Supervisión, diagnóstico y solución de problemas de Azure Storage | Microsoft Docs
 description: Use características como análisis de almacenamiento, registro del lado cliente y otras herramientas de terceros para identificar, diagnosticar y solucionar problemas relacionados con Azure Storage.
 services: storage
-documentationcenter: ''
 author: fhryo-msft
-manager: jahogg
-editor: tysonn
-ms.assetid: d1e87d98-c763-4caa-ba20-2cf85f853303
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.openlocfilehash: b89071048594e1e11efb321da3d0b48005824b46
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.component: common
+ms.openlocfilehash: e560eb9e0bbce09c541bfc66ea760ea3e636f841
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "29740670"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528721"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -477,9 +471,9 @@ Si la aplicación cliente inicia errores HTTP 403 (prohibido), uno de los motivo
 | Microsoft.WindowsAzure.Storage |Información |3 |85d077ab-… |Iniciando operación con ubicación Primary según modo de ubicación PrimaryOnly. |
 | Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |A partir de una solicitud sincrónica a https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14. |
 | Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |Esperando respuesta. |
-| Microsoft.WindowsAzure.Storage |Warning (Advertencia) |2 |85d077ab -… |Se inició una excepción mientras se esperaba respuesta: el servidor remoto devolvió un error: (403) Prohibido. |
+| Microsoft.WindowsAzure.Storage |Advertencia |2 |85d077ab -… |Se inició una excepción mientras se esperaba respuesta: el servidor remoto devolvió un error: (403) Prohibido. |
 | Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |Respuesta recibida. Código de estado = 403, Id. de solicitud = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
-| Microsoft.WindowsAzure.Storage |Warning (Advertencia) |2 |85d077ab -… |Se inició una excepción durante la operación: el servidor remoto devolvió un error: (403) Prohibido... |
+| Microsoft.WindowsAzure.Storage |Advertencia |2 |85d077ab -… |Se inició una excepción durante la operación: el servidor remoto devolvió un error: (403) Prohibido... |
 | Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |Comprobando si se debe reintentar la operación. Número de reintentos = 0, Código de estado HTTP = 403, Excepción = El servidor remoto devolvió un error: (403) Prohibido. |
 | Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |La siguiente ubicación se estableció como Primary, de acuerdo con el modo de ubicación. |
 | Microsoft.WindowsAzure.Storage |Error |1 |85d077ab -… |La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: (403) Prohibido. |

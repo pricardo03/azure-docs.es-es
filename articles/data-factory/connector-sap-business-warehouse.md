@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 08/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9934e9757b5def444afb39d110e490aa6516521f
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 52bbf93d73af281f3959e056a4d5b959e7286cb5
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045082"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590337"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copia de datos desde SAP Business Warehouse mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,15 +37,17 @@ Concretamente, este conector SAP Business Warehouse admite:
 - La copia de datos de **InfoCubes y QueryCubes** (incluidas las consultas BEx) mediante consultas MDX.
 - Copiar datos con la autenticación básica.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para usar este conector SAP Business Warehouse, necesita hacer lo siguiente:
 
 - Configurar un entorno Integration Runtime autohospedado. Consulte el artículo sobre [Integration Runtime autohospedado](create-self-hosted-integration-runtime.md) para más información.
-- Instalar la **biblioteca SAP NetWeaver** en la máquina de Integration Runtime. Puede obtener la biblioteca SAP Netweaver desde el administrador de SAP o directamente desde el [centro de descarga de software de SAP](https://support.sap.com/swdc). Busque la **nota 1025361 de SAP** para obtener la ubicación de descarga de la versión más reciente. Asegúrese de elegir la biblioteca de SAP NetWeaver de **64 bits**, que coincide con la instalación de Integration Runtime. A continuación, instale todos los archivos incluidos en SAP NetWeaver RFC SDK según la nota de SAP. La biblioteca SAP NetWeaver también se incluye en la instalación de las herramientas de cliente de SAP.
+- Instalar la **biblioteca SAP NetWeaver** en la máquina de Integration Runtime. Puede obtener la biblioteca SAP Netweaver desde el administrador de SAP o directamente desde el [centro de descarga de software de SAP](https://support.sap.com/swdc). Busque la **nota 1025361 de SAP** para obtener la ubicación de descarga de la versión más reciente. Asegúrese de elegir la biblioteca de SAP NetWeaver de **64 bits**, que coincida con la instalación de Integration Runtime. A continuación, instale todos los archivos incluidos en SAP NetWeaver RFC SDK según la nota de SAP. La biblioteca SAP NetWeaver también se incluye en la instalación de las herramientas de cliente de SAP.
 
-> [!TIP]
-> Coloque los archivos DLL extraídos de NetWeaver RFC SDK en la carpeta system32.
+>[!TIP]
+>Para solucionar problemas de conectividad a SAP BW, asegúrese de lo siguiente:
+>- Todas las bibliotecas de dependencias extraídas de NetWeaver RFC SDK están en la carpeta %windir%\system32. Normalmente contiene icudt34.dll, icuin34.dll, icuuc34.dll, libicudecnumber.dll, librfc32.dll, libsapucum.dll, sapcrypto.dll, sapcryto_old.dll, sapnwrfc.dll.
+>- Los puertos necesarios usados para conectarse a SAP Server están habilitados en la máquina de IR autohospedado, que normalmente son 3300 y 3201.
 
 ## <a name="getting-started"></a>Introducción
 
@@ -59,13 +61,13 @@ Las siguientes propiedades son compatibles con el servicio vinculado SAP Busines
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **SapBw** | Sí |
-| Servidor | Nombre del servidor en el que reside la instancia de SAP BW. | Sí |
-| systemNumber | Número del sistema de SAP BW.<br/>Valor permitido: número decimal de dos dígitos que se representa en forma de cadena. | Sí |
-| clientId | Identificador del cliente en el sistema SAP W.<br/>Valor permitido: número decimal de tres dígitos que se representa en forma de cadena. | Sí |
-| userName | Nombre del usuario que tiene acceso al servidor SAP. | Sí |
-| contraseña | Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
-| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |Sí |
+| Tipo | La propiedad type debe establecerse en: **SapBw** | SÍ |
+| Servidor | Nombre del servidor en el que reside la instancia de SAP BW. | SÍ |
+| systemNumber | Número del sistema de SAP BW.<br/>Valor permitido: número decimal de dos dígitos que se representa en forma de cadena. | SÍ |
+| clientId | Identificador del cliente en el sistema SAP W.<br/>Valor permitido: número decimal de tres dígitos que se representa en forma de cadena. | SÍ |
+| userName | Nombre del usuario que tiene acceso al servidor SAP. | SÍ |
+| contraseña | Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
+| connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Tal y como se mencionó en los [requisitos previos](#prerequisites), se requiere un entorno Integration Runtime autohospedado. |SÍ |
 
 **Ejemplo:**
 
@@ -124,8 +126,8 @@ Para copiar datos desde SAP BW, establezca el tipo de origen de la actividad de 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
-| query | Especifica la consulta MDX para leer datos de la instancia de SAP BW. | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | SÍ |
+| query | Especifica la consulta MDX para leer datos de la instancia de SAP BW. | SÍ |
 
 **Ejemplo:**
 

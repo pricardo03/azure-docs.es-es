@@ -1,25 +1,20 @@
 ---
-title: Administración de clústeres de Hadoop en HDInsight basados en Windows con el portal Azure | Microsoft Docs
+title: Administración de clústeres de Hadoop basados en Windows en HDInsight con Azure Portal
 description: Vea cómo administrar el servicio HDInsight. Cree un clúster de HDInsight, abra la consola interactiva de JavaScript y la consola de comandos de Hadoop.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 9295a988-bd88-453a-8c8b-55fa103bf39c
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 78541feda8c82be143f91fdde88eac179cf0b1a5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a4cbc0c14d0f6c505b391becf33c56dd95bfc251
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405371"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592227"
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Hadoop basados en Windows en HDInsight con el portal de Azure
 
@@ -31,7 +26,7 @@ La información de este artículo solo se aplica a los clústeres de HDInsight p
 > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
@@ -83,11 +78,12 @@ La instalación de software personalizado en el clúster mediante la Conexión a
 
    * Para personalizar el menú, haga clic con el botón derecho en el menú y, después, haga clic en **Personalizar**.
    * **Configuración** y **Toda la configuración**: Muestra la hoja **Configuración** del clúster, que permite obtener acceso a información de configuración detallada para el clúster.
-   * **Panel**, **Panel de clúster** y **Dirección URL: todas son formas de acceder al panel del clúster, que es la web de Ambari para los clústeres basados en Linux. -** Secure Shell\*\*: muestra las instrucciones para conectarse al clúster mediante la conexión de Secure Shell (SSH).
+   * **Panel**, **Panel de clúster** y **Dirección URL**: todas son formas de acceder al panel del clúster, que es la web de Ambari para clústeres basados en Linux.
+   * **Secure Shell**: muestra las instrucciones para conectarse al clúster mediante la conexión de Secure Shell (SSH).
    * **Escalar clúster**: Permite cambiar el número de nodos de trabajo para este clúster.
    * **Eliminar**: elimina el clúster.
    * **Inicio rápido**: muestra información que le ayudará a empezar a usar HDInsight.
-   * **Usuarios: permite establecer permisos para la *administración del portal* de este clúster para otros usuarios de la suscripción de Azure.
+   * **Usuarios**: permite establecer permisos para la *administración del portal* de este clúster para otros usuarios de la suscripción de Azure.
 
      > [!IMPORTANT]
      > Esto *solo* afecta al acceso y a los permisos para este clúster en el Portal de Azure, y no tiene ningún efecto sobre quién puede conectarse o enviar trabajos al clúster de HDInsight.
@@ -163,7 +159,7 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
     Puede aumentar sin ningún problema la cantidad de nodos de trabajo en un clúster de Hadoop que se encuentre en ejecución, sin que afecte a ningún trabajo pendiente o en ejecución. También se pueden enviar trabajos nuevos mientras la operación está en curso. Los errores que puedan surgir en una operación de escalado se enfrentan oportunamente, por lo que el clúster siempre queda en estado funcional.
 
     Cuando se realiza la reducción vertical de un clúster de Hadoop al disminuir la cantidad de nodos de datos, se reinician algunos de los servicios del clúster. Esto provoca que todos los trabajos pendientes y en ejecución fallen al completarse la operación de escalado. Sin embargo, puede volver a enviar los trabajos una vez finalizada la operación.
-* hbase
+* HBase
 
     Puede agregar nodos sin problemas al clúster de HBase mientras se encuentra en ejecución, así como eliminarlos. Los servidores regionales se equilibran automáticamente en unos pocos minutos tras completar la operación de escalado. Sin embargo, puede equilibrar manualmente los servidores regionales iniciando sesión en el nodo principal del clúster y ejecutando los comandos siguientes desde una ventana del símbolo del sistema:
 
@@ -205,7 +201,7 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
 
 ## <a name="pauseshut-down-clusters"></a>Pausa o apagado de clústeres
 La mayoría de los trabajos de Hadoop son trabajos por lotes que se ejecutan sol ocasionalmente. En la mayoría de los clústeres de Hadoop, hay grandes períodos de tiempo en los que el clúster no se usa para el procesamiento. Con HDInsight, los datos se almacenan en Azure Storage, por lo que puede eliminar un clúster de forma segura cuando no está en uso.
-También se le cargará por un clúster de HDInsight aunque no esté en uso. Como en muchas ocasiones los cargos por el clúster son más que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no estén en uso.
+También se le cobrará por un clúster de HDInsight aunque no se esté usando. Como en muchas ocasiones los cargos por el clúster son mucho más elevados que los cargos por el almacenamiento, desde el punto de vista económico tiene sentido eliminar clústeres cuando no se estén usando.
 
 Hay muchas maneras de programar el proceso:
 
@@ -277,7 +273,7 @@ La consola de consulta de HDInsight incluye las siguientes características:
 
     ![HDInsight portal job history](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-    Haga clic en **Nombre de la consulta** para mostrar los detalles, incluidas las propiedades del trabajo, la **consulta del trabajo** y la \*\*salida del trabajo. También puede descargar la consulta y la salida a la estación de trabajo.
+    Haga clic en **Nombre de la consulta** para mostrar los detalles, incluidas las propiedades del trabajo, la **consulta del trabajo** y la **salida del trabajo. También puede descargar la consulta y la salida a la estación de trabajo.
 * **Explorador de archivos**: explore la cuenta de almacenamiento predeterminada y las cuentas de almacenamiento vinculadas.
 
     ![HDInsight portal file browser browse](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)

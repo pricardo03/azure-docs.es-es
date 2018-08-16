@@ -1,26 +1,21 @@
 ---
-title: 'Conexión de Excel a Hadoop con el controlador ODBC de Microsoft Hive : Azure HDInsight | Microsoft Docs'
+title: Conexión de Excel a Hadoop con el controlador ODBC de Hive (Azure HDInsight)
 description: Aprenda a configurar y usar el controlador ODBC de Microsoft Hive para que Excel consulte datos en un clúster de HDInsight desde Microsoft Excel
 keywords: Excel en Hadoop, Excel en Hive, ODBC de Hive
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-tags: azure-portal
-editor: cgronlun
-ms.assetid: a7665a14-0211-4521-b3e7-3b26e8029cc0
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 26234ca17d833fef01ad5a6465824c99d84cc556
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 4153504e7d0fb6dff4b8a675b301f54fb3588e46
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200510"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590874"
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Conexión de Excel a Hadoop en Azure HDInsight con el controlador ODBC de Microsoft Hive
 
@@ -64,13 +59,13 @@ En los siguientes pasos se explica cómo crear un origen de datos de Hive ODBC.
    |  Base de datos |Use el <strong>valor predeterminado</strong> |
    |  Mechanism |Seleccione <strong>Azure HDInsight Service</strong> |
    |  User Name |Escriba el nombre de usuario HTTP del clúster de HDInsight. El nombre de usuario predeterminado es <strong>admin</strong>. |
-   |  Password |Escriba la contraseña del usuario del clúster de HDInsight. |
+   |  Contraseña |Escriba la contraseña del usuario del clúster de HDInsight. |
    
     </table>
    
     Hay algunos parámetros importantes que se deben tener en cuenta al hacer clic en **Opciones avanzadas**:
    
-   | . | DESCRIPCIÓN |
+   | Parámetro | DESCRIPCIÓN |
    | --- | --- |
    |  Use Native Query |Cuando esta opción está seleccionada, el controlador ODBC NO trata de convertir TSQL en HiveQL. Solo debe usarla si está totalmente seguro de que va a enviar instrucciones de HiveQL puras. Al conectarse a SQL Server o a Azure SQL Database, debe dejar esta opción desactivada. |
    |  Rows fetched per block |Al capturar un gran volumen de registros, es posible que sea necesario ajustar este parámetro para garantizar un rendimiento óptimo. |

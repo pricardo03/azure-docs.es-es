@@ -2,23 +2,19 @@
 title: Habilitar las métricas de almacenamiento en el Azure Portal | Microsoft Docs
 description: Cómo habilitar las métricas de almacenamiento para los servicios BLOB, Cola, Tabla y Archivo
 services: storage
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: 0407adfc-2a41-4126-922d-b76e90b74563
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 0caa4eff80877ad4bf8d501a276e82922b1a84c7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: common
+ms.openlocfilehash: a12f2f3775808edb2045be5a1d955280f515ff7d
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39530425"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Habilitar las métricas de Azure Storage y ver sus datos
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -115,8 +111,8 @@ Vea [Herramientas de cliente de Azure Storage](storage-explorers.md) para obtene
 
 > [!NOTE]
 > A partir de la versión 0.8.0 del [Explorador de Microsoft Azure Storage](http://storageexplorer.com/), podrá ver y descargar las tablas de métricas de análisis.
-> 
-> 
+>
+>
 
 Para tener acceso a las tablas de análisis mediante programación, tenga en cuenta que estas no aparecerán si enumera todas las tablas en la cuenta de almacenamiento. Puede tener acceso a ellas directamente mediante el nombre o utilizando la [API de CloudAnalyticsClient](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.analytics.cloudanalyticsclient.aspx) en la biblioteca de cliente .NET para consultar los nombres de tabla.
 
@@ -148,6 +144,8 @@ En este ejemplo de datos de métricas por minuto, la clave de partición usa el 
 * El tipo de solicitud es all en cuyo caso es una línea de resumen, o identifica una API específica como QueryEntity o UpdateEntity.
 
 Los datos de ejemplo anteriores muestran todos los registros para un único minuto (que empieza el a las 11:00 AM), por lo que el número de solicitudes QueryEntities más el número de solicitudes QueryEntity más el número de solicitudes UpdateEntity suman siete, que es el total que se muestra en la fila user:All. De forma similar, puede derivar la latencia promedio de un extremo a otro 104,4286 en la fila user:All con el cálculo ((143,8 * 5) + 3 + 9)/7.
+
+Tenga en cuenta que la **configuración de métricas por hora de blob** se aplica tanto a la **métrica de capacidad de blob** ($MetricsCapacityBlob) como a la **métrica de transacción por hora de blob** ($ MetricsHourPrimaryTransactionsBlob). Ambas se habilitan o deshabilitan juntas y usan la misma directiva de retención.
 
 ## <a name="metrics-alerts"></a>Alertas de métricas
 Debería considerar la configuración de alertas en [Azure Portal](https://portal.azure.com) para que las métricas de Storage puedan notificarle automáticamente los cambios importantes en el comportamiento de los servicios de almacenamiento. Si usa una herramienta de exploración de almacenamiento para descargar estos datos de métricas en un formato delimitado, puede usar Microsoft Excel para analizar los datos. Consulte [Herramientas de cliente de Azure Storage](storage-explorers.md) para ver una lista de las herramientas del explorador de almacenamiento disponible. Puede configurar alertas en el panel **Reglas de alerta**, a la que puede acceder desde **Supervisión** en el panel de menú de la cuenta de almacenamiento.

@@ -11,14 +11,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
-ms.date: 07/13/2018
+ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: e4712b94be94eb6d4cf363fc120b72c74f29f0a2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6048a17bf50ecac691c7cf687f87e454c54ee9d9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057927"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521890"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Generación de perfiles de aplicaciones web de Azure activas con Application Insights
 
@@ -33,15 +33,15 @@ Actualmente, Profiler puede usarse con aplicaciones web ASP.NET y ASP.NET Core q
 Una vez que ha implementado una aplicación web, con independencia de si ha incluido el SDK de App Insights en el código fuente, haga lo siguiente:
 
 1. Vaya al panel **App Services** en Azure Portal.
-2. Vaya al panel **Configuración > Supervisión**.
+1. Vaya al panel **Configuración > Supervisión**.
 
    ![Habilitación de App Insights en el portal de App Services](./media/app-insights-profiler/AppInsights-AppServices.png)
 
-3. Siga las instrucciones que aparecen en el panel para crear un recurso o seleccione un recurso de App Insights existente para supervisar la aplicación web. Acepte todas las opciones predeterminadas. La opción **Diagnósticos de nivel de código** está activada de forma predeterminada y permite Profiler.
+1. Siga las instrucciones que aparecen en el panel para crear un recurso o seleccione un recurso de App Insights existente para supervisar la aplicación web. Acepte todas las opciones predeterminadas. La opción **Diagnósticos de nivel de código** está activada de forma predeterminada y permite Profiler.
 
    ![Adición de la extensión de sitio de App Insights][Enablement UI]
 
-4. Profiler se instala ahora con la extensión de sitio de App Insights y se habilita mediante un valor de configuración de aplicación de App Services.
+1. Profiler se instala ahora con la extensión de sitio de App Insights y se habilita mediante un valor de configuración de aplicación de App Services.
 
     ![Configuración de aplicación de Profiler][profiler-app-setting]
 
@@ -167,9 +167,12 @@ Estas son algunas cosas que puede comprobar:
 * Asegúrese de que la aplicación web tenga habilitado el SDK 2.2 Beta o superior de Application Insights.
 * Asegúrese de que la aplicación web tenga el valor **APPINSIGHTS_INSTRUMENTATIONKEY** configurado con la misma clave de instrumentación que usa el SDK de Application Insights.
 * Asegúrese de que la aplicación web se ejecuta en .NET Framework 4.6.
-* Si la aplicación web es una aplicación ASP.NET Core, compruebe también las [dependencias requeridas](#aspnetcore).
+* Si la aplicación web es una aplicación de ASP.NET Core, debe ejecutar al menos ASP.NET Core 2.0.
 
 Una vez iniciado Profiler, hay un breve proceso de preparación durante el cual recopila activamente varios seguimientos de rendimiento. Después, Profiler recopila los seguimientos de rendimiento durante dos minutos cada hora.
+
+> [!NOTE]
+> Hay un error en el agente del generador de perfiles que le impide cargar los seguimientos realizados desde las aplicaciones que se ejecutan en ASP.NET Core 2.1. Estamos trabajando en una solución y estará preparada en breve.
 
 ### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>Yo usaba Azure Service Profiler. ¿Qué ha ocurrido?
 
@@ -214,14 +217,14 @@ Estos parámetros eliminan la carpeta que usa Application Insights Profiler y de
 Cuando se configura Profiler, se realizan las siguientes actualizaciones en la configuración de la aplicación web. Estas actualizaciones se pueden aplicar manualmente si su entorno lo requiere. Un ejemplo podría ser la ejecución de su aplicación en un entorno de Web Apps para PowerApps.
 
 1. En el panel de **control de la aplicación web**, abra **Configuración**.
-2. Establezca **Versión de .Net Framework** en **v4.6**.
-3. Establezca **Siempre activado** en **Activado**.
-4. Agregue el valor de configuración de la aplicación **APPINSIGHTS_INSTRUMENTATIONKEY** y establezca el valor en la misma clave de instrumentación que usó el SDK.
-5. Abra **Herramientas avanzadas**.
-6. Seleccione **Ir** para abrir el sitio web de Kudu.
-7. En el sitio web de Kudu, seleccione **Site extensions** (Extensiones de sitio).
-8. Instale **Application Insights** desde la galería de aplicaciones web de Azure.
-9. Reinicie la aplicación web.
+1. Establezca **Versión de .Net Framework** en **v4.6**.
+1. Establezca **Siempre activado** en **Activado**.
+1. Agregue el valor de configuración de la aplicación **APPINSIGHTS_INSTRUMENTATIONKEY** y establezca el valor en la misma clave de instrumentación que usó el SDK.
+1. Abra **Herramientas avanzadas**.
+1. Seleccione **Ir** para abrir el sitio web de Kudu.
+1. En el sitio web de Kudu, seleccione **Site extensions** (Extensiones de sitio).
+1. Instale **Application Insights** desde la galería de aplicaciones web de Azure.
+1. Reinicie la aplicación web.
 
 ## <a id="profileondemand"></a> Desencadenamiento manual de Profiler
 
@@ -272,7 +275,7 @@ Las causas de este error pueden ser dos:
 
 1. La sesión de Profiler a petición se realizó con éxito, pero Application Insights tardó más tiempo en procesar los datos recopilados. Si los datos no han terminado de procesarse en 15 minutos, el portal mostrará un mensaje de tiempo de expiración. Aunque al cabo de un rato, se mostrarán los seguimientos de Profiler. Si esto sucede, omita el mensaje de error por ahora. Estamos trabajando para corregirlo.
 
-2. La aplicación web tiene una versión anterior del agente de Profiler que no tiene la característica a petición. Si ha habilitado anteriormente el perfil de Application Insights, lo más probable es que deba actualizar el agente de Profiler para empezar a usar la funcionalidad a petición.
+1. La aplicación web tiene una versión anterior del agente de Profiler que no tiene la característica a petición. Si ha habilitado anteriormente el perfil de Application Insights, lo más probable es que deba actualizar el agente de Profiler para empezar a usar la funcionalidad a petición.
   
 Siga estos pasos para comprobar e instalar la última versión de Profiler:
 
@@ -281,25 +284,25 @@ Siga estos pasos para comprobar e instalar la última versión de Profiler:
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0. Si alguno de estos valores de configuración no está establecido, vaya al panel de habilitación de Application Insights para instalar la extensión de sitio más reciente.
 
-2. Vaya al panel de Application Insights en el portal de App Services.
+1. Vaya al panel de Application Insights en el portal de App Services.
 
     ![Habilitación de Application Insights desde el portal de App Services][enable-app-insights]
 
-3. Si ve un botón para actualizar en la siguiente página, haga clic en él para actualizar la extensión de sitio de Application Insights que instalará al agente de Profiler más reciente.
+1. Si ve un botón para actualizar en la siguiente página, haga clic en él para actualizar la extensión de sitio de Application Insights que instalará al agente de Profiler más reciente.
 ![Actualizar extensión de sitio][update-site-extension]
 
-4. A continuación, haga clic en **Change** (Cambiar) para asegurarse de que Profiler está activado y seleccione **OK** (Aceptar) para guardar los cambios.
+1. A continuación, haga clic en **Change** (Cambiar) para asegurarse de que Profiler está activado y seleccione **OK** (Aceptar) para guardar los cambios.
 
     ![Cambiar y guardar información detallada de aplicación][change-and-save-appinsights]
 
-5. Vuelva a la pestaña **App Settings** (Configuración de la aplicación) de App Service para asegurarse de que los elementos de configuración de la aplicación están establecidos:
+1. Vuelva a la pestaña **App Settings** (Configuración de la aplicación) de App Service para asegurarse de que los elementos de configuración de la aplicación están establecidos:
     * **APPINSIGHTS_INSTRUMENTATIONKEY**: reemplace este valor por la clave de instrumentación correcta de Application Insights.
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
     ![Configuración de la aplicación para Profiler][app-settings-for-profiler]
 
-6. Opcionalmente, compruebe la versión de la extensión y asegúrese que no haya ninguna actualización disponible.
+1. Opcionalmente, compruebe la versión de la extensión y asegúrese que no haya ninguna actualización disponible.
 
     ![Comprobación de actualizaciones de la extensión][check-for-extension-update]
 

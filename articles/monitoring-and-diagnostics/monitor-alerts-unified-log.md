@@ -8,19 +8,23 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f36f05789424cfd3213525dd501333f852a0d9c2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: fd278ad6865c871ed0a5ed9272c9fadfca0f38db
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971727"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440436"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Alertas de registro en Azure Monitor: Alertas 
-En este artículo se proporcionan detalles de Alertas de registro, uno de los tipos de alerta que se admiten en el nuevo [Alertas de Azure](monitoring-overview-unified-alerts.md) y permite que los usuarios usen la plataforma de análisis de Azure como base para las alertas. Para detalles de las alertas de métrica mediante los registros, consulte las [alertas de métricas casi en tiempo real](monitoring-near-real-time-metric-alerts.md)
+En este artículo se proporcionan detalles sobre las alertas de registro, uno de los tipos de alerta que se admiten en el nuevo [Alertas de Azure](monitoring-overview-unified-alerts.md) y permite que los usuarios usen la plataforma de análisis de Azure como base para las alertas.
 
 
-Alerta de registro consiste en reglas de búsqueda de registros creadas para [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) o [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events).
+Alertas de registro consiste en reglas de búsqueda de registros creadas para [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) o [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Hay más información sobre precios de Alertas de registro disponible en la página [Precios de Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/). En las facturas de Azure, Alertas de registro se representa como tipo `microsoft.insights/scheduledqueryrules` con:
+- Alertas de registro en Application Insights se muestra con el nombre exacto de la alerta junto con el grupo de recursos y las propiedades de la alerta
+- Alertas de registro en Log Analytics se muestra con el nombre de la alerta como `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` junto con el grupo de recursos y las propiedades de la alerta
 
+    > [!NOTE]
+    > El nombre de todas las búsquedas guardadas, programaciones y acciones creadas con Log Analytics API debe estar en minúsculas. Si se usan caracteres no válidos como `<, >, %, &, \, ?, /`, se sustituirán por `_` en la factura.
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Regla de alertas de búsqueda de registros: definición y tipos
 
@@ -86,7 +90,7 @@ Considere la posibilidad de un escenario en el que desearía tener una alerta en
 - **Consulta:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5 m), Computer<br>
 - **Período de tiempo:** 30 minutos<br>
 - **Frecuencia de alerta:** cinco minutos<br>
-- **Valor agregado:** mayor que 90<br>
+- **Valor agregado**: mayor que 90<br>
 - **Desencadenar alerta según:** total de infracciones mayor que 2<br>
 
 La consulta crearía un valor medio para cada equipo a intervalos de cinco minutos.  Esta consulta se ejecutaría cada 5 minutos para los datos recopilados en los 30 minutos anteriores.  A continuación se muestran datos de ejemplo para tres equipos.
@@ -131,7 +135,7 @@ Para obtener más información, así como ejemplos sobre el uso de las plantilla
  
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Información sobre las [alertas de registro en Azure](monitor-alerts-unified-log-webhook.md).
+* Información sobre [webhooks en alertas de registro en Azure](monitor-alerts-unified-log-webhook.md).
 * Obtenga información sobre las nuevas [Alertas de Azure](monitoring-overview-unified-alerts.md)
 * Más información sobre [Application Insights](../application-insights/app-insights-analytics.md).
 * Más información sobre [Log Analytics](../log-analytics/log-analytics-overview.md).    

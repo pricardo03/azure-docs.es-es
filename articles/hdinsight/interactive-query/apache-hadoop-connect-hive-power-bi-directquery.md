@@ -1,25 +1,21 @@
 ---
-title: Visualización de datos de Interactive Query Hive con Power BI en Azure HDInsight | Microsoft Docs
+title: Visualización de datos de Interactive Query Hive con Power BI en Azure HDInsight
 description: Aprenda a usar Microsoft Power BI para visualizar datos de Interactive Query Hive procesados por Azure HDInsight.
 keywords: hdinsight,hadoop,hive,consulta interactiva,hive interactivo,LLAP,directquery
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive,
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
+ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/14/2018
-ms.author: jgao
-ms.openlocfilehash: b8da1f17b9e477caf9031cf94ee14f3a181e247e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4dcfcb5e70b9eb6626be1f3528781a8c5b1bd5c4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407969"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593033"
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualización de datos de Interactive Query Hive con Power BI mediante DirectQuery en Azure HDInsight
 
@@ -29,7 +25,7 @@ Aprenda a conectar Microsoft Power BI a clústeres de Interactive Query de Azure
 
 Puede aprovechar el [controlador ODBC de Hive](../hadoop/apache-hadoop-connect-hive-power-bi.md) para importar a través del conector ODBC genérico en Power BI Desktop. Sin embargo, no se recomienda para las cargas de trabajo de BI dada la naturaleza no interactiva del motor de consulta de Hive. El [conector de HDInsight Interactive Query](./apache-hadoop-connect-hive-power-bi-directquery.md) y el [conector de HDInsight Spark ](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) son mejores soluciones para su rendimiento.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de seguir los pasos de este artículo, debe disponer de los siguientes elementos:
 
 * **Clúster de HDInsight**. El clúster puede ser un clúster de HDInsight con Hive o un clúster de Interactive Query recién lanzado. Para crear clústeres, vea [Crear clúster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).

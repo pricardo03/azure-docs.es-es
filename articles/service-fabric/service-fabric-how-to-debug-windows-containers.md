@@ -13,18 +13,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/14/2018
 ms.author: mikhegn
-ms.openlocfilehash: 437c38a8e674fcdf06e26a7191ceecef9d901470
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 180bd3709cc9ffefb17f78e337e6f6995024fdcf
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968327"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523434"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>Depuración de contenedores de Windows en Azure Service Fabric mediante Visual Studio 2017
 
 Con Visual Studio 2017 Update 7 (15.7), puede depurar aplicaciones .NET en contenedores como servicios de Service Fabric. En este artículo se muestra cómo configurar el entorno y, a continuación, depurar una aplicación .NET en un contenedor que se ejecuta en un clúster de Service Fabric local.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * En Windows 10, siga este inicio rápido para [configurar Windows 10 para ejecutar contenedores de Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10).
 * En Windows Server 2016, siga este inicio rápido para [configurar Windows 2016 para ejecutar contenedores de Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server).
@@ -34,20 +34,20 @@ Con Visual Studio 2017 Update 7 (15.7), puede depurar aplicaciones .NET en conte
 
 1. Asegúrese de que el Docker de servicio de Windows se esté ejecutando antes de continuar con el paso siguiente.
 
-1. Para admitir la resolución DNS entre contenedores, tendrá que configurar el clúster de desarrollo local, usando para ello el nombre de la máquina.
+1. Para admitir la resolución DNS entre contenedores, tendrá que configurar el clúster de desarrollo local, usando para ello el nombre de la máquina. Estos pasos también son necesarios si desea ofrecer los servicios mediante el proxy inverso.
     1. Abra PowerShell como administrador.
-    1. Vaya hasta la carpeta de instalación del clúster del SDK, que suele ser `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
-    1. Ejecute el script `DevClusterSetup.ps1` con el parámetro `-UseMachineName`.
+    2. Vaya a la carpeta de instalación del clúster del SDK, que suele ser `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`.
+    3. Ejecute el script `DevClusterSetup.ps1` con el parámetro `-UseMachineName`.
 
-    ``` PowerShell
-      C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
-    ```
+       ``` PowerShell
+         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+       ```
 
     > [!NOTE]
     > Puede usar `-CreateOneNodeCluster` para configurar un clúster de un nodo. El valor predeterminado creará un clúster de cinco nodos local.
     >
 
-    Para más información sobre el servicio DNS en Service Fabric, consulte [Servicio DNS en Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice).
+    Para más información sobre el servicio DNS en Service Fabric, consulte [Servicio DNS en Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice). Para aprender más sobre el uso del proxy inverso de Service Fabric en servicios que se ejecutan en un contenedor, consulte [Tratamiento especial del proxy inverso para servicios que se ejecutan en contenedores](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers).
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>Limitaciones conocidas al depurar contenedores en Service Fabric
 

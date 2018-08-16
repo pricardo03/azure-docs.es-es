@@ -6,20 +6,28 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/19/2018
+ms.date: 08/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3303050311a30473bb973ac4f49bbeb707c16a33
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 6eb5cd9a086522bfe5125189f87a2498dda0ef7e
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173816"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493581"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Esquema de eventos de Azure Event Grid para las suscripciones
 
 En este artículo se proporcionan las propiedades y los esquemas de los eventos de suscripción de Azure. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md).
 
 Las suscripciones y los grupos de recursos de Azure emiten los mismos tipos de eventos. Los tipos de eventos están relacionados con los cambios en los recursos. La diferencia principal es que los grupos de recursos emiten eventos para los recursos en el grupo de recursos y las suscripciones de Azure emiten eventos para los recursos a través de la suscripción.
+
+Los eventos de recursos se crean para las operaciones PUT, PATCH y DELETE que se envían a `management.azure.com`. Las operaciones GET y POST no crean eventos. Las operaciones enviadas al plan de datos (como `myaccount.blob.core.windows.net`) no crean eventos.
+
+Cuando se suscribe a eventos para una suscripción de Azure, el punto de conexión recibe todos los eventos de esa suscripción. Los eventos pueden incluir el evento que desea ver, como la actualización de una máquina virtual, pero también los eventos que quizá no son importantes para usted, como escribir una nueva entrada en el historial de implementación. Puede recibir todos los eventos en el punto de conexión y escribir código que procesa los eventos que desea controlar, o puede establecer un filtro al crear la suscripción de eventos.
+
+Para controlar los eventos mediante programación, puede ordenarlos examinando el valor `operationName`. Por ejemplo, el punto de conexión de eventos podría procesar solamente eventos para las operaciones que son iguales a `Microsoft.Compute/virtualMachines/write` o `Microsoft.Storage/storageAccounts/write`.
+
+El asunto del evento es el identificador de recurso correspondiente al recurso que es el destino de la operación. Para filtrar eventos para un recurso, proporcione ese identificador de recurso creando la suscripción de eventos. Para scripts de muestra, consulte [Subscribe and filter for resource group - PowerShell](scripts/event-grid-powershell-resource-group-filter.md) (Suscripción y filtro para grupo de recursos: PowerShell) o [Subscribe and filter for resource group - Azure CLI](scripts/event-grid-cli-resource-group-filter.md) (Suscripción y filtro para grupo de recursos: CLI de Azure). Para filtrar por un tipo de recurso, use un valor en el formato siguiente: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
 ## <a name="available-event-types"></a>Tipos de eventos disponibles
 
@@ -36,7 +44,7 @@ Las suscripciones de Azure emiten eventos de administración desde Azure Resourc
 
 ## <a name="example-event"></a>Evento de ejemplo
 
-En el ejemplo siguiente, se muestra el esquema de un evento de creación de un recurso: 
+En el ejemplo siguiente se muestra el esquema para un evento **ResourceWriteSuccess**. Se usa el mismo esquema para eventos **ResourceWriteFailure** y **ResourceWriteCancel** con valores diferentes para `eventType`.
 
 ```json
 [{
@@ -96,7 +104,7 @@ En el ejemplo siguiente, se muestra el esquema de un evento de creación de un r
 }]
 ```
 
-El esquema para un evento de eliminación de un recurso es similar:
+En el ejemplo siguiente se muestra el esquema para un evento **ResourceDeleteSuccess**. Se usa el mismo esquema para eventos **ResourceDeleteFailure** y **ResourceDeleteCancel** con valores diferentes para `eventType`.
 
 ```json
 [{
@@ -184,7 +192,7 @@ El objeto data tiene las siguientes propiedades:
 | authorization | objeto | Autorización solicitada para la operación. |
 | claims | objeto | Propiedades de las notificaciones. Para más información, consulte la [especificación de JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | string | Identificador de operación para solucionar el problema. |
-| httpRequest | objeto | Detalles de la operación. |
+| httpRequest | objeto | Detalles de la operación. Este objeto solo se incluye al actualizar un recurso existente o eliminar un recurso. |
 | resourceProvider | string | Proveedor de recursos que se realiza la operación. |
 | resourceUri | string | URI del recurso en la operación. |
 | operationName | string | Operación que se realizó. |

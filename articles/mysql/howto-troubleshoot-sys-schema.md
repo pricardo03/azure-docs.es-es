@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 74bb59a8db70d4a01fcd3bd07054f1cbac50bf40
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 08/01/2018
+ms.openlocfilehash: 1e10e3b1b5f4518732408f254eb5767acb8485c6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266159"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446914"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Uso de sys_schema para operaciones de optimización del rendimiento y mantenimiento de bases de datos en Azure Database for MySQL
 
@@ -42,7 +42,7 @@ E/S es la operación más costosa en la base de datos. Podemos averiguar el prom
 
 ![latencia de E/S: 125 GB](./media/howto-troubleshoot-sys-schema/io-latency-125GB.png)
 
-Dado que Azure Database for MySQL escala E/S en relación al almacenamiento, después de aumentar mi almacenamiento aprovisionado a 1 TB, la latencia de E/S se reduce a 571 ms, lo cual representa un aumento del rendimiento hasta 26 veces superior.
+Dado que Azure Database for MySQL escala E/S en relación al almacenamiento, después de aumentar mi almacenamiento aprovisionado a 1 TB, la latencia de E/S se reduce a 571 ms.
 
 ![latencia de E/S: 1 TB](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
 

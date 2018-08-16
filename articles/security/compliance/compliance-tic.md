@@ -1,6 +1,6 @@
 ---
-title: Guía de conexión a Internet de confianza para Azure
-description: Guía de conexión a Internet de confianza para Azure y servicios de SaaS
+title: Guía de conexiones a Internet de confianza para Azure
+description: Guía de conexiones a Internet de confianza para Azure y servicios de SaaS
 services: security
 author: dlapiduz
 ms.assetid: 09511e03-a862-4443-81ac-ede815bdaf25
@@ -8,245 +8,266 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: 9d71efa35713500911c67d1df15612b64c8e97da
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 637f837ec2421f0bef5131a33c709087b891aa0f
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990836"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505118"
 ---
-# <a name="trusted-internet-connection-guidance"></a>Guía de conexión a Internet de confianza
+# <a name="trusted-internet-connections-guidance"></a>Guía de conexiones a Internet de confianza
 
-## <a name="background"></a>Fondo
+Este artículo describe cómo las administraciones públicas pueden utilizar Microsoft Azure Government para ayudar cumplir la iniciativa Conexiones a Internet de confianza (TIC). El artículo describe cómo usar Azure Government en las ofertas de infraestructura como servicio (IaaS) de Azure y de plataforma como servicio (PaaS) de Azure.
 
-El objetivo de la iniciativa de conexiones a Internet de confianza (TIC) es optimizar y estandarizar la seguridad de las conexiones de red externas individuales que usan actualmente las administraciones federales. La directiva se describe en el [memorándum M-05-08](https://georgewbush-whitehouse.archives.gov/omb/memoranda/fy2008/m08-05.pdf) de la Oficina de Administración y Presupuesto (OMB) de Estados Unidos.
+## <a name="trusted-internet-connections-overview"></a>Introducción a la iniciativa Conexiones a Internet de confianza
 
-En noviembre de 2007, la OMB estableció el programa TIC para mejorar la seguridad perimetral de la red federal y las funciones de respuesta a incidentes. La TIC se diseñó para realizar análisis de redes de todo el tráfico entrante y saliente con el dominio .gov para identificar firmas específicas y datos basados en patrones, así como para detectar anomalías del comportamiento, por ejemplo, actividades de red de bots. Se solicitó a las administraciones que consolidaran sus conexiones de red externas y que dirigieran todo el tráfico mediante dispositivos de detección y prevención de intrusiones (conocidos como EINSTEIN) hospedados en un número limitado de puntos de conexión de red (denominados conexiones a Internet de confianza).
+El objetivo de la iniciativa TIC es optimizar y estandarizar la seguridad de las conexiones de red externas individuales que usan las administraciones federales. La directiva se describe en el [memorándum M-08-05](https://georgewbush-whitehouse.archives.gov/omb/memoranda/fy2008/m08-05.pdf) de la Oficina de Administración y Presupuesto (OMB) de Estados Unidos.
 
-En pocas palabras, el objetivo de la TIC es que las administraciones sepan:
+En noviembre de 2007, la OMB estableció el programa TIC para mejorar la seguridad perimetral de la red federal y las funciones de respuesta a incidentes. La iniciativa TIC se diseñó para realizar análisis de redes de todo el tráfico entrante y saliente con el dominio .gov para identificar firmas específicas y datos basados en patrones. TIC descubre las anomalías de comportamientos, como las actividades de redes de robots (botnet). Las agencias están obligadas a consolidar sus conexiones de red externa y enrutar todo el tráfico a través de dispositivos de detección y prevención de intrusiones conocidos como EINSTEIN. Los dispositivos se hospedan en un número limitado de puntos de conexión de red, que se conocen como _conexiones a Internet de confianza_.
+
+El objetivo de la iniciativa TIC es que las administraciones sepan:
 - Quién se conecta a su red, con o sin autorización.
 - Cuándo y por qué se accede a su red.
 - A qué recursos se accede.
 
-Actualmente todas las conexiones externas de las administraciones deben enrutarse a través de una TIC aprobada por la OMB. Las administraciones federales deben participar en el programa TIC como proveedor de acceso de TIC (TICAP) o contratando los servicios de uno de los principales proveedores de servicios de Internet de nivel 1, denominados proveedores de servicios de protocolo de Internet de confianza administrados (MTIPS).  TIC incluye funcionalidades obligatorias críticas que actualmente realizan la administración y el proveedor MTIPS. En la versión actual de TIC, se implementa dispositivos de detección de intrusiones de la versión 2 de EINSTEIN y de prevención de intrusiones de la versión 3 acelerada (3A) de EINSTEIN en cada TICAP y MTIPS y la administración establece un memorándum de acuerdo con el Departamento de Seguridad Nacional (DHS) de Estados Unidos para implementar funcionalidades de EINSTEIN en sistemas federales.
+Actualmente, todas las conexiones externas de las administraciones deben enrutarse a través de una TIC aprobada por la OMB. Las administraciones federales deben participar en el programa TIC como proveedor de acceso de TIC (TICAP) o contratando los servicios de uno de los principales proveedores de servicios de Internet de nivel 1. Estos proveedores se llaman proveedores de servicios de protocolo de Internet de confianza administrados (MTIPS). TIC incluye funcionalidades obligatorias críticas que deben realizar la administración y el proveedor MTIPS. En la versión actual de TIC, los dispositivos de detección de intrusiones EINSTEIN versión 2 y de prevención de intrusiones EINSTEIN versión 3 acelerada (3A) se implementan en cada TICAP y MTIPS. La Agencia establece un "Memorándum de entendimiento" con el Departamento de Seguridad Nacional (DHS) para implementar las funcionalidades de EINSTEIN en los sistemas federales.
 
-Como parte de su responsabilidad de proteger la red .gov, DHS requiere las fuentes de distribución de datos sin procesar de los datos del flujo de red de las administraciones para correlacionar incidentes en todo el organismo federal y realizar análisis con herramientas especializadas. Los enrutadores del DHS proporcionan la capacidad de recopilar el tráfico de red IP según entra o sale de una interfaz. Al analizar los datos del flujo de red, un administrador de red puede determinar aspectos como el origen y el destino del tráfico, la clase de servicio, etc. Los datos de flujo de red se consideran "datos sin contenido" (por ejemplo, encabezado, IP de origen, IP de destino, etc.) y permiten al DHS conocer información acerca del contenido; es decir, quién ha hecho qué y durante cuanto tiempo.
+Como parte de su responsabilidad de proteger la red .gov, DHS requiere las fuentes de distribución de datos sin procesar de los datos del flujo de red de las administraciones para correlacionar incidentes en todo el organismo federal y realizar análisis con herramientas especializadas. Los enrutadores del DHS proporcionan la capacidad de recopilar el tráfico de red IP según entra o sale de una interfaz. Los administradores de red pueden analizar los datos del flujo de red para determinar el origen y el destino del tráfico, la clase de servicio, etc. Los datos del flujo de red se consideran "datos sin contenido" similares al encabezado, dirección IP de origen, dirección IP de destino, etc. Los datos sin contenido permiten al DHS obtener información sobre el contenido: quién estaba haciendo qué y durante cuánto tiempo.
 
-La iniciativa también incluye directivas de seguridad, directrices y marcos específicos para infraestructuras locales. A medida que las administraciones públicas se cambian a la nube por razones de ahorro de costos, eficiencia operativa e innovación, los requisitos de implementación de TIC ralentizan en ciertos casos el tráfico de red y limitan la velocidad y agilidad con la que los usuarios de administraciones públicas pueden acceder a sus datos basados en la nube.
+La iniciativa también incluye directivas de seguridad, directrices y marcos específicos para infraestructuras locales. Dado que los organismos gubernamentales se mueven a la nube para lograr ahorros de costos, eficacia operativa e innovación, los requisitos de implementación de TIC pueden ralentizar el tráfico de red. Como resultado, se limitan la velocidad y agilidad con las qué los usuarios del gobierno pueden acceder a los datos en la nube.
 
-Este artículo describe cómo las administraciones públicas pueden utilizar Microsoft Azure Government para ayudar cumplir la directiva de TIC en servicios de IaaS y PaaS.
+## <a name="azure-networking-options"></a>Opciones de redes de Azure
 
-## <a name="summary-of-azure-networking-options"></a>Resumen de las opciones de redes de Azure
+Existen tres opciones principales para conectarse a los servicios de Azure:
 
-Existen tres opciones principales al conectarse a los servicios de Azure:
+- Conexión directa a Internet: conéctese a los servicios de Azure directamente mediante una conexión a Internet abierta. El medio y la conexión son públicos. Para garantizar la privacidad, se emplea cifrado a nivel de transporte y aplicación. El ancho de banda está limitado por la conectividad del sitio a Internet. Use más de un proveedor activo para garantizar la resistencia.
+- Red privada virtual (VPN): conéctese a su red virtual de Azure de manera privada mediante el uso de VPN Gateway.
+El medio es público, ya que atraviesa una conexión a Internet estándar de un sitio, pero la conexión está cifrada en un túnel para garantizar la privacidad. El ancho de banda está limitado en función de los dispositivos VPN y la configuración seleccionados. Las conexiones de punto a sitio de Azure suelen estar limitadas a 100 Mbps y las conexiones de sitio a sitio están limitadas a 1,25 Gbps.
+- Azure ExpressRoute: ExpressRoute es una conexión directa a los servicios de Microsoft. Puesto que la conectividad se realiza a través de un canal de fibra aislado, la conexión puede ser pública o privada, según la configuración utilizada. El ancho de banda suele estar limitado a un máximo de 10 Gbps.
 
-1. Conexión directa a Internet: conéctese con servicios de Azure directamente mediante una conexión a Internet abierta. El medio es público, así como la conexión. Para garantizar la privacidad, se emplea cifrado a nivel de transporte y aplicación. El ancho de banda está limitado por la conectividad de un sitio a Internet y se pueden usar varios proveedores activos para garantizar la resistencia.
-1. Red privada virtual: conéctese a Azure Virtual Network de manera privada mediante una instancia de VPN Gateway.
-El medio es público, ya que atraviesa una conexión a Internet estándar de un sitio, pero la conexión está cifrada en un túnel para garantizar la privacidad. El ancho de banda está limitado en función de los dispositivos VPN y la configuración seleccionados. Las conexiones de punto a sitio de Azure suelen estar limitadas a 100 Mbps, mientras que las conexiones de sitio a sitio están limitadas a 1,25 Gbps.
-1. Microsoft ExpressRoute: ExpressRoute es una conexión directa a los servicios de Microsoft. Puesto que la conectividad se realiza a través de un canal de fibra aislado, la conexión puede ser pública o privada, según la configuración utilizada. El ancho de banda suele estar limitado a un máximo de 10 Gbps.
+Hay varias maneras de cumplir los requisitos del anexo H (Consideraciones de la nube) de TIC, como se especifica en el documento del Departamento de Seguridad Nacional "Trusted Internet Connections (TIC) Reference Architecture Document, Version 2.0" (Documento de arquitectura de referencia de conexiones a Internet de confianza, versión 2.0). Este artículo se refiere a la guía de TIC del DHS como **TIC 2.0**.
 
-Hay varias maneras de satisfacer los requisitos del anexo H sobre conexiones a Internet de confianza (Consideraciones de la nube), que se encuentra en el documento del Departamento de Seguridad Nacional "Trusted Internet Connections (TIC) Reference Architecture Document, Version 2.0" (Documento de arquitectura de referencia de conexiones a Internet de confianza, versión 2.0). En este documento, se hace referencia a la TIC de DHS como TIC 2.0.
+Para habilitar la conexión del **departamento o la administración (D/A)** a Azure u Office 365 sin enrutar el tráfico a través de la TIC del D/A, el D/A debe usar un túnel cifrado o una conexión dedicada con el proveedor de servicios en la nube (CSP). Los servicios del CSP pueden garantizar que no se ofrezca la conectividad a los recursos en la nube del D/A a la red pública de Internet para el acceso directo de personal de la administración.
 
-Para habilitar la conexión del departamento o la administraciones (D/A) a Azure u Office 365 sin enrutar el tráfico a través de la TIC del D/A, el D/A debe usar un túnel cifrado o una conexión dedicada para el proveedor de servicios en la nube (CSP). Los servicios del CSP pueden garantizar que no se ofrezca la conectividad a los recursos en la nube del D/A a la red pública de Internet para el acceso directo de personal de la administración.
+Office 365 cumple las especificaciones del anexo H de TIC 2.0 al usar ExpressRoute con el [emparejamiento de Microsoft](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) habilitado o una conexión a Internet que cifra todo el tráfico con TLS 1.2. Los usuarios finales de D/A en la red del D/A se pueden conectar mediante la red de su administración y la infraestructura de TIC mediante internet. Todo el acceso remoto de Internet a Office 365 se bloquea y se enruta a través de la administración. El D/A también puede conectarse a Office 365 a través de una conexión de ExpressRoute con el emparejamiento de Microsoft (un tipo de emparejamiento público) habilitado.  
 
-Office 365 cumple las especificaciones del anexo H de TIC 2.0 al usar ExpressRoute con el [emparejamiento de Microsoft](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) habilitado o una conexión a Internet que cifra todo el tráfico con TLS 1.2.  Los usuarios finales de D/A en la red del D/A se pueden conectar mediante la red de su administración y la infraestructura de TIC mediante internet. Todo el acceso remoto de Internet a O365 se bloquea y se enruta mediante la administración. El D/A también puede conectarse a O365 a través de una conexión de ExpressRoute con un emparejamiento de Microsoft (que es un tipo de emparejamiento público) habilitado.  
+Solo para Azure, la segunda opción (VPN) y la tercera (ExpressRoute) pueden cumplir estos requisitos cuando se usan junto con servicios que limitan el acceso a Internet.
 
-Solo para Azure, las opciones 2 (VPN) y 3 (ExpressRoute) pueden cumplir estos requisitos cuando se usan junto con los servicios que limitan el acceso a Internet.
+![Conexión a Internet de confianza (TIC) de Microsoft](media/tic-diagram-a.png)
 
-![Diagrama de conexión a Internet de confianza (TIC) de Microsoft](media/tic-diagram-a.png)
+## <a name="azure-infrastructure-as-a-service-offerings"></a>Ofertas de infraestructura como servicio de Azure
 
-## <a name="how-azure-infrastructure-as-a-service-offerings-can-help-with-tic-compliance"></a>Cómo puede ayudar la infraestructura como servicio de Azure con el cumplimiento de TIC
+El cumplimiento de la directiva de TIC al usar la infraestructura como servicio de Azure es relativamente sencillo, ya que los clientes de Azure administran su propio enrutamiento de red virtual.
 
-El cumplimiento de la directiva de TIC con IaaS es relativamente sencillo, ya que los clientes de Azure administran su propio enrutamiento de red virtual.
+El requisito principal para ayudar a garantizar el cumplimiento de la arquitectura de referencia de TIC es asegurarse de que la red virtual es una extensión privada de la red del D/A. Para ser una extensión _privada_, la directiva requiere que solo salga tráfico de su red a través de la conexión de red de TIC local. Este proceso se conoce como _tunelización forzada_. Para el cumplimiento de TIC, el proceso enruta todo el tráfico procedente de cualquier sistema del entorno del CSP mediante una puerta de enlace local en la red de la organización hacia Internet a través de la TIC.
 
-El requisito principal para ayudar a garantizar el cumplimiento de la arquitectura de referencia de TIC es asegurarse de que la red virtual se convierte en una extensión privada de la red del departamento o la administración. Para convertirse en una extensión _privada_, la directiva requiere que solo salga tráfico de su red a través de la conexión de red de TIC local. Este proceso se conoce como "tunelización forzada", que, al usarse para el cumplimiento de TIC, es el proceso de enrutamiento de todo el tráfico procedente de cualquier sistema del entorno del CSP para dirigirlo mediante una puerta de enlace local en la red de una organización hacia Internet a través de la TIC.
+El cumplimiento de TIC de la infraestructura como servicio de Azure se divide en dos pasos principales:
 
-El cumplimiento de TIC de Azure IaaS puede dividirse en dos pasos principales:
+- Paso 1: Configuración.
+- Paso 2: Auditoría.
 
-1. Configuración
-1. Auditoría
+### <a name="azure-iaas-tic-compliance-configuration"></a>Cumplimiento de TIC de la IaaS de Azure: configuración
 
-### <a name="azure-iaas-tic-compliance-configuration"></a>Configuración de cumplimiento de TIC de Azure IaaS
+Para configurar una arquitectura compatible con TIC con Azure, debe impedir en primer lugar el acceso directo de Internet a la red virtual y, a continuación, forzar el tráfico de Internet a través de la red local.
 
-Para configurar una arquitectura compatible con TIC con Azure, tendrá que impedir en primer lugar el acceso directo a Internet a la red virtual y, a continuación, forzar el tráfico de Internet mediante la red local.
+#### <a name="prevent-direct-internet-access"></a>Impedir el acceso directo a Internet
 
-#### <a name="prevent-direct-internet-access"></a>Impedir acceso directo a Internet
+La conexión de red de IaaS de Azure se realiza mediante redes virtuales que constan de subredes a las que están asociados los controladores de interfaz de red (NIC) de las máquinas virtuales.
 
-La conexión de red de Azure IaaS se realiza mediante redes virtuales que constan de subredes, a las que están asociados los controladores de interfaz de red (NIC) de las máquinas virtuales.
+El escenario más sencillo para garantizar el cumplimiento de TIC es asegurar que una máquina virtual o una colección de máquinas virtuales no pueda conectarse a ningún recurso externo. Garantice la desconexión de las redes externas mediante el uso de grupos de seguridad de red (NSG). Use grupos de seguridad de red para controlar el tráfico a una o varias NIC o subredes de la red virtual. Un grupo de seguridad de red contiene reglas de control de acceso que permitan o denieguen el tráfico según la dirección del tráfico, el protocolo, la dirección de origen y el puerto, y la dirección de destino y el puerto. Puede cambiar las reglas de un grupo de seguridad de red en cualquier momento y los cambios se aplican a todas las instancias asociadas. Para más información acerca de cómo crear un grupo de seguridad de red, consulte [Filtrado del tráfico de red con un grupo de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
 
-El escenario más sencillo para garantizar el cumplimiento de TIC es asegurar que una máquina virtual o una colección de máquinas virtuales no pueda conectarse a ningún recurso externo. La desconexión de redes externas puede conseguirse mediante grupos de seguridad de red (NSG), que pueden usarse para controlar el tráfico a uno o varios NIC o subredes de la red virtual. Un grupo de seguridad de red contiene reglas de control de acceso que permitan o denieguen el tráfico según la dirección del tráfico, el protocolo, la dirección de origen y el puerto, y la dirección de destino y el puerto. Las reglas de un grupo de seguridad de red pueden cambiarse en cualquier momento; los cambios se aplican a todas las instancias asociadas.  Para más información sobre cómo crear un grupo de seguridad de red, consulte el artículo [Creación de un grupo de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+#### <a name="force-internet-traffic-through-an-on-premises-network"></a>Forzado del tráfico de Internet a través de una red local
 
-#### <a name="force-internet-traffic-through-on-premises-network"></a>Forzado del tráfico de Internet mediante la red local
-
-Azure crea automáticamente rutas del sistema y las asigna a todas las subredes de una red virtual. No puede crear ni eliminar rutas del sistema, pero puede reemplazar algunas de ellas por rutas personalizadas. Azure crea rutas del sistema predeterminadas para cada subred y agrega rutas predeterminadas opcionales adicionales a determinadas subredes, o a todas las subredes, al usar funcionalidades específicas de Azure. Este enrutamiento garantiza que el tráfico destinado a la red virtual se mantenga dentro de la red virtual, que se descarten los espacios de direcciones privados designados de IANA, como 10.0.0.0/8 (a menos que se incluyan en el espacio de direcciones de la red virtual) y el enrutamiento de "último recurso" de 0.0.0.0/0 al punto de conexión de Internet de la red virtual.
+Azure crea automáticamente rutas del sistema y las asigna a todas las subredes de una red virtual. No puede crear ni eliminar rutas del sistema, pero puede reemplazar algunas de ellas por rutas personalizadas. Azure crea rutas del sistema predeterminadas para cada subred. Azure agrega rutas predeterminadas opcionales a subredes específicas o a todas las subredes al usar funcionalidades específicas de Azure. Este tipo de enrutamiento garantiza que:
+- El tráfico con destino dentro de la red virtual permanece dentro de la red virtual.
+- Se eliminan los espacios de direcciones privadas designadas por IANA, como 10.0.0.0/8, a menos que estén incluidos en el espacio de direcciones de la red virtual.
+- Hay enrutamiento de "último recurso" de 0.0.0.0/0 al punto de conexión de Internet de la red virtual.
 
 ![Tunelización forzada de TIC](media/tic-diagram-c.png)
 
-Para garantizar que todo el tráfico pase por la TIC del D/A, todo el tráfico que sale de la red virtual debe enrutarse mediante la conexión local.  Para crear rutas personalizadas, cree rutas definidas por el usuario o intercambie rutas del protocolo de puerta de enlace de borde (BGP) entre su puerta de enlace de red local y una puerta de enlace de red virtual de Azure. Para más información sobre las rutas definidas por el usuario, consulte https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined. También puede encontrar más información sobre el protocolo de puerta de enlace de borde en https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol.
+Para garantizar que todo el tráfico pasa por la TIC del D/A, todo el tráfico que sale de la red virtual se debe enrutar mediante la conexión local. Para crear rutas personalizadas, cree rutas definidas por el usuario o intercambie rutas del protocolo de puerta de enlace de borde (BGP) entre su puerta de enlace de red local y una puerta de enlace de VPN de Azure. Para más información acerca de las rutas definidas por el usuario, consulte [Enrutamiento del tráfico de la red virtual: rutas definidas por el usuario](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined). Para más información sobre BGP, consulte [Enrutamiento del tráfico de la red virtual: Protocolo de puerta de enlace de borde](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol).
 
-#### <a name="user-defined-routes"></a>Rutas definidas por el usuario
+#### <a name="add-user-defined-routes"></a>Adición de rutas definidas por el usuario
 
-Si usa una puerta de enlace de red virtual basada en rutas, la tunelización forzada puede realizarse en Azure mediante la adición de una ruta definida por el usuario (UDR) con el valor de tráfico 0.0.0.0/0 para enrutarlo a un "próximo salto" de la puerta de enlace de red virtual. Azure da prioridad a las rutas definidas por el usuario sobre las rutas definidas por el sistema, por lo que esto daría lugar a que todo el tráfico que no sea de redes virtuales se enviara a su puerta de enlace de red virtual, que puede enrutarlo a un entorno local. Una vez definida, esta ruta definida por el usuario debe asociarse a todas las subredes existentes o recién creadas en todas las redes virtuales de su entorno de Azure.
+Si usa una puerta de enlace de red virtual basada en rutas, puede forzar la tunelización en Azure. Agregue una ruta definida por el usuario (UDR) que establece que el tráfico de 0.0.0.0/0 se enruta al **próximo salto** de la puerta de enlace de red virtual. Azure da prioridad a las rutas definidas por el usuario sobre las rutas definidas por el sistema. Todo el tráfico de red no virtual se envía a la puerta de enlace de red virtual, que, a continuación, puede enrutar el tráfico al entorno local. Después de definir la UDR, asocie la ruta a las subredes existentes o a nuevas subredes dentro de todas las redes virtuales del entorno de Azure.
 
 ![Rutas definidas por el usuario y TIC](media/tic-diagram-d.png)
 
-#### <a name="border-gateway-protocol"></a>Protocolo de puerta de enlace de borde
+#### <a name="use-the-border-gateway-protocol"></a>Uso del protocolo de puerta de enlace de borde
 
-Si usa una puerta de enlace de red virtual compatible con un protocolo de puerta de enlace de borde (BGP) o ExpressRoute, BGP es el mecanismo preferido para el anuncio de rutas. Con una ruta anunciada de BGP de 0.0.0.0/0, las puertas de enlace de red virtual compatibles con ExpressRoute y BGP garantizarán que esta ruta predeterminada se aplica a todas las subredes de sus redes virtuales.
+Si usa ExpressRoute o una puerta de enlace de red virtual habilitada para BGP, BGP es el mecanismo preferido para el anuncio de rutas. Con una ruta de 0.0.0.0/0 anunciada por BGP, ExpressRoute y las puertas de enlace de red virtual compatibles con BGP garantizan que la ruta predeterminada se aplica a todas las subredes de las redes virtuales.
 
-### <a name="azure-iaas-tic-compliance-auditing"></a>Auditoría de cumplimiento de TIC de Azure IaaS
+### <a name="azure-iaas-tic-compliance-auditing"></a>Cumplimiento de TIC de la IaaS de Azure: auditoría
 
 Azure ofrece varias formas de auditar el cumplimiento de TIC.
 
-#### <a name="effective-routes"></a>Rutas efectivas
+#### <a name="view-effective-routes"></a>Vista de las rutas eficaces
 
-Para confirmar que la ruta predeterminada se ha propagado, puede observar las "rutas efectivas" de una máquina virtual concreta, un NIC específico o una tabla de rutas definidas por el usuario. Esto puede hacerse mediante Azure Portal, como se describe en https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal, o mediante PowerShell, como se describe en https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-powershell. La hoja Rutas efectivas le permite ver las rutas pertinentes definidas por el usuario, las rutas anunciadas de BGP y las rutas del sistema que se aplican a la entidad pertinente, tal como se muestra a continuación.
+Confirme que la ruta predeterminada se propaga observando las _rutas efectivas_ de una máquina virtual determinada, una NIC específica o una tabla de rutas definidas por el usuario en [Azure Portal](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-portal#diagnose-using-azure-portal) o en [ Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/virtual-network-routes-troubleshoot-powershell#diagnose-using-powershell). Las **rutas efectivas** muestran las rutas definidas por el usuario pertinentes, las rutas anunciadas por BGP y las rutas del sistema que se aplican a la entidad pertinente, tal como se muestra en la ilustración siguiente:
 
-![captura de pantalla de rutas](media/tic-screen-1.png)
+![Rutas eficaces](media/tic-screen-1.png)
 
-**Nota**: No se pueden ver las rutas efectivas de un NIC a menos que esté asociado a una máquina virtual en ejecución.
+> [!NOTE]
+> No se pueden ver las rutas efectivas de una NIC a menos que esté asociada a una máquina virtual en ejecución.
 
-#### <a name="network-watcher"></a>Network Watcher
+#### <a name="use-azure-network-watcher"></a>Uso de Azure Network Watcher
 
-Azure Network Watcher ofrece varias herramientas que se pueden usar para auditar el cumplimiento de TIC.  Más información sobre Network Watcher en https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview.
+Azure Network Watcher ofrece varias herramientas para auditar el cumplimiento de TIC. Para más información, consulte [esta introducción a Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview).
 
-##### <a name="network-security-groups-flow-logs"></a>Registros de flujo de los grupos de seguridad de red 
+##### <a name="capture-network-security-group-flow-logs"></a>Captura de los registros de flujo de los grupos de seguridad de red 
 
-Azure Network Watcher proporciona la posibilidad de capturar los registros de flujo de red que indican los metadatos alrededor del tráfico IP. Además de otros datos, los registros de flujo de red contienen las direcciones de origen y destino de los destinos. Esto, junto con los registros de la puerta de enlace de red virtual, los dispositivos perimetrales locales y la TIC, permitirá supervisar que todo el tráfico se está enrutando realmente por la red local. 
+Utilice Network Watcher para capturar los registros de flujo de red que indican los metadatos que rodean el tráfico IP. Los registros de flujo de red contienen las direcciones de origen y destino de los destinos y otros datos. Puede usar estos datos con los registros de la puerta de enlace de red virtual, los dispositivos perimetrales locales o la TIC para supervisar que todo el tráfico se enruta de forma local. 
 
-## <a name="how-azure-platform-as-a-service-offerings-can-help-with-tic-compliance"></a>Cómo pueden ayudar las ofertas de plataforma como servicio de Azure con el cumplimiento de TIC
+## <a name="azure-platform-as-a-service-offerings"></a>Ofertas de plataforma como servicio de Azure
 
-Los servicios de PaaS de Azure, como Azure Storage, son accesibles mediante una dirección URL accesible desde Internet. Cualquier persona con credenciales autorizadas puede acceder a un recurso, como una cuenta de almacenamiento, desde cualquier ubicación sin pasar por una TIC. Por este motivo, muchos clientes de administraciones públicas creen equivocadamente que los servicios de PaaS de Azure no cumplen las directivas de TIC. De hecho, muchos servicios de PaaS de Azure pueden cumplir la directiva de TIC utilizando la misma arquitectura que un entorno de IaaS compatible con TIC descrita anteriormente si se pueden vincular a una red virtual. La integración de servicios de PaaS de Azure con una red virtual de Azure permite que el servicio sea accesible de forma privada desde esa red virtual y permite asimismo el enrutamiento personalizado para aplicar 0.0.0.0/0 mediante rutas definidas por el usuario o BGP, lo que garantiza que todo el tráfico dirigido a Internet se enrute a través de la red local para que pase por la TIC.  Algunos servicios de Azure se pueden integrar en redes virtuales mediante los siguientes patrones:
+Los servicios de PaaS de Azure, como Azure Storage, son accesibles mediante una dirección URL accesible desde Internet. Cualquier persona con credenciales autorizadas puede acceder a un recurso, como una cuenta de almacenamiento, desde cualquier ubicación sin pasar por una TIC. Por este motivo, muchos clientes de administraciones públicas creen equivocadamente que los servicios de PaaS de Azure no cumplen las directivas de TIC. Muchos servicios de PaaS de Azure pueden ser compatibles con la directiva de TIC. Un servicio es conforme cuando la arquitectura es la misma que la del entorno de IaaS compatible con TIC ([como se describió anteriormente](https://docs.microsoft.com/azure/security/compliance/compliance-tic#azure-infrastructure-as-a-service-offerings)) y el servicio está asociado a una red virtual de Azure.
 
-- **Implementación de una instancia dedicada del servicio**: un número creciente de servicios de PaaS se pueden implementar como instancias dedicadas con puntos de conexión vinculados a la red virtual. Por ejemplo, se puede implementar una instancia de App Service Environment (ASE) en modo aislado, lo que permite restringir su punto de conexión de red a una red virtual. Esta instancia de ASE puede hospedar muchos servicios de PaaS de Azure, como Web Apps, API y Functions.
-- **Puntos de conexión de servicio de red virtual**: un número creciente de servicios de PaaS permite la opción de trasladar su punto de conexión a una dirección IP privada de red virtual en lugar de una dirección pública.
+Cuando los servicios de PaaS de Azure están integrados con una red virtual, el servicio es accesible de forma privada desde esa red virtual. Puede aplicar enrutamiento personalizado para 0.0.0.0/0 mediante rutas definidas por el usuario o BGP. El enrutamiento personalizado asegura que todo el tráfico vinculado a Internet se enruta de forma local para transcurrir por la TIC. Puede integrar los servicios de Azure en redes virtuales mediante el uso de los siguientes patrones:
 
-Los servicios que admiten la implementación de instancias dedicadas en una red virtual o puntos de conexión de servicio en mayo de 2018 se enumeran a continuación: *(La disponibilidad hace referencia a las nubes comerciales de Azure; la disponibilidad de las redes de Azure para administraciones públicas aún está pendiente).
+- **Implementación de una instancia dedicada de un servicio**: un número creciente de servicios de PaaS se pueden implementar como instancias dedicadas con puntos de conexión vinculados a la red virtual. Puede implementar App Service Environment para PowerApps en el modo "Aislado" para permitir que el punto de conexión de red se pueda restringir a una red virtual. App Service Environment puede hospedar así muchos servicios de PaaS de Azure, como Azure Web Apps, Azure API Management y Azure Functions.
+- **Uso de puntos de conexión de servicio de red virtual**: un número creciente de servicios de PaaS permiten la opción de trasladar su punto de conexión a una dirección IP privada de red virtual en lugar de una dirección pública.
 
-### <a name="service-endpoints"></a>Puntos de conexión de servicio
+Los servicios que admiten la implementación de instancias dedicadas en una red virtual o el uso de puntos de conexión de servicio, a partir de mayo de 2018, se enumeran en las tablas siguientes.
 
-|Servicio                   |Status            |
-|--------------------------|------------------|
-|Azure KeyVault            | Vista previa privada  |
-|Cosmos DB                 | Vista previa privada  |
-|Identidad                  | Vista previa privada  |
-|Azure Data Lake           | Vista previa privada  |
-|Sql Postgress/Mysql       | Vista previa privada  |
-|Azure SQL Data Warehouse  | Vista previa pública   |
-|Azure SQL                 | GA               |
-|Storage                   | GA               |
+> [!Note]
+> El estado de disponibilidad se corresponde con los servicios de Azure que están disponibles comercialmente. El estado de disponibilidad para los servicios de Azure en Azure Government está pendiente.
 
-### <a name="vnet-injection"></a>Inserción de red virtual
+### <a name="support-for-service-endpoints"></a>Compatibilidad con los puntos de conexión de servicio
 
-|Servicio                            |Status            |
-|-----------------------------------|------------------|
-|Instancia administrada de SQL               | Vista previa pública   |
-|Azure Container Service (AKS)       | Vista previa pública   |
-|Service Fabric                     | GA               |
-|API Management                     | GA               |
-|Azure Active Directory             | GA               |
-|Azure Batch                        | GA               |
-|ASE                                | GA               |
-|Redis                              | GA               |
-|HDI                                | GA               |
-|Conjunto de escalado de máquinas virtuales de proceso  | GA               |
-|Servicio de proceso en la nube              | GA               |
+|Servicio                        |Disponibilidad      |
+|-------------------------------|------------------|
+|Azure Key Vault                | Versión preliminar privada  |
+|Azure Cosmos DB                | Versión preliminar privada  |
+|Servicios de identidad              | Versión preliminar privada  |
+|Azure Data Lake                | Versión preliminar privada  |
+|Azure Database for PostgreSQL  | Versión preliminar privada  |
+|Azure Database for MySQL       | Versión preliminar privada  |
+|Azure SQL Data Warehouse       | Versión preliminar pública   |
+|Azure SQL Database             | Disponibilidad general (GA) |
+|Azure Storage                  | GA               |
 
-### <a name="vnet-integration-details"></a>Detalles de integración con red virtual
+### <a name="support-for-virtual-network-injection"></a>Compatibilidad con la inserción de red virtual
 
-El diagrama siguiente le guía a través del flujo de red general para acceder a los servicios de PaaS mediante inserción de la red virtual y tunelización del servicio de red virtual.  Consulte https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags para más información sobre las puertas de enlace de servicio de red, las redes virtuales y las etiquetas de servicio.
+|Servicio                               |Disponibilidad      |
+|--------------------------------------|------------------|
+|Instancia administrada de Azure SQL Database   | Versión preliminar pública   |
+|Azure Kubernetes Service (AKS)        | Versión preliminar pública   |
+|Azure Service Fabric                  | GA               |
+|Azure API Management                  | GA               |
+|Azure Active Directory                | GA               |
+|Azure Batch                           | GA               |
+|Entorno de App Service               | GA               |
+|Azure Redis Cache                     | GA               |
+|HDInsight de Azure                       | GA               |
+|Conjunto de escalado de máquina virtual             | GA               |
+|Azure Cloud Services                  | GA               |
+
+
+### <a name="virtual-network-integration-details"></a>Detalles de la integración de red virtual
+
+El siguiente diagrama muestra el flujo general de la red para el acceso a los servicios de PaaS. Se muestra el acceso tanto desde la inserción de red virtual como desde la tunelización del servicio de red virtual. Para más información acerca de las puertas de enlace de servicio de red, las redes virtuales y las etiquetas de servicio, consulte [Grupos de seguridad de red y de aplicaciones : etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ![Opciones de conectividad de PaaS para TIC](media/tic-diagram-e.png)
 
-1. Conexión privada a Azure mediante ExpressRoute. El emparejamiento privado de ExpressRoute con tunelización forzada se usa para forzar todo el tráfico de red virtual del cliente a través de ExpressRoute de vuelta hacia el entorno local. No se requiere emparejamiento de Microsoft.
-2. Es posible usar Azure VPN Gateway junto con el emparejamiento de Microsoft de ExpressRoute para superponer el cifrado IPSec de un extremo a otro entre la red virtual del cliente y el perímetro local. 
-3. La conectividad de red a la red virtual del cliente se controla mediante grupos de seguridad de red (NSG), de manera que los clientes pueden permitir o denegar el acceso en función de la IP, el puerto y el protocolo.
+1. Se realiza una conexión privada a Azure mediante ExpressRoute. El emparejamiento privado de ExpressRoute con tunelización forzada se usa para forzar todo el tráfico de red virtual del cliente sobre ExpressRoute y de vuelta al entorno local. No es necesario el emparejamiento de Microsoft.
+2. Es posible usar Azure VPN Gateway junto con ExpressRoute y el emparejamiento de Microsoft para superponer el cifrado IPSec de un extremo a otro entre la red virtual del cliente y el perímetro local. 
+3. La conectividad de red a la red virtual del cliente se controla mediante grupos de seguridad de red, de manera que los clientes pueden permitir o denegar el acceso en función de la IP, el puerto y el protocolo.
 4. La red virtual del cliente se extiende al servicio de PaaS mediante la creación de un punto de conexión de servicio para el servicio del cliente.
-5. El punto de conexión de servicio de PaaS está protegido al denegar todo de manera predeterminada y permitir solo el acceso desde subredes especificadas dentro de la red virtual del cliente.  La denegación predeterminada también incluye conexiones que se originan desde Internet.
-6. Cualquier otro servicio de Azure que necesite acceder a recursos dentro de la red virtual del cliente debe:  
-  a. Implementarse directamente en la red virtual  
-  b. Autorizarse de manera selectiva en función de las instrucciones del servicio de Azure correspondiente.
+5. El punto de conexión de servicio de PaaS está protegido para **denegar todo de manera predeterminada** y permitir solo el acceso desde subredes especificadas dentro de la red virtual del cliente. La denegación predeterminada también incluye las conexiones que se originan desde Internet.
+6. Otros servicios de Azure que necesiten acceder a recursos dentro de la red virtual del cliente deben:  
+   - Implementarse directamente en la red virtual.
+   - Autorizarse de manera selectiva en función de las instrucciones del servicio de Azure correspondiente.
 
-#### <a name="option-1-dedicated-instance-vnet-injection"></a>Opción 1: "Inserción de red virtual" de instancia dedicada
+#### <a name="option-a-deploy-a-dedicated-instance-of-a-service-virtual-network-injection"></a>Opción A: implementación de una instancia dedicada de un servicio (inserción de red virtual)
 
-Con la inserción de red virtual, los clientes pueden implementar de forma selectiva instancias dedicadas de un servicio de Azure determinado, como HDInsight, en su propia red virtual. Las instancias de servicio se implementan en una subred dedicada en la red virtual de un cliente. La inserción de red virtual permite que los recursos de servicio sean accesibles mediante direcciones enrutables que no son de Internet.  Las instancias locales pueden acceder a estas instancias de servicio mediante el espacio de direcciones de red virtual directamente a través de ExpressRoute o una VPN de sitio a sitio, en lugar de abrir los firewalls a un espacio de direcciones de Internet público. Con una instancia dedicada vinculada a un punto de conexión, se pueden utilizar las mismas estrategias usadas para el cumplimiento de TIC con IaaS, con el enrutamiento predeterminado que garantiza que el tráfico dirigido a Internet se redirija a una puerta de enlace de red virtual dirigida a la red local. El acceso de entrada y de salida se puede controlar aún más mediante grupos de seguridad de red (NSG) para la subred determinada.
+La inserción de red virtual permite que los clientes puedan implementar de forma selectiva instancias dedicadas de un servicio de Azure determinado, como HDInsight, en su propia red virtual. Las instancias del servicio se implementan en una subred dedicada en la red virtual de un cliente. La inserción de red virtual permite el acceso a los recursos del servicio mediante direcciones enrutables que no son de Internet. Las instancias locales usan ExpressRoute o una red privada virtual de sitio a sitio para acceder directamente a las instancias del servicio mediante el espacio de direcciones de red virtual, en lugar de abrir un firewall al espacio de direcciones de Internet público. Cuando se conecta una instancia dedicada a un punto de conexión, puede usar las mismas estrategias en cuanto a cumplimiento de TIC de IaaS. El enrutamiento predeterminado garantiza que el tráfico de Internet se redirige a una puerta de enlace de red virtual que está limitada para el entorno local. Puede controlar aún más el acceso entrante y saliente mediante grupos de seguridad de red para la subred indicada.
 
-![Diagrama de información general de la inserción de red virtual](media/tic-diagram-f.png)
+![Introducción a la inserción de red virtual](media/tic-diagram-f.png)
 
-#### <a name="option-2-vnet-service-endpoints"></a>Opción 2: Puntos de conexión de servicio de red virtual 
+#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Opción B: uso de puntos de conexión de servicio de red virtual (túnel de servicio)
 
-Un número creciente de servicios multiinquilino de Azure ofrece la funcionalidad "Punto de conexión de servicio", un método alternativo para la integración en redes virtuales de Azure. Los puntos de conexión del servicio de red virtual extienden el espacio de direcciones IP de la red virtual y la identidad de la red virtual al servicio a través de una conexión directa.  El tráfico desde la red virtual al servicio de Azure siempre permanece en la red troncal de Azure. Una vez habilitado un punto de conexión de servicio para un servicio, las conexiones con el servicio pueden restringirse a esa red virtual mediante directivas expuestas por el servicio. El servicio de Azure realiza comprobaciones de acceso en la plataforma y el acceso al recurso bloqueado solo se concede si la solicitud se origina de la red virtual o subred autorizada, o las dos direcciones IP usadas para identificar su tráfico local, si usa ExpressRoute. Esto puede usarse para impedir eficazmente que el tráfico entrante o saliente abandone directamente el servicio de PaaS.
+Un número creciente de servicios multiinquilino de Azure ofrecen "puntos de conexión de servicio". Los puntos de conexión de servicio son un método alternativo para la integración con las redes virtuales de Azure. Los puntos de conexión de servicio de red virtual extienden el espacio de direcciones IP de la red virtual y la identidad de la red virtual a los servicios de Azure sobre una conexión directa. El tráfico desde la red virtual al servicio de Azure siempre permanece dentro de la red troncal de Azure. 
 
-![Diagrama de información general de los puntos de conexión de servicio](media/tic-diagram-g.png)
+Después de habilitar un punto de conexión de servicio para un servicio, utilice las directivas expuestas por el servicio para restringir las conexiones al servicio a esa red virtual. Se aplican comprobaciones de acceso en la plataforma mediante el servicio de Azure. Solo se concede acceso a un recurso bloqueado si la solicitud se origina desde la red virtual o la subred permitidas o desde las dos direcciones IP que se usan para identificar el tráfico local si usa ExpressRoute. Utilice este método para impedir eficazmente que el tráfico entrante o saliente abandone directamente el servicio de PaaS.
 
-## <a name="using-cloud-native-tools-for-network-situational-awareness"></a>Uso de herramientas nativas de la nube para conocer la situación de la red
+![Introducción a los puntos de conexión de servicio](media/tic-diagram-g.png)
 
-Azure proporciona herramientas nativas de la nube para ayudarle a garantizar que conoce la situación de modo que comprende los flujos de tráfico de su red. Estas herramientas no son necesarias para cumplir la directiva de TIC, pero pueden mejorar considerablemente las funcionalidades de seguridad.
+## <a name="cloud-native-tools-for-network-situational-awareness"></a>Herramientas nativas de la nube para conocer la situación de la red
+
+Azure proporciona herramientas nativas de la nube para ayudarle a garantizar que conoce la situación de modo que comprende los flujos de tráfico de su red. Las herramientas no son necesarias para el cumplimiento de la directiva de TIC. Las herramientas pueden mejorar considerablemente las funcionalidades de seguridad.
 
 ### <a name="azure-policy"></a>Azure Policy
 
-Azure Policy (https://azure.microsoft.com/services/azure-policy/) es un servicio de Azure que proporciona a su organización una mejor capacidad de auditar y aplicar las iniciativas de cumplimiento.  Disponible actualmente en versión preliminar pública en las nubes comerciales de Azure, pero aún no en la nube de Microsoft Azure para administraciones públicas, permite a los clientes interesados en TIC empezar a planear y probar sus reglas de directiva para garantizar el cumplimiento en el futuro. Azure Policy está dirigido a nivel de suscripción y proporciona una interfaz centralizada para la administración de iniciativas, definiciones de directiva, resultados de cumplimiento y auditoría y administración de excepciones. Además de las muchas definiciones de Azure Policy integradas, los administradores pueden definir sus propias definiciones personalizadas mediante sencillas plantillas JSON. Para muchos clientes, Microsoft recomienda dar prioridad a la auditoría sobre la aplicación, siempre que sea posible.
+[Azure Policy](https://azure.microsoft.com/services/azure-policy/) es un servicio de Azure que proporciona a su organización una mejor capacidad de auditar y aplicar las iniciativas de cumplimiento. Azure Policy está disponible actualmente en versión preliminar pública en los servicios de Azure que están disponibles comercialmente. Azure Policy aún no está disponible en Azure Government. Los clientes pueden planear y probar sus reglas de Azure Policy ahora para asegurar el futuro cumplimiento de TIC. 
 
-Las siguientes directivas de ejemplo pueden ser útiles para escenarios de cumplimiento de TIC:
+Azure Policy está dirigido al nivel de suscripción. El servicio proporciona una interfaz centralizada en la que puede realizar tareas de cumplimiento, incluidas:
+- Administración de iniciativas
+- Configuración de las definiciones de directivas
+- Auditoría de cumplimiento
+- Exigir el cumplimiento
+- Administración de excepciones
 
-|Directiva  |Escenario de ejemplo  |Plantilla inicial  |
+Junto con muchas definiciones integradas, los administradores pueden definir sus propias definiciones personalizadas mediante sencillas plantillas JSON. Microsoft recomienda dar prioridad a la auditoría sobre el cumplimiento, siempre que sea posible.
+
+Las siguientes directivas de ejemplo se pueden utilizar para escenarios de cumplimiento de TIC:
+
+|Directiva  |Escenario de ejemplo  |Plantilla  |
 |---------|---------|---------|
-|Aplicar tabla de rutas definida por el usuario |     Asegúrese de que la ruta predeterminada en todas las redes virtuales señala a una puerta de enlace de red virtual aprobada para el enrutamiento a la red local. | https://docs.microsoft.com/azure/azure-policy/scripts/no-user-def-route-table |
-|Auditar si Network Watcher no está habilitado para la región  | Asegúrese de que Network Watcher está habilitado para todas las regiones utilizadas.  | https://docs.microsoft.com/azure/azure-policy/scripts/net-watch-not-enabled |
-|NSG X en cada subred  | Asegúrese de que un grupo de seguridad de red (o conjunto de grupos de seguridad de red aprobados) con el tráfico de Internet bloqueado se aplica a todas las subredes de cada red virtual. | https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-subnet |
-|NSG X en cada NIC | Asegúrese de que un grupo de seguridad de red con el tráfico de Internet bloqueado se aplica a todos los NIC en todas las máquinas virtuales. | https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-nic |
-|Usar red virtual aprobada para las interfaces de red de máquinas virtuales  | Asegúrese de que todos los NIC están en una red virtual aprobada. | https://docs.microsoft.com/azure/azure-policy/scripts/use-approved-vnet-vm-nics |
-|Ubicaciones permitidas | Asegúrese de que todos los recursos se implementan en regiones con configuración de Network Watcher y redes virtuales compatibles.  | https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs |
-|Tipos de recursos no permitidos, como direcciones IP públicas  | Prohíba la implementación de tipos de recursos que no tengan un plan de cumplimiento. Por ejemplo, esta directiva puede usarse para prohibir la implementación de recursos de direcciones IP públicas. Aunque se pueden usar reglas de grupos de seguridad de red para bloquear el tráfico entrante de Internet eficazmente, impedir el uso de direcciones IP públicas reduce aún más la superficie expuesta a ataques.    | https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type  |
+|Aplicar tabla de rutas definida por el usuario. | Asegúrese de que la ruta predeterminada de todas las redes virtuales apunta a una puerta de enlace de red virtual aprobada para el enrutamiento al entorno local.    | Puede empezar a trabajar con esta [plantilla](https://docs.microsoft.com/azure/azure-policy/scripts/no-user-def-route-table). |
+|Auditar si Network Watcher no está habilitado para una región  | Asegúrese de que Network Watcher está habilitado para todas las regiones utilizadas.  | Puede empezar a trabajar con esta [plantilla](https://docs.microsoft.com/azure/azure-policy/scripts/net-watch-not-enabled). |
+|NSG en cada subred.  | Asegúrese de que un grupo de seguridad de red (o un conjunto de grupos de seguridad de red aprobados) con el tráfico de Internet bloqueado se aplica a todas las subredes de cada red virtual. | Puede empezar a trabajar con esta [plantilla](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-subnet). |
+|NSG en cada NIC. | Asegúrese de que un grupo de seguridad de red con el tráfico de Internet bloqueado se aplica a todas las NIC de todas las máquinas virtuales. | Puede empezar a trabajar con esta [plantilla](https://docs.microsoft.com/azure/azure-policy/scripts/nsg-on-nic). |
+|Use una red virtual aprobada para las interfaces de red de máquina virtual.  | Asegúrese de que todas las NIC están en una red virtual aprobada. | Puede empezar a trabajar con esta [plantilla](https://docs.microsoft.com/azure/azure-policy/scripts/use-approved-vnet-vm-nics). |
+|Ubicaciones permitidas. | Asegúrese de que todos los recursos se implementan en regiones con configuración de Network Watcher y redes virtuales compatibles.  | Puede empezar a trabajar con esta [plantilla](https://docs.microsoft.com/azure/azure-policy/scripts/allowed-locs). |
+|Tipos de recursos no permitidos, como **direcciones IP públicas**. | Prohíba la implementación de tipos de recursos que no tengan un plan de cumplimiento. Utilice esta directiva para prohibir la implementación de recursos de direcciones IP públicas. Aunque se pueden usar reglas de grupos de seguridad de red para bloquear el tráfico entrante de Internet eficazmente, impedir el uso de direcciones IP públicas reduce aún más la superficie expuesta a ataques.   | Puede empezar a trabajar con esta [plantilla](https://docs.microsoft.com/azure/azure-policy/scripts/not-allowed-res-type).  |
 
-### <a name="azure-traffic-analyticshttpsazuremicrosoftcomen-inblogtraffic-analytics-in-preview"></a>[Análisis de tráfico](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) de Azure
+### <a name="network-watcher-traffic-analytics"></a>Análisis de tráfico de Network Watcher
 
-El análisis de tráfico de Azure Network Watcher consume datos de registro de flujo y otros registros para proporcionar información general de alto nivel de tráfico de red. Estos datos pueden ser útiles para auditar el cumplimiento de TIC y para identificar aspectos problemáticos. Es posible utilizar un panel de alto nivel para detectar rápidamente qué máquinas virtuales se comunican con Internet, lo que, a su vez, proporcionará una lista focalizada para el enrutamiento de TIC.
+El [análisis de tráfico](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) de Network Watcher consume datos del registro de flujo y otros registros para proporcionar información general de alto nivel del tráfico de red. Estos datos pueden ser útiles para auditar el cumplimiento de TIC y para identificar aspectos problemáticos. Puede usar el panel de alto nivel para detectar rápidamente qué máquinas virtuales se comunican con Internet y obtener una lista focalizada para el enrutamiento de TIC.
 
-![Captura de pantalla de análisis de tráfico](media/tic-traffic-analytics-1.png)
+![Análisis del tráfico](media/tic-traffic-analytics-1.png)
 
-Se puede usar un "mapa geográfico" para identificar rápidamente los probables destinos físicos del tráfico de Internet para las máquinas virtuales, lo que permite identificar y evaluar las ubicaciones sospechosas o los cambios de patrón.
+Use el **mapa geográfico** para identificar rápidamente los destinos físicos probables del tráfico de Internet de las máquinas virtuales. Puede identificar y evaluar las ubicaciones sospechosas o los cambios de patrón:
 
-![Captura de pantalla de análisis de tráfico](media/tic-traffic-analytics-2.png)
+![Mapa geográfico](media/tic-traffic-analytics-2.png)
 
-Se puede usar un mapa de topología de red para analizar rápidamente las redes virtuales existentes:
+Use la **topología de redes virtuales** para analizar rápidamente las redes virtuales existentes:
 
-![Captura de pantalla de análisis de tráfico](media/tic-traffic-analytics-3.png)
+![Mapa de topología de red](media/tic-traffic-analytics-3.png)
 
-### <a name="azure-network-watcher-next-hop"></a>Próximo salto de Azure Network Watcher
+### <a name="network-watcher-next-hop-tests"></a>Pruebas de próximo salto de Network Watcher
 
-Las redes de las regiones supervisadas por Network Watcher pueden realizar pruebas de "Próximo salto", lo que facilita el acceso basado en Azure Portal para introducir un origen y un destino para un flujo de red de ejemplo, para el que Network Watcher resolverá el destino de "Próximo salto". Esto puede utilizarse con máquinas virtuales y con direcciones de Internet de ejemplo para asegurarse de que el "próximo salto" sea realmente la puerta de enlace de red virtual.
+Las redes de las regiones que se supervisan mediante Network Watcher pueden realizar pruebas de próximo salto. En Azure Portal, puede especificar un origen y un destino para un flujo de red de ejemplo para que Network Watcher resuelva el destino del próximo salto. Ejecute esta prueba en máquinas virtuales y direcciones de Internet de ejemplo para asegurarse de que el destino del próximo salto es la puerta de enlace de red virtual esperada.
 
-![Próximo salto de Network Watcher](media/tic-network-watcher.png)
+![Pruebas de próximo salto](media/tic-network-watcher.png)
 
 ## <a name="conclusions"></a>Conclusiones
 
-El acceso de Microsoft Azure, Office 365 y Dynamics 365 se puede configurar fácilmente para ayudar a cumplir las instrucciones del apéndice H de TIC 2.0 según se define con fecha de mayo de 2018.  Microsoft es consciente de que estas instrucciones están sujetas a cambios y se esforzará por ayudar a los clientes a cumplirlas de manera oportuna conforme se vayan modificando.
+Puede configurar fácilmente el acceso de Microsoft Azure, Office 365 y Dynamics 365 para ayudar a cumplir la guía del apéndice H de TIC 2.0, según se define con fecha de mayo de 2018. Microsoft reconoce que la guía de TIC está sujeta a cambios. Microsoft intenta ayudar a los clientes a cumplir con la guía de manera oportuna cuando se publiquen nuevas instrucciones.
 
-## <a name="appendix-tic-patterns-for-common-workloads"></a>Apéndice: Patrones de TIC para cargas de trabajo comunes
+## <a name="appendix-trusted-internet-connections-patterns-for-common-workloads"></a>Apéndice: Patrones de las conexiones a Internet de confianza para cargas de trabajo comunes
 
-| Categoría | Carga de trabajo | IaaS | PaaS dedicado/Inserción de red virtual  | Puntos de conexión de servicio  |
+| Categoría | Carga de trabajo | IaaS | PaaS dedicado / Inserción de red virtual  | Puntos de conexión de servicio  |
 |---------|---------|---------|---------|--------|
-| Compute | Máquinas virtuales Linux | SÍ | | |
-| Compute | Máquinas virtuales Windows | SÍ | | |
-| Compute | Virtual Machine Scale Sets | SÍ | | |
-| Compute | Azure Functions | | Mediante App Service Environment (ASE) | |
-| Web y móvil | Aplicación web interna | | Mediante App Service Environment (ASE) | |
-| Web y móvil | Aplicación móvil interna | | Mediante App Service Environment (ASE) | |
-| Web y móvil | API Apps | | Mediante App Service Environment (ASE) | |
-| Contenedores | Azure Container Service (ACS) | | | SÍ |
-| Contenedores | Azure Container Service (AKS)* | | | SÍ |
-| Base de datos | SQL Database | | Instancia administrada de Azure SQL Database* | Azure SQL |
+| Compute | Máquinas virtuales Linux en Azure | SÍ | | |
+| Compute | Máquinas virtuales Windows en Azure | SÍ | | |
+| Compute | Conjuntos de escalado de máquinas virtuales | SÍ | | |
+| Compute | Azure Functions | | Entorno de App Service | |
+| Web y móviles | Aplicación web interna | | Entorno de App Service| |
+| Web y móviles | Aplicación móvil interna | | Entorno de App Service | |
+| Web y móviles | Aplicaciones de API | | Entorno de App Service | |
+| Contenedores | Azure Container Service | | | SÍ |
+| Contenedores | Azure Kubernetes Service (AKS) \* | | | SÍ |
+| Base de datos | Azure SQL Database | | Instancia administrada de Azure SQL Database \* | Azure SQL |
 | Base de datos | Azure Database for MySQL | | | SÍ |
 | Base de datos | Azure Database for PostgreSQL | | | SÍ |
-| Base de datos | SQL Data Warehouse | | | SÍ |
+| Base de datos | Azure SQL Data Warehouse | | | SÍ |
 | Base de datos | Azure Cosmos DB | | | SÍ |
-| Base de datos | Redis Cache | | SÍ | |
-| Storage | Blobs | SÍ | | |
-| Storage | Archivos | SÍ | | |
-| Storage | Colas | SÍ | | |
-| Storage | Tablas | SÍ | | |
-| Storage | Discos | SÍ | | |
+| Base de datos | Azure Redis Cache | | SÍ | |
+| Storage | Azure Blob Storage | SÍ | | |
+| Storage | Archivos de Azure | SÍ | | |
+| Storage | Azure Queue Storage | SÍ | | |
+| Storage | Almacenamiento de tablas de Azure | SÍ | | |
+| Storage | Azure Disk Storage | SÍ | | |
 
-*: Versión preliminar pública en Azure Government con fecha de mayo de 2018  
-**: Versión preliminar privada en Azure Government con fecha de mayo de 2018
+\* Versión preliminar pública en Azure Government con fecha de mayo de 2018

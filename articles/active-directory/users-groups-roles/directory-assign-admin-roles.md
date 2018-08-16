@@ -14,24 +14,27 @@ ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 5d6254efbb6051bf4fcd01abd4fbf858b0211319
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: c6c388bb98d189d91703c0ce82971b3ec4da4150
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399947"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505518"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Asignación de roles de administrador en Azure Active Directory
 
 Con Azure Active Directory (Azure AD), puede designar administradores independientes que desempeñen distintas funciones. Los administradores se pueden designar en el portal de Azure AD para realizar tareas como agregar usuarios o cambiarlos, asignar roles administrativos, restablecer contraseñas de usuario, administrar licencias de usuario y administración de nombres de dominio.
 
 ## <a name="details-about-the-global-administrator-role"></a>Detalles acerca del rol de administrador global
+
 El administrador global tiene acceso a todos los roles administrativos. De forma predeterminada, a la persona que se suscribe a una suscripción de Azure se le asigna el rol de administrador global para el directorio. Los administradores globales son los únicos que pueden asignar otros roles de administrador.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Asignación o eliminación de roles de administrador
+
 Para obtener información sobre cómo asignar roles administrativos a un usuario en Azure Active Directory, consulte [Asignación de un usuario a roles de administrador en Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="available-roles"></a>Roles disponibles
+
 Los roles de administrador disponibles son los siguientes:
 
 * **[Administrador de aplicaciones](#application-administrator)**: los usuarios con este rol pueden crear y administrar todos los aspectos de las aplicaciones empresariales, los registros de aplicaciones y la configuración del proxy de aplicación. Este rol proporciona igualmente la capacidad de dar el consentimiento para permisos delegados y permisos de aplicaciones, excepto Microsoft Graph y Azure AD Graph. Los miembros de este rol no se agregan como propietarios al crear nuevos registros de aplicaciones o aplicaciones empresariales.
@@ -48,13 +51,13 @@ Los roles de administrador disponibles son los siguientes:
   > [!NOTE]
   > Para implementar la directiva de acceso condicional de Exchange ActiveSync en Azure, el usuario también debe ser administrador global.
   
-* **[Administradores de dispositivos](#device-administrators)**: los usuarios con este rol se convierten en administradores de la máquina virtual en todos los dispositivos Windows 10 que estén unidos a Azure Active Directory. No tienen la capacidad de administrar objetos de dispositivos en Azure Active Directory.
+* **[Administradores de dispositivo](#device-administrators)**: este rol está disponible solo para la asignación como un administrador local adicional en la [Configuración del dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Los usuarios con este rol pasarán a ser administradores del equipo local en todos los dispositivos Windows 10 que estén unidos a Azure Active Directory. No tienen la capacidad de administrar objetos de dispositivos en Azure Active Directory. 
 
-* **[Lectores de directorio](#directory-readers)**: se trata de un rol heredado que se va a asignar a las aplicaciones que no admitan el [marco de consentimiento](../develop/active-directory-integrating-applications.md). No se debe asignar a ningún usuario.
+* **[Lectores de directorio](#directory-readers)**: se trata de un rol heredado que se va a asignar a las aplicaciones que no admitan el [marco de consentimiento](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). No se debe asignar a ningún usuario.
 
 * **[Cuentas de sincronización de directorios](#directory-synchronization-accounts)**: no las use. Este rol se asigna automáticamente al servicio de Azure AD Connect y no está previsto ni se admite para ningún otro uso.
 
-* **[Lectores de directorio](#directory-writers)**: es un rol heredado que se asigna a las aplicaciones que no admiten el [marco de consentimiento](../develop/active-directory-integrating-applications.md). No se debe asignar a ningún usuario.
+* **[Lectores de directorio](#directory-writers)**: es un rol heredado que se asigna a las aplicaciones que no admiten el [marco de consentimiento](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). No se debe asignar a ningún usuario.
 
 * **[Administrador de servicios de Dynamics 365 y Administrador de servicios de CRM](#dynamics-365-service-administrator)**: los usuarios con este rol tienen permisos globales en Microsoft Dynamics 365 Online cuando existe el servicio, así como también la posibilidad de administrar incidencias de soporte técnico y supervisar el estado del servicio. Para obtener más información, consulte [Uso del rol de administrador de servicios para administrar inquilinos](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
@@ -353,15 +356,13 @@ Puede administrar las funcionalidades de acceso condicional.
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | Actualiza la propiedad ConditionalAccessPolicys.Owners en Azure Active Directory. |
 
 ### <a name="device-administrators"></a>Administradores de dispositivos
-Los miembros de este rol se agregan al grupo de administradores locales en dispositivos unidos a Azure AD.
+
+Los usuarios con este rol pasarán a ser administradores del equipo local en todos los dispositivos Windows 10 que estén unidos a Azure Active Directory. No tienen la capacidad de administrar objetos de dispositivos en Azure Active Directory.
 
   > [!NOTE]
   > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
   >
   >
-
-| **Acciones** | **Descripción** |
-| --- | --- |
 
 ### <a name="directory-readers"></a>Lectores de directorios
 Puede leer la información básica del directorio. Para conceder acceso a aplicaciones.

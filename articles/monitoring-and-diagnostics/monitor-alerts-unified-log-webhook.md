@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 304476e2d6862fbb6a859ae6fefe96d177b1111b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f20e102ee1d100ea02da53fe460b56f8f8390418
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264262"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426700"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Acciones de webhook para reglas de alertas de registro
 Cuando se [crea una alerta en Azure](monitor-alerts-unified-usage.md), tiene la opción de [configurarla mediante grupos de acción](monitoring-action-groups.md), para así poder realizar una o varias acciones.  En este artículo se describen las diferentes acciones de webhook que están disponibles y los detalles sobre la configuración de los webhook personalizados basados en JSON.
@@ -36,10 +36,10 @@ Las acciones de webhook requieren las propiedades de la siguiente tabla:
 Los webhooks incluyen una dirección URL y una carga en formato JSON que son los datos enviados al servicio externo.  De manera predeterminada, la carga incluye los valores de la tabla siguiente: Puede elegir si reemplazar esta carga por una personalizada.  En ese caso, puede utilizar las variables de la tabla para cada uno de los parámetros para incluir su valor en la carga personalizada.
 
 
-| . | Variable | DESCRIPCIÓN |
+| Parámetro | Variable | DESCRIPCIÓN |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |Nombre de la regla de alerta. |
-| Severity |#severity |Gravedad establecida en la alerta de registros activada. |
+| Gravedad |#severity |Gravedad establecida en la alerta de registros activada. |
 | AlertThresholdOperator |ThresholdOperator |Operador de umbral para la regla de alerta.  *Mayor que* o *menor que*. |
 | AlertThresholdValue |#thresholdvalue |Valor de umbral para la regla de alerta. |
 | LinkToSearchResults |#linktosearchresults |Vincular al portal de análisis que devuelve los registros de la consulta que creó la alerta. |
@@ -53,6 +53,8 @@ Los webhooks incluyen una dirección URL y una carga en formato JSON que son los
 | Identificador de aplicación |#applicationid |Identificador de la aplicación Application Insights. |
 | Id. de suscripción |#subscriptionid |Identificador de la suscripción de Azure que se usa con Application Insights. 
 
+> [!NOTE]
+> LinkToSearchResults pasa parámetros como SearchQuery, Search Interval StartTime y Search Interval End time en la dirección URL a Azure Portal para su visualización en la sección de Análisis. Azure Portal tiene un límite de tamaño de URI de aproximadamente 2000 caracteres y se abrirá si los valores de los parámetros superan dicho límite. Los usuarios pueden escribir manualmente los detalles para ver los resultados en el portal de Analytics o usar [Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) o [Log Analytics REST API](https://dev.loganalytics.io/reference) de Application Insights para recuperar los resultados mediante programación 
 
 Por ejemplo, podría especificar la siguiente carga personalizada que incluye un único parámetro denominado *text*.  El servicio al que llama este webhook estaría esperando este parámetro.
 

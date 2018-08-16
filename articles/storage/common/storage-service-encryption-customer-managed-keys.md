@@ -1,19 +1,19 @@
 ---
 title: Cifrado del servicio Storage de Azure mediante claves administradas por el cliente en Azure Key Vault | Microsoft Docs
-description: Use la característica Azure Storage Service Encryption para cifrar Azure Blob Storage, Azure Files, Azure Queue Storage y Azure Table Storage en el servicio al almacenar los datos y descifrarlos al recuperarlos mediante claves administradas por el cliente.
+description: Use la característica Azure Storage Service Encryption para cifrar Azure Blob Storage, Azure Files en el servicio al almacenar los datos y descifrarlos al recuperarlos mediante claves administradas por el cliente.
 services: storage
 author: lakasa
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: b92a486ea8dfc148cd10b905f90a0e871602cc61
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.component: common
+ms.openlocfilehash: 0e1ebd8868cfe5ef69a09219ffc82092fb85a4c8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415708"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527093"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Cifrado del servicio Storage mediante claves administradas por el cliente en Azure Key Vault
 Microsoft Azure está comprometido a ayudarle a asegurar y proteger sus datos con el fin de satisfacer los compromisos de cumplimiento y seguridad de su organización. Una manera en que la plataforma de Azure Storage protege los datos es mediante Storage Service Encryption (SSE), que cifra los datos al escribirlos en el almacenamiento y los descifra al recuperarlos. El cifrado y descifrado son automáticos, transparentes y usan [cifrado AES](https://wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uno de los cifrados de bloques más seguros disponibles.
@@ -23,7 +23,7 @@ Puede usar claves de cifrado administradas por Microsoft con SSE o puede utiliza
 SSE para Azure Blob Storage y Azure Files se integra con Azure Key Vault, de modo que puede usar un almacén de claves para administrar sus claves de cifrado. Puede crear sus propias claves de cifrado y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generar las claves de cifrado. Con Azure Key Vault, puede administrar y controlar las claves y auditar su uso.
 
 > [!Note]  
-> Storage Service Encryption no está disponible para [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Se recomienda usar el cifrado en el nivel de sistema operativo, como [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), que usa el estándar del sector [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) en Windows y [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) en Linux para proporcionar cifrado integrado con el almacén de claves.
+> Storage Service Encryption mediante claves administradas por el cliente no está disponible para [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md) usa el estándar del sector [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) en Windows y [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) en Linux para proporcionar cifrado integrado con KeyVault.
 
 ¿Por qué crear sus propias claves? Las claves personalizadas proporcionan mayor flexibilidad, de manera que puede crear, girar, deshabilitar y definir controles de acceso. También le permiten auditar las claves de cifrado que se usan para proteger los datos.
 
@@ -121,7 +121,7 @@ Sí.
 Hay un costo asociado al uso de Azure Key Vault. Para más información, visite [Precios de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). No hay ningún costo adicional por SSE, que está habilitado para todas las cuentas de almacenamiento.
 
 **¿Está disponible Storage Service Encryption en Azure Managed Disks?**  
-No, Storage Service Encryption no está disponible para [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Se recomienda usar el cifrado en el nivel de sistema operativo, como [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), que usa el estándar del sector [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) en Windows y [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) en Linux para proporcionar cifrado integrado con el almacén de claves.
+Storage Service Encryption está disponible para Azure Managed Disks con claves administradas por Microsoft, pero no con claves administradas por el cliente. En lugar de Managed Disks con soporte SSE con claves administradas por el cliente, se recomienda [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), que usa el estándar del sector [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) en Windows y [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) en Linux para proporcionar cifrado integrado con KeyVault.
 
 **¿En qué se diferencia Storage Service Encryption de Azure Disk Encryption?**  
 Azure Disk Encryption proporciona integración entre soluciones basadas en el sistema operativo, como BitLocker y DM-Crypt, y Azure Key Vault. Storage Service Encryption proporciona cifrado de forma nativa en la capa de la plataforma de almacenamiento de Azure, debajo de la máquina virtual.

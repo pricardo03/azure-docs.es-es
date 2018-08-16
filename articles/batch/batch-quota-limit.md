@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 12880ba3aa918873343ee8eb98e92130106e8362
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: b3f4907d99b25df31ac7f081282cebe700f55b62
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304026"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423749"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Límites y cuotas del servicio Batch
 
@@ -46,6 +46,7 @@ Si planea ejecutar cargas de trabajo de producción en Batch, es posible que ten
 Si creó una cuenta de Batch con el modo de asignación de grupo establecido en **suscripción de usuario**, las cuotas se aplican de manera diferente. En este modo, las máquinas virtuales de Batch y otros recursos se crean directamente en la suscripción cuando se crea un grupo. Las cuotas de núcleos de Azure Batch no se aplican a las cuentas creadas en este modo. En su lugar, se aplican las cuotas en la suscripción para núcleos de proceso regionales y otros recursos. Aprenda más sobre estas cuotas en [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 
 ## <a name="other-limits"></a>Otros límites
+
 | **Recurso** | **Límite máximo** |
 | --- | --- |
 | [Tareas simultáneas](batch-parallel-node-tasks.md) por nodo de proceso |4 × número de núcleos de nodo |
@@ -56,26 +57,27 @@ Si creó una cuenta de Batch con el modo de asignación de grupo establecido en 
 
 <sup>1</sup> La duración máxima de una tarea, desde el momento en que se agrega al trabajo hasta que se completa, es de 7 días. Las tareas completadas se mantienen de forma indefinida; los datos de las tareas no completadas dentro de la duración máxima no están accesibles.
 
-
 ## <a name="view-batch-quotas"></a>Visualización de las cuotas de Batch
+
 Vea las cuotas de la cuenta de Batch en [Azure Portal][portal].
 
 1. Seleccione **Cuentas de Batch** en el portal y, luego, seleccione la cuenta de Batch que le interesan.
-2. Seleccione **Cuotas** en el menú de la cuenta de Batch.
-3. Visualización de las cuotas aplicadas actualmente a la cuenta de Batch
+1. Seleccione **Cuotas** en el menú de la cuenta de Batch.
+1. Visualización de las cuotas aplicadas actualmente a la cuenta de Batch
    
     ![Cuotas de la cuenta de Batch][account_quotas]
 
 
 
 ## <a name="increase-a-quota"></a>Aumento de la cuota
+
 Siga estos pasos para solicitar un aumento de la cuota para la cuenta de Batch o la suscripción con [Azure Portal][portal]. El tipo de aumento de cuota depende del modo de asignación de grupo de su cuenta de Batch.
 
 ### <a name="increase-a-batch-cores-quota"></a>Aumento de la cuota de núcleos de Batch 
 
 1. Seleccione el icono **Ayuda y soporte técnico** en el panel del portal o el signo de interrogación (**?**) en la esquina superior derecha del portal.
-2. Seleccione **Nueva solicitud de soporte técnico** > **Básico**.
-3. En **Aspectos básicos**:
+1. Seleccione **Nueva solicitud de soporte técnico** > **Básico**.
+1. En **Aspectos básicos**:
    
     a. **Tipo de problema** > **Cuota**
    
@@ -86,14 +88,14 @@ Siga estos pasos para solicitar un aumento de la cuota para la cuenta de Batch o
     d. **Plan de soporte técnico** > **Compatibilidad con cuotas (incluida)**
    
     Haga clic en **Next**.
-4. En **Problema**:
+1. En **Problema**:
    
     a. Seleccione una de las opciones en **Gravedad** según su [impacto en el negocio][support_sev].
    
     b. En **Detalles**, especifique cada cuota que desee cambiar, el nombre de cuenta de Batch y el nuevo límite.
    
     Haga clic en **Next**.
-5. En **Información de contacto**:
+1. En **Información de contacto**:
    
     a. Seleccione un valor en **Método de contacto preferido**.
    
@@ -102,6 +104,16 @@ Siga estos pasos para solicitar un aumento de la cuota para la cuenta de Batch o
     Haga clic en **Crear** para enviar la solicitud de soporte técnico.
 
 Una vez que haya enviado la solicitud de soporte técnico, el servicio de soporte técnico de Azure se comunicará con usted. Tenga en cuenta que se puede tardar hasta 2 días laborables en completar la solicitud.
+
+## <a name="related-quotas-for-vm-pools"></a>Cuotas relacionadas para grupos de máquinas virtuales
+
+Los grupos de Batch en la configuración de máquina virtual implementada en una red virtual de Azure asignan automáticamente recursos de red de Azure adicionales. Se necesitan los siguientes recursos por cada 50 nodos de grupo en una red virtual:
+
+* 1 [grupo de seguridad de red](../virtual-network/security-overview.md#network-security-groups)
+* 1 [dirección IP pública](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* 1 [equilibrador de carga](../load-balancer/load-balancer-overview.md)
+
+Estos recursos se asignan en la suscripción que contiene la red virtual proporcionada al crear el grupo de Batch. Estos recursos están limitados por las [cuotas de recursos](../azure-subscription-service-limits.md) de la suscripción. Si tiene previsto realizar grandes implementaciones de grupos en una red virtual, compruebe las cuotas de suscripción para estos recursos. Si es necesario, solicite un aumento en Azure Portal seleccionando **Ayuda y soporte técnico**.
 
 
 ## <a name="related-topics"></a>Temas relacionados

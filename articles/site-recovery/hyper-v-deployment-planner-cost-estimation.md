@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 01d4f3873c854776078986918e6ece55017c9193
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: d5b3bf62999c197c437e55a66ee6ba935bdc6ea8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917479"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428537"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Informe de estimación de costos mediante Azure Site Recovery Deployment Planner 
 
@@ -105,7 +105,7 @@ Para agregar las máquinas virtuales manualmente:
 
 1. Seleccione **Insert row** (Insertar fila) para insertar una nueva fila entre las filas **Start** (Inicio) y **End** (Fin).
 
-2. Rellene las columnas siguientes en función del tamaño aproximado de máquina virtual y del número de máquinas virtuales que coincidan con esta configuración: 
+1. Rellene las columnas siguientes en función del tamaño aproximado de máquina virtual y del número de máquinas virtuales que coincidan con esta configuración: 
 
     a. **Number of VMs** (Número de máquinas virtuales)
 
@@ -125,9 +125,9 @@ Para agregar las máquinas virtuales manualmente:
 
     i. **Ventaja de uso híbrido de Azure**
 
-3. Para aplicar el mismo valor a todas las máquinas virtuales de la tabla, seleccione **Apply to all** (Aplicar a todo) en **Number of DR-Drills in a year** (Número de simulacros de recuperación ante desastres en un año), **Each DR-Drill duration (Days)** (Duración de cada simulacro de recuperación ante desastres [días]), **Data redundancy** (Redundancia de datos) y **Azure Hybrid Use Benefit** (Ventaja para uso híbrido de Azure).
+1. Para aplicar el mismo valor a todas las máquinas virtuales de la tabla, seleccione **Apply to all** (Aplicar a todo) en **Number of DR-Drills in a year** (Número de simulacros de recuperación ante desastres en un año), **Each DR-Drill duration (Days)** (Duración de cada simulacro de recuperación ante desastres [días]), **Data redundancy** (Redundancia de datos) y **Azure Hybrid Use Benefit** (Ventaja para uso híbrido de Azure).
 
-4. Seleccione **Re-calculate cost** (Volver a calcular los costos) para actualizar el costo.
+1. Seleccione **Re-calculate cost** (Volver a calcular los costos) para actualizar el costo.
 
 **VM Name**: nombre de la máquina virtual.
 
@@ -172,7 +172,7 @@ Azure Site Recovery Deployment Planner puede generar el informe de costos en cua
 |ARS|Peso argentino ($)||AUD|Dólar australiano ($)||BRL|Real brasileño (R$)|
 |CAD|Dólar canadiense ($)||CHF|Franco suizo (CHF)||DKK|Corona danesa (kr)|
 |EUR|Euro (€)||GBP|Libra británica (£)||HKD|Dólar de Hong Kong (HK$)|
-|IDR|Rupia indonesia (Rp)||INR|Rupia india ()||JPY|Yen japonés (¥)|
+|IDR|Rupia indonesia (Rp)||INR|Rupia india (₹)||JPY|Yen japonés (¥)|
 |KRW|Won coreano (₩)||MXN|Peso mexicano (MX$)||MYR|Ringgit malayo (RM$)|
 |NOK|Corona noruega (kr)||NZD|Dólar de Nueva Zelanda ($)||RUB|Rublo ruso (руб)|
 |SAR|Saudi Riyal (SR)||SEK|Corona sueca (kr)||TWD|Dólar taiwanés (NT$)|

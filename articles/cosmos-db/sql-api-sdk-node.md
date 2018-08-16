@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94d60325fa53668628ddefa68e8ce313c4fa75c6
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e19c1cb7b297d2537e969e0dd632dae3e1c3d211
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797852"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594369"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Node.js para la API de SQL de Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -34,31 +34,24 @@ ms.locfileid: "34797852"
 > * [BulkExecutor: .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor: Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**Descargar SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
-
-<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de la API de Node.js](https://docs.microsoft.com/javascript/api/documentdb/?view=azure-node-latest)</td></tr>
-
-<tr><td>**Instrucciones de instalación del SDK**</td><td>[Instrucciones de instalación](http://azure.github.io/azure-documentdb-node/)</td></tr>
-
-<tr><td>**Contribuya al SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-
-<tr><td>**Ejemplos**</td><td>[Ejemplos de código Node.js](sql-api-nodejs-samples.md)</td></tr>
-
-<tr><td>**Tutorial introductorio**</td><td>[Introducción al SDK de Node.js](sql-api-nodejs-get-started.md)</td></tr>
-
-<tr><td>**Tutorial de la aplicación web**</td><td>[Creación de una aplicación web de Node.js con Azure Cosmos DB](sql-api-nodejs-application.md)</td></tr>
-
-<tr><td>**Plataforma admitida actualmente**</td><td> 
-[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
-[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
-[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 
-[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
-</td></tr>
-</table></br>
+|Recurso  |Vínculo  |
+|---------|---------|
+|Descargar SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
+|Documentación de la API  |  [Documentación de referencia del SDK de JavaScript](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
+|Instrucciones de instalación del SDK  |  [Instrucciones de instalación](https://github.com/Azure/azure-cosmos-js#installation)
+|Contribuya al SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
+| Ejemplos | [Ejemplos de código Node.js](sql-api-nodejs-samples-preview.md)
+| Tutorial de inicio | [Introducción al SDK de JavaScript](sql-api-nodejs-get-started-preview.md)
+| Tutorial de la aplicación web | [Creación de una aplicación web de Node.js con Azure Cosmos DB](sql-api-nodejs-application-preview.md)
+| Plataforma admitida actualmente | [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/): requerido para la versión 2.0.0 del SDK y versiones posteriores.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="2.0.0-3"/>2.0.0-3</a>
+* RC1 de versión 2.0.0 del SDK de JavaScript de la versión preliminar pública.
+* Nuevo modelo de objetos, con CosmosClient de nivel superior y métodos divididos entre las clases pertinentes Database, Container e Item. 
+* Compatibilidad con [promises](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). 
+* SDK se convierte en TypeScript.
 
 ### <a name="1.14.4"/>1.14.4</a>
 * Documentación de NPM corregida.
@@ -201,6 +194,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.0.0-3 (RC)](#2.0.0-3) |2 de agosto de 2018 |--- |
 | [1.14.4](#1.14.4) |3 de mayo de 2018 |--- |
 | [1.14.3](#1.14.3) |3 de mayo de 2018 |--- |
 | [1.14.2](#1.14.2) |21 de diciembre de 2017 |--- |

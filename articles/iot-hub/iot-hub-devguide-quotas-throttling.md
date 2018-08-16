@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: e9d1e348ccdccfc72a8e60d70dda1c939c2393af
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f2a95ac879dd2d6b1af3d50e1be53efac26331c4
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004778"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525559"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -43,7 +43,7 @@ En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen r
 | Lecturas de (dispositivos y módulos) gemelos<sup>1</sup> | 10/s | Mayor de 10/s o 1/s/unidad | 50/s/unidad |
 | Actualizaciones de (dispositivos y módulos) gemelos<sup>1</sup> | 10/s | Mayor de 10/s o 1/s/unidad | 50/s/unidad |
 | Operaciones de trabajos<sup>1</sup> <br/> (crear, actualizar, enumerar, eliminar) | 1,67/s/unidad (100/min/unidad) | 1,67/s/unidad (100/min/unidad) | 83,33/s/unidad (5000/min/unidad) |
-| Rendimiento de operaciones de trabajos por dispositivo<sup>1</sup> | 10/s | Mayor de 10/s o 1/s/unidad | 50/s/unidad |
+| Operaciones de dispositivo de trabajos<sup>1</sup> <br/> (actualizar gemelos, invocar método directo) | 10/s | Mayor de 10/s o 1/s/unidad | 50/s/unidad |
 | Configuraciones e implementaciones perimetrales<sup>1</sup> <br/> (crear, actualizar, enumerar, eliminar) | 0,33/s/unidad (20/m/unidad) | 0,33/s/unidad (20/m/unidad) | 0,33/s/unidad (20/m/unidad) |
 
 

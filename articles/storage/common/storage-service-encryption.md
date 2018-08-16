@@ -1,33 +1,35 @@
 ---
 title: Azure Storage Service Encryption para datos en reposo | Microsoft Docs
-description: Use la característica Cifrado del servicio Azure Storage para cifrar Azure Blob Storage en el servicio cuando almacene los datos y descifrarlos al recuperarlos.
+description: Use la característica Azure Storage Service Encryption para cifrar Azure Managed Disks, Azure Blob Storage, Azure Files, Azure Queue Storage y Azure Table Storage en el servicio cuando se almacenan los datos y descifrarlos cuando se recuperan.
 services: storage
 author: lakasa
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: f35697139a4be49be8a645cfd4d451ad8e3c8094
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.component: common
+ms.openlocfilehash: 5b676bbc764cb5689a6c80e81f597776fe80413e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412362"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520731"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage Service Encryption para datos en reposo
-Azure Storage Service Encryption para datos en reposo le ayuda a proteger sus datos con el fin de cumplir con los compromisos de cumplimiento y seguridad de su organización. Con esta característica, la plataforma de almacenamiento de Azure cifra automáticamente los datos antes de almacenarlos en Azure Blob Storage, Azure Files o Azure Queue Storage y los descifra antes de recuperarlos. El control del cifrado, el cifrado en reposo, el descifrado y la administración de claves en Cifrado del servicio Storage es transparente para los usuarios. Todos los datos escritos en la plataforma de almacenamiento de Azure se cifran mediante [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uno de los cifrados de bloques más fuertes disponibles.
+Azure Storage Service Encryption para datos en reposo le ayuda a proteger sus datos con el fin de cumplir con los compromisos de cumplimiento y seguridad de su organización. Con esta característica, la plataforma de almacenamiento de Azure cifra automáticamente los datos antes de almacenarlos en Azure Managed Disks, Azure Blob Storage, Azure Files o Azure Queue Storage y los descifra antes de recuperarlos. El control del cifrado, el cifrado en reposo, el descifrado y la administración de claves en Cifrado del servicio Storage es transparente para los usuarios. Todos los datos escritos en la plataforma de almacenamiento de Azure se cifran mediante [cifrado AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uno de los cifrados de bloques más fuertes disponibles.
 
 El Cifrado del servicio Storage está habilitado para todas las cuentas de almacenamiento nuevas y existentes y no se puede deshabilitar. Dado que los datos están protegidos de forma predeterminada, no es necesario modificar el código o las aplicaciones para aprovechar el Cifrado del servicio Storage.
 
 La característica cifra los datos automáticamente en:
 
-- Azure Blob Storage, Azure Files, Azure Queue Storage y Azure Table Storage.  
+- Servicios de Azure Storage:
+    - Azure Managed Disks
+    - Azure Blob Storage
+    - Archivos de Azure
+    - Azure Queue Storage
+    - Azure Table Storage  
 - Ambos niveles de rendimiento (ediciones Estándar y Premium).
 - Ambos modelos de implementación (Azure Resource Manager y clásica).
-
-> [!Note]  
-> Storage Service Encryption no está disponible para [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Se recomienda usar el cifrado en el nivel de sistema operativo, como [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), que usa el estándar del sector [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) en Windows y [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) en Linux para proporcionar cifrado integrado con el almacén de claves.
 
 Storage Service Encryption no afecta al rendimiento del almacenamiento de Azure.
 
@@ -55,13 +57,10 @@ El cifrado está habilitado de forma predeterminada y no hay ninguna forma de de
 No hay costo adicional.
 
 **¿Puedo usar mis propias claves de cifrado?**  
-Sí, puede usar sus propias claves de cifrado. Para más información, consulte [Cifrado del servicio Storage mediante claves administradas por el cliente en Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+Sí, para Azure Blob Storage y Azure Files, puede usar sus propias claves de cifrado. Las claves administradas por el cliente no se admiten actualmente en Azure Managed Disks. Para más información, consulte [Cifrado del servicio Storage mediante claves administradas por el cliente en Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 **¿Puedo revocar el acceso a las claves de cifrado?**  
 Sí, si [utiliza sus propias claves de cifrado](storage-service-encryption-customer-managed-keys.md) en Azure Key Vault.
-
-**¿Está disponible Storage Service Encryption en Azure Managed Disks?**  
-No, Storage Service Encryption no está disponible para [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Se recomienda usar el cifrado en el nivel de sistema operativo, como [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), que usa el estándar del sector [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) en Windows y [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) en Linux para proporcionar cifrado integrado con el almacén de claves.
 
 **¿En qué se diferencia Storage Service Encryption de Azure Disk Encryption?**  
 Azure Disk Encryption proporciona integración entre soluciones basadas en el sistema operativo, como BitLocker y DM-Crypt, y Azure Key Vault. Storage Service Encryption proporciona cifrado de forma nativa en la capa de la plataforma de almacenamiento de Azure, debajo de la máquina virtual.

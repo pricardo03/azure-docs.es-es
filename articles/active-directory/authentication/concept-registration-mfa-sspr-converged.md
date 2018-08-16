@@ -1,6 +1,6 @@
 ---
-title: Registro convergente para SSPR y MFA de Azure AD
-description: Registro de autoservicio de restablecimiento de contraseña y Multi-Factor Authentication de Azure AD
+title: Registro convergente para SSPR y MFA de Azure AD (versión preliminar pública)
+description: Registro de autoservicio de restablecimiento de contraseña y Multi-Factor Authentication de Azure AD (versión preliminar pública)
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: cdd100d113c3fbeda8ac840d479b065d648ac3ff
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415658"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492899"
 ---
-# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication"></a>Registro convergente para autoservicio de restablecimiento de contraseña y Azure Multi-Factor Authentication
+# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Registro convergente para autoservicio de restablecimiento de contraseña y Azure Multi-Factor Authentication (versión preliminar pública)
 
 Hasta ahora, los usuarios debían registrar métodos de autenticación para Azure Multi-factor Authentication (MFA) y autoservicio de restablecimiento de contraseña (SSPR) en dos portales diferentes. Muchos usuarios se sentían confundidos por el hecho de usar métodos similares para Azure MFA y SSPR y no registrarse en ambos portales. Esta disparidad llevaba a algunos usuarios a no poder usar Azure MFA o SSPR cuando era necesario y, como resultado de ello, a llamadas al departamento de soporte técnico y el posible descontento del usuario. Ahora, los usuarios pueden registrase una vez y obtener las ventajas de Azure MFA y SSPR, lo que elimina la necesidad de registrar sus métodos de autenticación para estas características dos veces.  
 
@@ -71,10 +71,12 @@ Los registros de auditoría de esta nueva experiencia se encuentran en la catego
 ## <a name="known-issues"></a>Problemas conocidos
 
 **El método MFA predeterminado se establece en llamada de teléfono cuando el usuario registra el teléfono mediante un mensaje de texto**
-   * Algunos usuarios pueden advertir que su método de MFA predeterminado está establecido en llamada de teléfono después de registrar su número de teléfono mediante un mensaje de texto. Para resolver este problema, los usuarios pueden cambiar su método predeterminado mediante estas instrucciones. 
+
+   * Algunos usuarios pueden advertir que su método de MFA predeterminado está establecido en llamada de teléfono después de registrar su número de teléfono mediante un mensaje de texto. Para solucionar este problema, los usuarios pueden cambiar su método predeterminada siguiendo las instrucciones encontradas en el artículo [Administración de la información de seguridad (versión preliminar)](../user-help/security-info-manage-settings.md#change-your-info).
 
 **El usuario no puede acceder a la nueva experiencia de registro después de que el administrador deshabilita su método predeterminado**
-   * Es posible que algunos usuarios no puedan acceder a la nueva experiencia de registro si su administrador ha deshabilitado el método de MFA predeterminado anteriormente registrado. Este es un escenario de ejemplo: 
+
+   * Es posible que algunos usuarios no puedan acceder a la nueva experiencia de registro si su administrador ha deshabilitado el método de MFA predeterminado anteriormente registrado. Este es un escenario de ejemplo:
       1. Un usuario ha registrado anteriormente su número de teléfono y ha establecido su método predeterminado en llamada de teléfono.
       2. El administrador deshabilita la llamada de teléfono como método de MFA del inquilino.
       3. Se pide al usuario que se registre durante el inicio de sesión porque debe registrar un método adicional para cumplir la directiva de SSPR del inquilino.

@@ -1,24 +1,20 @@
 ---
-title: Uso de la tunelización de SSH para acceder a Azure HDInsight | Microsoft Docs
+title: Uso de la tunelización de SSH para acceder a Azure HDInsight
 description: Obtenga información acerca de cómo usar un túnel SSH para ir con seguridad a los recursos web alojados en los nodos de HDInsight basados en Linux.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 879834a4-52d0-499c-a3ae-8d28863abf65
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: larryfr
-ms.openlocfilehash: 797538a6d023e1a4b95680057eb0f72489290f40
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: jasonh
+ms.openlocfilehash: 75ef1dfecb92ed19925e514812bfc40b6066b0e1
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311529"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595256"
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Uso de la tunelización SSH para tener acceso a la interfaz de usuario Ambari Web, JobHistory, NameNode, Oozie y otras interfaces de usuario web
 
@@ -45,7 +41,7 @@ Si usa las acciones de script para personalizar el clúster, todos los servicios
 
 La [tunelización Secure Shell (SSH) ](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) conecta un puerto del equipo local a un nodo principal en HDInsight. El tráfico enviado al puerto local se enruta a través de una conexión SSH en el nodo principal. La solicitud se resuelve como si se originara en el nodo principal. A continuación, la respuesta se enruta a través del túnel a la estación de trabajo.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un cliente SSH. La mayoría de los sistemas operativos proporcionan un cliente SSH a través del comando `ssh`. Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 

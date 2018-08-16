@@ -7,26 +7,24 @@ manager: shreeshd
 keywords: copia de seguridad y recuperación ante desastres; servicio de copia de seguridad
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/25/2018
-ms.author: trinadhk
-ms.openlocfilehash: ac6d2a8a152f3c6e22be962b867ef58421eda47b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 8/6/2018
+ms.author: saurse;trinadhk
+ms.openlocfilehash: 177e44bce7d8f159892d78c7003945ba55ef4b84
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37016495"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577888"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Preguntas sobre Azure Backup Agent
 Este artículo contiene las respuestas a preguntas comunes que le ayudan a comprender rápidamente los componentes de Azure Backup Agent. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
-
-[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="configure-backup"></a>Configuración de la copia de seguridad
 ### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>¿Dónde puedo descargar el agente de Azure Backup más reciente? <br/>
 El agente más reciente para realizar copias de seguridad de Windows Server, System Center DPM o el cliente de Windows se puede descargar de [aquí](http://aka.ms/azurebackup_agent). Si desea hacer una copia de seguridad de una máquina virtual, utilice el agente de máquina virtual (que instala automáticamente la extensión adecuada). El agente de la máquina virtual ya está presente en las máquinas virtuales que se crean desde la Galería de Azure.
 
 ### <a name="when-configuring-the-azure-backup-agent-i-am-prompted-to-enter-the-vault-credentials-do-vault-credentials-expire"></a>Al configurar al agente de Azure Backup, se me solicita que especifique las credenciales de almacén. ¿Expiran las credenciales de almacén?
-Sí, las credenciales de almacén expiran a las 48 horas. Si el archivo caduca, inicie sesión en el Portal de Azure y descargue los archivos de credenciales de almacén desde el almacén.
+Sí, las credenciales de almacén expiran a las 48 horas. Si el archivo caduca, inicie sesión en Azure Portal y descargue los archivos de credenciales de almacén desde el almacén.
 
 ### <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>¿Desde qué tipos de unidades puedo realizar copias de seguridad de archivos y carpetas? <br/>
 No se puede hacer copias de seguridad de las siguientes unidades/volúmenes:
@@ -66,7 +64,11 @@ Los datos de copia de seguridad se envían al centro de datos del almacén en el
 ### <a name="does-the-azure-backup-agent-work-on-a-server-that-uses-windows-server-2012-deduplication-br"></a>¿Funciona el agente de Azure Backup en un servidor que usa la desduplicación de Windows Server 2012? <br/>
 Sí. El servicio del agente convierte los datos desduplicados en datos normales cuando prepara la operación de copia de seguridad. Luego optimiza los datos para la copia de seguridad, los cifra y los envía al servicio de copia de seguridad en línea.
 
-## <a name="backup"></a>Backup
+## <a name="prerequisites-and-dependencies"></a>Requisitos previos y dependencias
+### <a name="what-features-of-microsoft-azure-recovery-services-mars-agent-require-net-framework-452-and-higher"></a>¿Qué características del agente de Microsoft Azure Recovery Services (MARS) requieren .NET Framework 4.5.2 y versiones posteriores?
+La característica [Restauración instantánea](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) que habilita la restauración de archivos y carpetas individuales desde el asistente *Recuperar datos* requiere .NET Framework 4.5.2 o superior.
+
+## <a name="backup"></a>Copia de seguridad
 ### <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agentbr"></a>¿Cómo se cambia la ubicación de la memoria caché especificada para el agente de Azure Backup?<br/>
 Use la siguiente lista para cambiar la ubicación de caché.
 
@@ -93,7 +95,7 @@ Una vez que la creación de la copia de seguridad se haya completado correctamen
 No se recomiendan las siguientes ubicaciones para la carpeta de caché:
 
 * Recursos compartidos de red o medios extraíbles: la carpeta de caché debe ser local para el servidor que necesita realizar copias de seguridad mediante la copia de seguridad en línea. No se admiten ubicaciones de red ni medios extraíbles como unidades USB.
-* Volúmenes sin conexión: la carpeta de caché debe estar en línea para la copia de seguridad esperada con Azure Backup Agent.
+* Volúmenes sin conexión: la carpeta de caché debe estar en línea para la copia de seguridad esperada con el agente de Azure Backup.
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>¿Hay algún atributo de la carpeta de caché que no se admita?<br/>
 No se admiten los siguientes atributos ni sus combinaciones para la carpeta de caché:
@@ -111,8 +113,7 @@ Ni la carpeta de caché ni los metadatos del disco duro virtual tienen los atrib
 
 ## <a name="manage-backups"></a>Administración de copias de seguridad
 ### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>¿Qué ocurre si cambio el nombre de un servidor de Windows de cuyos datos se está realizando una copia de seguridad en Azure?<br/>
-Al cambiar el nombre de un servidor, se detienen todas las copias de seguridad configuradas actualmente.
-Registre el nuevo nombre del servidor en el almacén de Backup. Al registrar el nuevo nombre en el almacén, la primera operación de copia de seguridad es *completa*. Si necesita recuperar los datos de una copia de seguridad de un almacén con el nombre de servidor antiguo, puede utilizar la opción [**Otro servidor**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) del **Asistente para recuperar datos**.
+Al cambiar el nombre de un servidor, se detienen todas las copias de seguridad configuradas actualmente. Registre el nuevo nombre del servidor en el almacén de Backup. Al registrar el nuevo nombre en el almacén, la primera operación de copia de seguridad es *completa*. Si necesita recuperar los datos de una copia de seguridad de un almacén con el nombre de servidor antiguo, puede utilizar la opción [**Otro servidor**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) del **Asistente para recuperar datos**.
 
 ### <a name="what-is-the-maximum-file-path-length-that-can-be-specified-in-backup-policy-using-azure-backup-agent-br"></a>¿Cuál es la longitud máxima de la ruta de acceso que se puede especificar en la directiva de Backup mediante el agente de Azure Backup? <br/>
 El agente de Azure Backup usa NTFS. La [especificación de longitud de la ruta de acceso del archivo está limitada por la API de Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Si los archivos que desea proteger tienen una ruta de acceso mayor de lo que permite la API de Windows, realice la copia de seguridad de la carpeta primaria o de la unidad de disco.  
