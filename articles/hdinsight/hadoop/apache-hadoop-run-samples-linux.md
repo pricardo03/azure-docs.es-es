@@ -1,26 +1,21 @@
 ---
-title: Ejecución de ejemplos de MapReduce de Hadoop en HDInsight y Azure | Microsoft Docs
+title: 'Ejecución de ejemplos de MapReduce de Hadoop en HDInsight: Azure'
 description: Introducción al uso de ejemplos de MapReduce en archivos jar incluidos en HDInsight. Use SSH para conectarse al clúster y, a continuación, use el comando de Hadoop para ejecutar trabajos de ejemplo.
 keywords: jar de ejemplo de hadoop, jar de ejemplos de hadoop, ejemplos de mapreduce de hadoop, ejemplos de mapreduce
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: e1d2a0b9-1659-4fab-921e-4a8990cbb30a
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 14f860d64c482ac7ef74512aea4850821d30132c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: b29fb56f6ce244811aef924bb947a8b8ee8e4da4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202312"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597310"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Ejecución de los ejemplos de MapReduce incluidos en HDInsight
 
@@ -28,7 +23,7 @@ ms.locfileid: "34202312"
 
 Aprenda a ejecutar los ejemplos de MapReduce incluidos con Hadoop en HDInsight.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Un clúster de HDInsight**: consulte [Introducción al uso de Hadoop con Hive en HDInsight en Linux](apache-hadoop-linux-tutorial-get-started.md)
 
@@ -156,7 +151,7 @@ Los resultados deberían asemejarse a este texto:
     1 8 5 7 3 9 2 6 4
     2 6 3 1 4 5 9 7 8
 
-## <a name="pi--example"></a>Ejemplo de PI (π)
+## <a name="pi--example"></a>Ejemplo de Pi (π)
 
 El ejemplo pi usa un método estadístico (cuasi Monte Carlo) para calcular el valor de pi. Los puntos se colocan de forma aleatoria en un cuadrado unitario. El cuadrado también contiene un círculo. La probabilidad de que los puntos se encuentren dentro del círculo es igual al área del círculo, pi/4. El valor de pi se puede estimar a partir del valor de 4R. R es la proporción de la cantidad de puntos dentro del círculo con respecto al número total de puntos que se encuentran dentro del cuadrado. Mientras más grande sea la muestra de puntos usada, mejor resulta el valor calculado.
 

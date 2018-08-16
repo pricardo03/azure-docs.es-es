@@ -1,24 +1,20 @@
 ---
-title: Herramientas de Data Lake para Visual Studio con Sandbox de Hortonworks - Azure HDInsight | Microsoft Docs
+title: Herramientas de Data Lake para Visual Studio con Sandbox de Hortonworks en Azure HDInsight
 description: Aprenda a usar las herramientas de Azure Data Lake para Visual Studio con Sandbox de Hortonworks en ejecución en una máquina virtual local. Con estas herramientas puede crear y ejecutar trabajos de Hive y Pig en el espacio aislado, así como ver la salida de los trabajos y el historial.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: e3434c45-95d1-4b96-ad4c-fb59870e2ff0
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: larryfr
-ms.openlocfilehash: a4c1f5a8100d5d4017e56ef129aa4f4826746868
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.author: jasonh
+ms.openlocfilehash: 53bd629bcdf272e97c03dfb60c2693158698b837
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886738"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597388"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Uso de las herramientas de Azure Data Lake para Visual Studio con Sandbox de Hortonworks
 
@@ -26,7 +22,7 @@ Azure Data Lake incluye herramientas para trabajar con clústeres de Hadoop gen�
 
 Mediante Sandbox de Hortonworks puede trabajar con Hadoop localmente en su entorno de desarrollo. Una vez que haya desarrollado una solución y quiera implementarla a escala, puede desplazarse a un clúster de HDInsight.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Sandbox de Hortonworks en ejecución en una máquina virtual en el entorno de desarrollo. Este documento se ha escrito y probado con el espacio aislado ejecutado en Oracle VirtualBox, Para información sobre cómo configurar el espacio aislado, consulte el documento de [introducción al espacio aislado de Hortonworks](hadoop/apache-hadoop-emulator-get-started.md) .
 

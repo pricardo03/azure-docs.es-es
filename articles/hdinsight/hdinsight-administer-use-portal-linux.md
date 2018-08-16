@@ -1,25 +1,20 @@
 ---
-title: Administración de clústeres de Hadoop en HDInsight con el portal de Azure | Microsoft Azure
+title: Administración de clústeres de Hadoop en HDInsight mediante Azure Portal
 description: Aprenda a crear y administrar clústeres de HDInsight mediante el portal de Azure.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: jgao
-ms.openlocfilehash: bcfa7a6b9a2ebd60ec804fe8a61c26300f003a5e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: jasonh
+ms.openlocfilehash: 20a48dcd4a9c3dd4c89390c1048ec4fd5f5783ae
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097791"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597215"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
 
