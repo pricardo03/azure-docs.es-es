@@ -3,7 +3,7 @@ title: Introducción a Azure Event Hubs Capture | Microsoft Docs
 description: Captura de datos de telemetría con Event Hubs Capture
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: e53cdeea-8a6a-474e-9f96-59d43c0e8562
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: sethm
-ms.openlocfilehash: 00eee302cc15d94ec62f5f3332e18ee2df24f5cd
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: shvija
+ms.openlocfilehash: 0269fb1f9ea6b1969a7a59b4f65c94f646274767
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311440"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004028"
 ---
 # <a name="azure-event-hubs-capture"></a>Azure Event Hubs Capture
 

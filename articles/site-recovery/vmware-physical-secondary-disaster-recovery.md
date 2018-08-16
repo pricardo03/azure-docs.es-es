@@ -8,22 +8,58 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/01/2018
 ms.author: raynew
-ms.openlocfilehash: 251e2b1f8785408bf441bcbcf3d0fcbdd767a358
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 94abdd30dc9cd279ab791541250787a111f80d30
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38479489"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618995"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configuración de la recuperación ante desastres de máquinas virtuales de VMware o de servidores físicos locales en un sitio secundario
 
-InMage Scout en [Azure Site Recovery](site-recovery-overview.md) proporciona características de replicación en tiempo real entre los sitios locales de VMware. InMage Scout se incluye en las suscripciones al servicio Azure Site Recovery. 
+InMage Scout en [Azure Site Recovery](site-recovery-overview.md) proporciona características de replicación en tiempo real entre los sitios locales de VMware. InMage Scout se incluye en las suscripciones al servicio Azure Site Recovery.
+
+## <a name="end-of-support-announcement"></a>Anuncio de fin del soporte técnico
+
+El escenario de Azure Site Recovery para la replicación entre los centros de datos físicos o de VMware locales está llegando al fin del soporte técnico.
+
+-   Desde agosto de 2018, no se puede configurar el escenario en el almacén de Recovery Services y el software InMage Scout no se puede descargar desde el almacén. Se seguirá ofreciendo soporte técnico a las implementaciones existentes. 
+-   Desde el 31 de diciembre de 2020, no se ofrecerá soporte técnico al escenario.
+- Los asociados existentes pueden incorporar nuevos clientes al escenario hasta que finalice el soporte técnico.
+
+Durante la 2018 y 2019, se lanzarán dos actualizaciones: 
+
+-   Actualización 7: Corrige problemas de cumplimiento y configuración de red y proporciona compatibilidad con TLS 1.2.
+-   Actualización de 8: Agrega compatibilidad para sistemas operativos Linux RHEL/CentOS 7.3/7.4/7.5 y para SUSE 12
+
+Después de la actualizaciones 8, no se publicarán más actualizaciones. Habrá soporte técnico de revisiones limitadas para los sistemas operativos agregados en la actualización 8 y correcciones de errores basadas en el mejor esfuerzo.
+
+Azure Site Recovery continúa innovando; para ello, proporciona a los clientes de VMware e Hyper-V una solución de DRaaS avanzada y sin problemas con Azure como un sitio de recuperación ante desastres. Microsoft recomienda que los clientes de InMage y ASR Count existentes consideren el uso del escenario de VMware a Azure de Azure Site Recovery para sus necesidades de continuidad del negocio. El escenario de VMware a Azure de Azure Site Recovery es una solución de recuperación ante desastres de clase empresarial para aplicaciones de VMware que ofrece RPO y RTO de minutos, compatibilidad con la replicación y recuperación de la aplicación de varias máquinas virtuales, incorporación sin problemas, supervisión completa una ventaja de costo total de propiedad considerable.
+
+### <a name="scenario-migration"></a>Migración del escenario
+Como alternativa, se recomienda configurar la recuperación ante desastres para máquinas virtuales de VMware locales y máquinas físicas replicándolas en Azure. Para ello, realice lo siguiente:
+
+1.  Revise la comparación rápida a continuación. Antes de poder replicar máquinas locales, debe comprobar que cumplen los [requisitos](./vmware-physical-azure-support-matrix.md#replicated-machines) para la replicación en Azure. Si va a replicar máquinas virtuales de VMware, se recomienda que revise las [pautas de planeamiento de capacidad](./site-recovery-plan-capacity-vmware.md) y ejecute la [herramienta Deployment Planner](./site-recovery-deployment-planner.md) para identificar los requisitos de capacidad de identidad y comprobar el cumplimiento.
+2.  Después de ejecutar Deployment Planner, puede configurar la replicación: o   Para máquinas virtuales de VMware, siga estos tutoriales para [preparar Azure](./tutorial-prepare-azure.md), [preparar el entorno de VMware local](./vmware-azure-tutorial-prepare-on-premises.md) y [configurar la recuperación ante desastres](./vmware-azure-tutorial-prepare-on-premises.md).
+o   Para máquinas físicas, siga este [tutorial](./physical-azure-disaster-recovery.md).
+3.  Después de que las máquinas se estén replicando en Azure, puede ejecutar un [simulacro de recuperación ante desastres](./site-recovery-test-failover-to-azure.md) para asegurarse de que todo funciona según lo previsto.
+
+### <a name="quick-comparison"></a>Comparación rápida
+
+**Característica** | **Replicación en Azure** |**Replicación entre centros de datos de VMware**
+--|--|--
+**Componentes necesarios** |Servicio de movilidad en las máquinas replicadas. Servidor de configuración local, servidor de procesos, servidor de destino maestro. Servidor de procesos temporal en Azure para conmutación por recuperación.|Servidor de movilidad, servidor de procesos, servidor de configuración y destino principal
+**Configuración y orquestación** |Almacén de Recovery Services en Azure Portal | Usando vContinuum 
+**Replicado**|Disco (Windows y Linux) |Volumen-Windows<br> Disco-Linux
+**Clúster de discos compartido**|No compatible|Compatible
+**Límites de renovación de datos (promedio)** |10 MB/s de datos por disco<br> 25 MB/s de datos por máquina virtual<br> [Más información](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/s de datos por disco  <br> > 25 MB/s de datos por máquina virtual
+**Supervisión** |Desde Azure Portal|Desde CX (servidor de configuración)
+**Matrices compatibles**| [Haga clic aquí para obtener información detallada](./vmware-physical-azure-support-matrix.md)|[Descarga de matriz compatible de ASR Scout](https://aka.ms/asr-scout-cm)
 
 
-## <a name="prerequisites"></a>requisitos previos
-
+## <a name="prerequisites"></a>Requisitos previos
 Para completar este tutorial:
 
 - [Revise](vmware-physical-secondary-support-matrix.md) los requisitos de compatibilidad de todos los componentes.
@@ -80,7 +116,7 @@ Descargue el archivo .zip de la [actualización](https://aka.ms/asr-scout-update
 ## <a name="enable-replication"></a>Habilitar replicación
 
 1. Configure la replicación entre los sitios de origen y de destino de VMware.
-2. Consulte los documentos siguientes para obtener más información sobre la instalación, la protección y la recuperación:
+2. Consulte los documentos siguientes para más información sobre la instalación, la protección y la recuperación:
 
    * [Notas de la versión](https://aka.ms/asr-scout-release-notes)
    * [Matriz de compatibilidad](https://aka.ms/asr-scout-cm)
@@ -222,7 +258,7 @@ Update 3 corrige los problemas siguientes:
 
 Las revisiones de la actualización 2 incluyen:
 
-* **Servidor de configuración**: problemas que impedían que la característica de disponibilidad gratuita durante 31 días funcionase según lo esperado al registrar el servidor de configuración en Site Recovery.
+* **Servidor de configuración**: problemas que impedían que la característica de disponibilidad gratuita durante 31 días funcionase según lo esperado al registrar el servidor de configuración en el almacén de Azure Site Recovery.
 * **Agente unificado**: corrige un problema en la actualización 1, cuyo resultado era que la actualización no se instalaba en el servidor de destino maestro durante la actualización desde la versión 8.0 a 8.0.1.
 
 ### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery Scout 8.0.1 actualización 1

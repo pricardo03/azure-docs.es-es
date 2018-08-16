@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.author: yanacai
-ms.openlocfilehash: 181512c12c1e72e6aa8205aabd5ea22816d4c5df
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 55c53afad6925d7390f34b1938e14d84a59b3216
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37890901"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626835"
 ---
 # <a name="debug-azure-data-lake-analytics-code-locally"></a>Depuración de código de Azure Data Lake Analytics de forma local
 
-Puede usar las Herramientas de Azure Data Lake para Visual Studio para ejecutar y depurar código de Azure Data Lake Analytics en su estación de trabajo, de la misma forma que en el servicio Azure Data Lake.
+Puede usar las Herramientas de Azure Data Lake para Visual Studio para ejecutar y depurar código de Azure Data Lake Analytics en su estación de trabajo local, de la misma forma que en el servicio Azure Data Lake Analytics.
 
 Obtenga información sobre [cómo ejecutar el script U-SQL en la máquina local](data-lake-analytics-data-lake-tools-local-run.md).
 
@@ -31,29 +31,29 @@ Obtenga información sobre [cómo ejecutar el script U-SQL en la máquina local]
 
 Puede depurar ensamblados de C# sin enviarlos y registrarlos en el servicio Azure Data Lake Analytics. Puede establecer puntos de interrupción en el código subyacente del archivo y en un proyecto de C# al que se hace referencia.
 
-### <a name="to-debug-local-code-in-code-behind-file"></a>Para depurar el código local en el código subyacente del archivo.
+### <a name="debug-local-code-in-a-code-behind-file"></a>Depuración del código local en el código subyacente del archivo
 
 1. Establezca puntos de interrupción en el archivo de código subyacente.
-2. Presione F5 para depurar el script localmente.
+2. Presione **F5** para depurar el script localmente.
 
 > [!NOTE]
-   > El siguiente procedimiento solo funciona en Visual Studio 2015. En versiones anteriores de Visual Studio puede que necesite agregar manualmente los archivos pdb.  
+   > El siguiente procedimiento solo funciona en Visual Studio 2015. En versiones anteriores de Visual Studio puede que necesite agregar manualmente los archivos **PDB**.  
    >
    >
 
-### <a name="to-debug-local-code-in-a-referenced-c-project"></a>Para depurar el código local en un proyecto de C# al que se hace referencia.
+### <a name="debug-local-code-in-a-referenced-c-project"></a>Depuración del código local en un proyecto de C# al que se hace referencia
 
-1. Cree un proyecto de ensamblado de C# y compílelo para generar la dll de salida.
-2. Registre la dll mediante una instrucción de U-SQL:
+1. Cree un proyecto de ensamblado de C# y compílelo para generar la **DLL** de salida.
+2. Registre el archivo **DLL** mediante una instrucción de U-SQL:
 
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
         
 3. Establezca puntos de interrupción en el código de C#.
-4. Presione F5 para depurar el script con referencia a la dll de C# localmente.
+4. Presione **F5** para depurar el script con referencia a al archivo **DLL** de C# localmente.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para ver una consulta más compleja, consulte [Tutorial: Análisis de registros de sitios web mediante Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+- Para ver un ejemplo de una consulta más compleja, consulte [Tutorial: Análisis de registros de sitios web mediante Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - Para ver los detalles del trabajo, consulte [Usar el explorador de trabajos y la vista de trabajos para trabajos de Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
 - Para usar la vista de ejecución de vértices, vea [Uso de la vista de ejecución de vértices de Data Lake Tools para Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).

@@ -2,7 +2,7 @@
 title: 'Guía de inicio rápido de Azure: Procesamiento de flujos de eventos mediante PowerShell | Microsoft Docs'
 description: En esta guía de inicio rápido se describe cómo enviar y recibir eventos de Azure Event Hubs utilizando PowerShell y una aplicación de .NET de ejemplo.
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.service: event-hubs
@@ -10,19 +10,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: 9216372038db7a6f97cfc8034f715b34de08d83c
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: fd2b8b2e8bd075e029a07519ced186424798fd9c
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132447"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003617"
 ---
 # <a name="quickstart-process-event-streams-using-powershell-and-net-standard"></a>Guía de inicio rápido de Azure: procesamiento de flujos de eventos mediante PowerShell y .NET Standard
 
 Azure Event Hubs es una plataforma de streaming de datos y servicio de ingesta de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. En esta guía de inicio rápido se muestra cómo crear un centro de eventos mediante Azure PowerShell y, a continuación, enviar a un centro de eventos y recibir del mismo utilizando el SDK de .NET Standard.
 
-Para completar esta guía de inicio rápido, necesita una suscripción de Azure. Si no tiene una, [Creación de una cuenta gratuita][] antes de empezar.
+Para completar esta guía de inicio rápido, necesita una suscripción de Azure. Si no tiene una, [cree una cuenta gratuita][] antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -156,7 +156,7 @@ En este artículo, ha creado un espacio de nombres de Event Hubs y otros recurso
 > [!div class="nextstepaction"]
 > [Visualización de anomalías de datos en flujos de datos de Event Hubs](event-hubs-tutorial-visualize-anomalies.md)
 
-[Creación de una cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[cree una cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [New-AzureRmResourceGroup]: https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

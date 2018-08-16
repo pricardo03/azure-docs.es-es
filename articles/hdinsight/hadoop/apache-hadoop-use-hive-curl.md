@@ -1,25 +1,20 @@
 ---
-title: Uso de Hive en Hadoop con Curl en HDInsight (Azure) | Microsoft Docs
+title: Uso de Hive con Hadoop con Curl en HDInsight (Azure)
 description: Sepa cómo enviar remotamente trabajos de Pig a HDInsight mediante el uso de Curl.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 6ce18163-63b5-4df6-9bb6-8fcbd4db05d8
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: f602cf45165625ec252f2e29cb9b0e5ed878f3a8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: ff1805a68186120049da7ae49d38a0cc4a1a0c16
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32170261"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598933"
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>Ejecución de consultas de Hive con Hadoop en HDInsight con REST
 
@@ -27,7 +22,7 @@ ms.locfileid: "32170261"
 
 Obtenga información acerca de cómo usar la API de REST de WebHCat para ejecutar consultas de Hive con Hadoop en un clúster de Azure HDInsight.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un clúster de Hadoop en HDInsight basado en Linux versión 3.4 o posterior.
 

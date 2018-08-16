@@ -2,19 +2,19 @@
 title: Visualización de anomalías de datos de eventos en tiempo real enviados a Azure Event Hubs | Microsoft Docs
 description: 'Tutorial: Visualización de anomalías de datos de eventos en tiempo real enviados a Microsoft Azure Event Hubs'
 services: event-hubs
-author: robinsh
+author: ShubhaVijayasarathy
 manager: timlt
-ms.author: robinsh
-ms.date: 06/26/2018
+ms.author: shvija
+ms.date: 08/08/2018
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: mvc
-ms.openlocfilehash: 28c03d12954b172388a92dd0c3f6aed2266ffaf7
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 04a9a3b3df44814d680f01595d70ced08a946591
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132774"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004120"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualización de anomalías de datos de eventos en tiempo real enviados a Azure Event Hubs
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 > * Configurar un trabajo de Stream Analytics para procesar esas transacciones
 > * Configurar una visualización de Power BI para mostrar los resultados
 
-Para completar este tutorial, necesitará una suscripción de Azure. Si no tiene una, [Creación de una cuenta gratuita][] antes de empezar.
+Para completar este tutorial, necesitará una suscripción de Azure. Si no tiene una, [cree una cuenta gratuita][] antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -382,4 +382,4 @@ Avance al siguiente artículo para más información sobre Azure Event Hubs.
 > [!div class="nextstepaction"]
 > [Introducción al envío de mensajes a Azure Event Hubs en .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 
-[Creación de una cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[cree una cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

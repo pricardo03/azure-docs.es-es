@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2017
+ms.date: 07/31/2018
 ms.author: aljo
-ms.openlocfilehash: e963b0f816d30411aa7d1e8c172ca0c2e5ddf0f1
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ccdea2833a24aa9e2bdf4fadd12b19d78b40f999
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444368"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038520"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Creación de un clúster de Service Fabric con Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ El concepto de creación de clústeres seguros es el mismo, tanto si son de Linu
 Se puede especificar cualquier número de certificados adicionales para las operaciones de cliente administrador o usuario. De forma predeterminada, el certificado de clúster tiene privilegios de cliente administrador. Estos certificados de cliente adicionales no se deben instalar en el clúster, solo es necesario especificar que se permiten en la configuración del clúster; no obstante, es necesario instalarlos en las máquinas cliente para conectarse al clúster y realizar las operaciones de administración.
 
 
-## <a name="prerequisites"></a>requisitos previos 
+## <a name="prerequisites"></a>Requisitos previos 
 El concepto de creación de clústeres seguros es el mismo, tanto si son de Linux como de Windows. En esta guía se explica el uso de Azure PowerShell o la CLI de Azure para crear nuevos clústeres. Los requisitos previos son:
 
 -  [Azure PowerShell 4.1 y versiones posteriores][azure-powershell] o la [CLI de Azure 2.0 y versiones posteriores][azure-CLI].
@@ -341,6 +341,9 @@ Para simplificar algunos de los pasos necesarios para configurar Azure AD con un
 .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
 ```
 
+> [!NOTE]
+> Para las nubes nacionales (Azure Government, Azure China, Azure Alemania), también debe especificar el parámetro `-Location`.
+
 Ejecute el comando `Get-AzureSubscription` de PowerShell para encontrar su TenantId. Al ejecutar este comando se muestra el valor de TenantId para cada suscripción.
 
 El valor de ClusterName se usa como prefijo en las aplicaciones de Azure AD que crea el script. No es necesario que coincida exactamente con el nombre del clúster real. Está diseñado solo para facilitar la asignación de artefactos de Azure AD al clúster de Service Fabric con el que se utilizan.
@@ -370,6 +373,9 @@ El script imprimirá el código JSON que necesita la plantilla de Azure Resource
 Esta sección es para los usuarios que quieren crear una plantilla personalizada de Resource Manager para un clúster de Service Fabric. Una vez que tenga una plantilla, puede volver atrás y usar lo módulos de PowerShell o de la CLI para implementarla. 
 
 Las plantillas de ejemplo de Resource Manager están disponibles en los [ejemplos de Azure de GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Estas plantillas se pueden usar como punto de partida para crear la plantilla de clúster.
+
+> [!NOTE]
+> Para las nubes nacionales (Azure Government, Azure China, Azure Alemania), también debe agregar el siguiente `fabricSettings` a su plantilla ARM: `AADLoginEndpoint`, `AADTokenEndpointFormat` y `AADCertEndpointFormat`.
 
 ### <a name="create-the-resource-manager-template"></a>Creación de la plantilla de Resource Manager
 En esta guía se usa la plantilla de ejemplo de [clúster seguro de 5 nodos][service-fabric-secure-cluster-5-node-1-nodetype] y los parámetros de plantilla. Descargue `azuredeploy.json` y `azuredeploy.parameters.json` en su equipo y abra ambos archivos en el editor de texto de su elección.
@@ -675,7 +681,7 @@ Para conectar el clúster de Service Fabric, use el siguiente ejemplo de comando
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 
-Para más información sobre el cmdlet Connect-ServiceFabricCluster, consulte [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
+Para más información sobre el cmdlet Connect-ServiceFabricCluster, consulte [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster).
 
 ### <a name="can-i-reuse-the-same-azure-ad-tenant-in-multiple-clusters"></a>¿Se puede reutilizar el mismo inquilino de Azure AD para varios clústeres?
 Sí. Pero recuerde agregar la dirección URL de Service Fabric Explorer a la aplicación del clúster (web). De lo contrario, Service Fabric Explorer no funciona.
@@ -694,7 +700,7 @@ En este punto, tiene un clúster seguro con autenticación de Azure Active Direc
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
 [azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
-[active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
+[active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
 [service-fabric-manage-application-in-visual-studio]: service-fabric-manage-application-in-visual-studio.md
 [sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
@@ -714,4 +720,3 @@ En este punto, tiene un clúster seguro con autenticación de Azure Active Direc
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
-

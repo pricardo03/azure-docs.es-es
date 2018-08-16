@@ -3,7 +3,7 @@ title: Azure Event Hubs Capture se habilita a través del portal | Microsoft Doc
 description: Habilite la funcionalidad de captura de Event Hubs mediante Azure Portal.
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: 39fbdba404bda9383c9164dd1ecd9cb23bfb5cd7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: shvija
+ms.openlocfilehash: dbe140163c1cb852befb9347bbbaee819e922104
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "26855018"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004011"
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Habilitación de la funcionalidad de captura de Event Hubs mediante Azure Portal
 
@@ -46,7 +46,7 @@ Para capturar datos en Azure Data Lake Store, cree una cuenta de Data Lake Store
 1. Cree una cuenta de Data Lake Store siguiendo las instrucciones que se describen en [Introducción al uso de Azure Portal por parte de Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
 2. Siga las instrucciones de la sección [Asignación de permisos a Event Hubs](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) para crear una carpeta dentro de la cuenta de Data Lake Store en la que desee capturar los datos de Event Hubs y asignar permisos a Event Hubs para que pueda escribir datos en su cuenta de Data Lake Store.  
 
-### <a name="create-an-event-hub"></a>Creación de un centro de eventos
+### <a name="create-an-event-hub"></a>Crear un centro de eventos
 
 1. Tenga en cuenta que el centro de eventos debe estar en la misma suscripción de Azure que la instancia de Azure Data Lake Store que acaba de crear. Para crear el centro de eventos, haga clic en el botón **Activado** situado bajo **Capture** en la página del portal **Crear centro de eventos**. 
 2. En la página del portal **Crear centro de eventos**, seleccione **Azure Data Lake Store** en el cuadro **Capture Provider** (Proveedor de Capture).
@@ -62,7 +62,7 @@ Se puede configurar Capture en los centros de eventos existentes que se encuentr
 
 ![][2]
 
-### <a name="azure-data-lake-store"></a>Almacén de Azure Data Lake
+### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 
 ![][4]
 

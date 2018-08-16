@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 065f7ef822cdabad8fe25651e3cda9735c655d5f
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 4a0fb5739812950f3a01a18acae1d797fa4f9158
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414531"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622259"
 ---
 # <a name="what-are-authentication-methods"></a>¿Qué son los métodos de autenticación?
 
@@ -132,7 +132,7 @@ La aplicación Microsoft Authenticator está disponible para [Android](https://g
 La aplicación Microsoft Authenticator puede ayudar a impedir el acceso no autorizado a las cuentas y detener las transacciones fraudulentas mediante el envío de una notificación al smartphone o a la tableta. Los usuarios ven la notificación y, si es legítima, seleccionan Comprobar. De lo contrario, pueden seleccionar Denegar.
 
 > [!WARNING]
-> Para el autoservicio de restablecimiento de contraseña cuando se requiere solo un método para el restablecimiento, el código de verificación es la única opción disponible para los usuarios.
+> Para el autoservicio de restablecimiento de contraseña cuando se requiere solo un método para el restablecimiento, el código de verificación es la única opción disponible para los usuarios **para garantizar el máximo nivel de seguridad**.
 >
 > Si se requieren dos métodos, los usuarios podrán realizar el restablecimiento con la notificación **EITHER** **O** con el código de verificación, además de con cualquier otro método habilitado.
 >
@@ -142,7 +142,7 @@ La aplicación Microsoft Authenticator puede ayudar a impedir el acceso no autor
 La aplicación Microsoft Authenticator u otras aplicaciones de terceros pueden utilizarse como un token de software para generar un código de verificación de OATH. Después de escribir el nombre de usuario y la contraseña, especifique el código que facilita la aplicación en la pantalla de inicio de sesión. El código de verificación es una forma adicional de autenticación.
 
 > [!WARNING]
-> Para el autoservicio de restablecimiento de contraseña cuando se requiere solo un método para el restablecimiento, el código de verificación es la única opción disponible para los usuarios.
+> Para el autoservicio de restablecimiento de contraseña cuando se requiere solo un método para el restablecimiento, el código de verificación es la única opción disponible para los usuarios **para garantizar el máximo nivel de seguridad**.
 >
 
 ## <a name="mobile-phone"></a>Teléfono móvil
@@ -198,5 +198,7 @@ Si su organización está federada para SSO con Azure AD y que va a usar Azure M
 [Habilitar el autoservicio de restablecimiento de contraseña para la organización](quickstart-sspr.md)
 
 [Habilitar Azure Multi-Factor Authentication para la organización](howto-mfa-getstarted.md)
+
+[Habilitación del registro convergente para el restablecimiento de contraseña de autoservicio de Azure Multi-Factor Authentication y Azure AD](concept-registration-mfa-sspr-converged.md)
 
 [Documentación de configuración del método de autenticación de usuario final](https://aka.ms/securityinfoguide)

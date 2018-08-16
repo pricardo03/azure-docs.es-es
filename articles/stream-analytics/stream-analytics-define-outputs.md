@@ -9,24 +9,24 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: fa4005d1f09a2e0abca1e0083603d4335fb023c9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 37edf60ed0b63b4ff97094a496a08a592cb46fc0
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902928"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715427"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 En este artículo se describen los diferentes tipos de salidas disponibles para los trabajos de Azure Stream Analytics. Las salidas le permiten almacenar y guardar los resultados de los trabajos de Stream Analytics. Con los datos de salida, puede realizar análisis de negocio adicionales y almacenamiento de los datos. 
 
 Al diseñar la consulta de Stream Analytics, haga referencia al nombre de la salida mediante la [cláusula INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). Puede usar una única salida por trabajo, o varias salidas por trabajo de streaming si lo necesita; para ello, proporcione varias cláusulas INTO en la consulta.
 
-Para crear, editar y probar salidas de trabajos de Stream Analytics, puede usar [Azure Portal](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), la [API de REST](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output) y [Visual Studio](stream-analytics-tools-for-visual-studio.md).
+Para crear, editar y probar salidas de trabajos de Stream Analytics, puede usar [Azure Portal](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), la [API de REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) y [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Algunos tipos de salida admiten la [creación de particiones](#partitioning), y los [tamaños de los lotes de salida](#output-batch-size) varían para optimizar el rendimiento.
 
 
-## <a name="azure-data-lake-store"></a>Almacén de Azure Data Lake
+## <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Stream Analytics admite el [Almacén de Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). El Almacén de Azure Data Lake es un repositorio de gran escala en toda la empresa para cargas de trabajo de análisis de macrodatos. El Almacén de Data Lake permite almacenar datos de cualquier tamaño, tipo y velocidad de ingesta para realizar análisis exploratorios y operativos. Stream Analytics debe tener autorización para acceder a Data Lake Store.
 
 La salida de Azure Data Lake Store desde Stream Analytics no está disponible actualmente en las regiones de Azure China (21Vianet) y Azure Alemania (T-Systems International).
@@ -296,15 +296,15 @@ En la tabla siguiente se resume la asistencia de la partición y el número de r
 
 | Tipo de salida | Compatibilidad con particiones | Clave de partición  | Número de redactores de salida | 
 | --- | --- | --- | --- |
-| Almacén de Azure Data Lake | Sí | Use los tokens {date} y {time} en el patrón de prefijo de ruta de acceso. Elija el formato de fecha, como AAAA/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH se usa para el formato de hora. | Sigue las particiones de entrada para [consultas que se pueden paralelizar totalmente](stream-analytics-scale-jobs.md). | 
+| Azure Data Lake Store | SÍ | Use los tokens {date} y {time} en el patrón de prefijo de ruta de acceso. Elija el formato de fecha, como AAAA/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH se usa para el formato de hora. | Sigue las particiones de entrada para [consultas que se pueden paralelizar totalmente](stream-analytics-scale-jobs.md). | 
 | Azure SQL Database | Sin  | None | No aplicable. | 
-| Azure Blob Storage | Sí | Use los tokens de {date} y {time} de los campos de evento del patrón de la ruta de acceso. Elija el formato de fecha, como AAAA/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH se usa para el formato de hora. Como parte de la [versión preliminar](https://aka.ms/ASAPreview), la salida de blobs puede particionarse con un solo atributo de evento personalizado {fieldname} o {datetime:\<especificador>}. | Sigue las particiones de entrada para [consultas que se pueden paralelizar totalmente](stream-analytics-scale-jobs.md). | 
-| Centro de eventos de Azure | Sí | Sí | Varía según alineación de particiones.</br> Cuando la clave de partición del Centro de eventos de salida está igualmente alineada con el paso de consulta ascendente (anterior), el número de sistemas de escritura es el mismo que el número de particiones del Centro de eventos de salida. Cada sistema de escritura usa la [clase EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) de EventHub para enviar eventos a la partición específica. </br> Cuando la clave de partición del Centro de eventos de salida no está alineada con el paso de consulta ascendente (anterior), el número de sistemas de escritura es el mismo que el número de particiones del paso anterior. Cada sistema de escritura usa [la clase SendBatchAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) de EventHubClient para enviar eventos a todas las particiones de salida. |
+| Azure Blob Storage | SÍ | Use los tokens de {date} y {time} de los campos de evento del patrón de la ruta de acceso. Elija el formato de fecha, como AAAA/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH se usa para el formato de hora. Como parte de la [versión preliminar](https://aka.ms/ASAPreview), la salida de blobs puede particionarse con un solo atributo de evento personalizado {fieldname} o {datetime:\<especificador>}. | Sigue las particiones de entrada para [consultas que se pueden paralelizar totalmente](stream-analytics-scale-jobs.md). | 
+| Centro de eventos de Azure | SÍ | SÍ | Varía según alineación de particiones.</br> Cuando la clave de partición del Centro de eventos de salida está igualmente alineada con el paso de consulta ascendente (anterior), el número de sistemas de escritura es el mismo que el número de particiones del Centro de eventos de salida. Cada sistema de escritura usa la [clase EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) de EventHub para enviar eventos a la partición específica. </br> Cuando la clave de partición del Centro de eventos de salida no está alineada con el paso de consulta ascendente (anterior), el número de sistemas de escritura es el mismo que el número de particiones del paso anterior. Cada sistema de escritura usa [la clase SendBatchAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) de EventHubClient para enviar eventos a todas las particiones de salida. |
 | Power BI | Sin  | None | No aplicable. | 
-| Almacenamiento de tablas de Azure | Sí | Cualquier columna de resultados.  | Sigue las particiones de entrada para [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). | 
-| Tema de Azure Service Bus | Sí | Se elige automáticamente. El número de particiones se basa en [la SKU y el tamaño de Service Bus](../service-bus-messaging/service-bus-partitioning.md). La clave de partición es un valor entero único para cada partición.| Igual que el número de particiones en el tema de salida.  |
-| Cola de Azure Service Bus | Sí | Se elige automáticamente. El número de particiones se basa en [la SKU y el tamaño de Service Bus](../service-bus-messaging/service-bus-partitioning.md). La clave de partición es un valor entero único para cada partición.| Igual que el número de particiones en la cola de salida. |
-| Azure Cosmos DB | Sí | Utilice el token {partition} en el patrón de nombre de la colección. El valor de {partition} se basa en la cláusula PARTITION BY de la consulta. | Sigue las particiones de entrada para [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). |
+| Almacenamiento de tablas de Azure | SÍ | Cualquier columna de resultados.  | Sigue las particiones de entrada para [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). | 
+| Tema de Azure Service Bus | SÍ | Se elige automáticamente. El número de particiones se basa en [la SKU y el tamaño de Service Bus](../service-bus-messaging/service-bus-partitioning.md). La clave de partición es un valor entero único para cada partición.| Igual que el número de particiones en el tema de salida.  |
+| Cola de Azure Service Bus | SÍ | Se elige automáticamente. El número de particiones se basa en [la SKU y el tamaño de Service Bus](../service-bus-messaging/service-bus-partitioning.md). La clave de partición es un valor entero único para cada partición.| Igual que el número de particiones en la cola de salida. |
+| Azure Cosmos DB | SÍ | Utilice el token {partition} en el patrón de nombre de la colección. El valor de {partition} se basa en la cláusula PARTITION BY de la consulta. | Sigue las particiones de entrada para [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). |
 | Azure Functions | Sin  | None | No aplicable. | 
 
 ## <a name="output-batch-size"></a>Tamaño de lote de salida
@@ -314,7 +314,7 @@ La siguiente tabla explica algunas de las consideraciones para el procesamiento 
 
 | Tipo de salida | Tamaño máximo de mensaje | Optimización de tamaño de lote |
 | :--- | :--- | :--- | 
-| Almacén de Azure Data Lake | Consulte los [límites de Data Lake Storage](../azure-subscription-service-limits.md#data-lake-store-limits) | Hasta 4 MB por operación de escritura |
+| Azure Data Lake Store | Consulte los [límites de Data Lake Storage](../azure-subscription-service-limits.md#data-lake-store-limits) | Hasta 4 MB por operación de escritura |
 | Azure SQL Database | Máximo de 10 000 filas por inserción masiva única</br>Mínimo de 100 filas por inserción masiva única </br>Consulte también los [límites de Azure SQL](../sql-database/sql-database-resource-limits.md) |  Cada lote se inserta de forma masiva inicialmente con el tamaño máximo de lote y puede dividir el lote a la mitad (hasta el tamaño mínimo de lote) según los errores que se pueden volver a intentar de SQL. |
 | Azure Blob Storage | Consulte los [límites de Azure Storage](../azure-subscription-service-limits.md#storage-limits) | El tamaño máximo del bloque de blobs es de 4 MB</br>El número máximo del bloque de blobs es 50 000 |
 | Centro de eventos de Azure   | 256 KB por mensaje </br>Consulte también los [límites de Event Hubs](../event-hubs/event-hubs-quotas.md) |    Cuando las particiones de entrada-salida no se alinean, cada evento se empaqueta individualmente en EventData y se envía en un lote de hasta el tamaño máximo de mensaje (1 MB para SKU premium). </br></br>  Cuando las particiones de entrada-salida se alinean, varios eventos se empaquetan en un único EventData hasta el tamaño máximo de mensaje y se envían.    |

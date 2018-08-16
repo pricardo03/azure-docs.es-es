@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 42a11607c46f77840b14973dd5b7faf4b1734fdc
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 5a373c397df09653395eea7996b19262aee75c7a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136849"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619056"
 ---
 # <a name="built-in-roles-in-azure"></a>Roles integrados de Azure
 El [control de acceso basado en rol (RBAC)](overview.md) tiene varias definiciones de roles integrados que se pueden asignar a usuarios, grupos y entidades de servicio. Las asignaciones de roles sirven para controlar el acceso a los recursos de Azure. Si los roles integrados no cumplen las necesidades específicas de su organización, puede crear sus propios [roles personalizados](custom-roles.md).
@@ -63,6 +63,8 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Colaborador de la máquina virtual clásica](#classic-virtual-machine-contributor) | Permite administrar máquinas virtuales clásicas, pero no acceder a ellas, ni tampoco a la red virtual ni a la cuenta de almacenamiento a las que están conectadas. |
 | [Colaborador de ClearDB MySQL DB](#cleardb-mysql-db-contributor) | Permite administrar las bases de datos ClearDB MySQL, pero no acceder a ellas. |
 | [Rol de lector de cuentas de Cosmos DB](#cosmos-db-account-reader-role) | Puede leer los datos de cuentas de Azure Cosmos DB. Vea [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) para administrar cuentas de Azure Cosmos DB. |
+| [Colaborador de Data Box](#data-box-contributor) | Permite administrarlo todo en el servicio Data Box, excepto dar acceso a otros usuarios. |
+| [Operador de Data Box](#data-box-operator) | Permite administrar el servicio Data Box excepto la creación o edición de detalles de pedido y dar acceso a otros usuarios. |
 | [Colaborador de Factoría de datos](#data-factory-contributor) | Permite administrar las fábricas de datos, pero no acceder a ellas. |
 | [Desarrollador de Data Lake Analytics](#data-lake-analytics-developer) | Le permite enviar, supervisar y administrar sus propios trabajos, pero no crear ni eliminar cuentas de Data Lake Analytics. |
 | [Purgador de datos](#data-purger) | Puede purgar datos de análisis. |
@@ -76,6 +78,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Lector de Log Analytics](#log-analytics-reader) | Un lector de Log Analytics puede ver y buscar todos los datos de supervisión, así como consultar la configuración de supervisión, incluida la de Azure Diagnostics en todos los recursos de Azure. |
 | [Colaborador de aplicación lógica](#logic-app-contributor) | Le permite administrar aplicaciones lógicas, pero no acceder a ellas. |
 | [Operador de aplicación lógica](#logic-app-operator) | Le permite leer, habilitar y deshabilitar aplicaciones lógicas. |
+| [Rol de operador de aplicación administrada](#managed-application-operator-role) | Permite leer y realizar acciones en los recursos de aplicación administrada. |
 | [Colaborador de identidad administrada](#managed-identity-contributor) | Le permite crear, leer, actualizar y eliminar identidades asignadas por el usuario. |
 | [Operador de identidad administrada](#managed-identity-operator) | Le permite leer y asignar identidades asignadas por el usuario. |
 | [Colaborador de grupo de administración](#management-group-contributor) | Rol de colaborador de grupo de administración |
@@ -347,33 +350,34 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.Network/virtualNetworks/read | Obtiene la definición de red virtual |
+> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp es una operación interna que el servicio usa |
+> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Administrar los resultados de la operación de administración de copias de seguridad |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Crear y administrar contenedores de copias de seguridad dentro de tejidos de copia de seguridad del almacén de Recovery Services |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Crear y administrar trabajos de copia de seguridad |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exporta trabajos |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Devuelve el resultado de la operación del trabajo de exportación. |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Crear y administrar metadatos relacionados con la administración de copias de seguridad |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Crear y administrar resultados de operaciones de administración de copias de seguridad |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Crear y administrar directivas de copia de seguridad |
 > | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Crear y administrar elementos de los que se puede realizar una copia de seguridad |
 > | Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | Crear y administrar elementos de los que se ha realizado una copia de seguridad |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | Crear y administrar contenedores que incluyen elementos de copia de seguridad |
+> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Devuelve resúmenes de los elementos y servidores protegidos para un almacén de Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/certificates/* | Crear y administrar certificados relacionados con copias de seguridad en el almacén de Recovery Services |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/* | Crear y administrar información ampliada relacionada con el almacén |
+> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Obtiene las alertas del almacén de Recovery Services. |
+> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | La operación Get Vault obtiene un objeto que representa el recurso de Azure del tipo "almacén" |
 > | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Administrar la operación de detección para capturar contenedores recién creados |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Crear y administrar identidades registradas |
+> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/* | Crear y administrar el uso del almacén de Recovery Services |
-> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Devuelve resúmenes de los elementos y servidores protegidos para un almacén de Recovery Services. |
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Storage/storageAccounts/read | Devuelve la lista de cuentas de almacenamiento u obtiene las propiedades de la cuenta de almacenamiento especificada. |
-> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp es una operación interna que el servicio usa |
-> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Obtiene las alertas del almacén de Recovery Services. |
-> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Devuelve el resultado de la operación del trabajo de exportación. |
-> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/* |  |
+> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
 ## <a name="backup-operator"></a>Operador de copias de seguridad
@@ -658,6 +662,32 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
+## <a name="data-box-contributor"></a>Colaborador de Data Box
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Permite administrarlo todo en el servicio Data Box, excepto dar acceso a otros usuarios. |
+> | **Id** | add466c9-e687-43fc-8d98-dfcf8d720be5 |
+> | **Acciones** |  |
+> | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
+> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Databox/* |  |
+
+## <a name="data-box-operator"></a>Operador de Data Box
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Permite administrar el servicio Data Box excepto la creación o edición de detalles de pedido y dar acceso a otros usuarios. |
+> | **Id** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
+> | **Acciones** |  |
+> | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
+> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Databox/jobs/listsecrets/action | Enumera los secretos sin cifrar relacionados con el pedido. |
+
 ## <a name="data-factory-contributor"></a>Colaborador de Factoría de datos
 > [!div class="mx-tableFixed"]
 > | | |
@@ -828,7 +858,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | Crea un laboratorio en una cuenta de laboratorio. |
-> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Obtenga información sobre la disponibilidad regional para cada categoría de tamaño en una cuenta de laboratorio. |
+> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Obtiene información sobre la disponibilidad regional para cada categoría de tamaño configurada en una cuenta de laboratorio. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 
@@ -919,6 +949,15 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Web/customApis/*/read | Lee la API personalizada. |
 > | Microsoft.Web/serverFarms/read | Obtiene las propiedades de un plan de App Service |
 
+## <a name="managed-application-operator-role"></a>Rol de operador de aplicación administrada
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Permite leer y realizar acciones en los recursos de aplicación administrada. |
+> | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
+> | **Acciones** |  |
+> | Microsoft.Solutions/applications/read | Recupera una lista de aplicaciones. |
+
 ## <a name="managed-identity-contributor"></a>Colaborador de identidad administrada
 > [!div class="mx-tableFixed"]
 > | | |
@@ -991,7 +1030,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Insights/metricalerts/* |  |
 > | Microsoft.Insights/MetricDefinitions/* | Leer definiciones de métrica (lista de tipos de métricas disponibles para un recurso). |
 > | Microsoft.Insights/Metrics/* | Leer las métricas de un recurso. |
-> | Microsoft.Insights/Register/Action | Registrar el proveedor de Microsoft Insights. |
+> | Microsoft.Insights/Register/Action | Registra el proveedor de Microsoft Insights. |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Leer, escribir o eliminar pruebas web de Application Insights. |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Leer, escribir o eliminar paquetes de soluciones de Log Analytics. |
@@ -1125,6 +1164,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Authorization/policyDefinitions/* | Crear y administrar definiciones de directivas |
 > | Microsoft.Authorization/policySetDefinitions/* | Crear y administrar conjuntos de directivas |
 > | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas |
+> | Microsoft.Management/managementGroups/read | Enumera los grupos de administración del usuario autenticado. |
 > | Microsoft.operationalInsights/workspaces/*/read | Ver datos de Log Analytics |
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
@@ -1134,8 +1174,9 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Security/locations/tasks/activate/action | Activa una recomendación de seguridad |
 > | Microsoft.Security/locations/tasks/dismiss/action | Descarta una recomendación de seguridad |
 > | Microsoft.Security/policies/write | Actualiza la directiva de seguridad |
+> | Microsoft.Security/securityContacts/write | Actualiza el contacto de seguridad. |
+> | Microsoft.Security/securityContacts/delete | Elimina el contacto de seguridad. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
-> | Microsoft.Management/managementGroups/read | Enumera los grupos de administración del usuario autenticado. |
 
 ## <a name="security-manager"></a>Administrador de seguridad
 > [!div class="mx-tableFixed"]

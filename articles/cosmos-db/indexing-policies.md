@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: ae2c6b6a53c6a195bbc79a5776161aab07e42f3d
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 79585195cf95e2074a1c455c82faa500af20218a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215271"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618774"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>¿Cómo funcionan los datos del índice de Azure Cosmos DB?
 
@@ -323,9 +323,9 @@ En Azure Cosmos DB, puede realizar cambios sobre la marcha en la directiva de in
 
 ![Cómo funciona la indexación: transformaciones de índice en línea de Azure Cosmos DB](./media/indexing-policies/index-transformations.png)
 
-Las transformaciones de índice se realizan en línea. Esto significa que los documentos indexados por la directiva antigua se transforman eficazmente según la nueva directiva *sin que ello afecte a la disponibilidad de escritura ni al rendimiento aprovisionado* de la colección. La coherencia de las operaciones de lectura y escritura realizadas con la interfaz API de REST, SDK o desde procedimientos almacenados y desencadenadores no se ve afectada durante la transformación de índice. No se produce ninguna degradación del rendimiento ni ningún tiempo de inactividad en las aplicaciones al realizar un cambio de directiva de indexación.
+Las transformaciones de índice se realizan en línea. Esto significa que los documentos indexados por la directiva antigua se transforman eficazmente según la nueva directiva *sin que ello afecte a la disponibilidad de escritura ni al rendimiento aprovisionado* de la colección. La coherencia de las operaciones de lectura y escritura realizadas con la interfaz API de REST, SDK o desde procedimientos almacenados y desencadenadores no se ve afectada durante la transformación de índice. 
 
-Sin embargo, durante el tiempo en que la transformación de índice está en curso, las consultas son coherentes finalmente, con independencia de la configuración del modo de indexación (Coherente o Diferida). Esto se aplica a las consultas realizadas con todas las interfaces: API de REST, SDK o desde procedimientos almacenados y desencadenadores. Al igual que con la indexación Diferida, la transformación de índice se realiza asincrónicamente en segundo plano en las réplicas mediante los recursos de reserva disponibles para una réplica determinada. 
+Cambiar la directiva de indexación es un proceso asincrónico y el tiempo para completar la operación depende del número de documentos, RU aprovisionadas y tamaño de los documentos. Mientras la reindexación está en curso, la consulta no puede devolver todos los resultados coincidentes si la consulta utiliza el índice que se está modificando y las consultas coincidentes no devolverán ningún error. Mientras la reindexación está en curso, las consultas son coherentes finalmente, con independencia de la configuración del modo de indexación (Coherente o Diferida). Después de que se complete la transformación del índice, continuará viendo resultados coherentes. Esto se aplica a las consultas realizadas con todas las interfaces: API de REST, SDK o desde procedimientos almacenados y desencadenadores. Al igual que con la indexación Diferida, la transformación de índice se realiza asincrónicamente en segundo plano en las réplicas mediante los recursos de reserva disponibles para una réplica determinada. 
 
 Las transformaciones de índice también se realizan in situ. Azure Cosmos DB no mantiene dos copias del índice e intercambia el índice antiguo por el nuevo. Esto significa que no se requiere ni se usa espacio en disco adicional en las colecciones mientras se realizan transformaciones de índice.
 

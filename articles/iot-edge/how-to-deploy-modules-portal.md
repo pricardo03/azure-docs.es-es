@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4082189d451f670c1ae3f76b8ec785d8bd0518b3
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 83f199c49209210ec577017534f93e36d05bd70a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035400"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620372"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implementación de módulos de Azure IoT Edge desde Azure Portal
 
@@ -22,9 +22,9 @@ Una vez que ha creado módulos de IoT Edge con su lógica empresarial, querrá i
 
 Este artículo muestra cómo le puede ayudar Azure Portal en la creación de un manifiesto de implementación y en la inserción de la implementación en un dispositivo de IoT Edge. Para información sobre la creación de una implementación dirigida a varios dispositivos en función de sus etiquetas compartidas, consulte [Implementación y supervisión de módulos de IoT Edge a escala](how-to-deploy-monitor.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-* Un [centro de IoT](../iot-hub/iot-hub-create-through-portal.md) en la suscripción de Azure. 
+* Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) en la suscripción de Azure. 
 * Un [dispositivo de IoT Edge](how-to-register-device-portal.md) que tenga instalado el entorno de ejecución de Azure IoT Edge. 
 
 ## <a name="select-your-device"></a>Selección del dispositivo
@@ -44,17 +44,17 @@ Azure Portal tiene un asistente que le guía en la creación del manifiesto de i
 
 1. En la sección **Configuración del registro** de la página, proporcione las credenciales para acceder a cualquier registro del contenedor privado que contiene las imágenes del módulo. 
 2. En la sección **Módulos de implementación** de la página, seleccione **Agregar**. 
-3. Seleccione el tipo de módulo en la lista desplegable: 
+3. Fíjese en los tipos de módulos en la lista desplegable: 
    * **Módulo de IoT Edge**: la opción predeterminada.
    * **Módulo de Azure Stream Analytics**: solo módulos generados a partir de una carga de trabajo de Azure Stream Analytics. 
-
-4. Proporcione un nombre para el módulo y, a continuación, especifique la imagen de contenedor. Por ejemplo:  
+4. Seleccione **Módulo IoT Edge**.
+5. Proporcione un nombre para el módulo y, a continuación, especifique la imagen de contenedor. Por ejemplo:  
    * **Nombre**: tempSensor
    * **Identificador URI de la imagen**: mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
-5. Rellene los campos opcionales si es necesario. Para más información sobre las opciones de creación del contenedor, la directiva de reinicio y el estado deseado, consulte [Propiedades deseadas de EdgeAgent](module-edgeagent-edgehub.md#edgeagent-desired-properties). Para más información sobre el módulo gemelo, consulte [Definición o actualización de las propiedades deseadas](module-composition.md#define-or-update-desired-properties).
-6. Seleccione **Guardar**.
-7. Repita los pasos 2 a 6 para agregar módulos adicionales a la implementación. 
-8. Seleccione **Siguiente** para ir a la sección de rutas.
+6. Rellene los campos opcionales si es necesario. Para más información sobre las opciones de creación del contenedor, la directiva de reinicio y el estado deseado, consulte [Propiedades deseadas de EdgeAgent](module-edgeagent-edgehub.md#edgeagent-desired-properties). Para más información sobre el módulo gemelo, consulte [Definición o actualización de las propiedades deseadas](module-composition.md#define-or-update-desired-properties).
+7. Seleccione **Guardar**.
+8. Repita los pasos 2 a 6 para agregar módulos adicionales a la implementación. 
+9. Seleccione **Siguiente** para ir a la sección de rutas.
 
 ### <a name="specify-routes"></a>Especificación de rutas
 

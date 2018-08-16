@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2332923946e414325b9723a59cf493d9d1060cc6
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9ffc84009adfca60e9ae6b188b65b15e874e7d9c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368683"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622177"
 ---
 # <a name="how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Control de la unión de dispositivos a Azure AD híbrido
 
@@ -110,6 +110,9 @@ Puede controlar el comportamiento del registro de dispositivos de los dispositiv
     
 
 Tiene que vincular este valor de cliente a una ubicación de su elección. Por ejemplo, para configurar este valor de cliente para todos los dispositivos actuales de Windows en su organización, vincule el valor de cliente al dominio. Para realizar una implementación controlada, puede configurar el valor de cliente en dispositivos actuales de Windows unidos a dominio que pertenecen a una unidad organizativa o a un grupo de seguridad.
+
+> [!Important]
+> Mientras que la configuración anterior se ocupa de los dispositivos de Windows 10 que se han unido al dominio existente, existe la posibilidad de que los nuevos dispositivos unidos a un dominio intenten completar la unión híbrida a Azure AD debido al posible retraso en la aplicación real de la directiva de grupo o la configuración del administrador de configuración en el dispositivo de Windows 10 unidos al nuevo dominio. Para evitar esto, se recomienda que cree una nueva imagen de sysprep (utilizada como ejemplo para un método de aprovisionamiento) a partir de un dispositivo que nunca se haya unido anteriormente a Azure AD híbrido y que ya tenga aplicada la configuración de directiva del grupo anterior o la configuración de cliente del administrador de configuración. También debe utilizar la nueva imagen para aprovisionar los equipos nuevos que se unen al dominio de la organización. 
 
 ## <a name="control-windows-down-level-devices"></a>Control de dispositivos de Windows de nivel inferior
 

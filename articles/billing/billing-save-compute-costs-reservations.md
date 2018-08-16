@@ -1,6 +1,6 @@
 ---
-title: ¿Qué son las instancias reservadas de Azure? | Microsoft Docs
-description: Obtenga información sobre Azure Reserved VM Instances y los precios de VM para ahorrar en los costos de máquinas virtuales y obtener el mejor precio efectivo.
+title: ¿Qué son las reservas de Azure? | Microsoft Docs
+description: Aprenda sobre las reservas y precios de Azure para ahorrar en sus máquinas virtuales, bases de datos SQL y otros costos de recursos.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -11,65 +11,73 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
+ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: 12fc88596b4283b6f809575328ab801704cc1c8d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 93c11852a11e0bb57a0b92090368298fc14b8c2a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064519"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626311"
 ---
-# <a name="what-are-azure-reserved-vm-instances"></a>¿Qué es Azure Reserved VM Instances?
-[Azure Reserved VM Instances](https://azure.microsoft.com/pricing/reserved-vm-instances) le permite ahorrar dinero pagar por adelantado por uno o tres años de capacidad de proceso. De esta forma, obtendrá un descuento en las máquinas virtuales que use. Las instancias reservadas de Azure pueden reducir significativamente los costos de máquinas virtuales (hasta un 72 % con respecto a precios de pago por uso) con el compromiso por adelantado de uno o tres años. Las instancias reservadas ofrecen un descuento en la facturación y no afectarán al estado de tiempo de ejecución de las máquinas virtuales.
+# <a name="what-are-azure-reservations"></a>¿Qué son las reservas de Azure?
 
-Puede comprar una instancia reservada (RI) en [Azure Portal](https://aka.ms/reservations). Para más información, consulte [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](https://go.microsoft.com/fwlink/?linkid=861721).
+Las reservas de Azure le ayudan a ahorrar dinero mediante el pago por adelantado por un año o tres años de máquina virtual o capacidad de proceso de SQL Database. El pago adelantado le permite obtener un descuento en los recursos que utiliza. Las reservas de Azure pueden reducir significativamente los costos de proceso de máquinas virtuales o de base de datos SQL (hasta un 72 % con respecto a precios de pago por uso) con el compromiso por adelantado de uno o tres años. Las reservas ofrecen un descuento en la facturación y no afectan al estado del entorno de ejecución de las máquinas virtuales o bases de datos SQL.
 
-## <a name="why-should-i-buy-a-reserved-instance"></a>¿Por qué debería comprar una instancia reservada?
-Si tiene máquinas virtuales que se ejecuten durante largos períodos, la compra de una instancia reservada le proporcionará la opción más rentable. Por ejemplo, si ejecuta continuamente cuatro instancias de máquinas virtuales estándar D2 en la región Oeste de EE. UU., sin una instancia reservada se le cobra según las tarifas de pago por uso. Si compra una instancia reservada para esas cuatro máquinas virtuales, estas disfrutarán inmediatamente de las ventajas de facturación. Ya no se aplicarán las tarifas de pago por uso. 
+Puede comprar una reserva en [Azure Portal](https://aka.ms/reservations). Para obtener más información, consulte los temas siguientes:
 
-## <a name="what-charges-does-a-reserved-instance-cover"></a>¿Qué cargos cubre una instancia reservada?
-Una instancia reservada solo cubre los cargos de infraestructura de máquina virtual para las máquinas virtuales Windows o Linux. Una instancia reservada no cubre cargos por software adicional, redes ni almacenamiento. Para máquinas virtuales de Windows, puede cubrir los costos de licencia de Windows con la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
+- [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 
-## <a name="whos-eligible-to-purchase-a-reserved-instance"></a>¿Quién puede comprar una instancia reservada?
-Para poder comprar una instancia reservada, es necesario ser cliente de Azure con uno de estos tipos de suscripción:
--   Tipo de oferta de suscripción Contrato Enterprise (MS-AZR-0017P).
--   Tipo de oferta de suscripción [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) (MS-AZR-003P). Debe tener el rol "Propietario" en la suscripción para poder comprar una instancia reservada. Para comprar instancias reservadas en una inscripción de empresa, el administrador de empresa debe habilitar las compras de instancias reservadas en el portal de EA. Esta opción está habilitada de manera predeterminada.
--   Los asociados de proveedores de soluciones en la nube (CSP) pueden usar Azure Portal o el [Centro de partners](https://docs.microsoft.com/partner-center/azure-reservations) para comprar instancias reservadas.
+## <a name="why-should-i-buy-a-reservation"></a>¿Por qué debería comprar una reserva?
 
-## <a name="how-is-a-reserved-instance-purchase-billed"></a>¿Cómo se factura la compra de una instancia reservada?
-La compra de una instancia reservada se cobra en el método de pago vinculado a la suscripción. Si tiene una suscripción Enterprise, el costo de la instancia reservada se deducirá del saldo del compromiso monetario. Si este no es suficiente para cubrir el costo de la instancia reservada, se le cobrará el monto restante.
-Si tiene una suscripción de pago por uso, el cargo se aplicará inmediatamente en la tarjeta de crédito vinculada a su cuenta. Si se le factura por factura, verá los cargos la próxima vez que reciba una.
+Si tiene máquinas virtuales o bases de datos SQL que se ejecuten durante largos períodos, la compra de una reserva le proporcionará la opción más rentable. Por ejemplo, si ejecuta continuamente cuatro instancias de un servicio sin una reserva, se le cobra según las tarifas de pago por uso. Si compra una reserva para esos recursos, obtendrá inmediatamente el descuento por reserva. Ya no se aplicarán a los recursos las tarifas de pago por uso.
 
-## <a name="how-is-the-purchased-reserved-instance-discount-applied"></a>¿Cómo se aplica el descuento de la instancia reservada?
-El descuento de la instancia reservada se aplica a las máquinas virtuales que coinciden con los atributos que selecciona al comprar la instancia reservada. Estos atributos incluyen el ámbito en el que se ejecutan las máquinas virtuales. Por ejemplo, si quiere un descuento de instancia reservada para sus máquinas Estándar D2 en la región Oeste de EE. UU., seleccione la suscripción en la que se ejecutan las máquinas virtuales. Si, por el contrario, sus máquinas virtuales se ejecutan en diferentes suscripciones dentro de su cuenta o inscripción, seleccione el ámbito compartido. El ámbito compartido le permite aplicar el descuento de la instancia reservada en varias suscripciones. También puede cambiar el ámbito después de la compra de la instancia reservada. Para cambiar el ámbito, consulte [Administración de instancias reservadas en Azure](billing-manage-reserved-vm-instance.md).
+## <a name="what-charges-does-a-reservation-cover"></a>¿Qué cargos cubre una reserva?
 
-El descuento de la instancia reservada solo se aplica a máquinas virtuales asociadas a tipos de suscripción Enterprise o Pago por uso. Las máquinas virtuales que se ejecuten en una suscripción con otros tipos de oferta no recibirán el descuento por la instancia reservada. Para las inscripciones Enterprise, las suscripciones Desarrollo/pruebas de Enterprise no tienen disponibles las ventajas de instancias reservadas.
+- Instancia reservada de máquina virtual: una reserva solo cubre el costo de proceso de máquina virtual. No cubre cargos por software adicional, administración de redes ni almacenamiento.
+- Núcleo virtual reservado de SQL Database: solo se incluyen con una reserva los costos de proceso. La licencia se factura por separado.
 
-Para entender mejor la manera en que la instancia reservada afecta a la facturación de la máquina virtual, consulte [Información sobre cómo se aplica el descuento de instancia reservada de máquina virtual](billing-understand-vm-reservation-charges.md).
+Para las máquinas virtuales de Windows y SQL Database, puede cubrir los costos de licencia de Windows con la [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-## <a name="what-happens-when-the-reserved-instance-term-expires"></a>¿Qué ocurre cuando expira el plazo de la instancia reservada?
-Al final del plazo de la instancia reservada, el descuento en la facturación expira y la infraestructura de máquina virtual se factura según los precios de pago por uso. Las instancias reservadas de Azure no se renuevan automáticamente. Para seguir disfrutando del descuento de facturación, debe comprar otra instancia reservada. 
+## <a name="whos-eligible-to-purchase-a-reservation"></a>¿Quién puede comprar una reserva?
 
-## <a name="sizes-and-regional-availability"></a>Tamaños y disponibilidad regional
-Las instancias reservadas están disponibles para la mayoría de los tamaños de máquina virtual, a excepción de los siguientes:
-- Máquinas virtuales en versión preliminar: las series de máquinas virtuales o los tamaños que estén en versión preliminar no estarán disponibles para la compra de instancias reservadas.
-- Nubes: la compra de instancias reservadas no está disponible en las regiones de Azure Gobierno de EE. UU., Alemania y China. 
-- Cuota insuficiente: una instancia reservada cuyo ámbito sea de una sola suscripción debe tener cuota de vCPU disponible en la suscripción para la nueva instancia reservada. Por ejemplo, si la suscripción de destino tiene un límite de cuota de 10 vCPU para la serie D, no podrá comprar una instancia reservada para 11 instancias Standard_D1. La comprobación de cuotas para las instancias reservadas incluye las máquinas virtuales ya implementadas en la suscripción. Por ejemplo, si la suscripción tiene una cuota de 10 vCPU para la serie D y tiene implementadas dos instancias standard_D1, podrá comprar una instancia reservada para 10 instancias standard_D1 en esta suscripción. 
-- Restricciones de capacidad: en algunas circunstancias poco frecuentes, Azure limita la compra de nuevas instancias reservadas para un subconjunto de tamaños de máquina virtual debido a que la capacidad en una región es baja.
+Los clientes de Azure que tengan estos tipos de suscripción pueden comprar una reserva:
+
+- Tipo de oferta de suscripción Contrato Enterprise (MS-AZR-0017P).
+- Tipo de oferta de suscripción [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) (MS-AZR-003P). Debe tener el rol de "propietario" en la suscripción para comprar una reserva. Para comprar reservas en una inscripción de empresa, el administrador debe habilitar las compras de reservas en el portal de EA. Esta opción está habilitada de manera predeterminada.
+- Los asociados de los proveedores de soluciones en la nube (CSP) pueden usar Azure Portal o el [Centro de partners](https://docs.microsoft.com/partner-center/azure-reservations) para comprar reservas de Azure. 
+
+El descuento por una reserva de Azure solo se aplica a máquinas virtuales o a bases de datos SQL asociadas a los tipos de suscripción Enterprise, Pago por uso o CSP.
+
+## <a name="how-is-a-reservation-billed"></a>¿Cómo se factura una reserva?
+
+La reserva se cobra en el método de pago vinculado a la suscripción. Si tiene una suscripción Enterprise, el costo de la reserva se deducirá del saldo del compromiso monetario. Si este no es suficiente para cubrir el costo de la reserva, se le cobrará el monto restante. Si tiene una suscripción de pago por uso, el cargo se aplicará inmediatamente en la tarjeta de crédito vinculada a su cuenta. Si se le factura por factura, verá los cargos la próxima vez que reciba una.
+
+## <a name="how-is-the-reservation-discount-applied"></a>¿Cómo se aplica el descuento por la reserva?
+
+El descuento por reserva se aplica a la utilización de recursos que coincide con los atributos seleccionados al comprar la reserva. Estos atributos incluyen el ámbito en el que se ejecutan las máquinas virtuales, las bases de datos SQL u otros recursos coincidentes. Por ejemplo, si quiere un descuento por la reserva para sus máquinas virtuales Estándar D2 en la región Oeste de EE. UU., seleccione la suscripción en la que se ejecutan las máquinas virtuales. Si, por el contrario, sus máquinas virtuales se ejecutan en diferentes suscripciones dentro de su cuenta o inscripción, seleccione el ámbito compartido. El ámbito compartido le permite aplicar el descuento de la reserva en varias suscripciones. También puede cambiar el ámbito después de la compra de la reserva. Para más información, consulte [Administración de instancias reservadas en Azure](billing-manage-reserved-vm-instance.md).
+
+El descuento por la reserva solo se aplica a máquinas virtuales o bases de datos SQL asociadas a tipos de suscripción Enterprise o Pago por uso. Las máquinas virtuales o bases de datos SQL que se ejecuten en una suscripción con otros tipos de oferta no recibirán el descuento por la reserva. Para las inscripciones Enterprise, las suscripciones de Desarrollo/pruebas de Enterprise no tienen disponibles las ventajas de las reservas.
+
+Para entender mejor la manera en que reserva afecta a la facturación de la máquina virtual o base de datos SQL, consulte [Información sobre cómo se aplica el descuento por la reserva de máquina virtual](billing-understand-vm-reservation-charges.md).
+
+## <a name="what-happens-when-the-reservation-term-expires"></a>¿Qué ocurre cuando expira el plazo de reserva?
+
+Al final del plazo de reserva, el descuento en la facturación expira y la máquina virtual, la base de datos SQL u otros recursos se facturan según los precios de pago por uso. Las reservas de Azure no se renuevan automáticamente. Para seguir disfrutando del descuento de facturación, debe comprar otra reserva para los servicios elegibles.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Empiece a ahorrar en sus máquinas virtuales con la compra de [Azure Reserved Instance](https://go.microsoft.com/fwlink/?linkid=861721). 
 
-Para más información acerca de las instancias reservadas, consulte los siguientes artículos:
+Empiece a ahorrar en sus máquinas virtuales con la compra de una [instancia reservada de máquina virtual](../virtual-machines/windows/prepay-reserved-vm-instances.md) o de [capacidad reservada de SQL Database](../sql-database/sql-database-reserved-capacity.md).
 
-- [¿Qué es Azure Reserved VM Instances?](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Administración de instancias reservadas en Azure](billing-manage-reserved-vm-instance.md)
-- [Información sobre cómo se aplica el descuento de instancia reservada de máquina virtual](billing-understand-vm-reservation-charges.md)
-- [Información sobre el uso de instancias reservadas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
-- [Interpretación del uso de instancias reservadas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
-- [Costos de software de Windows no incluidos con las instancias reservadas](billing-reserved-instance-windows-software-costs.md)
-- [Instancias reservadas en el programa del Proveedor de soluciones en la nube (CSP) del centro de asociados](https://docs.microsoft.com/partner-center/azure-reservations)
+Para más información acerca de las reservas, consulte los siguientes artículos:
+
+- [Administración de reservas de Azure](billing-manage-reserved-vm-instance.md)
+- [Información sobre cómo se aplica el descuento por la reserva](billing-understand-vm-reservation-charges.md)
+- [Información sobre el uso de reservas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
+- [Información sobre el uso de reservas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Costos de software de Windows no incluidos con reservas](billing-reserved-instance-windows-software-costs.md)
+- [Reservas de Azure en el programa del Proveedor de soluciones en la nube (CSP) del Centro de partners](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 

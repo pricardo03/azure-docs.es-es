@@ -2,61 +2,60 @@
 title: Administración del espacio de archivo de Azure SQL Database | Microsoft Docs
 description: En esta página se describe cómo administrar el espacio de archivo con Azure SQL Database, y se proporcionan ejemplos de código para determinar si se debe reducir una base de datos y cómo hacerlo.
 services: sql-database
-author: CarlRabeler
+author: oslake
 manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 1ecc0ce08ef42f5f5935bca29e8269be2ea142f0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.date: 08/08/2018
+ms.author: moslake
+ms.openlocfilehash: 5dce07996191af3df3a4bdf16b211c29d59a994f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39416008"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003865"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Administración del espacio de archivo en Azure SQL Database
-
-En este artículo se describen los diferentes tipos de espacio de almacenamiento en Azure SQL Database y los pasos que se pueden realizar cuando el cliente debe administrar el espacio de archivo asignado para bases de datos y grupos elásticos.
+En este artículo se describen los diferentes tipos de espacio de almacenamiento en Azure SQL Database y los pasos que se pueden realizar cuando el espacio de archivo asignado para bases de datos y grupos elásticos necesita administrarse explícitamente.
 
 ## <a name="overview"></a>Información general
 
-En Azure SQL Database, las métricas de tamaño de almacenamiento mostradas en Azure Portal y las siguientes API miden el número de páginas de datos usadas en bases de datos y grupos elásticos:
+En Azure SQL Database, la mayoría de las métricas de espacio de almacenamiento mostradas en Azure Portal y las siguientes API miden el número de páginas de datos usadas en bases de datos y grupos elásticos:
 - API de métricas basadas en Azure Resource Manager, como [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric) de PowerShell
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 - T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Existen patrones de carga de trabajo en los que la asignación de espacio en los archivos de datos subyacentes de las bases de datos se vuelve más grande que el número de páginas de datos usadas en los archivos de datos. Este escenario puede darse cuando el espacio usado aumenta y posteriormente se eliminan los datos. Cuando se eliminan los datos, el espacio de archivo asignado no se reclama automáticamente. En estos escenarios, el espacio asignado para una base de datos o un grupo puede superar los límites máximos admitidos establecidos (o admitidos); como resultado, se puede impedir que crezcan los datos o que cambie el nivel de rendimiento, aunque el espacio de la base de datos usado realmente sea inferior al límite de espacio máximo. Para solucionar este problema, puede que deba reducir la base de datos para reducir el espacio asignado, pero sin usar de la base de datos.
+Hay patrones de carga de trabajo donde la asignación de archivos de datos subyacentes para las bases de datos puede llegar a ser mayor que la cantidad de páginas de datos que se usan.  Esto puede darse cuando el espacio usado aumenta y posteriormente se eliminan los datos.  Esto se debe a que el espacio de archivo asignado no se reclama automáticamente cuando se eliminan los datos.  En tales escenarios, el espacio asignado para una base de datos o un grupo puede superar los límites admitidos e impedir el crecimiento de los datos o evitar cambios de nivel de rendimiento, y requieren la reducción de los archivos de datos para mitigar esta circunstancia.
 
-El servicio SQL Database no reduce automáticamente los archivos de base de datos para reclamar el espacio asignado sin usar debido a las posibles repercusiones en el rendimiento de la base de datos. Sin embargo, puede reducir el archivo de una base de datos en un momento determinado si sigue los pasos descritos en [Reclamación del espacio asignado sin usar](#reclaim-unused-allocated-space). 
+El servicio SQL DB no reduce automáticamente los archivos de datos para reclamar el espacio asignado sin usar debido a las posibles repercusiones en el rendimiento de la base de datos.  Sin embargo, los clientes pueden reducir los archivos de datos a través de un autoservicio en el momento que estimen oportuno siguiendo los pasos descritos en [Reclamación del espacio asignado sin usar](#reclaim-unused-allocated-space). 
 
 > [!NOTE]
-> A diferencia de los archivos de datos, el servicio SQL Database reduce automáticamente los archivos de registro, ya que esa operación no afecta al rendimiento de la base de datos.
+> A diferencia de los archivos de datos, el servicio SQL Database reduce automáticamente los archivos de registro, ya que esa operación no afecta al rendimiento de la base de datos. 
 
-## <a name="understanding-the-types-of-storage-space-for-a-database"></a>Tipos de espacio de almacenamiento para una base de datos
+## <a name="understanding-types-of-storage-space-for-a-database"></a>Descripción de los tipos de espacio de almacenamiento para una base de datos
 
-Para administrar el espacio de archivo, debe comprender los siguientes términos relacionados con el almacenamiento de base de datos, tanto para una única base de datos como para un grupo elástico.
+Comprender las cantidades de espacio de almacenamiento siguientes es importante para administrar el espacio de archivo de una base de datos.
 
-|Espacio de almacenamiento|Definición|Comentarios|
+|Cantidad de base de datos|Definición|Comentarios|
 |---|---|---|
-|**Espacio de datos usado**|La cantidad de espacio usado para almacenar los datos de la base de datos en páginas de 8 KB.|Por lo general, este espacio usado aumenta (disminuye) en las inserciones (eliminaciones). En algunos casos, el espacio usado no cambia en las inserciones o eliminaciones, según la cantidad y el patrón de datos implicados en la operación y las posibles fragmentaciones. Por ejemplo, al eliminar una fila de cada página de datos no disminuye necesariamente el espacio usado.|
-|**Espacio asignado**|La cantidad de espacio de archivo de formato disponible para almacenar datos de la base de datos.|El espacio asignado crece automáticamente, pero nunca disminuye después de las eliminaciones. Este comportamiento garantiza que las futuras inserciones son más rápidas puesto que no es necesario volver a formatear el espacio.|
-|**Espacio asignado, pero no usado**|La cantidad de espacio de archivo de datos sin usar asignado para la base de datos.|Esta cantidad es la diferencia entre la cantidad de espacio asignado y el espacio usado, y representa la cantidad máxima de espacio que se puede reclamar reduciendo los archivos de base de datos.|
-|**Tamaño máximo**|La cantidad máxima de espacio de datos que puede usar la base de datos.|El espacio de datos asignado no puede crecer por encima del tamaño máximo de datos.|
+|**Espacio de datos usado**|La cantidad de espacio usado para almacenar los datos de la base de datos en páginas de 8 KB.|Por lo general, el espacio usado aumenta (disminuciones) en las inserciones (eliminaciones). En algunos casos, el espacio usado no cambia en las inserciones o eliminaciones, según la cantidad y el patrón de datos implicados en la operación y las posibles fragmentaciones. Por ejemplo, al eliminar una fila de cada página de datos no disminuye necesariamente el espacio usado.|
+|**Espacio de datos asignado**|La cantidad de espacio de archivo de formato disponible para almacenar datos de la base de datos.|La cantidad de espacio asignado crece automáticamente, pero nunca disminuye después de las eliminaciones. Este comportamiento garantiza que las futuras inserciones son más rápidas puesto que no es necesario volver a formatear el espacio.|
+|**Espacio de datos asignado, pero no usado**|La diferencia entre la cantidad de espacio de datos asignado y el espacio de datos usado.|Esta cantidad representa la cantidad máxima de espacio libre que se puede reclamar mediante la reducción de archivos de datos de base de datos.|
+|**Tamaño máximo de datos**|La cantidad máxima de espacio que se puede usar para almacenar datos de base de datos.|La cantidad de espacio de datos asignado no puede crecer por encima del tamaño máximo de datos.|
 ||||
 
-En el siguiente diagrama se ilustra la relación entre los tipos de espacio de almacenamiento.
+En el siguiente diagrama se ilustra la relación entre los diferentes tipos de espacio de almacenamiento para una base de datos.
 
-![tipos de espacio de almacenamiento y relaciones](./media/sql-database-file-space-management/storage-types.png)
+![tipos de espacio de almacenamiento y relaciones](./media/sql-database-file-space-management/storage-types.png) 
 
 ## <a name="query-a-database-for-storage-space-information"></a>Consulta de la información de espacio de almacenamiento en una base de datos
 
-Para determinar si tiene espacio asignado pero sin usar en una base de datos que quiera reclamar, use las siguientes consultas:
+Las consultas siguientes pueden utilizarse para determinar las cantidades de espacio de almacenamiento para una base de datos.  
 
 ### <a name="database-data-space-used"></a>Espacio de datos de la base de datos usado
-Modifique la siguiente consulta para devolver la cantidad de espacio de datos de la base de datos usado en MB.
+Modifique la siguiente consulta para devolver la cantidad de espacio de datos de base de datos usado.  Las unidades de resultado de la consulta están en MB.
 
 ```sql
 -- Connect to master
@@ -67,8 +66,8 @@ WHERE database_name = 'db1'
 ORDER BY end_time DESC
 ```
 
-### <a name="database-data-allocated-and-allocated-space-unused"></a>Espacio asignado a datos de la base de datos y espacio asignado sin usar
-Modifique la siguiente consulta para devolver la cantidad de espacio asignado a los datos de la base de datos y el espacio asignado sin usar.
+### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Espacio de datos de base de datos asignado y espacio asignado sin usar
+Use la siguiente consulta para devolver la cantidad de espacio de datos de base de datos asignado y la cantidad de espacio asignado sin usar.  Las unidades de resultado de la consulta están en MB.
 
 ```sql
 -- Connect to database
@@ -80,8 +79,8 @@ GROUP BY type_desc
 HAVING type_desc = 'ROWS'
 ```
  
-### <a name="database-max-size"></a>Tamaño máximo de la base de datos
-Modifique la siguiente consulta para devolver el tamaño máximo de la base de datos en bytes.
+### <a name="database-data-max-size"></a>Tamaño máximo de datos de base de datos
+Modifique la siguiente consulta para devolver el tamaño máximo de datos de la base de datos.  Las unidades del resultado de la consulta están en bytes.
 
 ```sql
 -- Connect to database
@@ -89,12 +88,24 @@ Modifique la siguiente consulta para devolver el tamaño máximo de la base de d
 SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 ```
 
+## <a name="understanding-types-of-storage-space-for-an-elastic-pool"></a>Descripción de los tipos de espacio de almacenamiento para un grupo elástico
+
+Comprender las cantidades de espacio de almacenamiento siguientes es importante para administrar el espacio de archivo de un grupo elástico.
+
+|Cantidad de grupo elástico|Definición|Comentarios|
+|---|---|---|
+|**Espacio de datos usado**|La suma del espacio de datos utilizado por todas las bases de datos en el grupo elástico.||
+|**Espacio de datos asignado**|La suma del espacio de datos asignado por todas las bases de datos en el grupo elástico.||
+|**Espacio de datos asignado, pero no usado**|La diferencia entre la cantidad de espacio de datos asignado y el espacio de datos usado por todas las base de datos del grupo elástico.|Esta cantidad representa la cantidad máxima de espacio asignado para el grupo elástico que se puede reclamar mediante la reducción de archivos de datos de base de datos.|
+|**Tamaño máximo de datos**|La cantidad máxima de espacio de datos que puede usar el grupo elástico para todas sus bases de datos.|El espacio asignado para el grupo elástico no puede exceder el tamaño máximo del grupo elástico.  Si esto ocurre, el espacio asignado que no se usa se puede reclamar mediante la reducción de archivos de datos de base de datos.|
+||||
+
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Consulta de la información de espacio de almacenamiento en un grupo elástico
 
-Para determinar si tiene espacio asignado pero sin usar en un grupo elástico, y para cada base de datos agrupada que quiera reclamar, use las siguientes consultas:
+Las consultas siguientes pueden utilizarse para determinar las cantidades de espacio de almacenamiento para un grupo elástico.  
 
 ### <a name="elastic-pool-data-space-used"></a>Espacio usado de datos de grupo elástico
-Modifique la siguiente consulta para devolver la cantidad de espacio usado de datos del grupo elástico en MB.
+Modifique la siguiente consulta para devolver la cantidad de espacio usado de datos del grupo elástico.  Las unidades de resultado de la consulta están en MB.
 
 ```sql
 -- Connect to master
@@ -105,11 +116,11 @@ WHERE elastic_pool_name = 'ep1'
 ORDER BY end_time DESC
 ```
 
-### <a name="elastic-pool-data-allocated-and-allocated-space-unused"></a>Espacio asignado a datos del grupo elástico y espacio asignado sin usar
+### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Espacio de datos de grupo elástico asignado y espacio asignado sin usar
 
-Modifique el siguiente script de PowerShell para devolver una tabla que muestre el espacio total asignado y el espacio asignado sin usar para cada base de datos de un grupo elástico. La tabla ordena las bases de datos desde las que tienen más hasta las que tienen menos cantidad de espacio asignado sin usar.  
+Modifique el siguiente script de PowerShell para devolver una tabla que muestre el espacio asignado y el espacio asignado sin usar para cada base de datos de un grupo elástico. La tabla ordena las bases de datos desde las que tienen más hasta las que tienen menos cantidad de espacio asignado sin usar.  Las unidades de resultado de la consulta están en MB.  
 
-Los resultados de la consulta para determinar el espacio asignado para cada base de datos del grupo se pueden agregar juntos para determinar el espacio de grupo elástico asignado. El espacio de grupo elástico asignado no puede exceder el tamaño máximo del grupo elástico.  
+Los resultados de la consulta para determinar el espacio asignado para cada base de datos del grupo se pueden agregar juntos para determinar el espacio total asignado para el grupo elástico. El espacio de grupo elástico asignado no puede exceder el tamaño máximo del grupo elástico.  
 
 ```powershell
 # Resource group name
@@ -160,9 +171,9 @@ La captura de pantalla siguiente es un ejemplo de la salida del script:
 
 ![ejemplo de espacio asignado al grupo elástico y espacio asignado sin usar](./media/sql-database-file-space-management/elastic-pool-allocated-unused.png)
 
-### <a name="elastic-pool-max-size"></a>Tamaño máximo del grupo elástico
+### <a name="elastic-pool-data-max-size"></a>Tamaño máximo de datos del grupo elástico
 
-Use la siguiente consulta T-SQL para devolver el tamaño máximo de la base de datos elástica en MB.
+Modifique la siguiente consulta T-SQL para devolver el tamaño máximo de datos del grupo elástico.  Las unidades de resultado de la consulta están en MB.
 
 ```sql
 -- Connect to master
@@ -175,19 +186,14 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>Reclamación del espacio asignado sin usar
 
-Cuando haya determinado que tiene espacio asignado sin usar que quiere reclamar, use el siguiente comando para reducir el espacio de base de datos asignado. 
-
-> [!IMPORTANT]
-> En el caso de las bases de datos de un grupo elástico, se deben reducir primero las bases de datos con el máximo espacio asignado sin usar a fin de reclamar espacio de archivo de manera más rápida.  
-
-Use el siguiente comando para reducir todos los archivos de datos de la base de datos especificada:
+Una vez que se han identificado las bases de datos para reclamar el espacio asignado sin usar, modifique el siguiente comando para reducir los archivos de datos para cada base de datos.
 
 ```sql
 -- Shrink database data space allocated.
-DBCC SHRINKDATABASE (N'<database_name>')
+DBCC SHRINKDATABASE (N'db1')
 ```
 
-Para más información sobre este comando, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+Para más información sobre este comando, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 
 > [!IMPORTANT] 
 > Considere la posibilidad de recompilar los índices de base de datos después de reducir los archivos de datos de la base de datos; los índices se pueden fragmentar y perder su eficacia para la optimización del rendimiento. Si esto sucede, se deben recompilar. Para más información sobre la fragmentación y la recompilación de índices, consulte [Reorganizar y volver a generar índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

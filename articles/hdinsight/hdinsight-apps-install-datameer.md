@@ -1,25 +1,20 @@
 ---
-title: 'Instalación de aplicación publicada: Cask Data Application Platform (CDAP) - Azure HDInsight | Microsoft Docs'
+title: 'Instalación de aplicación publicada: Datameer - Azure HDInsight'
 description: Instale y use la aplicación de Hadoop de terceros Cask Data Application Platform.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 5008056ae2274d058706649f286b91b71feadc27
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7b75170349f41b0fa611d5e748353484c7fea2e0
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401316"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598595"
 ---
 # <a name="install-published-application---datameer"></a>Instalación de aplicación publicada: Datameer
 
@@ -29,7 +24,7 @@ En este artículo se describe cómo instalar y ejecutar la aplicación de Hadoop
 
 Datameer es una aplicación nativa para la plataforma de Hadoop y que amplía las funcionalidades existentes de Azure HDInsight y proporciona una integración rápida, la preparación y el análisis de datos estructurados y no estructurados. Datameer puede acceder a más de 70 orígenes y formatos: estructurados, semiestructurados y no estructurados. Puede cargar los datos de manera directa o usar los vínculos de datos únicos para extraer datos a petición. La interfaz de hoja de cálculo familiar y la funcionalidad de autoservicio de Datameer reduce la complejidad de la tecnología de los macrodatos y permite obtener una perspectiva general más rápida. La interfaz de hoja de cálculo proporciona un mecanismo simple para ingresar fórmulas declarativas que luego se traducen en trabajos optimizados de Hadoop. Con Datameer y sus conocimientos de Excel e inteligencia empresarial (BI), puede usar Hadoop en la nube rápidamente. Para más información, consulte la [documentación de Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para instalar esta aplicación en un clúster de HDInsight nuevo o en un clúster existente, debe tener la configuración siguiente:
 

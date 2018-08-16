@@ -1,25 +1,20 @@
 ---
-title: 'Extracción, transformación y carga de datos (ETL) a escala: Azure HDInsight | Microsoft Docs'
+title: Extracción, transformación y carga de datos (ETL) a escala en Azure HDInsight
 description: Obtenga información acerca de cómo se usa ETL en HDInsight con Hadoop.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 9314b8ae8dceb29a9aee63ba3093ab191d4fdef3
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: bae6fde75e0939fc1f3f2f9c14f275d18ea2c4e2
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115834"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598619"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extracción, transformación y carga de datos (ETL) a escala
 
@@ -71,7 +66,7 @@ Azure Storage también tiene una capa de API de WebHDFS para el almacenamiento d
 
 Normalmente, los datos se ingieren en Azure Storage mediante PowerShell, el SDK de Azure Storage o AZCopy.
 
-### <a name="azure-data-lake-store"></a>Almacén de Azure Data Lake
+### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 
 Azure Data Lake Store (ADLS) es un repositorio de gran escala administrado para los datos de análisis que son compatibles con HDFS.  ADLS usa un paradigma de diseño que es similar a HDFS y ofrece una escalabilidad ilimitada en cuanto a la capacidad total y el tamaño de los archivos individuales. ADLS es excelente al trabajar con archivos grandes, ya que un archivo de gran tamaño se puede almacenar en varios nodos.  La creación de particiones de datos de ADLS se realiza en segundo plano.  Obtiene un rendimiento masivo para ejecutar trabajos de análisis con miles de ejecutores simultáneos que leen y escriben cientos de terabytes de datos con gran eficacia.
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 11/05/2017
-ms.openlocfilehash: a58b5c315b9f1baa3a0c3fe55917e94a47006f62
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 85f80ef1ea776d48d9c2f8091568d40dbf46db46
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258538"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716481"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulación de operación bursátil de alta frecuencia con Stream Analytics
 La combinación del lenguaje SQL, las funciones definidas por el usuario (UDF) de JavaScript y los agregados definidos por el usuario (UDA) en Azure Stream Analytics permite a los usuarios realizar análisis avanzados. Los análisis avanzados pueden incluir el entrenamiento y la puntuación en línea del aprendizaje automático, así como la simulación de procesos con estado. En este artículo se describe cómo realizar una regresión lineal en un trabajo de Azure Stream Analytics que realiza un entrenamiento y una puntuación continuos en un escenario de operaciones bursátiles de alta frecuencia.
@@ -444,7 +444,7 @@ Por último, la salida se envía al panel de Power BI, que es donde se ve.
 ## <a name="summary"></a>Resumen
 Podemos implementar un modelo de operación bursátil de alta frecuencia con una consulta de un grado de complejidad medio en Azure Stream Analytics. Tenemos que simplificar el modelo de cinco variables de entrada a dos, ya que no hay ninguna función de regresión lineal integrada. Pero en el caso de un usuario determinado, los algoritmos más sofisticados y con mayores dimensiones también se pueden implementar como UDA de JavaScript. 
 
-Merece la pena indicar que la mayor parte de la consulta, que no sea el UDA de JavaScript, se puede probar y depurar en Visual Studio con las [herramientas de Azure Stream Analytics para Visual Studio](stream-analytics-tools-for-visual-studio.md). Una vez escrita la consulta inicial, el autor tardó menos de 30 minutos en probar y depurar la consulta en Visual Studio. 
+Merece la pena indicar que la mayor parte de la consulta, que no sea el UDA de JavaScript, se puede probar y depurar en Visual Studio con las [herramientas de Azure Stream Analytics para Visual Studio](stream-analytics-tools-for-visual-studio-install.md). Una vez escrita la consulta inicial, el autor tardó menos de 30 minutos en probar y depurar la consulta en Visual Studio. 
 
 Actualmente el UDA no se puede depurar en Visual Studio. Estamos trabajando para habilitarlo con la capacidad de recorrer el código de JavaScript. Además, tenga en cuenta que los nombres de los campos que acceden el UDA están en minúscula. Este comportamiento no fue obvio durante las pruebas de las consultas. Pero con el nivel de compatibilidad 1.1 de Azure Stream Analytics, se conserva el uso de mayúsculas y minúsculas, con lo que el comportamiento es más natural.
 

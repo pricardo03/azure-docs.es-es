@@ -3,19 +3,19 @@ title: 'Seguridad de bases de datos: Azure Cosmos DB | Microsoft Docs'
 description: Obtenga información sobre cómo Azure Cosmos DB proporciona protección de bases de datos y seguridad para los datos.
 keywords: seguridad de bases de datos NoSQL, información de seguridad, seguridad de datos, el cifrado de bases de datos, protección de bases de datos, directivas de seguridad, pruebas de seguridad
 services: cosmos-db
-author: SnehaGunda
+author: rafats
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.author: sngun
-ms.openlocfilehash: c9ef406ecab0d88468c9f7ff290669cfbbae1856
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.author: rafats
+ms.openlocfilehash: d74aa6b7ef762b7971fd67654e7fc1a23a8d83cc
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860187"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038449"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Seguridad de base de datos de Azure Cosmos DB
 
@@ -47,6 +47,7 @@ Recomendamos la siguiente lista de comprobación de requisitos para comparar sis
 - Respuesta a alertas
 - Capacidad de aplicar límites geografos a datos para cumplir las restricciones de gobernanza de datos
 - Protección física de los servidores en centros de datos protegidos
+- Certificaciones
 
 Aunque puede parecer obvio, algunas [infracciones recientes de bases de datos de gran envergadura](http://thehackernews.com/2017/01/mongodb-database-security.html) nos recuerdan lo importantes que son los siguientes requisitos (que, además, son muy fáciles de cumplir):
 - Servidores revisados que se mantengan actualizados
@@ -79,7 +80,7 @@ Analicemos cada uno de ellas en detalle.
 |Cifrado en reposo|Todos los datos almacenados en Azure Cosmos DB se cifran en reposo. Más información en [Cifrado de Azure Cosmos DB en reposo](.\database-encryption-at-rest.md)|
 |Servidores revisados|Como una base de datos administrada, Azure Cosmos DB elimina la necesidad de administrar y aplicar revisiones a servidores, que se hace automáticamente.|
 |Cuentas administrativas con contraseñas seguras|Es difícil creer que tengamos que hacer mención a este requisito, pero a diferencia de algunos de nuestros competidores, no se puede tener una cuenta administrativa sin contraseña en Azure Cosmos DB.<br><br> La seguridad a través de SSL y autenticación basada en secreto HMAC está incorporada de forma predeterminada.|
-|Certificaciones de protección de datos y seguridad|Azure Cosmos DB tiene las certificaciones [ISO 27001](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-IEC-27001), [las cláusulas modelo de la Comisión Europea (EUMC)](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses) e [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA). Hay pendientes más certificaciones.|
+|Certificaciones de protección de datos y seguridad|Para disponer de la lista de certificaciones más completa, consulte el sitio de cumplimiento de Azure global [https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings] así como el documento de cumplimiento de Azure más reciente [https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942] con todas las certificaciones (busque Cosmos). Para una lectura más centrada, consulte la publicación del 25 de abril de 2018 (Azure #CosmosDB: Secure, private, compliant) (Azure #CosmosDB: seguro, privado y compatible) [https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/] que incluye SOCS 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPPAA, FedRAMP High, etc.
 
 En la captura de pantalla siguiente se muestra la integración de Active Directory (RBAC) con control de acceso (IAM) en Azure Portal: ![control de acceso (IAM) en Azure Portal: demostración de la seguridad de base de datos](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
 

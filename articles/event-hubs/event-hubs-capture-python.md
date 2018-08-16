@@ -3,7 +3,7 @@ title: Tutorial de Azure Event Hubs Capture | Microsoft Docs
 description: Ejemplo que usa el SDK de Azure para Python a fin de demostrar el uso de la característica Event Hubs Capture.
 services: event-hubs
 documentationcenter: ''
-author: djrosanova
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: bdff820c-5b38-4054-a06a-d1de207f01f6
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
-ms.author: sethm
-ms.openlocfilehash: 97cadbde2ddedade1a8688f1380b9ff9194613e7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: shvija
+ms.openlocfilehash: b38e64891ce1065290d46f0fae2d22e151e03e4d
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28016464"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005621"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Tutorial de Event Hubs Capture: Python
 
@@ -35,7 +35,7 @@ En este ejemplo se usa el [SDK de Azure para Python](https://azure.microsoft.com
 4. Enviar datos al centro de eventos con un script de Python.
 5. Leer los archivos de la captura y procesarlos con otro script de Python.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Python 2.7.x
 - Una suscripción de Azure
@@ -160,7 +160,7 @@ En este ejemplo se usa el [SDK de Azure para Python](https://azure.microsoft.com
 
    Este procesador de captura usa el directorio local para descargar todos los blobs del contenedor o de la cuenta de captura. Procesa los que no estén vacíos y escribe los resultados en forma de archivos .csv en el directorio local.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 

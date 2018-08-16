@@ -1,39 +1,41 @@
 ---
-title: Cognitive Search para extracción de datos y procesamiento de lenguaje natural en Azure Search | Microsoft Docs
-description: Extracción de datos, procesamiento de lenguaje natural (NLP) y procesamiento de imágenes para crear contenido de búsqueda en la indexación de Azure Search a través de aptitudes cognitivas.
+title: Cognitive Search para extracción de datos y procesamiento de IA de lenguaje natural en Azure Search | Microsoft Docs
+description: Extracción de contenido, procesamiento de lenguaje natural (NLP) y procesamiento de imágenes para crear contenido que se puede buscar en la indexación de Azure Search a través de aptitudes cognitivas y algoritmos de IA
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 72d1630ecaeada3acf8b49952a31ccd3ae8634aa
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304286"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617965"
 ---
 # <a name="what-is-cognitive-search"></a>¿Qué es Cognitive Search?
 
-Cognitive Search es una característica en versión preliminar de [Azure Search](search-what-is-azure-search.md), disponible en todos los niveles en las regiones Centro y Sur de EE. UU. y Europa Occidental, que agrega inteligencia artificial a las cargas de trabajo de indexación. La extracción de datos, el procesamiento de lenguaje natural y el procesamiento de imágenes durante la indexación encuentran la información latente en contenido no estructurado ni de búsqueda y lo transforma en contenido en el que se pueden realizar búsquedas en Azure Search.
+Cognitive Search crea información que se puede buscar fuera de contenido que no se puede buscar adjuntando algoritmos de inteligencia artificial a una canalización de indización. La integración de la inteligencia artificial se realiza a través de *aptitudes cognitivas*, que enriquecen los documentos de origen en la ruta a un índice de búsqueda. 
 
-La integración de la inteligencia artificial se realiza a través de *aptitudes cognitivas* que enriquecen los documentos de origen mediante procesos secuenciales en la ruta a un índice de búsqueda. 
+Las aptitudes del **procesamiento de lenguaje natural** incluyen [reconocimiento de entidades](cognitive-search-skill-named-entity-recognition.md), detección de idioma, [extracción de frases clave](cognitive-search-skill-keyphrases.md), manipulación de texto y detección de opiniones. Con estas aptitudes, un texto no estructurado se convierte en estructurado, asignado a campos que se pueden buscar y filtrar en un índice.
+
+El **procesamiento de imágenes** incluye [OCR](cognitive-search-skill-ocr.md) e identificación de [características visuales](cognitive-search-skill-image-analysis.md), como detección facial, interpretación de imágenes, reconocimiento de imágenes (personas famosas y puntos de referencia) o atributos como colores o la orientación de la imagen. Puede crear representaciones de texto de contenido de imágenes, que se puede buscar mediante todas las funcionalidades de consulta de Azure Search.
 
 ![Diagrama de la canalización de Cognitive Search](./media/cognitive-search-intro/cogsearch-architecture.png "Diagrama de la canalización de Cognitive Search")
 
-Las aptitudes que se usan durante la indexación puede ser predefinidas o personalizadas:
+Las aptitudes cognitivas de Azure Search se basan en los mismos algoritmos de inteligencia artificial que se usan en Cognitive Services APIs: [Named Entity Recognition API](cognitive-search-skill-named-entity-recognition.md), [Key Phrase Extraction API](cognitive-search-skill-keyphrases.md) yd [OCR API](cognitive-search-skill-ocr.md), por nombrar algunas. 
 
-+ Las [aptitudes predefinidas](cognitive-search-predefined-skills.md) se basan en los mismos algoritmos de inteligencia artificial que se usan en Cognitive Services APIs: [Reconocimiento de entidades con nombre](cognitive-search-skill-named-entity-recognition.md), [Extracción de frases clave](cognitive-search-skill-keyphrases.md) y [OCR](cognitive-search-skill-ocr.md), por nombrar algunas. 
-
-+ Las [aptitudes personalizadas](cognitive-search-create-custom-skill-example.md) se pueden desarrollar para cualquier procesamiento especializado que se requiera. Algunos ejemplos de aptitudes personalizadas pueden ser un módulo de entidad personalizado o un clasificador de documentos que tiene como destino un dominio específico, como finanzas, publicaciones científicas o medicina.
+El lenguaje natural y el procesamiento de imágenes se aplican durante la fase de ingesta de datos, con resultados que formarán parte de la composición de un documento en un índice que se puede buscar en Azure Search. Los datos se obtienen como un conjunto de datos de Azure y luego se insertan a través de una canalización de indexación mediante las [aptitudes integradas](cognitive-search-predefined-skills.md) que necesite. La arquitectura es extensible, por lo que si las aptitudes integradas no son suficientes, puede crear y adjuntar [aptitudes personalizadas](cognitive-search-create-custom-skill-example.md) para integrar el procesamiento personalizado. Algunos ejemplos pueden ser un módulo de entidad personalizado o un clasificador de documentos que tiene como destino un dominio específico, como finanzas, publicaciones científicas o medicina.
 
 > [!NOTE]
-> Cognitive Search se encuentra en versión preliminar pública y la ejecución del conjunto de aptitudes se ofrece de forma gratuita. Más adelante, se anunciarán los precios de esta funcionalidad.
+> Cognitive Search se encuentra en versión preliminar pública y la ejecución del conjunto de aptitudes se ofrece de forma gratuita. Más adelante, se anunciarán los precios de esta funcionalidad. 
 
 ## <a name="components-of-cognitive-search"></a>Componentes de Cognitive Search
+
+Cognitive Search es una característica en versión preliminar de [Azure Search](search-what-is-azure-search.md), disponible en todos los niveles en las regiones Centro y Sur de EE. UU. y Europa Occidental. 
 
 La canalización de Cognitive Search se basa en los [*indexadores* de Azure Search ](search-indexer-overview.md) que rastrean los orígenes de datos y proporcionan el procesamiento completo de los índices. Las aptitudes ahora se adjuntan a los indexadores, lo que permite interceptar y enriquecer los documentos en función del conjunto de aptitudes que defina. Una vez que se indexa, puede acceder al contenido mediante solicitudes de búsqueda a través de todos los [tipos de consulta compatibles con Azure Search](search-query-overview.md).  Si es la primera vez que usa los indexadores, esta sección lo guiará a través de los pasos.
 

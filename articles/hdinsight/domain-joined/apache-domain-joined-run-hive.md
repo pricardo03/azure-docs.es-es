@@ -1,28 +1,25 @@
 ---
 title: Configuración de directivas de Hive en HDInsight unido a un dominio (Azure)
-description: Aprenda a...
+description: Aprenda a configurar las directivas de Apache Ranger para Hive en un servicio de Azure HDInsight unido a un dominio.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 3fade1e5-c2e1-4ad5-b371-f95caea23f6d
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2018
-ms.author: omidm
-ms.openlocfilehash: bd99e5fda80663b37c60d972742b16c27b92cf55
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8579c3c13ace1f97d2400a4fc6e2e9a63c2c4d26
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31592682"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599697"
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Configurar directivas de Hive en HDInsight unido a un dominio
 Aprenda a configurar las directivas de Apache Ranger para Hive. En este artículo, cree dos directivas Ranger para restringir el acceso a hivesampletable. hivesampletable viene con los clústeres de HDInsight. Una vez configuradas las directivas, utilice Excel y el controlador ODBC para conectarse a las tablas de Hive en HDInsight.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Un clúster de HDInsight unido a un dominio. Consulte [Configure Domain-joined HDInsight clusters](apache-domain-joined-configure.md) (Configuración de clústeres de HDInsight unidos a un dominio).
 * Un equipo con Office 2016, Office 2013 Professional Plus, Office 2013 Pro Plus, Excel 365 Standalone u Office 2010 Professional Plus.
 
@@ -89,7 +86,7 @@ Las instrucciones se pueden encontrar en el artículo sobre la [creación de ori
  | Mechanism | Seleccione **Azure HDInsight Service** |
  | HTTP Path | Deje este parámetro en blanco. |
  | User Name | Escriba hiveuser1@contoso158.onmicrosoft.com. Actualice el nombre de dominio si es diferente. |
- | Password | Escriba la contraseña de hiveuser1. |
+ | Contraseña | Escriba la contraseña de hiveuser1. |
 
 Haga clic **Prueba** antes de guardar el origen de datos.
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: raynew
-ms.openlocfilehash: fc74af2e7f19d05ff53925b2765c1f78fd0b30c1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4b83380558c10bc4f96d56f89a5cc2b7b53edc2e
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919716"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621086"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Agrupación de máquinas con asignación de dependencias de máquina
 
@@ -55,7 +55,7 @@ Para instalar al agente en una máquina Linux, siga estos pasos:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Obtenga más información](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) sobre los sistemas operativos compatibles con el agente de dependencia.
+Obtenga más información sobre la compatibilidad de Dependency Agent para los sistemas operativos [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems)y [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems).
 
 [Más información](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) acerca de cómo puede utilizar scripts para instalar el agente de dependencia.
 

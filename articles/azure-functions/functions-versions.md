@@ -10,14 +10,14 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 07/29/2018
 ms.author: glenga
-ms.openlocfilehash: 8ba12f21d76d8deded047f40489c46657c9380b8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6bf6621d650ad590cd1134bc79fcdecdc3fd0963
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602124"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622643"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Introducción a las versiones de tiempo de ejecución de Azure Functions
 
@@ -26,7 +26,9 @@ ms.locfileid: "38602124"
 | Tiempo de ejecución | Status |
 |---------|---------|
 |1.x|Disponible con carácter general|
-|2.x|Vista previa|
+|2.x|Versión preliminar<sup>*</sup>|
+
+<sup>*</sup>Para recibir actualizaciones importantes sobre la versión 2.x, incluidos los anuncios de cambios importantes, vea el repositorio [de anuncios de Azure App Service](https://github.com/Azure/app-service-announcements/issues).
 
 > [!NOTE] 
 > Este artículo se refiere al servicio en la nube de Azure Functions. Para obtener información acerca del producto que le permite ejecutar Azure Functions de forma local, consulte la [Introducción al entorno de ejecución de Azure Functions](functions-runtime-overview.md).

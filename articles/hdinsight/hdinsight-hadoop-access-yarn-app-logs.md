@@ -1,25 +1,20 @@
 ---
-title: Acceso a los registros de aplicación de YARN de Hadoop mediante programación - Azure | Microsoft Docs
+title: 'Acceso a los registros de aplicación de YARN de Hadoop mediante programación: Azure'
 description: La aplicación de Access se registra mediante programación en un clúster de Hadoop en HDInsight.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 0198d6c9-7767-4682-bd34-42838cf48fc5
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: aab7865548c034cb550874c31977b05936dc45b9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 42484f2a93ab5effdcafca0f0769c3fb4cdbb926
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403941"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600190"
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Acceso a registros de aplicación de YARN en HDInsight basado en Windows
 En este documento se explica cómo acceder a los registros de aplicaciones de YARN que finalicen en un clúster Hadoop en HDInsight de Azure basado en Windows.
@@ -29,7 +24,7 @@ En este documento se explica cómo acceder a los registros de aplicaciones de YA
 >
 
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 * Un clúster de HDInsight basado en Windows  Consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>Servidor de escala de tiempo de YARN

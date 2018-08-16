@@ -1,25 +1,20 @@
 ---
-title: Procesamiento de eventos desde Event Hubs con Storm - Azure HDInsight | Microsoft Docs
+title: Procesamiento de eventos desde Event Hubs con Storm - Azure HDInsight
 description: Aprenda a procesar datos desde Azure Event Hubs con una topología de C# Storm creada en Visual Studio mediante las herramientas de HDInsight para Visual Studio.
 services: hdinsight,notification hubs
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.custom: ''
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 475a63937ed09b4ce875465c0eb3488ce92c38be
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 24bcc33570a5e62769223c5827556bab1967ae5a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31419547"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620389"
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Procesamiento de eventos de Azure Event Hubs con Storm en HDInsight (C#)
 
@@ -111,7 +106,7 @@ topologyBuilder.SetJavaBolt(
 
 Puede descargar una versión completa del proyecto creado en este tutorial desde [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). Sin embargo, deberá proporcionar ajustes de configuración siguiendo los pasos de este tutorial.
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 * Una [instancia de Apache Storm en un clúster de HDInsight, versión 3.5 o 3.6](apache-storm-tutorial-get-started-linux.md).
 
@@ -143,7 +138,7 @@ Event Hubs es el origen de datos para este ejemplo. Use la información de la se
 
    | NOMBRE | Permisos |
    | --- | --- |
-   | escritor |Los métodos Send |
+   | escritor |Envío |
    | lector |Escuchar |
 
     ![Captura de pantalla de la ventana Directivas de acceso compartido](./media/apache-storm-develop-csharp-event-hub-topology/sas.png)

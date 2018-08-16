@@ -1,24 +1,20 @@
 ---
-title: 'Migración desde HDInsight basado en Windows a HDInsight basado en Linux: Azure | Microsoft Docs'
+title: Migración desde HDInsight basado en Windows a HDInsight basado en Linux (Azure)
 description: Más información sobre cómo migrar desde un clúster de HDInsight basado en Windows a un clúster de HDInsight basado en Linux.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: ff35be59-bae3-42fd-9edc-77f0041bab93
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: larryfr
-ms.openlocfilehash: 964fa9853dc8bb4daae73905e05409deb775fd26
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: jasonh
+ms.openlocfilehash: f77ffd576c1470c3e5ade0fd6718e1bf3c3074fe
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626758"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598888"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migración desde un clúster de HDInsight basado en Windows a un clúster basado en Linux
 
@@ -236,7 +232,7 @@ Si tiene un flujo de trabajo que utiliza una aplicación de C#, valide estas apl
 | UI de Storm |La interfaz de usuario de Storm está disponible en https://CLUSTERNAME.azurehdinsight.net/stormui |
 | Visual Studio para crear, implementar y administrar topologías de C# o híbridas |Visual Studio puede utilizarse para crear, implementar y administrar topologías de C# (SCP.NET) o híbridas en clústeres Storm en HDInsight basados en Linux. Solo se puede usar con los clústeres creados después del 28/10/2016. |
 
-## <a name="hbase"></a>hbase
+## <a name="hbase"></a>HBase
 
 En los clústeres basados en Linux, el elemento primario del ZNode para HBase es `/hbase-unsecure`. Debe establecer este valor en la configuración de las aplicaciones cliente de Java que usan la API nativa de Java de HBase.
 

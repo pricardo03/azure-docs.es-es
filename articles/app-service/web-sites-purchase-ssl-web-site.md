@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 8c1db4693c6816ca7c3cc5b3147c0e8f3f8179c5
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 85d0c91a0b1cdf5703b394d6d232ab9cee72ee0c
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807465"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627151"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Compra y configuración de un certificado SSL para Azure App Service
 
 Este tutorial muestra cómo proteger su aplicación web comprando un certificado SSL para su instancia de  **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** almacenándolo de forma segura en [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)y asociándolo a un dominio personalizado.
 
-## <a name="step-1---log-in-to-azure"></a>Paso 1: Inicio de sesión en Azure
+## <a name="step-1---sign-in-to-azure"></a>Paso 1: Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en http://portal.azure.com
+Inicie sesión en Azure Portal en http://portal.azure.com.
 
 ## <a name="step-2---place-an-ssl-certificate-order"></a>Paso 2: Realización de un pedido de certificado SSL
 
@@ -78,7 +78,7 @@ En la página **Configuración del certificado** que usó en el paso 3, haga cli
 
 Elija el método de comprobación de dominio preferido. 
 
-Hay cuatro tipos de comprobación de dominio que admiten los certificados de App Service: App Service, Comprobación de dominio, Comprobación de correo electrónico y Comprobación manual. Estos tipos de comprobación se explican con más detalle en la sección [Avanzado](#advanced).
+Hay cuatro tipos de comprobación de dominio que admiten los certificados de App Service: App Service, Comprobación de dominio y Comprobación manual. Estos tipos de comprobación se explican con más detalle en la sección [Avanzado](#advanced).
 
 > [!NOTE]
 > **Comprobación de App Service** es la opción más conveniente cuando el dominio que desea comprobar ya está asignado a una aplicación App Service de la misma suscripción. Se aprovecha de que la aplicación App Service ya ha comprobado la propiedad del dominio.
@@ -135,16 +135,7 @@ Llegados a este punto, debería ser capaz de visitar su aplicación con `HTTPS:/
 
 ### <a name="verifying-domain-ownership"></a>Comprobación de la propiedad del dominio
 
-Hay dos tipos más de comprobación de dominio que admiten los certificados de App Service: Comprobación de correo electrónico y Comprobación manual.
-
-#### <a name="mail-verification"></a>Comprobación de correo electrónico
-
-El correo electrónico de comprobación ya se envió a las direcciones de correo electrónico asociadas a este dominio personalizado.
-Para completar el paso de comprobación de correo electrónico, abra el mensaje y haga clic en el vínculo de comprobación.
-
-![insert image of email verification](./media/app-service-web-purchase-ssl-web-site/KVVerifyEmailSuccess.png)
-
-Si necesita reenviar el correo electrónico de comprobación, haga clic en el botón **Reenviar correo electrónico**.
+Hay dos tipos más de comprobación de dominio que admiten los certificados de App Service: Comprobación de dominio y Comprobación manual.
 
 #### <a name="domain-verification"></a>Comprobación de dominio
 
@@ -199,11 +190,11 @@ La regeneración de claves del certificado renovará el certificado con un nuevo
 
 ## <a name="renew-the-certificate"></a>Renovación del certificado
 
-Para activar la renovación automática del certificado en cualquier momento, haga clic en **Configuración de renovación automática** en la página de administración de certificados. Seleccione **Activar** y luego haga clic en **Guardar**.
+Para activar la renovación automática del certificado en cualquier momento, haga clic en **Configuración de renovación automática** en la página de administración de certificados. Seleccione **Activar** y luego haga clic en **Guardar**. Los certificados pueden comenzar a renovarse automáticamente 90 días antes del vencimiento si tiene activada la renovación automática.
 
 ![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
-Para renovar manualmente el certificado, haga clic en **Renovación manual**.
+Para renovar manualmente el certificado, haga clic en **Renovación manual**. Puede solicitar renovar manualmente el certificado de 60 días antes de que expire.
 
 > [!NOTE]
 > El certificado renovado no se enlaza automáticamente a la aplicación, con independencia de que lo renueve de manera manual o automática. Para enlazarlo a la aplicación, consulte [Renovar certificados](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 

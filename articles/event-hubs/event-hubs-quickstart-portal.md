@@ -3,25 +3,25 @@ title: 'Guía de inicio rápido de Azure: Procesamiento de flujos de eventos med
 description: En esta guía de inicio rápido aprenderá a procesar flujos de eventos utilizando Azure Portal.
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: da48294962dc5af5f9d623c84f9bbff1d49be03e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: 1938f7a8400587f8f0405cb576bfbdfe8bf1dddd
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132440"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004317"
 ---
 # <a name="quickstart-process-event-streams-using-the-azure-portal-and-net"></a>Guía de inicio rápido de Azure: Procesamiento de flujos de eventos mediante Azure Portal y .NET
 
 Azure Event Hubs es una plataforma de streaming de datos y servicio de ingesta de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. En esta guía de inicio rápido se muestra cómo crear un centro de eventos mediante [Azure Portal](https://portal.azure.com) y, a continuación, enviar a un centro de eventos y recibir del mismo utilizando el SDK de .NET Standard.
 
-Para completar esta guía de inicio rápido, necesita una suscripción de Azure. Si no tiene una, [Creación de una cuenta gratuita][] antes de empezar.
+Para completar esta guía de inicio rápido, necesita una suscripción de Azure. Si no tiene una, [cree una cuenta gratuita][] antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -173,7 +173,7 @@ En este artículo, ha creado un espacio de nombres de Event Hubs y otros recurso
 > [!div class="nextstepaction"]
 > [Visualización de anomalías de datos en flujos de datos de Event Hubs](event-hubs-tutorial-visualize-anomalies.md)
 
-[Creación de una cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[cree una cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Azure Portal]: https://portal.azure.com/
 [1]: ./media/event-hubs-quickstart-portal/resource-groups1.png
 [2]: ./media/event-hubs-quickstart-portal/resource-groups2.png

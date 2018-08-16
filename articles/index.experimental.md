@@ -3,12 +3,12 @@ layout: HubPage
 hide_bc: true
 title: Documentación de Microsoft Azure
 description: Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc.
-ms.openlocfilehash: c7f46f9b22bd3696b7d281815687cca2b90b22b3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 103d09b1a71239948c730f8dba47253741bbaa9c
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070067"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038585"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -985,7 +985,7 @@ ms.locfileid: "34070067"
                                         <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>Backup</p>
+                                                <p>Copia de seguridad</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1476,7 +1476,7 @@ ms.locfileid: "34070067"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Backup</h3>
+                                                    <h3>Copia de seguridad</h3>
                                                     <p>Copias de seguridad de los servidores en la nube, sencillas y confiables</p>
                                                 </div>
                                             </div>
@@ -2894,7 +2894,7 @@ ms.locfileid: "34070067"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Backup</h3>
+                                                    <h3>Copia de seguridad</h3>
                                                     <p>Copias de seguridad de los servidores en la nube, sencillas y confiables</p>
                                                 </div>
                                             </div>
@@ -3150,10 +3150,10 @@ ms.locfileid: "34070067"
                                                     <a href="https://pypi.python.org/pypi/azure">Obtener SDK de Python</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Primeros pasos</a>
+                                                    <a href="https://docs.microsoft.com/python/azure/?view=azure-python">Primeros pasos</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Referencia de API</a>
+                                                    <a href="https://docs.microsoft.com/python/azure/?view=azure-python">Referencia de API</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/resources/samples/?platform=python">Obtener ejemplos</a>
@@ -3427,7 +3427,7 @@ ms.locfileid: "34070067"
                                                     <a href="/dotnet/articles/core/docker/visual-studio-tools-for-docker">Introducción</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Descargar para Visual Studio</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=Click2CloudInc.Click2CloudDockerExtensionForVisualStudio2017">Descargar para Visual Studio</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Descargar para Visual Studio Code</a>
@@ -3502,13 +3502,13 @@ ms.locfileid: "34070067"
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python">Herramientas de Python</a>
+                                                    <a href="http://aka.ms/ptvs">Herramientas de Python</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://github.com/Microsoft/PTVS/wiki/PTVS-Installation">Introducción a Visual Studio</a>
+                                                    <a href="http://aka.ms/ptvsdocs">Introducción a Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python">Introducción a Visual Studio Code</a>
+                                                    <a href="https://code.visualstudio.com/docs/python/python-tutorial">Introducción a Visual Studio Code</a>
                                                 </p>
                                             </div>
                                         </div>

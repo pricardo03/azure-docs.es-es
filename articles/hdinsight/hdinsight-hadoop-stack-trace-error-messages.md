@@ -1,25 +1,21 @@
 ---
-title: 'Mensajes de error de seguimiento de la pila de Hadoop: Azure HDInsight | Microsoft Docs'
+title: 'Mensajes de error de seguimiento de la pila de Hadoop: Azure HDInsight'
 description: Índice de los mensajes de error del seguimiento de la pila de Hadoop en Azure HDInsight. Encuentre el error en la lista para ver la información de solución de problemas.
 keywords: seguimiento de la pila, mensajes de error
 services: hdinsight
-documentationcenter: NA
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 310051e5-5e2f-4be2-9780-2e8c0430e52d
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 7b0bb58dcf255ee14dd18de3a3ac7489ae0ed1de
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ecd6ec6d3d72dc5193c82558dbd7c7cae682ecc0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200163"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038649"
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Índice de Hadoop en artículos de solución de problemas de HDInsight
 Los artículos se organizan por tipos de error.

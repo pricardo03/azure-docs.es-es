@@ -2,23 +2,18 @@
 title: Usar Azure PowerShell con Azure Storage | Microsoft Docs
 description: Aprenda a usar los cmdlets de Azure PowerShell para Azure Storage.
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 06/13/2018
 ms.author: rogarana
-ms.openlocfilehash: 951b69877718c5da3c165c24c297906a1ad9a976
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: common
+ms.openlocfilehash: 6cf7f35e60502d0e21ffa2b777f1700a57add965
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652508"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038408"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Usar Azure PowerShell con Azure Storage
 
@@ -39,7 +34,7 @@ En este artículo se proporcionan vínculos a otros artículos de PowerShell par
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-Este ejercicio requiere la versión 4.4 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell). 
+Este ejercicio requiere la versión 4.4 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 Para este ejercicio, puede escribir los comandos en una ventana de PowerShell regular o puede usar [Windows PowerShell ISE](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-) y escribir los comandos en un editor y, después, probar uno o varios comandos a la vez mientras revisa los ejemplos. Puede resaltar las filas que desea ejecutar y hacer clic en Ejecutar seleccionado para ejecutar solo esos comandos.
 
@@ -55,7 +50,7 @@ Connect-AzureRmAccount
 
 ## <a name="list-the-storage-accounts-in-the-subscription"></a>Enumeración de las cuentas de almacenamiento de la suscripción
 
-Ejecute el cmdlet [Get-AzureRMStorageAccount](/powershell/module/azurerm.resources/get-azurermstorageaccount) para recuperar la lista de cuentas de almacenamiento de la suscripción actual. 
+Ejecute el cmdlet [Get-AzureRMStorageAccount](/powershell/module/azurerm.storage/Get-AzureRmStorageAccount) para recuperar la lista de cuentas de almacenamiento de la suscripción actual. 
 
 ```powershell
 Get-AzureRMStorageAccount | Select StorageAccountName, Location
@@ -108,11 +103,11 @@ $ctx = $storageAccount.Context
 
 El script usa los siguientes cmdlets de PowerShell: 
 
-*   [Get-AzureRmLocation](/powershell/module/azurerm.storage/Get-AzureRmLocation): recupera una lista de las ubicaciones válidas. En el ejemplo se usa `eastus` para la ubicación.
+*   [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation): recupera una lista de las ubicaciones válidas. En el ejemplo se usa `eastus` para la ubicación.
 
-*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/New-AzureRmResourceGroup): crea un grupo de recursos. Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Se llama `teststoragerg`. 
+*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup): crea un grupo de recursos. Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Se llama `teststoragerg`. 
 
-*   [New-AzureRmStorageAccount](/powershell/module/azurerm.resources/New-AzureRmStorageAcccount): crea la cuenta de almacenamiento real. En el ejemplo se utiliza `testpshstorage`.
+*   [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount): crea la cuenta de almacenamiento. En el ejemplo se utiliza `testpshstorage`.
 
 El nombre de SKU indica el tipo de replicación para la cuenta de almacenamiento, como LRS (almacenamiento con redundancia local). Para más información sobre la replicación, vea [Replicación de almacenamiento de Azure](storage-redundancy.md).
 
@@ -128,7 +123,7 @@ Ahora que tiene una referencia a una cuenta de almacenamiento o una cuenta de al
 
 ### <a name="storage-account-properties"></a>Propiedades de una cuenta de almacenamiento
 
-Para cambiar la configuración de una cuenta de almacenamiento, utilice [Set-AzureRmStorageAccount](/powershell/module/azurerm.resources/Set-AzureRmStorageAccount). Aunque no puede cambiar la ubicación de una cuenta de almacenamiento o el grupo de recursos en que reside, sí puede modificar muchas de las propiedades. A continuación, se enumeran algunas de las propiedades que se pueden cambiar con PowerShell.
+Para cambiar la configuración de una cuenta de almacenamiento, utilice [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount). Aunque no puede cambiar la ubicación de una cuenta de almacenamiento o el grupo de recursos en que reside, sí puede modificar muchas de las propiedades. A continuación, se enumeran algunas de las propiedades que se pueden cambiar con PowerShell.
 
 * El **dominio personalizado** asignado a la cuenta de almacenamiento.
 
@@ -220,7 +215,6 @@ Ahora que sabe cómo administrar la cuenta de almacenamiento con PowerShell, pue
 La API Table de Azure Cosmos DB proporciona características premium para el almacenamiento de tablas, como la distribución global llave en mano, lecturas y escrituras de latencia baja, la indexación secundaria automática y el rendimiento dedicado. 
 
 * Para obtener más información, vea [API Table de Azure Cosmos DB](../../cosmos-db/table-introduction.md). 
-* Para obtener información sobre cómo usar PowerShell para realizar operaciones de la API Table de Azure Cosmos DB, vea [Perform Azure Cosmos DB Table API operations with PowerShell](../../cosmos-db/table-powershell.md) (Realizar operaciones de la API Table de Azure Cosmos DB con PowerShell).
 
 ## <a name="independent-cloud-deployments-of-azure"></a>Implementaciones de Azure independientes en la nube
 

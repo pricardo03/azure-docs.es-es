@@ -1,29 +1,26 @@
 ---
-title: 'Administración de clústeres de ML Services en HDInsight: Azure | Microsoft Docs'
+title: 'Administración de clústeres de Machine Learning Services en HDInsight: Azure'
 description: Aprenda a administrar un clúster de ML Services en Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: bb3af3b1614c8afc98d2dcf12ecb53fb80b6037a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: b927c1d3bef3382680552a0b25e49bd7c10b6baa
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049751"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620253"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Administración de clústeres de ML Services en Azure HDInsight
 
 En este artículo, aprenderá a administrar un clúster de ML Services en Azure HDInsight para realizar tareas como agregar varios usuarios simultáneos, conectarse de forma remota a un cliente o un clúster de ML Services, cambiar el contexto de proceso, etc.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Un clúster de ML Services en HDInsight**: para obtener instrucciones, consulte [Introducción a ML Services en Azure HDInsight](r-server-get-started.md).
 

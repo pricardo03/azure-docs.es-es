@@ -3,17 +3,16 @@ title: Conceptos de Azure Event Grid
 description: Describe Azure Event Grid y sus conceptos. Define varios componentes clave de Event Grid.
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: abc1302f0317c8d5ecdc7ddaf8ca6d3a9e82b582
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2a288cdb96a1e1ff7e261d4782f7e02aee12868f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626042"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621208"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts de Azure Event Grid
 
@@ -72,6 +71,10 @@ Event Grid proporciona seguridad para suscribirse a temas y publicarlos. Para su
 ## <a name="event-delivery"></a>Entrega de eventos
 
 Si Event Grid no puede confirmar que un evento se ha recibido en el punto de conexión del suscriptor, vuelve a entregarlo. Para más información, vea [Entrega y reintento de entrega de mensajes de Event Grid](delivery-and-retry.md).
+
+## <a name="batching"></a>Lotes
+
+Cuando se usa un tema personalizado, los eventos siempre se deben publicar en una matriz. Puede tratarse de un lote de uno de los escenarios de bajo rendimiento, sin embargo, para casos de uso de gran volumen, se recomienda agrupar varios eventos para la publicación para lograr una mayor eficacia. Los lotes pueden tener hasta 1 MB. Cada evento no debe superar los 64 KB.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

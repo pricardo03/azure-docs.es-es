@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: fdde8cbec7fc249eecfcc0c1682bb5eed94c1585
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 460a52f240f6b3723f93e81a11a8cd1ccc6c30c9
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050496"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626700"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Tutorial: Integración de Azure Active Directory con Ziflow
 
@@ -101,20 +101,20 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Vínculo Configurar inicio de sesión único][4]
 
 2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
+
     ![Cuadro de diálogo Inicio de sesión único](./media/ziflow-tutorial/tutorial_ziflow_samlbase.png)
 
 3. En la sección **Ziflow Domain and URLs** (Dominio y direcciones URL de Ziflow), lleve a cabo los pasos siguientes:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Ziflow](./media/ziflow-tutorial/tutorial_ziflow_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.ziflow.io/#/login-sso/<Unique ID>`
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `urn:auth0:ziflow-production:<Unique ID>`
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `urn:auth0:ziflow-production:<UniqueID>`
 
-    > [!NOTE] 
-    > Los valores anteriores no son reales. Los actualizará con el valor real, que se explica más adelante en el tutorial. Póngase en contacto con [equipo de soporte técnico de Ziflow](mailto:support@ziflow.com) para obtener el valor de subdominio de la dirección URL de inicio de sesión.
-    
+    > [!NOTE]
+    > Los valores anteriores no son reales. Los actualizará con el valor real, que se explica más adelante en el tutorial.
+
 4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Vínculo de descarga del certificado](./media/ziflow-tutorial/tutorial_ziflow_certificate.png) 
@@ -128,7 +128,6 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Configuración de Ziflow](./media/ziflow-tutorial/tutorial_ziflow_configure.png) 
 
 7. En otra ventana del explorador web, inicie sesión en Ziflow como administrador de seguridad.
-
 
 8. Haga clic en Avatar en la esquina superior derecha y, a continuación, haga clic en **Manage account** (Administrar cuenta).
 
@@ -144,7 +143,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     a. En **Type** (Tipo), seleccione **SAML2.0**.
 
-    En el cuadro de texto **Sign In URL** (Dirección URL de inicio de sesión), pegue el valor de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) que copió de Azure Portal.
+    b. En el cuadro de texto **URL de inicio de sesión**, pegue el valor de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) que copió de Azure Portal.
 
     c. Cargue el certificado codificado en base 64 que ha descargado de Azure Portal en la **certificado de firma X509**.
 

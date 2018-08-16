@@ -1,25 +1,21 @@
 ---
-title: Visualizar macrodatos con Power BI en Azure HDInsight | Microsoft Docs
+title: Visualización de macrodatos con Power BI en Azure HDInsight
 description: Aprenda a usar Microsoft Power BI para visualizar datos de Hive procesados por Azure HDInsight.
 keywords: hdinsight,hadoop,hive,consulta interactiva,hive interactivo,LLAP,odbc
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 6f4efdebd6fc2833747b4cb72496447e0be03a58
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: d3459a9905719be8849b9f6bb79f500121ca8d8d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200003"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597327"
 ---
 # <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualización de datos de Hive con Microsoft Power BI mediante ODBC en Azure HDInsight
 
@@ -36,7 +32,7 @@ La información también se aplica al nuevo tipo de clúster de [consulta intera
 
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de seguir los pasos de este artículo, debe disponer de los siguientes elementos:
 
 * **Clúster de HDInsight**. El clúster puede ser un clúster de HDInsight con Hive o un clúster de consulta interactiva recién lanzado. Para crear clústeres, vea [Crear clúster](apache-hadoop-linux-tutorial-get-started.md#create-cluster).

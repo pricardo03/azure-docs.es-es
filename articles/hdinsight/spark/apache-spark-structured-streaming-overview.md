@@ -1,25 +1,20 @@
 ---
-title: Spark Structured Streaming en Azure HDInsight | Microsoft Docs
+title: Spark Structured Streaming en Azure HDInsight
 description: Uso de aplicaciones de Spark Structured Streaming en los clústeres de HDInsight Spark.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: maxluk
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: f3eccfb63b127f3cbb8f9d95ec2fa802861d8c9d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 79e170349165dac286eda46ac1d4ff6945e71e8f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164686"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621606"
 ---
 # <a name="overview-of-spark-structured-streaming"></a>Información general acerca de Spark Structured Streaming
 
@@ -129,8 +124,7 @@ Esta consulta devuelve resultados similares a los siguientes:
 |{u'start': u'2016-07-26T07:00:00.000Z', u'end'...  |95 |   96,980971 | 99 |
 |{u'start': u'2016-07-26T08:00:00.000Z', u'end'...  |95 |   96,965997 | 99 |  
 
-Para más información acerca de la API de Spark 
-Structured Streaming, además de los orígenes de datos de entrada, las operaciones y los receptores de salida que admite, consulte [Spark Structured Streaming Programming Guide](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html) (Guía de programación de Spark Structured Streaming).
+Para más información acerca de la API de Spark Structured Streaming, además de los orígenes de datos de entrada, las operaciones y los receptores de salida que admite, consulte [Spark Structured Streaming Programming Guide](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html) (Guía de programación de Spark Structured Streaming).
 
 ## <a name="checkpointing-and-write-ahead-logs"></a>Puntos de control y registros de escritura previa
 

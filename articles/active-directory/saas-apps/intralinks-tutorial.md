@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: b3c74631515301498aedcb035fae32b0a451e308
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 44cae95cfd01f8d6fbd6ddb4a11e9af290042ffa
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424784"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038640"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Tutorial: integración de Azure Active Directory con Intralinks
 
@@ -115,7 +115,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<company name>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<AzureADTenantID>`
 
     > [!NOTE] 
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de atención al cliente de Intralinks](https://www.intralinks.com/contact-1) para obtener este valor. 
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de atención al cliente de Intralinks](https://www.intralinks.com/contact) para obtener este valor. 
  
 1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
@@ -125,7 +125,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/intralinks-tutorial/tutorial_general_400.png)
 
-1. Para configurar el inicio de sesión único en **Intralinks**, necesita enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Intralinks](https://www.intralinks.com/contact-1). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+1. Para configurar el inicio de sesión único en **Intralinks**, necesita enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de Intralinks](https://www.intralinks.com/contact). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -163,7 +163,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="creating-an-intralinks-test-user"></a>Creación de un usuario de prueba de Intralinks
 
-En esta sección, creará un usuario llamado Britta Simon en Intralinks. Póngase en contacto con el [equipo de soporte técnico de Intralinks](https://www.intralinks.com/contact-1) para agregar los usuarios a la plataforma de Intralinks.
+En esta sección, creará un usuario llamado Britta Simon en Intralinks. Póngase en contacto con el [equipo de soporte técnico de Intralinks](https://www.intralinks.com/contact) para agregar los usuarios a la plataforma de Intralinks.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -237,7 +237,7 @@ Después, podrá realizar el procedimiento siguiente para agregar otra aplicaci�
  
     ![Configurar inicio de sesión único](./media/intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
 
-1. Obtenga la dirección URL de SSO iniciado por el proveedor de servicios del [equipo de Intralinks](https://www.intralinks.com/contact-1) para la otra aplicación de Intralinks y escríbala en **Configurar dirección URL de inicio de sesión** como se muestra a continuación. 
+1. Obtenga la dirección URL de SSO iniciado por el proveedor de servicios del [equipo de Intralinks](https://www.intralinks.com/contact) para la otra aplicación de Intralinks y escríbala en **Configurar dirección URL de inicio de sesión** como se muestra a continuación. 
     
      ![Configurar inicio de sesión único](./media/intralinks-tutorial/tutorial_intralinks_customappurl.png)
     

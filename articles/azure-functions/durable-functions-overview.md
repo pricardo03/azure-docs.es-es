@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a760e66d40d7af7178ec9a2d5fc14afec2a55b10
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 25f7cf6de4f217219e510ae00ce21762e755d2e8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115404"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627413"
 ---
 # <a name="durable-functions-overview"></a>Introducción a Durable Functions
 
@@ -44,7 +44,7 @@ El caso de uso principal para Durable Functions es simplificar los problemas de 
 
 Durable Functions le permite implementar este patrón de forma concisa en código.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>Script de C#
 
 ```cs
 public static async Task<object> Run(DurableOrchestrationContext ctx)
@@ -62,6 +62,8 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
     }
 }
 ```
+> [!NOTE]
+> Hay diferencias sutiles al escribir una función duradera precompilada en C# frente al ejemplo de script en C# que se ha mostrado antes. Una función precompilada en C# requeriría que los parámetros duraderos se decoren con los atributos respectivos. Un ejemplo es el atributo `[OrchestrationTrigger]` para el parámetro `DurableOrchestrationContext`. Si los parámetros no se decoran correctamente, el entorno de ejecución no sería capaz de insertar las variables en la función y daría un error. Visite el [ejemplo](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples) para más información.
 
 #### <a name="javascript-functions-v2-only"></a>JavaScript (solo Functions v2)
 
@@ -88,7 +90,7 @@ La *distribución ramificada de salida y entrada* hace referencia al patrón de 
 
 Con las funciones normales, la distribución ramificada de salida se puede realizar haciendo que la función envíe varios mensajes a una cola. Sin embargo, la distribución ramificada de vuelta es mucho más compleja. Tendría que escribir código para realizar un seguimiento de cuándo finalizan las funciones desencadenadas por la cola y almacenar la salida de la función. La extensión de Durable Functions controla este patrón con código relativamente sencillo.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>Script de C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -203,7 +205,7 @@ Un ejemplo podría ser invertir el escenario anterior de API HTTP asincrónica. 
 
 Mediante Durable Functions, es posible crear varios monitores que observan puntos de conexión arbitrarios en unas cuantas líneas de código. Los monitores pueden finalizar la ejecución cuando se cumple alguna condición o se terminan mediante [DurableOrchestrationClient](durable-functions-instance-management.md), y se puede cambiar su intervalo de espera en función de alguna condición (por ejemplo, retroceso exponencial). El código siguiente implementa un monitor básico.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>Script de C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -271,7 +273,7 @@ Un ejemplo de un proceso empresarial que implica la interacción humana es un pr
 
 Este patrón puede implementarse usando una función del orquestador. El orquestador utilizará un [temporizador durable](durable-functions-timers.md) para solicitar la aprobación y escalar en el caso de que se sobrepase el tiempo de expiración. Esperará por un [evento externo](durable-functions-external-events.md), que sería la notificación generada por una interacción humana.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>Script de C#
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)

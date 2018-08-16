@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: b41b1fcb437dac381a17bef4f1e5a7cebe213b98
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 329653e7494d2f993acb462d7d989db07a18f790
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435922"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600870"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introducción al Explorador de Storage
 
@@ -29,7 +29,7 @@ El Explorador de Azure Storage es una aplicación independiente que permite trab
 
 ![Explorador de Microsoft Azure Storage][0]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -125,7 +125,7 @@ A partir de la versión 1.1.0, el emulador de almacenamiento local es compatible
 > [!NOTE]
 > La compatibilidad de las características y los servicios de almacenamiento puede variar enormemente en función del emulador que se elija. Asegúrese de que el emulador es compatible con los servicios y características con los que va a trabajar.
 
-1. Configure el emulador que elija para que escuche los puntos de conexión predeterminados.
+1. Configure los servicios del emulador que elija para escuchar un puerto no utilizado.
 
    Servicio emulado | Punto de conexión predeterminado
    -----------------|-------------------------
@@ -134,16 +134,19 @@ A partir de la versión 1.1.0, el emulador de almacenamiento local es compatible
    Tablas           | `http://127.0.0.1:10002`
 
 2. Inicie el emulador.
+   > [!IMPORTANT]
+   > Explorador de Storage no inicia automáticamente el emulador. Debe iniciarlo usted mismo.
 
-3. En el panel izquierdo del Explorador de Azure Storage, expanda el nodo **[Local and Attached (Local y asociados)]** > **Storage Accounts (Cuentas de almacenamiento)** > **[Development (Desarrollo)]**.
+3. En Explorador de Storage, haga clic en el botón **Agregar cuenta**. Seleccione **Attach to a local emulator** (Acoplar a un emulador local) y haga clic en **Siguiente**.
+
+4. Escriba los números de puerto para los servicios que configuró anteriormente (déjelos en blanco si no piensa usar ese servicio). Haga clic en **Siguiente** y luego en **Conectar** para crear la conexión.
+
+5. Expanda **Attached & Local (Local y acoplado)** > **Cuentas de almacenamiento** > los nodos; luego, expanda los nodos de servicio bajo el nodo correspondiente a la conexión del emulador.
 
    Este nodo se puede usar para crear tablas, colas y blobs locales, y trabajar con ellos. Para aprender a trabajar con cada tipo de cuenta de almacenamiento, consulte las siguientes guías:
 
    * [Administración de recursos de Azure Blob Storage](vs-azure-tools-storage-explorer-blobs.md)
    * [Administración de recursos de Azure File Storage](vs-azure-tools-storage-explorer-files.md)
-
-> [!NOTE]
-> El Explorador de Azure Storage solo admite la conexión a emuladores locales mediante los puntos de conexión predeterminados. Al iniciar el emulador, asegúrese de que solo están configurados los puntos de conexión predeterminados.
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>Conexión a almacenamiento externo
 

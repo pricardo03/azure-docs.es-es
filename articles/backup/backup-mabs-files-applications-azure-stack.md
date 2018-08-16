@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: 2fb3bad56de781dd81d4c5f82b734c9420c75dee
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: a9eca3c3aeaa8d9d0d3d7728f8aebd63543cb604
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751711"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617122"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Copia de seguridad de archivos en Azure Stack
 Puede usar Azure Backup para proteger o realizar copias de seguridad de archivos y aplicaciones en Azure Stack. Para hacer copias de seguridad de archivos y aplicaciones, instale Microsoft Azure Backup Server como una máquina virtual que se ejecuta en Azure Stack. Puede proteger los archivos de cualquier servidor de Azure Stack en la misma red virtual. Una vez que haya instalado Azure Backup Server, agregue discos de Azure para aumentar el almacenamiento local disponible para los datos de copia de seguridad a corto plazo. Azure Backup Server usa almacenamiento de Azure para la retención a largo plazo.
@@ -90,15 +90,13 @@ Para configurar Azure Backup Server a fin de proteger los archivos de las máqui
 
 13. En **Resumen**, revise la configuración. Cuando hace clic en **Crear grupo**, se realiza la replicación inicial de los datos. Cuando finalice la replicación de los datos, en la página **Estado**, el estado del grupo de protección se mostrará como **OK** (Correcto). El trabajo de copia de seguridad inicial se realiza según la configuración del grupo de protección.
 
-Preguntas que requieren respuestas: ¿Cómo se expande el almacenamiento en disco para el almacenamiento en disco a corto plazo de Azure Stack? ¿Cuáles son las instrucciones que se deben llamar para explicar el almacenamiento en disco a corto plazo?
-
 ## <a name="recover-file-data"></a>Recuperación de los datos de archivo
 
 Use la consola de Azure Backup Server para recuperar los datos en la máquina virtual.
 
 1. En la barra de navegación de la consola de Azure Backup Server, haga clic en **Recuperación** y examine para encontrar los datos que quiere recuperar. Seleccione los datos en el panel de resultados.
 
-2. En el calendario que aparece en la sección de puntos de recuperación, las fechas que aparecen en negrita indican los puntos de recuperación que están disponibles. Seleccione la fecha para recuperar un punto de recuperación.
+2. En el calendario que aparece en la sección de puntos de recuperación, las fechas que aparecen en negrita indican los puntos de recuperación que están disponibles. Seleccione la fecha que desea recuperar.
 
 3. En el panel **Elemento recuperable**, seleccione el elemento que quiere recuperar.
 

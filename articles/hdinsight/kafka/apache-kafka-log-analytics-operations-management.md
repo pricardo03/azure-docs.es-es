@@ -1,25 +1,20 @@
 ---
-title: Log Analytics para Apache Kafka - Azure HDInsight | Microsoft Docs
+title: Log Analytics para Apache Kafka en Azure HDInsight
 description: Obtenga información acerca de cómo usar Log Analytics para analizar los registros de clúster de Apache Kafka en Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: 9f366631ced4392831ad9ed97898a88b3290cd22
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 06/15/2018
+ms.openlocfilehash: 9421217383f390630687d8416512401487ad3f7e
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32772269"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621395"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Análisis de registros para Apache Kafka en HDInsight
 
@@ -40,7 +35,7 @@ Los pasos para habilitar Log Analytics para HDInsight son los mismos para todos 
     >
     > * El nombre del clúster de HDInsight.
     > * El identificador de área de trabajo de Log Analytics. Puede encontrar el identificador de área de trabajo de su área de trabajo de Log Analytics.
-    > * La clave principal para la conexión de Log Analytics. Para buscar la clave principal, seleccione la instancia de Log Analytics y, a continuación, __Portal de OMS__. En el portal de OMS, seleccione __Configuración__, __Orígenes conectados__ y, a continuación, __Servidores de Linux__.
+    > * La clave principal para la conexión de Log Analytics. Para encontrar la clave principal, abra el área de trabajo en Azure Portal, seleccione __Configuración avanzada__ en el menú de la izquierda. En Configuración avanzada, seleccione __Orígenes conectados__>__Servidores Linux__.
 
 
 > [!IMPORTANT]

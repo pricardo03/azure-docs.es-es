@@ -1,29 +1,26 @@
 ---
-title: Puesta en funcionamiento de ML Services en HDInsight - Azure | Microsoft Docs
+title: 'Puesta en funcionamiento de ML Services en HDInsight: Azure'
 description: Aprenda a poner en funcionamiento ML Services en Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: caefe30ff567a5e24e1f4c3a11309bd35e06190c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: aef34fea2252cdc875fa1ea1c73a8df14fdf1b9c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046146"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622310"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Puesta en funcionamiento de clústeres de ML Services en Azure HDInsight
 
 Después de haber usado el clúster de ML Services en HDInsight para completar el modelado de datos, puede usar el modelo para realizar predicciones. En este artículo se ofrecen instrucciones sobre realizar esta tarea.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Un clúster de ML Services en HDInsight**: para obtener instrucciones, consulte [Introducción a ML Services en Azure HDInsight](r-server-get-started.md).
 
@@ -40,7 +37,7 @@ Después de haber usado el clúster de ML Services en HDInsight para completar e
 
     Para obtener instrucciones sobre cómo utilizar SSH con Azure HDInsight, consulte [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Cambie el directorio para la versión pertinente y use sudo en el archivo DLL de dotnet: 
+1. Cambie el directorio para la versión pertinente y use sudo en el archivo DLL de dotnet: 
 
     - Para Microsoft ML Server 9.1:
 
@@ -52,21 +49,21 @@ Después de haber usado el clúster de ML Services en HDInsight para completar e
             cd /usr/lib64/microsoft-deployr/9.0.1
             sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. Se muestran las diferentes opciones que tiene. Elija la primera opción, tal como se muestra en la siguiente captura de pantalla, con el fin de **configurar ML Server para la puesta en marcha**.
+1. Se muestran las diferentes opciones que tiene. Elija la primera opción, tal como se muestra en la siguiente captura de pantalla, con el fin de **configurar ML Server para la puesta en marcha**.
 
     ![operacionalización one box](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-4. Ahora verá la opción para elegir cómo desea poner en marcha ML Server. Entre las opciones, elija la primera de ellas escribiendo **A**.
+1. Ahora verá la opción para elegir cómo desea poner en marcha ML Server. Entre las opciones, elija la primera de ellas escribiendo **A**.
 
     ![operacionalización one box](./media/r-server-operationalize/admin-util-one-box-2.png)
 
-5. Cuando se le solicite, escriba dos veces la contraseña de un usuario administrador local.
+1. Cuando se le solicite, escriba dos veces la contraseña de un usuario administrador local.
 
-6. Debería ver resultados que indican que la operación se realizó correctamente. También se le pedirá que seleccione otra opción del menú. Seleccione E para volver al menú principal.
+1. Debería ver resultados que indican que la operación se realizó correctamente. También se le pedirá que seleccione otra opción del menú. Seleccione E para volver al menú principal.
 
     ![operacionalización one box](./media/r-server-operationalize/admin-util-one-box-3.png)
 
-7. Como paso opcional, puede realizar comprobaciones de diagnóstico mediante la ejecución de una prueba de diagnóstico tal y como se muestra a continuación:
+1. Como paso opcional, puede realizar comprobaciones de diagnóstico mediante la ejecución de una prueba de diagnóstico tal y como se muestra a continuación:
 
     a. En el menú principal, seleccione **6** para ejecutar pruebas de diagnóstico.
 
@@ -124,7 +121,7 @@ Si el clúster no está configurado en la red virtual o si tiene problemas con l
 
     ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-Una vez que la sesión SSH esté activa, el tráfico del puerto 12800 del equipo se reenviará al puerto 12800 del nodo perimetral mediante la sesión de SSH. Asegúrese de utilizar `127.0.0.1:12800` en el método `remoteLogin()`. Con esta acción, se iniciará sesión en la operacionalización del nodo perimetral mediante el enrutamiento de puerto.
+Cuando la sesión SSH esté activa, el tráfico del puerto 12800 de la máquina local se reenviará al puerto 12800 del nodo perimetral mediante la sesión de SSH. Asegúrese de utilizar `127.0.0.1:12800` en el método `remoteLogin()`. Con esta acción, se iniciará sesión en la operacionalización del nodo perimetral mediante el enrutamiento de puerto.
 
 
     library(mrsdeploy)
@@ -148,9 +145,9 @@ Siga estos pasos para retirar nodos de trabajo:
 
 1. Inicie sesión en la consola de Ambari del clúster y haga clic en la pestaña **Hosts**.
 
-2. Seleccione los nodos de trabajo (para retirarlos).
+1. Seleccione los nodos de trabajo (para retirarlos).
 
-3. Haga clic en **Acciones** > **Hosts seleccionados** > **Hosts** > **Activar modo de mantenimiento**. Por ejemplo, en la siguiente imagen se han seleccionado wn3 y wn4 para su retirada.  
+1. Haga clic en **Acciones** > **Hosts seleccionados** > **Hosts** > **Activar modo de mantenimiento**. Por ejemplo, en la siguiente imagen se han seleccionado wn3 y wn4 para su retirada.  
 
    ![retirar nodos de trabajo](./media/r-server-operationalize/get-started-operationalization.png)  
 
@@ -166,15 +163,15 @@ Siga estos pasos para retirar nodos de trabajo:
 
 1. SSH en cada nodo de trabajo retirado.
 
-2. Ejecute la utilidad de administración con el archivo DLL correspondiente para el clúster de ML Services que tenga. Para ML Server 9.1, ejecute lo siguiente:
+1. Ejecute la utilidad de administración con el archivo DLL correspondiente para el clúster de ML Services que tenga. Para ML Server 9.1, ejecute lo siguiente:
 
         dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. Escriba **1** para seleccionar la opción **Configure ML Server for Operationalization** (Configurar R Server para operacionalización).
+1. Escriba **1** para seleccionar la opción **Configure ML Server for Operationalization** (Configurar R Server para operacionalización).
 
-4. Escriba **c** para seleccionar la opción `C. Compute node`. Esto configurará el nodo de proceso en el nodo de trabajo.
+1. Escriba **c** para seleccionar la opción `C. Compute node`. Esto configurará el nodo de proceso en el nodo de trabajo.
 
-5. Salga de la utilidad de administración.
+1. Salga de la utilidad de administración.
 
 ### <a name="step-3-add-compute-nodes-details-on-web-node"></a>Paso 3: Incorporación de detalles de nodos de proceso en el nodo web
 
@@ -182,9 +179,9 @@ Una vez que todos los nodos de trabajo retirados se hayan configurado para ejecu
 
 1. Uso de SSH en el nodo perimetral.
 
-2. Ejecute `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
+1. Ejecute `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
 
-3. Busque la sección de identificadores URI y agregue la dirección IP del nodo de trabajo y los detalles del puerto.
+1. Busque la sección de identificadores URI y agregue la dirección IP del nodo de trabajo y los detalles del puerto.
 
        "Uris": {
          "Description": "Update 'Values' section to point to your backend machines. Using HTTPS is highly recommended",

@@ -1,24 +1,20 @@
 ---
-title: Optimización de trabajos de Spark para mejorar el rendimiento en Azure HDInsight | Microsoft Docs
+title: Optimización de trabajos de Spark para mejorar el rendimiento en Azure HDInsight
 description: Se muestran estrategias comunes para obtener el mejor rendimiento de los clústeres de Spark.
 services: hdinsight
-documentationcenter: ''
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
+author: maxluk
 ms.author: maxluk
-ms.openlocfilehash: f35ed98efb26dfa0d75a57ca3646f567a7949dae
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+editor: jasonwhowell
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 01/11/2018
+ms.openlocfilehash: 7d542a4fe8c63bb44e073f3af05aed926fc4ba81
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164373"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619556"
 ---
 # <a name="optimize-spark-jobs"></a>Optimización de trabajos de Spark
 
@@ -64,8 +60,8 @@ Cuando se crea un nuevo clúster de Spark, tiene la opción de seleccionar Azure
 
 | Tipo de almacén | Sistema de archivos | Velocidad | Transitorio | Casos de uso |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb:**//url/ | **Estándar** | Sí | Clúster transitorio |
-| Almacén de Azure Data Lake | **adl:**//url/ | **Más rápido** | Sí | Clúster transitorio |
+| Azure Blob Storage | **wasb:**//url/ | **Estándar** | SÍ | Clúster transitorio |
+| Azure Data Lake Store | **adl:**//url/ | **Más rápido** | SÍ | Clúster transitorio |
 | HDFS local | **hdfs:**//url/ | **El más rápido** | Sin  | Clúster 24/7 interactivo |
 
 ## <a name="use-the-cache"></a>Uso de la caché

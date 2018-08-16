@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2371ad00728a47af9e96e8e711aa07cc5170266c
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: f786a20f61c8851c1d50a89edd392b9b974db076
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158869"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622327"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Cómo implementar correctamente el lanzamiento del restablecimiento de contraseña de autoservicio
 
@@ -75,12 +75,13 @@ Debe plantearse [rellenar previamente algunos datos de autenticación para los u
 
 ## <a name="disable-self-service-password-reset"></a>Deshabilitación del autoservicio de restablecimiento de contraseña
 
-Si su organización decide deshabilitar el autoservicio de restablecimiento de contraseña, se trata de un proceso sencillo. Abra el inquilino de Azure AD y vaya a **Restablecimiento de contraseña** > **Propiedades** y seleccione **Ninguno** en **Se habilitó el restablecimiento de contraseña del autoservicio**. Los usuarios aún conservarán su
+Si su organización decide deshabilitar el autoservicio de restablecimiento de contraseña, se trata de un proceso sencillo. Abra el inquilino de Azure AD y vaya a **Restablecimiento de contraseña** > **Propiedades** y seleccione **Ninguno** en **Se habilitó el restablecimiento de contraseña del autoservicio**. Los usuarios seguirán manteniendo sus métodos de autenticación registrados para su uso futuro.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Restablecimiento o modificación de la contraseña](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Registro para el autoservicio de restablecimiento de contraseñas](../user-help/active-directory-passwords-reset-register.md)
+* [Habilitación del registro convergente para el restablecimiento de contraseña de autoservicio de Azure Multi-Factor Authentication y Azure AD](concept-registration-mfa-sspr-converged.md)
 * [¿Tiene alguna pregunta acerca de las licencias?](concept-sspr-licensing.md)
 * [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](howto-sspr-authenticationdata.md)
 * [¿Cuáles son las opciones de directiva con SSPR?](concept-sspr-policy.md)

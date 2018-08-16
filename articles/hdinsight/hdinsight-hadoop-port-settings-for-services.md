@@ -1,24 +1,20 @@
 ---
-title: 'Puertos utilizados por los servicios Hadoop en HDInsight: Azure | Microsoft Docs'
+title: Puertos utilizados por los servicios Hadoop en HDInsight (Azure)
 description: Una lista de puertos utilizados por los servicios Hadoop que se ejecutan en HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: dd14aed9-ec25-4bb3-a20c-e29562735a7d
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2018
-ms.author: larryfr
-ms.openlocfilehash: 4490ac9bccb406bd2e882fc8afcbaf05aa8ddfab
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.author: jasonh
+ms.openlocfilehash: 78aed9d74325dfae0a02a4b95082baf60f6af603
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797321"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599255"
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Puertos utilizados por los servicios Hadoop en HDInsight
 
@@ -55,7 +51,7 @@ Las siguientes opciones están disponibles para determinados tipos de clúster:
 
 | Servicio | Port | Protocolo | Tipo de clúster | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |hbase |API de REST de HBase. Consulte [Introducción al uso de HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
+| Stargate |443 |HTTPS |HBase |API de REST de HBase. Consulte [Introducción al uso de HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
 | Livy |443 |HTTPS |Spark |API de REST de Spark. Consulte [Envío de trabajos de Spark remotamente a un clúster de Apache Spark en HDInsight Linux mediante Livy](spark/apache-spark-livy-rest-interface.md) |
 | Servidor Thrift de Spark |443 |HTTPS |Spark |El servidor Thrift de Spark que se usa para enviar consultas de Hive. Consulte [Beeline con Hive en HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
 | Storm |443 |HTTPS |Storm |La interfaz de usuario web de Storm. Consulte [Implementación y administración de topologías de Apache Storm en HDInsight basado en Linux](storm/apache-storm-deploy-monitor-topology-linux.md) |

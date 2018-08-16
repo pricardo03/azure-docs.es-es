@@ -2,19 +2,19 @@
 title: Aprovisionamiento del rendimiento de Azure Cosmos DB | Microsoft Docs
 description: Aprenda a configurar el rendimiento aprovisionado para sus contenedores, colecciones, grafos y tablas de Azure Cosmos DB.
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
-ms.author: sngun
-ms.openlocfilehash: a454bfc06cf119d43e545a5a911a2f6686fb755b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: andrl
+ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600166"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038456"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Configuración y obtención del rendimiento para contenedores y la base de datos de Azure Cosmos DB
 
@@ -262,20 +262,6 @@ Un método para calcular la cantidad de rendimiento reservado que necesita la ap
 > Si dispone de tipos de elemento que varían considerablemente en cuanto a tamaño y número de propiedades indexadas, registre el cargo de unidad de solicitud de operación aplicable asociado a cada *tipo* de elemento típico.
 > 
 > 
-
-## <a id="RequestchargeGraphAPI"></a>Obtención del cargo de solicitud para las cuentas de API de Gremlin 
-
-He aquí un ejemplo de cómo obtener el cargo por solicitud para las cuentas de la API de Gremlin mediante la biblioteca Gremlin.Net. 
-
-```csharp
-
-var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
-                var resultSet = response.AsResultSet();
-                var statusAttributes= resultSet.StatusAttributes;
-```
-
-Además del método anterior, también puede usar el encabezado "x-ms-total-request-charge" para los cálculos de las unidades de solicitud.
-
 
 ## <a name="throughput-faq"></a>Preguntas más frecuentes sobre el rendimiento
 

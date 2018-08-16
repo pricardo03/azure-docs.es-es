@@ -1,25 +1,20 @@
 ---
-title: MapReduce y Escritorio remoto con Hadoop en HDInsight (Azure) | Microsoft Docs
+title: MapReduce y Escritorio remoto con Hadoop en HDInsight (Azure)
 description: Obtenga información acerca de cómo usar Escritorio remoto para conectarse a Hadoop en HDInsight y ejecutar trabajos de MapReduce.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 9d3a7b34-7def-4c2e-bb6c-52682d30dee8
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: eb59a510085a9f08e63f17cec1de2044905f914a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cf791fbada590109a485394964b9d99bdd1f9a3d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31398732"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599238"
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>Uso de MapReduce de Hadoop en HDInsight con Escritorio remoto
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
