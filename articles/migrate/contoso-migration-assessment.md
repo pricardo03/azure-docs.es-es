@@ -124,7 +124,7 @@ Contoso y otros usuarios deben cumplir los siguientes requisitos previos para la
 - Permisos para instalar agentes de Azure Migrate en todas las máquinas virtuales.
 - Las máquinas virtuales deben tener conectividad directa a Internet.  
         - Puede restringir el acceso a Internet a las [direcciones URL requeridas](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-        Si las máquinas virtuales no tienen conexión a Internet, la [puerta de enlace OMS](../log-analytics/log-analytics-oms-gateway.md) de Azure Log Analytics debe estar instalada en ellas y se debe dirigir el tráfico a través de esta.
+        - Si las máquinas virtuales no tienen conexión a Internet, la [puerta de enlace OMS](../log-analytics/log-analytics-oms-gateway.md) de Azure Log Analytics debe estar instalada en ellas y se debe dirigir el tráfico a través de esta.
 - El FQDN de la máquina virtual que ejecuta la instancia de SQL Server, para la evaluación de la base de datos.
 - La instancia de Firewall de Windows que se ejecuta en la máquina virtual de SQL Server debe permitir conexiones externas en el puerto TCP 1433 (valor predeterminado). Esta configuración permite que Data Migration Assistant se conecte.
 
