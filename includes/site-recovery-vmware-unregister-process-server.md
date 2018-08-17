@@ -1,3 +1,16 @@
+---
+author: Rajeswari-Mamilla
+ms.service: site-recovery
+ms.topic: include
+ms.date: 08/06/2018
+ms.author: ramamill
+ms.openlocfilehash: 81390d38b4c0c38b7ac6883ae2bf18c64542fa00
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39582790"
+---
 Los pasos necesarios para anular el registro de un servidor de procesos serán diferentes en función del estado de la conexión con el servidor de configuración.
 
 ### <a name="unregister-a-process-server-that-is-in-a-connected-state"></a>Anulación del registro de un servidor de procesos que se encuentra en estado conectado
@@ -19,4 +32,8 @@ Los pasos necesarios para anular el registro de un servidor de procesos serán d
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-4. Este mensaje se emite cuando se quita correctamente el servidor de procesos: **Nombre del servidor correctamente eliminado del registro> (dirección IP del servidor)**.
+4. El comando anterior mostrará la lista de servidores de procesos (puede ser más de uno, en caso de entradas duplicadas) con el número de serie (S.No), la dirección IP (IP), el nombre de la máquina virtual en la cual se implementa el servidor de proceso, el latido de la máquina virtual (latido) como se indica a continuación.
+    ![Unregister-cmd](media/site-recovery-vmware-unregister-process-server/Unregister-cmd.PNG)
+5. Ahora, escriba el número de serie del servidor de proceso del que desea anular el registro.
+6. Esto purgará los detalles del servidor de procesos del sistema y mostrará el mensaje: **Se anuló correctamente el registro de nombreDeServidor > (direcciónIPServidor)**
+

@@ -273,7 +273,7 @@ La consola de consulta de HDInsight incluye las siguientes características:
 
     ![HDInsight portal job history](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-    Haga clic en **Nombre de la consulta** para mostrar los detalles, incluidas las propiedades del trabajo, la **consulta del trabajo** y la **salida del trabajo. También puede descargar la consulta y la salida a la estación de trabajo.
+    Haga clic en **Nombre de la consulta** para mostrar los detalles, incluidas las propiedades del trabajo, la **consulta del trabajo** y la \*\*salida del trabajo. También puede descargar la consulta y la salida a la estación de trabajo.
 * **Explorador de archivos**: explore la cuenta de almacenamiento predeterminada y las cuentas de almacenamiento vinculadas.
 
     ![HDInsight portal file browser browse](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)

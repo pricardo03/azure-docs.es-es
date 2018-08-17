@@ -29,7 +29,7 @@ Esta característica ofrece un control más preciso, [por directivas](active-dir
 Para las directivas integradas, puede usar esta característica en el directorio de Azure AD B2C como sigue:
 
 1. Siga estos pasos para [ir al menú de características de B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) de Azure Portal.
-2. Haga clic en **Sign-up or sign-in policies**(Directivas de registro o de inicio de sesión). *Nota: Esta característica se puede usar en cualquier tipo de directiva, no solo en **directivas de registro o de inicio de sesión**.
+2. Haga clic en **Sign-up or sign-in policies**(Directivas de registro o de inicio de sesión). *Nota: Esta característica se puede usar en cualquier tipo de directiva, no solo en \*\*directivas de registro o de inicio de sesión*\*\*.
 3. Abra una directiva haciendo clic en ella. Por ejemplo, haga clic en **B2C_1_SiUpIn**.
 4. Haga clic en **Editar** en la parte superior del menú.
 5. Haga clic en **Token, session & single sign-on config** (Configuración de tokens, sesión e inicio de sesión único).

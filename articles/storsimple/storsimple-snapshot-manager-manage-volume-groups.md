@@ -107,7 +107,7 @@ Utilice el procedimiento siguiente para editar un grupo de volúmenes.
 #### <a name="to-edit-a-volume-group"></a>Para editar un grupo de volúmenes
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple.
 2. En el panel **Ámbito**, expanda el nodo **Grupos de volúmenes**, haga clic con el botón derecho en el nombre de un grupo de volumen y, luego, haga clic en **Editar**.
-3. Aparece el cuadro de diálogo **Crear un grupo de volúmenes**. Puede cambiar las entradas **Nombre**, **Aplicaciones** y **Volúmenes**.
+3. Aparece el cuadro de diálogo Crear un grupo de volúmenes. Puede cambiar las entradas **Nombre**, **Aplicaciones** y **Volúmenes**.
 4. Haga clic en **Aceptar** para guardar los cambios.
 
 ## <a name="delete-a-volume-group"></a>Eliminar un grupo de volúmenes

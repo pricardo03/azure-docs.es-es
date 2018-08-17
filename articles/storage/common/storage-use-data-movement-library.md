@@ -196,7 +196,7 @@ Este código nos pide la ruta de acceso a un archivo local, el nombre de un cont
 Presione `F5` para ejecutar la aplicación. Puede comprobar que se ha producido la carga mediante la visualización de la cuenta de Storage con el [Explorador de Microsoft Azure Storage](http://storageexplorer.com/).
 
 ## <a name="set-number-of-parallel-operations"></a>Establecimiento del número de operaciones paralelas
-Una característica excelente que ofrece la Biblioteca de movimiento de datos es la capacidad para establecer el número de operaciones paralelas para aumentar el rendimiento de la transferencia de datos. De forma predeterminada, la Biblioteca de movimiento de datos establece el número de operaciones paralelas en 8 multiplicado por el número de núcleos de la máquina. 
+Una característica excelente que ofrece la Biblioteca de movimiento de datos es la capacidad para establecer el número de operaciones paralelas para aumentar el rendimiento de la transferencia de datos. De forma predeterminada, la Biblioteca de movimiento de datos establece el número de operaciones paralelas en 8 * el número de núcleos de la máquina. 
 
 Tenga en cuenta que muchas operaciones paralelas en un entorno con poco ancho de banda puede saturar la conexión de red e impedir que las operaciones se completen. Debe experimentar con esta configuración para determinar qué funciona mejor basándose en el ancho de banda de red disponible. 
 

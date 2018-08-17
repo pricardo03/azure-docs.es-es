@@ -25,7 +25,7 @@ Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de
 
 ### <a name="endpoints"></a>Puntos de conexión
 
-- El número de versión del punto de conexión ha cambiado de v5 a v7. Por ejemplo, https://api.cognitive.microsoft.com/bing/\*\*v7.0**/Suggestions.
+- El número de versión del punto de conexión ha cambiado de v5 a v7. Por ejemplo, https://api.cognitive.microsoft.com/bing/\*\*v7.0\*\*/Suggestions.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de la respuesta de error y códigos de error
 
