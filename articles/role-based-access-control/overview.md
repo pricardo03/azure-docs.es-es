@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a2e0bf35f73a355197f821f7cce12294f7b35576
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: d0d140a1656719b406567fee431d8e48a51852c5
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344756"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714458"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>¿Qué es el control de acceso basado en rol (RBAC)?
 
@@ -79,16 +79,15 @@ Azure introdujo las operaciones de datos (actualmente en versión preliminar) qu
 
 *Ámbito* es el límite al que se aplica el acceso. Cuando se asigna un rol, es posible limitar aún más las acciones permitidas si se define un ámbito. Esto resulta útil si desea convertir a alguien en [Colaborador del sitio web](built-in-roles.md#website-contributor), pero solo para un grupo de recursos.
 
-En Azure, puede especificar un ámbito en varios niveles: suscripción, grupo de recursos o recurso. Los ámbitos se estructuran en una relación de primario-secundario, donde cada elemento secundario solo tendrá un elemento primario.
+En Azure, puede especificar un ámbito en varios niveles: [grupo de administración](../azure-resource-manager/management-groups-overview.md), suscripción, grupo de recursos o recurso. Los ámbitos se estructuran en una relación de elementos primarios y secundarios.
 
 ![Ámbito de una asignación de roles](./media/overview/rbac-scope.png)
 
-El acceso que se asigna en un ámbito primario se hereda en el ámbito secundario. Por ejemplo:
+Si otorga acceso a un ámbito primario, esos permisos se heredan en los ámbitos secundarios. Por ejemplo: 
 
+- Si asigna el rol [Propietario](built-in-roles.md#owner) a un usuario del ámbito del grupo de administración, ese usuario puede administrar todo en todas las suscripciones del grupo de administración.
 - Si asigna el rol [Lector](built-in-roles.md#reader) a un grupo en el ámbito de la suscripción, los miembros de ese grupo pueden ver cada grupo de recursos y cada recurso de la suscripción.
 - Si asigna el rol [Colaborador](built-in-roles.md#contributor) a una aplicación en el ámbito del grupo de recursos, puede administrar recursos de todos los tipos en ese grupo de recursos, pero no otros grupo de recursos de la suscripción.
-
-Azure también incluye un ámbito sobre las suscripciones con el nombre de [grupos de administración](../azure-resource-manager/management-groups-overview.md), que está en versión preliminar. Los grupo de administración son una manera de administrar varias suscripciones. Cuando se especifica el ámbito para RBAC, puede especificar un grupo de administración o una suscripción, un grupo de recursos o una jerarquía de recursos.
 
 ### <a name="role-assignment"></a>Asignación de roles
 

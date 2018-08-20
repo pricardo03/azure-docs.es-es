@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 05/25/2018
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: 4da469ac31c3ee50d601c87b4d7487ae5bb7bc3a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1d3bfb7bc8a5432392dba3b0c5019902b3e59773
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34664015"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39513855"
 ---
 1. Haga clic en el botón **App Services**, seleccione sucesivamente el back-end de Mobile Apps, **Inicio rápido** y la plataforma de cliente (iOS, Android, Xamarin, Cordova).
 
     ![Azure Portal con inicio rápido de Mobile Apps resaltado][quickstart]
 
-2. Si no hay configurada ninguna conexión de base de datos, cree una haciendo lo siguiente:
+1. Si no hay configurada ninguna conexión de base de datos, cree una haciendo lo siguiente:
 
     ![Azure Portal con Mobile Apps: conexión a la base de datos][connect]
 
-    a. Cree una nueva instancia y un nuevo servidor de SQL Database.
+    a. Cree una nueva instancia y un nuevo servidor de SQL Database. Puede que tenga que dejar el campo del nombre de la cadena de conexión en el valor predeterminado MS_TableConnectionString para completar el paso 3 siguiente.
 
     ![Azure Portal con Mobile Apps: creación de una nueva base de datos y un nuevo servidor][server]
 
@@ -35,9 +35,9 @@ ms.locfileid: "34664015"
 
     ![Notificación de Azure Portal: "Ya tiene una conexión de datos"][already-connection]
 
-3. En **2. Crear una API de tabla**, seleccione Node.js para **Lenguaje de back-end**.
+1. En **2. Crear una API de tabla**, seleccione Node.js para **Lenguaje de back-end**.
 
-4. Acepte la confirmación y seleccione **Crear tabla TodoItem**.
+1. Acepte la confirmación y seleccione **Crear tabla TodoItem**.
     Esta acción crea una nueva tabla de elementos pendientes en la base de datos.
 
     >[!IMPORTANT]

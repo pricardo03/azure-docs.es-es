@@ -8,24 +8,28 @@ ms.author: jmartens
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 02/28/2018
-ms.openlocfilehash: c47c0a90535a4749ae3fd467b86102aa668285b8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.date: 07/27/2018
+ms.openlocfilehash: 2ce7e083444eb6c4e02f04f36eb0810ea37d8ae7
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
-ms.locfileid: "29574994"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39513981"
 ---
-Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido a fin de que no se le apliquen cargos adicionales:
+>[!IMPORTANT]
+>Los recursos que creó pueden usarse como requisitos previos para otros tutoriales y artículos de procedimientos de Azure Machine Learning. 
 
->[!NOTE]
->Estos recursos son útiles cuando se siguen los demás tutoriales de Azure Machine Learning.
+
+Si no va a usar lo que ha creado aquí, elimine los recursos que acaba de crear en esta guía de inicio rápido para no incurrir en gastos.
 
 1. En Azure Portal, seleccione **Grupos de recursos** a la izquierda del todo.  
  
    ![Eliminación en Azure Portal](./media/aml-delete-resource-group/delete-resources.png)
 
-2. En la lista de grupos de recursos, seleccione el grupo de recursos que creó y, después, haga clic en **Eliminar grupo de recursos**.
+1. En la lista, seleccione el grupo de recursos que creó.
 
-3. Escriba el nombre del grupo de recursos que quiere eliminar y, después, haga clic en **Eliminar**.
+1. Seleccione **Eliminar grupo de recursos**.
 
+1. Escriba el nombre del grupo de recursos y, a continuación, seleccione **Eliminar**.
+
+   Si recibe el error "Can not delete resource before nested resources are deleted" (No se puede eliminar el recurso hasta que se eliminen los recursos anidados), debe eliminar primero todos los recursos anidados. Para más información, [consulte esta sección de solución de problemas](../articles/machine-learning/service/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account). 
