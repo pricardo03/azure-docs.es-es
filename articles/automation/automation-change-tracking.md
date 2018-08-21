@@ -178,11 +178,7 @@ El objetivo de supervisar los cambios en las claves del Registro identificar los
 > |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**     |
 |&nbsp;&nbsp;&nbsp;&nbsp;Supervisa las entradas de inicio automático comunes que se enlazan directamente con el explorador de Windows y se suelen ejecutar en el proceso Explorer.exe.    |
 > |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup**     |
-|
-  &nbsp;
-  &nbsp;
-  &nbsp;
-  &nbsp;Supervisa los scripts que se ejecutan en el inicio.     |
+|&nbsp;&nbsp;&nbsp;&nbsp;Supervisa los scripts que se ejecutan en el inicio.     |
 > |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown**    |
 |&nbsp;&nbsp;&nbsp;&nbsp;Supervisa los scripts que se ejecutan al apagar el equipo.     |
 > |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run**     |
