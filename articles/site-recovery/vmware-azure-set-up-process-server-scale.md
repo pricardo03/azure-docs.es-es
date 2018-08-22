@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 6d3fe519729bd56dafd11720a3662eb00b916a98
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 478b678f514959b8ae9f6492d4920faf894c321d
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056616"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004188"
 ---
 # <a name="set-up-additional-process-servers-for-scalability"></a>Configuración de servidores de procesos adicionales con escalabilidad
 
@@ -34,6 +34,8 @@ Compruebe los requisitos de tamaño que se resumen en la tabla. En general, si d
 |4 vCPU (2 sockets * 2 núcleos a 2,5 GHz), 8 GB de memoria |< 300 GB |250 GB o menos |Replicar 85 máquinas o menos. |
 |8 vCPU (2 sockets * 4 núcleos a 2,5 GHz), 12 GB de memoria |600 GB |250 GB a 1 TB |Replicar entre 85 y 150 máquinas. |
 |12 vCPU (2 sockets * 6 núcleos a 2,5 GHz), 24 GB de memoria |1 TB |1 TB a 2 TB |Replicar entre 150 y 225 máquinas. |
+
+Donde cada máquina de origen protegida está configurada con 3 discos de 100 GB cada uno.
 
 ### <a name="prerequisites"></a>Requisitos previos
 

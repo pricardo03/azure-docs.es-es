@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 80b65b8bc2e2947575004269f45922e2306dd32e
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ebd9943ad7f54a329dee16d57ab980b882d508f3
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284173"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715114"
 ---
 # <a name="how-to-record-voice-samples-for-a-custom-voice"></a>Cómo grabar muestras de voz para una voz personalizada
 
@@ -68,13 +68,13 @@ El punto de partida de cualquier sesión de grabación de voz personalizada es e
 
 Los enunciados del guion pueden proceder de cualquier parte: ficción, no ficción, transcripciones de voces, informes de noticias y cualquier cosa disponible en formato impreso. Si quiere asegurarse de que su voz funcione bien con clases de palabras específicas (como terminología médica o jerga de programación), podría incluir oraciones de trabajos académicos o documentos técnicos. (Sin embargo, consulte a continuación la sección de [Aspectos legales](#legalities)). También puede escribir su propio texto.
 
-Los enunciados no tienen que proceder de la misma fuente, o de la misma clase de fuente. Incluso no es necesario que tengan nada que ver unos con otros. Sin embargo, si va a usar frases hechas (por ejemplo, "Ha iniciado sesión correctamente") en la aplicación de voz, asegúrese de incluirlas en el guion. De esta forma, la voz personalizada tendrá una mejor oportunidad de pronunciar bien esas frases. Y si debe decidir debe usar una grabación en lugar de voz sintetizada, ya la tendrá con la misma voz que la voz sintetizada.
+Los enunciados no tienen que proceder de la misma fuente, o de la misma clase de fuente. Incluso no es necesario que tengan nada que ver unos con otros. Sin embargo, si va a usar frases hechas (por ejemplo, "Ha iniciado sesión correctamente") en la aplicación de voz, asegúrese de incluirlas en el guion. De esta forma, la voz personalizada tendrá una mejor oportunidad de pronunciar bien esas frases. Y si decide usar una grabación en lugar de voz sintetizada, ya la tendrá en la misma voz.
 
 Si bien la uniformidad es importante a la hora de elegir un actor de voz, la variedad es lo que distingue un buen guion. El guion debe incluir muchas palabras y frases diferentes con diversas longitudes de frase, estructuras y estados de ánimo. Cada sonido en el lenguaje se debe representar varias veces y en varios contextos (lo que se conoce como *cobertura fonética).* 
 
 Además, el texto debe incorporar todas las formas en que puede representarse un sonido determinado al escribir, y colocar cada sonido en distintos lugares en las oraciones. Se deben incluir tanto oraciones afirmativas como preguntas y se deben leer con la entonación adecuada.
 
-Es difícil escribir un guion que proporcione *suficientes* datos para permitir que el portal Custom Speech genere una buena voz. En la práctica, la manera más sencilla de crear un guion que logre una sólida cobertura fonética es incluir un gran número de muestras. Las voces estándar de Microsoft se han creado con decenas de miles de enunciados. Deberá estar preparado para grabar unos cuantos miles de enunciados para generar una voz personalizada con calidad de producción.
+Es difícil escribir un guion que proporcione *suficientes* datos para permitir que el portal Custom Speech genere una buena voz. En la práctica, la manera más sencilla de crear un guion que logre una sólida cobertura fonética es incluir un gran número de muestras. Las voces estándar de Microsoft se han creado con decenas de miles de enunciados. Deberá estar preparado para grabar unos cuantos miles de expresiones para generar una voz personalizada con calidad de producción.
 
 Compruebe el guion con mucho cuidado para detectar posibles errores. Si es posible, que otra persona también lo revise. Cuando repase el guion con el actor de voz, es probable que detecte algunos errores más.
 
@@ -85,7 +85,7 @@ Puede escribir el guion en Microsoft Word. El guion se usará durante la sesión
 Un formato de guion básico incluye tres columnas:
 
 * El número del enunciado, empezando por el 1. La numeración permitirá que todas las personas del estudio puedan consultar un enunciado en particular ("probemos de nuevo el número 356"). Puede usar la característica de numeración de párrafos de Word para numerar las filas de la tabla automáticamente.
-* Una columna en blanco donde escribirá el número de corte o código de tiempo de cada enunciado para ayudarle a encontrarlo en la grabación finalizada.
+* Una columna en blanco donde escribirá el número de toma o el código de tiempo de cada expresión para ayudarle a encontrarlo en la grabación finalizada.
 * El propio texto del enunciado.
 
 ![Script de ejemplo](media/custom-voice/script.png)
@@ -107,13 +107,13 @@ Afortunadamente, es posible evitar estos problemas por completo. Hay muchas fuen
 |-|-|
 |[Corpus CMU Arctic](http://festvox.org/cmu_arctic/)|Aproximadamente 1100 oraciones seleccionadas de obras protegidas por derechos de autor para su uso especialmente en proyectos de síntesis de voz. Un excelente punto de partida.|
 |Obras que ya no<br>están protegidas por derechos de autor|Normalmente las obras publicadas antes de 1923. En inglés, el [proyecto Gutenberg](https://www.gutenberg.org/) ofrece miles de obras de este tipo. Quizás quiera centrarse en obras más modernas, dado que el lenguaje estará más próximo al inglés moderno.|
-|Obras del gobierno&nbsp;|Las obras creadas por el gobierno de los Estados Unidos no están protegidas por derechos de autor en los Estados Unidos, aunque es posible que el gobierno reclame derechos de autor en otros países.|
+|Obras del gobierno &nbsp;|Las obras creadas por el gobierno de los Estados Unidos no están protegidas por derechos de autor en los Estados Unidos, aunque es posible que el gobierno reclame derechos de autor en otros países.|
 |Dominio público|Obras en las que se ha renunciado explícitamente a los derechos de autor o que se han destinado al dominio público. (Puede que en algunas jurisdicciones no sea posible renunciar del todo a los derechos de autor).|
 |Obras con licencia permisiva|Obras distribuidas con una licencia como Creative Commons o la licencia de documentación libre de GNU. La Wikipedia usa la GFDL. Algunas licencias, sin embargo, pueden imponer restricciones sobre la representación del contenido con licencia que pueden afectar a la creación de un modelo de voz personalizada, así que lea la licencia detenidamente.|
 
 ## <a name="recording-your-script"></a>Grabación del guion
 
-Si es posible, debe grabar el guion en un estudio de grabación profesional especializado en trabajos de voz. Dispondrá de una cabina de grabación, el equipo adecuado y las personas adecuadas correctas utilizarlo. Vale la pena no escatimar en la grabación.
+Grabe el guion en un estudio de grabación profesional especializado en trabajos de voz. Dispondrá de una cabina de grabación, el equipo adecuado y las personas adecuadas correctas utilizarlo. Vale la pena no escatimar en la grabación.
 
 Revise el proyecto con el ingeniero de grabación de estudio y escuche sus consejos. La grabación debe tener poca o ninguna compresión de rango dinámico (máximo 4:1). Es esencial que el audio tenga un volumen uniforme y una elevada relación señal-ruido, y que esté libre de sonidos no deseados.
 
@@ -142,7 +142,7 @@ Escuche con atención la grabación de silencio en la cabina, averigüe de dónd
 > [!TIP]
 > En algunos casos, es posible usar un ecualizador o un complemento de software de reducción de ruido para ayudar a eliminar el ruido de las grabaciones, aunque siempre es mejor detenerlo en su origen.
 
-Es necesario establecer niveles para evitar que la mayoría del intervalo dinámico disponible de grabación digital se use a plena potencia. Eso significa alto, pero no tan alto que el audio distorsione. Este es un ejemplo de la forma de onda de una buena grabación.
+Establezca los niveles de manera que la mayoría del intervalo dinámico de grabación digital disponible se use sin sobremodulación. Eso significa alto, pero no tan alto que el audio distorsione. Este es un ejemplo de la forma de onda de una buena grabación.
 
 ![Forma de onda de buena grabación](media/custom-voice/good-recording.png)
 
@@ -161,7 +161,7 @@ Para evitar perder tiempo en el estudio, repase el guion con el actor antes de l
 > [!NOTE]
 > La mayoría de los estudios de grabación ofrecen una pantalla electrónica de guiones en la cabina de grabación. En este caso, escriba las notas de revisión directamente en el documento del guion. También puede querer una copia en papel para tomar notas durante la sesión. La mayoría de los ingenieros también pueden querer una copia en papel. Y la tercera copia impresa servirá como respaldo para el actor en caso de que el equipo informático no funcione.
 
-Puede que el actor pregunte qué palabra desea enfatizar en un enunciado. Los actores llaman a esto "palabra operativa". Indíquele que desea una lectura natural sin ningún énfasis en particular. El énfasis se puede agregar cuando se sintetice la voz; no debe formar parte de la grabación original.
+Puede que el actor pregunte qué palabra desea enfatizar en una expresión (la "palabra operativa"). Indíquele que desea una lectura natural sin ningún énfasis en particular. El énfasis se puede agregar cuando se sintetice la voz; no debe formar parte de la grabación original.
 
 Indique el actor que pronuncie las palabras claramente. Cada palabra del guion se debe pronunciar tal y como se escribe. Los sonidos no se deben omitir ni arrastrar juntos, como es habitual en el habla informal, *a menos que se hayan escrito de esa manera en el guion.*
 
@@ -185,12 +185,12 @@ Entrene a su actor para respirar profundamente y hacer una pausa durante un mome
 Grabe un buen silencio de cinco segundos antes de la primera grabación para capturar el "tono de la sala" Esto ayuda al portal Custom Voice a compensar cualquier rastro de ruido que pueda quedar en las grabaciones.
 
 > [!TIP]
-> Como lo que realmente necesita son las líneas del actor de voz, puede hacer una grabación monofónica (un solo canal) de solo esas líneas. Sin embargo, si graba en estéreo, puede usar el segundo canal para grabar la charla en la sala de control y capturar los comentarios de líneas o cortes determinados. Quite esta pista de la versión cargada en el portal Custom Voice.
+> Como lo que realmente necesita es al actor de voz, puede hacer una grabación monofónica (un solo canal) de solo esas líneas. Sin embargo, si graba en estéreo, puede usar el segundo canal para grabar la charla en la sala de control y capturar los comentarios de líneas o cortes determinados. Quite esta pista de la versión cargada en el portal Custom Voice.
 
 Use auriculares para escuchar con atención la representación del actor de voz. Lo que busca es una dicción buena pero natural, una pronunciación correcta y ausencia de sonidos no deseados. No dude en pedir al actor que vuelva a grabar un enunciado que no satisfaga estas normas. 
 
 > [!TIP] 
-> Cuando se graba un elevado volumen de enunciados, uno solo de ellos puede no tener un efecto apreciable sobre la voz personalizada resultante. Así que puede ser más adecuado anotar simplemente los enunciados con problemas, excluirlos del conjunto de datos y ver cómo resulta la voz personalizada. Siempre puede volver al estudio y grabar las muestras que faltan más tarde.
+> Cuando se usa un elevado volumen de expresiones, una sola de ellas podría no tener un efecto apreciable sobre la voz personalizada resultante. Así que puede ser más adecuado anotar simplemente los enunciados con problemas, excluirlos del conjunto de datos y ver cómo resulta la voz personalizada. Siempre puede volver al estudio y grabar las muestras que faltan más tarde.
 
 Anote en el guion el número de corte o código de tiempo de cada enunciado. Pregunte también al ingeniero si puede marcar cada enunciado en los metadatos de la grabación o en cada hoja de pistas.
 
