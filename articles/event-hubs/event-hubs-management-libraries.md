@@ -2,28 +2,23 @@
 title: Bibliotecas de administración de Azure Event Hubs | Microsoft Docs
 description: Administración de entidades y espacios de nombres de Event Hubs desde .NET
 services: event-hubs
-cloud: na
-documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-ms.assetid: ''
 ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: 2ae2f8f2006507284338fb4fa62e4942476cf2bc
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.date: 06/13/2018
+ms.author: shvija
+ms.openlocfilehash: 1b158fd3ac3f36b71a76c149e8b6815f576be1c5
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26780980"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40007592"
 ---
 # <a name="event-hubs-management-libraries"></a>Bibliotecas de administración de Event Hubs
 
-Las bibliotecas de administración de Event Hubs pueden aprovisionar dinámicamente las entidades y los espacios de nombres de Event Hubs. Esta naturaleza dinámica posibilita escenarios complejos de implementación y mensajería, lo que permite determinar mediante programación qué entidades aprovisionar. Estas bibliotecas están actualmente disponibles para .NET.
+Puede usar las bibliotecas de administración de Azure Event Hubs para aprovisionar de forma dinámica las entidades y los espacios de nombres de Event Hubs. Esta naturaleza dinámica posibilita escenarios complejos de implementación y mensajería, lo que permite determinar mediante programación qué entidades aprovisionar. Estas bibliotecas están actualmente disponibles para .NET.
 
 ## <a name="supported-functionality"></a>Funcionalidad admitida
 
@@ -31,7 +26,7 @@ Las bibliotecas de administración de Event Hubs pueden aprovisionar dinámicame
 * Creación, actualización y eliminación de Event Hubs
 * Creación, actualización y eliminación de grupos de consumidores
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para comenzar a usar las bibliotecas de administración de Event Hubs, debe autenticarse con Azure Active Directory (AAD). AAD requiere que se autentique como una entidad de servicio que proporciona acceso a los recursos de Azure. Para más información sobre cómo crear una entidad de servicio, consulte uno de los siguientes artículos:  
 
@@ -77,6 +72,6 @@ El patrón para manipular los recursos de Event Hubs sigue un protocolo común:
     await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
     ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Ejemplo de administración de .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Referencia de Microsoft.Azure.Management.EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: f8779af725346a456efe8e718cfc8ff3a91c72fc
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: dad76ab9f2a1a621fb513a4d411792fe2f88a557
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325258"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005882"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Introducción a Azure Load Balancer Estándar
 
@@ -64,7 +64,15 @@ El grupo de back-end puede contener máquinas virtuales independientes, conjunto
 
 A la hora de considerar cómo diseñar el grupo de back-end, puede diseñar el menor número de recursos individuales del grupo de back-end para optimizar aún más la duración de las operaciones de administración.  No hay ninguna diferencia en el rendimiento o la escala en el plano de los datos.
 
-## <a name="az"></a>Zonas de disponibilidad
+### <a name="probes"></a>Sondeos de mantenimiento
+  
+Standard Load Balancer permite agregar compatibilidad con los [sondeos de mantenimiento HTTPS](load-balancer-custom-probe-overview.md#httpprobe) [sondeo HTTP con contenedor de Seguridad de la capa de transporte (TLS)] para supervisar con precisión las aplicaciones HTTPS.  
+
+Además, cuando todos los sondeos del grupo de servidores back-end [están desactivados](load-balancer-custom-probe-overview.md#probedown), Standard Load Balancer permite que continúen todas las conexiones TCP establecidas. (Basic Load Balancer terminará todas las conexiones TCP en todas las instancias).
+
+Repase [Sondeos de estado de Load Balancer](load-balancer-custom-probe-overview.md) para más información.
+
+### <a name="az"></a>Zonas de disponibilidad
 
 Load Balancer Estándar admite otras funcionalidades en las regiones donde las zonas de disponibilidad están disponibles.  Estas características se agregan a las que Load Balancer Estándar ya proporciona.  Las configuraciones de las zonas de disponibilidad están disponibles para equilibradores de carga estándar públicos e internos.
 
@@ -167,7 +175,7 @@ Las SKU no son mutables. Siga los pasos de esta sección para cambiar de una SKU
 
 ### <a name="migrate-from-basic-to-standard-sku"></a>Migración de una SKU básica a una estándar
 
-1. Cree un nuevo recurso estándar (Load Balancer y direcciones IP públicas cuando sea necesario). Vuelva a crear sus reglas y definiciones de sondeo.
+1. Cree un nuevo recurso estándar (Load Balancer y direcciones IP públicas cuando sea necesario). Vuelva a crear sus reglas y definiciones de sondeo.  Si usaba un protocolo de sondeo 443/tcp anteriormente, considere la posibilidad de cambiarlo a un sondeo HTTPS y agregue una ruta.
 
 2. Cree un grupo de seguridad de red nuevo o actualice uno existente en la NIC o la subred para incluir en la lista de permitidos el tráfico con equilibrio de carga  y cualquier otro tráfico que desee permitir.
 
@@ -177,7 +185,7 @@ Las SKU no son mutables. Siga los pasos de esta sección para cambiar de una SKU
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>Migración de SKU estándar a básica
 
-1. Cree un nuevo recurso básico (Load Balancer y direcciones IP públicas cuando sea necesario). Vuelva a crear sus reglas y definiciones de sondeo. 
+1. Cree un nuevo recurso básico (Load Balancer y direcciones IP públicas cuando sea necesario). Vuelva a crear sus reglas y definiciones de sondeo.  Cambie un sondeo HTTPS a un sondeo TCP a un protocolo de sondeo 443/tcp. 
 
 2. Quite los recursos de SKU estándar (Load Balancer y direcciones IP públicas, según corresponda) de todas las instancias de máquina virtual. Asegúrese de quitar también todas las instancias de máquina virtual de un conjunto de disponibilidad.
 
@@ -218,12 +226,13 @@ Load Balancer Estándar es un producto que se carga según el número de reglas 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información acerca de cómo usar [Load Balancer Estándar y zonas de disponibilidad](load-balancer-standard-availability-zones.md).
+- Más información en [Standard Load Balancer y Availability Zones](load-balancer-standard-availability-zones.md).
+- Más información sobre [sondeos de mantenimiento](load-balancer-custom-probe-overview.md).
 - Aprenda más sobre [zonas de disponibilidad](../availability-zones/az-overview.md).
 - Más información acerca de los [diagnósticos de Load Balancer Estándar](load-balancer-standard-diagnostics.md).
 - Más información acerca de las [métricas multidimensionales admitidas](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) para diagnósticos en [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
 - Más información acerca de cómo usar [Load Balancer para conexiones salientes](load-balancer-outbound-connections.md).
-- Más información acerca de [Load Balancer Estándar con reglas de equilibrio de carga para puertos HA](load-balancer-ha-ports-overview.md).
+- Más información acerca de [Standard Load Balancer con reglas de equilibrio de carga para puertos HA](load-balancer-ha-ports-overview.md).
 - Más información acerca de cómo usar [Load Balancer con varios front-ends](load-balancer-multivip-overview.md).
 - Más información acerca de las [redes virtuales](../virtual-network/virtual-networks-overview.md).
 - Más información sobre los [grupos de seguridad de red](../virtual-network/security-overview.md).

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/01/2018
+ms.date: 08/09/2018
 ms.author: jdial
-ms.openlocfilehash: a5b4bac9e0d8bc10defaff251557129a70d8a022
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8dfe313cb82fd0ace7221ea320bb2228be75196c
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29854196"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038633"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -41,7 +41,6 @@ Para comenzar, consulte [Documentación de Virtual Network](https://docs.microso
 Sí. Puede usar una red virtual sin necesidad de conectarse a su entorno local. Por ejemplo, podría ejecutar controladores de dominio de Active Directory para Microsoft Windows Server y granjas de servidores de SharePoint únicamente en una red virtual de Azure.
 
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>¿Se puede realizar la optimización de una WAN entre redes virtuales o entre una red virtual y un centro de datos local?
-
 Sí. A través de Azure Marketplace es posible implementar una [aplicación virtual de red de optimización de la WAN](https://azure.microsoft.com/marketplace/?term=wan+optimization) de varios proveedores.
 
 ## <a name="configuration"></a>Configuración
@@ -70,22 +69,22 @@ Sí. Azure reserva algunas direcciones IP dentro de cada subred. Las direcciones
 La subred más pequeña admitida es /29 y la más grande /8 (mediante definiciones de subred CIDR).
 
 ### <a name="can-i-bring-my-vlans-to-azure-using-vnets"></a>¿Puedo llevar mis VLAN a Azure mediante redes virtuales?
-Nº Las redes virtuales son superposiciones de nivel 3. Azure no admite ninguna semántica de nivel 2.
+No. Las redes virtuales son superposiciones de nivel 3. Azure no admite ninguna semántica de nivel 2.
 
 ### <a name="can-i-specify-custom-routing-policies-on-my-vnets-and-subnets"></a>¿Puedo especificar directivas de enrutamiento personalizadas en mis redes virtuales y subredes?
 Sí. Puede crear una tabla de rutas y asociarla a una subred. Para más información sobre el enrutamiento en Azure, consulte [Introducción al enrutamiento](virtual-networks-udr-overview.md#custom-routes).
 
 ### <a name="do-vnets-support-multicast-or-broadcast"></a>¿Las redes virtuales admiten la multidifusión o la difusión?
-Nº No se admite difusión ni multidifusión.
+No. No se admite difusión ni multidifusión.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>¿Qué protocolos puedo usar en las redes virtuales?
 En las redes virtuales se pueden usar los protocolos TCP, UDP e ICMP TCP/IP. La unidifusión se admite dentro de las redes virtuales, a excepción del Protocolo de configuración dinámica de host (DCHP) a través de unidifusión (puerto de origen UDP/68 / puerto de destino UDP/67). La multidifusión, la difusión, los paquetes encapsulados IP en IP y los paquetes de encapsulación de enrutamiento genérico (GRE) se bloquean en las subredes. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>¿Puedo hacer ping a mis enrutadores predeterminados dentro de una red virtual?
-Nº
+No.
 
 ### <a name="can-i-use-tracert-to-diagnose-connectivity"></a>¿Puedo usar tracert para diagnosticar la conectividad?
-Nº
+No.
 
 ### <a name="can-i-add-subnets-after-the-vnet-is-created"></a>¿Puedo agregar subredes una vez creada la red virtual?
 Sí. Se pueden agregar subredes a redes virtuales en cualquier momento siempre y cuando el intervalo de direcciones de subred no sea parte de otra subred y se haya dejado espacio disponible en el intervalo de direcciones de la red virtual.
@@ -100,10 +99,10 @@ Sí. Puede agregar, quitar y modificar los bloques CIDR usados por una red virtu
 Sí. Todos los servicios implementados dentro de una red virtual pueden establecer una conexión a Internet saliente. Para más información sobre las conexiones a Internet salientes en Azure, consulte [Conexiones salientes en Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si quiere establecer una conexión entrante a un recurso implementado mediante Resource Manager, el recurso debe tener asignada una dirección IP pública. Para más información sobre las direcciones IP públicas, consulte [Direcciones IP publicas](virtual-network-public-ip-address.md). Cada servicio en la nube de Azure implementado en Azure tiene asignada una dirección IP virtual direccionable de forma pública. Para permitir que estos servicios acepten conexiones de Internet, se definen puntos de conexión de entrada para roles y puntos de conexión de PaaS en las máquinas virtuales.
 
 ### <a name="do-vnets-support-ipv6"></a>¿Las redes virtuales admiten IPv6?
-Nº No se admite IPv6 con redes virtuales en este momento. Sin embargo, puede asignar direcciones IPv6 a equilibradores de carga de Azure para equilibrar la carga en las máquinas virtuales. Para más información, consulte [Información general de IPv6 para Azure Load Balancer](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+No. No se admite IPv6 con redes virtuales en este momento. Sin embargo, puede asignar direcciones IPv6 a equilibradores de carga de Azure para equilibrar la carga en las máquinas virtuales. Para más información, consulte [Información general de IPv6 para Azure Load Balancer](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="can-a-vnet-span-regions"></a>¿Puede una red virtual abarcar varias regiones?
-Nº Una red virtual está limitada a una única región. Una red virtual, sin embargo, abarca zonas de disponibilidad. Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Puede conectar redes virtuales de diferentes regiones con el emparejamiento de redes virtuales. Para más información, consulte [Emparejamiento de redes virtuales](virtual-network-peering-overview.md).
+No. Una red virtual está limitada a una única región. Una red virtual, sin embargo, abarca zonas de disponibilidad. Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Puede conectar redes virtuales de diferentes regiones con el emparejamiento de redes virtuales. Para más información, consulte [Emparejamiento de redes virtuales](virtual-network-peering-overview.md).
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>¿Puedo conectar una red virtual a otra red virtual en Azure?
 Sí. Puede conectar una red virtual a otra mediante los métodos siguientes:
@@ -133,7 +132,7 @@ Existe una limitación de los 100 primeros servicios en la nube en una red virtu
 Sí. Puede configurar los servidores DNS por máquina virtual o servicio en la nube para invalidar la configuración de red predeterminada. Sin embargo, se recomienda usar DNS en toda la red siempre que sea posible.
 
 ### <a name="can-i-bring-my-own-dns-suffix"></a>¿Puedo usar mi propio sufijo DNS?
-Nº No puede especificar un sufijo DNS personalizado para sus redes virtuales.
+No. No puede especificar un sufijo DNS personalizado para sus redes virtuales.
 
 ## <a name="connecting-virtual-machines"></a>Conexión de máquinas virtuales
 
@@ -149,7 +148,7 @@ Sí. Todas las interfaces de red (NIC) conectadas a una máquina virtual impleme
 * **Pública:** opcionalmente, se puede asignar a NIC conectadas a máquinas virtuales implementadas a través del modelo de implementación de Azure Resource Manager. La dirección se puede asignar con el método de asignación estática o el de asignación dinámica. Todas las máquinas virtuales y las instancias de rol de Cloud Services implementadas a través del modelo de implementación clásica existen en un servicio en la nube, al que se asigna una dirección IP virtual (VIP) pública y *dinámica*. Si se desea, una dirección IP pública *estática*, que se denomina [dirección IP reservada](virtual-networks-reserved-public-ip.md), puede asignarse como si fuera una VIP. Las direcciones IP públicas se pueden asignar a máquinas virtuales o instancias de rol de Cloud Services individuales implementadas mediante el modelo de implementación clásica. Estas direcciones se denominan direcciones [IP públicas a nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md) y se puede asignar dinámicamente.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>¿Puedo reservar una dirección IP interna para una máquina virtual que crearé más adelante?
-Nº Las direcciones IP privadas no se pueden reservar. Si hay una dirección IP privada disponible, el servidor DHCP la asigna a una máquina virtual o una instancia de rol. La máquina virtual puede ser, o no, aquella a la que quiere que se asigne la dirección IP privada. Sin embargo, la dirección IP privada de una máquina virtual ya creada se puede cambiar por cualquier dirección IP privada disponible.
+No. Las direcciones IP privadas no se pueden reservar. Si hay una dirección IP privada disponible, el servidor DHCP la asigna a una máquina virtual o una instancia de rol. La máquina virtual puede ser, o no, aquella a la que quiere que se asigne la dirección IP privada. Sin embargo, la dirección IP privada de una máquina virtual ya creada se puede cambiar por cualquier dirección IP privada disponible.
 
 ### <a name="do-private-ip-addresses-change-for-vms-in-a-vnet"></a>¿Cambian las direcciones IP privadas de las máquinas virtuales en una red virtual?
 Depende. Si se ha implementado la máquina virtual mediante Resource Manager, no, con independencia de si la dirección IP se asignó con el método de asignación estático o dinámico. Si la máquina virtual se implementó mediante el modelo de implementación clásica, se pueden cambiar las direcciones IP dinámicas cuando se inicia una máquina virtual después de haber estado en estado detenido (desasignado). La dirección se libera de una máquina virtual implementada con cualquiera de los modelos de implementación cuando se elimina la máquina.
@@ -164,7 +163,7 @@ Nada. Las direcciones IP (VIP pública, pública y privada) siguen estando asign
 Sí. Puede encontrar más información en el artículo [Traslado de una máquina virtual o una instancia de rol a una subred diferente](virtual-networks-move-vm-role-to-subnet.md).
 
 ### <a name="can-i-configure-a-static-mac-address-for-my-vm"></a>¿Puedo configurar una dirección MAC estática para mi máquina virtual?
-Nº Una dirección MAC no se puede configurar de forma estática.
+No. Una dirección MAC no se puede configurar de forma estática.
 
 ### <a name="will-the-mac-address-remain-the-same-for-my-vm-once-its-created"></a>¿Seguirá siendo la dirección MAC la misma en mi máquina virtual una vez que se ha creado?
 Sí, la dirección MAC de una máquina virtual no cambia, independientemente de que esta se haya implementado a través del modelo de implementación clásica o de Resource Manager, hasta que se elimina. Antes, la dirección MAC se liberaba si la máquina virtual se detenía (se desasignaba), pero ahora la dirección MAC se conserva aunque la máquina virtual se encuentre en estado desasignada.
@@ -188,7 +187,6 @@ Sí. Opcionalmente, es posible implementar instancias de rol de Cloud Services e
 Sí. Debe conectar un VMSS a una red virtual.
 
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>¿Hay una lista completa de servicios de Azure de la que pueda implementar recursos desde una red virtual?
-
 Sí. Para más información, consulte [Integración de red virtual para los servicios de Azure](virtual-network-for-azure-services.md).
 
 ### <a name="which-azure-paas-resources-can-i-restrict-access-to-from-a-vnet"></a>¿A qué recursos de PaaS de Azure se puede restringir el acceso desde una red virtual?
@@ -196,7 +194,7 @@ Sí. Para más información, consulte [Integración de red virtual para los serv
 Se puede restringir el acceso a los recursos implementados mediante algunos servicios de PaaS de Azure (como Azure Storage y Azure SQL Database) en una red virtual solo mediante el uso de puntos de conexión de servicio de red virtual. Para más información, consulte [Puntos de conexión del servicio de redes virtuales](virtual-network-service-endpoints-overview.md).
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>¿Puedo mover mis servicios dentro y fuera de las redes virtuales?
-Nº No se pueden mover los servicios dentro y fuera de las redes virtuales. Para mover un recurso a otra red virtual, tendrá que eliminar el recurso y volver a implementarlo.
+No. No se pueden mover los servicios dentro y fuera de las redes virtuales. Para mover un recurso a otra red virtual, tendrá que eliminar el recurso y volver a implementarlo.
 
 ## <a name="security"></a>Seguridad
 
@@ -220,5 +218,38 @@ Sí. Puede usar las API REST para redes virtuales en los modelos de implementaci
 ### <a name="is-there-tooling-support-for-vnets"></a>¿Hay compatibilidad con las herramientas para redes virtuales?
 Sí. Más información acerca del uso de:
 - Azure Portal para implementar redes virtuales a través de los modelos de implementación con [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) y [clásica](virtual-networks-create-vnet-classic-pportal.md).
-- PowerShell para administrar redes virtuales que se implementan a través de los modelos de implementación con [Resource Manager](/powershell/module/azurerm.network) y [clásica](/powershell/module/azure/?view=azuresmps-3.7.0).
+- PowerShell para administrar redes virtuales que se implementan a través de los modelos de implementación con [Resource Manager](/powershell/module/azurerm.network) y [clásica](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
 - La interfaz de la línea de comandos (CLI) de Azure para implementar y administrar redes virtuales implementadas mediante los modelos de implementación de [Resource Manager](/cli/azure/network/vnet) y [clásica](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources).  
+
+## <a name="vnet-peering"></a>Emparejamiento de VNET
+
+### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>¿Puedo crear una conexión de emparejamiento a una red virtual en una región diferente?
+Sí. El emparejamiento de VNET global permite emparejar redes virtuales en diferentes regiones. El emparejamiento de VNET global está disponible en todas las regiones públicas de Azure. No se puede emparejar globalmente desde las regiones públicas de Azure a las nubes nacionales. El emparejamiento global no está disponible actualmente en nubes nacionales.
+
+### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>¿Puedo habilitar el emparejamiento de VNET si mis redes virtuales pertenecen a suscripciones de diferentes inquilinos de Azure Active Directory?
+Actualmente no es posible establecer el emparejamiento de VNET (ya sea local o global) si las suscripciones pertenecen a diferentes inquilinos de Azure Active Directory.
+
+### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Mi conexión de emparejamiento de VNET se encuentra en estado *Iniciado*, ¿por qué no puedo conectarme?
+Si la conexión de emparejamiento está en estado Iniciado, esto significa que ha creado un solo vínculo. Se debe crear un vínculo bidireccional con el fin de establecer una conexión correcta. Por ejemplo, para emparejar VNET A a VNET B, debe crearse un vínculo de VNET A a VNET B y de VNET B a VNET A. La creación de ambos vínculos cambiará el estado a *Conectado*.
+
+### <a name="can-i-peer-my-vnet-with-a-vnet-in-a-different-subscription"></a>¿Puedo emparejar mi red virtual con otra en una suscripción diferente?
+Sí. Puede emparejar redes virtuales entre suscripciones y entre regiones.
+
+### <a name="can-i-peer-two-vnets-with-matching-or-overlapping-address-ranges"></a>¿Puedo emparejar dos redes virtuales con rangos de direcciones coincidentes o superpuestas?
+No. Los espacios de direcciones no deben solaparse para habilitar el emparejamiento de VNET.
+
+### <a name="how-much-do-vnet-peering-links-cost"></a>¿Cuánto cuestan los vínculos de emparejamiento de redes virtuales?
+La creación de una conexión de emparejamiento VNET es gratuita. Se cobra la transferencia de datos a través de conexiones de emparejamiento. [Consulte aquí](https://azure.microsoft.com/pricing/details/virtual-network/).
+
+### <a name="is-vnet-peering-traffic-encrypted"></a>¿Está cifrado el tráfico de emparejamiento de VNET?
+No. El tráfico entre recursos en redes virtuales emparejadas es privado y aislado. Sigue estando en la columna vertebral de Microsoft.
+
+### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>¿Por qué mi conexión de emparejamiento está en estado desconectado?
+Las conexiones de emparejamiento de redes virtuales pasan a un estado *Desconectado* cuando se elimina un vínculo de emparejamiento de red virtual. Debe eliminar ambos vínculos para restablecer una conexión de emparejamiento correcta.
+
+### <a name="if-i-peer-vneta-to-vnetb-and-i-peer-vnetb-to-vnetc-does-that-mean-vneta-and-vnetc-are-peered"></a>Si se empareja VNETA con VNETB y se empareja VNETB con VNETC, ¿significa que VNETA y VNETC están emparejadas?
+No. No se admite el emparejamiento transitivo. Se deben emparejar VNETA y VNETC para que esto se produzca.
+
+### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>¿Hay alguna limitación de ancho de banda para las conexiones de emparejamiento?
+No. El emparejamiento de VNET, ya sea local o global, no impone ninguna restricción de ancho de banda. El ancho de banda solo está limitado por el recurso de proceso o de máquina virtual.
+

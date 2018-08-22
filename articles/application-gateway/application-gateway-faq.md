@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 6/20/2018
+ms.date: 8/10/2018
 ms.author: victorh
-ms.openlocfilehash: b8b5b1da902a854dacea7e3019e3fa1116f04212
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 858427bfd2a9b4c40ddf7054e09d98bcf5c1a992
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399154"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038681"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -122,6 +122,12 @@ Se admiten grupos de seguridad de red en la subred de Application Gateway con la
 * No puede bloquearse la conectividad saliente de Internet.
 
 * Se debe permitir el tráfico de la etiqueta AzureLoadBalancer.
+
+**P. ¿Se admiten las rutas definidas por el usuario en la subred de la puerta de enlace de aplicaciones?**
+
+Las rutas definidas por el usuario (UDR) se admiten en la subred de la puerta de enlace de aplicaciones, siempre que no alteren la comunicación de solicitud y respuesta de extremo a extremo.
+
+Por ejemplo, puede configurar una UDR en la subred de la puerta de enlace de aplicaciones para que apunte a un dispositivo firewall para la inspección de paquetes, pero debe asegurarse de que el paquete puede llegar a su destino previsto después de la inspección. El no hacerlo podría resultar en un sondeo del estado incorrecto o en un comportamiento de enrutamiento de tráfico. Esto incluye las rutas aprendidas o las rutas 0.0.0.0/0 predeterminadas que propagan las puertas de enlace de VPN o ExpressRoute en la red virtual.
 
 **P. ¿Cuáles son los límites de Application Gateway? ¿Puedo aumentar estos límites?**
 

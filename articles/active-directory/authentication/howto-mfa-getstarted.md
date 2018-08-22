@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: d248f8bc5708dfe8554f513d4f96a6c1bee7605e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c2d0f14bca2b9ab062c61407479ab45a0104ff0a
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412419"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716270"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Implementación de Azure Multi-factor Authentication en la nube
 
@@ -30,7 +30,7 @@ Antes de empezar, asegúrese de que cumple los siguientes requisitos previos:
 
 **Enabled by conditional access policy** (Habilitada mediante la directiva de acceso condicional): en este artículo se explica este método. Se trata del medio más flexible para habilitar la verificación en dos pasos para los usuarios. La habilitación de la directiva de acceso condicional solo funciona con Azure MFA en la nube y es una característica premium de Azure AD.
 
-Enabled by Azure AD Identity Protection (Habilitada por Azure AD Identity Protection): este método utiliza la directiva de riesgos de Azure AD Identity Protection para exigir la verificación en dos pasos solo según el riesgo de inicio de sesión para todas las aplicaciones en la nube. Este método requiere una licencia de Azure Active Directory P2. Para más información sobre este método, vea [Azure Active Directory Identity Protection](../active-directory-identityprotection.md#risky-sign-ins).
+Enabled by Azure AD Identity Protection (Habilitada por Azure AD Identity Protection): este método utiliza la directiva de riesgos de Azure AD Identity Protection para exigir la verificación en dos pasos solo según el riesgo de inicio de sesión para todas las aplicaciones en la nube. Este método requiere una licencia de Azure Active Directory P2. Para más información sobre este método, consulte [Azure Active Directory Identity Protection](../identity-protection/overview.md#risky-sign-ins).
 
 Enabled by changing user state (Habilitada mediante el cambio de estado de usuario): se trata del método tradicional para exigir la verificación en dos pasos. Funciona tanto en Azure MFA en la nube como en el servidor de Azure MFA. El uso de este método requiere que los usuarios realicen la verificación **cada vez** que inicien sesión e invalida las directivas de acceso condicional. Puede encontrar más información sobre este método en [Exigencia de verificación en dos pasos para un usuario](howto-mfa-userstates.md)
 
@@ -109,3 +109,5 @@ Para confirmar que la directiva de acceso condicional funciona, pruebe a iniciar
 Para configurar opciones adicionales tales como direcciones IP de confianza, mensajes de voz personalizados y alertas de fraude, vea el artículo [Configuración de Azure Multi-Factor Authentication](howto-mfa-mfasettings.md)
 
 Puede encontrar información sobre cómo administrar la configuración de usuario de Azure Multi-factor Authentication en el artículo [Manage user settings with Azure Multi-Factor Authentication in the cloud](howto-mfa-userdevicesettings.md) (Administración de la configuración de usuario con Azure Multi-Factor Authentication en la nube).
+
+[Habilitación del registro convergente para el restablecimiento de contraseña de autoservicio de Azure Multi-Factor Authentication y Azure AD](concept-registration-mfa-sspr-converged.md)

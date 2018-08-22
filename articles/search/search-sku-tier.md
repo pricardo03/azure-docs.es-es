@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: 241d24746d82a359b4bbf4febbbaaf91180dd23e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f7cf471a69395cef0aef7d5dd2e3c77218bf97a3
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210931"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715287"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Selección de un plan de tarifa de Azure Search
 
@@ -36,14 +36,14 @@ Entre los conceptos que debe conocer para realizar la selección de nivel, se in
 
 ### <a name="capacity"></a>Capacity
 
-La capacidad se estructura como *réplicas* y *particiones*. Las réplicas son instancias del servicio de búsqueda, donde cada réplica hospeda una copia con equilibrio de carga de un índice. Por ejemplo, un servicio con 6 réplicas tiene 6 copias de todos los índices cargados en el servicio. Las particiones almacenan índices y dividen automáticamente los datos de búsqueda: dos particiones dividen el índice en la mitad, tres particiones en tres tercios y así sucesivamente. En términos de capacidad, el *tamaño de partición* es la principal característica diferenciadora entre niveles.
+La capacidad se estructura como *réplicas* y *particiones*. 
+
++ Las réplicas son instancias del servicio de búsqueda, donde cada réplica hospeda una copia con equilibrio de carga de un índice. Por ejemplo, un servicio con 6 réplicas tiene 6 copias de todos los índices cargados en el servicio. 
+
++ Las particiones almacenan índices y dividen automáticamente los datos de búsqueda: dos particiones dividen el índice en la mitad, tres particiones en tres tercios y así sucesivamente. En términos de capacidad, el *tamaño de partición* es la principal característica diferenciadora entre niveles.
 
 > [!NOTE]
 > Todos los niveles **Estándar** admiten [combinaciones flexibles de réplicas y particiones](search-capacity-planning.md#chart) para que pueda [optimizar el sistema para velocidad o para almacenamiento](search-performance-optimization.md) cambiando el balance. El nivel **Básico** ofrece hasta tres réplicas para alta disponibilidad, pero tiene solo una partición. Los niveles **Gratis** no proporcionan recursos dedicados: los recursos de cálculo se comparten entre varios servicios gratis.
-
-### <a name="limits"></a>límites
-
-Los servicios hospedan recursos, como los índices, los indexadores y otros. Cada nivel impone [límites de servicio](search-limits-quotas-capacity.md) en la cantidad de recursos que puede crear. Por lo tanto, un límite en el número de índices (y otros objetos) es la segunda característica diferenciadora entre niveles. Cuando revise cada opción en el portal, tenga en cuenta los límites en cuanto al número de índices. Otros recursos, como los indexadores, los orígenes de datos y los conjuntos de habilidades, están asociados a los límites de los índices.
 
 ### <a name="search-units"></a>Unidades de búsqueda
 
@@ -52,6 +52,10 @@ El concepto de facturación más importante que se debe entender es la *unidad d
 Aunque cada nivel ofrece cada vez mayor capacidad, puede hacer que una parte de la capacidad total esté en línea, dejando el resto de reserva. En términos de facturación, es el número de particiones y réplicas que tiene en línea, calculado mediante la fórmula de la SU, lo que determina lo que paga realmente.
 
 La tarifa de facturación es por hora y por SU, con una tarifa diferente para cada nivel. Las tarifas de cada nivel pueden consultarse en [Buscar Precios](https://azure.microsoft.com/pricing/details/search/).
+
+### <a name="limits"></a>límites
+
+Los servicios hospedan recursos, como los índices, los indexadores y otros. Cada nivel impone [límites de servicio](search-limits-quotas-capacity.md) en la cantidad de recursos que puede crear. Por lo tanto, un límite en el número de índices (y otros objetos) es la segunda característica diferenciadora entre niveles. Cuando revise cada opción en el portal, tenga en cuenta los límites en cuanto al número de índices. Otros recursos, como los indexadores, los orígenes de datos y los conjuntos de habilidades, están asociados a los límites de los índices.
 
 ## <a name="consumption-patterns"></a>Patrones de consumo
 
@@ -86,7 +90,7 @@ Los requisitos empresariales exigen normalmente el número de índices que se ne
 
 Para determinar el tamaño de un índice, tendrá que [crear uno](search-create-index-portal.md). La estructura de datos de Azure Search es principalmente un [índice invertido](https://en.wikipedia.org/wiki/Inverted_index), que tiene características diferentes que los datos de origen. Para un índice invertido, el tamaño y la complejidad se determinan por el contenido, no necesariamente por la cantidad de datos que se incorporan. Un origen de datos de gran tamaño con gran redundancia podría resultar en un índice más pequeño que un conjunto de datos más pequeño que incluye contenido muy variable.  Por lo tanto, es poco probable deducir el tamaño del índice en función del tamaño del conjunto de datos original.
 
-### <a name="preliminary-estimates-using-the-free-tier"></a>Estimaciones preliminares con el nivel Gratis
+### <a name="step-1-develop-rough-estimates-using-the-free-tier"></a>Paso 1: Desarrollo de estimaciones aproximadas con el nivel Gratis
 
 Un enfoque para calcular la capacidad es comenzar con el nivel **Gratis**. Recuerde que el servicio **Gratis** ofrece hasta 3 índices, 50 MB de almacenamiento y 2 minutos de tiempo de indexación. Puede resultar complicado calcular un tamaño proyectado de índice con estas restricciones, pero en el ejemplo siguiente se muestra un enfoque:
 
@@ -96,7 +100,7 @@ Un enfoque para calcular la capacidad es comenzar con el nivel **Gratis**. Recue
 
 Si la muestra es representativa y es el diez por ciento del origen de datos completo, un índice de 30 MB se convierte aproximadamente en uno de 300 MB si todos los documentos se indexan. Con este número preliminar, podría doblar esa cantidad para presupuestar dos índices (desarrollo y producción), con un total de 600 MB en los requisitos de almacenamiento. Esto se cumple fácilmente con el nivel **Básico**, por lo que debería empezar por ahí.
 
-### <a name="advanced-estimates-using-a-billable-tier"></a>Estimaciones avanzadas con un nivel facturable
+### <a name="step-2-develop-refined-estimates-using-a-billable-tier"></a>Paso 2: Desarrollo de estimaciones precisas mediante un nivel facturable
 
 Algunos clientes prefieren comenzar con recursos dedicados que pueden adaptarse a mayores tiempos de muestreo y procesamiento y, a continuación, realizan una estimación realista de volúmenes de consultas y tamaño y cantidad de índices durante el desarrollo. Inicialmente, se aprovisiona un servicio basado en un cálculo basado en suposiciones y, a continuación, a medida que el proyecto evoluciona, los equipos suelen saben si el servicio está por encima o por debajo de la capacidad necesaria para las cargas de trabajo de producción previstas. 
 

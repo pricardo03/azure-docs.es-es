@@ -7,15 +7,15 @@ author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/10/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 644d382b87b0cc7c60cc8917edbaeff34b222718
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b60b25e1692e065276d731d6cad8700373f1c456
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390745"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038672"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -69,6 +69,14 @@ Para cambiar el límite predeterminado a un valor de entre 7 y 90 días, siga es
 2. En **Opciones del entorno de ejecución**, en la lista **Retención del historial de ejecución en días** elija **Personalizado**. 
 
 3. Escriba o arrastre el control deslizante hasta el número de días que quiera.
+
+<a name="disable-delete"></a>
+
+## <a name="disabling-or-deleting-logic-apps"></a>Deshabilitación o eliminación de aplicaciones lógicas
+
+Cuando se deshabilita una aplicación lógica, no se crean instancias de nuevas ejecuciones. Todas las ejecuciones en curso y pendientes continuarán hasta que finalicen, lo que puede tardar un tiempo en realizarse.
+
+Cuando se elimina una aplicación lógica, no se crean instancias de nuevas ejecuciones. Todas las ejecuciones nuevas y pendientes se cancelan. Si tiene miles de ejecuciones, la cancelación puede tardar bastante tiempo en completarse.
 
 <a name="looping-debatching-limits"></a>
 

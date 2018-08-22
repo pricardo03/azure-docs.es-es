@@ -5,32 +5,31 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/21/2018
+ms.date: 08/14/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: b31e5cc3f99bdbb45aae6f9d71efdabdcc60f9c8
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 130cc66831b25621cb022eb19005c624fcd71b9e
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37138184"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "40105513"
 ---
-**Última actualización del documento**: 21 de mayo de 2018 a las 3 p. m. PST.
+**Última actualización del documento**: 14 de agosto de 2018, 10:00 a.m. PST.
 
-La reciente divulgación de una [nueva clase de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), conocidas como ataques de canal lateral de ejecución especulativa, han generado preguntas de los clientes que buscan mayor claridad.  
+La divulgación de una [nueva clase de vulnerabilidades de CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), conocidas como ataques de canal lateral de ejecución especulativa, han generado preguntas de los clientes que buscan mayor claridad.  
 
-Microsoft ha implementado mitigaciones en todos nuestros servicios en la nube. La infraestructura que ejecuta Azure y aísla las cargas de trabajo de los clientes entre sí está protegida.  Esto significa que otros clientes que utilizan Azure no pueden atacar su aplicación mediante estas vulnerabilidades.
+Microsoft ha implementado mitigaciones en todos nuestros servicios en la nube. La infraestructura que ejecuta Azure y aísla las cargas de trabajo de los clientes entre sí está protegida. Esto significa que un atacante potencial que use la misma infraestructura no puede atacar su aplicación mediante estas vulnerabilidades.
 
-Además, Azure está expandiendo el uso del [mantenimiento con conservación de memoria](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) siempre que es factible, poniendo en pausa la máquina virtual hasta 30 segundos mientras se actualiza el host o se traslada la máquina virtual a un host ya actualizado.  El mantenimiento con conservación de memoria minimiza más el impacto del cliente y elimina la necesidad de los reinicios.  Azure empleará estos métodos al realizar actualizaciones en todo el sistema en el host.
+Azure utiliza un [mantenimiento con conservación de memoria](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) siempre que es posible para minimizar el impacto en el cliente y eliminar la necesidad de reinicios. Azure seguirá utilizando estos métodos al realizar actualizaciones del host en todo el sistema y proteger a los clientes.
+
+Encontrará más información acerca de cómo integrar la seguridad en todos los aspectos de Azure en el sitio de [documentación de Azure Security Center](https://docs.microsoft.com/azure/security/). 
 
 > [!NOTE] 
-El 21 de mayo de 2018, Google Project Zero y Microsoft anunciaron una nueva subclase de vulnerabilidad de canal lateral de ejecución especulativa conocida como omisión de almacenamiento especulativa. Se han implementado potentes mitigaciones de protección adicional en la infraestructura en la nube de Microsoft que permiten hacer frente directamente a las vulnerabilidades de ejecución especulativa. Hay más información disponible aquí: https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180012 
->
-> A finales de febrero de 2018, Intel Corporation publicó la [Microvision Revision Guidance](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) actualizada sobre el estado de sus versiones de microcódigo, que mejoran la estabilidad y mitigan las vulnerabilidades recientes reveladas por [ Google Project Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). La actualización de microcódigo de Intel no afecta a las mitigaciones que Azure aplicó el [3 de enero de 2018](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/). Microsoft ya aplicó mitigaciones seguras para proteger a los clientes de Azure contra otras máquinas virtuales de Azure.  
->
-> El microcódigo de Intel trata la variante 2 de Spectre ([CVE-2017-5715](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5715) o inyección de destino de rama) para protegerse contra ataques que solo serían aplicables donde se ejecutaron cargas de trabajo compartidas o de confianza dentro de las VM en Azure. Nuestros ingenieros están probando la estabilidad para minimizar el impacto en el rendimiento del microcódigo, antes de ponerlo a disposición de los clientes de Azure.  Dado que muy pocos clientes ejecutan cargas de trabajo que no son de confianza dentro de sus VM, la mayoría de los clientes no necesitarán habilitar esta funcionalidad una vez publicada. 
->
-> Esta página se actualizará tan pronto como haya más información disponible.  
+> Desde que este documento se publicó por primera vez, se han divulgado varias variantes de esta clase de vulnerabilidad. Microsoft continúa realizando grandes esfuerzos por proteger a nuestros clientes y proporcionarles orientación. Esta página se actualizará a medida que se publiquen más correcciones. 
+> 
+> El 14 de agosto de 2018, el sector reveló una nueva vulnerabilidad de canal lateral de ejecución especulativa conocida como [L1 Terminal Fault](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180018) (L1TF), a la que se han asignado varios identificadores ([CVE-2018-3615, CVE-2018-3620 y CVE-2018-3646](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00161.html)). Esta vulnerabilidad afecta a los procesadores Intel® Core® y los procesadores Intel® Xeon®. Microsoft ha implementado elementos de mitigación en nuestros servicios en la nube que refuerzan el aislamiento entre clientes. A continuación encontrará orientación adicional para protegerse frente a L1TF y vulnerabilidades anteriores ([Spectre variante 2 CVE-2017-5715 y Meltdown variante 3 CVE-2017-5754](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution)).
+>  
 
 
 
@@ -39,40 +38,80 @@ El 21 de mayo de 2018, Google Project Zero y Microsoft anunciaron una nueva subc
 
 ## <a name="keeping-your-operating-systems-up-to-date"></a>Mantener actualizados los sistemas operativos
 
-Aunque no se necesita una actualización del sistema operativo para aislar las aplicaciones que se ejecutan en Azure de otros clientes que utilizan Azure, siempre es recomendable mantener actualizadas las versiones del sistema operativo. Los [paquetes acumulativos de seguridad de Windows](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) de enero de 2018 y posteriores contienen mitigaciones para estas vulnerabilidades.
+Aunque no se necesita una actualización del sistema operativo para aislar de otros clientes las aplicaciones que se ejecutan en Azure, mantener el software actualizado siempre es un procedimiento recomendado. Los últimos paquetes acumulativos de actualizaciones de seguridad para Windows contienen mitigaciones para varias vulnerabilidades de canal lateral de ejecución especulativa. De forma similar, las distribuciones de Linux han publicado varias actualizaciones para corregir estas vulnerabilidades. Estas son las acciones recomendadas para actualizar el sistema operativo:
 
-En las siguientes ofertas, se indican las acciones recomendadas para actualizar el sistema operativo: 
-
-<table>
-<tr>
-<th>Oferta</th> <th>Acción recomendada </th>
-</tr>
-<tr>
-<td>Azure Cloud Services </td>  <td>Habilite las actualizaciones automáticas o asegúrese de que está ejecutando el sistema operativo invitado más reciente.</td>
-</tr>
-<tr>
-<td>Máquinas virtuales Linux en Azure</td> <td>Instale las actualizaciones de su proveedor de sistema operativo cuando estén disponibles. </td>
-</tr>
-<tr>
-<td>Máquinas virtuales Windows en Azure </td> <td>Compruebe que está ejecutando una aplicación antivirus compatible antes de instalar las actualizaciones del sistema operativo. Póngase en contacto con su proveedor de software antivirus para obtener información acerca de la compatibilidad.<p> Instale el [paquete acumulativo de actualizaciones de seguridad de enero](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </p></td>
-</tr>
-<tr>
-<td>Otros servicios PaaS de Azure</td> <td>No es necesaria ninguna acción para los clientes que usan estos servicios. Azure mantiene actualizadas las versiones de sistema operativo de forma automática. </td>
-</tr>
-</table>
+| Oferta | Acción recomendada  |
+|----------|---------------------|
+| Azure Cloud Services  | Habilite las [actualizaciones automáticas](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) o asegúrese de que está ejecutando la versión más reciente del sistema operativo invitado. |
+| Máquinas virtuales Linux en Azure | Instale las actualizaciones de su proveedor de sistema operativo. Para más información, consulte [Linux](#linux) más adelante en este documento. |
+| Máquinas virtuales Windows en Azure  | Instale las últimas actualizaciones acumulativas de seguridad.
+| Otros servicios PaaS de Azure | No es necesaria ninguna acción para los clientes que usan estos servicios. Azure mantiene actualizadas las versiones de sistema operativo de forma automática. |
 
 ## <a name="additional-guidance-if-you-are-running-untrusted-code"></a>Instrucciones adicionales si está ejecutando código que no es de confianza 
 
-A menos que se esté ejecutando código que no es de confianza, no es necesario que el cliente realice ninguna acción adicional. Si permite código que no es de confianza (por ejemplo, permite a uno de sus clientes cargar un archivo binario o un fragmento de código que después se ejecuta en la nube dentro de la aplicación), debe realizar los siguientes pasos adicionales.  
+Los clientes que permiten a los usuarios que no son de confianza ejecutar código arbitrario tal vez deseen implementar algunas características de seguridad adicionales en las máquinas virtuales o en los servicios en la nube de Azure. Estas características protegen frente a los vectores de divulgación entre procesos que describen varias vulnerabilidades de ejecución especulativa.
 
+Escenarios de ejemplo donde se recomiendan las características de seguridad adicionales:
+
+- Permite la ejecución de código que no es de confianza en la máquina virtual.  
+    - *Por ejemplo, permite que uno de sus clientes cargue un archivo binario o un script que, a continuación, se ejecutará en la aplicación*. 
+- Permite iniciar sesión en la máquina virtual con cuentas con privilegios reducidos a usuarios que no son de confianza.   
+    - *Por ejemplo, permite iniciar sesión en una de las máquinas virtuales mediante escritorio remoto o SSH a un usuario con privilegios reducidos*.  
+- Permite acceder a las máquinas virtuales implementadas mediante virtualización anidada a usuarios que no son de confianza.  
+    - *Por ejemplo, controla el host de Hyper-V, pero asigna las máquinas virtuales a usuarios que no son de confianza*. 
+
+Los clientes que no implementan un escenario relacionado con código que no es de confianza no necesitan habilitar estas características de seguridad adicionales. 
+
+## <a name="enabling-additional-security"></a>Habilitación de la seguridad adicional 
+
+Puede habilitar las características de seguridad adicionales en la máquina virtual o en el servicio en la nube.
 
 ### <a name="windows"></a>Windows 
-Si está usando Windows y hospeda código que no es de confianza, también debe habilitar una característica de Windows llamada ocultación de la dirección virtual del kernel (KVA), que proporciona protección adicional contra las vulnerabilidades frente a ataques de canal lateral de ejecución especulativa (concretamente para Meltdown de tres variantes, [CVE-2017-5754](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5754) o carga de caché de datos no autorizada). Esta característica está desactivada de forma predeterminada y puede afectar al rendimiento si se habilita. Siga las instrucciones del artículo [KB4072698 de Windows Server](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar la protección en el servidor. Si ejecuta Azure Cloud Services, compruebe que está ejecutando WA-GUEST-OS-5.15_201801-01 o WA-GUEST-OS-4.50_201801-01 (disponible a partir del 10 de enero de 2018) y habilite la clave del Registro mediante una tarea de inicio.
+
+El sistema operativo de destino debe estar actualizado para habilitar estas características de seguridad adicionales. Aunque hay habilitadas numerosas mitigaciones del canal lateral de ejecución especulativa de forma predeterminada, las características adicionales que se describen aquí deben habilitarse manualmente y pueden afectar al rendimiento. 
+
+**Paso 1**: [póngase en contacto con el equipo de soporte técnico de Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para exponer el firmware (microcódigo) actualizado en las máquinas virtuales. 
+
+**Paso 2**: habilite la compatibilidad del sistema operativo con Kernel Virtual Address Shadowing (KVAS) y Branch Target Injection (BTI). Siga las instrucciones descritas en el artículo [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar las protecciones mediante las claves del Registro `Session Manager`. Es necesario reiniciar. 
+
+**Paso 3**: para las implementaciones que usan una [virtualización anidada](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 y E3 solo), estas instrucciones se aplican en la máquina virtual que se usa como un host de Hyper-V. 
+
+1. Siga las instrucciones descritas en el artículo [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para habilitar las protecciones mediante las claves del Registro `MinVmVersionForCpuBasedMitigations`.  
+ 
+1. Establezca el tipo de programador del hipervisor en **Core** con las instrucciones descritas [aquí](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types). 
+
+**Paso 4**: siga las instrucciones descritas en [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) para comprobar que las protecciones están habilitadas mediante el módulo de PowerShell [SpeculationControl](https://aka.ms/SpeculationControlPS). 
+
+> [!NOTE]
+> Si descargó este módulo anteriormente, deberá instalar la versión más reciente.
+>
+
+Todas las máquinas virtuales deben mostrar:
+
+```
+branch target injection mitigation is enabled: True
+
+kernel VA shadow is enabled: True  
+
+L1TFWindowsSupportEnabled: True
+```
 
 
 ### <a name="linux"></a>Linux
-Si está usando Linux y hospeda código que no es de confianza, también debe actualizar Linux a una versión más reciente que implemente el aislamiento de la tabla de páginas del kernel (KPTI), que separa las tablas de páginas utilizadas por el kernel de las que pertenecen al espacio del usuario. Estas soluciones requieren una actualización del sistema operativo Linux y su proveedor de distribución puede proporcionárselas cuando estén disponibles. El proveedor del sistema operativo puede indicarle si las protecciones están habilitadas o deshabilitadas de forma predeterminada.
 
+<a name="linux"></a>Se requiere que el sistema operativo de destino esté completamente actualizado para habilitar el conjunto de características de seguridad adicionales. Algunas de las mitigaciones estarán habilitadas de forma predeterminada. La siguiente sección describe las características que están desactivadas de forma predeterminada y sujetas a la compatibilidad de hardware (microcódigo). La habilitación de estas características puede afectar al rendimiento. Consulte la documentación del proveedor de su sistema operativo para más instrucciones
+ 
+**Paso 1**: [póngase en contacto con el equipo de soporte técnico de Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) para exponer el firmware (microcódigo) actualizado en las máquinas virtuales.
+ 
+**Paso 2**: habilite la compatibilidad de sistema operativo con Branch Target Injection (BTI) para mitigar CVE-2017-5715 (Spectre variante 2) de acuerdo con la documentación del proveedor de su sistema operativo. 
+ 
+**Paso 3**: habilite Kernel Page Table Isolation (KPTI) para mitigar CVE-2017-5754 (Meltdown variante 3) de acuerdo con la documentación del proveedor de su sistema operativo. 
+ 
+El proveedor de su sistema operativo dispone de más información:  
+ 
+- [RedHat y CentOS](https://access.redhat.com/security/vulnerabilities/speculativeexecution) 
+- [Suse](https://www.suse.com/support/kb/doc/?id=7022512) 
+- [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SpectreAndMeltdown) 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

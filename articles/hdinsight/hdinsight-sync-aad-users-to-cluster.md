@@ -1,31 +1,26 @@
 ---
-title: 'Sincronización de los usuarios de Azure Active Directory en un clúster: Azure HDInsight | Microsoft Docs'
+title: 'Sincronización de los usuarios de Azure Active Directory en un clúster: Azure HDInsight'
 description: Sincronice los usuarios autenticados de Azure Active Directory en un clúster.
 services: hdinsight
-documentationcenter: ''
-author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+author: ashishthaps
 ms.author: ashishth
-ms.openlocfilehash: f2deaaa31a4d0e8a91d048b538e9251a8eb9e1b7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+editor: jasonwhowell
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 08/19/2018
+ms.openlocfilehash: 05ac13fe849f90e3f0dbc60d5c232f469e1f290d
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409288"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714849"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronización de los usuarios de Azure Active Directory en un clúster de HDInsight
 
 [Los clústeres de HDInsight unidos a un dominio](hdinsight-domain-joined-introduction.md) pueden usar una autenticación segura con los usuarios de Azure Active Directory (Azure AD) y también las directivas de *control de acceso basado en rol* (RBAC). A medida que agrega usuarios y grupos a Azure AD, puede sincronizar los usuarios que necesitan tener acceso al clúster.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no lo ha hecho aún, [cree un clúster de HDInsight unido al dominio](hdinsight-domain-joined-configure.md).
 
@@ -80,10 +75,10 @@ El método siguiente utiliza POST con la API de REST de Ambari. Para más inform
     }
     ```
 
-4. Para ver el estado de sincronización, ejecute un nuevo comando `curl`, con el valor `href` devuelto del comando anterior:
+4. Para ver el estado de sincronización, ejecute un nuevo comando `curl`:
 
     ```bash
-    curl -u admin:<YOUR PASSWORD> http://hn0-hadoop.<YOUR DOMAIN>.com:8080/api/v1/ldap_sync_events/1
+    curl -u admin:<YOUR PASSWORD> https://<YOUR CLUSTER NAME>.azurehdinsight.net/api/v1/ldap_sync_events/1
     ```
     
     La respuesta debería tener este aspecto:

@@ -7,17 +7,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: adf2f555e907976f8b8efa863f255aa283098be9
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 15bc320bd82ea21ff608fcc834ba51b9bc7b6dea
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449214"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716151"
 ---
-# <a name="manage-user-access-in-azure-ad-b2c"></a>Administración del acceso de usuarios en Azure AD B2C
+# <a name="manage-user-access-in-azure-active-directory-b2c"></a>Administración del acceso de usuario en Azure Active Directory B2C
 
 Este artículo trata sobre cómo se puede administrar el acceso de usuarios a las aplicaciones mediante el uso de Azure Active Directory (Azure AD) B2C. La administración de acceso de la aplicación incluye:
 
@@ -27,9 +27,6 @@ Este artículo trata sobre cómo se puede administrar el acceso de usuarios a la
 - Captura de un contrato de términos de uso y puerta de acceso.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
->[!Note] 
->Este artículo proporciona información que puede utilizar para cumplir con sus obligaciones con respecto al RGPD. Si desea obtener información general sobre el RGPD, consulte la [sección sobre RGPD del Portal de confianza de servicios](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## <a name="control-minor-access"></a>Control del acceso de menores
 

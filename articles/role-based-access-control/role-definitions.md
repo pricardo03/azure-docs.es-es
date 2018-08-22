@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 416565a248fc9ef0861b5309d71fdac3b8fccc22
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 3d88ac7adc950e2c216824f74586ff6ef4f70712
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116068"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715777"
 ---
 # <a name="understand-role-definitions"></a>Descripción de definiciones de roles
 
@@ -214,7 +214,7 @@ El permiso `NotDataActions` especifica las operaciones de datos que se excluyen 
 
 ## <a name="assignablescopes"></a>Ámbitos asignables
 
-La propiedad `AssignableScopes` especifica los ámbitos (grupos de administración [actualmente en versión preliminar], suscripciones, grupos de recursos o recursos) en los que el rol está disponible para la asignación. Puede permitir que el rol esté disponible para su asignación solamente en las suscripciones o los grupos de recursos que lo requieran, sin necesidad de abarrotar la experiencia de usuario con el resto de las suscripciones o grupos de recursos. Tiene que utilizar al menos un grupo de administración, una suscripción, un grupo de recursos o un identificador de recurso.
+La propiedad `AssignableScopes` especifica los ámbitos (suscripciones, grupos de recursos o recursos) en los que el rol está disponible para la asignación. Puede permitir que el rol esté disponible para su asignación solamente en las suscripciones o los grupos de recursos que lo requieran, sin necesidad de abarrotar la experiencia de usuario con el resto de las suscripciones o grupos de recursos. Tiene que utilizar al menos una suscripción, grupo de recursos o identificador de recurso.
 
 Los roles integrados tienen `AssignableScopes` establecido en el ámbito raíz (`"/"`). El ámbito raíz indica que el rol está disponible para la asignación en todos los ámbitos. Ejemplos de ámbitos asignables válidos son:
 

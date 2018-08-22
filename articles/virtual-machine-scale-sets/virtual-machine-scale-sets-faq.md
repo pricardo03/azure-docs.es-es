@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: bf73f9419732e93c1f32f2fb39d3acee02f49b64
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b61b6b730d645e2ffd518628abe2a121f119fd09
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34656448"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715070"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
@@ -65,7 +65,7 @@ Obtenga respuestas a preguntas frecuentes sobre los conjuntos de escalado de má
 
 **P.** ¿Funcionan los conjuntos de escalado con los conjuntos de disponibilidad de Azure?
 
-**R.** Un conjunto de escalado regional (no de zona) usa *grupos de selección de ubicación*, donde cada uno de los cuales se puede configurar para actuar como un conjunto de disponibilidad implícito con cinco dominios de error y cinco dominios de actualización. Los conjuntos de escalado con más de 100 máquinas virtuales abarcan varios grupos de selección de ubicación. Para más información, consulte [Uso de grandes conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-placement-groups.md). Puede existir un conjunto de disponibilidad de máquinas virtuales en la misma red virtual que un conjunto de escalado de máquinas virtuales. Una configuración común consiste en colocar máquinas virtuales de nodos de control (que a menudo necesitan una configuración única) en un conjunto de disponibilidad y nodos de datos en el conjunto de escalado.
+**R.** Un conjunto de escalado regional (no de zona) usa *grupos de selección de ubicación*, donde cada uno actúa como un conjunto de disponibilidad implícito con cinco dominios predeterminados y cinco dominios de actualización. Los conjuntos de escalado con más de 100 máquinas virtuales abarcan varios grupos de selección de ubicación. Para más información, consulte [Uso de grandes conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-placement-groups.md). Puede existir un conjunto de disponibilidad de máquinas virtuales en la misma red virtual que un conjunto de escalado de máquinas virtuales. Una configuración común consiste en colocar máquinas virtuales de nodos de control (que a menudo necesitan una configuración única) en un conjunto de disponibilidad y nodos de datos en el conjunto de escalado.
 
 **P.** ¿Funcionan los conjuntos de escalado con las zonas de disponibilidad de Azure?
 
@@ -269,8 +269,8 @@ Puede proporcionar claves públicas SSH en texto sin formato al crear una máqui
 Nombre del elemento de linuxConfiguration | Obligatorio | Escriba | DESCRIPCIÓN
 --- | --- | --- | --- |  ---
 ssh | Sin  | Colección | Especifica la configuración de la clave SSH para un sistema operativo Linux
-path | Sí | string | Especifica la ruta de acceso de Linux en donde se deben colocar las claves SSH o el certificado
-keyData | Sí | string | Especifica una clave pública SSH codificada en base64
+path | SÍ | string | Especifica la ruta de acceso de Linux en donde se deben colocar las claves SSH o el certificado
+keyData | SÍ | string | Especifica una clave pública SSH codificada en base64
 
 Para ver un ejemplo, consulte [la plantilla de inicio rápido de GitHub 101-vm-sshkey ](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 

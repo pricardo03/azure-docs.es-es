@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
-ms.openlocfilehash: 69e148089f48ebe04faceff87b08eb3f7127f8a3
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: c37ff7e2f81b3dbca42193777287dae873768e24
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248374"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630507"
 ---
 # <a name="azure-consumption-api-overview"></a>Información general sobre las API de consumo de Azure 
 
@@ -109,7 +109,7 @@ La API incluye:
 
 -   **Control de acceso basado en rol de Azure**: configure las directivas de acceso en [Azure Portal](https://portal.azure.com), con la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) o mediante [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) para especificar qué usuarios o aplicaciones pueden obtener acceso a los datos de uso de la suscripción. Los autores de llamadas deben utilizar tokens de Azure Active Directory estándar para la autenticación. Agregue el autor de la llamada al rol Lector de facturación, Lector, Propietario o Colaborador para que obtenga acceso a los datos de uso de una suscripción de Azure específica. 
 -   **Filtrado**: adapte los resultados de las recomendaciones con los siguientes filtros:
-    - Scope
+    - Ámbito
     - Período de retrospectiva
 -   **Información de reserva para diferentes tipos de ofertas**: la información de reserva está disponible actualmente para los clientes de Enterprise y Web Direct.
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 9a926eb274e5e4cec721864d1d9c5faee8ec58ef
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 43cc02417fad8a2fa46bd309235951393cd55b8a
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618346"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40187381"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examen de la salida de Video Indexer producida por la API v2
 
@@ -670,7 +670,7 @@ Los vídeos en los que se encuentre contenido para adultos o subido de tono podr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Video Indexer API](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5857caeb0dc5610f9ce979e4)
+[Video Indexer API](https://api-portal.videoindexer.ai)
 
 Para más información acerca de cómo insertar widgets en su aplicación, consulte [Embed Video Indexer widgets into your applications](video-indexer-embed-widgets.md) (Inserción de widgets de Video Indexer en sus aplicaciones). 
 

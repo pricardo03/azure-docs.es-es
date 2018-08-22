@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: e4144ca0d87abda3d9f8de47e56af59d0e4af312
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: a499f609e517d880b3a942ac6dc3eb0dc10b69e7
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938373"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038536"
 ---
 # <a name="azure-logging-and-auditing"></a>Registro y auditoría de Azure
 
@@ -60,7 +60,7 @@ En este artículo, PUT, POST y DELETE hacen referencia a todas las operaciones d
 
 ![Diagrama del registro de actividad](./media/azure-log-audit/azure-log-audit-fig1.png)
 
-Puede recuperar los eventos del registro de actividad mediante Azure Portal, la [CLI de Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli), los cmdlets de PowerShell y la [API REST de Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough). Los registros de actividad tienen un período de retención de datos de 19 días.
+Puede recuperar los eventos del registro de actividad mediante Azure Portal, la [CLI de Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli), los cmdlets de PowerShell y la [API REST de Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough). Los registros de actividad tienen un período de retención de datos de noventa días.
 
 Escenarios de integración para un evento del registro de actividad:
 
@@ -105,7 +105,7 @@ Los registros de diagnóstico de Azure ofrecen varias opciones de configuración
 |Azure Application Gateway|[Registro de diagnóstico para Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways<br>Microsoft.Network/applicationGateways<br>Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog<br>ApplicationGatewayPerformanceLog<br>ApplicationGatewayFirewallLog|
 |Azure Key Vault|[Registros de Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
 |Azure Search|[Habilitación y uso de Análisis de tráfico de búsqueda](https://docs.microsoft.com/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
-|Almacén de Azure Data Lake|[Acceso a los registros de diagnóstico de Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts<br>Microsoft.DataLakeStore/accounts|Auditoría<br>Requests|
+|Azure Data Lake Store|[Acceso a los registros de diagnóstico de Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts<br>Microsoft.DataLakeStore/accounts|Auditoría<br>Requests|
 |Análisis con Azure Data Lake|[Acceso a los registros de diagnóstico de Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts<br>Microsoft.DataLakeAnalytics/accounts|Auditoría<br>Requests|
 |Azure Logic Apps|[Esquema de seguimiento personalizado de Logic Apps B2B](https://docs.microsoft.com/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows<br>Microsoft.Logic/integrationAccounts|WorkflowRuntime<br>IntegrationAccountTrackingEvents|
 |Azure Batch|[Registros de diagnóstico de Azure Batch](https://docs.microsoft.com/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
@@ -326,7 +326,7 @@ Hay cuatro maneras de [recopilar registros y métricas de los servicios de Azure
 |Servicios en la nube clásica||       Storage||       [Más información](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage-iis-table)|
 |Cognitive Services|    Microsoft.CognitiveServices/<br>accounts|       Diagnóstico|||
 |Análisis con Azure Data Lake| Microsoft.DataLakeAnalytics/<br>accounts|   Diagnóstico|||
-|Almacén de Azure Data Lake| Microsoft.DataLakeStore/<br>accounts|   Diagnóstico|||
+|Azure Data Lake Store| Microsoft.DataLakeStore/<br>accounts|   Diagnóstico|||
 |Espacio de nombres del centro de eventos de Azure| Microsoft.EventHub/<br>namespaces|  Diagnóstico|    Diagnóstico||
 |Azure IoT Hub| Microsoft.Devices/<br>IotHubs||     Diagnóstico||
 |Azure Key Vault|   Microsoft.KeyVault/<br>vaults|  Diagnóstico  || [Análisis de Key Vault](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
@@ -361,10 +361,10 @@ Azure Log Integration admite actualmente la integración de registros de activid
 
 | Tipo de registro | Log Analytics admite JSON (Splunk, ArcSight e IBM QRadar) |
 | :------- | :-------------------------------------------------------- |
-|Registros de auditoría de Azure AD|   Sí|
-|Registros de actividad| Sí|
-|Alertas de Security Center |Sí|
-|Registros de diagnóstico (registros de recursos)|  Sí|
+|Registros de auditoría de Azure AD|   SÍ|
+|Registros de actividad| SÍ|
+|Alertas de Security Center |SÍ|
+|Registros de diagnóstico (registros de recursos)|  SÍ|
 |Registros de VM|   Sí, mediante eventos reenviados y no mediante JSON|
 
 [Introducción a Azure Log Integration](https://docs.microsoft.com/azure/security/security-azure-log-integration-get-started): este tutorial le guía por la instalación de Azure Log Integration y la integración de los registros de Azure Storage, los registros de actividad de Azure, las alertas de Azure Security Center y los registros de auditoría de Azure AD.

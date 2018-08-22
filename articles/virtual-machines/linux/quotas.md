@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: a880ee18bb13b2cd8471cc58157469555397b872
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 56ee63e15c429c5a6212be36d420ae59afa48546
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716523"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629096"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Cuotas de vCPU de máquinas virtuales
 
@@ -63,7 +63,7 @@ Premium Storage Managed Disks                  5    10000
 ```
 
 ## <a name="reserved-vm-instances"></a>Instancias reservadas de máquina virtual
-Las instancias reservadas de máquina virtual, cuyo ámbito es una sola suscripción, agregarán un aspecto nuevo a las cuotas de vCPU. Estos valores describen el número de instancias del tamaño indicado que deben poderse implementar en la suscripción. Actúan como un marcador de posición en el sistema de cuotas para asegurarse de que esa cuota esté reservada y que las instancias reservadas puedan implementarse en la suscripción. Por ejemplo, si una suscripción específica tiene 10 instancias reservadas Standard_D1, el límite de uso para las instancias reservadas Standard_D1 será 10. Esto hará que Azure se asegure de que siempre hay al menos 10 vCPU disponibles en el total de la cuota de vCPU regional que se utilizará para instancias de Standard_D1 y que hay al menos 10 vCPU disponibles en la cuota de vCPU de la Familia D estándar que se utilizará para las instancias de Standard_D1.
+Las instancias reservadas de máquina virtual, cuyo ámbito es una sola suscripción, agregarán un aspecto nuevo a las cuotas de vCPU. Estos valores describen el número de instancias del tamaño indicado que deben poderse implementar en la suscripción. Actúan como un marcador de posición en el sistema de cuotas para asegurarse de que las reservas de Azure puedan implementarse en la suscripción. Por ejemplo, si una suscripción específica tiene diez reservas Standard_D1, el límite de usos para las reservas Standard_D1 será diez. Esto hará que Azure se asegure de que siempre hay al menos 10 vCPU disponibles en el total de la cuota de vCPU regional que se utilizará para instancias de Standard_D1 y que hay al menos 10 vCPU disponibles en la cuota de vCPU de la Familia D estándar que se utilizará para las instancias de Standard_D1.
 
 Si es necesario aumentar la cuota para adquirir una instancia reservada de suscripción única, puede [solicitar un aumento de la cuota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) en su suscripción.
 

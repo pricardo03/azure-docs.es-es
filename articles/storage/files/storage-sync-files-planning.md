@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: d00a6d3c476e10b13d00ff1738cb54c2eeea104c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c230b08089f22dbd0ea46cdff331f1c8b354ef62
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521829"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038464"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -151,7 +151,7 @@ Dado que un antivirus funciona examinando los archivos en busca de código malin
 Las siguientes soluciones se sabe que admiten la omisión de archivos sin conexión:
 
 - [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - Windows Defender omitirá automáticamente la lectura de estos archivos. Hemos probado Defender e identificado un problema menor: al agregar un servidor a un grupo de sincronización existente, se recuperan (descargan) archivos de menos de 800 bytes en el nuevo servidor. Estos archivos permanecerán en el nuevo servidor y no se organizarán en niveles ya que no cumplen con el requisito de tamaño de niveles (>64 kb).
+    - Windows Defender omite automáticamente los archivos de lectura que tienen establecido el atributo sin conexión. Hemos probado Defender e identificado un problema menor: al agregar un servidor a un grupo de sincronización existente, se recuperan (descargan) archivos de menos de 800 bytes en el nuevo servidor. Estos archivos permanecerán en el nuevo servidor y no se organizarán en niveles ya que no cumplen con el requisito de tamaño de niveles (>64 kb).
 - [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
     - SCEP funciona igual que Defender; consulte más arriba
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
@@ -192,11 +192,13 @@ Azure File Sync solo está disponible en las siguientes regiones:
 | Sudeste de Australia | Victoria |
 | Centro de Canadá | Toronto |
 | Este de Canadá | Ciudad de Quebec |
+| India Central | Pune |
 | Centro de EE. UU. | Iowa |
 | Asia oriental | Hong Kong |
 | Este de EE. UU | Virginia |
 | Este de EE. UU. 2 | Virginia |
 | Europa del Norte | Irlanda |
+| Sur de la India | Chennai |
 | Sudeste asiático | Singapur |
 | Sur de Reino Unido 2 | Londres |
 | Oeste de Reino Unido | Cardiff |
@@ -216,11 +218,13 @@ Para admitir la integración de la conmutación por error entre el almacenamient
 | Sudeste de Australia | Este de Australia     |
 | Centro de Canadá      | Este de Canadá        |
 | Este de Canadá         | Centro de Canadá     |
+| India Central       | Sur de la India        |
 | Centro de EE. UU.          | Este de EE. UU. 2          |
 | Asia oriental           | Sudeste asiático     |
 | Este de EE. UU             | Oeste de EE. UU.            |
 | Este de EE. UU. 2           | Centro de EE. UU.         |
 | Europa del Norte        | Europa occidental        |
+| Sur de la India         | India Central      |
 | Sudeste asiático      | Asia oriental          |
 | Sur de Reino Unido 2            | Oeste de Reino Unido            |
 | Oeste de Reino Unido             | Sur de Reino Unido 2           |

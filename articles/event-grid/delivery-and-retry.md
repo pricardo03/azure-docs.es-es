@@ -3,17 +3,16 @@ title: Entrega y reintento de entrega de Azure Event Grid
 description: Describe cómo Azure Event Grid entrega eventos y cómo administra los mensajes no entregados.
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 83852917909d13555e7a0a339d2ecc805eeead42
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b34386a7b416d6f7d8b008a9cb5ef142948a370f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625804"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005402"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega y reintento de entrega de mensajes de Event Grid 
 
@@ -43,11 +42,12 @@ Los siguientes códigos de respuesta HTTP indican que el intento de entrega de u
 - 404 No encontrado
 - 408 - Tiempo de espera de solicitud
 - 414 - URI de solicitud demasiado largo
+- 429 Demasiadas solicitudes
 - Error de servidor interno 500
 - Servicio no disponible 503
 - Tiempo de espera de puerta de enlace 504
 
-Si Event Grid recibe un error que indica que el punto de conexión no está disponible, intenta enviar de nuevo el evento. 
+Si Event Grid recibe un error que indica que el punto de conexión no está disponible temporalmente o que una futura solicitud podría realizarse correctamente, intenta enviar de nuevo el evento. Si Event Grid recibe un error que indica que la entrega nunca se realizará correctamente y que [se ha configurado el punto de conexión de elementos fallidos](manage-event-delivery.md), envía el evento al punto de conexión de elementos fallidos. 
 
 ## <a name="retry-intervals-and-duration"></a>Intervalos de reintento y duración
 
@@ -63,10 +63,15 @@ Event Grid usa una directiva de reintentos de retroceso exponencial para la entr
 
 Event Grid agrega una pequeña selección aleatoria a todos los intervalos de reintento. Después de una hora, la entrega del evento se vuelve a intentar cada una hora.
 
-Event Grid deja de intentar entregar todos los eventos que no se entregan en 24 horas.
+De forma predeterminada, Event Grid expira todos los eventos que no se entregan en 24 horas. Puede [personalizar la directiva de reintentos](manage-event-delivery.md) al crear una suscripción al evento. Proporcione el número máximo de intentos de entrega (el valor predeterminado es 30) y el periodo de vida de los eventos (el valor predeterminado es 1440 minutos).
+
+## <a name="dead-letter-events"></a>Eventos fallidos
+
+Si Event Grid no puede entregar un evento, puede enviar el evento no entregado a una cuenta de almacenamiento. Este proceso se conoce como colas de eventos fallidos. Para ver los eventos sin entregar, puede extraerlos de la ubicación de los eventos fallidos. Para más información, consulte [Directivas de reintentos y eventos fallidos](manage-event-delivery.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para ver el estado de las entregas de eventos, consulte [Supervisar la entrega de mensajes de Event Grid](monitor-event-delivery.md).
+* Para personalizar las opciones de entrega de eventos, consulte [Administración de la configuración de entrega de Event Grid](manage-event-delivery.md).
 * Para obtener una introducción a Event Grid, vea [Acerca de Event Grid](overview.md).
 * Para comenzar a usar rápidamente Event Grid, vea [Creación y enrutamiento de eventos personalizados con Azure Event Grid](custom-event-quickstart.md).

@@ -1,26 +1,22 @@
 ---
 title: 'Administración de aplicaciones lógicas con Visual Studio: Azure Logic Apps | Microsoft Docs'
 description: Administración de aplicaciones lógicas y otros recursos de Azure con Visual Studio Cloud Explorer
-author: ecfan
-manager: jeconnoc
-editor: ''
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: b4d7f557923a67ae0c9fc513cd2b4fe7555241be
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: d4de75238e48b8eb955095b5a3823f2fed799fae
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301123"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038568"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Administración de aplicaciones lógicas con Visual Studio
 
@@ -161,6 +157,9 @@ En Cloud Explorer, abra el menú contextual de la aplicación lógica y seleccio
 
 ![Deshabilitar la aplicación lógica](./media/manage-logic-apps-with-visual-studio/disable-logic-app.png)
 
+> [!NOTE]
+> Cuando se deshabilita una aplicación lógica, no se crean instancias de nuevas ejecuciones. Todas las ejecuciones en curso y pendientes continuarán hasta que finalicen, lo que puede tardar un tiempo en realizarse. 
+
 Cuando esté listo para que la aplicación lógica reanude la operación, puede reactivar la aplicación lógica. En Cloud Explorer, abra el menú contextual de la aplicación lógica y seleccione **Habilitar**.
 
 ![Habilitar la aplicación lógica](./media/manage-logic-apps-with-visual-studio/enable-logic-app.png)
@@ -170,6 +169,9 @@ Cuando esté listo para que la aplicación lógica reanude la operación, puede 
 Para eliminar la aplicación lógica desde Azure Portal, en Cloud Explorer, abra el menú contextual de la aplicación lógica y seleccione **Eliminar**.
 
 ![Eliminación de la aplicación lógica](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
+
+> [!NOTE]
+> Cuando se elimina una aplicación lógica, no se crean instancias de nuevas ejecuciones. Todas las ejecuciones nuevas y pendientes se cancelan. Si tiene miles de ejecuciones, la cancelación puede tardar bastante tiempo en completarse. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

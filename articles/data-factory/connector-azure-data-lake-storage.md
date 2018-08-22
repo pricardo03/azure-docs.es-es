@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 08/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 110bfe4b98045149bb52af2ad6f1156ea6d4018d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 65495209714c37e5e166545ed7ed029e36c258c0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035327"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038601"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>Copia de datos hacia o desde Azure Data Lake Storage Gen2 (versión preliminar) mediante Data Factory (versión preliminar)
 
@@ -30,7 +30,10 @@ Puede copiar datos desde cualquier almacén de datos de origen admitido a Data L
 En concreto, este conector admite las siguientes funcionalidades:
 
 - Copia de datos mediante una clave de cuenta.
-- Copia de archivos tal cual, o bien análisis o generación de archivos con los [códecs de compresión y los formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
+- Copia de archivos tal cual, o bien análisis o generación de archivos con [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
+
+>[!TIP]
+>Si habilita el espacio de nombres jerárquico, actualmente no hay ninguna interoperabilidad de operaciones entre las API de Blob y ADLS Gen2. En caso de que se produzca el error "ErrorCode=FilesystemNotFound" con el mensaje detallado "El sistema de archivos especificado no existe", puede que se deba a que el sistema de archivos del receptor especificado se creó en otra parte mediante la API de Blob en lugar de la API de ADLS Gen2. Para solucionar el problema, especifique un nuevo sistema de archivos con un nombre que no exista como nombre de un contenedor de blobs y ADF creará automáticamente ese sistema de archivos durante la copia de datos.
 
 ## <a name="get-started"></a>Introducción
 
@@ -47,9 +50,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Data Lak
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **AzureBlobFS**. |Sí |
-| URL | Punto de conexión de Data Lake Storage Gen2 con el patrón de `https://<accountname>.dfs.core.windows.net`. | Sí | 
-| accountKey | Clave de cuenta para el servicio Data Lake Storage Gen2. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
+| Tipo | La propiedad type debe establecerse en: **AzureBlobFS**. |SÍ |
+| URL | Punto de conexión de Data Lake Storage Gen2 con el patrón de `https://<accountname>.dfs.core.windows.net`. | SÍ | 
+| accountKey | Clave de cuenta para el servicio Data Lake Storage Gen2. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime autohospedado (si el almacén de datos está en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
@@ -80,8 +83,8 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **AzureBlobFSFile**. |Sí |
-| folderPath | Ruta de acceso a la carpeta de Data Lake Storage Gen2. No se admiten filtros con caracteres comodín. Ejemplo: rootfolder/subfolder/. |Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **AzureBlobFSFile**. |SÍ |
+| folderPath | Ruta de acceso a la carpeta de Data Lake Storage Gen2. No se admiten filtros con caracteres comodín. Ejemplo: rootfolder/subfolder/. |SÍ |
 | fileName | **Filtro de nombre o de comodín** para los archivos de la ruta "folderPath" especificada. Si no especifica ningún valor para esta propiedad, el conjunto de datos apunta a todos los archivos de la carpeta. <br/><br/>Para filtrar, los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter).<br/>- Ejemplo 1: `"fileName": "*.csv"`<br/>- Ejemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` como escape si el nombre de archivo real contiene un comodín o este carácter de escape.<br/><br/>Cuando fileName no se especifica para un conjunto de datos de salida y **preserveHierarchy** no se determina en el receptor de la actividad, la actividad de copia generará automáticamente el nombre de archivo con el siguiente patrón: "*Data.[GUID de ejecución de actividad].[GUID si FlattenHierarchy].[formato si está configurado].[compresión si está configurada]"*. Un ejemplo es "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". |Sin  |
 | formato | Si desea copiar los archivos tal cual entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si desea analizar o generar archivos con un formato concreto, se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** en **format** en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [Formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [Formato AVRO](supported-file-formats-and-compression-codecs.md#avro-format), [Formato ORC](supported-file-formats-and-compression-codecs.md#orc-format) y [Formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |No (solo para el escenario de copia binaria) |
 | compresión | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Niveles admitidos son **Optimal** y **Fastest**. |Sin  |
@@ -127,7 +130,7 @@ Se admiten las siguientes propiedades en la sección **source** de la actividad 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **AzureBlobFSSource**. |Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **AzureBlobFSSource**. |SÍ |
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False**. | Sin  |
 
 **Ejemplo:**
@@ -168,7 +171,7 @@ Se admiten las siguientes propiedades en la sección **sink** de la actividad de
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en **AzureBlobFSSink**. |Sí |
+| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en **AzureBlobFSSink**. |SÍ |
 | copyBehavior | Define el comportamiento de copia cuando el origen son archivos de un almacén de datos basados en archivos.<br/><br/>Los valores permitidos son:<br/><b>- PreserveHierarchy (valor predeterminado)</b>: conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen que apunta a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino que apunta a la carpeta de destino.<br/><b>- FlattenHierarchy:</b> todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen nombres generados automáticamente. <br/><b>- MergeFiles</b>: combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre del archivo, el nombre de archivo combinado es el nombre especificado. De lo contrario, es un nombre de archivo generado automáticamente. | Sin  |
 
 **Ejemplo:**

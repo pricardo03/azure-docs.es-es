@@ -3,7 +3,7 @@ title: Introducción a la capacidad dedicada de Microsoft Azure Event Hubs | Mic
 description: Introducción a la capacidad dedicada de Microsoft Azure Event Hubs.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: sethm
-ms.openlocfilehash: 7009710328c96660accdcf9c88313ad92d25d41c
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: shvija
+ms.openlocfilehash: 1a7a7593e80f08296e3163e528e880f343366b8a
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311423"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005711"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Introducción a Event Hubs dedicado
 
@@ -32,12 +32,12 @@ En la tabla siguiente se comparan niveles de servicio disponibles de Event Hubs.
 | Eventos de entrada | Pago por millones de eventos | Se incluye |
 | Unidad de rendimiento (entrada de 1 MB/seg., salida de 2 MB/seg.) | Pago por hora | Se incluye |
 | Tamaño de los mensajes | 256 KB | 1 MB |
-| Directivas de publicadores | Sí | Sí |   
+| Directivas de publicadores | SÍ | SÍ |   
 | Grupos de consumidores | 20 | 20 |
-| Redifusión de mensajes | Sí | Sí |
+| Redifusión de mensajes | SÍ | SÍ |
 | Unidades de rendimiento máximo | 20 (flexible a 100)   | 1 unidad de capacidad (CU) ≈ 50 |
 | Conexiones asincrónicas | 1000 incluidos | 100 000 incluidos |
-| Conexiones desacopladas adicionales | Sí | Sí |
+| Conexiones desacopladas adicionales | SÍ | SÍ |
 | Retención de mensajes | 1 día incluido | Hasta 7 días incluidos |
 | Capture | Pago por hora | Se incluye |
 

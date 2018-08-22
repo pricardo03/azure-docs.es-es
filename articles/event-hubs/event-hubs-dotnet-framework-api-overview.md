@@ -2,30 +2,25 @@
 title: Introducción a las API de .NET Framework de Azure Event Hubs | Microsoft Docs
 description: Resumen de algunas de las principales API de cliente de .NET Framework de Event Hubs.
 services: event-hubs
-documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-ms.assetid: 7f3b6cc0-9600-417f-9e80-2345411bd036
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: a51d4552df2643a25ce492b8525b9aa7fa36e21c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.date: 06/13/2018
+ms.author: shvija
+ms.openlocfilehash: dd915671c8b7d51595fea520187b917005f5dc53
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26781901"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40007560"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Introducción a las API de .NET Framework de Event Hubs
 
-Este artículo resume algunas de las principales API de cliente de .NET Framework de Event Hubs. Existen dos categorías: API de administración y de tiempo de ejecución. Las API de tiempo de ejecución están compuestas por todas las operaciones necesarias para enviar y recibir un mensaje. Las operaciones de administración le permiten administrar un estado de entidad de Event Hubs mediante la creación, actualización y eliminación de entidades.
+Este artículo resume algunas de las principales [API de cliente de .NET Framework](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) de Azure Event Hubs. Existen dos categorías: API de administración y de tiempo de ejecución. Las API de tiempo de ejecución están compuestas por todas las operaciones necesarias para enviar y recibir un mensaje. Las operaciones de administración le permiten administrar un estado de entidad de Event Hubs mediante la creación, actualización y eliminación de entidades.
 
-Los [escenarios de supervisión](event-hubs-metrics-azure-monitor.md) abarcan la administración y el entorno de tiempo de ejecución. Para obtener documentación de referencia detallada sobre las API de .NET, consulte las referencias [.NET de Service Bus](/dotnet/api/microsoft.servicebus.messaging) y [API de EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor).
+Los [escenarios de supervisión](event-hubs-metrics-azure-monitor.md) abarcan la administración y el entorno de tiempo de ejecución. Para obtener documentación de referencia detallada sobre las API de .NET, consulte las referencias [.NET Framework](/dotnet/api/microsoft.servicebus.messaging.eventhubclient), [.NET Standard](/dotnet/api/microsoft.azure.eventhubs) y [API de EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor).
 
 ## <a name="management-apis"></a>API de administración
 
@@ -179,7 +174,8 @@ public class SimpleEventProcessor : IEventProcessor
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
+
 Para obtener más información acerca de los escenarios de Event Hubs, visite estos vínculos:
 
 * [¿Qué es Azure Event Hubs?](event-hubs-what-is-event-hubs.md)

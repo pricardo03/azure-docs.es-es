@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: ellacroi
-ms.openlocfilehash: ce862758d97737d16ef26ca7172cad39f8d8336a
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 46cd5dbc044cbd0b7e38e5f0d0c8aa1916387a2d
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359537"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038480"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribución de uso del cliente para asociados de Azure
 
@@ -55,23 +55,8 @@ Agregar el GUID es una modificación única del archivo de plantilla principal:
 
 ## <a name="sample-template-code"></a>Código de la plantilla de ejemplo
 
-```
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/tracking-sample-code-for-lu-1.PNG?token=Ak8ZDB0JzsBdUGlKEIeHNJRS7b0BWn4Gks5bbMwwwA%3D%3D)
 
-{ // add this resource to the mainTemplate.json (do not add the entire file)
-      "apiVersion": "2018-02-01",
-      "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your GUID here
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": []
-        }
-      }
-    } // remove all comments from the file when done
-
-```
 
 ## <a name="method-2-azure-resource-manager-apis"></a>Método 2: API de Azure Resource Manager
 
@@ -81,6 +66,8 @@ Si usa una plantilla de Azure Resource Manager, debe etiquetar la solución util
 
 **Cómo etiquetar una implementación mediante las API de Azure Resource Manager:** en este caso, al diseñar las llamadas API las tendrá que incluir en un GUID en el encabezado del agente de usuario en la solicitud. Debe agregar el GUID en cada oferta o SKU.  Asimismo, la cadena debe tener un formato en el que conste el prefijo pid - y, a continuación, debe incluir el GUID que creó el asociado.   
 
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG?token=Ak8ZDDiokRcj4PJj0aMkZmfF8BdOuOTzks5bbM35wA%3D%3D)
+
 >[!Note] 
 >Este es el formato del GUID para insertarlo en el agente de usuario: pid-eb7927c8-dd66-43e1-b0cf-c346a422063     // escriba el GUID después de "pid-"
 
@@ -88,13 +75,7 @@ El formato de la cadena es importante. Si no se incluye el prefijo "pid-", no es
 
 **Ejemplo de cómo utilizar el SDK de Python:** en Python, deberá usar el atributo "config". Solo lo puede agregar a un UserAgent. Este es un ejemplo:
 
-```python
-
-client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
-        client.config.add_user_agent("pid-eb7927c8-dd66-43e1-b0cf-c346a422063")
-
-
-```
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/python-for-lu.PNG?token=Ak8ZDK5Um4J6oY-7x25tuBpa168BEiYMks5bbMuUwA%3D%3D)
 
 >Esto debe realizarse en cada cliente, ya que no hay ninguna configuración estática global (puede crear una fábrica de cliente para asegurarse de que todos los clientes están involucrados). 
 >[Información de referencia adicional](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)
@@ -123,13 +104,38 @@ Para incluir el GUID en el seguimiento, debe registrarlo.
 
 Todos los registros de los GUID de plantilla se realizarán a través de Cloud Partner Portal (CPP) de Azure Marketplace. 
 
-Regístrese en [Azure Marketplace](http://aka.ms/listonazuremarketplace) y consiga acceso a Cloud Partner Portal.
+1. Regístrese en [Azure Marketplace](http://aka.ms/listonazuremarketplace) y consiga acceso a Cloud Partner Portal.
 
-*   Los asociados deben [tener un perfil en CPP](https://docs.microsoft.com/azure/marketplace/become-publisher), y es recomendable agregar la oferta en Azure Marketplace o AppSource. 
-*   Los asociados podrán registrar varios GUID. 
-*   Asimismo, los asociados también podrán registrar un GUID para las plantillas de solución que no sean de Marketplace o de ofertas.
+ *  Los asociados deben [tener un perfil en CPP](https://docs.microsoft.com/azure/marketplace/become-publisher), y es recomendable agregar la oferta en Azure Marketplace o AppSource. 
+ *  Los asociados podrán registrar varios GUID. 
+ *  Asimismo, los asociados también podrán registrar un GUID para las plantillas de solución que no sean de Marketplace o de ofertas.
+ 
+2. Conexión a [Cloud Partner Portal](https://cloudpartner.azure.com/)
+3. En la esquina superior derecha del portal, haga clic en el icono de la cuenta y luego en **Publisher profile** (Perfil del anunciante).
 
-Una vez que haya agregado el GUID a la plantilla o en el agente de usuario y haya registrado el GUID en el CPP, se realizará un seguimiento de todas las implementaciones. 
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-image-for-lu.png)
+
+4. En la página Perfil, haga clic en **Add Tracking GUID** (Agregar GUID de seguimiento).
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/last-lu-images-i-hope/articles/marketplace/media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
+
+5. En el campo expandido, escriba el GUID de seguimiento (solo el GUID, sin el prefijo “pid-”) en el campo **GUID de seguimiento** y escriba el nombre de la oferta o la descripción en el campo **Custom Description** (Descripción personalizada).
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-login.png)
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-example.png)
+
+6. Para registrar más de un GUID, haga clic en **Add Tracking GUID** (Agregar GUID de seguimiento) de nuevo. Se abrirá otro campo expandido. 
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-example-add.png)
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-example-description.png)
+
+7. Cuando haya terminado con la edición, haga clic en **Guardar** para guardar los cambios. 
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-save.png)
+
+
 
 ## <a name="verification-of-guid-deployment"></a>Comprobación de la implementación del GUID 
 
@@ -204,15 +210,18 @@ Al implementar software de ASOCIADO, Microsoft será capaz de identificar la ins
 Siga estos pasos si necesita ayuda:
  1. Visite la página de soporte técnico se encuentra en [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)
  2. Si tiene problemas con la asociación de uso: seleccione el tipo de problema: **Incorporación a Marketplace** y la categoría: **Otros**; a continuación, haga clic en **Iniciar solicitud.** 
->[!Note]
->Si tiene problemas al obtener acceso a Cloud Partner Portal de Azure Marketplace: seleccione el tipo de problema: **Incorporación a Marketplace** y la categoría: **Problema de acceso**; a continuación, haga clic en **Iniciar solicitud.**
- 3. Rellene los campos obligatorios en la página siguiente y haga clic en **Continuar.**
- 4. Complete los campos de texto sin formato en la página siguiente.  
+
+Si tiene problemas al obtener acceso a Cloud Partner Portal de Azure Marketplace: seleccione el tipo de problema: **Incorporación a Marketplace** y la categoría: **Problema de acceso**; a continuación, haga clic en **Iniciar solicitud.**
+
+ ![](https://github.com/ellacroi/azure-docs-pr/blob/last-lu-images-i-hope/articles/marketplace/media/marketplace-publishers-guide/lu-article-incident.png)
  
 
+ 3. Rellene los campos obligatorios en la página siguiente y haga clic en **Continuar.**
+ 4. Complete los campos de texto sin formato en la página siguiente. **Importante**: Rellene el título del incidente con **“Seguimiento de uso de ISV”** y describa su problema en detalle en el campo de texto sin formato que tiene a continuación.  Complete el resto del formulario y haga clic en **Enviar**. 
  
->[!Important] 
->Rellene el título del incidente con **"Seguimiento de uso de ISV"** y describa su problema en detalle en el campo de texto sin formato que tiene a continuación.  Complete el resto del formulario y haga clic en **Enviar**.
+  ![](https://github.com/qianw211/azure-docs-pr/blob/MyImgAdded-2/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-help.png)
+
+ 
 
 ## <a name="faqs"></a>Preguntas más frecuentes
 

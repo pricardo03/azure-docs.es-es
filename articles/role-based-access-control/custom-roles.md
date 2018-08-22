@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7554ef46289600cd15e4675a91f42a2cd735f18
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 002eb9b70c2f3f9d0f6633b2d81425c688495d19
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112668"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714060"
 ---
 # <a name="custom-roles-in-azure"></a>Roles personalizados en Azure
 
@@ -28,7 +28,7 @@ Si los [roles integrados](built-in-roles.md) no cumplen las necesidades específ
 
 ## <a name="custom-role-example"></a>Ejemplo de rol personalizado
 
-A continuación, se muestra un rol personalizado para supervisar y reiniciar máquinas virtuales, tal como se muestra mediante Azure PowerShell:
+A continuación se muestra el aspecto de un rol personalizado en formato JSON. Este rol personalizado puede usarse para supervisar y reiniciar máquinas virtuales.
 
 ```json
 {
@@ -82,13 +82,15 @@ Después de crear un rol personalizado, aparece en Azure Portal con un icono de 
 
 3. Probar el rol personalizado
 
-    Una vez que tenga el rol personalizado, tiene que probarlo para comprobar que funciona según lo esperado. Si es necesario realizar ajustes, puede actualizar el rol personalizado.
+    Una vez que tenga el rol personalizado, tiene que probarlo para comprobar que funciona según lo esperado. Si tiene que realizar ajustes más adelante, puede actualizar el rol personalizado.
+
+Para ver un tutorial paso a paso sobre cómo crear un rol personalizado, consulte [Tutorial: Creación de un rol personalizado con Azure PowerShell](tutorial-custom-role-powershell.md) o [Tutorial: Creación de un rol personalizado con la CLI de Azure](tutorial-custom-role-cli.md).
 
 ## <a name="custom-role-properties"></a>Propiedades del rol personalizado
 
 Un rol personalizado tiene las siguientes propiedades.
 
-| Propiedad | Obligatorio | type | DESCRIPCIÓN |
+| Propiedad | Obligatorio | Escriba | DESCRIPCIÓN |
 | --- | --- | --- | --- |
 | `Name` | SÍ | string | Nombre para mostrar del rol personalizado. Debe ser único para el inquilino. Puede incluir letras, números, espacios y caracteres especiales. El número máximo de caracteres es 128. |
 | `Id` | SÍ | string | El identificador exclusivo del rol personalizado. Para Azure PowerShell y la CLI de Azure, este identificador se genera automáticamente cuando se crea un rol. |
@@ -98,16 +100,16 @@ Un rol personalizado tiene las siguientes propiedades.
 | `NotActions` | Sin  | String[] | Matriz de cadenas que especifica las operaciones de administración que se excluyen de las `Actions` permitidas. Para obtener más información, consulte [notActions](role-definitions.md#notactions). |
 | `DataActions` | Sin  | String[] | Matriz de cadenas que especifica las operaciones de datos que el rol permite realizar en los datos dentro de ese objeto. Para obtener más información, consulte [dataActions (versión preliminar)](role-definitions.md#dataactions-preview). |
 | `NotDataActions` | Sin  | String[] | Matriz de cadenas que especifica las operaciones de datos que se excluyen de las `DataActions` permitidas. Para obtener más información, consulte [notDataActions (versión preliminar)](role-definitions.md#notdataactions-preview). |
-| `AssignableScopes` | SÍ | String[] | Matriz de cadenas que especifica los ámbitos en los que el rol personalizado está disponible para la asignación. No se puede establecer en el ámbito raíz (`"/"`). Para obtener más información, consulte [assignableScopes](role-definitions.md#assignablescopes). |
+| `AssignableScopes` | SÍ | String[] | Matriz de cadenas que especifica los ámbitos en los que el rol personalizado está disponible para la asignación. Actualmente, no puede establecerse en el ámbito raíz (`"/"`) o un ámbito de grupo de administración. Para más información, consulte [AssignableScopes](role-definitions.md#assignablescopes) y [Organización de los recursos con grupos de administración de Azure](../azure-resource-manager/management-groups-overview.md#custom-rbac-role-definition-and-assignment). |
 
-## <a name="assignablescopes-for-custom-roles"></a>AssignableScopes para roles personalizados
+## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Quién puede crear, eliminar, actualizar o ver un rol personalizado
 
-Al igual que los roles integrados, la propiedad `AssignableScopes` especifica los ámbitos en los que el rol está disponible para la asignación. Sin embargo, no puede usar el ámbito raíz (`"/"`) en sus propios roles personalizados. Si lo intenta, se producirá un error de autorización. La propiedad `AssignableScopes` de un rol personalizado también controla quién puede crear, eliminar, modificar o ver dicho rol.
+Al igual que los roles integrados, la propiedad `AssignableScopes` especifica los ámbitos en los que el rol está disponible para la asignación. La propiedad `AssignableScopes` de un rol personalizado también controla quién puede crear, eliminar, actualizar o ver dicho rol.
 
 | Task | Operación | DESCRIPCIÓN |
 | --- | --- | --- |
 | Creación o eliminación de un rol personalizado | `Microsoft.Authorization/ roleDefinition/write` | Los usuarios que tienen acceso a esta operación en todos los ámbitos `AssignableScopes` del rol personalizado pueden crear (o eliminar) roles personalizados para usar en esos ámbitos. Por ejemplo, los [propietarios](built-in-roles.md#owner) y [administradores del acceso de los usuarios](built-in-roles.md#user-access-administrator) de las suscripciones, los grupos de recursos y los recursos. |
-| Modificación de un rol personalizado | `Microsoft.Authorization/ roleDefinition/write` | Los usuarios que tienen acceso a esta operación en todos los ámbitos `AssignableScopes` del rol personalizado pueden modificar roles personalizados en esos ámbitos. Por ejemplo, los [propietarios](built-in-roles.md#owner) y [administradores del acceso de los usuarios](built-in-roles.md#user-access-administrator) de las suscripciones, los grupos de recursos y los recursos. |
+| Actualización de un rol personalizado | `Microsoft.Authorization/ roleDefinition/write` | Los usuarios que tienen acceso a esta operación en todos los ámbitos `AssignableScopes` del rol personalizado pueden actualizar roles personalizados en esos ámbitos. Por ejemplo, los [propietarios](built-in-roles.md#owner) y [administradores del acceso de los usuarios](built-in-roles.md#user-access-administrator) de las suscripciones, los grupos de recursos y los recursos. |
 | Visualización de un rol personalizado | `Microsoft.Authorization/ roleDefinition/read` | Los usuarios que tienen acceso a esta operación en un ámbito pueden ver los roles personalizados que están disponibles para su asignación en ese ámbito. Todos los roles integrados permiten que los roles personalizados estén disponibles para la asignación. |
 
 ## <a name="next-steps"></a>Pasos siguientes

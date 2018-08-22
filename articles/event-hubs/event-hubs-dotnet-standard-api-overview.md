@@ -3,27 +3,22 @@ title: Introducción a las API estándar de .NET de Azure Event Hubs | Microsoft
 description: Introducción a la API estándar de .NET
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-ms.assetid: a173f8e4-556c-42b8-b856-838189f7e636
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: 855f6e7f401621d7f923d68215ca880c05d38629
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.date: 06/13/2018
+ms.author: shvija
+ms.openlocfilehash: d44cdf9204ac041a12cecce995efef71272204e6
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783006"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40007568"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Introducción a la API estándar de .NET de Event Hubs
 
-Este artículo resume algunas de las API de cliente estándar de .NET de Event Hubs. Actualmente existen dos bibliotecas de cliente estándar .NET:
+Este artículo resume algunas de las [API de cliente estándar de .NET](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) de Azure Event Hubs. Actualmente existen dos bibliotecas de cliente estándar .NET para Event Hubs:
 
 * [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): proporciona todas las operaciones básicas del entorno en tiempo de ejecución.
 * [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): agrega una funcionalidad adicional que permite realizar el seguimiento de los eventos procesados y es la manera más fácil de leer de un centro de eventos.
@@ -37,13 +32,13 @@ Este artículo resume algunas de las API de cliente estándar de .NET de Event H
 Se crea un objeto [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) a partir de una cadena de conexión. Puede ver la manera más sencilla de crear una instancia de un nuevo cliente en el ejemplo siguiente:
 
 ```csharp
-var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hubs connection string}");
+var eventHubClient = EventHubClient.CreateFromConnectionString("Event Hubs connection string");
 ```
 
 Para modificar mediante programación la cadena de conexión, puede usar la clase [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) y pasar la cadena de conexión como un parámetro a [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_).
 
 ```csharp
-var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hubs connection string}")
+var connectionStringBuilder = new EventHubsConnectionStringBuilder("Event Hubs connection string")
 {
     EntityPath = EhEntityPath
 };
@@ -124,7 +119,7 @@ if (ehEvents != null)
 
 ## <a name="event-processor-host-apis"></a>API de host del procesador de eventos
 
-Estas API ofrecen resistencia a los procesos de trabajo que pueden dejar de estar disponibles, distribuyendo particiones entre trabajos disponibles.
+Estas API ofrecen resistencia a los procesos de trabajo que pueden dejar de estar disponibles, distribuyendo particiones entre trabajos disponibles:
 
 ```csharp
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
@@ -149,7 +144,7 @@ await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 await eventProcessorHost.UnregisterEventProcessorAsync();
 ```
 
-La siguiente es una implementación de ejemplo de [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor).
+La siguiente es una implementación de ejemplo de la interfaz de [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor):
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -185,7 +180,8 @@ public class SimpleEventProcessor : IEventProcessor
 }
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
+
 Para obtener más información acerca de los escenarios de Event Hubs, visite estos vínculos:
 
 * [¿Qué es Azure Event Hubs?](event-hubs-what-is-event-hubs.md)

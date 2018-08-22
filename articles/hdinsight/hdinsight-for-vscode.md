@@ -1,37 +1,32 @@
 ---
-title: 'Herramientas de Azure HDInsight: uso de Visual Studio Code para Hive, LLAP o pySpark | Microsoft Docs'
+title: 'Herramientas de Azure HDInsight: uso de Visual Studio Code para Hive, LLAP o pySpark'
 description: Aprenda a usar Obtenga información sobre cómo usar Herramientas de Azure HDInsight para Visual Studio Code para crear y enviar consultas y scripts.
-Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
-services: HDInsight
-documentationcenter: ''
+keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
+services: hdinsight
 author: jejiang
-manager: ''
-editor: jgao
-tags: azure-portal
-ms.assetid: ''
-ms.service: HDInsight
-ms.devlang: na
-ms.topic: article
-ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: e8dc802d67b4cd2e38ab195b771ceeaa07876e58
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+editor: jasonwhowell
+ms.service: hdinsight
+ms.topic: conceptual
+ms.date: 10/27/2017
+ms.openlocfilehash: 255f1ecb3c55ef94b6f4f3393257b3054ff1b725
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31595310"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038608"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Uso de las Herramientas de Azure HDInsight para Visual Studio Code
 
 Aprenda a usar las Herramientas de Azure HDInsight para Visual Studio Code (VS Code) para crear y enviar trabajos por lotes de Hive, consultas interactivas de Hive y scripts de pySpark. Las Azure HDInsight Tools se pueden instalar en las plataformas compatibles con VS Code. Entre ellas se incluyen Windows, Linux y macOS. Encontrará los requisitos previos de cada plataforma.
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar los pasos de este artículo, se requieren los elementos siguientes:
 
 - Un clúster de HDInsight. Para crear un clúster, vea la [introducción a HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
-- [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
+- [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 - [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono solo es obligatorio para Linux y macOS.
 
 ## <a name="install-the-hdinsight-tools"></a>Instalar Herramientas de HDInsight
@@ -95,8 +90,8 @@ Antes de poder enviar scripts a clústeres de HDInsight desde VS Code, debe cone
     - Cerrar la sesión
     - Enumeración de clústeres
     - Establecer los clústeres predeterminados
-    - Enviar consultas de Hive interactivas
-    - Enviar scripts por lotes de Hive
+    - Envío de consultas de Hive interactivas
+    - Envío de scripts por lotes de Hive
     - Envíe consultas de PySpark interactivas
     - Enviar scripts por lotes de PySpark
     - Establecer configuraciones
@@ -154,7 +149,7 @@ Para probar la conexión, puede enumerar los clústeres de HDInsight:
 
    ![Establecer la configuración de entrada de inicio de sesión predeterminada](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
 
-## <a name="submit-interactive-hive-queries"></a>Enviar consultas de Hive interactivas
+## <a name="submit-interactive-hive-queries"></a>Envío de consultas de Hive interactivas
 
 Herramientas de HDInsight para VS Code permite enviar consultas de Hive interactivas a clústeres de consultas interactivas de HDInsight.
 
@@ -177,7 +172,7 @@ Herramientas de HDInsight para VS Code permite enviar consultas de Hive interact
 
 Una consulta interactiva tarda mucho menos en ejecutarse que un [trabajo por lotes de Hive](#submit-hive-batch-scripts).
 
-## <a name="submit-hive-batch-scripts"></a>Enviar scripts por lotes de Hive
+## <a name="submit-hive-batch-scripts"></a>Envío de scripts por lotes de Hive
 
 1. Si no tiene una carpeta de trabajo y un archivo de script Hive, créelos.
 
@@ -194,7 +189,7 @@ Una consulta interactiva tarda mucho menos en ejecutarse que un [trabajo por lot
 
     Después de enviar un trabajo de Hive, la información de envío correcto y el identificador del trabajo aparecen en el panel **SALIDA**. El trabajo de Hive también abre el **EXPLORADOR WEB**, que muestra el estado y los registros del trabajo en tiempo real.
 
-   ![enviar el resultado de un trabajo de Hive](./media/hdinsight-for-vscode/submit-Hivejob-result.png)
+   ![envío del resultado de un trabajo de Hive](./media/hdinsight-for-vscode/submit-Hivejob-result.png)
 
 El [envío de consultas Hive interactivas](#submit-interactive-hive-queries) tarda mucho menos tiempo que el envío de un trabajo por lotes.
 
@@ -362,7 +357,7 @@ HDInsight para VS Code admite las siguientes características:
 
 ### <a name="create-and-running-applications"></a>Creación y ejecución de aplicaciones
 * [Crear una aplicación independiente con Scala](spark/apache-spark-create-standalone-application.md)
-* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](spark/apache-spark-livy-rest-interface.md)
+* [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](spark/apache-spark-livy-rest-interface.md)
 
 ### <a name="manage-resources"></a>Administración de recursos
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](spark/apache-spark-resource-manager.md)

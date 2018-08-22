@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/08/2018
 ms.author: glenga
-ms.openlocfilehash: 5f629ea791a839e1eca25e7487ea395638d136ab
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6afc54bfcbef4d0714e9a09d0aa27ea4829d4dd5
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344637"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715393"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Desencadenador de Event Grid para Azure Functions
 
@@ -279,7 +279,7 @@ Para obtener más información sobre cómo crear suscripciones mediante el Azure
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Para crear una suscripción mediante el uso de la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), utilice el comando [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create).
+Para crear una suscripción mediante el uso de la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), utilice el comando [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create).
 
 El comando requiere la dirección URL del punto de conexión que invoca la función. En el siguiente ejemplo se muestra el patrón de la dirección URL:
 
@@ -340,7 +340,7 @@ Para probar localmente un desencadenador de Event Grid, debe enviar las solicitu
 4. [Genere una solicitud](#generate-a-request) y copie el cuerpo de la solicitud desde la aplicación de visor.
 5. [Envíe manualmente la solicitud](#manually-post-the-request) a la dirección URL de localhost de la función del desencadenador de Event Grid.
 
-Cuando haya finalizado las pruebas, puede utilizar la misma suscripción para producción actualizando el punto de conexión. Utilice el comando [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) de la CLI de Azure.
+Cuando haya finalizado las pruebas, puede utilizar la misma suscripción para producción actualizando el punto de conexión. Utilice el comando [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) de la CLI de Azure.
 
 ### <a name="create-a-viewer-web-app"></a>Creación de una aplicación web de visor
 
@@ -406,7 +406,7 @@ Otra forma de probar un desencadenador de Event Grid localmente consiste en auto
 5. [Cree una suscripción a Event Grid](#create-a-subscription) que envíe eventos al punto de conexión de ngrok.
 6. [Desencadene un evento](#trigger-an-event).
 
-Cuando haya finalizado las pruebas, puede utilizar la misma suscripción para producción actualizando el punto de conexión. Utilice el comando [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) de la CLI de Azure.
+Cuando haya finalizado las pruebas, puede utilizar la misma suscripción para producción actualizando el punto de conexión. Utilice el comando [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) de la CLI de Azure.
 
 ### <a name="create-an-ngrok-endpoint"></a>Creación de punto de conexión de ngrok
 
@@ -432,7 +432,7 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
                               0       0       0.00    0.00    0.00    0.00
 ```
 
-Deberá usar la dirección URL https://{subdominio}.ngrok.io para su suscripción de Event Grid.
+Usará la dirección URL `https://{subdomain}.ngrok.io` para la suscripción de Event Grid.
 
 ### <a name="run-the-event-grid-trigger-function"></a>Ejecución de la función de desencadenador de Event Grid
 
@@ -440,12 +440,16 @@ La dirección URL de ngrok no recibe un tratamiento especial por parte de Event 
 
 ### <a name="create-a-subscription"></a>una suscripción
 
-Cree una suscripción a Event Grid del tipo que desee probar y asígnele el punto de conexión de ngrok mediante el patrón siguiente:
+Cree una suscripción a Event Grid del tipo que quiere probar y asígnele el punto de conexión ngrok.
 
+Use este patrón de punto de conexión para las funciones 1.x:
 ```
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
-
+Use este patrón de punto de conexión para las funciones 2.x:
+```
+https://{subdomain}.ngrok.io/runtime/webhooks/EventGridExtensionConfig?functionName={functionName}
+``` 
 El parámetro `functionName` debe ser el nombre especificado en el atributo `FunctionName`.
 
 A continuación se facilita un ejemplo mediante el uso de la CLI de Azure:

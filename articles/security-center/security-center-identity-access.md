@@ -3,71 +3,142 @@ title: Supervisión de identidad y acceso en Azure Security Center | Microsoft D
 description: Aprenda a usar la funcionalidad de identidad y acceso de Azure Security Center para supervisar los problemas relacionados con la actividad de acceso e identidad de los usuarios.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
-ms.author: yurid
-ms.openlocfilehash: 5ee263ef8fb0f20049215eda53e0d58a45342b7e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 08/08/2018
+ms.author: rkarlin
+ms.openlocfilehash: 4a934bd69e63605fd624d06533c4e411bc94b531
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774835"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630925"
 ---
-# <a name="monitor-identity-and-access-in-azure-security-center"></a>Supervisión de identidad y acceso en Azure Security Center
+# <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Supervisión de la identidad y el acceso en Azure Security Center (Versión preliminar)
 Este artículo le ayuda a usar Azure Security Center para supervisar la identidad y la actividad de acceso del usuario.
 
-## <a name="why-monitor-identity-and-access"></a>¿Por qué supervisar la identidad y el acceso?
-La identidad debe ser el plano de control de la empresa y protegerla debe ser la prioridad máxima. En el pasado, había perímetros alrededor de las organizaciones y esos perímetros eran uno de los principales límites defensivos. Hoy en día, donde cada vez más datos y aplicaciones se mueven a la nube, la identidad se convierte en el nuevo perímetro.
+> [!NOTE]
+> La supervisión de la identidad y el acceso se encuentra en versión preliminar y solo está disponible en el nivel estándar de Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
+>
+>
 
-Mediante la supervisión de las actividades de identidad, puede realizar acciones proactivas antes de que se produzca un incidente o acciones reactivas para detener un intento de ataque. El panel de identidad y acceso proporciona una visión general de su estado de identidad, lo que incluye:
+La identidad debe ser el plano de control de la empresa y protegerla debe ser la prioridad máxima. El perímetro de seguridad ha evolucionado de un perímetro de red a uno de identidad. La seguridad se centra menos en proteger la red y más en proteger los datos, así como en administrar la seguridad de las aplicaciones y los usuarios. Hoy en día, donde cada vez más datos y aplicaciones se mueven a la nube, la identidad se convierte en el nuevo perímetro.
 
-* El número de intentos infructuosos de inicio de sesión. 
-* Las cuentas de los usuarios que se usaron durante esos intentos.
-* Las cuentas que se han bloqueado.
-* Las cuentas con la contraseña cambiada o restablecida. 
-* El número actual de cuentas en las que se ha iniciado sesión.
+Mediante la supervisión de las actividades de identidad, puede realizar acciones proactivas antes de que se produzca un incidente o acciones reactivas para detener un intento de ataque. El panel Identidad y acceso proporciona recomendaciones como las siguientes:
 
-## <a name="monitor-identity-and-access-activities"></a>Supervisión de las actividades de identidad y acceso
-Para ver las actividades actuales relacionadas con la identidad y el acceso, es necesario acceder al panel **Identity & Access** (Identidad y acceso).
+- Habilitar MFA para las cuentas con privilegios en la suscripción
+- Quitar las cuentas externas con permisos de escritura de la suscripción
+- Quitar las cuentas externas con privilegios de la suscripción
 
-1. Abra el panel **Security Center**.
+> [!NOTE]
+> Si su suscripción tiene más de 600 cuentas, Security Center no puede ejecutar las recomendaciones de identidades en su suscripción. Las recomendaciones que no se ejecutan se muestran bajo "evaluaciones no disponibles", lo que se describe a continuación.
+Security Center no puede ejecutar las recomendaciones de identidad en los agentes de administración del asociado de un proveedor de soluciones en la nube (CSP).
+>
+>
 
-2. En el panel izquierdo, en **Prevención**, seleccione **Identity & Access** (Identidad y acceso). Si tiene varias áreas de trabajo, aparece el selector de áreas de trabajo.
+Consulte [Recomendaciones](security-center-identity-access.md#recommendations) para obtener una lista de las recomendaciones de acceso e identidad proporcionadas por Security Center.
 
-    ![Selección del área de trabajo](./media/security-center-identity-access\security-center-identity-access-fig1.png)
+## <a name="monitoring-security-health"></a>Supervisión del estado de seguridad
+Puede supervisar el estado de seguridad de los recursos en el panel **Security Center – Información general**. La sección **Recursos** es un indicador de mantenimiento que muestra la gravedad para cada tipo de recurso.
 
-    > [!NOTE]
-    > Si en la columna de la derecha se muestra **UPGRADE PLAN** (ACTUALIZAR PLAN), esta área de trabajo está usando la suscripción gratuita. Para usar esta característica, actualice a la suscripción estándar. Si en columna de la derecha se muestra **REQUIRES UPDATE** (REQUIERE ACTUALIZACIÓN), actualice [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esta característica. Para más información sobre el plan de precios, consulte Precios de Security Center. 
-    > 
-3. Si tiene más de un área de trabajo para investigar, puede priorizar la investigación de acuerdo con la columna **INICIOS DE SESIÓN CON ERRORES**. En ella se muestra el número actual de intentos de inicio de sesión infructuosos en esta área de trabajo. Seleccione el área de trabajo que quiere usar y el panel **Identity & Access** (Identidad y acceso) aparecerá a continuación.
+Para ver una lista de todos los problemas, puede seleccionar **Recomendaciones**. En **Recursos**, puede ver una lista de los problemas específicos del proceso y las aplicaciones, la seguridad de los datos, las redes o la identidad y el acceso. Para más información sobre cómo aplicar las recomendaciones, consulte [Implementación de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).
 
-    ![Identidad y acceso](./media/security-center-identity-access\security-center-identity-access-fig2.png)
+Para una lista completa de las recomendaciones de identidades y acceso, consulte [Recomendaciones](security-center-identity-access.md#recommendations).
 
-4. La información disponible en este panel puede ayudarle de inmediato a identificar una posible actividad sospechosa. El panel se divide en tres áreas principales:
+Para continuar, seleccione **Identidad y acceso** en **Recursos** o en el menú principal de Security Center.
 
-    a. **Posición de identidad**. Resume las actividades relacionadas con la identidad que tienen lugar en esta área de trabajo.
+![Panel de Security Center][1]
 
-    b. **Inicios de sesión con errores**. Le ayuda a identificar rápidamente la causa principal de los intentos de inicio de sesión con errores. Muestra una lista de las 10 cuentas principales con error en la mayoría de los intentos de inicio de sesión.
+## <a name="monitor-identity-and-access"></a>Supervisión de la identidad y el acceso
+En **Identidad y acceso**, hay dos pestañas:
 
-    c. **Inicios de sesión a lo largo del tiempo**. Le ayuda a identificar rápidamente el número de inicios de sesión a lo largo del tiempo. Muestra una lista de los principales intentos de inicio de sesión en la cuenta del equipo.
-    
-Con independencia del icono que seleccione, el panel que aparece se basa en la consulta de búsqueda de registros. La única diferencia es el tipo de consulta y el resultado. También puede seleccionar un elemento, por ejemplo un equipo, y ver los datos de interés. 
+- **Información general**: recomendaciones identificadas por Security Center.
+- **Suscripciones**: lista de las suscripciones y el estado de seguridad actual de cada una.
 
-## <a name="see-also"></a>Otras referencias
-En este documento, ha aprendido a supervisar la identidad y el acceso en Security Center. Para más información sobre Security Center, consulte los siguientes artículos:
+![Identidad y acceso][2]
 
+### <a name="overview-section"></a>Sección Información general
+En **Información general**, hay una lista de recomendaciones. La primera columna muestra la recomendación. La segunda columna muestra el número total de suscripciones a las que afecta dicha recomendación. La tercera columna muestra la gravedad del problema.
+
+1. Seleccione una recomendación. La ventana de la recomendación se abre y muestra:
+
+  - La descripción de la recomendación
+  - Una lista de suscripciones correctas e incorrectas
+  - Una lista de los recursos sin examinar debido a una evaluación errónea o a que el recurso está en una suscripción que se ejecuta en el nivel gratuito y no se evalúa
+
+  ![Ventana de recomendaciones][3]
+
+1. Seleccione una suscripción en la lista para obtener detalles adicionales.
+
+### <a name="subscriptions-section"></a>Sección Suscripciones
+En **Suscripciones**, hay una lista de suscripciones. La primera columna muestra las suscripciones. La segunda columna muestra el número total de recomendaciones para cada suscripción. La tercera columna muestra la gravedad de los problemas.
+
+![Pestaña de la suscripción][4]
+
+1.  Seleccione una suscripción. Se abre una vista de resumen con tres pestañas:
+
+  - **Recomendaciones**: en función de las evaluaciones de Security Center que mostraron errores.
+  - **Evaluaciones aprobadas**: lista de las evaluaciones realizadas por Security Center que se aprobaron.
+  - **Evaluaciones no disponibles**: lista de las evaluaciones que no se pudo ejecutar debido a un error o porque la suscripción tiene más de 600 cuentas.
+
+  En **Recomendaciones** hay una lista de las recomendaciones para la suscripción seleccionada y la gravedad de cada una.
+
+  ![Recomendaciones para la suscripción seleccionada][5]
+
+1. Seleccione una recomendación para obtener su descripción, una lista de suscripciones correctas e incorrectas, y una lista de los recursos sin examinar.
+
+  ![La descripción de la recomendación][6]
+
+  En **Evaluaciones aprobadas** hay una lista de las evaluaciones que se consideraron superadas.  La gravedad de estas evaluaciones siempre aparece en verde.
+
+  ![Evaluaciones aprobadas][7]
+
+1. Seleccione una evaluación aprobada en la lista para obtener su descripción y una lista de suscripciones correctas. Hay una pestaña para las suscripciones incorrectas que enumera todas las que tenían errores.
+
+  ![Evaluaciones aprobadas][8]
+
+## <a name="recommendations"></a>Recomendaciones
+Use la tabla siguiente como referencia para ayudarle a conocer las recomendaciones de identidad y acceso disponibles, y lo que hará cada una si la aplica.
+
+| Recomendación | DESCRIPCIÓN |
+| --- | --- |
+| Designar a más de un propietario en la suscripción | Se recomienda que designe a más de un propietario de la suscripción para tener redundancia de acceso de administrador. |
+| Designar a un máximo de 3 propietarios en la suscripción | Se recomienda que designe a un máximo de 3 propietarios de suscripción para reducir el riesgo de vulneración por parte de un propietario en peligro. |
+| Habilitar MFA para las cuentas con permisos de propietario en la suscripción | Se recomienda que habilite Multi-Factor Authentication (MFA) para todas las cuentas de suscripción con privilegios de administrador para evitar una vulneración de las cuentas o recursos. |
+| Habilitar MFA para las cuentas con permisos de escritura en la suscripción | Se recomienda que habilite Multi-Factor Authentication (MFA) para todas las cuentas de suscripción con privilegios de escritura para evitar una vulneración de las cuentas o recursos. |
+| Habilitar MFA para las cuentas con permisos de lectura en la suscripción | Se recomienda que habilite Multi-Factor Authentication (MFA) para todas las cuentas de suscripción con privilegios de lectura para evitar una vulneración de las cuentas o recursos. |
+| Quitar las cuentas externas con permisos de lectura de la suscripción | Se recomienda eliminar las cuentas externas con privilegios de lectura de la suscripción a fin de evitar el acceso no supervisado. |
+| Quitar las cuentas externas con permisos de escritura de la suscripción | Se recomienda eliminar las cuentas externas con privilegios de escritura de la suscripción a fin de evitar el acceso no supervisado. |
+| Quitar las cuentas externas con permisos de propietario de la suscripción | Se recomienda eliminar las cuentas externas con permisos de propietario de la suscripción a fin de evitar el acceso no supervisado. |
+| Quitar las cuentas en desuso de la suscripción | Se recomienda quitar las cuentas en desuso de la suscripción. |
+| Quitar de la suscripción las cuentas en desuso con permisos de propietario | Se recomienda quitar las cuentas en desuso con permisos de propietario de la suscripción. |
+
+## <a name="next-steps"></a>Pasos siguientes
+Para obtener más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes artículos:
+
+- [Protección de las aplicaciones y las máquinas en Azure Security Center](security-center-virtual-machine-recommendations.md)
+- [Protección de las redes en Azure Security Center](security-center-network-recommendations.md)
+- [Protección del servicio SQL de Azure en Azure Security Center](security-center-sql-service-recommendations.md)
+
+Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 * [Administración y respuesta a las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Aprenda a administrar las alertas y a responder a incidentes de seguridad en Security Center.
-* [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md). Aprenda a supervisar el estado de los recursos de Azure.
 * [Comprensión de las alertas de seguridad en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Obtenga información acerca de los distintos tipos de alertas de seguridad.
-* [Guía de solución de problemas de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Obtenga información acerca de cómo solucionar problemas comunes en Security Center. 
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md). Obtenga respuestas a las preguntas más frecuentes acerca de Security Center.
-* [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/). Encuentre artículos de blog sobre el cumplimiento y la seguridad de Azure.
 
+
+<!--Image references-->
+[1]: ./media/security-center-identity-access/overview.png
+[2]: ./media/security-center-identity-access/identity-dashboard.png
+[3]: ./media/security-center-identity-access/select-subscription.png
+[4]: ./media/security-center-identity-access/subscriptions.png
+[5]: ./media/security-center-identity-access/recommendations.png
+[6]: ./media/security-center-identity-access/designate.png
+[7]: ./media/security-center-identity-access/passed-assessments.png
+[8]: ./media/security-center-identity-access/remove.png

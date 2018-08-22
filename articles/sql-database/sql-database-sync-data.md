@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/09/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 6bfe2288e239738addb9c97706c5fc1c9b0e72b8
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 8fe77522297dc6020cf98f4532aea9f580d8bdb9
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617343"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004818"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync
 
@@ -165,7 +165,7 @@ El servicio SQL Data Sync en sí no se cobra.  Sin embargo, sí se acumularán l
 
 ### <a name="what-regions-support-data-sync"></a>¿En qué regiones se admite Data Sync?
 
-SQL Data Sync está disponible en todas las regiones de la nube pública.
+SQL Data SQL Data Sync está disponible en todas las regiones.
 
 ### <a name="is-a-sql-database-account-required"></a>¿Es necesaria una cuenta de SQL Database? 
 

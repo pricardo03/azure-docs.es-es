@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 446fe139e3d1abe79b877d663842f7c7c6168f19
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 01aeaee03a4cfabbda3a29cddd17febdc8a16e45
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126701"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003539"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Elección del nivel adecuado de IoT Hub para la solución
 
@@ -31,7 +31,7 @@ Cada nivel del IoT Hub está disponible en tres tamaños, basados en la cantidad
 
 El nivel estándar de IoT Hub permite todas las características y es necesario para cualquier solución de IoT que desee hacer uso de las funcionalidades de comunicación bidireccional. El nivel Basic permite un subconjunto de las características y está pensado para las soluciones de IoT que solo necesitan comunicación unidireccional de los dispositivos a la nube. Ambos niveles ofrecen las mismas características de seguridad y autenticación.
 
-Una vez creado el centro de IoT, puede actualizarlo desde el nivel Basic al nivel Estándar sin interrumpir las operaciones existentes. Para más información, consulte [How to upgrade your IoT hub](iot-hub-upgrade.md) (Actualización de IoT Hub). Tenga en cuenta que el límite de partición para la instancia de IoT Hub de nivel básico es 8. Este límite permanecerá invariable cuando migre de un nivel básico a un nivel estándar.
+Una vez creado el centro de IoT, puede actualizarlo desde el nivel Basic al nivel Estándar sin interrumpir las operaciones existentes. Para más información, consulte [How to upgrade your IoT hub](iot-hub-upgrade.md) (Actualización de IoT Hub). Tenga en cuenta que el límite máximo de particiones para el nivel básico de IoT Hub es 8 y para el nivel estándar es 32. La mayoría de instancias de IoT Hub solo necesitan 4 particiones. El límite de particiones se elige cuando se crea la instancia de IoT Hub y relaciona los mensajes del dispositivo a la nube con la cantidad de lectores simultáneos de estos mensajes. Este valor permanecerá invariable cuando migre de un nivel básico a un nivel estándar. Tenga en cuenta también que solo se puede elegir un tipo de [edición](https://azure.microsoft.com/pricing/details/iot-hub/) dentro de un nivel por cada instancia de IoT Hub. Por ejemplo, puede crear una instancia de IoT Hub con varias unidades de S1, pero no con una combinación de unidades de versiones distintas como, por ejemplo, S1 y B3, o S1 y S2.
 
 | Capacidad | Nivel Basic | Nivel Standard |
 | ---------- | ---------- | ------------- |
@@ -106,6 +106,9 @@ Además de esta información sobre la capacidad de procesamiento, vea [Cuotas y 
 Las operaciones de registro de identidad de IoT Hub no deberían ser operaciones en tiempo de ejecución porque tienen que ver principalmente con el aprovisionamiento de dispositivos.
 
 Vea las cifras de rendimiento de ráfaga específicas en [Cuotas y limitaciones de IoT Hub][IoT Hub quotas and throttles].
+
+## <a name="auto-scale"></a>Escalado automático
+Si se está aproximando al límite de mensajes permitido por IoT Hub, puede usar estos [pasos para realizar un escalado automático](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) que aumente una unidad de IoT Hub en el mismo nivel.
 
 ## <a name="sharding"></a>Particionamiento
 Aunque un único Centro de IoT puede escalarse a millones de dispositivos, a veces la solución requiere características de rendimiento específicas que un único Centro de IoT no puede garantizar. En ese caso puede repartir los dispositivos en varios centros de IoT. Varios centros de IoT suavizan las ráfagas de tráfico y obtienen el rendimiento necesario o las velocidades de funcionamiento necesarias.

@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b8fec9a263eee6bf1e8bf347a9b6dd256840738f
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: ba47223f86005809189214f26a63b75b21449e3a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392612"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630626"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configuración manual de dispositivos unidos a Azure Active Directory híbrido 
 
-Con la administración de dispositivos en Azure Active Directory (Azure AD), puede asegurarse de que los usuarios tienen acceso a los recursos desde dispositivos que cumplen los estándares de seguridad y cumplimiento. Para más información, consulte [Introducción a la administración de dispositivos en Azure Active Directory](../device-management-introduction.md).
+Con la administración de dispositivos en Azure Active Directory (Azure AD), puede asegurarse de que los usuarios tienen acceso a los recursos desde dispositivos que cumplen los estándares de seguridad y cumplimiento. Para más información, consulte [Introducción a la administración de dispositivos en Azure Active Directory](overview.md).
 
 Si tiene un entorno local de Active Directory y quiere unir sus dispositivos unidos a un dominio a Azure AD, puede hacerlo configurando dispositivos híbridos unidos a Azure AD. En este artículo, se indican los pasos relacionados. 
 
@@ -35,40 +35,18 @@ Si tiene un entorno local de Active Directory y quiere unir sus dispositivos uni
 > Si el uso de Azure AD Connect es una opción en su caso, consulte [Select your scenario](hybrid-azuread-join-plan.md#select-your-scenario) (Selección del escenario). Mediante Azure AD Connect, puede simplificar considerablemente la configuración de la unión a Azure AD híbrido.
 
 
-## <a name="before-you-begin"></a>Antes de empezar
-
-Antes de empezar a configurar dispositivos híbridos unidos a un dominio de Active AD en su entorno, debe familiarizarse con los escenarios admitidos y las restricciones.  
-
-Si está confiando en la [Herramienta de preparación del sistema (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), asegúrese de crear imágenes desde una instalación de Windows que no se haya registrado aún con Azure AD.
-
-Todos los dispositivos unidos a un dominio en que se ejecuten la Actualización de aniversario de Windows 10 y Windows Server 2016 se registran automáticamente en Azure AD cuando el dispositivo se reinicie o el usuario inicie sesión una vez finalizados los pasos de configuración mencionados a continuación. **Si no se prefiere este comportamiento de registro automático o si se desea un lanzamiento controlado**, siga primero las instrucciones de la sección "Paso 4: Control de implementación y lanzamiento" a continuación para habilitar o deshabilitar de forma selectiva el lanzamiento automático antes de seguir los otros pasos de configuración.  
-
-Para mejorar la legibilidad de las descripciones, en este artículo se utiliza el término siguiente: 
-
-- **Dispositivos de Windows actuales**: este término indica los dispositivos unidos a un dominio en los que se ejecutan Windows 10 o Windows Server 2016.
-- **Dispositivos de Windows de nivel inferior**: este término indica todos los dispositivos de Windows unidos a un dominio **compatibles** en los que no se ejecutan Windows 10 ni Windows Server 2016.  
-
-### <a name="windows-current-devices"></a>Dispositivos de Windows actuales
-
-- Para dispositivos que ejecutan el sistema operativo de escritorio de Windows, la versión admitida es la Actualización de aniversario de Windows 10 (versión 1607), o una versión posterior. 
-- El registro de los dispositivos de Windows actuales **se** admite en entornos de no federadas, como las configuraciones de sincronización de hash de contraseña.  
-
-
-### <a name="windows-down-level-devices"></a>Dispositivos de Windows de nivel inferior
-
-- Se admiten los siguientes dispositivos de nivel inferior de Windows:
-    - Windows 8.1
-    - Windows 7
-    - Windows Server 2012 R2
-    - Windows Server 2012
-    - Windows Server 2008 R2
-- El registro de dispositivos de Windows de nivel inferior **se** admite en entornos no federados a través del inicio de sesión único de conexión directa [Inicio de sesión único de conexión directa de Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
-- El registro de dispositivos de Windows de nivel inferior **no** se admite al usar la autenticación de paso a través de Azure AD sin el inicio de sesión único de conexión directa.
-- El registro de dispositivos de Windows de nivel inferior **no se** admite en dispositivos que usan perfiles móviles. Si confía en la itinerancia de la configuración o de los perfiles, use Windows 10.
-
 
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+En este tutorial se da por supuesto que está familiarizado con:
+    
+-  [Introducción a la administración de dispositivos en Azure Active Directory](../device-management-introduction.md)
+    
+-  [Planeación de la implementación de dispositivos híbridos unidos a Azure Active Directory](hybrid-azuread-join-plan.md)
+
+-  [Control de la unión de los dispositivos híbridos a Azure AD](hybrid-azuread-join-control.md)
+
 
 Antes de empezar a habilitar dispositivos híbridos unidos a un dominio de Active AD en su organización, es preciso asegurarse de lo siguiente:
 
@@ -114,15 +92,14 @@ Utilice la tabla siguiente para obtener una visión general de los pasos necesar
 
 | Pasos                                      | Dispositivos actuales de Windows y sincronización de hash de contraseña | Dispositivos actuales de Windows y federación | Dispositivos de Windows de nivel inferior |
 | :--                                        | :-:                                    | :-:                            | :-:                |
-| Paso 1: Configuración del punto de conexión de servicio | ![Comprobar][1]                            | ![Comprobar][1]                    | ![Comprobar][1]        |
-| Paso 2: Configuración de la emisión de notificaciones           |                                        | ![Comprobar][1]                    | ![Comprobar][1]        |
-| Paso 3: Habilitación de dispositivos que no tengan Windows 10      |                                        |                                | ![Comprobar][1]        |
-| Paso 4: Control de implementación y lanzamiento     | ![Comprobar][1]                            | ![Comprobar][1]                    | ![Comprobar][1]        |
-| Paso 5: Comprobación dispositivos unidos          | ![Comprobar][1]                            | ![Comprobar][1]                    | ![Comprobar][1]        |
+| Configuración del punto de conexión de servicio | ![Comprobar][1]                            | ![Comprobar][1]                    | ![Comprobar][1]        |
+| Configuración de la emisión de notificaciones           |                                        | ![Comprobar][1]                    | ![Comprobar][1]        |
+| Habilitación de dispositivos que no tengan Windows 10      |                                        |                                | ![Comprobar][1]        |
+| Comprobación dispositivos unidos          | ![Comprobar][1]                            | ![Comprobar][1]                    | ![Comprobar][1]        |
 
 
 
-## <a name="step-1-configure-service-connection-point"></a>Paso 1: Configuración del punto de conexión de servicio
+## <a name="configure-service-connection-point"></a>Configuración del punto de conexión de servicio
 
 El objeto de punto de conexión de servicio (SCP) lo usan los dispositivos durante el registro para detectar la información del inquilino de Azure AD. En la instancia de Active Directory (AD) local, el objeto SCP para los dispositivos híbridos unidos a Azure AD debe existir en la partición del contexto de nomenclatura de la configuración del bosque del equipo. Hay solo un contexto de nomenclatura de configuración por bosque. En una configuración de Active Directory con varios bosques, el punto de conexión debe existir en todos los bosques que contengan equipos unidos a un dominio.
 
@@ -200,7 +177,7 @@ Para obtener una lista de los dominios comprobados de la compañía, puede usar 
 
 ![Get-AzureADDomain](./media/hybrid-azuread-join-manual-steps/01.png)
 
-## <a name="step-2-setup-issuance-of-claims"></a>Paso 2: Configuración de la emisión de notificaciones
+## <a name="setup-issuance-of-claims"></a>Configuración de la emisión de notificaciones
 
 En una configuración de Azure AD federada, los dispositivos usan Active Directory Federation Services (AD FS) o un servicio de federación local de terceros para autenticarse en Azure AD. Los dispositivos se autentican para obtener un token de acceso para registrarse en Azure Active Directory Device Registration Service (Azure DRS).
 
@@ -504,7 +481,7 @@ El siguiente script le ayuda con la creación de las reglas de transformación d
 
 - Si ya ha emitido una notificación **ImmutableID** para las cuentas de usuario, establezca el valor de **$immutableIDAlreadyIssuedforUsers** en el script en **$true**.
 
-## <a name="step-3-enable-windows-down-level-devices"></a>Paso 3: Habilitación de dispositivos de Windows de nivel inferior
+## <a name="enable-windows-down-level-devices"></a>Habilitación de dispositivos de Windows de nivel inferior
 
 Si algunos de los dispositivos unidos a un dominio son dispositivos de Windows de nivel inferior, tendrá que:
 
@@ -562,64 +539,25 @@ Para evitar las peticiones de certificados cuando los usuarios de dispositivos r
 
 `https://device.login.microsoftonline.com`
 
-## <a name="step-4-control-deployment-and-rollout"></a>Paso 4: Control de implementación y lanzamiento
 
-Cuando se hayan completado los pasos necesarios, los dispositivos unidos a un dominio están listos para unirse automáticamente a Azure AD:
-
-- Todos los dispositivos unidos a un dominio en que se ejecuten la Actualización de aniversario de Windows 10 y Windows Server 2016 se registran automáticamente en Azure AD cuando el dispositivo se reinicie o el usuario inicie sesión. 
-
-- Los dispositivos nuevos se registran en Azure AD al reiniciarse después de que finaliza la operación de unión al dominio.
-
-- Los dispositivos que anteriormente se han registrado en Azure AD (por ejemplo, para Intune) pasan a estar "*unidos a dominio, registrados en AAD*". Pero este proceso tarda algún tiempo en completarse en todos los dispositivos debido al flujo normal de actividades de dominio y de usuario.
-
-### <a name="remarks"></a>Comentarios
-
-- Para controlar la implementación del registro automático de los equipos con Windows 10 y Windows Server 2016 unidos a un dominio, se puede usar un objeto de directiva de grupo o una configuración de cliente de System Center Configuration Manager. **Si no quiere que estos dispositivos se registren automáticamente con Azure AD o si quiere controlar el registro**, primero debe implementar la directiva de grupo que deshabilite el registro automático en todos estos dispositivos, o bien si usa Configuration Manager, debe establecer la configuración de cliente en Cloud Services -> Registrar automáticamente los nuevos dispositivos de Windows 10 unidos a un dominio con Azure Active Directory en "No", antes de empezar con cualquiera de los pasos de configuración. Una vez que configure todo y cuando esté listo para probar, debe implementar una directiva de grupo que deshabilite el registro automático solo en los dispositivos de prueba y, luego, en todos los dispositivos que usted elija.
-
-- Para el lanzamiento de equipos Windows de nivel inferior, se puede implementar un [paquete de Windows Installer](#windows-installer-packages-for-non-windows-10-computers) en los equipos que se seleccionen.
-
-- Si se inserta el objeto de directiva de grupo en dispositivos unidos a un dominio de Windows 8.1, se intenta realizar la unión; pero se recomienda usar el [paquete de Windows Installer](#windows-installer-packages-for-non-windows-10-computers) para unir todos los dispositivos de Windows de nivel inferior. 
-
-### <a name="create-a-group-policy-object"></a>Creación de un objeto de directiva de grupo 
-
-Para controlar el lanzamiento de equipos actuales de Windows, es preciso que implemente el objeto de la directiva de grupo **Registrar los equipos asociados a un dominio como dispositivos** en los equipos que quiere registrar. Por ejemplo, puede implementar la directiva en un grupo de seguridad o en una unidad organizativa.
-
-**Para establecer la directiva:**
-
-1. Abra el **Administrador del servidor**y vaya a `Tools > Group Policy Management`.
-2. Vaya al nodo del dominio correspondiente al dominio en el que desee activar el registro automático de los equipos actuales de Windows.
-3. Haga clic con el botón derecho en **Objetos de directiva de grupo** y seleccione **Nuevo**.
-4. Escriba un nombre para el objeto de directiva de grupo. Por ejemplo, *Unión a Azure AD híbrido. 
-5. Haga clic en **OK**.
-6. Haga clic con el botón derecho en el nuevo objeto de directiva de grupo y seleccione **Editar**.
-7. Vaya a **Configuración del equipo** > **Directivas** > **Plantillas administrativas** > **Componentes de Windows** > **Registro de dispositivos**. 
-8. Haga clic con el botón derecho en **Registrar los equipos asociados a un dominio como dispositivos** y seleccione **Editar**.
-   
-   > [!NOTE]
-   > Esta plantilla de directiva de grupo ha cambiado de nombre desde versiones anteriores de la consola de Administración de directivas de grupo. Si utiliza una versión anterior de la consola, vaya a `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
-
-7. Seleccione **Habilitado** y luego **Aplicar**. Debe seleccionar **Deshabilitado** si desea que la directiva bloquee los dispositivos controlados por esta directiva de grupo del registro automático con Azure AD.
-
-8. Haga clic en **OK**.
-9. Vincule el objeto de la directiva de grupo a una ubicación de su elección. Por ejemplo, puede vincularlo a una unidad organizativa específica. También puede vincularlo a un grupo de seguridad específico de equipos que se unen automáticamente en Azure AD. Para establecer esta directiva para todos los equipos con Windows 10 y Windows Server 2016 unidos a un dominio en su organización, vincule el objeto de directiva de grupo al dominio.
-
-### <a name="windows-installer-packages-for-non-windows-10-computers"></a>Paquetes de Windows Installer para equipos sin Windows 10
-
-Para unir equipos Windows de nivel inferior unidos a un dominio en un entorno federado, puede descargar e instalar este paquete de Windows Installer (.msi) desde el Centro de descarga en la página [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/en-us/download/details.aspx?id=53554) (Microsoft Workplace Join para equipos no Windows 10).
-
-El paquete se puede implementar mediante un sistema de distribución de software como System Center Configuration Manager. El paquete admite las opciones de instalación silenciosa estándar mediante el parámetro *quiet*. La rama actual de System Center Configuration Manager ofrece ventajas adicionales con respecto a las versiones anteriores, como la capacidad de realizar el seguimiento de los registros completados. Para más información, consulte [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager).
-
-El instalador crea una tarea programada en el sistema que se ejecuta en el contexto del usuario. La tarea se desencadena cuando el usuario inicia sesión en Windows. La tarea registra de forma silenciosa el dispositivo en Azure AD con las credenciales de usuario después de autenticar mediante la autenticación integrada de Windows. Para ver la tarea programada, en el dispositivo, vaya a **Microsoft** > **Workplace Join** y, después, vaya a la biblioteca del Programador de tareas.
-
-## <a name="step-5-verify-joined-devices"></a>Paso 5: Comprobación dispositivos unidos
+## <a name="verify-joined-devices"></a>Comprobación dispositivos unidos
 
 Para comprobar los dispositivos unidos correctamente en la organización, use el cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) del [módulo Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 La salida de este cmdlet muestra los dispositivos que se han registrado y unido en Azure AD. Para obtener todos los dispositivos, use el parámetro **-All** y, después, fíltrelos mediante la propiedad **deviceTrustType**. Los dispositivos unidos a un dominio tienen el valor **Unido a dominio**.
 
+
+
+## <a name="troubleshoot-your-implementation"></a>Solución de problemas de la implementación
+
+Si tiene problemas para completar la unión a Azure AD híbrido para los dispositivos de Windows unidos a un dominio, consulte:
+
+- [Solución de problemas de la unión a Azure AD híbrido para dispositivos actuales de Windows](troubleshoot-hybrid-join-windows-current.md)
+- [Solución de problemas de la unión a Azure AD híbrido para dispositivos de nivel inferior de Windows](troubleshoot-hybrid-join-windows-legacy.md)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Introducción a la administración de dispositivos en Azure Active Directory](../device-management-introduction.md)
+* [Introducción a la administración de dispositivos en Azure Active Directory](overview.md)
 
 
 

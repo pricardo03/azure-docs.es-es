@@ -1,6 +1,6 @@
 ---
-title: Información sobre el uso de instancias reservadas de Azure para suscripciones de pago por uso | Microsoft Docs
-description: Aprenda a interpretar los datos de uso para comprender como se aplican las suscripciones de pago por uso de Azure Reserved VM Instances.
+title: Información sobre el uso de reservas de Azure para suscripciones de pago por uso | Microsoft Docs
+description: Aprenda a interpretar los datos de uso para comprender como se aplican las suscripciones de pago por uso de reservas de Azure.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,24 +12,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
+ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: 7e303f3e5ce0e618d941be4190f6fadb40f2e09d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: cf1d7c67fe6033bf41317e75a33349ae07ecf643
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064489"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627890"
 ---
-# <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>Información sobre el uso de instancias reservadas para suscripciones de pago por uso
+# <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Información sobre el uso de reservas de Azure para suscripciones de pago por uso
 
-Le explicamos el uso de una instancia reservada de máquina virtual de Azure con el valor de ReservationId de la [Página de reservas](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) y el archivo de uso del [Portal de cuentas de Azure](https://account.azure.com).
+Use ReservationId en la [Página de reservas](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) y el archivo de uso del [Portal de cuentas de Azure](https://account.azure.com) para evaluar la página de reservas.
 
+Si es un cliente con un contrato Enterprise, consulte [Uso de las reservas para la inscripción Enterprise.](billing-understand-reserved-instance-usage-ea.md).
 
->[!NOTE]
->El contenido de este artículo no se aplica a los clientes de EA. Si es un cliente de EA, consulte [Información sobre el uso de instancias reservadas para suscripciones Pago por uso](billing-understand-reserved-instance-usage-ea.md). En este artículo también se da por hecho que la instancia reservada se aplica a una única suscripción. Si se aplica a más de una suscripción, es posible que las ventajas de la instancia reservada abarquen varios archivos CSV de uso. 
+En este artículo se da por hecho que la reserva se aplica a una única suscripción. Si se aplica a más de una, es posible que las ventajas de la reserva abarquen varios archivos CSV de uso.
 
-En la siguiente sección se da por hecho que está ejecutando una máquina virtual Windows Standard_DS1_v2 en la región Este de EE. UU. y que la información de la instancia reservada tiene un aspecto similar al de la siguiente tabla:
+## <a name="usage-for-reserved-virtual-machine-instances"></a>Uso de instancias reservadas de máquina virtual
+
+En las siguientes secciones se da por hecho que está ejecutando una máquina virtual Windows Standard_DS1_v2 en la región Este de EE. UU. y que la información de la instancia reservada de la máquina virtual tiene una apariencia similar a la de la siguiente tabla:
 
 | Campo | Valor |
 |---| :---: |
@@ -38,35 +40,68 @@ En la siguiente sección se da por hecho que está ejecutando una máquina virtu
 |SKU | Standard_DS1_v2|
 |Region | estado |
 
-## <a name="reserved-instance-application"></a>Aplicación de instancia reservada
+La parte de hardware de la máquina virtual está cubierta, dado que la máquina virtual implementada coincide con los atributos de la reserva. Para ver qué software de Windows no está cubierto por la instancia reservada de máquina virtual, consulte [Costos de software de Windows de instancias reservadas de máquinas virtuales de Azure](billing-reserved-instance-windows-software-costs.md).
 
-La parte de hardware de la máquina virtual está cubierta, dado que la máquina virtual implementada coincide con los atributos de la instancia reservada. Para ver qué software de Windows no está cubierto por la instancia reservada, vea los [costos de software de Windows de instancias reservadas de máquinas virtuales de Azure](billing-reserved-instance-windows-software-costs.md).
+### <a name="statement-section-of-csv-file-for-vms"></a>Sección de instrucción del archivo CSV para máquinas virtuales
 
-### <a name="statement-section-of-csv"></a>Sección de instrucción del archivo CSV
-En esta sección del archivo CSV se muestra el uso total de su instancia reservada. Aplique el filtro del campo Meter Subcategory que contiene "Reservation-" y los datos aparecerán como en la siguiente captura de pantalla: ![Captura de pantalla de la información de uso y gastos de la instancia reservada filtrada](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png).
+En esta sección del archivo CSV se muestra el uso total de su reserva. Aplique el filtro en el campo **Meter Subcategory** (Subcategoría de medidor) que contenga **"Reservation-"** (Reserva). Verá algo parecido a la siguiente captura de pantalla:
 
-La línea Instancias reservadas de VM base tiene el número total de horas cubiertas por la instancia reservada. En esta línea se muestra 0,00 $ porque los gastos están cubiertos por la instancia reservada. En la línea Reservation-Windows Svr (1 Core) se cubre el costo del software de Windows.
+![Captura de pantalla de detalles de uso de reservas y los cargos filtrados](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
 
-### <a name="daily-usage-section-of-csv"></a>Sección de uso diario del archivo CSV
-Filtre por información adicional y escriba su **identificador de reserva**. En la siguiente captura de pantalla se muestran los campos relacionados con la instancia reservada. 
+La línea **Instancias reservadas de VM base** tiene el número total de horas cubiertas por la reserva. En esta línea se muestra 0,00 $ porque la reserva la cubre. En la línea **Reservation-Windows Svr (1 Core)** se cubre el costo del software de Windows.
+
+### <a name="daily-usage-section-of-csv-file"></a>Sección de uso diario del archivo CSV
+
+Filtre por **Información adicional** y escriba su **Identificador de reserva**. En la siguiente captura de pantalla se muestran los campos relacionados con la reserva.
 
 ![Captura de pantalla con los detalles y los cargos de uso diario](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-details.png)
 
-1. **ReservationId** en el campo Additional Info es la instancia reservada que se usó para aplicar las ventajas a la máquina virtual.
-2. ConsumptionMeter es el id. de medidor de la máquina virtual.
-3. La línea Instancias reservadas de VM base de la columna Meter Sub-category representa la línea de costo de 0$ en la sección de instrucciones. El costo de ejecución de esta máquina virtual ya lo cubre la instancia reservada.
-4. Este es el identificador de medidor de la instancia reservada. El costo del medidor es de 0 $. Cualquier máquina virtual apta para la instancia reservada tiene este MeterId en el CSV para cubrir el costo. 
-5. Standard_DS1_v2 es una máquina virtual de vCPU y se implementa sin la Ventaja híbrida de Azure. Por lo tanto, este medidor cubre el costo extra del software de Windows. Consulte los [costos de software de Windows de las instancias reservadas de máquina virtual de Azure](billing-reserved-instance-windows-software-costs.md) para buscar el medidor correspondiente a la máquina virtual de 1 núcleo de la serie D. Si se usa la Ventaja híbrida de Azure, no se aplicará este cargo adicional. 
+1. **ReservationId** en el campo **Información adicional** es la reserva que se aplicó a la máquina virtual.
+2. **ConsumptionMeter** es el identificador del medidor de la máquina virtual.
+3. En **Instancias reservadas de VM base**, la línea **Meter Subcategory** (Subcategoría de medidor) representa el costo de 0 $ en la sección de instrucciones. El costo de la ejecución de esta máquina virtual ya lo cubre la reserva.
+4. **Id. de medidor** es el identificador del medidor de la reserva. El costo del medidor es de 0 $. Este identificador de medidor aparece para cualquier máquina virtual apta para el descuento de reserva.
+5. Standard_DS1_v2 es una máquina virtual de vCPU y se implementa sin la Ventaja híbrida de Azure. Por lo tanto, este medidor cubre el costo extra del software de Windows. Para buscar el medidor correspondiente a la máquina virtual de 1 núcleo de serie D, consulte [Costos del software de Windows de las instancias de máquina virtual de reserva de Azure](billing-reserved-instance-windows-software-costs.md). Si tiene la Ventaja híbrida de Azure, no se aplicará este cargo adicional.
+
+## <a name="usage-for-sql-database-reserved-capacity-reservations"></a>Uso de reservas de capacidad reservada de SQL Database
+
+En las siguientes secciones, se dará por hecho que está ejecutando SQL Database Gen 4 en la región Este de EE. UU. y que la información de la reserva tiene una apariencia similar a la de la siguiente tabla:
+
+| Campo | Valor |
+|---| --- |
+|ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
+|Cantidad |2|
+|Producto| SQL Database Gen 4 (2 núcleos)|
+|Region | estado |
+
+### <a name="statement-section-of-csv-file"></a>Sección de instrucción del archivo CSV
+
+Filtre por el nombre de medidor **Uso de instancias reservadas**. Verá algo parecido a la siguiente captura de pantalla:
+
+![Archivo CSV para la capacidad reservada de SQL Database](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
+
+La línea **Uso de instancias reservadas** tiene el número total de horas básicas cubiertas por la reserva. La tasa es 0 $ para esta línea, ya que la reserva cubría el costo.
+
+### <a name="detail-section-of-csv-file"></a>Sección de detalles del archivo CSV
+
+Filtre por **Información adicional** y escriba su **Identificador de reserva**. En la siguiente captura de pantalla se muestran los campos relacionados con la reserva de capacidad reservada de SQL Database.
+
+![Archivo CSV para la capacidad reservada de SQL Database](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
+
+1. El campo **ReservationId** de **Información adicional** es la reserva de capacidad reservada de SQL Database que se aplica a los recursos de bases de datos SQL.
+2. **ConsumptionMeter** es el identificador del medidor del recurso de SQL Database.
+3. **Id. de medidor** es el medidor de la reserva. El costo del medidor es de 0 $. Los recursos de SQL Database que cumplen los requisitos para el descuento de reserva muestran este identificador de medidor en el archivo CSV.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información acerca de las instancias reservadas, consulte los siguientes artículos:
 
-- [¿Qué es Azure Reserved Virtual Machine Instances?](billing-save-compute-costs-reservations.md)
+Para más información acerca de las reservas, consulte los siguientes artículos:
+
+- [¿Qué son las reservas de Azure?](billing-save-compute-costs-reservations.md)
 - [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Administración de instancias reservadas en Azure](billing-manage-reserved-vm-instance.md)
-- [Información sobre cómo se aplica el descuento de instancia reservada de máquina virtual](billing-understand-vm-reservation-charges.md)
-- [Interpretación del uso de instancias reservadas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
-- [Costos de software de Windows no incluidos con las instancias reservadas](billing-reserved-instance-windows-software-costs.md)
+- [Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
+- [Administración de reservas de Azure](billing-manage-reserved-vm-instance.md)
+- [Información sobre cómo se aplica el descuento por la reserva](billing-understand-vm-reservation-charges.md)
+- [Información sobre el uso de reservas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Costos de software de Windows no incluidos con reservas](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 

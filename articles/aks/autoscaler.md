@@ -9,16 +9,18 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 4f8df8e7004ca3cee832b6230dc153b21e2a6c18
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d121f2744292ba64436f0722ae60cc3bc2b8dfa7
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186720"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714135"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Escalador automático en Azure Kubernetes Service (AKS): Versión preliminar
 
-Azure Kubernetes Service (AKS) proporciona una solución flexible para la implementación de un clúster de Kubernetes administrado en Azure. A medida que aumentan las demandas de recursos, el escalador automático de clúster permite que el clúster crezca para satisfacer la demanda en base a las restricciones que el usuario establezca. Para ello, el escalador automático de clúster escala los nodos de agente según los pods pendientes. Examina el clúster periódicamente para comprobar si hay pods pendientes o nodos vacíos y aumenta el tamaño si es posible. De forma predeterminada, el escalador automático de clúster examina en busca de pods pendientes cada 10 segundos, y si un nodo no se necesita durante más de 10 minutos lo quita. Cuando se usa con el escalador automático de pod horizontal (HPA), el HPA actualizará las réplicas de pod y los recursos según la demanda. Si tras este escalado de pod no hay suficientes nodos o hay nodos innecesarios después del escalado de pod, el escalador automático responderá y programará los pods en el nuevo conjunto de nodos.
+Azure Kubernetes Service (AKS) proporciona una solución flexible para la implementación de un clúster de Kubernetes administrado en Azure. A medida que aumentan las demandas de recursos, el escalador automático de clúster permite que el clúster crezca para satisfacer la demanda en base a las restricciones que el usuario establezca. Para ello, el escalador automático de clúster escala los nodos de agente según los pods pendientes. Examina el clúster periódicamente para comprobar si hay pods pendientes o nodos vacíos y aumenta el tamaño si es posible. De forma predeterminada, el escalador automático de clúster examina en busca de pods pendientes cada 10 segundos, y si un nodo no se necesita durante más de 10 minutos lo quita. Cuando se usa con el [escalador automático de pod horizontal](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) (HPA), el HPA actualiza las réplicas de pod y los recursos según la demanda. Si tras este escalado de pod no hay suficientes nodos o hay nodos innecesarios, la entidad de certificación responderá y programará los pods en el nuevo conjunto de nodos.
+
+En este artículo se describe cómo implementar el escalador automático del clúster en los nodos de agente. Sin embargo, puesto que el escalador automático del clúster se implementa en el espacio de nombres del sistema kube, no reducirá verticalmente el nodo que ejecuta ese pod.
 
 > [!IMPORTANT]
 > La integración del escalador automático de clúster de Azure Kubernetes Service (AKS) está actualmente en **versión preliminar**. Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
@@ -32,41 +34,70 @@ En este documento se supone que tiene un clúster de AKS habilitado para RBAC. S
 
 ## <a name="gather-information"></a>Recopilación de información
 
-En la lista siguiente se muestra toda la información que tiene que proporcionar en la definición del escalador automático.
+Para generar los permisos para que el escalador automático del clúster se ejecute en el clúster, ejecute este script de Bash:
 
-- *Identificador de suscripción*: el identificador correspondiente a la suscripción usada para este clúster
-- *Nombre del grupo de recursos*: nombre del grupo de recursos al que pertenece el clúster 
-- *Nombre del clúster*: nombre del clúster
-- *Identificador de cliente*: identificador de aplicación concedido por un paso de generación de permiso
-- *Secreto de cliente*: secreto de aplicación concedido por un paso de generación de permiso
-- *Identificador de inquilino*: identificador del inquilino (propietario de la cuenta)
-- *Grupo de recursos de nodo*: nombre del grupo de recursos que contiene la los nodos de agente en el clúster
-- *Nombre del grupo de nodos*: nombre del grupo de nodos que desea escalar
-- *Número mínimo de nodos*: número mínimo de nodos que van a existir en el clúster
-- *Número máximo de nodos*: número máximo de nodos que van a existir en el clúster
-- *Tipo de máquina virtual*: servicio que se usa para generar el clúster de Kubernetes
+```sh
+#! /bin/bash
+ID=`az account show --query id -o json`
+SUBSCRIPTION_ID=`echo $ID | tr -d '"' `
 
-Obtenga el identificador de su suscripción con: 
+TENANT=`az account show --query tenantId -o json`
+TENANT_ID=`echo $TENANT | tr -d '"' | base64`
 
-``` azurecli
-az account show --query id
+read -p "What's your cluster name? " cluster_name
+read -p "Resource group name? " resource_group
+
+CLUSTER_NAME=`echo $cluster_name | base64`
+RESOURCE_GROUP=`echo $resource_group | base64`
+
+PERMISSIONS=`az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$SUBSCRIPTION_ID" -o json`
+CLIENT_ID=`echo $PERMISSIONS | sed -e 's/^.*"appId"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+CLIENT_SECRET=`echo $PERMISSIONS | sed -e 's/^.*"password"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+
+SUBSCRIPTION_ID=`echo $ID | tr -d '"' | base64 `
+
+CLUSTER_INFO=`az aks show --name $cluster_name  --resource-group $resource_group -o json`
+NODE_RESOURCE_GROUP=`echo $CLUSTER_INFO | sed -e 's/^.*"nodeResourceGroup"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+
+echo "---
+apiVersion: v1
+kind: Secret
+metadata:
+    name: cluster-autoscaler-azure
+    namespace: kube-system
+data:
+    ClientID: $CLIENT_ID
+    ClientSecret: $CLIENT_SECRET
+    ResourceGroup: $RESOURCE_GROUP
+    SubscriptionID: $SUBSCRIPTION_ID
+    TenantID: $TENANT_ID
+    VMType: QUtTCg==
+    ClusterName: $CLUSTER_NAME
+    NodeResourceGroup: $NODE_RESOURCE_GROUP
+---"
 ```
 
-Genere un conjunto de credenciales de Azure, ejecutando el comando siguiente:
+Después de seguir los pasos del script, el script generará los detalles en forma de un secreto, como:
 
-```console
-$ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription-id>" --output json
-
-"appId": <app-id>,
-"displayName": <display-name>,
-"name": <name>,
-"password": <app-password>,
-"tenant": <tenant-id>
+```yaml
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-autoscaler-azure
+  namespace: kube-system
+data:
+  ClientID: <base64-encoded-client-id>
+  ClientSecret: <base64-encoded-client-secret>$
+  ResourceGroup: <base64-encoded-resource-group>  SubscriptionID: <base64-encode-subscription-id>
+  TenantID: <base64-encoded-tenant-id>
+  VMType: QUtTCg==
+  ClusterName: <base64-encoded-clustername>
+  NodeResourceGroup: <base64-encoded-node-resource-group>
+---
 ```
 
-El identificador de aplicación, la contraseña y el identificador de inquilino serán su clientID, clientSecret y tenantID en los pasos siguientes.
-
-Obtenga en nombre de su grupo de nodos ejecutando el siguiente comando. 
+A continuación, obtenga el nombre de su grupo de nodos con el siguiente comando. 
 
 ```console
 $ kubectl get nodes --show-labels
@@ -81,49 +112,7 @@ aks-nodepool1-37756013-0   Ready     agent     1h        v1.10.3   agentpool=nod
 
 A continuación, extraiga el valor de la etiqueta **agentpool**. El nombre predeterminado para el grupo de nodos de un clúster es "nodepool1".
 
-Para obtener el nombre del grupo de recursos de nodo, extraiga el valor de la etiqueta **kubernetes.azure.com<span></span>/cluster**. El nombre del grupo de recursos de nodo tiene generalmente el formato MC_ [grupo de recursos]\_[nombre-clúster] _ [ubicación].
-
-El parámetro vmType hace referencia al servicio que se va a usar, que es en este caso AKS.
-
-Ahora debe tener a mano la siguiente información:
-
-- SubscriptionID
-- ResourceGroup
-- ClusterName
-- ClientID
-- ClientSecret
-- TenantID
-- NodeResourceGroup
-- VMType
-
-A continuación, codifique todos estos valores con base64. Por ejemplo, para codificar el valor VMType con base64:
-
-```console
-$ echo AKS | base64
-QUtTCg==
-```
-
-## <a name="create-secret"></a>Creación de un secreto
-Con estos datos, cree un secreto para la implementación con los valores que se encuentran en los pasos anteriores en el formato siguiente:
-
-```yaml
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: cluster-autoscaler-azure
-  namespace: kube-system
-data:
-  ClientID: <base64-encoded-client-id>
-  ClientSecret: <base64-encoded-client-secret>
-  ResourceGroup: <base64-encoded-resource-group>
-  SubscriptionID: <base64-encode-subscription-id>
-  TenantID: <base64-encoded-tenant-id>
-  VMType: QUtTCg==
-  ClusterName: <base64-encoded-clustername>
-  NodeResourceGroup: <base64-encoded-node-resource-group>
----
-```
+Ahora, con el secreto y el grupo de nodos puede crear un gráfico de implementación.
 
 ## <a name="create-a-deployment-chart"></a>Creación de un grupo de implementación
 
@@ -324,10 +313,10 @@ A continuación, rellene el campo de imagen en **containers** con la versión de
 Implemente el escalador automático de clúster ejecutando
 
 ```console
-kubectl create -f cluster-autoscaler-containerservice.yaml
+kubectl create -f aks-cluster-autoscaler.yaml
 ```
 
-Para comprobar si se está ejecutando el escalador automático de clúster, use el comando siguiente y compruebe la lista de pods. Si se está ejecutando un pod precedido de "cluster-autoscaler", quiere decir que el escalador automático de clúster se ha implementado.
+Para comprobar si se está ejecutando el escalador automático de clúster, use el comando siguiente y compruebe la lista de pods. Debe haber un pod precedido por un "escalador automático del clúster" en ejecución. Si ve esto, significa que se ha implementado el escalador automático del clúster.
 
 ```console
 kubectl -n kube-system get pods
@@ -338,6 +327,68 @@ Para ver el estado del escalador automático de clúster, ejecute
 ```console
 kubectl -n kube-system describe configmap cluster-autoscaler-status
 ```
+
+## <a name="interpreting-the-cluster-autoscaler-status"></a>Interpretación del estado del escalador automático del clúster
+
+```console
+$ kubectl -n kube-system describe configmap cluster-autoscaler-status
+Name:         cluster-autoscaler-status
+Namespace:    kube-system
+Labels:       <none>
+Annotations:  cluster-autoscaler.kubernetes.io/last-updated=2018-07-25 22:59:22.661669494 +0000 UTC
+
+Data
+====
+status:
+----
+Cluster-autoscaler status at 2018-07-25 22:59:22.661669494 +0000 UTC:
+Cluster-wide:
+  Health:      Healthy (ready=1 unready=0 notStarted=0 longNotStarted=0 registered=1 longUnregistered=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleUp:     NoActivity (ready=1 registered=1)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleDown:   NoCandidates (candidates=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+
+NodeGroups:
+  Name:        nodepool1
+  Health:      Healthy (ready=1 unready=0 notStarted=0 longNotStarted=0 registered=1 longUnregistered=0 cloudProviderTarget=1 (minSize=1, maxSize=5))
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleUp:     NoActivity (ready=1 cloudProviderTarget=1)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleDown:   NoCandidates (candidates=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+
+
+Events:  <none>
+```
+
+El estado del escalador automático del clúster le permite ver el estado del escalador automático de clúster en dos niveles diferentes: en todo el clúster y dentro de cada grupo de nodos. Puesto que AKS actualmente solo admite un grupo de nodos, estas métricas son las mismas.
+
+* El mantenimiento indica el mantenimiento general de los nodos. Si el escalador automático del clúster tiene problemas para crear o quitar nodos del clúster, este estado cambia a "Unhealthy" (Incorrecto). También hay un desglose del estado de los distintos nodos:
+    * "Ready" (Listo) significa que un nodo está preparado para contener pods programados.
+    * "Unready" (No listo) significa un nodo que se desglosa una vez que se inicia.
+    * "NotStarted" significa que un nodo no se inició totalmente aún.
+    * "LongNotStarted" significa que un nodo no se pudo iniciar en un plazo razonable.
+    * "Registered" (Registrado) significa que un nodo se registró en el grupo
+    * "Unregistered" (No registrado) significa que existe un nodo en el lado del proveedor del clúster pero no se pudo registrar en Kubernetes.
+  
+* ScaleUp permite comprobar cuándo el clúster determina que se debe producir un escalado vertical en el clúster.
+    * Una transición es cuando cambia el número de nodos del clúster o cambia el estado de un nodo.
+    * El número de nodos preparados es el número de nodos disponibles y preparados en el clúster. 
+    * cloudProviderTarget es el número de nodos que el escalador automático del clúster ha determinado que necesita el clúster para controlar su carga de trabajo.
+
+* ScaleDown le permite comprobar si hay candidatos para la reducción vertical. 
+    * Un candidato a reducción vertical es un nodo que el escalador automático del clúster ha determinado que se puede quitar sin que afecte a la capacidad del clúster para controlar su carga de trabajo. 
+    * Los tiempos proporcionados muestran la última vez que se buscaron en el clúster candidatos de reducción vertical y la hora de su última transición.
+
+Por último, en Events (Eventos), puede ver los eventos de escalado o reducción vertical, correctos o incorrectos, y sus tiempos, que el escalador automático del clúster ha llevado a cabo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

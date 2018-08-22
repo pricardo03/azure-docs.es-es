@@ -3,7 +3,7 @@ title: Introducción a las características de Azure Event Hubs | Documentos de 
 description: Introducción y detalles acerca de las características de Azure Event Hubs
 services: event-hubs
 documentationcenter: .net
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
@@ -11,19 +11,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/08/2018
-ms.author: sethm
-ms.openlocfilehash: f16f8aa73ecfa3e0a47ce2373a2e28a7a9968ff5
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.author: shvija
+ms.openlocfilehash: abc85c322f7b8ee63c06639ae8845a5f07266b50
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248748"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40007583"
 ---
 # <a name="event-hubs-features-overview"></a>Introducción a las características de Event Hubs
 
 Azure Event Hubs es un servicio escalable de procesamiento de eventos que recopila y procesa grandes volúmenes de eventos y datos, con una baja latencia y una alta fiabilidad. Consulte [¿Qué es Event Hubs?](event-hubs-what-is-event-hubs.md) para obtener una introducción detallada.
 
 Este artículo se basa en el contenido del [artículo de información general](event-hubs-what-is-event-hubs.md) e incluye detalles técnicos y de implementación de las características y los componentes de Event Hubs.
+
+## <a name="namespace"></a>Espacio de nombres
+Un espacio de nombres de Event Hubs proporciona un contenedor con un único ámbito, al que hace referencia su [nombre de dominio completo](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), en el que puede crear uno o varios centros de eventos o temas de Kafka. 
 
 ## <a name="event-publishers"></a>Publicadores de eventos
 
@@ -69,7 +72,7 @@ El número de particiones se especifica en el momento de la creación y debe est
 
 Aunque las particiones son identificables y se pueden realizar envíos a estas directamente, no se recomienda hacerlo. En su lugar, puede usar las construcciones de nivel superior que se presentan en las secciones [Publicador de eventos](#event-publishers) y [Capacidad](#capacity). 
 
-Las particiones se rellenan con una secuencia de datos de eventos que contienen el cuerpo del evento, un contenedor de propiedades definido por el usuario y diversos metadatos, como su desplazamiento en la partición y su número en la secuencia de streaming.
+Las particiones se rellenan con una secuencia de datos de eventos que contienen el cuerpo del evento, un contenedor de propiedades definidas por el usuario y diversos metadatos, como su desplazamiento en la partición y su número en la secuencia de streaming.
 
 Para más información acerca de particiones y el equilibrio entre disponibilidad y confiabilidad, consulte los artículos [Guía de programación de Event Hubs](event-hubs-programming-guide.md#partition-key) y [Disponibilidad y coherencia en Event Hubs](event-hubs-availability-and-consistency.md).
 
@@ -146,13 +149,13 @@ Event Hubs tiene una arquitectura paralela altamente escalable y hay varios fact
 La capacidad de rendimiento de Event Hubs se controla mediante *unidades de rendimiento*. Las unidades de procesamiento son unidades de capacidad adquiridas previamente. Una unidad de procesamiento individual incluye la siguiente capacidad:
 
 * Entrada: hasta 1 MB por segundo o 1000 eventos por segundo, lo que ocurra primero.
-* Salida: hasta 2 MB por segundo.
+* Salida: hasta 2 MB por segundo o 4096 eventos por segundo.
 
 Si supera la capacidad de las unidades de rendimiento adquiridas, la entrada se limitará y se devolverá una excepción [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception). La salida no produce excepciones de limitación, pero sigue estando limitada a la capacidad de las unidades de rendimiento adquiridas. Si recibe excepciones de tasa de publicación o espera ver una salida superior, compruebe cuántas unidades de rendimiento adquirió para el espacio de nombres. Puede administrar las unidades de procesamiento en la hoja **Escala** de los espacios de nombres en [Azure Portal](https://portal.azure.com). También puede administrar unidades de procesamiento mediante programación con las [API de Event Hubs](event-hubs-api-overview.md).
 
 Las unidades de procesamiento se adquieren previamente y se facturan por hora. Cuando se adquieren, las unidades de procesamiento se facturan durante un período mínimo de una hora. Se pueden adquirir hasta 20 unidades de procesamiento para un espacio de nombres de Event Hubs y compartir entre todos los centros de eventos del espacio de nombres.
 
-Se pueden adquirir más unidades de rendimiento en bloques de 20, hasta 100 unidades de rendimiento. Para ello, póngase en contacto con el soporte técnico de Azure. A partir de ahí, puede adquirir bloques de 100 unidades de procesamiento.
+Puede adquirir más unidades de procesamiento en bloques de 20, hasta 100 unidades de rendimiento. Para ello, póngase en contacto con el soporte técnico de Azure. Por encima de ese límite, puede adquirir bloques de 100 unidades de procesamiento.
 
 Se recomienda que equilibre las particiones y las unidades de procesamiento para lograr una escalabilidad óptima. Una sola partición tiene una escala máxima de una unidad de procesamiento. El número de unidades de procesamiento debe ser menor o igual que el número de particiones de un centro de eventos.
 

@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: cfe034d6dcac48d7c9e4b2ce17e4926a81a27886
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 1d7855ff840fc1dd68effb19c43c3a691bd15d62
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216111"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714679"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuración de red en Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ Cuando se crea un clúster de Azure Kubernetes Service (AKS), puede seleccionar 
 
 ## <a name="basic-networking"></a>Red básica
 
-La opción de redes **Básica** es la configuración predeterminada para la creación del clúster de AKS. La configuración de red del clúster y sus pods son administradas completamente por Azure y es adecuada para implementaciones que no requieren configuración de red virtual personalizada. Cuando selecciona la red Básica, no tiene control sobre la configuración de red, como las subredes o los intervalos de direcciones IP asignados al clúster.
+La opción de redes **Básica** es la configuración predeterminada para la creación del clúster de AKS. La configuración de red del clúster, y sus pods, se administra completamente en Azure y es adecuada para implementaciones que no requieren la configuración de red virtual personalizada. Cuando selecciona la red Básica, no tiene control sobre la configuración de red, como las subredes o los intervalos de direcciones IP asignados al clúster.
 
 Los nodos de un clúster de AKS configurado para usar la red Básica utilizan el complemento de Kubernetes [kubenet][kubenet].
 
@@ -97,15 +97,14 @@ Cuando crea un clúster de AKS, los parámetros siguientes son configurables par
 
 **Subred**: la subred dentro de la red virtual en la que desea implementar el clúster. Si desea crear una nueva subred en la red virtual para el clúster, seleccione *Crear nueva* y siga los pasos descritos en la sección *Creación de subred*.
 
-**Intervalo de direcciones de Kubernetes Service**: el *intervalo de direcciones de Kubernetes Service* es el intervalo IP desde el que se asignan direcciones a servicios de Kubernetes en su clúster (para obtener más información sobre los servicios de Kubernetes, consulte [Servicios][services] en la documentación de Kubernetes).
-
-Intervalo de direcciones IP de Kubernetes Service:
+**Intervalo de direcciones de servicio de Kubernetes**: este es el conjunto de direcciones IP virtuales que Kubernetes asigna a [servicios][services] en el clúster. Puede usar cualquier intervalo de direcciones privado que cumpla los requisitos siguientes:
 
 * No debe estar dentro del intervalo de direcciones IP de la red virtual del clúster.
 * No debe superponerse con otras redes virtuales con las que la red virtual del clúster esté emparejada.
 * No debe superponerse con ninguna dirección IP local.
+* No debe estar dentro de los intervalos `169.254.0.0/16`, `172.30.0.0/16` o `172.31.0.0/16`
 
-Puede producirse un comportamiento impredecible si se usan intervalos IP superpuestos. Por ejemplo, si un pod intenta acceder a una dirección IP fuera del clúster y esa IP también resulta ser una dirección IP de servicio, es posible que se produzcan errores y un comportamiento impredecible.
+Aunque es técnicamente posible especificar un intervalo de direcciones de servicio en la misma red virtual que el clúster, no se recomienda. Puede producirse un comportamiento impredecible si se usan intervalos IP superpuestos. Para más información, consulte la sección [P+F](#frequently-asked-questions) de este artículo. Para más información sobre los servicios de Kubernetes, consulte [Servicios][services] en la documentación de Kubernetes.
 
 **Dirección IP del servicio DNS de Kubernetes**: la dirección IP del servicio DNS del clúster. Esta dirección debe estar dentro del  *intervalo de direcciones del servicio Kubernetes*.
 
@@ -154,6 +153,10 @@ Las siguientes preguntas y respuestas se aplican a la configuración de red **Av
 * *¿Cómo se pueden configurar propiedades adicionales para la subred que he creado durante la creación del clúster de AKS? Por ejemplo, los puntos de conexión de servicio.*
 
   La lista completa de propiedades de la red virtual y las subredes que se crean durante la creación del clúster de AKS puede configurarse en la página de configuración de red virtual estándar en Azure Portal.
+
+* *¿Puedo usar una subred diferente dentro de mi red virtual de clúster como* **intervalo de direcciones de servicio de Kubernetes**?
+
+  Aunque no se recomienda, esta configuración es posible. El intervalo de direcciones de servicio es un conjunto de direcciones IP virtuales (VIP) que Kubernetes asigna a los servicios del clúster. Las redes de Azure no tiene ninguna visibilidad sobre el intervalo de direcciones IP de servicio del clúster de Kubernetes. Debido a ello, es posible crear posteriormente una nueva subred en la red virtual del clúster que se superponga con este intervalo. Si se produce una superposición de este tipo, Kubernetes podría asignar a un servicio una dirección IP que ya esté en uso por otro recurso de la subred, lo que provocaría un comportamiento impredecible o errores. Al tener la seguridad de usar un intervalo de direcciones que se encuentra fuera de la red virtual del clúster, puede evitar este riesgo de superposición.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

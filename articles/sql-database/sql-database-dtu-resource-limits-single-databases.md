@@ -7,18 +7,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/03/2018
 ms.author: carlrab
-ms.openlocfilehash: effb09cfc68961065ad0b4e4be52255bcd1fe4e0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: fae9f0aaa001c233a6687dda5cd5b7c0128ff8b0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414174"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038392"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra basado en DTU 
 
-En este artículo se proporcionan los límites detallados de recursos para grupos elásticos de Azure SQL Database que utilizan el modelo de compra basado en DTU.
+En este artículo se proporcionan los límites de recursos detallados para bases de datos únicas de Azure SQL Database que utilizan el modelo de compra basado en unidades de transacción de base de datos.
 
 Para los límites de recursos del modelo de compra basado en DTU para grupos elásticos, vea [DTU-based resource limits - elastic pools ](sql-database-vcore-resource-limits-elastic-pools.md) (Límites de recursos basados en DTU: grupos elásticos). Para los límites de recursos basados en núcleo virtual, vea [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) (Límites de recursos basados en núcleo virtual: una sola base de datos) y [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md) (Límites de recursos basados en núcleo virtual: grupos elásticos).
 

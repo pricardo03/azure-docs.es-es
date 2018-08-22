@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b9acc829439578f2f86dfbd51164cb3eaf923c2a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 55818bf3c6997925fbac32f913d573d630bc20f4
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368873"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004385"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configuración de la unión a Azure Active Directory híbrido para dominios administrados
 
@@ -49,6 +49,9 @@ En este tutorial se da por supuesto que está familiarizado con:
 -  [Introducción a la administración de dispositivos en Azure Active Directory](../device-management-introduction.md)
     
 -  [Planeación de la implementación de dispositivos híbridos unidos a Azure Active Directory](hybrid-azuread-join-plan.md)
+
+-  [Control de la unión de los dispositivos híbridos a Azure AD](hybrid-azuread-join-control.md)
+  
 
 Para configurar el escenario en este artículo, necesita tener instalada la [versión más reciente de Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 o superior). 
  
@@ -101,7 +104,7 @@ Para configurar una unión a Azure AD híbrido utilizando Azure AD Connect, nece
 
     ![Opciones de dispositivos](./media/hybrid-azuread-join-managed-domains/15.png)
 
-6. En la página **SCP**, para cada bosque que desee Azure AD Connect para el SCP, realice los pasos siguientes y, a continuación, haga clic en **Siguiente**: 
+6. En la página **SCP**, para cada bosque que desee que Azure AD Connect configure para el SCP, realice los pasos siguientes y, a continuación, haga clic en **Siguiente**: 
 
     ![SCP](./media/hybrid-azuread-join-managed-domains/16.png)
 
@@ -156,8 +159,6 @@ Para completar con éxito la unión a Azure AD híbrido de los dispositivos de W
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - `https://autologon.microsoftazuread-sso.com`.
 
 Además, tiene que habilitar **Permitir actualizaciones en la barra de estado a través de script** en la zona de intranet local del usuario.
@@ -191,14 +192,13 @@ Cuando se usa el cmdlet **Get-MSolDevice** para comprobar los detalles de servic
 
 Si tiene problemas para completar la unión a Azure AD híbrido para los dispositivos de Windows unidos a un dominio, consulte:
 
-- [Solución de problemas de la unión a Azure AD híbrido para dispositivos actuales de Windows](../device-management-troubleshoot-hybrid-join-windows-current.md)
-- [Solución de problemas de la unión a Azure AD híbrido para dispositivos de nivel inferior de Windows](../device-management-troubleshoot-hybrid-join-windows-legacy.md)
-
+- [Solución de problemas de la unión a Azure AD híbrido para dispositivos actuales de Windows](troubleshoot-hybrid-join-windows-current.md)
+- [Solución de problemas de la unión a Azure AD híbrido para dispositivos de nivel inferior de Windows](troubleshoot-hybrid-join-windows-legacy.md)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Configuración de la unión a Azure Active Directory híbrido para dominios federados](hybrid-azuread-join-federated-domains.md)
-> [Configuración de la unión a Azure Active Directory híbrido de forma manual](../device-management-hybrid-azuread-joined-devices-setup.md)
+> [Configuración de la unión a Azure Active Directory híbrido de forma manual](hybrid-azuread-join-manual-steps.md)
 
