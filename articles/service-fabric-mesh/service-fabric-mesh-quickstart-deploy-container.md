@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 5359920ab32fab65df0466474aec2d305bcf633c
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: a740672ea948bd86efce92c534e0f95f65563438
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091057"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42023892"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Inicio rápido: Implementación de una aplicación "Hola mundo" en Service Fabric Mesh
 
@@ -30,7 +30,7 @@ Antes de empezar, si no tiene una cuenta de Azure, [cree una gratuita](https://a
 Puede usar Azure Cloud Shell o una instalación local de la CLI de Azure para completar esta guía de inicio rápido. Instale el módulo de extensión de la CLI de Azure Service Fabric Mesh siguiendo estas [instrucciones](service-fabric-mesh-howto-setup-cli.md).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
-Inicie sesión en Azure y configure su suscripción.
+Inicie sesión en Azure y configure la suscripción.
 
 ```azurecli-interactive
 az login
@@ -57,7 +57,7 @@ Al cabo de unos minutos, el comando devuelve:
 `helloWorldApp has been deployed successfully on helloWorldNetwork with public ip address <IP Address>` 
 
 ## <a name="open-the-application"></a>Apertura de la aplicación
-Una vez que la aplicación se ha implementado correctamente, copie la dirección IP pública del punto de conexión de servicio de la salida de la CLI.  Abra la dirección IP en un explorador web. Se muestra una página web con el logotipo del servicio Azure Service Fabric Mesh.
+Una vez que la aplicación se ha implementado correctamente, copie la dirección IP pública del punto de conexión de servicio de la salida de la CLI. Abra la dirección IP en un explorador web. Se muestra una página web con el logotipo del servicio Azure Service Fabric Mesh.
 
 ## <a name="check-the-application-details"></a>Comprobación de los detalles de la aplicación
 Puede comprobar el estado de la aplicación mediante el comando `az mesh app show`. Este comando proporciona información útil que puede seguir.
@@ -86,7 +86,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre cómo crear e implementar aplicaciones de Service Fabric Mesh, continúe con el tutorial.
+Para obtener más información sobre cómo crear e implementar aplicaciones de Service Fabric mesh, continúe con el tutorial.
 > [!div class="nextstepaction"]
 > [Creación e implementación de una aplicación web multiservicio](service-fabric-mesh-tutorial-create-dotnetcore.md)
 

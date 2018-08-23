@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: 24b0c6873721ef196b1c0dc6d6a357f87a4a5e39
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 62077f45d96e96a7fef35cf025740849d2b99445
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29846373"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42142921"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>Redirigir el tráfico a través de una aplicación virtual de red
 
@@ -58,8 +58,8 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una red
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Crea un grupo de seguridad de red (NSG). |
 | [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Crea reglas NSG que permiten puertos HTTP y HTTPS entrantes en la VM. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| Asocia los NSG y tablas de rutas a las subredes. |
-| [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create)| Crea una tabla de rutas para todas las rutas. |
-| [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Crea rutas para redirigir el tráfico entre subredes e Internet a través de la VM. |
+| [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| Crea una tabla de rutas para todas las rutas. |
+| [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| Crea rutas para redirigir el tráfico entre subredes e Internet a través de la VM. |
 | [az vm create](/cli/azure/vm#az_vm_create) | Crea una máquina virtual y conecta la NIC a ella. Este comando también especifica la imagen de máquina virtual que se usará y las credenciales administrativas. |
 | [az group delete](/cli/azure/group#az_group_delete) | Elimina un grupo de recursos y todos los recursos que contiene. |
 

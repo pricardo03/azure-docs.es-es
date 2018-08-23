@@ -11,19 +11,19 @@ ms.component: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: b2a7ce113b509bb734edb204896f2ee5603e8e80
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 77756a062d02b723444e5cc9e3a45df1f3719378
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389742"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42023900"
 ---
 # <a name="security-info-preview-overview"></a>Introducción a la información de seguridad (versión preliminar)
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Important]
->Este contenido está diseñado para usuarios. Si es un administrador, puede encontrar más información acerca de cómo configurar y administrar su entorno de Azure Active Directory (Azure AD) en la [documentación de Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory).
+>Este contenido está diseñado para usuarios. Si es un administrador, puede encontrar más información acerca de cómo configurar y administrar su entorno de Azure Active Directory (Azure AD) en la [documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 Configure la verificación en dos pasos y la información de restablecimiento de contraseña en **Información de seguridad**. Después de configurar inicialmente la información de seguridad, no tendrá que volver a hacerlo. De todas formas, puede editar la información y cambiar el método predeterminado en cualquier momento.
 

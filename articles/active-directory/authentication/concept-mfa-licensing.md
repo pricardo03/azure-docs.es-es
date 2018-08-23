@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 92be187a1c593742feb90409f2b8cc305bf9a6c8
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 8ecb2008b85bb6a7ac35b5f95deaf0fb321ce155
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161658"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144583"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Cómo conseguir Azure Multi-Factor Authentication
 
@@ -63,7 +63,7 @@ En la tabla siguiente se proporciona una lista de las características que está
 
 ## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Activación de Azure Multi-Factor Authentication para administradores de Azure AD
 
-Los usuarios asignados al rol Administrador global en inquilinos de Azure AD pueden habilitar la verificación en dos pasos para sus cuentas de Administrador global de Azure AD sin costo adicional alguno. Si utiliza una cuenta de Microsoft, puede registrarse para la autenticación multifactor siguiendo las instrucciones recogidas en el artículo de soporte técnico sobre cuentas de Microsoft, [Acerca de la verificación en dos pasos](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). Si no utiliza una cuenta de Microsoft, active la autenticación multifactor para los administradores globales siguiendo las instrucciones recogidas en el artículo [How to require two-step verification for a user or group](howto-mfa-userstates.md) (Exigencia de verificación en dos pasos para un usuario o grupo).
+Los usuarios asignados al rol Administrador global en inquilinos de Azure AD pueden habilitar la verificación en dos pasos para sus cuentas de Administrador global de Azure AD sin costo adicional alguno. Si utiliza una cuenta de Microsoft, puede registrarse para la autenticación multifactor siguiendo las instrucciones recogidas en el artículo de soporte técnico sobre cuentas de Microsoft, [Acerca de la verificación en dos pasos](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification). Si no utiliza una cuenta de Microsoft, active la autenticación multifactor para los administradores globales siguiendo las instrucciones recogidas en el artículo [How to require two-step verification for a user or group](howto-mfa-userstates.md) (Exigencia de verificación en dos pasos para un usuario o grupo).
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Cómo conseguir Azure Multi-Factor Authentication
 

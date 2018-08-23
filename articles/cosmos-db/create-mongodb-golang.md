@@ -2,21 +2,21 @@
 title: 'Azure Cosmos DB: Compilar una aplicación de consola de la API MongoDB con Golang y Azure Portal | Microsoft Docs'
 description: En este tema se incluye un ejemplo de código Golang que puede usar para conectarse a Azure Cosmos DB y realizar consultas
 services: cosmos-db
-author: SnehaGunda
+author: slyons
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/21/2017
-ms.author: sngun
+ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: d1a45389e95dbd7f5f762b6dee0edc3897d0c3b8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 52565edb797118234284e9204026774cbecba34e
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38612823"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022864"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: Compilar una aplicación de consola de la API MongoDB con Golang y Azure Portal
 
@@ -26,7 +26,7 @@ En esta guía de inicio rápido se muestra cómo se usa una aplicación existent
 
 En otras palabras, la aplicación Golang solo sabe que se está conectando a una base de datos mediante API de MongoDB. Para la aplicación resulta transparente que los datos se almacenan en Azure Cosmos DB.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar. 
 

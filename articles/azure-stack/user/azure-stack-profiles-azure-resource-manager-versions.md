@@ -3,22 +3,22 @@ title: Versiones de API del proveedor de recursos compatibles con perfiles en Az
 description: Obtenga información sobre la versión de Azure Resource Manager compatible con perfiles en Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
-ms.author: mabrigg
+ms.date: 08/17/2018
+ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 1a516c890441c3b703d43f31816b7c37cac364fd
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9ba954db7003e062444e57bd56f87ff5d279b07f
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054388"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41954862"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versiones de API del proveedor de recursos compatibles con perfiles en Azure Stack
 
@@ -193,27 +193,27 @@ Azure Resource Manager le permite implementar y administrar la infraestructura p
 | Tipos de recursos | Versiones de API |
 |-----------------------------------------|-------------------|
 | Registros de aplicación | 2015-01-01 |
-| Comprobación de nombre de recurso | 2015-012016-09-01 |
+| Comprobación de nombre de recurso | 2016-09-01 |
 | Proveedores delegados | 2015-01-01 |
 | Proveedores delegados/ofertas | 2015-01-01 |
 | DelegatedProviders/offers/estimatePrice | 2015-01-01 |
 | Implementaciones | 2016-0209-01 |
 | Implementaciones/operaciones | 2016-0209-01 |
 | Metadatos de extensiones | 2015-01-01 |
-| Vínculos | 2015-012016-09-01 |
+| Vínculos | 2016-09-01 |
 | Ubicaciones | 2015-01-01 |
 | Ofertas | 2015-01-01 |
 | Operaciones | 2015-01-01 |
 | Proveedores | 2015-012017-08-01 |
-| Grupos de recursos | 2015-012016-09-01 |
-| Recursos | 2015-012016-09-01 |
-| Suscripciones | 2015-012016-09-01 |
-| Suscripciones/ubicación | 2015-012016-09-01 |
-| Suscripciones/resultados de operación | 2015-012016-09-01 |
+| Grupos de recursos | 2016-09-01 |
+| Recursos | 2016-09-01 |
+| Suscripciones | 2016-09-01 |
+| Suscripciones/ubicación | 2016-09-01 |
+| Suscripciones/resultados de operación | 2016-09-01 |
 | Suscripciones/proveedores | 2015-012017-08-01 |
-| Suscripciones/grupos de recursos | 2015-012016-09-01 |
-| Suscripciones/resourceGroups/recursos | 2015-012016-09-01 |
-| Suscripciones/recursos | 2015-012016-09-01 |
+| Suscripciones/grupos de recursos | 2016-09-01 |
+| Suscripciones/resourceGroups/recursos | 2016-09-01 |
+| Suscripciones/recursos | 2016-09-01 |
 | Suscripciones/tagNames | 2016-0609-01 |
 | Suscripciones/tagNames/tagValues | 2016-0609-01 |
 | Inquilinos | 2015-012017-08-01 |

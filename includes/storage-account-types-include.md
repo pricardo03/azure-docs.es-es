@@ -1,3 +1,20 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: f60c23e34962396d4ea6e030912d1ca3f3e4571b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40258766"
+---
 Existen dos tipos de cuentas de almacenamiento:
 
 ### <a name="general-purpose-storage-accounts"></a>Cuentas de almacenamiento de uso general
@@ -25,5 +42,5 @@ Para más información acerca de las cuentas de Blob Storage, consulte [Azure Bl
 
 Para poder crear una cuenta de almacenamiento, debe tener una suscripción de Azure, que es un plan que le proporciona acceso a diversos servicios de Azure. Para comenzar con Azure, puede usar una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/). Cuando decida adquirir un plan de suscripción, puede elegir entre diversas [opciones de compra](https://azure.microsoft.com/pricing/purchase-options/). Si ya es [suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), obtendrá créditos mensuales gratuitos que podrá usar con los servicios de Azure, incluido Azure Storage. Para obtener información acerca de los precios por volumen, consulte [Precios de Azure Storage ](https://azure.microsoft.com/pricing/details/storage/) .
 
-Para más información acerca de cómo crear una cuenta de almacenamiento estándar, consulte [Creación de una cuenta de almacenamiento](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) . Puede crear un máximo de 200 cuentas de almacenamiento con nombre único con una única suscripción. Para más información acerca de los límites de las cuentas de almacenamiento, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](../articles/storage/common/storage-scalability-targets.md).
+Para más información acerca de cómo crear una cuenta de almacenamiento estándar, consulte [Creación de una cuenta de almacenamiento](../articles/storage/common/storage-quickstart-create-account.md) . Puede crear un máximo de 200 cuentas de almacenamiento con nombre único con una única suscripción. Para más información acerca de los límites de las cuentas de almacenamiento, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](../articles/storage/common/storage-scalability-targets.md).
 

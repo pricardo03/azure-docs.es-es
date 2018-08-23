@@ -9,12 +9,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: ronitr
-ms.openlocfilehash: e5ed226c0d2f849e59abcf3b46c9ec6fb7cc679a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 714fe94d295157f0d4d90139da98254f46794731
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645256"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144542"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Enmascaramiento dinámico de datos de SQL Database
 
@@ -49,7 +49,7 @@ El enmascaramiento de datos dinámicos puede configurarse mediante el administra
 El motor de recomendaciones de DDM marca determinados campos de la base de datos como campos potencialmente confidenciales, que pueden ser buenos candidatos para el enmascaramiento. En la hoja Enmascaramiento de datos dinámicos del portal, verá las columnas recomendadas para la base de datos. Todo lo que debe hacer es hacer clic en **Agregar máscara** para una o más columnas y, después, en **Guardar** a fin de aplicar una máscara para estos campos.
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configuración del enmascaramiento de datos dinámicos para la base de datos mediante cmdlets de PowerShell
-Consulte [Cmdlets de Azure SQL Database](https://msdn.microsoft.com/library/azure/mt574084.aspx).
+Consulte [Cmdlets de Azure SQL Database](https://docs.microsoft.com/powershell/module/azurerm.sql).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Configuración del enmascaramiento de datos dinámicos para la base de datos mediante la API de REST
 Consulte [Operaciones para Azure SQL Database](https://msdn.microsoft.com/library/dn505719.aspx).

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b71aa004095a94bea84623fd2b5dbdfc1f81af0
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 34ee673ee1cf870e376ac8c954a9f3fc468abaa2
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29461849"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42142693"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Solucionar los problemas de rendimiento reducido de aplicaciones web en Azure App Service
 Este artículo lo ayuda a solucionar los problemas de rendimiento reducido en las aplicaciones web del [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -91,7 +91,7 @@ Cada aplicación web de App Service proporciona un punto de conexión de adminis
 - Editores de código fuente como [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Las herramientas de administración de los recursos conectados como, por ejemplo, una base de datos de MySQL conectada a una aplicación web.
 
-[Azure Application Insights](/services/application-insights/) es una extensión de sitio de supervisión de rendimiento que está también disponible. Para usar Application Insights, recompile el código con un SDK. También puede instalar una extensión que proporcione acceso a datos adicionales. El SDK permite escribir código para supervisar el uso y el rendimiento de la aplicación con más detalle. Para más información, consulte [Supervisar el rendimiento de aplicaciones web](../application-insights/app-insights-web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) es una extensión de sitio de supervisión de rendimiento que está también disponible. Para usar Application Insights, recompile el código con un SDK. También puede instalar una extensión que proporcione acceso a datos adicionales. El SDK permite escribir código para supervisar el uso y el rendimiento de la aplicación con más detalle. Para más información, consulte [Supervisar el rendimiento de aplicaciones web](../application-insights/app-insights-web-monitor-performance.md).
 
 <a name="collect" />
 

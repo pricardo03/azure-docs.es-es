@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ec3c87c39cd8b8d1dafa8ad062776171c602135b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2efc20d5a2248fed69f38880a9e75a6ccb2403dd
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047067"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42144609"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copia de datos hacia Azure Blob Storage o desde él con Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -83,7 +83,7 @@ La sección **typeProperties** es diferente para cada tipo de conjunto de datos 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| folderPath |Ruta de acceso para el contenedor y la carpeta en el almacenamiento de blobs. Ejemplo: myblobcontainer\myblobfolder\ |Sí |
+| folderPath |Ruta de acceso para el contenedor y la carpeta en el almacenamiento de blobs. Ejemplo: myblobcontainer\myblobfolder\ |SÍ |
 | fileName |Nombre del blob. La propiedad fileName es opcional y distingue entre mayúsculas y minúsculas.<br/><br/>Si especifica fileName, la actividad (incluida la copia) funciona en el blob específico.<br/><br/>Cuando no se especifica fileName, la copia incluirá todos los blobs de folderPath para el conjunto de datos de entrada.<br/><br/>Si no se especifica **fileName** para un conjunto de datos de salida y no se especifica **preserveHierarchy** en el receptor de actividad, el nombre del archivo generado tendrá el siguiente formato: Data.<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Sin  |
 | partitionedBy |partitionedBy es una propiedad opcional. Puede usarla para especificar un folderPath dinámico y un nombre de archivo para datos de series temporales. Por ejemplo, se puede parametrizar folderPath por cada hora de datos. Consulte la sección [Uso de la propiedad partitionedBy](#using-partitionedBy-property) para ver información detallada y ejemplos. |Sin  |
 | formato | Se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) y [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida. |Sin  |
@@ -173,8 +173,8 @@ En esta sección se describe el comportamiento resultante de la operación de co
 ## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>Tutorial: Uso del Asistente para copia para copiar datos a y desde Blob Storage
 Vamos a ver cómo copiar rápidamente datos a y desde una instancia de Azure Blob Storage. En este tutorial, los almacenes de datos de origen y destino son de tipo: Azure Blob Storage. La canalización en este tutorial copia datos de una carpeta a otra carpeta en el mismo contenedor de blobs. Este tutorial es sencillo a propósito para mostrar sus valores de configuración o propiedades al usar Blob Storage como origen o receptor. 
 
-### <a name="prerequisites"></a>requisitos previos
-1. Si aún no tiene una, cree una **cuenta de Azure Storage** de uso general. En este tutorial usará el almacenamiento de blobs como almacén de datos de **origen** y **destino**. Si no tiene una cuenta de Almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación.
+### <a name="prerequisites"></a>Requisitos previos
+1. Si aún no tiene una, cree una **cuenta de Azure Storage** de uso general. En este tutorial usará el almacenamiento de blobs como almacén de datos de **origen** y **destino**. Si no tiene una cuenta de Almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación.
 2. Cree un contenedor de blobs denominado **adfblobconnector** en la cuenta de almacenamiento. 
 4. Cree una carpeta denominada **entrada** en el contenedor **adfblobconnector**.
 5. Cree un archivo denominado **emp.txt** con el siguiente contenido y cárguelo en la carpeta **entrada** mediante herramientas como el [Explorador de Azure Storage](https://azurestorageexplorer.codeplex.com/).
@@ -186,7 +186,7 @@ Vamos a ver cómo copiar rápidamente datos a y desde una instancia de Azure Blo
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Crear un recurso** en la esquina superior izquierda, después en **Inteligencia y análisis** y en **Data Factory**.
 3. En el panel **Nueva factoría de datos**:   
-    1. Escriba **ADFBlobConnectorDF** como **nombre**. El nombre del generador de datos de Azure debe ser único global. Si recibe el siguiente error: `*Data factory name “ADFBlobConnectorDF” is not available`, cambie el nombre de la factoría de datos (por ejemplo, yournameADFBlobConnectorDF) e intente crearla de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
+    1. Escriba **ADFBlobConnectorDF** como **nombre**. El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si recibe el siguiente error: `*Data factory name “ADFBlobConnectorDF” is not available`, cambie el nombre de la factoría de datos (por ejemplo, yournameADFBlobConnectorDF) e intente crearla de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.
     2. Selección la **suscripción**de Azure.
     3. Para Grupo de recursos, seleccione **Usar el existente** para seleccionar un grupo de recursos existente (o) seleccione **Crear nuevo** para escribir un nombre para un grupo de recursos.
     4. Seleccione una **ubicación** para la factoría de datos.

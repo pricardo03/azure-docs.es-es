@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c43c15131afb5fbf346b0137dac566f5331c65a2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f89c97f1220c0e949912a3002021eca20f91441d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776379"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42144988"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Registro del usuario actual para las notificaciones de inserción mediante ASP.NET
 > [!div class="op_single_selector"]
@@ -107,7 +107,7 @@ En este tema se describe cómo solicitar el registro de las notificaciones de in
     De este modo se configura el token del dispositivo para la solicitud.
    
    > [!NOTE]
-   > En este punto, no debería haber ningún otro código en este método. Si ya tiene una llamada al método **registerNativeWithDeviceToken** que se agregó cuando realizó el tutorial [Introducción a Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/) , debe convertir la llamada en comentario o borrarla.
+   > En este punto, no debería haber ningún otro código en este método. Si ya tiene una llamada al método **registerNativeWithDeviceToken** que se agregó cuando realizó el tutorial [Introducción a Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md) , debe convertir la llamada en comentario o borrarla.
    > 
    > 
 8. En el archivo PushToUserAppDelegate.m, agregue el siguiente método de controlador:
@@ -218,6 +218,6 @@ Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación 
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[Notificación a los usuarios con Notification Hubs]: /manage/services/notification-hubs/notify-users-aspnet
+[Notificación a los usuarios con Notification Hubs]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 
-[Introducción a Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+[Introducción a Notification Hubs]: notification-hubs-ios-apple-push-notification-apns-get-started.md

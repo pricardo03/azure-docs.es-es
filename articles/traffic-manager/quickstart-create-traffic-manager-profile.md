@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2018
 ms.author: kumud
-ms.openlocfilehash: b3a9bbe8b88df4ac7dcb96903341e92261a2649b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c969dbc347f0463f6f675a11f69776948d45a9e2
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39532004"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42023751"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>Guía de inicio rápido: Creación de un perfil de Traffic Manager para una aplicación web de alta disponibilidad
 
@@ -128,7 +128,7 @@ Cuando ya no los necesite, elimine el grupo de recursos, las aplicaciones web y 
 En esta guía de inicio rápido, ha creado un perfil de Traffic Manager que le permite dirigir el tráfico de usuario de la aplicación web de alta disponibilidad. Para más información sobre el enrutamiento del tráfico, continúe con los tutoriales de Traffic Manager.
 
 > [!div class="nextstepaction"]
-> [Tutoriales de Traffic Manager](traffic-manager-configure-performance-routing-method.md)
+> [Tutoriales de Traffic Manager](tutorial-traffic-manager-improve-website-response.md)
 
 
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fa8cdaf1a21a59a5bb695e3be90382f1e33823a2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4ee3d424d5a2f58a87cd83ca3d6e9b131dc0383c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590596"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246753"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Habilitación de escritura diferida de dispositivos
 > [!NOTE]
@@ -36,7 +36,7 @@ Esto ofrece seguridad adicional y la garantía de que el acceso a las aplicacion
 
 > [!IMPORTANT]
 > <li>Los dispositivos deben encontrarse en el mismo bosque que los usuarios. Puesto que los dispositivos deben volver a escribirse en un único bosque, esta característica no admite actualmente una implementación con varios bosques de usuarios.</li>
-> <li>Solo se puede agregar un objeto de configuración de registro de dispositivo al bosque de Active Directory local. Esta característica no es compatible con una topología en la que el Active Directory local está sincronizado a varios directorios de Azure AD.</li>> 
+> <li>Solo se puede agregar un objeto de configuración de registro de dispositivo al bosque de Active Directory local. Esta característica no es compatible con una topología en la que el Active Directory local está sincronizado a varios directorios de Azure AD.</li>
 
 ## <a name="part-1-install-azure-ad-connect"></a>Parte 1: Instalación de Azure AD Connect
 Instale Azure AD Connect mediante la configuración rápida o personalizada. Microsoft recomienda empezar con todos los usuarios y grupos sincronizados correctamente antes de habilitar la escritura diferida de dispositivos.

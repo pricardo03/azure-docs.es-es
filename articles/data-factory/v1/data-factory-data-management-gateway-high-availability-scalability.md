@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b9ec9867e9abd188142067e593c925e3c8acdd0b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 58f612906af55575e9d42307af924ea0a8501ca1
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37113347"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144674"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - Alta disponibilidad y escalabilidad (versión preliminar)
 > [!NOTE]
@@ -160,7 +160,7 @@ Puede actualizar una puerta de enlace existente para usar la característica de 
 - Agregue al menos dos nodos para asegurar la alta disponibilidad.  
 
 ### <a name="tlsssl-certificate-requirements"></a>Requisitos del certificado TLS/SSL
-Estos son los requisitos para el certificado TLS/SSL que se usa para proteger las comunicaciones entre los nodos de Integration Runtime:
+Estos son los requisitos para el certificado TLS/SSL que se usa para proteger las comunicaciones entre los nodos del entorno de ejecución de integración:
 
 - El certificado debe ser un certificado de confianza pública X509 v3. Se recomienda que utilice certificados emitidos por una entidad de certificación pública (CA).
 - Cada nodo de Integration Runtime debe confiar en este certificado, así como en el equipo cliente que ejecuta la aplicación del Administrador de credenciales. 
@@ -169,7 +169,7 @@ Estos son los requisitos para el certificado TLS/SSL que se usa para proteger la
 - Se admiten certificados comodín. Si el nombre FQDN es **node1.domain.contoso.com**, puede utilizar ***.domain.contoso.com** como nombre del firmante del certificado.
 - No se recomienda usar certificados de SAN, ya que solo se utilizará el último elemento de los nombres alternativos del firmante y los demás se ignorarán debido a la limitación actual. Por ejemplo, tiene un certificado de SAN cuyos SAN son **node1.domain.contoso.com** y **node2.domain.contoso.com**, pero solo puede usar este certificado en el equipo cuyo FQDN es **node2.domain.contoso.com**.
 - Se admite cualquier tamaño de clave compatible con Windows Server 2012 R2 para los certificados SSL.
-- El certificado que usa claves CNG no es compatible. Doesrted no admite certificados que utilizan claves CNG.
+- El certificado que usa claves CNG no es compatible.
 
 #### <a name="faq-when-would-i-not-enable-this-encryption"></a>P+F: ¿Cuándo no debería habilitar este cifrado?
 Habilitar el cifrado puede agregar determinados costos a la infraestructura (propiedad de certificado público), por lo que puede omitir el paso para habilitar el cifrado en los casos siguientes:

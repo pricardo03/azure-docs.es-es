@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 9ffc84009adfca60e9ae6b188b65b15e874e7d9c
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d49b5404f1a2b4ac7fa4cc170ccc010a28bf98a2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622177"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144587"
 ---
 # <a name="how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Control de la unión de dispositivos a Azure AD híbrido
 
@@ -116,7 +116,7 @@ Tiene que vincular este valor de cliente a una ubicación de su elección. Por e
 
 ## <a name="control-windows-down-level-devices"></a>Control de dispositivos de Windows de nivel inferior
 
-Para registrar dispositivos de Windows de nivel inferior, tiene que descargar e instalar el paquete de Windows Installer (.msi) desde el Centro de descarga de la página [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/en-us/download/details.aspx?id=53554) (Microsoft Workplace Join para equipos sin Windows 10).
+Para registrar dispositivos de Windows de nivel inferior, tiene que descargar e instalar el paquete de Windows Installer (.msi) desde el Centro de descarga de la página [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554) (Microsoft Workplace Join para equipos sin Windows 10).
 
 El paquete se puede implementar mediante un sistema de distribución de software como System Center Configuration Manager. El paquete admite las opciones de instalación silenciosa estándar mediante el parámetro quiet. La rama actual de [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager) ofrece ventajas adicionales con respecto a las versiones anteriores, como la capacidad de realizar el seguimiento de los registros completados.
 

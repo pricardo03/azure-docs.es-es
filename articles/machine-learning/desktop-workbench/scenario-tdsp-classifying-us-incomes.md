@@ -3,25 +3,25 @@ title: 'Clasificación de ingresos: proceso de ciencia de datos en equipo con Az
 description: Cómo usar la plantilla de proceso de ciencia de datos en equipo para crear un proyecto de Azure Machine Learning que permita clasificar los ingresos de Estados Unidos.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
-ms.author: bradsev
-ms.openlocfilehash: 3b1d2be46b2f142adff966991997891e44e850ec
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: edc3fc5e2a625a14bcb48b03f32cd99069a0ad53
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832686"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142858"
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Clasificación de ingresos con el proyecto de proceso de ciencia de datos en equipo (TDSP)
 
@@ -37,7 +37,7 @@ Previamente se presentó un [repositorio de GitHub para las plantillas y la estr
 ### <a name="purpose"></a>Propósito
 El propósito principal de este ejemplo es mostrar cómo crear una instancia y ejecutar un proyecto de aprendizaje automático mediante la estructura y las plantillas del [proceso de ciencia de datos en equipo (TDSP)](https://github.com/Azure/Microsoft-TDSP) en Azure Machine Learning. Para ello, se han usado los conocidos [datos del censo de EE.UU. de 1994 del repositorio de Machine Learning de UCI](https://archive.ics.uci.edu/ml/datasets/adult). La tarea de modelado consiste en predecir las clases de ingresos anuales de Estados Unidos a partir de la información del censo de EE.UU. (por ejemplo, edad, raza, nivel de educación, país de origen, etc).
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>Ámbito
  * Exploración de datos, entrenamiento e implementación de un modelo de aprendizaje automático que permita resolver el problema de predicción que se describe en la introducción del caso de uso. 
  * Ejecución del proyecto en Azure Machine Learning mediante la plantilla de proceso de ciencia de datos de equipo (TDSP) para este proyecto. Para la ejecución de proyectos y los informes se va a usar el ciclo de vida de TDSP.
  * Operacionalización de la solución directamente desde Azure Machine Learning en Azure Container Services.
@@ -50,7 +50,7 @@ Consulte [Ciclo de vida del proceso de ciencia de datos en equipo (TDSP)](https:
 
 ![](./media/scenario-tdsp-classifying-us-incomes/tdsp-lifecycle.jpg)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 ### <a name="required-subscription-hardware-software"></a>Obligatorios: suscripción, hardware, software
 1. Una [suscripción](https://azure.microsoft.com) de Azure. Puede obtener una [suscripción gratuita](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg) para ejecutar este ejemplo también.
 2. Una instancia de [Azure Data Science Virtual Machine (DSVM) para Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm), (tamaño de máquina virtual: [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), con 4 CPU virtuales y 14 GB de RAM). Aunque se ha probado en una instancia de Azure DSVM, es probable que funcione en cualquier máquina de Windows 10.

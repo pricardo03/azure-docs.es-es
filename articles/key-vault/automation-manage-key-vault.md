@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: magoedte
-ms.openlocfilehash: b5f8a1b826717d51729b0bb621bf26e35d4bdd36
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6484c8c9ae1ad109820c3b3912c3a7ea8d49c2a2
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406881"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42142932"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Administración de Azure Key Vault mediante Azure Automation
 Esta guía le ofrece el servicio Azure Automation y cómo se puede usar para simplificar la administración de claves y secretos en Azure Key Vault.
@@ -32,7 +32,7 @@ Azure Automation proporciona un motor de ejecución de flujo de trabajo altament
 Reduzca la sobrecarga operativa y libere al personal de TI/DevOps para concentrarse en el trabajo que proporciona valor al negocio trasladando las tareas de administración en la nube para que se ejecuten automáticamente mediante Azure Automation.
 
 ## <a name="how-can-azure-automation-help-manage-azure-key-vault"></a>¿Cómo puede ayudar Azure Automation a administrar Azure Key Vault?
-Key Vault se puede administrar en Azure Automation mediante los [cmdlets AzureRM de Key Vault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) y los [cmdlets de Azure Key Vault clásico](https://msdn.microsoft.com/library/azure/dn868052.aspx). El módulo de Azure para administrar la versión clásica de Key Vault está disponible automáticamente en Azure Automation, mientras que el [módulo AzureRM-KeyVault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) se puede importar a Azure Automation para poder realizar muchas de las tareas de administración de Key Vault dentro del servicio. También puede emparejar estos cmdlets en Azure Automation con los cmdlets para otros servicios de Azure, para automatizar tareas complejas a través de los servicios de Azure y sistemas de terceros.
+Key Vault se puede administrar en Azure Automation mediante los [cmdlets AzureRM de Key Vault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) y los [cmdlets de Azure Key Vault clásico](https://docs.microsoft.com/powershell/module/servicemanagement/azure). El módulo de Azure para administrar la versión clásica de Key Vault está disponible automáticamente en Azure Automation, mientras que el [módulo AzureRM-KeyVault](https://www.powershellgallery.com/packages/AzureRM.KeyVault/1.1.4) se puede importar a Azure Automation para poder realizar muchas de las tareas de administración de Key Vault dentro del servicio. También puede emparejar estos cmdlets en Azure Automation con los cmdlets para otros servicios de Azure, para automatizar tareas complejas a través de los servicios de Azure y sistemas de terceros.
 
 Con los cmdlets de Azure Key Vault puede realizar estas tareas entre otras: 
 

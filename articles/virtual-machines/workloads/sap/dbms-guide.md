@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2caa9a5137edd4e012adf704c01dc5c470e1bb51
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f6b0ea7479910f7026974e37f8c05099453c0b26
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972451"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146070"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementación de DBMS de Azure Virtual Machines para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1161,7 +1161,7 @@ La instalación y la actividad de SRS se desarrollan funcionalmente igual de bie
 En este momento no se admite ASE HADR a través de SAP Replication Server. Es posible que más adelante se realicen pruebas con las plataformas de Microsoft Azure y se publiquen para ellas.
 
 ## <a name="specifics-to-oracle-database-on-windows"></a>Detalles de la base de datos de Oracle en Windows
-El software de Oracle está admitido por Oracle para su ejecución en Microsoft Windows Hyper-V y Azure. Para más información sobre la compatibilidad general de Windows Hyper-V y Azure, consulte: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+El software de Oracle está admitido por Oracle para su ejecución en Microsoft Windows Hyper-V y Azure. 
 
 A partir de esta compatibilidad general, también se admite el escenario concreto en el que las aplicaciones de SAP aprovechen las bases de datos de Oracle. Los detalles se mencionan en esta parte del documento.
 
@@ -1199,7 +1199,7 @@ Oracle Data Guard se admite con fines de alta disponibilidad y recuperación ant
 Todas las demás áreas generales, como los conjuntos de disponibilidad de Azure o la supervisión de SAP, se aplican como se describe en los tres primeros capítulos de este documento para implementaciones de máquinas virtuales también con Oracle Database.
 
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Detalles de la base de datos de Oracle en Windows
-El software de Oracle está admitido por Oracle para su ejecución en Microsoft Windows Hyper-V y Azure. Para más información sobre la compatibilidad general de Windows Hyper-V y Azure, consulte: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+El software de Oracle está admitido por Oracle para su ejecución en Microsoft Windows Hyper-V y Azure. 
 
 A partir de esta compatibilidad general, también se admite el escenario concreto en el que las aplicaciones de SAP aprovechen las bases de datos de Oracle. Los detalles se mencionan en esta parte del documento.
 

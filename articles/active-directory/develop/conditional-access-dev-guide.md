@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 7b41d3af5fbbbef90676fe37056b69d89c4f6c48
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: ab6936d62aac5502d70239bacfbfd15bd6b793ab
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580972"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145017"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Instrucciones para desarrolladores para el acceso condicional de Azure Active Directory
 
@@ -78,7 +78,7 @@ Los desarrolladores pueden tomar este desafío y anexarlo a una solicitud nueva 
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-El acceso condicional de Azure AD es una característica que se incluye en [Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis#choose-an-edition). Puede obtener más información sobre los requisitos de licencia en el [informe de uso sin licencia](../active-directory-conditional-access-unlicensed-usage-report.md). Los desarrolladores pueden unirse a [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), que incluye una suscripción gratis a Enterprise Mobility Suite que, a su vez, incluye Azure AD Premium.
+El acceso condicional de Azure AD es una característica que se incluye en [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis#choose-an-edition). Puede obtener más información sobre los requisitos de licencia en el [informe de uso sin licencia](../active-directory-conditional-access-unlicensed-usage-report.md). Los desarrolladores pueden unirse a [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), que incluye una suscripción gratis a Enterprise Mobility Suite que, a su vez, incluye Azure AD Premium.
 
 ### <a name="considerations-for-specific-scenarios"></a>Consideraciones para escenarios específicos
 

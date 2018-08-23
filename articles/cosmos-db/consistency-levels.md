@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9503759b776bb045c4dc0357b1ab88be1294013
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 8d95790dc09f6d26c6ae749ed0cd386053c5cb35
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038561"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145912"
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia de datos optimizables en Azure Cosmos DB
 El diseño de Azure Cosmos DB se llevó a cabo desde el principio pensando en la distribución global de cada modelo de datos. Se ha diseñado para que ofrezca garantías de una baja latencia predecible y varios modelos de coherencia moderada bien definidos. Actualmente, Azure Cosmos DB ofrece cinco niveles de coherencia: fuerte, de obsolescencia limitada, de sesión, de prefijo coherente y final. Obsolescencia limitada, sesión, prefijo coherente y posible se denominan "modelos de coherencia moderada", ya que proporcionan menos coherencia que la coherencia fuerte, que es el modelo más coherente disponible. 
@@ -132,7 +132,7 @@ Si desea leer más sobre los niveles de coherencia y los compromisos, recomendam
 * [Replicated Data Consistency explained through baseball (Coherencia de datos replicados explicada mediante el béisbol) (vídeo), por Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
 * [Replicated Data Consistency explained through baseball (Coherencia de datos replicados explicada mediante el béisbol) (notas del producto), por Doug Terry](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 * [Session Guarantees for Weakly Consistent Replicated Data (Garantías de sesión para datos replicados con coherencia débil)](http://dl.acm.org/citation.cfm?id=383631)
-* [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story (Compromisos de coherencia en el diseño de sistemas modernos de bases de datos distribuidas: CAP es solo una parte de la historia)](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story (Compromisos de coherencia en el diseño de sistemas modernos de bases de datos distribuidas: CAP es solo una parte de la historia)](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 * [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf) [Obsolescencia limitada probabilística (PBS) para cuórums parciales prácticos].
 * [Eventual Consistent - Revisited (Coherencia final: revisión)](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 * [The Load, Capacity, and Availability of Quorum Systems (La carga, capacidad y disponibilidad de los sistemas de cuórum), SIAM Journal on Computing](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)

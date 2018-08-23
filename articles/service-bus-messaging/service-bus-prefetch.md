@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 0a61918108a48f4a9fa3d1c07cc8d41525f1f2a0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a61b7b08d883c1b5a7fde93c249fc8de1473d15d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28928168"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42145913"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Captura previa de mensajes de Azure Service Bus
 
@@ -40,9 +40,9 @@ La captura previa también funciona de la misma manera con las API [OnMessage](/
 
 La captura previa acelera el flujo de mensajes al hacer que el mensaje esté fácilmente disponible para la recuperación local si la aplicación lo solicita y antes de ello. Esta mejora de rendimiento es el resultado de un intercambio que el autor de la aplicación debe realizar explícitamente:
 
-Con modo de recepción [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode.receiveanddelete), ya no están disponibles en la cola todos los mensajes que se adquieren en el búfer de captura previa y solo se encuentran en el búfer de captura previa en memoria hasta que se reciben en la aplicación a través de las API **Receive**/**ReceiveAsync** o **OnMessage**/**OnMessageAsync**. Si la aplicación finaliza antes de que se reciban los mensajes en la aplicación, estos se pierden de manera permanente.
+Con modo de recepción [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode), ya no están disponibles en la cola todos los mensajes que se adquieren en el búfer de captura previa y solo se encuentran en el búfer de captura previa en memoria hasta que se reciben en la aplicación a través de las API **Receive**/**ReceiveAsync** o **OnMessage**/**OnMessageAsync**. Si la aplicación finaliza antes de que se reciban los mensajes en la aplicación, estos se pierden de manera permanente.
 
-En el modo de recepción [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode.peeklock), los mensajes capturados en el búfer de captura previa se adquieren en el búfer en un estado bloqueado y se selecciona el reloj de tiempo de espera para el bloqueo. Si el búfer de captura previa es grande y el procesamiento tarda tanto tiempo que expiran los bloqueos de ese mensaje mientras reside en el búfer de captura previa o incluso mientras la aplicación está procesando el mensaje, puede haber algunos eventos confusos que aplicación tenga que controlar.
+En el modo de recepción [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock), los mensajes capturados en el búfer de captura previa se adquieren en el búfer en un estado bloqueado y se selecciona el reloj de tiempo de espera para el bloqueo. Si el búfer de captura previa es grande y el procesamiento tarda tanto tiempo que expiran los bloqueos de ese mensaje mientras reside en el búfer de captura previa o incluso mientras la aplicación está procesando el mensaje, puede haber algunos eventos confusos que aplicación tenga que controlar.
 
 La aplicación podría adquirir un mensaje con un bloqueo que haya expirado o que esté a punto a punto de expirar. Si es así, la aplicación puede procesar el mensaje, pero, después, encuentra que no puede completarlo debido a la expiración de un bloqueo. La aplicación puede comprobar la propiedad [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc) (que está sujeta a desfases del reloj entre el reloj del agente y de la máquina local). Si el bloqueo del mensaje ha expirado, la aplicación debe ignorar el mensaje; no debe realizarse ninguna llamada de API en el mensaje o con él. Si el mensaje no ha expirado pero la expiración es inminente, el bloqueo se puede renovar y ampliar durante otro período de bloqueo predeterminado mediante una llamada a [message. RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_).
 
@@ -54,7 +54,7 @@ Si necesita un elevado rendimiento y el procesamiento de mensajes es normalmente
 
 El número máximo de captura previa y la duración del bloqueo configurado en la cola o suscripción deben equilibrarse de forma que el tiempo de espera del bloqueo supere al menos el tiempo de procesamiento de mensajes acumulativo para el tamaño máximo del búfer de captura previa, además de un mensaje. Al mismo tiempo, el tiempo de espera de bloqueo no debe ser tan prolongado que los mensajes superen su método [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) máximo cuando se quitan accidentalmente, lo que requiere que su bloqueo expire antes de que se vaya a volver a entregar.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

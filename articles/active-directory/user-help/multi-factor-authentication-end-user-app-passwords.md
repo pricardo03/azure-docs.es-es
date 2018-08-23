@@ -12,12 +12,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: c6340133971a226002ce11ae1521bdc88e3e7975
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 86cc98721681750617e374679c38ad29cf5a2362
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343295"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142839"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Administración de las contraseñas de aplicaciones para la verificación en dos pasos
 
@@ -38,7 +38,7 @@ Al utilizar las contraseñas de aplicaciones, es importante recordar:
 
 Recibirá una contraseña de la aplicación durante el registro inicial de verificación en dos pasos. Si necesita más de una contraseña, puede crear contraseñas adicionales, según cómo utilice la verificación en dos pasos:
 
-- **Utiliza la verificación en dos pasos con la cuenta de Microsoft Azure.** Cree y elimine las contraseñas de aplicaciones con [Azure Portal](https://portal.azure.com). Para más información, consulte el artículo [Contraseñas de aplicaciones y verificación en dos pasos](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification).
+- **Utiliza la verificación en dos pasos con la cuenta de Microsoft Azure.** Cree y elimine las contraseñas de aplicaciones con [Azure Portal](https://portal.azure.com). Para más información, consulte el artículo [Contraseñas de aplicaciones y verificación en dos pasos](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification).
 
 - **Utiliza la verificación en dos pasos para la cuenta Microsoft personal.** Cree y elimine las contraseñas de aplicaciones mediante con la página [Conceptos básicos sobre seguridad](https://account.microsoft.com/account/) con su cuenta de Microsoft. Para más información, consulte el artículo [Contraseñas de aplicaciones y verificación en dos pasos](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification).
 

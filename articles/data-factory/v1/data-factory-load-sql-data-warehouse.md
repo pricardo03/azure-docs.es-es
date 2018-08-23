@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6a7f31cf541bc1cccd3a5d565a0d3a223ccd3aee
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5fb4034d49982d600fe5b0de17d0b198e3ee653e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045174"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246723"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carga de 1 TB en Azure SQL Data Warehouse en 15 minutos con Data Factory
 > [!NOTE]
@@ -46,8 +46,8 @@ Este artículo proporciona instrucciones paso a paso para mover datos a Azure SQ
 >
 >
 
-## <a name="prerequisites"></a>requisitos previos
-* Azure Blob Storage: este experimento usa Azure Blob Storage (GRS) para almacenar un conjunto de datos de prueba TPC-H.  Si no dispone de una cuenta de Azure Storage, infórmese sobre [cómo crear una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+## <a name="prerequisites"></a>Requisitos previos
+* Azure Blob Storage: este experimento usa Azure Blob Storage (GRS) para almacenar un conjunto de datos de prueba TPC-H.  Si no dispone de una cuenta de Azure Storage, infórmese sobre [cómo crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md).
 * Datos [TPC-H](http://www.tpc.org/tpch/): vamos a usar TPC-H como conjunto de datos de prueba.  Para ello, tiene que utilizar `dbgen` desde el Kit de herramientas de TPC-H, lo que le ayudará a generar el conjunto de datos.  Puede descargar código fuente para `dbgen` en las [herramientas de TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) y compilarlo usted mismo, o descargar el binario compilado desde [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Ejecute dbgen.exe con los siguientes comandos para generar un archivo sin formato de 1 TB para la tabla `lineitem` propagada a través de 10 archivos:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
@@ -118,7 +118,7 @@ Con los pasos previos completados, ahora estamos preparados configurar la activi
 3. En el panel **Nueva factoría de datos**:
 
    1. Escriba **LoadIntoSQLDWDataFactory** para el **nombre**.
-       El nombre del generador de datos de Azure debe ser único global. Si recibe el error: **El nombre de factoría de datos "LoadIntoSQLDWDataFactory" no está disponible**, cambie el nombre de la factoría de datos (por ejemplo, sunombreLoadIntoSQLDWDataFactory) e intente crearla de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.  
+       El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si recibe el error: **El nombre de factoría de datos "LoadIntoSQLDWDataFactory" no está disponible**, cambie el nombre de la factoría de datos (por ejemplo, sunombreLoadIntoSQLDWDataFactory) e intente crearla de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.  
    2. Selección la **suscripción**de Azure.
    3. Para el grupo de recursos, realice uno de los siguientes pasos:
       1. Seleccione en primer lugar **Usar existente** y después un grupo de recursos existente.

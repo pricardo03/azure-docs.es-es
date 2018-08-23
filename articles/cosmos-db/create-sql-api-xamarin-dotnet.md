@@ -2,7 +2,7 @@
 title: 'Azure Cosmos DB: compilación de una aplicación de lista de tareas con Xamarin | Microsoft Docs'
 description: En este tema se incluye un ejemplo de código Xamarin que puede usar para conectarse a Azure Cosmos DB y realizar consultas
 services: cosmos-db
-author: SnehaGunda
+author: codemillmatt
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -10,13 +10,13 @@ ms.custom: quick start connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
-ms.author: sngun
-ms.openlocfilehash: b224a40f1ed5e778da6429d44a449d3f9ffdf16d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: masoucou
+ms.openlocfilehash: 2be4ab0b65827c3d6a906b31e063d8618e12ca0c
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38543907"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022943"
 ---
 # <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: compilación de una aplicación de lista de tareas con Xamarin
 
@@ -29,7 +29,7 @@ En esta guía de inicio rápido se muestra cómo crear una cuenta de SQL API de 
 
 ![Aplicación de lista de tareas que se ejecuta en iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si va a realizar un desarrollo en Windows y no tiene Visual Studio 2017 instalado, puede descargar y usar la versión **gratis** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita las cargas de trabajo **Desarrollo de Azure** y **Desarrollo móvil con .NET** durante la instalación de Visual Studio.
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 5c34219d01c8670102df40d9157cb0deff74b8e4
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fbd728ec8cd2c8c4cd7ca74ecd84fd4d0d41cbd0
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724292"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142615"
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator para Android
 Es posible que el administrador de TI le haya recomendado utilizar Microsoft Azure Authenticator para iniciar sesión y tener acceso a los recursos de trabajo. Esta aplicación proporciona dos opciones de inicio de sesión:
@@ -89,7 +89,7 @@ Después de instalar la aplicación Azure Authenticator, también puede crear un
 ### <a name="sending-log-files-to-report-issues"></a>Envío de archivos de registro para informar de problemas
 1. Siga las instrucciones del Soporte técnico de Microsoft para informar sobre un incidente con la aplicación Azure Authenticator, obtener un número de incidente y enviar archivos de registro con el número de incidente asignado de la manera siguiente:
 2. En el menú emergente, haga clic en **Registro**.
-3. Si dispone de un incidente abierto en el Soporte técnico de Microsoft, anote el número de incidente (ya que lo necesitará en un paso posterior). Si aún no ha creado un incidente de soporte técnico y necesita ayuda, siga las instrucciones del [Soporte técnico de Microsoft](https://support.microsoft.com/en-us/contactus) para abrir un incidente nuevo.
+3. Si dispone de un incidente abierto en el Soporte técnico de Microsoft, anote el número de incidente (ya que lo necesitará en un paso posterior). Si aún no ha creado un incidente de soporte técnico y necesita ayuda, siga las instrucciones del [Soporte técnico de Microsoft](https://support.microsoft.com/contactus) para abrir un incidente nuevo.
 4. En la pantalla de registro, haga clic en **Enviar ahora**.
 5. Seleccione el proveedor de correo electrónico que desea utilizar.
 6. Si ya dispone de un incidente abierto en el Soporte técnico de Microsoft, póngase en contacto con el ingeniero de soporte técnico asignado a su problema para averiguar cómo enviar los datos del registro y asociarlos al incidente. El ingeniero de soporte técnico le proporcionará información relativa a la dirección de correo electrónico y a la línea de asunto del correo. Si todavía no dispone de un incidente, siga las instrucciones indicadas en el Soporte técnico de Microsoft para abrir un incidente nuevo.

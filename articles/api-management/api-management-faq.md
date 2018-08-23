@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 243f0b8206166e3e054dfc423259bd3444d8a2db
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7082edf43e53766d32bd967d0b894f6439eaa492
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31589839"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42142596"
 ---
 # <a name="azure-api-management-faqs"></a>P+F de Azure API Management
 Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure API Management.
@@ -78,7 +78,7 @@ Sí, puede administrar API Management mediante programación utilizando:
 
 * La [API de REST de API Management](https://msdn.microsoft.com/library/azure/dn776326.aspx).
 * El [SDK de la biblioteca de administración del servicio Microsoft Azure ApiManagement](http://aka.ms/apimsdk).
-* Los cmdlets de [implementación del servicio](https://msdn.microsoft.com/library/mt619282.aspx) y [administración del servicio](https://msdn.microsoft.com/library/mt613507.aspx) de PowerShell.
+* Los cmdlets de [implementación del servicio](https://docs.microsoft.com/powershell/module/wds) y [administración del servicio](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) de PowerShell.
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>¿Cómo se puede agregar un usuario al grupo de administradores?
 A continuación se indica cómo agregar un usuario al grupo de administradores:
@@ -87,7 +87,7 @@ A continuación se indica cómo agregar un usuario al grupo de administradores:
 2. Vaya al grupo de recursos que tiene la instancia de API Management que desea actualizar.
 3. En API Management, asigne el rol **Colaborador de API Management** al usuario.
 
-Ahora el colaborador recién agregado puede usar los [cmdlets](https://msdn.microsoft.com/library/mt613507.aspx) de Azure PowerShell. A continuación se indica cómo iniciar sesión como administrador:
+Ahora el colaborador recién agregado puede usar los [cmdlets](https://docs.microsoft.com/powershell/azure/overview) de Azure PowerShell. A continuación se indica cómo iniciar sesión como administrador:
 
 1. Utilice el cmdlet `Connect-AzureRmAccount` para iniciar sesión.
 2. Establezca el contexto para la suscripción que tiene el servicio mediante `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.

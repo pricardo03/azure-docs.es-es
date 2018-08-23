@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 4774efda6748ac640d87ce83e2d5c4ee68310546
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 0f38aabf008f0335a6f9e21717aa38aefdd21615
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125746"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022941"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Guía de inicio rápido: Creación del primer flujo de trabajo automatizado con Azure Logic Apps: Azure Portal
 
@@ -44,7 +44,7 @@ Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Porta
 
    | Propiedad | Valor | DESCRIPCIÓN | 
    |----------|-------|-------------| 
-   | **Name** | MyFirstLogicApp | Nombre de la aplicación lógica | 
+   | **Nombre** | MyFirstLogicApp | Nombre de la aplicación lógica | 
    | **Suscripción** | <*nombre-de-su-suscripción-a-Azure*> | El nombre de la suscripción a Azure | 
    | **Grupos de recursos** | My-First-LA-RG | Nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) que se utiliza para organizar recursos relacionados | 
    | **Ubicación** | Oeste de EE. UU. | Región en la que desea almacenar la información de la aplicación lógica | 
@@ -171,6 +171,9 @@ Cuando ya no necesite este ejemplo, elimine el grupo de recursos que contiene la
 2. Escriba el nombre del grupo de recursos como confirmación y elija **Eliminar**.
 
    ![Confirmar eliminación](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
+
+> [!NOTE]
+> Cuando se elimina una aplicación lógica, no se crean instancias de nuevas ejecuciones. Todas las ejecuciones nuevas y pendientes se cancelan. Si tiene miles de ejecuciones, la cancelación puede tardar bastante tiempo en completarse.
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 

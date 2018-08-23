@@ -2,7 +2,7 @@
 title: 'Azure Cosmos DB: compilación de una aplicación web de Flask con Python y MongoDB API de Azure Cosmos DB | Microsoft Docs'
 description: En este tema se presenta un ejemplo de código de Python Flask que se puede usar para conectarse a MongoDB API de Azure Cosmos DB y realizar consultas.
 services: cosmos-db
-author: heatherbshapiro
+author: slyons
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
@@ -10,13 +10,13 @@ ms.custom: quick start connect, mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/2/2017
-ms.author: hshapiro
-ms.openlocfilehash: 024ca836e4d2c58c4c942d6f7376608e40248316
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: sclyon
+ms.openlocfilehash: f9ef92f5f0bb1a0b15302a7dc578c47cfc6ee970
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38485434"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022480"
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: compilación de una aplicación de Flask con MongoDB API
 
@@ -24,7 +24,7 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 
 En esta guía de inicio rápido se usa el siguiente [ejemplo de Flask](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) y se muestra cómo compilar una aplicación sencilla de tareas de Flask con el [emulador de Azure Cosmos DB](local-emulator.md) y la [API de MongoDB](mongodb-introduction.md) de Azure Cosmos DB en lugar de con MongoDB.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Descargue el [emulador de Azure Cosmos DB](local-emulator.md). Actualmente, el emulador solo se admite en Windows. Con el ejemplo se muestra cómo utilizarlo con una clave de producción de Azure en cualquier plataforma.
 

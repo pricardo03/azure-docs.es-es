@@ -7,16 +7,17 @@ manager: douge
 ms.assetid: 94ca3413-5497-433f-abbe-836f83a9de72
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: d06fde0dc6c289a09b9fe4c9e2ffbb50c3027490
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 26f303318320eb8b039503666841e518f75348e4
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719449"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146062"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Introducción a Azure Queue Storage y a Servicios conectados de Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -27,10 +28,10 @@ Azure Queue Storage proporciona mensajería en la nube entre componentes de apli
 
 Este tutorial muestra cómo escribir código ASP.NET para algunos escenarios comunes mediante entidades de Azure Queue Storage. Estos escenarios incluyen tareas comunes como crear una cola de Azure y agregar, modificar, leer y eliminar mensajes de la cola.
 
-##<a name="prerequisites"></a>requisitos previos
+##<a name="prerequisites"></a>Requisitos previos
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Cuenta de Almacenamiento de Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Cuenta de Almacenamiento de Azure](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 

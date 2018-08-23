@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 282f6d965ea85b25f1eada1a63897734c6c7b298
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 23ab97918d7def744f9ac3427faa3743b15124eb
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435271"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42023753"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Guía de inicio rápido: Dirección del tráfico web con Azure Application Gateway: CLI de Azure
 
@@ -46,7 +46,7 @@ az group create --name myResourceGroupAG --location eastus
 
 Debe crear una red virtual para que la puerta de enlace de aplicaciones pueda comunicarse con otros recursos. Puede crear una red virtual a la vez que crea la puerta de enlace de aplicaciones. En este ejemplo, se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para las máquinas virtuales. 
 
-Cree la red virtual y una subred mediante [az network vnet create](/cli/azure/vnet#az-vnet-create). Cree la dirección IP pública mediante [az network public-ip create](/cli/azure/public-ip#az-public-ip-create).
+Cree la red virtual y una subred mediante [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Cree la dirección IP pública mediante [az network public-ip create](/cli/azure/network/public-ip#az-public-ip-create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -140,7 +140,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Creación de la puerta de enlace de aplicaciones
 
-Cree una puerta de enlace de aplicaciones mediante [az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create). Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. Las direcciones IP privadas de las interfaces de red se agregan como servidores en el grupo de servidores back-end de la puerta de enlace de aplicaciones.
+Cree una puerta de enlace de aplicaciones mediante [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create). Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. Las direcciones IP privadas de las interfaces de red se agregan como servidores en el grupo de servidores back-end de la puerta de enlace de aplicaciones.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')

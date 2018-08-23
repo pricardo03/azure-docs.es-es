@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: dae8549cb951a463688869454e2f4c71103c1363
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6e58429567e447002b1c9191bb8e50a4351649a9
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226400"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246844"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proceso de ciencia de datos en equipos en acción: uso de SQL Server
 En este tutorial, se describe el proceso de creación e implementación de un modelo de Machine Learning con SQL Server y un conjunto de datos disponible públicamente: [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) . El procedimiento sigue un flujo de trabajo de ciencia de datos estándar: introducir y explorar los datos, diseñar características para facilitar el aprendizaje y, después, crear e implementar un modelo.
@@ -70,7 +70,7 @@ En este tutorial se mostrará la importación paralela en bloque de los datos en
 
 Para configurar el entorno de ciencia de datos de Azure:
 
-1. [crear una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md)
+1. [crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md)
 2. [Creación de un área de trabajo de Azure Machine Learning](../studio/create-workspace.md)
 3. [Aprovisione una máquina virtual de ciencia de datos](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), que proporcionará un servidor de SQL Server y un servidor de Notebook de IPython.
    

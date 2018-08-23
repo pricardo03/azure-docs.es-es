@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: a302c0c6c4ecbaff2d11d852caf9e1e1500931b8
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cd6a3b768077880d47462d1db559a4884cceb84a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225353"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42023474"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Guía de inicio rápido: ejecución de un trabajo de Spark en Azure Databricks con Azure Portal
 
@@ -95,7 +95,7 @@ Descargue un archivo de datos JSON de ejemplo y guárdelo en Azure Blob Storage.
    - Seleccione **Tipo de cuenta**: **Blob Storage**.
    - Seleccione un nombre para el **grupo de recursos**. Use el mismo grupo de recursos en el que creó el área de trabajo de Databricks.
    
-   Para más información, consulte [Creación de una cuenta de Azure Blob Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+   Para más información, consulte [Creación de una cuenta de Azure Blob Storage](../storage/common/storage-quickstart-create-account.md). 
 
 3. Cree un contenedor de almacenamiento en la cuenta de Blob Storage y cargue el archivo json de ejemplo en él. También puede usar Azure Portal o el [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) para cargar el archivo.
 

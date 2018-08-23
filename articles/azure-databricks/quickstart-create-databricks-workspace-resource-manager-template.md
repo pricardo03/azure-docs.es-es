@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 03/23/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 8c1d4dd01d489413d1e0a0121b25e9506e5d6139
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 573d8f6927cbd17c0f095bccf5132674faf94928
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30233683"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42022445"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Guía de inicio rápido: Ejecución de un trabajo de Spark en Azure Databricks con una plantilla de Resource Manager
 
@@ -43,7 +43,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante una p
 
     Proporcione los valores siguientes: 
      
-    |Propiedad  |DESCRIPCIÓN  |
+    |Propiedad  |Descripción  |
     |---------|---------|
     |**Suscripción**     | En el cuadro desplegable, seleccione la suscripción de Azure.        |
     |**Grupos de recursos**     | Especifique si desea crear un nuevo grupo de recursos o utilizar uno existente. Un grupo de recursos es un contenedor que almacena los recursos relacionados con una solución de Azure. Para más información, consulte [Información general del grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md). |
@@ -83,7 +83,7 @@ Para obtener más información sobre la creación de clústeres, consulte [Creat
 
 Antes de empezar esta sección, debe completar lo siguientes requisitos previos:
 
-* [Cree una cuenta de Azure Blob Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+* [Cree una cuenta de Azure Blob Storage](../storage/common/storage-quickstart-create-account.md). 
 * Descargue el archivo JSON de ejemplo [ desde GitHub](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
 * Cargue el archivo JSON de ejemplo en la cuenta de Azure Blob Storage que ha creado. Puede usar [Explorador de Microsoft Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) para cargar archivos.
 

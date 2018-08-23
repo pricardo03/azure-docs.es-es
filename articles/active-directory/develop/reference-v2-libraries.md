@@ -17,12 +17,12 @@ ms.date: 04/13/2018
 ms.author: celested
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 1450cffca7a4cfa57856c75cdcc9e106958ea043
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: f3ac6050ca73f96facd621823dc4bad413b139c7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600929"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146573"
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Bibliotecas de autenticación de Azure Active Directory v2.0
 
@@ -44,7 +44,7 @@ El punto de conexión de Azure AD v2.0 funciona con dos tipos de bibliotecas:
 
 ## <a name="library-support"></a>Compatibilidad con bibliotecas
 
-Puesto que puede elegir cualquier biblioteca que cumpla los estándares al utilizar el punto de conexión v2.0, es importante saber dónde obtener soporte técnico. Para problemas y solicitudes de características en el código de la biblioteca, póngase en contacto con el propietario de la biblioteca. Para problemas y solicitudes de características de la implementación del protocolo en el servicio, póngase en contacto con Microsoft. [Archive una solicitud de característica](https://feedback.azure.com/forums/169401-azure-active-directory) para características adicionales que le gustaría ver en el protocolo. [Cree una solicitud de soporte técnico](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request) si encuentra un problema donde el punto de conexión de Azure AD v2.0 no es compatible con OAuth 2.0 u OpenID Connect 1.0.
+Puesto que puede elegir cualquier biblioteca que cumpla los estándares al utilizar el punto de conexión v2.0, es importante saber dónde obtener soporte técnico. Para problemas y solicitudes de características en el código de la biblioteca, póngase en contacto con el propietario de la biblioteca. Para problemas y solicitudes de características de la implementación del protocolo en el servicio, póngase en contacto con Microsoft. [Archive una solicitud de característica](https://feedback.azure.com/forums/169401-azure-active-directory) para características adicionales que le gustaría ver en el protocolo. [Cree una solicitud de soporte técnico](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) si encuentra un problema donde el punto de conexión de Azure AD v2.0 no es compatible con OAuth 2.0 u OpenID Connect 1.0.
 
 Las bibliotecas se dividen en dos categorías de soporte técnico:
 

@@ -1,24 +1,24 @@
 ---
 title: Niveles de zoom y cuadrícula de mosaico en Azure Maps | Microsoft Docs
 description: Obtenga información acerca de los niveles de zoom y la cuadrícula de mosaico en Azure Maps
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 55441cda7a6fc65ac8103d19510823a7c84a9cbf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c6d38dbb7ee292172fe081c2b77a49db61856d5c
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599932"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42146008"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Niveles de zoom y cuadrícula de mosaico
 Azure Maps usa el sistema de coordenadas de la proyección de Mercator esférica (EPSG: 3857).
 
-El mundo se divide en mosaicos cuadrados. Render (Raster) tiene 19 niveles de zoom, numerados de 0 a 18. Render (Vector) tiene 21 niveles de zoom, numerados de 0 a 20. En el nivel de zoom 0, todo el mundo cabe en un solo mosaico:
+El mundo se divide en mosaicos cuadrados. Render (Raster) tiene 21 niveles de zoom, numerados de 0 a 20. Render (Vector) tiene 23 niveles de zoom, numerados de 0 a 22. En el nivel de zoom 0, todo el mundo cabe en un solo mosaico:
 
 ![Mosaico del mundo](./media/zoom-levels-and-tile-grid/world0.png)
 
@@ -29,7 +29,7 @@ El nivel de zoom 1 utiliza cuatro mosaicos para representar el mundo: un cuadrad
 ![Parte inferior izquierda del mosaico del mundo](./media/zoom-levels-and-tile-grid/world1b.png)     ![Parte inferior derecha del mosaico del mundo](./media/zoom-levels-and-tile-grid/world1d.png) 
 
 
-Cada nivel de zoom posterior divide por cuatro los mosaicos de la anterior, creando una cuadrícula de 2<sup>zoom</sup> x 2<sup>zoom</sup>. El nivel de zoom 20 es una cuadrícula de 2<sup>20</sup> x 2<sup>20</sup> o 1 048 576 x 1 048 576 mosaicos (109 951 162 778 mosaicos en total).
+Cada nivel de zoom posterior divide por cuatro los mosaicos de la anterior, creando una cuadrícula de 2<sup>zoom</sup> x 2<sup>zoom</sup>. El nivel de zoom 22 es una cuadrícula de 2<sup>22</sup> x 2<sup>22</sup> o 4 194 304 x 4 194 304 mosaicos (17 592 186 044 416 mosaicos en total).
 
 La tabla siguiente proporciona los valores de la lista completa de los niveles de zoom:
 
@@ -56,6 +56,8 @@ La tabla siguiente proporciona los valores de la lista completa de los niveles d
 |18|0.6|152,8|
 |19|0,3|76,4|
 |20|0,15|38,2|
+|21|0,075|19,1|
+|22|0,0375|9,55|
 
 Los mosaicos se denominan según las coordenadas x e y, y el nivel de zoom, correspondientes a la posición del mosaico en la cuadrícula para ese nivel de zoom.
 

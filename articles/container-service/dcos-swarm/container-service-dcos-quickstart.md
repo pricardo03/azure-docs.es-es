@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ccc0836a296bb392e60dd0c973516a7087ff6ea5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c2c1ef83ade7040e16f54b87f63f6eb27714bf2a
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429333"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42023023"
 ---
 # <a name="deploy-a-dcos-cluster"></a>Implementación de un clúster de DC/OS
 
@@ -78,7 +78,7 @@ Si el túnel SSH se creó correctamente, se devuelve el portal de DC/OS.
 
 ## <a name="install-dcos-cli"></a>Instalación de la CLI de DC/OS
 
-La interfaz de la línea de comandos de DC/OS se utiliza para administrar un clúster de DC/OS desde la línea de comandos. Instale la CLI de DC/OS con el comando [az acs dcos install-cli](/azure/acs/dcos#install-cli). Si usa Azure CloudShell, la CLI de DC/OS ya estará instalada. 
+La interfaz de la línea de comandos de DC/OS se utiliza para administrar un clúster de DC/OS desde la línea de comandos. Instale la CLI de DC/OS con el comando [az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli). Si usa Azure CloudShell, la CLI de DC/OS ya estará instalada. 
 
 Si está ejecutando la CLI de Azure en macOS o Linux, es posible que tenga que ejecutar el comando con sudo.
 

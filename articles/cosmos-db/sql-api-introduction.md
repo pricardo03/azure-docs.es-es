@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/22/2017
 ms.author: rafats
-ms.openlocfilehash: 8aeab32597d396273cae16bf2c6d98b73828f6f8
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4b469d306c4cd642e375e4eb15b0d26df828b308
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796849"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023107"
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Introducción a Azure Cosmos DB: API de SQL
 
@@ -68,10 +68,10 @@ Azure Cosmos DB expone los recursos a través de las API de REST que se pueden i
 | Descargar | Documentación |
 | --- | --- |
 | [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[Biblioteca de .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
-| [SDK de Node.js](http://go.microsoft.com/fwlink/?LinkID=402990) |[Biblioteca de Node.js](http://azure.github.io/azure-documentdb-node/) |
+| [SDK de Node.js](http://go.microsoft.com/fwlink/?LinkID=402990) |[Biblioteca de Node.js](https://github.com/Azure/azure-cosmosdb-node) |
 | [SDK de Java](http://go.microsoft.com/fwlink/?LinkID=402380) |[Biblioteca de Java](/java/api/com.microsoft.azure.documentdb) |
-| [SDK de JavaScript](http://go.microsoft.com/fwlink/?LinkID=402991) |[Biblioteca de JavaScript](http://azure.github.io/azure-documentdb-js/) |
-| N/D |[SDK del servidor de JavaScript](http://azure.github.io/azure-documentdb-js-server/) |
+| [SDK de JavaScript](https://github.com/Azure/azure-cosmos-js) |[Biblioteca de JavaScript](https://github.com/Azure/azure-cosmos-js) |
+| N/D |[SDK del servidor de JavaScript](https://github.com/Azure/azure-cosmosdb-js-server) |
 | [SDK de Python](https://pypi.python.org/pypi/pydocumentdb) |[Biblioteca de Python](http://azure.github.io/azure-documentdb-python/) |
 | N/D | [API para MongoDB](mongodb-introduction.md)
 

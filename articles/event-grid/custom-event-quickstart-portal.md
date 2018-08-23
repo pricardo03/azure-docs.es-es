@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 4fef565dbd78cf3559cd47ed6c59800c8e6f9c9d
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ec85a866279412232aa23fad8f975d1642525772
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869150"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023110"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Creación y enrutamiento de eventos personalizados con Azure Portal y Event Grid
 
@@ -41,7 +41,7 @@ Un tema de cuadrícula de eventos proporciona un punto de conexión definido por
 
    ![Pasos iniciales](./media/custom-event-quickstart-portal/select-create.png)
 
-1. Escriba un nombre único para el tema personalizado. El nombre del tema debe ser único porque se representa mediante una entrada DNS. No utilice el nombre que se muestra en la imagen. En su lugar, cree un nuevo. Seleccione alguna de las [regiones admitidas](overview.md). Proporcione un nombre para el grupo de recursos. Seleccione **Crear**.
+1. Escriba un nombre único para el tema personalizado. El nombre del tema debe ser único porque se representa mediante una entrada DNS. No utilice el nombre que se muestra en la imagen. En su lugar, cree un nuevo. Proporcione un nombre para el grupo de recursos. Seleccione **Crear**.
 
    ![Incorporación de los valores para el tema de Event Grid](./media/custom-event-quickstart-portal/create-custom-topic.png)
 

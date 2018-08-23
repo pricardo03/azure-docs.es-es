@@ -15,12 +15,12 @@ ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2b1816a7f972e698d3872e6c252c09a4d5292ef
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 928e4811f15953313df167375043231478f5c11a
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578735"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146042"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory
 
@@ -89,7 +89,7 @@ Para configurar Azure AD, especifique la configuración básica de SAML. Puede e
     Set-AzureADServicePrincipal -ObjectId $sp.ObjectId -ReplyUrls "<ReplyURLs>"
     ```
 
-Para más información, consulte el artículo sobre [las solicitudes y respuestas de autenticación SAML 2.0 de Azure Active Directory (Azure AD) compatibles](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML).
+Para más información, consulte el artículo sobre [las solicitudes y respuestas de autenticación SAML 2.0 de Azure Active Directory (Azure AD) compatibles](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML).
 
 
 ### <a name="review-or-customize-the-claims-issued-in-the-saml-token"></a>Revisión o personalización de las notificaciones emitidas en el token SAML

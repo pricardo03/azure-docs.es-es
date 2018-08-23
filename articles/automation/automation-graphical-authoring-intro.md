@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b0517af9f8066d2d5849b0ffe3d4a0d00afdad44
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: afc1ec8e171bc602f2698b4a36f249bc454cbed9
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437882"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144556"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Creación gráfica en Azure Automation
 
@@ -322,7 +322,7 @@ Con esto se abre el control **Entrada y salida**, donde puede editar un parámet
 
 Las propiedades de la siguiente tabla definen los parámetros de entrada:
 
-| Propiedad | DESCRIPCIÓN |
+| Propiedad | Descripción |
 |:--- |:--- |
 | NOMBRE |El nombre único del parámetro. Solo puede contener caracteres alfanuméricos y no puede contener un espacio. |
 | DESCRIPCIÓN |Una descripción opcional del parámetro de entrada. |
@@ -332,7 +332,7 @@ Las propiedades de la siguiente tabla definen los parámetros de entrada:
 
 ### <a name="runbook-output"></a>Salida de runbook
 
-Los datos que crea cualquier actividad que no tiene un vínculo saliente se guardan en la [salida del runbook](http://msdn.microsoft.com/library/azure/dn879148.aspx). La salida se guarda con el trabajo del runbook y queda a disposición de un runbook principal cuando el runbook se usa como secundario.
+Los datos que crea cualquier actividad que no tiene un vínculo saliente se guardan en la [salida del runbook](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages). La salida se guarda con el trabajo del runbook y queda a disposición de un runbook principal cuando el runbook se usa como secundario.
 
 ## <a name="powershell-expressions"></a>Expresiones de PowerShell
 

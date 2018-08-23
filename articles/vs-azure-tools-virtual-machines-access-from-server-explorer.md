@@ -7,16 +7,17 @@ manager: douge
 assetId: eb3afde6-ba90-4308-9ac1-3cc29da4ede0
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/31/2017
 ms.author: ghogen
-ms.openlocfilehash: a19f33c4dd2654538c5718d2cd7dbe5d018e4de1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 81a0e2923ddbb6960066f01d6365e8c9278defac
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792892"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142618"
 ---
 # <a name="accessing-azure-virtual-machines-from-server-explorer"></a>Tener acceso a Azure Virtual Machines desde el Explorador de servidores
 
@@ -29,7 +30,7 @@ Si tiene máquinas virtuales hospedadas por Azure, puede acceder a ellas en el E
    | Propiedad | DESCRIPCIÓN |
    | --- | --- |
    | Nombre DNS |La dirección URL con la dirección de Internet de la máquina virtual. |
-   | Environment |En el caso de una máquina virtual, el valor de esta propiedad siempre es Production. |
+   | Entorno |En el caso de una máquina virtual, el valor de esta propiedad siempre es Production. |
    | NOMBRE |El nombre de la máquina virtual. |
    | Tamaño |El tamaño de la máquina virtual, que refleja la cantidad de memoria y espacio en disco disponibles. Para más información, consulte los [tamaños de máquina virtual](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs). |
    | Status |Los valores incluyen: Iniciando, Iniciado, Deteniéndose, Detenido y Recuperando estado. Si aparece Recuperando estado, el estado actual es desconocido. Los valores para esta propiedad son distintos de los que se usan en [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). |
@@ -37,7 +38,7 @@ Si tiene máquinas virtuales hospedadas por Azure, puede acceder a ellas en el E
 2. Seleccione un nodo de extremo y, a continuación, vea la ventana **Propiedades** .
 3. La tabla siguiente describe las propiedades disponibles de los extremos, pero son de solo lectura. Para agregar o editar los puntos de conexión de una máquina virtual, use [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). 
 
-   | Propiedad | DESCRIPCIÓN |
+   | Propiedad | Descripción |
    | --- | --- |
    | NOMBRE |Un identificador para el extremo. |
    | Private Port |El puerto del acceso de red interno de la aplicación. |

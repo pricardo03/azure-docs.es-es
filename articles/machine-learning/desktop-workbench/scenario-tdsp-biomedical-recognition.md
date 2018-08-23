@@ -3,25 +3,25 @@ title: 'Reconocimiento de entidades biomédicas: proceso de ciencia de los datos
 description: Guía de inicio rápido sobre proyectos del proceso de ciencia de los datos en equipos que usa el aprendizaje profundo para el reconocimiento de entidades biomédicas en Azure Machine Learning Workbench.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.author: bradsev
-ms.openlocfilehash: ae8c8ed9d397df0c82b74f051ff14729c0f41623
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f6ce43c2d290bacee10e102cc6c382981db9917f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837289"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144599"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Reconocimiento de entidades biomédicas mediante la plantilla del proceso de ciencia de los datos en equipos (TDSP)
 
@@ -54,7 +54,7 @@ Nuestros resultados muestran que el rendimiento del entrenamiento del modelo de 
 
 En la imagen siguiente se muestra la arquitectura que se ha usado para procesar los datos y entrenar los modelos.
 
-![Architecture](./media/scenario-tdsp-biomedical-recognition/architecture.png)
+![Arquitectura](./media/scenario-tdsp-biomedical-recognition/architecture.png)
 
 ## <a name="data-description"></a>Descripción de los datos
 
@@ -92,7 +92,7 @@ A continuación se muestra el vínculo al repositorio público de GitHub del esc
 [https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction)
 
 
-## <a name="prerequisites"></a>requisitos previos 
+## <a name="prerequisites"></a>Requisitos previos 
 
 * Una suscripción de [Azure](https://azure.microsoft.com/free/).
 * Azure Machine Learning Workbench. Vea la [guía de instalación](../service/quickstart-installation.md). Actualmente, Azure Machine Learning Workbench solo se puede instalar en los siguientes sistemas operativos: 

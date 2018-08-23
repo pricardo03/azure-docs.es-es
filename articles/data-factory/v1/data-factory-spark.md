@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: eb46347e82063d2e990b319ab108cf257c7e6b88
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4c7dddcb5e39eb1f72fb59af753ab167bc44d3e3
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440633"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246763"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocación de programas Spark desde canalizaciones de Azure Data Factory
 
@@ -56,7 +56,7 @@ Estos son los pasos habituales para crear una canalización de Data Factory con 
 * Creación de una canalización con la actividad de Spark que haga referencia al servicio vinculado de HDInsight que ha creado. La actividad se configura con el conjunto de datos que creó en el paso anterior como un conjunto de datos de salida. El conjunto de datos de salida es lo que impulsa la programación (cada hora o cada día). Por lo tanto, debe especificar el conjunto de datos de salida aunque la actividad no produzca realmente una salida.
 
 ### <a name="prerequisites"></a>Requisitos previos
-1. Cree una cuenta de almacenamiento de uso general siguiendo las instrucciones de [Crear una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+1. Cree una cuenta de almacenamiento de uso general siguiendo las instrucciones de [Crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md).
 
 1. Cree un clúster de Spark en HDInsight siguiendo las instrucciones del tutorial: [Creación de un clúster de Spark en HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Asocie la cuenta de almacenamiento creada en el paso 1 con este clúster.
 
@@ -330,7 +330,7 @@ En la siguiente tabla se describen las propiedades JSON que se usan en la defini
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | -------- | ----------- | -------- |
 | Nombre | Nombre de la actividad en la canalización. | SÍ |
-| Descripción | Texto que describe para qué se usa la actividad. | Sin  |
+| description | Texto que describe para qué se usa la actividad. | Sin  |
 | Tipo | Esta propiedad debe establecerse en HDInsightSpark. | SÍ |
 | linkedServiceName | Nombre del servicio vinculado de HDInsight en el que se ejecuta el programa de Spark. | SÍ |
 | rootPath | Contenedor de blobs y carpeta que contiene el archivo de Spark. El nombre de archivo distingue entre mayúsculas y minúsculas. | SÍ |

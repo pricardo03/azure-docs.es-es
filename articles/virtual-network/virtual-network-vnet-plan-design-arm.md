@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: fd290420c2c755e07f6949750e3a88bcb64682f3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1ec60300d179edf69e32dc07653b6c69c7cc8e52
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656914"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42144548"
 ---
 # <a name="plan-virtual-networks"></a>Planear redes virtuales
 
@@ -77,7 +77,7 @@ Puede filtrar el tráfico de red hacia y desde los recursos en una red virtual m
 - Si debe aplicar reglas de seguridad a varias máquinas virtuales de una subred, puede asociar la interfaz de red en la máquina virtual a uno o varios grupos de seguridad de aplicaciones. Una regla de seguridad puede especificar un grupo de seguridad de aplicaciones en el origen, en el destino o en ambos. A continuación, solo se aplica dicha regla a las interfaces de red que forman parte del grupo de seguridad de aplicaciones. Obtenga más información sobre los [grupos de seguridad de red](security-overview.md) y los [grupos de seguridad de aplicaciones](security-overview.md#application-security-groups).
 - Azure crea de forma predeterminada varias reglas de seguridad en cada grupo de seguridad de red. Una regla predeterminada permite que todo el tráfico fluya entre todos los recursos de una red virtual. Para invalidar este comportamiento, use los grupos de seguridad de red, el enrutamiento personalizado para enrutar el tráfico a una NVA o ambas opciones. Le recomendamos que se familiarice con todas las [reglas de seguridad predeterminadas](security-overview.md#default-security-rules) de Azure, y con la forma de aplicar las reglas del grupo de seguridad de red a un recurso.
 
-Puede ver los diseños de ejemplo para implementar una red perimetral entre Azure e Internet mediante una [NVA](/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) o los [grupos de seguridad de red](virtual-networks-dmz-nsg.md).
+Puede ver los diseños de ejemplo para implementar una red perimetral entre Azure e Internet mediante una [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) o los [grupos de seguridad de red](virtual-networks-dmz-nsg.md).
 
 ### <a name="traffic-routing"></a>Enrutamiento del tráfico
 
@@ -99,7 +99,7 @@ Al usar [el emparejamiento de redes virtuales](virtual-network-peering-overview.
 
 Puede usar Azure [VPN Gateway](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para conectar una red virtual a la red local mediante un [VPN de sitio a sitio](../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json), o mediante una conexión dedicada con Azure [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Puede combinar el emparejamiento y una puerta de enlace de VPN para crear [redes de tipo hub-and-spoke](/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json), donde las redes virtuales denominadas "radios" (spoke) se conectan a una red virtual denominada "concentrador" (hub) y, a su vez, ese concentrador se conecta a una red local, por ejemplo.
+Puede combinar el emparejamiento y una puerta de enlace de VPN para crear [redes de tipo hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json), donde las redes virtuales denominadas "radios" (spoke) se conectan a una red virtual denominada "concentrador" (hub) y, a su vez, ese concentrador se conecta a una red local, por ejemplo.
 
 ### <a name="name-resolution"></a>Resolución de nombres
 

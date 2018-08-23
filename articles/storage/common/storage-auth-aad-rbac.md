@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 08/16/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 9efd9470982f0afaa357114828d51df37a7c2890
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: be3fd304e04a66e6564141b6a20efea88cf62553
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520935"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42145924"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Administración de los derechos de acceso a los datos de Azure Storage con RBAC (versión preliminar)
 
@@ -32,7 +32,7 @@ Azure Storage es compatible con roles RBAC tanto integrados como personalizados.
 
 Para más información acerca de cómo se definen los roles integrados para Azure Storage, consulte [Descripción de definiciones de roles](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#management-and-data-operations-preview).
 
-También puede definir roles personalizados para su uso con contenedores y colas. Para más información, consulte [Creación de roles personalizados para el control de acceso basado en roles de Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles.md). 
+También puede definir roles personalizados para su uso con contenedores y colas. Para más información, consulte [Creación de roles personalizados para el control de acceso basado en roles de Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
 
 > [!IMPORTANT]
 > Esta versión preliminar está destinada para usos distintos del de producción. Los Acuerdos de nivel de Servicio (SLA) de producción no estarán disponibles hasta que la integración de Azure AD para Azure Storage se declare disponible con carácter general. Si la integración de Azure AD no se admite todavía para su escenario, siga usando la autorización con clave compartida o tokens de SAS en las aplicaciones. Para más información sobre la versión preliminar, consulte [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md) (Autenticación del acceso en Azure Storage mediante Azure Active Directory [versión preliminar]).

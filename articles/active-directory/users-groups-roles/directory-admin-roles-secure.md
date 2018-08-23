@@ -13,19 +13,19 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: c8c0f4c3f99aa413531f54c1807883fcd73f039a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: b52a447bf643510528e1bd8c6d473bf5d77731fe
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627940"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142616"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
 La seguridad de la mayoría de los recursos empresariales de la organización moderna, o de todos ellos, depende de la integridad de las cuentas con privilegios que administran los sistemas de TI. Actores malintencionados, entre los que se incluyen ciberatacantes, a menudo tienen como objetivo las cuentas de administrador y otros elementos con acceso privilegiado para intentar obtener acceso rápidamente a datos confidenciales y a sistemas mediante ataques de robo de credenciales. En el caso de los servicios en la nube, la prevención y la respuesta son responsabilidades conjuntas del proveedor de los servicios en la nube y del cliente. Para más información acerca de las amenazas más recientes a los puntos de conexión y a la nube, consulte el [informe de inteligencia de seguridad de Microsoft](https://www.microsoft.com/security/sir/default.aspx). Este artículo puede ayudarlo a desarrollar un mapa de ruta que cubra el espacio existente entre sus planes actuales y las directrices que se describen aquí.
 
 > [!NOTE] 
-> Microsoft se compromete a ofrecer los mayores niveles de confianza, transparencia, así como de cumplimiento de estándares y reglamentaciones. Aprenda no solo la forma en que el equipo de respuesta a incidentes globales de Microsoft mitiga los efectos de los ataques contra los servicios en la nube, sino también la forma en que se incorpora la seguridad en los productos empresariales y servicios en la nube de Microsoft en [Microsoft Trust Center - Seguridad](https://www.microsoft.com/en-us/trustcenter/security)y destinos de cumplimiento de Microsoft en [Microsoft Trust Center - Cumplimiento normativo](https://www.microsoft.com/en-us/trustcenter/compliance).
+> Microsoft se compromete a ofrecer los mayores niveles de confianza, transparencia, así como de cumplimiento de estándares y reglamentaciones. Aprenda no solo la forma en que el equipo de respuesta a incidentes globales de Microsoft mitiga los efectos de los ataques contra los servicios en la nube, sino también la forma en que se incorpora la seguridad en los productos empresariales y servicios en la nube de Microsoft en [Microsoft Trust Center - Seguridad](https://www.microsoft.com/trustcenter/security)y destinos de cumplimiento de Microsoft en [Microsoft Trust Center - Cumplimiento normativo](https://www.microsoft.com/trustcenter/compliance).
 
 <!--## Risk management, incident response, and recovery preparation
 
@@ -337,7 +337,7 @@ Además de administrar las cuentas de acceso con privilegios, es aconsejable que
 * Conceda acceso con privilegios solo cuando estrictamente necesario y revóquelo inmediatamente después (Just-In-Time).
 * Conserve y revise toda la actividad de auditoría relacionada con las cuentas con privilegios.
 
-Para más información acerca de cómo crear toda una hoja de ruta de seguridad, consulte [Recursos de arquitectura de TI de la nube de Microsoft](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Para más información acerca de cómo interactuar con los servicios de Microsoft para que le ayuden con cualquiera de estos temas, póngase en contacto con su representante de Microsoft o consulte [Build critical cyber defenses to protect your enterprise](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx) (Creación de ciberdefensas críticas que protejan su empresa).
+Para más información acerca de cómo crear toda una hoja de ruta de seguridad, consulte [Recursos de arquitectura de TI de la nube de Microsoft](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Para más información acerca de cómo interactuar con los servicios de Microsoft para que le ayuden con cualquiera de estos temas, póngase en contacto con su representante de Microsoft o consulte [Build critical cyber defenses to protect your enterprise](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx) (Creación de ciberdefensas críticas que protejan su empresa).
 
 Esta fase final de la hoja de ruta del acceso con privilegios protegido incluye los siguientes componentes.
 
@@ -440,16 +440,16 @@ Para más información acerca de la forma en que Microsoft Office 365 controla l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Centro de confianza de Microsoft para la seguridad de los productos](https://www.microsoft.com/en-us/trustcenter/security): características de seguridad de los productos y servicios en la nube de Microsoft
+* [Centro de confianza de Microsoft para la seguridad de los productos](https://www.microsoft.com/trustcenter/security): características de seguridad de los productos y servicios en la nube de Microsoft
 
-* [Centro de confianza de Microsoft - Cumplimiento normativo](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings): conjunto completo de ofertas de cumplimiento de normas para los servicios en la nube de Microsoft
+* [Centro de confianza de Microsoft - Cumplimiento normativo](https://www.microsoft.com/trustcenter/compliance/complianceofferings): conjunto completo de ofertas de cumplimiento de normas para los servicios en la nube de Microsoft
 
-* [Guía para realizar una evaluación del riesgo](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment): administre la seguridad y los requisitos de cumplimiento de los servicios en la nube de Microsoft
+* [Guía para realizar una evaluación del riesgo](https://www.microsoft.com/trustcenter/guidance/risk-assessment): administre la seguridad y los requisitos de cumplimiento de los servicios en la nube de Microsoft
 
 ### <a name="other-ms-online-services"></a>Otros servicios en línea de Microsoft 
 
-* [Seguridad de Microsoft Intune](https://www.microsoft.com/en-us/trustcenter/security/intune-security): Intune proporciona funcionalidades de administración de dispositivos móviles, aplicaciones móviles y PC desde la nube.
+* [Seguridad de Microsoft Intune](https://www.microsoft.com/trustcenter/security/intune-security): Intune proporciona funcionalidades de administración de dispositivos móviles, aplicaciones móviles y PC desde la nube.
 
-* [Seguridad de Microsoft Dynamics 365](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security): Dynamics 365 es la solución en la nube de Microsoft que unifica la administración de relaciones con clientes (CRM) y las funcionalidades de planificación de recursos empresariales (ERP).
+* [Seguridad de Microsoft Dynamics 365](https://www.microsoft.com/trustcenter/security/dynamics365-security): Dynamics 365 es la solución en la nube de Microsoft que unifica la administración de relaciones con clientes (CRM) y las funcionalidades de planificación de recursos empresariales (ERP).
 
  

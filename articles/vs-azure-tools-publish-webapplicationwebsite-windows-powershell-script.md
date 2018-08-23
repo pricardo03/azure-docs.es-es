@@ -7,16 +7,17 @@ manager: douge
 assetId: 63cfaa2d-f04d-40dc-8677-345385c278d5
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/11/2016
 ms.author: ghogen
-ms.openlocfilehash: b540734f17ed11e4c438e1248ed9612fb892e89a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ea8e36aabb75839a9c301f45a82241e3a859d42a
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792521"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144699"
 ---
 # <a name="publish-webapplicationwebsite-windows-powershell-script"></a>Publicación de WebApplicationWebSite (script de Windows PowerShell)
 ## <a name="syntax"></a>Sintaxis
@@ -34,7 +35,7 @@ Publica un proyecto web en un sitio web de Azure. El script crea los recursos ne
 ## <a name="configuration"></a>Configuración
 La ruta de acceso al archivo de configuración JSON que describe los detalles de la implementación.
 
-| . | Valor predeterminado |
+| Parámetro | Valor predeterminado |
 | --- | --- |
 | Alias |None |
 | ¿Necesario? |true |
@@ -46,7 +47,7 @@ La ruta de acceso al archivo de configuración JSON que describe los detalles de
 ## <a name="subscriptionname"></a>SubscriptionName
 Nombre de la suscripción de Azure en la que desea crear el sitio web.
 
-| . | Valor predeterminado |
+| Parámetro | Valor predeterminado |
 | --- | --- |
 | Alias |None |
 | ¿Necesario? |false |
@@ -58,7 +59,7 @@ Nombre de la suscripción de Azure en la que desea crear el sitio web.
 ## <a name="webdeploypackage"></a>WebDeployPackage
 La ruta de acceso al paquete de implementación web para publicar en el sitio web. Puede crear este paquete mediante el Asistente de publicación web en Visual Studio. Para obtener más información, consulte [Introducción a Azure Cloud Services y ASP.NET](http://go.microsoft.com/fwlink/p/?LinkID=623089).
 
-| . | Valor predeterminado |
+| Parámetro | Valor predeterminado |
 | --- | --- |
 | Alias |None |
 | ¿Necesario? |false |
@@ -70,7 +71,7 @@ La ruta de acceso al paquete de implementación web para publicar en el sitio we
 ## <a name="databaseserverpassword"></a>DatabaseServerPassword
 El nombre de usuario y la contraseña de la base de datos SQL en Azure.
 
-| . | Valor predeterminado |
+| Parámetro | Valor predeterminado |
 | --- | --- |
 | Alias |None |
 | ¿Necesario? |false |
@@ -82,7 +83,7 @@ El nombre de usuario y la contraseña de la base de datos SQL en Azure.
 ## <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
 Si es true, imprimir mensajes del script a la secuencia de salida.
 
-| . | Valor predeterminado |
+| Parámetro | Valor predeterminado |
 | --- | --- |
 | Alias |None |
 | ¿Necesario? |false |

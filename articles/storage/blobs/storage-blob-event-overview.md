@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 6f3afa22a50728070c42cd6e2eff0cc148815fbc
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: d38ab71ed2d2ebff04004f02589cfccca4199318
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262691"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146722"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reacción ante eventos de Blob Storage
 
@@ -21,7 +21,7 @@ Los eventos de Azure Storage permiten a las aplicaciones reaccionar a la creaci�
 
 Los escenarios habituales de los eventos de Blob Storage incluyen el procesamiento de imágenes o de vídeo, la indexación de búsqueda o cualquier flujo de trabajo orientado a archivos.  Cargas de archivos asincrónicas son una excelente elección para los eventos.  Cuando se realizan pocos cambios en el escenario, pero se requiere una respuesta inmediata, la arquitectura basada en eventos puede ser especialmente eficaz.
 
-La disponibilidad de los eventos de almacenamiento está asociada a la [disponibilidad](../../event-grid/overview.md) de Event Grid. Estarán disponibles en otras regiones cuando lo esté Event Grid. Eche un vistazo al artículo [Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado (CLI)](storage-blob-event-quickstart.md) o [Route Blob storage events to a custom web endpoint - PowerShell](storage-blob-event-quickstart-powershell.md) (Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado [PowerShell]). 
+Eche un vistazo al artículo [Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado (CLI)](storage-blob-event-quickstart.md) o [Route Blob storage events to a custom web endpoint - PowerShell](storage-blob-event-quickstart-powershell.md) (Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado [PowerShell]). 
 
 ![Modelo de Event Grid](./media/storage-blob-event-overview/event-grid-functional-model.png)
 

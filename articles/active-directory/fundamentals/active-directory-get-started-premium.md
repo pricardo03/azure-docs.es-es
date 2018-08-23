@@ -13,12 +13,12 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro;
-ms.openlocfilehash: c15cbb632410eb0b6867677d7802960033dfdd44
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: a5ede142b7f3dd314d1a6b3eb8f100ec55a4ea4e
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268389"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42023115"
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>Inicio rápido: Suscripción a Azure Active Directory Premium
 Para empezar a trabajar con Azure Active Directory (Azure AD) Premium, puede comprar licencias y asociarlas a su suscripción de Azure. Si crea una nueva suscripción de Azure, debe activar el plan de licencias y el acceso del servicio de Azure AD como se describe en las secciones siguientes. 
@@ -46,7 +46,7 @@ Puede empezar a trabajar con Azure AD a través de licencias de EMS mediante una
 ### <a name="microsoft-volume-licensing"></a>Licencias por volumen de Microsoft
 Azure Active Directory Premium está disponible a través de un [contrato Enterprise de Microsoft](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 licencias o más) o el programa [Open License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (entre 5 y 250 licencias).
 
-Puede conocer más información sobre las opciones de compra de licencias por volumen en la página [How to purchase through Volume Licensing](https://www.microsoft.com/en-us/Licensing/how-to-buy/how-to-buy.aspx) (Cómo comprar mediante Licencias por volumen).
+Puede conocer más información sobre las opciones de compra de licencias por volumen en la página [How to purchase through Volume Licensing](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx) (Cómo comprar mediante Licencias por volumen).
 
 > [!NOTE]
 > Las ediciones Premium y Básico de Azure Active Directory están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Premium y Básico de Azure Active Directory no se admiten actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para obtener más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).

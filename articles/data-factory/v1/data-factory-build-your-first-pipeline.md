@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 951756d57441d175ccf8bab44bf00c3cb542f1b9
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 8f86bcf5ecf38f0f1054fce82b66e63f0509f1c8
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050053"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246683"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop
 > [!div class="op_single_selector"]
@@ -81,11 +81,11 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 
 De las líneas de ejemplo mostradas anteriormente, la primera de ellas (con 2016-01-01) se escribirá en el archivo 000000_0 en la carpeta month=1. De igual manera, la segunda se escribirá en el archivo de la carpeta month=2 y la tercera en el archivo de la carpeta month=3.  
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
 1. **Suscripción de Azure** : si no tiene ninguna, puede crear una cuenta de evaluación gratuita en un par de minutos. Consulte el artículo [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) sobre cómo puede obtener una cuenta de evaluación gratuita.
-2. **Azure Storage** : para almacenar los datos de este tutorial usará una cuenta de Azure Storage. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#create-a-storage-account) . Después de haber creado la cuenta de almacenamiento, anote el **nombre de la cuenta** y la **clave de acceso**. Consulte [Visualización y copia de las claves de acceso de almacenamiento](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+2. **Azure Storage** : para almacenar los datos de este tutorial usará una cuenta de Azure Storage. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md) . Después de haber creado la cuenta de almacenamiento, anote el **nombre de la cuenta** y la **clave de acceso**. Consulte [Visualización y copia de las claves de acceso de almacenamiento](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 3. Descargue y revise el archivo de consulta de Hive (**HQL**) ubicado en: [ https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql ](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Esta consulta transforma los datos de entrada para generar datos de salida. 
 4. Descargue y revise el archivo de entrada de ejemplo (**input.log**) ubicado en: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Crear un contenedor de blobs denominado **adfgetstarted** en Azure Blob Storage. 

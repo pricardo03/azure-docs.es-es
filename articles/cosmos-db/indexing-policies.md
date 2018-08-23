@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 79585195cf95e2074a1c455c82faa500af20218a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d7cbeebff42bddd93cac35a0205d031a90bb4715
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618774"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142508"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>¿Cómo funcionan los datos del índice de Azure Cosmos DB?
 
@@ -36,6 +36,22 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 * ¿Cómo puedo configurar la indexación para realizar consultas por ORDER BY o por rango?
 * ¿Cómo se pueden realizar cambios en la directiva de indexación de una colección?
 * ¿Cómo se puede comparar el almacenamiento y el rendimiento de diferentes directivas de indexación?
+
+## <a id="Indexing"></a> Indexación de Cosmos DB
+
+El objetivo de los índices de base de datos es atender consultas en sus diversas formas con un consumo de los recursos mínimo (como CPU y entrada y salida) mientras se proporcionan un buen rendimiento y una latencia baja. A menudo, la elección del índice adecuado para consultar una base de datos requiere mucha planificación y experimentación. Este enfoque plantea un desafío para las bases de datos sin esquemas en las que los datos no cumplen un esquema estricto y evolucionan rápidamente. 
+
+Por lo tanto, al diseñar el subsistema de indexación de Cosmos DB, establecemos los siguientes objetivos:
+
+* Indexar documentos sin necesidad de esquema: el subsistema de indexación no requiere información de esquema alguna ni la realización de ninguna suposición sobre el esquema de los documentos.  
+
+* Compatibilidad con consultas eficaces, enriquecidas jerárquicas y relacionales: el índice admite el lenguaje de consulta de Cosmos DB de manera eficaz, incluida la compatibilidad con proyecciones jerárquicas y relacionales.  
+
+* Compatibilidad con consultas coherentes frente a un volumen de escrituras sostenido: en el caso de las cargas de trabajo de alto rendimiento de escritura con consultas coherentes, el índice se actualiza paulatinamente, de forma eficaz y en línea frente a un volumen de escrituras sostenido. La actualización del índice coherente es crucial para atender las consultas en el nivel de coherencia en el que el usuario configura el servicio de documentos.  
+
+* Compatibilidad con servicios multiinquilino: dado el modelo basado en la reserva para la regulación de recursos entre los inquilinos, se realizan actualizaciones de los índices sin sobrepasar el presupuesto de los recursos del sistema (CPU, memoria y operaciones de entrada y salida por segundo) asignadas por réplica.  
+
+* Eficacia de almacenamiento: para obtener rentabilidad, se enlaza la sobrecarga de almacenamiento en el disco del índice y es predecible. Esto es fundamental porque Cosmos DB permite que el desarrollador haga concesiones basadas en el costo entre la sobrecarga de índices y el rendimiento de las consultas.  
 
 ## Personalización de la directiva de indexación de una colección <a id="CustomizingIndexingPolicy"></a>  
 Para personalizar los equilibrios entre almacenamiento, rendimiento de escritura y consulta, y coherencia de las consultas, puede reemplazar la directiva de indexación predeterminada en una colección de Azure Cosmos DB. Puede configurar los aspectos siguientes:

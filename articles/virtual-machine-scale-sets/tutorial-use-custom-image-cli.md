@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8024033c8eb059fd0c7cc8d226a630f2bc47f01b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d5ee37b8ab79e29efcb4d12f36e927b2ed9e9e71
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618332"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41918015"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Tutorial: Creación y uso de una imagen personalizada para conjuntos de escalado de máquinas virtuales con la CLI de Azure 2.0
 Al crear el conjunto de escalado, se especifica la imagen que se usará cuando se implementen las instancias de máquina virtual. Para reducir el número de tareas después de implementar las instancias de máquina virtual, puede usar una imagen de máquina virtual personalizada. Esta imagen de máquina virtual personalizada incluye la instalación o configuración de las aplicaciones necesarias. Las instancias de máquina virtual creadas en el conjunto de escalado usan la imagen de máquina virtual personalizada y están listas para atender el tráfico de la aplicación. En este tutorial, aprenderá a:
@@ -107,7 +107,7 @@ az image create \
 
 
 ## <a name="create-a-scale-set-from-the-custom-vm-image"></a>Creación de un conjunto de escalado a partir de la imagen de máquina virtual personalizada
-Cree un conjunto de escalado con [az vmss create](/cli/az/vmss#az_vmss_create). En lugar de una imagen de plataforma, como *UbuntuLTS* o *CentOS*, especifique el nombre de la imagen de la máquina virtual personalizada. En el ejemplo siguiente, se crea un conjunto de escalado denominado *myScaleSet* que usa la imagen personalizada llamada *myImage* del paso anterior:
+Cree un conjunto de escalado con [az vmss create](/cli/azure/vmss#az-vmss-create). En lugar de una imagen de plataforma, como *UbuntuLTS* o *CentOS*, especifique el nombre de la imagen de la máquina virtual personalizada. En el ejemplo siguiente, se crea un conjunto de escalado denominado *myScaleSet* que usa la imagen personalizada llamada *myImage* del paso anterior:
 
 ```azurecli-interactive
 az vmss create \

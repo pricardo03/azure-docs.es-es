@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 599c016763fde6f1dc8221fffa554cf68e8c498f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 43db9db3842d05fa13c3be92df14b905d2ddfc17
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790396"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42146537"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Uso de la compatibilidad de Azure Resource Manager con Azure Load Balancer
 
@@ -61,7 +61,7 @@ Ejemplos de plantillas:
 
 Introducción a los cmdlets de Azure Resource Manager, las herramientas de línea de comandos y las API de REST
 
-* [cmdlets de Redes de Azure](https://msdn.microsoft.com/library/azure/mt163510.aspx) pueden usarse para crear un equilibrador de carga.
+* [cmdlets de Redes de Azure](https://docs.microsoft.com/powershell/module/azurerm.network#networking) pueden usarse para crear un equilibrador de carga.
 * [Cómo crear un Equilibrador de carga mediante el Administrador de recursos de Azure](load-balancer-get-started-ilb-arm-ps.md)
 * [Uso de CLI de Azure con el Administrador de recursos de Azure](../xplat-cli-azure-resource-manager.md)
 * [API de REST del Equilibrador de carga](https://msdn.microsoft.com/library/azure/mt163651.aspx)

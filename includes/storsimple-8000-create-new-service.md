@@ -1,5 +1,16 @@
 <!--author=alkohli last changed:02/10/2017-->
 
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: storage
+author: alkohli
+ms.service: storage
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: alkohli
+ms.custom: include file
+---
 
 #### <a name="to-create-a-new-service"></a>Para crear un nuevo servicio
 
@@ -24,7 +35,7 @@
    4. Proporcione una **Ubicación** para el servicio. En general, elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo. También es posible que quiera tener en cuenta las siguientes consideraciones: 
       
       * Si ya tiene cargas de trabajo en Azure que se van a implementar con el dispositivo StorSimple, debe usar este centro de datos.
-      * El servicio Administrador de dispositivos de StorSimple y Azure Storage pueden estar en dos ubicaciones independientes. En ese caso, se le pedirá que cree la cuenta del Administrador de dispositivos de StorSimple y la de almacenamiento de Azure por separado. Para crear una cuenta de almacenamiento de Azure, vaya al servicio Azure Storage en Azure Portal y siga los pasos indicados en la sección [Crear una cuenta de almacenamiento](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account). Después de crear esta cuenta, agréguela al servicio Administrador de dispositivos de StorSimple mediante los pasos indicados en la sección [Configurar una nueva cuenta de almacenamiento para el servicio](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#configure-a-new-storage-account-for-the-service).
+      * El servicio Administrador de dispositivos de StorSimple y Azure Storage pueden estar en dos ubicaciones independientes. En ese caso, se le pedirá que cree la cuenta del Administrador de dispositivos de StorSimple y la de almacenamiento de Azure por separado. Para crear una cuenta de almacenamiento de Azure, vaya al servicio Azure Storage en Azure Portal y siga los pasos indicados en la sección [Crear una cuenta de almacenamiento](../articles/storage/common/storage-quickstart-create-account.md). Después de crear esta cuenta, agréguela al servicio Administrador de dispositivos de StorSimple mediante los pasos indicados en la sección [Configurar una nueva cuenta de almacenamiento para el servicio](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#configure-a-new-storage-account-for-the-service).
 
    5. Seleccione **Crear una cuenta de almacenamiento nueva** para crear automáticamente una cuenta de almacenamiento con el servicio. Especifique un nombre para esta cuenta de almacenamiento. Si necesitas tener tus datos en una ubicación diferente, desactiva esta casilla.
 

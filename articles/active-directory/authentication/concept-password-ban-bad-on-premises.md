@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: fa6048800aad04b45b72c4da61ad9e8b94541502
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: ff349c480ca14b4242fb7597751b4eb6acb0ee78
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308483"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145927"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Versión preliminar: Aplicación de Protección con contraseña de Azure AD para Windows Server Active Directory
 
@@ -37,7 +37,7 @@ Hay tres componentes de software que forman Protección con contraseña de Azure
 ## <a name="requirements"></a>Requisitos
 
 * Todas las máquinas en las que estén instalados los componentes de Protección con contraseña de Azure AD, incluidos los controladores de dominio, deben ejecutar Windows Server 2012 o posterior.
-* Todas las máquinas en las que haya componentes de protección con contraseña de Azure AD instalados, incluidos los controladores de dominio, deben tener instalado Universal C Runtime. Si es posible, esto se logra mediante la aplicación de revisiones completas a la máquina a través de Windows Update. De lo contrario, es posible que se instale un paquete de actualizaciones específico del sistema operativo: vea [Actualización para Universal C RunTime en Windows ](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows).
+* Todas las máquinas en las que haya componentes de protección con contraseña de Azure AD instalados, incluidos los controladores de dominio, deben tener instalado Universal C Runtime. Si es posible, esto se logra mediante la aplicación de revisiones completas a la máquina a través de Windows Update. De lo contrario, es posible que se instale un paquete de actualizaciones específico del sistema operativo: vea [Actualización para Universal C RunTime en Windows ](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows).
 * Debe existir conectividad de red entre al menos un controlador de dominio de cada dominio y un servidor que hospede el servicio de proxy de Protección con contraseña de Azure AD.
 * Todos los dominios de Active Directory que ejecuten el software del servicio de agente de controlador de dominio deben usar DFSR para la replicación de sysvol.
 * Una cuenta de administrador global para registrar el servicio de proxy de Protección con contraseña de Azure AD.
