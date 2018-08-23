@@ -3,8 +3,8 @@ title: Clasificación de imágenes con Azure Machine Learning Package for Comput
 description: Describe el uso del Proceso de ciencia de los datos en equipos (TDSP) y Azure Machine Learning Package for Computer Vision para la clasificación de imágenes.
 services: machine-learning, team-data-science-process
 documentationcenter: ''
-author: xibingao
-manager: deguhath
+author: deguhath
+ms.author: deguhath
 editor: cgronlun
 ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
-ms.author: xibingao
-ms.openlocfilehash: f9e88cfb7185845e96f287b39bebaaa24320f537
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 427ea1f3f22855b2c54beacbfb89a8f7fd37cce0
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300814"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246652"
 ---
 # <a name="skin-cancer-image-classification-with-the-azure-machine-learning-package-for-computer-vision-and-team-data-science-process"></a>Clasificación de imágenes de cáncer de piel con Azure Machine Learning Package for Computer Vision y con el Proceso de ciencia de los datos en equipos
 

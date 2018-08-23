@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 446eac2bf6eed10f919d6c64de1d7b9dbba1f35d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a14aeb55d9e5756660708e9e63a867a66a54a7b6
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420367"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443959"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Tutorial: Integración de Azure Active Directory con Fieldglass
 
@@ -121,7 +121,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | `https://<company name>.fgvms.com/<company name>`|
 
     > [!NOTE] 
-    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de Fieldglass](http://www.fieldglass.com/solutions/support) para obtener estos valores.
+    > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de Fieldglass](https://www.fieldglass.com/customer-support) para obtener estos valores.
  
 1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
@@ -135,7 +135,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/fieldglass-tutorial/tutorial_fieldglass_configure.png) 
 
-1. Para configurar el inicio de sesión único en **Fieldglass**, debe enviar el **certificado (Base64)** descargado y la **dirección URL de cierre de sesión y el identificador de entidad de SAML** al [equipo de soporte técnico de Fieldglass](http://www.fieldglass.com/solutions/support). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+1. Para configurar el inicio de sesión único en **Fieldglass**, debe enviar el **certificado (Base64)** descargado y la **dirección URL de cierre de sesión y el identificador de entidad de SAML** al [equipo de soporte técnico de Fieldglass](https://www.fieldglass.com/customer-support). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -173,7 +173,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
  
 ### <a name="creating-a-fieldglass-test-user"></a>Creación de un usuario de prueba en Fieldglass
 
-El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Fieldglass. Trabaje con el [equipo de soporte técnico de Fieldglass](http://www.fieldglass.com/solutions/support) para agregar usuarios a la cuenta de ICIMS.
+El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Fieldglass. Trabaje con el [equipo de soporte técnico de Fieldglass](https://www.fieldglass.com/customer-support) para agregar usuarios a la cuenta de ICIMS.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 

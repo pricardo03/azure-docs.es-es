@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a895f21bc061763b1d5d45b2bedb44fc932190dc
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 212de83a88f5a8114454761121ee3f22830d2448
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345232"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42142810"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Uso de Visual Studio Code para desarrollar y depurar módulos de C# para Azure IoT Edge
 
@@ -72,7 +72,7 @@ Hay cuatro elementos dentro de la solución:
 
 * Un archivo **deployment.template.json** muestra el nuevo módulo junto con un módulo **tempSensor** de ejemplo que simula los datos que puede usar para las pruebas. Para más información sobre cómo funcionan los manifiestos de implementación, consulte [cómo usar los manifiestos de implementación para implementar módulos y establecer rutas](module-composition.md). 
 
-## <a name="devlop-your-module"></a>Desarrollo del módulo
+## <a name="develop-your-module"></a>Desarrollo de su módulo
 
 El código de función de Azure predeterminado que se incluye con la solución se encuentra en **modules** > **\<nombre del módulo\>** > **Program.cs**. El módulo y el archivo deployment.template.json se configuran para que pueda compilar la solución, insertarla en el registro de contenedor e implementarla en un dispositivo para iniciar la prueba sin tocar el código. El módulo se compila para tomar simplemente la entrada de un origen (en este caso, el módulo tempSensor que simula datos) y canalizarlo a IoT Hub. 
 

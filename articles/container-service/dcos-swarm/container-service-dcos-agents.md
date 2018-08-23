@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9dda6d45caf69734eb135779c8bac00fea721efd
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 17029f51be9fed8fc36c5f919ece84acbf0461d9
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901065"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42143524"
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Grupos de agentes de DC/OS para Azure Container Service
 Los clústeres de DC/OS en Azure Container Service contienen nodos de agente en dos grupos, uno público y otro privado. Una aplicación se puede implementar en cualquier grupo, lo que afecta a la accesibilidad entre las máquinas del servicio de contenedores. Las máquinas pueden estar expuestas a Internet (públicas) o mantenerse internas (privadas). En este artículo se ofrece una breve descripción de por qué hay grupos públicos y privados.
@@ -24,7 +24,7 @@ Los clústeres de DC/OS en Azure Container Service contienen nodos de agente en 
 
 * **Agentes públicos**: los nodos de agentes públicos ejecutan servicios y aplicaciones de DC/OS por medio de una red de acceso público. 
 
-Para más información sobre la seguridad de red de DC/OS, consulte la [documentación de DC/OS](https://dcos.io/docs/1.7/administration/securing-your-cluster/).
+Para más información sobre la seguridad de red de DC/OS, consulte la [documentación de DC/OS](https://dcos.io/docs/1.8/administration/securing-your-cluster/).
 
 ## <a name="deploy-agent-pools"></a>Implementación de grupos de agentes
 

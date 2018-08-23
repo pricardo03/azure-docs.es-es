@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 2d6d387ed12e7261d09669686c0710786a4302dd
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 97f33a1c0c42b534dafd1e4ed378b655b339395a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025558"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143327"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificados y seguridad en clústeres Linux
 
@@ -31,7 +31,7 @@ Por lo general, Service Fabric espera que los certificados X.509 se encuentren e
 
 En el caso de los clústeres Linux, Service Fabric espera que los certificados estén como un archivo .pem que contiene el certificado y la clave privada o como un archivo .crt que contiene el certificado y un archivo .key que contiene la clave privada. Todos los archivos deben estar en formato PEM. 
 
-Si instala el certificado desde Azure Key Vault mediante una [plantilla de Resource Manager](./service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template) o comandos de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric), el certificado se instala en el formato correcto en el directorio */var/lib/sfcerts* en cada nodo. Si instala un certificado con otro método, debe asegurarse de que el certificado está instalado correctamente en los nodos del clúster.
+Si instala el certificado desde Azure Key Vault mediante una [plantilla de Resource Manager](./service-fabric-cluster-creation-create-template.md) o comandos de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric), el certificado se instala en el formato correcto en el directorio */var/lib/sfcerts* en cada nodo. Si instala un certificado con otro método, debe asegurarse de que el certificado está instalado correctamente en los nodos del clúster.
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>Certificados a los que se hace referencia en el manifiesto de aplicación
 

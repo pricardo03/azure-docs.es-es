@@ -9,17 +9,17 @@ ms.component: bing-visual-search
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: 578fa90f504920030b488d2b8fa3a2d0232cccce
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 8f6e7f7e88ae78fe7e8a9be4adefd689dd26d0f9
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753630"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41929721"
 ---
 # <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>Tutorial: ImageInsightsToken del SDK de Bing Visual Search y resultados
 El SDK de Visual Search incluye una opción para buscar imágenes en línea de una búsqueda anterior que devuelve un token `ImageInsightsToken`.  En este ejemplo se obtiene un token `ImageInsightsToken` que se usa en una búsqueda posterior.  El código envía el token `ImageInsightsToken` a Bing y devuelve los resultados que incluyen direcciones URL de Bing Search y las direcciones URL de imágenes similares que se encuentran en línea.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Visual Studio 2017. Si es necesario, puede descargar la versión gratuita de la comunidad aquí: https://www.visualstudio.com/vs/community/.
 Se requiere una clave de API de Cognitive Services para autenticar las llamadas de SDK. Regístrese para obtener una clave de evaluación gratuita. La clave de evaluación es válida durante siete días con una llamada por segundo. Para escenarios de producción, compre una clave de acceso. Consulte también la información sobre precios.
 La capacidad para ejecutar el SDK de .NET Core, aplicaciones de .Net Core 1.1. Puede obtener CORE, Framework y Runtime aquí: https://www.microsoft.com/net/download/.
@@ -101,7 +101,7 @@ Console.WriteLine("\r\nVisual search request with knowledgeRequest");
 
 ```
 
-## <a name="get-the-url-data-from-imagemoduleaction"></a>Obtener los datos de dirección URL de ImageModuleAction
+## <a name="get-the-url-data-from-imagemoduleaction"></a>Obtención de los datos de dirección URL de ImageModuleAction
 Los resultados de Visual Search son objetos `ImageTag`.  Cada etiqueta contiene una lista de objetos `ImageAction`.  Cada elemento `ImageAction` contiene un campo `Data` que es una lista de valores que dependen del tipo de acción:
 
 Puede obtener los distintos tipos con el código siguiente:
@@ -283,4 +283,4 @@ namespace VisualSearchFeatures
 
 ```
 ## <a name="next-steps"></a>Pasos siguientes
-[Respuesta de Visual Search](https://review.docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/overview?branch=pr-en-us-44614#the-response)
+[Respuesta de Visual Search](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)

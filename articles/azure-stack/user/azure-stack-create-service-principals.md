@@ -3,7 +3,7 @@ title: Creación de una entidad de servicio de Azure Stack | Microsoft Docs
 description: Describe cómo crear una entidad de servicio que puede usarse con el control de acceso basado en roles en Azure Resource Manager para administrar el acceso a los recursos.
 services: azure-resource-manager
 documentationcenter: na
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
-ms.author: mabrigg
+ms.date: 08/22/2018
+ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: 3c9f114c2844021d515765888aa19f18a0adc10b
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 77940a52c0817b9eaf49cdf7d1a2d284c5e662e3
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36322642"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42366107"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Otorgue a las aplicaciones acceso a los recursos de Azure Stack mediante la creación de entidades de servicio
 

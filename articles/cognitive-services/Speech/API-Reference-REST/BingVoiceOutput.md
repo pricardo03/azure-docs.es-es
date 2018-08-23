@@ -9,12 +9,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: priyar
-ms.openlocfilehash: 4b633cefa37c11511a8171d5a7f61b03dfaa4466
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6236bf1c4d9ac7ba672939543c16b8d02a79892e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380770"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41929780"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing text to speech API
 
@@ -234,11 +234,10 @@ hr-HR | Hombre | "Microsoft Server Speech Text to Speech Voice (hr-HR, Matej)"
 hu-HU | Hombre | "Microsoft Server Speech Text to Speech Voice (hu-HU, Szabolcs)"
 id-ID | Hombre | "Microsoft Server Speech Text to Speech Voice (id-ID, Andika)"
 it-IT | Hombre | "Microsoft Server Speech Text to Speech Voice (it-IT, Cosimo, Apollo)"
+it-IT | Mujer | "Microsoft Server Speech Text to Speech Voice (it-IT, LuciaRUS)"
 ja-JP | Mujer | "Microsoft Server Speech Text to Speech Voice (ja-JP, Ayumi, Apollo)"
 ja-JP | Hombre | "Microsoft Server Speech Text to Speech Voice (ja-JP, Ichiro, Apollo)"
 ja-JP | Mujer | "Microsoft Server Speech Text to Speech Voice (ja-JP, HarukaRUS)"
-ja-JP | Mujer | "Microsoft Server Speech Text to Speech Voice (ja-JP, LuciaRUS)"
-ja-JP | Hombre | "Microsoft Server Speech Text to Speech Voice (ja-JP, EkaterinaRUS)"
 ko-KR | Mujer | "Microsoft Server Speech Text to Speech Voice (ko-KR, HeamiRUS)"
 ms-MY | Hombre | "Microsoft Server Speech Text to Speech Voice (ms-MY, Rizwan)"
 nb-NO | Mujer | "Microsoft Server Speech Text to Speech Voice (nb-NO, HuldaRUS)"
@@ -250,6 +249,7 @@ pt-PT | Mujer | "Microsoft Server Speech Text to Speech Voice (pt-PT, HeliaRUS)"
 ro-RO | Hombre | "Microsoft Server Speech Text to Speech Voice (ro-RO, Andrei)"
 ru-RU | Mujer | "Microsoft Server Speech Text to Speech Voice (ru-RU, Irina, Apollo)"
 ru-RU | Hombre | "Microsoft Server Speech Text to Speech Voice (ru-RU, Pavel, Apollo)"
+ru-RU | Mujer | "Microsoft Server Speech Text to Speech Voice (ru-RU, EkaterinaRUS)"
 sk-SK | Hombre | "Microsoft Server Speech Text to Speech Voice (sk-SK, Filip)"
 sl-SI | Hombre | "Microsoft Server Speech Text to Speech Voice (sl-SI, Lado)"
 sv-SE | Mujer | "Microsoft Server Speech Text to Speech Voice (sv-SE, HedvigRUS)"

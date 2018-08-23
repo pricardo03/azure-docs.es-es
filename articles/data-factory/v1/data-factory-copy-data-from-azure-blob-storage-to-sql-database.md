@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4538e5b49b161f22ba6d5979234786a58cae5783
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a9f76b38139cccedb97c6026f0e0efa14d0dbc8c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047733"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246593"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Tutorial: Copia de datos de Blob Storage en SQL Database mediante Data Factory
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ La actividad de copia realiza el movimiento de datos en Azure Data Factory. Func
 Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
 * **Suscripción de Azure**.  Si no tiene una suscripción, puede crear una cuenta de prueba gratuita en tan solo un par de minutos. Consulte el artículo [Evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) para obtener información.
-* **Cuenta de Azure Storage**. Almacenamiento de blobs se usará como un almacén de datos de **origen** en este tutorial. Si no tiene una cuenta de almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación.
+* **Cuenta de Azure Storage**. Almacenamiento de blobs se usará como un almacén de datos de **origen** en este tutorial. Si no tiene una cuenta de almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación.
 * **Azure SQL Database**. Usará una base de datos SQL de Azure como un almacén de datos de **destino** en este tutorial. Si no dispone de una instancia de Azure SQL Database que pueda usar en el tutorial, vea [Cómo crear y configurar Azure SQL Database](../../sql-database/sql-database-get-started.md) para crear una.
 * **SQL Server 2012/2014 o Visual Studio 2013**. Usará SQL Server Management Studio o Visual Studio para crear una base de datos de ejemplo y ver los datos de resultados de la base de datos.  
 

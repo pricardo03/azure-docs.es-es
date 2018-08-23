@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: cc5de000f4a76498654ef85efd818eece70090fc
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 321edd134fd2ac6b03ad6d3117944f0f59c24669
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834182"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42143268"
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Servicios web Azure Machine Learning: Implementación y consumo
 Puede usar Azure Machine Learning para implementar flujos de trabajo y modelos de aprendizaje automático como servicios web. Estos servicios web pueden usarse después para llamar a los modelos de aprendizaje automático de las aplicaciones a través de Internet para que realicen predicciones en tiempo real o en modo por lotes. Como estos servicios web son RESTFul, se los puede llamar desde diversos lenguajes de programación y plataformas como .NET y Java, y aplicaciones como Excel.
@@ -80,7 +80,7 @@ Este es un ejemplo:
 
 Consulte los siguientes artículos y el código de ejemplo para obtener más detalles:
 
-* [cmdlets de Azure Machine Learning](https://msdn.microsoft.com/library/azure/mt767952.aspx) en MSDN
+* [cmdlets de Azure Machine Learning](https://docs.microsoft.com/powershell/module/azurerm.machinelearning) en MSDN
 * [Tutorial](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) de ejemplo en GitHub
 
 ## <a name="consume-the-web-services"></a>Consumo de servicios web

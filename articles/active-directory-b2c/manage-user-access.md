@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 15bc320bd82ea21ff608fcc834ba51b9bc7b6dea
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 6709fb8ae328f749b367c58f95b8a9ef8da9bc65
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716151"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142955"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Administración del acceso de usuario en Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ En función de la normativa de la aplicación, puede que un usuario verificado c
 
 El siguiente es un ejemplo de flujo de usuario para recopilar el consentimiento de los padres:
 
-1. Una operación de [Graph API de Azure Active Directory](https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog) identifica al usuario como un menor y devuelve los datos del usuario a la aplicación como un token JSON sin firmar.
+1. Una operación de [Graph API de Azure Active Directory](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) identifica al usuario como un menor y devuelve los datos del usuario a la aplicación como un token JSON sin firmar.
 
 2. La aplicación procesa el token JSON y muestra una pantalla al menor que le notifica que necesita consentimiento parental y le solicita el consentimiento de uno de los padres en línea. 
 
@@ -56,7 +56,7 @@ El siguiente es un ejemplo de flujo de usuario para recopilar el consentimiento 
 
 5. Si el menor o el adulto revoca el consentimiento, se puede usar Azure AD Graph API para cambiar **consentProvidedForMinor** a **denegado**. Alternativamente, la aplicación puede elegir eliminar a un menor cuyo consentimiento se haya revocado. Opcionalmente, es posible personalizar el flujo de usuario de modo que el menor autenticado (o el padre que usa la cuenta del menor) pueda revocar el consentimiento. Azure AD B2C registra **consentProvidedForMinor** como **denegado**.
 
-Para más información sobre **legalAgeGroupClassification**, **consentProvidedForMinor** y **ageGroup**, consulte el artículo [User resource type](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/user) (Tipo de recurso del usuario). Para más información acerca de los atributos personalizados, consulte [Uso de atributos personalizados para recopilar información sobre los consumidores](active-directory-b2c-reference-custom-attr.md). Al dirigirse a atributos extendidos mediante Azure AD Graph API, se debe usar la versión extendida del atributo, como *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
+Para más información sobre **legalAgeGroupClassification**, **consentProvidedForMinor** y **ageGroup**, consulte el artículo [User resource type](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user) (Tipo de recurso del usuario). Para más información acerca de los atributos personalizados, consulte [Uso de atributos personalizados para recopilar información sobre los consumidores](active-directory-b2c-reference-custom-attr.md). Al dirigirse a atributos extendidos mediante Azure AD Graph API, se debe usar la versión extendida del atributo, como *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
 ## <a name="gather-date-of-birth-and-country-data"></a>Recopilación de datos sobre la fecha y el país de nacimiento
 

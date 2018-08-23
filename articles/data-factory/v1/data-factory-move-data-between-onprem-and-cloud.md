@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1d19cf6ecc9f2bedb6ceaf6312b247670d965b84
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d695627efddc0ca02c3d9299f4b8a13bdc85e8fb
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048556"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142744"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Movimiento de datos entre orígenes locales y la nube con Data Management Gateway
 > [!NOTE]
@@ -48,7 +48,7 @@ En este tutorial realizará los siguientes pasos:
 Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
 * **Suscripción de Azure**.  Si no tiene una suscripción, puede crear una cuenta de prueba gratuita en tan solo un par de minutos. Consulte el artículo [Evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) para obtener información.
-* **Cuenta de Azure Storage**. Blob Storage se usará como un almacén de datos de **destino o receptor** en este tutorial. Si no tiene una cuenta de almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación.
+* **Cuenta de Azure Storage**. Blob Storage se usará como un almacén de datos de **destino o receptor** en este tutorial. Si no tiene una cuenta de almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación.
 * **SQL Server**. Use una base de datos de SQL Server local como almacén de datos de **origen** en este tutorial. 
 
 ## <a name="create-data-factory"></a>Creación de Data Factory

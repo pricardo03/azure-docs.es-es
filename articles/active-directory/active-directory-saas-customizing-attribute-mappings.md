@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 366b89d3db0db634e239ac2d99188c7ea0444c13
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: accc2e994e7ea361315d5dfb33b257e58410490c
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365199"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143179"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalización de asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory de usuarios
 Microsoft Azure AD proporciona soporte para el aprovisionamiento de usuarios para aplicaciones SaaS de terceros como Salesforce, Google Apps y otras. Si dispone de aprovisionamiento de usuarios para una aplicación SaaS de terceros habilitada, Azure Portal controla sus valores de atributo en forma de una asignación de atributos.
@@ -121,7 +121,7 @@ Al editar la lista de atributos admitidos, se proporcionan las siguientes propie
 * **¿Varios valores?** : si el atributo admite o no varios valores.
 * **¿Coincidir mayúsculas y minúsculas?** : si los valores de atributo se evalúan o no según el uso de mayúsculas o minúsculas.
 * **Expresión de API**: no se usa, salvo que así se indique en la documentación de un conector de aprovisionamiento específico (como Workday).
-* **Atributo de objeto con referencia**: si este es un atributo de tipo referencia, este menú le permite seleccionar la tabla y el atributo de la aplicación de destino que contiene el valor asociado al atributo. Por ejemplo, si tiene un atributo llamado "Department" cuyo valor almacenado hace referencia a un objeto de una tabla "Departments" independiente, seleccionaría "Departments.Name". Tenga en cuenta que las tablas de referencia y los campos de identificador principal admitidos en una determinada aplicación están preconfigurados y actualmente no se pueden editar mediante Azure Portal, pero se pueden modificar con la [Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+* **Atributo de objeto con referencia**: si este es un atributo de tipo referencia, este menú le permite seleccionar la tabla y el atributo de la aplicación de destino que contiene el valor asociado al atributo. Por ejemplo, si tiene un atributo llamado "Department" cuyo valor almacenado hace referencia a un objeto de una tabla "Departments" independiente, seleccionaría "Departments.Name". Tenga en cuenta que las tablas de referencia y los campos de identificador principal admitidos en una determinada aplicación están preconfigurados y actualmente no se pueden editar mediante Azure Portal, pero se pueden modificar con la [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 Para agregar un nuevo atributo, desplácese hasta el final de la lista de atributos admitidos, rellene los campos anteriores mediante las entradas proporcionadas y seleccione **Agregar atributo**. Cuando termine de agregar atributos, seleccione **Guardar**. Tendrá que volver a cargar la pestaña **Aprovisionamiento** para que los nuevos atributos estén disponibles en el editor de asignación de atributos.
 

@@ -8,22 +8,23 @@ tags: azure-service-management
 ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: aspnet
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: d9e2c1a941c25aedd9048f2784350106b8739dba
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 561de3ac9073fe5cfdfadf2dc61d3f7807bf9e46
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "31797203"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143302"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicación de una aplicación web ASP.NET en una máquina virtual de Azure desde Visual Studio
 
 En este documento se describe cómo publicar una aplicación web ASP.NET en una máquina virtual de Azure mediante la característica de publicación **Microsoft Azure Virtual Machines**en Visual Studio 2017.  
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 A fin de utilizar Visual Studio para publicar un proyecto de ASP.NET en una máquina virtual de Azure, la máquina virtual debe estar correctamente configurada.
 
 - La máquina debe configurarse para ejecutar una aplicación web ASP.NET y tener WebDeploy instalado.

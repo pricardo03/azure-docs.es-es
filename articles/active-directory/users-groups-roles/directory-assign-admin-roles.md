@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/21/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: c6c388bb98d189d91703c0ce82971b3ec4da4150
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 6c97d7c2f901110421f9fc5d0a1d4468d832c472
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505518"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146864"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Asignación de roles de administrador en Azure Active Directory
 
@@ -59,7 +59,7 @@ Los roles de administrador disponibles son los siguientes:
 
 * **[Lectores de directorio](#directory-writers)**: es un rol heredado que se asigna a las aplicaciones que no admiten el [marco de consentimiento](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). No se debe asignar a ningún usuario.
 
-* **[Administrador de servicios de Dynamics 365 y Administrador de servicios de CRM](#dynamics-365-service-administrator)**: los usuarios con este rol tienen permisos globales en Microsoft Dynamics 365 Online cuando existe el servicio, así como también la posibilidad de administrar incidencias de soporte técnico y supervisar el estado del servicio. Para obtener más información, consulte [Uso del rol de administrador de servicios para administrar inquilinos](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
+* **[Administrador de servicios de Dynamics 365 y Administrador de servicios de CRM](#dynamics-365-service-administrator)**: los usuarios con este rol tienen permisos globales en Microsoft Dynamics 365 Online cuando existe el servicio, así como también la posibilidad de administrar incidencias de soporte técnico y supervisar el estado del servicio. Para obtener más información, consulte [Uso del rol de administrador de servicios para administrar inquilinos](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 * **[Administrador de servicios de Exchange](#exchange-service-administrator)**: los usuarios con este rol tienen permisos globales en Microsoft Exchange Online, cuando existe el servicio. Más información en [Acerca de los roles de administrador de Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -74,7 +74,7 @@ Los roles de administrador disponibles son los siguientes:
 
 * **[Administrador de Information Protection](#information-protection-administrator)**: los usuarios con este rol tienen todos los permisos en el servicio Azure Information Protection. Este rol permite configurar las etiquetas de la directiva de Azure Information Protection, administrar plantillas de protección y activar la protección. Este rol no concede ningún permiso de Identity Protection Center, Privileged Identity Management, Supervisión del estado de mantenimiento del servicio Office 365 y Centro de seguridad y cumplimiento de Office 365.
 
-* **[Administrador de servicios de Intune](#intune-service-administrator)**: los usuarios con este rol tienen permisos globales en Microsoft Intune Online, cuando el servicio está presente. Además, este rol contiene la capacidad de administrar usuarios y dispositivos para asociar una directiva, así como también para crear y administrar grupos. Para más información, consulte [Control de administración basado en rol (RBAC) con Microsoft Intune](https://docs.microsoft.com/en-us/intune/role-based-access-control)
+* **[Administrador de servicios de Intune](#intune-service-administrator)**: los usuarios con este rol tienen permisos globales en Microsoft Intune Online, cuando el servicio está presente. Además, este rol contiene la capacidad de administrar usuarios y dispositivos para asociar una directiva, así como también para crear y administrar grupos. Para más información, consulte [Control de administración basado en rol (RBAC) con Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
 
 * **[Lector del centro de mensajes](#message-center-reader)**: los usuarios con este rol pueden supervisar las notificaciones y las actualizaciones de mantenimiento de aviso en el [Centro de mensajes de Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) para su organización en los servicios configurados como Exchange, Intune y de Microsoft Teams. Los lectores del centro de mensajes reciben semanal resúmenes de correo electrónico de publicaciones y actualizaciones y pueden compartir entradas del centro de mensajes en Office 365. En Azure AD, los usuarios asignados a este rol solo tendrán acceso de solo lectura en los servicios de Azure AD, como usuarios y grupos. 
 
@@ -89,7 +89,7 @@ Los roles de administrador disponibles son los siguientes:
   >
   >
   
-* **[Administrador de servicios de Power BI](#power-bi-service-administrator)**: los usuarios con este rol tienen permisos globales en Microsoft Power BI, cuando el servicio está presente, así como también la capacidad de administrar incidencias de soporte técnico y supervisar el estado del servicio. Puede obtener más información en el artículo [Descripción del rol de administrador de Power BI](https://docs.microsoft.com/en-us/power-bi/service-admin-role).
+* **[Administrador de servicios de Power BI](#power-bi-service-administrator)**: los usuarios con este rol tienen permisos globales en Microsoft Power BI, cuando el servicio está presente, así como también la capacidad de administrar incidencias de soporte técnico y supervisar el estado del servicio. Puede obtener más información en el artículo [Descripción del rol de administrador de Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
 
 * **[Administrador de roles con privilegios](#privileged-role-administrator)**: los usuarios con este rol pueden administrar asignaciones de roles en Azure Active Directory, así como en Azure AD Privileged Identity Management. Además, este rol permite administrar todos los aspectos de Privileged Identity Management.
 
@@ -163,7 +163,7 @@ En las tablas siguientes se describen los permisos específicos concedidos a cad
 Puede crear y administrar todos los aspectos de los registros de aplicaciones y de las aplicaciones empresariales.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -198,7 +198,7 @@ Puede crear y administrar todos los aspectos de los registros de aplicaciones y 
 Puede crear registros de aplicación independientemente de la opción de configuración **Los usuarios pueden registrar aplicaciones**.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -213,7 +213,7 @@ Puede crear registros de aplicación independientemente de la opción de configu
 Puede realizar tareas comunes relacionadas con la facturación como actualizar la información de pago.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -235,7 +235,7 @@ Puede realizar tareas comunes relacionadas con la facturación como actualizar l
 Puede crear y administrar todos los aspectos de los registros de aplicaciones y de las aplicaciones empresariales, excepto el proxy de aplicación.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -318,7 +318,7 @@ Puede administrar todos los aspectos de los servicios de Azure AD y Microsoft qu
 Puede leer y administrar los informes y la configuración de cumplimiento en Azure AD y Office 365.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -341,7 +341,7 @@ Puede leer y administrar los informes y la configuración de cumplimiento en Azu
 Puede administrar las funcionalidades de acceso condicional.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -360,7 +360,7 @@ Puede administrar las funcionalidades de acceso condicional.
 Los usuarios con este rol pasarán a ser administradores del equipo local en todos los dispositivos Windows 10 que estén unidos a Azure Active Directory. No tienen la capacidad de administrar objetos de dispositivos en Azure Active Directory.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -472,7 +472,7 @@ Puede leer y escribir información básica del directorio. Para conceder acceso 
 Puede administrar todos los aspectos del producto Dynamics 365.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -493,7 +493,7 @@ Puede administrar todos los aspectos del producto Dynamics 365.
 Puede administrar todos los aspectos del producto Exchange.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -536,7 +536,7 @@ Puede invitar a usuarios independientemente de la configuración **Members can i
 Puede restablecer contraseñas de usuarios que no son administradores y de administradores del departamento de soporte técnico.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -553,7 +553,7 @@ Puede restablecer contraseñas de usuarios que no son administradores y de admin
 Puede administrar todos los aspectos del producto Azure Information Protection.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -574,7 +574,7 @@ Puede administrar todos los aspectos del producto Azure Information Protection.
 Puede administrar todos los aspectos del producto Intune.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -615,7 +615,7 @@ Puede administrar todos los aspectos del producto Intune.
 Puede administrar todos los aspectos del producto Skype Empresarial.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -654,7 +654,7 @@ Puede leer los mensajes y las actualizaciones para su organización solo en el C
 No lo use. No está pensado para el uso general.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -690,7 +690,7 @@ No lo use. No está pensado para el uso general.
 No lo use. No está pensado para el uso general.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -729,7 +729,7 @@ No lo use. No está pensado para el uso general.
 Puede administrar todos los aspectos del producto Power BI.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -750,7 +750,7 @@ Puede administrar todos los aspectos del producto Power BI.
 Puede administrar las asignaciones de roles en Azure AD
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -787,7 +787,7 @@ Puede leer los informes de inicio de sesión y auditoría.
 Puede leer la información y los informes de seguridad
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -836,7 +836,7 @@ Puede leer la información y los informes de seguridad de Azure AD y Office 365.
 Puede leer la información de estado del servicio y administrar las incidencias de soporte técnico.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -856,7 +856,7 @@ Puede leer la información de estado del servicio y administrar las incidencias 
 Puede administrar todos los aspectos del servicio SharePoint.
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -876,7 +876,7 @@ Puede administrar todos los aspectos del servicio SharePoint.
 Puede administrar todos los aspectos de usuarios y grupos
 
   > [!NOTE]
-  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Este rol hereda permisos adicionales del [rol de usuario](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 

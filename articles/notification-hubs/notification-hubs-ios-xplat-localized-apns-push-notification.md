@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: b3d74086ee233da50138aff00d8da78aa0243a75
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9301291381450d20b387db42fbfc715988b6a149
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776505"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42143161"
 ---
 # <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push localizadas a dispositivos iOS mediante Azure Notification Hubs 
 > [!div class="op_single_selector"]
@@ -67,7 +67,7 @@ Esto garantizará que los dispositivos se registren con una plantilla que hace r
 
 Para más información sobre el uso de plantillas, vea el artículo [Plantillas](notification-hubs-templates-cross-platform-push-messages.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Complete el tutorial [Envío de notificaciones push a dispositivos iOS concretos](notification-hubs-ios-xplat-segmented-apns-push-notification.md) y disponga del código, porque este tutorial se basa directamente en ese código.
 - Visual Studio 2012 o posterior es opcional.
@@ -266,10 +266,10 @@ En este tutorial, se envían notificaciones localizadas a dispositivos iOS. Para
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
-[Uso de Notification Hubs para enviar noticias de última hora]: /manage/services/notification-hubs/breaking-news-ios
+[Uso de Notification Hubs para enviar noticias de última hora]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
+[Notify users with Notification Hubs: ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Notify users with Notification Hubs: Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253

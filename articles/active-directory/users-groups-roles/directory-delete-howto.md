@@ -13,12 +13,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 44781c976afa94ebe3c8df8c7fd70c3e16956916
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: b1d3439412e324c71687c43aa9e47c520cb72262
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37871301"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142726"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Eliminación de un inquilino de Azure Active Directory
 Cuando se elimina un inquilino, también se eliminan todos los recursos que contiene. Debe preparar el inquilino, reduciendo sus recursos asociados antes de eliminarlo. Solo un administrador global de Azure Active Directory (Azure AD) puede eliminar a un inquilino de Azure AD desde el portal.
@@ -63,7 +63,7 @@ Desaprovisionado (30 días tras la deshabilitación) | Los datos se eliminan (au
 
 Puede colocar una suscripción en un estado **Deprovisoned** (Desaprovisionado) para ser eliminados a los 3 días mediante el centro de administración de Microsoft Store para Empresas. Esta funcionalidad estará disponible próximamente en el centro de administración de Office 365.
 
-1. Inicie sesión en el [centro de administración de Microsoft Store para Empresas](https://businessstore.microsoft.com/en-us/manage/) con una cuenta que sea de administrador global en el inquilino. Si está intentando eliminar el inquilino "Contoso" que tiene el dominio predeterminado inicial "contoso.onmicrosoft.com", inicie sesión con un UPN como admin@contoso.onmicrosoft.com.
+1. Inicie sesión en el [centro de administración de Microsoft Store para Empresas](https://businessstore.microsoft.com/manage/) con una cuenta que sea de administrador global en el inquilino. Si está intentando eliminar el inquilino "Contoso" que tiene el dominio predeterminado inicial "contoso.onmicrosoft.com", inicie sesión con un UPN como admin@contoso.onmicrosoft.com.
 
 2. Vaya a la pestaña **Administrar** y seleccione **Productos y servicios**, y, a continuación, elija la suscripción que desee cancelar. Tras hacer clic en **Cancelar**, actualice la página.
   

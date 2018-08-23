@@ -2,6 +2,8 @@
 title: Implementación de un conjunto de escalado de máquinas virtuales mediante Visual Studio | Microsoft Docs
 description: Implementación de un conjunto de escalado de máquinas virtuales mediante Visual Studio y una plantilla de Resource Manager
 services: virtual-machine-scale-sets
+ms.custom: H1Hack27Feb2017
+ms.workload: na
 documentationcenter: ''
 author: gatneil
 manager: jeconnoc
@@ -9,19 +11,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
 ms.service: virtual-machine-scale-sets
-ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: negat
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 73454abc11a832a1b7f4131bf13699bd0a94edea
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: f0bd57836d6d54fe3e3460af27ebea4cffe3ee40
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26782153"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443939"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Procedimiento para crear un conjunto de escalado de máquinas virtuales con Visual Studio
 En este artículo se muestra cómo implementar un conjunto de escalado de máquinas virtuales de Azure mediante la utilización de una implementación de grupo de recursos de Visual Studio.
@@ -93,7 +93,7 @@ Una vez finalizada la implementación, puede ver el nuevo conjunto de escalado d
 
  El portal es la mejor opción para administrar visualmente la infraestructura de Azure con un explorador web, mientras que Azure Resource Explorer ofrece una forma sencilla de explorar y depurar los recursos de Azure al proporcionar una ventana en la "vista de instancias" y mostrar también los comandos de PowerShell para los recursos que está mirando.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Después de implementar satisfactoriamente los conjuntos de escalado de máquinas virtuales en Visual Studio, puede personalizar aún más el proyecto para satisfacer las necesidades de la aplicación. Por ejemplo, configurar el escalado automático agregando un recurso de **Insights**, agregar infraestructura a la plantilla (como máquinas virtuales independientes) o implementar aplicaciones con la extensión del script personalizado. Se puede encontrar una buena serie de plantillas de ejemplo en el repositorio de GitHub de [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates) (busque "vmss").
 
 [file_new]: ./media/virtual-machine-scale-sets-vs-create/1-FileNew.png

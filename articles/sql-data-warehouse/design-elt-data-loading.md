@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 5ceb8cfd8efea66dbf17b8c522316b9a010e437d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 33e4a405547fcdd797ddfdf6aba6c6c1c126b742
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799454"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42142809"
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Diseñar un proceso de extracción, carga y transformación (ELT) para Azure SQL Data Warehouse
 
@@ -101,7 +101,7 @@ Para dar formato a los archivos de texto:
 ## <a name="load-to-a-staging-table"></a>Cargar los datos en una tabla de almacenamiento provisional
 Para guardar los datos en el almacén de datos, puede cargarlos primero en una tabla de almacenamiento provisional. Al usar una tabla de almacenamiento provisional, puede controlar los errores sin tener que interferir con las tablas de producción y así evitará la ejecución de operaciones de reversión en la tabla de producción. Asimismo, una tabla de almacenamiento provisional también ofrece la posibilidad de usar SQL Data Warehouse para ejecutar transformaciones antes de insertar los datos en tablas de producción.
 
-Para cargarlos con T-SQL, ejecute la instrucción de T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md). Este comando inserta los resultados de una instrucción "select" en una tabla nueva. Cuando se selecciona la instrucción de una tabla externa, importa los datos externos. 
+Para cargarlos con T-SQL, ejecute la instrucción de T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse). Este comando inserta los resultados de una instrucción "select" en una tabla nueva. Cuando se selecciona la instrucción de una tabla externa, importa los datos externos. 
 
 En el siguiente ejemplo ext.Date es una tabla externa. Todas las filas se importan en una tabla nueva denominada dbo.Date.
 

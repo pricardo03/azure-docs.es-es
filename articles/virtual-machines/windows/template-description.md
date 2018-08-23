@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 50fb5eeea5e3d6a2f991e92ae9c188822ddb40b0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 18a9709893533c2c0b606077a126437282f9195e
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528739"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42143403"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuales de una plantilla de Azure Resource Manager
 
@@ -280,7 +280,7 @@ Para establecer esta propiedad, debe existir la interfaz de red. Por lo tanto, n
 Al definir un recurso de máquina virtual, se utilizan varios elementos de perfil. Algunos son necesarios y otros, opcionales. Por ejemplo, los elementos hardwareProfile, osProfile, storageProfile y networkProfile son necesarios, pero diagnosticsProfile es opcional. Estos perfiles definen opciones como:
    
 - [Tamaño](sizes.md)
-- [Nombre](/architecture/best-practices/naming-conventions) y credenciales
+- [Nombre](/azure/architecture/best-practices/naming-conventions) y credenciales
 - [Configuración del sistema operativo](cli-ps-findimage.md) y disco
 - [Interfaz de red](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - Diagnósticos de arranque

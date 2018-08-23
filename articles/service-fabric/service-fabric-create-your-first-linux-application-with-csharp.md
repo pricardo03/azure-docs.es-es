@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 59dc090053c78dbddc1854f21db39f66df7bc91c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 7427af3e814752801c4738675f7cd2263843f9b8
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020552"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617093"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Creación de la primera aplicación de Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "37020552"
 
 Service Fabric ofrece SDK para compilar servicios en Linux tanto en .NET Core como Java. En este tutorial, veremos cómo crear una aplicación para Linux y cómo compilar un servicio con C# en .NET Core 2.0.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar, asegúrese de [configurar el entorno de desarrollo Linux](service-fabric-get-started-linux.md). Si usa Mac OS X, puede [configurar un entorno one-box de Linux en una máquina virtual mediante Vagrant](service-fabric-get-started-mac.md).
 
 También deberá instalar la [CLI de Service Fabric](service-fabric-cli.md)
@@ -41,27 +41,19 @@ Service Fabric proporciona herramientas de scaffolding que le ayudarán a crear 
 
 1. Instalación de nodejs y NPM en la máquina
 
-   Ubuntu
    ```bash
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-   sudo apt-get install -y nodejs 
+   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
+   nvm install node 
    ```
-
-   Red Hat Enterprise Linux 7.4 (compatibilidad con la versión preliminar de Service Fabric)
-   ```bash
-   sudo yum install nodejs
-   sudo yum install npm
-   ```
-
 2. Instalación del generador de plantillas [Yeoman](http://yeoman.io/) en la máquina desde NPM
 
   ```bash
-  sudo npm install -g yo
+  npm install -g yo
   ```
 3. Instalación del generador de aplicaciones Yeoman C# de Service Fabric desde NPM
 
   ```bash
-  sudo npm install -g generator-azuresfcsharp
+  npm install -g generator-azuresfcsharp
   ```
 
 ## <a name="create-the-application"></a>Creación de la aplicación
@@ -109,7 +101,7 @@ Los parámetros de estos comandos se pueden encontrar en los manifiestos generad
 Una vez que se haya implementado la aplicación, abra un explorador y vaya a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) en [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Luego, expanda el nodo **Applications** y observe que ahora hay una entrada para su tipo de aplicación y otra para la primera instancia de dicho tipo.
 
 > [!IMPORTANT]
-> Para implementar la aplicación en un clúster Linux seguro en Azure, debe configurar un certificado para validar la aplicación con el sistema de tiempo de ejecución de Service Fabric. Esto permite a los servicios de Reliable Services comunicarse con las API en tiempo de ejecución subyacentes de Service Fabric. Para más información, consulte [Configuración de una aplicación de Reliable Services para ejecutarse en clústeres Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Para implementar la aplicación en un clúster de Linux seguro en Azure, debe configurar un certificado para validar la aplicación con el sistema de tiempo de ejecución de Service Fabric. Esto permite a los servicios de Reliable Services comunicarse con las API en tiempo de ejecución subyacentes de Service Fabric. Para obtener más información, consulte [Configure a Reliable Services app to run on Linux clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters) (Configurar una aplicación de Reliable Services para ejecutarla en clústeres Linux).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Inicio del cliente de prueba y ejecución de una conmutación por error

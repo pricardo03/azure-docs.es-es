@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: d83d1ad74d04356f73f18a744c2d1509b5efc280
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 4d3f1c66c6403720bf02c80af1d6833dc3cee3f1
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233851"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42146545"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementación continua en Azure App Service
 En este artículo se muestra cómo configurar la implementación continua en [Azure App Service](app-service-web-overview.md). App Service permite la implementación continua desde BitBucket, GitHub y [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) mediante la extracción de las actualizaciones más recientes del repositorio existente en alguno de estos servicios.
@@ -62,7 +62,7 @@ En la página **Configurar**, en la sección **Compilar**, configure una nueva c
 
 En la página **Probar**, elija si desea habilitar las pruebas de carga y, después, haga clic en **Continuar**.
 
-En función del [plan de tarifa](/pricing/details/app-service/plans/) de App Service, también puede ver una página **Implementar en el almacenamiento provisional**. Elija si desea [habilitar ranuras de implementación](web-sites-staged-publishing.md) y después haga clic en **Continuar**.
+En función del [plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/plans/) de App Service, también puede ver una página **Implementar en el almacenamiento provisional**. Elija si desea [habilitar ranuras de implementación](web-sites-staged-publishing.md) y después haga clic en **Continuar**.
 
 ### <a name="finish-configuration"></a>Finalización de la configuración
 
@@ -119,7 +119,7 @@ En la página **Configurar**, en la sección **Compilar**, especifique el marco 
 
 En la página **Probar**, elija si desea habilitar las pruebas de carga y, después, haga clic en **Continuar**.
 
-En función del [plan de tarifa](/pricing/details/app-service/plans/) de App Service, también puede ver una página **Implementar en el almacenamiento provisional**. Elija si desea [habilitar ranuras de implementación](web-sites-staged-publishing.md) y después haga clic en **Continuar**. 
+En función del [plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/plans/) de App Service, también puede ver una página **Implementar en el almacenamiento provisional**. Elija si desea [habilitar ranuras de implementación](web-sites-staged-publishing.md) y después haga clic en **Continuar**. 
 
 ### <a name="finish-configuration"></a>Finalización de la configuración
 

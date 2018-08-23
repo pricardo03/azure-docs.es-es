@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: bbc6a5083aebba40885700cab6c67128c9d9f916
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 778da6d244561d87e7070ab244fd92dba043488e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643437"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42142713"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Creación y actualización de estadísticas en tablas de Azure SQL Data Warehouse
 Recomendaciones y ejemplos para crear y actualizar las estadísticas de optimización de consultas en las tablas de Azure SQL Data Warehouse.
@@ -65,7 +65,10 @@ Uno de los procedimientos recomendados es la actualización diaria de estadísti
 
 Las siguientes son recomendaciones para actualizar las estadísticas:
 
-| **Frecuencia de actualización de las estadísticas** | Conservadora: a diario <br></br> Después de cargar o transformar los datos | | **Muestreo** | Menos de mil millones de filas, utilice el muestreo predeterminado (20 %) <br></br> Con más de mil millones de filas, un intervalo de estadísticas de un 2 % es apropiado.
+|||
+|-|-|
+| **Frecuencia de actualizaciones de estadísticas**  | Conservadora: a diario <br></br> Después de cargar o transformar los datos |
+| **Muestreo** |  Con menos de mil millones de filas, utilice el muestreo predeterminado (20 por ciento) <br></br> Con más de mil millones de filas, un intervalo de estadísticas de un dos por ciento es apropiado |
 
 Una de las primeras preguntas que se deben formular para la solución de problemas de una consulta es **"¿Están actualizadas las estadísticas?"**
 

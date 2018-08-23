@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 725a705f746bbf5e32fcc410ba4153ac29e3fc3d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e9fbe59c40fe55218429a3b479ddbbec7220c66a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003860"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143918"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introducción a la supervisión de servicios en la nube
 
@@ -58,7 +58,7 @@ A medida que se crea cada rol, Visual Studio le agrega la extensión de Azure Di
 
 ## <a name="setup-diagnostics-extension"></a>Configuración de la extensión Diagnostics
 
-En primer lugar, si aún no tiene una cuenta de almacenamiento **clásica**, [cree una](../storage/common/storage-create-storage-account.md#create-a-storage-account). Asegúrese de que la cuenta de almacenamiento se crea con el **modelo de implementación clásica** especificado.
+En primer lugar, si aún no tiene una cuenta de almacenamiento **clásica**, [cree una](../storage/common/storage-quickstart-create-account.md). Asegúrese de que la cuenta de almacenamiento se crea con el **modelo de implementación clásica** especificado.
 
 Después, vaya al recurso **Cuenta de almacenamiento (clásico)**. Seleccione **Configuración** > **Claves de acceso** y copie el valor de **Cadena de conexión principal**. Necesita este valor para el servicio en la nube. 
 

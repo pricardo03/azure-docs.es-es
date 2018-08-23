@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: 73ad78fc73a7605f8feaf114ebdfac5023cc91b6
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 9032a0b68c4c8789010b0304b64a63d4924521fb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342440"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143871"
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Ejecución de OpenFoam con Microsoft HPC Pack en un clúster de Linux RDMA en Azure
 En este artículo se muestra una manera de ejecutar OpenFoam en máquinas virtuales de Azure. Aquí se implementa un clúster de Microsoft HPC Pack con nodos de proceso de Linux en Azure y se ejecuta un trabajo de [OpenFoam](http://openfoam.com/) con Intel MPI. Puede usar máquinas virtuales compatibles con RDMA de Azure para los nodos de proceso para que se comuniquen a través de la red RDMA de Azure. Otras opciones para ejecutar OpenFoam en Azure incluyen imágenes comerciales totalmente configuradas en Marketplace, como [OpenFoam 2.3 en CentOS 6](https://azuremarketplace.microsoft.com/marketplace/apps/cfd-direct.cfd-direct-from-the-cloud) de UberCloud, y la ejecución de [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
@@ -36,7 +36,7 @@ Microsoft HPC Pack proporciona características para ejecutar aplicaciones HPC y
 > 
 > 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * **Clúster de HPC Pack con nodos de proceso de Linux compatibles con RDMA**: implemente un clúster de HPC Pack con nodos de proceso de Linux de tamaño A8, A9, H16r o H16rm mediante una [plantilla de Azure Resource Manager](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) o un [script de Azure PowerShell](hpcpack-cluster-powershell-script.md). Consulte [Introducción a los nodos de proceso de Linux en un clúster de HPC Pack en Azure](hpcpack-cluster.md) para ver los requisitos previos y los pasos para cada opción. Si elige la opción de implementación de scripts de PowerShell, consulte el archivo de configuración de ejemplo en los archivos de ejemplo al final de este artículo. Use esta configuración para implementar un clúster de HPC Pack basado en Azure que conste de un nodo principal de Windows Server 2012 R2 de tamaño A8 y 2 nodos de proceso SUSE Linux Enterprise Server 12 de tamaño A8. Sustituya los valores apropiados por su nombre de suscripción y de servicio. 
   
   **Aspectos adicionales que debe conocer**
@@ -46,7 +46,7 @@ Microsoft HPC Pack proporciona características para ejecutar aplicaciones HPC y
   * Después de implementar los nodos de Linux, conéctese mediante SSH para realizar otras tareas administrativas. En Azure Portal encontrará los detalles de conexión mediante SSH para las máquinas virtuales Linux.  
 * **Intel MPI** : para ejecutar OpenFOAM en nodos de proceso de SLES 12 HPC en Azure, necesita instalar el entorno de tiempo de ejecución de Intel MPI Library 5 desde el [sitio web Intel.com](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 ya está instalado en las imágenes de HPC basadas en CentOS).  En un paso posterior, si es necesario, instale Intel MPI en los nodos de proceso de Linux. Como preparativos para este paso, después de registrarse con Intel, siga el vínculo del mensaje de confirmación a la página web relacionada. Después, copie el vínculo de descarga para el archivo .tgz de la versión correspondiente de Intel MPI. Este artículo se basa en Intel MPI versión 5.0.3.048.
 * **Paquete de origen OpenFOAM** : descargue el software del paquete de origen OpenFOAM para Linux desde el [sitio de OpenFOAM Foundation](http://openfoam.org/download/2-3-1-source/). Este artículo se basa en la versión del paquete de origen 2.3.1, disponible para su descarga como OpenFOAM 2.3.1.tgz. Siga las instrucciones que aparecen más adelante en este artículo para desempaquetar y compilar OpenFOAM en los nodos de ejecución de Linux.
-* **EnSight** (opcional): para ver los resultados de la simulación de OpenFOAM, descargue e instale el programa de visualización y análisis [EnSight](https://www.ceisoftware.com/download/) . Hay más información de licencia y descarga en el sitio web de EnSight.
+* **EnSight** (opcional): para ver los resultados de la simulación de OpenFOAM, descargue e instale el programa de visualización y análisis [EnSight](https://ensighttransfe.wpengine.com/direct-access-downloads/) . Hay más información de licencia y descarga en el sitio web de EnSight.
 
 ## <a name="set-up-mutual-trust-between-compute-nodes"></a>Configuración de la confianza mutua entre nodos de proceso
 La ejecución de un trabajo entre nodos en varios nodos de Linux requiere que los nodos confíen unos en otros (a través de **rsh** o **ssh**). Al crear el clúster de HPC Pack con el script de implementación IaaS de Microsoft HPC Pack, el script establece automáticamente una confianza mutua permanente con la cuenta de administrador que especifique. Para los usuarios sin privilegios de administrador que ha creado en el dominio del clúster, tiene que configurar la confianza mutua temporal entre los nodos cuando se les asigna un trabajo y destruir la relación una vez completado el trabajo. Para establecer la confianza para cada usuario, proporcione un par de claves RSA al clúster que usa HPC Pack para establecer la relación de confianza.
@@ -362,7 +362,7 @@ Ahora puede enviar un trabajo en el Administrador de clústeres HPC. Debe pasar 
 10. Cuando finalice el trabajo, busque los resultados del trabajo en las carpetas en C:\OpenFoam\sloshingTank3D y los archivos de registro en C:\OpenFoam.
 
 ## <a name="view-results-in-ensight"></a>Visualización de los resultados en EnSight
-Opcionalmente, puede usar [EnSight](https://www.ceisoftware.com/) para visualizar y analizar los resultados del trabajo de OpenFOAM. Para obtener más información acerca de la visualización y la animación en EnSight, consulte esta [guía de vídeo](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html).
+Opcionalmente, puede usar [EnSight](http://www.ensight.com/) para visualizar y analizar los resultados del trabajo de OpenFOAM. Para obtener más información acerca de la visualización y la animación en EnSight, consulte esta [guía de vídeo](http://www.ensight.com/ensight.com/envideo/).
 
 1. Después de instalar EnSight en el nodo principal, inícielo.
 2. Abra C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.

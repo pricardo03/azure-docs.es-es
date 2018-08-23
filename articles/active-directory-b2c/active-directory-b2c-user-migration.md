@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3416802aea12e84cf827070ff3a50d73725d5ee3
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 7805b238d42201b791e038964985f784fcf8d4ce
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390493"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146838"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migración de usuarios
 Si migra su proveedor de identidades a Azure Active Directory B2C (Azure AD B2C), también debe migrar la cuenta de usuario. En este artículo se explica cómo migrar las cuentas de usuario existentes desde cualquier proveedor de identidades a Azure AD B2C. El artículo no pretende ser preceptivo, sino describir varios enfoques. El desarrollador es responsable de la idoneidad de cada enfoque.
@@ -363,7 +363,7 @@ Puede ver y supervisar la información de registro prácticamente en tiempo real
 Una vez completado el tutorial [Get started with custom policies][B2C-GetStartedCustom] (Comenzar a trabajar con directivas personalizadas), le recomendamos que compile el escenario mediante sus archivos de directiva personalizados. Hemos proporcionado [archivos de directiva de ejemplo][UserMigrationSample] para que los tenga como referencia.
 
 [AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
-[AD-Powershell]: https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2
+[AD-Powershell]: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2
 [AppService-Deploy]: https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs
 [B2C-AppRegister]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration
 [B2C-GetStarted]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started

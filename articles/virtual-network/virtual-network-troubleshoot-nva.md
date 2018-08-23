@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2018
 ms.author: genli
-ms.openlocfilehash: 5f11129e562ec47f4c81790cf21c9a390cc697b8
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d16f106fa1776b0d11a97f71ffe16cf89fb9584a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621412"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142976"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de aplicaciones virtuales de red en Azure
 
@@ -132,5 +132,5 @@ Capture un seguimiento de red simultáneo en la máquina virtual de origen, la a
 
 Si no ve los paquetes de entrada para el seguimiento de la máquina virtual de back-end, es probable que un grupo de seguridad de red o un enrutamiento definido por el usuario esté interfiriendo o que las tablas de enrutamiento de la aplicación virtual de red sean incorrectas.
 
-Si ve que los paquetes entran, pero no hay ninguna respuesta, puede ser necesario resolver un problema de la aplicación de la máquina virtual o del firewall. Para cada uno de estos problemas, [póngase en contacto con el proveedor de la aplicación virtual de red para obtener ayuda, según sea necesario](Let's link customer to 3rd party vendor again here: https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Si ve que los paquetes entran, pero no hay ninguna respuesta, puede ser necesario resolver un problema de la aplicación de la máquina virtual o del firewall. Para cada uno de estos problemas, [póngase en contacto con el proveedor de la aplicación virtual de red para obtener ayuda, según sea necesario](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 

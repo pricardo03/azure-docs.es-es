@@ -11,15 +11,16 @@ ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: multiple
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.date: 11/11/2016
 ms.author: cawa
-ms.openlocfilehash: 3ee2cc3ac5098ebf205331167faffa2b5f9b6d56
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 0497ac628d7882a0b722796493c10c0d8b04e759
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937564"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443675"
 ---
 # <a name="optimizing-your-azure-code"></a>Optimización del código de Azure
 Al programar aplicaciones que usan Microsoft Azure, debe seguir algunas prácticas de codificación para evitar problemas en la escalabilidad, el comportamiento y el rendimiento de la aplicación en un entorno en la nube. Microsoft proporciona una herramienta de análisis de código de Azure que reconoce e identifica varios de los problemas que se suelen encontrar y ayuda a resolverlos. Puede descargar la herramienta en Visual Studio a través de NuGet.

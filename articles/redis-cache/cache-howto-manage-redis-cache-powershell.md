@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: fcadac344e2e05c3f6cdd9003b87b819d7933fba
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 980a183261c394bd83292170ab133fe17229013d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937441"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143543"
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Administración de Azure Redis Cache con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -28,13 +28,13 @@ ms.locfileid: "36937441"
 > 
 > 
 
-Este tema muestra cómo realizar tareas comunes, como crear, actualizar y escalar las instancias de Azure Redis Cache, cómo volver a generar las claves de acceso y cómo ver información acerca de las memorias caché. Para obtener una lista completa de cmdlets de PowerShell de caché en Redis de Azure, consulte [Azure Redis Cache cmdlets](https://msdn.microsoft.com/library/azure/mt634513.aspx).
+Este tema muestra cómo realizar tareas comunes, como crear, actualizar y escalar las instancias de Azure Redis Cache, cómo volver a generar las claves de acceso y cómo ver información acerca de las memorias caché. Para obtener una lista completa de cmdlets de PowerShell de caché en Redis de Azure, consulte [Azure Redis Cache cmdlets](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
 Para más información acerca del modelo de implementación clásico, consulte [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/resource-manager-deployment-model.md) (Implementación clásica frente a implementación con Azure Resource Manager: los modelos de implementación y el estado de los recursos).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Si ya ha instalado Azure PowerShell, debe tener la versión 1.0.0 (o posterior) de Azure PowerShell. Puede comprobar la versión de Azure PowerShell que ha instalado con este comando en el símbolo del sistema de Azure PowerShell.
 
     Get-Module azure | format-table version
@@ -123,7 +123,7 @@ Para obtener más información acerca de Microsoft Azure Alemania, consulte [Mic
 ### <a name="properties-used-for-azure-redis-cache-powershell"></a>Propiedades utilizadas para Azure Redis Cache con PowerShell
 La tabla siguiente contiene las propiedades y las descripciones de los parámetros normalmente utilizados al crear y administrar las instancias de Azure Redis Cache mediante Azure PowerShell.
 
-| . | DESCRIPCIÓN | Valor predeterminado |
+| Parámetro | DESCRIPCIÓN | Valor predeterminado |
 | --- | --- | --- |
 | NOMBRE |Nombre de la memoria caché | |
 | Ubicación |Ubicación de la memoria caché | |
@@ -156,7 +156,7 @@ La tabla siguiente contiene las propiedades y las descripciones de los parámetr
 | bases de datos |Configura el número de bases de datos. Esta propiedad solo se puede configurar al crear la memoria caché. |Estándar y Premium |
 
 ## <a name="to-create-a-redis-cache"></a>Creación de una memoria caché en Redis
-Se crean nuevas instancias de Azure Redis Cache mediante el cmdlet [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) .
+Se crean nuevas instancias de Azure Redis Cache mediante el cmdlet [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0) .
 
 > [!IMPORTANT]
 > La primera vez que crea una caché en Redis en una suscripción mediante el portal de Azure, el portal registra el espacio de nombres `Microsoft.Cache` para esa suscripción. Si trata de crear la primera caché en Redis en una suscripción mediante PowerShell, primero debe registrar ese espacio de nombres mediante el comando siguiente; en caso contrario los cmdlets como `New-AzureRmRedisCache` y `Get-AzureRmRedisCache` producirán un error.
@@ -256,14 +256,14 @@ Para especificar valores para el parámetro `RedisConfiguration`, incluya los va
 <a name="databases"></a>
 
 ## <a name="to-configure-the-databases-setting-during-cache-creation"></a>Configuración de las bases de datos al crear la memoria caché
-El parámetro `databases` se puede configurar al crear la memoria caché. En el ejemplo siguiente se crea una memoria caché premium P3 (26 GB) con 48 bases de datos mediante el cmdlet [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) .
+El parámetro `databases` se puede configurar al crear la memoria caché. En el ejemplo siguiente se crea una memoria caché premium P3 (26 GB) con 48 bases de datos mediante el cmdlet [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/New-AzureRmRedisCache?view=azurermps-6.6.0) .
 
     New-AzureRmRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
 
-Para más información sobre la propiedad `databases` , consulte [Configuración predeterminada del servidor Redis](cache-configure.md#default-redis-server-configuration). Para más información sobre la creación de una memoria caché mediante el cmdlet [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx), consulte la sección anterior [Creación de una memoria caché en Redis](#to-create-a-redis-cache).
+Para más información sobre la propiedad `databases` , consulte [Configuración predeterminada del servidor Redis](cache-configure.md#default-redis-server-configuration). Para más información sobre la creación de una memoria caché mediante el cmdlet [New-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/new-azurermrediscache?view=azurermps-6.6.0), consulte la sección anterior [Creación de una memoria caché en Redis](#to-create-a-redis-cache).
 
 ## <a name="to-update-a-redis-cache"></a>Actualización de una caché en Redis
-Las instancias de Azure Redis Cache se actualizan mediante el cmdlet [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx).
+Las instancias de Azure Redis Cache se actualizan mediante el cmdlet [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Set-AzureRmRedisCache?view=azurermps-6.6.0).
 
 Para ver una lista de parámetros disponibles y sus descripciones para `Set-AzureRmRedisCache`, ejecute el siguiente comando.
 
@@ -382,7 +382,7 @@ Cuando se complete la operación de escalado, `ProvisioningState` cambia a `Succ
     Set-AzureRmRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
 
 ## <a name="to-get-information-about-a-redis-cache"></a>Obtención de información acerca de una caché de Redis
-Puede recuperar información sobre una caché con el cmdlet [Get-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634514.aspx) .
+Puede recuperar información sobre una caché con el cmdlet [Get-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/get-azurermrediscache?view=azurermps-6.6.0) .
 
 Para ver una lista de parámetros disponibles y sus descripciones para `Get-AzureRmRedisCache`, ejecute el siguiente comando.
 
@@ -458,7 +458,7 @@ Para devolver información sobre una caché específica, ejecute `Get-AzureRmRed
     ShardCount         :
 
 ## <a name="to-retrieve-the-access-keys-for-a-redis-cache"></a>Recuperación de las claves de acceso de una caché en Redis
-Para recuperar las claves de acceso de la caché, puede usar el cmdlet [Get-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634516.aspx) .
+Para recuperar las claves de acceso de la caché, puede usar el cmdlet [Get-AzureRmRedisCacheKey](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Get-AzureRmRedisCacheKey?view=azurermps-6.6.0) .
 
 Para ver una lista de parámetros disponibles y sus descripciones para `Get-AzureRmRedisCacheKey`, ejecute el siguiente comando.
 
@@ -498,7 +498,7 @@ Para recuperar las claves de la caché, llame al cmdlet `Get-AzureRmRedisCacheKe
     SecondaryKey : ABhfB757JgjIgt785JgKH9865eifmekfnn649303JKL=
 
 ## <a name="to-regenerate-access-keys-for-your-redis-cache"></a>Regeneración de las claves de acceso de la caché en Redis
-Para regenerar las claves de acceso de la caché, puede usar el cmdlet [New-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634512.aspx) .
+Para regenerar las claves de acceso de la caché, puede usar el cmdlet [New-AzureRmRedisCacheKey](https://docs.microsoft.com/powershell/module/azurerm.rediscache/New-AzureRmRedisCacheKey?view=azurermps-6.6.0) .
 
 Para ver una lista de parámetros disponibles y sus descripciones para `New-AzureRmRedisCacheKey`, ejecute el siguiente comando.
 
@@ -548,7 +548,7 @@ Para regenerar la clave principal o secundaria de la caché, llame al cmdlet `Ne
     SecondaryKey : c53hj3kh4jhHjPJk8l0jji785JgKH9865eifmekfnn6=
 
 ## <a name="to-delete-a-redis-cache"></a>Eliminación de una caché en Redis
-Para eliminar una caché en Redis, use el cmdlet [Remove-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634515.aspx) .
+Para eliminar una caché en Redis, use el cmdlet [Remove-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/remove-azurermrediscache?view=azurermps-6.6.0) .
 
 Para ver una lista de parámetros disponibles y sus descripciones para `Remove-AzureRmRedisCache`, ejecute el siguiente comando.
 
@@ -780,7 +780,7 @@ El siguiente comando reinicia ambos nodos de la memoria caché especificada.
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información acerca de Windows PowerShell con Azure, consulte los siguientes recursos:
 
-* [Documentación de cmdlet de Azure Redis Cache en MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
+* [Documentación de cmdlet de Azure Redis Cache en MSDN](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0)
 * [Cmdlets de Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkID=394765): obtenga información acerca del uso de los cmdlets en el módulo de Azure Resource Manager.
 * [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-template-deploy-portal.md): obtenga información sobre la creación y administración de grupos de recursos en el Portal de Azure.
 * [Blog de Azure](https://azure.microsoft.com/en-us/blog/): obtenga información acerca de las nuevas características de Azure.

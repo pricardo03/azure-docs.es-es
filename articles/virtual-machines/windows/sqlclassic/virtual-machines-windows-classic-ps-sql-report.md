@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: c688de79c985eda9b0898d0f7d989de58f7dbc71
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 32be46fb0c41909ce8a8014b13843970555d366f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038529"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143325"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Usar PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo
 > [!IMPORTANT] 
@@ -599,7 +599,6 @@ En la tabla siguiente se resumen algunas de las opciones disponibles para public
 ## <a name="more-information"></a>Más información
 ### <a name="resources"></a>Recursos
 * Para consultar contenido similar relacionado con una implementación de servidor único de SQL Server Business Intelligence y SharePoint 2013, consulte [Usar Windows PowerShell para crear una máquina virtual de Azure con SQL Server BI y SharePoint 2013](https://blogs.technet.microsoft.com/ptsblog/2013/10/24/use-powershell-to-create-a-windows-azure-vm-with-sql-server-bi-and-sharepoint-2013/).
-* Para consultar contenido similar relacionado con una implementación de varios servidores de SQL Server Business Intelligence y SharePoint 2013, consulte [Implementar SQL Server Business Intelligence en Azure Virtual Machines](https://msdn.microsoft.com/library/dn321998.aspx).
 * Para consultar información similar relacionada con implementaciones de SQL Server Business Intelligence en Azure Virtual Machines, consulte [SQL Server Business Intelligence en Azure Virtual Machines](virtual-machines-windows-classic-ps-sql-bi.md).
 * Para más información sobre el costo de procesos de Azure, consulte la pestaña Máquinas virtuales de la [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines).
 

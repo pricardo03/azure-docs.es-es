@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 5/4/18
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 00dade0926f9f2601757ac637e21737027f24c45
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 642f07be0eb58e4d10630bc4482d26bd00e08a94
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332616"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142720"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Instalación de la extensión del explorador del panel de acceso
 
@@ -87,8 +87,8 @@ También puede descargar la extensión para Chrome y Edge directamente desde los
        Las tres últimas aplicaciones que ha utilizado se muestran en la lista de accesos directos **Usados recientemente**.
        
 * Para usar direcciones URL internas de la empresa de forma remota, haga lo siguiente:
-    1. [Configure el proxy de aplicación](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) en el inquilino
-    2. [Publique la aplicación](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) y la dirección URL a través del proxy de aplicación
+    1. [Configure el proxy de aplicación](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) en el inquilino
+    2. [Publique la aplicación](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) y la dirección URL a través del proxy de aplicación
     3. Instale la extensión y seleccione Iniciar sesión para comenzar para iniciar sesión
     4. Ahora podrá examinar la dirección URL interna de la empresa de manera remota
 

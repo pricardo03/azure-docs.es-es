@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3de8711c2e99459ccf5d85dcb12d6ff2d38b700d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 05da900e9ddf4cbb99df5c6d62ddb569059e2c4b
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192979"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42143514"
 ---
 # <a name="managing-azure-automation-data"></a>Administración de datos de Azure Automation
 Este artículo contiene varios temas para administrar un entorno de Azure Automation.
@@ -34,7 +34,7 @@ La tabla siguiente resume la directiva de retención para distintos recursos.
 | Runbooks |Se quitan de manera permanente 90 días después de que un usuario elimina el recurso o 90 días después de que un usuario elimina la cuenta que contiene el recurso. |
 | Trabajos |Se eliminan y quitan de manera permanente 90 días después de la última modificación. Esto puede ser después de completar, detener o suspender el trabajo. |
 | Configuraciones de nodo y archivos MOF |La configuración de nodo anterior se quita de forma permanente 90 días después de que se genere una nueva configuración. |
-| Nodos de DSC |Se quitan de forma permanente 90 días después de que se anule el registro del nodo de la cuenta de Automatización mediante el Portal de Azure o el cmdlet [Unregister-AzureRMAutomationDscNode](https://msdn.microsoft.com/library/mt603500.aspx) de Windows PowerShell. Los nodos también se quitan permanentemente 90 días después de que el usuario elimina la cuenta que contiene el nodo. |
+| Nodos de DSC |Se quitan de forma permanente 90 días después de que se anule el registro del nodo de la cuenta de Automatización mediante el Portal de Azure o el cmdlet [Unregister-AzureRMAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/unregister-azurermautomationdscnode) de Windows PowerShell. Los nodos también se quitan permanentemente 90 días después de que el usuario elimina la cuenta que contiene el nodo. |
 | Informes de nodo |Se quitan de forma permanente 90 días después de que se genere un nuevo informe para ese nodo. |
 
 La directiva de retención se aplica a todos los usuarios y, por el momento, no se puede personalizar.
@@ -45,7 +45,7 @@ Sin embargo, si tiene que conservar los datos durante un periodo de tiempo mayor
 Cuando se elimina una cuenta de automatización en Microsoft Azure, se eliminan todos los objetos de la cuenta, incluidos runbooks, módulos, configuraciones, trabajos y recursos. No es posible recuperar los objetos una vez eliminada la cuenta.  Puede usar la información siguiente para crear una copia de seguridad de los contenidos de la cuenta de automatización antes de eliminarla. 
 
 ### <a name="runbooks"></a>Runbooks
-Puede exportar los runbooks a archivos de script con Azure Portal o el cmdlet [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) en Windows PowerShell.  Es posible importar estos archivos de script a otra cuenta de automatización, tal como se describe en [Creación o importación de un runbook](https://msdn.microsoft.com/library/dn643637.aspx).
+Puede exportar los runbooks a archivos de script con Azure Portal o el cmdlet [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) en Windows PowerShell.  Es posible importar estos archivos de script a otra cuenta de automatización, tal como se describe en [Creación o importación de un runbook](https://msdn.microsoft.com/library/dn643637.aspx).
 
 ### <a name="integration-modules"></a>Módulos de integración
 No es posible exportar módulos de integración desde Azure Automation.  Debe asegurarse de que se encuentren disponibles fuera de la cuenta de automatización.
@@ -53,14 +53,14 @@ No es posible exportar módulos de integración desde Azure Automation.  Debe as
 ### <a name="assets"></a>Recursos
 No es posible exportar [recursos](https://msdn.microsoft.com/library/dn939988.aspx) desde Azure Automation.  Si utiliza Azure Portal, debe anotar los detalles de las variables, las credenciales, los certificados, las conexiones y las programaciones.  Luego debe crear manualmente todos los recursos utilizados por los runbooks que importa a otra automatización.
 
-Puede usar [cmdlets de Azure](https://msdn.microsoft.com/library/dn690262.aspx) para recuperar los detalles de recursos no cifrados y guardarlos para una referencia futura o crear recursos equivalentes en otra cuenta de automatización.
+Puede usar [cmdlets de Azure](https://docs.microsoft.com/powershell/module/azurerm.automation#automation) para recuperar los detalles de recursos no cifrados y guardarlos para una referencia futura o crear recursos equivalentes en otra cuenta de automatización.
 
 No es posible recuperar el valor de variables cifradas o del campo de contraseña de las credenciales mediante el uso de cmdlets.  Si no conoce estos valores, puede recuperarlos de un runbook con las actividades [Get-AutomationVariable](https://msdn.microsoft.com/library/dn940012.aspx) y [Get-AutomationPSCredential](https://msdn.microsoft.com/library/dn940015.aspx).
 
 No es posible exportar certificados desde Azure Automation.  Debe asegurarse de que todos los certificados estén disponibles fuera de Azure.
 
 ### <a name="dsc-configurations"></a>Configuraciones DSC
-Puede exportar las configuraciones a archivos de script con Azure Portal o con el cmdlet [Export-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) en Windows PowerShell. Estas configuraciones se pueden importar y usar en otra cuenta de automatización.
+Puede exportar las configuraciones a archivos de script con Azure Portal o con el cmdlet [Export-AzureRmAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/azurerm.automation/export-azurermautomationdscconfiguration) en Windows PowerShell. Estas configuraciones se pueden importar y usar en otra cuenta de automatización.
 
 ## <a name="geo-replication-in-azure-automation"></a>Replicación geográfica en Azure Automation
 La replicación geográfica, una función estándar de las cuentas de Azure Automation, realiza una copia de seguridad de los datos de la cuenta en una región geográfica diferente con fines de redundancia. Puede elegir una región primaria al configurar la cuenta, y entonces se le asigna automáticamente a esta una región secundaria. Los datos secundarios, copiados de la región primaria, se actualizan continuamente en caso de pérdida de los datos.  
@@ -70,7 +70,7 @@ La siguiente tabla muestra los emparejamientos de la región primaria y secundar
 | Principal | Secundario |
 | --- | --- |
 | Centro-Sur de EE. UU |Centro-Norte de EE. UU |
-| Este de EE. UU. - 2 |Central EE. UU: |
+| Este de EE. UU. - 2 |Centro de EE. UU. |
 | Europa occidental |Europa del Norte |
 | Sudeste de Asia |Asia oriental |
 | Este de Japón |Oeste de Japón |

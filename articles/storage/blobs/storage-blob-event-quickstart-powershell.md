@@ -8,12 +8,12 @@ ms.date: 07/05/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 26e80f166e1add5cebb837c1c05e45f25ff2d086
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 502f378bd1eddc0a104438037dce50bafd508ad9
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262759"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146723"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con PowerShell
 
@@ -36,9 +36,6 @@ Inicie sesión en la suscripción de Azure con el comando `Connect-AzureRmAccoun
 ```powershell
 Connect-AzureRmAccount
 ```
-
-> [!NOTE]
-> La disponibilidad de los eventos de almacenamiento está asociada a la [disponibilidad](../../event-grid/overview.md) de Event Grid. Estarán disponibles en otras regiones cuando lo esté Event Grid.
 
 Este ejemplo utiliza **westus2** y almacena la selección en una variable que se puede usar en todo momento.
 

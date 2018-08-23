@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5dc1a4bc1de3560338e1734e73ad04910535be5b
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 751175e46e13d6046cd6f459e1405a876fdce39a
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751309"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42143406"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Salidas de runbook y mensajes en Azure Automation
 La mayoría de los runbooks de Azure Automation generan alguna forma de salida, como el mensaje de error que verá el usuario o un objeto complejo que será consumido por otro flujo de trabajo. Windows PowerShell le ofrece [varios flujos](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) para enviar la salida desde un script o flujo de trabajo. Azure Automation funciona con cada uno de estos flujos de forma diferente, y es aconsejable que siga los procedimientos recomendados sobre cómo usar cada uno de ellos cuando cree un runbook.
@@ -24,7 +24,7 @@ En la siguiente tabla verá una breve descripción de cada uno de los flujos y s
 | Stream | DESCRIPCIÓN | Publicado | Prueba |
 |:--- |:--- |:--- |:--- |
 | Salida |Objetos destinados a ser consumidos por otros runbooks. |Se escribe en el historial de trabajos. |Se muestra en el panel de salida de la prueba. |
-| Warning (Advertencia) |Mensaje de advertencia destinado al usuario. |Se escribe en el historial de trabajos. |Se muestra en el panel de salida de la prueba. |
+| Advertencia |Mensaje de advertencia destinado al usuario. |Se escribe en el historial de trabajos. |Se muestra en el panel de salida de la prueba. |
 | Error |Mensaje de error destinado al usuario. A diferencia de lo que sucede con las excepciones, el runbook continúa después de un mensaje de error de forma predeterminada. |Se escribe en el historial de trabajos. |Se muestra en el panel de salida de la prueba. |
 | Detallado |Mensajes que proporcionan información general o de depuración. |Solo se escribe en el historial de trabajos si el registro detallado del runbook está activado. |Solo se muestra en el panel de salida de la prueba si el elemento $VerbosePreference está establecido como “Continue” en el runbook. |
 | Progreso |Registros que se generan automáticamente antes y después de cada actividad del runbook. El runbook no debe intentar crear sus propios registros de progreso, ya que están dirigidos a un usuario interactivo. |Solo se escribe en el historial de trabajos si el registro del progreso del runbook está activado. |No se muestra en el panel de salida de la prueba. |
@@ -175,7 +175,7 @@ En la siguiente tabla se muestra el comportamiento de los valores de las variabl
 Puede ver los detalles de un trabajo de runbook en el Portal de Azure de la pestaña llamada Trabajos de un runbook. La opción Resumen del trabajo le muestra los parámetros de entrada y el [Flujo de salida](#output-stream), además de información general sobre el trabajo y las excepciones que se han producido. En la opción Historial se incluyen los mensajes del [Flujo de salida](#output-stream) y los [Flujos de error y de advertencia](#warning-and-error-streams), además del [Flujo detallado](#verbose-stream) y los [Registros de progreso](#progress-records), si el runbook está configurado para escribir registros detallados y de progreso.
 
 ### <a name="windows-powershell"></a>Windows PowerShell
-En Windows PowerShell, puede recuperar la salida y los mensajes de un runbook con el cmdlet [Get-AzureAutomationJobOutput](https://msdn.microsoft.com/library/mt603476.aspx) . Este cmdlet requiere la identificación del trabajo y tiene un parámetro denominado Stream en el cual se especifica qué flujo hay que devolver. Puede elegir la opción **Cualquiera** para devolver todos los flujos del trabajo.
+En Windows PowerShell, puede recuperar la salida y los mensajes de un runbook con el cmdlet [Get-AzureAutomationJobOutput](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjoboutput) . Este cmdlet requiere la identificación del trabajo y tiene un parámetro denominado Stream en el cual se especifica qué flujo hay que devolver. Puede elegir la opción **Cualquiera** para devolver todos los flujos del trabajo.
 
 En el ejemplo siguiente se inicia un runbook y, a continuación, se espera a que finalice. Una vez completado, el flujo de salida se recopila del trabajo.
 

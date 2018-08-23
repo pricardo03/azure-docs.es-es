@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: 252e4f9fe5ed6b4ff9997fc41c691636e6d002b3
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: bb9e30489aa8870fe1c71c8c9a8bd557a2dcf2b1
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413545"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42143154"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Usar Azure Premium Storage con SQL Server en máquinas virtuales
 ## <a name="overview"></a>Información general
@@ -645,7 +645,7 @@ El código siguiente vuelca la configuración del VNN y la establece automática
 
 En un paso posterior de la migración, debe actualizar el agente de escucha de AlwaysOn con una dirección IP actualizada que haga referencia a un equilibrador de carga, lo que implica eliminar y posteriormente agregar un recurso de dirección IP. Después de la actualización de la IP, deberá asegurarse de que la nueva dirección IP se actualizó en la zona DNS y que los clientes actualizan su caché de DNS local.
 
-Si los clientes residen en un segmento de red diferente y hacen referencia a un servidor DNS diferente, necesita tener en cuenta lo que sucede con la transferencia de zona DNS durante la migración, ya que el tiempo de reconexión de la aplicación se ve restringido como mínimo por el tiempo de transferencia de zona de las direcciones IP nuevas del agente de escucha. Si está sometido a una restricción de tiempo, debe analizar y probar la opción de forzar una transferencia de zona incremental con sus equipos de Windows, y también colocar el registro de host DNS en un menor período de vida (TTL), para que los clientes se actualicen. Para más información, consulte las [transferencias de zona incrementales](https://technet.microsoft.com/library/cc958973.aspx) y [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
+Si los clientes residen en un segmento de red diferente y hacen referencia a un servidor DNS diferente, necesita tener en cuenta lo que sucede con la transferencia de zona DNS durante la migración, ya que el tiempo de reconexión de la aplicación se ve restringido como mínimo por el tiempo de transferencia de zona de las direcciones IP nuevas del agente de escucha. Si está sometido a una restricción de tiempo, debe analizar y probar la opción de forzar una transferencia de zona incremental con sus equipos de Windows, y también colocar el registro de host DNS en un menor período de vida (TTL), para que los clientes se actualicen. Para más información, consulte las [transferencias de zona incrementales](https://technet.microsoft.com/library/cc958973.aspx) y [Start-DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer).
 
 De manera predeterminada, el TTL del registro DNS asociado al agente de escucha de AlwaysOn en Azure es de 1200 segundos. Puede que desee reducir este valor si está sometido a una restricción de tiempo durante la migración para garantizar que los clientes actualicen sus DNS con la dirección IP actualizada para el agente de escucha. Puede ver y modificar la configuración volcando la configuración del VNN:
 

@@ -9,18 +9,18 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: 2d5bc3d0167c08c41b38bb324d55c239041f1fba
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: c94b5d4800f5776b51247c6ec2f6662a6ab26abc
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "34630432"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146569"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Procedimientos de uso de diferentes mecanismos de atestación con el SDK de cliente del servicio Device Provisioning para C
 
 Este artículo muestra cómo usar diferentes [mecanismos de atestación](concepts-security.md#attestation-mechanism) con el SDK de cliente del servicio Device Provisioning para C. Puede usar un dispositivo físico o un simulador. El servicio de aprovisionamiento admite la autenticación de dos tipos de mecanismos de atestación: X **.** 509 y Módulo de plataforma segura (TPM).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Prepare el entorno de desarrollo tal como se indica en la sección "Preparación del entorno de desarrollo" de la guía [Creación y aprovisionamiento de un dispositivo simulado](./quick-create-simulated-device.md).
 
@@ -147,7 +147,7 @@ Si utiliza TPM, siga las instrucciones de ["Creación y aprovisionamiento de un 
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
-2. Inicie sesión en Azure Portal, haga clic en el botón **Todos los recursos** situado en el menú izquierdo y abra el servicio DPS.
+2. Inicie sesión en Azure Portal, haga clic en el botón **Todos los recursos** situado en el menú izquierdo y abra el servicio Device Provisioning.
    - Inscripción individual X **.** 509: En la hoja de resumen del servicio de aprovisionamiento, seleccione **Administrar inscripciones**. Seleccione la pestaña **Individual Enrollments** (Inscripciones individuales) y haga clic en el botón **Add** (Agregar) de la parte superior. Seleccione **X**.**509** como *Mecanismo* de atestación de identidad y cargue el certificado de hoja como indica la hoja. Una vez completado, haga clic en el botón **Guardar**. 
    - Inscripción de grupo X **.** 509: En la hoja de resumen del servicio de aprovisionamiento, seleccione **Administrar inscripciones**. Seleccione la pestaña **Inscripción de grupo** y haga clic en el botón **Agregar** de la parte superior. Seleccione **X**.**509** como *Mecanismo* de atestación de identidad, escriba un nombre de grupo y nombre de certificación y cargue el certificado de CA o intermedio como indica la hoja. Una vez completado, haga clic en el botón **Guardar**. 
 

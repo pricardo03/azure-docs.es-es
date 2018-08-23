@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dda35e63c209951547a667c46639dc0f37c87b43
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a19fa124396bf9c9db4a60591b74f5425ce9670b
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593639"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146578"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronización de Azure AD Connect: Extensiones de directorio
-Puede usar extensiones de directorio para ampliar el esquema de Azure Active Directory (Azure AD) con sus propios atributos desde Active Directory local. Esta característica le permite compilar aplicaciones de LOB mediante el consumo de atributos que sigue administrando de forma local. Estos atributos se pueden consumir mediante [extensiones de directorio de API de Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) o [Microsoft Graph](https://graph.microsoft.io/). Puede ver los atributos disponibles mediante el [Explorador de Azure AD Graph](https://graphexplorer.azurewebsites.net/) y el [Probador de Microsoft Graph](https://developer.microsoft.com/en-us/graph/graph-explorer), respectivamente.
+Puede usar extensiones de directorio para ampliar el esquema de Azure Active Directory (Azure AD) con sus propios atributos desde Active Directory local. Esta característica le permite compilar aplicaciones de LOB mediante el consumo de atributos que sigue administrando de forma local. Estos atributos se pueden consumir mediante [extensiones de directorio de API de Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) o [Microsoft Graph](https://graph.microsoft.io/). Puede ver los atributos disponibles mediante el [Explorador de Azure AD Graph](https://graphexplorer.azurewebsites.net/) y el [Probador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer), respectivamente.
 
 En la actualidad, ninguna carga de trabajo de Office 365 consume estos atributos.
 
@@ -55,12 +55,12 @@ Estos atributos ahora están disponibles en Azure AD Graph API. Puede consultarl
 
 ![Explorador de Azure AD Graph](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
 
-O bien puede consultar los atributos a través de Microsoft Graph API, mediante el uso del [Probador de Microsoft Graph](https://developer.microsoft.com/en-us/graph/graph-explorer#).
+O bien puede consultar los atributos a través de Microsoft Graph API, mediante el uso del [Probador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
 > Debe pedir que se devuelvan los atributos. Seleccione los atributos de forma explícita del modo siguiente: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division. 
 >
-> Para obtener más información, consulte [Microsoft Graph: Usar parámetros de consulta](https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#select-parameter).
+> Para obtener más información, consulte [Microsoft Graph: Usar parámetros de consulta](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .

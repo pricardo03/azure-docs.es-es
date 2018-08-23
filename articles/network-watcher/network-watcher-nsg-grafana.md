@@ -3,8 +3,8 @@ title: Administración de registros de flujo de grupo de seguridad de red con Ne
 description: Administre y analice registros de flujo de grupo de seguridad de red en Azure con Network Watcher y Grafana.
 services: network-watcher
 documentationcenter: na
-author: kumudD
-manager: timlt
+author: mattreatMSFT
+manager: vitinnan
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
-ms.author: kumud
-ms.openlocfilehash: 44cf074223c88b8fa539144c0d948e68ae6cbd13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mareat
+ms.openlocfilehash: e375476536e7fe150e3aabcae7cee942deac02d5
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23036530"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142972"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Administración y análisis de registros de flujo de grupo de seguridad de red con Network Watcher y Grafana
 
@@ -63,7 +63,7 @@ Se puede utilizar Logstash para aplanar los registros de flujo con formato JSON 
 
 3. Agregue el siguiente contenido al archivo. Cambie la clave de acceso y nombre de la cuenta de almacenamiento para reflejar los detalles de la cuenta de almacenamiento:
 
-    ```bash
+   ```bash
     input {
       azureblob
       {
@@ -133,9 +133,10 @@ Se puede utilizar Logstash para aplanar los registros de flujo con formato JSON 
         index => "nsg-flow-logs"
       }
     }
-    ```
+   ```
 
-El archivo de configuración de Logstash proporcionado consta de tres partes: la entrada, el filtro y la salida. La sección de entrada designa el origen de entrada de los registros que va a procesar Logstash; en este caso, vamos a usar un complemento de entrada "azureblob" (instalado en los pasos siguientes) que permite tener acceso a los archivos JSON del registro de flujo de grupo de seguridad de red almacenados en el almacenamiento de blobs. 
+El archivo de configuración de Logstash proporcionado consta de tres partes: la entrada, el filtro y la salida.
+La sección de entrada designa el origen de entrada de los registros que va a procesar Logstash; en este caso, vamos a usar un complemento de entrada "azureblob" (instalado en los pasos siguientes) que permite tener acceso a los archivos JSON del registro de flujo de grupo de seguridad de red almacenados en el almacenamiento de blobs. 
 
 La sección Filtro aplana, después, cada archivo de registro de flujo para que cada tupla flujo individual y sus propiedades asociadas se convierta en un evento de Logstash independiente.
 

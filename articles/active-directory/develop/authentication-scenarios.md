@@ -17,12 +17,12 @@ ms.date: 07/26/2018
 ms.author: celested
 ms.reviewer: jmprieur, andret, nacanuma, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dda0d8e9496eb310f6d2a2791977e9de0eea6503
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: fc6c97906525b2f575a18ce5357eb3e10bfb4887
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578531"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142958"
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Escenarios de autenticación de Azure AD
 
@@ -52,7 +52,7 @@ Teniendo en cuenta el diagrama anterior, a continuación se indica qué debe sab
 * Azure AD es el proveedor de identidades, responsable de comprobar la identidad de los usuarios y las aplicaciones que existen en el directorio de una organización y, en última instancia, de emitir tokens de seguridad tras la autenticación correcta de dichos usuarios y aplicaciones.
 * Una aplicación que desee externalizar la autenticación a Azure AD debe estar registrada en Azure AD, que registra e identifica de modo único la aplicación en el directorio.
 * Los desarrolladores pueden usar las bibliotecas de autenticación de código abierto de Azure AD para facilitar la autenticación, ya que administran los detalles de los protocolos para el usuario. Para obtener más información, consulte [Bibliotecas de autenticación de Azure Active Directory](active-directory-authentication-libraries.md).
-* Una vez autenticado el usuario, la aplicación debe validar el token de seguridad de este para garantizar que la autenticación se realizó correctamente. Disponemos de ejemplos de lo que debe hacer la aplicación en una gran variedad de idiomas y marcos en [GitHub](https://github.com/Azure-Samples?q=active-directory). Si va a compilar una aplicación web de ASP.NET, consulte la guía [Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp). Si va a compilar un recurso de la API web de ASP.NET, consulte la [guía Introducción a la API web](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
+* Una vez autenticado el usuario, la aplicación debe validar el token de seguridad de este para garantizar que la autenticación se realizó correctamente. Disponemos de ejemplos de lo que debe hacer la aplicación en una gran variedad de idiomas y marcos en [GitHub](https://github.com/Azure-Samples?q=active-directory). Si va a compilar una aplicación web de ASP.NET, consulte la guía [Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp). Si va a compilar un recurso de la API web de ASP.NET, consulte la [guía Introducción a la API web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
 * El flujo de solicitudes y respuestas del proceso de autenticación lo determina el protocolo de autenticación que se use, como OAuth 2.0, OpenID Connect, WS-Federation o SAML 2.0. Estos protocolos se analizan con más detalle en el artículo [Protocolos de autenticación de Azure Active Directory](active-directory-authentication-protocols.md) y en las secciones siguientes.
 
 > [!NOTE]

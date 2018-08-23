@@ -7,16 +7,17 @@ manager: douge
 assetId: 94b35d0d-0d35-48b6-b48b-3641377867fd
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/05/2017
 ms.author: ghogen
-ms.openlocfilehash: 7d0138abb07aea46ad8d0069c87964b393347dcf
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c47da12feeef2a1536cdbfbe0187fe8991b3257d
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31791433"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143893"
 ---
 # <a name="building-azure-projects-from-the-command-line"></a>Compilación de proyectos de Azure desde la línea de comandos
 Con Microsoft Build Engine (MSBuild) puede compilar productos en entornos de laboratorio de compilación en los que Visual Studio no está instalado. MSBuild utiliza un formato XML para archivos de proyecto que es ampliable y totalmente compatible con Microsoft. En este formato de archivo, puede describir los elementos que deben crearse en una o más plataformas y configuraciones.

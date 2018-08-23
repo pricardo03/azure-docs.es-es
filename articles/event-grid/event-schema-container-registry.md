@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/20/2018
+ms.date: 08/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9ed918a7402abcbe79e302421f3b2ac725857464
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d18a6718e4c29f3d04639644dc752b0733f15ba8
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188655"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42146670"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Esquema de eventos de Azure Event Grid para Container Registry
 
@@ -117,8 +117,6 @@ El objeto data tiene las siguientes propiedades:
 | action | string | La acción que abarca el evento proporcionado. |
 | Destino | objeto | El destino del evento. |
 | request | objeto | La solicitud que generó el evento. |
-| actor | objeto | El agente que inició el evento. Para la mayoría de los casos, este valor puede ser del contexto de autorización de la solicitud. |
-| de origen | objeto | El nodo del registro que generó el evento. Dicho de otro modo, mientras que el actor inicia el evento, el origen lo genera. |
 
 El objeto target tiene las siguientes propiedades:
 
@@ -129,7 +127,6 @@ El objeto target tiene las siguientes propiedades:
 | digest | string | El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro. |
 | length | integer | El número de bytes del contenido. Igual que el campo de tamaño. |
 | repository | string | El nombre del repositorio. |
-| URL | string | La dirección URL directa del contenido. |
 | etiqueta | string | El nombre de la etiqueta. |
 
 El objeto request tiene las siguientes propiedades:
@@ -141,19 +138,6 @@ El objeto request tiene las siguientes propiedades:
 | host | string | El nombre de host accesible desde el exterior de la instancia del registro, según lo especificado por el encabezado de host http en las solicitudes entrantes. |
 | estático | string | El método de la solicitud que generó el evento. |
 | useragent | string | El encabezado de agente de usuario de la solicitud. |
-
-El objeto actor tiene las siguientes propiedades:
-
-| Propiedad | Escriba | DESCRIPCIÓN |
-| -------- | ---- | ----------- |
-| Nombre | string | El asunto o el nombre de usuario asociado con el contexto de solicitud que generó el evento. |
-
-El objeto source tiene las siguientes propiedades:
-
-| Propiedad | Escriba | DESCRIPCIÓN |
-| -------- | ---- | ----------- |
-| addr | string | La dirección IP o nombre de host y el puerto del nodo del registro que generó el evento. Por lo general, este valor lo resolverá os.Hostname() junto con el puerto en ejecución. |
-| instanceID | string | La instancia en ejecución de una aplicación. Cambios después de cada reinicio. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

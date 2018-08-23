@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: b4fc67acae83573db772923a94cdbb6b1c4a301f
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: b6f1185a94f865578d9a6514fb6841f8811b2230
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159848"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146574"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Preguntas más frecuentes relacionadas con Azure Multi-Factor Authentication
 
@@ -218,7 +218,7 @@ Una forma de solucionar este error es tener una cuenta de usuario independiente 
 
 Si su pregunta no se responde aquí, déjela en los comentarios de la parte inferior de la página. O bien, aquí se muestran algunas opciones adicionales para obtener ayuda:
 
-* Busque soluciones a problemas técnicos comunes en [Microsoft Support Knowledge Base](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport).
+* Busque soluciones a problemas técnicos comunes en [Microsoft Support Knowledge Base](https://www.microsoft.com/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport).
 * Busque y examine cuestiones técnicas y sus respuestas en la comunidad, o bien realice su propia pregunta en los [foros de Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 * Si es un cliente antiguo de PhoneFactor y tiene alguna pregunta o necesita ayuda para restablecer una contraseña, haga clic en el vínculo de [restablecimiento de contraseña](mailto:phonefactorsupport@microsoft.com) para abrir un caso de soporte.
 * Póngase en contacto con un profesional de soporte técnico a través de [Soporte técnico de Servidor Azure Multi-Factor Authentication (PhoneFactor)](https://support.microsoft.com/oas/default.aspx?prid=14947). Al ponerse en contacto con nosotros, nos resultará de gran utilidad que incluya tanta información sobre su problema como sea posible. Entre la información que puede aportar se incluyen la página donde vio el error, el código de error específico, el identificador de sesión específico y el identificador del usuario que vio el error.

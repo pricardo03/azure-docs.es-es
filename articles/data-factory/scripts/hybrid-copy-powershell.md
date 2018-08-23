@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: jingwang
-ms.openlocfilehash: 5c0252e42dd3dd53a0a95684553b193b983e95ee
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c3bc9f04777a9153fd8683b221e7d0aeef4609b3
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30166881"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246682"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>Use PowerShell para crear una canalización de factoría de datos para copiar datos de local a Azure
 
@@ -25,10 +25,10 @@ Este script de PowerShell de ejemplo crea una canalización en Azure Data Factor
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - **SQL Server**. Use una base de datos de SQL Server local como almacén de datos de **origen** en este ejemplo.
-- **Cuenta de Azure Storage**. Azure Blob Storage se usará como un almacén de datos de **destino o receptor** en este ejemplo. Si no tiene una cuenta de almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación.
+- **Cuenta de Azure Storage**. Azure Blob Storage se usará como un almacén de datos de **destino o receptor** en este ejemplo. Si no tiene una cuenta de almacenamiento de Azure, consulte la sección [Crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación.
 - **Integration Runtime autohospedado**. Descargue el archivo MSI desde el [centro de descarga](https://www.microsoft.com/download/details.aspx?id=39717) y ejecútelo para instalar un Integration Runtime autohospedado en la máquina.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Creación de una base de datos de ejemplo en SQL Server

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd6228b6cb7409144a0cd16d6c9617b7127c3624
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 4839b1aaa56be1ad93fa1dd685ca3176d1cc8a27
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264968"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143094"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 En este artículo se habla sobre los pasos para configurar informes de Azure Backup con el almacén de Recovery Services y para acceder a estos informes mediante Power BI. Después de realizar estos pasos, puede ir directamente a Power BI para ver todos los informes, personalizarlos y crearlos. 
@@ -26,7 +26,7 @@ En este artículo se habla sobre los pasos para configurar informes de Azure Bac
 4. La frecuencia de actualización programada para los informes es de 24 horas en Power BI. También puede realizar una actualización ad hoc de los informes en Power BI, en cuyo caso, se usan los últimos datos de la cuenta de Storage del cliente para informes de representación. 
 
 ## <a name="prerequisites"></a>Requisitos previos
-1. Cree una [cuenta de Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account) para informes. Esta cuenta de Storage se usa para almacenar datos relacionados de informes.
+1. Cree una [cuenta de Azure Storage](../storage/common/storage-quickstart-create-account.md) para informes. Esta cuenta de Storage se usa para almacenar datos relacionados de informes.
 2. [Cree una cuenta de Power BI](https://powerbi.microsoft.com/landing/signin/) para ver, personalizar y crear sus propios informes mediante el portal de Power BI.
 3. Registre el proveedor de recursos **Microsoft.insights** si no se ha registrado ya, con la suscripción de la cuenta de Storage y también con la suscripción del almacén de Recovery Services para habilitar el flujo de datos de informes a la cuenta de Storage. Para hacer lo mismo, debe ir a Azure Portal > Suscripción > Proveedores de recursos y busque este proveedor para registrarlo. 
 

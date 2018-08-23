@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: a9e01039f1fbf46739ff8dbafea411aad2c3f4f2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 512dd7c3318022106b721d8f215bff17de51e51d
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308060"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42146808"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Administración de un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0
 Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. Además, puede crear scripts para automatizar varias tareas de ciclo de vida. En este artículo se detallan algunos de los comandos comunes de la CLI de Azure 2.0 que le permiten realizar estas tareas.
@@ -92,7 +92,7 @@ La capacidad del conjunto de escalado tarda unos minutos en actualizarse. Si red
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>Detención e inicio de las máquinas virtuales de un conjunto de escalado
-Para detener una o más máquinas virtuales en un conjunto de escalado, use [az vmss stop](/cli/azure/vmss/stop). El parámetro `--instance-ids` le permite especificar una o más máquinas virtuales para que se detengan. Si no especifica un identificador de instancia, se detienen todas las máquinas virtuales del conjunto de escalado. Para detener varias máquinas virtuales, separe cada identificador de instancia con un espacio.
+Para detener una o más máquinas virtuales en un conjunto de escalado, use [az vmss stop](/cli/azure/vmss#az-vmss-stop). El parámetro `--instance-ids` le permite especificar una o más máquinas virtuales para que se detengan. Si no especifica un identificador de instancia, se detienen todas las máquinas virtuales del conjunto de escalado. Para detener varias máquinas virtuales, separe cada identificador de instancia con un espacio.
 
 En el ejemplo siguiente se detiene la instancia *0* del conjunto de escalado denominado *myScaleSet* y el grupo de recursos *myResourceGroup*. Proporcione sus propios valores, como se indica a continuación:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8b7d2119e1eef8532c30b0a45ae2684493462277
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fe3bb3a778a42696cd15f9e4265448479bf043a1
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990020"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42143387"
 ---
 # <a name="how-to-find-an-address-using-the-azure-maps-search-service"></a>Procedimiento para buscar una dirección mediante el servicio de búsqueda de Azure Maps
 
@@ -40,7 +40,7 @@ La mayoría de las consultas de búsqueda tienen como valor predeterminado 'maxF
 
     ![Búsqueda aproximada ](./media/how-to-search-for-address/fuzzy_search_url.png)
 
-    | . | Valor sugerido |
+    | Parámetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | URL de la solicitud | https://atlas.microsoft.com/search/fuzzy/json? |
@@ -92,7 +92,7 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
 
     ![Búsqueda de direcciones ](./media/how-to-search-for-address/address_search_url.png)
     
-    | . | Valor sugerido |
+    | Parámetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | URL de la solicitud | https://atlas.microsoft.com/search/address/json? |
@@ -132,7 +132,7 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
     
     ![Dirección URL de Búsqueda de direcciones inversa ](./media/how-to-search-for-address/reverse_address_search_url.png)
     
-    | . | Valor sugerido |
+    | Parámetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | URL de la solicitud | https://atlas.microsoft.com/search/address/reverse/json? |
@@ -164,19 +164,11 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
 
     | Clave | Valor |
     |-----|------------|
-    | spatialKeys | true |
-
-    Cuando se establece el parámetro de consulta [spatialKeys](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la respuesta contiene información importante geoespacial propietaria para una ubicación especificada.
-
-6. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
-
-    | Clave | Valor |
-    |-----|------------|
     | returnSpeedLimit | true |
     
     Cuando se establece el parámetro de consulta [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la respuesta devuelve el límite de velocidad publicado.
 
-7. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
+6. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
 
     | Clave | Valor |
     |-----|------------|
@@ -184,7 +176,7 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
 
     Cuando se establece el parámetro de consulta [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters), la respuesta devuelve la matriz de uso de carretera para códigos geográficos a nivel de calle.
 
-8. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
+7. Agregue la siguiente clave o par clave-valor a la sección **Params** y haga clic en **Enviar**:
 
     | Clave | Valor |
     |-----|------------|
@@ -200,7 +192,7 @@ Puede pasar una dirección completa o parcial a la API de búsqueda de direccion
     
     ![Búsqueda de calles transversales de direcciones inversa ](./media/how-to-search-for-address/reverse_address_search_url.png)
     
-    | . | Valor sugerido |
+    | Parámetro | Valor sugerido |
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | URL de la solicitud | https://atlas.microsoft.com/search/address/reverse/crossstreet/json? |

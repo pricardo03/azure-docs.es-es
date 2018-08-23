@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: d88fcea4a41d8402cc25a1623727284afb0e9088
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 885258379e71ea945e41c4b43c34b35b16dd4a7a
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959389"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146968"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Escalado de Azure Redis Cache
 Azure Redis Cache tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché. Después de crear una memoria caché, puede ajustar su tamaño y el plan de tarifa si cambian los requisitos de la aplicación. En este artículo se muestra cómo escalar la memoria caché en Azure Portal o con herramientas tales como Azure PowerShell y la CLI de Azure.
@@ -43,7 +43,7 @@ Para escalar la memoria caché, [vaya a la caché](cache-configure.md#configure-
 
 Seleccione el plan de tarifa deseado en la hoja **Seleccionar plan de tarifa** y haga clic en **Seleccionar**.
 
-![Nivel de precios][redis-cache-pricing-tier-blade]
+![Plan de tarifa][redis-cache-pricing-tier-blade]
 
 
 Puede escalar a un plan de tarifa diferente con las siguientes restricciones:
@@ -69,7 +69,7 @@ Además de escalar las instancias de caché en Azure Portal, puede escalar media
 * [Escalado mediante MAML](#scale-using-maml)
 
 ### <a name="scale-using-powershell"></a>Escalado mediante PowerShell
-Las instancias de Azure Redis Cache se pueden escalar con PowerShell con el cmdlet [AzureRmRedisCache Set](https://msdn.microsoft.com/library/azure/mt634518.aspx) cuando se modifican las propiedades `Size`, `Sku` o `ShardCount`. En el ejemplo siguiente se muestra cómo escalar una memoria caché denominada `myCache` a una caché de 2,5 GB. 
+Las instancias de Azure Redis Cache se pueden escalar con PowerShell con el cmdlet [AzureRmRedisCache Set](https://docs.microsoft.com/powershell/module/azurerm.rediscache/set-azurermrediscache?view=azurermps-6.6.0) cuando se modifican las propiedades `Size`, `Sku` o `ShardCount`. En el ejemplo siguiente se muestra cómo escalar una memoria caché denominada `myCache` a una caché de 2,5 GB. 
 
     Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 

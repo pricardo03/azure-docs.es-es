@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: cc9dad4584c8edc47181e4a73ffe11a2e08de2f1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b60e4f3547e049dc35c08ce115bdfcbbf6ebb18a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620819"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246653"
 ---
 # <a name="use-case---customer-profiling"></a>Caso de uso - Generación de perfiles de clientes
 Azure Data Factory es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones.  Para más información sobre Cortana Intelligence, visite [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics)(conjunto de aplicaciones de Cortana Intelligence). En este documento se describe un caso de uso sencillo para que pueda comprender cómo Azure Data Factory puede resolver los problemas comunes de análisis.
@@ -32,7 +32,7 @@ El objetivo de Contoso es identificar oportunidades de aumento de ventas potenci
 En esta solución, Contoso quiere evaluar la eficacia de una campaña de marketing que ha lanzado recientemente. Empezaremos con los registros de juegos sin procesar, los procesaremos y enriqueceremos con los datos de ubicación geográfica, los combinaremos con datos de referencia de anuncios y, por último, los copiaremos en Azure SQL Database para analizar el impacto de la campaña.
 
 ## <a name="deploy-solution"></a>Implementación de la solución
-Todo lo que necesita para acceder a este caso de uso sencillo y probarlo es una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/), una [cuenta de Azure Blob Storage](../../storage/common/storage-create-storage-account.md#create-a-storage-account) y [Azure SQL Database](../../sql-database/sql-database-get-started.md). Implementará la canalización de generación de perfiles de cliente desde el icono de **Canales de muestras** de la página principal de la factoría de datos.
+Todo lo que necesita para acceder a este caso de uso sencillo y probarlo es una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/), una [cuenta de Azure Blob Storage](../../storage/common/storage-quickstart-create-account.md) y [Azure SQL Database](../../sql-database/sql-database-get-started.md). Implementará la canalización de generación de perfiles de cliente desde el icono de **Canales de muestras** de la página principal de la factoría de datos.
 
 1. Cree una factoría de datos o abra una. Vea [Copia de datos de Blob Storage a SQL Database con Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener los pasos para crear una factoría de datos.
 2. En la hoja **FACTORÍA DE DATOS** de la factoría de datos, haga clic en el icono **Canalizaciones de ejemplo**.

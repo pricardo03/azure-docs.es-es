@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: a5b96279993c35aad4cc49c52950576f12dd15ce
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f69830deb4d2c74b5fe1c85ad8c9452097dd2a1e
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345950"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146836"
 ---
 # <a name="what-is-the-access-panel"></a>¿Qué es el panel de acceso?
 
@@ -79,7 +79,7 @@ Para poder iniciar sesión con el inicio de sesión único basado en contraseña
 - Puede iniciar sesión directamente en una aplicación utilizando la **URL de inicio de sesión**. Cuando se usa la dirección URL de la aplicación, la extensión detecta la operación y permite iniciar sesión desde la propia extensión.
 - Puede iniciar cualquier aplicación desde el panel de acceso utilizando la característica *Búsqueda rápida* de la extensión. 
 - En la extensión, en la sección **Usados recientemente**, aparecen las tres últimas aplicaciones que se han iniciado.
-- Puede usar direcciones URL internas de la empresa mientras se conecta de forma remota mediante el [proxy de la aplicación](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started)
+- Puede usar direcciones URL internas de la empresa mientras se conecta de forma remota mediante el [proxy de la aplicación](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
 > Hay características adicionales disponibles solo para Edge, Chrome y Firefox.
@@ -97,8 +97,8 @@ Si va utilizar una dirección URL de Mis aplicaciones que no sea `https://myapps
 5. Seleccione **Iniciar sesión para comenzar**.
 
 Para usar direcciones URL internas de la empresa mientras se conecta de forma remota mediante la extensión, haga lo siguiente:
-1. [Configure el proxy de la aplicación](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) en el inquilino
-2. [Publique la aplicación](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) y la dirección URL a través del proxy de la aplicación.
+1. [Configure el proxy de la aplicación](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) en el inquilino
+2. [Publique la aplicación](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) y la dirección URL a través del proxy de la aplicación.
 3. Instale la extensión y seleccione "Iniciar sesión para comenzar" para iniciar sesión.
 4. Ahora podrá examinar la dirección URL interna de la empresa de manera remota.
 

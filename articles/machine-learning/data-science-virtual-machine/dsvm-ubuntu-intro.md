@@ -3,7 +3,8 @@ title: Aprovisionamiento de Data Science Virtual Machine para Linux (Ubuntu) en 
 description: Configure y cree una instancia de Data Science Virtual Machine para Linux (Ubuntu) en Azure para realizar análisis y aprendizaje automático.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
+ms.author: gokuma
 manager: cgronlun
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
@@ -13,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: bradsev
-ms.openlocfilehash: 19f190c66f7bb4042c640f2cbb82f911746ceb45
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f45bb3b47209bd6b02cea49c23b0a59ad75fc2e2
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422382"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142974"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionamiento de Data Science Virtual Machine para Linux (Ubuntu)
 
@@ -53,7 +53,7 @@ Data Science Virtual Machine para Linux también contiene herramientas conocidas
 * Herramientas de aprendizaje automático
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): sistema de aprendizaje automático rápido que admite varias técnicas, como el aprendizaje en línea, el uso de hash, la clase AllReduce, las reducciones, learning2search y los aprendizajes activo e interactivo
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): herramienta que proporciona una implementación de árbol ampliada, rápida y precisa
-  * [Rattle](http://rattle.togaware.com/): herramienta gráfica que facilita comenzar a trabajar con análisis de datos y aprendizaje automático
+  * [Rattle](https://togaware.com/rattle/): herramienta gráfica que facilita comenzar a trabajar con análisis de datos y aprendizaje automático
   * [LightGBM](https://github.com/Microsoft/LightGBM): entorno de potenciación de gradientes rápido, distribuido y de alto rendimiento
 * Azure SDK en Java, Python, node.js, Ruby, PHP
 * Bibliotecas en R y Python para usarlas en Azure Machine Learning y en otros servicios de Azure
@@ -149,7 +149,7 @@ Una vez que inicie sesión en la máquina virtual mediante el cliente SSH o el e
 
 La DSVM DE Ubuntu ejecuta [JupyterHub](https://github.com/jupyterhub/jupyterhub), un servidor de Jupyter multiusuario. Para conectarse, vaya a https://your-vm-ip:8000 en su equipo de escritorio o portátil, escriba el nombre de usuario y la contraseña que usó para crear la máquina virtual e inicie sesión. Puede elegir algún cuaderno de ejemplo (hay muchos disponibles) y probar.
 
-JupyterLab, la siguiente generación de los cuadernos de Jupyter y JupyterHub, también está disponible. Para acceder, inicie sesión en JupyterHub y, a continuación, vaya a la dirección URL https://your-vm-ip:8000/lab. Puede establecer JupyterLab como servidor de cuadernos predeterminado agregando esta línea a /etc/jupyterhub/jupyterhub_config.py:
+JupyterLab, la siguiente generación de los cuadernos de Jupyter y JupyterHub, también está disponible. Para acceder, inicie sesión en JupyterHub y, a continuación, vaya a la dirección URL https://your-vm-ip:8000/user/your-username/lab. Puede establecer JupyterLab como servidor de cuadernos predeterminado agregando esta línea a /etc/jupyterhub/jupyterhub_config.py:
 
     c.Spawner.default_url = '/lab'
 

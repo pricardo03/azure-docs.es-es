@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 2ff4a5aa8ed9d1eb6d828fb5916a6b6156d87b7d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f1bf61aaf7fefea5bca216b3ba880c23910b9391
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436410"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42142806"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento interno mediante la CLI de Azure
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Crear recursos de red 
 
-Cree la red virtual llamada *myVNet* y la subred llamada *myAGSubnet* mediante [az network vnet create](/cli/azure/network/vnet#az-net). Luego, puede agregar la subred llamada *myBackendSubnet* que necesita el grupo de back-end de servidores mediante [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Cree la dirección IP pública llamada *myAGPublicIPAddress* mediante [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create).
+Cree la red virtual llamada *myVNet* y la subred llamada *myAGSubnet* mediante [az network vnet create](/cli/azure/network/vnet#az-net). Luego, puede agregar la subred llamada *myBackendSubnet* que necesita el grupo de back-end de servidores mediante [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Cree la dirección IP pública llamada *myAGPublicIPAddress* mediante [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -72,7 +72,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-Puede usar [az network application-gateway create](/cli/azure/application-gateway#create) para crear la puerta de enlace de aplicaciones llamada *myAppGateway*. Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. La puerta de enlace de aplicaciones se asigna a los elementos *myAGSubnet* y *myAGPublicIPAddress* creados anteriormente. 
+Puede usar [az network application-gateway create](/cli/azure/network/application-gateway#create) para crear la puerta de enlace de aplicaciones llamada *myAppGateway*. Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. La puerta de enlace de aplicaciones se asigna a los elementos *myAGSubnet* y *myAGPublicIPAddress* creados anteriormente. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -103,7 +103,7 @@ La puerta de enlace de aplicaciones puede tardar varios minutos en crearse. Desp
 
 Es necesario un agente de escucha para que la puerta de enlace de aplicaciones enrute el tráfico de forma adecuada al grupo de servidores back-end. En este tutorial, creará dos agentes de escucha para los dos dominios. En este ejemplo, se crean los agentes de escucha para los dominios de *www.contoso.com* y *www.contoso.org*.
 
-Agregue los agentes de escucha que sean necesarios para enrutar el tráfico mediante [az network application-gateway http-listener create](/cli/azure/application-gateway#az-network_application_gateway_http_listener_create).
+Agregue los agentes de escucha que sean necesarios para enrutar el tráfico mediante [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create).
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -141,7 +141,7 @@ az network application-gateway redirect-config create \
 
 Las reglas se procesan en el orden en el que se crean y el tráfico se dirige mediante la primera regla que coincida con la dirección URL que se envía a la puerta de enlace de aplicaciones. Por ejemplo, si tiene una regla que usa un agente de escucha básico y una regla que usa un agente de escucha multisitio en el mismo puerto, la regla con el agente de escucha multisitio debe aparecer antes que la regla con el agente de escucha básico para que la regla multisitio funcione según lo previsto. 
 
-En este ejemplo se crean dos reglas nuevas y se elimina la regla predeterminada que se creó.  Puede agregar la regla mediante [az network application-gateway rule create](/cli/azure/application-gateway#az-network_application_gateway_rule_create).
+En este ejemplo se crean dos reglas nuevas y se elimina la regla predeterminada que se creó.  Puede agregar la regla mediante [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \

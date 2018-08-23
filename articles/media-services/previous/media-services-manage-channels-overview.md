@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 08/20/2018
 ms.author: juliako
-ms.openlocfilehash: 2d3219f6f2617fec941e308febb2e47efa184170
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9e8dc926fd796e82ea531aba6cb3a682649dff41
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943236"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246602"
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Información general de streaming en vivo con Azure Media Services
 
@@ -67,17 +67,16 @@ La tabla siguiente proporciona a una guía para comparar los dos tipos de canal 
 
 | Característica | Canal de paso a través | Canal estándar |
 | --- | --- | --- |
-| La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube |Sin  |Sí |
+| La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube |Sin  |SÍ |
 | Resolución máxima, número de capas |1080p, 8 capas, 60+fps |720p, 6 capas, 30 fps |
 | Protocolos de entrada |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Precio |Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) y haga clic en la pestaña "Vídeo en vivo" |Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tiempo de ejecución máximo |24x7 |8 horas |
-| Compatibilidad con inserción de tabletas táctiles |Sin  |Sí |
-| Compatibilidad con señalización de anuncios |Sin  |Sí |
-| Títulos CEA 608/708 de paso a través |Sí |Sí |
-| Capacidad para la recuperación de breves pausas en la fuente de contribución |Sí |No (el canal comenzará a usar la tableta táctil transcurridos más de 6 segundos sin datos de entrada) |
-| Compatibilidad con GOP de entrada no uniformes |Sí |No: la entrada debe ser GOP de 2 s fijos |
-| Compatibilidad con la entrada de la velocidad de fotogramas variable |Sí |No: la entrada debe ser una velocidad de fotogramas fija.<br/>Se tolerarán pequeñas variaciones, por ejemplo, durante las escenas con grandes movimientos. Sin embargo, el codificador no puede tener una frecuencia inferior de 10 fotogramas/s. |
+| Compatibilidad con inserción de tabletas táctiles |Sin  |SÍ |
+| Compatibilidad con señalización de anuncios |Sin  |SÍ |
+| Títulos CEA 608/708 de paso a través |SÍ |SÍ |
+| Compatibilidad con GOP de entrada no uniformes |SÍ |No: la entrada debe ser GOP de 2 s fijos |
+| Compatibilidad con la entrada de la velocidad de fotogramas variable |SÍ |No: la entrada debe ser una velocidad de fotogramas fija.<br/>Se tolerarán pequeñas variaciones, por ejemplo, durante las escenas con grandes movimientos. Sin embargo, el codificador no puede tener una frecuencia inferior de 10 fotogramas/s. |
 | Apagado automático de canales cuando se pierde la fuente de entrada |Sin  |Después de 12 horas, si no hay ningún programa en ejecución |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales (paso a través)

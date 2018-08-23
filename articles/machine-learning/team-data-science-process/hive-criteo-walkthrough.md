@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 4c368c3f06347b1164731d056a7341bdabb759b4
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: b368bf76516b0b6f87ad8ff57ca886a44b71926c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34837351"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142985"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Proceso de ciencia de datos en equipos en acción: Uso de un clúster de Hadoop de Azure HDInsight en un conjunto de datos de 1 TB
 
@@ -64,7 +64,7 @@ En este tutorial, se describen dos problemas de predicción de ejemplo:
 
 Configure su entorno de ciencia de datos de Azure para crear soluciones de análisis predictivos con los clústeres de HDInsight en tres pasos:
 
-1. [Cree una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md): esta cuenta de almacenamiento se utiliza para almacenar datos en Azure Blob Storage. Los datos utilizados en los clústeres de HDInsight se almacenan aquí.
+1. [Cree una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md): esta cuenta de almacenamiento se utiliza para almacenar datos en Azure Blob Storage. Los datos utilizados en los clústeres de HDInsight se almacenan aquí.
 2. [Personalice los clústeres de Hadoop de HDInsight de Azure para la ciencia de los datos](customize-hadoop-cluster.md): en este paso, se crea un clúster de Hadoop de HDInsight de Azure con Anaconda Python 2.7 de 64 bits instalado en todos los nodos. Hay que llevar a cabo dos pasos importantes (descritos en este tema) para personalizar el clúster de HDInsight.
    
    * Hay que vincular la cuenta de almacenamiento que creó en el paso 1 con el clúster de HDInsight en el momento de su creación. Esta cuenta de almacenamiento se utiliza para tener acceso a datos que se pueden procesar en el clúster.

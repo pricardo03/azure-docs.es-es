@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: deguhath
-ms.openlocfilehash: 432f7b9bb27c1dee396677c54edf48d9fdb027a0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: eb81d6726b083d864a58b6c11eed67f95aeda350
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836341"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146862"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Creación de características para datos de SQL Server con SQL y Python
 En este documento se muestra cómo generar características para los datos almacenados en una VM de SQL Server en Azure que ayudan a los algoritmos a aprender de forma eficaz de los datos. Puede utilizar SQL o un lenguaje de programación como Python para realizar esta tarea. Ambos enfoques se muestran aquí.
@@ -34,10 +34,10 @@ Este **menú** vincula a temas en los que se describe cómo crear característic
 > 
 > 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que ha:
 
-* Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de Azure Storage](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de Azure Storage](../../storage/common/storage-quickstart-create-account.md)
 * Almacenado los datos en SQL Server. Si no es así, consulte [Mover datos a SQL Database de Azure para Azure Machine Learning](move-sql-azure.md) para obtener instrucciones sobre cómo mover los datos.
 
 ## <a name="sql-featuregen"></a>Generación de características con SQL
