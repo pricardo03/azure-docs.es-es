@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: sajagtap
-ms.openlocfilehash: cb487314b8695f3676fdb22a9d7e3ec5ca3ed9f2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fe321d08a44e7f843228668908c8b2c4ff3a3c32
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380342"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "41929776"
 ---
 # <a name="create-video-reviews-using-net"></a>Creación de revisiones de vídeo con .NET
 
@@ -24,9 +24,9 @@ En este artículo se proporciona información y ejemplos de código que le ayuda
 - Adición de fotogramas a una revisión
 - Obtención de fotogramas para la revisión 
 - Obtención del estado y los detalles de la revisión
-- Publicación de la revisión
+- Publicar la revisión
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por supuesto que ha [moderado el vídeo (consulte la guía de inicio rápido)](video-moderation-api.md) y que tiene los datos de respuesta. Se necesita para crear revisiones basadas en fotogramas para moderadores humanos.
 
@@ -160,7 +160,7 @@ Cree una revisión del vídeo con **ContentModeratorClient.Reviews.CreateVideoRe
 
 **CreateVideoReviews** tiene los siguientes parámetros requeridos:
 1. Una cadena que contiene un tipo MIME, que debe ser "application/json". 
-1. Nombre del equipo Content Moderator.
+1. El nombre del equipo de Content Moderator.
 1. Un objeto **IList<CreateVideoReviewsBodyItem>**. Cada objeto **CreateVideoReviewsBodyItem** representa una revisión del vídeo. Esta guía de inicio rápido crea una revisión a la vez.
 
 **CreateVideoReviewsBodyItem** tiene varias propiedades. Como mínimo, establezca las propiedades siguientes:
@@ -215,7 +215,7 @@ Agregue fotogramas de vídeo a una revisión de vídeo con **ContentModeratorCli
 
 **AddVideoFrameUrl** tiene los siguientes parámetros requeridos:
 1. Una cadena que contiene un tipo MIME, que debe ser "application/json".
-1. Nombre del equipo Content Moderator.
+1. El nombre del equipo de Content Moderator.
 1. Identificador de revisión de vídeo que **CreateVideoReviews** devuelve.
 1. Un objeto **IList<VideoFrameBodyItem>**. Cada objeto **VideoFrameBodyItem** representa un fotograma de vídeo.
 
@@ -310,7 +310,7 @@ Agregue la siguiente definición de método al espacio de nombres VideoReviews, 
     {
         Console.WriteLine("Getting frames for the review with ID {0}.", review_id);
 
-        Frames result = client.Reviews.GetVideoFrames(TeamName, review_id, 0, Int32.MaxValue);
+        Frames result = client.Reviews.GetVideoFrames(TeamName, review_id, 0);
         Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
 
         Thread.Sleep(throttleRate);
@@ -343,7 +343,7 @@ Agregue la siguiente definición de método al espacio de nombres VideoReviews, 
 ## <a name="publish-video-review"></a>Publicación de revisión de vídeo
 
 Una revisión de vídeo se publica con **ContentModeratorClient.Reviews.PublishVideoReview**. **PublishVideoReview** tiene los siguientes parámetros requeridos:
-1. Nombre del equipo Content Moderator.
+1. El nombre del equipo de Content Moderator.
 1. Identificador de revisión de vídeo que **CreateVideoReviews** devuelve.
 
 Agregue la siguiente definición de método al espacio de nombres VideoReviews, clase Program.
