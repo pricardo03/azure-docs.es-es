@@ -1,387 +1,396 @@
+items:
 - name: Documentación de Site Recovery
   href: index.yml
 - name: Información general
   items:
-    - name: Acerca de Site Recovery
-      href: site-recovery-overview.md
+  - name: Acerca de Site Recovery
+    href: site-recovery-overview.md
 - name: Guías de inicio rápido
-  expanded: true
   items:
-    - name: Replicación de una máquina virtual de Azure en otra región
-      href: azure-to-azure-quickstart.md
+  - name: Replicación de una máquina virtual de Azure en otra región
+    href: azure-to-azure-quickstart.md
+  expanded: true
 - name: Tutoriales
   items:
-    - name: Máquinas virtuales de Azure
-      items:
-        - name: Configuración de la recuperación ante desastres
-          href: azure-to-azure-tutorial-enable-replication.md
-        - name: Ejecución de un simulacro de recuperación ante desastres
-          href: azure-to-azure-tutorial-dr-drill.md
-        - name: Ejecución de una conmutación por error y una conmutación por recuperación
-          href: azure-to-azure-tutorial-failover-failback.md
-    - name: Máquinas virtuales de VMware
-      items:
-        - name: Preparación de Azure
-          href: tutorial-prepare-azure.md
-        - name: Preparación de instancias locales de VMware
-          href: vmware-azure-tutorial-prepare-on-premises.md
-        - name: Configuración de la recuperación ante desastres
-          href: vmware-azure-tutorial.md
-        - name: Ejecución de un simulacro de recuperación ante desastres
-          href: tutorial-dr-drill-azure.md
-        - name: Ejecución de una conmutación por error y una conmutación por recuperación
-          href: vmware-azure-tutorial-failover-failback.md
-    - name: Máquinas virtuales de Hyper-V
-      items:
-        - name: Preparación de Azure
-          href: tutorial-prepare-azure.md
-        - name: Preparación de un entorno de Hyper-V local
-          href: hyper-v-prepare-on-premises-tutorial.md
-        - name: Configuración de la recuperación ante desastres de máquinas virtuales de Hyper-V
-          href: hyper-v-azure-tutorial.md
-        - name: Configuración de la recuperación ante desastres de máquinas virtuales de Hyper-V en nubes VMM
-          href: hyper-v-vmm-azure-tutorial.md
-        - name: Ejecución de un simulacro de recuperación ante desastres
-          href: tutorial-dr-drill-azure.md
-        - name: Ejecución de una conmutación por error y una conmutación por recuperación
-          href: hyper-v-azure-failover-failback-tutorial.md
-    - name: Migración a Azure
-      items:
-        - name: Preparación de Azure para la replicación local
-          href: tutorial-prepare-azure.md
-        - name: Migración de máquinas locales a Azure
-          href: migrate-tutorial-on-premises-azure.md
-        - name: Migración de servidores de Windows Server 2008 a Azure
-          href: migrate-tutorial-windows-server-2008.md
-        - name: Migración de instancias de AWS a Azure
-          href: migrate-tutorial-aws-azure.md
-        - name: Migración de máquinas virtuales de Azure a otra región
-          href: azure-to-azure-tutorial-migrate.md
+  - name: Máquinas virtuales de Azure
+    items:
+    - name: Configuración de la recuperación ante desastres
+      href: azure-to-azure-tutorial-enable-replication.md
+    - name: Ejecución de un simulacro de recuperación ante desastres
+      href: azure-to-azure-tutorial-dr-drill.md
+    - name: Ejecución de una conmutación por error y una conmutación por recuperación
+      href: azure-to-azure-tutorial-failover-failback.md
+  - name: Máquinas virtuales de VMware
+    items:
+    - name: Preparación de Azure
+      href: tutorial-prepare-azure.md
+    - name: Preparación de instancias locales de VMware
+      href: vmware-azure-tutorial-prepare-on-premises.md
+    - name: Configuración de la recuperación ante desastres
+      href: vmware-azure-tutorial.md
+    - name: Ejecución de un simulacro de recuperación ante desastres
+      href: tutorial-dr-drill-azure.md
+    - name: Ejecución de una conmutación por error y una conmutación por recuperación
+      href: vmware-azure-tutorial-failover-failback.md
+  - name: Máquinas virtuales de Hyper-V
+    items:
+    - name: Preparación de Azure
+      href: tutorial-prepare-azure.md
+    - name: Preparación de un entorno de Hyper-V local
+      href: hyper-v-prepare-on-premises-tutorial.md
+    - name: Configuración de la recuperación ante desastres de máquinas virtuales de Hyper-V
+      href: hyper-v-azure-tutorial.md
+    - name: Configuración de la recuperación ante desastres de máquinas virtuales de Hyper-V en nubes VMM
+      href: hyper-v-vmm-azure-tutorial.md
+    - name: Ejecución de un simulacro de recuperación ante desastres
+      href: tutorial-dr-drill-azure.md
+    - name: Ejecución de una conmutación por error y una conmutación por recuperación
+      href: hyper-v-azure-failover-failback-tutorial.md
+  - name: Migración a Azure
+    items:
+    - name: Preparación de Azure para la replicación local
+      href: tutorial-prepare-azure.md
+    - name: Migración de máquinas locales a Azure
+      href: migrate-tutorial-on-premises-azure.md
+    - name: Migración de servidores de Windows Server 2008 a Azure
+      href: migrate-tutorial-windows-server-2008.md
+    - name: Migración de instancias de AWS a Azure
+      href: migrate-tutorial-aws-azure.md
+    - name: Migración de máquinas virtuales de Azure a otra región
+      href: azure-to-azure-tutorial-migrate.md
 - name: Conceptos
   items:
-    - name: Máquinas virtuales de Azure
+  - name: Máquinas virtuales de Azure
+    items:
+    - name: Arquitectura de Azure a Azure
+      href: azure-to-azure-architecture.md
+    - name: Matriz de compatibilidad de Azure a Azure
+      href: azure-to-azure-support-matrix.md
+  - name: Máquinas virtuales de VMware y servidores físicos
+    items:
+    - name: Replicación en Azure
       items:
-        - name: Arquitectura de Azure a Azure
-          href: azure-to-azure-architecture.md
-        - name: Matriz de compatibilidad de Azure a Azure
-          href: azure-to-azure-support-matrix.md
-    - name: Máquinas virtuales de VMware y servidores físicos
+      - name: Preguntas habituales sobre la replicación de VMware en Azure
+        href: vmware-azure-common-questions.md
+      - name: Matriz de compatibilidad de VMware o dispositivo físico a Azure
+        href: vmware-physical-azure-support-matrix.md
+      - name: Arquitectura de VMware a Azure
+        href: vmware-azure-architecture.md
+      - name: Arquitectura de dispositivo físico a Azure
+        href: physical-azure-architecture.md
+      - name: Compatibilidad multiinquilino para la replicación de VMware en Azure
+        href: vmware-azure-multi-tenant-overview.md
+      - name: Acerca de Mobility Service
+        href: vmware-azure-install-mobility-service.md
+      - name: Opciones de ubicación de conmutación por recuperación
+        href: concepts-types-of-failback.md
+    - name: Replicación en un sitio secundario
       items:
-        - name: Replicación en Azure
-          items:
-            - name: Preguntas habituales sobre la replicación de VMware en Azure
-              href: vmware-azure-common-questions.md
-            - name: Matriz de compatibilidad de VMware o dispositivo físico a Azure
-              href: vmware-physical-azure-support-matrix.md
-            - name: Arquitectura de VMware a Azure
-              href: vmware-azure-architecture.md
-            - name: Arquitectura de dispositivo físico a Azure
-              href: physical-azure-architecture.md
-            - name: Compatibilidad multiinquilino para la replicación de VMware en Azure
-              href: vmware-azure-multi-tenant-overview.md
-            - name: Acerca de Mobility Service
-              href: vmware-azure-install-mobility-service.md
-            - name: Opciones de ubicación de conmutación por recuperación
-              href: concepts-types-of-failback.md
-        - name: Replicación en un sitio secundario
-          items:
-            - name: Matriz de compatibilidad de VMware o dispositivo físico a sitio secundario
-              href: vmware-physical-secondary-support-matrix.md
-            - name: Arquitectura de VMware o dispositivo físico a sitio secundario
-              href: vmware-physical-secondary-architecture.md
-    - name: Máquinas virtuales de Hyper-V
+      - name: Matriz de compatibilidad de VMware o dispositivo físico a sitio secundario
+        href: vmware-physical-secondary-support-matrix.md
+      - name: Arquitectura de VMware o dispositivo físico a sitio secundario
+        href: vmware-physical-secondary-architecture.md
+  - name: Máquinas virtuales de Hyper-V
+    items:
+    - name: Replicación en Azure
       items:
-        - name: Replicación en Azure
-          items:
-            - name: Matriz de compatibilidad de Hyper-V a Azure
-              href: hyper-v-azure-support-matrix.md
-            - name: Arquitectura de Hyper-V a Azure
-              href: hyper-v-azure-architecture.md
-        - name: Replicación en un sitio secundario
-          items:
-            - name: Matriz de compatibilidad de Hyper-V a sitio secundario
-              href: hyper-v-vmm-secondary-support-matrix.md
-            - name: Arquitectura de Hyper-V a sitio secundario
-              href: hyper-v-vmm-architecture.md
-    - name: Redes
+      - name: Preguntas habituales sobre la replicación de Hyper-V en Azure
+        href: hyper-v-azure-common-questions.md
+      - name: Matriz de compatibilidad de Hyper-V a Azure
+        href: hyper-v-azure-support-matrix.md
+      - name: Arquitectura de Hyper-V a Azure
+        href: hyper-v-azure-architecture.md
+    - name: Replicación en un sitio secundario
       items:
-        - name: Azure Traffic Manager con Site Recovery
-          href: concepts-traffic-manager-with-site-recovery.md
-        - name: ExpressRoute con Site Recovery
-          href: concepts-expressroute-with-site-recovery.md
-        - name: Grupos de seguridad de red con Site Recovery
-          href: concepts-network-security-group-with-site-recovery.md
-    - name: Recuperación ante desastres para aplicaciones
-      href: site-recovery-workload.md
-    - name: Acerca de los planes de recuperación
-      href: recovery-plan-overview.md
-    - name: Información sobre la migración
-      href: migrate-overview.md
-    - name: Acerca del control de acceso basado en rol con Site Recovery
-      href: site-recovery-role-based-linked-access-control.md
-    - name: Preguntas más frecuentes
-      href: site-recovery-faq.md
+      - name: Matriz de compatibilidad de Hyper-V a sitio secundario
+        href: hyper-v-vmm-secondary-support-matrix.md
+      - name: Arquitectura de Hyper-V a sitio secundario
+        href: hyper-v-vmm-architecture.md
+  - name: Redes
+    items:
+    - name: Azure Traffic Manager con Site Recovery
+      href: concepts-traffic-manager-with-site-recovery.md
+    - name: ExpressRoute con Site Recovery
+      href: concepts-expressroute-with-site-recovery.md
+    - name: Grupos de seguridad de red con Site Recovery
+      href: concepts-network-security-group-with-site-recovery.md
+  - name: Recuperación ante desastres para aplicaciones
+    href: site-recovery-workload.md
+  - name: Acerca de los planes de recuperación
+    href: recovery-plan-overview.md
+  - name: Información sobre la migración
+    href: migrate-overview.md
+  - name: Acerca del control de acceso basado en rol con Site Recovery
+    href: site-recovery-role-based-linked-access-control.md
+  - name: Preguntas más frecuentes
+    href: site-recovery-faq.md
 - name: Guías de procedimientos
   items:
-    - name: Azure a Azure
+  - name: Azure a Azure
+    items:
+    - name: Redes
       items:
-        - name: Redes
-          items:
-            - name: Administración de redes de las máquinas virtuales de Azure en caso de recuperación ante desastres
-              href: azure-to-azure-about-networking.md
-            - name: Preparación de la asignación de redes durante la recuperación ante desastres de las máquinas virtuales de Azure
-              href: azure-to-azure-network-mapping.md
-            - name: Configuración de direcciones IP para la conmutación por error
-              href: site-recovery-retain-ip-azure-vm-failover.md
-            - name: ExpressRoute con recuperación ante desastres de las máquinas virtuales de Azure
-              href: azure-vm-disaster-recovery-with-expressroute.md
-        - name: Recuperación ante desastres
-          items:
-            - name: Recuperación ante desastres de máquinas virtuales de Azure tras la migración a Azure
-              href: azure-to-azure-replicate-after-migration.md
-            - name: Recuperación ante desastres de máquinas virtuales de Azure con PowerShell
-              href: azure-to-azure-powershell.md
-        - name: 'Replicación, conmutación por error y conmutación por recuperación'
-          items:
-            - name: Habilitación de la replicación de Azure a Azure
-              href: azure-to-azure-how-to-enable-replication.md
-            - name: Reprotección de una región secundaria de Azure en una principal
-              href: azure-to-azure-how-to-reprotect.md
-        - name: solución de problemas
-          items:
-            - name: Solución de problems de la replicación de Azure en Azure
-              href: azure-to-azure-troubleshoot-errors.md
-            - name: Solución de problemas de la extensión de Azure Site Recovery
-              href: site-recovery-extension-troubleshoot.md
-        - name: administración
-          items:
-            - name: Actualizaciones automáticas de la extensión de Mobility Service
-              href: azure-to-azure-autoupdate.md
-    - name: VMware o dispositivo físico a Azure
+      - name: Administración de redes de las máquinas virtuales de Azure en caso de recuperación ante desastres
+        href: azure-to-azure-about-networking.md
+      - name: Preparación de la asignación de redes durante la recuperación ante desastres de las máquinas virtuales de Azure
+        href: azure-to-azure-network-mapping.md
+      - name: Configuración de direcciones IP para la conmutación por error
+        href: site-recovery-retain-ip-azure-vm-failover.md
+      - name: ExpressRoute con recuperación ante desastres de las máquinas virtuales de Azure
+        href: azure-vm-disaster-recovery-with-expressroute.md
+    - name: Recuperación ante desastres
       items:
-        - name: Redes
-          items:
-            - name: Administración de interfaces de red para la replicación desde un sitio local en Azure
-              href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-            - name: Configuración de direcciones IP para la conmutación por error
-              href: concepts-on-premises-to-azure-networking.md
-        - name: Planificación de capacidad
-          items:
-            - name: Planeamiento de la capacidad para la replicación de VMware a Azure
-              href: site-recovery-plan-capacity-vmware.md
-            - name: Herramienta Deployment Planner para la replicación de VMware en Azure
-              items:
-                - name: Introducción y requisitos previos
-                  href: site-recovery-deployment-planner.md
-                - name: Ejecución de la herramienta Deployment Planner
-                  href: site-recovery-vmware-deployment-planner-run.md
-                - name: Análisis del informe generado
-                  href: site-recovery-vmware-deployment-planner-analyze-report.md
-                - name: Análisis del informe de estimación de costo
-                  href: site-recovery-vmware-deployment-planner-cost-estimation.md
-            - name: Escalado horizontal de los servidores de proceso para la replicación de VMware
-              href: vmware-azure-set-up-process-server-scale.md
-        - name: Recuperación ante desastres
-          items:
-            - name: Replicación de máquinas virtuales de VMware en Azure mediante PowerShell
-              href: vmware-azure-disaster-recovery-powershell.md
-            - name: Recuperación ante desastres de servidores físicos en Azure
-              href: physical-azure-disaster-recovery.md
-            - name: Configuración del entorno de origen para máquinas virtuales de VMware
-              href: vmware-azure-set-up-source.md
-            - name: Configuración del entorno de origen para los servidores físicos
-              href: physical-azure-set-up-source.md
-            - name: Implementación del servidor de configuración para la replicación de VMware
-              href: vmware-azure-deploy-configuration-server.md
-            - name: Configuración del entorno de destino para máquinas virtuales de VMware
-              href: vmware-azure-set-up-target.md
-            - name: Configuración del entorno de destino para los servidores físicos
-              href: physical-azure-set-up-target.md
-            - name: Configuración de las opciones de replicación
-              href: vmware-azure-set-up-replication.md
-            - name: Excluir discos de la replicación
-              href: vmware-azure-exclude-disk.md
-            - name: Habilitar replicación de máquinas virtuales de VMware
-              href: vmware-azure-enable-replication.md
-            - name: Servicios multiinquilino con CSP para máquinas virtuales de VMWare
-              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
-        - name: Implementación de Mobility Service
-          items:
-            - name: Introducción a Mobility Service
-              href: vmware-azure-install-mobility-service.md
-            - name: Implementación de Mobility Service con System Center Configuration Manager
-              href: vmware-azure-mobility-install-configuration-mgr.md
-        - name: Conmutación por error y conmutación por recuperación
-          items:
-            - name: Ejecución de un simulacro de recuperación ante desastres en Azure
-              href: site-recovery-test-failover-to-azure.md
-            - name: Configuración de planes de recuperación
-              href: site-recovery-create-recovery-plans.md
-            - name: Adición de runbooks de Azure a los planes de recuperación
-              href: site-recovery-runbook-automation.md
-            - name: Configuración y administración de un servidor de proceso para la conmutación por recuperación en Azure
-              href: vmware-azure-set-up-process-server-azure.md
-            - name: Configuración de un servidor de destino maestro de Linux para la conmutación por recuperación
-              href: vmware-azure-install-linux-master-target.md
-            - name: Ejecutar una conmutación por error en Azure.
-              href: site-recovery-failover.md
-            - name: Ejecución de una conmutación por error y una conmutación por recuperación en servidores físicos
-              href: physical-to-azure-failover-failback.md
-            - name: Conmutación por recuperación de Azure a VMware
-              href: vmware-azure-failback.md
-            - name: Reprotección desde Azure a una instancia local de VMware
-              href: vmware-azure-reprotect.md
-        - name: administración
-          items:
-            - name: Administración del servidor de configuración para la replicación de VMware
-              href: vmware-azure-manage-configuration-server.md
-            - name: Administración del servidor de configuración para la replicación de un servidor físico
-              href: physical-manage-configuration-server.md
-            - name: Administración de servidores de proceso
-              href: vmware-azure-manage-process-server.md
-            - name: Administración de servidores vCenter
-              href: vmware-azure-manage-vcenter.md
-            - name: Quitar servidores y deshabilitar la protección
-              href: site-recovery-manage-registration-and-protection.md
-            - name: Eliminación de un almacén
-              href: delete-vault.md
-        - name: Supervisión y solución de problemas
-          items:
-            - name: Supervisión de Azure Site Recovery
-              href: site-recovery-monitor-and-troubleshoot.md
-            - name: Solución de problems de la replicación de VMware en Azure
-              href: vmware-azure-troubleshoot-replication.md
-            - name: Solución de problemas de Mobility Service en la replicación de VMware en un servidor físico
-              href: vmware-azure-troubleshoot-push-install.md
-            - name: Solución de problemas de conmutación por error en Azure
-              href: site-recovery-failover-to-azure-troubleshoot.md
-            - name: Solución de problemas de reprotección y conmutación por recuperación de máquinas virtuales de VMware desde Azure
-              href: vmware-azure-troubleshoot-failback-reprotect.md
-    - name: Máquinas VMware o servidores físicos en un sitio secundario
+      - name: Recuperación ante desastres de máquinas virtuales de Azure tras la migración a Azure
+        href: azure-to-azure-replicate-after-migration.md
+      - name: Recuperación ante desastres de máquinas virtuales de Azure con PowerShell
+        href: azure-to-azure-powershell.md
+    - name: Replicación, conmutación por error y conmutación por recuperación
       items:
-        - name: Recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en un sitio secundario
-          href: vmware-physical-secondary-disaster-recovery.md
-    - name: Hyper-V en Azure
+      - name: Habilitación de la replicación de Azure a Azure
+        href: azure-to-azure-how-to-enable-replication.md
+      - name: Reprotección de una región secundaria de Azure en una principal
+        href: azure-to-azure-how-to-reprotect.md
+    - name: solución de problemas
       items:
-        - name: Redes
-          items:
-            - name: Administración de interfaces de red para la replicación desde un sitio local en Azure
-              href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
-            - name: Configuración de direcciones IP para la conmutación por error
-              href: concepts-on-premises-to-azure-networking.md
-        - name: Planificación de capacidad
-          items:
-            - name: Herramienta Deployment Planner para la replicación de Hyper-V en Azure
-              items:
-                - name: Introducción y requisitos previos
-                  href: hyper-v-deployment-planner-overview.md
-                - name: Ejecución de la herramienta Deployment Planner
-                  href: hyper-v-deployment-planner-run.md
-                - name: Análisis del informe generado
-                  href: hyper-v-deployment-planner-analyze-report.md
-                - name: Análisis del informe de estimación de costo
-                  href: hyper-v-deployment-planner-cost-estimation.md
-        - name: Recuperación ante desastres
-          items:
-            - name: Configuración de la replicación de Hyper-V a Azure (sin VMM) mediante PowerShell
-              href: hyper-v-azure-powershell-resource-manager.md
-            - name: Configuración de la replicación de Hyper-V a Azure (con VMM) mediante PowerShell
-              href: hyper-v-vmm-powershell-resource-manager.md
-            - name: Preparación de la asignación de redes durante la recuperación ante desastres de las máquinas virtuales de Hyper-V
-              href: hyper-v-vmm-network-mapping.md
-            - name: Exclusión de discos de replicación de Hyper-V en Azure
-              href: hyper-v-exclude-disk.md
-        - name: Conmutación por error y conmutación por recuperación
-          items:
-            - name: Ejecución de un simulacro de recuperación ante desastres en Azure
-              href: site-recovery-test-failover-to-azure.md
-            - name: Configuración de planes de recuperación
-              href: site-recovery-create-recovery-plans.md
-            - name: Adición de scripts de VMM a los planes de recuperación
-              href: hyper-v-vmm-recovery-script.md
-            - name: Adición de runbooks de Azure a los planes de recuperación
-              href: site-recovery-runbook-automation.md
-            - name: Ejecutar una conmutación por error en Azure.
-              href: site-recovery-failover.md
-            - name: Conmutación por recuperación de Azure a Hyper-V
-              href: hyper-v-azure-failback.md
-        - name: administración
-          items:
-            - name: Quitar servidores y deshabilitar la protección
-              href: site-recovery-manage-registration-and-protection.md
-            - name: Eliminación de un almacén
-              href: delete-vault.md
-        - name: Supervisión y solución de problemas
-          items:
-            - name: Solución de problemas de réplica de Hyper-V
-              href: hyper-v-azure-troubleshoot.md
-            - name: Supervisión de Azure Site Recovery
-              href: site-recovery-monitor-and-troubleshoot.md
-    - name: De Hyper-V a un sitio secundario
+      - name: Solución de problems de la replicación de Azure en Azure
+        href: azure-to-azure-troubleshoot-errors.md
+      - name: Solución de problemas de la extensión de Azure Site Recovery
+        href: site-recovery-extension-troubleshoot.md
+    - name: administración
       items:
-        - name: Recuperación ante desastres de máquinas virtuales de Hyper-V a un sitio secundario
-          href: hyper-v-vmm-disaster-recovery.md
-        - name: Configuración de la replicación de Hyper-V a un sitio secundario de VMM mediante PowerShell
-          href: hyper-v-vmm-powershell-resource-manager.md
-        - name: Ejecución de una exploración de recuperación ante desastres de máquinas virtuales de Hyper-V en un sitio secundario
-          href: hyper-v-vmm-test-failover.md
-        - name: Configuración de direcciones IP para la conmutación por error
-          href: hyper-v-vmm-networking.md
-        - name: Adición de scripts de VMM a los planes de recuperación
-          href: hyper-v-vmm-recovery-script.md
-        - name: Ejecución de una conmutación por error y una conmutación por recuperación entre sitios locales
-          href: hyper-v-vmm-failover-failback.md
-        - name: Pruebas de escala de rendimiento para la replicación de Hyper-V en un sitio secundario
-          href: hyper-v-vmm-performance-results.md
-    - name: Replicación de aplicaciones
+      - name: Actualizaciones automáticas de la extensión de Mobility Service
+        href: azure-to-azure-autoupdate.md
+  - name: VMware o dispositivo físico a Azure
+    items:
+    - name: Redes
       items:
-        - name: Active Directory y DNS
-          href: site-recovery-active-directory.md
-        - name: SQL Server
-          href: site-recovery-sql.md
-        - name: SharePoint
-          href: site-recovery-sharepoint.md
-        - name: Dynamics AX
-          href: site-recovery-dynamicsax.md
-        - name: RDS
-          href: 'site-recovery-workload.md#protect-rds'
-        - name: Exchange
-          href: 'site-recovery-workload.md#protect-exchange'
-        - name: SAP
-          href: site-recovery-sap.md
-        - name: Servidor de archivos
-          href: file-server-disaster-recovery.md
-        - name: Aplicaciones web basadas en IIS
-          href: site-recovery-iis.md
-        - name: Citrix XenApp y XenDesktop
-          href: site-recovery-citrix-xenapp-and-xendesktop.md
-        - name: Otras cargas de trabajo
-          href: 'site-recovery-workload.md#workload-summary'
+      - name: Administración de interfaces de red para la replicación desde un sitio local en Azure
+        href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
+      - name: Configuración de direcciones IP para la conmutación por error
+        href: concepts-on-premises-to-azure-networking.md
+    - name: Planificación de capacidad
+      items:
+      - name: Planeamiento de la capacidad para la replicación de VMware a Azure
+        href: site-recovery-plan-capacity-vmware.md
+      - name: Herramienta Deployment Planner para la replicación de VMware en Azure
+        items:
+        - name: Introducción y requisitos previos
+          href: site-recovery-deployment-planner.md
+        - name: Ejecución de la herramienta Deployment Planner
+          href: site-recovery-vmware-deployment-planner-run.md
+        - name: Análisis del informe generado
+          href: site-recovery-vmware-deployment-planner-analyze-report.md
+        - name: Análisis del informe de estimación de costo
+          href: site-recovery-vmware-deployment-planner-cost-estimation.md
+      - name: Escalado horizontal de los servidores de proceso para la replicación de VMware
+        href: vmware-azure-set-up-process-server-scale.md
+    - name: Recuperación ante desastres
+      items:
+      - name: Replicación de máquinas virtuales de VMware en Azure mediante PowerShell
+        href: vmware-azure-disaster-recovery-powershell.md
+      - name: Recuperación ante desastres de servidores físicos en Azure
+        href: physical-azure-disaster-recovery.md
+      - name: Configuración del entorno de origen para máquinas virtuales de VMware
+        href: vmware-azure-set-up-source.md
+      - name: Configuración del entorno de origen para los servidores físicos
+        href: physical-azure-set-up-source.md
+      - name: Implementación del servidor de configuración para la replicación de VMware
+        href: vmware-azure-deploy-configuration-server.md
+      - name: Configuración del entorno de destino para máquinas virtuales de VMware
+        href: vmware-azure-set-up-target.md
+      - name: Configuración del entorno de destino para los servidores físicos
+        href: physical-azure-set-up-target.md
+      - name: Configuración de las opciones de replicación
+        href: vmware-azure-set-up-replication.md
+      - name: Excluir discos de la replicación
+        href: vmware-azure-exclude-disk.md
+      - name: Habilitar replicación de máquinas virtuales de VMware
+        href: vmware-azure-enable-replication.md
+      - name: Servicios multiinquilino con CSP para máquinas virtuales de VMWare
+        href: vmware-azure-multi-tenant-csp-disaster-recovery.md
+    - name: Implementación de Mobility Service
+      items:
+      - name: Introducción a Mobility Service
+        href: vmware-azure-install-mobility-service.md
+      - name: Implementación de Mobility Service con System Center Configuration Manager
+        href: vmware-azure-mobility-install-configuration-mgr.md
+    - name: Conmutación por error y conmutación por recuperación
+      items:
+      - name: Ejecución de un simulacro de recuperación ante desastres en Azure
+        href: site-recovery-test-failover-to-azure.md
+      - name: Configuración de planes de recuperación
+        href: site-recovery-create-recovery-plans.md
+      - name: Adición de runbooks de Azure a los planes de recuperación
+        href: site-recovery-runbook-automation.md
+      - name: Configuración y administración de un servidor de proceso para la conmutación por recuperación en Azure
+        href: vmware-azure-set-up-process-server-azure.md
+      - name: Configuración de un servidor de destino maestro de Linux para la conmutación por recuperación
+        href: vmware-azure-install-linux-master-target.md
+      - name: Ejecutar una conmutación por error en Azure.
+        href: site-recovery-failover.md
+      - name: Ejecución de una conmutación por error y una conmutación por recuperación en servidores físicos
+        href: physical-to-azure-failover-failback.md
+      - name: Conmutación por recuperación de Azure a VMware
+        href: vmware-azure-failback.md
+      - name: Reprotección desde Azure a una instancia local de VMware
+        href: vmware-azure-reprotect.md
+    - name: administración
+      items:
+      - name: Administración del servidor de configuración para la replicación de VMware
+        href: vmware-azure-manage-configuration-server.md
+      - name: Administración del servidor de configuración para la replicación de un servidor físico
+        href: physical-manage-configuration-server.md
+      - name: Administración de servidores de proceso
+        href: vmware-azure-manage-process-server.md
+      - name: Administración de servidores vCenter
+        href: vmware-azure-manage-vcenter.md
+      - name: Quitar servidores y deshabilitar la protección
+        href: site-recovery-manage-registration-and-protection.md
+      - name: Eliminación de un almacén
+        href: delete-vault.md
+    - name: Supervisión y solución de problemas
+      items:
+      - name: Supervisión de Azure Site Recovery
+        href: site-recovery-monitor-and-troubleshoot.md
+      - name: Solución de problems de la replicación de VMware en Azure
+        href: vmware-azure-troubleshoot-replication.md
+      - name: Solución de problemas de Mobility Service en la replicación de VMware en un servidor físico
+        href: vmware-azure-troubleshoot-push-install.md
+      - name: Solución de problemas de conmutación por error en Azure
+        href: site-recovery-failover-to-azure-troubleshoot.md
+      - name: Solución de problemas de reprotección y conmutación por recuperación de máquinas virtuales de VMware desde Azure
+        href: vmware-azure-troubleshoot-failback-reprotect.md
+  - name: Máquinas VMware o servidores físicos en un sitio secundario
+    items:
+    - name: Recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en un sitio secundario
+      href: vmware-physical-secondary-disaster-recovery.md
+  - name: Hyper-V en Azure
+    items:
+    - name: Redes
+      items:
+      - name: Administración de interfaces de red para la replicación desde un sitio local en Azure
+        href: site-recovery-manage-network-interfaces-on-premises-to-azure.md
+      - name: Configuración de direcciones IP para la conmutación por error
+        href: concepts-on-premises-to-azure-networking.md
+    - name: Planificación de capacidad
+      items:
+      - name: Herramienta Deployment Planner para la replicación de Hyper-V en Azure
+        items:
+        - name: Introducción y requisitos previos
+          href: hyper-v-deployment-planner-overview.md
+        - name: Ejecución de la herramienta Deployment Planner
+          href: hyper-v-deployment-planner-run.md
+        - name: Análisis del informe generado
+          href: hyper-v-deployment-planner-analyze-report.md
+        - name: Análisis del informe de estimación de costo
+          href: hyper-v-deployment-planner-cost-estimation.md
+    - name: Recuperación ante desastres
+      items:
+      - name: Configuración de la replicación de Hyper-V a Azure (sin VMM) mediante PowerShell
+        href: hyper-v-azure-powershell-resource-manager.md
+      - name: Configuración de la replicación de Hyper-V a Azure (con VMM) mediante PowerShell
+        href: hyper-v-vmm-powershell-resource-manager.md
+      - name: Preparación de la asignación de redes durante la recuperación ante desastres de las máquinas virtuales de Hyper-V
+        href: hyper-v-vmm-network-mapping.md
+      - name: Exclusión de discos de replicación de Hyper-V en Azure
+        href: hyper-v-exclude-disk.md
+    - name: Conmutación por error y conmutación por recuperación
+      items:
+      - name: Ejecución de un simulacro de recuperación ante desastres en Azure
+        href: site-recovery-test-failover-to-azure.md
+      - name: Configuración de planes de recuperación
+        href: site-recovery-create-recovery-plans.md
+      - name: Adición de scripts de VMM a los planes de recuperación
+        href: hyper-v-vmm-recovery-script.md
+      - name: Adición de runbooks de Azure a los planes de recuperación
+        href: site-recovery-runbook-automation.md
+      - name: Ejecutar una conmutación por error en Azure.
+        href: site-recovery-failover.md
+      - name: Conmutación por recuperación de Azure a Hyper-V
+        href: hyper-v-azure-failback.md
+    - name: administración
+      items:
+      - name: Quitar servidores y deshabilitar la protección
+        href: site-recovery-manage-registration-and-protection.md
+      - name: Eliminación de un almacén
+        href: delete-vault.md
+    - name: Supervisión y solución de problemas
+      items:
+      - name: Solución de problemas de réplica de Hyper-V
+        href: hyper-v-azure-troubleshoot.md
+      - name: Supervisión de Azure Site Recovery
+        href: site-recovery-monitor-and-troubleshoot.md
+  - name: De Hyper-V a un sitio secundario
+    items:
+    - name: Recuperación ante desastres de máquinas virtuales de Hyper-V a un sitio secundario
+      href: hyper-v-vmm-disaster-recovery.md
+    - name: Configuración de la replicación de Hyper-V a un sitio secundario de VMM mediante PowerShell
+      href: hyper-v-vmm-powershell-resource-manager.md
+    - name: Ejecución de una exploración de recuperación ante desastres de máquinas virtuales de Hyper-V en un sitio secundario
+      href: hyper-v-vmm-test-failover.md
+    - name: Configuración de direcciones IP para la conmutación por error
+      href: hyper-v-vmm-networking.md
+    - name: Adición de scripts de VMM a los planes de recuperación
+      href: hyper-v-vmm-recovery-script.md
+    - name: Ejecución de una conmutación por error y una conmutación por recuperación entre sitios locales
+      href: hyper-v-vmm-failover-failback.md
+    - name: Pruebas de escala de rendimiento para la replicación de Hyper-V en un sitio secundario
+      href: hyper-v-vmm-performance-results.md
+  - name: Replicación de aplicaciones
+    items:
+    - name: Active Directory y DNS
+      href: site-recovery-active-directory.md
+    - name: SQL Server
+      href: site-recovery-sql.md
+    - name: SharePoint
+      href: site-recovery-sharepoint.md
+    - name: Dynamics AX
+      href: site-recovery-dynamicsax.md
+    - name: RDS
+      href: site-recovery-workload.md#protect-rds
+    - name: Exchange
+      href: site-recovery-workload.md#protect-exchange
+    - name: SAP
+      href: site-recovery-sap.md
+    - name: Servidor de archivos
+      href: file-server-disaster-recovery.md
+    - name: Aplicaciones web basadas en IIS
+      href: site-recovery-iis.md
+    - name: Citrix XenApp y XenDesktop
+      href: site-recovery-citrix-xenapp-and-xendesktop.md
+    - name: Otras cargas de trabajo
+      href: site-recovery-workload.md#workload-summary
 - name: Referencia
   items:
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.recoveryservices.siterecovery
-    - name: Azure PowerShell clásico
-      href: /powershell/module/azure/?view=azuresmps-3.7.0
-    - name: REST
-      href: 'https://msdn.microsoft.com/en-us/library/mt750497'
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.recoveryservices.siterecovery
+  - name: Azure PowerShell clásico
+    href: /powershell/module/azure/?view=azuresmps-3.7.0
+  - name: REST
+    href: https://msdn.microsoft.com/en-us/library/mt750497
 - name: Temas relacionados
   items:
-    - name: Azure Automation
-      href: /azure/automation/
+  - name: Azure Automation
+    href: /azure/automation/
 - name: Recursos
   items:
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Blog
-      href: 'http://azure.microsoft.com/blog/tag/azure-site-recovery/'
-    - name: Foro
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
-    - name: Ruta de aprendizaje
-      href: 'https://azure.microsoft.com/documentation/learning-paths/site-recovery/'
-    - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/site-recovery/'
-    - name: Calculadora de precios
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Actualizaciones del servicio
-      href: 'https://azure.microsoft.com/updates/?product=site-recovery'
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Blog
+    href: http://azure.microsoft.com/blog/tag/azure-site-recovery/
+  - name: Foro
+    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr
+  - name: Ruta de aprendizaje
+    href: https://azure.microsoft.com/documentation/learning-paths/site-recovery/
+  - name: Precios
+    href: https://azure.microsoft.com/pricing/details/site-recovery/
+  - name: Calculadora de precios
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Actualizaciones del servicio
+    href: https://azure.microsoft.com/updates/?product=site-recovery
+ms.openlocfilehash: 3466d2428f30a237ef6ba95504793badcf481e9e
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41928068"

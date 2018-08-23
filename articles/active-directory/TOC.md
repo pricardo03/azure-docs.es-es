@@ -82,34 +82,9 @@
 #### [Obtención de soporte técnico para B2B](b2b/get-support.md)
 
 ## [Administración de grupos y miembros](fundamentals/active-directory-manage-groups.md)
-### Administrar grupos
-#### [Azure Portal](fundamentals/active-directory-groups-create-azure-portal.md)
-#### [Azure AD PowerShell for Graph (v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
-#### [Azure AD PowerShell MSOnline](users-groups-roles/groups-settings-cmdlets.md)
-### [Administración de miembros del grupo](fundamentals/active-directory-groups-members-azure-portal.md)
-### [Administración de propietarios de grupo](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
-### [Administración de pertenencia al grupo](fundamentals/active-directory-groups-membership-azure-portal.md)
-### [Asignación de licencias mediante grupos](fundamentals/active-directory-licensing-whatis-azure-portal.md)
-#### [Asignación de licencias a un grupo](users-groups-roles/licensing-groups-assign.md)
-#### [Identificación y resolución de problemas de licencias de un grupo](users-groups-roles/licensing-groups-resolve-problems.md)
-#### [Migración de usuarios individuales con licencia a licencias basadas en grupos](users-groups-roles/licensing-groups-migrate-users.md)
-#### [Migración de usuarios entre licencias de productos](users-groups-roles/licensing-groups-change-licenses.md)
-#### [Escenarios adicionales para licencias basadas en grupos](users-groups-roles/licensing-group-advanced.md)
-#### [Ejemplos de Azure PowerShell para licencias basadas en grupos](users-groups-roles/licensing-ps-examples.md)
-#### [Referencia de productos y planes de servicio en Azure AD](users-groups-roles/licensing-service-plan-reference.md)
-### [Configuración de la expiración de los grupos de Office 365](users-groups-roles/groups-lifecycle.md)
-### [Aplicación una directiva de nomenclatura para grupos](users-groups-roles/groups-naming-policy.md)
-### [Visualización de todos los grupos](fundamentals/active-directory-groups-view-azure-portal.md)
-### [Administración del acceso de grupo a aplicaciones SaaS](users-groups-roles/groups-saasapps.md)
+### [Administrar grupos](fundamentals/active-directory-groups-create-azure-portal.md)
 ### [Restauración de un grupo eliminado de Office 365](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Administración de la configuración de grupo](fundamentals/active-directory-groups-settings-azure-portal.md)
-### [Configuración de grupos de autoservicio](users-groups-roles/groups-self-service-management.md)
-### Grupos dinámicos
-#### [Creación de un grupo dinámico](users-groups-roles/groups-create-rule.md)
-#### [Sintaxis y propiedades de reglas](users-groups-roles/groups-dynamic-membership.md)
-#### [Cambio del tipo de pertenencia al grupo](users-groups-roles/groups-change-type.md)
-#### [Solución de problemas](users-groups-roles/groups-troubleshooting.md)
-
 ## [Administración de informes](reports-monitoring/overview-reports.md)
 ### [Actividad de inicios de sesión](reports-monitoring/concept-sign-ins.md)
 ### [Actividad de auditoría](reports-monitoring/concept-audit-logs.md)
@@ -137,15 +112,13 @@
 #### [Interpretación del esquema de registro de inicio de sesión en Azure Monitor](reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md)
 
 ### Solución de problemas
-#### [Datos de auditoría que faltan](reports-monitoring/troubleshoot-missing-audit-data.md)
+#### [Datos que faltan en los registros de actividad de Azure AD](reports-monitoring/troubleshoot-missing-audit-data.md)
 #### [Datos que faltan en las descargas](reports-monitoring/troubleshoot-missing-data-download.md)
 #### [Errores de los paquetes de contenido de los registros de actividad de Azure AD](reports-monitoring/troubleshoot-content-pack.md)
 #### [Errores de Reporting API de Azure AD](reports-monitoring/troubleshoot-graph-api.md)
 
 ### [Acceso mediante programación](reports-monitoring/concept-reporting-api.md)
 #### [Requisitos previos](reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
-#### [Ejemplos de auditoría](reports-monitoring/sample-audit-api.md)
-#### [Ejemplos de inicio de sesión](reports-monitoring/sample-sign-in-api.md)
 #### [Uso de certificados](reports-monitoring/tutorial-access-api-with-certificates.md)
 
 ## [Administrar contraseñas](authentication/concept-sspr-howitworks.md)
@@ -235,13 +208,14 @@
 ### Administración de aplicaciones empresariales
 #### [Agregar una aplicación](manage-apps/add-application-portal.md)
 #### [Visualización de aplicaciones de inquilino](manage-apps/view-applications-portal.md)
+#### [Configuración del inicio de sesión único](manage-apps/configure-single-sign-on-portal.md)
 #### [Asignación de usuarios](manage-apps/assign-user-or-group-access-portal.md)
 #### [Personalización de la información de marca](manage-apps/change-name-or-logo-portal.md)
 #### [¿Cómo puedo deshabilitar los inicios de sesión de usuario?](manage-apps/disable-user-sign-in-portal.md)
 #### [Eliminación de usuarios](manage-apps/remove-user-or-group-access-portal.md)
 
 #### [Administración del aprovisionamiento de cuentas de usuario](manage-apps/configure-automatic-user-provisioning-portal.md)
-#### [Administración de inicio de sesión único para aplicaciones empresariales](manage-apps/configure-single-sign-on-portal.md)
+
 #### [Firma avanzada de certificados para aplicaciones SAML](manage-apps/certificate-signing-options.md)
 #### [Ocultar una aplicación de una experiencia de usuario](manage-apps/hide-application-from-user-portal.md)
 ### [Configuración de la aceleración automática del inicio de sesión mediante la directiva de HRD](manage-apps/configure-authentication-for-federated-users-portal.md)
@@ -363,12 +337,7 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Nombres de dominio personalizados
 #### [Guía de inicio rápido](fundamentals/add-custom-domain.md)
-#### [Agregar nombres de dominio personalizados](users-groups-roles/domains-manage.md)
 ### [Administración de directorios](fundamentals/active-directory-administer.md)
-### [Eliminación de un directorio](users-groups-roles/directory-delete-howto.md)
-### [Varios directorios](users-groups-roles/licensing-directory-independence.md)
-### [Suscripción de autoservicio](users-groups-roles/directory-self-service-signup.md)
-### [Asumir el control de un directorio no administrado](users-groups-roles/domains-admin-takeover.md)
 ### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
 #### [Habilitación](active-directory-windows-enterprise-state-roaming-enable.md)
 #### [Configuración de directiva de grupo](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
@@ -379,14 +348,6 @@
 
 ### [Integración de identidades locales con Azure AD Connect](./connect/active-directory-aadconnect.md)
 
-## Administración del acceso a los recursos
-### [Roles de administrador](users-groups-roles/directory-assign-admin-roles.md)
-#### [Visualización de los miembros de un rol de administrador](users-groups-roles//directory-manage-roles-portal.md)
-#### [Asignación de un rol de administrador a un usuario](fundamentals/active-directory-users-assign-role-azure-portal.md)
-#### [Comparación de permisos para miembros y para usuarios invitados](fundamentals/users-default-permissions.md)
-### [Seguridad del rol de administrador](users-groups-roles/directory-admin-roles-secure.md)  
-#### [Creación de cuentas de administrador de acceso de emergencia](users-groups-roles/directory-emergency-access.md)
-### [Unidades administrativas](users-groups-roles/directory-administrative-units.md)
 ### [Configuración de la vigencia de los tokens](active-directory-configurable-token-lifetimes.md)
 
 ## Revisiones de acceso
@@ -401,35 +362,6 @@
 ### [Recuperación de los resultados de revisión de acceso](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Protección de las identidades
-### Acceso condicional
-#### [Información general](conditional-access/overview.md)
-#### Guías de inicio rápido
-##### [Requerir MFA para aplicaciones específicas](conditional-access/app-based-mfa.md)
-##### [Solicitar la aceptación de los términos de uso](conditional-access/require-tou.md)
-##### [Bloqueo del acceso si se detecta un riesgo de sesión](conditional-access/app-sign-in-risk.md)
-#### Tutoriales
-##### [Migración de directiva de MFA clásica](conditional-access/policy-migration-mfa.md)
-#### Conceptos
-##### [Protección básica](conditional-access/baseline-protection.md)
-##### [Condiciones](conditional-access/conditions.md)
-##### [Condiciones de ubicación](conditional-access/location-condition.md)
-##### [Controles](conditional-access/controls.md)
-##### [Herramienta What if](conditional-access/what-if-tool.md)
-##### [Descripción de directivas de dispositivo para servicios de Office 365](active-directory-conditional-access-device-policies.md)
-#### Guías de procedimientos
-##### [procedimientos recomendados](conditional-access/best-practices.md)
-##### [Requerir MFA para los intentos de acceso de redes que no son de confianza](conditional-access/untrusted-networks.md)
-##### [Requerir dispositivos administrados](conditional-access/require-managed-devices.md)
-##### [Requerir aplicaciones cliente aprobadas](conditional-access/app-based-conditional-access.md)
-##### [Requerir condiciones de uso para los usuarios y las aplicaciones](active-directory-tou.md)
-##### [Migración de directivas clásicas](conditional-access/policy-migration.md)
-##### [Configuración de la conectividad VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
-##### [Configuración de SharePoint y Exchange Online](active-directory-conditional-access-no-modern-authentication.md)
-##### [Corrección](active-directory-conditional-access-device-remediation.md)
-#### [Referencia](conditional-access/technical-reference.md)
-##### [Referencia técnica](conditional-access/technical-reference.md)
-#### [Preguntas más frecuentes](conditional-access/faqs.md)
-
 ### Autenticación basada en certificados
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
@@ -449,9 +381,6 @@
 #### [Microsoft Graph](identity-protection/graph-get-started.md)
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
-## Integración de otros servicios con Azure AD 
-### [Integración de LinkedIn con Azure AD](users-groups-roles/linkedin-integration.md)
-
 ## [Implementación de AD FS en Azure](active-directory-aadconnect-azure-adfs.md)
 ### [Alta disponibilidad](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Cambio de algoritmo hash de firma](active-directory-federation-sha256-guidance.md)
@@ -464,13 +393,11 @@
 ### [Guía de la prueba de concepto: Implementación](active-directory-playbook-implementation.md)
 ### [Guía de la prueba de concepto: Bloques de creación](active-directory-playbook-building-blocks.md)
 
-
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [cmdlets de Azure PowerShell](/powershell/azure/overview)
 ## [Referencia de la API de Java](/java/api)
 ## [API de .NET](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
-## [Restricciones y límites del servicio](users-groups-roles/directory-service-limits-restrictions.md)
 
 # Temas relacionados
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)

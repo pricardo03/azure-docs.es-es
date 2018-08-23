@@ -74,9 +74,9 @@
 #### [Control de versiones de cliente y servidor](app-service-mobile-client-and-server-versioning.md)
 
 ### Entorno de App Service
-#### [Creación de una aplicación web en un entorno de App Service](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Creación de un ASE de un ILB mediante las plantillas de Azure Resource Manager](../app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Uso de un equilibrador de carga interno](../app-service/environment/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Creación de una aplicación web en un entorno de App Service](../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Creación y uso de un equilibrador de carga de carga interno](../app-service/environment/create-ilb-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Creación de un ASE mediante una plantilla](../app-service/environment/create-from-template.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Implementación
 ### [Implementación de sincronización en la nube](../app-service/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -135,7 +135,7 @@
 #### [Implementación de una arquitectura de seguridad por niveles](../app-service/environment/app-service-app-service-environment-layered-security.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Conexión de forma segura con recursos de back-end](../app-service/environment/app-service-app-service-environment-securely-connecting-to-backend-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-## Backup
+## Copia de seguridad
 ### [Realizar una copia de seguridad de la aplicación en Azure](../app-service/web-sites-backup.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Restaurar una aplicación en Azure](../app-service/web-sites-restore.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 

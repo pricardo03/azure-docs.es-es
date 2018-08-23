@@ -1,15 +1,18 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0db6620c7433486babebe95090f3682582f1c212
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bec19b959aa2ce99a7237894a50c49666341827b
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422168"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42440236"
 documentType: LandingData
-title: Documentación de Speech Service y del SDK correspondiente (versión preliminar)
+title: Speech Service y SDK (versión preliminar)
 metadata:
   title: 'Documentación de Speech Service: Guías de inicio rápido, tutoriales, referencia de API: Azure Cognitive Services | Microsoft Docs'
-  meta.description: "The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications. \nExamples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.\n"
+  meta.description: >
+    The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications.
+
+    Examples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
   services: cognitive-services
   author: noellelacharite
   manager: nolachar
@@ -23,7 +26,7 @@ metadata:
   ms.author: nolachar
 abstract:
   description: >
-    Mediante nuestro SDK de voz, <a href="overview">Speech Service</a> ayuda a los desarrolladores a agregar características habilitadas para voz a sus aplicaciones.<br/>
+    Mediante nuestro SDK de voz, <a href="overview">Speech Service</a> ayuda a los desarrolladores a agregar características habilitadas para voz a sus aplicaciones.
 
     Entre las características se incluyen&#58; <i>voz a texto</i> (reconocimiento de voz o SR), <i>intención</i>, <i>traducción</i> y <i>texto a voz</i> (TTS).
 sections:
@@ -49,7 +52,16 @@ sections:
     - image:
         src: media/index/logo_rest_tts.svg
     rows:
-    - title: Windows (x86/x64)
+    - title: Windows 10 (x64)
+      values:
+      - href: quickstart-csharp-uwp
+      - href: quickstart-csharp-windows
+      - href: quickstart-cpp-windows
+      - href: quickstart-csharp-dotnetcore-windows
+      - href: quickstart-java-jre
+      - href: 
+      - href: 
+    - title: Windows 10 (x86)
       values:
       - href: quickstart-csharp-uwp
       - href: quickstart-csharp-windows
@@ -58,11 +70,22 @@ sections:
       - href: 
       - href: 
       - href: 
-    - title: Linux (x86/x64)
+    - title: Linux (x64)
       values:
       - href: 
       - href: 
       - href: quickstart-cpp-linux
+      - href: quickstart-csharp-dotnetcore-windows
+      - href: quickstart-java-jre
+      - href: 
+      - href: 
+    - title: Linux (x86)
+      values:
+      - href: 
+      - href: 
+      - href: quickstart-cpp-linux
+      - href: 
+      - href: 
       - href: 
       - href: 
     - title: Android (ARM32/ARM64)
@@ -112,6 +135,13 @@ sections:
         &nbsp;&#8226; <a href="https://aka.ms/csspeech/cppref">API de C++</a><br/>
 
         &nbsp;&#8226; <a href="https://aka.ms/csspeech/javaref">API de Java</a>
+    - title: Preguntas más frecuentes
+      html: >
+        &nbsp;&#8226; <a href="faq-stt">Voz a texto</a><br/>
+
+        &nbsp;&#8226; <a href="faq-text-to-speech">Texto a voz</a><br/>
+
+        &nbsp;&#8226; <a href="https://www.microsoft.com/translator/faq.aspx">Traducción</a>
   - type: paragraph
     text: Utilice los ejemplos y la API anteriores con su clave de suscripción (consulte <a href="get-started.md">Prueba gratuita del servicio de voz</a>).
 - title: Personalización de la voz con sus propios datos

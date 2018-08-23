@@ -1,76 +1,83 @@
+items:
 - name: Documentación de Azure Storage
   href: /azure/storage/
 - name: Cambio a la documentación de Data Lake Storage Gen1
   href: /azure/data-lake-store/
 - name: Información general
   items:
-    - name: Introducción
-      href: introduction.md
+  - name: Introducción
+    href: introduction.md
 - name: Guías de inicio rápido
   items:
-    - name: Creación de una cuenta de almacenamiento compatible con Data Lake Storage Gen2
-      href: quickstart-create-account.md
-    - name: Creación o conexión a la cuenta de Databricks
-      href: quickstart-create-databricks-account.md
-    - name: Creación de un clúster de HDInsight
-      href: quickstart-create-connect-hdi-cluster.md
+  - name: Creación de una cuenta de almacenamiento compatible con Data Lake Storage Gen2
+    href: quickstart-create-account.md
+  - name: Creación o conexión a la cuenta de Databricks
+    href: quickstart-create-databricks-account.md
+  - name: Creación de un clúster de HDInsight
+    href: quickstart-create-connect-hdi-cluster.md
 - name: Tutoriales
   items:
-    - name: 'Extracción, transformación y carga de datos mediante Azure Databricks'
-      href: handle-data-using-databricks.md
-    - name: Acceso a los datos de Data Lake Storage con DataBricks mediante Spark
-      href: using-databricks-spark.md
-    - name: 'Extracción, transformación y carga de datos mediante Apache Hive en Azure HDInsight'
-      href: tutorial-extract-transform-load-hive.md
+  - name: Extracción, transformación y carga de datos mediante Azure Databricks
+    href: handle-data-using-databricks.md
+  - name: Acceso a los datos de Data Lake Storage con Databricks mediante Spark
+    href: using-databricks-spark.md
+  - name: Extracción, transformación y carga de datos mediante Apache Hive en Azure HDInsight
+    href: tutorial-extract-transform-load-hive.md
 - name: Conceptos
   items:
-    - name: Controlador Azure Blob File System para Hadoop
-      href: abfs-driver.md
-    - name: Introducción al URI de Azure Blob File System
-      href: introduction-abfs-uri.md
-    - name: Servicio de espacio de nombres jerárquico
-      href: namespace.md
-    - name: Seguridad
-      items:
-        - name: Cifrado de datos en reposo
-          href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-        - name: Cifrado de datos en reposo con claves de cliente
-          href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-    - name: Evaluación de Data Lake Storage Gen2
-      href: evaluation.md
+  - name: Controlador Azure Blob File System para Hadoop
+    href: abfs-driver.md
+  - name: Introducción al URI de Azure Blob File System
+    href: introduction-abfs-uri.md
+  - name: Servicio de espacio de nombres jerárquico
+    href: namespace.md
+  - name: Seguridad
+    items:
+    - name: Cifrado de datos en reposo
+      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+    - name: Cifrado de datos en reposo con claves de cliente
+      href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+  - name: Evaluación de Data Lake Storage Gen2
+    href: evaluation.md
 - name: Guías de procedimientos
   items:
-    - name: Uso de Data Lake Storage Gen2 con clústeres de Azure HDInsight
-      href: use-hdi-cluster.md
-    - name: Uso de la CLI del sistema de archivos de Hadoop con Data Lake Storage Gen2
-      href: use-hdfs-data-lake-storage.md
-    - name: Introducción de datos
-      items:
-        - name: Copia de datos en Data Lake Storage Gen2 con Distcp
-          href: use-distcp.md
-        - name: Copia de datos en Data Lake Storage Gen2 con Azure Data Factory
-          href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-    - name: Conexión a Azure Databricks
-      href: 'https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html'
+  - name: Uso de Data Lake Storage Gen2 con clústeres de Azure HDInsight
+    href: use-hdi-cluster.md
+  - name: Uso de la CLI del sistema de archivos de Hadoop con Data Lake Storage Gen2
+    href: use-hdfs-data-lake-storage.md
+  - name: Introducción de datos
+    items:
+    - name: Copia de datos en Data Lake Storage Gen2 con Distcp
+      href: use-distcp.md
+    - name: Copia de datos en Data Lake Storage Gen2 con Azure Data Factory
+      href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+  - name: Conexión a Azure Databricks
+    href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
 - name: Referencia
   items:
-    - name: REST
-      href: 'https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2'
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2
 - name: Recursos
   items:
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=storage'
-    - name: Herramientas de cliente de Azure Storage
-      href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
-    - name: Foro
-      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
-    - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/storage/data-lake/'
-    - name: Calculadora de precios
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Actualizaciones del servicio
-      href: 'https://azure.microsoft.com/updates/?product=storage'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
-    - name: Vídeos
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=storage
+  - name: Herramientas de cliente de Azure Storage
+    href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+  - name: Foro
+    href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
+  - name: Precios
+    href: https://azure.microsoft.com/pricing/details/storage/data-lake/
+  - name: Calculadora de precios
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Actualizaciones del servicio
+    href: https://azure.microsoft.com/updates/?product=storage
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/windows-azure-storage
+  - name: Vídeos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+ms.openlocfilehash: 2e640bee7739169b65352d7da6aedf2185c2aa99
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41929668"

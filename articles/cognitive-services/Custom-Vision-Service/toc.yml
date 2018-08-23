@@ -1,71 +1,80 @@
+items:
 - name: Documentación de Custom Vision Service
 - name: Información general
   items:
-    - name: ¿Qué es Custom Vision Service?
-      href: home.md
+  - name: ¿Qué es Custom Vision Service?
+    href: home.md
 - name: Guías de procedimientos
   items:
-    - name: Empezar a usar Custom Vision Service
+  - name: Empezar a usar Custom Vision Service
+    items:
+    - name: Compilación de un clasificador
+      href: getting-started-build-a-classifier.md
+    - name: Comprobación del modelo
+      href: test-your-model.md
+    - name: Mejora del clasificador
+      href: getting-started-improving-your-classifier.md
+    - name: Uso de la API de predicción
+      href: use-prediction-api.md
+    - name: Exportación del modelo al móvil
+      href: export-your-model.md
+    - name: Use el modelo ONNX con Windows ML
+      href: custom-vision-onnx-windows-ml.md
+    - name: Ejecución del modelo de TensorFlow en Python
+      href: export-model-python.md
+    - name: Entrenamiento de un modelo con la API REST
+      href: rest-api-tutorial.md
+  - name: Compilación de aplicaciones
+    items:
+    - name: Clasificación de imágenes
       items:
-        - name: Compilación de un clasificador
-          href: getting-started-build-a-classifier.md
-        - name: Comprobación del modelo
-          href: test-your-model.md
-        - name: Mejora del clasificador
-          href: getting-started-improving-your-classifier.md
-        - name: Uso de la API de predicción
-          href: use-prediction-api.md
-        - name: Exportación del modelo al móvil
-          href: export-your-model.md
-        - name: Use el modelo ONNX con Windows ML
-          href: custom-vision-onnx-windows-ml.md
-        - name: Ejecutar el modelo de TensorFlow en Python
-          href: export-model-python.md
-    - name: Compilación de aplicaciones
+      - name: Tutorial de C#
+        href: csharp-tutorial.md
+      - name: Tutorial de Python
+        href: python-tutorial.md
+    - name: Detección de objetos
       items:
-        - name: Clasificación de imágenes
-          items:
-            - name: 'Tutorial de C#'
-              href: csharp-tutorial.md
-            - name: Tutorial de Python
-              href: python-tutorial.md
-        - name: Detección de objetos
-          items:
-            - name: 'Tutorial de C#'
-              href: csharp-tutorial-od.md
-            - name: Tutorial de Python
-              href: python-tutorial-od.md
+      - name: Tutorial de C#
+        href: csharp-tutorial-od.md
+      - name: Tutorial de Python
+        href: python-tutorial-od.md
 - name: Referencia
   items:
-    - name: Custom Vision Training API
-      href: 'https://go.microsoft.com/fwlink/?linkid=865446'
-    - name: Custom Vision Prediction API
-      href: 'https://go.microsoft.com/fwlink/?linkid=865445'
-    - name: Glosario
-      href: glossary-of-terms.md
-    - name: SDK
-      items:
-        - name: Windows
-          href: 'http://github.com/Microsoft/Cognitive-CustomVision-Windows'
-        - name: Python
-          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules'
-        - name: Go
-          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices'
+  - name: Custom Vision Training API
+    href: https://go.microsoft.com/fwlink/?linkid=865446
+  - name: Custom Vision Prediction API
+    href: https://go.microsoft.com/fwlink/?linkid=865445
+  - name: Glosario
+    href: glossary-of-terms.md
+  - name: SDK
+    items:
+    - name: Windows
+      href: http://github.com/Microsoft/Cognitive-CustomVision-Windows
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules
+    - name: Go
+      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices
 - name: Recursos
   items:
-    - name: Ejemplos
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
-    - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/'
-    - name: Exportación o eliminación de datos de la cuenta
-      href: ./export-delete-data.md
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/598141-custom-vision-service'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
-    - name: Disponibilidad regional
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Límites y cuotas
-      href: limits-and-quotas.md
+  - name: Ejemplos
+    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
+  - name: Precios
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/
+  - name: Exportación o eliminación de datos de la cuenta
+    href: ./export-delete-data.md
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/598141-custom-vision-service
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+  - name: Disponibilidad regional
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Límites y cuotas
+    href: limits-and-quotas.md
+ms.openlocfilehash: 1ab6bbc1e6f5d600d38d65628798f27f33db17a7
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42440187"

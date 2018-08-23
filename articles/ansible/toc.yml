@@ -1,56 +1,63 @@
+items:
 - name: Ansible en Azure
   href: ./index.yml
 - name: Información general
   items:
-    - name: Acerca de Ansible en Azure
-      href: ./ansible-overview.md
+  - name: Acerca de Ansible en Azure
+    href: ./ansible-overview.md
 - name: Guías de inicio rápido
-  expanded: true
   items:
-    - name: Instalación y configuración de Ansible
-      href: /azure/virtual-machines/linux/ansible-install-configure
-      maintainContext: true
-    - name: Creación de una máquina virtual Linux
-      href: /azure/virtual-machines/linux/ansible-create-vm
-      maintainContext: true
+  - name: Instalación de Ansible en una máquina virtual Linux
+    href: /azure/virtual-machines/linux/ansible-install-configure
+    maintainContext: true
+  - name: Creación de una máquina virtual Linux
+    href: /azure/virtual-machines/linux/ansible-create-vm
+    maintainContext: true
+  - name: Administración de una máquina virtual Linux
+    href: /azure/virtual-machines/linux/ansible-manage-linux-vm
+    maintainContext: true
+  expanded: true
 - name: Tutoriales
   items:
-    - name: Creación de una máquina virtual Linux completa
-      href: /azure/virtual-machines/linux/ansible-create-complete-vm
-      maintainContext: true
-    - name: Ejecución de un guión de procedimientos en Cloud Shell
-      href: ./ansible-run-playbook-in-cloudshell.md
-      maintainContext: true
-    - name: Administración de inventarios dinámicos
-      href: ./ansible-manage-azure-dynamic-inventories.md
-      maintainContext: true
-    - name: Creación y configuración de VMSS
-      href: ./ansible-create-configure-vmss.md
-    - name: Implementación de aplicación en VMSS
-      href: ./ansible-deploy-app-vmss.md
-    - name: Creación y configuración de clústeres AKS
-      href: ./ansible-create-configure-aks.md
+  - name: Ejecución de un guión de procedimientos en Cloud Shell
+    href: ./ansible-run-playbook-in-cloudshell.md
+    maintainContext: true
+  - name: Administración de inventarios dinámicos
+    href: ./ansible-manage-azure-dynamic-inventories.md
+    maintainContext: true
+  - name: Creación y configuración de VMSS
+    href: ./ansible-create-configure-vmss.md
+  - name: Implementación de aplicación en VMSS
+    href: ./ansible-deploy-app-vmss.md
+  - name: Creación y configuración de clústeres AKS
+    href: ./ansible-create-configure-aks.md
 - name: Referencia
   items:
-    - name: Roles de guión de procedimientos
-      items:
-        - name: azure_module
-          href: 'https://galaxy.ansible.com/Azure/azure_modules/'
-        - name: azure_preview_module
-          href: 'https://galaxy.ansible.com/Azure/azure_preview_modules'
-    - name: Versiones y características
-      href: ./ansible-matrix.md
-    - name: Azure Container Instances
-      href: 'http://docs.ansible.com/ansible/latest/azure_rm_containerinstance_module.html'
-    - name: Azure Functions
-      href: 'http://docs.ansible.com/ansible/latest/azure_rm_functionapp_module.html'
-    - name: Equilibradores de carga
-      href: 'http://docs.ansible.com/ansible/latest/azure_rm_loadbalancer_module.html'
-    - name: Máquinas virtuales
-      href: 'http://docs.ansible.com/ansible/latest/azure_rm_virtualmachine_module.html'
-    - name: Todos los módulos de Azure
-      href: 'http://docs.ansible.com/ansible/latest/list_of_cloud_modules.html#azure'
+  - name: Roles de guión de procedimientos
+    items:
+    - name: azure_module
+      href: https://galaxy.ansible.com/Azure/azure_modules/
+    - name: azure_preview_module
+      href: https://galaxy.ansible.com/Azure/azure_preview_modules
+  - name: Versiones y características
+    href: ./ansible-matrix.md
+  - name: Azure Container Instances
+    href: http://docs.ansible.com/ansible/latest/azure_rm_containerinstance_module.html
+  - name: Azure Functions
+    href: http://docs.ansible.com/ansible/latest/azure_rm_functionapp_module.html
+  - name: Equilibradores de carga
+    href: http://docs.ansible.com/ansible/latest/azure_rm_loadbalancer_module.html
+  - name: Máquinas virtuales
+    href: http://docs.ansible.com/ansible/latest/azure_rm_virtualmachine_module.html
+  - name: Todos los módulos de Azure
+    href: http://docs.ansible.com/ansible/latest/list_of_cloud_modules.html#azure
 - name: Herramientas
   items:
-    - name: Extensión de Visual Studio Code para Ansible
-      href: 'https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible'
+  - name: Extensión de Visual Studio Code para Ansible
+    href: https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible
+ms.openlocfilehash: 8f803114e966a3b544e4a4788752be8c494ad33a
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41929416"

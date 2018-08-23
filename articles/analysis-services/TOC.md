@@ -34,6 +34,7 @@
 ### [Configuración de un alias de nombre del servidor](analysis-services-server-alias.md)
 ### [Configuración de la escalabilidad horizontal](analysis-services-scale-out.md)
 ### [Instalación y configuración de una puerta de enlace de datos local](analysis-services-gateway-install.md)
+### [Uso de la puerta de enlace para orígenes de datos en una red virtual de Azure](analysis-services-vnet-gateway.md)
 ### [Administración de un servicio](analysis-services-manage.md)
 ### [Supervisión de las métricas del servidor](analysis-services-monitor.md)
 ### [Configuración del registro de diagnósticos](analysis-services-logging.md)
