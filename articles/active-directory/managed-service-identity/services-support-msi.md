@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 74fb9e784122dadd1ad2f6f29a497398eacf7464
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 9e49e7cdb9157fea2ae29d015bd84d391c73e71b
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412889"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143717"
 ---
 # <a name="services-that-support-managed-service-identity"></a>Servicios que admiten Managed Service Identity 
 
@@ -46,4 +46,4 @@ Los siguientes servicios admiten la autenticación de Azure AD y se han probado 
 | Azure SQL | https://database.windows.net/ | Disponible | Octubre de 2017 | |
 | Azure Event Hubs | https://eventhubs.azure.net | Disponible | Diciembre de 2017 | |
 | Azure Service Bus | https://servicebus.azure.net | Disponible | Diciembre de 2017 | |
-| Azure Storage | https://storage.azure.com/ | Vista previa | Mayo de 2018 | |
+| Azure Storage | https://azure.microsoft.com/services/storage/ | Vista previa | Mayo de 2018 | |

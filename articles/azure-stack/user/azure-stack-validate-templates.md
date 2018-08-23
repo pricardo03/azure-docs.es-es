@@ -3,7 +3,7 @@ title: Usar una herramienta de validación de plantillas para comprobar plantill
 description: Comprobación de plantillas para la implementación en Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 61c893848176a89b4b6ed8d7a46f27bdeff5cec1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 73a0766baee8da782f0192fbc17fb2898a8360ac
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294507"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41946578"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Comprobar las plantillas de Azure Stack con la herramienta de validación de plantillas
 
@@ -83,11 +83,11 @@ Los errores o advertencias de validación de plantillas se registran en la conso
 
 El validador de plantillas admite los siguientes parámetros.
 
-| . | DESCRIPCIÓN | Obligatorio |
+| Parámetro | DESCRIPCIÓN | Obligatorio |
 | ----- | -----| ----- |
-| TemplatePath | Especifica la ruta de acceso para buscar de forma recursiva las plantillas de Azure Resource Manager | Sí | 
+| TemplatePath | Especifica la ruta de acceso para buscar de forma recursiva las plantillas de Azure Resource Manager | SÍ | 
 | TemplatePattern | Especifica el nombre de los archivos de plantilla para que coincida. | Sin  |
-| CapabilitiesPath | Especifica la ruta de acceso al archivo JSON de funcionalidades de la nube | Sí | 
+| CapabilitiesPath | Especifica la ruta de acceso al archivo JSON de funcionalidades de la nube | SÍ | 
 | IncludeComputeCapabilities | Incluye la evaluación de recursos de IaaS como tamaños de máquina virtual y extensiones de máquina virtual | Sin  |
 | IncludeStorageCapabilities | Incluye la evaluación de recursos de almacenamiento como los tipos SKU | Sin  |
 | Informe | Especifica el nombre del informe HTML generado | Sin  |

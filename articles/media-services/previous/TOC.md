@@ -18,7 +18,7 @@
 
 ## Entrega de vídeos a petición
 ### [Azure Portal](media-services-portal-vod-get-started.md)
-### [.NET SDK](media-services-dotnet-get-started.md)
+### [SDK de .NET](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
 ## Realización de streaming en vivo
@@ -230,7 +230,7 @@
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=media-services)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
-## [Azure PowerShell (Service Management)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell (Service Management)](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media/mediaservice)
 ## Especificaciones

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bda1c4074db123294ffde39e5c4cd5494474ca38
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 2daa624dd7912d09f01e5bab5dc6de9cc14a771c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075693"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42143866"
 ---
 # <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementación de DBMS de Azure Virtual Machines de Oracle para la carga de trabajo de SAP
 
@@ -311,7 +311,7 @@ ms.locfileid: "39075693"
 
 
 ## <a name="specifics-to-oracle-database"></a>Detalles de Oracle Database
-El software de Oracle está admitido por Oracle para su ejecución en Microsoft Azure. Para más información sobre la compatibilidad general de Windows Hyper-V y Azure, consulte: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+El software de Oracle está admitido por Oracle para su ejecución en Microsoft Azure. Para más información sobre la compatibilidad general de Windows Hyper-V y Azure, consulte: <http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html> 
 
 A partir de esta compatibilidad general, también se admite el escenario concreto en el que las aplicaciones de SAP aprovechen las bases de datos de Oracle. Los detalles se mencionan en el documento. Como lectura previa a este documento, debe haber leído el documento [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md), así como otras guías de la [documentación de carga de trabajo de SAP en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
@@ -384,7 +384,7 @@ Para las implementaciones de Oracle en Windows, se recomienda usar la funcionali
 Todas las demás áreas generales, como los conjuntos de disponibilidad de Azure o la supervisión de SAP que se describen en el documento [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](dbms_guide_general.md) también se aplican a las implementaciones de máquinas virtuales con Oracle Database.
 
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Detalles de la base de datos de Oracle en Windows
-El software de Oracle está admitido por Oracle para su ejecución en Microsoft Azure con Oracle Linux como sistema operativo invitado. Para más información sobre la compatibilidad general de Windows Hyper-V y Azure, consulte: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+El software de Oracle está admitido por Oracle para su ejecución en Microsoft Azure con Oracle Linux como sistema operativo invitado. Para más información sobre la compatibilidad general de Windows Hyper-V y Azure, consulte: <http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html> 
 
 A partir de esta compatibilidad general, también se admite el escenario concreto en el que las aplicaciones de SAP aprovechen las bases de datos de Oracle. Los detalles se mencionan en esta parte del documento.
 

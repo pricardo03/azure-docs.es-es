@@ -9,12 +9,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: 63c767483fa56f1b716ef61a18fa93c6947a1d3b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 20ffba69d9f0f5b6648b19967c086e23e1dcb923
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380542"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41929826"
 ---
 # <a name="microsoft-speech-client-samples"></a>Ejemplos del cliente de Voz de Microsoft
 
@@ -32,4 +32,4 @@ El servicio Voz de Microsoft proporciona ejemplos completos que muestran cómo u
 
 - [Ejemplos de ObjectiveC en iOS](https://github.com/Azure-Samples/Cognitive-Speech-STT-iOS)
 
-Todos los SDK de Microsoft Cognitive Services y los ejemplos tienen una licencia de MIT. Para más información, consulte [LICENCIA](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+Todos los SDK de Microsoft Cognitive Services y los ejemplos tienen una licencia de MIT. Para más información, consulte [LICENCIA](https://github.com/Azure-Samples/SpeechToText-REST/blob/master/LICENSE).

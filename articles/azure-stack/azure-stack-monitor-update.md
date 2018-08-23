@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 08/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 96eebf340f13f2f5e9e922fee8032d04fce1d130
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 8f384a79811c9a9b104acb98c8f6b6e162946ab8
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2018
-ms.locfileid: "27621868"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41946472"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Supervisión de las actualizaciones en Azure Stack mediante el uso del punto de conexión con privilegios
 
@@ -32,7 +32,6 @@ Los siguientes cmdlets nuevos de PowerShell para la administración de actualiza
 | Cmdlet  | DESCRIPCIÓN  |
 |---------|---------|
 | `Get-AzureStackUpdateStatus` | Devuelve el estado de la actualización actualmente en ejecución, completada o con errores. Proporciona el estado de alto nivel de la operación de actualización y un documento XML que describe el paso actual y el estado correspondiente. |
-| `Get-AzureStackUpdateVerboseLog` | Devuelve los registros detallados que la actualización genera. |
 | `Resume-AzureStackUpdate` | Reanuda una actualización con errores en el punto en el que se produjo un error. En determinados escenarios, es posible que tenga que realizar una serie de pasos de mitigación antes de reanudar la actualización.         |
 | | |
 
@@ -78,7 +77,6 @@ También puede determinar si los cmdlets están disponibles mediante programaci�
    CommandType     Name                                               Version    Source                                                  PSComputerName
     -----------     ----                                               -------    ------                                                  --------------
    Function        Get-AzureStackUpdateStatus                         0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
-   Function        Get-AzureStackUpdateVerboseLog                     0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
    Function        Resume-AzureStackUpdate                            0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
    ``` 
 
@@ -160,29 +158,6 @@ $updateStatus.SelectNodes("//Step[@Status='InProgress']")
     Task          : Task
 ```
 
-### <a name="get-the-verbose-progress-log"></a>Obtención del registro de progreso detallado
-
-Puede escribir el registro en un archivo para examinarlo. Esto puede ayudarle a diagnosticar un error de actualización.
-
-```powershell
-$log = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateVerboseLog }
-
-$log > ".\UpdateVerboseLog.txt" 
-```
-
-### <a name="actively-view-the-verbose-logging"></a>Consulta del registro detallado de forma activa
-
-Para ver de forma activa el registro detallado durante la ejecución de una actualización y saltar a las entradas más recientes, ejecute los comandos siguientes para iniciar la sesión en modo interactivo y para mostrar el registro:
-
-```powershell
-Enter-PSSession -Session $pepSession 
-
-Get-AzureStackUpdateVerboseLog -Wait 
-```
-El registro se actualiza cada 60 segundos y el contenido nuevo (si existe) se escribe en la consola. 
-
-Durante los procesos en segundo plano de ejecución prolongada, la salida de la consola podría no escribirse en la consola durante un tiempo. Para cancelar la salida interactiva, presione CTRL+C. 
-
 ### <a name="resume-a-failed-update-operation"></a>Reanudar una operación de actualización con errores
 
 Si se produce un error en la actualización, puede reanudar la ejecución de la actualización desde el lugar en el que se interrumpió.
@@ -195,7 +170,7 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 El punto de conexión con privilegios está disponible en todas las máquinas virtuales ERCS en el entorno de Azure Stack. Dado que la conexión no se realiza a un punto de conexión de alta disponibilidad, puede experimentar algunas interrupciones, advertencias o mensajes de error. Estos mensajes podrían indicar que la sesión se ha desconectado o que se ha producido un error al comunicarse con el servicio ECE. Este comportamiento es normal. Puede volver a intentar la operación al cabo de unos minutos o crear una sesión de punto de conexión con privilegios en una de las otras máquinas virtuales ERCS. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Administración de las actualizaciones en Azure Stack](azure-stack-updates.md) 
 

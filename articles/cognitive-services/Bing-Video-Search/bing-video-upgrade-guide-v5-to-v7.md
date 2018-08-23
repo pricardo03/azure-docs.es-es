@@ -10,24 +10,24 @@ ms.component: bing-video-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 62646d026e141d0549c68e18f9318fa32d3e00df
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: db1bc07c06f3d073b6cc0f206620e50a5f048e2a
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380183"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41936750"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Guía de actualización de Video Search API
 
-Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de Bing Video Search API. Use esta guía para identificar las partes de la aplicación que se deben actualizar para usar la versión 7.
+Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de Bing Video Search API. Utilice esta guía para identificar las partes de la aplicación que se deben actualizar para usar la versión 7.
 
 ## <a name="breaking-changes"></a>Cambios drásticos
 
 ### <a name="endpoints"></a>Puntos de conexión
 
-- El número de versión del punto de conexión ha cambiado de v5 a v7. Por ejemplo, https://api.cognitive.microsoft.com/bing/\*\*v7.0**/videos/search.
+- El número de versión del punto de conexión ha cambiado de v5 a v7. Por ejemplo, `https://api.cognitive.microsoft.com/bing/v7.0/videos/search`.
 
-### <a name="error-response-objects-and-error-codes"></a>Objetos de respuesta de error y códigos de error
+### <a name="error-response-objects-and-error-codes"></a>Objetos de la respuesta de error y códigos de error
 
 - Todas las solicitudes con error deben incluir ahora un objeto `ErrorResponse` en el cuerpo de la respuesta.
 

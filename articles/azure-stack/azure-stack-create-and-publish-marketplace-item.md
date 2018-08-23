@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 101686149c0e3faaf442c58f4002cbbfe0e72eaa
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: da1619c5dc536ee143a8cc5ed17e995bc2d1eab7
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "35630082"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41947973"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Creación y publicación de un producto en Marketplace
 
@@ -82,7 +82,7 @@ ms.locfileid: "35630082"
        Add-AzsGalleryItem -GalleryItemUri `
        https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
    
-   | . | DESCRIPCIÓN |
+   | Parámetro | DESCRIPCIÓN |
    | --- | --- |
    | SubscriptionID |Identificador de suscripción de administrador de Azure. Puede recuperarlo mediante el uso de PowerShell. Si prefiere obtenerlo en el portal, vaya a la suscripción del proveedor y copie el identificador de suscripción. |
    | GalleryItemUri |URI del blob del paquete de la galería que ya se ha cargado en el almacenamiento. |
@@ -102,7 +102,7 @@ ms.locfileid: "35630082"
 
 6. Puede quitar un elemento de Marketplace mediante el cmdlet **Remove-AzureRMGalleryItem**. Ejemplo:
    
-        Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+        Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
    
    > [!NOTE]
    > La interfaz de usuario de Marketplace puede mostrar un error después de quitar un elemento. Para solucionarlo, haga clic en **Configuración** en el portal. A continuación, seleccione **Descartar modificaciones** en **Personalización del portal**.
@@ -111,14 +111,14 @@ ms.locfileid: "35630082"
 
 ## <a name="reference-marketplace-item-manifestjson"></a>Referencia: manifest.json del elemento de Marketplace
 ### <a name="identity-information"></a>Información de identidad
-| NOMBRE | Obligatorio | type | Restricciones | DESCRIPCIÓN |
+| NOMBRE | Obligatorio | Escriba | Restricciones | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
 | NOMBRE |X |string |[A-Za-z0-9]+ | |
 | Publicador |X |string |[A-Za-z0-9]+ | |
 | Versión |X |string |[SemVer v2](http://semver.org/) | |
 
 ### <a name="metadata"></a>Metadatos
-| NOMBRE | Obligatorio | type | Restricciones | DESCRIPCIÓN |
+| NOMBRE | Obligatorio | Escriba | Restricciones | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |Se recomiendan 80 caracteres |Es posible que el portal no muestre el nombre del elemento correctamente si tiene más de 80 caracteres. |
 | PublisherDisplayName |X |string |Se recomiendan 30 caracteres |Es posible que el portal no muestre el nombre del editor correctamente si tiene más de 30 caracteres. |
@@ -144,7 +144,7 @@ Todos los elementos de Marketplace deben etiquetarse con una categoría que iden
 ### <a name="links"></a>Vínculos
 Cada elemento de Marketplace puede incluir varios vínculos a contenido adicional. Los vínculos se especifican en forma de lista de nombres e identificadores URI.
 
-| NOMBRE | Obligatorio | type | Restricciones | DESCRIPCIÓN |
+| NOMBRE | Obligatorio | Escriba | Restricciones | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |64 caracteres como máximo | |
 | Identificador URI |X |URI | | |
@@ -152,7 +152,7 @@ Cada elemento de Marketplace puede incluir varios vínculos a contenido adiciona
 ### <a name="additional-properties"></a>Propiedades adicionales
 Además de los metadatos anteriores, los creadores de Marketplace pueden proporcionar datos con el par clave-valor personalizado de la forma siguiente:
 
-| NOMBRE | Obligatorio | type | Restricciones | DESCRIPCIÓN |
+| NOMBRE | Obligatorio | Escriba | Restricciones | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |25 caracteres como máximo | |
 | Valor |X |string |30 caracteres como máximo | |

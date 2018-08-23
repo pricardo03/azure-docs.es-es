@@ -3,7 +3,7 @@ title: Uso de perfiles de la versión de la API con PowerShell en Azure Stack | 
 description: Obtenga información sobre cómo usar los perfiles de la versión de API con PowerShell en Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: EBAEA4D2-098B-4B5A-A197-2CEA631A1882
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: b09799fe102522e1ad91f4983cf4f5fa8122b2c1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8da02641cc54f9308f8e0bbb8d2b28da9a930aa2
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31392857"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41946491"
 ---
 # <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>Uso de los perfiles de la versión de la API para PowerShell en Azure Stack
 

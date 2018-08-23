@@ -3,7 +3,7 @@ title: Diferencias y consideraciones para las máquinas virtuales en Azure Stack
 description: Aprenda sobre las diferencias y consideraciones al trabajar con máquinas virtuales en Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
-ms.author: brenduns
-ms.openlocfilehash: 4d475ec93bd8bfa5cc84848ed61afa6a9d6e319b
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.date: 08/15/2018
+ms.author: mabrigg
+ms.openlocfilehash: 7eb82457d8c8d7e306dcbdac39510ce328cd925b
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902187"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41946466"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Consideraciones sobre el uso de máquinas virtuales en Azure Stack
 
@@ -51,7 +51,7 @@ Azure Stack impone límites de recursos para evitar el consumo excesivo de recur
 
 En la tabla siguiente se enumeran las máquinas virtuales que se admiten en Azure Stack junto con su configuración:
 
-| type           | Tamaño          | Intervalo de tamaños admitidos |
+| Escriba           | Tamaño          | Intervalo de tamaños admitidos |
 | ---------------| ------------- | ------------------------ |
 |Uso general |A básico        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
 |Uso general |Estándar A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |

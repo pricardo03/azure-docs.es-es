@@ -9,18 +9,18 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: be4cc79d16b9a22124f16878b11ca04a916f98ae
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 87970e1c5e8487f9afca2acc680bdfeb610dc89f
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380995"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41931343"
 ---
 # <a name="call-bing-custom-search-endpoint-c"></a>Llamada a un punto de conexión de Bing Custom Search (C#)
 
 Esta guía de inicio rápido muestra cómo solicitar los resultados de la búsqueda a la instancia de búsqueda personalizada usando C# para llamar al punto de conexión de Bing Custom Search. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 -  Una instancia de Custom Search lista para usar. Consulte [Create your first Bing Custom Search instance](quick-start.md) (Creación de la primera instancia de Bing Custom Search).
 -  [.NET Core](https://www.microsoft.com/net/download/core) instalado.
@@ -119,10 +119,12 @@ Para ejecutar el ejemplo, siga estos pasos:
     }
     ```
 6. Compile la aplicación con el comando siguiente. Anote la ruta de acceso del archivo dll al que hace referencia la salida del comando.
+
     <pre>
     dotnet build 
     </pre>
 7. Ejecute la aplicación utilizando el comando siguiente reemplazando **PATH TO OUTPUT** por la ruta de acceso a la que hace referencia el paso de compilación.
+
     <pre>    
     dotnet **PATH TO OUTPUT**
     </pre>

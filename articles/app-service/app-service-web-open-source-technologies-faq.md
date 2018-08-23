@@ -15,31 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 747ee61d2620e7f79353207c0e44bcea36df30ee
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: d65a33dc13d0b91a9ace04dab0be6c37bcd2188f
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617643"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre tecnologías de código abierto para Web Apps en Azure
 
 En este artículo se proporcionan las respuestas a las preguntas más frecuentes sobre los problemas relacionados con las tecnologías de código abierto en la [característica Web Apps de Azure App Service](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
-
-## <a name="my-cleardb-database-is-down-how-do-i-resolve-this"></a>Mi base de datos ClearDB está inactiva. ¿Cómo se resuelve este problema?
-
-Si tiene algún problema relacionado con la base de datos, póngase en contacto con el [soporte técnico de ClearDB](https://www.cleardb.com/developers/help/support). 
-
-Para obtener respuestas a preguntas habituales sobre ClearDB, vea las [preguntas más frecuentes sobre ClearDB](https://docs.microsoft.com/azure/store-cleardb-faq/).
-
-## <a name="why-wasnt-my-cleardb-database-migrated-during-my-subscription-migration"></a>¿Por qué no se ha migrado mi base de datos ClearDB durante la migración de mi suscripción?
-
-Al realizar una migración de recursos entre suscripciones, se aplican algunas limitaciones. Una base de datos MySQL ClearDB es un servicio de terceros y no se migra durante la migración de la suscripción de Azure.
-
-Si no administra la migración de su base de datos MySQL antes de migrar los recursos de Azure, es posible que la base de datos MySQL ClearDB no esté disponible. Para evitar esto, primero migre manualmente la base de datos ClearDB y, después, migre la suscripción de Azure para su aplicación web.
-
-Para obtener más información, vea [P+F sobre bases de datos MySQL ClearDB con Azure App Service](https://docs.microsoft.com/azure/store-cleardb-faq/).
 
 ## <a name="how-do-i-turn-on-php-logging-to-troubleshoot-php-issues"></a>¿Cómo se activa el registro PHP para solucionar problemas de PHP?
 
@@ -65,16 +52,7 @@ Para activar el registro de PHP:
 Para obtener más información, vea [Enable WordPress error logs](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/) (Habilitar los registros de errores de WordPress).
 
 ## <a name="how-do-i-log-python-application-errors-in-apps-that-are-hosted-in-app-service"></a>¿Cómo se pueden registrar errores de aplicaciones de Python en las aplicaciones hospedadas en App Service?
-
-Para capturar errores de aplicaciones Python:
-
-1. En Azure Portal, en la aplicación web, seleccione **Configuración**.
-2. En la pestaña **Configuración**, seleccione **Configuración de la aplicación**.
-3. En **Configuración de la aplicación**, escriba el siguiente par clave-valor:
-    * Clave: WSGI_LOG
-    * Valor: D:\home\site\wwwroot\logs.txt (escriba el nombre de archivo que elija)
-
-Ahora debería ver los errores en el archivo logs.txt en la carpeta wwwroot.
+[!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
 
 ## <a name="how-do-i-change-the-version-of-the-nodejs-application-that-is-hosted-in-app-service"></a>¿Cómo se cambia la versión de la aplicación Node.js que se hospeda en App Service?
 

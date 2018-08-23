@@ -3,7 +3,7 @@ title: Procedimientos recomendados del servicio Infrastructure Backup para Azure
 description: Puede seguir el conjunto de procedimientos recomendados al implementar y administrar Azure Stack en su centro de datos para ayudar a mitigar la pérdida de datos si se produce un error grave.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 221FDE40-3EF8-4F54-A075-0C4D66EECE1A
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
-ms.author: mabrigg
+ms.date: 08/01/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 4a0166856cf4d3f91c6cadf3e71f93000fbf158d
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: 08d8822410545fb0ae3a2a99de00b38566c9834c
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242978"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41946558"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Procedimientos recomendados del servicio Infrastructure Backup
 
@@ -34,7 +34,7 @@ Debe revisar los procedimientos recomendados periódicamente para comprobar que 
 
 ### <a name="deployment"></a>Implementación
 
-Habilite Infrastructure Backup después de la implementación en cada nube de Azure Stack. Con las herramientas AzureStack-Tools puede programar copias de seguridad desde cualquier cliente o servidor con acceso al punto de conexión de la API de administración del operador.
+Habilite Infrastructure Backup después de la implementación en cada nube de Azure Stack. Con las herramientas de PowerShell de Azure Stack puede programar copias de seguridad desde cualquier cliente o servidor con acceso al punto de conexión de la API de administración del operador.
 
 ### <a name="networking"></a>Redes
 
