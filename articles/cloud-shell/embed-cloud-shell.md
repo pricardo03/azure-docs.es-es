@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: juluk
-ms.openlocfilehash: 3ceddb94336fc2703e6f916f05ab1ec3676cb50d
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 0bd5382e5ea37f7c3c52d119e9d39fe7e0bfdc7c
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
-ms.locfileid: "27864891"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42146649"
 ---
 # <a name="embed-azure-cloud-shell"></a>Insertar Azure Cloud Shell
 
@@ -43,7 +43,7 @@ Para integrar el botón de inicio de Cloud Shell en archivos Markdown, copie lo 
 
 Encontrará el código HTML para insertar una instancia de Cloud Shell emergente a continuación:
 ```html
-<a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
+<a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><img alt="Launch Azure Cloud Shell" src="https://shell.azure.com/images/launchcloudshell.png" /></a>
 ```
 
 ## <a name="customize-experience"></a>Personalizar la experiencia
@@ -51,10 +51,10 @@ Encontrará el código HTML para insertar una instancia de Cloud Shell emergente
 Establezca una experiencia de shell específica aumentando la dirección URL.
 |Experiencia   |URL   |
 |---|---|
-|Shell usado más recientemente   |shell.azure.com           |
-|Bash                       |shell.azure.com/bash       |
-|PowerShell                 |shell.azure.com/powershell |
+|Shell usado más recientemente   |[shell.azure.com](https://shell.azure.com)           |
+|Bash                       |[shell.azure.com/bash](https://shell.azure.com/bash)       |
+|PowerShell                 |[shell.azure.com/powershell](https://shell.azure.com/powershell) |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Guía de inicio rápido de Bash en Cloud Shell](quickstart.md)<br>
 [Guía de inicio rápido de PowerShell en Cloud Shell](quickstart-powershell.md)

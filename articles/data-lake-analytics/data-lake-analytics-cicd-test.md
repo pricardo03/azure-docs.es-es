@@ -121,7 +121,7 @@ Tanto los **proyectos de prueba para el script de U-SQL** como los **proyectos d
 
 ### <a name="run-u-sql-test-cases-in-visual-studio-team-service"></a>Ejecución de casos de prueba de U-SQL en Visual Studio Team Services
 
-Para la prueba de U-SQL, asegúrese de cargar `CPPSDK` en su máquina de compilación y, después, pase la ruta de acceso de `CPPSDK` USqlScriptTestRunner (cppSdkFolderFullPath: @"").
+Para la prueba de U-SQL, asegúrese de cargar `CPPSDK` en su máquina de compilación y, después, pase la ruta de acceso de `CPPSDK` USqlScriptTestRunner (cppSdkFolderFullPath: \@"").
 
 **¿Qué es CPPSDK?**
 
