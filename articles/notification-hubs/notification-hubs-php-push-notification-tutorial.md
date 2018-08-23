@@ -14,12 +14,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 930da7cca312ac6233b337dd7ddac478c3bbee7b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b812d60363ffebf1f4374b6fd44dff5e67497e08
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776046"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42144409"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Uso de Notification Hubs desde PHP
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -46,7 +46,7 @@ Para enviar una notificación nativa de iOS:
     $hub->sendNotification($notification, null);
 
 ## <a name="implementation"></a>Implementación
-Si todavía no lo ha hecho, siga el [tutorial de introducción] hasta la última sección en la que tiene que implementar el back-end.
+Si todavía no lo ha hecho, siga el [tutorial introductorio] hasta la última sección en la que tiene que implementar el back-end.
 También puede usar el código del [ejemplo de contenedor REST para PHP] e ir directamente a la sección [Finalización del tutorial](#complete-tutorial).
 
 Puede encontrar todos los detalles para implementar un contenedor REST completo en [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). En esta sección se describe la implementación para PHP de los principales pasos requeridos para acceder a puntos de conexión REST de Notification Hubs:
@@ -201,7 +201,7 @@ Los métodos anteriores envían una solicitud POST HTTP al extremo /messages del
 ## <a name="complete-tutorial"></a>Finalización del tutorial
 Ahora puede completar el tutorial introductorio enviando la notificación desde un back-end de PHP.
 
-Inicialice el cliente de Notification Hubs (reemplace la cadena de conexión y el nombre del centro tal como se indica en el [tutorial de introducción]):
+Inicialice el cliente de Notification Hubs (reemplace la cadena de conexión y el nombre del centro tal como se indica en el [tutorial introductorio]):
 
     $hub = new NotificationHub("connection string", "hubname");    
 
@@ -250,8 +250,8 @@ En este tema hemos mostrado cómo crear un sencillo cliente de REST en Java para
 * Continuar aprendiendo sobre la característica de etiquetado de Notification Hubs en el [tutorial Noticias de última hora]
 * Obtener más información sobre notificaciones de inserción para usuarios individuales en el [tutorial Notificar a los usuarios]
 
-Para obtener más información, consulte también el [Centro para desarrolladores de PHP](/develop/php/).
+Para obtener más información, consulte también el [Centro para desarrolladores de PHP](https://azure.microsoft.com/develop/php/).
 
 [ejemplo de contenedor REST para PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[tutorial de introducción]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[tutorial introductorio]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 

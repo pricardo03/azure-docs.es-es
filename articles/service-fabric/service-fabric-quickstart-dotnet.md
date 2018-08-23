@@ -11,16 +11,16 @@ ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.custom: mvc, devcenter
-ms.openlocfilehash: f04af62dc555c6c05313b9d0cd7b0231aac7d3aa
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.custom: mvc, devcenter, vs-azure
+ms.openlocfilehash: 11e8f34bf409d6c158e84d6f92baaf59ad4a1e94
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110089"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42210808"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Inicio rápido: Implementación de una aplicación de servicios de confianza .NET en Service Fabric
 
@@ -88,7 +88,7 @@ Ahora puede agregar una serie de opciones de votación y empezar a recibir votos
 La aplicación de votación consta de dos servicios:
 
 * Servicio front-end web (VotingWeb): front-end web de ASP.NET Core, que ofrece servicio a la página web y expone API web para comunicarse con el servicio back-end.
-* Servicio back-end (VotingData): servicio web de ASP.NET Core, que expone una API para almacenar los resultados de una votación en un diccionario confiable que se conserva en el disco.
+* Servicio back-end (VotingData): servicio web de ASP.NET Core, que expone una API para almacenar los resultados de una votación en un diccionario de confianza que se conserva en el disco.
 
 ![Diagrama de la aplicación](./media/service-fabric-quickstart-dotnet/application-diagram.png)
 
@@ -98,7 +98,7 @@ Al votar en la aplicación, se producen los eventos siguientes:
 
 2. El servicio front-end web usa un proxy para localizar y reenviar una solicitud HTTP PUT al servicio back-end.
 
-3. El servicio back-end recibe la solicitud entrante y almacena el resultado actualizado en un diccionario confiable, que se replica en varios nodos del clúster y se conserva en el disco. Todos los datos de la aplicación se almacenan en el clúster, por lo que no se necesita una base de datos.
+3. El servicio back-end recibe la solicitud entrante y almacena el resultado actualizado en un diccionario de confianza, que se replica en varios nodos del clúster y se conserva en el disco. Todos los datos de la aplicación se almacenan en el clúster, por lo que no se necesita una base de datos.
 
 ## <a name="debug-in-visual-studio"></a>Depurar en Visual Studio
 

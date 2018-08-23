@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 5c80abcfa4fe14bc211bf829f24d190790d80353
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f028f59a03614d0d746819ff8f68e832250190b0
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430811"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918982"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutorial: copia de datos de una base de datos de SQL Server local a Azure Blob Storage
 En este tutorial, use Azure PowerShell para crear una canalización de Data Factory que copie los datos de una base de datos de SQL Server local a Azure Blob Storage. Cree y use una instancia de Integration Runtime autohospedado, que mueve los datos entre almacenes locales y en la nube. 
@@ -68,7 +68,7 @@ En este tutorial se usa una base de datos de SQL Server local como almacén de d
 1. En la vista de árbol, haga clic con el botón derecho en la base de datos que ha creado y, después, haga clic en **Nueva consulta**.
 
 ### <a name="azure-storage-account"></a>Cuenta de Azure Storage
-En esta guía de inicio rápido, use una cuenta de Azure Storage (en concreto Blob Storage) de uso general como almacén de datos de destino o receptor en este tutorial. Si no dispone de una cuenta de Azure Storage de uso general, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account). La canalización de la factoría de datos que crea en este tutorial copia los datos de la base de datos de SQL Server local (origen) a esta instancia de Azure Blob Storage (receptor). 
+En esta guía de inicio rápido, use una cuenta de Azure Storage (en concreto Blob Storage) de uso general como almacén de datos de destino o receptor en este tutorial. Si no dispone de una cuenta de Azure Storage de uso general, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md). La canalización de la factoría de datos que crea en este tutorial copia los datos de la base de datos de SQL Server local (origen) a esta instancia de Azure Blob Storage (receptor). 
 
 #### <a name="get-storage-account-name-and-account-key"></a>Obtener un nombre y una clave de cuenta de Storage
 En este tutorial, use el nombre y la clave de su cuenta de Azure Storage. Para obtener el nombre y la clave de una cuenta de almacenamiento, siga estos pasos: 

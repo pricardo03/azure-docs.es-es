@@ -4,14 +4,14 @@ description: Obtenga información sobre la ejecución de la exploración en prof
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 08/13/2018
 ms.author: raynew
-ms.openlocfilehash: af8062fc0134975542c8a5ec420c790f33996154
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 33cbe29771573bd234548f549ed6027fb5801945
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920178"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41918376"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Ejecución de un simulacro de recuperación ante desastres en Azure
 
@@ -32,9 +32,9 @@ En este tutorial, aprenderá a:
 > * Preparar la conexión a la máquina virtual de Azure después de una conmutación por error
 > * Ejecutar una conmutación por error de prueba para una sola máquina
 
-Este tutorial
 
-## <a name="verify-vm-properties"></a>Comprobación de las propiedades de la máquina virtual
+
+## <a name="verify-vm-properties"></a>Comprobar las propiedades de la máquina virtual
 
 Antes de ejecutar una conmutación por error de prueba, compruebe las propiedades de la máquina virtual y asegúrese de que la [máquina virtual de Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms) o la [máquina virtual de VMware](vmware-physical-azure-support-matrix.md#replicated-machines) cumpla con los requisitos de Azure.
 

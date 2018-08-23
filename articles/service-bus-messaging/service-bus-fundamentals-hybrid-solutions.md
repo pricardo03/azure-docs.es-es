@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: get-started-article
 ms.date: 05/23/2018
 ms.author: sethm
-ms.openlocfilehash: 994510b415e21288fd38a116f7e77a59ba79af59
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bef88f09f182b1bb450ee0e045985ed59d5b5648
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641329"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41924813"
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -36,7 +36,12 @@ Dentro de un espacio de nombres puede usar uno o más ejemplos de los tres mecan
 * *Temas*, que proporcionan comunicación unidireccional mediante *suscripciones*. Un solo tema puede tener varias suscripciones. Al igual que las colas, los temas funcionan como agentes, pero cada suscripción puede usar opcionalmente un filtro para recibir solo los mensajes que cumplan criterios concretos.
 * *Retransmisiones*, que permiten una comunicación bidireccional. A diferencia de las colas y los temas, las retransmisiones no almacenan mensajes que se encuentran en proceso; no son agentes. Simplemente los transmiten a la aplicación de destino.
 
-Cuando cree una cola, un tema o una retransmisión, asígneles un nombre. Cuando se combina con el nombre del espacio de nombres, se crea un identificador exclusivo para el objeto. Las aplicaciones pueden proporcionar este nombre a Service Bus y, a continuación, usar esa cola, tema o retransmisión para comunicarse entre sí. 
+Cuando cree una cola, un tema o una retransmisión, asígneles un nombre. Cuando se combina con el nombre del espacio de nombres, se crea un identificador exclusivo para el objeto. Las aplicaciones pueden proporcionar este nombre a Service Bus y, a continuación, usar esa cola, tema o retransmisión para comunicarse entre sí.
+
+ >**Ejemplo:**   
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;queue-name&gt;*  
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;topic-name&gt;*  
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;relay-name&gt;*  
 
 Para usar cualquiera de estos objetos en el escenario de retransmisión, las aplicaciones de Windows pueden usar Windows Communication Foundation (WCF). Este servicio se conoce como [WCF Relay](../service-bus-relay/relay-what-is-it.md). En el caso de las colas y los temas, las aplicaciones de Windows pueden usar las API de mensajería definidas por Service Bus. Para facilitar el uso de estos objetos desde aplicaciones que no sean de Windows, Microsoft proporciona SDK para Java, Node.js y otros lenguajes. También se puede acceder a las colas y a los temas mediante las [API de REST](/rest/api/servicebus/) sobre HTTP(s). 
 

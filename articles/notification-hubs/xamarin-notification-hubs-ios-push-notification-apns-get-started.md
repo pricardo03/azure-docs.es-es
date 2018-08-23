@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: cebb73fedffe3b5f0a11c919ff39d1d2acd462d3
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ac8e5240f4544ccbb7256acbc6e70f00eff15092
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969534"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919986"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a aplicaciones de Xamarin.iOS mediante Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -40,7 +40,7 @@ En este tutorial, se crea o actualiza código para realizar las tareas siguiente
 > * Configuración de un Centro de notificaciones para notificaciones push de iOS
 > * Envío de notificaciones push de prueba
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 - La versión más reciente de [Xcode][Install Xcode]
@@ -253,8 +253,8 @@ En este tutorial ha difundido notificaciones de difusión a todos los dispositiv
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Visual Studio para Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
-[Use Notification Hubs to push notifications to users]: /manage/services/notification-hubs/notify-users-aspnet
-[Use Notification Hubs to send breaking news]: /manage/services/notification-hubs/breaking-news-dotnet
+[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 [Local and Push Notification Programming Guide]:https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584

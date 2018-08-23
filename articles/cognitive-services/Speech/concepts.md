@@ -247,7 +247,7 @@ El formato ITN es más adecuado para las aplicaciones que actúan sobre el texto
 
 Como las palabras soeces son una parte natural del idioma hablado, el servicio de voz de Microsoft reconoce estas palabras y frases al decirlas. Sin embargo, puede que las palabras soeces no sean apropiadas para todas las aplicaciones, especialmente para las que son para un público restringido de usuarios no adultos.
 
-El formato ITN enmascarado aplica el enmascaramiento de palabras soeces a la forma de normalización inversa de texto. Para enmascarar palabras soeces, establezca el valor del parámetro de palabras soeces en `masked`. Cuando se enmascaran las palabras soeces, las palabras que se reconocen como parte del lexicón de palabras soeces del idioma se reemplazan por asteriscos. Por ejemplo: *recordarme que compre 5 *** libretas*. El formato ITN enmascarado de un resultado de reconocimiento no incluye el uso de mayúsculas o signos de puntuación.
+El formato ITN enmascarado aplica el enmascaramiento de palabras soeces a la forma de normalización inversa de texto. Para enmascarar palabras soeces, establezca el valor del parámetro de palabras soeces en `masked`. Cuando se enmascaran las palabras soeces, las palabras que se reconocen como parte del lexicón de palabras soeces del idioma se reemplazan por asteriscos. Por ejemplo: *recordarme que compre 5 \*\*\*\* libretas*. El formato ITN enmascarado de un resultado de reconocimiento no incluye el uso de mayúsculas o signos de puntuación.
 
 > [!NOTE]
 > Si se establece el valor del parámetro de consulta de palabras soeces en `raw`, el formato ITN enmascarado es el mismo que el formato ITN. Las palabras soeces *no* se enmascaran.

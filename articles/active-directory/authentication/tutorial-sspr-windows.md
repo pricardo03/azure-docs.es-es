@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: eefb07136215d79b7c351dd4498bfeb79b6833de
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 27f271a20af2bb9910f1cf7d63e6033d78e67b83
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413770"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919562"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Restablecimiento de contraseña de Azure AD desde la pantalla de inicio de sesión
 
@@ -86,8 +86,6 @@ Para más información sobre cómo crear grupos, consulte el artículo [Administ
 Ahora ha creado y asignado una directiva de configuración de dispositivo para habilitar el vínculo de restablecimiento de contraseña en la pantalla de inicio de sesión con Intune.
 
 ## <a name="configure-reset-password-link-using-the-registry"></a>Configuración del vínculo de restablecimiento de contraseña con el registro
-
-Se recomienda usar este método solo para probar el cambio de configuración.
 
 1. Inicie sesión en el equipo Windows con credenciales administrativas
 2. Ejecute **regedit** como administrador

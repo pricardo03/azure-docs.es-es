@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: e007fd5e616b24b3a802b7ded0cd879bb0d7f34b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 994df42557ebd99d159e531f11ffa892be2e9870
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436015"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918856"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copia de datos de una base de datos de SQL Server local en Azure Blob Storage
 En este tutorial se utiliza la interfaz de usuario (IU) de Azure Data Factory para crear una canalización de Data Factory que copie los datos de una base de datos de SQL Server local en Azure Blob Storage. Cree y use una instancia de Integration Runtime autohospedado, que mueve los datos entre almacenes locales y en la nube.
@@ -75,7 +75,7 @@ En este tutorial se usa una base de datos de SQL Server local como almacén de d
 1. En la vista de árbol, haga clic con el botón derecho en la base de datos que ha creado y, después, haga clic en **Nueva consulta**.
 
 ### <a name="azure-storage-account"></a>Cuenta de almacenamiento de Azure
-En este tutorial, use una cuenta de almacenamiento de Azure (en concreto Blob Storage) de uso general como almacén de datos de destino o receptor. Si no dispone de una cuenta de Azure Storage de uso general, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account). La canalización de la factoría de datos que crea en este tutorial, copia los datos de la base de datos de SQL Server local (origen) en Blob Storage (receptor). 
+En este tutorial, use una cuenta de almacenamiento de Azure (en concreto Blob Storage) de uso general como almacén de datos de destino o receptor. Si no dispone de una cuenta de Azure Storage de uso general, consulte [Creación de una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md). La canalización de la factoría de datos que crea en este tutorial, copia los datos de la base de datos de SQL Server local (origen) en Blob Storage (receptor). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Obtención de un nombre y una clave de cuenta de almacenamiento
 En este tutorial, use el nombre y la clave de su cuenta de almacenamiento. Para obtener el nombre y la clave de la cuenta de almacenamiento, siga estos pasos: 
@@ -269,15 +269,15 @@ El nombre de la factoría de datos tiene que ser *único a nivel global*. Si ve 
 
 1. Debería volver a la ventana con el conjunto de datos receptor abierto. En la pestaña **Connection** (Conexión), realice los pasos siguientes: 
 
-       a. In **Linked service**, confirm that **AzureStorageLinkedService** is selected.
+    a. En **Linked service** (Servicio vinculado) confirme que **AzureStorageLinkedService** está seleccionado.
 
-       b. For the **folder**/ **Directory** part of **File path**, enter **adftutorial/fromonprem**. If the output folder doesn't exist in the adftutorial container, Data Factory automatically creates the output folder.
+    b. En la parte de la **carpeta**/ **Directorio** del campo **File path** (Ruta de acceso del archivo), escriba **adftutorial/fromonprem**. Si no existe la carpeta de salida en el contenedor adftutorial, Data Factory la crea automáticamente.
 
-       c. For the **file name** part of **File path**, select **Add dynamic content**.   
+    c. En la parte del **nombre de archivo** del campo **File path** (Ruta de acceso del archivo), seleccione **Agregar contenido dinámico**.   
 
     ![valor de nombre de archivo dinámico](./media/tutorial-hybrid-copy-portal/file-name.png)
 
-       d. Add `@CONCAT(pipeline().RunId, '.txt')`, select **Finish**. This will rename the file with PipelineRunID.txt. 
+    d. Agregue `@CONCAT(pipeline().RunId, '.txt')` y seleccione **Finish** (Finalizar). Esto cambiará el nombre del archivo a PipelineRunID.txt. 
 
     ![expresión dinámica para resolver el nombre de archivo](./media/tutorial-hybrid-copy-portal/add-dynamic-file-name.png)
 

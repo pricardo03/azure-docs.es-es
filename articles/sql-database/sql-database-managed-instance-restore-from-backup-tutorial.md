@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 1d8db471a3f8ebf9dbcce77b101a2688f2570fd6
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 5dd8b1f662f1ae6d6502743c6d976db4b58e962f
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949891"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918844"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Restauración de una copia de seguridad de datos a una instancia administrada de Azure SQL Database
 
@@ -27,9 +27,9 @@ En este tutorial se muestra cómo restaurar una copia de seguridad de una base d
 > * Creación de cuenta de almacenamiento de Azure y carga del archivo de copia de seguridad
 > * Restauración de la base de datos de Wide World Importers desde un archivo de copia de seguridad
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-En este tutorial se parte de los recursos creados en el tutorial [Create an Azure SQL Database Managed Instance](sql-database-managed-instance-create-tutorial-portal.md) (Creación de una instancia administrada de Azure SQL Database).
+En este tutorial se parte de los recursos creados en el tutorial [Create an Azure SQL Database Managed Instance](sql-database-managed-instance-get-started.md) (Creación de una instancia administrada de Azure SQL Database).
 
 ## <a name="download-the-wide-world-importers---standard-backup-file"></a>Descarga del archivo de copia de seguridad de Wide World Importers: estándar
 
@@ -52,7 +52,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/#create/Microsoft.SQLM
 
    | Configuración| Valor sugerido | Descripción |
    | ------ | --------------- | ----------- |
-   |**Name**|Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Nombre**|Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Modelo de implementación**|Modelo de recursos||
    |**Tipo de cuenta**|Almacenamiento de blobs||
    |**Rendimiento**|Estándar o premium|Unidades magnéticas o SSD|
@@ -88,7 +88,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/#create/Microsoft.SQLM
 
     | Configuración| Valor sugerido | Descripción |
    | ------ | --------------- | ----------- |
-   |**Name**|Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Nombre**|Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Nivel de acceso público**|Privado (sin acceso anónimo)||
 
     ![detalle de contenedor](./media/sql-database-managed-instance-tutorial/container-detail.png)

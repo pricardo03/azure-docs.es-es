@@ -15,12 +15,12 @@ ms.workload: signalr
 ms.date: 04/20/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 6ac1646da4c952c78bfb787b0d6ab30f4876f36a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0532cb81c766c2d039b978ab4ba79c812915bbc0
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766400"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41918795"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>Creación de una instancia de SignalR Service con una instancia de App Service
 
@@ -53,8 +53,8 @@ Cada comando de la tabla crea un vínculo a documentación específica del coman
 | Get-Help | Notas |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az signalr create](/cli/azure/signalr#az-signalr-create) | Crea un recurso de Azure SignalR Service. |
-| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | Muestra las claves, que usará la aplicación al insertar actualizaciones de contenido en tiempo real con SignalR. |
+| [az signalr create](/cli/azure/ext/signalr/signalr#ext-signalr-az-signalr-create) | Crea un recurso de Azure SignalR Service. |
+| [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | Muestra las claves, que usará la aplicación al insertar actualizaciones de contenido en tiempo real con SignalR. |
 | [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) | Crea un plan de Azure App Service para hospedar aplicaciones web. |
 | [az webapp create](/cli/azure/webapp#az-webapp-create) | Crea una aplicación web de Azure mediante el plan de hospedaje de App Service. |
 | [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Agrega una nueva configuración de aplicación para la aplicación web. Esta configuración de aplicación se usa para almacenar la cadena de conexión de SignalR. |

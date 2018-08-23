@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b19d02e7d2bcbd696a7256c06b067f976fd36161
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 05ec147e705da4951735616881ad19ad265b403d
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931735"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919990"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tutorial: Creación de una infraestructura de desarrollo en una máquina virtual Linux en Azure con Jenkins, GitHub y Docker
 
@@ -151,7 +151,7 @@ En el sitio web de Jenkins, seleccione **Create new jobs** (Crear trabajos nuevo
 - En la sección **General**, seleccione **GitHub project** (Proyecto de GitHub) y escriba la dirección URL del repositorio bifurcado, como *https://github.com/cynthn/nodejs-docs-hello-world*.
 - En la sección **Source code management** (Administración del código fuente), seleccione **Git** y escriba la dirección URL de su repositorio bifurcado *.git*, como *https://github.com/cynthn/nodejs-docs-hello-world.git*.
 - En la sección **Build Triggers** (Compilar desencadenadores), seleccione **GitHub hook trigger for GITScm polling** (Desencadenador de enlace de GitHub para sondeo de GITScm).
-- En la sección **Build** (Compilación), seleccione **Add build step** (Agregar el paso de compilación). Seleccione **Execute shell** (Ejecutar shell) y escriba `echo "Testing"` en la ventana de comandos.
+- En la sección **Build** (Compilación), seleccione **Add build step** (Agregar el paso de compilación). Seleccione **Execute shell** (Ejecutar shell) y escriba `echo "Test"` en la ventana de comandos.
 - Seleccione **Save** (Guardar) en la parte inferior de la ventana de trabajos.
 
 

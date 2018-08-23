@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/21/2018
+ms.date: 08/22/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: f6252b09078bcce936fc3102725519e5e433f8c4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 67d514fe6315604016dc10b7dfc8154c3919f914
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38481805"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616550"
 ---
 # <a name="get-started"></a>Inicio rápido: Creación de una instancia de Standard Load Balancer con Azure PowerShell
 En este inicio rápido se muestra cómo crear una instancia de Standard Load Balancer con Azure PowerShell. Para probar el equilibrador de carga, implemente dos máquinas virtuales que ejecuten Windows Server y equilibre la carga de una aplicación web entre ellas. Para más información sobre Standard Load Balancer, consulte [Introducción a Standard Load Balancer](load-balancer-standard-overview.md).
@@ -44,10 +44,12 @@ Para obtener acceso a la aplicación en Internet, necesita una dirección IP pú
 
 ```azurepowershell-interactive
 $publicIP = New-AzureRmPublicIpAddress `
-  -ResourceGroupName "myResourceGroupLB" `
-  -Location "EastUS" `
-  -AllocationMethod "Dynamic" `
-  -Name "myPublicIP"
+-Name "myPublicIP" `
+-ResourceGroupName "myResourceGroupLB" `
+-Location "EastUS" `
+-Sku "Standard" `
+-AllocationMethod "Static"
+  
 ```
 ## <a name="create-standard-load-balancer"></a>Creación de Standard Load Balancer
  En esta sección, va a configurar la dirección IP de front-end y el grupo de direcciones de back-end del equilibrador de carga y a crear el equilibrador de carga básico.

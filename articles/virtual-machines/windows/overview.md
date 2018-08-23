@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c1122ab403eb7192d7acbd493c46d478d0382a6b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e12b8153494eaefb1f7e2d27fc667ef0070c68d0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932203"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41919425"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Información general sobre las máquinas virtuales Windows en Azure
 
@@ -83,7 +83,7 @@ En esta tabla se muestran algunas maneras de encontrar la información sobre una
 | Método | DESCRIPCIÓN |
 | --- | --- |
 | Azure Portal |Los valores se especifican automáticamente cuando se selecciona una imagen para usarla. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "ubicación"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "ubicación" -Publisher "nombreDePublicador"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "ubicación" -Publisher "nombreDePublicador" -Offer "nombreDeOferta" |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location "ubicación"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location "ubicación" -Publisher "nombreDePublicador"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "ubicación" -Publisher "nombreDePublicador" -Offer "nombreDeOferta" |
 | API de REST |[List image publishers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers) (Lista de publicadores de imágenes)<BR>[List image offers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers) (Lista de ofertas de imágenes)<BR>[List image skus](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) (Lista de SKU de imágenes) |
 | Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
 
@@ -103,11 +103,11 @@ Los recursos de esta tabla se usan en la máquina virtual y deben ya existir o c
 
 | Recurso | Obligatorio | DESCRIPCIÓN |
 | --- | --- | --- |
-| [Grupos de recursos](../../azure-resource-manager/resource-group-overview.md) |Sí |La máquina virtual debe encontrarse en un grupo de recursos. |
-| [Cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md) |Sí |La máquina virtual necesita la cuenta de almacenamiento para almacenar sus discos duros virtuales. |
-| [Red virtual](../../virtual-network/virtual-networks-overview.md) |Sí |La máquina virtual debe ser miembro de una red virtual. |
+| [Grupos de recursos](../../azure-resource-manager/resource-group-overview.md) |SÍ |La máquina virtual debe encontrarse en un grupo de recursos. |
+| [Cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md) |SÍ |La máquina virtual necesita la cuenta de almacenamiento para almacenar sus discos duros virtuales. |
+| [Red virtual](../../virtual-network/virtual-networks-overview.md) |SÍ |La máquina virtual debe ser miembro de una red virtual. |
 | [Dirección IP pública](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Sin  |La máquina virtual puede tener una dirección IP pública asignada para acceder remotamente a ella. |
-| [Interfaz de red](../../virtual-network/virtual-network-network-interface.md) |Sí |La máquina virtual necesita la interfaz de red para comunicarse en la red. |
+| [Interfaz de red](../../virtual-network/virtual-network-network-interface.md) |SÍ |La máquina virtual necesita la interfaz de red para comunicarse en la red. |
 | [Discos de datos](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Sin  |La máquina virtual puede incluir discos de datos para ampliar las funcionalidades de almacenamiento. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>¿Cómo se crea la primera máquina virtual?

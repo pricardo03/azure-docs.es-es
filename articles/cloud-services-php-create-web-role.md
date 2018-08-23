@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 9d4be08e732127d6da12a9e0367383347f53c796
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 30afc1c577ab6dd18374d5ef5199c7e7d9e89fe4
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34608906"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42144528"
 ---
 # <a name="create-php-web-and-worker-roles"></a>Creación de roles web y de trabajo para PHP
 
@@ -211,7 +211,7 @@ Para detener los emuladores, ejecute este comando:
 
 ## <a name="publish-your-application"></a>Publicación de la aplicación
 
-Para publicar la aplicación, primero tiene que importar la configuración de la publicación con el cmdlet [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) . Después, puede publicar la aplicación con el cmdlet [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) . Para obtener información sobre cómo iniciar sesión, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview).
+Para publicar la aplicación, primero tiene que importar la configuración de la publicación con el cmdlet [Import-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/servicemanagement/azure/import-azurepublishsettingsfile) . Después, puede publicar la aplicación con el cmdlet [Publish-AzureServiceProject](https://docs.microsoft.com/powershell/module/servicemanagement/azure/publish-azureserviceproject) . Para obtener información sobre cómo iniciar sesión, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -221,6 +221,6 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [definición del servicio (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
 [configuración del servicio (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
-[sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
+[sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
 [sqlsrv drivers]: http://php.net/sqlsrv
 [instalador sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648

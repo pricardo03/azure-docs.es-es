@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: d5858ba7d10093264e1565d88ae518055b814d34
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 3d1d77e585ae8d608a8f9a4e3de0943315d897af
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085749"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920110"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Creación de una factoría de datos y una canalización con SDK de .NET
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles **colaborador** o **propietario**, o de **administrador** de la suscripción de Azure. En Azure Portal, haga clic en el **nombre de usuario**, en la esquina superior derecha, y seleccione **Permisos** para ver los permisos que tiene en la suscripción. Si tiene acceso a varias suscripciones, elija la correspondiente. Para obtener instrucciones de ejemplo sobre cómo agregar un usuario a un rol, consulte el artículo sobre la [adición de roles](../billing/billing-add-change-azure-subscription-administrator.md).
 
 ### <a name="azure-storage-account"></a>Cuenta de Azure Storage
-En esta guía de inicio rápido, use una cuenta de Azure Storage (en concreto Blob Storage) de uso general como almacén de datos de **origen** y **destino**. Si no dispone de una cuenta de Azure Storage de uso general, consulte el artículo [Creación de una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account), donde se indica cómo crearla. 
+En esta guía de inicio rápido, use una cuenta de Azure Storage (en concreto Blob Storage) de uso general como almacén de datos de **origen** y **destino**. Si no dispone de una cuenta de Azure Storage de uso general, consulte el artículo [Creación de una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md), donde se indica cómo crearla. 
 
 #### <a name="get-storage-account-name-and-account-key"></a>Obtener un nombre y una clave de cuenta de Storage
 En esta guía de inicio rápido use el nombre y la clave de su cuenta de Azure Storage. El siguiente procedimiento especifica los pasos necesarios para obtener el nombre y la clave de una cuenta de Storage. 
@@ -168,7 +168,7 @@ Con Visual Studio 2013, 2015 o 2017, cree una aplicación de consola .NET de C#.
     string pipelineName = "Adfv2QuickStartPipeline";    // name of the pipeline
     ```
 
-3. Agregue el código siguiente al método **main** que crea una instancia de la clase **DataFactoryManagementClient**. Este objeto se usa para crear una factoría de datos, un servicio vinculado, conjuntos de datos y una canalización. También se usa para supervisar los detalles de ejecución de la canalización.
+3. Agregue el código siguiente al método **Main** que crea una instancia de la clase **DataFactoryManagementClient**. Este objeto se usa para crear una factoría de datos, un servicio vinculado, conjuntos de datos y una canalización. También se usa para supervisar los detalles de ejecución de la canalización.
 
     ```csharp
     // Authenticate and create a data factory management client
@@ -314,7 +314,7 @@ Dictionary<string, object> parameters = new Dictionary<string, object>
     { "inputPath", inputBlobPath },
     { "outputPath", outputBlobPath }
 };
-CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters).Result.Body;
+CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters: parameters).Result.Body;
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 

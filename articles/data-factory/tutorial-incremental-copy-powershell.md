@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 5610a4ec726b296f54beca65a58d6c0e63a5b375
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: fd056a0eb0a4e35b30d246274372b61a0806d48c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084875"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918282"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carga de datos de forma incremental de Azure SQL Database a Azure Blob Storage
 En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla en una base de datos SQL de Azure en Azure Blob Storage. 
@@ -60,7 +60,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 * **Azure SQL Database**. La base de datos se usa como almacén de datos de origen. Si no tiene ninguna, consulte [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
-* **Azure Storage**. Blob Storage se usa como almacén de datos receptor. Si no tiene una cuenta de almacenamiento, consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para ver los pasos para su creación. Cree un contenedor denominado adftutorial. 
+* **Azure Storage**. Blob Storage se usa como almacén de datos receptor. Si no tiene una cuenta de almacenamiento, consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación. Cree un contenedor denominado adftutorial. 
 * **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Creación de una tabla de origen de datos en la base de datos SQL

@@ -8,18 +8,19 @@ manager: craigg
 ms.assetid: 1751185b-ce0a-4ab2-a9c3-e37b4d149ca3
 ms.service: data-factory
 ms.workload: data-services
+ms.custom: vs-azure
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 135cfbb148f2e47819c41c7874e4a5e08335f6bf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 475199ebe04a62a3c26860ea13820ae3a7ffdf07
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452573"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42424393"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Crear una canalización con la actividad de copia mediante Visual Studio
 > [!div class="op_single_selector"]
@@ -46,7 +47,7 @@ pero cualquier canalización puede tener más de una actividad. También puede e
 > [!NOTE] 
 > La canalización de datos de este tutorial copia datos de un almacén de datos de origen a un almacén de datos de destino. Para ver un tutorial acerca de cómo transformar datos mediante Azure Data Factory, consulte [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 1. Lea el artículo [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) y complete los pasos de los **requisitos previos** .       
 2. Para crear instancias de Data Factory, es preciso ser miembro del rol [Colaborador de Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) en el nivel de grupo de recursos o suscripción.
 3. Debe tener lo siguiente instalado en el equipo: 

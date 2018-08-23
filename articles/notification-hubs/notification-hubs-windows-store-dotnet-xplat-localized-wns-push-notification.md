@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 517e7ae3871a1ed816ea407ad47c9033a1bb5a0e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0e78b00e49b2ef468e693abfdcde8a138313ba63
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776896"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920595"
 ---
 # <a name="tutorial-push-localized-notifications-to-windows-apps-by-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones localizadas a aplicaciones Windows mediante Azure Notification Hubs
 > [!div class="op_single_selector"]
@@ -38,11 +38,11 @@ Al completar el tutorial, la aplicación móvil le permite registrar las categor
 En este tutorial, aprenderá a: 
 
 > [!div class="checklist"]
-> * Actualizar una aplicación de Windows para que admita la información de configuración regional
+> * Actualización de una aplicación de Windows para que admita la información de configuración regional
 > * Actualizar una aplicación de back-end para enviar notificaciones localizadas
 > * Prueba de la aplicación
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Complete el tutorial [Envío de notificaciones a dispositivos concretos (Plataforma universal de Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md). 
 
 En el tutorial[: Envío de notificaciones a dispositivos concretos (Plataforma universal de Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md), ha creado una aplicación que utilizaba **etiquetas** para suscribirse a notificaciones de noticias diferentes **categorías** . En este tema se usa la característica de **plantilla** de Notification Hubs para entregar fácilmente notificaciones de noticias de última hora **localizadas**.
@@ -274,9 +274,9 @@ En este tutorial, ha aprendido a enviar notificaciones push localizadas a dispos
 
 <!-- URLs. -->
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
-[Use Notification Hubs to send breaking news]: /notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns
+[Notify users with Notification Hubs: ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Notify users with Notification Hubs: Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Use Notification Hubs to send breaking news]: notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039

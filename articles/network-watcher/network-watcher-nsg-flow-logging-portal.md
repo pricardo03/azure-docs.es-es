@@ -18,11 +18,11 @@ ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
 ms.openlocfilehash: f010bebcf1130b3061c60987ffbd4e706a030773
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776557"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41918152"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: registrar el tráfico de red hacia y desde una máquina virtual mediante Azure Portal
 
@@ -40,7 +40,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="create-a-vm"></a>Crear una VM
 
 1. Seleccione **+ Crear un recurso** en la esquina superior izquierda de Azure Portal.
-2. Seleccione **Compute** y, a continuación, seleccione **Windows Server 2016 Datacenter** o **Ubuntu Server 17.10 VM**.
+2. Seleccione **Compute** y **Windows Server 2016 Datacenter** o **Ubuntu Server 17.10 VM**.
 3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**:
 
     |Configuración|Valor|
@@ -48,7 +48,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     |NOMBRE|myVm|
     |Nombre de usuario| Escriba un nombre de usuario de su elección.|
     |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |La suscripción| Seleccione su suscripción.|
+    |Subscription| Seleccione su suscripción.|
     |Grupos de recursos| Haga clic en **Crear nuevo** y escriba **myResourceGroup**.|
     |Ubicación| Seleccione **Este de EE. UU**.|
 

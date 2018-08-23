@@ -15,12 +15,12 @@ ms.workload: signalr
 ms.date: 04/22/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: ec095572dc8fe20c913d543ffcf926355b5715df
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 76094a816fc7698994b77507c2a3dcf3dcf9880b
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38600135"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41920326"
 ---
 # <a name="create-a-web-app-that-uses-signalr-service-and-github-authentication"></a>Creación de una aplicación web que usa autenticación de SignalR Service y GitHub
 
@@ -53,8 +53,8 @@ Cada comando de la tabla crea un vínculo a documentación específica del coman
 | Get-Help | Notas |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az signalr create](/cli/azure/signalr#az-signalr-create) | Crea un recurso de Azure SignalR Service. |
-| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | Muestra las claves, que usará la aplicación al insertar actualizaciones de contenido en tiempo real con SignalR. |
+| [az signalr create](/cli/azure/ext/signalr/signalr#ext-signalr-az-signalr-create) | Crea un recurso de Azure SignalR Service. |
+| [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | Muestra las claves, que usará la aplicación al insertar actualizaciones de contenido en tiempo real con SignalR. |
 | [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) | Crea un plan de Azure App Service para hospedar aplicaciones web. |
 | [az webapp create](/cli/azure/webapp#az-webapp-create) | Crea una aplicación web de Azure mediante el plan de hospedaje de App Service. |
 | [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Agrega la nueva configuración de aplicación de la aplicación web. Esta configuración de aplicación se usa para almacenar la cadena de conexión de SignalR y los secretos de aplicación de GitHub OAuth. |

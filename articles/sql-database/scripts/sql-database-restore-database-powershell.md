@@ -16,12 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 789f5df60024651731b7ba34e1c6fdc53a4b9f2b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e93ef3f837d29204c6710684d4dfc6f359f572cd
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366671"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41920308"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-database-from-backups"></a>Uso de PowerShell para restaurar una instancia de Azure SQL Database a partir de copias de seguridad
 
@@ -47,7 +47,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Crea un servidor lógico que hospeda una base de datos o un grupo elástico. | 
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Crea un servidor lógico que hospeda una base de datos o un grupo elástico. | 
 | [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Crea una base de datos en un servidor lógico como una base de datos única o agrupada. |
 [Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) | Obtiene una copia de seguridad con redundancia geográfica de una base de datos. |
 | [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) | Restaura una Base de datos SQL. |

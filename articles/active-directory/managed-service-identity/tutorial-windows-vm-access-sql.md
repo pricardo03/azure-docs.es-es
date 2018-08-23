@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ace7f11eeea081077855a409824272b4b55f3c33
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ca920a93d754254390a5c5c5a066be3144b47fc7
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247234"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41920345"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-sql"></a>Tutorial: Uso de la característica Managed Service Identity de una máquina virtual Windows para acceder a Azure SQL
 
@@ -147,8 +147,8 @@ Ahora que ha creado el grupo y agregado la característica Managed Service Ident
 
 En el paso siguiente, necesitará [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Antes de comenzar, también puede ser útil revisar los artículos siguientes para obtener información sobre la integración de Azure AD:
 
-- [Autenticación universal con SQL Database y SQL Data Warehouse (compatibilidad de SSMS con MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication.md)
-- [Configuración y administración de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure.md)
+- [Autenticación universal con SQL Database y SQL Data Warehouse (compatibilidad de SSMS con MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
+- [Configuración y administración de la autenticación de Azure Active Directory con SQL Database o SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
 
 1.  Inicie SQL Server Management Studio.
 2.  En el cuadro de diálogo **Conectar al servidor**, escriba el nombre del servidor SQL en el campo **Nombre del servidor**.

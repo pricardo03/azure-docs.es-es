@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: bceec3e85a54eb0e8b542d40ab20536ab41a50f0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 846002264d5f709f7cef6bba67927fc8959a9ccb
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718947"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42142931"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Uso del servicio de correo electrónico SendGrid desde PHP
 Esta guía describe cómo realizar tareas comunes de programación con el servicio de correo electrónico SendGrid en Azure. Los ejemplos están escritos en PHP.
@@ -387,7 +387,7 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
 * Biblioteca PHP de SendGrid: <https://github.com/sendgrid/sendgrid-php>
 * Oferta especial de SendGrid para clientes de Azure: <https://sendgrid.com/windowsazure.html>
 
-Para obtener más información, consulte también el [Centro para desarrolladores de PHP](/develop/php/).
+Para obtener más información, consulte también el [Centro para desarrolladores de PHP](https://azure.microsoft.com/develop/php/).
 
 [https://sendgrid.com]: https://sendgrid.com
 [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
