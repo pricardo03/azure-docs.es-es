@@ -54,6 +54,7 @@
 #### [Adición de usuarios de B2B por los administradores](b2b/add-users-administrator.md)
 #### [Adición de usuarios de B2B por los trabajadores de la información](b2b/add-users-information-worker.md)
 #### [API y personalización](b2b/customize-invitation-api.md)
+#### [Federación de Google](b2b/google-federation.md)
 #### [Ejemplos de Code y Azure PowerShell](b2b/code-samples.md)
 #### [Ejemplo de portal de registro de autoservicio](b2b/self-service-portal.md)
 #### [Invitación por correo electrónico](b2b/invitation-email-elements.md)
