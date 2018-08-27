@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 08/16/2018
 ms.author: mtillman
-ms.openlocfilehash: 9496896e3d841e4857ea17987fb230adb4f0edb1
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: fa7b7430377def58f20daabc15e501321954befe
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41929074"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887557"
 ---
 # <a name="azure-active-directory-documentation"></a>Documentación de Azure Active Directory
 
@@ -116,8 +116,8 @@ Azure Active Directory (Azure AD) es el directorio multiinquilino basado en la n
                         <h3>Dispositivos</h3>
                         <p>
                         <a href="/azure/active-directory/device-management-introduction">Administración de dispositivos</a><br/>
-                        <a href="/azure/active-directory/device-management-azuread-registered-devices-windows10-setup">Dispositivos de Windows 10</a><br/>
-                        <a href="/azure/active-directory/device-management-azuread-joined-devices-setup">Dispositivos combinados</a>
+                        <a href="/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup">Dispositivos de Windows 10</a><br/>
+                        <a href="/azure/active-directory/user-help/device-management-azuread-joined-devices-setup">Dispositivos combinados</a>
                         </p>
                     </div>
                 </div>
