@@ -145,7 +145,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 ```
 
 Para utilizar Deep Water:
-* * En el terminal: active el entorno de [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) y luego ejecute _python_. <br/>
+* En el terminal: active el entorno de [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) y luego ejecute _python_. <br/>
 * En JupyterHub: [conéctese a JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux) y desplácese al directorio deep_water para buscar blocs de notas de ejemplo.
 
 ## <a name="mxnet"></a>MXNet
