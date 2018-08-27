@@ -73,7 +73,7 @@ A continuación se describen todos los elementos incluidos en la regla de CORS:
 * **ExposedHeaders**: los encabezados de respuesta que se pueden enviar en la respuesta a la solicitud de CORS y que el explorador expone al emisor de la solicitud. En el ejemplo anterior, se pide al explorador que exponga todos los encabezados que empiecen por x-ms-meta.
 * **MaxAgeInSeconds**: el tiempo máximo que un explorador debe almacenar en memoria caché la solicitud preparatoria OPTIONS.
 
-Los servicios de almacenamiento de Azure permiten especificar encabezados con prefijo para los elementos **AllowedHeaders** y **ExposedHeaders**. Para permitir una categoría de encabezados, puede especificar un prefijo común a esa categoría. Por ejemplo, si se especifica *x-ms-meta*como un encabezado con prefijo, se establece una regla que coincidirá con todos los encabezados que empiecen por x-ms-meta.
+Los servicios de almacenamiento de Azure permiten especificar encabezados con prefijo para los elementos **AllowedHeaders** y **ExposedHeaders**. Para permitir una categoría de encabezados, puede especificar un prefijo común a esa categoría. Por ejemplo, si se especifica *x-ms-meta*\* como un encabezado con prefijo, se establece una regla que coincidirá con todos los encabezados que empiecen por x-ms-meta.
 
 Se aplican las limitaciones siguientes a las reglas de CORS:
 
@@ -82,7 +82,7 @@ Se aplican las limitaciones siguientes a las reglas de CORS:
 * La longitud de un encabezado permitido, un encabezado expuesto o un origen permitido no debe superar los 256 caracteres.
 * Los encabezados permitidos y los encabezados expuestos pueden ser:
   * Encabezados literales, donde se proporciona el nombre exacto del encabezado, por ejemplo **x-ms-meta-processed**. Se puede especificar un máximo de 64 encabezados literales en la solicitud.
-  * Encabezados con prefijo, donde se proporciona un prefijo del encabezado como, por ejemplo, **x-ms-meta-data***. Al especificar un prefijo de este modo se permite o se expone cualquier encabezado que comience con el prefijo indicado. Se puede especificar un máximo de dos encabezados con prefijo en la solicitud.
+  * Encabezados con prefijo, donde se proporciona un prefijo del encabezado como, por ejemplo, **x-ms-meta-data**\*. Al especificar un prefijo de este modo se permite o se expone cualquier encabezado que comience con el prefijo indicado. Se puede especificar un máximo de dos encabezados con prefijo en la solicitud.
 * Los métodos (o los verbos HTTP) especificados en el elemento **AllowedMethods** deben ser acordes con los métodos admitidos por las API del servicio de almacenamiento de Azure. Los métodos admitidos son DELETE, GET, HEAD, MERGE, POST, OPTIONS y PUT.
 
 ## <a name="understanding-cors-rule-evaluation-logic"></a>Descripción de la lógica de evaluación de reglas de CORS
