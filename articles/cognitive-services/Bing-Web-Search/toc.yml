@@ -5,38 +5,40 @@ items:
   items:
   - name: ¿Qué es Bing Web Search?
     href: overview.md
-- name: Guías de inicio rápido de API REST
+- name: Guías de inicio rápido
   items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Go
-    href: quickstarts/go.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
-  expanded: true
-- name: Guías de inicio rápido de SDK
-  items:
-  - name: Introducción a los ejemplos de SDK
-    href: sdk.md
-  - name: Guía de inicio rápido del SDK de Web Search para C#
-    href: web-search-sdk-quickstart.md
-  - name: Guía de inicio rápido del SDK de Web Search para Node.js
-    href: web-search-sdk-node-quickstart.md
-  - name: Guía de inicio rápido del SDK de Web Search para Python
-    href: web-sdk-python-quickstart.md
-  - name: Guía de inicio rápido del SDK de Web Search para Java
-    href: web-sdk-java-quickstart.md
+  - name: API de REST
+    items:
+    - name: C#
+      href: quickstarts/csharp.md
+    - name: Go
+      href: quickstarts/go.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+    expanded: true
+  - name: SDK
+    items:
+    - name: Introducción a los ejemplos
+      href: sdk.md
+    - name: C#
+      href: web-search-sdk-quickstart.md
+    - name: Java
+      href: web-sdk-java-quickstart.md
+    - name: Node.js
+      href: web-search-sdk-node-quickstart.md
+    - name: Python
+      href: web-sdk-python-quickstart.md
 - name: Tutoriales
   items:
-  - name: Aplicación web de una sola página
+  - name: Compilación de una aplicación web de una sola página
     href: tutorial-bing-web-search-single-page-app.md
   - name: Aplicación web de una sola página (código fuente)
     href: tutorial-bing-web-search-single-page-app-source.md
@@ -48,8 +50,6 @@ items:
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Web+Search
 - name: Guías de procedimientos
   items:
-  - name: Resultados de uso y visualización
-    href: UseAndDisplayRequirements.md
   - name: Filtrar respuestas
     href: filter-answers.md
   - name: Clasificar resultados
@@ -62,41 +62,55 @@ items:
     href: resize-and-crop-thumbnails.md
   - name: Actualizar de v5 a v7
     href: bing-web-upgrade-guide-v5-to-v7.md
+- name: Conceptos
+  items:
+  - name: Términos de búsqueda de AutoSuggest
+    href: autosuggest-bing-search-terms.md
+  - name: Respuestas de Search
+    href: search-responses.md
+  - name: Solicitudes de limitación
+    href: throttling-requests.md
 - name: Referencia
   items:
   - name: Bing Web Search API v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference
   - name: Bing Web Search API v5
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+  - name: Azure PowerShell
+    href: https://aka.ms/azure-powershell-cognitiveservices
 - name: Recursos
   items:
   - name: Preguntas más frecuentes
     href: bing-web-search-resource-faq.md
-  - name: Precios
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/555907-bing-web-search-api
-  - name: Stack Overflow
-    href: https://stackoverflow.com/search?q=bing+web+search
-  - name: Disponibilidad regional
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: Obtener clave de API
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api
-  - name: ¡Pruébelo!
-    href: https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/
   - name: Punto de conexión de Bing Web Search
     href: web-search-endpoints.md
+  - name: Precios
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/
+  - name: Disponibilidad regional
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Requisitos de uso y visualización
+    href: UseAndDisplayRequirements.md
   - name: Países y mercados admitidos
     href: supported-countries-markets.md
   - name: Análisis para Bing Web Search API
     href: bing-web-stats.md
-ms.openlocfilehash: e4cc75a8d0b55141b864b9295dd832676e62b4cd
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+  - name: Soporte técnico
+    items:
+    - name: Foro de Uservoice
+      href: https://cognitive.uservoice.com/forums/555907-bing-web-search-api
+    - name: Stack Overflow
+      href: https://stackoverflow.com/search?q=bing+web+search
+    - name: Knowledge Base
+      href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+ms.openlocfilehash: 27a3ce13408b10d5ef93cf67555ac7113471ae93
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42440235"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886756"

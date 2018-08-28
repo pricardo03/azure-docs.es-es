@@ -6,101 +6,27 @@
 #### [Máquinas virtuales Linux](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
 ### Virtual Networks
 #### [Creación de una red virtual mediante Azure Portal](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Storage](https://docs.microsoft.com/azure/storage/)
 ### Seguridad
 #### [Uso de asignaciones de roles para administrar recursos](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-
+### Azure Stack
+#### [Introducción a la implementación de Azure Stack](../../azure-stack/azure-stack-deploy-overview.md)
+### Azure Backup
+#### [Copia de seguridad de una máquina virtual en Azure Portal](../../backup/quick-backup-vm-portal.md)
+### Azure Site Recovery
+#### [Replicación de una máquina virtual de Azure en otra región de Azure](../../site-recovery/azure-to-azure-quickstart.md)
 ## Tutoriales
 ### Virtual Machines
 #### [Creación y administración de una máquina virtual Windows](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Creación y administración de máquinas virtuales Linux](../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Canalizaciones de CI/CD de Jenkins](../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Equilibrio de carga de máquinas virtuales](../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Creación de plantillas del Administrador de recursos de Azure](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+#### [Creación de plantillas del Administrador de recursos de Azure](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+#### [Copia de seguridad de máquinas virtuales a escala](../../backup/tutorial-backup-vm-at-scale.md)
 ## Guías de procedimientos
 ### [Cómo descargar las datos de uso diario y de factura de facturación de Azure](../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-
-## [Azure Resource Manager](azure-operations-guide.md#azure-resource-manager)
-
-### [Creación de plantillas del Administrador de recursos de Azure](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Implementación de plantillas mediante Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Implementación de plantillas mediante Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Implementación de plantillas mediante la CLI de Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-
-## [Seguridad (RBAC)](azure-operations-guide.md#security-of-azure-resource)
-### [Uso de asignaciones de roles para administrar recursos](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-
-## [Máquinas virtuales](azure-operations-guide.md#azure-virtual-machines)
-### [Tamaños de máquina virtual para Windows](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
-### [Tamaños de máquina virtual para Linux](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-
-
-### Creación rápida de una máquina virtual Windows
-#### [Uso de la CLI de Azure](../../virtual-machines/windows/quick-create-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Uso de Azure Portal](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Uso de Azure PowerShell](../../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### Tutoriales de máquinas virtuales para Windows
-#### [Creación y administración de una máquina virtual](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Creación y administración de discos](../../virtual-machines/windows/tutorial-manage-data-disk.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Automatización de la configuración](../../virtual-machines/windows/tutorial-automate-vm-deployment.md)
-#### [Creación de imágenes de máquina virtual](../../virtual-machines/windows/tutorial-custom-images.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Máquinas virtuales de alta disponibilidad](../../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Creación de un conjunto de escalado de máquinas virtuales](../../virtual-machines/windows/tutorial-create-vmss.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Equilibrio de carga de máquinas virtuales](../../virtual-machines/windows/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Administración de redes](../../virtual-machines/windows/tutorial-virtual-network.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Copia de seguridad de máquinas virtuales](../../virtual-machines/windows/tutorial-backup-vms.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Supervisión de máquinas virtuales](../../virtual-machines/windows/tutorial-monitoring.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Administración de la seguridad de máquinas virtuales](../../virtual-machines/windows/tutorial-azure-security.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [CI/CD de Team Services](../../virtual-machines/windows/tutorial-vsts-iis-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-
-### Creación rápida de una máquina virtual Linux
-#### [Uso de la CLI de Azure](../../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Uso de Azure Portal](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Uso de Azure PowerShell](../../virtual-machines/linux/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### Tutoriales de máquinas virtuales para Linux
-#### [Creación y administración de máquinas virtuales](../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Creación y administración de discos](../../virtual-machines/linux/tutorial-manage-disks.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Automatización de la configuración](../../virtual-machines/linux/tutorial-automate-vm-deployment.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Creación de imágenes de máquina virtual](../../virtual-machines/linux/tutorial-custom-images.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Máquinas virtuales de alta disponibilidad](../../virtual-machines/linux/tutorial-availability-sets.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Creación de un conjunto de escalado de máquinas virtuales](../../virtual-machines/linux/tutorial-create-vmss.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Equilibrio de carga de máquinas virtuales](../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Administración de redes](../../virtual-machines/linux/tutorial-virtual-network.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Copia de seguridad de máquinas virtuales](../../virtual-machines/linux/tutorial-backup-vms.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Supervisión de máquinas virtuales](../../virtual-machines/linux/tutorial-monitoring.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Administración de la seguridad de máquinas virtuales](../../virtual-machines/linux/tutorial-azure-security.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Integración y entrega continuas con Jenkins](../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-
-### [Direcciones IP en Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Apertura de puertos para una máquina virtual en Azure mediante Azure Portal](../../virtual-machines/windows/nsg-quickstart-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-
-## [Storage](azure-operations-guide.md#azure-storage)
-
-### [Almacenamiento de blobs de Azure](../../storage/blobs/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Introducción a Azure Blob Storage mediante .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Introducción a Azure File Storage en Windows](../../storage/files/storage-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
-### [Uso de Azure File Storage con Linux](../../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Introducción al Almacenamiento de tablas de Azure](../../cosmos-db/table-storage-how-to-use-dotnet.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Introducción a Azure Queue Storage](../../storage/queues/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [crear una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md)
-### [Usar Azure PowerShell con Azure Storage](../../storage/common/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Uso de la CLI de Azure con Azure Storage](../../storage/common/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Herramientas de cliente de Azure Storage](../../storage/common/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Referencia de la API de REST de los servicios de Azure Storage](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
-### [Uso de firmas de acceso compartido](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-
-
-
-## [Redes virtuales](azure-operations-guide.md#azure-virtual-network)
-### [Creación de una red virtual mediante Azure Portal](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Creación de una red virtual usando Azure PowerShell](../../virtual-network/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Creación de una red virtual usando la CLI de Azure](../../virtual-network/quick-create-cli.md#create-a-virtual-network?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Filtrado del tráfico de red con grupos de seguridad de red](../../virtual-network/security-overview.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### Tutoriales de redes virtuales
-#### [Equilibrio de carga de máquinas virtuales](../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Conexión de un equipo a una red virtual](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-
-## [Pasos siguientes](azure-operations-guide.md#next-steps)
-# Recursos
-## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
-## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
+## Recursos
+### [Catálogo de productos de Azure](https://docs.microsoft.com/azure/#pivot=products)
+### [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+### [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
+### [Introducción a Microsoft Azure Portal](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 
+## Referencias

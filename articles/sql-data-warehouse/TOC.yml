@@ -5,8 +5,18 @@ items:
   items:
   - name: Acerca de SQL Data Warehouse
     href: sql-data-warehouse-overview-what-is.md
+  - name: Arquitectura de SQL Data Warehouse
+    href: massively-parallel-processing-mpp-architecture.md
+  - name: Unidades de almacenamiento de datos
+    href: what-is-a-data-warehouse-unit-dwu-cdwu.md
   - name: Hoja de referencia rápida
     href: cheat-sheet.md
+  - name: Procedimientos recomendados
+    href: sql-data-warehouse-best-practices.md
+  - name: Límites de capacidad
+    href: sql-data-warehouse-service-capacity-limits.md
+  - name: Preguntas más frecuentes
+    href: sql-data-warehouse-overview-faq.md
 - name: Notas de la versión
   items:
   - name: Agosto de 2018
@@ -33,7 +43,7 @@ items:
       href: pause-and-resume-compute-portal.md
     - name: PowerShell
       href: pause-and-resume-compute-powershell.md
-  - name: Aumentar y reducir
+  - name: Escala
     items:
     - name: Portal
       href: quickstart-scale-compute-portal.md
@@ -78,18 +88,6 @@ items:
     items:
     - name: Información general
       href: sql-data-warehouse-overview-develop.md
-    - name: Componentes de almacenamiento de datos
-      href: sql-data-warehouse-overview-workload.md
-    - name: Procedimientos recomendados
-      href: sql-data-warehouse-best-practices.md
-    - name: Arquitectura MPP
-      href: massively-parallel-processing-mpp-architecture.md
-    - name: Unidades de almacenamiento de datos
-      href: what-is-a-data-warehouse-unit-dwu-cdwu.md
-    - name: Límites de capacidad
-      href: sql-data-warehouse-service-capacity-limits.md
-    - name: Preguntas más frecuentes
-      href: sql-data-warehouse-overview-faq.md
     - name: Tablas
       items:
       - name: Información general
@@ -112,14 +110,6 @@ items:
         href: sql-data-warehouse-tables-statistics.md
       - name: Temporal
         href: sql-data-warehouse-tables-temporary.md
-    - name: Consultas
-      items:
-      - name: SQL dinámico
-        href: sql-data-warehouse-develop-dynamic-sql.md
-      - name: Opciones de Agrupar por
-        href: sql-data-warehouse-develop-group-by-options.md
-      - name: Etiquetas
-        href: sql-data-warehouse-develop-label.md
     - name: Elementos del lenguaje T-SQL
       items:
       - name: Bucles
@@ -136,6 +126,14 @@ items:
         href: sql-data-warehouse-develop-variable-assignment.md
       - name: Vistas
         href: sql-data-warehouse-develop-views.md
+  - name: Consultas
+    items:
+    - name: SQL dinámico
+      href: sql-data-warehouse-develop-dynamic-sql.md
+    - name: Opciones de Agrupar por
+      href: sql-data-warehouse-develop-group-by-options.md
+    - name: Etiquetas
+      href: sql-data-warehouse-develop-label.md
   - name: Administración de cargas de trabajo
     items:
     - name: Clases de recursos y administración de cargas de trabajo
@@ -278,9 +276,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: Administración de datos
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: e9148d92614cf0c383ab1e915cce3e16bb9ff7c0
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: bdda7231ea4703b33c8547e493cbd47b68cf9aab
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745221"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42915132"
