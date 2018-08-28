@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 92258ce7ea39a06f2af85efd9174b1b200710566
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4d5222889d5e840bd03bf77a56584dac48bb740c
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216973"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41918853"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Administración de las actualizaciones de Windows con Azure Automation
 
@@ -31,7 +31,7 @@ En este tutorial, aprenderá a:
 > * Programación de una implementación de actualizaciones
 > * Ver los resultados de una implementación
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesita:
 
@@ -126,9 +126,6 @@ Para personalizar el asunto de las alertas por correo electrónico, en **Crear r
 
 A continuación, programe una implementación que se ajuste a la ventana de programación y servicio de su versión para instalar las actualizaciones. Puede elegir los tipos de actualizaciones que quiere incluir en la implementación. Por ejemplo, puede incluir actualizaciones de seguridad o críticas y excluir paquetes acumulativos de actualizaciones.
 
-> [!WARNING]
-> Cuando las actualizaciones requieren un reinicio, la máquina virtual se reinicia automáticamente.
-
 Para programar una nueva implementación de actualizaciones para la máquina virtual, vaya a **Update Management** y, a continuación, seleccione **Programar implementación de actualizaciones**.
 
 En **Nueva implementación de actualizaciones**, especifique la siguiente información:
@@ -136,6 +133,8 @@ En **Nueva implementación de actualizaciones**, especifique la siguiente inform
 * **Nombre**: escriba un nombre único para la implementación de actualizaciones.
 
 * **Sistema operativo**: seleccione el sistema operativo que es el destino de la implementación de actualizaciones.
+
+* **Equipos que se actualizan**: seleccione una búsqueda guardada, un grupo importado o elija Máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación del equipo se muestra en la columna **UPDATE AGENT READINESS** (Actualizar preparación de agente). Para obtener información acerca de los distintos métodos de creación de grupos de equipos en Log Analytics, consulte [Grupos de equipos en búsquedas de registros en Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
 * **Clasificación de actualizaciones**: seleccione los tipos de software que la implementación de actualizaciones incluyó en la implementación. Para este tutorial, seleccione todos los tipos.
 
@@ -154,9 +153,17 @@ En **Nueva implementación de actualizaciones**, especifique la siguiente inform
 
 * **Ventana de mantenimiento (minutos)**: deje este campo con el valor predeterminado. Puede establecer la ventana de tiempo en la que desea que se produzca la implementación de actualizaciones. Esta configuración ayuda a garantizar que los cambios se realizan en las ventanas de servicio definidas.
 
+* **Opciones de reinicio**: este valor determina cómo deben controlarse los reinicios. Las opciones disponibles son la siguientes:
+  * Reboot if required (Default) [Reiniciar si es necesario (predeterminada)]
+  * Always reboot (Reiniciar siempre)
+  * Never reboot (No reiniciar nunca)
+  * Only reboot (solo reiniciar), no se instalarán las actualizaciones
+
+Cuando haya terminado de configurar la programación, seleccione **Crear**.
+
 ![Panel de configuración de la programación de actualizaciones](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-Cuando haya terminado de configurar la programación, seleccione **Crear**. Volverá al panel de estado. Seleccione **Implementaciones de actualizaciones programadas** para mostrar la programación de implementación que creó.
+Volverá al panel de estado. Seleccione **Implementaciones de actualizaciones programadas** para mostrar la programación de implementación que creó.
 
 ## <a name="view-results-of-an-update-deployment"></a>Visualización de los resultados de una implementación de actualizaciones
 

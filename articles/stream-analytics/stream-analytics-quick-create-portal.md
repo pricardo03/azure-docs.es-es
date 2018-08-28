@@ -4,17 +4,17 @@ description: En esta guía de inicio rápido se muestra cómo empezar a crear un
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/11/2018
+ms.date: 08/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 830b3d4226440a68c7de62170d2ffc28082315c2
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 1e466b2945793f866aad4e6f0ace3d7379226830
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902911"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42024005"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Guía de inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure Portal
 
@@ -34,7 +34,7 @@ Antes de definir el trabajo de Stream Analytics, debe preparar los datos, que se
 
    ```json
    {
-     "time": "2018-01-26T21:18:52.0000000",
+     "time": "2018-08-19T21:18:52.0000000",
      "dspl": "sensorC",
      "temp": 87,
      "hmdt": 44
@@ -146,6 +146,16 @@ En esta sección, configurará el almacenamiento de blobs como entrada al trabaj
 3. En este ejemplo, la consulta lee los datos del blob y los copia en un archivo nuevo del blob. A continuación, seleccione **Guardar**.  
 
    ![Configuración de la transformación del trabajo](./media/stream-analytics-quick-create-portal/configure-job-transformation.png)
+
+## <a name="configure-late-arrival-policy"></a>Configuración de la directiva de llegada tardía
+
+1. Vaya al trabajo de Stream Analytics que creó anteriormente.
+
+2. En **Configurar**, seleccione **Ordenación de eventos**.
+
+3. Establezca **Eventos que llegan tarde** en 20 días y seleccione **Guardar**.
+
+   ![Configuración de la directiva de llegada tardía](./media/stream-analytics-quick-create-portal/configure-late-policy.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Inicio del trabajo de Stream Analytics y consulta de la salida
 

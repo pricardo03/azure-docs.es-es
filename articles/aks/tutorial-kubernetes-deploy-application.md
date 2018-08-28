@@ -1,28 +1,28 @@
 ---
-title: 'Tutorial de Kubernetes en Azure: implementación de la aplicación'
-description: 'Tutorial de AKS: implementación de la aplicación'
+title: 'Tutorial de Kubernetes en Azure: Implementación de una aplicación'
+description: En este tutorial de Azure Kubernetes Service (AKS), implemente una aplicación con varios contenedores en el clúster mediante una imagen personalizada que se almacena en Azure Container Registry.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 02/22/2018
+ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e0e349361afaac9aec816d7f5d158322d6f4e691
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: bf817f553250ead449ec0d5db3d33acc2eff23f3
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37101053"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919553"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Ejecución de aplicaciones en Azure Kubernetes Service (AKS)
 
-En este tutorial, la cuarta parte de siete, se implementa una aplicación de ejemplo en un clúster de Kubernetes. Los pasos completados incluyen:
+Kubernetes proporciona una plataforma distribuida para aplicaciones en contenedores. Compile e implemente sus propios servicios y aplicaciones en un clúster de Kubernetes, y deje que el clúster administre la disponibilidad y conectividad. En este tutorial, la cuarta parte de siete, se implementa una aplicación de ejemplo en un clúster de Kubernetes. Aprenderá a:
 
 > [!div class="checklist"]
-> * Actualización de los archivos de manifiesto de Kubernetes
-> * Ejecución de una aplicación en Kubernetes
+> * Actualizar los archivos de manifiesto de Kubernetes
+> * Ejecutar una aplicación en Kubernetes
 > * Prueba de la aplicación
 
 En los tutoriales posteriores, esta aplicación se escala horizontalmente y se actualiza.
@@ -33,27 +33,27 @@ En este tutorial se da por hecho que tiene unos conocimientos básicos de los co
 
 En tutoriales anteriores se empaquetó una aplicación en una imagen de contenedor, se cargó esta imagen en Azure Container Registry y se creó un clúster de Kubernetes.
 
-Para completar este tutorial, necesita el archivo de manifiesto de Kubernetes `azure-vote-all-in-one-redis.yaml` creado previamente. Este archivo se descargó con el código fuente de la aplicación en un tutorial anterior. Confirme que ha clonado el repositorio y que ha cambiado los directorios en el repositorio clonado.
+Para completar este tutorial, necesita el archivo de manifiesto de Kubernetes `azure-vote-all-in-one-redis.yaml` creado previamente. Este archivo se descargó con el código fuente de la aplicación en un tutorial anterior. Confirme que ha clonado el repositorio y que ha cambiado los directorios en el repositorio clonado. Si no ha realizado estos pasos, pero desea continuar, vuelva al [tutorial 1: Creación de imágenes de contenedor][aks-tutorial-prepare-app].
 
-Si no ha realizado estos pasos, pero desea continuar, vuelva al [tutorial 1: Creación de imágenes de contenedor][aks-tutorial-prepare-app].
+Para realizar este tutorial es necesario disponer de la versión 2.0.44, o superior, de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
 
-## <a name="update-manifest-file"></a>Actualización del archivo de manifiesto
+## <a name="update-the-manifest-file"></a>Actualización del archivo de manifiesto
 
-En este tutorial se ha usado Azure Container Registry (ACR) para almacenar una imagen de contenedor. Antes de ejecutar la aplicación, hay que actualizar el nombre del servidor de inicio de sesión de ACR en el archivo de manifiesto de Kubernetes.
+En estos tutoriales, una instancia de Azure Container Registry (ACR) almacena la imagen del contenedor de la aplicación de ejemplo. Para implementar la aplicación, debe actualizar el nombre de la imagen en el archivo de manifiesto de Kubernetes para incluir el nombre del servidor de inicio de sesión de ACR.
 
-El nombre del servidor de inicio de sesión de ACR se obtiene con el comando [az acr list][az-acr-list].
+Para obtener el nombre del servidor de inicio de sesión de ACR se usa el comando [az acr list][az-acr-list], como se muestra a continuación:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-El archivo de manifiesto se creó previamente con el nombre de servidor de inicio de sesión `microsoft`. Abra el archivo con un editor de texto. En este ejemplo, el archivo se abre con `nano`.
+El archivo de manifiesto de ejemplo del repositorio git clonado en el primer tutorial usa el nombre de servidor de inicio de sesión *microsoft*. Abra este archivo de manifiesto con un editor de texto, como `vi`:
 
 ```console
-nano azure-vote-all-in-one-redis.yaml
+vi azure-vote-all-in-one-redis.yaml
 ```
 
-Reemplace `microsoft` por el nombre del servidor de inicio de sesión de ACR. Este valor se encuentra en la línea **47** del archivo de manifiesto.
+Reemplace *microsoft* por el nombre del servidor de inicio de sesión de ACR. El nombre de la imagen se encuentra en la línea 47 del archivo de manifiesto. En el ejemplo siguiente se muestra el nombre de imagen predeterminado:
 
 ```yaml
 containers:
@@ -61,7 +61,7 @@ containers:
   image: microsoft/azure-vote-front:v1
 ```
 
-El código anterior entonces se transforma.
+Especifique su propio nombre del servidor de inicio de sesión de ACR para que el archivo de manifiesto sea parecido al del ejemplo siguiente:
 
 ```yaml
 containers:
@@ -71,63 +71,61 @@ containers:
 
 Guarde y cierre el archivo.
 
-## <a name="deploy-application"></a>Implementación de la aplicación
+## <a name="deploy-the-application"></a>Implementación de la aplicación
 
-Use el comando [kubectl apply][kubectl-apply] para ejecutar la aplicación. Este comando analiza el archivo de manifiesto y crea los objetos de Kubernetes definidos.
+Para implementar la aplicación, use el comando [kubectl apply][kubectl-apply]. Este comando analiza el archivo de manifiesto y crea los objetos de Kubernetes definidos. Especifique el archivo de manifiesto de ejemplo, como se muestra en el ejemplo siguiente:
 
-```azurecli
+```console
 kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
-Salida:
+Los objetos de Kubernetes se crean en el clúster, como se muestra en el ejemplo siguiente:
 
 ```
+$ kubectl apply -f azure-vote-all-in-one-redis.yaml
+
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-application"></a>Prueba de la aplicación
+## <a name="test-the-application"></a>Prueba de la aplicación
 
-Se crea un [servicio de Kubernetes][kubernetes-service] que expone la aplicación a Internet. Este proceso puede tardar unos minutos.
+Se crea un [servicio de Kubernetes][kubernetes-service] que expone la aplicación a Internet. Este proceso puede tardar unos minutos. Para supervisar el progreso, utilice el comando [kubectl get service][kubectl-get] con el argumento `--watch`:
 
-Para supervisar el progreso, utilice el comando [kubectl get service][kubectl-get] con el argumento `--watch`.
-
-```azurecli
+```console
 kubectl get service azure-vote-front --watch
 ```
 
-En un primer momento, el parámetro *EXTERNAL-IP* del servicio *azure-vote-front* aparece como *pendiente*.
+La *IP EXTERNA* del servicio *azure-vote-front* aparece inicialmente como *pendiente*, como se muestra en el siguiente ejemplo:
 
 ```
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-Una vez que la dirección *EXTERNAL-IP* haya cambiado de *pendiente* a una *dirección IP*, use `CTRL-C` para detener el proceso de inspección de kubectl.
+Cuando la dirección *IP EXTERNA* cambie de *pendiente* a una dirección IP pública real, use `CTRL-C` para detener el proceso de inspección de kubectl. En el siguiente ejemplo se muestra una dirección IP que está ya asignada:
 
 ```
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 ```
 
-Para ver la aplicación, navegue hasta la dirección IP externa.
+Para ver la aplicación en acción, abra un explorador web en la dirección IP externa.
 
 ![Imagen del clúster de Kubernetes en Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-Si no se cargó la aplicación, esto se puede deber a un problema de autorización con el registro de la imagen.
-
-Siga estos pasos para [permitir el acceso mediante un secreto de Kubernetes](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
+Si no se cargó la aplicación, esto se puede deber a un problema de autorización con el registro de la imagen. Para ver el estado de los contenedores, use el comando `kubectl get pods`. Si no se pueden extraer las imágenes del contenedor, consulte [permitir el acceso a Container Registry con un secreto de Kubernetes](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, se ha implementado la aplicación Azure Vote en un clúster de Kubernetes en AKS. Las tareas completadas incluyen:
+En este tutorial, se ha implementado la aplicación Azure Vote en un clúster de Kubernetes en AKS. Ha aprendido a:
 
 > [!div class="checklist"]
-> * Descargar archivos de manifiesto de Kubernetes
-> * Ejecutar la aplicación en Kubernetes
+> * Actualizar los archivos de manifiesto de Kubernetes
+> * Ejecutar una aplicación en Kubernetes
 > * Probar la aplicación
 
-Pase al siguiente tutorial para obtener información acerca de cómo escalar una aplicación Kubernetes y la infraestructura de Kubernetes subyacente.
+Pase al siguiente tutorial para aprender a escalar una aplicación Kubernetes y la infraestructura de Kubernetes subyacente.
 
 > [!div class="nextstepaction"]
 > [Escalar infraestructura y aplicación de Kubernetes][aks-tutorial-scale]
@@ -143,3 +141,4 @@ Pase al siguiente tutorial para obtener información acerca de cómo escalar una
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-scale]: ./tutorial-kubernetes-scale.md
 [az-acr-list]: /cli/azure/acr#list
+[azure-cli-install]: /cli/azure/install-azure-cli

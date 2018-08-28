@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/17/2018
+ms.date: 08/22/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: d5bb5ed45363216bb1bcd39f85157a3eed68c2f9
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: fcae6d656f6e309b0fdcd60db743d3bebf3cd5a9
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126869"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617045"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Guía de inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal
 
@@ -78,7 +78,9 @@ En esta sección, creará una cuenta de almacenamiento con Azure Portal. Antes d
 
 ## <a name="edit-and-deploy-the-template"></a>Edición e implementación de la plantilla
 
-En esta sección, va a abrir la plantilla guardada en la biblioteca de plantillas, va a editar la plantilla dentro del portal y, después, va a implementar la plantilla revisada. Para editar una plantilla más compleja, considere el uso de Visual Studio Code que proporciona mejores funcionalidades de edición.
+En esta sección, va a abrir la plantilla guardada en la biblioteca de plantillas, va a editar la plantilla dentro del portal y, después, va a implementar la plantilla revisada. Para editar una plantilla más compleja, considere el uso de [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md) que proporciona mejores funcionalidades de edición.
+
+Azure requiere que cada servicio de Azure tenga un nombre único. Se producirá un error en la implementación si escribe un nombre de cuenta de almacenamiento que ya existe. Para evitar este problema, puede usar una llamada de función de plantilla uniquestring() para generar un nombre de cuenta de almacenamiento único.
 
 1. En Azure Portal, seleccione **Todos los servicios** en el menú de la izquierda, escriba **plantilla** en el cuadro de filtro y, a continuación, seleccione **Plantillas (Vista previa)**.
 
@@ -162,7 +164,7 @@ En esta sección, va a abrir la plantilla guardada en la biblioteca de plantilla
 8. Seleccione **Implementar**.
 9. Escriba los siguientes valores:
 
-    - **Suscripción**: seleccione la suscripción de Azure.
+    - **Suscripción**: seleccione su suscripción de Azure.
     - **Grupo de recursos**: dé un nombre único a su grupo de recursos.
     - **Ubicación**: seleccione una ubicación para el grupo de recursos.
     - **Ubicación**: seleccione la ubicación para la cuenta de almacenamiento.  Puede usar la misma ubicación que el grupo de recursos.
@@ -177,6 +179,14 @@ En esta sección, va a abrir la plantilla guardada en la biblioteca de plantilla
 
 10. Seleccione **Comprar**.
 11. Seleccione el icono de campana (notificaciones) en la parte superior de la pantalla para ver el estado de implementación.
+
+    ![Notificación sobre la implementación de plantillas de Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)
+
+12. Seleccione **Ir al grupo de recursos** desde el panel de notificación. Debería ver una pantalla parecida a:
+
+    ![Grupo de recursos de la implementación de plantillas de Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
+
+    Puede ver que el estado de la implementación fue correcto y que solo hay una cuenta de almacenamiento en el grupo de recursos. El nombre de cuenta de almacenamiento es una cadena única generada por la plantilla. Para más información sobre el uso de cuentas de Azure Storage, consulte [Inicio rápido: Carga, descarga y enumeración de blobs mediante Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

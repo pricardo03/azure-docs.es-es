@@ -1,30 +1,30 @@
 ---
-title: 'Tutorial de Kubernetes en Azure: implementación del clúster'
-description: 'Tutorial de AKS: implementación del clúster'
+title: 'Tutorial de Kubernetes en Azure: Implementación de un clúster'
+description: En este tutorial de Azure Kubernetes Service (AKS), se crea un clúster de AKS y se usa kubectl para conectarse al nodo maestro de Kubernetes.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c8698f16138e9baeb9c9c1142a5d0c8937a69d1b
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 80b011f9df389098095f58c02008da891b2aa8a7
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341406"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919809"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementación de un clúster de Azure Kubernetes Service (AKS)
 
-Kubernetes proporciona una plataforma distribuida para aplicaciones en contenedores. Con AKS, puede aprovisionar rápidamente un clúster de Kubernetes listo para producción. En este tutorial, la tercera parte de siete, se implementa un clúster de Kubernetes en AKS. Los pasos completados incluyen:
+Kubernetes proporciona una plataforma distribuida para aplicaciones en contenedores. Con AKS, puede aprovisionar rápidamente un clúster de Kubernetes listo para producción. En este tutorial, la tercera parte de siete, se implementa un clúster de Kubernetes en AKS. Aprenderá a:
 
 > [!div class="checklist"]
-> * Creación de una entidad de servicio para las interacciones de recursos
-> * Implementación de un clúster de AKS de Kubernetes
-> * Instalación de la CLI de Kubernetes (kubectl)
-> * Configuración de kubectl
+> * Crear una entidad de servicio para las interacciones de los recursos
+> * Implementar un clúster de AKS de Kubernetes
+> * Instalar la CLI de Kubernetes (kubectl)
+> * Configurar kubectl para conectarse a un clúster de AKS
 
 En los tutoriales posteriores, la aplicación Azure Vote se implementa en el clúster, se escala y se actualiza.
 
@@ -32,11 +32,13 @@ En los tutoriales posteriores, la aplicación Azure Vote se implementa en el cl�
 
 En los tutoriales anteriores, se creó una imagen de contenedor y se actualizó en una instancia de Azure Container Registry. Si no ha realizado estos pasos, pero desea continuar, vuelva al [tutorial 1: Creación de imágenes de contenedor][aks-tutorial-prepare-app].
 
+Para realizar este tutorial es necesario disponer de la versión 2.0.44, o superior, de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
+
 ## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
 
 Para permitir que un clúster de AKS interactúe con otros recursos de Azure, se usa una entidad de servicio de Azure Active Directory. Esta entidad de servicio puede crearse automáticamente mediante la CLI de Azure o el portal, o puede crear una previamente y asignar permisos adicionales. En este tutorial, creará una entidad de servicio, concederá acceso a la instancia de Azure Container Registry (ACR) creada en el tutorial anterior y, luego, creará un clúster de AKS.
 
-Cree una entidad de servicio con [az ad sp create-for-rbac][]. El parámetro `--skip-assignment` impide que se asignen permisos adicionales.
+Cree una entidad de servicio mediante el comando [az ad sp create-for-rbac][]. El parámetro `--skip-assignment` impide que se asignen permisos adicionales.
 
 ```azurecli
 az ad sp create-for-rbac --skip-assignment
@@ -60,76 +62,74 @@ Anote el valor de *appId* y *password*. Estos valores se usan en los pasos sigui
 
 Para acceder a las imágenes almacenadas en ACR, debe conceder a la entidad de servicio de AKS los derechos adecuados para extraer imágenes de ACR.
 
-En primer lugar, obtenga el identificador de recursos de ACR con [az acr show][]. Actualice el nombre del registro `<acrName>` con el de la instancia de ACR y el grupo de recursos donde se encuentra la instancia de ACR.
+En primer lugar, obtenga el identificador de recursos de ACR mediante [az acr show][]. Actualice el nombre del registro `<acrName>` con el de la instancia de ACR y el grupo de recursos donde se encuentra la instancia de ACR.
 
 ```azurecli
-az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv
+az acr show --resource-group myResourceGroup --name <acrName> --query "id" --output tsv
 ```
 
-Para conceder el acceso correcto al clúster de AKS para usar las imágenes almacenadas en ACR, cree una asignación de roles con [az role assignment create][]. Reemplace `<appId`> y `<acrId>` por los valores recopilados en los dos pasos anteriores.
+Para conceder el acceso correcto al clúster de AKS para usar las imágenes almacenadas en ACR, cree una asignación de roles mediante el comando [az role assignment create][]. Reemplace `<appId`> y `<acrId>` por los valores recopilados en los dos pasos anteriores.
 
 ```azurecli
-az role assignment create --assignee <appId> --role Reader --scope <acrId>
+az role assignment create --assignee <appId> --scope <acrId> --role Reader
 ```
 
-## <a name="create-kubernetes-cluster"></a>Creación de un clúster de Kubernetes
+## <a name="create-a-kubernetes-cluster"></a>Creación de un clúster de Kubernetes
 
-Ahora cree un clúster de AKS con [az aks create][]. En el ejemplo siguiente se crea un clúster denominado *myAKSCluster* en un grupo de recursos denominado *myResourceGroup*. Este grupo de recursos se creó en el [tutorial anterior][aks-tutorial-prepare-acr]. Proporcione sus propios valores de `<appId>` y `<password>` del paso anterior en que creó la entidad de servicio.
+Los clústeres de AKAS pueden usar los controles de acceso basado en roles (RBAC) de Kubernetes. Dichos controles permiten definir el acceso a los recursos en función de los roles asignados a los usuarios. Los permisos se pueden combinar si a un usuario se le asignan varios roles y los permisos se pueden limitar a un espacio de nombres único o a todo el clúster. Actualmente, el RBAC de Kubernetes RBAC está en versión preliminar para los clústeres AKS. De forma predeterminada, la CLI de Azure habilita automáticamente RBAC al crear un clúster de AKS.
+
+Cree un clúster de AKS mediante [az aks create][]. En el ejemplo siguiente se crea un clúster denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*. Este grupo de recursos se creó en el [tutorial anterior][aks-tutorial-prepare-acr]. Use sus propios `<appId>` y `<password>` del paso anterior, en el que se creó la entidad de servicio.
 
 ```azurecli
 az aks create \
-    --name myAKSCluster \
     --resource-group myResourceGroup \
+    --name myAKSCluster \
     --node-count 1 \
-    --generate-ssh-keys \
     --service-principal <appId> \
-    --client-secret <password>
+    --client-secret <password> \
+    --generate-ssh-keys
 ```
 
 Al cabo de varios minutos, la implementación se completa y devuelve información en formato JSON sobre la implementación de AKS.
 
-## <a name="install-the-kubectl-cli"></a>Instalación de la CLI de kubectl
+## <a name="install-the-kubernetes-cli"></a>Instalación de la CLI de Kubernetes
 
-Para conectarse al clúster de Kubernetes desde el equipo cliente, use [kubectl][kubectl], el cliente de la línea de comandos de Kubernetes.
+Para conectarse al clúster de Kubernetes desde un equipo cliente, use [kubectl][kubectl], el cliente de la línea de comandos de Kubernetes.
 
-Si usa Azure Cloud Shell, kubectl ya está instalado. También puede instalarlo localmente con [az aks install-cli][]:
+Si usa Azure Cloud Shell, `kubectl` ya está instalado. También lo puede instalar localmente. Para ello debe usar el comando [az aks install-cli][]:
 
 ```azurecli
 az aks install-cli
 ```
 
-## <a name="connect-with-kubectl"></a>Conexión con kubectl
+## <a name="connect-to-cluster-using-kubectl"></a>Conexión a un clúster mediante kubectl
 
-Para configurar kubectl para conectarse al clúster de Kubernetes, use [az aks get-credentials][]. En el ejemplo siguiente se obtienen las credenciales del nombre del clúster de AKS *myAKSCluster* en el grupo de recursos *myResourceGroup*:
-
-```azurecli
-az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
-```
-
-Para comprobar la conexión al clúster, ejecute el comando [kubectl get nodes][kubectl-get].
+Para configurar `kubectl` para conectarse a un clúster de Kubernetes, use [az aks get-credentials][]. En el ejemplo siguiente se obtienen las credenciales del nombre del clúster de AKS *myAKSCluster* en el grupo de recursos *myResourceGroup*:
 
 ```azurecli
-kubectl get nodes
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Salida:
+Para comprobar la conexión al clúster, ejecute el comando [kubectl get nodes][kubectl-get]:
 
 ```
+$ kubectl get nodes
+
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-nodepool1-66427764-0   Ready     agent     9m        v1.9.6
+aks-nodepool1-66427764-0   Ready     agent     9m        v1.9.9
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, se implementó un clúster de Kubernetes en AKS. Se han completado los siguientes pasos:
+En este tutorial, se ha implementado un clúster de Kubernetes en AKS y se ha configurado `kubectl` para conectarse a él. Ha aprendido a:
 
 > [!div class="checklist"]
-> * Creación de una entidad de servicio para las interacciones de recursos
-> * Implementación de un clúster de AKS de Kubernetes
-> * Instalación de la CLI de Kubernetes (kubectl)
-> * Configuración de kubectl
+> * Crear una entidad de servicio para las interacciones de los recursos
+> * Implementar un clúster de AKS de Kubernetes
+> * Instalar la CLI de Kubernetes (kubectl)
+> * Configurar kubectl para conectarse a un clúster de AKS
 
-Avance al siguiente tutorial para aprender a ejecutar la aplicación en el clúster.
+Vaya al siguiente tutorial para aprender a implementar una aplicación en el clúster.
 
 > [!div class="nextstepaction"]
 > [Implementación de una aplicación en Kubernetes][aks-tutorial-deploy-app]
@@ -148,3 +148,4 @@ Avance al siguiente tutorial para aprender a ejecutar la aplicación en el clús
 [az aks create]: /cli/azure/aks#az-aks-create
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[azure-cli-install]: /cli/azure/install-azure-cli

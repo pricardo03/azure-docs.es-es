@@ -4,17 +4,17 @@ description: Información sobre cómo crear una cuenta de Azure Automation y eje
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 12/13/2017
+ms.date: 08/22/2018
 ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 3accd62415cd7d3a8210b7a05aa1edfd7a380edc
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 81dbcb4f77708f9f679d146b1db83ddecc30629d
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34055161"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616603"
 ---
 # <a name="create-an-azure-automation-account"></a>Creación de una cuenta de Azure Automation
 
@@ -22,7 +22,7 @@ Las cuentas de Azure Automation se pueden crear a través de Azure. Este método
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure en https://portal.azure.com
 
@@ -30,13 +30,13 @@ Inicie sesión en Azure en https://portal.azure.com
 
 1. Haga clic en el botón **Crear un recurso** de la esquina superior izquierda de Azure.
 
-1. Seleccione **Supervisión y administración** y, a continuación, **Automation**.
+1. Seleccione **Herramientas de administración** y, a continuación, **Automation**.
 
-1. Escriba la información de la cuenta. En **Crear cuenta de ejecución de Azure**, elija **Sí** para que los artefactos destinados a simplificar la autenticación en Azure se habiliten automáticamente. Cuando haya terminado, haga clic en **Crear** para iniciar la implementación de la cuenta de Automation.
+1. Escriba la información de la cuenta. En **Crear cuenta de ejecución de Azure**, elija **Sí** para que los artefactos destinados a simplificar la autenticación en Azure se habiliten automáticamente. Es importante tener en cuenta que al crear una cuenta de Automation, el nombre no se podrá cambiar una vez que se elige. Cuando haya terminado, haga clic en **Crear** para iniciar la implementación de la cuenta de Automation.
 
     ![Escriba la información sobre su cuenta de Automation en la página](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
-1. La cuenta de Automation se ancla al panel de Azure. Cuando se completa la implementación, la información general de la cuenta de Automation se abre automáticamente.
+1. Cuando la implementación haya finalizado, haga clic en ** **Todos los servicios**, seleccione **Cuentas de Automation** y seleccione la cuenta de Automation que creó.
 
     ![Información general de la cuenta de Automation](./media/automation-quickstart-create-account/automation-account-overview.png)
 

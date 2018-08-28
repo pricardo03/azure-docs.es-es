@@ -2,24 +2,18 @@
 title: Uso de un recurso compartido de archivos de Azure con Windows | Microsoft Docs
 description: Aprenda a usar un recurso compartido de archivos de Azure con Windows y Windows Server.
 services: storage
-documentationcenter: na
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
-ms.openlocfilehash: 54e084e6480c872ff6dd4625b8c87d5a60a181ba
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.component: files
+ms.openlocfilehash: 96ad812aff8f6ea4f47035188940730e5dc2992c
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392274"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41920320"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden usar sin problemas en Windows y Windows Server. En este artículo se describen los aspectos que se deben tener en cuenta al usar un recurso compartido de archivos de Azure con Windows y Windows Server.
@@ -52,20 +46,11 @@ Puede usar recursos compartidos de archivos de Azure en una instalación de Wind
 
 * **Clave de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará la clave principal (o secundaria) de la cuenta de almacenamiento. Actualmente no se admiten claves SAS para el montaje.
 
-* **Asegúrese de que el puerto 445 está abierto**: el protocolo SMB requiere que esté abierto el puerto TCP 445; las conexiones producirán errores si el puerto 445 está bloqueado. Otra forma de comprobar si el firewall está bloqueando el puerto 445 es usar el cmdlet `Test-NetConnection`. En el siguiente código de PowerShell se da por hecho que tiene instalado el módulo AzureRM PowerShell. Para más información, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). No olvide reemplazar `<your-storage-account-name>` y `<your-resoure-group-name>` por los nombres correspondientes de su cuenta de almacenamiento.
+* **Asegúrese de que el puerto 445 está abierto**: el protocolo SMB requiere que esté abierto el puerto TCP 445; las conexiones producirán errores si el puerto 445 está bloqueado. Otra forma de comprobar si el firewall está bloqueando el puerto 445 es usar el cmdlet `Test-NetConnection`. No olvide reemplazar `your-storage-account-name` por el nombre correspondiente de su cuenta de almacenamiento.
 
     ```PowerShell
-    $resourceGroupName = "<your-resource-group-name>"
-    $storageAccountName = "<your-storage-account-name>"
-
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
-    # already logged in.
-    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-
-    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
-    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign clouds
-    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+    Test-NetConnection -ComputerName <your-storage-account-name>.core.windows.net -Port 445
+    
     ```
 
     Si la conexión se realizó correctamente, verá la siguiente salida:
@@ -208,6 +193,26 @@ Remove-PSDrive -Name <desired-drive-letter>
     ![El recurso compartido de archivos de Azure ahora está montado.](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
 7. Cuando esté listo para desmontar el recurso compartido de archivos de Azure, puede hacerlo si hace clic con el botón derecho en la entrada del recurso compartido en **Ubicaciones de red** en el Explorador de archivos y selecciona **Desconectar**.
+
+### <a name="accessing-share-snapshots-from-windows"></a>Acceso a instantáneas de recursos compartido de Windows
+Si ha realizado una instantánea de un recurso compartido, ya sea manualmente o automáticamente a través de un script o un servicio como Azure Backup, puede ver las versiones anteriores de un recurso compartido, un directorio o un archivo concreto desde el recurso compartido de archivos en Windows. Las instantáneas de recursos compartidos se pueden realizar desde [Azure Portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md) y la [CLI de Azure](storage-how-to-use-files-cli.md).
+
+#### <a name="list-previous-versions"></a>Enumeración de versiones anteriores
+Vaya al elemento o elemento principal que hay que restaurar. Haga doble clic para ir al directorio deseado. Haga clic con el botón derecho y seleccione **Propiedades** en el menú.
+
+![Haga clic con el botón derecho en el menú para ir a un directorio seleccionado](./media/storage-how-to-use-files-windows/snapshot-windows-previous-versions.png)
+
+Seleccione **Versiones anteriores** para ver la lista de instantáneas de recursos compartidos de este directorio. La lista puede tardar unos segundos en cargarse dependiendo de la velocidad de red y del número de instantáneas de recursos compartidos que haya en el directorio.
+
+![Pestaña Versiones anteriores](./media/storage-how-to-use-files-windows/snapshot-windows-list.png)
+
+Puede seleccionar **Abrir** para abrir una instantánea concreta. 
+
+![Instantánea abierta](./media/storage-how-to-use-files-windows/snapshot-browse-windows.png)
+
+#### <a name="restore-from-a-previous-version"></a>Restaurar desde una versión anterior
+Haga clic en **Restaurar** para copiar el contenido de todo un directorio de forma recursiva en el momento de la creación de la instantánea del recurso compartido en la ubicación original.
+ ![Botón Restaurar en mensaje de advertencia](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>Protección de Windows y Windows Server
 Para montar un recurso compartido de archivos de Azure en Windows, el puerto 445 debe estar accesible. Muchas organizaciones bloquean este puerto debido a los riesgos de seguridad inherentes a SMB 1. SMB 1, también conocido como CIFS (Sistema de archivos de Internet común), es un protocolo de sistema de archivos heredado que se incluye con Windows y Windows Server. SMB 1 es un protocolo obsoleto, ineficaz y, lo más importante, no seguro. La buena noticia es que Azure Files no admite SMB 1, y todas las versiones admitidas de Windows y Windows Server permiten quitar o deshabilitar SMB 1. Siempre se [recomienda firmemente](https://aka.ms/stopusingsmb1) quitar o deshabilitar el cliente y el servidor de SMB 1 en Windows antes de usar los recursos compartidos de archivos de Azure en producción.

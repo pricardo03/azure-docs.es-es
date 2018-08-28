@@ -1,6 +1,6 @@
 ---
-title: Creación de una aplicación web ASP.NET Core en Azure | Microsoft Docs
-description: Obtenga información acerca de cómo ejecutar aplicaciones web en Azure App Service mediante la implementación de la aplicación web ASP.NET predeterminada.
+title: Creación de una aplicación web ASP.NET Core de C# en Azure | Microsoft Docs
+description: Aprenda a ejecutar aplicaciones web en Azure App Service mediante la implementación de la aplicación web ASP.NET de C# predeterminada.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -12,14 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/14/2017
+ms.date: 06/11/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 91f6fd077146e94833a5527f03ac710352e4fd9c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.custom: mvc, devcenter, vs-azure
+ms.openlocfilehash: 811f4df807292b9d539084a049cc643dbee07a7e
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42432062"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Creación de una aplicación web ASP.NET Core en Azure
 
@@ -35,17 +36,13 @@ ms.lasthandoff: 04/05/2018
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
-* Instalar <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> con las cargas de trabajo siguientes:
-    - **ASP.NET y desarrollo web**
-    - **Desarrollo de Azure**
+Instalar <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> con la carga de trabajo de **ASP.NET y desarrollo web**.
 
-    ![ASP.NET y desarrollo web y desarrollo de Azure (en web y en la nube)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-Si ya ha instalado Visual Studio, agregue las cargas de trabajo en Visual Studio, para lo que debe hacer clic en **Herramientas** > **Get Tools and Features** (Obtener herramientas y características).
+Si ya ha instalado Visual Studio, agregue la carga de trabajo en Visual Studio, para lo que debe hacer clic en **Herramientas** > **Get Tools and Features** (Obtener herramientas y características).
 
 ## <a name="create-an-aspnet-core-web-app"></a>Cree una aplicación web ASP.NET Core
 
@@ -62,10 +59,6 @@ Puede implementar cualquier tipo de aplicación web ASP.NET Core en Azure. Para 
 Seleccione **Aceptar**.
 
 ![Cuadro de diálogo Nuevo proyecto de ASP.NET](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
-
-Una vez creado el proyecto de ASP.NET Core, se mostrará la página de bienvenida de ASP.NET Core con numerosos vínculos a recursos que le ayudarán a empezar a trabajar. 
-
-![Página de bienvenida](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
 
 En el menú, seleccione **Depurar > Iniciar sin depurar** para ejecutar la aplicación web localmente.
 
@@ -89,7 +82,6 @@ En el cuadro de diálogo **Crear App Service**, haga clic en **Agregar una cuent
 
 > [!NOTE]
 > Si ya ha iniciado sesión, no seleccione **Crear** todavía.
->
 >
    
 ![Inicio de sesión en Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
@@ -151,7 +143,8 @@ Busque la etiqueta HTML `<div id="myCarousel" class="carousel slide" data-ride="
 
 Para volver a implementar en Azure, haga clic con el botón derecho en el proyecto **myFirstAzureWebApp**, en el **Explorador de soluciones** y seleccione **Publicar**.
 
-En la página de publicación, seleccione **Publicar**.
+En la página de resumen de publicación, seleccione **Publicar**.
+![Página de resumen de publicación de Visual Studio](./media/app-service-web-get-started-dotnet/publish-summary-page.png)
 
 Cuando se completa la publicación, Visual Studio inicia un explorador en la dirección URL de la aplicación web.
 

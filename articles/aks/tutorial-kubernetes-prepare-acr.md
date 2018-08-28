@@ -1,165 +1,155 @@
 ---
-title: 'Tutorial de Kubernetes en Azure: preparación de ACR'
-description: 'Tutorial de AKS: preparación de ACR'
+title: 'Kubernetes en el tutorial de Azure: Creación de un registro de contenedor'
+description: En este tutorial de Azure Kubernetes Service (AKS) se crea una instancia de Azure Container Registry y se carga una imagen del contenedor de aplicaciones de ejemplo.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 02/22/2018
+ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4ad5dcb8dbb11f1d6e12e3c19eab5da68009df58
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4f240d346457717c66a6ed189cfd8610c7a764da
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430763"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919182"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial: Implementación y uso de Azure Container Registry
 
-Azure Container Registry (ACR) es un registro privado basado en Azure para imágenes de contenedor de Docker. Este tutorial, la sección dos de siete, le guía a través de la implementación de una instancia de Azure Container Registry y la inserción de imágenes de contenedor en ella. Los pasos completados incluyen:
+Azure Container Registry (ACR) es un registro privado basado en Azure para imágenes de contenedor de Docker. Un registro de contenedor privado permite compilar e implementar aplicaciones y código personalizado de forma segura. En este tutorial, que es la segunda de las siete partes, se implementa una instancia de ACR y se insertar una imagen de contenedor en ella. Aprenderá a:
 
 > [!div class="checklist"]
-> * Implementación de una instancia de Azure Container Registry (ACR)
-> * Etiquetado de una imagen de contenedor para ACR
-> * Carga de la imagen a ACR
+> * Crear una instancia de Azure Container Registry (ACR)
+> * Etiquetar una imagen de contenedor para ACR
+> * Cargar la imagen a ACR
+> * Ver las imágenes del registro
 
-En posteriores tutoriales, esta instancia de ACR se integra con un clúster de Kubernetes en AKS.
+En tutoriales posteriores, esta instancia de ACR se integra con un clúster de Kubernetes en AKS y se implementa una aplicación a partir de la imagen.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 En el [tutorial anterior][aks-tutorial-prepare-app], se creó una imagen de contenedor para una aplicación sencilla de Azure Voting. Si no ha creado la imagen de la aplicación de Azure Voting, vuelva al [Tutorial 1: Creación de imágenes de contenedor][aks-tutorial-prepare-app].
 
-Para realizar este tutorial es necesario que ejecute la versión 2.0.27 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
+Para realizar este tutorial es necesario disponer de la versión 2.0.44, o superior, de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
 
-## <a name="deploy-azure-container-registry"></a>Implementación de Azure Container Registry
+## <a name="create-an-azure-container-registry"></a>Creación de una instancia de Azure Container Registry
 
-Para implementar Azure Container Registry, necesita tener antes un grupo de recursos. Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
+Para crear una instancia de Azure Container Registry, es preciso tener antes un grupo de recursos. Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
-Cree un grupo de recursos con el comando [az group create][az-group-create]. En este ejemplo, se crea un grupo de recursos denominado `myResourceGroup` en la región `eastus`.
+Cree un grupo de recursos con el comando [az group create][az-group-create]. En el siguiente ejemplo, se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Cree una instancia de Azure Container Registry con el comando [az acr create][az-acr-create]. El nombre del registro debe ser único dentro de Azure y contener entre 5 y 50 caracteres alfanuméricos.
+Cree una instancia de Azure Container Registry con el comando [crear az acr][az-acr-create] y especifique su propio nombre de registro. El nombre del registro debe ser único dentro de Azure y contener entre 5 y 50 caracteres alfanuméricos. En el resto del tutorial, se usa `<acrName>` como marcador de posición del nombre del registro de contenedor. La SKU *básica* es un punto de entrada optimizado para costo con fines de desarrollo que proporciona un equilibrio entre almacenamiento y rendimiento.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 ```
 
-En el resto de este tutorial, se usa `<acrName>` como un marcador de posición del nombre del registro de contenedor.
+## <a name="log-in-to-the-container-registry"></a>Inicio de sesión en el registro de contenedor
 
-## <a name="container-registry-login"></a>Inicio de sesión en Container Registry
-
-Después, use el comando [az acr login][az-acr-login] para iniciar sesión en la instancia de ACR. Debe proporcionar el nombre único que se especificó para el registro de contenedor cuando se creó.
+Para usar la instancia de ACR, primero debe iniciar sesión. Use el comando [az acr login][az-acr-login] y especifique el nombre único que dio al registro de contenedor en el paso anterior.
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
-Al finalizar, el comando devuelve un mensaje que indica que el inicio de sesión se ha realizado correctamente.
+Al finalizar, el comando devuelve un mensaje que indica que el *inicio de sesión se ha realizado correctamente*.
 
-## <a name="tag-container-images"></a>Etiquetado de imágenes de contenedor
+## <a name="tag-a-container-image"></a>Etiquetado de una imagen de contenedor
 
-Para ver una lista de las imágenes actuales, use el comando [docker images][docker-images].
-
-```console
-docker images
-```
-
-Salida:
+Para ver una lista de las imágenes locales actuales, use el comando [docker images][docker-images]:
 
 ```
+$ docker images
+
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front             latest              4675398c9172        13 minutes ago      694MB
 redis                        latest              a1b99da73d05        7 days ago          106MB
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
 ```
 
-Es preciso etiquetar cada imagen de contenedor con el nombre loginServer del registro. Esta etiqueta se usa para el enrutamiento al insertar imágenes de contenedor en un registro de imágenes.
+Para usar la imagen de contenedor *azure-vote-front* con ACR, se debe etiquetar con la dirección del servidor de inicio de sesión del registro de imagen. Esta etiqueta se usa para el enrutamiento al insertar imágenes de contenedor en un registro de imágenes.
 
-Use el comando [az acr list][az-acr-list] para obtener el nombre loginServer.
+Para obtener la dirección del servidor de inicio de sesión, use el comando [az acr list][az-acr-list] y consulte *loginServer* como se indica a continuación:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Ahora, etiquete la imagen `azure-vote-front` con el loginServer del registro de contenedor. Además, agregue `:v1` al final del nombre de la imagen. Esta etiqueta indica la versión de la imagen.
+Ahora, etiquete la imagen *azure-vote-front* local con la dirección *acrloginServer* del registro de contenedor. Para indicar la versión de la imagen, agregue *:v1* al final de su nombre:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-Una vez etiquetada, ejecute [docker images][docker-images] para comprobar la operación.
-
-```console
-docker images
-```
-
-Salida:
+Para comprobar que se aplican las etiquetas, vuelva a ejecutar [docker images][docker-images]. Una imagen se etiqueta con la dirección de la instancia de ACR y un número de versión.
 
 ```
-REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
-azure-vote-front                                     latest              eaf2b9c57e5e        8 minutes ago       716 MB
-mycontainerregistry082.azurecr.io/azure-vote-front   v1            eaf2b9c57e5e        8 minutes ago       716 MB
-redis                                                latest              a1b99da73d05        7 days ago          106MB
-tiangolo/uwsgi-nginx-flask                           flask               788ca94b2313        8 months ago        694 MB
+$ docker images
+
+REPOSITORY                                           TAG           IMAGE ID            CREATED             SIZE
+azure-vote-front                                     latest        eaf2b9c57e5e        8 minutes ago       716 MB
+mycontainerregistry.azurecr.io/azure-vote-front      v1            eaf2b9c57e5e        8 minutes ago       716 MB
+redis                                                latest        a1b99da73d05        7 days ago          106MB
+tiangolo/uwsgi-nginx-flask                           flask         788ca94b2313        8 months ago        694 MB
 ```
 
 ## <a name="push-images-to-registry"></a>Inserción de imágenes en el registro
 
-Inserte la imagen `azure-vote-front` en el registro.
-
-En el siguiente ejemplo, reemplace el nombre loginServer de ACR por el loginServer de su entorno.
+Ya puede insertar la imagen *azure-vote-front* a la instancia de ACR. Use [docker push][docker-push] y especifique su propia dirección *acrLoginServer* para el nombre de la imagen, tal como se muestra a continuación:
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v1
 ```
 
-Tarda unos minutos en completarse.
+La inserción de la imagen en ACR puede tardar varios minutos en completarse.
 
 ## <a name="list-images-in-registry"></a>Lista de imágenes en el registro
 
-Para que se devuelva una lista de las imágenes que se han insertado en la instancia de Azure Container Registry, el usuario debe usar el comando [az acr repository list][az-acr-repository-list]. Actualice el comando con el nombre de instancia de ACR.
+Para que se devuelva una lista de las imágenes que se han insertado en la instancia de ACR, el usuario debe utilizar el comando [az acr repository list][az-acr-repository-list]. Escriba su propio `<acrName>` como se indica a continuación:
 
 ```azurecli
 az acr repository list --name <acrName> --output table
 ```
 
-Salida:
+En la siguiente salida de ejemplo se muestra la imagen *azure-vote-front* como disponible en el registro:
 
-```azurecli
+```
 Result
 ----------------
 azure-vote-front
 ```
 
-Luego, para ver las etiquetas de una imagen concreta, use el comando [az acr repository show-tags][az-acr-repository-show-tags].
+Para ver las etiquetas de una imagen concreta, use el comando [az acr repository show-tags][az-acr-repository-show-tags] como se indica a continuación:
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
-Salida:
+La salida de ejemplo siguiente muestra la imagen de *v1* etiquetada en un paso anterior:
 
-```azurecli
+```
 Result
 --------
 v1
 ```
 
-Al finalizar el tutorial, la imagen de contenedor se ha almacenado en una instancia privada de Azure Container Registry. Esta imagen se implementa desde ACR en un clúster de Kubernetes en tutoriales posteriores.
+Ya hay una imagen de contenedor almacenada en una instancia de Azure Container Registry privada. En el siguiente tutorial, dicha imagen se implementa desde ACR en un clúster de Kubernetes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, se ha preparado una instancia de Azure Container Registry para su uso en un clúster de AKS. Se han completado los siguientes pasos:
+En este tutorial, ha creado una instancia de Azure Container Registry y ha insertado una imagen para su uso en un clúster de AKS. Ha aprendido a:
 
 > [!div class="checklist"]
-> * Implementación de una instancia de Azure Container Registry
-> * Etiquetado de una imagen de contenedor para ACR
-> * Carga de la imagen a ACR
+> * Crear una instancia de Azure Container Registry (ACR)
+> * Etiquetar una imagen de contenedor para ACR
+> * Cargar la imagen a ACR
+> * Ver las imágenes del registro
 
 Vaya al siguiente tutorial para aprender a implementar un clúster de Kubernetes en Azure.
 
@@ -168,6 +158,7 @@ Vaya al siguiente tutorial para aprender a implementar un clúster de Kubernetes
 
 <!-- LINKS - external -->
 [docker-images]: https://docs.docker.com/engine/reference/commandline/images/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 
 <!-- LINKS - internal -->
 [az-acr-create]: /cli/azure/acr#create

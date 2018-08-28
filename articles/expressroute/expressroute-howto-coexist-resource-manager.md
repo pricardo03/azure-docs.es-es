@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/05/2018
+ms.date: 08/17/2018
 ms.author: charwen,cherylmc,rambala
-ms.openlocfilehash: 80d2f65f516d7f1190f276fa9f2c62206bd31e67
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 0e69a85f320a0a8d77bd07fc0dedb77eb99efb36
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262879"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41919212"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configuración de conexiones coexistentes de ExpressRoute de sitio a sitio
 > [!div class="op_single_selector"]
@@ -183,14 +183,7 @@ Este procedimiento le guía en la creación de una red virtual y conexiones de s
   ```
 
 ## <a name="add"></a>Para configurar conexiones coexistentes para una red virtual ya existente
-Si ya tiene una red virtual, compruebe el tamaño de la subred de puerta de enlace. Si la subred de la puerta de enlace es /28 o /29, primero debe eliminar la puerta de enlace de red virtual y aumentar el tamaño de la subred de la puerta de enlace. Los pasos de esta sección le muestran cómo hacerlo.
-
-Si la puerta de enlace es /27 o mayor y la red virtual está conectada mediante ExpressRoute, puede omitir los pasos siguientes y continuar en el ["Paso 4: Creación una puerta de enlace de VPN de sitio a sitio"](#vpngw) de la sección anterior. 
-
-> [!NOTE]
-> Cuando elimine la puerta de enlace existente, las instalaciones locales perderán la conexión a la red virtual mientras trabaja en esta configuración. 
-> 
-> 
+Si tiene una red virtual con una sola una puerta de enlace de red virtual (por ejemplo, una puerta de enlace de VPN de sitio a sitio) y desea agregar una segunda puerta de enlace de otro tipo (por ejemplo, una puerta de enlace de ExpressRoute), compruebe el tamaño de la subred de la puerta de enlace. Si la subred de la puerta de enlace es/27, o mayor, puede omitir los pasos siguientes y seguir los de la sección anterior para agregar una puerta de enlace VPN de sitio a sitio o una puerta de enlace de ExpressRoute. Si la subred de la puerta de enlace es /28 o /29, primero debe eliminar la puerta de enlace de red virtual y aumentar el tamaño de la subred de la puerta de enlace. Los pasos de esta sección le muestran cómo hacerlo.
 
 1. Deberá instalar la versión más reciente de los cmdlets de Azure PowerShell. Para más información sobre cómo instalar los cmdlets, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview). Los cmdlets que se usan en esta configuración pueden ser ligeramente diferentes de aquellos con los que podría estar familiarizado. Asegúrese de usar los cmdlets especificados en estas instrucciones. 
 2. Elimine la puerta de enlace de la VPN de ExpressRoute o de sitio a sitio.
@@ -220,7 +213,7 @@ Si la puerta de enlace es /27 o mayor y la red virtual está conectada mediante 
   ```powershell
   $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-5. Ya tiene una red virtual sin puertas de enlace. Para crear nuevas puertas de enlace y completar las conexiones, puede continuar en el [Paso 4: Creación de una puerta de enlace de VPN de sitio a sitio](#vpngw) del procedimiento anterior.
+5. Ya tiene una red virtual sin puertas de enlace. Para crear nuevas puertas de enlace y configurar las conexiones, siga los pasos descritos en la sección anterior.
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Incorporación de la configuración de punto a sitio a la puerta de enlace de VPN
 Para agregar una configuración de punto a sitio a la puerta de enlace de VPN en una configuración de coexistencia, puede seguir los pasos que se indican a continuación.

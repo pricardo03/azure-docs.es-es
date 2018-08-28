@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ccc699a500cbaf20c9b90d71e7c730e617bc572c
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: c2c80790fa3e7c20408346fbebf60c39879a94df
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145543"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41917617"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurar los recursos de la nube para el aprovisionamiento de dispositivos con el servicio IoT Hub Device Provisioning
 
@@ -43,12 +43,12 @@ Siga estos pasos para crear una nueva instancia del servicio Device Provisioning
     
    | Configuración       | Valor sugerido | Descripción | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Name** | Cualquier nombre único | -- | 
+   | **Nombre** | Cualquier nombre único | -- | 
    | **Suscripción** | Su suscripción  | Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
    | **Grupos de recursos** | myResourceGroup | Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
    | **Ubicación** | Cualquier ubicación válida | Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). |   
 
-   ![Especificar la información básica de DPS en el portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
+   ![Especificación de la información básica del servicio de aprovisionamiento de dispositivos en el portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
 5. Haga clic en **Create**(Crear). Transcurridos unos instantes, se crea la instancia de Device Provisioning Service y aparece la página **Información general**.
 6. En la página **Información general** de la nueva instancia del servicio, copie el valor de **Ámbito de id.** para su uso posterior. Este valor se usa para diferenciar los identificadores de registro y, además, garantiza que el identificador de registro es único.
@@ -71,7 +71,7 @@ El paso siguiente es vincular el servicio Device Provisioning a una instancia de
     * **Centro de IoT:** elija el nombre del centro de IoT que desea vincular con esta instancia de Device Provisioning Service.
     * **Directiva de acceso:** seleccione **iothubowner** como las credenciales para establecer el vínculo con el centro de IoT.
 
-   ![Vincular el nombre del centro a la instancia de DPS del portal](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
+   ![Vínculo del nombre del centro al servicio de aprovisionamiento de dispositivos en el portal](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Establecer la directiva de asignación del servicio Device Provisioning
 

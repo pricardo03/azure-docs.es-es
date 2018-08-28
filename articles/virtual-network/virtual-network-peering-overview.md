@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2018
+ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 63ea834401e5c6798b6f84b6f09a964005d14306
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c20375d42786b817f677be22dee8f4e71e710bc5
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257878"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919822"
 ---
 # <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
@@ -77,7 +77,12 @@ También puede solucionar problemas con la conectividad de una máquina virtual 
 
 ## <a name="requirements-and-constraints"></a>Requisitos y restricciones
 
-Para más información acerca de los requisitos y restricciones, consulte [Requisitos y restricciones de emparejamiento de redes virtuales](virtual-network-manage-peering.md#requirements-and-constraints). Para más información acerca de los límites para el número de emparejamientos que puede crear para una red virtual, consulte [Límites de red de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
+Las siguientes restricciones se aplican cuando las redes virtuales están emparejadas globalmente:
+- Las redes virtuales pueden existir en cualquier región de nube pública de Azure, pero no en nubes nacionales de Azure.
+- Los recursos de una red virtual no pueden comunicarse con la dirección IP de front-end de un equilibrador de carga interno de Azure en la red virtual emparejada globalmente. El equilibrador de carga y los recursos que se comunican con él deben estar en la misma región.
+- No se pueden utilizar puertas de enlace remotas o permitir el tránsito de puerta de enlace. Para poder hacerlo, las redes virtuales emparejadas deben estar en la misma región.
+
+Para más información acerca de los requisitos y restricciones, consulte [Requisitos y restricciones del emparejamiento de redes virtuales](virtual-network-manage-peering.md#requirements-and-constraints). Para más información acerca de los límites para el número de emparejamientos que puede crear para una red virtual, consulte [Límites de red de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 
 ## <a name="permissions"></a>Permisos
 
@@ -102,3 +107,4 @@ El tránsito de puerta de enlace es una propiedad del emparejamiento que permite
 
 * Aprenda a crear una [topología de red de concentrador y radio](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Conozca toda la [configuración de emparejamiento de red virtual y cómo cambiarla](virtual-network-manage-peering.md).
+* Obtenga respuestas a preguntas comunes acerca del emparejamiento de VNET y del emparejamiento de VNet global a través de nuestras [P+F de emparejamiento de VNET](virtual-networks-faq.md#vnet-peering)

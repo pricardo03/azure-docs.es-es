@@ -1,3 +1,20 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: service-bus-relay
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 08/16/2018
+ms.author: clemensv
+ms.custom: include file
+ms.openlocfilehash: fbc5bbff62a13d9b4301271031105ecd7d17fa86
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40183989"
+---
 ### <a name="create-a-console-application"></a>Creación de una aplicación de consola
 
 En Visual Studio, cree un nuevo proyecto de **Aplicación de consola (.NET Framework)**.
@@ -5,8 +22,10 @@ En Visual Studio, cree un nuevo proyecto de **Aplicación de consola (.NET Frame
 ### <a name="add-the-relay-nuget-package"></a>Adición del paquete Relay NuGet
 
 1. Haga clic con el botón derecho en el proyecto recién creado y seleccione **Administrar paquetes NuGet**.
-2. Seleccione **Examinar** y, a continuación, busque **Microsoft.Azure.Relay**. En los resultados de la búsqueda, seleccione **Microsoft Azure Relay**. 
-3. Seleccione **Instalar** para completar la instalación. Cierre el cuadro de diálogo.
+2. Seleccione la opción **Incluir versión preliminar**. 
+3. Seleccione **Examinar** y, a continuación, busque **Microsoft.Azure.Relay**. En los resultados de la búsqueda, seleccione **Microsoft Azure Relay**.
+4. Para la versión, seleccione **2.0.0-preview1-20180523**. 
+5. Seleccione **Instalar** para completar la instalación. Cierre el cuadro de diálogo.
 
 ### <a name="write-code-to-receive-messages"></a>Escritura de código para recibir mensajes
 
@@ -17,6 +36,7 @@ En Visual Studio, cree un nuevo proyecto de **Aplicación de consola (.NET Frame
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Net;
     using Microsoft.Azure.Relay;
     ```
 2. Agregue constantes a la clase `Program` para los detalles de la conexión híbrida. Reemplace los marcadores de posición entre corchetes por los valores que obtuvo al crear la conexión híbrida. Asegúrese de utilizar el nombre de espacio de nombres completo.

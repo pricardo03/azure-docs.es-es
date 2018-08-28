@@ -12,30 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: hero-article
-ms.date: 10/01/2016
+ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: 970ad90aa14d5778e8b232e32aa1dacf32789988
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9809b51f1279c99de69cd1c219ffc57351ff21ef
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38593110"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41918399"
 ---
 # <a name="create-an-ios-app"></a>Creación de una aplicación iOS
+
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Información general
-En este tutorial se muestra cómo agregar [Azure Mobile Apps](app-service-mobile-value-prop.md), un servicio back-end basado en la nube, a una aplicación de iOS. En primer lugar, vamos a crear un nuevo back-end móvil. Después, usaremos una sencilla aplicación de iOS de *lista de tareas* para almacenar datos en Azure.
+
+En este tutorial se muestra cómo agregar [Azure App Service Mobile Apps](app-service-mobile-value-prop.md), un servicio back-end basado en la nube, a una aplicación de iOS. El primer paso es crear un nuevo back-end para dispositivos móviles en Azure. Después, es preciso descargar una sencilla aplicación iOS de *lista de tareas* de ejemplo que almacena datos en Azure.
 
 Para completar este tutorial, es preciso tener un Mac y una [cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 ## <a name="step-i-create-a-new-azure-mobile-app-backend"></a>Paso 1: Creación de un nuevo back-end de Aplicaciones móviles de Azure
+
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 ## <a name="step-ii-configure-the-backend-project"></a>Paso 2: Configuración del proyecto de back-end
+
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="step-iii-download-and-run-the-ios-app"></a>Paso 3: Descarga y ejecución de la aplicación iOS
+
 [!INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
 
 <!-- URLs -->

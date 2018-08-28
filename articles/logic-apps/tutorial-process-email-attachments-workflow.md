@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: 133cc9d8fa52bb655e9baaad53ee157fdc7524f7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d07342bac3f76472a4783c28cac0741906049bb2
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429427"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41917769"
 ---
 # <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Procesamiento de correos electrónicos y datos adjuntos con Azure Logic Apps
 
@@ -56,11 +56,11 @@ Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Porta
 
 Puede guardar los correos electrónicos entrantes y los datos adjuntos como blobs en un [contenedor de Azure Storage](../storage/common/storage-introduction.md). 
 
-1. Para crear un contenedor de almacenamiento, [cree una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) con esta configuración:
+1. Para crear un contenedor de almacenamiento, [cree una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) con esta configuración:
 
    | Configuración | Valor | DESCRIPCIÓN | 
    |---------|-------|-------------| 
-   | **Name** | attachmentstorageacct | El nombre de la cuenta de almacenamiento. | 
+   | **Nombre** | attachmentstorageacct | El nombre de la cuenta de almacenamiento. | 
    | **Modelo de implementación** | Resource Manager | El [modelo de implementación](../azure-resource-manager/resource-manager-deployment-model.md) para administrar la implementación de recursos | 
    | **Tipo de cuenta** | Uso general | El [tipo de cuenta de almacenamiento](../storage/common/storage-introduction.md#types-of-storage-accounts) | 
    | **Ubicación** | Oeste de EE. UU. | La región dónde almacenar la información sobre su cuenta de almacenamiento | 
@@ -231,7 +231,7 @@ Después de comprobar que funciona la función, cree la aplicación lógica. Aun
 
    | Configuración | Valor | DESCRIPCIÓN | 
    | ------- | ----- | ----------- | 
-   | **Name** | LA-ProcessAttachment | Nombre de la aplicación lógica | 
+   | **Nombre** | LA-ProcessAttachment | Nombre de la aplicación lógica | 
    | **Suscripción** | <*nombre-de-su-suscripción-a-Azure*> | La misma suscripción de Azure que usó anteriormente. | 
    | **Grupos de recursos** | LA-Tutorial-RG | El mismo grupo de recursos de Azure que usó anteriormente. |
    | **Ubicación** | Oeste de EE. UU. | La misma región que usó anteriormente. | 

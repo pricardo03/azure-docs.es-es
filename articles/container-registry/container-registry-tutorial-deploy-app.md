@@ -6,15 +6,15 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/30/2018
+ms.date: 08/20/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 6347c460ab88929152424d301445a219720b98e8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 25e3fdfe72fc2a6ffec1bcee23cd9f1edc783838
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582308"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920390"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Tutorial: Implementación de una aplicación web desde Azure Container Registry
 
@@ -42,11 +42,13 @@ En este paso, creará una instancia de Web App for Containers en la región *Oes
 
 Inicie sesión en [Azure Portal](https://portal.azure.com) y navegue hasta el registro que creó en el tutorial anterior.
 
-Seleccione **Repositorios** > **acr-helloworld**, haga clic con el botón derecho en la etiqueta **v1** debajo de **Etiquetas** y seleccione **Deploy to web app** (Implementar en la aplicación web).
+Seleccione **Repositorios** > **acr-helloworld**, haga clic con el botón derecho en la etiqueta **v1** en **Etiquetas** y seleccione **Deploy to web app** (Implementar en aplicación web):
 
 ![Implementar en App Service en Azure Portal][deploy-app-portal-01]
 
-En el cuadro **Web App for Containers** que aparece, especifique los siguientes valores para cada configuración:
+Si la opción "Implementar en aplicación web" está deshabilitada, es posible que no haya habilitado el usuario de administrador del registro, tal como se indicaba en [Creación de un registro de contenedor](container-registry-tutorial-prepare-registry.md#create-a-container-registry) en el primer tutorial. El usuario administrador se puede habilitar en **Configuración** > **Claves de acceso** en Azure Portal.
+
+En el cuadro **Web App for Containers** que aparece al seleccionar "Implementar en aplicación web", especifique los siguientes valores en cada ajuste:
 
 | Configuración | Valor |
 |---|---|

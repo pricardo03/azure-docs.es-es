@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 651f9ba71d08698c64f3e90de59b5f29a8afc77d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b6d7b926a414c95d4e05834bafc91a2aa9c047fe
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433517"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41918146"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copia de varias tablas en bloque mediante Azure Data Factory
 En este tutorial se muestra cómo puede **copiar varias tablas de Azure SQL Database a Azure SQL Data Warehouse**. Además, puede aplicar el mismo patrón en otros escenarios de copia. Por ejemplo, para copiar tablas de SQL Server u Oracle a Azure SQL Database, Data Warehouse o el blob de Azure, o bien para copiar diferentes rutas de acceso de blob a tablas de Azure SQL Database.
@@ -108,7 +108,7 @@ Permita que los servicios de Azure accedan a SQL Server tanto para SQL Database 
     ![Página de introducción](./media/tutorial-bulk-copy-portal/get-started-page.png)
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
-Los servicios vinculados se crean para vincular los almacenes de datos y los procesos con una factoría de datos. El servicio vinculado tiene la información de conexión que usa el servicio Data Factory para conectarse al almacén de datos en tiempo de ejecución. 
+Los servicios vinculados se crean para vincular los almacenes de datos y los procesos con una factoría de datos. Un servicio vinculado tiene la información de conexión que usa el servicio Data Factory para conectarse al almacén de datos en el runtime. 
 
 En este tutorial se vinculan sus almacenes de datos de Azure SQL Database, Azure SQL Data Warehouse y Azure Blob Storage a la factoría de datos. El almacén de datos de origen es el de Azure SQL Database. El almacén de datos de Azure SQL Data Warehouse es el receptor/destino. Azure Blob Storage sirve para almacenar provisionalmente los datos antes de cargarlos en SQL Data Warehouse mediante PolyBase. 
 
@@ -239,7 +239,7 @@ La canalización **GetTableListAndTriggerCopyData** lleva a cabo dos pasos:
 
     ![Configuración de la actividad ForEach (Para cada uno)](./media/tutorial-bulk-copy-portal/for-each-activity-settings.png)
 
-    c. En la página **Agregar contenido dinámico**, contraiga la sección de variables del sistema y funciones, haga clic en **tableList** en **Parameters** (Parámetros) y se rellenará automáticamente el cuadro de texto de expresiones de la parte superior `@pipeline().parameter.tableList`, finalmente, haga clic en **Finalizar**. 
+    c. En la página **Agregar contenido dinámico**, contraiga la sección de funciones y variables del sistema, haga clic en **tableList** en **Parameters** (Parámetros) y se rellenará automáticamente el cuadro de texto de expresiones de la parte superior `@pipeline().parameter.tableList` y, por último, haga clic en **Finalizar**. 
 
     ![Generador de parámetros de ForEach](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     
@@ -265,7 +265,7 @@ La canalización **GetTableListAndTriggerCopyData** lleva a cabo dos pasos:
     1. Haga clic en el cuadro de entrada VALOR del parámetro DWTableName -> seleccione **Agregar contenido dinámico** que aparece a continuación, escriba la expresión `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` como script, -> seleccione **Finalizar**.
     1. Expanda **Polybase Settings** (Configuración de Polybase) y seleccione **Allow polybase** (Permitir polybase). 
     1. Desactive la opción **Use Type default** (Usar tipo predeterminado). 
-    1. Haga clic en el cuadro de entrada **Script de limpieza** -> seleccione el vínculo **Agregar contenido dinámico** que aparece a continuación -> escriba la siguiente expresión como script -> seleccione **Finalizar**. 
+    1. Haga clic en el cuadro de entrada **Script previo a la copia** -> seleccione el vínculo **Agregar contenido dinámico** que aparece a continuación -> escriba la siguiente expresión como script -> seleccione **Finalizar**. 
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]

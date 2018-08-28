@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 6fe314125440096d21a1276defd082c4e1997b8e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 50ece1d1f74ace494e6bebb84f9f121c1fad7a6c
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642689"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41918250"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implementación de una aplicación .NET de un contenedor de Windows en Azure Service Fabric
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 > * Creación de un registro de contenedor de Azure
 > * Implementación de una aplicación de Service Fabric en Azure
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 1. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 2. Instale [Docker CE for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) para poder ejecutar contenedores en Windows 10.
@@ -124,7 +124,7 @@ En el proyecto **FabrikamFiber.Web**, actualice la cadena de conexión en el arc
 ## <a name="run-the-containerized-application-locally"></a>Ejecución de la aplicación en contenedores localmente
 Presione **F5** para ejecutar y depurar la aplicación en un contenedor en el clúster de desarrollo local de Service Fabric. Haga clic en **Sí** si ve un cuadro de mensaje que pregunta si desea conceder al grupo "ServiceFabricAllowedUsers" permisos de lectura y ejecución en el directorio del proyecto de Visual Studio.
 
-## <a name="create-a-container-registry"></a>Creación de un registro de contenedor
+## <a name="create-a-container-registry"></a>Creación de un Registro de contenedor
 Ahora que la aplicación se ejecuta localmente, empiece a preparar la implementación en Azure.  Las imágenes de contenedor deben estar almacenadas en un registro de contenedor.  Cree una instancia de [Azure Container Registry](/azure/container-registry/container-registry-intro) mediante el script siguiente. El nombre del registro de contenedor es visible para otras suscripciones de Azure, por lo que debe ser único.
 Antes de implementar la aplicación en Azure, inserte la imagen del contenedor en este registro.  Cuando la aplicación se implementa en el clúster de Azure, la imagen del contenedor se extrae de este registro.
 
@@ -223,6 +223,9 @@ Ahora que la aplicación está lista, puede implementarla en un clúster de Azur
 Siga el progreso de la implementación en la ventana de salida.  Cuando la aplicación esté implementada, abra un explorador y escriba la dirección del clúster y el puerto de la aplicación. Por ejemplo, http://http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
 
 ![Ejemplo web de Fabrikam][fabrikam-web-page-deployed]
+
+## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Configuración de la integración e implementación continuas (CI/CD) con un clúster de Service Fabric
+Para aprender a usar VSTS para configurar la implementación de aplicaciones de CI/CD en un clúster de Service Fabric, consulte [Tutorial: Implementación de una aplicación con CI/CD en un clúster de Service Fabric](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). El proceso que se describe en el tutorial es el mismo para este proyecto (FabrikamFiber), solo debe omitir la descarga del ejemplo de votación y usar FabrikamFiber como nombre del repositorio, en lugar de Voting.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Si ha terminado, asegúrese de quitar todos los recursos que haya creado.  La manera más sencilla consiste en quitar los grupos de recursos que contienen el clúster de Service Fabric, Azure SQL DB y Azure Container Registry.

@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: 2cda30c85ce8a8dc9b7a6c0134b7cabc58b842a4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: a55c99764cf9d77ab3ee269e3f5b0c2a13ec1ac7
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115327"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42024253"
 ---
 # <a name="what-is-azure-key-vault"></a>¿Qué es Azure Key Vault?
 
@@ -29,13 +29,12 @@ Tiene contraseñas, cadenas de conexión y otros fragmentos de información que 
 
 Key Vault le permite crear múltiples contenedores seguros denominados almacenes. Estos almacenes están respaldados por módulos de seguridad de hardware (HSM). Los almacenes ayudan a reducir las posibilidades de que se produzca una pérdida accidental de información de seguridad centralizando el almacenamiento de los secretos de aplicación. Key Vault también permite controlar y registrar el acceso a todo lo que está almacenado en ellos. Azure Key Vault puede administrar la solicitud y renovación de los certificados de Seguridad de la capa de transporte (TLS), proporcionando las características necesarias para conseguir una eficaz solución de administración del ciclo de vida de los certificados.
 
- Azure Key Vault está diseñado para admitir claves y secretos de aplicación. Key Vault no está pensado para usarse como almacén para las contraseñas de usuario.
-
+ Azure Key Vault está diseñado para admitir cualquier tipo de secreto. Con esto nos referimos a que Key Vault se puede utilizar para almacenar contraseñas, credenciales de base de datos, claves de API y certificados, que se pueden proteger mediante software o mediante HSM.
 ## <a name="why-use-azure-key-vault"></a>Motivos para usar Azure Key Vault
 
 ### <a name="centralize-application-secrets"></a>Centralización de secretos de aplicación
 
-La centralización del almacenamiento de los secretos de aplicación le permite controlar su distribución. Esto reduce en gran medida las posibilidades de que se puedan filtrar por accidente los secretos. Cuando usan Key Vault, los desarrolladores de aplicaciones ya no tienen que almacenar la información de seguridad en su aplicación. Esto elimina la necesidad de hacer que esta información sea parte del código. Por ejemplo, puede que una aplicación necesite conectarse a una base de datos. En lugar de almacenar la cadena de conexión en los códigos de la aplicación, almacénela de forma segura en Key Vault.
+La centralización del almacenamiento de los secretos de aplicación le permite controlar su distribución. Key Vault reduce en gran medida las posibilidades de que se puedan filtrar por accidente los secretos. Cuando usan Key Vault, los desarrolladores de aplicaciones ya no tienen que almacenar la información de seguridad en su aplicación. Esto elimina la necesidad de hacer que esta información sea parte del código. Por ejemplo, puede que una aplicación necesite conectarse a una base de datos. En lugar de almacenar la cadena de conexión en los códigos de la aplicación, almacénela de forma segura en Key Vault.
 
 Las aplicaciones pueden acceder de forma segura a la información que necesitan mediante identificadores URI que les permiten recuperar las versiones específicas de un secreto después de haber almacenado la clave o secreto de una aplicación en Azure Key Vault. Esto sucede sin tener que escribir código personalizado para proteger la información del secreto.
 
@@ -67,7 +66,7 @@ Al almacenar datos importantes, debe realizar varios pasos. Se debe proteger la 
 
 - La eliminación de la necesidad de poseer conocimientos internos sobre los módulos de seguridad de hardware (HSM).
 - El escalado vertical en un breve plazo de tiempo para adaptarse a los picos de uso de la organización.
-- La replicación del contenido de una instancia de Key Vault de una región en una región secundaria. Esto garantiza la alta disponibilidad y elimina la necesidad de intervención del administrador para desencadenar la conmutación por error.
+- La replicación del contenido de una instancia de Key Vault de una región en una región secundaria. Key Vault garantiza la alta disponibilidad y elimina la necesidad de intervención del administrador para desencadenar la conmutación por error.
 - La disposición de opciones estándar de administración de Azure a través del portal, la CLI de Azure y PowerShell.
 - La automatización de determinadas tareas de los certificados que adquiere de entidades de certificación públicas, como la inscripción y la renovación.
 

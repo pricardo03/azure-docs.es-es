@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 8/8/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 851c8c1eb13497355038ef4a8d5f1f9326c8c3bc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 179db61777fe60ae53d7fee553c8124d7a9f7abf
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781187"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42023250"
 ---
 # <a name="what-is-azure-virtual-network"></a>¿Qué es Azure Virtual Network?
 
@@ -37,7 +37,10 @@ Puede implementar varias redes virtuales dentro de cada [suscripción](../azure-
 
 ## <a name="communicate-with-the-internet"></a>Comunicación con internet
 
-De manera predeterminada, todos los recursos de una red virtual se pueden comunicar hacia Internet. Para comunicarse con un recurso mediante, asígnele una dirección IP pública. Para más información, consulte [Direcciones IP públicas](virtual-network-public-ip-address.md).
+De manera predeterminada, todos los recursos de una red virtual se pueden comunicar hacia Internet. Para comunicarse con un recurso mediante, asígnele una dirección IP pública o un equilibrador de carga público. También puede usar la dirección IP pública o el equilibrador de carga público para administrar las conexiones salientes.  Para más información sobre las conexiones salientes en Azure, consulte [Conexiones salientes](../load-balancer/load-balancer-outbound-connections.md), [Direcciones IP públicas](virtual-network-public-ip-address.md) y [Equilibrador de carga](../load-balancer/load-balancer-overview.md).
+
+>[!NOTE]
+>Cuando se usa solo una instancia interna de [Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md), la conectividad de salida no está disponible hasta que define cómo desea que las [conexiones salientes](../load-balancer/load-balancer-outbound-connections.md) trabajen con una dirección IP pública o un equilibrador de carga público en el nivel de instancia.
 
 ## <a name="communicate-between-azure-resources"></a>Comunicación entre recursos de Azure
 

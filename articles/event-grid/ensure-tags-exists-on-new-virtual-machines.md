@@ -3,23 +3,19 @@ title: Integración de Azure Automation con Event Grid | Microsoft Docs
 description: Obtenga información sobre cómo agregar automáticamente una etiqueta cuando se crea una máquina virtual y enviar una notificación a Microsoft Teams.
 keywords: automatización, runbook, teams, event grid, máquina virtual, VM
 services: automation
-documentationcenter: ''
 author: eamonoreilly
 manager: ''
-editor: ''
 ms.service: automation
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2017
+ms.date: 08/14/2018
 ms.author: eamono
-ms.openlocfilehash: 6270f8bad893798f46d8db91e7b1140b6a125350
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a4356f38df017901ab219318463538003d3a979e
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049871"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920335"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integración de Azure Automation con Event Grid y Microsoft Teams
 
@@ -87,28 +83,30 @@ Para completar este tutorial, se requiere una [cuenta de Azure Automation](../au
 
     ![Configuración de los parámetros del webhook](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
 
-5. Seleccione **Aceptar** para crear el webhook del runbook de Automation.
-
+5. Seleccione **Crear** para crear el webhook del runbook de Automation.
 
 ## <a name="create-an-event-grid-subscription"></a>Creación de una suscripción de Event Grid
+
 1. En la página de información general de la **cuenta de Automation**, seleccione **Event Grid**.
 
     ![Seleccionar Event Grid](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
 
-2. Seleccione el botón **+ Suscripción a eventos**.
+2. Haga clic en **+Suscripción de eventos**.
 
 3. Configure la suscripción con la información siguiente:
 
-    *   Escriba **AzureAutomation** como el nombre.
-    *   En **Tipo de tema**, seleccione **Suscripciones de Azure**.
-    *   Desactive la casilla de verificación **Suscribirse a todos los tipos de evento**.
-    *   En **Tipos de evento**, seleccione **Resource Write Success** (Escritura de recursos correcta).
-    *   En **Punto de conexión de suscriptor**, escriba la dirección URL del webhook del runbook Watch-VMWrite.
-    *   En **Filtro de prefijo**, escriba la suscripción y el grupo de recursos donde desea buscar las nuevas máquinas virtuales creadas. Debe verse de una manera similar a: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
+   * En **Tipo de tema**, seleccione **Suscripciones de Azure**.
+   * Desactive la casilla **Suscribirse a todos los tipos de evento**.
+   * Escriba **AzureAutomation** como el nombre.
+   * En la lista desplegable **Tipos de evento definidos**, desactive todas las opciones excepto **Resource Write Success** (Escritura de recursos correcta).
+   * En **Tipo de punto de conexión**, seleccione **Webhook**.
+   * Haga clic en **Seleccionar un punto de conexión**. En la página **Seleccionar webhook** que se abre, pegue la dirección URL del webhook que creó para el runbook Watch-VMWrite.
+   * En **FILTROS**, escriba la suscripción y el grupo de recursos en los que desea buscar las nuevas máquinas virtuales creadas. Debe verse de una manera similar a: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
 4. Seleccione **Crear** para guardar la suscripción de Event Grid.
 
 ## <a name="create-a-vm-that-triggers-the-runbook"></a>Creación de una máquina virtual que desencadena el runbook
+
 1. Cree una máquina virtual nueva en el grupo de recursos que especificó en el filtro de prefijo de la suscripción de Event Grid.
 
 2. Se debe llamar al runbook Watch-VMWrite y se debe agregar una etiqueta nueva a la máquina virtual.
@@ -120,6 +118,7 @@ Para completar este tutorial, se requiere una [cuenta de Azure Automation](../au
     ![Notificación de Microsoft Teams](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 En este tutorial, se configura la integración entre Event Grid y Automation. Ha aprendido a:
 
 > [!div class="checklist"]

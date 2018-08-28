@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: aaed3dd5a2a7b32d24aa8b19dab870c28e6f58ec
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 4638b697dcaa0d4c11bae1878a94f76f6237d4a4
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216189"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42154788"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configuración de la recuperación ante desastres para las máquinas virtuales de Azure en una región secundaria de Azure
 
@@ -114,8 +114,9 @@ Más información sobre [roles integrados del control de acceso basado en rol de
 2. En **Origen**, seleccione **Azure**.
 3. En **Ubicación de origen**, seleccione la región de Azure de origen donde se ejecutan actualmente sus máquinas virtuales.
 4. Seleccione el **modelo de implementación de las máquinas virtuales de Azure**: **Resource Manager** o **Clásico**.
-5. Seleccione el **grupo de recursos de origen** para las máquinas virtuales de Resource Manager o el **servicio en la nube** para las máquinas virtuales clásicas.
-6. Haga clic en **Aceptar** para guardar la configuración.
+5. Seleccione la **suscripción de origen** donde se ejecutan las máquinas virtuales. Puede tratarse de cualquier suscripción dentro del mismo inquilino de Azure Active Directory donde exista el almacén de Recovery Services.
+6. Seleccione el **grupo de recursos de origen** para las máquinas virtuales de Resource Manager o el **servicio en la nube** para las máquinas virtuales clásicas.
+7. Haga clic en **Aceptar** para guardar la configuración.
 
 ### <a name="select-the-vms"></a>Seleccione las máquinas virtuales
 
@@ -134,9 +135,11 @@ Site Recovery crea la configuración predeterminada y la directiva de replicaci�
   ![Definición de la configuración](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
+- **Suscripción de destino**: la suscripción de destino utilizada para la recuperación ante desastres. De forma predeterminada, la suscripción de destino será la misma que la suscripción de origen. Haga clic en "Personalizar" para seleccionar una suscripción de destino diferente dentro del mismo inquilino de Azure Active Directory.
+
 - **Ubicación de destino**: la región de destino que se usa para la recuperación ante desastres. Se recomienda que la ubicación de destino coincida con la ubicación del almacén de Site Recovery.
 
-- **Grupo de recursos de destino**: el grupo de recursos en la región de destino que contiene las máquinas virtuales de Azure después de la conmutación por error. De forma predeterminada, Site Recovery crea un nuevo grupo de recursos en la región de destino con un sufijo "asr". La ubicación del grupo de recursos de destino puede ser cualquier región excepto la región donde se hospedan las máquinas virtuales de origen. 
+- **Grupo de recursos de destino**: el grupo de recursos en la región de destino que contiene las máquinas virtuales de Azure después de la conmutación por error. De forma predeterminada, Site Recovery crea un nuevo grupo de recursos en la región de destino con un sufijo "asr". La ubicación del grupo de recursos de destino puede ser cualquier región excepto la región donde se hospedan las máquinas virtuales de origen.
 
 - **Red virtual de destino**: la red en la región de destino en la que las máquinas virtuales se encuentran después de la conmutación por error.
   De forma predeterminada, Site Recovery crea una nueva red (y subredes) virtual en la región de destino con un sufijo "asr".

@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Aprovisionamiento de un dispositivo de TPM simulado para Azure IoT Hub mediante C | Microsoft Docs'
+title: Aprovisionamiento de un dispositivo de TPM simulado para Azure IoT Hub mediante C | Microsoft Docs
 description: En este inicio rápido creará y aprovisionará un dispositivo de TPM simulado mediante el SDK para dispositivos de C para el servicio Azure IoT Hub Device Provisioning.
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15c0ce5a545b0bd6b2d1f320b50e9990f8278296
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 4e03268db32b4be6900234abe58e7a308110520a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091472"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023554"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Inicio rápido: Aprovisionamiento de un dispositivo de TPM simulado mediante el SDK para C de Azure IoT
 
@@ -147,7 +147,7 @@ En esta sección, configurará código de ejemplo para usar [Advanced Message Qu
 
 1. En Azure Portal, seleccione la pestaña **Información general** del servicio Device Provisioning y copie el valor de **_Ámbito de id_**.
 
-    ![Extracción de información del punto de conexión DPS del portal](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
+    ![Extracción de información del punto de conexión del servicio Device Provisioning desde el portal](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
 2. En la ventana del *Explorador de soluciones* de Visual Studio, desplácese hasta la carpeta **Aprovisionar\_Ejemplos**. Expanda el proyecto de ejemplo denominado **prov\_dev\_client\_sample**. Expanda **Archivos de código fuente** y abra **prov\_dev\_cliente\_sample.c**.
 

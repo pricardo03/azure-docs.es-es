@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: b085911f760693a774d443ca055944268b20f055
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 4c850cd98280940c53a07c70c9c478f9e20e2963
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869588"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41920348"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definición de un nuevo tipo de dispositivo en la aplicación de Azure IoT Central
 
@@ -43,7 +43,7 @@ En este tutorial, aprenderá a:
 > * Utilizar la configuración del dispositivo
 > * Usar comandos
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesitará una aplicación de Azure IoT Central. Si realizó la guía de inicio rápido [Creación de una aplicación de Azure IoT Central](quick-deploy-iot-central.md), puede volver a usar la aplicación que creó en dicha guía. En caso contrario, complete los pasos siguientes para crear una aplicación de Azure IoT Central vacía:
 
@@ -342,8 +342,8 @@ Los _comandos_ se usan para permitir que un operador ejecute comandos directamen
     | Display Name (Nombre para mostrar)         | Comando Echo    |
     | Nombre del campo           | echo            |
     | Tiempo de espera predeterminado      | 30              |
-    | Display Name (Nombre para mostrar)         | Mostrar texto    |
-    | Tipo de presentación         | text            |  
+    | Tipo de presentación         | text            |
+    | DESCRIPCIÓN          | Comando de dispositivo  |  
 
 Puede agregar entradas adicionales al comando haciendo clic en **+** para las entradas.
 

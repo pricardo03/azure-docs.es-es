@@ -3,7 +3,7 @@ title: Creación y publicación de un producto en Azure API Management
 description: Obtenga información acerca de cómo crear y publicar productos en Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: af1768a6555168b777e68f378d32a0b44e9b2c78
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 4f5097f8555d0345add7de8a0f648190bd4e1e00
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934508"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41920076"
 ---
 # <a name="create-and-publish-a-product"></a>Crear y publicar un producto  
 
@@ -31,9 +31,9 @@ En este tutorial, aprenderá a:
 > * Crear y publicar un producto
 > * Agregar una API al producto
 
-![producto agregado](media/api-management-howto-add-products/added-product.png)
+![agregar un producto](media/api-management-howto-add-products/added-product.png)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 + Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
 + Además, completar el tutorial siguiente: [Importación y publicación de la primera API](import-and-publish.md).
@@ -41,22 +41,23 @@ En este tutorial, aprenderá a:
 ## <a name="create-and-publish-a-product"></a>Creación y publicación de un producto
 
 1. Haga clic en **Productos** en el menú de la izquierda para mostrar la página **Productos**.
-2. Haga clic en **+ Product** (+Producto).
+2. Haga clic en **+ Agregar**.
 
     ![producto agregado](media/api-management-howto-add-products/add-product.png)
 
     Al agregar un producto, se debe proporcionar la siguiente información: 
 
-    |NOMBRE|DESCRIPCIÓN|
-    |---|---|
-    |Nombre para mostrar|El nombre que desea que aparezca en el **portal para desarrolladores**.|
-    |NOMBRE|Un nombre descriptivo del producto.|
-    |DESCRIPCIÓN|El campo **Configuración** le permite incluir información detallada sobre el producto, por ejemplo, su finalidad, las API a las que proporciona acceso y otra información útil.|
-    |Estado|Presione **Publicado** si desea publicar el producto. Para poder llamar a las API de un producto, este debe publicarse. De forma predeterminada, los nuevos productos no se publican y solo son visibles para el grupo **Administradores**.|
-    |Requiere aprobación|Active **Requerir aprobación de suscripción** si desea que un administrador revise y acepte o rechace los intentos de suscripción a este producto. Si la casilla está desactivada, los intentos de suscripción se aprueban automáticamente. |
-    |Límite de recuento de suscripciones|Para limitar el número de varias suscripciones simultáneas, escriba el límite de suscripciones. |
-    |Términos legales|Puede incluir los términos de uso del producto que deben aceptar los suscriptores para usarlo.|
-    |API existentes|Los productos son asociaciones de una o varias API. Puede incluir varias API y ofrecerlas a los desarrolladores mediante el portal para desarrolladores. <br/> Puede agregar una API existente durante la creación del producto. Puede agregar una API al producto más adelante, bien desde la página **Configuración** de los productos o durante la creación de dicha API.|<br/>Los desarrolladores tienen que suscribirse primero a un producto para acceder a la API. Al suscribirse, obtienen una clave de suscripción que funciona con cualquier API de ese producto.<br/> Si creó la instancia de APIM, ya es un administrador, así que, de forma predeterminada, está suscrito a todos los productos.|
+    | NOMBRE                     | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                             |
+    |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Nombre para mostrar             | El nombre que desea que aparezca en el **portal para desarrolladores**.                                                                                                                                                                                                                                                        |
+    | NOMBRE                     | Un nombre descriptivo del producto.                                                                                                                                                                                                                                                                                      |
+    | DESCRIPCIÓN              | El campo **Configuración** le permite incluir información detallada sobre el producto, por ejemplo, su finalidad, las API a las que proporciona acceso y otra información útil.                                                                                                                                               |
+    | Estado                    | Presione **Publicado** si desea publicar el producto. Para poder llamar a las API de un producto, este debe publicarse. De forma predeterminada, los nuevos productos no se publican y solo son visibles para el grupo **Administradores**.                                                                                      |
+    | Requiere suscripción    | Seleccione **Require subscription** (Requerir suscripción) si se requiere que se suscriba un usuario para usar el producto.                                                                                                                                                                                                                                   |
+    | Requiere aprobación        | Seleccione **Require approval** (Requerir aprobación) si desea que un administrador revise y acepte o rechace los intentos de suscripción a este producto. Si la casilla está desactivada, los intentos de suscripción se aprueban automáticamente.                                                                                                                         |
+    | Límite de recuento de suscripciones | Para limitar el número de varias suscripciones simultáneas, escriba el límite de suscripciones.                                                                                                                                                                                                                                |
+    | Términos legales              | Puede incluir los términos de uso del producto que deben aceptar los suscriptores para usarlo.                                                                                                                                                                                                             |
+    | API existentes                     | Los productos son asociaciones de una o varias API. Puede incluir varias API y ofrecerlas a los desarrolladores mediante el portal para desarrolladores. <br/> Puede agregar una API existente durante la creación del producto. Puede agregar una API al producto más adelante, bien desde la página **Configuración** de los productos o durante la creación de dicha API. |
 
 3. Haga clic en **Crear** para crear el nuevo producto.
 
@@ -66,7 +67,7 @@ Puede continuar con la configuración del producto después de guardarla si elig
 
 Vea o agregue suscriptores al producto desde la pestaña **Suscripciones**.
 
-Establezca la visibilidad de un producto para desarrolladores o invitados desde la pestaña **Control de acceso**.
+La visibilidad de un producto que pueden tener los desarrolladores o invitados se puede establecer en la pestaña **Control de acceso**.
 
 ## <a name="add-apis"></a>Incorporación de API a un producto
 
@@ -76,10 +77,12 @@ Los desarrolladores tienen que suscribirse primero a un producto para acceder a 
 
 ### <a name="add-an-api-to-an-existing-product"></a>Adición de una API a un producto existente
 
-1. Seleccione un producto.
-2. Seleccione la pestaña API.
-3. Haga clic en **+API**.
-4. Elija una API y haga clic en **Crear**.
+![agregar API de producto](media/api-management-howto-add-products/add-product-api.png)
+
+1. En la pestaña **Productos**, seleccione un producto.
+2. Vaya a la pestaña **API**.
+3. Haga clic en **+ Agregar**.
+4. Elija una API y haga clic en **Seleccionar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

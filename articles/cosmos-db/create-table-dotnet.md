@@ -9,14 +9,14 @@ ms.component: cosmosdb-table
 ms.custom: quickstart connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: e70501be61455e9707fcf57d1996729097a0641f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 020345f5f5de3235a0fb34f1efc27efd771a842d
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582390"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42022873"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Guía de inicio rápido: Creación de una aplicación de Table API con .NET y Azure Cosmos DB 
 
@@ -24,7 +24,7 @@ Esta guía de inicio rápido muestra cómo se usan .NET y [Table API](table-intr
 
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la versión **gratis** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
 
@@ -117,7 +117,7 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
 1. En Visual Studio, haga clic con el botón derecho en el proyecto **TableStorage** en **Explorador de soluciones** y, después, haga clic en **Administrar paquetes NuGet**. 
 
    ![Administración de paquetes de NuGet](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
-2. En el cuadro **Examinar** de NuGet, escriba *Microsoft.Azure.CosmosDB.Table*. Se buscará la biblioteca de cliente de Table API de Cosmos DB.
+2. En el cuadro **Examinar** de NuGet, escriba *Microsoft.Azure.CosmosDB.Table*. Se buscará la biblioteca de cliente de Table API de Cosmos DB. Observe que esta biblioteca solo está disponible actualmente para .NET Standard, aún no está disponible para .NET Core.
    
    ![Pestaña Examinar de NuGet](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 

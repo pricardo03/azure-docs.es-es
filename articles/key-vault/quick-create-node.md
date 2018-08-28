@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configuración de una aplicación web de Azure para que lea un secreto desde el almacén de claves | Microsoft Docs'
-description: 'Tutorial: Configuración de una aplicación de Node.js para que lea un secreto de Key Vault'
+title: 'Guía de inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de Node | Microsoft Docs'
+description: 'Guía de inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de Node'
 services: key-vault
 documentationcenter: ''
 author: prashanthyv
@@ -8,19 +8,19 @@ manager: sumedhb
 ms.service: key-vault
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 08/01/2018
+ms.date: 08/08/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: cc43081463667eba06af6538f3d78f16544ed2a5
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 4592b256dfda75e81a94034545cd54dbf0d71532
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412249"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42023991"
 ---
-# <a name="quickstart-how-to-set-and-read-a-secret-from-key-vault-in-a-node-web-app"></a>Guía de inicio rápido: Establecimiento y lectura de un secreto de Key Vault en una aplicación web de Node 
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>Guía de inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de Node 
 
-En esta guía de inicio rápido se muestra cómo almacenar un secreto en Key Vault y cómo recuperarlo mediante una aplicación web. Esta aplicación web se puede ejecutar localmente o en Azure. La guía de inicio rápido usa Node.js e identidades de Managed Service Identity (MSI)
+En esta guía de inicio rápido se muestra cómo almacenar un secreto en Key Vault y cómo recuperarlo mediante una aplicación web. Para ver el valor del secreto tendría que ejecutar esto en Azure. La guía de inicio rápido usa Node.js e identidades de Managed Service Identity (MSI)
 
 > [!div class="checklist"]
 > * Crear un almacén de claves.
@@ -31,6 +31,9 @@ En esta guía de inicio rápido se muestra cómo almacenar un secreto en Key Vau
 > * Conceder los permisos necesarios para que la aplicación web lea datos del almacén de claves.
 
 Antes de continuar, asegúrese de que está familiarizado con los [conceptos básicos](key-vault-whatis.md#basic-concepts).
+
+>[!NOTE]
+Para entender por qué el siguiente tutorial es un procedimiento recomendado, es necesario comprender varios conceptos. Key Vault es un repositorio central para almacenar secretos mediante programación. Pero para poder hacer esto, las aplicaciones y los usuarios tienen primero que autenticarse en Key Vault, es decir, presentar un secreto. Para seguir los procedimientos recomendados de seguridad debe cambiar este secreto periódicamente. Pero con [Managed Service Identity](../active-directory/managed-service-identity/overview.md) a las aplicaciones que se ejecutan en Azure se les da una identidad que Azure administra automáticamente. Esto ayuda a solucionar el **problema de introducción de secretos** por el que los usuarios o aplicaciones pueden seguir procedimientos recomendados y no tener que preocuparse por el cambio del primer secreto
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -49,7 +52,7 @@ az login
 
 ## <a name="create-resource-group"></a>Creación de un grupo de recursos
 
-Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_group_create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
+Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
 Seleccione el nombre del grupo de recursos y rellene el marcador de posición.
 En el ejemplo siguiente se crea un grupo de recursos llamado *<YourResourceGroupName>* en la ubicación *eastus*.
@@ -123,8 +126,6 @@ A continuación se muestran los pasos que deberá hacer
     ```
     # Bash
     az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git
-    # PowerShell
-    az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
     ```
     Cuando se haya creado la aplicación web, la CLI de Azure mostrará información similar a la del ejemplo siguiente:
     ```

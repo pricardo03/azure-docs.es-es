@@ -1,5 +1,5 @@
 ---
-title: Configuración del aprovisionamiento de dispositivos mediante la CLI de Azure | Microsoft Docs
+title: Configuración del servicio Device Provisioning mediante la CLI de Azure | Microsoft Docs
 description: 'Guía de inicio rápido de Azure: configuración del servicio Azure IoT Hub Device Provisioning mediante la CLI de Azure'
 author: wesmc7777
 ms.author: wesmc
@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cf2e108aa7cab6be2996cb535d27d597e462617c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c9e3bbbc4fbe8a9aade3364d6cbe9e93b5798595
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626546"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023630"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Configuración del servicio Azure IoT Hub Device Provisioning con la CLI de Azure
 
-La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía de inicio rápido detalla cómo usar la CLI de Azure para crear una instancia de IoT Hub y una instancia del servicio IoT Hub Device Provisioning y para vincular os dos servicios entre sí. 
+La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En esta guía de inicio rápido detalla cómo usar la CLI de Azure para crear una instancia de IoT Hub y una instancia del servicio IoT Hub Device Provisioning y para vincular los dos servicios entre sí. 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -72,7 +72,7 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 
 ## <a name="get-the-connection-string-for-the-iot-hub"></a>Obtención de la cadena de conexión del centro de IoT
 
-La cadena de conexión de un centro de IoT se necesita para vincularlo el servicio de aprovisionamiento de dispositivos. Utilice el comando [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) para obtener la cadena de conexión y use su resultado para establecer una variable que utilizará al vincular los dos recursos. 
+La cadena de conexión de un centro de IoT se necesita para vincularlo el servicio Device Provisioning. Utilice el comando [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) para obtener la cadena de conexión y use su resultado para establecer una variable que utilizará al vincular los dos recursos. 
 
 En el siguiente ejemplo se establece la variable *hubConnectionString* en el valor de la cadena de conexión de la clave principal de la directiva *iothubowner* del centro. Puede especificar otra directiva con el parámetro `--policy-name`. El comando usa las opciones [query](/cli/azure/query-azure-cli) y [output](/cli/azure/format-output-azure-cli#tsv-output-format) de la CLI de Azure para extraer la cadena de conexión de la salida del comando.
 
@@ -94,7 +94,7 @@ echo $hubConnectionString
 
 El centro de IoT y el servicio de aprovisionamiento se vinculan con el comando [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-create). 
 
-En el ejemplo siguiente se vincula un centro de IoT llamado *my-sample-hub* de la ubicación *westus* y servicio de aprovisionamiento de dispositivos llamado *my-sample-dps*. Utiliza la cadena de conexión para el centro *my-sample-hub* almacenado en la variable *hubConnectionString* en el paso anterior.
+En el ejemplo siguiente se vincula un centro de IoT llamado *my-sample-hub* de la ubicación *westus* y una instancia del servicio Device Provisioning llamada *my-sample-dps*. Utiliza la cadena de conexión para el centro *my-sample-hub* almacenado en la variable *hubConnectionString* en el paso anterior.
 
 ```azurecli-interactive 
 az iot dps linked-hub create --dps-name my-sample-dps --resource-group my-sample-resource-group --connection-string $hubConnectionString --location westus

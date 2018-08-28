@@ -7,15 +7,15 @@ manager: shivamg
 keywords: copia de seguridad de Windows Server; copia de seguridad de Windows Server; copia de seguridad y recuperación ante desastres
 ms.service: backup
 ms.topic: tutorial
-ms.date: 2/14/2018
+ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: d52866a4f441a74bbc4b63f6dc362989865151b3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9bf4c25b416edf86d29c27bcb19901bf43073bb4
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609025"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616196"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Hacer copias de seguridad de Windows Server en Azure
 
@@ -29,7 +29,7 @@ Puede utilizar Azure Backup para proteger su servidor Windows Server de daños, 
 > * Realizar una copia de seguridad ad-hoc
 
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en http://portal.azure.com.
 
@@ -41,11 +41,11 @@ Para poder realizar una copia de seguridad de Windows Server, debe crear una ubi
 
    ![abrir el almacén de Recovery Services](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
-2.  En el menú **Almacenes de Recovery Services**, haga clic en **Agregar**.
+2. En el menú **Almacenes de Recovery Services**, haga clic en **Agregar**.
 
    ![proporcionar información del almacén](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
 
-3.  En el menú **Almacén de Recovery Services**,
+3. En el menú **Almacén de Recovery Services**,
 
     - escriba *myRecoveryServicesVault* en **Nombre**.
     - El id. de suscripción actual aparecerá en **Suscripción**.
@@ -59,27 +59,28 @@ Una vez creado el almacén, aparece en la lista de almacenes de Recovery Service
 
 El agente de Microsoft Azure Recovery Services (MARS) crea una asociación entre Windows Server y el almacén de Recovery Services. En el procedimiento siguiente se explica cómo descargar el agente en el servidor.
 
-1.  En la lista Almacenes de Recovery Services, seleccione **myRecoveryServicesVault** para abrir su panel.
+1. En la lista Almacenes de Recovery Services, seleccione **myRecoveryServicesVault** para abrir su panel.
 
    ![proporcionar información del almacén](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
 
-2.  En el menú del panel del almacén, haga clic en **Copia de seguridad**.
+2. En el menú del panel del almacén, haga clic en **Copia de seguridad**.
 
-3.  En el menú **Objetivo de Backup**:
+3. En el menú **Objetivo de Backup**:
 
-    - en **¿Dónde se ejecuta su carga de trabajo?**, seleccione **Local**, 
-    - En el menú **¿De qué desea hacer una copia de seguridad?**, seleccione **Archivos y carpetas** y **Estado del sistema**. 
+   * en **¿Dónde se ejecuta su carga de trabajo?**, seleccione **Local**, 
+   * En el menú **¿De qué desea hacer una copia de seguridad?**, seleccione **Archivos y carpetas** y **Estado del sistema**.
 
-    ![proporcionar información del almacén](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
-    
-4.  Haga clic en **Preparar infraestructura** para abrir el menú **Preparar infraestructura**.
-5.  En el menú **Preparar infraestructura**, haga clic en **Descargar agente para Windows Server o cliente de Windows** para descargar el archivo *MARSAgentInstaller.exe*. 
+   ![proporcionar información del almacén](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
+
+4. Haga clic en **Preparar infraestructura** para abrir el menú **Preparar infraestructura**.
+
+5. En el menú **Preparar infraestructura**, haga clic en **Descargar agente para Windows Server o cliente de Windows** para descargar el archivo *MARSAgentInstaller.exe*. 
 
     ![Prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
 
     El instalador se abre en un explorador diferente y descarga **MARSAgentInstaller.exe**.
  
-6.  Antes de ejecutar el archivo descargado, haga clic en el botón **Descargar** en la hoja Preparar infraestructura para descargar y guardar el archivo **Credenciales de almacén**. Este archivo es necesario para conectar el agente de MARS con el almacén de Recovery Services.
+6. Antes de ejecutar el archivo descargado, en el menú Preparar infraestructura, haga clic en **Descargar** y guarde el archivo **Credenciales de almacén**. Este archivo es necesario para conectar el agente de MARS con el almacén de Recovery Services.
 
     ![Prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
  
@@ -115,13 +116,17 @@ Use el agente de Microsoft Azure Recovery Services para programar cuándo se rea
 
 5. Haga clic en **Next**.
 
-6. En la página **Especificar la programación de copia de seguridad (estado del sistema)**, especifique las horas del día o la semana en que las copias de seguridad deben desencadenarse para el estado del sistema y haga clic en **Siguiente**. 
+6. En la página **Especificar la programación de copia de seguridad (estado del sistema)**, especifique las horas del día o la semana en que las copias de seguridad deben desencadenarse para el estado del sistema y haga clic en **Siguiente**.
 
-7.  En la página **Seleccionar la directiva de retención (estado del sistema)**, elija la directiva de retención para la copia de seguridad del estado del sistema y haga clic en **Siguiente**.
+7. En la página **Seleccionar la directiva de retención (estado del sistema)**, elija la directiva de retención para la copia de seguridad del estado del sistema y haga clic en **Siguiente**.
+
 8. De forma similar, seleccione la programación de copia de seguridad y la directiva de retención de los archivos y carpetas seleccionados. 
-8.  En la página **Elija el tipo de copia de seguridad inicial**, deje la opción **Automáticamente a través de la red** seleccionada y, a continuación, haga clic en **Siguiente**.
-9.  En la página **Confirmación**, revise la información y, luego, haga clic en **Finalizar**.
-10. Cuando el asistente termine de crear la programación de copia de seguridad, haga clic en **Cerrar**.
+
+9. En la página **Elija el tipo de copia de seguridad inicial**, seleccione **Automáticamente a través de la red** y haga clic en **Siguiente**.
+
+10. En la página **Confirmación**, revise la información y haga clic en **Finalizar**.
+
+11. Cuando el asistente termine de crear la programación de copia de seguridad, haga clic en **Cerrar**.
 
 ## <a name="perform-an-ad-hoc-back-up"></a>Realizar una copia de seguridad ad-hoc
 

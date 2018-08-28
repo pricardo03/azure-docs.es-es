@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d48d7625221dfb96e0119ef0d42b3b0a8d04baba
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 59ff3434e7b984f4530ad4f8b03b27991d3a9c1c
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185676"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41918397"
 ---
 # <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>Tutorial: Creación, depuración e implementación de una aplicación web multiservicio en Azure Service Fabric Mesh
 
@@ -56,11 +56,11 @@ Antes de empezar este tutorial:
 
 * La aplicación de este tutorial, por ahora, se debe compilar mediante la configuración regional en inglés.
 
-## <a name="create-a-service-fabric-mesh-project"></a>Creación de un proyecto de Service Fabric Mesh
+## <a name="create-a-service-fabric-mesh-project"></a>Creación de un proyecto de Service Fabric mesh
 
 Ejecute Visual Studio, seleccione **Archivo** > **Nuevo** > **Proyecto...**
 
-En el cuadro de diálogo **Nuevo proyecto**, en el cuadro **Buscar** de la parte superior, escriba `mesh`. Seleccione la plantilla **Aplicación de Service Fabric Mesh**. [Si no ve la plantilla, asegúrese de que ha instalado el SDK de Mesh y la versión preliminar de las herramientas de VS como se describe en [Set up your Windows development environment to build Service Fabric applications ](service-fabric-mesh-howto-setup-developer-environment-sdk.md) (Configuración de un entorno de desarrollo Windows para compilar aplicaciones de Service Fabric)].  
+En el cuadro de diálogo **Nuevo proyecto**, en el cuadro **Buscar** de la parte superior, escriba `mesh`. Seleccione la plantilla **Service Fabric Mesh Application** (Aplicación de Service Fabric mesh). [Si no ve la plantilla, asegúrese de que ha instalado el SDK de Mesh y la versión preliminar de las herramientas de VS como se describe en [Set up your Windows development environment to build Service Fabric applications ](service-fabric-mesh-howto-setup-developer-environment-sdk.md) (Configuración de un entorno de desarrollo Windows para compilar aplicaciones de Service Fabric)].  
 
 En el cuadro **Nombre**, escriba `todolistapp` y en el cuadro **Ubicación**, establezca como ruta de acceso a la carpeta la ubicación en que desea que se almacenen los archivos del proyecto.
 
@@ -314,7 +314,8 @@ Reemplace el contenido de todo el archivo por el siguiente código HTML que defi
 </div>
 ```
 
-Abra el código de la página de índice en el **Explorador de soluciones**, para lo que debe abrir **Index.cshtml** y, después, **Index.cshtml.cs**. En la parte superior de **Index.cshtml.cs**, agregue `using System.Net.Http;`
+Abra el código de la página de índice en el **Explorador de soluciones**, para lo que debe abrir **Index.cshtml** y, después, **Index.cshtml.cs**.
+En la parte superior de **Index.cshtml.cs**, agregue `using System.Net.Http;`
 
 Reemplace el contenido de `public class IndexModel` por:
 
@@ -336,7 +337,7 @@ public class IndexModel : PageModel
         }
     }
 
-    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
     private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 }
 ```
@@ -346,7 +347,7 @@ public class IndexModel : PageModel
 La dirección URL del servicio back-end es necesaria para comunicarse con dicho servicio. Para este tutorial, el siguiente fragmento de código (que se ha define anteriormente como parte de IndexModel) lee las variables de entorno para crear la dirección URL:
 
 ```csharp
-private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
 private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 ```
 

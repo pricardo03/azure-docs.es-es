@@ -1,49 +1,47 @@
 ---
 title: 'Tutorial de Kubernetes en Azure: escalado de una aplicación'
-description: 'Tutorial de AKS: escalado de una aplicación'
+description: En este tutorial de Azure Kubernetes Service (AKS), obtendrá información sobre cómo escalar los nodos y los pods de Kubernetes e implementar el escalado horizontal automático de pods.
 services: container-service
-author: dlepow
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 02/22/2018
-ms.author: danlep
+ms.date: 08/14/2018
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 61654ae972965800909544554cc93dae511e1ff1
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 5ffe7b4c7830500e5eeeeb61c57730d9a0d9df47
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480279"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918021"
 ---
-# <a name="tutorial-scale-application-in-azure-kubernetes-service-aks"></a>Tutorial: Escalado de una aplicación en Azure Kubernetes Service (AKS)
+# <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
-Si ha ido siguiendo los tutoriales, tiene un clúster de Kubernetes en funcionamiento en AKS y ha implementado la aplicación Azure Voting.
-
-En este tutorial, la parte cinco de siete, se escalan horizontalmente los pods en la aplicación y se prueba el escalado automático de pods. También se aprende a escalar el número de nodos de VM de Azure para cambiar la capacidad del clúster de hospedar cargas de trabajo. Las tareas completadas incluyen:
+Si ha ido siguiendo los tutoriales, tiene un clúster de Kubernetes en funcionamiento en AKS y ha implementado la aplicación Azure Voting. En este tutorial, la parte cinco de siete, se escalan horizontalmente los pods en la aplicación y se prueba el escalado automático de pods. También se aprende a escalar el número de nodos de VM de Azure para cambiar la capacidad del clúster de hospedar cargas de trabajo. Aprenderá a:
 
 > [!div class="checklist"]
-> * Escalado de los nodos de Azure para Kubernetes
-> * Escalado manual de pods de Kubernetes
-> * Configuración de pods de Autoscale que se ejecuten en el front-end de la aplicación
+> * Escalar los nodos de Kubernetes
+> * Escalar de forma manual pods de Kubernetes que ejecutan la aplicación
+> * Configurar el escalado automático de pods que ejecutan el front-end de la aplicación
 
 En los tutoriales posteriores, la aplicación Azure Vote se actualiza a una nueva versión.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En tutoriales anteriores se ha empaquetado una aplicación en una imagen de contenedor, esta imagen se ha cargado en Azure Container Registry y se ha creado un clúster de Kubernetes. La aplicación se ejecutó después en el clúster de Kubernetes.
+En tutoriales anteriores se ha empaquetado una aplicación en una imagen de contenedor, esta imagen se ha cargado en Azure Container Registry y se ha creado un clúster de Kubernetes. La aplicación se ejecutó después en el clúster de Kubernetes. Si no ha realizado estos pasos y quiere continuar, vuelva al [tutorial 1: Creación de imágenes de contenedor][aks-tutorial-prepare-app].
 
-Si no ha realizado estos pasos y quiere continuar, vuelva al [tutorial 1: Creación de imágenes de contenedor][aks-tutorial-prepare-app].
+Para realizar este tutorial es necesario que ejecute la versión 2.0.38 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli-install].
 
 ## <a name="manually-scale-pods"></a>Escalado manual de pods
 
-Hasta el momento se han implementado el front-end de Azure Vote y la instancia de Redis, cada uno con una única réplica. Para comprobarlo, ejecute el comando [kubectl get][kubectl-get].
+Cuando el front-end de Azure Vote y la instancia de Redis se implementaron en los tutoriales anteriores, se creó una única réplica. Para ver el número y el estado de los pods del clúster, use el comando [kubectl get][kubectl-get] como se indica a continuación:
 
-```azurecli
+```console
 kubectl get pods
 ```
 
-Salida:
+La salida del ejemplo siguiente muestra un pod de front-end y un pod de back-end:
 
 ```
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -51,22 +49,18 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Cambie manualmente el número de pods en la implementación de `azure-vote-front` mediante el comando [kubectl scale][kubectl-scale]. En este ejemplo el número se aumenta a cinco.
+Para cambiar manualmente el número de pods en la implementación *azure-vote-front*, use el comando [kubectl scale][kubectl-scale]. El ejemplo siguiente aumenta el número de pods de front-end a *5*:
 
-```azurecli
+```console
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Ejecute [kubectl get pods][kubectl-get] para comprobar que Kubernetes crea los pods. Tras aproximadamente un minuto, se ejecutan los pods adicionales:
+Ejecute de nuevo [kubectl get pods][kubectl-get] para comprobar que Kubernetes crea los pods adicionales. Tras un minuto aproximadamente, los pods adicionales están disponibles en el clúster:
 
-```azurecli
-kubectl get pods
-```
+```console
+$ kubectl get pods
 
-Salida:
-
-```
-NAME                                READY     STATUS    RESTARTS   AGE
+                                    READY     STATUS    RESTARTS   AGE
 azure-vote-back-2606967446-nmpcf    1/1       Running   0          15m
 azure-vote-front-3309479140-2hfh0   1/1       Running   0          3m
 azure-vote-front-3309479140-bzt05   1/1       Running   0          3m
@@ -86,7 +80,7 @@ kubectl create -f metrics-server/deploy/1.8+/
 
 Para usar el escalador automático, los pods deben tener solicitudes de la CPU y límites definidos. En la implementación de `azure-vote-front`, el contenedor del front-end solicita 0,25 CPU, con un límite de 0,5 CPU. La configuración tiene el siguiente aspecto:
 
-```YAML
+```yaml
 resources:
   requests:
      cpu: 250m
@@ -94,26 +88,22 @@ resources:
      cpu: 500m
 ```
 
-En el ejemplo siguiente se usa el comando [kubectl autoscale][kubectl-autoscale] para escalar automáticamente el número de pods en la implementación de `azure-vote-front`. En este contexto, si el uso de la CPU supera el 50 %, el escalador automático aumenta el número de pods a un máximo de 10.
+En el ejemplo siguiente se usa el comando [kubectl autoscale][kubectl-autoscale] para escalar automáticamente el número de pods en la implementación *azure-vote-front*. Si el uso de la CPU supera el 50 %, el escalador automático aumenta el número de pods hasta un máximo de 10 instancias:
 
-```azurecli
+```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
-Para ver el estado del escalador automático, ejecute el siguiente comando.
-
-```azurecli
-kubectl get hpa
-```
-
-Salida:
+Para ver el estado del escalador automático, use el comando `kubectl get hpa` como se indica a continuación:
 
 ```
+$ kubectl get hpa
+
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
 ```
 
-Después de unos minutos con carga mínima en la aplicación Azure Vote, el número de réplicas del pod se reduce automáticamente a tres.
+Después de unos minutos con carga mínima en la aplicación Azure Vote, el número de réplicas del pod se reduce automáticamente a tres. Puede usar nuevamente `kubectl get pods` para ver los pods innecesarios que se han eliminado.
 
 ## <a name="manually-scale-aks-nodes"></a>Escalado manual de nodos de AKS
 
@@ -145,12 +135,12 @@ La salida es parecida a esta:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, se han usado distintas características de escalado en el clúster de Kubernetes. Las tareas tratadas incluyen:
+En este tutorial, se han usado distintas características de escalado en el clúster de Kubernetes. Ha aprendido a:
 
 > [!div class="checklist"]
-> * Escalado manual de pods de Kubernetes
-> * Configuración de pods de Autoscale que se ejecuten en el front-end de la aplicación
-> * Escalado de los nodos de Azure para Kubernetes
+> * Escalar los nodos de Kubernetes
+> * Escalar de forma manual pods de Kubernetes que ejecutan la aplicación
+> * Configurar el escalado automático de pods que ejecutan el front-end de la aplicación
 
 Vaya al siguiente tutorial para aprender a actualizar la aplicación en Kubernetes.
 
@@ -168,3 +158,5 @@ Vaya al siguiente tutorial para aprender a actualizar la aplicación en Kubernet
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md
+[az-aks-scale]: /cli/azure/aks#az-aks-scale
+[azure-cli-install]: /cli/azure/install-azure-cli

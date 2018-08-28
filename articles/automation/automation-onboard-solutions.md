@@ -9,12 +9,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 5d03ec7c5e0aaa68c1db34fedbd428f264e49e43
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5cf09753645d8238232e064af2ba1a301a2a7217
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830527"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41919933"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Incorporación de soluciones de actualización y control de cambios a Azure Automation
 
@@ -27,7 +27,7 @@ En este tutorial, aprenderá a incorporar soluciones de actualización, control 
 > * Importación de un runbook de incorporación
 > * Inicio del runbook
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Los siguientes requisitos son necesarios para completar este tutorial:
 

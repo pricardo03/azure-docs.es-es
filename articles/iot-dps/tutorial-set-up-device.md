@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6e90d20053a8ccfcafc7648d81c61e9313ec57ab
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 998bc7cb7e3289a85a9ffc315f7c1f5e568a75cb
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523366"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41924811"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configuración del dispositivo para el aprovisionamiento mediante el servicio Azure IoT Hub Device Provisioning
 
@@ -149,7 +149,7 @@ El último paso es escribir una aplicación de registro que use el SDK de client
 
 1. En Azure Portal, seleccione la hoja **Información general** del servicio Device Provisioning y copie el valor de **_Ámbito de id_**. El servicio genera el *ámbito del identificador* y este garantiza la exclusividad. Es inmutable y se utiliza para identificar de forma exclusiva los identificadores de registro.
 
-    ![Extracción de información del punto de conexión DPS de la hoja del portal](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
+    ![Extracción de información del punto de conexión del servicio Device Provisioning desde la hoja del portal](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 
 1. En el *Explorador de soluciones* de Visual Studio de su máquina, vaya a la carpeta **Provision\_Samples**. Seleccione el proyecto de ejemplo denominado **prov\_dev\_client\_sample** y abra el archivo de origen **prov\_dev\_client\_sample.c**.
 

@@ -1,6 +1,6 @@
 ---
-title: Incorporación de un punto de conexión HTTPS a una aplicación de Service Fabric en Azure | Microsoft Docs
-description: En este tutorial, aprenderá a agregar un punto de conexión HTTPS a un servicio web de front-end de ASP.NET Core y a implementar la aplicación en un clúster.
+title: Incorporación de un punto de conexión HTTPS mediante Kestrel a una aplicación de Service Fabric en Azure | Microsoft Docs
+description: En este tutorial, aprenderá a agregar un punto de conexión HTTPS a un servicio web de front-end de ASP.NET Core que usa Kestrel y a implementar la aplicación en un clúster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 309a43d3383658029f4fe7f90f869888bac67bb1
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 70bbeabe2c2b14e8e0dcccac9ffa63f2e19230a2
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130057"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41920884"
 ---
-# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>Tutorial: Incorporación de un punto de conexión HTTPS a un servicio de front-end de API Web de ASP.NET Core
+# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Incorporación de un punto de conexión HTTPS a un servicio de front-end de API Web de ASP.NET Core mediante Kestrel
 
 Este tutorial es la tercera parte de una serie.  Aprenderá a habilitar HTTPS en un servicio de ASP.NET Core que se ejecuta en Service Fabric. Una vez que haya terminado, tendrá una aplicación de votación con un front-end web de ASP.NET Core habilitado para HTTPS que escucha en el puerto 443. Si no desea crear manualmente la aplicación de votación descrita en [Crear una aplicación de .NET Service Fabric](service-fabric-tutorial-deploy-app-to-party-cluster.md), puede [descargar el código fuente](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) de la aplicación terminada.
 
@@ -48,9 +48,9 @@ En esta serie de tutoriales, se aprende a:
 
 Antes de empezar este tutorial:
 
-* Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Instale Visual Studio 2017](https://www.visualstudio.com/) versión 15.5 o posteriores con las cargas de trabajo de **Desarrollo de Azure** y de **Desarrollo de ASP.NET y web**.
-* [Instale el SDK de Service Fabric](service-fabric-get-started.md).
+* [Instale el SDK de Service Fabric](service-fabric-get-started.md)
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Obtención de un certificado o creación de un certificado de desarrollo autofirmado
 

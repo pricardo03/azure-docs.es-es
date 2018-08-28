@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: fc03fa2a12c9031d88404d5d8d9f821254b033bb
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 7ff4c6ce5e42154b3ded9c05ef1437d30f9477f0
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726336"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41917635"
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -37,7 +37,7 @@ Cada ruta contiene un prefijo de dirección y el tipo de próximo salto. Cuando 
 
 |Origen |Prefijos de dirección                                        |Tipo de próximo salto  |
 |-------|---------                                               |---------      |
-|Valor predeterminado|Único para la red virtual                           |Red virtual|
+|Valor predeterminado|Único para la red virtual                           |Virtual network|
 |Valor predeterminado|0.0.0.0/0                                               |Internet       |
 |Valor predeterminado|10.0.0.0/8                                              |None           |
 |Valor predeterminado|172.16.0.0/12                                           |None           |
@@ -67,7 +67,7 @@ Azure agrega rutas del sistema predeterminadas adicionales de sistema para difer
 |Valor predeterminado                |Múltiple                               |VirtualNetworkServiceEndpoint|Solo la subred para la que se habilita un punto de conexión de servicio.|
 
 - **Emparejamiento de red virtual (VNet)**: al crear un emparejamiento entre dos redes virtuales, se agrega una ruta para cada intervalo de direcciones en el espacio de direcciones de cada red virtual para la que se crea un emparejamiento. Más información acerca del [emparejamiento de red virtual](virtual-network-peering-overview.md).  
-- **Puerta de enlace de red virtual**: cuando una puerta de enlace de red virtual se agrega a una red virtual, se agregan también una o varias rutas en las que *Puerta de enlace de red virtual* aparece como el tipo de próximo salto. El origen es también una *puerta de enlace de red virtual*, ya que la puerta de enlace agrega las rutas a la subred. Si la puerta de enlace de red local intercambia las rutas del protocolo Border Gateway Protocol ([BGP](#border-gateway-protocol) con una puerta de enlace de red virtual de Azure, se agrega una ruta por cada ruta que se propaga desde la puerta de enlace de red local. Se recomienda resumir las rutas locales en los intervalos de direcciones mayores posibles, con el fin de que se propague el menor número de rutas a una puerta de enlace de red virtual de Azure. Hay límites en el número de rutas que se pueden propagar a una puerta de enlace de red virtual de Azure. Para más información, consulte el artículo acerca de los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
+- **Puerta de enlace de red virtual**: cuando una puerta de enlace de red virtual se agrega a una red virtual, se agregan también una o varias rutas en las que *Puerta de enlace de red virtual* aparece como el tipo de próximo salto. El origen es también una *puerta de enlace de red virtual*, ya que la puerta de enlace agrega las rutas a la subred. Si la puerta de enlace de red local intercambia las rutas del protocolo Border Gateway Protocol ([BGP](#border-gateway-protocol)) con una puerta de enlace de red virtual de Azure, se agrega una ruta por cada ruta que se propaga desde la puerta de enlace de red local. Se recomienda resumir las rutas locales en los intervalos de direcciones mayores posibles, con el fin de que se propague el menor número de rutas a una puerta de enlace de red virtual de Azure. Hay límites en el número de rutas que se pueden propagar a una puerta de enlace de red virtual de Azure. Para más información, consulte el artículo acerca de los [límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
 - **VirtualNetworkServiceEndpoint**: Azure agrega las direcciones IP públicas de determinados servicios a la tabla de rutas cuando se habilita un punto de conexión para el servicio. Los puntos de conexión de servicio se habilitan para las subredes individuales de una red virtual, por lo que la ruta solo se agrega a la tabla de rutas de una subred para la que haya algún punto de conexión de servicio habilitado. Las direcciones IP públicas de los servicios de Azure cambian periódicamente. Azure administra automáticamente las direcciones en la tabla de rutas cuando cambian. Obtenga más información acerca de los [puntos de conexión de servicio una red virtual](virtual-network-service-endpoints-overview.md) y los servicios para los que se pueden crear puntos de conexión de servicio. 
 
 > [!NOTE]
@@ -108,7 +108,7 @@ El nombre que se muestra y al que hace referencia en los tipos de próximo salto
 |Tipo de próximo salto                   |CLI de Azure 2.0 y PowerShell (Resource Manager) |CLI de Azure 1.0 y PowerShell (clásico)|
 |-------------                   |---------                                       |-----|
 |Puerta de enlace de red virtual         |VirtualNetworkGateway                           |VPNGateway|
-|Red virtual                 |VNetLocal                                       |VNETLocal (no disponible en la CLI 1.0 en modo asm)|
+|Virtual network                 |VNetLocal                                       |VNETLocal (no disponible en la CLI 1.0 en modo asm)|
 |Internet                        |Internet                                        |Internet (no disponible en la CLI 1.0 en modo asm)|
 |Aplicación virtual               |VirtualAppliance                                |VirtualAppliance|
 |None                            |None                                            |Nulo (no disponible en la CLI 1.0 en modo asm)|
@@ -124,7 +124,7 @@ Una puerta de enlace de red local puede intercambiar rutas con una puerta de enl
 
 Al intercambiar rutas con Azure mediante BGP, se agrega una ruta independiente a la tabla de rutas de todas las subredes de una red virtual para cada prefijo anunciado. La ruta se agrega con *Puerta de enlace de red virtual* como origen y tipo de próximo salto. 
 
-La propagación del enrutamiento BGP se puede deshabilitar en una subred mediante una propiedad en una tabla de rutas. Cuando intercambia rutas con Azure mediante BGP, las rutas no se agregan a la tabla de rutas de todas las subredes con la propagación de BGP deshabilitada. La conectividad con las conexiones VPN se logra mediante [rutas personalizadas](#custom-routes) con un tipo de VPN de próximo salto. Para más información, consulte [Deshabilitar la propagación de rutas BGP](manage-route-table.md#create-a-route-table).
+La propagación del enrutamiento BGP se puede deshabilitar en una subred mediante una propiedad en una tabla de rutas. Cuando intercambia rutas con Azure mediante BGP, las rutas no se agregan a la tabla de rutas de todas las subredes con la propagación de BGP deshabilitada. La conectividad con las conexiones VPN se logra mediante [rutas personalizadas](#custom-routes) con un próximo salto de tipo *Puerta de enlace de red virtual*. Para más información, consulte [Deshabilitar la propagación de rutas BGP](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Selección de rutas por parte de Azure
 
@@ -167,7 +167,7 @@ Si se reemplaza el prefijo de dirección 0.0.0.0/0, además del tráfico de sali
         - Poder traducir y reenviar direcciones de red, o desviar el tráfico a través de un servidor proxy al recurso de destino de la subred y devolver el tráfico a Internet. 
     - **Puerta de enlace de red virtual**: si la puerta de enlace es una puerta de enlace de red virtual ExpressRoute, un dispositivo local conectado a Internet puede traducir y reenviar direcciones de red, o bien desviar el tráfico a través de un servidor proxy al recurso de destino de la subred a través del [emparejamiento privado](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) de ExpressRoute. 
 
-Si la red virtual está conectada a una instancia de Azure VPN Gateway, no asocie una tabla de rutas a la [subred de la puerta de enlace](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que incluya una ruta con un destino 0.0.0.0/0. Si lo hace, puede que la puerta de enlace no funcione correctamente.
+Si la red virtual está conectada a una instancia de Azure VPN Gateway, no asocie una tabla de rutas a [GatewaySubnet](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que incluya una ruta con un destino 0.0.0.0/0. Si lo hace, puede que la puerta de enlace no funcione correctamente.
 
 Para obtener información acerca de las puertas de enlace de redes virtuales y aplicaciones virtuales entre Internet y Azure, consulte [Red perimetral entre Azure y un centro de datos local](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Red perimetral entre Azure e Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -210,9 +210,9 @@ La tabla de rutas de *Subnet1* en la imagen contiene las rutas siguientes:
 
 |ID  |Origen |Estado  |Prefijos de dirección    |Tipo de próximo salto          |Dirección IP de siguiente salto|Nombre de ruta definida por el usuario| 
 |----|-------|-------|------              |-------                |--------           |--------      |
-|1   |Valor predeterminado|No válida|10.0.0.0/16         |Red virtual        |                   |              |
+|1   |Valor predeterminado|No válida|10.0.0.0/16         |Virtual network        |                   |              |
 |2   |Usuario   |Active |10.0.0.0/16         |Aplicación virtual      |10.0.100.4         |Within-VNet1  |
-|3   |Usuario   |Active |10.0.0.0/24         |Red virtual        |                   |Within-Subnet1|
+|3   |Usuario   |Active |10.0.0.0/24         |Virtual network        |                   |Within-Subnet1|
 |4   |Valor predeterminado|No válida|10.1.0.0/16         |Emparejamiento de VNET           |                   |              |
 |5   |Valor predeterminado|No válida|10.2.0.0/16         |Emparejamiento de VNET           |                   |              |
 |6   |Usuario   |Active |10.1.0.0/16         |None                   |                   |ToVNet2-1-Drop|
@@ -227,7 +227,7 @@ A continuación encontrará una explicación de cada identificador de ruta:
 
 1. Azure ha agregado automáticamente esta ruta a todas las subredes de *Virtual-network-1*, ya que 10.0.0.0/16 es el único intervalo de direcciones definido en el espacio de direcciones de la red virtual. Si la ruta definida por el usuario en la ruta ID2 no se ha creado, el tráfico enviado a cualquier dirección entre 10.0.0.1 y 10.0.255.254 se enrutarían en la red virtual, ya que el prefijo es mayor que 0.0.0.0/0 y no se encuentra dentro de los prefijos de direcciones de cualquiera de las otras rutas. Azure ha cambiado automáticamente el estado de *Activo* a *No válido*, cuando se ha agregado ID2, una ruta definida por el usuario, puesto que tiene el mismo prefijo que la ruta predeterminada y las rutas definidas por el usuario reemplazan a las rutas predeterminadas. El estado de esta ruta sigue siendo *Activo* en *Subnet2*, ya que la tabla de rutas en la que se encuentra la ruta definida por el usuario, ID2, no está asociada a *Subnet2*.
 2. Azure agregó esta ruta cuando una ruta definida por el usuario para el prefijo de red 10.0.0.0/16 se asoció a la subred *Subnet1* de la red virtual *Virtual-network-1*. La ruta definida por el usuario especifica 10.0.100.4 como dirección IP de la aplicación virtual, porque la dirección es la dirección IP privada asignada a la máquina virtual de la aplicación virtual. La tabla de rutas en la que existe esta ruta no está asociada a *Subnet2*, por lo que no aparece en la tabla de rutas de *Subnet2*. Esta ruta reemplaza la ruta predeterminada del prefijo 10.0.0.0/16 (ID1), que enruta automáticamente el tráfico dirigido a 10.0.0.1 y 10.0.255.254 dentro de la red virtual a través del tipo de próximo salto de la red virtual. Esta ruta existe para cumplir el [requisito](#requirements) 3, para forzar que todo el tráfico de salida pase por una aplicación virtual.
-3. Azure agregó esta ruta cuando una ruta definida por el usuario para el prefijo de red 10.0.0.0/24 se asoció a la subred *Subnet1*. El tráfico destinado a las direcciones entre 10.0.0.1 y 10.0.0.0.254 permanece dentro de la subred, en lugar de enrutarse a la aplicación virtual especificada en la regla anterior (ID2), ya que su prefijo es más largo que la ruta ID2. La tabla de rutas no estaba asociada a *Subnet2*, por lo que no aparece en la tabla de rutas de *Subnet2*. Esta ruta reemplaza eficazmente la ruta ID2 para el tráfico de *Subnet1*. Esta ruta existe para cumplir el [requisito](#requirements) 3.
+3. Azure agregó esta ruta cuando una ruta definida por el usuario para el prefijo de red 10.0.0.0/24 se asoció a la subred *Subnet1*. El tráfico destinado a las direcciones entre 10.0.0.1 y 10.0.0.254 permanece dentro de la subred, en lugar de enrutarse a la aplicación virtual especificada en la regla anterior (ID2), ya que su prefijo es más largo que la ruta ID2. La tabla de rutas no estaba asociada a *Subnet2*, por lo que no aparece en la tabla de rutas de *Subnet2*. Esta ruta reemplaza eficazmente la ruta ID2 para el tráfico de *Subnet1*. Esta ruta existe para cumplir el [requisito](#requirements) 3.
 4. Azure agregó automáticamente de los ID 4 y 5 para todas las subredes de *Virtual-network-1*, cuando la red virtual se emparejó con *Virtual-network-2*. *Virtual-network-2* tiene dos intervalos de direcciones en su espacio de direcciones: 10.1.0.0/16 y 10.2.0.0/16, por lo que Azure agregó una ruta a cada intervalo. Si no se crearon las rutas definidas por el usuario en los ID 6 y 7 de la ruta, el tráfico enviado a cualquier dirección entre 10.1.0.1-10.1.255.254 y 10.2.0.1-10.2.255.254 se enrutaría a la red virtual emparejada, ya que el prefijo es mayor que 0.0.0.0/0 y no se encuentra dentro de los prefijos de direcciones de las otras rutas. Azure ha cambiado automáticamente el estado de *Activo* a *No válido*, cuando se han agregado las rutas de los ID 6 y 7, ya que tienen el mismo prefijo que las rutas de los ID 4 y 5, y las rutas definidas por el usuario reemplazan a las rutas predeterminadas. El estado de las rutas de los ID 4 y 5 sigue siendo *Activo* en *Subnet2*, ya que la tabla de rutas en la que se encuentran la rutas definidas por el usuario en los ID 4 y 5 no está asociada a *Subred2*. Se ha creado un emparejamiento de red virtual para cumplir el [requisito](#requirements) 1.
 5. La misma explicación que para ID4.
 6. Azure agregó esta ruta y la ruta de ID7, cuando las rutas definidas por el usuario para los prefijos de dirección 10.1.0.0/16 y 10.2.0.0/16 se asociaron a la subred *Subnet1*. Azure elimina el tráfico destinado a direcciones entre 10.1.0.1-10.1.255.254 y 10.2.0.1-10.2.255.254, en lugar de enrutarlo a la red virtual emparejada, porque las rutas definidas por el usuario reemplazan las rutas predeterminadas. Las rutas no están asociadas a *Subnet2*, por lo que no aparecen en la tabla de rutas de *Subnet2*. Las rutas reemplazan las rutas ID4 y ID5 en el caso del tráfico que sale del *Subnet1*. Las rutas ID6 y ID7 existen para satisfacer el [requisito](#requirements) 3 de eliminación del tráfico destinado a la otra red virtual.
@@ -244,7 +244,7 @@ La tabla de rutas de *Subnet2* en la imagen contiene las rutas siguientes:
 
 |Origen  |Estado  |Prefijos de dirección    |Tipo de próximo salto             |Dirección IP de siguiente salto|
 |------- |-------|------              |-------                   |--------           
-|Valor predeterminado |Active |10.0.0.0/16         |Red virtual           |                   |
+|Valor predeterminado |Active |10.0.0.0/16         |Virtual network           |                   |
 |Valor predeterminado |Active |10.1.0.0/16         |Emparejamiento de VNET              |                   |
 |Valor predeterminado |Active |10.2.0.0/16         |Emparejamiento de VNET              |                   |
 |Valor predeterminado |Active |10.10.0.0/16        |Puerta de enlace de red virtual   |[X.X.X.X]          |

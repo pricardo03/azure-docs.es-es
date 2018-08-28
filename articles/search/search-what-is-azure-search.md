@@ -6,17 +6,22 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 07/09/2018
+ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: 4874e42139e277400c866a7fc4c7094faeae136d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e4d01fdb4c11277af68127e4671a36ad7e2c74d2
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002211"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42023627"
 ---
 # <a name="what-is-azure-search"></a>¿Qué es Azure Search?
-Azure Search es una solución de búsqueda como servicio en la nube que ofrece a los desarrolladores las API y herramientas necesarias para agregar una experiencia de búsqueda de datos enriquecida en un contenido privado y heterogéneo en las aplicaciones web, para dispositivos móviles y empresariales.
+Azure Search es una solución de búsqueda como servicio en la nube que ofrece a los desarrolladores las API y herramientas necesarias para agregar una experiencia de búsqueda de datos enriquecida en un contenido privado y heterogéneo en las aplicaciones web, para dispositivos móviles y empresariales. La ejecución de consultas se realiza sobre un índice definido por el usuario.
+
++ Cree un corpus de búsqueda que contenga solo sus datos, originados a partir de varios tipos y plataformas de contenido. 
++ Sáquele partido a la indexación con inteligencia artificial para extraer texto y características de archivos de imágenes, o entidades y frases clave de texto sin formato.
++ Cree experiencias de búsqueda intuitivas con navegación por facetas y filtros, sinónimos, autocompletar, y análisis de texto para términos de búsqueda autocorregidos con la característica "¿Quiso decir?".
++ Agregue búsqueda geográfica para la característica "buscar cerca de mí", analizadores de idiomas para búsqueda de texto completo en idiomas distintos al inglés, y lógica de puntuación para una clasificación de las búsquedas.
 
 La funcionalidad se expone a través de [API de REST](/rest/api/searchservice/) o [SDK de .NET](search-howto-dotnet-sdk.md) sencillos que enmascaran la complejidad inherente de la recuperación de información. Además de las API, Azure Portal proporciona soporte administrativo y de administración de contenido, con herramientas para la creación de prototipos y la consulta de índices. Como el servicio se ejecuta en la nube, Microsoft administra la infraestructura y la disponibilidad.
 
@@ -51,7 +56,7 @@ Para cargar el contenido en el que quiere realizar búsquedas, primero debe defi
 
 Es posible crear un esquema en Azure Portal, o mediante programación con el [SDK de .NET](search-howto-dotnet-sdk.md) o la [API de REST](/rest/api/searchservice/).
 
-### <a name="step-3-index-data"></a>Paso 3: Indexar los datos
+### <a name="step-3-load-data"></a>Paso 3: Cargar datos
 Una vez definido un índice, estará listo para cargar contenido. Puede usar un modelo de inserción o de extracción.
 
 El modelo de extracción recupera datos de orígenes de datos externos. Se admite mediante *indexadores* que agilizan y automatizan diversos aspectos de la ingesta de datos, como conectarse, leer y serializar datos. Los [indexadores](/rest/api/searchservice/Indexer-operations) están disponibles para Azure Cosmos DB, Azure SQL Database, Azure Blob Storage y SQL Server hospedado en Azure Virtual Machines. Puede configurar un indexador para una actualización de datos programada o a petición.
@@ -61,7 +66,7 @@ El modelo de inserción se proporciona a través del SDK o las API de REST usada
 ### <a name="step-4-search"></a>Paso 4: Buscar
 Una vez completado un índice, podrá [emitir consultas de búsqueda](/rest/api/searchservice/Search-Documents) al punto de conexión de servicio mediante solicitudes HTTP sencillas con la API de REST o el SDK de .NET.
 
-## <a name="how-azure-search-compares"></a>Comparación de Azure Search
+## <a name="how-it-compares"></a>Comparación
 
 Los clientes a menudo preguntan cuáles son las diferencias de Azure Search con respecto a otras soluciones relacionadas de búsqueda. En la tabla siguiente se resumen las principales diferencias.
 
@@ -104,13 +109,16 @@ Además, puede [activar las ventajas de suscriptor de MSDN](https://azure.micros
 
 ## <a name="how-to-get-started"></a>Primeros pasos
 
-1. Cree un servicio en el [nivel Gratis](search-create-service-portal.md).
+1. Cree un [servicio gratis](search-create-service-portal.md). Todas las guías de inicio rápido y los tutoriales se pueden realizar en el servicio gratis.
 
-2. Consulte los pasos de uno o varios de los siguientes tutoriales. 
+2. Siga paso a paso el [tutorial sobre el uso de herramientas integradas para la indexación y la realización de consultas](search-get-started-portal.md). Obtenga información sobre los conceptos importantes y familiarícese con la información que proporciona el portal.
 
-  + El artículo sobre el [uso del SDK de .NET](search-howto-dotnet-sdk.md) muestra los pasos principales en código administrado.  
-  + El artículo de [introducción a la API de REST](https://github.com/Azure-Samples/search-rest-api-getting-started) muestra los mismos pasos con la API de REST.  
-  + [Cree el primer índice en el portal](search-get-started-portal.md) con las características integradas de indexación y prototipo.   
+3. Continúe con el desarrollo de código mediante .NET o la API REST:
+
+  + El artículo sobre el [uso del SDK de .NET](search-howto-dotnet-sdk.md) muestra el flujo de trabajo principal en código administrado.  
+  + El artículo de [introducción a la API de REST](https://github.com/Azure-Samples/search-rest-api-getting-started) muestra los mismos pasos con la API de REST. También puede usar esta guía de inicio rápido para llamar a las API REST de Postman o Fiddler: [Exploración de las API REST de Azure Search](search-fiddler.md).
+
+## <a name="watch-this-video"></a>Vea este vídeo
 
 Los motores de búsqueda son los controladores habituales de recuperación de información en las aplicaciones móviles, en la web y en almacenes de datos corporativos. Azure Search le proporciona herramientas para crear una experiencia de búsqueda similar a la de los grandes sitios web comerciales.
 
@@ -122,5 +130,3 @@ En este vídeo de 9 minutos del administrador de programas Liam Cavanagh, aprend
 + Los minutos 3 y 4 explican el aprovisionamiento del servicio. 
 + Los minutos 4 a 6 describen el Asistente para la importación de datos utilizado para crear un índice con el conjunto de datos integrados de propiedades inmobiliarias.
 + Los minutos 6 a 9 muestran el Explorador de búsqueda y varias consultas.
-
-

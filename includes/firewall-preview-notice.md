@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: cfe1db25dd5ddcd4439d853eecd5e0f93fa9ee0d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 26fa131f70466154b95b68ca87513f464b79dd4e
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991730"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40182990"
 ---
 > [!IMPORTANT]
-> Azure Firewall es actualmente una versión preliminar pública administrada que debe habilitar explícitamente mediante el comando `Register-AzureRmProviderFeature` de PowerShell.
+> Azure Firewall actualmente está en versión preliminar pública administrada. Puede habilitarlo explícitamente mediante el comando de PowerShell`Register-AzureRmProviderFeature`.
 >
-> Esta versión preliminar pública se proporciona sin un contrato de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versión preliminar pública se proporciona sin un acuerdo de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

@@ -1,4 +1,21 @@
-## <a name="prerequisites"></a>requisitos previos
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: data-factory
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: jingwang
+ms.custom: include file
+ms.openlocfilehash: ac6b53926ca6c44c8ec1e71db67321366aacb00e
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617607"
+---
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="azure-subscription"></a>Suscripción de Azure
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
@@ -6,8 +23,10 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ### <a name="azure-roles"></a>Roles de Azure
 Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles *colaborador* o *propietario*, o de *administrador* de la suscripción de Azure. En el Azure Portal, seleccione su nombre de usuario en la esquina superior derecha y, después, seleccione **Permisos** para ver los permisos que tiene en la suscripción. Si tiene acceso a varias suscripciones, elija la correspondiente. Para obtener instrucciones de ejemplo sobre cómo agregar un usuario a un rol, consulte el artículo sobre la [adición de roles](../articles/billing/billing-add-change-azure-subscription-administrator.md).
 
+Para crear y administrar recursos secundarios (incluidos los conjuntos de datos, servicios vinculados, canalizaciones, desencadenadores e instancias de Integration Runtime) para Data Factory mediante la interfaz de usuario de Creación y supervisión en Azure Portal, debe pertenecer al rol **Colaborador de Data Factory**. Para crear y administrar recursos secundarios con Powershell o el SDK, el rol de **Colaborador** es suficiente.
+
 ### <a name="azure-storage-account"></a>Cuenta de almacenamiento de Azure
-En esta guía de inicio rápido, use una cuenta de almacenamiento de Azure (en concreto Blob Storage) de uso general como almacén de datos de *origen* y *destino*. Si no dispone de una cuenta de almacenamiento de Azure de uso general, consulte el artículo [Creación de una cuenta de almacenamiento](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account), donde se indica cómo crearla. 
+En esta guía de inicio rápido, use una cuenta de almacenamiento de Azure (en concreto Blob Storage) de uso general como almacén de datos de *origen* y *destino*. Si no dispone de una cuenta de almacenamiento de Azure de uso general, consulte el artículo [Creación de una cuenta de almacenamiento](../articles/storage/common/storage-quickstart-create-account.md), donde se indica cómo crearla. 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Obtención de un nombre y una clave de cuenta de almacenamiento
 En esta guía de inicio rápido use el nombre y la clave de su cuenta de Azure Storage. El siguiente procedimiento especifica los pasos necesarios para obtener el nombre y la clave de una cuenta de almacenamiento: 

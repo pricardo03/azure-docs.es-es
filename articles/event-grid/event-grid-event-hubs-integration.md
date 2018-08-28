@@ -6,18 +6,18 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 05/04/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 41cd2f1081cbe8d8fca9d6afa77b87f9aa1017d3
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 432436ee13519cf342313ad369c168ba764f9264
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302946"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616522"
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Transmitir macrodatos a un almacenamiento de datos
 
-Azure [Event Grid](overview.md) es un servicio inteligente de enrutamiento de eventos que permite reaccionar ante las notificaciones procedentes de aplicaciones y servicios. En este [ejemplo de la función de captura de Event Hubs y Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) se indica cómo usar la función de captura de Azure Event Hubs con Azure Event Grid para migrar datos desde un centro de eventos a un SQL Data Warehouse sin ningún tipo de problema.
+Azure [Event Grid](overview.md) es un servicio inteligente de enrutamiento de eventos que permite reaccionar ante las notificaciones procedentes de aplicaciones y servicios. Por ejemplo, puede desencadenar una instancia de Azure Function que procese los datos de Event Hubs que se han capturado en una instancia de Azure Blob Storage o Data Lake Store y migrar esos datos a otros repositorios. En este [ejemplo de la función de captura de Event Hubs y Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) se indica cómo usar la función de captura de Azure Event Hubs con Azure Event Grid para migrar datos de Event Hubs procedentes de Blob Storage a un SQL Data Warehouse sin ningún tipo de problema.
 
 ![Información general de la aplicación](media/event-grid-event-hubs-integration/overview.png)
 
@@ -65,7 +65,7 @@ Event Grid distribuye datos del evento a los suscriptores. En el siguiente ejemp
 ]
 ```
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para realizar este tutorial, necesitará lo siguiente:
 
@@ -75,7 +75,7 @@ Para realizar este tutorial, necesitará lo siguiente:
 
 ## <a name="deploy-the-infrastructure"></a>Implementar la infraestructura
 
-Para hacer este artículo más sencillo, implementaremos la infraestructura que necesitamos con una plantilla de Resource Manager. Para ver los recursos que se van a implementar, vea la [plantilla](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Use una de estas [regiones admitidas](overview.md) como ubicación del grupo de recursos.
+Para hacer este artículo más sencillo, implementaremos la infraestructura que necesitamos con una plantilla de Resource Manager. Para ver los recursos que se van a implementar, vea la [plantilla](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json).
 
 Para la CLI de Azure, utilice:
 

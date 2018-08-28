@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 7/20/2018
 ms.author: victorh
-ms.openlocfilehash: b39c2c672869bb446e58134a85130d10491fe047
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2abe6c11b2a6fe9a9146f5c5689597fe3e29fa82
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621120"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41920876"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: Creación de registros DNS en un dominio personalizado para una aplicación web 
 
@@ -88,7 +88,7 @@ New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResource
 
 ## <a name="create-the-cname-record"></a>Crear un registro CNAME
 
-Si el dominio ya está administrado por DNS de Azure (consulte [Delegación de dominios DNS](dns-domain-delegation.md)), puede utilizar el ejemplo siguiente para crear un registro CNAME para contoso.azurewebsites.net.
+Si el dominio ya lo administra Azure DNS (consulte [Delegación de dominios DNS](dns-domain-delegation.md)), puede utilizar el ejemplo siguiente para crear un registro CNAME para contoso.azurewebsites.net.
 
 Abra Azure PowerShell y cree un nuevo registro CNAME. En este ejemplo se crea un conjunto de registros de tipo CNAME con un "período de vida" de 600 segundos en la zona DNS denominada "contoso.com" con el alias de la aplicación web contoso.azurewebsites.net.
 

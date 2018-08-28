@@ -11,23 +11,22 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 3aca44fbced935af3ff25158b01b215c2458ed19
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6de1f6dfac028255a1cb49931e959c79b5fc4f40
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347435"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42022871"
 ---
 # <a name="microsoft-authenticator-app"></a>Aplicación Microsoft Authenticator
 
 >[!Important]
->Este contenido está diseñado para usuarios. Si es un administrador, puede encontrar más información acerca de cómo configurar y administrar su entorno de Azure Active Directory (Azure AD) en la [documentación de Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory).
+>Este contenido está diseñado para usuarios. Si es un administrador, puede encontrar más información acerca de cómo configurar y administrar su entorno de Azure Active Directory (Azure AD) en la [documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 La aplicación Microsoft Authenticator le ayuda a proteger las cuentas mediante una verificación en dos pasos después de escribir la contraseña. Pero ¿sabía que puede reemplazar completamente la contraseña de su cuenta personal de Microsoft? Obtenga información sobre cómo configurar y usar la aplicación Microsoft Authenticator.
 
 |Artículo |DESCRIPCIÓN |
 |------|------------|
 |[Introducción a la aplicación Microsoft Authenticator](microsoft-authenticator-app-how-to.md)|Describe dónde y cómo obtener e instalar la aplicación Microsoft Authenticator disponible para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) y [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).|
-|[Copia de seguridad y recuperación de las credenciales de cuenta con la aplicación Microsoft Authenticator](microsoft-authenticator-app-backup-and-recovery.md)| Proporciona información acerca de cómo realizar copias de seguridad y recuperarlas 
-|[Inicie sesión con el teléfono, no con la contraseña](microsoft-authenticator-app-phone-signin-faq.md)|Proporciona respuestas a las preguntas más frecuentes acerca del inicio de sesión con el teléfono.|
+|[Copia de seguridad y recuperación de las credenciales de cuenta con la aplicación Microsoft Authenticator](microsoft-authenticator-app-backup-and-recovery.md)| Proporciona información acerca de cómo realizar copias de seguridad y recuperar las credenciales de su cuenta con la aplicación Microsoft Authenticator.|
 |[Preguntas frecuentes de la aplicación Microsoft Authenticator](microsoft-authenticator-app-faq.md)|Proporciona respuestas a las preguntas más frecuentes acerca de la aplicación.|

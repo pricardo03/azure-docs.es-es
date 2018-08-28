@@ -14,19 +14,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: d702253c7b58b0a29c03e6563238b56ae75fa0d1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8b1290c2030835af1435e9a21602d3d2334a6737
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841795"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919196"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: Conexión de redes virtuales con emparejamiento de redes virtuales usando Azure Portal
 
-Puede conectar redes virtuales entre sí con el emparejamiento de redes virtuales. Una vez que las redes virtuales están emparejadas, los recursos de ambas se pueden comunicar entre sí con el mismo ancho de banda y la misma latencia que si estuvieran en la misma red virtual. En este tutorial, aprenderá a:
+Puede conectar redes virtuales entre sí con el emparejamiento de redes virtuales. Estas redes virtuales pueden estar en la misma región o en regiones diferentes (también conocidas como emparejamiento de VNET global). Una vez que las redes virtuales están emparejadas, los recursos de ambas se pueden comunicar entre sí con el mismo ancho de banda y la misma latencia que si estuvieran en la misma red virtual. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear dos redes virtuales
@@ -52,13 +52,13 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
     |---|---|
     |NOMBRE|myVirtualNetwork1|
     |Espacio de direcciones|10.0.0.0/16|
-    |La suscripción| Seleccione su suscripción.|
+    |Subscription| Seleccione su suscripción.|
     |Grupos de recursos| Haga clic en **Crear nuevo** y escriba *myResourceGroup*.|
     |Ubicación| Seleccione **Este de EE. UU**.|
     |Nombre de subred|Subnet1|
     |Intervalo de direcciones de subred|10.0.0.0/24|
 
-      ![Crear una red virtual](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
+      ![Creación de una red virtual](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
 
 4. Complete de nuevo los pasos del 1 al 3, con los cambios siguientes:
 
@@ -81,8 +81,8 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
     |Configuración|Valor|
     |---|---|
     |NOMBRE|myVirtualNetwork1-myVirtualNetwork2|
-    |La suscripción| Seleccione su suscripción.|
-    |Red virtual|myVirtualNetwork2: para seleccionar la red virtual *myVirtualNetwork2*, seleccione **Red virtual** y, después, **myVirtualNetwork2**.|
+    |Subscription| Seleccione su suscripción.|
+    |Virtual network|myVirtualNetwork2: para seleccionar la red virtual *myVirtualNetwork2*, seleccione **Red virtual** y, después, **myVirtualNetwork2**. Puede seleccionar una red virtuales de la misma región o de otra.|
 
     ![Configuración de emparejamiento](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
 
@@ -98,7 +98,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
     |Configuración|Valor|
     |---|---|
     |NOMBRE|myVirtualNetwork2-myVirtualNetwork1|
-    |Red virtual|myVirtualNetwork1|
+    |Virtual network|myVirtualNetwork1|
 
     El **ESTADO DE EMPAREJAMIENTO** es *Conectado*. Azure también cambia el estado de emparejamiento del emparejamiento *myVirtualNetwork2 myVirtualNetwork1* de *Iniciado* a *Conectado.* El emparejamiento de red virtual no se habrá establecido correctamente hasta que el estado de emparejamiento de ambas redes virtuales no sea *Conectado.* 
 
@@ -123,7 +123,7 @@ Cree una máquina virtual en cada red virtual para que puedan comunicarse entre 
 5. Seleccione los valores siguientes en **Configuración** y, después, seleccione **Aceptar**:
     |Configuración|Valor|
     |---|---|
-    |Red virtual| myVirtualNetwork1: si no está ya seleccionado, seleccione **Red virtual** y, luego, **myVirtualNetwork1** en **Elegir red virtual**.|
+    |Virtual network| myVirtualNetwork1: si no está ya seleccionado, seleccione **Red virtual** y, luego, **myVirtualNetwork1** en **Elegir red virtual**.|
     |Subred| Subred1: si aún no está seleccionado, seleccione **Subred** y después seleccione **Subred1** en **Elegir subred**.|
     
     ![Configuración de máquina virtual](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
@@ -137,7 +137,7 @@ Complete de nuevo los pasos del 1 al 6, con los cambios siguientes:
 |Configuración|Valor|
 |---|---|
 |NOMBRE | myVm2|
-|Red virtual | myVirtualNetwork2|
+|Virtual network | myVirtualNetwork2|
 
 Las máquinas virtuales tardan unos minutos en crearse. No siga con los pasos restantes hasta que se creen ambas máquinas virtuales.
 

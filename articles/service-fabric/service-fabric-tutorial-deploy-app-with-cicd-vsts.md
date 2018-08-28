@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: f3cc4f518278cca915e40bd691c6a7674219916e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 2122b6d9c385e1137d0fc6df5229975359fa20d5
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109399"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41920310"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementación de una aplicación con CI/CD en un clúster de Service Fabric
 
@@ -42,7 +42,7 @@ En esta serie de tutoriales, se aprende a:
 > * Configurar CI/CD con Visual Studio Team Services
 > * [Configurar la supervisión y el diagnóstico para la aplicación](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de empezar este tutorial:
 
@@ -50,7 +50,7 @@ Antes de empezar este tutorial:
 * [Instale Visual Studio 2017](https://www.visualstudio.com/) y las cargas de trabajo de **desarrollo de Azure** y de **desarrollo web y de ASP.NET**.
 * [Instale el SDK de Service Fabric](service-fabric-get-started.md)
 * Cree un clúster de Windows Service Fabric en Azure (por ejemplo, [siguiendo este tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md))
-* Cree una [cuenta de Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
+* Cree una [cuenta de Team Services](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
 
 ## <a name="download-the-voting-sample-application"></a>Descarga de la aplicación de ejemplo de votación
 
@@ -94,7 +94,13 @@ Las definiciones de versión de Team Services describen un flujo de trabajo que 
 
 Abra un explorador web y vaya al nuevo proyecto de equipo en: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
-Seleccione la pestaña **Compilación y versión**, a continuación, **Compilaciones** y, finalmente, **+ Nueva definición**.  En **Seleccionar una plantilla**, seleccione la plantilla de la **aplicación de Azure Service Fabric** y haga clic en **Aplicar**.
+Seleccione la pestaña **Compilación y versión**, después **Compilaciones** y, finalmente, **+ Nueva canalización**.
+
+![Nueva canalización][new-pipeline]
+
+Seleccione **Git VSTS** como origen, el proyecto de equipo **Voting**, el repositorio **Voting** y la rama predeterminada **maestra** o compilaciones manuales y programadas.  A continuación, haga clic en **Continue** (Continuar).
+
+En **Seleccionar una plantilla**, seleccione la plantilla de la **aplicación de Azure Service Fabric** y haga clic en **Apply** (Aplicar).
 
 ![Elegir la plantilla de compilación][select-build-template]
 
@@ -102,7 +108,9 @@ En **Tareas**, escriba "VS2017 hospedado" como **Cola del agente**.
 
 ![Seleccionar tareas][save-and-queue]
 
-En **Desencadenadores**, habilite la integración continua estableciendo **Estado del desencadenador**.  Seleccione **Guardar y poner en cola** para iniciar manualmente una compilación.
+En **Desencadenadores**, habilite la integración continua, para lo que debe seleccionar **Habilitar la integración continua**. En **Filtros de rama**, haga clic en **+ Agregar**y el valor predeterminado de **Especificación de rama** será **maestro**. Seleccione **Guardar y poner en cola** para iniciar manualmente una compilación.
+
+En el **cuadro de diálogo Guardar y poner en cola la canalización de compilación**, haga clic en **Guardar y poner en cola**.
 
 ![Seleccionar desencadenadores][save-and-queue2]
 
@@ -110,7 +118,7 @@ Las compilaciones también se desencadenan después de una inserción o una prot
 
 ### <a name="create-a-release-definition"></a>Creación de una definición de versión
 
-Seleccione la pestaña **Compilación y versión**, a continuación, **Versiones** y, finalmente, **+ Nueva definición**.  En **Seleccionar una plantilla**, seleccione la plantilla **Implementación de Azure Service Fabric** de la lista y haga clic en **Aplicar**.
+Seleccione la pestaña **Compilación y versión**, luego, **Versiones** y, finalmente, **+ Nueva canalización**.  En **Seleccionar una plantilla**, seleccione la plantilla **Implementación de Azure Service Fabric** de la lista y haga clic en **Aplicar**.
 
 ![Elegir la versión de la plantilla][select-release-template]
 
@@ -134,7 +142,9 @@ Habilite un desencadenador de implementación continua para que se cree automát
 
 ![Habilitar el desencadenador][enable-trigger]
 
-Seleccione **+Versión** -> **Crear versión** -> **Crear** para crear manualmente una versión.  Compruebe que la implementación se haya efectuado correctamente y que la aplicación se está ejecutando en el clúster.  Abra un explorador web y vaya a [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observe que la versión de la aplicación de este ejemplo es "1.0.0.20170616.3".
+Seleccione **+Versión** -> **Crear versión** -> **Crear** para crear manualmente una versión. El progreso de la versión se puede supervisar en la pestaña **Versiones**.
+
+Compruebe que la implementación se haya efectuado correctamente y que la aplicación se está ejecutando en el clúster.  Abra un explorador web y vaya a [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observe que la versión de la aplicación de este ejemplo es "1.0.0.20170616.3".
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Confirmar e insertar cambios y desencadenar una versión
 
@@ -188,6 +198,7 @@ Avance hasta el siguiente tutorial:
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
+[new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
 [save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png

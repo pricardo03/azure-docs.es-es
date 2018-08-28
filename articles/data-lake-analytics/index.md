@@ -5,16 +5,15 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
 layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.openlocfilehash: 74ffc5f6a80ca21f679e6a345e9a482cd83a027e
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 07bf3f5013d288934fec6146f52ddc43a2779d98
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340454"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43043154"
 ---
 # <a name="azure-data-lake-analytics-documentation"></a>Documentación de Azure Data Lake Analytics
 
@@ -94,7 +93,7 @@ Aprenda a usar Azure Data Lake Analytics para ejecutar trabajos de análisis de 
         <td><a href="data-lake-analytics-manage-use-portal.md">Portal</a></td>
         <td><a href="data-lake-analytics-manage-use-powershell.md">Python</a></td>
         <td><a href="data-lake-analytics-manage-use-cli.md">CLI de Azure</a></td>
-        <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">.NET SDK</a></td>
+        <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">SDK de .NET</a></td>
         <td><a href="data-lake-analytics-get-started-python.md">SDK de Python</a></td>
     </tr>
 </table>
@@ -121,7 +120,7 @@ Aprenda a usar Azure Data Lake Analytics para ejecutar trabajos de análisis de 
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Idiomas</h3>
+                        <h3>Lenguajes</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.datalake.analytics">.NET</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-analytics">Node.js</a></p>
                         <p><a href="https://docs.microsoft.com/python/api/azure.mgmt.datalake.analytics.account">Python</a></p>

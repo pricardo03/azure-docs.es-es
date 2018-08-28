@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: a019b21c130bebfe27925e90d7f7843d92654e01
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850617"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41918269"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Creación de una Instancia administrada de Azure SQL Database en Azure Portal
 
@@ -33,15 +33,17 @@ En este tutorial se muestra cómo crear una Instancia administrada de Azure SQL 
 > * Conexión a la máquina virtual
 > * Instalación de SSMS y conexión a la instancia administrada
 
+> [!Note]
+> Este tutorial explica cómo configurar una red, varias subredes, una instancia y una máquina virtual mediante Azure Portal, lo que podría ser un proceso más largo. Si necesita un tutorial de inicio rápido más corto, en el que la red y la máquina virtual que se usan para acceder a la instancia se creen con un solo clic en el botón "Implementar en Azure", puede echar un vistazo a este [tutorial de introducción](sql-database-managed-instance-get-started.md).
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 > [!IMPORTANT]
 > Para una lista de las regiones en las que está actualmente disponible Instancia administrada, consulte [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Migración de las bases de datos a un servicio completamente administrado con Instancia administrada de Azure SQL Database).
  
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
-Inicie sesión en [Azure Portal](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
+Inicie sesión en el [Azure Portal](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
 
 ## <a name="whitelist-your-subscription"></a>Agregar la suscripción a la lista de permitidos
 
@@ -77,7 +79,7 @@ En los pasos siguientes se muestra cómo crear una nueva red virtual de [Azure R
 
    | Configuración| Valor sugerido | Descripción |
    | ------ | --------------- | ----------- |
-   |**Name**|Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Nombre**|Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Espacio de direcciones**|Cualquier intervalo de direcciones válido, como 10.14.0.0/24|El nombre de dirección de la red virtual en notación CIDR.|
    |**Suscripción**|Su suscripción|Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions).|
    |**Grupo de recursos**|Cualquier grupo de recursos válido (nuevo o existente)|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
@@ -104,7 +106,7 @@ Los pasos siguientes muestran cómo crear una ruta de Internet de próximo salto
 
    | Configuración| Valor sugerido | Descripción |
    | ------ | --------------- | ----------- |
-   |**Name**|Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Nombre**|Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Suscripción**|Su suscripción|Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions).|
    |**Grupo de recursos**|Seleccione el grupo de recursos que ha creado en el procedimiento anterior.|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Ubicación**|Seleccione la ubicación que ha especificado en el procedimiento anterior.| Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).|
@@ -160,7 +162,7 @@ Los pasos siguientes muestran cómo crear la instancia administrada cuando se ha
 2. Busque **Instancia administrada** y seleccione **Instancia administrada Azure SQL Database (versión preliminar)**.
 3. Haga clic en **Create**(Crear).
 
-   ![creación de instancia administrada](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![crear instancia administrada](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
 4. Seleccione la suscripción y compruebe que los términos de la versión preliminar muestran **Aceptado**.
 
@@ -172,7 +174,7 @@ Los pasos siguientes muestran cómo crear la instancia administrada cuando se ha
    | ------ | --------------- | ----------- |
    |**Nombre de la instancia administrada**|Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Inicio de sesión de administrador de la instancia administrada**|Cualquier nombre de usuario válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). No utilice "serveradmin", ya es un rol de nivel de servidor reservado.| 
-   |**Password**|Cualquier contraseña válida|La contraseña debe tener al menos 16 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
+   |**Contraseña**|Cualquier contraseña válida|La contraseña debe tener al menos 16 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Grupo de recursos**|El grupo de recursos que ha creado anteriormente||
    |**Ubicación**|La ubicación que ha seleccionado anteriormente|Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).|
    |**Red virtual**|La red virtual que ha creado anteriormente|
@@ -214,7 +216,7 @@ En los pasos siguientes se muestra cómo crear una segunda subred en la red virt
 
    | Configuración| Valor sugerido | Descripción |
    | ------ | --------------- | ----------- |
-   |**Name**|Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Nombre**|Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Intervalo de direcciones (bloque CIDR)**|Cualquier intervalo de direcciones válido dentro de la red virtual (use el valor predeterminado)||
    |**Grupo de seguridad de red**|None||
    |**Tabla de rutas**|None||
@@ -237,10 +239,10 @@ En los pasos siguientes se muestra cómo crear una máquina virtual en la misma 
 
    | Configuración| Valor sugerido | Descripción |
    | ------ | --------------- | ----------- |
-   |**Name**|Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Nombre**|Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    | **Tipo de disco de máquina virtual**|SSD|Las SSD ofrecen el mejor equilibrio entre precio y rendimiento.|   
    |**Nombre de usuario**|Cualquier nombre de usuario válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
-   |**Password**|Cualquier contraseña válida|La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).| 
+   |**Contraseña**|Cualquier contraseña válida|La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).| 
    |**Suscripción**|Su suscripción|Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions).|
    |**Grupo de recursos**|El grupo de recursos que ha creado anteriormente||
    |**Ubicación**|La ubicación que ha seleccionado anteriormente||
@@ -302,7 +304,7 @@ En los pasos siguientes se muestra cómo descargar e instalar SSMS y, después, 
 8. Cuando se le pida, haga clic en **Instalar** para comenzar.
 9. Una vez completada la instalación, haga clic en **Cerrar**.
 10. Abra SSMS.
-11. En el cuadro de diálogo **Conectar al servidor**, especifique el **nombre de host* de la instancia administrada en el cuadro **Nombre del servidor**, seleccione **Autenticación de SQL Server**, proporcione el nombre de usuario y contraseña y haga clic en **Conectar**.
+11. En el cuadro de diálogo **Conectar al servidor**, especifique el **nombre de host** de la instancia administrada en el cuadro **Nombre del servidor**, seleccione **Autenticación de SQL Server**, especifique el nombre de usuario y la contraseña, y haga clic en **Conectar**.
 
     ![conexión ssms](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
 
