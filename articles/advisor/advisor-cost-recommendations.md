@@ -3,9 +3,8 @@ title: Recomendaciones sobre el costo de Azure Advisor | Microsoft Docs
 description: Utilice Azure Advisor para optimizar el costo de las implementaciones de Azure.
 services: advisor
 documentationcenter: NA
-author: KumudD
-manager: carmonm
-editor: ''
+author: manbeenkohli
+manager: ''
 ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
@@ -13,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: kumud
-ms.openlocfilehash: ade6ef996c00c0c06d5b8e44815520e6e4ab7e9f
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.author: makohli
+ms.openlocfilehash: 71c380a1caae730b6b01615ce3047c2e22bd6dfb
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735874"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144669"
 ---
 # <a name="advisor-cost-recommendations"></a>Recomendaciones sobre el costo de Advisor
 
@@ -35,10 +34,13 @@ Si desea que sea más exigente en la identificación de las máquinas virtuales 
 ## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Reducción de los costos mediante la eliminación de circuitos ExpressRoute no aprovisionados
 Advisor identifica los circuitos ExpressRoute que han permanecido en el estado de proveedor de *No aprovisionado* durante más de un mes y recomienda eliminar el circuito si no piensa realizar el aprovisionamiento del circuito con el proveedor de conectividad.
 
-## <a name="buy-virtual-machine-reserved-instances-to-save-money-over-pay-as-you-go-costs"></a>Compre instancias reservadas de máquina virtual para ahorrar dinero en los costos de pago por uso
-Advisor revisará el uso de la máquina virtual durante los últimos 30 días y determinará si podría ahorrar dinero mediante la adquisición de instancias reservadas. Advisor le mostrará las regiones y los tamaños en los que, potencialmente, puede ahorrar más, así como el ahorro estimado al comprar instancias reservadas. 
+## <a name="reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways"></a>Reducción de costos mediante la eliminación o reconfiguración de puertas de enlace de red virtual inactivas
+Advisor identifica las puertas de red virtual que han estado inactivas durante más de 90 días. Dado que estas puertas de enlace se facturan por hora, debe considerar volver a configurar o eliminarlas si no va a utilizarlas. 
 
-Con las instancias reservadas, puede adquirir previamente los costos de base de las máquinas virtuales. Se aplicarán automáticamente descuentos a las máquinas virtuales nuevas o existentes que tengan el mismo tamaño y la misma región que las instancias reservadas. [Más información sobre Azure Reserved VM Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+## <a name="buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs"></a>Compra de instancias reservadas de máquina virtual para ahorrar dinero en los costos de pago por uso
+Advisor revisará el uso de la máquina virtual durante los últimos 30 días y determinará si podría ahorrar dinero mediante la adquisición de una reserva de Azure. Advisor le mostrará las regiones y los tamaños en los que, potencialmente, puede ahorrar más, así como el ahorro estimado al comprar reservas. 
+
+Con las reservas de Azure, puede adquirir previamente los costos de base de las máquinas virtuales. Se aplicarán descuentos automáticamente a las máquinas virtuales nuevas o existentes que tengan el mismo tamaño y la misma región que sus reservas. [Más información sobre Azure Reserved VM Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Obtención de acceso a las recomendaciones sobre el costo en Azure Advisor
 

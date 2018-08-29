@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: 9c7cf223eab3e989436e12c39b122f2aee7619a0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: dfbdc9e3091255267afe6c60363b7f93c4623e02
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30906667"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144567"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Introducción a FreeBSD en Azure
-Este tema proporciona una visión general de la ejecución de una máquina virtual de FreeBSD en Azure.
+Este artículo proporciona una visión general de la ejecución de una máquina virtual de FreeBSD en Azure.
 
 ## <a name="overview"></a>Información general
 FreeBSD para Microsoft Azure es un sistema operativo avanzado que se utiliza para servidores modernos, equipos de escritorio y plataformas insertadas.
@@ -31,7 +31,7 @@ FreeBSD para Microsoft Azure es un sistema operativo avanzado que se utiliza par
 Microsoft Corporation ofrece imágenes de FreeBSD en Azure con el [agente de invitado de VM de Azure](https://github.com/Azure/WALinuxAgent/) preconfigurado. Actualmente, Microsoft ofrece las siguientes versiones de FreeBSD como imágenes:
 
 - FreeBSD 10.3-RELEASE
-- FreeBSD 11.0-RELEASE
+- FreeBSD 10.4-RELEASE
 - FreeBSD 11.1-RELEASE
 
 El agente es responsable de la comunicación entre la VM de FreeBSD y el tejido de Azure para operaciones como el aprovisionamiento de la VM cuando se usa por primera vez (nombre de usuario, contraseña o clave SSH, nombre de host, etc.) y la habilitación de la funcionalidad para extensiones de VM selectivas.
@@ -41,8 +41,8 @@ En lo que respecta a futuras versiones de FreeBSD, la estrategia es mantenerse a
 ## <a name="deploying-a-freebsd-virtual-machine"></a>Implementación de una máquina virtual de FreeBSD
 La implementación de una máquina virtual de FreeBSD es un proceso sencillo cuando se usa una imagen de Azure Marketplace desde Azure Portal:
 
-- [FreeBSD 10.3 en Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
-- [FreeBSD 11.0 en Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/)
+- [FreeBSD 10.3 en Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103)
+- [FreeBSD 10.4 en Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.FreeBSD104)
 - [FreeBSD 11.1 en Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111)
 
 ### <a name="create-a-freebsd-vm-through-azure-cli-20-on-freebsd"></a>Crear una máquina virtual de FreeBSD mediante la CLI de Azure 2.0 en FreeBSD
@@ -134,4 +134,4 @@ También puede obtener un shell root con `sudo -s`.
 La versión 2.2.2 de [Agente invitado de máquina virtual de Azure](https://github.com/Azure/WALinuxAgent/) tiene un [problema conocido] (https://github.com/Azure/WALinuxAgent/pull/517) que provoca un error de aprovisionamiento de la máquina virtual de FreeBSD en Azure. La corrección se incluirá en la versión 2.2.3 de [Agente invitado de máquina virtual de Azure](https://github.com/Azure/WALinuxAgent/) y posteriores. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Acuda a [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) para crear una máquina virtual de FreeBSD.
+* Acuda a [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111) para crear una máquina virtual de FreeBSD.

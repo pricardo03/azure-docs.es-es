@@ -196,13 +196,13 @@ Con Azure Premium Storage, obtendrá el mismo nivel de rendimiento para las máq
 Cuando ejecute Linux con Premium Storage, compruebe las actualizaciones más recientes acerca de los controladores necesarios para garantizar un alto rendimiento.
 
 ## <a name="premium-storage-disk-sizes"></a>Tamaños de disco de Premium Storage
-Azure Premium Storage ofrece actualmente siete tamaños de disco. Cada tamaño de disco tiene un límite de escala diferente de IOPS, ancho de banda y almacenamiento. Elija el tamaño de disco de Premium Storage adecuado según los requisitos de la aplicación y el tamaño de la máquina virtual a gran escala. En la tabla siguiente se muestran los siete tamaños y sus capacidades. Los tamaños P4 y P6 solo se admiten actualmente para Managed Disks.
+Actualmente, Azure Premium Storage ofrece ocho tamaños de disco. Cada tamaño de disco tiene un límite de escala diferente de IOPS, ancho de banda y almacenamiento. Elija el tamaño de disco de Premium Storage adecuado según los requisitos de la aplicación y el tamaño de la máquina virtual a gran escala. En la tabla siguiente se muestran los ocho tamaños y sus capacidades. Los tamaños P4, P6 y P15 solo se admiten actualmente para Managed Disks.
 
-| Tipo de discos Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Tamaño del disco           | 32 GB | 64 GB | 128 GB| 512 GB            | 1.024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPS por disco       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Rendimiento de disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 
+| Tipo de discos Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Tamaño del disco           | 32 GB | 64 GB | 128 GB| 256 GB| 512 GB            | 1.024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS por disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 
+| Rendimiento de disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo |125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 
 
 
 El número de discos que elija depende del tamaño de disco elegido. Puede usar un único disco P50 o varios discos P10 para cubrir los requisitos de la aplicación. Tenga en cuenta las consideraciones enumeradas a continuación al realizar su elección.

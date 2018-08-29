@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f8ee8a2a4aae61e2edc275527d80a162c9bb4dc0
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 241fd1f9168ce6bfb8a4dfe97bbb1ef45ddf3f74
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345726"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42144672"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Inicio de un runbook de Azure Automation con un webhook
 
@@ -114,13 +114,13 @@ El cliente recibe uno de los siguientes códigos de retorno de la solicitud POST
 | 404 |No encontrado |No se aceptó la solicitud por uno de los siguientes motivos: <ul> <li>No se encontró el webhook.</li> <li>No se encontró el runbook.</li> <li>No se encontró la cuenta.</li>  </ul> |
 | 500 |Internal Server Error |La dirección URL es válida, pero se produjo un error. Vuelva a enviar la solicitud. |
 
-Asumiendo que la solicitud sea correcta, la respuesta del webhook contendrá el Id. de trabajo en formato JSON como se muestra a continuación. Contendrá un solo Id. de trabajo, pero el formato JSON permite realizar potenciales mejoras en el futuro.
+Asumiendo que la solicitud sea correcta, la respuesta del webhook contendrá el identificador de trabajo en formato JSON como se muestra a continuación. Contendrá un solo identificador de trabajo, pero el formato JSON permite realizar potenciales mejoras en el futuro.
 
 ```json
 {"JobIds":["<JobId>"]}
 ```
 
-El cliente no puede determinar cuando se completa el trabajo del runbook ni su estado de finalización a partir del webhook. Sin embargo, puede determinar esta información si usa el identificador del trabajo con otro método como [Windows PowerShell](http://msdn.microsoft.com/library/azure/dn690263.aspx) o la [API de Azure Automation](/rest/api/automation/job).
+El cliente no puede determinar cuando se completa el trabajo del runbook ni su estado de finalización a partir del webhook. Sin embargo, puede determinar esta información si usa el identificador de trabajo con otro método como [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) o la [API de Azure Automation](/rest/api/automation/job).
 
 ## <a name="sample-runbook"></a>Runbook de ejemplo
 
@@ -201,7 +201,7 @@ En el siguiente ejemplo se muestra el cuerpo de la solicitud que está disponibl
 ]
 ```
 
-La siguiente imagen muestra la solicitud que se envía desde Windows PowerShell y la respuesta resultante. El Id. de trabajo se extrae de la respuesta y se convierte en una cadena.
+La siguiente imagen muestra la solicitud que se envía desde Windows PowerShell y la respuesta resultante. El identificador de trabajo se extrae de la respuesta y se convierte en una cadena.
 
 ![Botón Webhooks](media/automation-webhooks/webhook-request-response.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 03/27/2018
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 2a0758f5db381f721120cbc1c018a491c018aa8d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 1e22c62c291909bb4079ebaf389cfbd15ae9d8d5
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30264241"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42144665"
 ---
 # <a name="azure-resource-health-faq"></a>P+F sobre Azure Resource Health
 Aprenda las respuestas a las preguntas más frecuentes sobre Azure Resource Health.
@@ -62,7 +62,7 @@ Resource Health es un servicio diseñado para ayudarle a diagnosticar y mitigar 
 ## <a name="where-do-i-find-resource-health"></a>¿Dónde se encuentra Resource Health?
 Después de iniciar sesión en Azure Portal, puede acceder a Resource Health de varias maneras:
 - Vaya al recurso. En el panel de navegación de la izquierda, seleccione **Resource Health**
-- Vaya a la hoja Azure Monitor.  En el panel de navegación de la izquierda, seleccione **Resource Health**.
+- Vaya a la hoja de Azure Service Health.  En el panel de navegación de la izquierda, seleccione **Resource Health**.
 - Seleccione el signo de interrogación que se encuentra en la esquina superior derecha del portal y seleccione **Ayuda y soporte técnico** para abrir la hoja **Ayuda y soporte técnico**. Cuando se abra la hoja, seleccione **Resource Health**
 
 También puede usar la API de Resource Health para obtener información sobre el estado de los recursos.
@@ -76,7 +76,7 @@ Cuando se comprueba el estado de un recurso, justo debajo del estado de mantenim
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>¿Está Resource Health disponible en todas las regiones de Azure? 
 Resource Health está disponible en todas las geoáreas de Azure, excepto en las regiones siguientes:
 - Gobierno de EE. UU. - Virginia
-- Gobierno de EE. UU. - Iowa
+- US Gov Iowa
 - Departamento de Defensa de EE. UU. Este
 - Departamento de Defensa de EE. UU. Centro
 - Centro de Alemania
@@ -93,7 +93,7 @@ Es importante tener en cuenta que, para proporcionar visibilidad completa de los
 No, la información de estado está disponible para todos los tipos de recursos a través de Resource Health. 
 
 ## <a name="do-we-need-to-enable-resource-health-for-my-organization"></a>¿Es necesario habilitar Resource Health para la organización?
-Nº  Azure Resource Health es accesible desde Azure Portal, sin requisitos de configuración.
+No.  Azure Resource Health es accesible desde Azure Portal, sin requisitos de configuración.
 
 ## <a name="is-resource-health-available-free-of-charge"></a>¿Está Resource Health disponible de forma gratuita?
 Sí.  Azure Resource Health es gratuito.

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: e4e3d331665ddb6c45e47ce8b2cf8170ca622690
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 43552ae2d7601a63156ac74104b85a90326ff473
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089798"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144985"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configuración de registros de flujo de grupos de seguridad de red con la CLI de Azure
 
 > [!div class="op_single_selector"]
-> - [Portal de Azure](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI de Azure](network-watcher-nsg-flow-logging-cli.md)
 > - [API de REST](network-watcher-nsg-flow-logging-rest.md)
@@ -51,7 +51,9 @@ El ejemplo siguiente muestra el comando para habilitar los registros de flujo:
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
 ```
 
-La cuenta de almacenamiento que especifique no puede tener configuradas reglas de red que restrinjan el acceso a la red solo a servicios de Microsoft o a redes virtuales específicas. La cuenta de almacenamiento puede estar en la misma suscripción de Azure, o en una diferente, que el NSG para el que habilite el registro de flujo. Si utiliza distintas suscripciones, ambas deben estar asociadas al mismo inquilino de Azure Active Directory. La cuenta que utilice para cada suscripción debe tener los [permisos necesarios](required-rbac-permissions.md).
+La cuenta de almacenamiento que especifique no puede tener configuradas reglas de red que restrinjan el acceso a la red solo a servicios de Microsoft o a redes virtuales específicas. La cuenta de almacenamiento puede estar en la misma suscripción de Azure, o en una diferente, que el NSG para el que habilite el registro de flujo. Si utiliza distintas suscripciones, ambas deben estar asociadas al mismo inquilino de Azure Active Directory. La cuenta que utilice para cada suscripción debe tener los [permisos necesarios](required-rbac-permissions.md). 
+
+Si la cuenta de almacenamiento está en un grupo de recursos o suscripción distintos al grupo de seguridad de la red, especifique el identificador completo de la cuenta de almacenamiento en lugar de su nombre. Por ejemplo, si la cuenta de almacenamiento está en un grupo de recursos denominado *RG-Storage*, en vez de especificar *storageAccountName* en el comando anterior, debería especificar */subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName*.
 
 ## <a name="disable-network-security-group-flow-logs"></a>Deshabilitación de los registros de flujo de grupos de seguridad de red
 

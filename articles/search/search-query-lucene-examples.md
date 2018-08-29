@@ -1,25 +1,25 @@
 ---
 title: Ejemplos de consultas de Lucene para Azure Search | Microsoft Docs
 description: Sintaxis de consulta de Lucene para la búsqueda aproximada, la búsqueda de proximidad, la priorización de términos, la búsqueda de expresiones regulares y la búsqueda con caracteres comodín en un servicio de Azure Search.
-author: LiamCa
-manager: pablocas
+author: HeidiSteen
+manager: cgronlun
 tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/16/2018
-ms.author: liamca
-ms.openlocfilehash: d90a7b2d12a147b8020abbd51ef055f0e70471fb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.date: 08/09/2018
+ms.author: heidist
+ms.openlocfilehash: b5a3e2eac218ba2aa6958ffc56bd59f5b513cf48
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365435"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42144983"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>Ejemplos de consulta con sintaxis de Lucene para la creación de consultas avanzadas en Azure Search
-Al construir consultas para Azure Search, puede reemplazar el [analizador de consultas sencillo](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) predeterminado con la alternativa [analizador de consultas de Lucene en Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) para formular definiciones de consultas avanzadas y especializadas. 
+Al construir consultas para Azure Search, puede reemplazar el [analizador de consultas sencillo](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) predeterminado con el más integral [analizador de consultas de Lucene en Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) para formular definiciones de consultas especializadas y avanzadas. 
 
-El analizador de consultas de Lucene admite construcciones de consulta más complejas, como las consultas de ámbito de campo, la búsqueda aproximada y con caracteres comodín, la búsqueda por proximidad, la priorización de términos y las expresiones regulares. Esta eficacia adicional presenta requisitos de procesamiento agregados. En este artículo, puede ir a través de ejemplos de operaciones de consulta disponibles cuando se usa la sintaxis completa.
+El analizador de consultas de Lucene admite construcciones de consulta más complejas, como las consultas de ámbito de campo, la búsqueda aproximada y con caracteres comodín de prefijo, la búsqueda por proximidad, la priorización de términos y las expresiones regulares. La potencia adicional trae consigo requisitos de procesamiento adicional, por lo que debe esperar un tiempo de ejecución un poco más largo. En este artículo, puede ir a través de ejemplos de operaciones de consulta disponibles cuando se usa la sintaxis completa.
 
 > [!Note]
 > Muchas de las construcciones de consulta especializadas habilitadas mediante la sintaxis de consulta completa de Lucene no son [de análisis de texto](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), lo que puede ser sorprendente si espera lematización. Solo se realizan análisis léxicos en términos completos (consulta de término o de expresión). Los tipos de consulta con términos incompletos (consulta de prefijo, de carácter comodín, de expresión regular o aproximada) se agregan directamente en el árbol de la consulta, omitiéndose la fase de análisis. La única transformación que se realiza en los términos de consulta incompletos es el establecimiento de minúsculas. 
@@ -27,9 +27,9 @@ El analizador de consultas de Lucene admite construcciones de consulta más comp
 
 ## <a name="formulate-requests-in-postman"></a>Formulación de solicitudes en Postman
 
-Los ejemplos siguientes aprovechan un índice de búsqueda de trabajos de Nueva York que consta de los disponibles según un conjunto de datos proporcionado por la iniciativa [City of New York OpenData](https://nycopendata.socrata.com/). Estos datos no deben considerarse actuales o completos. El índice está en un servicio de espacio aislado proporcionado por Microsoft, lo que significa que no necesita una suscripción de Azure o Azure Search para probar estas consultas.
+Los ejemplos siguientes aprovechan un índice de búsqueda de trabajos de Nueva York que consta de los disponibles según un conjunto de datos proporcionado por la iniciativa [City of New York OpenData](https://opendata.cityofnewyork.us/). Estos datos no deben considerarse actuales o completos. El índice está en un servicio de espacio aislado proporcionado por Microsoft, lo que significa que no necesita una suscripción de Azure o Azure Search para probar estas consultas.
 
-Lo que necesita es Postman o una herramienta equivalente para emitir la solicitud HTTP en GET. Para más información, consulte [Prueba con clientes REST](search-fiddler.md).
+Lo que necesita es Postman o una herramienta equivalente para emitir la solicitud HTTP en GET. Para más información, consulte el artículo sobre la [exploración con clientes REST](search-fiddler.md).
 
 ### <a name="set-the-request-header"></a>Establecimiento del encabezado de solicitud
 
@@ -60,12 +60,12 @@ La composición de dirección URL tiene los siguientes elementos:
 Como paso de comprobación, pegue la siguiente solicitud en GET y haga clic en **Enviar**. Los resultados se devuelven como documentos JSON detallados. Puede copiar y pegar esta dirección URL en el primer ejemplo siguiente.
 
   ```http
-  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=*
+  https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
   ```
 
 La cadena de consulta, **`search=*`**, es una búsqueda sin especificar equivalente a la búsqueda vacía o NULL. No resulta especialmente útil, pero es la búsqueda más sencilla que se puede hacer.
 
-Si lo desea, puede agregar **`$count=true`** a la dirección URL para devolver un recuento de los documentos que coinciden con los criterios de búsqueda. En una cadena de búsqueda vacía, se trata de todos los documentos del índice (2802 en el caso de los trabajos de Nueva York).
+Si lo desea, puede agregar **`$count=true`** a la dirección URL para devolver un recuento de los documentos que coinciden con los criterios de búsqueda. En una cadena de búsqueda vacía, se trata de todos los documentos del índice (unos 2800 en el caso de los trabajos de Nueva York).
 
 ## <a name="how-to-invoke-full-lucene-parsing"></a>Invocación del análisis completo de Lucene
 
@@ -79,27 +79,29 @@ Todos los ejemplos de este artículo especifican el parámetro de búsqueda **qu
 
 ## <a name="example-1-field-scoped-query"></a>Ejemplo 1: Consulta de ámbito de campo
 
-La primera consulta no es una demostración de la sintaxis completa de Lucene (funciona tanto para la sintaxis simple como para la completa), pero empezamos con este ejemplo para introducir un concepto de consulta de referencia que genera una respuesta JSON bastante legible. Por brevedad, la consulta tiene como destino únicamente el campo *business_title* y especifica que se devuelvan solo los puestos de empresa. 
+El primer ejemplo no es específico del analizador, pero sirve para introducir el primer concepto fundamental de consulta: la independencia. En este ejemplo se establece el ámbito de ejecución de consultas y la respuesta a unos pocos campos específicos. Es importante saber cómo estructurar una respuesta JSON legible cuando la herramienta es Postman o el Explorador de búsqueda. 
 
-```GET
-https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=*
+Por brevedad, la consulta tiene como destino únicamente el campo *business_title* y especifica que se devuelvan solo los puestos de empresa. La sintaxis es **searchFields** para restringir la ejecución de consultas a solo el campo de business_title y **select** para especificar qué campos se incluyen en la respuesta.
+
+```http
+https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*
 ```
-
-El parámetro **searchFields** restringe la búsqueda solo al campo de puesto. El parámetro **select** determina qué campos se incluyen en el conjunto de resultados.
 
 La respuesta de esta consulta debe tener un aspecto similar a la siguiente captura de pantalla.
 
   ![Respuesta de ejemplo de Postman](media/search-query-lucene-examples/postman-sample-results.png)
 
-Es posible que haya observado que la puntuación de búsqueda también se devuelve para cada documento, aunque esta no se especifique. Esto es porque la puntuación de búsqueda son los metadatos, con el valor que indica el orden de clasificación de los resultados. Las puntuaciones uniformes de 1 se producen cuando no hay ninguna clasificación, ya sea debido a que la búsqueda no era de texto completo o porque no hay ningún criterio que aplicar. Para la búsqueda de valores NULL, no hay ningún criterio y las filas que se devuelven están en orden aleatorio. A medida que los criterios de búsqueda se definan más, verá que las clasificaciones evolucionan a valores significativos.
+Tal vez haya notado la puntuación de búsqueda en la respuesta. Las puntuaciones uniformes de 1 se producen cuando no hay ninguna clasificación, ya sea debido a que la búsqueda no era de texto completo o porque no se ha aplicado ningún criterio. Para la búsqueda de valores null sin ningún criterio, las filas vuelven en orden aleatorio. Al incluir criterios reales, verá que las puntuaciones de búsqueda evolucionan en valores significativos.
 
-## <a name="example-2-in-field-filtering"></a>Ejemplo 2: Filtrado en el campo
+## <a name="example-2-intra-field-filtering"></a>Ejemplo 2: Filtrado en el campo
 
 La sintaxis completa de Lucene admite expresiones dentro de un campo. Esta consulta busca los puestos de empresa con el término "senior" en ellos, pero no "junior":
 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:senior+NOT+junior
 ```
+
+  ![Respuesta de ejemplo de Postman](media/search-query-lucene-examples/intrafieldfilter.png)
 
 Si especifica una construcción **fieldname:searchterm**, puede definir una operación de consulta clasificada por campos, donde el campo es una sola palabra y el término de búsqueda también es una sola palabra o frase, opcionalmente con operadores booleanos. Estos son algunos ejemplos:
 
@@ -119,6 +121,7 @@ Esta consulta busca los trabajos con el término "associate" (mal escrito de for
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:asosiate~
 ```
+  ![Respuesta de búsqueda aproximada](media/search-query-lucene-examples/fuzzysearch.png)
 
 Según la [documentación de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), las búsquedas aproximadas se basan en la [distancia Levenshtein-Damerau](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
 
@@ -134,6 +137,7 @@ En esta consulta, se buscan trabajos con el término "senior analyst" no separad
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:%22senior%20analyst%22~1
 ```
+  ![Consulta de proximidad](media/search-query-lucene-examples/proximity-before.png)
 
 Pruebe a quitar las palabras entre el término "senior analyst". Tenga en cuenta que se devuelven ocho documentos para esta consulta en lugar de los diez de la consulta anterior.
 
@@ -149,6 +153,7 @@ En esta consulta "anterior", se buscan los trabajos con el término *computer an
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:computer%20analyst
 ```
+  ![Priorización de términos anterior](media/search-query-lucene-examples/termboostingbefore.png)
 
 En la consulta "posterior", se repite la búsqueda y esta vez se da prioridad a los resultados con el término *analyst* sobre el término *computer*, si ninguna de las palabras existen. 
 
@@ -156,6 +161,8 @@ En la consulta "posterior", se repite la búsqueda y esta vez se da prioridad a 
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:computer%20analyst%5e2
 ```
 Una versión más legible de la consulta anterior es `search=business_title:computer analyst^2`. Para una consulta factible, `^2` se codifica como `%5E2`, que es más difícil de ver.
+
+  ![Priorización de términos posterior](media/search-query-lucene-examples/termboostingafter.png)
 
 La priorización de términos difiere de los perfiles de puntuación en que estos últimos priorizan ciertos campos, en lugar de términos específicos. En el siguiente ejemplo se muestran las diferencias.
 
@@ -173,6 +180,9 @@ En esta consulta, se buscan trabajos con el término "Jefe" o "Junior": `search=
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:/(Sen|Jun)ior/
 ```
+
+  ![Consulta de Regex](media/search-query-lucene-examples/regex.png)
+
 > [!Note]
 > Las consultas Regex no se [analizan](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). La única transformación que se realiza en los términos de consulta incompletos es el establecimiento de minúsculas.
 >
@@ -180,12 +190,12 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 ## <a name="example-7-wildcard-search"></a>Ejemplo 7: búsqueda con caracteres comodín
 Puede usar la sintaxis generalmente reconocida para búsquedas con caracteres comodín únicas (?) o múltiples (\*). Tenga en cuenta que el Analizador de consultas de Lucene admite el uso de estos símbolos con un único término y no una frase.
 
-En esta consulta, busque los trabajos que contengan el prefijo "prog" que incluiría los títulos de empresa con los términos "programación" y "programador".
+En esta consulta, busque los trabajos que contengan el prefijo "prog" que incluiría los títulos de empresa con los términos "programación" y "programador". ¿No puede utilizar un símbolo * o ? como primer carácter de la búsqueda.
 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&queryType=full&search=business_title:prog*
 ```
-¿No puede utilizar un símbolo * o ? como primer carácter de la búsqueda.
+  ![Consulta de carácter comodín](media/search-query-lucene-examples/wildcard.png)
 
 > [!Note]
 > Las consultas con caracteres comodín no se [analizan](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). La única transformación que se realiza en los términos de consulta incompletos es el establecimiento de minúsculas.

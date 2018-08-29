@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: e12cc37c579c10d3b59197d126589d36e80a8451
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ffe15fc42aad2945ba622f1e38566100f2625340
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444528"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144560"
 ---
 # <a name="configure-managed-service-identity-on-an-azure-vm-using-azure-cli"></a>Configuración de Managed Service Identity en una máquina virtual de Azure con la CLI de Azure
 
@@ -42,7 +42,11 @@ En este artículo, aprenderá a realizar las siguientes operaciones de Managed S
 - Para ejecutar los ejemplos de script de la CLI, tiene tres opciones:
     - Usar [Azure Cloud Shell](../../cloud-shell/overview.md) desde Azure Portal (consulte la sección siguiente).
     - Usar Azure Cloud Shell integrado a través del botón "Pruébelo", situado en la esquina superior derecha de cada bloque de código.
-    - [Instalar la versión más reciente de CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 o posterior), si prefiere usar una consola local de CLI. 
+    - [Instalar la versión más reciente de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) si prefiere usar una consola de la CLI local.
+      
+      > [!NOTE]
+      > Los comandos se han actualizado para reflejar la versión más reciente de la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).     
+        
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -88,7 +92,7 @@ Si tiene que habilitar la identidad asignada por el sistema en una máquina virt
    az vm identity assign -g myResourceGroup -n myVm
    ```
 
-### <a name="disable-the-system-assigned-identity-from-an-azure-vm"></a>Deshabilitación de la identidad asignada por el sistema de una máquina virtual de Azure
+### <a name="disable-system-assigned-identity-from-an-azure-vm"></a>Deshabilitación de una identidad asignada por el sistema desde una máquina virtual de Azure
 
 Si tiene una máquina virtual que ya no necesita la identidad asignada por el sistema, pero aún necesita identidades asignadas por el usuario, use el siguiente comando:
 
@@ -140,7 +144,7 @@ En esta sección, se explica el proceso de creación de una máquina virtual con
        "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
        "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
        "location": "westcentralus",
-       "name": "<MSI NAME>",
+       "name": "<USER ASSIGNED IDENTITY NAME>",
        "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
        "resourceGroup": "<RESOURCE GROUP>",
        "tags": {},
@@ -149,10 +153,10 @@ En esta sección, se explica el proceso de creación de una máquina virtual con
    }
    ```
 
-3. Cree una máquina virtual mediante [az vm create](/cli/azure/vm/#az-vm-create). En el ejemplo siguiente, se crea una máquina virtual asociada a la nueva identidad asignada por el usuario, según lo especificado por el parámetro `--assign-identity`. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` y `<MSI ID>` por sus propios valores. Para `<MSI ID>`, use la propiedad `id` del recurso de la identidad asignada por el usuario creada en el paso anterior: 
+3. Cree una máquina virtual mediante [az vm create](/cli/azure/vm/#az-vm-create). En el ejemplo siguiente, se crea una máquina virtual asociada a la nueva identidad asignada por el usuario, según lo especificado por el parámetro `--assign-identity`. Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` y `<USER ASSIGNED IDENTITY NAME>` por sus propios valores. 
 
    ```azurecli-interactive 
-   az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
+   az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
    ```
 
 ### <a name="assign-a-user-assigned-identity-to-an-existing-azure-vm"></a>Asignar una identidad asignada por el usuario a una máquina virtual de Azure existente
@@ -165,7 +169,7 @@ En esta sección, se explica el proceso de creación de una máquina virtual con
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
-La respuesta contiene detalles de la identidad administrada asignada por el usuario que se ha creado, de forma similar a lo siguiente. El valor del recurso `id` asignado a la identidad asignada por el usuario se usa en el paso siguiente.
+   La respuesta contiene detalles de la identidad administrada asignada por el usuario que se ha creado, de forma similar a lo siguiente. 
 
    ```json
    {
@@ -182,18 +186,18 @@ La respuesta contiene detalles de la identidad administrada asignada por el usua
    }
    ```
 
-2. Asignar a su máquina virtual la identidad asignada por el usuario mediante [az vm identity assign](/cli/azure/vm#az-vm-identity-assign). Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VM NAME>` con sus propios valores. El parámetro `<MSI ID>` será la propiedad `id` del recurso de la identidad asignada por el usuario, como se ha creado en el paso anterior:
+2. Asignar a su máquina virtual la identidad asignada por el usuario mediante [az vm identity assign](/cli/azure/vm#az-vm-identity-assign). Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VM NAME>` con sus propios valores. El parámetro `<USER ASSIGNED IDENTITY>` es la propiedad `name` del recurso de la identidad asignada por el usuario, como se ha creado en el paso anterior:
 
     ```azurecli-interactive
-    az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI ID>
+    az vm identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>
     ```
 
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vm"></a>Eliminación de una identidad asignada por el usuario de una máquina virtual de Azure
 
-Para quitar una identidad asignada por el usuario de una máquina virtual, use [az vm identity remove](/cli/azure/vm#az-vm-identity-remove). Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VM NAME>` con sus propios valores. El parámetro `<MSI NAME>` será la propiedad `name` de la identidad asignada por el usuario, que se puede encontrar en la sección de identidad de la máquina virtual mediante `az vm identity show`:
+Para quitar una identidad asignada por el usuario de una máquina virtual, use [az vm identity remove](/cli/azure/vm#az-vm-identity-remove). Si se trata de la única identidad asignada por el usuario que se ha asignado a una máquina virtual, `UserAssigned` se quitará del valor de tipo de identidad.  Asegúrese de reemplazar los valores de los parámetros `<RESOURCE GROUP>` y `<VM NAME>` con sus propios valores. El parámetro `<USER ASSIGNED IDENTITY>` será la propiedad `name` de la identidad asignada por el usuario, que se puede encontrar en la sección de identidad de la máquina virtual mediante `az vm identity show`:
 
 ```azurecli-interactive
-az vm identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
+az vm identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY>
 ```
 
 Si la máquina virtual no tiene una identidad asignada por el sistema y desea quitar de ella todas las identidades asignadas por el usuario, utilice el siguiente comando:
@@ -202,13 +206,13 @@ Si la máquina virtual no tiene una identidad asignada por el sistema y desea qu
 > El valor `none` no distingue mayúsculas de minúsculas. Debe estar en minúscula.
 
 ```azurecli-interactive
-az vm update -n myVM -g myResourceGroup --set identity.type="none" identity.identityIds=null
+az vm update -n myVM -g myResourceGroup --set identity.type="none" identity.userAssignedIdentities=null
 ```
 
 Si la máquina virtual tiene identidades asignadas tanto por el sistema como por el usuario, puede quitar todas las identidades asignadas por el usuario si cambia para usar solo las asignadas por el sistema. Use el comando siguiente:
 
 ```azurecli-interactive
-az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null 
+az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.userAssignedIdentities=null 
 ```
 
 ## <a name="related-content"></a>Contenido relacionado

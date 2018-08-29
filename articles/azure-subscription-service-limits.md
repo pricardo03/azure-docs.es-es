@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 08/16/2018
 ms.author: byvinyal
-ms.openlocfilehash: 570eee6cc849c474cfeacf5a9ba1798f64f27183
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6b6e713c0da11a3d2c8cfbf388b84940a4542e95
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188087"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144564"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 Este documento enumeran algunos de los límites más comunes de Microsoft Azure, que a veces se denominan cuotas. Actualmente, este documento no cubre todos los servicios de Azure. Con el tiempo, esta lista se expandirá y actualizará para abarcar más de la plataforma.
@@ -35,7 +35,8 @@ En los límites siguientes, se ha agregado una nueva tabla para reflejar las dif
 
 > [!NOTE]
 > Es importante destacar que las cuotas de los recursos de los grupos de recursos de Azure son accesibles para su suscripción en función de la región y no en función de la suscripción, como las cuotas de administración de servicios. Usemos las cuotas de vCPU como ejemplo. Si necesita solicitar un aumento de cuota con compatibilidad para vCPU, deberá decidir el número de vCPU que quiere usar en las distintas regiones y, después, realizar una solicitud específica para las cuotas de vCPU del grupo de recursos de Azure para las cantidades y regiones que quiera. Por lo tanto, si necesita usar 30 vCPU en Europa Occidental para ejecutar la aplicación, deberá solicitar específicamente 30 vCPU en Europa Occidental. Pero no tendrá un aumento de la cuota de vCPU en ninguna otra región: solo Europa Occidental tendrá la cuota de 30 vCPU.
-> <!-- --> Como resultado, puede que le resulte útil considerar decidir cuáles deben ser sus cuotas de grupos de recursos de Azure para su carga de trabajo en cada región, y solicitar esa cantidad en cada región en la que está considerando efectuar la implementación. Consulte [solucionar problemas de implementación](resource-manager-common-deployment-errors.md) para obtener más ayuda para descubrir las cuotas actuales para regiones específicas.
+> <!-- -->
+> Como resultado, puede que le resulte útil considerar decidir cuáles deben ser sus cuotas de grupos de recursos de Azure para su carga de trabajo en cada región, y solicitar esa cantidad en cada región en la que está considerando efectuar la implementación. Consulte [solucionar problemas de implementación](resource-manager-common-deployment-errors.md) para obtener más ayuda para descubrir las cuotas actuales para regiones específicas.
 >
 >
 
@@ -51,6 +52,7 @@ En los límites siguientes, se ha agregado una nueva tabla para reflejar las dif
 * [Azure Database para PostgreSQL](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
+* [Azure Policy](#azure-policy-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
 * [Copia de seguridad](#backup-limits)
 * [Batch](#batch-limits)
@@ -293,6 +295,9 @@ Para más información sobre otros límites, incluido el tamaño de documento, l
 
 ### <a name="azure-maps-limits"></a>Límites de Azure Maps
 [!INCLUDE [maps-limits](../includes/maps-limits.md)]
+
+### <a name="azure-policy-limits"></a>Límites de Azure Policy
+[!INCLUDE [policy-limits](../includes/azure-policy-limits.md)]
 
 ### <a name="storsimple-system-limits"></a>Límites del sistema StorSimple
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

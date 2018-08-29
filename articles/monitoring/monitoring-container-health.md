@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/06/2018
+ms.date: 08/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 2ae61d672083508d49e72afd5a015191082c23e9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8027149f3e5ace163bf380bc5362fcb101397986
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521938"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146024"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Supervisión del mantenimiento de contenedores de Azure Kubernetes Service (AKS) (versión preliminar)
 
 En este artículo se describe cómo configurar y usar la solución de mantenimiento de contenedores de Azure Monitor para supervisar el rendimiento de las cargas de trabajo que se implementan en entornos de Kubernetes y se hospedan en Azure Kubernetes Service (AKS). La supervisión de su clúster de Kubernetes y de los contenedores es fundamental, sobre todo cuando se ejecuta un clúster de producción, a escala, con varias aplicaciones.
 
-La solución de mantenimiento de contenedores le brinda posibilidad de supervisar el rendimiento mediante la recopilación de métricas del procesador y de la memoria de los controladores, nodos y contenedores disponibles en Kubernetes mediante Metrics API. Tras habilitar la solución de mantenimiento de contenedores, estas métricas se recopilan automáticamente mediante una versión en contenedor del Agente de Operations Management Suite (OMS) para Linux y se almacenan en su área de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md). Las vistas predefinidas incluidas muestran las cargas de trabajo residentes en el contenedor y lo que afecta al mantenimiento del rendimiento del clúster Kubernetes, con el fin de que pueda:  
+La solución de mantenimiento de contenedores le brinda posibilidad de supervisar el rendimiento mediante la recopilación de métricas del procesador y de la memoria de los controladores, nodos y contenedores disponibles en Kubernetes mediante Metrics API. Tras habilitar la solución de mantenimiento de contenedores, estas métricas se recopilan automáticamente mediante una versión en contenedor del agente de Log Analytics para Linux, y se almacenan en su área de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md). Las vistas predefinidas incluidas muestran las cargas de trabajo residentes en el contenedor y lo que afecta al mantenimiento del rendimiento del clúster Kubernetes, con el fin de que pueda:  
 
 * Identificar los contenedores que se ejecutan en el nodo y su utilización media tanto del procesador como de la memoria. Este conocimiento puede ayudarle a identificar cuellos de botella en los recursos.
 * Identificar dónde se encuentra el contenedor en un controlador o un pod. Este conocimiento puede ayudarle a ver el rendimiento general del controlador o del pod. 
@@ -38,13 +38,15 @@ Si está interesado en la supervisión y la administración de hosts de contened
 Antes de empezar, asegúrese de que dispone de lo siguiente:
 
 - Un clúster de AKS nuevo o existente.
-- Un Agente de OMS para Linux, versión microsoft / oms:ciprod04202018 o posterior. El número de versión se representa mediante una fecha con el siguiente formato: *mmddaaaa*. El agente se instala automáticamente durante la incorporación de la solución de mantenimiento de contenedores. 
+- Un agente de Log Analytics en contenedor para Linux, versión microsoft/oms:ciprod04202018 o posterior. El número de versión se representa mediante una fecha con el siguiente formato: *mmddaaaa*. El agente se instala automáticamente durante la incorporación de la solución de mantenimiento de contenedores. 
 - Un área de trabajo de Log Analytics. Puede crearla al habilitar la supervisión de su nuevo clúster de AKS o dejar que la experiencia de incorporación cree un área de trabajo predeterminada en el grupo de recursos predeterminado de la suscripción del clúster de AKS. Si opta por crear el área de trabajo usted mismo, puede usar [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), mediante [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) o [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md).
 - El rol de colaborador de Log Analytics para habilitar la supervisión de contenedores. Para más información acerca de cómo controlar el acceso a un área de trabajo de Log Analytics, consulte [Administración de áreas de trabajo](../log-analytics/log-analytics-manage-access.md).
 
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+
 ## <a name="components"></a>Componentes 
 
-La capacidad para supervisar el rendimiento se basa en un Agente de OMS para Linux en contenedor, que recopila los datos de los eventos y del rendimiento de todos los nodos del clúster. El agente se implementa y registra automáticamente con el área de trabajo de Log Analytics especificada después de habilitar la supervisión del contenedor. 
+La capacidad para supervisar el rendimiento se basa en un agente de Log Analytics para Linux en contenedor, que recopila los datos de los eventos y del rendimiento de todos los nodos del clúster. El agente se implementa y registra automáticamente con el área de trabajo de Log Analytics especificada después de habilitar la supervisión del contenedor. 
 
 >[!NOTE] 
 >Si ya ha implementado un clúster de AKS, puede habilitar la supervisión mediante la CLI de Azure o una plantilla de Azure Resource Manager que se proporciona, como se muestra más adelante en este artículo. No puede usar `kubectl` para actualizar, eliminar, volver a implementar o implementar el agente. 
@@ -59,7 +61,7 @@ Durante la implementación, puede habilitar la supervisión de un nuevo clúster
 Para habilitar la supervisión de un nuevo clúster de AKS creado con la CLI de Azure, siga el paso correspondiente del artículo de la guía de inicio rápido, en la sección [Creación de un clúster de AKS](../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecuta la versión 2.0.27 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+>Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecutar la versión 2.0.43 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 >
 
 Una vez que haya habilitado la supervisión y todas las tareas de configuración se hayan completado correctamente, puede supervisar el rendimiento de su clúster de cualquiera de estas dos maneras:
@@ -303,7 +305,7 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>Versión del agente anterior a 06072018
 
-Para comprobar que la versión del agente de OMS anterior a *06072018* se ha implementado correctamente, ejecute el comando siguiente:  
+Para comprobar que la versión del agente de Log Analytics anterior a *06072018* se ha implementado correctamente, ejecute el comando siguiente:  
 
 ```
 kubectl get ds omsagent --namespace=kube-system

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova
-ms.openlocfilehash: 847056acd2d97391782dcac1874a2739b7f5825c
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 5489fa999f3427345c3ee9f07f904296de224e31
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27741222"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42145000"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Seguimiento y correlación distribuidos del servicio de mensajería de Service Bus
 
@@ -45,8 +45,8 @@ La instrumentación permite realizar un seguimiento de todas las llamadas al ser
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) proporciona funcionalidades de supervisión de alto rendimiento entre las que se incluyen las solicitudes automágicas o el seguimiento de dependencias.
 
 Dependiendo del tipo de proyecto, instale el SDK de Application Insights:
-- Versión 2.5-beta2 o superior de [ASP.NET](../application-insights/app-insights-asp-net.md).
-- Versión 2.2.0-beta2 o superior de [ASP.NET Core](../application-insights/app-insights-asp-net-core.md).
+- [ASP.NET](../application-insights/app-insights-asp-net.md): instale la versión 2.5-beta2 o superior.
+- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md): instale la versión 2.2.0-beta2 o superior.
 Estos vínculos proporcionan detalles sobre la instalación del SDK, la creación de recursos y la configuración del SDK (si fuera necesario). Para aplicaciones que no sean de ASP.NET, consulte el artículo [Azure Application Insights for Console Applications](../application-insights/application-insights-console.md) (Azure Application Insights para las aplicaciones de consola).
 
 Si usa un [patrón de controlador de mensajes](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) para procesar mensajes, ya ha terminado: se realizará el seguimiento automático de todas las llamadas de Service Bus que se hayan hecho mediante el servicio y se correlacionarán con otros elementos de telemetría. En caso contrario, consulte el siguiente ejemplo para saber cómo realizar el seguimiento manual del procesamiento de mensajes.
@@ -225,7 +225,7 @@ Puede usar `IsEnabled` y también implementar estrategias de muestreo. Gracias a
 
 Cuando hay varios agentes de escucha `DiagnosticSource` en el mismo origen, un solo agente de escucha no es suficiente para aceptar el evento, por lo que no se puede garantizar que llame a `IsEnabled`.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Correlación de Application Insights](../application-insights/application-insights-correlation.md)

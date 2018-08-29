@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
-ms.openlocfilehash: fdaf77e3d8a1858372298fb0d67ca05c2717adf6
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 76a83ef4f647dcf7d79218cb281f1f976b292870
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36324170"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144544"
 ---
 # <a name="tutorial-configure-cisco-webex-for-automatic-user-provisioning"></a>Tutorial: Configuración de Cisco Webex para el aprovisionamiento automático de usuarios
 
@@ -30,7 +30,7 @@ El objetivo de este tutorial es mostrar los pasos que se dan en Cisco Webex y Az
 > [!NOTE]
 > Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../active-directory-saas-app-provisioning.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
@@ -171,6 +171,10 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos al informe de la actividad de aprovisionamiento, que describe todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Cisco Webex.
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../active-directory-saas-provisioning-reporting.md).
+
+## <a name="connector-limitations"></a>Limitaciones del conector
+
+* Actualmente, Cisco Webex se encuentra en la fase de pruebas de campo tempranas (EFT) de Cisco. Para obtener más información, póngase en contacto con el [equipo de soporte técnico de Cisco](https://www.webex.co.in/support/support-overview.html). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

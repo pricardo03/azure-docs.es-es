@@ -4,18 +4,17 @@ description: El controlador ABFS Hadoop FileSystem
 services: storage
 keywords: ''
 author: jamesbak
-manager: jahogg
 ms.topic: article
 ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: e92c4efba29f1c40f6d4cb155974ca3a896796e5
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: dedf398064dd0a49e5691e952ea7c9b6d16e34fd
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114340"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42146006"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>El controlador Azure Blob Filesystem (ABFS): un controlador de Azure Storage dedicado para Hadoop
 
@@ -23,9 +22,7 @@ Uno de los principales métodos de acceso para los datos en Azure Data Lake Stor
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Funcionalidad anterior: el controlador Azure Storage Blob para Windows
 
-El controlador Azure Storage Blob para Windows o [controlador WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) ofrecía la compatibilidad original con Azure Storage Blob. Este controlador realizaba la compleja tarea de asignar semántica de sistema de archivos (como requería la interfaz de Hadoop FileSystem) a la de la interfaz de estilo de almacén de objetos expuesta por Azure Blob Storage. Aunque este controlador aún admite este modelo, y proporciona acceso de alto rendimiento a los datos almacenados en blobs, contiene una importante cantidad de código que realiza esta asignación, lo que hace que sea difícil de mantener. Además, algunas operaciones como [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) y [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive), cuando se aplican a directorios, necesitan el controlador para realizar un gran número de operaciones (debido a la falta de compatibilidad de los almacenes de objetos con los directorios), lo que con frecuencia conduce a una degradación en el rendimiento.
-
-Por tanto, para superar las deficiencias inherentes al diseño de WASB, el nuevo servicio Azure Data Lake Storage se implementó con compatibilidad con el nuevo controlador ABFS.
+El controlador Azure Storage Blob para Windows o [controlador WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) ofrecía la compatibilidad original con Azure Storage Blob. Este controlador realizaba la compleja tarea de asignar semántica de sistema de archivos (como requería la interfaz de Hadoop FileSystem) a la de la interfaz de estilo de almacén de objetos expuesta por Azure Blob Storage. Aunque este controlador aún admite este modelo, y proporciona acceso de alto rendimiento a los datos almacenados en blobs, contiene una importante cantidad de código que realiza esta asignación, lo que hace que sea difícil de mantener. Además, algunas operaciones como [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) y [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive), cuando se aplican a directorios, necesitan el controlador para realizar un gran número de operaciones (debido a la falta de compatibilidad de los almacenes de objetos con los directorios), lo que con frecuencia conduce a una degradación en el rendimiento. El nuevo servicio Azure Data Lake Storage se diseñó para superar las deficiencias inherentes de WASB.
 
 ## <a name="the-azure-blob-file-system-driver"></a>El controlador Azure Blob File System
 
@@ -48,7 +45,11 @@ Internamente, el controlador ABFS convierte los recursos especificados en el URI
 
 ### <a name="authentication"></a>Autenticación
 
-El controlador ABFS admite actualmente la autenticación de clave compartida de modo que la aplicación de Hadoop puede acceder de forma segura a los recursos contenidos en Data Lake Storage Gen2. La clave se cifra y almacena en la configuración de Hadoop.
+El controlador ABFS admite dos formas de autenticación, de modo que la aplicación de Hadoop puede acceder de forma segura a los recursos contenidos en la cuenta compatible de Data Lake Storage Gen2. Se proporcionan detalles completos de los esquemas de autenticación disponibles en la [guía de seguridad de Azure Storage](../common/storage-security-guide.md). Son las siguientes:
+
+- **Clave compartida:** esto proporciona a los usuarios acceso a todos los recursos de la cuenta. La clave se cifra y almacena en la configuración de Hadoop.
+
+- **Token de portador de OAuth de Azure Active Directory:** el controlador adquiere y actualiza los tokens de portador de Azure AD con la identidad del usuario final o una entidad de servicio configurada. Al usar este modelo de autenticación, se autoriza todo acceso en función de cada llamada, mediante la identidad asociada con el token suministrado y se evalúa en relación con la lista de control de acceso POSIX (ACL) asignada.
 
 ### <a name="configuration"></a>Configuración
 

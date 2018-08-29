@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn;davberg
 ms.custom: include file
-ms.openlocfilehash: 8f2cc3ce7e19a71422d3087bd78f8176bbff7364
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 61119097668fca147c2d20fd50de80fc106b24fe
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36338312"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "40184917"
 ---
 El concepto de unidad de proceso de Azure (ACU) ofrece una forma de comparar el rendimiento de los procesos (CPU) en todas las SKU de Azure. Esto le ayudará a identificar fácilmente el SKU que tiene más probabilidades de satisfacer sus necesidades de rendimiento.  Actualmente, una ACU está estandarizada en una máquina virtual pequeña (Standard_A1) como 100 y todas las demás SKU representan, aproximadamente, qué tanto más rápido esa SKU puede ejecutar una prueba comparativa estándar. 
 
@@ -51,4 +51,4 @@ El concepto de unidad de proceso de Azure (ACU) ofrece una forma de comparar el 
 
 Las ACU marcadas con un asterisco * usan la tecnología Intel® Turbo para incrementar la frecuencia de CPU y brindar una mejora del rendimiento.  El volumen de la mejora puede variar según el tamaño de la máquina virtual, la carga de trabajo y las otras cargas de trabajo que se ejecutan en el mismo host.
 
-**Hyper-threaded. 
+** Con Hyper-Threading y capaz de ejecutar la virtualización anidada

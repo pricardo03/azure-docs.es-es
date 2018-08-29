@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6ed8265a0b1a014ad15a6bb42fabb6003fb6a775
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 12b5c013a0704eb2d3f7df58011571b902955c75
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343268"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42145906"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Instalación de la extensión Durable Functions y ejemplos (Azure Functions)
 
@@ -146,14 +146,14 @@ Visual Studio Code proporciona una experiencia de desarrollo local que abarca to
 
 ## <a name="azure-portal"></a>Azure Portal
 
-Si lo prefiere, puede usar Azure Portal para el desarrollo con Durable Functions.
+Si lo prefiere, puede usar [Azure Portal](https://portal.azure.com) para el desarrollo con Durable Functions.
 
    > [!NOTE]
    > En el portal aún no está disponible Durable Functions con JavaScript.
 
 ### <a name="create-an-orchestrator-function"></a>Creación de una función de orquestador
 
-1. Cree una nueva aplicación de función en [functions.azure.com](https://functions.azure.com/signin).
+1. Cree una nueva aplicación de función en el portal, tal como se muestra en el [artículo de inicio rápido de funciones](functions-create-first-azure-function.md#create-a-function-app).
 
 2. Configure la aplicación de la función para [usar la versión de tiempo de ejecución 2.0](set-runtime-version.md).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: f954e726aabb34f74d81580e3afc08f2b0b9914b
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 0056364883d5a4a350e5b35374e1fc3abd0c7bea
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619413"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144986"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Solución de problemas y limitaciones de Azure Cloud Shell
 
@@ -31,6 +31,11 @@ Entre las resoluciones conocidas de problemas en Azure Cloud Shell se incluyen l
 
 - **Detalles**: Cloud Shell usa una conexión Websocket abierta para pasar la entrada/salida al explorador. Firefox tiene directivas preestablecidas que pueden cerrar la conexión WebSocket prematuramente, lo que genera tiempos de expiración tempranos en Cloud Shell.
 - **Resolución**: abra FireFox y escriba "about:config" en el cuadro de dirección URL. Busque "network.websocket.timeout.ping.request" y cambie el valor de 0 a 10.
+
+### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Deshabilitación de Cloud Shell en un entorno de red bloqueada
+
+- **Detalles**: es posible que los administradores deseen deshabilitar el acceso a Cloud Shell para sus usuarios. Cloud Shell utiliza el acceso al dominio `ux.console.azure.com` (que se puede denegar), por lo que se detiene cualquier acceso a los puntos de entrada de Cloud Shell, incluido portal.azure.com, shell.azure.com, la extensión de la cuenta de Azure de Visual Studio Code y docs.microsoft.com.
+- **Resolución**: restringir el acceso a `ux.console.azure.com` a través de la configuración de red a su entorno. El icono de Cloud Shell seguirá existiendo en portal.azure.com, pero no se conectará correctamente al servicio.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Cuadro de diálogo de Storage. Error: 403 RequestDisallowedByPolicy
 

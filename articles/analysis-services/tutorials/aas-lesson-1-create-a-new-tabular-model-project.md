@@ -5,23 +5,23 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/15/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 17abcc7dea2f695b4678b30fe7448b0bcbb11590
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b9d3e9df62ffd31a6a01ea427fec8d5a3d168bfa
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441517"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42145925"
 ---
 # <a name="create-a-tabular-model-project"></a>Creación de un proyecto de modelos tabulares
 
-En esta lección se usa Visual Studio con SQL Server Data Tools (SSDT) para crear un proyecto de modelos tabulares en el nivel de compatibilidad 1400. Una vez creado el proyecto, puede empezar a agregar datos y a crear el modelo. En esta lección también se le proporciona una breve introducción al entorno de creación de modelos tabulares en Visual Studio.  
+En esta lección se usa Visual Studio con proyectos de Analysis Services o SQL Server Data Tools (SSDT) para crear un proyecto de modelos tabulares en el nivel de compatibilidad 1400. Una vez creado el proyecto, puede empezar a agregar datos y a crear el modelo. En esta lección también se le proporciona una breve introducción al entorno de creación de modelos tabulares en Visual Studio.  
   
 Tiempo estimado para completar esta lección: **10 minutos**  
   
-## <a name="prerequisites"></a>requisitos previos  
+## <a name="prerequisites"></a>Requisitos previos  
 Este tema es la primera lección de un tutorial de creación de modelos tabulares. Para llevar a cabo esta lección, hay una serie de requisitos previos que debe cumplir. Para obtener más información, consulte [Azure Analysis Services: Tutorial de Adventure Works](../tutorials/aas-adventure-works-tutorial.md).  
   
 ## <a name="create-a-new-tabular-model-project"></a>Crear un proyecto de modelo tabular  
@@ -49,7 +49,7 @@ Este tema es la primera lección de un tutorial de creación de modelos tabulare
     Si no ve SQL Server 2017 / Azure Analysis Services (1400) en el cuadro de lista Nivel de compatibilidad, significa que no está usando la versión más reciente de SQL Server Data Tools. Para obtener la versión más reciente, consulte [Install SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) (Instalar SQL Server Data Tools).  
       
   
-## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>Descripción del entorno de creación de modelos tabulares de SSDT  
+## <a name="understanding-the-visual-studio-tabular-model-authoring-environment"></a>Descripción del entorno de creación de modelos tabulares de Visual Studio  
 Ahora que ha creado un proyecto de modelos tabulares, dedique un momento a examinar el entorno de creación de modelos tabulares de Visual Studio.  
   
 Una vez creado el proyecto, se abrirá en Visual Studio. En el lado derecho, en **Explorador de modelos tabulares**, aparece una vista de árbol de los objetos presentes en el modelo. Como todavía no se han importado datos, las carpetas están vacías. Puede hacer clic con el botón derecho en una carpeta de objetos para llevar a cabo acciones, de manera similar a una barra de menús. Durante este tutorial se usa el Explorador de modelos tabulares para navegar por los distintos objetos del proyecto de modelo.
@@ -68,7 +68,7 @@ Al crear un proyecto de modelo, algunas de las propiedades del modelo se estable
 
 En el **Explorador de soluciones**, haga clic con el botón derecho en **Ventas por Internet AW** (proyecto) y haga clic en **Propiedades**. Aparecerá el cuadro de diálogo **Páginas de propiedades de Ventas por Internet AW**. Al implementar el modelo más adelante, se establecen algunas de estas propiedades.  
   
-Al instalar SSDT se han agregado varios elementos de menú nuevos al entorno de Visual Studio. Haga clic en el menú **Model** (Modelo). Desde aquí puede importar datos, actualizar los datos del área de trabajo, examinar el modelo en Excel, crear perspectivas y roles, seleccionar la vista de modelo y establecer opciones de cálculo. Haga clic en el menú **Tabla**. Desde aquí puede crear y administrar las relaciones, especificar la configuración de las tablas de fecha, crear particiones y editar las propiedades de las tablas. Al hacer clic en el menú **Columna**, puede agregar y eliminar columnas de una tabla, inmovilizar columnas y especificar el criterio de ordenación. SSDT también agrega algunos botones a la barra. Más útil es la característica Autosuma, que sirve para crear una medida de agregación estándar para una columna seleccionada. Hay otros botones de la barra de herramientas que ofrecen un acceso rápido a las características y los comandos más usados.  
+Al instalar los proyectos de Analysis Services o SSDT se agregan varios elementos de menú nuevos al entorno de Visual Studio. Haga clic en el menú **Model** (Modelo). Desde aquí puede importar datos, actualizar los datos del área de trabajo, examinar el modelo en Excel, crear perspectivas y roles, seleccionar la vista de modelo y establecer opciones de cálculo. Haga clic en el menú **Tabla**. Desde aquí puede crear y administrar las relaciones, especificar la configuración de las tablas de fecha, crear particiones y editar las propiedades de las tablas. Al hacer clic en el menú **Columna**, puede agregar y eliminar columnas de una tabla, inmovilizar columnas y especificar el criterio de ordenación. Visual Studio también agrega algunos botones a la barra. Más útil es la característica Autosuma, que sirve para crear una medida de agregación estándar para una columna seleccionada. Hay otros botones de la barra de herramientas que ofrecen un acceso rápido a las características y los comandos más usados.  
   
 Explore algunos de los cuadros de diálogo y ubicaciones de distintas características específicas de la creación de modelos tabulares. Aunque algunos elementos aún no están activos, puede hacerse una idea del entorno de creación de modelos tabulares.  
   

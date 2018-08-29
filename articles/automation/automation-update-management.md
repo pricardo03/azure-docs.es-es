@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d12ce7b3416fac5de5cba9543f3bed5bcedf2012
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: ea96898e36080096c91285f3ff7621f84bf81edf
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115680"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42144990"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -213,12 +213,14 @@ Para crear una nueva implementación de actualizaciones, seleccione **Programar 
 
 | Propiedad | Descripción |
 | --- | --- |
-|NOMBRE |Nombre único para identificar la implementación de actualizaciones. |
-|Sistema operativo| Seleccione **Linux** o **Windows**.|
-|Máquinas para actualizar |Seleccione una búsqueda guardada o elija **Máquina** en la lista desplegable y seleccione máquinas individuales. |
-|Clasificaciones de actualizaciones|Seleccione todas las clasificaciones de actualizaciones que necesite. CentOS no admite estas clasificaciones de forma nativa.|
-|Actualizaciones para excluir|Escriba las actualizaciones que desea excluir. En Windows, escriba el artículo de la KB sin el prefijo **KB**. En Linux, escriba el nombre del paquete o use un carácter comodín.  |
-|Configuración de programación|Seleccione la hora de inicio y seleccione **Una vez** o **Periódico** para la periodicidad.|| Ventana de mantenimiento |Número de minutos establecido para las actualizaciones. El valor no puede ser inferior a 30 minutos ni superior a 6 horas. |
+| NOMBRE |Nombre único para identificar la implementación de actualizaciones. |
+|Sistema operativo| Linux o Windows|
+| Máquinas para actualizar |Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**.</br> Para obtener información sobre los distintos métodos de creación de grupos de equipos en Log Analytics, consulte [Grupos de equipos en búsquedas de registros en Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+|Clasificaciones de actualizaciones|Seleccione todas las clasificaciones de actualizaciones que necesite|
+|Actualizaciones para excluir|Escriba las actualizaciones que desea excluir. Para Windows, escriba el KB sin el prefijo "KB". Para Linux, escriba el nombre del paquete o use un carácter comodín.  |
+|Configuración de programación|Seleccione la hora de inicio y seleccione Una vez o de manera periódica para la periodicidad|
+| Ventana de mantenimiento |Número de minutos establecido para las actualizaciones. El valor no puede ser inferior a 30 minutos ni más de 6 horas |
+| Control de reinicio| Determina cómo se deben controlar los reinicios.</br>Las opciones disponibles son la siguientes:</br>Reiniciar si es necesario (predeterminada)</br>Reiniciar siempre</br>Never reboot (No reiniciar nunca)</br>Only reboot (solo reiniciar), no instalará las actualizaciones|
 
 ## <a name="update-classifications"></a>Clasificaciones de actualizaciones
 

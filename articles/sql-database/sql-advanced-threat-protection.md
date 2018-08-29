@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 5/17/2018
 ms.author: ronitr
 ms.reviewer: carlrab
-ms.openlocfilehash: da21a0b66d86b4cc3e2dc59bdd972d4e24d7e5ec
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 8881f66a73a2368696ee16cc0f9bb0b16d2f6d7e
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305722"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42144666"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Protección avanzada contra amenazas en Azure SQL Database
 
-SQL Advanced Threat Protection es un paquete unificado de funcionalidades avanzadas de seguridad de SQL. Incluye una funcionalidad para detectar y clasificar datos confidenciales, administrar los puntos vulnerables de una base de datos y detectar actividades anómalas que puedan indicar una amenaza para dicha base de datos. Proporciona una ubicación única para habilitar y administrar estas funcionalidades. 
+SQL Advanced Threat Protection es un paquete unificado de funcionalidades avanzadas de seguridad de SQL. Incluye una funcionalidad para detectar y clasificar datos confidenciales, buscar y mitigar los potenciales puntos vulnerables de una base de datos y detectar actividades anómalas que puedan indicar una amenaza para dicha base de datos. Proporciona una ubicación única para habilitar y administrar estas funcionalidades. 
 
 ## <a name="overview"></a>Información general
 

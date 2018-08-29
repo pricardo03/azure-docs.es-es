@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/07/2018
+ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: db6a2279347b5746da706e7ad3629b141afd205b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 09e7a729dbb3e82bce08c06a1af1f0bf3f9c5c2f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271171"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144994"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Solución de problemas de una máquina virtual Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure Portal
 Si la máquina virtual Windows de Azure se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco duro virtual. Un ejemplo habitual sería una actualización de aplicación con error que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar Azure Portal para conectar el disco duro virtual a otra máquina virtual Windows para solucionar los errores y, posteriormente, volver a crear la máquina virtual original.
@@ -32,7 +32,7 @@ El proceso de solución de problemas es el siguiente:
 4. Desmonte y desconecte el disco duro virtual de la máquina virtual de solución de problemas.
 5. Cree una máquina virtual mediante el disco duro virtual original.
 
-Si la máquina virtual usa discos administrados, consulte [Solución de problemas de una máquina virtual de disco administrado mediante la conexión de un nuevo disco de sistema operativo](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
+Para la máquina virtual que usa el disco administrado, ahora podemos usar Azure PowerShell para cambiar el disco del sistema operativo de una máquina virtual. No es necesario eliminar ni volver a crear la máquina virtual. Para más información, consulte [Solución de problemas de una máquina virtual Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure PowerShell](troubleshoot-recovery-disks.md).
 
 ## <a name="determine-boot-issues"></a>Determinación de los problemas de arranque
 Para determinar por qué la máquina virtual no es capaz de arrancar correctamente, examine la captura de pantalla de la máquina virtual de los diagnósticos de arranque. Un ejemplo habitual sería una actualización de aplicación con error o un disco duro virtual subyacente que se va a eliminar o mover.
@@ -100,7 +100,7 @@ Para los pasos siguientes, se usa otra máquina virtual con el fin de solucionar
 
 1. Abra una conexión a Escritorio remoto a la máquina virtual. Seleccione la máquina virtual en el portal y haga clic en **Conectar**. Descargue y abra el archivo de conexión RDP. Escriba sus credenciales para iniciar sesión en la máquina virtual como se indica a continuación:
 
-    ![Inicie sesión en la máquina virtual utilizando el Escritorio remoto.](./media/troubleshoot-recovery-disks-portal/open-remote-desktop.png)
+    ![Inicie sesión en la máquina virtual utilizando el Escritorio remoto](./media/troubleshoot-recovery-disks-portal/open-remote-desktop.png)
 
 2. Abra **Administrador del servidor** y, a continuación, seleccione **Servicios de archivos y almacenamiento**. 
 
@@ -146,13 +146,6 @@ La plantilla se carga en Azure Portal para su implementación. Escriba los nombr
 Cuando se crea la máquina virtual desde el disco duro virtual existente, puede que no se habilite automáticamente el diagnóstico de arranque. Para comprobar el estado del diagnóstico de arranque y activarlo si es necesario, seleccione la máquina virtual en el portal. En **Supervisión**, haga clic en **Configuración de diagnóstico**. Asegúrese de que el estado es **Activado**, y que la marca de verificación situada junto a **Diagnósticos de arranque** está seleccionada. Si realiza cambios, haga clic en **Guardar**:
 
 ![Actualización de la configuración de los diagnósticos de arranque](./media/troubleshoot-recovery-disks-portal/reenable-boot-diagnostics.png)
-
-## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Solución de problemas de una máquina virtual de disco administrado mediante la conexión de un nuevo disco de sistema operativo
-1. Detenga la máquina virtual Windows de disco administrado.
-2. [Cree una instantánea de disco administrado](snapshot-copy-managed-disk.md) del disco del sistema operativo de la máquina virtual de disco administrado.
-3. [Cree un nuevo disco administrado a partir de la instantánea](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Asocie el disco administrado como un disco de datos de la máquina virtual](attach-disk-ps.md).
-5. [Cambie el disco de datos del paso 4 por un disco de sistema operativo](os-disk-swap.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si tiene problemas para conectarse a la máquina virtual, consulte [Solución de problemas de conexiones RDP a una máquina virtual de Azure](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para problemas con el acceso a aplicaciones que se ejecutan en su máquina virtual, consulte [Solucionar problemas de conectividad de aplicaciones en una máquina virtual Windows](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

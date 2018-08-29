@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-ms.openlocfilehash: 6b536ba7792e66fe09ba2cc8a631dc5e934faaea
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 0b682b369bf0e0238b3930d89087db535faa8c53
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937983"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42146011"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticación y autorización en Azure App Service
 
@@ -95,7 +95,7 @@ El flujo de autenticación es el mismo para todos los proveedores, pero varía e
 - Con el SDK del proveedor: la aplicación proporciona inicio de sesión al usuario manualmente y luego envía el token de autenticación a App Service para la validación. Por lo general, suele ser el caso de las aplicaciones sin explorador, que no pueden presentar la página de inicio de sesión del proveedor al usuario. El código de aplicación administra el proceso de inicio de sesión, por lo que también se denomina _flujo dirigido por el cliente_ o _flujo de cliente_. Este caso se aplica a REST API, [Azure Functions](../azure-functions/functions-overview.md) y los clientes de explorador de JavaScript, así como a las aplicaciones web que necesitan más flexibilidad en el proceso de inicio de sesión. También se aplica a las aplicaciones móviles nativas que proporciona inicio de sesión a los usuarios con el SDK del proveedor.
 
 > [!NOTE]
-> Las llamadas desde una aplicación de explorador de confianza en App Service y las llamadas a otra REST API en App Service o [Azure Functions](../azure-functions/functions-overview.md) se pueden autenticar utilizando el flujo dirigido por el servidor. Para más información, consulte [Authenticate users with Azure App Service]() (Autenticación de usuarios con Azure App Service).
+> Las llamadas desde una aplicación de explorador de confianza en App Service y las llamadas a otra REST API en App Service o [Azure Functions](../azure-functions/functions-overview.md) se pueden autenticar utilizando el flujo dirigido por el servidor. Para obtener más información, consulte [Personalización de la autenticación y autorización en Azure App Service](app-service-authentication-how-to.md).
 >
 
 En la tabla siguiente se muestran los pasos del flujo de autenticación.
