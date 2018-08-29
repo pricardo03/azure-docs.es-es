@@ -12,43 +12,60 @@ ms.workload: On Demand
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 46ab4a177cc7d86e5d967ff8e219dae96f82a0dc
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: ce0684f9ab06b5362ccdf25aeaff15ea668ce96c
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263153"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444155"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Introducción a la continuidad empresarial con Azure SQL Database
+
+Azure SQL Database es una implementación del motor de base de datos de SQL Server estable más reciente configurada y optimizada para el entorno en la nube de Azure que proporciona [alta disponibilidad](sql-database-high-availability.md) y resistencia frente a los errores que podrían afectar a los procesos empresariales. **Continuidad empresarial** en Azure SQL Database hace referencia a los mecanismos, directivas y procedimientos que permiten a una empresa seguir funcionando en caso de interrupciones, especialmente en su infraestructura informática.  En la mayoría de los casos, Azure SQL Database controlará los eventos de interrupción que puedan ocurrir en el entorno en la nube y permitirá que se sigan ejecutando los procesos empresariales. No obstante, hay algunos eventos de interrupción que no se pueden controlar mediante SQL Database como, por ejemplo:
+ - El usuario eliminó o actualizó accidentalmente una fila de una tabla.
+ - Un atacante malintencionado consiguió eliminar datos o quitar una base de datos.
+ - Un terremoto provocó un corte del suministro eléctrico y deshabilitó temporalmente el centro de datos.
+ 
+Estos casos no se pueden controlar en Azure SQL Database, por lo que necesitaría usar las características de continuidad empresarial de SQL Database que le permiten recuperar los datos y mantener sus aplicaciones en funcionamiento.
 
 En este artículo de introducción se describen las funcionalidades de continuidad empresarial y recuperación ante desastres que proporciona Azure SQL Database. Conozca más información sobre opciones, recomendaciones y tutoriales para recuperarse de eventos de interrupción que podrían provocar la pérdida de información o que su base de datos y aplicación dejen de estar disponibles. Sepa qué hacer en caso de que un error del usuario o la aplicación afecte a la integridad de los datos, se produzca una interrupción en una región de Azure o su aplicación requiera mantenimiento.
 
 ## <a name="sql-database-features-that-you-can-use-to-provide-business-continuity"></a>Características de SQL Database que puede utilizar para proporcionar continuidad empresarial
 
-SQL Database ofrece diversas funcionalidades de continuidad empresarial, incluidas las copias de seguridad automatizadas y la replicación de base de datos opcional. Cada una de ellas posee distintas características que abarcan los conceptos de tiempo de recuperación calculado (ERT) y pérdida de datos potencial de transacciones recientes. Cuando entienda estas opciones, puede elegir las que más relevantes considere y, en la mayoría de los escenarios, utilizarlas juntas con distintos objetivos. A medida que desarrolle el plan de continuidad empresarial, tendrá que saber el tiempo máximo aceptable para que la aplicación se recupere por completo tras un evento de interrupción. A esto se le denomina "objetivo de tiempo de recuperación" (RTO). También debe conocer la cantidad máxima de actualizaciones de datos recientes (intervalo de tiempo) que la aplicación puede tolerar perder al recuperarse después de un evento de interrupción. A esto se le conoce como "objetivo de punto de recuperación" (RPO).
+Desde la perspectiva de una base de datos, hay cuatro escenarios principales de posibles interrupciones:
+- **Errores de hardware o software locales** que afectan al nodo de la base de datos como, por ejemplo, un error de la unidad de disco.
+- **Daños o eliminación de datos**: suelen deberse a un error de la aplicación o a un error humano.  Estos errores son intrínsecamente específicos de la aplicación y, por regla general, no se pueden detectar ni mitigar automáticamente mediante la infraestructura.
+- **Interrupción del centro de datos**, provocado posiblemente por un desastre natural.  Este escenario requiere cierto nivel de redundancia geográfica con conmutación por error de la aplicación en un centro de datos alternativo.
+- **Errores de actualización o mantenimiento**: problemas imprevistos que se producen durante las actualizaciones o el mantenimiento de una aplicación o base de datos y que pueden requerir una rápida reversión a un estado anterior de la base de datos.
+
+SQL Database ofrece diversas funcionalidades de continuidad empresarial, incluidas las copias de seguridad automatizadas y la replicación de base de datos opcional que pueden mitigar estos escenarios. En primer lugar, debe comprender cómo la [arquitectura de alta disponibilidad](sql-database-high-availability.md) de SQL Database proporciona una disponibilidad del 99,99% y resistencia a algunos eventos de interrupción que pueden afectar a sus procesos empresariales.
+A continuación, puede obtener información acerca de los mecanismos adicionales que puede usar para recuperarse de los eventos de interrupción que no pueden controlarse mediante la arquitectura de alta disponibilidad de SQL Database, tales como:
+ - [Tablas temporales](sql-database-temporal-tables.md) que le permiten restaurar versiones de fila desde cualquier momento dado.
+ - Las [copias de seguridad automatizadas integradas](sql-database-automated-backups.md) y la [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore) le permiten restaurar la base de datos completa a un momento dado de los últimos 35 días.
+ - Puede [restaurar una base de datos eliminada](sql-database-recovery-using-backups.md#deleted-database-restore) al momento en que se eliminó si el **servidor lógico no se ha eliminado**.
+ - La [retención de copia de seguridad a largo plazo](sql-database-long-term-retention.md) le permite conservar las copias de seguridad hasta 10 años.
+ - La [replicación geográfica](sql-database-geo-replication-overview.md) permite que la aplicación realice una rápida recuperación ante desastres en el caso de que se produzca una interrupción a escala del centro de datos.
+
+Cada una de ellas posee distintas características que abarcan los conceptos de tiempo de recuperación calculado (ERT) y pérdida de datos potencial de transacciones recientes. Cuando entienda estas opciones, puede elegir las que más relevantes considere y, en la mayoría de los escenarios, utilizarlas juntas con distintos objetivos. A medida que desarrolle el plan de continuidad empresarial, tendrá que saber el tiempo máximo aceptable para que la aplicación se recupere por completo tras un evento de interrupción. El tiempo necesario para que la aplicación se recupere totalmente se conoce como el objetivo de tiempo de recuperación (RTO). También debe conocer el período máximo de actualizaciones de datos recientes (intervalo de tiempo) que la aplicación puede tolerar perder al recuperarse después de un evento de interrupción. El período de tiempo de las actualizaciones que se puede permitir perder se conoce como objetivo de punto de recuperación (RPO).
 
 En la tabla siguiente se comparan los valores de ERT y RPO de cada nivel de servicio en los tres escenarios más comunes.
 
 | Capacidad | Básica | Estándar | Premium  | Uso general | Crítico para la empresa
 | --- | --- | --- | --- |--- |--- |
 | Restauración a un momento dado a partir de una copia de seguridad |Cualquier punto de restauración en 7 días |Cualquier punto de restauración en 35 días |Cualquier punto de restauración en 35 días |Cualquier punto de restauración en el período configurado (hasta 35 días)|Cualquier punto de restauración en el período configurado (hasta 35 días)|
-| Restauración geográfica de las copias de seguridad con replicación geográfica |ERT < 12h, RPO < 1 h |ERT < 12h, RPO < 1 h |ERT < 12h, RPO < 1 h |ERT < 12h, RPO < 1 h|ERT < 12h, RPO < 1 h|
-| Restauración desde la retención a largo plazo de SQL |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h|ERT < 12 h, RPO < 1 h|
+| Restauración geográfica de las copias de seguridad con replicación geográfica |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h|ERT < 12 h, RPO < 1 h|
+| Restauración desde la retención a largo plazo de SQL |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem.|ERT < 12 h, RPO < 1 sem.|
 | Replicación geográfica activa |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s|ERT < 30 s, RPO < 5 s|
 
-### <a name="use-point-in-time-restore-to-recover-a-database"></a>Uso de la restauración a un momento dado para recuperar una base de datos
+## <a name="recover-a-database-to-the-existing-server"></a>Recuperación de una base de datos en el servidor existente
 
-SQL Database realiza automáticamente una combinación de copias de seguridad completas semanales, copias de seguridad diferenciales cada hora y copias de seguridad del registro de transacciones cada 5 o 10 minutos con el fin de proteger su empresa contra la pérdida de datos. Si usa el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md), estas copias de seguridad se almacenan en almacenamiento RA-GRS durante 35 días en el caso de las bases de datos de los niveles de servicio Estándar y Premium y durante 7 días en el nivel Básico. Si el período de retención del nivel de servicio no se ajusta a los requisitos de su empresa, puede ampliarlo [cambiando dicho nivel de servicio](sql-database-single-database-scale.md). Si usa el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md), la retención de las copias de seguridad es configurable en hasta 35 días en los niveles de uso general y crítico para la empresa. Las copias de seguridad completas y diferenciales de bases de datos también se replican en un [centro de datos asociado](../best-practices-availability-paired-regions.md) con el fin de brindar protección frente a interrupciones en el centro de datos. Para más información, consulte [copias de seguridad automáticas de bases de datos](sql-database-automated-backups.md).
+SQL Database realiza automáticamente una combinación de copias de seguridad completas semanales, copias de seguridad diferenciales cada hora y copias de seguridad del registro de transacciones cada 5 o 10 minutos con el fin de proteger su empresa contra la pérdida de datos. Las copias de seguridad se almacenan en un almacenamiento con redundancia geográfica con acceso de lectura durante 35 días para todos los niveles de servicio, excepto los niveles de servicio de DTU básico en el que las copias de seguridad se almacenan durante 7 días. Para más información, consulte [copias de seguridad automáticas de bases de datos](sql-database-automated-backups.md). Puede restaurar una base de datos existente a partir de las copias de seguridad automatizadas a un momento anterior en el tiempo como una nueva base de datos en el mismo servidor lógico con Azure Portal, PowerShell o la API REST. Para más información, consulte [Restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-Si el período de retención de la restauración a un punto del tiempo (PITR) máximo admitido no es suficiente para su aplicación, puede ampliarlo mediante la configuración de una directiva de retención a largo plazo (LTR) para las bases de datos. Para más información, consulte [Copias de seguridad automatizadas](sql-database-automated-backups.md) y [Retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md).
+Si el período de retención de la restauración a un punto del tiempo (PITR) máximo admitido no es suficiente para su aplicación, puede ampliarlo mediante la configuración de una directiva de retención a largo plazo (LTR) para las bases de datos. Para obtener más información, vea [Retención de copias de seguridad a largo plazo](sql-database-long-term-retention.md).
 
-Puede utilizar este tipo de copia de seguridad para recuperar una base de datos después de que se produzcan diferentes eventos de interrupción tanto en su centro de datos como en otro. Con las copias de seguridad automáticas de bases de datos, el tiempo estimado de recuperación depende de varios factores, como el número total de bases de datos que se están recuperando a la vez en la misma región, el tamaño de estas, el tamaño del registro de transacciones y el ancho de banda de red. Normalmente, el tiempo de recuperación es inferior a 12 horas. La recuperación de una base de datos muy grande o activa puede tardar más tiempo. Para obtener más información sobre el tiempo de recuperación, consulte el apartado sobre el [tiempo de recuperación de bases de datos](sql-database-recovery-using-backups.md#recovery-time). Cuando se lleva a cabo un proceso de recuperación en otra región de datos, la posible pérdida de datos solo es de 1 hora gracias al almacenamiento con redundancia geográfica de las copias de seguridad diferenciales de bases de datos que se realizan cada hora.
+Puede utilizar este tipo de copia de seguridad para recuperar una base de datos después de que se produzcan diferentes eventos de interrupción tanto en su centro de datos como en otro. Con las copias de seguridad automáticas de bases de datos, el tiempo estimado de recuperación depende de varios factores, como el número total de bases de datos que se están recuperando a la vez en la misma región, el tamaño de estas, el tamaño del registro de transacciones y el ancho de banda de red. Normalmente, el tiempo de recuperación es inferior a 12 horas. La recuperación de una base de datos muy grande o activa puede tardar más tiempo. Para más información sobre el tiempo de recuperación, consulte el apartado sobre el [tiempo de recuperación de bases de datos](sql-database-recovery-using-backups.md#recovery-time). Cuando se lleva a cabo un proceso de recuperación en otra región de datos, la posible pérdida de datos solo es de 1 hora gracias al almacenamiento con redundancia geográfica de las copias de seguridad diferenciales de bases de datos que se realizan cada hora.
 
-> [!IMPORTANT]
-> Para poder efectuar una recuperación con copias de seguridad automatizadas, debe ser miembro del rol de colaborador de SQL Server o propietario de la suscripción. Consulte el artículo [RBAC: Roles integrados](../role-based-access-control/built-in-roles.md). Las recuperaciones se pueden realizar a través del Portal de Azure, PowerShell o la API de REST. No puede utilizar Transact-SQL.
->
-
-Utilice las copias de seguridad automatizadas como mecanismo de recuperación y de continuidad empresarial si se cumplen los siguientes requisitos en su aplicación:
+Utilice las copias de seguridad automatizadas y la [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore) como mecanismo de recuperación y de continuidad empresarial si se cumplen los siguientes requisitos en su aplicación:
 
 * No se considera crítica.
 * No tiene un Acuerdo de Nivel de Servicio vinculante, por lo que no incurrirá en responsabilidades financieras en caso de tiempos de inactividad de 24 horas o más.
@@ -57,60 +74,32 @@ Utilice las copias de seguridad automatizadas como mecanismo de recuperación y 
 
 Si necesita recuperaciones más rápidas, utilice la [replicación geográfica activa](sql-database-geo-replication-overview.md) (se describe a continuación). Si necesita recuperar datos de un período anterior a 35 días, use la [retención a largo plazo](sql-database-long-term-retention.md). 
 
-### <a name="use-active-geo-replication-and-auto-failover-groups-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Uso de grupos de conmutación automática por error y replicación geográfica activa para reducir el tiempo de recuperación y limitar la pérdida de datos asociada a una recuperación
+## <a name="recover-a-database-to-another-region"></a>Recuperación de una base de datos en otra región
+<!-- Explain this scenario -->
 
-Además de utilizar las copias de seguridad para recuperar bases de datos en caso de interrupciones en el negocio, puede usar la [replicación geográfica activa](sql-database-geo-replication-overview.md) para hacer que una base de datos tenga un máximo de cuatro bases de datos secundarias legibles en las regiones que prefiera. Estas bases de datos secundarias se mantienen sincronizadas con la principal a través de un mecanismo de replicación asincrónica. Esta característica se utiliza para proteger su negocio de interrupciones en el centro de datos o durante una actualización de la aplicación. La replicación geográfica activa también puede emplearse para que los usuarios repartidos por distintas ubicaciones del mundo puedan realizar consultas de solo lectura de manera más eficaz.
+Aunque es poco habitual, en los centros de datos de Azure pueden producirse interrupciones. Cuando esto ocurre, provoca también una interrupción en el negocio que podría extenderse solo unos pocos minutos o, incluso, horas.
 
-Para habilitar la conmutación por error automática y transparente debe organizar las bases de datos de replicación geográfica en grupos mediante la característica [auto-failover group](sql-database-geo-replication-overview.md) de grupos de conmutación automática por error de SQL Database.
+* Una opción consiste en esperar a que la base de datos vuelva a estar en línea cuando termine la interrupción del centro de datos. Esto puede hacerse con las aplicaciones que pueden permitirse que la base de datos esté desconectada. Por ejemplo, los proyectos de desarrollo o las pruebas gratuitas no tienen que estar en funcionamiento constantemente. Cuando se produce una interrupción en un centro de datos, no sabe cuánto durará, por lo que esta opción solo es útil si no necesita utilizar la base de datos durante un tiempo.
+* Otra opción consiste en restaurar una base de datos en cualquier servidor de cualquier región de Azure mediante [copias de seguridad de base de datos con redundancia geográfica](sql-database-recovery-using-backups.md#geo-restore) (restauración geográfica). La funcionalidad de restauración geográfica utiliza una copia de seguridad con redundancia geográfica como origen y se puede usar para recuperar una base de datos, aunque no se pueda acceder a dicha base de datos o al centro de datos debido a una interrupción.
+* Por último, puede promocionar rápidamente una base de datos secundaria en otra región de datos para que se convierta en principal (proceso también denominado conmutación por error) y configurar las aplicaciones para que se conecten a la base de datos promocionada principal si va a usar la replicación geográfica activa. Puede que se pierda una pequeña cantidad de datos en las transacciones muy recientes debido a la naturaleza de la replicación asincrónica. Con el uso de grupos de conmutación automática por error, puede personalizar la directiva de conmutación por error para minimizar la posible pérdida de datos. En todos los casos, los usuarios experimentan un tiempo de inactividad reducido y tienen que volver a conectarse. La conmutación por error solo lleva unos segundos, mientras que la recuperación de una base de datos a partir de copias de seguridad dura horas.
 
-Si la base de datos principal se desconecta de forma inesperada o debido a actividades de mantenimiento, puede convertir rápidamente una base de datos secundaria en principal (a este proceso también se le denomina "conmutación por error") y configurar que las aplicaciones se conecten a esta principal. Si la aplicación se conecta a las bases de datos mediante el agente de escucha del grupo de conmutación por error, no es necesario cambiar la configuración de la cadena de conexión de SQL después de la conmutación por error. Con las conmutaciones por error planeadas no se pierden datos. Sin embargo, con las no planeadas, se puede perder una pequeña cantidad de información en las transacciones muy recientes debido a la naturaleza de la replicación asincrónica. Con el uso de grupos de conmutación automática por error, puede personalizar la directiva de conmutación por error para minimizar la posible pérdida de datos. Tras una conmutación por error, puede realizar una conmutación por recuperación según un plan o cuando el centro de datos vuelva a estar en línea. En todos los casos, los usuarios experimentan un tiempo de inactividad reducido y tienen que volver a conectarse.
+Para conmutar por error a otra región, puede usar la [replicación geográfica activa](sql-database-geo-replication-overview.md) para hacer que una base de datos tenga un máximo de cuatro bases de datos secundarias legibles en las regiones que prefiera. Estas bases de datos secundarias se mantienen sincronizadas con la principal a través de un mecanismo de replicación asincrónica. 
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+>
+
 
 > [!IMPORTANT]
 > Para usar grupos de conmutación automática por error y la replicación geográfica activa, debe ser el propietario de la suscripción o tener permisos administrativos en SQL Server. Puede realizar tareas de configuración y conmutación por error mediante Azure Portal, PowerShell o la API de REST con los permisos de la suscripción de Azure, o bien mediante Transact-SQL con los permisos de SQL Server.
 > 
 
-Use la replicación geográfica activa y los grupos de conmutación automática por error si su aplicación cumple alguno de estos criterios:
+Esta característica se utiliza para proteger su negocio de interrupciones en el centro de datos o durante una actualización de la aplicación. Para habilitar la conmutación por error automática y transparente debe organizar las bases de datos de replicación geográfica en grupos mediante la característica [auto-failover group](sql-database-geo-replication-overview.md) de grupos de conmutación automática por error de SQL Database. Use la replicación geográfica activa y los grupos de conmutación automática por error si su aplicación cumple alguno de estos criterios:
 
 * Es crítica.
 * Tiene un SLA que no se permite que se produzcan tiempos de inactividad de más de 24 horas.
 * El tiempo de inactividad incurrirá en responsabilidades financieras.
 * Tiene una tasa de cambio de datos elevada y no se acepta perder una hora de datos.
 * El costo adicional por utilizar la replicación geográfica activa es menor que el de la posible responsabilidad financiera y la pérdida de negocio asociada que habría que asumir.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
->
-
-## <a name="recover-a-database-after-a-user-or-application-error"></a>Recuperación de bases de datos tras un error del usuario o la aplicación
-
-Nadie es perfecto. Un usuario podría eliminar de forma involuntaria algunos datos, una tabla importante o, incluso, una base de datos entera. O bien, una aplicación podría sobrescribir accidentalmente datos correctos por otros no válidos debido a un defecto en esta.
-
-Estas son las opciones de recuperación que tiene para este caso.
-
-### <a name="perform-a-point-in-time-restore"></a>Realización de una restauración a un momento dado
-Puede utilizar las copias de seguridad automatizadas para restaurar la base de datos a un momento dado conocido y sin problemas, siempre que sea dentro del periodo de retención de la base de datos. Después de restaurar la base de datos, puede reemplazar la original por la restaurada o copiar la información que necesite de los datos restaurados en la base de datos original. Si la base de datos utiliza la replicación geográfica activa, se recomienda copiar los datos que precise de la copia restaurada en la original. Si reemplaza la base de datos original por la restaurada, debe volver a configurar y sincronizar la replicación geográfica activa (proceso que puede llevar bastante tiempo en bases de datos de gran tamaño). Aunque esto permite restaurar una base de datos hasta el último punto disponible en el tiempo, la restauración de una base de datos geográfica secundaria a cualquier punto en el tiempo no se admite actualmente.
-
-Para más información y ver los pasos detallados de cómo restaurar una base de datos a un momento dado mediante el Portal de Azure o PowerShell, consulte el artículo sobre [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore). Transact-SQL no se puede utilizar para este fin.
-
-### <a name="restore-a-deleted-database"></a>Restauración de una base de datos eliminada
-Si se elimina la base de datos, pero no el servidor lógico, puede restaurar la base de datos eliminada al momento en que se suprimió. De este modo, se restaura una copia de seguridad de la base de datos en el mismo servidor SQL lógico desde el que se eliminó. Puede restaurarla usando el nombre original o proporcionando un nuevo nombre a la base de datos restaurada.
-
-Para más información y ver los pasos detallados de cómo restaurar una base de datos eliminada mediante el Portal de Azure o PowerShell, consulte el artículo sobre [restauración de bases de datos eliminadas](sql-database-recovery-using-backups.md#deleted-database-restore). Transact-SQL no se puede utilizar para este fin.
-
-> [!IMPORTANT]
-> Si se elimina el servidor lógico, no se podrá recuperar una base de datos eliminada.
-
-
-### <a name="restore-backups-from-long-term-retention"></a>Restauración de copias de seguridad de la retención a largo plazo
-
-Si la pérdida de datos se ha producido fuera del período de retención actual para las copias de seguridad automatizadas y la base de datos está configurada para la retención a largo plazo con Azure Blob Storage, puede restaurar desde una copia de seguridad completa de Azure Blob Storage a una nueva base de datos. Llegados a este punto, puede reemplazar la base de datos original por la restaurada o copiar la información que necesite de los datos restaurados en la base de datos original. Si tiene que recuperar una versión anterior de la base de datos antes de una actualización de la aplicación principal, satisfacer una solicitud de auditores o una orden judicial, puede crear una base de datos mediante una copia de seguridad completa guardada en Azure Blob Storage.  Para más información, consulte [retención a largo plazo](sql-database-long-term-retention.md).
-
-## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Recuperación de una base de datos en otra región tras una interrupción en el centro de datos regional de Azure
-<!-- Explain this scenario -->
-
-Aunque es poco habitual, en los centros de datos de Azure pueden producirse interrupciones. Cuando esto ocurre, provoca también una interrupción en el negocio que podría extenderse solo unos pocos minutos o, incluso, horas.
-
-* Una opción consiste en esperar a que la base de datos vuelva a estar en línea cuando termine la interrupción del centro de datos. Esto puede hacerse con las aplicaciones que pueden permitirse que la base de datos esté desconectada. Por ejemplo, los proyectos de desarrollo o las pruebas gratuitas no tienen que estar en funcionamiento constantemente. Cuando se produce una interrupción en un centro de datos, no sabe cuánto durará, por lo que esta opción solo es útil si no necesita utilizar la base de datos durante un tiempo.
-* Otra opción consiste en realizar una conmutación por error a otra región de datos si utiliza la replicación geográfica activa o la recuperación mediante copias de seguridad de bases de datos con redundancia geográfica (restauración geográfica). La conmutación por error solo lleva unos segundos, mientras que la recuperación de una base de datos a partir de copias de seguridad dura horas.
 
 Cuando pase a la acción, el tiempo que se tarde en recuperar las bases de datos y la cantidad de información que se pierde en el caso de una interrupción en el centro de datos dependerá de cómo decida usar las características de continuidad empresarial de la aplicación. De hecho, puede decidir usar una combinación de copias de seguridad de bases de datos y la replicación geográfica activa según los requisitos de la aplicación. Para ver una explicación de las consideraciones de diseño de las aplicaciones para bases de datos independientes y grupos elásticos con estas características de continuidad empresarial, consulte [Diseño de una aplicación para la recuperación ante desastres](sql-database-designing-cloud-solutions-for-disaster-recovery.md) y [Estrategias de recuperación ante desastres para aplicaciones que usan el grupo elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
-ms.openlocfilehash: 74907693270e6cd340d3b34585a80077aa87f0f7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: bb3b3061c15a661caff778ca5c0ec48b0434c718
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055752"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42143276"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Tutorial: Configuración de Cisco Spark para el aprovisionamiento automático de usuarios
 
@@ -30,7 +30,7 @@ El objetivo de este tutorial es mostrar los pasos que se realizan en Cisco Spark
 > [!NOTE]
 > Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](./../active-directory-saas-app-provisioning.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
@@ -171,6 +171,10 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de la actividad de aprovisionamiento, que describe todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Cisco Spark.
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../active-directory-saas-provisioning-reporting.md).
+
+## <a name="connector-limitations"></a>Limitaciones del conector
+
+* Actualmente, Cisco Spark se encuentra en la fase de pruebas de campo tempranas (EFT) de Cisco. Para más información, póngase en contacto con el [equipo de soporte técnico de Cisco](https://www.webex.co.in/support/support-overview.html). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

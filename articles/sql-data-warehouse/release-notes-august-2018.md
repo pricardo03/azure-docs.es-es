@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/06/2018
+ms.date: 08/13/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 1f3b17f3163c29f9b9e1e47e14ccdbc1e37e1010
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 27030256b88f429d080c7a7ce69ed3c83eca337c
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39633927"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42143051"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>¿Cuáles son las novedades de Azure SQL Data Warehouse? Agosto de 2018
 Continuamente se aplican mejoras a Azure SQL Data Warehouse. En este artículo se describen las nuevas características y los cambios que se han incluido en agosto de 2018.
@@ -26,6 +26,15 @@ Microsoft ha introducido la [funcionalidad Intelligent Insights automática](htt
 Puede ver las recomendaciones en el portal de Azure Advisor: ![Recomendaciones del portal de Azure Advisor para Azure SQL Data Warehouse](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/4e205b6d-df04-48db-8eec-d591f2592cf4.png).
 
 Puede profundizar en cada categoría para ver las recomendaciones de la alerta específica: ![Recomendación del portal de Azure Advisor para Azure SQL Data Warehouse](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/3c42426e-6969-46e3-9025-c34c0755a302.png).
+
+
+## <a name="bug-fixes"></a>Corrección de errores
+
+| Título | DESCRIPCIÓN |
+|:---|:---|
+| **Potential Query failures when the split count exceeds max limit (Posibles errores de consulta cuando el recuento dividido supera el límite máximo)** |Cuando se supera el límite de división del archivo superior de 1 millón, una excepción no atendida provocó el volcado del motor de SQL y el error de todas las consultas. Esta corrección aborda el problema al controlar la excepción correctamente y devolver un error sin provocar el error en las consultas. |
+| **Increased ExternalMoveReadersPerNode default value to improve load perfomance (Valor predeterminado ExternalMoveReadersPerNode aumentado para mejorar el rendimiento de carga)** |Este problema se debía a que la configuración de la propiedad ExternalMoveReadersPerNode no estaba sincronizada con la configuración de Service Fabric. Esta regresión provocaba una disminución del rendimiento de carga de Gen2. La corrección devuelve el rendimiento de carga de Gen2 a los parámetros de diseño optimizados.|
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ya conoce un poco SQL Data Warehouse, aprenda a [crear una instancia de SQL Data Warehouse][create a SQL Data Warehouse] rápidamente. Si no está familiarizado con Azure, el [Glosario de Azure][Azure glossary] le puede resultar útil para consultar la nueva terminología que se encuentre. O bien, examine algunos de estos otros recursos de SQL Data Warehouse.  

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: c2892d51c6eb5e71c0b1af400b78e993742fede0
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 32bdf1080aa6e7c5884747eeecad3f42c7334c3a
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173057"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444833"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de compatibilidad para replicar desde una región de Azure a otra
 
@@ -34,11 +34,11 @@ En este artículo se resumen las configuraciones y los componentes admitidos al 
 
 ## <a name="resource-support"></a>Compatibilidad de recursos
 
-**Tipo de movimiento de recursos** | **Detalles** 
+**Tipo de movimiento de recursos** | **Detalles**
 --- | --- | ---
 **Mover el almacén entre grupos de recursos** | No compatible<br/><br/> No se puede mover un almacén de servicios de recuperación entre grupos de recursos.
 **Mover recursos de proceso, almacenamiento y red entre grupos de recursos** | No compatible.<br/><br/> Si mueve una máquina virtual o los componentes asociados, como almacenamiento o la red, una vez que está replicando, tendrá que deshabilitar la replicación y volver a habilitar la replicación para la máquina virtual.
-**Replicar máquinas virtuales de Azure de una suscripción a otra para la recuperación ante desastres** | No compatible.
+**Replicar máquinas virtuales de Azure de una suscripción a otra para la recuperación ante desastres** | Se admite en el mismo inquilino de Azure Active Directory.
 **Migrar máquinas virtuales entre suscripciones** | No compatible.
 **Migrar máquinas virtuales dentro de la misma región** | No compatible.
 

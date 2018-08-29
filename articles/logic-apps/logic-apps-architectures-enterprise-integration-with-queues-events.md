@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: a86c4c4227795a712dd51ace1fbefe9d2b96518a
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9eef382ea264bcf9e59dcc408d14a59355b0369b
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116119"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445684"
 ---
 # <a name="reference-architecture-enterprise-integration-with-queues-and-events"></a>Arquitectura de referencia: integración empresarial con colas y eventos
 
@@ -42,7 +42,7 @@ La arquitectura consta de los siguientes componentes:
 - **Conectores**. Logic Apps usa los [conectores](https://docs.microsoft.com/azure/connectors/apis-list) para conectarse a servicios de uso habitual. Logic Apps ya dispone de cientos de conectores diferentes, pero también puede crear un conector personalizado.
 - **Azure Service Bus**. [Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview) proporciona mensajería segura y de confianza. La mensajería se puede usar para desacoplar las aplicaciones e integrarlas con otros sistemas basados en mensajes.
 - **Azure Event Grid**. [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) es una plataforma sin servidor que se usa para publicar y entregar eventos de aplicación.
-- **Dirección IP**. El servicio Azure API Management tiene una [dirección IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) pública fija y un nombre de dominio. El nombre de dominio es un subdominio de azure-api.net; por ejemplo, contoso.azure-api.net. Logic Apps y Service Bus también tienen una dirección IP pública. Sin embargo, en esta arquitectura, restringimos el acceso para llamar a puntos de conexión de Logic Apps solo a la dirección IP de API Management (para la seguridad). Las llamadas a Service Bus se protegen mediante una firma de acceso compartido (SAS).
+- **Dirección IP**. El servicio Azure API Management tiene una [dirección IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) pública fija y un nombre de dominio. El nombre de dominio predeterminado es un subdominio de azure-api.net, por ejemplo, contoso.azure-api.net, pero también se pueden configurar [dominios personalizados](https://docs.microsoft.com/azure/api-management/configure-custom-domain). Logic Apps y Service Bus también tienen una dirección IP pública. Sin embargo, en esta arquitectura, restringimos el acceso para llamar a puntos de conexión de Logic Apps solo a la dirección IP de API Management (para la seguridad). Las llamadas a Service Bus se protegen mediante una firma de acceso compartido (SAS).
 - **Azure DNS**. [Azure DNS](https://docs.microsoft.com/azure/dns/) es un servicio de hospedaje para dominios DNS. Azure DNS proporciona resolución de nombres mediante el uso de la infraestructura de Microsoft Azure. Al hospedar dominios en Azure, puede administrar los registros DNS con las mismas credenciales, API, herramientas y facturación que usa con los demás servicios de Azure. Para usar un nombre de dominio personalizado (como contoso.com), cree registros DNS que asignen el nombre de dominio personalizado a la dirección IP. Para más información, consulte el artículo sobre cómo [configurar un nombre de dominio personalizado en API Management](https://docs.microsoft.com/en-us/azure/api-management/configure-custom-domain).
 - **Azure Active Directory (Azure AD)**. Use [Azure AD](https://docs.microsoft.com/azure/active-directory/) u otro proveedor de identidades para la autenticación. Azure AD proporciona autenticación para acceder a los puntos de conexión de la API al pasar una [instancia de JSON Web Token para API Management](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) para validarla. Azure AD puede proteger el acceso al portal para desarrolladores de API Management (solo niveles Estándar y Premium).
 

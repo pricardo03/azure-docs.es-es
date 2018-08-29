@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: e19130c5ee418ebaa41f9ee42e217c52cdeec6cb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7297633b5a8954eb39e0a40bfd45b02d3838a734
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697949"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146563"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creación de un conjunto de escalado de máquinas virtuales que usa Zonas de disponibilidad
 
@@ -45,10 +45,10 @@ Al implementar un conjunto de escalado, también tiene la opción de realizar la
 
 ### <a name="zone-balancing"></a>Equilibrio de zona
 
-Por último, para conjuntos de escalado implementados en varias zonas, también tiene la opción de elegir la mejor opción de equilibrio de zonas o equilibrio de zonas estricto. Un conjunto de escalado se considera equilibrado si el número de máquinas virtuales de cada zona está comprendido en el número de máquinas virtuales de las demás. Por ejemplo: 
+Por último, para conjuntos de escalado implementados en varias zonas, también tiene la opción de elegir la mejor opción de equilibrio de zonas o equilibrio de zonas estricto. Un conjunto de escalado se considera “equilibrado” si cada zona tiene el mismo número de VM o +\\- 1 VM en todas las otras zonas para el conjunto de escalado. Por ejemplo: 
 
-- Se considera equilibrado un conjunto de escalado con dos máquinas virtuales en la zona 1, tres en la zona 2 y tres en la zona 3.
-- Se considera equilibrado un conjunto de escalado con una máquina virtual en la zona 1, tres en la zona 2 y tres en la zona 3.
+- Se considera equilibrado un conjunto de escalado con dos máquinas virtuales en la zona 1, tres en la zona 2 y tres en la zona 3. Hay solo una zona con un recuento de VM diferentes y es solo 1 menor que las demás zonas. 
+- Se considera equilibrado un conjunto de escalado con una máquina virtual en la zona 1, tres en la zona 2 y tres en la zona 3. La zona 1 tiene 2 VM menos que las zonas 2 y 3.
 
 Es posible que las máquinas virtuales del conjunto de escalado se creen correctamente, aunque sus extensiones no puedan realizar la implementación. Estas máquinas virtuales con errores de extensión se siguen teniendo en cuenta para determinar si un conjunto de escalado está equilibrado. Por ejemplo, un conjunto de escalado con tres máquinas virtuales en la zona 1, tres en la zona 2 y tres en la zona 3 se considera equilibrado aunque todas las extensiones produzcan un error en la zona 1 y sean correctas en las zonas 2 y 3.
 
@@ -98,7 +98,7 @@ Para ver un ejemplo completo de los recursos de red y un conjunto de escalado de
 
 ### <a name="zone-redundant-scale-set"></a>Conjunto de escalado con redundancia de zona
 
-Para crear un conjunto de escalado con redundancia de zona, use una dirección IP pública de SKU *estándar* y un equilibrador de carga. Para obtener una mejor redundancia, la SKU *estándar* crea recursos de red con redundancia de zona. Para más información, consulte [Introducción a Azure Load Balancer estándar](../load-balancer/load-balancer-standard-overview.md).
+Para crear un conjunto de escalado con redundancia de zona, use una dirección IP pública de SKU *estándar* y un equilibrador de carga. Para obtener una mejor redundancia, la SKU *estándar* crea recursos de red con redundancia de zona. Para obtener más información, consulte [Introducción a Azure Load Balancer Estándar](../load-balancer/load-balancer-standard-overview.md) y [Load Balancer Estándar y zonas de disponibilidad](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Para crear un conjunto de escalado con redundancia de zona, especifique varias zonas con el parámetro `--zones`. En el ejemplo siguiente se crea un conjunto de escalado con redundancia de zona denominado *myScaleSet* en las zonas *1,2,3*:
 
@@ -215,7 +215,7 @@ Para crear un conjunto de escalado con redundancia de zona, especifique varios v
 }
 ```
 
-Si crea un equilibrador de carga o una dirección IP pública especifique la propiedad *"sku": { "nombre": "estándar" }"* para crear los recursos de red con redundancia de zona. También debe crear un grupo de seguridad de red y reglas para permitir cualquier tráfico. Para más información, consulte [Introducción a Azure Load Balancer estándar](../load-balancer/load-balancer-standard-overview.md).
+Si crea un equilibrador de carga o una dirección IP pública especifique la propiedad *"sku": { "nombre": "estándar" }"* para crear los recursos de red con redundancia de zona. También debe crear un grupo de seguridad de red y reglas para permitir cualquier tráfico. Para obtener más información, consulte [Introducción a Azure Load Balancer Estándar](../load-balancer/load-balancer-standard-overview.md) y [Load Balancer Estándar y zonas de disponibilidad](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Para ver un ejemplo completo de los recursos de red y un conjunto de escalado con redundancia de zona, consulte [esta plantilla de Resource Manager de ejemplo](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 

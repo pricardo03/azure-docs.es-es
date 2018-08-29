@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: bc6f25c7a8a779d949fbd09f9a9a9a37ec83f56a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9072a25b55bf461ad7dcc8393b98a66d87866d48
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206540"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144429"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partición de Reliable Services de Service Fabric
 Este artículo proporciona una introducción a los conceptos básicos de la creación de particiones en Reliable Services de Azure Service Fabric. El código fuente que se usa en el artículo también está disponible en [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -363,6 +363,9 @@ Puesto que literalmente queremos tener una partición por cada letra, podemos us
     ![Captura de pantalla de explorador](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
 Todo el código fuente del ejemplo está disponible en [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+
+## <a name="reliable-services-and-actor-forking-subprocesses"></a>Subprocesos de bifurcación de Reliable Services y Actors
+Service Fabric no admite Reliable Services y, por consiguiente, los subprocesos de bifurcación de Reliable Actors. Un ejemplo de por qué no se admite es que [CodePackageActivationContext](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) no se puede usar para registrar un subproceso no admitido, y los tokens de cancelación solo se envían a procesos registrados; como consecuencia, se producen todo tipo de problemas, como errores de actualización, cuando los subprocesos no se cierran después de que el proceso principal ha recibido un token de cancelación. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información sobre los conceptos de Service Fabric, vea lo siguiente:

@@ -1,20 +1,8 @@
+---Título datos: Rehospedaje de una aplicación de entorno local de Contoso mediante la migración a máquinas virtuales de Azure e Instancia administrada de Azure SQL Database | Descripción de Microsoft Docs: Aprenda cómo Contoso vuelve a hospedar una aplicación local en máquinas virtuales de Azure mediante el uso de la Instancia administrada de Azure SQL Database.
+services: site-recovery author: rayne-wiselman manager: carmonm ms.service: site-recovery ms.topic: conceptual ms.date: 08/13/2018 ms.author: raynew
+
 ---
-title: Rehospedaje de una aplicación local de Contoso mediante la migración a máquinas virtuales de Azure e Instancia administrada de Azure SQL Database | Microsoft Docs
-description: Aprenda cómo Contoso vuelve a hospedar una aplicación local en máquinas virtuales de Azure y mediante Instancia administrada de Azure SQL Database.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 07/12/2018
-ms.author: raynew
-ms.openlocfilehash: 3e3f8dffbaa7109423aacdbfbaa658bada8bb84a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215346"
----
+
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migración de Contoso: rehospedar una aplicación local en una máquina virtual de Azure e Instancia administrada de Azure SQL Database
 
 En este artículo, Contoso migra su máquina virtual front-end de la aplicación SmartHotel a una máquina virtual de Azure mediante el servicio Azure Site Recovery. Contoso también migra la base de datos de la aplicación a Instancia administrada de Azure SQL Database.
@@ -94,7 +82,7 @@ En este escenario:
 
 Servicio | DESCRIPCIÓN | Coste
 --- | --- | ---
-[Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) | Database Migration Service permite migraciones completas de varios orígenes de base de datos a plataformas de datos de Azure, con un tiempo de inactividad mínimo. | Más información sobre las [regiones admitidas](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) y los [precios de Database Migration Service](https://azure.microsoft.com/pricing/details/database-migration/).
+[Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) | Database Migration Service permite migraciones completas de varios orígenes de base de datos a plataformas de datos de Azure, con un tiempo de inactividad mínimo. | Información acerca de las [regiones admitidas](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) y los [precios de Database Migration Service](https://azure.microsoft.com/pricing/details/database-migration/).
 [Instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) | Instancia administrada es un servicio de base de datos administrada que representa una instancia de SQL Server completamente administrada en la nube de Azure. Usa el mismo código que la versión más reciente del motor de base de datos de SQL Server y tiene las características, mejoras de rendimiento y revisiones de seguridad más recientes. | El uso de una instancia administrada de Azure SQL Database en Azure conlleva unos gastos basados en la capacidad. Más información sobre los [precios de Instancia administrada](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | El servicio Site Recovery orquesta y administra la migración y la recuperación ante desastres de las máquinas virtuales de Azure y de las máquinas virtuales locales y los servidores físicos.  | Durante la replicación en Azure, se incurre en gastos de Azure Storage.  Las máquinas virtuales de Azure se crean, y generan gastos, cuando se produce una conmutación por error. Más información sobre las [tarifas y precios de Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 
@@ -117,7 +105,7 @@ Requisitos | Detalles
 **Inscribirse en la versión preliminar de Instancia administrada** | Es necesario estar inscrito en la versión preliminar pública limitada de Instancia administrada de SQL Database. También necesita una suscripción a Azure para [registrarse](https://portal.azure.com#create/Microsoft.SQLManagedInstance). El registro puede tardar unos días en completarse, así que asegúrese de hacerlo antes de empezar a implementar este escenario.
 **Suscripción de Azure** | Ya debería haber creado una suscripción cuando realizó la valoración en el primer artículo de esta serie. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> Si crea una cuenta gratuita, será el administrador de su suscripción y podrá realizar todas las acciones.<br/><br/> Si usa una suscripción existente y no es el administrador de ella, tendrá que solicitar al administrador que le asigne permisos de propietario o colaborador.<br/><br/> Si necesita permisos más específicos, consulte [Uso del control de acceso basado en roles para administrar el acceso a Site Recovery](../site-recovery/site-recovery-role-based-linked-access-control.md). 
 **Site Recovery (local)** | Su instancia local de vCenter Server debe ejecutarse en las versiones 5.5, 6.0 o 6.5.<br/><br/> Un host ESXi que ejecute la versión 5.5, 6.0 o 6.5<br/><br/> Una o más máquinas virtuales VMware que se ejecuten en el host ESXi.<br/><br/> Las máquinas virtuales tienen que cumplir los [requisitos de Azure](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).<br/><br/> Configuración de [red](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) y [almacenamiento](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) compatible.
-**Database Migration Service** | Para Database Migration Service, necesita un [dispositivo VPN local compatible](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).<br/><br/> Tiene que poder configurar el dispositivo VPN local. Debe tener una dirección IPv4 pública de uso externo. Esta dirección no puede estar situada detrás de un dispositivo NAT.<br/><br/> Asegúrese de que tiene acceso a la base de datos local de SQL Server.<br/><br/> Firewall de Windows debe poder acceder al motor de base de datos de origen. Aprenda a [configurar Firewall de Windows para el acceso al motor de base de datos](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> Si hay un firewall delante de la máquina de base de datos, agregue reglas para permitir el acceso a la base de datos y a los archivos a través del puerto 445 de SMB.<br/><br/> Las credenciales usadas para conectar con la instancia de SQL Server de origen y la instancia administrada de destino deben ser miembros del rol de servidor sysadmin.<br/><br/> Necesita un recurso compartido de red en la base de datos local que pueda usar Database Migration Service para realizar una copia de seguridad de la base de datos de origen.<br/><br/> Asegúrese de que la cuenta de servicio que ejecuta la instancia de SQL Server de origen tenga permisos de escritura sobre el recurso compartido de red.<br/><br/> Anote un nombre de usuario y una contraseña de Windows que tengan permisos de control completos sobre el recurso compartido de red. Database Migration Service suplanta estas credenciales de usuario para cargar los archivos de copia de seguridad en el contenedor de Azure Storage.<br/><br/> El proceso de instalación de SQL Server Express establece el protocolo TCP/IP en **deshabilitado** de forma predeterminada. Asegúrese de que esté habilitado.
+**Database Migration Service** | Para Database Migration Service, necesita un [dispositivo VPN local compatible](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).<br/><br/> Tiene que poder configurar el dispositivo VPN local. Debe tener una dirección IPv4 pública de uso externo. Esta dirección no puede estar situada detrás de un dispositivo NAT.<br/><br/> Asegúrese de que tiene acceso a la base de datos local de SQL Server.<br/><br/> Firewall de Windows debe poder acceder al motor de base de datos de origen. Aprenda a [configurar Firewall de Windows para el acceso al motor de base de datos](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> Si hay un firewall delante de la máquina de base de datos, agregue reglas para permitir el acceso a la base de datos y a los archivos a través del puerto 445 de SMB.<br/><br/> Las credenciales usadas para conectar con la instancia de SQL Server de origen y la instancia administrada de destino deben ser miembros del rol de servidor sysadmin.<br/><br/> Es necesario tener un recurso compartido de red en la base de datos local que Database Migration Service pueda usar para realizar una copia de seguridad de la base de datos de origen.<br/><br/> Asegúrese de que la cuenta de servicio que ejecuta la instancia de SQL Server de origen tenga permisos de escritura sobre el recurso compartido de red.<br/><br/> Anote un nombre de usuario y una contraseña de Windows que tengan permisos de control completos sobre el recurso compartido de red. Database Migration Service suplanta estas credenciales de usuario para cargar los archivos de copia de seguridad en el contenedor de Azure Storage.<br/><br/> El proceso de instalación de SQL Server Express establece el protocolo TCP/IP en **deshabilitado** de forma predeterminada. Asegúrese de que esté habilitado.
 
 ## <a name="scenario-steps"></a>Pasos del escenario
 
@@ -125,7 +113,7 @@ A continuación se indica cómo Contoso configura la implementación:
 
 > [!div class="checklist"]
 > * **Paso 1: Configuración de una instancia administrada de SQL Azure**: Contoso debe crear previamente una instancia administrada a la que se migrará la base de datos de SQL Server local.
-> * **Paso 2: Preparación de Database Migration Service**: Contoso debe registrar el proveedor de migración de base de datos, crear una instancia y, luego, crear un proyecto de Database Migration Service. Contoso también debe configurar el identificador de recursos uniforme (URI) de una firma de acceso compartido (SAS) para Database Migration Service. Un URI de SAS proporciona acceso delegado a recursos de la cuenta de almacenamiento de Contoso, así Contoso puede conceder permisos limitados a los objetos de almacenamiento. Contoso configura un URI de SAS, así Database Migration Service puede acceder al contenedor de cuentas de almacenamiento en el que el servicio carga los archivos de copia de seguridad de SQL Server.
+> * **Paso 2: Preparación de Database Migration Service**: Contoso tiene que registrar al proveedor de migración de base de datos, crear una instancia y, luego, crear un proyecto de Database Migration Service. Contoso también tiene que configurar un identificador de recursos uniforme (URI) de una firma de acceso compartido (SAS) para Database Migration Service. Un URI de SAS proporciona acceso delegado a recursos de la cuenta de almacenamiento de Contoso, así Contoso puede conceder permisos limitados a los objetos de almacenamiento. Contoso configura un URI de SAS, así Database Migration Service puede acceder al contenedor de cuenta de almacenamiento en el que el servicio carga los archivos de copia de seguridad de SQL Server.
 > * **Paso 3: Preparación de Azure Site Recovery**: Contoso debe crear una cuenta de almacenamiento para almacenar los datos replicados de Site Recovery. También debe crear un almacén de Azure Recovery Services.
 > * **Paso 4: Preparación de VMware local para Site Recovery**: Contoso preparará las cuentas para la detección de máquinas virtuales y la instalación del agente para conectarse a las máquinas virtuales de Azure tras la conmutación por error.
 > * **Paso 5: Replicación de las máquinas virtuales**: para configurar la replicación, Contoso configura los entornos de origen y destino de Site Recovery, configura una directiva de replicación y empieza a replicar las máquinas virtuales en Azure Storage.
@@ -229,13 +217,13 @@ Ahora, Contoso puede aprovisionar una instancia administrada de SQL Database:
 
 Más información sobre cómo [aprovisionar una instancia administrada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal).
 
-## <a name="step-2-prepare-the-database-management-service"></a>Paso 2: Preparación de Database Migration Service
+## <a name="step-2-prepare-the-database-migration-service"></a>Paso 2: Preparación de Database Migration Service
 
-Para preparar Database Migration Service, Contoso debe hacer algunas cosas:
+Para preparar Database Migration Service, Contoso tiene que hacer algunas cosas:
 
-- Registrar el proveedor de Database Migration Service en Azure.
+- Registrar al proveedor de Database Migration Service en Azure.
 - Proporcionar a Database Migration Service acceso a Azure Storage para cargar los archivos de copia de seguridad que se usan para migrar una base de datos. Para proporcionar acceso a Azure Storage, Contoso crea un contenedor de almacenamiento de blobs de Azure. Contoso genera un URI de SAS para el contenedor de almacenamiento de blobs. 
-- Crea un proyecto de Database Migration Service.
+- Crear un proyecto de Database Migration Service.
 
 A continuación, Contoso realiza los pasos siguientes:
 
@@ -248,17 +236,17 @@ A continuación, Contoso realiza los pasos siguientes:
 
 3. Contoso crea una instancia de Database Migration Service. 
 
-    ![Database Migration Service: creación de la instancia](media/contoso-migration-rehost-vm-sql-managed-instance/dms-instance.png)
+    ![Database Migration Service: creación de una instancia](media/contoso-migration-rehost-vm-sql-managed-instance/dms-instance.png)
 
 4. Contoso coloca la instancia de Database Migration Service en la subred **PROD-DC-EUS2** de la red virtual **VNET-PROD-DC-EUS2**.
-    - Contoso coloca ahí Database Migration Service porque el servicio debe estar en una red virtual que pueda acceder a la máquina virtual de SQL Server local mediante una puerta de enlace VPN.
+    - Contoso coloca Database Migration Service en esa ubicación porque el servicio tiene que estar en una red virtual que pueda acceder a la máquina virtual de SQL Server local mediante una puerta de enlace VPN.
     - **VNET-PROD-EUS2** está emparejada con **VNET-HUB-EUS2** y puede usar puertas de enlace remotas. La opción **Use remote gateways** (Usar puertas de enlace remotas) garantiza que Database Migration Service pueda comunicarse cuando sea necesario.
 
         ![Database Migration Service: configuración de la red](media/contoso-migration-rehost-vm-sql-managed-instance/dms-network.png)
 
 *¿Necesita más ayuda?*
 
-- Más información sobre cómo [configurar Database Migration Service](https://docs.microsoft.com/azure/dms/quickstart-create-data-migration-service-portal).
+- Aprenda a [configurar Database Migration Service](https://docs.microsoft.com/azure/dms/quickstart-create-data-migration-service-portal).
 - Más información sobre cómo [crear y usar SAS](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 
@@ -451,11 +439,11 @@ Ahora, Contoso ya puede empezar a replicar WebVM.
 
 Puede leer un tutorial completo de estos pasos en [Habilitación de la replicación](https://docs.microsoft.com/azure/site-recovery/vmware-azure-enable-replication).
 
-## <a name="step-6-migrate-the-database-by-using-the-database-management-service"></a>Paso 6: Migración de la base de datos mediante Database Migration Service
+## <a name="step-6-migrate-the-database-by-using-the-database-migration-service"></a>Paso 6: Migración de la base de datos mediante Database Migration Service
 
-Contoso debe crear un proyecto de Database Migration Service y luego migrar la base de datos.
+Contoso tiene que crear un proyecto de Database Migration Service y luego migrar la base de datos.
 
-### <a name="create-a-database-management-service-project"></a>Creación de un proyecto de Database Migration Service
+### <a name="create-a-database-migration-service-project"></a>Creación de un proyecto de Database Migration Service
 
 1. Contoso crea un proyecto de Database Migration Service. Contoso selecciona el tipo de servidor de origen **SQL Server**. Contoso selecciona **Instancia administrada de Azure SQL Database** como destino.
 
@@ -471,7 +459,7 @@ Contoso debe crear un proyecto de Database Migration Service y luego migrar la b
 
 2. Contoso selecciona la base de datos para migrar (**SmartHotel.Registration**):
 
-    ![Database Migration Service: selección de las bases de datos de origen](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
+    ![Database Migration Service: selección de base de datos de origen](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
 
 3. Para el destino, Contoso escribe el nombre de la instancia administrada de Azure. Contoso escribe las credenciales de acceso para la instancia administrada.
 
@@ -480,7 +468,7 @@ Contoso debe crear un proyecto de Database Migration Service y luego migrar la b
 4. En **Nueva actividad** > **Ejecutar migración**, Contoso especifica la configuración para ejecutar la migración:
     - Credenciales de origen y destino.
     - La base de datos para migrar.
-    - El recurso compartido de red que Contoso creó en la máquina virtual local. Database Migration Service realiza copias de seguridad de origen de este recurso compartido. 
+    - El recurso compartido de red que Contoso creó en la máquina virtual local. Database Migration Service lleva las copias de seguridad de origen a este recurso compartido. 
         - La cuenta de servicio que ejecuta la instancia de SQL Server de origen debe tener permisos de escritura sobre este recurso compartido.
         - Se debe usar la ruta de acceso del nombre de dominio completo (FQDN) al recurso compartido.
     - El URI de SAS que proporciona a Database Migration Service acceso al contenedor de cuentas de almacenamiento en el que el servicio carga los archivos de copia de seguridad para la migración.
@@ -490,7 +478,7 @@ Contoso debe crear un proyecto de Database Migration Service y luego migrar la b
 5. Contoso guarda la migración y luego la ejecuta.
 6. En **Información general**, Contoso supervisa el estado de la migración.
 
-    ![Database Migration Service: supervisión](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
+    ![Database Migration Service: seguimiento](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
 
 7. Cuando ha finalizado la migración, Contoso comprueba que las bases de datos de destino existen en la instancia administrada.
 

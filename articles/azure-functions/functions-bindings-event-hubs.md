@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: 961126f62c3e8fbb947b9d1b34ac157bf37a8cba
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 610771e659a80e330fbb1c9d6fd97c15ff832386
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480944"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146724"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Azure Event Hubs para Azure Functions
 
@@ -79,6 +79,7 @@ Vea el ejemplo específico del lenguaje:
 * [Script de C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### <a name="trigger---c-example"></a>Desencadenador: ejemplo de C#
 
@@ -312,6 +313,34 @@ module.exports = function (context, eventHubMessages) {
 };
 ```
 
+### <a name="trigger---java-example"></a>Desencadenador: ejemplo de Java
+
+En el ejemplo siguiente se muestra un enlace de desencadenador de centro de eventos en un archivo *function.json* y una [función de Java](functions-reference-java.md) que usa el enlace. La función registra el cuerpo del mensaje del desencadenador del centro de eventos.
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "msg",
+  "direction": "in",
+  "eventHubName": "myeventhubname",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+
+```java
+@FunctionName("ehprocessor")
+public void eventHubProcessor(
+  @EventHubTrigger(name = "msg",
+                  eventHubName = "myeventhubname",
+                  connection = "myconnvarname") String message,
+       final ExecutionContext context ) 
+       {
+          context.getLogger().info(message);
+ }
+ ```
+
+ En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `EventHubTrigger` en los parámetros cuyo valor provendría del centro de eventos. Los parámetros con estas anotaciones hacen que la función se ejecuta cuando llega un evento.  Esta anotación se puede usar con tipos nativos de Java, POJO o valores que aceptan valores NULL mediante Optional<T>. 
+
 ## <a name="trigger---attributes"></a>Desencadenador: atributos
 
 En las [bibliotecas de clases de C#](functions-dotnet-class-library.md), use el atributo [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs).
@@ -381,6 +410,7 @@ Vea el ejemplo específico del lenguaje:
 * [Script de C# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output---java-example)
 
 ### <a name="output---c-example"></a>Salida: ejemplo de C#
 
@@ -530,6 +560,21 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+### <a name="output---java-example"></a>Salida: ejemplo de Java
+
+El ejemplo siguiente muestra una función de Java que escribe un mensaje que contiene la hora actual en un centro de eventos.
+
+```java
+@}FunctionName("sendTime")
+@EventHubOutput(name = "event", eventHubName = "samples-workitems", connection = "AzureEventHubConnection")
+public String sendTime(
+   @TimerTrigger(name = "sendTimeTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo)  {
+     return LocalDateTime.now().toString();
+ }
+ ```
+
+En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@EventHubOutput` en los parámetros cuyo valor se publicaría en el centro de eventos.  El parámetro debe ser del tipo `OutputBinding<T>`, donde T es un tipo POJO o cualquier tipo nativo de Java. 
 
 ## <a name="output---attributes"></a>Salida: atributos
 

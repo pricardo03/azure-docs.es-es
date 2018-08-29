@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: 492a0a63198fe2013cfeac0459fc6da8521a5e6e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b43c082b5c4925fee2b1145956a2847e7f30bb11
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056807"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143324"
 ---
 # <a name="read-nsg-flow-logs"></a>Lectura de registros de flujos de NSG
 
@@ -28,7 +28,7 @@ Los registros de flujos de NSG se almacenan en una cuenta de almacenamiento de [
 
 ## <a name="scenario"></a>Escenario
 
-En el siguiente escenario tiene un registro de flujo de ejemplo que se almacena en una cuenta de almacenamiento. Veremos todos los pasos necesarios para leer de forma selectiva los eventos más recientes de los registros de flujos de NSG. En este artículo usaremos PowerShell, aunque los conceptos tratados en él no se limitan al lenguaje de programación y se pueden aplicar a todos los lenguajes admitidos por las API de Azure Storage.
+En el siguiente escenario tiene un registro de flujo de ejemplo que se almacena en una cuenta de almacenamiento. Aprenderá a leer de forma selectiva los eventos más recientes de los registros de los flujos de grupo de seguridad de red. En este artículo usaremos PowerShell, aunque los conceptos tratados en él no se limitan al lenguaje de programación y se pueden aplicar a todos los lenguajes admitidos por las API de Azure Storage.
 
 ## <a name="setup"></a>Configuración
 
@@ -98,7 +98,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>Lectura del blob en bloques
 
-A continuación tenemos que leer la variable `$blocklist` para recuperar los datos. En este ejemplo se recorre en iteración la lista de bloques, se leen los bytes de cada bloque y se almacenan en una matriz. Para recuperar los datos se usa el método [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_).
+A continuación tiene que leer la variable `$blocklist` para recuperar los datos. En este ejemplo se recorre en iteración la lista de bloques, se leen los bytes de cada bloque y se almacenan en una matriz. Para recuperar los datos se usa el método [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_).
 
 ```powershell
 # Set the size of the byte array to the largest block
@@ -132,7 +132,7 @@ $valuearray += $value
 }
 ```
 
-Ahora la matriz `$valuearray` contiene el valor de cadena de cada bloque. Para comprobar la entrada, ejecute `$valuearray[$valuearray.Length-2]` para obtener el penúltimo valor de la matriz. No queremos el último valor, que es el corchete de cierre.
+Ahora la matriz `$valuearray` contiene el valor de cadena de cada bloque. Para comprobar la entrada, ejecute `$valuearray[$valuearray.Length-2]` para obtener el penúltimo valor de la matriz. El último valor no sirve ya que es el corchete de cierre.
 
 Los resultados de este valor se muestran en el ejemplo siguiente:
 
@@ -157,7 +157,6 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 ```
 
 Este escenario es un ejemplo de cómo leer las entradas de registros de flujos de NSG sin tener que analizar todo el registro. Puede leer las entradas nuevas del registro a medida que se escriben mediante el identificador de bloque o mediante el seguimiento de la longitud de los bloques almacenados en el blob en bloques. Esto le permite leer solo las entradas nuevas.
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

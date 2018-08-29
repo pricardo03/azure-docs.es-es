@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 29f346b2a42f8d12e26bd59fbab86d763d3f29f0
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2f07107ad63ddd04e67528bf4f409dabf4a4d0c0
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944717"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42142707"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual del agente de Network Watcher para Windows
 
@@ -29,9 +29,9 @@ ms.locfileid: "33944717"
 [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) es un servicio de supervisión, diagnóstico y análisis del rendimiento de red que permite supervisar redes de Azure. La extensión de máquina virtual del agente de Network Watcher es un requisito para capturar el tráfico de red a petición y otra funcionalidad avanzada en máquinas virtuales de Azure.
 
 
-En este documento se especifican las plataformas compatibles y las opciones de implementación de la extensión de máquina virtual del agente de Network Watcher para Windows. La instalación del agente no interrumpe la máquina virtual ni requiere reiniciarla.
+En este documento se especifican las plataformas compatibles y las opciones de implementación de la extensión de máquina virtual del agente de Network Watcher para Windows. La instalación del agente no interrumpe la máquina virtual ni requiere reiniciarla. Puede implementar la extensión en máquinas virtuales que implemente. Si la máquina virtual se ha implementado mediante un servicio de Azure, consulte la documentación del servicio para decidir si permite o no la instalación de extensiones en la máquina virtual.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="operating-system"></a>Sistema operativo
 

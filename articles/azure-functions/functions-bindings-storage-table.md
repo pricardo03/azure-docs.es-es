@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: f42948f0f3acf1bacf6c80010489890f4b8d122b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 28a6082718080314a769b59c81cf51a20ff7e120
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523672"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142845"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de Azure Table Storage para Azure Functions
 
@@ -58,6 +58,7 @@ Vea el ejemplo específico del lenguaje:
 * [Enlace de script de C# a CloudTable](#input---c-script-example---cloudtable)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
+* [Java](#input---java-example)
 
 ### <a name="input---c-example---one-entity"></a>Entrada - ejemplo de C# - una entidad
 
@@ -414,6 +415,25 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
+### <a name="input---java-example"></a>Entrada: ejemplo de Java
+
+En el ejemplo siguiente se muestra una función desencadenada por HTTP que devuelve el recuento total de elementos de una partición especificada en el almacenamiento de la tabla.
+
+```java
+@FunctionName("getallcount")
+public int run(
+   @HttpTrigger(name = "req",
+                 methods = {"get"},
+                 authLevel = AuthorizationLevel.ANONYMOUS) Object dummyShouldNotBeUsed,
+   @TableInput(name = "items",
+                tableName = "mytablename",  partitionKey = "myparkey",
+                connection = "myconnvarname") MyItem[] items
+) {
+    return items.length;
+}
+```
+
+
 ## <a name="input---attributes"></a>Entrada: atributos
  
 Para [bibliotecas de clases de C#](functions-dotnet-class-library.md), utilice los siguientes atributos para configurar un enlace de entrada de la tabla:
@@ -470,7 +490,11 @@ La cuenta de almacenamiento que se debe usar se determina en el orden siguiente:
 * El atributo `StorageAccount` aplicado al mismo parámetro que el atributo `Table`.
 * El atributo `StorageAccount` aplicado a la función.
 * El atributo `StorageAccount` aplicado a la clase.
-* La cuenta de almacenamiento predeterminada de la aplicación de función (configuración de aplicación de "AzureWebJobsStorage").
+* La cuenta de almacenamiento predeterminada de la aplicación de función (configuración de aplicación "AzureWebJobsStorage").
+
+## <a name="input---java-annotations"></a>Entrada: anotaciones de Java
+
+En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@TableInput` en los parámetros cuyo valor provendría del almacenamiento de la tabla.  Esta anotación se puede usar con tipos nativos de Java, POJO o valores que aceptan valores NULL mediante Optional<T>. 
 
 ## <a name="input---configuration"></a>Entrada: configuración
 

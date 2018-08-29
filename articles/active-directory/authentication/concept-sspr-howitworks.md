@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 54e6b4f5804e7390b7574aa60b4d3a76df15da11
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413110"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42143685"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Cómo funciona el autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -94,6 +94,9 @@ Cuando se usa una aplicación móvil, por ejemplo, la aplicación Microsoft Auth
 | Características de las aplicaciones móviles disponibles | Código | Código o notificación |
 
 Los usuarios no tendrán la opción de registrar su aplicación móvil cuando se registren en el autoservicio de restablecimiento de contraseña[https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Los usuarios pueden registrar su aplicación móvil en [https://aka.ms/mfasetup](https://aka.ms/mfasetup) o en la nueva versión preliminar del registro de información de seguridad en [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+
+> [!WARNING]
+> Debe habilitar [Registro convergente para autoservicio de restablecimiento de contraseña y Azure Multi-Factor Authentication (versión preliminar pública)](concept-registration-mfa-sspr-converged.md) para que los usuarios puedan acceder a la nueva experiencia en [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 ### <a name="change-authentication-methods"></a>Cambio de métodos de autenticación
 

@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 6f6fa1ebc086530f138d32ee5a9c799b5bfbbdeb
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 3b05f553e591de2660e9842f316de0cb6f80c852
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412117"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143763"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Información general de los límites de recursos de Azure SQL Database 
 
@@ -22,15 +22,15 @@ En este artículo se proporciona información general sobre los límites de recu
 
 ## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>¿Cuál es el número máximo de servidores y bases de datos?
 
-| Máxima | Valor |
-| :--- | :--- |
-| Bases de datos por servidor | 5000 |
-| Número predeterminado de servidores por suscripción en cualquier región | 20 |
-| Número máximo de servidores por suscripción en cualquier región | 200 |
-| Cuota de DTU o eDTU por servidor | 54 000 |
-| Cuota de núcleo virtual por servidor | 540 |
-| Número máximo de grupos por servidor | limitado por el número de DTU o núcleos virtuales |
-|||
+| Máxima | Servidor lógico | Instancia administrada |
+| :--- | :--- | :--- |
+| Bases de datos por servidor/instancia | 5000 | 100 |
+| Número predeterminado de servidores por suscripción en cualquier región | 20 | N/D |
+| Número máximo de servidores por suscripción en cualquier región | 200 | N/D | 
+| Cuota de DTU o eDTU por servidor | 54 000 | N/D |  
+| Cuota de núcleo virtual por servidor/instancia | 540 | 80 |
+| Número máximo de grupos por servidor | Limitado por el número de DTU o núcleos virtuales | N/D |
+||||
 
 > [!NOTE]
 > Para obtener más cuota de DTU, eDTU, núcleos virtuales o más servidores que la cantidad predeterminada, se puede enviar una nueva solicitud de soporte técnico en Azure Portal para la suscripción con el tipo de problema "Cuota". La cuota de DTU o eDTU y el límite de base de datos por servidor restringe el número de grupos elásticos por servidor. 

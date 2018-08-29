@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 85d0c91a0b1cdf5703b394d6d232ab9cee72ee0c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 21dde5b0199345e9e8faffc6feac4854a3aa7350
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627151"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42143559"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Compra y configuración de un certificado SSL para Azure App Service
 
@@ -205,7 +205,7 @@ Para renovar manualmente el certificado, haga clic en **Renovación manual**. Pu
 Si el certificado SSL está configurado para la renovación automática, pero no se renueva automáticamente, puede tener una comprobación del dominio pendiente. Observe lo siguiente: 
 
 - GoDaddy, que genera certificados de App Service, requiere la comprobación del dominio una vez cada dos años. El administrador del dominio recibe un correo electrónico una vez cada tres años para comprobar el dominio. Un error al comprobar el correo electrónico o comprobar el dominio impide que el certificado de App Service se renueve automáticamente. 
-- Debido a un cambio en la directiva de GoDaddy, todos los certificados de App Service emitidos antes del 1 de marzo de 2018 requieren la comprobación de nuevo del dominio en el momento de la renovación siguiente (incluso si la renovación automática está habilitada para el certificado). Compruebe su correo electrónico y complete esta comprobación de dominio de un solo uso para continuar con la renovación automática del certificado de App Service. 
+- Debido a un cambio en la directiva de GoDaddy, todos los certificados de App Service emitidos antes del 1 de marzo de 2017 requieren la comprobación de nuevo del dominio en el momento de la renovación siguiente (incluso si la renovación automática está habilitada para el certificado). Compruebe su correo electrónico y complete esta comprobación de dominio de un solo uso para continuar con la renovación automática del certificado de App Service. 
 
 ## <a name="more-resources"></a>Más recursos
 

@@ -1,6 +1,6 @@
 ---
-title: Guía de inicio rápido del SDK de Image Search para Python | Microsoft Docs
-description: Configuración de la aplicación de consola del SDK de Image Search.
+title: 'Guía de inicio rápido: Solicitud y filtrado de imágenes mediante el SDK en Python'
+description: En esta guía de inicio rápido, solicita y filtra las imágenes devueltas por Bing Image Search, con Python.
 titleSuffix: Azure Image Search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
@@ -10,16 +10,16 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: e30852439ad8ec2d5ddc667b75167e8b5d35be33
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4729f103bb9b50d4ff039907db8eb677f3dc290a
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382590"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41936748"
 ---
-# <a name="image-search-sdk-python-quickstart"></a>Guía de inicio rápido del SDK de Image Search para Python
+ # <a name="quickstart-request-and-filter-images-using-the-sdk-and-python"></a>Guía de inicio rápido: Solicitud y filtrado de imágenes mediante el SDK y Python
 
-El SDK de Bing Image Search contiene la funcionalidad de la API REST para consultas de vídeo y análisis de resultados. 
+El SDK de Bing Image Search contiene la funcionalidad de la API REST para consultas de vídeos y análisis de resultados. 
 
 El [código fuente de los ejemplos del SDK de Bing Image Search para Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image_search_samples.py) está disponible en GitHub.
 
@@ -36,7 +36,7 @@ cd mytestenv
 python -m pip install azure-cognitiveservices-search-imagesearch
 ```
 ## <a name="image-search-client"></a>Cliente de Image Search
-Obtenga una [clave de acceso de Cognitive Services](https://azure.microsoft.com/try/cognitive-services/) en *Buscar*. Todas las importaciones:
+Obtenga una [clave de acceso de Cognitive Services](https://azure.microsoft.com/try/cognitive-services/) en *Buscar*. Agregar importaciones:
 ```
 from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
 from azure.cognitiveservices.search.imagesearch.models import ImageType, ImageAspect, ImageInsightModule

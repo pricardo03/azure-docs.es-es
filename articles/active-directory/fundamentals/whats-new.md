@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d39d98a39fb8692d696adfbedc9bb1a34f8be4d6
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: d4bbf26f6535f50b15068125d911df6a1ca20a72
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358841"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143432"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
-> Recibir notificaciones sobre cuándo volver a visitar esta página para obtener actualizaciones mediante la suscripción a la [fuente](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+>Reciba notificaciones para volver a visitar esta página y obtener actualizaciones; para ello, agregue esta [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) al lector de fuentes ![icono RSS](./media/whats-new/feed-icon-16x16.png).
 
 En Azure AD se realizan mejoras de forma continua. Para mantenerse al día con los avances más recientes, este artículo proporciona información acerca de los elementos siguientes:
 
@@ -38,6 +38,24 @@ Esta página se actualiza mensualmente, por lo que se recomienda visitarla con f
 ---
 
 ## <a name="july-2018"></a>Julio de 2018
+
+### <a name="changes-to-azure-active-directory-ip-address-ranges"></a>Cambios realizados en los intervalos de direcciones IP de Azure Active Directory
+
+**Tipo:** plan de cambio  
+**Categoría del servicio:** otros  
+**Funcionalidad del producto:** plataforma
+
+Estamos introduciendo intervalos IP mayores en Azure AD, lo que significa que si ha configurado los intervalos IP de Azure AD para los firewalls, enrutadores o grupos de seguridad de red, deberá actualizarlos. Realizamos esta actualización para que no tenga que volver a cambiar su firewall, enrutador ni las configuraciones de intervalo IP de los grupos de seguridad de red cuando Azure AD agregue nuevos puntos de conexión. 
+
+El tráfico se moverá a estos nuevos intervalos durante los próximos dos meses. Para continuar con un servicio ininterrumpido, debe agregar estos valores actualizados a las direcciones IP antes del 10 de septiembre de 2018:
+
+- 20.190.128.0/18 
+
+- 40.126.0.0/18 
+
+Se recomienda encarecidamente no quitar los intervalos IP antiguos hasta que todo el tráfico se haya movido a los nuevos intervalos. Para actualizaciones sobre el movimiento y saber cuándo quitar los intervalos antiguos, consulte [Office 365 URLs and IP address ranges](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) (Direcciones URL e intervalos IP de Office 365).
+
+---
 
 ### <a name="improvements-to-azure-active-directory-email-notifications"></a>Mejoras en las notificaciones de Azure Active Directory por correo electrónico
 
@@ -795,7 +813,7 @@ Lea más sobre esto en nuestra [entrada de blog](https://cloudblogs.microsoft.co
 
 Para más información, consulte:
 
-- [Configuración del acceso condicional basado en aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Configuración del acceso condicional basado en aplicaciones](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 - [Configuración de directivas de Managed Browser](https://aka.ms/managedbrowser)  
 
@@ -1155,7 +1173,7 @@ Las siguientes aplicaciones se agregarán a finales del mes de febrero:
 Para más información, consulte:
 
 - [Requisito de aplicación cliente aprobada](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Acceso condicional basado en aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Acceso condicional basado en aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1447,13 +1465,13 @@ Para obtener más información, consulte [Acceso condicional en Azure Active Dir
 
 Las siguientes aplicaciones se incluyen en la lista de [aplicaciones cliente aprobadas](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
-- [Microsoft Kaizala](https://microsoft.com/garage/profiles/kaizala/)
+- [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
 
 Para más información, consulte:
 
 - [Requisito de aplicación cliente aprobada](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Acceso condicional basado en aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Acceso condicional basado en aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1491,9 +1509,9 @@ Para obtener más información, consulte [Integración local](https://docs.micro
 **Categoría del servicio:** Azure AD  
 **Funcionalidad del producto:** seguridad y protección de la identidad
 
-Ahora puede restringir el acceso a Office 365 y a otras aplicaciones de Azure en la nube conectadas a Azure AD para [aplicaciones cliente aprobadas](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) que admiten directivas de Intune App Protection mediante el [acceso condicional basado en aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). Las directivas de Intune App Protection se utilizan para configurar y proteger los datos de empresa en estas aplicaciones cliente.
+Ahora puede restringir el acceso a Office 365 y a otras aplicaciones de Azure en la nube conectadas a Azure AD para [aplicaciones cliente aprobadas](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) que admiten directivas de Intune App Protection mediante el [acceso condicional basado en aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Las directivas de Intune App Protection se utilizan para configurar y proteger los datos de empresa en estas aplicaciones cliente.
 
-Mediante la combinación de directivas de acceso condicional [basado en aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) con las directivas de acceso condicional [basado en dispositivos](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications), tiene la flexibilidad necesaria para proteger los datos de dispositivos personales y de la empresa.
+Mediante la combinación de directivas de acceso condicional [basado en aplicaciones](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) con las directivas de acceso condicional [basado en dispositivos](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications), tiene la flexibilidad necesaria para proteger los datos de dispositivos personales y de la empresa.
 
 Ahora tiene a su disposición los siguientes controles y condiciones para su uso con el acceso condicional basado en aplicaciones:
 
@@ -1510,7 +1528,7 @@ Ahora tiene a su disposición los siguientes controles y condiciones para su uso
 
 - Requerir aplicación cliente aprobada
 
-Para obtener más información, consulte [Acceso condicional basado en aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
+Para obtener más información, consulte [Acceso condicional basado en aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access).
  
 ---
 
@@ -1607,7 +1625,7 @@ Las siguientes aplicaciones se agregaron a la lista de [aplicaciones cliente apr
 Para más información, consulte:
 
 - [Requisito de aplicación cliente aprobada](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Acceso condicional basado en aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Acceso condicional basado en aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 
 ---

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a4b63c9d184f58fe13c1271f9a425919a42fd897
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 8e107c1721d5623239a694eba39b32e8a2a6089d
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216749"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142986"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server en Azure Virtual Machines
 
@@ -481,7 +481,13 @@ Para probar la conectividad, inicie sesión en otra máquina virtual de la misma
 >Si es necesario, puede [descargar SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="limitations"></a>Limitaciones
-En las máquinas virtuales de Azure, Microsoft DTC (Coordinador de transacciones distribuidas) no se admite en las FCI, ya que el equilibrador de carga no admite el puerto de RPC.
+
+Azure Virtual Machines admiten el Coordinador de transacciones distribuidas de Microsoft (MSDTC) en Windows Server 2019 con almacenamiento en volúmenes compartidos en clúster (CSV) y un [equilibrador de carga estándar](../../../load-balancer/load-balancer-standard-overview.md).
+
+En máquinas virtuales de Azure, MSDTC no se admite en Windows Server 2016 y versiones anteriores porque:
+
+- El recurso MSDTC en clúster no puede configurarse para usar almacenamiento compartido. Con Windows Server 2016, si crea un recurso MSDTC, no mostrará ningún almacenamiento compartido disponible para su uso, incluso si el almacenamiento está allí. Este problema se ha corregido en Windows Server 2019.
+- El equilibrador de carga básico no controla los puertos RPC.
 
 ## <a name="see-also"></a>Otras referencias
 

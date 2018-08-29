@@ -1,6 +1,6 @@
 ---
-title: 'Llamada y respuesta: inicio rápido de PHP para Azure Cognitive Services, Bing Image Search API | Microsoft Docs'
-description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Image Search API en Microsoft Cognitive Services en Azure.
+title: 'Guía de inicio rápido: Envío de consultas de búsqueda con la API REST de Bing Image Search API mediante PHP'
+description: En esta guía de inicio rápido, va a utilizar PHP para enviar consultas de búsqueda a Bing Search API y obtener una lista de imágenes pertinentes.
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
@@ -9,24 +9,24 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: b3b7e082eeca5fbccb8729ab8abdf7ec933b4197
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d91021c4bd5e0f78e518811f3794055b397c1a39
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382103"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41929738"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-in-php"></a>Llamada y respuesta: la primera consulta de Bing Image Search en PHP
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-php"></a>Guía de inicio rápido: Envío de consultas de búsqueda con la API REST y PHP
 
-Bing Image Search API proporciona una experiencia similar a Bing.com/Images, al permitir enviar una consulta de búsqueda de usuario a Bing y obtener una lista de imágenes apropiadas.
+Bing Image Search API proporciona una experiencia similar a Bing.com/Images al permitir enviar una consulta de búsqueda de usuario a Bing y obtener una lista de imágenes apropiadas.
 
 En este artículo se incluye una aplicación de consola sencilla que realiza una consulta de Bing Image Search API y muestra los resultados de la búsqueda sin procesar devueltos, que se encuentran en formato JSON. Si bien esta aplicación está escrita en PHP, la API es un servicio web RESTful compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Necesita [PHP 5.6.x](http://php.net/downloads.php) para ejecutar este código.
 
-Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Bing Search APIs**. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) es suficiente para esta guía de inicio rápido. Necesita la clave de acceso que se le proporciona al activar la versión de evaluación gratuita, o puede usar una clave de suscripción de pago desde su panel de Azure.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>Ejecución de la aplicación
 
@@ -204,5 +204,5 @@ La siguiente es una respuesta de ejemplo. Para limitar la longitud de JSON, se m
 
 [¿Qué es Bing Image Search?](../overview.md)  
 [Pruébelo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-[Obtenga una clave de acceso para evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+[Obtenga una clave de acceso para la evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 [Referencia de Bing Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

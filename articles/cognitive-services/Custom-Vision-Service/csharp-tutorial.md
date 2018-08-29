@@ -9,24 +9,30 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 80cb022808748ed2c60dff7c363d6020cb4043a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d3c2ffb0fd9578458bd07241eed4a87cf70d3c3c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381003"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617441"
 ---
 # <a name="use-the-custom-vision-service-from-a-c35-application"></a>Uso de Custom Vision Service en una aplicación de C&#35
 
 Aprenda a usar el servicio Custom Vision Service en una aplicación de C#. Después de crearlo, puede agregar etiquetas, cargar imágenes, entrenar el proyecto, obtener la dirección URL predeterminada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Use este ejemplo de código abierto como plantilla para compilar su propia aplicación para Windows con la API de Custom Vision Service.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-* Cualquier edición de Visual Studio 2015 o 2017 para Windows.
+* Cualquier edición de Visual Studio 2017 para Windows.
 
-* El [SDK de Custom Vision Service](http://github.com/Microsoft/Cognitive-CustomVision-Windows/). Esto incluye el ejemplo y las imágenes que se utilizan en este documento.
+## <a name="get-the-custom-vision-sdk-and-samples"></a>Obtener el SDK y ejemplos de Custom Vision
+Para compilar este ejemplo, necesita los paquetes NuGet del SDK de Custom Vision:
 
-## <a name="get-the-training-and-prediction-keys"></a>Obtención de las claves de entrenamiento y predicción
+* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
+* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
+
+Puede descargar las imágenes con los [ejemplos de C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
+
+## <a name="get-the-training-and-prediction-keys"></a>Obtener las claves de entrenamiento y predicción
 
 Para obtener las claves que se utilizan en este ejemplo, visite la [página web de Custom Vision](https://customvision.ai) y seleccione el __icono de engranaje__ en la esquina superior derecha. En la sección __Cuentas__, copie los valores de los campos __Training Key__ (Clave de entrenamiento) y __Prediction Key__ (Clave de predicción).
 

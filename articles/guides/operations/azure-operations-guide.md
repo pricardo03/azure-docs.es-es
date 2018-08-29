@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 06/12/2017
+ms.date: 08/21/2018
 ms.author: mibender
-ms.openlocfilehash: 86f11e7c2d5503a0c474a6c15501a6b872c564e3
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 286b9b133bfbe633ad1fe69f66aa11b9e4c4fc1d
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072341"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143098"
 ---
-# <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introducción a la informática en la nube y Microsoft Azure
+# <a name="get-started-for-azure-it-operators"></a>Introducción para operadores de TI de Azure
 
 Esta guía presenta los conceptos básicos relacionados con la implementación y administración de una infraestructura de Microsoft Azure. Si no tiene experiencia con la informática en la nube o Azure, esta guía le ayuda a rápidamente empezar con los conceptos, implementación y detalles de administración. Varias secciones de esta guía presentan una operación, como la implementación de una máquina virtual y, después, se proporciona un vínculo a información técnica más detallada.
 
@@ -49,31 +49,37 @@ Con la infraestructura local, tiene un control completo sobre el hardware y soft
 
 Microsoft ha implementado muchos centros de datos de Azure todo el mundo y hay más previstos. Además, Microsoft está aumentando las nubes independientes en regiones como China y Alemania. Solo las empresas más grandes a nivel global pueden implementar centros de datos de esta manera, por lo que el uso de Azure facilita a las empresas de cualquier tamaño la implementación de los servicios cerca de sus clientes.
 
-Para las pequeñas empresas, Azure permite un punto de entrada de bajo costo, con la capacidad de escalar rápidamente a medida que aumenta la demanda de proceso. Esto evita una gran inversión de capital inicial en infraestructura y proporciona la flexibilidad para diseñar y volver a diseñar sistemas según sea necesario. El uso de la informática en la nube encaja bien con los modelos de escalado rápido y de fracaso y respuesta rápida a los errores de las empresas emergentes.
+Para las pequeñas empresas, Azure permite un punto de entrada de bajo costo, con la capacidad de escalar rápidamente a medida que aumenta la demanda de proceso. Esto evita una gran inversión de capital inicial en infraestructura y proporciona la flexibilidad para diseñar y volver a diseñar sistemas según sea necesario. El uso de la informática en la nube encaja bien con los modelos de escalado rápido y de fracaso y respuesta rápida a los errores de las startups.
 
 Para más información sobre las regiones de Azure disponibles, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).
 
-### <a name="cloud-computing-is-classified-into-three-categories-saas-paas-and-iaas"></a>La informática en la nube se clasifica en tres categorías: SaaS, PaaS e IaaS.
+### <a name="cloud-computing-model"></a>Modelo de informática en la nube
 
-#### <a name="saas-software-as-a-service"></a>SaaS: software como servicio
-
-SaaS es un software que se hospeda y administra de forma centralizada. Normalmente se basa en una arquitectura multiinquilino: se usa una única versión de la aplicación para todos los clientes. Puede escalar horizontalmente a varias instancias para garantizar el máximo rendimiento en todas las ubicaciones. El software SaaS normalmente se licencia a través de una suscripción mensual o anual.
-
-Microsoft Office 365 es un buen ejemplo de una oferta de SaaS. Los suscriptores pagan una cuota de suscripción mensual o anual y obtienen Microsoft Exchange, Microsoft OneDrive y el resto de Microsoft Office Suite como un servicio. Los suscriptores reciben siempre la versión más reciente y el servidor de Exchange se administra para ellos. En comparación con la instalación y actualización de Office cada año, esto resulta más económico y requiere menos esfuerzo.
-
-#### <a name="paas-platform-as-a-service"></a>PaaS: plataforma como servicio
-
-Con PaaS, se implementa la aplicación en un entorno proporcionado por el proveedor de servicios en la nube. El proveedor lleva a cabo la administración de la infraestructura de forma que el cliente pueda centrarse en el desarrollo de aplicaciones.
-
-Azure proporciona varias ofertas de proceso PaaS, incluida la característica Web Apps de Azure App Service y Azure Cloud Services (roles web y de trabajo). En cualquier caso, los desarrolladores tienen varias maneras de implementar su aplicación sin necesidad de saber nada acerca de la plataforma que la soporta. Los desarrolladores no necesitan crear máquinas virtuales, usar el protocolo de escritorio remoto (RDP) para iniciar sesión en cada una de ellas ni instalar la aplicación. Basta con pulsar un botón (o casi) y las herramientas proporcionadas por Microsoft aprovisionan las máquinas virtuales y, a continuación, implementan e instalan la aplicación en ellas.
+Azure usa una modelo de informática en la nube basado en categorías de servicio proporcionado a los clientes. Las tres categorías de servicio incluyen: infraestructura como servicio (IaaS), plataforma como servicio (PaaS) y software como servicio (SaaS). Los proveedores comparten alguna o toda la responsabilidad por los componentes en la pila informática en cada una de estas categorías. Echemos un vistazo a cada una de las categorías de informática en la nube.
+![Comparación de pilas de informática en la nube](./media/cloud-computing-comparison.png)
 
 #### <a name="iaas-infrastructure-as-a-service"></a>IaaS: infraestructura como servicio
 
-Un proveedor en la nube de IaaS ejecuta y administra todos los recursos de proceso físicos y el software necesario para habilitar la virtualización de equipos. Un cliente de este servicio implementa máquinas virtuales en centros de datos hospedados. Aunque las máquinas virtuales se encuentran en un centro de datos remoto, el consumidor de IaaS tiene control sobre la configuración y administración de las mismas.
+Un proveedor en la nube de IaaS ejecuta y administra todos los recursos de proceso físicos y el software necesario para habilitar la virtualización de equipos. Un cliente de este servicio implementa máquinas virtuales en centros de datos hospedados. Aunque las máquinas virtuales se encuentran en un centro de datos remoto, el consumidor de IaaS tiene control sobre la configuración y administración del sistema operativo dejando la infraestructura subyacente al proveedor de la nube.
 
 Azure ofrece varias soluciones de IaaS que incluyen máquinas virtuales, conjuntos de escalado de máquinas virtuales y la infraestructura de red relacionada. Las máquinas virtuales son una elección popular para la migración inicial de los servicios a Azure porque posibilitan un modelo de migración "levantar y mover". Puede configurar una máquina virtual similar a la infraestructura que ejecuta los servicios actualmente en su centro de datos y, a continuación, migrar el software a la nueva máquina virtual. Tendrá que realizar cambios de configuración, como las direcciones URL para otros servicios o almacenamiento, pero puede migrar muchas aplicaciones de esta manera.
 
 Los conjuntos de escalado de máquinas virtuales se crean sobre Azure Virtual Machines y proporcionan una manera fácil de implementar clústeres de máquinas virtuales idénticas. Los conjuntos de escalado de máquinas virtuales también admiten el escalado automático para que se pueden implementar automáticamente nuevas máquinas virtuales cuando sea necesario. Esto hace de los conjuntos de escalado de máquinas virtuales una plataforma ideal para hospedar clústeres de proceso de microservicios del más alto nivel como, por ejemplo, Azure Service Fabric y Azure Container Service.
+
+#### <a name="paas-platform-as-a-service"></a>PaaS: plataforma como servicio
+
+Con PaaS, se implementa la aplicación en un entorno proporcionado por el proveedor de servicios en la nube. El proveedor lleva a cabo toda la administración de la infraestructura de forma que el usuario puede centrarse en el desarrollo de aplicaciones y administración de datos.
+
+Azure proporciona varias ofertas de proceso PaaS, incluida la característica Web Apps de Azure App Service y Azure Cloud Services (roles web y de trabajo). En cualquier caso, los desarrolladores tienen varias maneras de implementar su aplicación sin necesidad de saber nada acerca de la plataforma que la soporta. Los desarrolladores no necesitan crear máquinas virtuales, usar el protocolo de escritorio remoto (RDP) para iniciar sesión en cada una de ellas ni instalar la aplicación. Basta con pulsar un botón (o casi) y las herramientas proporcionadas por Microsoft aprovisionan las máquinas virtuales y, a continuación, implementan e instalan la aplicación en ellas.
+
+#### <a name="saas-software-as-a-service"></a>SaaS: software como servicio
+
+SaaS es un software que se hospeda y administra de forma centralizada. Normalmente se basa en una arquitectura multiinquilino: se usa una única versión de la aplicación para todos los clientes. Puede escalar horizontalmente a varias instancias para garantizar el máximo rendimiento en todas las ubicaciones. El software SaaS normalmente se licencia a través de una suscripción mensual o anual. El software SaaS normalmente se licencia a través de una suscripción mensual o anual. Los proveedores de software SaaS son responsables de todos los componentes de la pila de software, por lo que el usuario solo tiene que administrar los servicios proporcionados.
+
+Microsoft Office 365 es un buen ejemplo de una oferta de SaaS. Los suscriptores pagan una cuota de suscripción mensual o anual y obtienen Microsoft Exchange, Microsoft OneDrive y el resto de Microsoft Office Suite como un servicio. Los suscriptores reciben siempre la versión más reciente y el servidor de Exchange se administra para ellos. En comparación con la instalación y actualización de Office cada año, esto resulta más económico y requiere menos esfuerzo.
+
+
+
 
 ## <a name="azure-services"></a>Servicios de Azure
 
@@ -175,6 +181,9 @@ La interfaz de línea de comandos de Azure es una herramienta que puede usar par
 
 **API de REST** Azure se basa en un conjunto de API de REST que admiten la interfaz de usuario de Azure Portal. También se admite la mayoría de estas API de REST para aprovisionar y administrar los recursos y aplicaciones de Azure desde cualquier dispositivo con acceso a Internet mediante programación. Para más información, consulte la [Referencia de SDK de REST de Azure](https://docs.microsoft.com/rest/api/index).
 
+### <a name="azure-cloud-shell"></a>Azure Cloud Shell
+
+Los administradores pueden acceder a Azure PowerShell y la CLI de Azure mediante una experiencia accesible desde el explorador llamada Azure Cloud Shell. Esta interfaz interactiva proporciona una herramienta flexible para que los administradores de Windows y Linux usen la interfaz de línea de comandos que prefieran, Bash o PowerShell. Se puede acceder a Azure Cloud Shell a través del portal, como una interfaz web independiente en [shell.azure.com](https://shell.azure.com), o desde una serie de otros puntos de acceso. Para más información, vea [Introducción a Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
 ## <a name="azure-subscriptions"></a>Suscripciones de Azure
 
 Una suscripción es una agrupación lógica de servicios de Azure que está vinculada a una cuenta de Azure. Una única cuenta de Azure puede contener varias suscripciones. La facturación de los servicios de Azure se realiza por suscripción. Las suscripciones de Azure tienen un administrador de cuenta, que tiene control total sobre la suscripción y un administrador de servicios, que tiene control sobre todos los servicios de la suscripción. Además de los administradores, se puede conceder control detallado de los recursos de Azure con RBAC a cuentas individuales.
@@ -189,7 +198,8 @@ Para poder trabajar con los servicios de Azure, necesita una suscripción. Exist
 
 Si se supera la cantidad de crédito, los servicios se deshabilitan hasta que se inicie el mes siguiente. Puede desactivar el límite de gasto y agregar una tarjeta de crédito que se usará para los costos adicionales. Algunos de estos costos tienen descuento para las cuentas de MSDN. Por ejemplo, se paga el precio de Linux por las máquinas virtuales con Windows Server y no hay ningún cargo adicional para los servidores de Microsoft, como Microsoft SQL Server. Esto hace que las cuentas de MSDN sean ideales para escenarios de desarrollo y pruebas.
 
-**Cuentas de BizSpark**: el programa Microsoft BizSpark ofrece numerosas ventajas para empresas emergentes. Una de esas ventajas es el acceso a todo el software de Microsoft para entornos de desarrollo y pruebas para hasta cinco de las cuentas de MSDN. Obtendrá 150 dólares en crédito de Azure por cada una de las cinco cuentas MSDN y pagará tarifas reducidas por algunos de los servicios de Azure, como las máquinas virtuales.
+
+  **Cuentas de BizSpark**: el programa Microsoft BizSpark ofrece numerosas ventajas para startups. Una de esas ventajas es el acceso a todo el software de Microsoft para entornos de desarrollo y pruebas para hasta cinco de las cuentas de MSDN. Obtendrá 150 dólares en crédito de Azure por cada una de las cinco cuentas MSDN y pagará tarifas reducidas por algunos de los servicios de Azure, como las máquinas virtuales.
 
 **Pago por uso**: con esta suscripción, se asocia una tarjeta de crédito o débito a la cuenta y se paga por lo que se usa. Si se trata de una organización, también puede aprobarse la facturación.
 
@@ -355,6 +365,7 @@ Tener acceso a una máquina virtual desde Internet requiere que la interfaz de r
 
 El acceso a la máquina virtual por la dirección IP pública se administra utilizando un recurso de grupo de seguridad de red (NSG). Un NSG actúa como un firewall y permite o deniega el tráfico a través de la interfaz de red o la subred en un conjunto de puertos definidos. Por ejemplo, para crear una sesión de escritorio remoto con una máquina virtual de Azure, debe configurar el NSG para permitir el tráfico entrante en el puerto 3389. Para más información, consulte [Apertura de puertos para una máquina virtual en Azure mediante Azure Portal](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
+
 Por último, al igual que con la administración de cualquier sistema informático, debe proporcionar seguridad para una máquina virtual de Azure en el sistema operativo mediante el uso de credenciales de seguridad y firewalls de software.
 
 ## <a name="azure-storage"></a>Azure Storage
@@ -415,7 +426,7 @@ Hay varias opciones para implementar una cuenta de almacenamiento.
 
 **Portal**
 
-La implementación de una cuenta de almacenamiento mediante Azure Portal requiere solo una suscripción activa de Azure y acceso a un explorador web. Puede implementar una nueva cuenta de almacenamiento en un grupo de recursos nuevo o existente. Después de crear la cuenta de almacenamiento, puede crear un recurso compartido de archivo o contenedor de blobs mediante el portal. Puede crear entidades de Table Storage y de Queue Storage mediante programación. Para obtener más información, consulte [Creación de una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+La implementación de una cuenta de almacenamiento mediante Azure Portal requiere solo una suscripción activa de Azure y acceso a un explorador web. Puede implementar una nueva cuenta de almacenamiento en un grupo de recursos nuevo o existente. Después de crear la cuenta de almacenamiento, puede crear un recurso compartido de archivo o contenedor de blobs mediante el portal. Puede crear entidades de Table Storage y de Queue Storage mediante programación. Para obtener más información, consulte [Creación de una cuenta de almacenamiento](../../storage/common/storage-quickstart-create-account.md).
 
 Además de implementar una cuenta de almacenamiento desde Azure Portal, puede implementar una plantilla de Azure Resource Manager desde el portal. Esto implementará y configurará todos los recursos tal como se define en la plantilla, incluida cualquier cuenta de almacenamiento. Para más información, consulte [Implementación de recursos con plantillas de Resource Manager y Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 

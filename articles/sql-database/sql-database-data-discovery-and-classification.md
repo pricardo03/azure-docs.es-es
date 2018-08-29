@@ -10,12 +10,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: giladm
-ms.openlocfilehash: cc093bebb4b3c39140d6fa5370a78d59168990fa
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 6ef9a701f3a228e4c40da94f83310ef2884a3f59
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950820"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42142945"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Clasificación y detección de datos de Azure SQL Database
 La opción Clasificación y detección de datos (actualmente en su versión preliminar) proporciona funcionalidades avanzadas integradas en Azure SQL Database para **detectar**, **clasificar**, **etiquetar** & **proteger** la información confidencial de las bases de datos.
@@ -107,6 +107,13 @@ Puede utilizar T-SQL para agregar o quitar las clasificaciones de columna, así 
 * Agregue o actualice la clasificación de una o varias columnas: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql) (Agregar la clasificación de la confidencialidad)
 * Quite la clasificación de una o varias columnas: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql) (Eliminar la clasificación de la confidencialidad)
 * Vea todas las clasificaciones de la base de datos: [sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+
+También puede usar las API de REST para administrar las clasificaciones mediante programación. Las API de REST publicadas se admiten las siguientes operaciones:
+* [Crear o Actualizar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): crea o actualiza la etiqueta de confidencialidad de una columna determinada
+* [Eliminar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): elimina la etiqueta de confidencialidad de una columna determinada
+* [Obtener](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): obtiene la etiqueta de confidencialidad de una columna determinada
+* [List By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) (Enumerar por base de datos): enumera las etiquetas de confidencialidad de una base de datos determinada
+
 
 ## <a id="subheading-5"></a>Pasos siguientes
 

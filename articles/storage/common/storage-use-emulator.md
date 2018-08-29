@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 4f4c5870bb1bdd804aa4b2da8c46c0698b897798
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 543f581659d54bd14ccb2a818fd74e379bcc8cfe
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526188"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42142825"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Uso del emulador de Azure Storage para desarrollo y pruebas
 
@@ -204,6 +204,12 @@ Las siguientes diferencias se aplican al almacenamiento de tablas en el emulador
 No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 ## <a name="storage-emulator-release-notes"></a>Notas de la versión del emulador de almacenamiento
+
+### <a name="version-57"></a>Versión 5.7
+Se ha corregido un error que podría ocasionar un bloqueo si el registro estaba habilitado.
+
+### <a name="version-56"></a>Versión 5.6
+* El emulador de almacenamiento admite ahora la versión 2018-03-28 de los servicios de almacenamiento en los puntos de conexión de Blob, Queue y Table.
 
 ### <a name="version-55"></a>Versión 5.5
 * El emulador de almacenamiento admite ahora la versión 2017-11-09 de los servicios de almacenamiento en los puntos de conexión de Blob service, Queue service y Table service.

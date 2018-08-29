@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 8546b1228c8d8f213cb87692144e8d1d31a949d8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a660b36f383eaf1fd0e868200ad7f59aba0f8225
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001810"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42146941"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Cómo integrar Azure API Management con Azure Application Insights
 
@@ -111,9 +111,15 @@ Una solicitud con error es una solicitud que:
 
 En función de las pruebas de carga internas, habilitar esta característica provocó una reducción del 40 % al 50 % en el rendimiento cuando la tasa de solicitudes superaba las 1000 solicitudes por segundo. Azure Application Insights está diseñada para usar análisis estadísticos para evaluar el rendimiento de las aplicaciones. No está destinado a ser un sistema de auditoría y no es apta para registrar cada solicitud individual para API de gran volumen.
 
-Para manipular el número de solicitudes que se registran, puede ajustar la opción **Sampling** (Muestreo) que se explica anteriormente. Un valor del 100 % significa que se registran todas las solicitudes, mientras que un 0 % indica que no se registra nada en absoluto. **Sampling** ayuda a reducir el volumen de telemetría, lo que evita de manera eficaz una degradación significativa en el rendimiento, a la vez que brinda las ventajas del registro.
+Para manipular el número de solicitudes que se registran, puede ajustar la opción **Sampling** (Muestreo) que se explica anteriormente. Un valor del 100 % significa que se registran todas las solicitudes, mientras que un 0 % indica que no se registra nada en absoluto. **Sampling** (Muestreo) ayuda a reducir el volumen de telemetría, lo que evita de manera eficaz una degradación significativa en el rendimiento, a la vez que brinda las ventajas del registro.
 
 Omitir el registro de encabezados y del cuerpo de las solicitudes y respuestas también tendrá un efecto positivo para evitar problemas de rendimiento.
+
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2pkXv]
+>
+>
 
 ## <a name="next-steps"></a>Pasos siguientes
 

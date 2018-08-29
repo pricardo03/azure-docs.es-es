@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 5d8fae7412bece631e6961fb92b7d87e308cc857
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 8bde1e8846dbaee957e2498ea4fae0c5cf79a913
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599221"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42142705"
 ---
 # <a name="os-patching-for-hdinsight"></a>Aplicación de revisión del SO para HDInsight 
 Como servicio de Hadoop administrado, HDInsight se preocupa de aplicar las revisiones del SO de las máquinas virtuales subyacentes que los clústeres de HDInsight usan. A partir del 1 de agosto de 2016, cambiamos la directiva de aplicación de revisión del SO invitado para clústeres de HDInsight basado en Linux (versión 3.4 o superior). El objetivo de la nueva directiva consiste en reducir significativamente el número de reinicios debidos a la aplicación de revisión. La nueva directiva seguirá aplicando revisiones en máquinas virtuales de clústeres Linux cada lunes o jueves a partir de las 12:00 (UTC) de manera escalonada en los distintos nodos de cualquier clúster. Sin embargo, las máquinas virtuales solo se reiniciarán, como máximo, una vez cada 30 días debido a la aplicación de revisión de SO invitado. Además, el primer reinicio de un clúster recién creado no se realizará hasta que no hayan transcurrido 30 días desde la fecha de creación del clúster. Las revisiones entrarán en vigor una vez que se reinicien las máquinas virtuales.

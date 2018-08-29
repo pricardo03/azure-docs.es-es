@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 08/16/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 1b9807b587b6b52594133e8c792c72b21e8bd4ea
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7d27b95f9c7d21f49f547534ca99a44657062abc
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503628"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146971"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Crear, cambiar o eliminar un emparejamiento de red virtual
 
-Aprenda a crear, cambiar o eliminar un emparejamiento de red virtual. El emparejamiento de red virtual permite conectar redes virtuales mediante la red troncal de Azure. Una vez emparejadas, las redes virtuales se siguen administrando como recursos separados. Si no está familiarizado con el emparejamiento de redes virtuales, puede obtener más información sobre él en la [información general sobre el emparejamiento de redes virtuales](virtual-network-peering-overview.md) o si sigue un [tutorial](tutorial-connect-virtual-networks-portal.md).
+Aprenda a crear, cambiar o eliminar un emparejamiento de red virtual. El emparejamiento de red virtual permite conectar redes virtuales de la misma región y entre regiones (lo que se conoce también como Emparejamiento de VNET global) mediante la red troncal de Azure. Una vez emparejadas, las redes virtuales se siguen administrando como recursos separados. Si no está familiarizado con el emparejamiento de redes virtuales, puede obtener más información sobre él en la [información general sobre el emparejamiento de redes virtuales](virtual-network-peering-overview.md) o si sigue un [tutorial](tutorial-connect-virtual-networks-portal.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -112,10 +112,10 @@ Si quiere que las redes virtuales se comuniquen algunas veces pero no siempre, e
 
 ## <a name="requirements-and-constraints"></a>Requisitos y restricciones 
 
-- <a name="cross-region"></a>Puede emparejar redes virtuales de la misma región o de regiones diferentes. No se aplican las siguientes restricciones cuando ambas redes virtuales están en la *misma* región, pero se aplican cuando las redes virtuales están emparejadas globalmente: 
-    - Las redes virtuales pueden existir en cualquier región de nube pública de Azure, pero no en nubes nacionales de Azure.
-    - Los recursos en una red virtual no pueden comunicarse con la dirección IP de un equilibrador de carga interno de Azure en la red virtual emparejada. El equilibrador de carga y los recursos que se comunican con él deben estar en la misma red virtual.
-    - No se pueden utilizar puertas de enlace remotas o permitir el tránsito de puerta de enlace. Para usar puertas de enlace remotas o permitir el tránsito de puerta de enlace, ambas redes virtuales del emparejamiento deben existir en la misma región. 
+- <a name="cross-region"></a>Puede emparejar redes virtuales de la misma región o de regiones diferentes. El emparejamiento de redes virtuales de diferentes regiones se conoce también como *emparejamiento global*. 
+- Al crear un emparejamiento global, las redes virtuales emparejadas pueden existir en cualquier región de la nube pública de Azure, pero no en nubes nacionales de Azure. Solo se pueden emparejar redes virtuales de la misma región que existan en nubes nacionales.
+- Los recursos de una red virtual no pueden comunicarse con la dirección IP de front-end de un equilibrador de carga interno de Azure en la red virtual emparejada globalmente. El equilibrador de carga y los recursos que se comunican con él deben estar en una red virtual de la misma región. Sin embargo, si las redes virtuales emparejadas están en la misma región, los recursos de cualquiera de ellas pueden comunicarse con la dirección IP de front-end de un equilibrador de carga interno de Azure de cualquiera de las redes virtuales del emparejamiento.
+- No puede usar puertas de enlace remotas ni permitir el tránsito de puerta de enlace en redes virtuales emparejadas globalmente. Para poder hacerlo, las redes virtuales emparejadas deben estar en la misma región.
 - Las redes virtuales pueden estar en la misma suscripción o en suscripciones distintas. Cuando empareja redes virtuales en distintas suscripciones, ambas suscripciones deben estar asociadas al mismo inquilino de Azure Active Directory. Si todavía no tiene un inquilino de AD, puede [crear uno](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant) rápidamente. Puede usar una instancia de [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para conectar dos redes virtuales que existen en distintas suscripciones que están asociadas a diferentes inquilinos de Active Directory.
 - Las redes virtuales que empareje deben tener espacios de direcciones IP que no se solapen.
 - Una vez que una red virtual se ha emparejado con otra red virtual, no se pueden agregar rangos de direcciones al espacio de direcciones de una red virtual ni pueden eliminarse de este. Para agregar o quitar rangos de direcciones, elimine el emparejamiento, agregue o quite los rangos de direcciones y, a continuación, vuelva a crear el emparejamiento. Para agregar rangos de direcciones a las redes virtuales o quitarlos, consulte [Manage virtual networks](manage-virtual-network.md) (Administrar redes virtuales).

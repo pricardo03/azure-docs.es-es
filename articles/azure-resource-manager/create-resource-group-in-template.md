@@ -9,20 +9,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 90d21ac817f6fd4730ff4a7e98500a80af10ac70
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 003f5d114a233738783d265a18ee7d2ccbfaba10
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623213"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617273"
 ---
 # <a name="create-resource-groups-in-azure-resource-manager-templates"></a>Creación de grupos de recursos en las plantillas de Azure Resource Manager
 
-Para crear un grupo de recursos en una plantilla de Azure Resource Manager, defina un recurso **Microsoft.Resources/resourceGroups** con un nombre y una ubicación para el grupo de recursos. Implemente la plantilla en la suscripción de Azure. También puede implementar recursos en ese grupo de recursos en la misma plantilla.
+Para crear un grupo de recursos en una plantilla de Azure Resource Manager, defina un recurso **Microsoft.Resources/resourceGroups** con un nombre y una ubicación para el grupo de recursos. Implemente la plantilla en la suscripción de Azure. Para más información sobre las implementaciones de nivel de suscripción, consulte [Implementación de recursos en una suscripción de Azure](deploy-to-subscription.md).
 
-En este artículo se utiliza la CLI de Azure para implementar las plantillas. Actualmente, PowerShell no admite la implementación de una plantilla en una suscripción.
+También puede implementar recursos en ese grupo de recursos en la misma plantilla.
+
+En este artículo, se utiliza la CLI de Azure y PowerShell para implementar las plantillas.
 
 ## <a name="create-empty-resource-group"></a>Creación de un grupo de recursos vacío
 
@@ -62,6 +64,17 @@ az deployment create \
   -l southcentralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
   --parameters rgName=demoRG rgLocation=northcentralus
+```
+
+Para implementar esta plantilla con PowerShell, use:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoEmptyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -rgName demogroup `
+  -rgLocation northcentralus
 ```
 
 ## <a name="create-several-resource-groups"></a>Creación de varios grupos de recursos
@@ -109,6 +122,18 @@ az deployment create \
   -l southcentralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json \
   --parameters rgNamePrefix=demoRG rgLocation=northcentralus instanceCount=3
+```
+
+Para implementar esta plantilla con PowerShell, use:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoCopyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json `
+  -rgName demogroup `
+  -rgLocation northcentralus `
+  -instanceCount 3
 ```
 
 ## <a name="create-resource-group-and-deploy-resource"></a>Creación de un grupo de recursos e implementación de recursos
@@ -190,7 +215,20 @@ az deployment create \
   --parameters rgName=rgStorage rgLocation=northcentralus storagePrefix=storage
 ```
 
+Para implementar esta plantilla con PowerShell, use:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoRGStorage `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json `
+  -rgName rgStorage `
+  -rgLocation northcentralus `
+  -storagePrefix storage
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
+* Para aprender sobre las implementaciones de nivel de suscripción, consulte [Implementación de recursos en una suscripción de Azure](deploy-to-subscription.md).
 * Para aprender a solucionar los problemas de dependencias durante la implementación, consulte [Solución de errores comunes de implementación de Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para más información sobre la creación de plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas](resource-group-authoring-templates.md). 
 * Para obtener una lista de las funciones disponibles en una plantilla, consulte [Funciones de plantilla](resource-group-template-functions.md).

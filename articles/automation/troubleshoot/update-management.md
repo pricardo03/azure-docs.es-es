@@ -4,20 +4,44 @@ description: Obtenga información acerca de la solución de problemas relacionad
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 08/08/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b77d1210ff48a4bd30834fcbad64173bf77b1290
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2e47320d5ad88edfa8ea6122f3a0abd104230974
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064690"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42142483"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Solución de problemas relacionados con Update Management
 
 En este artículo se describen soluciones para resolver problemas que pueden surgir al usar Update Management.
+
+## <a name="general"></a>General
+
+### <a name="components-enabled-not-working"></a>Escenario: se han habilitado los componentes de la solución "Update Management" y ahora se está configurando la máquina virtual.
+
+#### <a name="issue"></a>Problema
+
+Continúa recibiendo el mensaje siguiente en una máquina virtual 15 minutos después de la incorporación:
+
+```
+The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured. Please be patient, as this can sometimes take up to 15 minutes.
+```
+
+#### <a name="cause"></a>Causa
+
+Este error puede deberse a las siguientes razones:
+
+1. Está bloqueada la comunicación a la cuenta de Automation.
+2. La máquina virtual que se incorpora puede provenir de una máquina clonada que no estaba preparada con sysprep con Microsoft Monitoring Agent instalado.
+
+#### <a name="resolution"></a>Resolución
+
+1. Visite [Planeamiento de red](../automation-hybrid-runbook-worker.md#network-planning) para obtener información acerca de qué direcciones y puertos deben permitirse para que Update Management funcione.
+2. Si se usa una imagen clonada, primero prepare con sysprep la imagen e instale al agente de MMA después del hecho.
 
 ## <a name="windows"></a>Windows
 
@@ -31,7 +55,7 @@ En la sección siguiente se destacan los mensajes de error específicos y una po
 
 Aparece el siguiente mensaje de error:
 
-```error
+```
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
 ```
 

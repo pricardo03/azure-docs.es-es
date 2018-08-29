@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 59a48d06ca3c3bced73ed4043691b33784a4f81a
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: ce3a3d28a25c8e904eeebbfc4cf68003fdda07a5
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40006034"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443639"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copia de datos con una instancia de Azure SQL Database como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -65,6 +65,9 @@ Para ver los distintos tipos de autenticación, consulte las secciones siguiente
 - [Autenticación de SQL](#sql-authentication)
 - [Autenticación de tokens de aplicaciones de Azure AD: entidad de servicio](#service-principal-authentication)
 - [Autenticación de tokens de aplicaciones de Azure AD: Managed Service Identity](#managed-service-identity-authentication)
+
+>[!TIP]
+>Si recibió un error con código de error como "UserErrorFailedToConnectToSqlServer" y un mensaje como "The session limit for the database is XXX and has been reached" (El límite de sesión de la base de datos es XXX y ya se ha alcanzado), agregue `Pooling=false` a la cadena de conexión e inténtelo de nuevo.
 
 ### <a name="sql-authentication"></a>Autenticación de SQL
 

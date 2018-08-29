@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 08/14/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 3ecc8885a30a11472fe93bbda60c39131c6b3bd7
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 1f59f2ce6e3bf8d34ce225aa93da76ad523775e0
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801422"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41946464"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Acciones de los nodos de unidad de escalado en Azure Stack
 
@@ -70,9 +70,8 @@ También puede realizar acciones de nodo de unidad de escalado desde aquí.
 
 Al ver la información sobre un nodo de la unidad de escalado, también puede realizar acciones de nodo como:
 
-- encendido y apagado
-- purgado y reanudación
-- reparación
+- Purgado y reanudación
+- Reparación
 
 El estado operativo del nodo determina qué opciones están disponibles.
 
@@ -154,4 +153,4 @@ Para ejecutar la acción de reparación a través de PowerShell:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre el módulo de administrador Fabric de Azure Stack, consulte [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.3.0).
+Para más información sobre el módulo de administrador Fabric de Azure Stack, consulte [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.4.0).

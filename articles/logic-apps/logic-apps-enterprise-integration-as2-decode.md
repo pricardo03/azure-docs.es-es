@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2016
+ms.date: 08/08/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: a5ca615d984d07513b12399b6f7e7901490f2e41
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a1b2d68a4a9433dc5c68d65552bf6bd509463958
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298838"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42144522"
 ---
 # <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Descodificación de mensajes AS2 para Azure Logic Apps con Enterprise Integration Pack 
 
@@ -67,6 +67,7 @@ Esto es lo que necesita:
 
     ![Seleccione el cuerpo y los encabezados de las salidas de la solicitud](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
+
 ## <a name="as2-decoder-details"></a>Detalles de descodificador de AS2
 
 El conector de descodificación AS2 lleva a cabo estas tareas: 
@@ -75,6 +76,7 @@ El conector de descodificación AS2 lleva a cabo estas tareas:
 * Comprueba la firma (si la opción está configurada).
 * Descifra los mensajes (si la opción está configurada).
 * Descomprime el mensaje (si la opción está configurada).
+* Comprueba y prohíbe duplicados de identificador de mensaje (si está configurado).
 * Reconcilia un MDN recibido con el mensaje de salida original.
 * Actualiza y correlaciona registros en la base de datos sin repudio.
 * Escribe registros para los informes de estado de AS2.
@@ -82,6 +84,13 @@ El conector de descodificación AS2 lleva a cabo estas tareas:
 * Determina si se requiere un MDN y si este debe ser sincrónico o asincrónico en función de la configuración del acuerdo AS2.
 * Genera un MDN sincrónico o asincrónico (en función de las configuraciones del acuerdo).
 * Establece las propiedades y los token de correlación en el MDN.
+
+
+  > [!NOTE]
+  > Si usa Azure Key Vault para la administración de certificados, asegúrese de configurar las claves para permitir la operación **Decrypt** (Descifrar).
+  > En caso contrario, la descodificación de AS2 producirá un error.
+  >
+  > ![Descifrados del almacén de claves](media/logic-apps-enterprise-integration-as2-decode/keyvault1.png)
 
 ## <a name="try-this-sample"></a>Ejemplo para probar
 

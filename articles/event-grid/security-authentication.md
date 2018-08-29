@@ -6,13 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 08/13/2018
 ms.author: babanisa
-ms.openlocfilehash: 783766c3e12da2c6fd77f919cf0ec44aea7db3b7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ce0e766a07fd19f523f1f35b9a3cbc865cfb8c71
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144394"
 ---
 # <a name="event-grid-security-and-authentication"></a>Seguridad y autenticación de Event Grid 
 
@@ -24,20 +25,32 @@ Azure Event Grid tiene tres tipos de autenticación:
 
 ## <a name="webhook-event-delivery"></a>Entrega de eventos de WebHook
 
-Los webhooks son una de las muchas maneras de recibir eventos de Azure Event Grid. Cuando un nuevo evento está preparado, el webhook de Event Grid envía una solicitud HTTP al punto de conexión HTTP configurado con el evento en el cuerpo.
+Los webhooks son una de las muchas maneras de recibir eventos de Azure Event Grid. Cuando un nuevo evento está preparado, el servicio EventGrid publica una solicitud HTTP en el punto de conexión configurado con el evento en el cuerpo de la solicitud.
 
-Al registrar su propio punto de conexión de webhook con Event Grid, se le envía una solicitud POST con un código de validación simple con el fin de comprobar la propiedad del punto de conexión. La aplicación necesita responder devolviendo el código de validación. Event Grid no entrega eventos a los puntos de conexión de webhook que no hayan superado la validación. Si usa un servicio de API de terceros (como [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/)), puede que no sea capaz de reflejar el código de validación mediante programación. Con esos servicios, puede validar manualmente la suscripción mediante una dirección URL de validación que se envía en el evento de validación de la suscripción. Copie esa dirección URL y envíe una solicitud GET mediante un cliente de REST o el explorador web.
+Al igual que muchos otros servicios que admiten webhooks, EventGrid requiere que demuestre la "propiedad" de su punto de conexión de Webhook antes de que comience a entregar eventos a ese punto de conexión. Este requisito es para evitar que un punto de conexión confiado se convierta en el punto de conexión objetivo para la entrega de eventos desde EventGrid. Sin embargo, cuando utiliza cualquiera de los tres servicios de Azure enumerados a continuación, la infraestructura de Azure controla automáticamente esta validación:
 
-La validación manual se encuentra disponible en versión preliminar. Para usarla, debe instalar la [extensión de Event Grid](/cli/azure/azure-cli-extensions-list) para [AZ CLI 2.0](/cli/azure/install-azure-cli). Puede instalarla con `az extension add --name eventgrid`. Si usa la API de REST, asegúrese de utilizar `api-version=2018-05-01-preview`.
+* Azure Logic Apps,
+* Azure Automation,
+* Azure Functions para desencadenador de EventGrid.
+
+Si utiliza cualquier otro tipo de punto de conexión, como una función de Azure basada en un desencadenador HTTP, el código del punto de conexión debe participar en un protocolo de enlace de validación con EventGrid. EventGrid admite dos modelos de protocolo de enlace de validación diferentes:
+
+1. **Protocolo de enlace ValidationCode**: en el momento de la creación de la suscripción a eventos, EventGrid publica un "evento de validación de suscripción" en el punto de conexión. El esquema de este evento es similar a cualquier otro EventGridEvent y la parte de datos de este evento incluye una propiedad `validationCode`. Una vez que la aplicación ha comprobado que la solicitud de validación es para una suscripción a eventos esperada, el código de aplicación debe responder devolviendo el código de validación a EventGrid. Este mecanismo del protocolo de enlace se admite en todas las versiones de EventGrid.
+
+2. **Protocolo de enlace ValidationURL (protocolo de enlace manual)**: en algunos casos, puede que no tenga el control del código fuente del punto de conexión para poder implementar el protocolo de enlace ValidationCode. Por ejemplo, si usa un servicio de terceros (como [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/)), puede que no sea capaz de responder con el código de validación mediante programación. Por lo tanto, a partir de la versión 2018-05-01-preview, EventGrid ahora admite un protocolo de enlace de validación manual. Si va a crear una suscripción de eventos mediante SDK o herramientas que usan esta nueva versión de API (2018-05-01-preview), EventGrid envía una propiedad `validationUrl` (además de la propiedad `validationCode`) como parte de los datos del evento de validación de suscripción. Para completar el protocolo de enlace, simplemente haga una solicitud GET en esa dirección URL, ya sea a través de un cliente de REST o mediante el explorador web. La dirección URL de validación proporcionada es válida solo durante unos 10 minutos. Durante ese tiempo, el estado de aprovisionamiento de la suscripción al eventos es `AwaitingManualAction`. Si no ha completado la validación manual en 10 minutos, el estado de aprovisionamiento se establece en `Failed`. Tendrá que volver a intentar la creación de la suscripción al evento antes de intentar realizar la validación manual de nuevo.
+
+Este mecanismo de validación manual se encuentra disponible en versión preliminar. Para usarla, debe instalar la [extensión de Event Grid](/cli/azure/azure-cli-extensions-list) para [AZ CLI 2.0](/cli/azure/install-azure-cli). Puede instalarla con `az extension add --name eventgrid`. Si usa la API de REST, asegúrese de utilizar `api-version=2018-05-01-preview`.
 
 ### <a name="validation-details"></a>Detalles de la validación
 
-* En el momento de crear o actualizar la suscripción de eventos, Event Grid publica un evento "SubscriptionValidationEvent" al punto de conexión de destino.
-* El evento contiene un valor de encabezado "Aeg-Event-Type: SubscriptionValidation".
+* En el momento de crear o actualizar la suscripción a eventos, Event Grid publica un evento de validación de suscripción en el punto de conexión de destino. 
+* El evento contiene un valor de encabezado "aeg-event-type: SubscriptionValidation".
 * El cuerpo del evento tiene el mismo esquema que otros eventos de Event Grid.
-* Los datos del evento incluyen una propiedad "validationCode" con una cadena generada aleatoriamente. Por ejemplo, "validationCode: acb13…".
-* Los datos del evento incluyen una propiedad "validationUrl" con una dirección URL para validar manualmente la suscripción.
+* La propiedad eventType del evento es "Microsoft.EventGrid.SubscriptionValidationEvent".
+* La propiedad de datos del evento incluye una propiedad "validationCode" con una cadena generada aleatoriamente. Por ejemplo, "validationCode: acb13…".
+* Si utiliza la versión de API 2018-05-01-preview, los datos del evento también incluyen una propiedad `validationUrl` con una dirección URL para validar manualmente la suscripción.
 * La matriz contiene solo el evento de validación. Otros eventos se envían en una solicitud aparte después de devolver el código de validación.
+* Los SDK de EventGrid DataPlane tienen clases que corresponden a los datos de evento de validación de suscripción y a la respuesta de validación de suscripción.
 
 En el siguiente ejemplo se muestra un evento SubscriptionValidationEvent de ejemplo:
 
@@ -65,13 +78,24 @@ Para comprobar la propiedad del punto de conexión, devuelva el código de valid
 }
 ```
 
-O bien, valide la suscripción manualmente mediante el envío de una solicitud GET a la dirección URL de validación. La suscripción a eventos permanece en estado pendiente hasta que se valida.
+Alternativamente, puede validar manualmente la suscripción mediante el envío de una solicitud GET a la dirección URL de validación. La suscripción a eventos permanece en estado pendiente hasta que se valida.
+
+Puede encontrar el ejemplo en C# que muestra cómo controlar el protocolo de enlace de validación de suscripción en https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs.
+
+### <a name="checklist"></a>Lista de comprobación
+
+Durante la creación de la suscripción a eventos, si ve un mensaje de error, parecido a "Error al intentar validar el punto de conexión proporcionado https://your-endpoint-here. Para más información, visite https://aka.ms/esvalidation"; indica que hay un error en el protocolo de enlace de validación. Para resolver este error, compruebe los siguientes aspectos:
+
+* ¿Tiene control sobre el código de aplicación en punto de conexión de destino? Por ejemplo, si está escribiendo un desencadenador HTTP basado en Azure Functions, ¿tiene acceso al código de aplicación para realizar cambios en él?
+* Si tiene acceso al código de aplicación, implemente el mecanismo del protocolo de enlace basado en ValidationCode como se muestra en el ejemplo anterior.
+
+* Si no tiene acceso al código de aplicación (por ejemplo, si usa un servicio de terceros que admita webhooks), puede usar el mecanismo del protocolo de enlace manual. Para ello, asegúrese de que está usando la versión de API 2018-05-01-preview (por ejemplo, mediante la extensión de la CLI EventGrid descrita anteriormente) para recibir la propiedad validationUrl en el evento de validación. Para completar el protocolo de enlace de validación manual, obtenga el valor de la propiedad "validationUrl" y visite esa dirección URL en el explorador web. Si la validación es correcta, verá un mensaje en el explorador web que indica que la validación es correcta, y verá que el elemento provisioningState de esa suscripción a eventos es "Succeeded". 
 
 ### <a name="event-delivery-security"></a>Seguridad de entrega de eventos
 
 Puede proteger el punto de conexión del webhook mediante la incorporación de parámetros de consulta a la URL del webhook al crear una suscripción a eventos. Establezca uno de estos parámetros de consulta como secreto, como un [token de acceso](https://en.wikipedia.org/wiki/Access_token) con el que el webhook reconozca que el evento viene de Event Grid con permisos válidos. Event Grid incluye estos parámetros de consulta en cada entrega de eventos al webhook.
 
-Al editar la suscripción a eventos, los parámetros de consulta no se muestran ni se devuelven, a menos que el parámetro [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) se utilice en la [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) de Azure.
+Al editar la suscripción a eventos, los parámetros de consulta no se muestran ni se devuelven, a menos que el parámetro [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) se utilice en la [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) de Azure.
 
 Por último, es importante tener en cuenta que Azure Event Grid solo admite puntos de conexión de webhook HTTPS.
 

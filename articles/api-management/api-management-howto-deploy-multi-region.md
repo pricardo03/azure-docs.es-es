@@ -3,7 +3,7 @@ title: Implementación de servicios de Azure API Management en varias regiones d
 description: Aprenda a implementar una instancia del servicio Azure API Management en varias regiones de Azure.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,30 +11,31 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ff0101bde54f99f99461d0f042af520b1642d0df
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2ec8d53b0d8da3a7d643362abf58d3a5d4b42e74
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31586813"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42143891"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Implementación de una instancia del servicio Azure API Management en varias regiones de Azure
-Administración de API admite la implementación en varias regiones, lo que permite a los publicadores de API distribuir un único servicio de API Management en el número de regiones de Azure deseado. Esto ayuda a reducir la latencia de solicitud que perciben los usuarios de API distribuidos geográficamente y, además, mejora la disponibilidad del servicio en caso de que una región se quede sin conexión. 
 
-Al crear inicialmente un servicio de API Management, este contiene solo una [unidad][unit] y reside en una sola región de Azure, designada como región primaria. Pueden agregarse otras regiones fácilmente mediante Azure Portal. El servidor de puerta de enlace de API Management se implementa en cada región y el tráfico de llamada se enruta a la puerta de enlace más cercana. Cuando una región se queda sin conexión, el tráfico se redirige automáticamente a la siguiente puerta de enlace más cercana. 
+Azure API Management admite la implementación en varias regiones, lo que permite a los publicadores de API distribuir un único servicio Azure API Management en el número de regiones de Azure deseado. Esto ayuda a reducir la latencia de solicitud que perciben los usuarios de API distribuidos geográficamente y, además, mejora la disponibilidad del servicio en caso de que una región se quede sin conexión.
+
+Inicialmente, un nuevo servicio Azure API Management contiene solo una [unidad][unit] en una única región de Azure, la región primaria. Pueden agregarse otras regiones fácilmente mediante Azure Portal. El servidor de puerta de enlace de API Management se implementa en cada región y el tráfico de llamada se enruta a la puerta de enlace más cercana. Cuando una región se queda sin conexión, el tráfico se redirige automáticamente a la siguiente puerta de enlace más cercana.
 
 > [!IMPORTANT]
 > La implementación en varias regiones solo está disponible en el nivel **[Premium][Premium]**.
-> 
-> 
+
+> [!NOTE]
+> Azure API Management replica solo el componente de la puerta de enlace de API entre regiones. El componente de administración de servicio se hospeda solo en la región primaria. En caso de interrupción en la región primaria, no se pueden aplicar cambios de configuración en una instancia del servicio Azure API Management, incluidas las configuraciones y las actualizaciones de directivas.
 
 ## <a name="add-region"></a>Implementación de una instancia del servicio Administración de API en una nueva región
+
 > [!NOTE]
 > Si todavía no ha creado una instancia del servicio API Management, consulte [Creación de una instancia del servicio API Management][Create an API Management service instance].
-> 
-> 
 
 En Azure Portal, vaya a la página de **escala y precios** de su instancia de servicio de API Management. 
 
@@ -58,9 +59,53 @@ En Azure Portal, vaya a la página de **escala y precios** de su instancia de se
 
 ![Pestaña Escala][api-management-scale-service]
 
-Para la ubicación que desee quitar, abra el menú contextual mediante el botón **...** situado a la derecha de la tabla. Haga clic en la opción **Eliminar**.
+Para la ubicación que desee eliminar, abra el menú contextual mediante el botón **...** situado a la derecha de la tabla. Haga clic en la opción **Eliminar**.
 
 Confirme la eliminación y haga clic en **Guardar** para aplicar los cambios.
+
+## <a name="route-backend"> </a>Enrutamiento de las llamadas API a servicios regionales back-end
+
+Azure API Management incluye solo una dirección URL del servicio back-end. Aunque hay instancias de Azure API Management en varias regiones, la puerta de enlace de API sigue reenviando las solicitudes al mismo servicio back-end, que se implementa en una única región. En este caso, la ganancia de rendimiento procederá solo de las respuestas en caché a la solicitud en Azure API Management de una región específica, pero también puede generar una latencia alta al ponerse en contacto con el back-end de todo el mundo.
+
+Para aprovechar completamente la distribución geográfica de su sistema, debe tener servicios back-end implementados en las mismas regiones que las instancias de Azure API Management. A continuación, mediante directivas y la propiedad `@(context.Deployment.Region)` puede enrutar el tráfico a las instancias locales de su back-end.
+
+1. Vaya a la instancia de Azure API Management y haga clic en **API** en el menú izquierdo.
+2. Seleccione la API que desee.
+3. Haga clic en el **Editor de código** de la flecha desplegable de **Procesamiento de entrada**.
+
+    ![Editor de código de API](./media/api-management-howto-deploy-multi-region/api-management-api-code-editor.png)
+
+4. Use `set-backend` en combinación con directivas `choose` condicionales para construir una directiva de enrutamiento adecuada en la sección `<inbound> </inbound>` del archivo.
+
+    Por ejemplo, el siguiente archivo XML sería válido para las regiones Oeste de Estados Unidos y Asia oriental:
+
+    ```xml
+    <policies>
+        <inbound>
+            <base />
+            <choose>
+                <when condition="@("West US".Equals(context.Deployment.Region, StringComparison.OrdinalIgnoreCase))">
+                    <set-backend-service base-url="http://contoso-us.com/" />
+                </when>
+                <when condition="@("East Asia".Equals(context.Deployment.Region, StringComparison.OrdinalIgnoreCase))">
+                    <set-backend-service base-url="http://contoso-asia.com/" />
+                </when>
+                <otherwise>
+                    <set-backend-service base-url="http://contoso-other.com/" />
+                </otherwise>
+            </choose>
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
+        <on-error>
+            <base />
+        </on-error>
+    </policies>
+    ```
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
 
@@ -77,4 +122,3 @@ Confirme la eliminación y haga clic en **Guardar** para aplicar los cambios.
 
 [unit]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
-

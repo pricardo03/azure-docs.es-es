@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: a74eab546eefd765b89aae6f12fcff554d9937c4
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: bc9fbf56b37cb8c6690bd036db704532cb8b0437
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036945"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143092"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -391,6 +391,10 @@ Un administrador debe intervenir y determinar por qué la aplicación o el clús
 - Corrección de errores en la creación de tareas de RM debido a las cuales la comprobación del estado durante la preparación de las tareas de reparación no ocurría según lo previsto.
 - Cambio en el modo de inicio del servicio de Windows POANodeSvc de automático a automático con retraso.
 
-### <a name="version-121-latest"></a>Versión 1.2.1 (la más reciente)
+### <a name="version-121"></a>Versión 1.2.1
 
 - Corrija los errores en el flujo de trabajo de reducción vertical de clúster. Introdujo la lógica de recolección de elementos no utilizados para las tareas de reparación POA pertenecientes a nodos inexistentes.
+
+### <a name="version-122-latest"></a>Versión 1.2.2 (más reciente)
+
+- Correcciones de errores varios.

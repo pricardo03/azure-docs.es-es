@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 08/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5a373c397df09653395eea7996b19262aee75c7a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 537777d2e379959d427c025036652a87ecc4a1fe
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619056"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617165"
 ---
 # <a name="built-in-roles-in-azure"></a>Roles integrados de Azure
 El [control de acceso basado en rol (RBAC)](overview.md) tiene varias definiciones de roles integrados que se pueden asignar a usuarios, grupos y entidades de servicio. Las asignaciones de roles sirven para controlar el acceso a los recursos de Azure. Si los roles integrados no cumplen las necesidades específicas de su organización, puede crear sus propios [roles personalizados](custom-roles.md).
@@ -47,6 +47,8 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Operador de trabajos de Automation](#automation-job-operator) | Permite crear y administrar trabajos con los runbooks de Automation. |
 | [Operador de Automation](#automation-operator) | Los operadores de automatización pueden iniciar, detener, suspender y reanudar trabajos. |
 | [Operador de runbooks de Automation](#automation-runbook-operator) | Permite leer las propiedades de runbook para poder crear trabajos del runbook. |
+| [Rol de administrador de clúster de Azure Kubernetes Service](#azure-kubernetes-service-cluster-admin-role) | Enumerar la acción de credenciales administrativas del clúster. |
+| [Rol de usuario de clúster de Azure Kubernetes Service](#azure-kubernetes-service-cluster-user-role) | Enumerar la acción de credenciales de usuario del clúster. |
 | [Propietario del registro de Azure Stack](#azure-stack-registration-owner) | Permite administrar los registros de Azure Stack. |
 | [Colaborador de copias de seguridad](#backup-contributor) | Permite administrar el servicio de copias de seguridad, pero no puede crear almacenes y conceder acceso a otros usuarios |
 | [Operador de copias de seguridad](#backup-operator) | Permite administrar los servicios de copias de seguridad, excepto la eliminación de copias de seguridad, la creación de almacenes y la concesión de acceso a otros usuarios |
@@ -60,8 +62,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Colaborador de la red clásica](#classic-network-contributor) | Permite administrar las redes clásicas, pero no acceder a ellas. |
 | [Colaborador de cuentas de almacenamiento clásico](#classic-storage-account-contributor) | Permite administrar cuentas de almacenamiento clásicas, pero no acceder a ellas. |
 | [Rol de servicio de operador de claves de cuentas de almacenamiento clásicas](#classic-storage-account-key-operator-service-role) | Los operadores de claves de cuentas de almacenamiento clásicas pueden enumerar y regenerar claves en cuentas de almacenamiento clásicas |
-| [Colaborador de la máquina virtual clásica](#classic-virtual-machine-contributor) | Permite administrar máquinas virtuales clásicas, pero no acceder a ellas, ni tampoco a la red virtual ni a la cuenta de almacenamiento a las que están conectadas. |
-| [Colaborador de ClearDB MySQL DB](#cleardb-mysql-db-contributor) | Permite administrar las bases de datos ClearDB MySQL, pero no acceder a ellas. |
+| [Colaborador de la máquina virtual clásica](#classic-virtual-machine-contributor) | Permite administrar máquinas virtuales clásicas, pero no acceder a ellas, ni tampoco a la red virtual ni a la cuenta de almacenamiento a las que están conectadas.|
 | [Rol de lector de cuentas de Cosmos DB](#cosmos-db-account-reader-role) | Puede leer los datos de cuentas de Azure Cosmos DB. Vea [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) para administrar cuentas de Azure Cosmos DB. |
 | [Colaborador de Data Box](#data-box-contributor) | Permite administrarlo todo en el servicio Data Box, excepto dar acceso a otros usuarios. |
 | [Operador de Data Box](#data-box-operator) | Permite administrar el servicio Data Box excepto la creación o edición de detalles de pedido y dar acceso a otros usuarios. |
@@ -84,6 +85,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Colaborador de grupo de administración](#management-group-contributor) | Rol de colaborador de grupo de administración |
 | [Lector de grupo de administración](#management-group-reader) | Rol de lector de grupo de administración |
 | [Colaborador de supervisión](#monitoring-contributor) | Puede leer todos los datos de supervisión y editar la configuración de supervisión. Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+| [Supervisión del publicador de métricas](#monitoring-metrics-publisher) | Permite publicar las métricas de los recursos de Azure. |
 | [Lector de supervisión](#monitoring-reader) | Puede leer todos los datos de supervisión (métricas, registros, etc.). Consulte también [Introducción a roles, permisos y seguridad con Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Colaborador de la red](#network-contributor) | Permite administrar redes, pero no acceder a ellas. |
 | [Colaborador de la cuenta de NewRelic APM](#new-relic-apm-account-contributor) | Le permite administrar las aplicaciones y cuentas de Application Performance Management de New Relic, pero no acceder a ellas. |
@@ -275,13 +277,14 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | **Id** | 4fe576fe-1146-4730-92eb-48519fa6bf9f |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
+> | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Lee los recursos de Hybrid Runbook Worker |
 > | Microsoft.Automation/automationAccounts/jobs/read | Obtiene un trabajo de Azure Automation |
 > | Microsoft.Automation/automationAccounts/jobs/resume/action | Reanuda un trabajo de Azure Automation |
 > | Microsoft.Automation/automationAccounts/jobs/stop/action | Detiene un trabajo de Azure Automation |
-> | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Lee los recursos de Hybrid Runbook Worker |
 > | Microsoft.Automation/automationAccounts/jobs/streams/read | Obtiene un flujo de trabajos de Azure Automation |
 > | Microsoft.Automation/automationAccounts/jobs/suspend/action | Suspende un trabajo de Azure Automation |
 > | Microsoft.Automation/automationAccounts/jobs/write | Crea un trabajo de Azure Automation |
+> | Microsoft.Automation/automationAccounts/jobs/output/read | Obtiene la salida de un trabajo |
 > | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alerta de Insights |
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
@@ -329,6 +332,24 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+
+## <a name="azure-kubernetes-service-cluster-admin-role"></a>Rol de administrador de clúster de Azure Kubernetes Service
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Enumerar la acción de credenciales administrativas del clúster. |
+> | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
+> | **Acciones** |  |
+> | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Muestra la credencial clusterAdmin de un clúster administrado. |
+
+## <a name="azure-kubernetes-service-cluster-user-role"></a>Rol de usuario de clúster de Azure Kubernetes Service
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Enumerar la acción de credenciales de usuario del clúster. |
+> | **Id** | 4abbcc35-e782-43D8-92c5-2d3f1bd2253f |
+> | **Acciones** |  |
+> | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Muestra la credencial clusterUser de un clúster administrado. |
 
 ## <a name="azure-stack-registration-owner"></a>Propietario del registro de Azure Stack
 > [!div class="mx-tableFixed"]
@@ -631,21 +652,6 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
-
-## <a name="cleardb-mysql-db-contributor"></a>Colaborador de ClearDB MySQL DB
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Descripción** | Permite administrar las bases de datos ClearDB MySQL, pero no acceder a ellas. |
-> | **Id** | 9106cda0-8a86-4e81-b686-29a22c54effe |
-> | **Acciones** |  |
-> | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | Microsoft.Insights/alertRules/* | Crear y administrar reglas de alertas |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
-> | successbricks.cleardb/databases/* | Crear y administrar bases de datos ClearDB MySQL |
 
 ## <a name="cosmos-db-account-reader-role"></a>Rol de lector de cuentas de Cosmos DB
 > [!div class="mx-tableFixed"]
@@ -1041,6 +1047,19 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
 > | Microsoft.WorkloadMonitor/workloads/* |  |
 > | Microsoft.WorkloadMonitor/workloadInsights/* |  |
+
+## <a name="monitoring-metrics-publisher"></a>Supervisión del publicador de métricas
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descripción** | Permite publicar las métricas de los recursos de Azure. |
+> | **Id** | 3913510d-42f4-4e42-8a64-420c390055eb |
+> | **Acciones** |  |
+> | Microsoft.Insights/Register/Action | Registra el proveedor de Microsoft Insights. |
+> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
+> | **DataActions** |  |
+> | Microsoft.Insights/Metrics/Write | Escribe métricas. |
 
 ## <a name="monitoring-reader"></a>Lector de supervisión
 > [!div class="mx-tableFixed"]

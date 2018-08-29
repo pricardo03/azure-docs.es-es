@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 03/26/2018
+ms.date: 08/17/2018
 ms.author: rnagpal
-ms.openlocfilehash: 2fba67b247ad0b53e11ca012969163a68013e82f
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d0bd7dba5d50445cb681c16d9575b1bd69167e2f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126718"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142851"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Table API .NET de Azure Cosmos DB: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ ms.locfileid: "39126718"
 ## <a name="release-and-retirement-dates"></a>Fechas de lanzamiento y de retirada
 Microsoft notifica la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
 
-El paquete de versión preliminar [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) está en desuso y se ha sustituido por el paquete [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). El SDK de WindowsAzure.Storage PremiumTable se retirará el 15 de noviembre de 2018, momento en el cual las solicitudes al SDK retirado no se permitirán.
+El paquete de versión preliminar [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) está en desuso y se ha sustituido por el paquete [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). El SDK de WindowsAzure.Storage PremiumTable se retirará el 15 de noviembre de 2018, momento en el cual las solicitudes al SDK retirado no se permitirán. La biblioteca `Microsoft.Azure.CosmosDB.Table` solo está disponible actualmente para .NET Standard, aún no está disponible para .NET Core.
 
 Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible. 
 
@@ -91,7 +91,7 @@ al intentar usar el paquete de NuGet Microsoft.Azure.CosmosDB.Table, tiene dos o
     Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease
     ```
     
-* Usar su herramienta preferida de administración de paquetes de Nuget para instalar el paquete de Nuget Microsoft.Azure.Storage.Common antes de instalar Microsoft.Azure.CosmosDB.Table.
+* Usar su herramienta preferida de administración de paquetes de NuGet para instalar el paquete de NuGet Microsoft.Azure.Storage.Common antes de instalar Microsoft.Azure.CosmosDB.Table.
 
 ## <a name="faq"></a>Preguntas más frecuentes
 

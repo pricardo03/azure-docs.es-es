@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 9a43774a5327536ae4fa1346ae933739ea629771
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 4b7b1a9dc25b1bfaf72ab67dd0725a4518263ca5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130091"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143409"
 ---
 # <a name="data-sources-in-log-analytics"></a>Orígenes de datos en Log Analytics
 Log Analytics recopila datos de los orígenes conectados y los almacena en el área de trabajo de Log Analytics.  Los orígenes de datos que configura definen los datos que se recopilan de cada uno de ellos.  Los datos de Log Analytics se almacenan como un conjunto de registros.  Cada origen de datos crea registros de un tipo determinado, donde cada tipo tiene su propio conjunto de propiedades.
@@ -59,7 +59,7 @@ Los orígenes de datos se configuran en el menú **Datos** en **Configuración a
 ## <a name="data-collection"></a>Colección de datos
 Las configuraciones de orígenes de datos se entregan en cuestión de minutos a los agentes que están directamente conectados con Log Analytics.  Los datos especificados se recopilan desde el agente y se entregan directamente a Log Analytics a intervalos específicos a cada origen de datos.  Consulte la documentación de cada origen de datos para ver estas especificaciones.
 
-En el caso de los agentes de System Center Operations Manager de un grupo de administración conectado, la configuración de origen de datos se convierte en módulos de administración y se proporciona al grupo de administración cada 5 minutos, de manera predeterminada.  El agente descarga el módulo de administración de la forma habitual y recopila los datos especificados. En función del origen de datos, los datos se enviarán a un servidor de administración que los reenvía a Log Analytics o el agente los enviará a Log Analytics sin pasar por el servidor de administración. Para más información, consulte los [detalles de la recopilación de datos](log-analytics-add-solutions.md#data-collection-details).  Puede leer detalles sobre cómo conectar Operations Manager y Log Analytics y modificar la frecuencia con que la configuración se proporciona en [Configuración de integración con System Center Operations Manager](log-analytics-om-agents.md).
+En el caso de los agentes de System Center Operations Manager de un grupo de administración conectado, la configuración de origen de datos se convierte en módulos de administración y se proporciona al grupo de administración cada 5 minutos, de manera predeterminada.  El agente descarga el módulo de administración de la forma habitual y recopila los datos especificados. En función del origen de datos, los datos se enviarán a un servidor de administración que los reenvía a Log Analytics o el agente los enviará a Log Analytics sin pasar por el servidor de administración. Consulte [Detalles de la recopilación de datos para las soluciones de administración en Azure](../monitoring/monitoring-solutions-inventory.md) para más información.  Puede leer detalles sobre cómo conectar Operations Manager y Log Analytics y modificar la frecuencia con que la configuración se proporciona en [Configuración de integración con System Center Operations Manager](log-analytics-om-agents.md).
 
 Si el agente no puede conectarse a Log Analytics u Operations Manager, continuará recopilando datos para entregarlos cuando se establezca la conexión.  Si el volumen de datos alcanza el tamaño máximo de la memoria caché del cliente o si el agente no es capaz de establecer conexión en un plazo de 24 horas, los datos pueden perderse.
 
@@ -67,6 +67,6 @@ Si el agente no puede conectarse a Log Analytics u Operations Manager, continuar
 Todos los datos que recopila Log Analytics se almacenan en el área de trabajo como registros.  Los registros que recopilan distintos orígenes de datos tendrán su propio conjunto de propiedades y se identificar por su propiedad **Type** .  Consulte la documentación de cada origen de datos y solución para obtener detalles sobre cada tipo de registro.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Conozca las [soluciones](log-analytics-add-solutions.md) que agregan funcionalidad a Log Analytics y que también recopilan datos del área de trabajo.
-* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de las soluciones y los orígenes de datos.  
+* Conozca las [soluciones](../monitoring/monitoring-solutions.md) que agregan funcionalidad a Log Analytics y que también recopilan datos del área de trabajo.
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos.  
 * Configure [alertas](log-analytics-alerts.md) que le notifiquen de manera proactiva acerca de los datos críticos recopilados de soluciones y orígenes de datos.

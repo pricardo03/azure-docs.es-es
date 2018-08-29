@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/07/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: c22831ae781239f2474720ee9cd1b58f6e14fe41
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 9bbe55e08d7a005d38c5608df39f9285d79eb203
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412872"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41946504"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integración del centro de datos de Azure Stack: identidad
 Puede implementar Azure Stack mediante Azure Active Directory (Azure AD) o con los Servicios de federación de Active Directory (AD FS) como proveedores de identidades. Deberá escoger antes de implementar Azure Stack. La implementación mediante AD FS también se conoce como implementación de Azure Stack en modo desconectado.
@@ -151,7 +151,7 @@ Para este procedimiento, use un equipo de la red del centro de datos que pueda c
 
 ## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>Configuración de la integración de AD FS mediante el archivo de metadatos de federación
 
-Utilice este método si se cumple alguna de las condiciones siguientes:
+A partir de la versión 1807, utilice este método si se cumple alguna de las condiciones siguientes:
 
 - La cadena de certificados es diferente para AD FS, en comparación con todos los demás puntos de conexión de Azure Stack.
 - No hay ninguna conectividad de red para el servidor de AD FS existente desde la instancia de AD FS de Azure Stack.
@@ -163,6 +163,8 @@ Se requiere la siguiente información como entrada para los parámetros de autom
 |---------|---------|---------|
 |CustomAdfsName|Nombre del proveedor de notificaciones. Aparece de este modo en la página de aterrizaje de AD FS.|Contoso|
 |CustomADFSFederationMetadataFileContent|Contenido de los metadatos|$using:federationMetadataFileContent|
+
+
 
 ### <a name="create-federation-metadata-file"></a>Creación de un archivo de metadatos de federación
 

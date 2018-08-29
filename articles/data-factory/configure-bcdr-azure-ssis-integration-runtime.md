@@ -1,6 +1,6 @@
 ---
-title: Recomendaciones sobre continuidad empresarial y recuperación ante desastres (BCDR) con una instancia de Integration Runtime para la integración de SSIS en Azure | Microsoft Docs
-description: En este artículo se describen las recomendaciones sobre continuidad empresarial y recuperación ante desastres en una instancia de Integration Runtime para la integración de SSIS en Azure.
+title: Configurar Azure-SSIS Integration Runtime para la conmutación por error de SQL Database | Microsoft Docs
+description: En este artículo se describe cómo configurar Azure-SSIS Integration Runtime con la replicación geográfica y la conmutación por error de Azure SQL Database para la base de datos SSISDB.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -8,23 +8,69 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 08/14/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 37347df2d543116085f52fed76c692b60fac2ad6
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 2012ccf4d9fd3e62ba248f29f922f868077e4061
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295399"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42142494"
 ---
-# <a name="business-continuity-and-disaster-recovery-bcdr-recommendations-for-azure-ssis-integration-runtime"></a>Recomendaciones sobre continuidad empresarial y recuperación ante desastres (BCDR) en una instancia de Integration Runtime para la integración de SSIS en Azure
+# <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Configurar Azure-SSIS Integration Runtime con la replicación geográfica y la conmutación por error de Azure SQL Database.
 
-A efectos de recuperación ante desastres, puede detener su entorno de ejecución para la integración de SSIS en Azure en la región en la que se ejecuta actualmente y cambiar a otra región para iniciarla de nuevo. Se recomienda usar [regiones emparejadas de Azure](../best-practices-availability-paired-regions.md) para este propósito.
+En este artículo se describe cómo configurar Azure-SSIS Integration Runtime con la replicación geográfica de Azure SQL Database para la base de datos SSISDB. Cuando se produce una conmutación por error, puede asegurarse de que Azure-SSIS IR sigue funcionando con la base de datos secundaria.
 
-## <a name="prerequisites"></a>Requisitos previos
+Para obtener más información acerca de la replicación geográfica y la conmutación por error para SQL Database, consulte [Información general: grupos de conmutación por error automática y replicación geográfica activa](../sql-database/sql-database-geo-replication-overview.md).
+
+## <a name="scenario-1---azure-ssis-ir-is-pointing-to-read-write-listener-endpoint"></a>Escenario 1: Azure-SSIS IR señala al punto de conexión del agente de escucha de lectura y escritura.
+
+### <a name="conditions"></a>Condiciones
+
+Esta sección se aplica cuando se cumplen las condiciones siguientes:
+
+- Azure-SSIS IR señala al punto de conexión del agente de escucha de lectura y escritura del grupo de conmutación por error.
+
+  Y
+
+- El servidor de SQL Database *no* está configurado con la regla de punto de conexión de servicio de red virtual.
+
+### <a name="solution"></a>Solución
+
+Cuando se produce una conmutación por error, es transparente para Azure-SSIS IR. Azure-SSIS IR se conecta automáticamente a la nueva instancia principal del grupo de conmutación por error.
+
+## <a name="scenario-2---azure-ssis-ir-is-pointing-to-primary-server-endpoint"></a>Escenario 2: Azure-SSIS IR señala al punto de conexión del servidor principal.
+
+### <a name="conditions"></a>Condiciones
+
+Esta sección se aplica cuando se cumple una de las condiciones siguientes:
+
+- Azure-SSIS IR señala al punto de conexión del servidor principal del grupo de conmutación por error. Este punto de conexión cambia cuando se produce una conmutación por error.
+
+  OR
+
+- El servidor de Azure SQL Database está configurado con la regla de punto de conexión de servicio de red virtual.
+
+  OR
+
+- El servidor de base de datos es una Instancia administrada SQL Database configurada con una red virtual.
+
+### <a name="solution"></a>Solución
+
+Cuando se produce una conmutación por error, deberá hacer lo siguiente:
+
+1. Detenga la instancia de Integration Runtime de SSIS de Azure.
+
+2. Vuelva a configurar IR para que señale al nuevo punto de conexión principal y a una red virtual en la nueva región.
+
+3. Reinicie IR.
+
+En las siguientes secciones se describen estos pasos con más detalle.
+
+### <a name="prerequisites"></a>Requisitos previos
 
 - Asegúrese de que ha habilitado la recuperación ante desastres para el servidor de Azure SQL Database en caso de que el servidor tenga una interrupción del servicio al mismo tiempo. Para más información, vea [Introducción a la continuidad empresarial con Azure SQL Database](../sql-database/sql-database-business-continuity.md).
 
@@ -32,13 +78,13 @@ A efectos de recuperación ante desastres, puede detener su entorno de ejecució
 
 - Si utiliza una instalación personalizada, puede que tenga que preparar otro URI de SAS para el contenedor de blobs que almacena el script de instalación personalizada y los archivos asociados, de modo que siga siendo accesible durante una interrupción. Para más información, vea [Configure a custom setup on an Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md) (Configuración de una instalación personalizada en un entorno de ejecución para la integración de SSIS en Azure).
 
-## <a name="steps"></a>Pasos
+### <a name="steps"></a>Pasos
 
 Siga estos pasos para detener el entorno de ejecución de integración de SSIS en Azure, cambie el entorno de ejecución de integración a otra región y vuelva a iniciarlo.
 
 1. Detenga la instancia del entorno de ejecución de integración en la región original.
 
-2. Llame al comando siguiente en PowerShell para actualizar el entorno de ejecución de integración.
+2. Llame al comando siguiente en PowerShell para actualizar IR con la nueva configuración.
 
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -Location "new region" `

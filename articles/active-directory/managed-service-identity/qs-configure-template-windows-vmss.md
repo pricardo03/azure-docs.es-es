@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: bee75bcefb370382825c6867ea504e14102aa107
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 68304b3e5eea50aba28f46344abcbd7ad060c5c8
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628290"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143060"
 ---
 # <a name="configure-managed-service-identity-on-virtual-machine-scale-using-a-template"></a>Configuración de Managed Service Identity en un conjunto de escalado de máquinas virtuales mediante una plantilla
 
@@ -55,18 +55,16 @@ Independientemente de la opción que elija, la sintaxis de la plantilla es la mi
 
 En esta sección, se habilita y deshabilita la identidad asignada por el sistema con una plantilla de Azure Resource Manager.
 
-### <a name="enable-system-assigned-identity-during-creation-the-creation-of-or-an-existing-azure-virtual-machine-scale-set"></a>Habilitación de la identidad asignada por el sistema durante la creación de un conjunto de escalado de máquinas virtuales de Azure existente
+### <a name="enable-system-assigned-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-a-existing-virtual-machine-scale-set"></a>Habilitar la identidad asignada por el sistema durante la creación de un conjunto de escalado de máquinas virtuales o un conjunto de escalado de máquinas virtuales existente
 
-1. Cargue la plantilla en un editor, busque el recurso de interés `Microsoft.Compute/virtualMachineScaleSets` dentro de la sección `resources`. El suyo puede diferir ligeramente con respecto a la siguiente captura de pantalla, en función del editor que use y de si está editando una plantilla para una implementación nueva o una existente.
+1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene el conjunto de escalado de máquinas virtuales.
    
-   ![Captura de pantalla de la plantilla - localizar máquina virtual](../managed-service-identity/media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-before-vmss.png) 
-
-2. Para habilitar la identidad asignada por el sistema, agregue la propiedad `"identity"` en el mismo nivel que la propiedad `"type": "Microsoft.Compute/virtualMachineScaleSets"`. Use la sintaxis siguiente:
+2. Para habilitar la identidad asignada por el sistema, cargue la plantilla en un editor, busque el recurso de interés `Microsoft.Compute/virtualMachinesScaleSets` en la sección de recursos y agregue la propiedad `identity` en el mismo nivel que la propiedad `"type": "Microsoft.Compute/virtualMachines"`. Use la sintaxis siguiente:
 
    ```JSON
    "identity": { 
-       "type": "systemAssigned"
-   },
+       "type": "SystemAssigned"
+   }
    ```
 
 3. (Opcional) Agregue la extensión de Managed Service Identity del conjunto de escalado de máquinas virtuales como un elemento `extensionsProfile`. Este paso es opcional, ya que puede usar la identidad de Azure Instance Metadata Service (IMDS) para recuperar tokens.  Use la sintaxis siguiente:
@@ -75,7 +73,7 @@ En esta sección, se habilita y deshabilita la identidad asignada por el sistema
    > En el ejemplo siguiente se da por hecho que se está implementando una extensión (`ManagedIdentityExtensionForWindows`) de un conjunto de escalado de máquinas virtuales Windows. También puede configurarlo para Linux utilizando `ManagedIdentityExtensionForLinux` en su lugar, para los elementos `"name"` y `"type"`.
    >
 
-   ```JSON
+   ```json
    "extensionProfile": {
         "extensions": [
             {
@@ -93,9 +91,44 @@ En esta sección, se habilita y deshabilita la identidad asignada por el sistema
             }
    ```
 
-4. Cuando haya terminado, la plantilla debería tener una apariencia similar a la siguiente:
+4. Cuando haya terminado, deben agregarse las siguientes secciones a la sección de recursos de la plantilla para que se parezca a la siguiente:
 
-   ![Captura de pantalla de la plantilla después de la actualización](../managed-service-identity/media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-after-vmss.png) 
+   ```json
+    "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2018-06-01",
+            "type": "Microsoft.Compute/virtualMachineScaleSets",
+            "name": "[variables('vmssName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "SystemAssigned",
+            },
+           "properties": {
+                //other resource provider properties...
+                "virtualMachineProfile": {
+                    //other virtual machine profile properties...
+                    "extensionProfile": {
+                        "extensions": [
+                            {
+                                "name": "ManagedIdentityWindowsExtension",
+                                "properties": {
+                                  "publisher": "Microsoft.ManagedIdentity",
+                                  "type": "ManagedIdentityExtensionForWindows",
+                                  "typeHandlerVersion": "1.0",
+                                  "autoUpgradeMinorVersion": true,
+                                  "settings": {
+                                      "port": 50342
+                                  }
+                                }
+                            } 
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+   ``` 
 
 ### <a name="disable-a-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Deshabilitar una identidad asignada por el sistema de un conjunto de escalado de máquinas virtuales de Azure
 
@@ -103,12 +136,24 @@ Si tiene un conjunto de escalado de máquinas virtuales que ya no necesita una i
 
 1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene el conjunto de escalado de máquinas virtuales.
 
-2. Cargue la plantilla en un [editor](#azure-resource-manager-templates) y busque el `Microsoft.Compute/virtualMachineScaleSets`recurso de interés dentro de la sección `resources`. Si dispone de un conjunto de escalado de máquinas virtuales que solo tenga una identidad asignada por el sistema, puede deshabilitarla cambiando el tipo de identidad a `None`.  Si el conjunto de escalado de máquinas virtuales tiene identidades asignadas por el usuario como por el sistema, quite `SystemAssigned` del tipo de identidad y mantenga `UserAssigned` junto con la matriz `identityIds` de las identidades asignadas por el usuario.  En el ejemplo siguiente se muestra cómo quitar una identidad asignada por el sistema de un conjunto de escalado de máquinas virtuales sin identidades asignadas por el usuario:
+2. Cargue la plantilla en un [editor](#azure-resource-manager-templates) y busque el `Microsoft.Compute/virtualMachineScaleSets`recurso de interés dentro de la sección `resources`. Si dispone de una máquina virtual que solo tenga una identidad asignada por el sistema, puede deshabilitarla cambiando el tipo de identidad a `None`.
+
+   **Microsoft.Compute/virtualMachineScaleSets versión de API 2018-06-01**
+
+   Si apiVersion es `2018-06-01` y la VM tiene identidades asignadas tanto por el usuario como por el sistema, quite `SystemAssigned` del tipo de identidad y mantenga `UserAssigned` junto con los valores del diccionario userAssignedIdentities.
+
+   **Microsoft.Compute/virtualMachineScaleSets versión de API 2018-06-01 y anteriores**
+
+   Si apiVersion es `2017-12-01` y el conjunto de escalado de máquinas virtuales tiene identidades asignadas tanto por el usuario como por el sistema, quite `SystemAssigned` del tipo de identidad y mantenga `UserAssigned` junto con la matriz `identityIds` de las identidades asignadas por el usuario. 
+   
+    
+
+   En el ejemplo siguiente se muestra cómo quitar una identidad asignada por el sistema de un conjunto de escalado de máquinas virtuales sin identidades asignadas por el usuario:
    
    ```json
    {
        "name": "[variables('vmssName')]",
-       "apiVersion": "2017-03-30",
+       "apiVersion": "2018-06-01",
        "location": "[parameters(Location')]",
        "identity": {
            "type": "None"
@@ -119,32 +164,52 @@ Si tiene un conjunto de escalado de máquinas virtuales que ya no necesita una i
 
 ## <a name="user-assigned-identity"></a>Identidad asignada por el usuario
 
-En esta sección, asignará una identidad asignada por el usuario a un VMSS de Azure mediante la plantilla de Azure Resource Manager.
+En esta sección, asignará una identidad asignada por el usuario a un conjunto de escalado de máquinas virtuales mediante la plantilla de Azure Resource Manager.
 
 > [!Note]
 > Para crear una identidad asignada por el usuario mediante una plantilla de Azure Resource Manager, consulte [Create a user assigned identity](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity) (Creación de una identidad asignada por el usuario).
 
 ### <a name="assign-a-user-assigned-identity-to-an-azure-vmss"></a>Asignación de una identidad asignada por el usuario a un VMSS de Azure
 
-1. En el elemento `resources`, agregue la siguiente entrada para asignar una identidad asignada por el usuario al VMSS.  No olvide reemplazar `<USERASSIGNEDIDENTITY>` con el nombre de la identidad asignada por el usuario que ha creado.
+1. En el elemento `resources`, agregue la siguiente entrada para asignar una identidad asignada por el usuario al conjunto de escalado de máquinas virtuales.  No olvide reemplazar `<USERASSIGNEDIDENTITY>` con el nombre de la identidad asignada por el usuario que ha creado.
+   
+   **Microsoft.Compute/virtualMachineScaleSets versión de API 2018-06-01**
 
-   > [!Important]
-   > El valor `<USERASSIGNEDIDENTITYNAME>` que se muestra en el ejemplo siguiente se debe almacenar en una variable.  Además, para la implementación actualmente compatible de la asignación de identidades asignadas del usuario a una máquina virtual en una plantilla de Resource Manager, la versión de API debe coincidir con la versión del ejemplo siguiente. 
+   Si apiVersion es `2018-06-01`, las identidades asignadas por el usuario se almacenan en el formato de diccionario `userAssignedIdentities` y el valor `<USERASSIGNEDIDENTITYNAME>` debe almacenarse en una variable definida en la sección `variables` de la plantilla.
 
-    ```json
-    {
-        "name": "[variables('vmssName')]",
-        "apiVersion": "2017-03-30",
-        "location": "[parameters(Location')]",
-        "identity": {
-            "type": "userAssigned",
-            "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITY>'))]"
-            ]
-        }
+   ```json
+   {
+       "name": "[variables('vmssName')]",
+       "apiVersion": "2018-06-01",
+       "location": "[parameters(Location')]",
+       "identity": {
+           "type": "userAssigned",
+           "userAssignedIdentities": {
+               "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
+           }
+       }
+    
+   }
+   ```   
 
-    }
-    ```
+   **Microsoft.Compute/virtualMachineScaleSets versión de API 2017-12-01**
+    
+   Si `apiVersion` es `2017-12-01` o anterior, las identidades asignadas por el usuario se almacenan en la matriz `identityIds` y el valor `<USERASSIGNEDIDENTITYNAME>` debe almacenarse en una variable definida en la sección de variables de la plantilla.
+
+   ```json
+   {
+       "name": "[variables('vmssName')]",
+       "apiVersion": "2017-03-30",
+       "location": "[parameters(Location')]",
+       "identity": {
+           "type": "userAssigned",
+           "identityIds": [
+               "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITY>'))]"
+           ]
+       }
+
+   }
+   ``` 
 
 2. (Opcional) Agregue la siguiente entrada en el elemento `extensionProfile` para asignar la extensión de identidad administrada al VMSS. Este paso es opcional, ya que puede usar el punto de conexión de identidad de Azure Instance Metadata Service (IMDS) para recuperar tokens. Use la sintaxis siguiente:
    
@@ -166,34 +231,124 @@ En esta sección, asignará una identidad asignada por el usuario a un VMSS de A
                 }
     ```
 
-3.  Cuando haya terminado, la plantilla debería tener un aspecto similar al siguiente:
+3. Cuando haya terminado, la plantilla debería tener un aspecto similar al siguiente:
    
-      ![Captura de pantalla de la identidad asignada por el usuario](./media/qs-configure-template-windows-vmss/qs-configure-template-windows-final.PNG)
+   **Microsoft.Compute/virtualMachineScaleSets versión de API 2018-06-01**   
 
+   ```json
+   "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2018-06-01",
+            "type": "Microsoft.Compute/virtualMachineScaleSets",
+            "name": "[variables('vmssName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                    "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
+                }
+            },
+           "properties": {
+                //other virtual machine properties...
+                "virtualMachineProfile": {
+                    //other virtual machine profile properties...
+                    "extensionProfile": {
+                        "extensions": [
+                            {
+                                "name": "ManagedIdentityWindowsExtension",
+                                "properties": {
+                                  "publisher": "Microsoft.ManagedIdentity",
+                                  "type": "ManagedIdentityExtensionForWindows",
+                                  "typeHandlerVersion": "1.0",
+                                  "autoUpgradeMinorVersion": true,
+                                  "settings": {
+                                      "port": 50342
+                                  }
+                                }
+                            } 
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+   ```
+
+   **Microsoft.Compute/virtualMachines versión de API 2017-12-01 y anteriores**
+
+   ```json
+   "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2017-12-01",
+            "type": "Microsoft.Compute/virtualMachineScaleSets",
+            "name": "[variables('vmssName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "UserAssigned",
+                "identityIds": [
+                    "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
+                ]
+            },
+           "properties": {
+                //other virtual machine properties...
+                "virtualMachineProfile": {
+                    //other virtual machine profile properties...
+                    "extensionProfile": {
+                        "extensions": [
+                            {
+                                "name": "ManagedIdentityWindowsExtension",
+                                "properties": {
+                                  "publisher": "Microsoft.ManagedIdentity",
+                                  "type": "ManagedIdentityExtensionForWindows",
+                                  "typeHandlerVersion": "1.0",
+                                  "autoUpgradeMinorVersion": true,
+                                  "settings": {
+                                      "port": 50342
+                                  }
+                                }
+                            } 
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+   ```
 ### <a name="remove-user-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Eliminación de una identidad asignada por el usuario de un conjunto de escalado de máquinas virtuales de Azure
 
 Si tiene un conjunto de escalado de máquinas virtuales que ya no necesita una identidad de servicio administrada:
 
 1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene el conjunto de escalado de máquinas virtuales.
 
-2. Cargue la plantilla en un [editor](#azure-resource-manager-templates) y busque el `Microsoft.Compute/virtualMachineScaleSets`recurso de interés dentro de la sección `resources`. Si dispone de un conjunto de escalado de máquinas virtuales que solo tenga una identidad asignada por el usuario, puede deshabilitarla cambiando el tipo de identidad a `None`.  Si el conjunto de escalado de máquinas virtuales tiene identidades asignadas tanto por el usuario como por el sistema y desea conservar la identidad asignada por el sistema, quite `UserAssigned` del tipo de identidad junto con la matriz `identityIds` de las identidades asignadas por el usuario.
-    
-   Para quitar una identidad asignada por un usuario único desde un conjunto de escalado de máquinas virtuales, quítela de la matriz `identityIds`.
-   
-   En el ejemplo siguiente se muestra cómo quitar todas las identidades asignada por el usuario de un conjunto de escalado de máquinas virtuales sin identidades asignadas por el sistema:
-   
+2. Cargue la plantilla en un [editor](#azure-resource-manager-templates) y busque el `Microsoft.Compute/virtualMachineScaleSets`recurso de interés dentro de la sección `resources`. Si dispone de un conjunto de escalado de máquinas virtuales que solo tenga una identidad asignada por el usuario, puede deshabilitarla cambiando el tipo de identidad a `None`.
+
+   En el ejemplo siguiente se muestra cómo quitar todas las identidades asignada por un usuario de una máquina virtual sin identidades asignadas por el sistema:
+
    ```json
    {
        "name": "[variables('vmssName')]",
-       "apiVersion": "2017-03-30",
+       "apiVersion": "2018-06-01",
        "location": "[parameters(Location')]",
        "identity": {
            "type": "None"
         }
-
    }
    ```
+   
+   **Microsoft.Compute/virtualMachineScaleSets versión de API 2018-06-01**
+    
+   Para quitar una identidad asignada por un usuario único desde un conjunto de escalado de máquinas virtuales, quítela del diccionario `userAssignedIdentities`.
 
+   Si tiene una identidad asignada por el sistema, consérvela en el valor `type` de `identity`.
+
+   **Microsoft.Compute/virtualMachineScaleSets versión de API 2017-12-01**
+
+   Para quitar una identidad asignada por un usuario único desde un conjunto de escalado de máquinas virtuales, quítela de la matriz `identityIds`.
+
+   Si tiene una identidad asignada por el sistema, consérvela en el valor `type` de `identity`.
+   
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener una perspectiva más amplia acerca de Managed Service Identity, consulte la [Introducción a Managed Service Identity](overview.md).

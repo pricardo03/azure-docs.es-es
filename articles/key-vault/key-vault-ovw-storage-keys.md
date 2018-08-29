@@ -5,16 +5,16 @@ description: Las claves de cuenta de almacenamiento proporcionan una integració
 ms.topic: article
 services: key-vault
 ms.service: key-vault
-author: lleonard-msft
-ms.author: alleonar
+author: bryanla
+ms.author: bryanla
 manager: mbaldwin
-ms.date: 10/12/2017
-ms.openlocfilehash: 4f42a47a6d934bf0538efccbcf7f057fd28e2c03
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 08/21/2017
+ms.openlocfilehash: 0112d48647c031845bc89ccebfcdd40954c59f14
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179595"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146597"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Claves de cuenta de almacenamiento de Azure Key Vault
 
@@ -38,12 +38,12 @@ Cuando se usan las claves de la cuenta de almacenamiento administrada, Key Vault
     - Azure Key Vault vuelve a generar (rotar) las claves periódicamente.
     - Los valores de clave nunca se devuelven como respuesta al autor de la llamada.
     - Azure Key Vault administra las claves de las cuentas de almacenamiento y de las cuentas de almacenamiento clásicas.
-- Azure Key Vault le permite a usted, como propietario del almacén/objeto, crear definiciones de SAS (SAS de cuenta o de servicio).
-    - El valor de SAS, creado mediante la definición de SAS, se devuelve como un secreto a través de la ruta de acceso de URI de REST. Para más información, vea [Azure Key Vault storage account operations (Operaciones de cuenta de almacenamiento de Azure Key Vault)](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations).
+- Azure Key Vault le permite a usted, como propietario del almacén/objeto, crear definiciones de SAS (Firma de acceso compartido, SAS de cuenta o de servicio).
+    - El valor de SAS, creado mediante la definición de SAS, se devuelve como un secreto a través de la ruta de acceso de URI de REST. Para obtener más información, consulte las operaciones de definición de SAS en [Azure Key Vault REST API reference](/rest/api/keyvault) (Referencia de la API REST de Azure Key Vault).
 
 ## <a name="naming-guidance"></a>Instrucciones de nomenclatura
 
-- Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas.
+- Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula.
 - Los nombres de las definiciones de SAS deben tener una longitud de entre 1 y 102 caracteres y contener solo los caracteres 0-9, a-z, A-z.
 
 ## <a name="developer-experience"></a>Experiencia para el desarrollador
@@ -97,16 +97,18 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 ## <a name="getting-started"></a>Introducción
 
-### <a name="setup-for-role-based-access-control-rbac-permissions"></a>Configuración de permisos de control de acceso basado en roles (RBAC)
+### <a name="give-key-vault-access-to-your-storage-account"></a>Otorgue a Key Vault acceso a la cuenta de almacenamiento 
 
-La identidad de aplicación de Azure Key Vault necesita permisos para *enumerar* y *regenerar* las claves de una cuenta de almacenamiento. Configure estos permisos mediante los siguientes pasos:
+Al igual que muchas aplicaciones, Key Vault se registra en Azure AD para poder usar OAuth para tener acceso a otros servicios. Durante el registro, se crea un objeto [entidad de servicio](/azure/active-directory/develop/app-objects-and-service-principals), que se usa para representar la identidad de la aplicación en tiempo de ejecución. La entidad de servicio también se usa para autorizar a la identidad de la aplicación para que tenga acceso a otro recurso, a través del control de acceso basado en roles (RBAC).
+
+La identidad de aplicación de Azure Key Vault necesita permisos para *enumerar* y *regenerar* las claves de la cuenta de almacenamiento. Configure estos permisos mediante los siguientes pasos:
 
 ```powershell
 # Get the resource ID of the Azure Storage Account you want to manage.
 # Below, we are fetching a storage account using Azure Resource Manager
 $storage = Get-AzureRmStorageAccount -ResourceGroupName "mystorageResourceGroup" -StorageAccountName "mystorage"
 
-# Get ObjectId of Azure Key Vault Identity
+# Get Application ID of Azure Key Vault's service principal
 $servicePrincipal = Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
 
 # Assign Storage Key Operator role to Azure Key Vault Identity
@@ -118,7 +120,7 @@ New-AzureRmRoleAssignment -ObjectId $servicePrincipal.Id -RoleDefinitionName 'St
 
 ## <a name="working-example"></a>Ejemplo práctico
 
-En el siguiente ejemplo se muestra cómo crear una cuenta de almacenamiento de Azure administrada con Key Vault y las definiciones de Firma de acceso compartido (SAS) asociadas.
+En el siguiente ejemplo se muestra cómo crear una cuenta de almacenamiento de Azure administrada con Key Vault y las definiciones de SAS asociadas.
 
 ### <a name="prerequisite"></a>Requisito previo
 
@@ -205,8 +207,9 @@ Observe que, al intentar acceder con *$readSasToken*, se produce un error, aunqu
 $context1 = New-AzureStorageContext -SasToken $readSasToken -StorageAccountName $storage.StorageAccountName
 $context2 = New-AzureStorageContext -SasToken $writeSasToken -StorageAccountName $storage.StorageAccountName
 
-Set-AzureStorageBlobContent -Container containertest1 -File "abc.txt" -Context $context1
-Set-AzureStorageBlobContent -Container cont1-file "file.txt" -Context $context2
+# Ensure the txt file in command exists in local path mentioned
+Set-AzureStorageBlobContent -Container containertest1 -File "./abc.txt" -Context $context1
+Set-AzureStorageBlobContent -Container cont1-file "./file.txt" -Context $context2
 ```
 
 Se puede obtener acceso al contenido del blob de almacenamiento con el token de SAS que tiene acceso de escritura.
@@ -232,7 +235,7 @@ Key Vault debe comprobar que la identidad tiene permisos para *volver a generar*
 - Key Vault enumera los permisos RBAC en el recurso de la cuenta de almacenamiento.
 - Key Vault valida la respuesta a través de la coincidencia de expresión regular de acciones y no acciones.
 
-En [Key Vault - Managed Storage Account Keys Samples ](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167) (Key Vault: ejemplos de administración de claves de cuentas de Azure Storage) encontrará algunos ejemplos auxiliares.
+En [Key Vault - Managed Storage Account Keys Samples ](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=) (Key Vault: ejemplos de administración de claves de cuentas de Azure Storage) encontrará algunos ejemplos auxiliares.
 
 Si la identidad no dispone de permisos para *volver a generar* o si la identidad propia de Key Vault no tiene permiso para *mostrar* o *volver a generar*, se produce un error en la solicitud de incorporación, que devuelve el código de error y el mensaje correspondientes.
 

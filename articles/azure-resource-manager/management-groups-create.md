@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2018
+ms.date: 08/21/2018
 ms.author: rithorn
-ms.openlocfilehash: 13eea4f2b5125d7ab25b05a9e20021ebc6a2e0c6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 114c3c03b49468b6130243bbf9f881a5de42740f
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435380"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143618"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creación de grupos de administración para la organización y la administración de recursos
 
@@ -27,7 +27,7 @@ El primer grupo de administración creado en el directorio puede tardar hasta 15
 
 ## <a name="create-a-management-group"></a>Creación de un grupo de administración
 
-Puede crear el grupo de administración mediante el portal, PowerShell o la CLI de Azure.
+Puede crear el grupo de administración mediante el portal, PowerShell o la CLI de Azure. Actualmente no se pueden usar plantillas de Resource Manager para crear grupos de administración.
 
 ### <a name="create-in-portal"></a>Crear en el portal
 

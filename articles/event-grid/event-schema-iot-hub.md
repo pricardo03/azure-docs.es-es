@@ -8,18 +8,20 @@ manager: timlt
 editor: ''
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 08/17/2018
 ms.author: kgremban
-ms.openlocfilehash: 812ca3ba546112f54a76319fda853d441ce34f1b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4bb33eae53d31701b66d13cb4e810b1a0b8a4b0b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303545"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42143418"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Esquema de eventos de Azure Event Grid para IoT Hub
 
 En este artículo se proporcionan las propiedades y los esquemas de los eventos de Azure IoT Hub. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md). 
+
+Para una lista de scripts de ejemplo y tutoriales, consulte los [orígenes de eventos de IoT Hub](event-sources.md#iot-hub).
 
 ## <a name="available-event-types"></a>Tipos de eventos disponibles
 

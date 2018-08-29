@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/04/2018
+ms.date: 08/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 582513e7e556859e70c1af9c4f6179e1d60e0139
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 2060239b27ef05c34ea6f5b388b4c4086a44a826
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216748"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42142930"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks secundarios en Azure Automation
 
@@ -24,7 +24,7 @@ Un procedimiento recomendado en Azure Automation es escribir runbooks que sean r
 
 Para invocar un runbook en línea desde otro runbook, use el nombre del runbook y proporcione valores para sus parámetros, exactamente igual a como usaría una actividad o un cmdlet.  De esta manera, todos los runbooks de la misma cuenta de Automation estarán disponibles para que todos los demás los usen. El runbook principal esperará a que el runbook secundario se complete antes de pasar a la siguiente línea, y cualquier resultado se devolverá directamente al elemento primario.
 
-Al invocar un runbook en línea, este se ejecuta en el mismo trabajo que el runbook primario. No habrá ninguna indicación en el historial de trabajos del runbook secundario que se haya ejecutado. Cualquier excepción y salida de flujo pertenecientes al runbook secundario, se asociarán al primario. Como resultado, hay menos trabajos y se facilita el seguimiento y la solución de problemas, ya que las excepciones producidas por el runbook secundario y la salida de flujo se asocian al trabajo primario.
+Al invocar un runbook en línea, este se ejecuta en el mismo trabajo que el runbook primario. No habrá ninguna indicación en el historial de trabajos del runbook secundario que se haya ejecutado. Cualquier excepción y salida de flujo pertenecientes al runbook secundario, se asociarán al primario. Como resultado, hay menos trabajos y se facilita el seguimiento y la solución de problemas, ya que las excepciones producidas por el runbook secundario y las salidas de flujo se asocian al trabajo primario.
 
 Cuando se publica un runbook, cualquier runbook secundario al que llame deberá estar ya estar publicado. Esto es así porque Azure Automation crea una asociación con los runbooks secundarios cuando se compila un runbook. Si no, parecerá que el runbook primario se publica correctamente, pero generará una excepción cuando se inicie. Si esto sucediera, puede volver a publicar el runbook primario para que haga referencia correctamente a los runbooks secundarios. No es necesario que vuelva a publicar el runbook primario si cambia uno de los runbooks secundarios, porque ya se habrá creado la asociación.
 
@@ -42,7 +42,7 @@ Cuándo es importante el orden de publicación:
 
 * El orden de publicación de runbooks solo es importante para los runbooks de flujo de trabajo de PowerShell y los runbooks gráficos de flujo de trabajo de PowerShell.
 
-Cuando se llama a un runbook secundario gráfico o de flujo de trabajo de PowerShell con la ejecución insertada, solo tiene que usar el nombre del runbook.  Cuando se llama a un runbook secundario de PowerShell, se debe anteponer *.\\* a su nombre para especificar que el script se encuentra en el directorio local. 
+Cuando se llama a un runbook secundario gráfico o de flujo de trabajo de PowerShell con la ejecución insertada, solo tiene que usar el nombre del runbook.  Cuando se llama a un runbook secundario de PowerShell, el nombre debe comenzar con *.\\* para especificar que el script se encuentra en el directorio local.
 
 ### <a name="example"></a>Ejemplo
 
@@ -72,25 +72,36 @@ Si no quiere bloquear el runbook primario durante la espera, puede invocar al ru
 
 Los parámetros de un runbook secundario iniciado con un cmdlet se proporcionan como una tabla hash, tal y como se describe en [Parámetros de runbook](automation-starting-a-runbook.md#runbook-parameters). Solo pueden usarse los tipos de datos simples. Si el runbook tiene un parámetro con un tipo de datos complejo, debe llamarse en línea.
 
+Si trabaja con varias suscripciones, se puede perder el contexto de suscripción al invocar runbooks secundarios. Para asegurarse de que el contexto de suscripción se pasa a los runbooks secundarios, agregue el parámetro `DefaultProfile` al cmdlet y pase el contexto a él.
+
 ### <a name="example"></a>Ejemplo
 
 En el ejemplo siguiente se inicia un Runbook secundario con parámetros y se espera a que finalice mediante el parámetro Start-AzureRmAutomationRunbook -wait. Una vez completado, los resultados se recopilan desde el Runbook secundario. Para usar `Start-AzureRmAutomationRunbook`, debe autenticarse en su suscripción de Azure.
 
 ```azurepowershell-interactive
 # Connect to Azure with RunAs account
-$conn = Get-AutomationConnection -Name "AzureRunAsConnection"
+$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
-$null = Add-AzureRmAccount `
-  -ServicePrincipal `
-  -TenantId $conn.TenantId `
-  -ApplicationId $conn.ApplicationId `
-  -CertificateThumbprint $conn.CertificateThumbprint
+Add-AzureRmAccount `
+    -ServicePrincipal `
+    -TenantId $ServicePrincipalConnection.TenantId `
+    -ApplicationId $ServicePrincipalConnection.ApplicationId `
+    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
 
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
-$joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResourceGroupName "LabRG" –Parameters $params –wait
+
+Start-AzureRmAutomationRunbook `
+    –AutomationAccountName 'MyAutomationAccount' `
+    –Name 'Test-ChildRunbook' `
+    -ResourceGroupName 'LabRG' `
+    -DefaultProfile $AzureContext `
+    –Parameters $params –wait
 ```
 
 ## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>Comparación de métodos para llamar a un runbook secundario
+
 En la siguiente tabla se resumen las diferencias entre los dos métodos para llamar a un runbook desde otro runbook.
 
 |  | En línea | Cmdlet |

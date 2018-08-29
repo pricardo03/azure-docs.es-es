@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 08/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 17f40790343181c592eca7bf6337b0f37d3ec20c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cac3c8d3a1877ad7c93efc0954c2f07ecaa0a29
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602822"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42146929"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
@@ -48,6 +48,8 @@ Para crear un vínculo a otra plantilla, agregue un recurso **implementaciones**
 ```
 
 Las propiedades que se proporcionan para el recurso de implementación varían en función de si va a vincular a una plantilla externa o va a anidar una plantilla alineada en la plantilla principal.
+
+Para las plantillas vinculadas y anidadas, solo se puede usar el modo de implementación [incremental](deployment-modes.md).
 
 ### <a name="nested-template"></a>Plantilla anidada
 

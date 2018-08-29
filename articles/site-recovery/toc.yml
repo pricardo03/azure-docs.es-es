@@ -80,8 +80,6 @@ items:
         href: physical-azure-architecture.md
       - name: Compatibilidad multiinquilino para la replicación de VMware en Azure
         href: vmware-azure-multi-tenant-overview.md
-      - name: Acerca de Mobility Service
-        href: vmware-azure-install-mobility-service.md
       - name: Opciones de ubicación de conmutación por recuperación
         href: concepts-types-of-failback.md
     - name: Replicación en un sitio secundario
@@ -190,26 +188,26 @@ items:
       items:
       - name: Replicación de máquinas virtuales de VMware en Azure mediante PowerShell
         href: vmware-azure-disaster-recovery-powershell.md
-      - name: Recuperación ante desastres de servidores físicos en Azure
-        href: physical-azure-disaster-recovery.md
       - name: Configuración del entorno de origen para máquinas virtuales de VMware
         href: vmware-azure-set-up-source.md
-      - name: Configuración del entorno de origen para los servidores físicos
-        href: physical-azure-set-up-source.md
       - name: Implementación del servidor de configuración para la replicación de VMware
         href: vmware-azure-deploy-configuration-server.md
       - name: Configuración del entorno de destino para máquinas virtuales de VMware
         href: vmware-azure-set-up-target.md
-      - name: Configuración del entorno de destino para los servidores físicos
-        href: physical-azure-set-up-target.md
       - name: Configuración de las opciones de replicación
         href: vmware-azure-set-up-replication.md
-      - name: Excluir discos de la replicación
-        href: vmware-azure-exclude-disk.md
       - name: Habilitar replicación de máquinas virtuales de VMware
         href: vmware-azure-enable-replication.md
+      - name: Excluir discos de la replicación
+        href: vmware-azure-exclude-disk.md
       - name: Servicios multiinquilino con CSP para máquinas virtuales de VMWare
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
+      - name: Configuración del entorno de origen para los servidores físicos
+        href: physical-azure-set-up-source.md
+      - name: Configuración del entorno de destino para los servidores físicos
+        href: physical-azure-set-up-target.md
+      - name: Recuperación ante desastres de servidores físicos en Azure
+        href: physical-azure-disaster-recovery.md
     - name: Implementación de Mobility Service
       items:
       - name: Introducción a Mobility Service
@@ -218,24 +216,24 @@ items:
         href: vmware-azure-mobility-install-configuration-mgr.md
     - name: Conmutación por error y conmutación por recuperación
       items:
-      - name: Ejecución de un simulacro de recuperación ante desastres en Azure
-        href: site-recovery-test-failover-to-azure.md
       - name: Configuración de planes de recuperación
         href: site-recovery-create-recovery-plans.md
       - name: Adición de runbooks de Azure a los planes de recuperación
         href: site-recovery-runbook-automation.md
+      - name: Ejecución de un simulacro de recuperación ante desastres en Azure
+        href: site-recovery-test-failover-to-azure.md
+      - name: Ejecutar una conmutación por error en Azure.
+        href: site-recovery-failover.md
+      - name: Reprotección desde Azure a una instancia local de VMware
+        href: vmware-azure-reprotect.md
+      - name: Conmutación por recuperación de Azure a VMware
+        href: vmware-azure-failback.md
       - name: Configuración y administración de un servidor de proceso para la conmutación por recuperación en Azure
         href: vmware-azure-set-up-process-server-azure.md
       - name: Configuración de un servidor de destino maestro de Linux para la conmutación por recuperación
         href: vmware-azure-install-linux-master-target.md
-      - name: Ejecutar una conmutación por error en Azure.
-        href: site-recovery-failover.md
       - name: Ejecución de una conmutación por error y una conmutación por recuperación en servidores físicos
         href: physical-to-azure-failover-failback.md
-      - name: Conmutación por recuperación de Azure a VMware
-        href: vmware-azure-failback.md
-      - name: Reprotección desde Azure a una instancia local de VMware
-        href: vmware-azure-reprotect.md
     - name: administración
       items:
       - name: Administración del servidor de configuración para la replicación de VMware
@@ -390,9 +388,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Actualizaciones del servicio
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: cdc1990f71a38e7e0740456ccc8fb82e8ed1b5f9
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: f0469d554b25565411bb8c484f3d3937bb9a87f6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42914925"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126077"

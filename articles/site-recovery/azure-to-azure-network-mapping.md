@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 7b7f9c079a1fc9d74fed4cc4d94d37f336ca5dc7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: aed804a257376308c668ce0c2f3e8ce652ee9b3f
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916747"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42142581"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Asignación de redes virtuales en regiones diferentes de Azure
 
 
 En este artículo se describe cómo asignar entre sí dos instancias de Azure Virtual Network ubicadas en regiones de Azure diferentes. La asignación de red garantiza que al crear la máquina virtual replicada en la región de Azure de destino, también se cree la máquina virtual en la red virtual asignada a la red virtual de la máquina virtual de origen.  
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de asignar redes, asegúrese de haber creado una [red virtual de Azure](../virtual-network/virtual-networks-overview.md) en las regiones de Azure de origen y destino.
 
 ## <a name="map-virtual-networks"></a>Asignación de redes virtuales
@@ -88,16 +88,36 @@ Si la interfaz de red de la máquina virtual de origen usa DHCP, la interfaz de 
 ### <a name="static-ip-address"></a>Dirección IP estática
 Si la interfaz de red de la máquina virtual de origen usa una dirección IP estática, la interfaz de red de la máquina virtual de destino también se configura para que use una dirección IP estática. En las secciones siguientes se describe cómo configurar una dirección IP estática.
 
-#### <a name="same-address-space"></a>Mismo espacio de direcciones
+### <a name="ip-assignment-behavior-during-failover"></a>Comportamiento de la asignación de IP durante la conmutación por error
+#### <a name="1-same-address-space"></a>1. Mismo espacio de direcciones
 
 Si la subred de origen y la de destino tienen el mismo espacio de direcciones, la dirección IP de la interfaz de red de la máquina virtual de origen se establece como dirección IP de destino. Si la misma dirección IP no está disponible, la siguiente dirección IP disponible se establece como la dirección IP de destino.
 
-#### <a name="different-address-spaces"></a>Distintos espacios de direcciones
+#### <a name="2-different-address-spaces"></a>2. Distintos espacios de direcciones
 
 Si la subred de origen y la de destino tienen distintos espacios de direcciones, la siguiente dirección IP disponible en la subred de destino se establece como la dirección IP de destino.
 
-Para modificar la dirección IP de destino de cada interfaz de red, vaya a la configuración de **Proceso y red** de la máquina virtual.
 
+### <a name="ip-assignment-behavior-during-test-failover"></a>Comportamiento de la asignación de IP durante la conmutación por error de prueba
+#### <a name="1-if-the-target-network-chosen-is-the-production-vnet"></a>1. Si la red de destino elegida es la red virtual de producción
+- La IP de recuperación (IP de destino) será una IP estática pero **no será la misma dirección IP** que la reservada para la conmutación por error.
+- La dirección IP asignada será la siguiente dirección IP disponible del final del intervalo de direcciones de subred.
+- Por ejemplo, la IP estática de la máquina virtual de origen está configurada para ser: 10.0.0.19 y se intentó una conmutación por error de prueba con la red de producción configurada: ***dr-PROD-nw***, con el intervalo de subred 10.0.0.0/24. </br>
+A la máquina virtual conmutada por error se le asignará la siguiente IP disponible del final del intervalo de direcciones de subred que es: 10.0.0.254 </br>
+
+**Nota:** La terminología **red virtual de producción** hace referencia a la "red de destino" asignada durante la configuración de la recuperación ante desastres.
+####<a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Si la red de destino elegida no es la red virtual de producción, pero tiene el mismo intervalo de subred que la red de producción 
+
+- La IP de recuperación (IP de destino) será una IP estática con la **misma dirección IP** (p.ej., dirección IP estática configurada) que la reservada para la conmutación por error. Siempre que la misma dirección IP esté disponible.
+- Si la IP estática configurada ya está asignada a cualquier otra VM o dispositivo, la IP de recuperación será la siguiente IP disponible del final del intervalo de direcciones de subred.
+- Por ejemplo, la IP estática de la máquina virtual de origen está configurada para ser: 10.0.0.19 y se intentó una conmutación por error de prueba con una red de prueba: ***dr-NON-PROD-nw***, con el mismo intervalo de subred 10.0.0.0/24. </br>
+  A la máquina virtual conmutada por error se le asignará la siguiente IP estática </br>
+    - IP estática configurada: 10.0.0.19 si la IP está disponible.
+    - Siguiente IP disponible: 10.0.0.254 si ya está en uso la dirección IP 10.0.0.19.
+
+
+Para modificar la dirección IP de destino de cada interfaz de red, vaya a la configuración de **Proceso y red** de la máquina virtual.</br>
+Como práctica recomendada siempre se sugiere elegir una red de prueba para realizar la conmutación por error de prueba.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte la [Guía de redes para la replicación de máquinas virtuales de Azure](site-recovery-azure-to-azure-networking-guidance.md).

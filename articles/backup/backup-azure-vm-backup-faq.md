@@ -7,21 +7,21 @@ manager: shreeshd
 keywords: copia de seguridad de máquinas virtuales de azure, restauración de máquinas virtuales de azure, directiva de copia de seguridad
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2017
+ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: d637a98029b33be890b31f32c3080650b251f7a8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 58b0622da2ef617e652c8bb9dacbf7daa2d79966
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606382"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146684"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Preguntas sobre el servicio de copia de seguridad de Azure Virtual Machines
 En este artículo se incluyen respuestas a preguntas habituales para ayudarle a comprender rápidamente los componentes del servicio Backup de Azure Virtual Machines. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## <a name="configure-backup"></a>Configuración de la copia de seguridad
 ### <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>¿Admiten los almacenes de Recovery Services máquinas virtuales implementadas con el modelo clásico o máquinas virtuales implementadas con Resource Manager? <br/>
-Los almacenes de Recovery Services admiten ambos modelos.  Puede hacer copias de seguridad de una máquina virtual clásica (creada en el portal de clásico) o de una máquina virtual de Resource Manager (creada en Azure Portal) en un almacén de Recovery Services.
+Los almacenes de Recovery Services admiten ambos modelos.  Puede realizar copias de seguridad de una VM clásica o una VM de Resource Manager en un almacén de Recovery Services.
 
 ### <a name="what-configurations-are-not-supported-by-azure-vm-backup"></a>¿Qué configuraciones no se admiten en la copia de seguridad de máquinas virtuales de Azure?
 Consulte los [sistemas operativos admitidos](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) y las [limitaciones de la copia de seguridad de máquinas virtuales](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
@@ -31,9 +31,9 @@ En el Asistente para configuración de la copia de seguridad, Azure Backup solo 
   * No están aún protegidas: para comprobar el estado de copia de seguridad de una máquina virtual, vaya a la hoja de la máquina virtual y compruebe el estado en el menú Configuración. Aprenda más sobre cómo [comprobar el estado de copia de seguridad de una máquina virtual](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu).
   * Pertenece a la misma región que la máquina virtual
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Copia de seguridad
 ### <a name="will-on-demand-backup-job-follow-same-retention-schedule-as-scheduled-backups"></a>¿Seguirá el trabajo de copia de seguridad a petición la misma programación de retención que las copias de seguridad programadas?
-Nº Para un trabajo de copia de seguridad a petición debe especificar el intervalo de retención. De forma predeterminada, se conservará durante 30 días cuando se desencadene desde el portal. 
+No. Para un trabajo de copia de seguridad a petición debe especificar el intervalo de retención. De forma predeterminada, se conservará durante 30 días cuando se desencadene desde el portal. 
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Recientemente habilité Azure Disk Encryption en algunas máquinas virtuales. ¿Seguirán funcionando mis copias de seguridad?
 Para acceder a Key Vault, debe conceder permisos para el servicio Azure Backup. Puede proporcionar estos permisos en PowerShell mediante los pasos que se indican en la sección sobre *cómo habilitar Backup* de la documentación de [PowerShell](backup-azure-vms-automation.md).
@@ -51,9 +51,9 @@ Sí. Puede cancelar el trabajo de copia de seguridad si se encuentra en la fase 
 Si el usuario bloquea el grupo de recursos, el servicio de Backup no puede eliminar los puntos de restauración anteriores. Debido a esto, las copias de seguridad nuevas comienzan a presentar errores debido a que hay un límite de 18 puntos de restauración que impone el back-end. Si las copias de seguridad presentan un error interno después del bloqueo de grupo de recursos, siga estos [pasos para quitar la colección de puntos de restauración](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
 
 ### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>¿Tiene en cuenta la directiva de copia de seguridad el horario de verano?
-Nº Tenga en cuenta que la fecha y la hora de su equipo se muestran en la hora local y con la diferencia del horario de verano actual. Por lo tanto, la hora de las copias de seguridad programadas puede diferir de la hora local debido al horario de verano.
+No. Tenga en cuenta que la fecha y la hora de su equipo se muestran en la hora local y con la diferencia del horario de verano actual. Por lo tanto, la hora de las copias de seguridad programadas puede diferir de la hora local debido al horario de verano.
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Restauración
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>¿Cómo decido entre la restauración de discos frente a restauración completa de máquinas virtuales?
 Considere la restauración completa de máquinas virtuales de Azure como una opción de creación rápida. La opción de restauración de máquinas virtuales cambia los nombres de los discos, los contenedores usados por esos discos, las direcciones IP públicas y los nombres de las interfaces de red. El cambio es obligatorio para mantener la exclusividad de los recursos creados durante la creación de máquinas virtuales. Pero no permitirá agregar la máquina virtual al conjunto de disponibilidad. 
 
@@ -73,6 +73,9 @@ En este escenario, de forma predeterminada, al restaurar un trabajo de máquina 
 2. [Convierta los discos restaurados en discos administrados](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
 3. [Cree una máquina virtual con discos administrados](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
 Para cmdlets de Powershell, consulte [aquí](backup-azure-vms-automation.md#restore-an-azure-vm).
+
+### <a name="can-i-restore-the-vm-if-my-vm-is-deleted"></a>¿Puedo restaurar la VM si se ha eliminado la VM?
+Sí. El ciclo de vida de la VM y su correspondiente elemento de copia de seguridad son diferentes. Por lo tanto, incluso si elimina la VM, puede ir al elemento de copia de seguridad correspondiente en el almacén de Recovery Services y desencadenar una restauración con uno de los puntos de recuperación. 
 
 ## <a name="manage-vm-backups"></a>Administrar copias de seguridad de máquina virtual
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>¿Qué ocurre cuando se cambia una directiva de copia de seguridad en las máquinas virtuales?

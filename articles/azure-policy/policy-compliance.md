@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f2283125aff705aae87b6260b48deee01aa12f0d
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: bd3eeb5ebb9b30ac315fee1597348f3bd34f3bb6
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343559"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146590"
 ---
 # <a name="getting-compliance-data"></a>Obtención de datos de cumplimiento
 
@@ -26,6 +26,9 @@ Hay varias maneras de acceder a la información de cumplimiento generada por la 
 - Mediante scripting de [línea de comandos](#command_line)
 
 Antes de pasar a los métodos que informan sobre el cumplimiento, veamos cuándo se actualiza la información de cumplimiento y la frecuencia y eventos que desencadenan un ciclo de evaluación.
+
+> [!WARNING]
+> Si el estado de cumplimiento se notifica como **'N/A'**, compruebe que el proveedor de recursos **Microsoft.PolicyInsights** esté registrado y que el usuario tenga los permisos de control de acceso basado en roles (RBAC) adecuados, tal como se describe [aquí](azure-policy-introduction.md#rbac-permissions-in-azure-policy).
 
 ## <a name="evaluation-triggers"></a>Desencadenadores de evaluación
 

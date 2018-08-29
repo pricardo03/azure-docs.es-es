@@ -3,7 +3,7 @@ title: Implementación de la recuperación ante desastres mediante copias de seg
 description: Obtenga información acerca de cómo usar las tareas de copias de seguridad y restauración para llevar a cabo la recuperación ante desastres en Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: erikre
 editor: ''
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 4135bd66e839037d7db694cb3c6df8f3905222e6
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ce3208fed119452ef9383fcb5b5eefb1aac6e224
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283111"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146721"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -39,8 +39,6 @@ En esta guía se explica cómo autenticar las solicitudes de Azure Resource Mana
 
 > [!IMPORTANT]
 > La API de REST para copia de seguridad y restauración utiliza el Administrador de recursos de Azure y tiene un mecanismo de autenticación diferente que las API de REST para administrar las entidades de la administración de API. Los pasos de esta sección describen cómo autenticar las solicitudes del Administrador de recursos de Azure. Par obtener más información, consulte [Solicitudes de autenticación del Administrador de recursos de Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
->
->
 
 Todas las tareas que se realizan en los recursos mediante Azure Resource Manager deben autenticarse con Azure Active Directory con los siguientes pasos:
 
@@ -209,15 +207,16 @@ La restauración es una operación de larga duración que puede tardar 30 minuto
 > También se pueden realizar operaciones de copia de seguridad y restauración con los comandos *Backup-AzureRmApiManagement* y *Restore-AzureRmApiManagement* de PowerShell, respectivamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los siguientes blogs de Microsoft para dos tutoriales diferentes del proceso de copia de seguridad y restauración.
+
+Consulte los recursos siguientes para ver distintos tutoriales del proceso de copia de seguridad y restauración.
 
 * [Replicate Azure API Management Accounts (Réplica de cuentas de Administración de API de Azure)](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
-* [Azure API Management: Backing Up and Restoring Configuration (Administración de API de Azure: copia de seguridad y restauración de la configuración)](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-  * El enfoque detallado por Stuart no coincide con la orientación oficial, pero es interesante.
+* [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps) (Automatización de la copia de seguridad y restauración de API Management con Logic Apps)
+* [Azure API Management: Backing Up and Restoring Configuration](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx) (Azure API Management: copia de seguridad y restauración de la configuración)
+  *El enfoque detallado por Stuart no coincide con la orientación oficial, pero es interesante.*
 
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
-
 
 [Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 

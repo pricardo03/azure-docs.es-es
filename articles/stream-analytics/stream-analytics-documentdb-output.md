@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: ff2071a703b0b5e94cd68122a878b51e9d97669a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 95cfc7e6d9515274aa7a3c5fde382244f3b33fab
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112758"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142741"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Salida de Azure Stream Analytics a Azure Cosmos DB  
 Stream Analytics puede tener como destino [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para la salida de JSON, habilitando el archivado de datos y las consultas de latencia baja en datos de JSON no estructurados. En este documento tratan algunas prácticas recomendadas para implementar esta configuración.
@@ -40,6 +40,8 @@ Stream Analytics utiliza un enfoque Upsert optimista, donde las actualizaciones 
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Creación de particiones de datos en Cosmos DB
 Azure Cosmos DB [ilimitados](../cosmos-db/partition-data.md) es el enfoque recomendado para crear particiones de datos, dado que Azure Cosmos DB escala automáticamente las particiones según la carga de trabajo. Al escribir en contenedores ilimitados, Stream Analytics usa tantos escritores paralelo como el paso de consulta anterior o un esquema de partición de entrada.
+> [!Note]
+> En este momento, Azure Stream Analytics solo admite colecciones ilimitadas con claves de partición en el nivel superior. Por ejemplo, se admite `/region`. No se admiten las claves de partición anidadas (por ejemplo, `/region/name`). 
 
 Para colecciones de Azure Cosmos DB fijas, Stream Analytics no permite ningún escalado vertical u horizontal, una vez que están completas. Tienen un límite de 10 GB y un rendimiento de 10 000 RU/s.  Para migrar los datos de un contenedor fijo a un contenedor ilimitado (por ejemplo, uno con al menos 1000 RU/s y una clave de partición), debe usar la [herramienta de migración de datos](../cosmos-db/import-data.md) o la [biblioteca de fuente de cambios](../cosmos-db/change-feed.md).
 

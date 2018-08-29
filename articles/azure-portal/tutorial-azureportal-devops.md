@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: 2764d8a17d50f1589d413c2343badfded6adb66e
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: db3cc8bb546758402e4f0b3fe91449e597e754fa
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216349"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42143405"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Tutorial: DevOps con Azure Portal
 La plataforma Azure está llena de flujos de trabajo de DevOps flexibles. En este tutorial, aprenderá a aprovechar las funcionalidades de Azure Portal para desarrollar, probar, implementar, supervisar y administrar las aplicaciones que se están ejecutando, así como solucionar sus posibles problemas. Este tutorial se centra en lo siguiente:
@@ -125,7 +125,7 @@ A continuación, realice algunos cambios en el código base e implemente rápida
 12. Vuelva a la hoja de herramientas y, en la categoría Desarrollo, haga clic en Prueba de rendimiento.
     
     ![imagen28][image28]
-13. Debe establecer una cuenta de servicios del equipo. Consulte aquí para ver más detalles: [Create a Team Services Account](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
+13. Debe establecer una cuenta de servicios del equipo. Consulte aquí más detalles: [Creación de una cuenta de Team Services](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
 14. Haga clic en Nuevo para crear una prueba de rendimiento.
     
     ![imagen29][image29]

@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/22/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: f54849b9fef8ff09aa9b5b6254c92fc3c452ef4a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 48e2f85488adfb776da5f52c154028f8aafb167a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414432"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617028"
 ---
 # <a name="network-connectivity"></a>Conectividad de red
 En este artículo se ofrece información sobre la infraestructura de red de Azure Stack que le ayudará decidir cuál es la mejor forma de integrar Azure Stack en su entorno de red existente. 
@@ -41,7 +41,7 @@ En la siguiente tabla se muestran las redes lógicas y los intervalos de subred 
 
 | Red lógica | DESCRIPCIÓN | Tamaño | 
 | -------- | ------------- | ------------ | 
-| VIP pública | Azure Stack usa un total de 32 direcciones de esta red. Ocho direcciones IP públicas se utilizan para un pequeño conjunto de servicios de Azure Stack, mientras que el resto lo usan las máquinas virtuales del inquilino. Si tiene previsto usar App Service y los proveedores de recursos de SQL, se usan 7 direcciones más. | /26 (62 hosts) - /22 (1022 hosts)<br><br>Recomendado = /24 (254 hosts) | 
+| VIP pública | Azure Stack usa un total de 31 direcciones de esta red. Ocho direcciones IP públicas se utilizan para un pequeño conjunto de servicios de Azure Stack, mientras que el resto lo usan las máquinas virtuales del inquilino. Si tiene previsto usar App Service y los proveedores de recursos de SQL, se usan 7 direcciones más. Las 15 direcciones IP restantes están reservadas a los futuros servicios de Azure. | /26 (62 hosts) - /22 (1022 hosts)<br><br>Recomendado = /24 (254 hosts) | 
 | Infraestructura del conmutador | Direcciones IP de punto a punto con fines de enrutamiento, interfaces de administración de conmutador dedicado y direcciones de bucle invertido asignadas al conmutador. | /26 | 
 | Infraestructura | Se utiliza para que los componentes internos de Azure Stack se comuniquen. | /24 |
 | Privada | Se utiliza para la red de almacenamiento y las VIP privadas. | /24 | 

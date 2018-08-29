@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: 7926944f329665af2df287d120bd9f4a8ee78380
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 71cca8e36a319d4e74eb68044a2ae741a747c27d
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433942"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143289"
 ---
 # <a name="configure-managed-identity-on-an-azure-vm-using-rest-api-calls"></a>Configuración de la identidad administrada en una máquina virtual de Azure mediante llamadas a la API REST
 
@@ -75,7 +75,7 @@ Para crear una máquina virtual de Azure con la identidad asignada por el sistem
 4. Cree una máquina virtual con CURL para llamar al punto de conexión REST de Azure Resource Manager. En el ejemplo siguiente, se crea una máquina virtual denominada *myVM* con una identidad asignada por el sistema, como ha identificado en el cuerpo de la solicitud el valor `"identity":{"type":"SystemAssigned"}`. Reemplace `<ACCESS TOKEN>` por el valor que ha recibido en el paso anterior cuando solicitó un token de acceso de portador y el valor `<SUBSCRIPTION ID>` según sea apropiado para su entorno.
  
     ```bash
-    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"SystemAssigned"},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"TestVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"SystemAssigned"},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
     ```
 
 ### <a name="enable-system-assigned-identity-on-an-existing-azure-vm"></a>Habilitación de la identidad asignada por el sistema en una máquina virtual de Azure existente
@@ -91,18 +91,28 @@ Para habilitar la identidad asignada por el sistema en una máquina virtual exis
 2. Use el comando CURL siguiente para llamar al punto de conexión REST de Azure Resource Manager para habilitar la identidad asignada por el sistema en la máquina virtual, como se identifica en el cuerpo de la solicitud por el valor `{"identity":{"type":"SystemAssigned"}` para una máquina virtual denominada *myVM*.  Reemplace `<ACCESS TOKEN>` por el valor que ha recibido en el paso anterior cuando solicitó un token de acceso de portador y el valor `<SUBSCRIPTION ID>` según sea apropiado para su entorno.
    
    > [!IMPORTANT]
-   > Para asegurarse de que no elimina ninguna de las identidades administradas asignadas por el usuario que están asignadas a la máquina virtual, necesita enumerar las identidades asignadas por el usuario mediante este comando CURL: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2017-12-01' -H "Authorization: Bearer <ACCESS TOKEN>"`. Si tiene asignadas identidades asignadas por el usuario a la máquina virtual como se identifica en el valor `identity` de la respuesta, vaya al paso 3 que muestra cómo conservar las identidades asignadas por el usuario mientras se habilita la identidad asignada por el sistema en la máquina virtual.
+   > Para asegurarse de que no elimina ninguna de las identidades administradas asignadas por el usuario que están asignadas a la máquina virtual, necesita enumerar las identidades asignadas por el usuario mediante este comando CURL: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"`. Si tiene asignadas identidades asignadas por el usuario a la máquina virtual como se identifica en el valor `identity` de la respuesta, vaya al paso 3 que muestra cómo conservar las identidades asignadas por el usuario mientras se habilita la identidad asignada por el sistema en la máquina virtual.
 
    ```bash
-    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
 3. Para habilitar la identidad asignada por el sistema en una máquina virtual con identidades existentes asignadas por el usuario, debe agregar `SystemAssigned` al valor `type`.  
    
    Por ejemplo, si la máquina virtual tiene asignadas las identidades de usuario `ID1` y `ID2`, y desea agregar una identidad asignada por el sistema a dicha máquina virtual, utilice la siguiente llamada CURL. Reemplace `<ACCESS TOKEN>` y `<SUBSCRIPTION ID>` por los valores adecuados para su entorno.
+
+   La versión de API `2018-06-01` almacena las identidades asignadas por el usuario en el valor `userAssignedIdentities` en un formato de diccionario, en contraposición al valor `identityIds` en formato de matriz que se usaba en la versión `2017-12-01` y versiones anteriores de la API.
    
+   **VERSIÓN DE API 2018-06-01**
+
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/TestVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned","UserAssigned", "identityIds":["/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```
+
+   **VERSIÓN DE API 2017-12-01 y versiones anteriores**
+
+   ```bash
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
 ### <a name="disable-system-assigned-identity-from-an-azure-vm"></a>Deshabilitación de una identidad asignada por el sistema desde una máquina virtual de Azure
@@ -118,13 +128,13 @@ Para deshabilitar una identidad asignada por el sistema en una máquina virtual 
 2. Actualice la máquina virtual mediante CURL para llamar al punto de conexión REST de Azure Resource Manager para deshabilitar la identidad asignada por el sistema.  En el ejemplo siguiente, se deshabilita una identidad asignada por el sistema en el cuerpo de la solicitud por el valor `{"identity":{"type":"None"}}` desde una máquina virtual denominada *myVM*.  Reemplace `<ACCESS TOKEN>` por el valor que ha recibido en el paso anterior cuando solicitó un token de acceso de portador y el valor `<SUBSCRIPTION ID>` según sea apropiado para su entorno.
 
    > [!IMPORTANT]
-   > Para asegurarse de que no elimina ninguna de las identidades administradas asignadas por el usuario que están asignadas a la máquina virtual, necesita enumerar las identidades asignadas por el usuario mediante este comando CURL: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2017-12-01' -H "Authorization: Bearer <ACCESS TOKEN>"`. Si tiene asignadas identidades asignadas por el usuario a la máquina virtual como se identifica en el valor `identity` de la respuesta, vaya al paso 3 que muestra cómo conservar las identidades asignadas por el usuario mientras se deshabilita la identidad asignada por el sistema en la máquina virtual.
+   > Para asegurarse de que no elimina ninguna de las identidades administradas asignadas por el usuario que están asignadas a la máquina virtual, necesita enumerar las identidades asignadas por el usuario mediante este comando CURL: `curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"`. Si tiene asignadas identidades asignadas por el usuario a la máquina virtual como se identifica en el valor `identity` de la respuesta, vaya al paso 3 que muestra cómo conservar las identidades asignadas por el usuario mientras se deshabilita la identidad asignada por el sistema en la máquina virtual.
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
-3. Para quitar la identidad asignada por el sistema de una máquina virtual que tiene identidades asignadas por el usuario, quite `SystemAssigned` del valor `{"identity":{"type:" "}}` mientras mantiene el valor `UserAssigned` y la matriz `identityIds` que define qué identidades asignadas por el usuario se asignan a la máquina virtual.
+3. Para quitar la identidad asignada por el sistema de una máquina virtual que tiene identidades asignadas por el usuario, quite `SystemAssigned` del valor `{"identity":{"type:" "}}` mientras mantiene el valor `UserAssigned` y los valores de diccionario `userAssignedIdentities`, si está utilizando la **versión de API 2018-06-01**. Si está usando la **versión de API 2017-12-01** o versiones anteriores, mantenga la matriz `identityIds`.
 
 ## <a name="user-assigned-identity"></a>Identidad asignada por el usuario
 
@@ -154,8 +164,17 @@ En esta sección, aprenderá a agregar y a quitar una identidad asignada por el 
 
 5. Cree una máquina virtual con CURL para llamar al punto de conexión REST de Azure Resource Manager. En el ejemplo siguiente se crea una máquina virtual denominad *myVM* en el grupo de recursos *myResourceGroup* con una identidad asignada por el usuario `ID1`, como se identificó en el cuerpo de la solicitud por el valor `"identity":{"type":"UserAssigned"}`. Reemplace `<ACCESS TOKEN>` por el valor que ha recibido en el paso anterior cuando solicitó un token de acceso de portador y el valor `<SUBSCRIPTION ID>` según sea apropiado para su entorno.
  
+   
+   **VERSIÓN DE API 2018-06-01**
+    
    ```bash   
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PUT -d '{"location":"westus","name":"myVM",{"identity":{"type":"UserAssigned", "identityIds":["/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourcegroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"TestVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PUT -d '{"location":"westus","name":"myVM",{"identity":{"type":"UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   ``` 
+
+   **VERSIÓN DE API 2017-12-01 y versiones anteriores**
+
+   ```bash   
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PUT -d '{"location":"westus","name":"myVM",{"identity":{"type":"UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
 
 ### <a name="assign-a-user-assigned-identity-to-an-existing-azure-vm"></a>Asignar una identidad asignada por el usuario a una máquina virtual de Azure existente
@@ -171,25 +190,47 @@ En esta sección, aprenderá a agregar y a quitar una identidad asignada por el 
 3.  Para asegurarse de que no elimina las identidades administradas asignadas por el usuario o por el sistema que están asignadas a la máquina virtual, necesita enumerar los tipos de identidades asignados a la máquina virtual mediante el comando CURL siguiente. Si ha administrado identidades asignadas al conjunto de escalado de máquinas virtuales, se enumeran en el valor `identity`.
 
     ```bash
-    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2017-12-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
+    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
 
-    Si tiene asignadas identidades asignadas por el usuario o por el sistema a la máquina virtual como se identifica en el valor `identity` de la respuesta, vaya al paso 5 que muestra cómo conservar las identidades asignadas por el usuario mientras se habilita la identidad asignada por el sistema en la máquina virtual.
+    Si tiene asignadas identidades asignadas por el usuario o por el sistema a la máquina virtual como se identifica en el valor `identity` de la respuesta, vaya al paso 5 que muestra cómo conservar la identidad asignada por el sistema mientras se agrega una identidad asignada por el usuario en la máquina virtual.
 
-4. Si no tiene ninguna identidad asignada por el usuario en la máquina virtual, use el siguiente comando CURL para llamar al punto de conexión REST de Azure Resource Manager para asignar la primera identidad asignada por el usuario a la máquina virtual.  Si tiene asignada una identidad o identidades asignadas por el usuario a la máquina virtual, vaya al siguiente paso que muestra cómo agregar varias identidades asignadas por el usuario a una máquina virtual.
+4. Si no tiene ninguna identidad asignada por el usuario en la máquina virtual, use el siguiente comando CURL para llamar al punto de conexión REST de Azure Resource Manager para asignar la primera identidad asignada por el usuario a la máquina virtual.
 
-   En el ejemplo siguiente se asigna una identidad asignada por el usuario, `ID1`, a una máquina virtual denominada *myVM* en el grupo de recursos *myResourceGroup*.  Reemplace `<ACCESS TOKEN>` por el valor que ha recibido en el paso anterior cuando solicitó un token de acceso de portador y el valor `<SUBSCRIPTION ID>` según sea apropiado para su entorno.
+   En los ejemplos siguientes se asigna una identidad asignada por el usuario, `ID1`, a una máquina virtual denominada *myVM* en el grupo de recursos *myResourceGroup*.  Reemplace `<ACCESS TOKEN>` por el valor que ha recibido en el paso anterior cuando solicitó un token de acceso de portador y el valor `<SUBSCRIPTION ID>` según sea apropiado para su entorno.
+
+   **VERSIÓN DE API 2018-06-01**
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
-5. Si tiene asignadas identidades asignadas por el usuario o por el sistema a la máquina virtual, debe agregar la nueva identidad asignada por el usuario a la matriz `identityIDs`, mientras conserva al mismo tiempo las identidades asignadas por el usuario y por el sistema que están actualmente asignadas a la máquina virtual.
-
-   Por ejemplo, si tiene una identidad asignada por el sistema y una identidad asignada por el usuario `ID1` actualmente asignadas a la máquina virtual y desea agregarles la identidad de usuario `ID2`, utilice el siguiente comando CURL. Reemplace `<ACCESS TOKEN>` por el valor que ha recibido en los pasos cuando solicitó un token de acceso de portador y el valor `<SUBSCRIPTION ID>` según sea apropiado para su entorno.
+   **VERSIÓN DE API 2017-12-01 y versiones anteriores**
 
    ```bash
-   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/TestVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned","UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```
+
+5. Si dispone ya de una identidad asignada por el usuario o por el sistema asignada a la máquina virtual:
+   
+   **VERSIÓN DE API 2018-06-01**
+
+   Agregue la identidad de usuario asignada al valor de diccionario `userAssignedIdentities`.
+    
+   Por ejemplo, si tiene una identidad asignada por el sistema y la identidad asignada por el usuario `ID1` asignadas actualmente a la máquina virtual y desea agregarles la identidad de usuario `ID2`:
+
+   ```bash
+   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```
+
+   **VERSIÓN DE API 2017-12-01 y versiones anteriores**
+
+   Conserve las identidades asignadas por el usuario que le gustaría mantener en el valor de matriz `identityIds` al tiempo que agrega la nueva identidad asignada por el usuario.
+
+   Por ejemplo, si tiene una identidad asignada por el sistema y la identidad asignada por el usuario `ID1` asignadas actualmente a la máquina virtual y desea agregarles la identidad de usuario `ID2`: 
+
+   ```bash
+   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned","UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vm"></a>Eliminación de una identidad asignada por el usuario de una máquina virtual de Azure
@@ -203,27 +244,39 @@ En esta sección, aprenderá a agregar y a quitar una identidad asignada por el 
 2. Para asegurarse de que no elimina ninguna identidad administrada asignada por el usuario o por el sistema que está asignada a la máquina virtual y de que no quita la identidad asignada por el sistema, necesita enumerar las identidades administradas mediante el comando CURL siguiente: 
  
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2017-12-01' -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
  
    Si ha administrado identidades asignadas a la máquina virtual, se enumeran en la respuesta del valor `identity`.
 
-   Por ejemplo, si tiene asignadas identidades asignadas por el usuario `ID1` y `ID2` a la máquina virtual, y solo desea mantener `ID1` asignada y conservar la identidad asignada por el sistema, debe utilizar el mismo comando CURL que si asignara una identidad administrada asignada por el usuario a una máquina virtual solo manteniendo el valor `ID1` y el valor `SystemAssigned`. Esto quita la identidad asignada por el usuario `ID2` de la máquina virtual, mientras conserva al mismo tiempo la identidad asignada por el sistema.
+   Por ejemplo, si tiene identidades asignadas por el usuario `ID1` y `ID2` asignadas a la máquina virtual, y solo desea mantener `ID1` asignada y conservar la identidad asignada por el sistema:
+   
+   **VERSIÓN DE API 2018-06-01**
+
+   Agregue `null` a la identidad asignada por el usuario que desea quitar:
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned","UserAssigned", "identityIds":["/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourcegroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":null}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```
+
+   **VERSIÓN DE API 2017-12-01 y versiones anteriores**
+
+   Conserve solo la identidad o identidades asignadas por el usuario que le gustaría mantener en la matriz `identityIds`:
+
+   ```bash
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
 Si la máquina virtual tiene identidades asignadas tanto por el sistema como por el usuario, puede quitar todas las identidades asignadas por el usuario si cambia para usar solo las asignadas mediante el comando siguiente:
 
 ```bash
-curl 'https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/TestVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
 ```
     
 Si la máquina virtual solo tiene identidades asignadas por el usuario y desea quitarlas todas, utilice el comando siguiente:
 
 ```bash
-curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
 ```
 ## <a name="next-steps"></a>Pasos siguientes
 

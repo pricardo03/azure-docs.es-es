@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 0a5c73728f939fc239f4af79f5f084867856581a
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: dc70a20667db7e59f0fe77ec4d84831cfb7e75a5
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494215"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617225"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Consideraciones de planeación de capacidad del clúster de Service Fabric
 En cualquier implementación de producción, la planeación de capacidad es un paso importante. Estos son algunos de los elementos que se deben tener en cuenta como parte de ese proceso.
@@ -82,7 +82,8 @@ El nivel de durabilidad se usa para indicar al sistema los privilegios que tiene
 
 > [!WARNING]
 > Los tipos de nodos que se ejecutan con la durabilidad Bronze _no obtienen privilegios_. Es decir, los trabajos de infraestructura que afectan a las cargas de trabajo sin estado no se detendrán ni retrasarán, lo que podría afectar a las cargas de trabajo. Utilice el nivel Bronze en los tipos de nodos que ejecutan únicamente cargas de trabajo sin estado. Para las cargas de trabajo de producción, se recomienda utilizar el nivel Silver o superiores. 
->
+
+> Con independencia de cualquier nivel de durabilidad, la operación de [desasignación](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/deallocate) en el conjunto de escalado de máquina virtual destruirá el clúster
 
 **Ventajas del uso de los niveles de durabilidad Silver o Gold**
  
@@ -150,7 +151,7 @@ Esta es la recomendación sobre cómo elegir el nivel de confiabilidad.
 
 Esta es la guía para planear la capacidad del tipo de nodo principal:
 
-- **Número de instancias de máquina virtual para ejecutar cualquier carga de trabajo de producción en Azure:** Debe especificar un tamaño mínimo de tipo de nodo principal de 5. 
+- **Número de instancias de máquina virtual para ejecutar cualquier carga de trabajo de producción en Azure:** debe especificar un tamaño mínimo de tipo de nodo principal de 5 y un nivel de confiabilidad Silver.  
 - **Número de instancias de máquina virtual para ejecutar cargas de trabajo de prueba en Azure** Puede especificar un tamaño mínimo de tipo de nodo principal de 1 o 3. El clúster de 1 nodo uno funciona con una configuración especial y, por tanto, no se admite el escalado horizontal de ese clúster. El clúster de 1 nodo no tiene ninguna confiabilidad y, por tanto, en la plantilla de Resource Manager, tiene que quitar/no especificar esa configuración (no basta con no definir el valor de configuración). Si configura el clúster del nodo uno configurado mediante el portal, la configuración se controla automáticamente. Los clústeres de uno y tres nodos no se admiten en la ejecución de cargas de trabajo de producción. 
 - **SKU de máquina virtual**: el tipo de nodo principal es donde se ejecutan los servicios del sistema, así que la SKU de máquina virtual que elija, debe tener en cuenta la carga máxima global que planea colocar en el clúster. En esta analogía se ilustra el significado de esto: considere que el tipo de nodo principal son sus "pulmones", es lo que lleva oxígeno a su cerebro, de modo que si no se obtiene oxígeno suficiente, el cuerpo sufre. 
 
@@ -166,8 +167,7 @@ Para cargas de trabajo de producción:
 - La SKU Standard A1 no se admite en cargas de trabajo de producción por motivos de rendimiento.
 
 > [!WARNING]
-> En la actualidad, no se admite el cambio del tamaño de la SKU de la máquina virtual del nodo principal un clúster en ejecución. Por consiguiente, elija la SKU de la máquina virtual del nodo principal con cuidado y, al hacerlo, tenga en cuenta sus necesidades de capacidad futuras. En este momento, la única manera que se admite para mover el tipo de nodo principal a una SKU de máquina virtual nueva (mayor o menor) es crear un clúster nuevo con la capacidad correcta, implementar las aplicaciones en él y restaurar el estado de la aplicación (si procede) desde las [copias de seguridad del servicio más recientes](service-fabric-reliable-services-backup-restore.md) realizadas del clúster anterior. No es preciso restaurar el estado de ningún servicio del sistema, ya que se vuelven a crear al implementar las aplicaciones en el clúster nuevo. Si ha ejecutado aplicaciones sin estado en el clúster, lo único que hace es implementar las aplicaciones en el clúster nuevo, no hay nada que para restaurar.
-> 
+> Cambiar el tamaño de SKU de la máquina virtual del nodo principal en un clúster en ejecución es una operación de escalado, y se documenta en [Escalado horizontal de un conjunto de escalado de máquinas virtuales](virtual-machine-scale-set-scale-node-type-scale-out.md).
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateful-workloads"></a>Tipo de nodo distinto del principal: guía de capacidad para las cargas de trabajo con estado
 

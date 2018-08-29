@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: d864a663604794a249b08a7c7be471c3abba32af
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0b731e94675992e59f79b61a2f3a15fa20bdf8a7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971543"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143434"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Preguntas frecuentes sobre Service Fabric
 
@@ -27,7 +27,7 @@ Hay muchas preguntas que se plantean con frecuencia acerca de qué puede hacer S
 
 ## <a name="cluster-setup-and-management"></a>Instalación y administración de clústeres
 
-### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>¿Cómo se revierte el certificado de clúster de Service Fabric?
+### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>¿Cómo se revierte el certificado de clúster de Service Fabric?
 
 Revertir cualquier actualización de la aplicación requiere la detección de errores de mantenimiento antes de que el cuórum de clúster de Service Fabric confirme el cambio; solo se pueden poner al día los cambios confirmados. Puede ser necesario el escalamiento a otro ingeniero a través de los servicios de soporte técnico al cliente para recuperar el clúster, si se ha introducido un cambio de certificado importante no supervisado.  La [actualización de la aplicación de Service Fabric](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) aplica [parámetros de actualización de la aplicación](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), y ofrece la promesa de actualización sin tiempo de inactividad.  Al seguir el modo supervisado recomendado de actualización de la aplicación, el progreso automático de actualización de los dominios se basa en pasar comprobaciones de mantenimiento y se revierte automáticamente si se produce un error en la actualización de un servicio predeterminado.
  
@@ -119,6 +119,12 @@ Sí.  Para más información, consulte [Creación de un clúster con discos de d
 | FabricRM.exe |
 | FileStoreService.exe |
  
+### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>¿Cómo se autentica la aplicación en KeyVault para obtener secretos?
+Los siguientes son medios para que la aplicación obtenga las credenciales de autenticación en KeyVault:
+
+A. Durante el trabajo de compilación/empaquetado de aplicaciones, puede extraer un certificado en el paquete de datos de la aplicación de Service Fabric y usarlo para autenticarse en KeyVault.
+B. Para hosts con MSI habilitado en el conjunto de escalado de máquinas virtuales, puede desarrollar un PowerShell SetupEntryPoint sencillo para que la aplicación de Service Fabric obtenga [un token de acceso del punto de conexión MSI](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/how-to-use-vm-token) y después [recuperar los secretos de KeyVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0).
+
 ## <a name="application-design"></a>Diseño de aplicaciones
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>¿Cuál es la mejor forma de consultar datos entre las particiones de una instancia de Reliable Collection?

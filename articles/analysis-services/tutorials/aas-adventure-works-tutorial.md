@@ -8,22 +8,21 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b6e642c86c5e618cae2d46aad84a61b3f4866ae
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a53bcbe90f39999a838c84807ca834a1e6cd1813
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446153"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146567"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services: Tutorial de Adventure Works
 
-Este tutorial contiene lecciones en las que se explica cómo crear e implementar un modelo tabular en el nivel de compatibilidad 1400 mediante Visual Studio con [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
-
+Este tutorial contiene lecciones en las que se explica cómo crear e implementar un modelo tabular en el nivel de compatibilidad 1400 mediante [proyectos de Analysis Services](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects) o [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) en Visual Studio.  
 Si no está familiarizado con Analysis Services y los modelos tabulares, este tutorial es la forma más rápida de aprender a crear e implementar un modelo tabular básico mediante Visual Studio. Cuando se cumplan todos los requisitos previos, tardará aproximadamente entre dos y tres horas en completarlo.  
   
 ## <a name="what-you-learn"></a>Conocimientos que adquirirá   
   
--   Cómo crear un proyecto de modelos tabulares en el **nivel de compatibilidad 1400** en Visual Studio con SSDT.
+-   Cómo crear un proyecto de modelos tabulares en el **nivel de compatibilidad 1400** en Visual Studio.
   
 -   Cómo importar datos de una base de datos relacional en una base de datos de un área de trabajo de un proyecto de modelos tabulares.  
   
@@ -37,9 +36,9 @@ Si no está familiarizado con Analysis Services y los modelos tabulares, este tu
   
 -   Cómo proteger los datos y los objetos de modelo mediante la creación de roles con miembros de usuario.  
   
--   Cómo implementar un modelo tabular en un servidor de **Azure Analysis Services** o en un servidor de **SQL Server 2017 Analysis Services** mediante SSDT.  
+-   Cómo implementar un modelo tabular en un servidor de **Azure Analysis Services** o en un servidor de **SQL Server 2017 Analysis Services** mediante Visual Studio.  
   
-## <a name="prerequisites"></a>requisitos previos  
+## <a name="prerequisites"></a>Requisitos previos  
 Para completar este tutorial, necesita:  
   
 -   Un servidor de Azure Analysis Services. Registrarse para obtener una [prueba gratuita de Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) y [crear un servidor](../analysis-services-create-server.md). 

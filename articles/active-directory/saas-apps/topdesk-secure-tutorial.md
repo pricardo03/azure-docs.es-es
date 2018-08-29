@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 26d20fbbe81cb4e1a526ea8c776462d9e851e688
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8529dfda5ee4a7fc3360f91163b7f5f5bbf6c6ff
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429777"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42142801"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Tutorial: integración de Azure Active Directory con TOPdesk - Secure
 
@@ -50,12 +50,14 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
+
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Agregar TOPdesk - Secure desde la galería
 1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-topdesk---secure-from-the-gallery"></a>Agregar TOPdesk - Secure desde la galería
+
 Para configurar la integración de TOPdesk - Secure en Azure AD, deberá agregar TOPdesk - Secure desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar TOPdesk - Secure desde la galería, realice los pasos siguientes:**
@@ -64,15 +66,15 @@ Para configurar la integración de TOPdesk - Secure en Azure AD, deberá agregar
 
     ![Botón Azure Active Directory][1]
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales][2]
-    
-1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![Botón Nueva aplicación][3]
 
-1. En el cuadro de búsqueda, escriba **TOPdesk - Secure**, seleccione **TOPdesk - Secure** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **TOPdesk - Secure**, seleccione **TOPdesk - Secure** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![TOPdesk - Secure en la lista de resultados](./media/topdesk-secure-tutorial/tutorial_topdesk-secure_addfromgallery.png)
 
@@ -87,10 +89,10 @@ Para establecer la relación de vínculo, en TOPdesk - Secure asigne el valor de
 Para configurar y probar el inicio de sesión único de Azure AD con TOPdesk - Secure, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de TOPdesk - Secure](#create-a-topdesk---secure-test-user)**: para tener un homólogo de Britta Simon en TOPdesk - Secure que esté vinculado a su representación en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de TOPdesk - Secure](#create-a-topdesk---secure-test-user)**: para tener un homólogo de Britta Simon en TOPdesk - Secure que esté vinculado a su representación en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -102,11 +104,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo Configurar inicio de sesión único][4]
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+
     ![Cuadro de diálogo Inicio de sesión único](./media/topdesk-secure-tutorial/tutorial_topdesk-secure_samlbase.png)
 
-1. En la sección **Dominio y direcciones URL de TOPdesk - Secure**, lleve a cabo los pasos siguientes:
+3. En la sección **Dominio y direcciones URL de TOPdesk - Secure**, lleve a cabo los pasos siguientes:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de TOPdesk - Secure](./media/topdesk-secure-tutorial/tutorial_topdesk-secure_url.png)
 
@@ -116,51 +118,51 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.topdesk.net/tas/public/login/saml`.
 
-    > [!NOTE] 
+    > [!NOTE]
     > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. La dirección URL de respuesta se explica más adelante en el tutorial. Póngase en contacto con el [equipo de soporte técnico de TOPdesk - Secure](http://www.topdesk.com/us/support) para obtener estos valores. 
 
-1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
+4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
     ![Vínculo de descarga del certificado](./media/topdesk-secure-tutorial/tutorial_topdesk-secure_certificate.png) 
 
-1. Haga clic en el botón **Guardar** .
+5. Haga clic en el botón **Guardar** .
 
     ![Botón Configurar inicio de sesión único](./media/topdesk-secure-tutorial/tutorial_general_400.png)
 
-1. En la sección **TOPdesk - Secure Configuration** (Configuración de TOPdesk - Secure), haga clic en **Configure TOPdesk - Secure** (Configurar TOPdesk - Secure) para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+6. En la sección **TOPdesk - Secure Configuration** (Configuración de TOPdesk - Secure), haga clic en **Configure TOPdesk - Secure** (Configurar TOPdesk - Secure) para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
 
     ![Configuración de TOPdesk - Secure](./media/topdesk-secure-tutorial/tutorial_topdesk-secure_configure.png)
-    
-1. Inicie sesión en su sitio de la compañía de **TOPdesk - Secure** como administrador.
 
-1. En el menú **TOPdesk**, haga clic en **Configuración**.
+7. Inicie sesión en su sitio de la compañía de **TOPdesk - Secure** como administrador.
+
+8. En el menú **TOPdesk**, haga clic en **Configuración**.
 
     ![Configuración](./media/topdesk-secure-tutorial/ic790598.png "Configuración")
 
-1. Haga clic en **Login Settings**(Configuración de inicio de sesión).
+9. Haga clic en **Login Settings**(Configuración de inicio de sesión).
 
     ![Configuración de inicio de sesión](./media/topdesk-secure-tutorial/ic790599.png "Configuración de inicio de sesión")
 
-1. Expanda el menú **Login Settings** (Configuración de inicio de sesión) y luego haga clic en **General**.
+10. Expanda el menú **Login Settings** (Configuración de inicio de sesión) y luego haga clic en **General**.
 
     ![General](./media/topdesk-secure-tutorial/ic790600.png "General")
 
-1. En la sección **Secure** (Seguro) de la sección de configuración **SAML login** (Inicio de sesión SAML), realice los pasos siguientes:
+11. En la sección **Secure** (Seguro) de la sección de configuración **SAML login** (Inicio de sesión SAML), realice los pasos siguientes:
 
     ![Configuración técnica](./media/topdesk-secure-tutorial/ic790855.png "Configuración técnica")
-   
+
     a. Haga clic en **Download** (Descargar) para descargar el archivo de metadatos público y luego guárdelo localmente en el equipo.
-   
+
     b. Abra el archivo de metadatos y luego busque el nodo **AssertionConsumerService** .
-    
+
     ![Servicio de consumidor de aserciones](./media/topdesk-secure-tutorial/ic790856.png "Servicio de consumidor de aserciones")
-   
+
     c. Copia el valor de **AssertionConsumerService**, péguelo en el cuadro de texto Dirección URL de respuesta de la sección **Dominio y direcciones URL de TOPdesk - Secure**.
 
-1. Lleve a cabo los siguientes pasos para crear un archivo de certificado:
-    
+12. Lleve a cabo los siguientes pasos para crear un archivo de certificado:
+
     ![Certificado](./media/topdesk-secure-tutorial/ic790606.png "Certificado")
-    
+
     a. Abra el archivo de metadatos descargado de Azure Portal.
 
     b. Expanda el nodo **RoleDescriptor** cuyo **xsi:type** es **fed:ApplicationServiceType**.
@@ -169,29 +171,27 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     d. Guarde el valor de **X509Certificate** copiado localmente en el equipo en un archivo.
 
-1. En la sección **Public** (Público), haga clic en **Add** (Agregar).
-    
+13. En la sección **Public** (Público), haga clic en **Add** (Agregar).
+
     ![Agregar](./media/topdesk-secure-tutorial/ic790607.png "Agregar")
 
-1. En la página de diálogo del **SAML configuration assistant** (Asistente de configuración de SAML), realice los siguientes pasos:
-    
+14. En la página de diálogo del **SAML configuration assistant** (Asistente de configuración de SAML), realice los siguientes pasos:
+
     ![Asistente para configuración de SAML](./media/topdesk-secure-tutorial/ic790608.png "Asistente de configuración de SAML")
-    
+
     a. Para cargar el archivo de metadatos descargado de Azure Portal, en **Federation Metadata** (Metadatos de federación) haga clic en **Browse** (Examinar).
 
     b. Para cargar el archivo del certificado, en **Certificate (RSA)** (Certificado [RSA]), haga clic en **Browse** (Examinar).
 
-    c. Para cargar el archivo de logotipo que obtuvo del equipo de soporte técnico de TOPdesk, en **Logo icon** (Icono de logotipo), haga clic en **Browse** (Examinar).
+    c. Para **Clave privada (RSA, PKCS8, DER)**, puede cargar su propia clave privada o puede ponerse en contacto con el [equipo de soporte técnico de TOPdesk](http://www.topdesk.com/us/support) para obtener la clave privada.
 
-    d. En el cuadro de texto **User name attribute** (Atributo de nombre de usuario), escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    d. Para cargar el archivo de logotipo que obtuvo del equipo de soporte técnico de TOPdesk, en **Logo icon** (Icono de logotipo), haga clic en **Browse** (Examinar).
 
-    e. En el cuadro de texto **Display name** (Nombre para mostrar), escriba un nombre para su configuración.
+    e. En el cuadro de texto **User name attribute** (Atributo de nombre de usuario), escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    f. Haga clic en **Save**(Guardar).
+    f. En el cuadro de texto **Display name** (Nombre para mostrar), escriba un nombre para su configuración.
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    g. Haga clic en **Save**(Guardar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -205,15 +205,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Botón Azure Active Directory](./media/topdesk-secure-tutorial/create_aaduser_01.png)
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/topdesk-secure-tutorial/create_aaduser_02.png)
 
-1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
 
     ![Botón Agregar](./media/topdesk-secure-tutorial/create_aaduser_03.png)
 
-1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
+4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
 
     ![Cuadro de diálogo Usuario](./media/topdesk-secure-tutorial/create_aaduser_04.png)
 
@@ -224,30 +224,32 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
     d. Haga clic en **Create**(Crear).
- 
+
 ### <a name="create-a-topdesk---secure-test-user"></a>Creación de un usuario de prueba de TOPdesk - Secure
 
 Para permitir que los usuarios de Azure AD inicien sesión en TOPdesk - Secure, deben aprovisionarse en TOPdesk - Secure.  
 En el caso de TOPdesk - Secure, el aprovisionamiento es una tarea manual.
 
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Siga estos pasos para configurar el aprovisionamiento de usuario:
+
 1. Inicie sesión en su sitio de la compañía de **TOPdesk - Secure** como administrador.
-1. En el menú de la parte superior, haga clic en **TOPdesk \> New \> Support Files \> Operator** (TOPdesk > Nuevo > Archivos de soporte > Operador).
-   
+
+2. En el menú de la parte superior, haga clic en **TOPdesk \> New \> Support Files \> Operator** (TOPdesk > Nuevo > Archivos de soporte > Operador).
+
     ![Operador](./media/topdesk-secure-tutorial/ic790610.png "Operador")
 
-1. En el cuadro de diálogo **Nuevo operador** , realice los pasos siguientes:
-   
+3. En el cuadro de diálogo **Nuevo operador** , realice los pasos siguientes:
+
     ![New operador](./media/topdesk-secure-tutorial/ic790611.png "Nuevo operador")
-   
+
     a. Haga clic en la pestaña **General**.
-   
+
     b. En el cuadro de texto **Apellidos**, escriba los apellidos del usuario, en este caso, **Simon**.
-   
+
     c. Seleccione un **sitio** para la cuenta en la sección **Location** (Ubicación).
-   
+
     d. En el cuadro de texto **Login Name** (Nombre de inicio de sesión) de la sección **TOPdesk Login** (Inicio de sesión de TOPdesk), escriba el nombre de inicio de sesión del usuario.
-   
+
     e. Haga clic en **Save**(Guardar).
 
 > [!NOTE]
@@ -263,32 +265,32 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
-    ![Asignar usuario][201] 
+    ![Asignar usuario][201]
 
-1. En la lista de aplicaciones, seleccione **TOPdesk - Secure**.
+2. En la lista de aplicaciones, seleccione **TOPdesk - Secure**.
 
     ![Vínculo a TOPdesk - Secure en la lista de aplicaciones](./media/topdesk-secure-tutorial/tutorial_topdesk-secure_app.png)  
 
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"][202]
 
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Panel Agregar asignación][203]
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
+7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de TOPdesk - Secure en el panel de acceso, debería iniciar sesión automáticamente en la aplicación TOPdesk - Secure.
-Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -308,4 +310,3 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 [201]: ./media/topdesk-secure-tutorial/tutorial_general_201.png
 [202]: ./media/topdesk-secure-tutorial/tutorial_general_202.png
 [203]: ./media/topdesk-secure-tutorial/tutorial_general_203.png
-

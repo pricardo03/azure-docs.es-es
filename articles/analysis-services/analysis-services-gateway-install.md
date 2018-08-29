@@ -5,20 +5,20 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/13/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 59dc2dad103de60cb7d4b6a44a6d6f7271368391
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 10bcf54da9660da1edcc8358f10289e9678be5cb
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444946"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42143048"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalación y configuración de una puerta de enlace de datos local
 Se requiere una puerta de enlace de datos local cuando uno o varios servidores de Azure Analysis Services de la misma región se conectan a orígenes de datos locales. Para más información acerca de la puerta de enlace, consulte [Puerta de enlace de datos local](analysis-services-gateway.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 **Requisitos mínimos:**
 
 * .NET Framework 4.5
@@ -38,6 +38,7 @@ Se requiere una puerta de enlace de datos local cuando uno o varios servidores d
 * Instale la puerta de enlace en un equipo que permanezca encendido y no entre en suspensión.
 * No instale la puerta de enlace en un equipo conectado de forma inalámbrica a la red. Puede disminuir el rendimiento.
 * Inicie sesión en Azure con una cuenta de Azure AD que tenga el mismo [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que la suscripción donde va a registrar la puerta de enlace. No se pueden utilizar cuentas B2B (invitadas) de Azure para instalar y registrar una puerta de enlace.
+* Si los orígenes de datos se encuentran en una red Azure Virtual Network (VNet) debe configurar la propiedad de servidor [AlwaysUseGateway](analysis-services-vnet-gateway.md).
 * La puerta de enlace (unificada) que se describe aquí no se admite en Azure Government ni en las regiones soberanas Azure Alemania y Azure China. Use una **puerta de enlace local específica para Azure Analysis Services**, instalada desde el **Inicio rápido** del servidor en el portal. 
 
 
@@ -114,4 +115,5 @@ Eso es todo. Si necesita abrir puertos o solucionar cualquier problema, asegúre
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Administración de Analysis Services](analysis-services-manage.md)   
-* [Obtención de datos de Azure Analysis Services](analysis-services-connect.md)
+* [Obtención de datos de Azure Analysis Services](analysis-services-connect.md)   
+* [Uso de la puerta de enlace para orígenes de datos en Azure Virtual Network](analysis-services-vnet-gateway.md)

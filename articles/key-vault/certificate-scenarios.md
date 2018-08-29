@@ -3,7 +3,7 @@ title: Introducción a los certificados de Key Vault
 description: En los escenarios siguientes se describen algunos de los usos principales de servicio de administración de certificados de Key Vault, como los pasos adicionales necesarios para crear el primer certificado en el almacén de claves.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: f1a1a2fa083dd1bf02132e08981d736a17a2c58f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: bryanla
+ms.openlocfilehash: f2becc5d746c3079e8f686748f33f10cd4a8d8c8
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109491"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42142481"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introducción a los certificados de Key Vault
 En los escenarios siguientes se describen algunos de los usos principales de servicio de administración de certificados de Key Vault, como los pasos adicionales necesarios para crear el primer certificado en el almacén de claves.
@@ -51,14 +51,14 @@ Los certificados se componen de tres recursos interrelacionados vinculados entre
 
 **Paso 3**: un administrador, junto con un empleado de Contoso (usuario de Key Vault) propietario de certificados que, dependiendo de la entidad de certificación, puede obtener un certificado del administrador o directamente desde la cuenta con la entidad de certificación.  
 
--   Comience una operación de incorporación de credenciales a un almacén de claves mediante la creación de un recurso de [emisor de certificados](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers). 
+-   Comience una operación de incorporación de credenciales a un almacén de claves mediante el establecimiento de un recurso de [emisor de certificados](/rest/api/keyvault/setcertificateissuer). Un emisor de certificados es una entidad que se representa en Azure Key Vault (KV) como un recurso CertificateIssuer. Se utiliza para proporcionar información sobre el origen de un certificado de KV; el nombre del emisor, el proveedor, las credenciales y otros detalles administrativos.
     -   Ejemplo: MyDigiCertIssuer  
         -   Proveedor  
         -   Credenciales: credenciales de la cuenta de la entidad de certificación. Cada entidad de certificación tiene sus datos específicos propios.  
 
      Para más información acerca de la creación de cuentas con proveedores de entidades de certificación, consulte la entrada correspondiente en el [blog de Key Vault](http://aka.ms/kvcertsblog).  
 
-**Paso 3.1**: configure [contactos de certificados](https://docs.microsoft.com/rest/api/keyvault/certificate-contacts) para las notificaciones. Este es el contacto del usuario de Key Vault. Key Vault no aplica este paso.  
+**Paso 3.1**: configure [contactos de certificados](/rest/api/keyvault/setcertificatecontacts) para las notificaciones. Este es el contacto del usuario de Key Vault. Key Vault no aplica este paso.  
 
 Nota: Este proceso, con el paso 3.1, es una operación que no tendrá que repetir.  
 
@@ -66,7 +66,7 @@ Nota: Este proceso, con el paso 3.1, es una operación que no tendrá que repeti
 
 ![Creación de un certificado con una entidad de certificación asociada a Key Vault](media/certificate-authority-2.png)
 
-**Paso 4**: las siguientes descripciones se corresponden con los pasos indicados con letras verdes que se enumeran en el diagrama anterior.  
+**Paso 4** - las siguientes descripciones se corresponden con los pasos indicados con letras verdes que se enumeran en el diagrama anterior.  
   (1) - En el diagrama anterior, la aplicación crea un certificado que comienza con la creación interna de una clave en el almacén de claves.  
   (2) - Key Vault envía una solicitud de certificado SSL a la entidad de certificación.  
   (3) - La aplicación sondea, en proceso de bucle y espera, que Key Vault termine el certificado. La creación del certificado se completa cuando Key Vault recibe la respuesta de la entidad de certificación con el certificado X.509.  
@@ -121,5 +121,5 @@ Nota: Este proceso, con el paso 3.1, es una operación que no tendrá que repeti
   (5) - La aplicación termina de crear el certificado con una combinación del certificado X.509 de la entidad de certificación.
 
 ## <a name="see-also"></a>Otras referencias
-- [Certificate operations](/rest/api/keyvault/certificate-operations) (Operaciones con certificados)
+
 - [Información acerca de claves, secretos y certificados](about-keys-secrets-and-certificates.md)

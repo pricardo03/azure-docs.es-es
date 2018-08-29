@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: article
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 1b0406641053fac8a4b3f4721728ad3b6c313ba1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 305139e45ee93614eab17c5798cb1105e3e8f8cb
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380059"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41929926"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Guía de actualización de Spell Check API
 
@@ -25,7 +25,7 @@ Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de
 
 ### <a name="endpoints"></a>Puntos de conexión
 
-- El número de versión del punto de conexión ha cambiado de v5 a v7. Por ejemplo, https://api.cognitive.microsoft.com/bing/\*\*v7.0**/spellcheck.
+- El número de versión del punto de conexión ha cambiado de v5 a v7. Por ejemplo, `https://api.cognitive.microsoft.com/bing/v7.0/spellcheck`.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de la respuesta de error y códigos de error
 
@@ -41,9 +41,9 @@ Esta guía de actualización identifica los cambios entre las versiones 5 y 7 de
 |Código|Subcódigo|DESCRIPCIÓN
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing devuelve ServerError cada vez que se produce alguna de las condiciones del subcódigo. La respuesta incluye estos errores si el código de estado HTTP es 500.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|Bing devuelve InvalidRequest siempre que alguna parte de la solicitud no es válida. Por ejemplo, falta un parámetro necesario o un valor de parámetro no es válido.<br/><br/>Si el error es ParameterMissing o ParameterInvalidValue, el código de estado HTTP es 400.<br/><br/>Si el error es HttpNotAllowed, el código de estado HTTP es 410.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|Bing devuelve InvalidRequest siempre que alguna parte de la solicitud no es válida. Por ejemplo, si falta un parámetro necesario o un valor de parámetro no es válido.<br/><br/>Si el error es ParameterMissing o ParameterInvalidValue, el código de estado HTTP es 400.<br/><br/>Si el error es HttpNotAllowed, el código de estado HTTP es 410.
 |RateLimitExceeded||Bing devuelve RateLimitExceeded cada vez que se supera la cuota de consultas por segundo (QPS) o de consultas por mes (QPM).<br/><br/>Bing devuelve el código de estado HTTP 429 si supera la cuota QPS y 403 si supera la cuota QPM.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing devuelve InvalidAuthorization cuando no puede autenticar el autor de la llamada. Por ejemplo, falta el encabezado `Ocp-Apim-Subscription-Key` o la clave de suscripción no es válida.<br/><br/>Se produce redundancia si especifica más de un método de autenticación.<br/><br/>Si el error es InvalidAuthorization, el código de estado HTTP es 401.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing devuelve InvalidAuthorization cuando no puede autenticar al autor de la llamada. Por ejemplo, si falta el encabezado `Ocp-Apim-Subscription-Key` o la clave de suscripción no es válida.<br/><br/>Se produce redundancia si especifica más de un método de autenticación.<br/><br/>Si el error es InvalidAuthorization, el código de estado HTTP es 401.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing devuelve InsufficientAuthorization cuando el autor de la llamada no tiene permisos para acceder al recurso. Esto puede ocurrir si la clave de suscripción se ha deshabilitado o ha expirado. <br/><br/>Si el error es InsufficientAuthorization, el código de estado HTTP es 403.
 
 - A continuación se asignan los códigos de error anteriores a los nuevos códigos. Si tiene una dependencia de los códigos de error v5, actualice el código en consecuencia.  

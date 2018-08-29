@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/08/2018
+ms.date: 08/15/2018
 ms.author: kumud
-ms.openlocfilehash: 2e6b8dd5e0ec0ae73fff4a25ad79045e3414e9cc
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e9249f3a5787da9ad54945195b47cf9af0f45fb1
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825006"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144423"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexiones salientes en Azure
 
@@ -220,7 +220,7 @@ Los [puertos preasignados](#preallocatedports) se asignan según el tamaño del 
 
 Por ejemplo, 2 máquinas virtuales en el grupo back-end tendrían 1024 puertos SNAT disponibles por cada configuración de IP, lo que permite un total de 2048 puertos SNAT para la implementación.  Si la implementación fuera a aumentarse hasta 50 máquinas virtuales, incluso si el número de puertos preasignados permanece constante por máquina virtual, se puede utilizar un total de 51 200 (50 x 1024) puertos SNAT por la implementación.  Si desea escalar horizontalmente la implementación, compruebe el número de [puertos preasignados](#preallocatedports) por niveles para asegurarse de adaptar el escalado horizontal al máximo del nivel correspondiente.  En el ejemplo anterior, si hubiera elegido escalar horizontalmente a 51 en lugar de a 50 instancias, avanzaría al nivel siguiente y terminaría con menos puertos SNAT por VM, así como en total.
 
-Por el contrario, el escalado horizontal al siguiente nivel de grupo de back-end de mayor tamaño podría sacar las conexiones si hubiera que reasignar los puertos asignados.  Si no quiere que suceda esto, tendrá que adaptar la implementación al tamaño del nivel.  O bien, asegúrese de que la aplicación puede detectar y volver a intentar según se requiera.  Las conexiones persistentes de TCP pueden ayudar a detectar cuándo dejan de funcionar los puertos SNAT por una reasignación.
+Si se escala horizontalmente al siguiente nivel de grupo de back-end de mayor tamaño, algunas de las conexiones salientes podrían agotar el tiempo de espera si hubiera que reasignar los puertos.  Si solo usa algunos de los puertos SNAT, no importa si se escala horizontalmente al siguiente mayor tamaño de grupo de back-end.  La mitad de los puertos existentes se volverá a asignar cada vez que cambie al siguiente nivel de grupo de back-end.  Si no quiere que suceda esto, tendrá que adaptar la implementación al tamaño del nivel.  O bien, asegúrese de que la aplicación puede detectar y volver a intentar según se requiera.  Las conexiones persistentes de TCP pueden ayudar a detectar cuándo dejan de funcionar los puertos SNAT por una reasignación.
 
 ### <a name="idletimeout"></a>Uso de conexiones persistentes para restablecer el tiempo de espera de inactividad saliente
 

@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: b4776ef3589d994fff692e450d252c491c20f7b2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4751a76c39060f48d3b816ecee0de5b58e29bdaa
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522873"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42143299"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Control de acceso al servicio Azure IoT Hub Device Provisioning
 
@@ -26,7 +26,7 @@ En este artículo se describe:
 
 ### <a name="when-to-use"></a>Cuándo se deben usar
 
-Debe tener los permisos adecuados para acceder a cualquiera de los puntos de conexión del servicio de aprovisionamiento. Por ejemplo, una aplicación back-end debe incluir un token que contiene las credenciales de seguridad junto con cada mensaje que se envía al servicio.
+Debe tener los permisos adecuados para acceder a cualquiera de los puntos de conexión del servicio de aprovisionamiento. Por ejemplo, una aplicación back-end tiene que incluir un token que contenga las credenciales de seguridad junto con cada mensaje que se envía al servicio.
 
 ## <a name="access-control-and-permissions"></a>Permisos y control del acceso
 
@@ -34,7 +34,7 @@ Puede conceder los [permisos](#device-provisioning-service-permissions) de las m
 
 * **Directivas de autorización de acceso compartido**. Las directivas de acceso compartido pueden conceder cualquier combinación de los [permisos](#device-provisioning-service-permissions). Las directivas se pueden definir en [Azure Portal][lnk-management-portal] o mediante programación, para lo que se usan las [API de REST del servicio Device Provisioning][lnk-resource-provider-apis]. Un servicio de aprovisionamiento recién creado tiene la siguiente directiva predeterminada:
 
-  * **provisioningserviceowner**: directiva con todos los permisos.
+   **provisioningserviceowner**: directiva con todos los permisos.
 
 > [!NOTE]
 > Para más detalles, vea [Permisos](#device-provisioning-service-permissions).
@@ -51,12 +51,16 @@ Para más información sobre cómo crear y utilizar tokens de seguridad, vea la 
 HTTP es el único protocolo compatible e implementa la autenticación mediante la inclusión de un token válido en el encabezado de solicitud **Authorization**.
 
 #### <a name="example"></a>Ejemplo
-`SharedAccessSignature sr=mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`
+```csharp
+SharedAccessSignature sr = 
+   mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`\
+```
 
 > [!NOTE]
 > Los [SDK del servicio Azure IoT Device Provisioning][lnk-sdks] generan tokens automáticamente cuando se conectan al servicio.
 
 ## <a name="security-tokens"></a>Tokens de seguridad
+
 El servicio de aprovisionamiento de dispositivos usa tokens de seguridad para autenticar servicios para evitar el envío de claves a través de la red. Además, los tokens de seguridad están limitados en cuanto al ámbito y el período de validez. Los [SDK del servicio Azure IoT Device Provisioning][lnk-sdks] generan automáticamente tokens sin necesidad de ninguna configuración especial. Algunos escenarios, requieren que el usuario genere y utilice directamente los tokens de seguridad. Estos escenarios incluyen el uso directo de la superficie HTTP.
 
 ### <a name="security-token-structure"></a>Estructura del token de seguridad
@@ -131,7 +135,6 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 > [!NOTE]
 > Puesto que el período de validez del token se valida en equipos que disponen del servicio de aprovisionamiento de dispositivos IoT, el desfase del reloj del equipo que genera el token debe ser mínimo.
 
-
 ### <a name="use-security-tokens-from-service-components"></a>Uso de tokens de seguridad de los componentes de servicio
 
 Los componentes de servicio solo pueden generar tokens de seguridad mediante directivas de acceso compartido que conceden los permisos apropiados, tal y como se explicó anteriormente.
@@ -150,9 +153,9 @@ Por ejemplo, un servicio generado con el uso de la directiva de acceso compartid
 * URI de recurso: `{mydps}.azure-devices-provisioning.net`,
 * clave de firma: una de las claves de la directiva `enrollmentread` ,
 * nombre de la directiva: `enrollmentread`,
-* cualquier fecha de expiración.
+* cualquier fecha de expiración.backn
 
-![Creación de una directiva de acceso compartido para la instancia de DPS en el portal][img-add-shared-access-policy]
+![Creación de una directiva de acceso compartido para la instancia de servicio de aprovisionamiento de dispositivos en el portal][img-add-shared-access-policy]
 
 ```nodejs
 var endpoint ="mydps.azure-devices-provisioning.net";
@@ -170,7 +173,7 @@ El resultado, que concedería acceso para leer todos los registros de inscripci�
 
 Los siguientes temas de referencia proporcionan más información sobre el control de acceso al servicio de aprovisionamiento de dispositivos IoT.
 
-## <a name="device-provisioning-service-permissions"></a>Permisos para el servicio de aprovisionamiento de dispositivos
+### <a name="device-provisioning-service-permissions"></a>Permisos para el servicio de aprovisionamiento de dispositivos
 
 En la tabla siguiente se enumeran los permisos que se pueden utilizar para controlar el acceso al servicio de aprovisionamiento de dispositivos IoT.
 

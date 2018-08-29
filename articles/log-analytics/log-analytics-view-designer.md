@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: d900a778aa003357fb85d3e8ec8e40dee64f0f9c
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 77c7d9a549b10a56faaf6226062d0e6212ce19c0
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131861"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143087"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Creación de vistas personalizadas mediante el uso del Diseñador de vistas en Log Analytics
 Con el uso del Diseñador de vistas en [Azure Log Analytics](log-analytics-overview.md), puede crear una variedad de vistas personalizadas en Azure Portal que pueden ayudarle a visualizar datos en el área de trabajo de Log Analytics. Este artículo presenta una información general sobre Diseñador de vistas y los procedimientos para crear y editar vistas personalizadas.
@@ -55,7 +55,7 @@ Las opciones se describen en la tabla siguiente:
 | Opción | DESCRIPCIÓN |
 |:--|:--|
 | Actualizar   | Actualiza la vista con los datos más recientes. | 
-| Análisis | Abre el [portal de análisis avanzado](log-analytics-log-search-portals.md#advanced-analytics-portal) para analizar los datos con búsquedas de registros. |
+| Análisis | Abre el [portal de análisis avanzado](log-analytics-log-search-portals.md) para analizar los datos con consultas de registro. |
 | Edit       | Abre la vista en el Diseñador de vistas para editar su contenido y configuración.  |
 | Clon      | Crea una vista nueva y la abre en el Diseñador de vistas. La vista nueva tiene el mismo nombre que la original con la palabra *Copy* agregada al final. |
 | Intervalo de fechas | Establezca un filtro de tiempo y fechas para los datos que se incluye en la vista. |

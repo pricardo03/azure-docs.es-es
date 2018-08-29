@@ -2,25 +2,22 @@
 title: Publicación de aplicaciones mediante el proxy de aplicación de Azure AD | Microsoft Docs
 description: Publique aplicaciones locales en la nube con el proxy de aplicación de Azure AD en Azure Portal.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/20/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 1224642bb7e6fc0c51b3f839a78449132db5b4bb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 973a6201a227e6c2e295e6e5ea2f40c302572504
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364264"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142747"
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicación de aplicaciones mediante el proxy de aplicación de Azure AD
 
@@ -72,6 +69,7 @@ Siga estos pasos para publicar aplicaciones con el proxy de aplicación. Si aún
    ![Configuración de la aplicación](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. Si es necesario, configure opciones adicionales. En la mayoría de las aplicaciones, debe mantener esta configuración en su estado predeterminado. 
    - **Tiempo de espera de las aplicaciones de back-end**: establezca este valor en **Largo** solo si la aplicación es lenta en autenticarse y conectarse. 
+   - **Use HTTP-Only Cookie** (Usar cookie solo HTTP): establezca este valor en **Sí** para que las cookies del Proxy de aplicación incluyan la marca HTTPOnly en el encabezado de respuesta HTTP.
    - **Traducir URL en encabezados**: mantenga este valor como **Sí** a menos que la aplicación requiera el encabezado de host original en la solicitud de autenticación.
    - **Translate URLs in Application Body** (Traducir URL en el cuerpo de la aplicación): mantenga este valor como **No** a menos que tenga vínculos HTML codificados a otras aplicaciones locales y no use dominios personalizados. Para más información, consulte sobre la [traducción de vínculos con el proxy de aplicación](application-proxy-configure-hard-coded-link-translation.md).
    

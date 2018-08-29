@@ -1,5 +1,5 @@
 ---
-title: Portales para la creación y edición de consultas de registros en Azure Log Analytics | Microsoft Docs
+title: Visualización y análisis de datos en Azure Log Analytics | Microsoft Docs
 description: En este artículo se describen los portales que puede utilizar en Azure Log Analytics para crear y editar búsquedas de registros.
 services: log-analytics
 documentationcenter: ''
@@ -11,38 +11,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 08/20/2018
 ms.author: magoedte; bwren
 ms.component: na
-ms.openlocfilehash: e2ea0bf1fb3f1c63f4e6f037e465e8fdfd9a4374
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 386aad94461fa3f2ceafb7564342797eefa2f086
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133493"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246703"
 ---
-# <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Portales para la creación y edición de consultas de registros en Azure Log Analytics
+# <a name="viewing-and-analyzing-data-in-log-analytics"></a>Visualización y análisis de datos en Azure Log Analytics
+Hay dos opciones disponibles en Azure Portal para analizar los datos almacenados en Log Analytics y para crear consultas de análisis ad hoc. Las consultas que se crean con estos portales pueden usarse para otras características, como las alertas y los paneles.
 
-Puede usar búsquedas de registros en diversos lugares de Azure Log Analytics para recuperar datos del área de trabajo.  Para crear y editar realmente consultas además de trabajar interactivamente con los datos devueltos, tiene dos opciones que se describen a continuación.  
+## <a name="log-analytics-page-preview"></a>Página Log Analytics (versión preliminar)
+Abra la página Log Analytics desde **Registros (vista previa)** en el menú Log Analytics. Se trata de una nueva experiencia para trabajar con datos de registro y crear consultas. Puede obtener una introducción a este portal e inspeccionar sus características en [Introducción al portal de Analytics](query-language/get-started-analytics-portal.md).
 
-## <a name="log-search"></a>Búsqueda de registros 
-La página de búsqueda de registros es accesible desde Azure Portal.  Es adecuado para la creación de consultas básicas que se pueden crear en una sola línea.  La búsqueda de registros se puede ejecutar sin necesidad de iniciar un portal externo y se puede usar para realizar una serie de funciones con búsquedas de registros, incluyendo la creación de reglas de alertas, la creación de grupos de equipos y la exportación de los resultados de la consulta.  
+La página Log Analytics proporciona las siguientes mejoras con respecto a la experiencia de [Búsqueda de registros](#log-search).
 
-La opción de búsqueda de registros proporciona varias características que le permitirán editar la consulta sin tener un conocimiento completo del lenguaje de consulta.  Puede ver un resumen de estas características en [Creación de búsquedas de registros en Azure Log Analytics mediante la opción de búsqueda de registros](log-analytics-log-search-log-search-portal.md).
+* Varias pestañas: cree pestañas independientes para trabajar con varias consultas.
+* Visualizaciones enriquecidas: variedad de opciones de gráficos.
+* Intellisense y relleno automático de lenguaje mejorados.
+* Resaltado de sintaxis: mejora la legibilidad de las consultas. 
+* Explorador de consultas: consultas y funciones guardadas por acceso.
+* Vista de esquema: revise la estructura de los datos para ayudar a escribir las consultas.
+* Uso compartido: cree vínculos a las consultas, ancle las consultas a cualquier panel compartido de Azure.
+* Análisis inteligente: identifica los picos en los gráficos y un análisis rápido de la causa.
+* Selección de columnas: ordene y agrupe las columnas en los resultados de la consulta.
 
-
-![Página de búsqueda de registros](media/log-analytics-log-search-portals/log-search-portal.png)
-
-## <a name="advanced-analytics-portal"></a>Portal de análisis avanzado
-El portal de análisis avanzados es un portal dedicado que proporciona funcionalidades avanzadas que no están disponibles en la búsqueda de registros de Azure Portal.  Las características incluyen la capacidad para editar una consulta en varias líneas, ejecutar código de forma selectiva, Intellisense sensible al contexto y análisis inteligente.  El portal de análisis avanzado es más adecuado para diseñar consultas más complejas que se guardan como una búsqueda de registros o que se copian y pegan en otros elementos de Log Analytics.  Inicie el portal de análisis avanzados desde un vínculo de la misma página de búsqueda de registros.
+> [!NOTE]
+> La página Log Analytics tiene la misma funcionalidad que el portal de análisis avanzado, que es una herramienta externa de Azure Portal. El portal de análisis avanzado sigue estando disponible, pero los vínculos y otras referencias a él en Azure Portal se reemplazan por esta nueva página.
 
 ![Portal de análisis avanzado](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
 
-Debido a sus características avanzadas, normalmente usará el portal de análisis avanzado como la herramienta principal para crear y editar consultas.  Una vez que haya determinado que la consulta funciona según lo previsto, cópiela y péguela en otra parte como, por ejemplo, la página de búsqueda de registros o el Diseñador de vistas.  
-
 ### <a name="firewall-requirements"></a>Requisitos de firewall
-El explorador requiere acceso a las direcciones siguientes para obtener acceso al portal de Log Analytics.  Si el explorador tiene acceso a Azure Portal a través de un firewall, debe habilitar el acceso a estas direcciones.
+El explorador requiere acceso a las direcciones siguientes para obtener acceso a la página Log Analytics y al portal de análisis avanzado.  Si el explorador tiene acceso a Azure Portal a través de un firewall, debe habilitar el acceso a estas direcciones.
 
 | Identificador URI | IP | Puertos |
 |:---|:---|:---|
@@ -51,8 +55,15 @@ El explorador requiere acceso a las direcciones siguientes para obtener acceso a
 | docs.loganalytics.io   | Dinámica | 80 443 |
 
 
+## <a name="log-search"></a>Búsqueda de registros
+Abra la página Búsqueda de registros de **Registros** en el menú Log Analytics o desde **Log Analytics** en el menú Azure Monitor. Esto es adecuado para analizar datos de registro mediante consultas básicas. Proporciona varias características que le permiten editar consultas sin tener un conocimiento completo del lenguaje de consulta.  Puede ver un resumen de estas características en [Creación de búsquedas de registros en Azure Log Analytics mediante la opción de búsqueda de registros](log-analytics-log-search-log-search-portal.md). 
+
+
+![Página de búsqueda de registros](media/log-analytics-log-search-portals/log-search-portal.png)
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Vea un tutorial sobre el uso de la [búsqueda de registros](log-analytics-tutorial-viewdata.md) para aprender a crear consultas mediante el lenguaje de consultas.
-- Consulte el [portal de análisis avanzados](https://go.microsoft.com/fwlink/?linkid=856587) para crear sofisticadas consultas y usarlas como entorno de desarrollo de las búsquedas de registros.
+- Vea un [tutorial sobre el uso de la búsqueda de registros](log-analytics-tutorial-viewdata.md) para aprender a crear consultas mediante el lenguaje de consultas.
+- Consulte una [lección sobre el uso del portal de análisis avanzado](query-language/get-started-analytics-portal.md), que proporciona la misma experiencia que la página Log Analytics.
 

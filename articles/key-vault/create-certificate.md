@@ -3,7 +3,7 @@ title: Métodos de creación de certificados
 description: Formas de crear un certificado en Key Vault.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: 7b71c6a8daa97300ecf3b37ec6ab47207fece98e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: bryanla
+ms.openlocfilehash: a2314eaac26688881dcf60f264f039081439db6a
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34058406"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42143395"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de creación de certificados
 
@@ -89,7 +89,7 @@ La creación de certificados puede completarse manualmente o con un emisor "Self
 |DigiCert|Key Vault ofrece certificados SSL OV o EV con DigiCert|
 |GlobalCert|Key Vault ofrece certificados SSL OV o EV con GlobalSign|
 
- Para más información, incluida la disponibilidad geográfica de estos emisores, consulte [Certificate Issuers](/rest/api/keyvault/certificate-issuers.md) (Emisores de certificados).
+ Un emisor de certificados es una entidad que se representa en Azure Key Vault (KV) como un recurso CertificateIssuer. Se utiliza para proporcionar información sobre el origen de un certificado de KV; el nombre del emisor, el proveedor, las credenciales y otros detalles administrativos.
 
 Tenga en cuenta que cuando se realiza un pedido al emisor, puede respetar o reemplazar las extensiones del certificado X.509 y el período de validez del certificado en función de su tipo.  
 

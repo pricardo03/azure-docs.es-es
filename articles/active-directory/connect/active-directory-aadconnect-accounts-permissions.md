@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cfb6fb512ecb7d57cf411a31b2e04726bfc4b743
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: a628e28e9e6bd603fb2a3789c3281bc2181c91fe
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263409"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42144390"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: cuentas y permisos
 
@@ -121,7 +121,7 @@ Los permisos que requiera dependen de las características opcionales que habili
 
 | Característica | Permisos |
 | --- | --- |
-| característica msDS-ConsistencyGuid |Permisos de escritura para el atributo msDS-ConsistencyGuid documentado en [Conceptos de diseño: Using msDS-ConsistencyGuid as sourceAnchor (Uso de msDS-ConsistencyGuid como sourceAnchor)](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
+| característica ms-DS-ConsistencyGuid |Permisos de escritura para el atributo msDS-ConsistencyGuid documentado en [Conceptos de diseño: Uso de msDS-ConsistencyGuid como sourceAnchor](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Sincronización de hash de contraseñas |<li>Replicación de cambios de directorio</li>  <li>Replicación de todos los cambios de directorio |
 | Implementación híbrida de Exchange |Permisos de escritura en los atributos que se documentan en [Escritura diferida híbrida de Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) para usuarios, grupos y contactos. |
 | Carpeta pública de correo de Exchange |Permisos de lectura para los atributos que se documentan en [carpetas públicas de correo electrónico de Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) para las carpetas públicas. | 

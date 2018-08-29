@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.openlocfilehash: 041866cd1c290bc576577771abcae31db747095e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 51fa689030c4a8ce4e900ecd600cdd0524aa13d9
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796865"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42142589"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Asignaciones de campos en los indexadores de Azure Search
 Al usar los indexadores de Azure Search, habrá ocasiones en que pueda encontrarse en situaciones donde sus datos de entrada no coincidan demasiado con el esquema de su índice de destino. En esos casos, puede usar **asignaciones de campos** para transformar sus datos en la forma deseada.
@@ -106,7 +106,7 @@ Tiene un indexador de blobs que indexa blobs con los metadatos de la ruta de acc
     "targetFieldName" : "IndexKey",
     "mappingFunction" : { "name" : "base64Encode", "parameters" : { "useHttpServerUtilityUrlTokenEncode" : false } }
   }]
-```
+ ```
 
 Si no necesita buscar documentos por claves y tampoco necesita descodificar el contenido codificado, puede usar simplemente `parameters` para la función de asignación, cuyo valor predeterminado para `useHttpServerUtilityUrlTokenEncode` es `true`. En caso contrario, consulte la sección sobre [detalles de Base64](#base64details) sección para decidir qué configuración usar.
 
@@ -136,9 +136,9 @@ Si no se especifica ningún `parameters`, el valor predeterminado de `useHttpSer
 ### <a name="details-of-base64-encoding-and-decoding"></a>Detalles de la codificación y descodificación Base64
 Azure Search admite dos codificaciones Base64: token de dirección URL de HttpServerUtility y codificación Base64 de seguridad de direcciones URL sin espaciado interno. Debe usar la misma codificación que las funciones de asignación si desea codificar una clave de documento para la búsqueda, codificar un valor que desea que descodifique el indexador, o descodificar un campo codificado por el indexador.
 
-Si usa .NET Framework, puede establecer `useHttpServerUtilityUrlTokenEncode` y `useHttpServerUtilityUrlTokenDecode` en `true`, para codificar y descodificar respectivamente. En ese caso, `base64Encode` se comporta como [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) y `base64Decode` lo hace como [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
+Si los parámetros `useHttpServerUtilityUrlTokenEncode` o `useHttpServerUtilityUrlTokenDecode` para codificar y descodificar respectivamente se establecen en `true`, `base64Encode` se comporta como [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) y `base64Decode` se comporta como [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
-Si no usa .NET Framework, debería establecer `useHttpServerUtilityUrlTokenEncode` y `useHttpServerUtilityUrlTokenDecode` en `false`. Según la biblioteca que use, las funciones de utilidad de codificación y descodificación Base64 pueden ser distintas de Azure Search.
+Si no usa la versión completa de .NET Framework (es decir, que usa .NET Core u otro entorno de programación) para generar los valores de clave para emular el comportamiento de Azure Search, debe establecer `useHttpServerUtilityUrlTokenEncode` y `useHttpServerUtilityUrlTokenDecode` en `false`. Según la biblioteca que use, las funciones de utilidad de codificación y descodificación Base64 pueden ser distintas de Azure Search.
 
 La tabla siguiente compara diferentes codificaciones Base64 de la cadena `00>00?00`. Para determinar el procesamiento adicional necesario (si existe) para las funciones de Base64, aplique la función de codificación de bibliotecas en la cadena `00>00?00` y compare el resultado con el resultado esperado `MDA-MDA_MDA`.
 

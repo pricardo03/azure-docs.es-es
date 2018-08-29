@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 59a00f5605f7664148b65f2ec9a88fbaa9057ccf
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: e06db4e356de6a4572721d1652d6a2666e7cfefc
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36946064"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142847"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -25,7 +25,7 @@ Puede usar la solución Update Management para administrar las actualizaciones y
 - Programar la instalación de las actualizaciones necesarias
 - Revisar los resultados de la implementación para comprobar que se han aplicado correctamente actualizaciones a todas las máquinas virtuales para las cuales se ha habilitado Update Management
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para usar Update Management, necesita lo siguiente:
 
@@ -106,9 +106,9 @@ En la tabla siguiente se describen los orígenes conectados compatibles con esta
 
 | Origen conectado | Compatible | DESCRIPCIÓN |
 | --- | --- | --- |
-| Agentes de Windows |Sí |Update Management recopila información sobre las actualizaciones del sistema de los agentes de Windows e inicia la instalación de las actualizaciones necesarias. |
-| Agentes de Linux |Sí |Update Management recopila información sobre las actualizaciones del sistema de los agentes de Linux e inicia la instalación de las actualizaciones necesarias en las distribuciones admitidas. |
-| Grupo de administración de Operations Manager |Sí |Update Management recopila información sobre las actualizaciones del sistema de los agentes de un grupo de administración conectado. |
+| Agentes de Windows |SÍ |Update Management recopila información sobre las actualizaciones del sistema de los agentes de Windows e inicia la instalación de las actualizaciones necesarias. |
+| Agentes de Linux |SÍ |Update Management recopila información sobre las actualizaciones del sistema de los agentes de Linux e inicia la instalación de las actualizaciones necesarias en las distribuciones admitidas. |
+| Grupo de administración de Operations Manager |SÍ |Update Management recopila información sobre las actualizaciones del sistema de los agentes de un grupo de administración conectado. |
 | Cuenta de Azure Storage |Sin  |Azure Storage no incluye información sobre las actualizaciones del sistema. |
 
 ### <a name="collection-frequency"></a>Frecuencia de recopilación
@@ -127,7 +127,7 @@ En el panel **Nueva implementación de actualización**, especifique la siguient
 
 - **Nombre**: proporcione un nombre único para identificar la implementación de actualizaciones.
 - **Sistema operativo**: seleccione **Windows** o **Linux**.
-- **Equipos para actualizar**: seleccione las máquinas virtuales que desea actualizar. La preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**. Puede ver el estado de mantenimiento de la máquina antes de programar la implementación de actualizaciones.
+- **Máquinas para actualizar**: seleccione una Búsqueda guardada, Grupo importado o Máquinas para elegir las máquinas que desea actualizar. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**. Puede ver el estado de mantenimiento de la máquina antes de programar la implementación de actualizaciones. Para obtener información sobre los distintos métodos de creación de grupos de equipos en Log Analytics, consulte [Grupos de equipos en búsquedas de registros en Log Analytics](../log-analytics/log-analytics-computer-groups.md).
 
   ![Panel Nueva implementación de actualización](./media/manage-update-multi/update-select-computers.png)
 
@@ -150,10 +150,16 @@ En el panel **Nueva implementación de actualización**, especifique la siguient
    ![Cuadro de diálogo Configuración de programación](./media/manage-update-multi/update-set-schedule.png)
 - **Ventana de mantenimiento (minutos)**: especifique el período de tiempo en el que desea que se produzca la implementación de actualizaciones. Esta configuración ayuda a garantizar que los cambios se realizan en las ventanas de servicio definidas.
 
-Cuando haya terminado de configurar la programación, seleccione el botón **Crear** para volver al panel de estado. En la tabla **Programada** se muestra la programación de implementaciones que ha creado.
+- **Reboot control**: esta configuración determina cómo se controlan los reinicios para la implementación de actualizaciones.
 
-> [!WARNING]
-> Si hay actualizaciones que requieren un reinicio, la máquina virtual se reiniciará automáticamente.
+   |Opción|DESCRIPCIÓN|
+   |---|---|
+   |Reiniciar si es necesario| **(predeterminado)** Si es necesario, se inicia un reinicio si la ventana de mantenimiento lo permite.|
+   |Reiniciar siempre|Se inicia un reinicio, independientemente de si se necesita. |
+   |Never reboot (No reiniciar nunca)|Independientemente de si se requieren reinicios, se suprimen.|
+   |Only reboot (solo reiniciar), no instalará las actualizaciones|Esta opción omite la instalación de actualizaciones y solo inicia un reinicio.|
+
+Cuando haya terminado de configurar la programación, seleccione el botón **Crear** para volver al panel de estado. En la tabla **Programada** se muestra la programación de implementaciones que ha creado.
 
 ## <a name="view-results-of-an-update-deployment"></a>Visualización de los resultados de una implementación de actualizaciones
 

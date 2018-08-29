@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: aea43eed0cb66b0e0d3bb7a393f569714feb475d
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 0656cfcc2dcded284be1a337f797681117f3b313
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850144"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42147006"
 ---
 # <a name="network-monitoring-solutions"></a>Soluciones de supervisión de redes 
 
@@ -35,7 +35,7 @@ Network Performance Monitor (NPM) es un conjunto de funcionalidades, cada una or
 * Aplicaciones y microservicios esenciales de niveles múltiples
 * Aplicaciones basadas en web (HTTP/HTTPs) y ubicaciones de usuario 
 
-Monitor de rendimiento, Supervisión de ExpressRoute y Monitor de puntos de conexión de servicio son funcionalidades de supervisión dentro de NPM y se describen a continuación.
+Monitor de rendimiento, Supervisión de ExpressRoute y Monitor de conectividad de servicio son funcionalidades de supervisión dentro de NPM y se describen a continuación.
 
 ## <a name="performance-monitor"></a>Supervisión del rendimiento
 
@@ -73,9 +73,9 @@ Para más información, consulte los siguientes artículos.
 * [Configuración de Network Performance Monitor para ExpressRoute](../expressroute/how-to-npm.md)
 * [Entrada de blog](https://aka.ms/NPMExRmonitorGA)
 
-## <a name="service-endpoint-monitor"></a>Monitor de puntos de conexión de servicio
+## <a name="service-connectivity-monitor"></a>Monitor de conectividad de servicio
 
-Con la supervisión de puntos de conexión de servicio, ahora puede probar la accesibilidad de las aplicaciones y detectar los cuellos de botella en el rendimiento de las redes locales, redes de operadores y centros de datos en la nube y privados.
+Con el Monitor de conectividad de servicio, ahora puede probar la accesibilidad de las aplicaciones y detectar cuellos de botella en el rendimiento de las redes locales, redes de operadores y centros de datos en la nube y privados.
 
 * Supervisar de un extremo a otro la conectividad de red con las aplicaciones
 * Poner en correlación la entrega de las aplicaciones con el rendimiento de la red, detectar la ubicación exacta de la degradación a lo largo de la ruta entre el usuario y la aplicación

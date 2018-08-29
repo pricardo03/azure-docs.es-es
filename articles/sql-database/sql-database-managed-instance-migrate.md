@@ -11,20 +11,18 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: a9a02f9007c174024028305746682f9ac07dab22
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e152fa4bb439f1881dc9974bfdf1b3e8c77c434a
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247217"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42144411"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database
 
-En este artículo se describen los métodos para migrar un instancia de SQL Server 2005 o versiones posteriores a Instancia administrada de Azure SQL Database (versión preliminar). 
+En este artículo se describen los métodos para migrar un instancia de SQL Server 2005 o versiones posteriores a [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md) (versión preliminar).
 
-Instancia administrada de Azure SQL Database es una expansión del servicio SQL Database actual, que proporciona una tercera opción de implementación, además de los grupos elásticos y las bases de datos únicas.  Está concebida para poder migrar una base de datos mediante lift-and-shift a una plataforma como servicio (PaaS) completamente administrada, sin tener que volver a diseñar la aplicación. Instancia administrada de SQL Database proporciona una gran compatibilidad con el modelo de programación de SQL Server local y con la gran mayoría de las características de SQL Server y las herramientas y los servicios asociados, sin necesidad de configurar nada.
-
-En un nivel alto, el proceso de migración de la aplicación es parecido a este:
+En un nivel alto, el proceso de migración de la base de datos es parecido a este:
 
 ![proceso de migración](./media/sql-database-managed-instance-migration/migration-process.png)
 
@@ -41,9 +39,9 @@ En un nivel alto, el proceso de migración de la aplicación es parecido a este:
 
 En primer lugar, determine si Instancia administrada es compatible con los requisitos de base de datos de su aplicación. Instancia administrada se ha diseñado para poder migrar mediante lift-and-shit la mayoría de las aplicaciones existentes que usan instancias de SQL Server locales o en máquinas virtuales. Sin embargo, a veces podría necesitar características o funcionalidades que todavía no se admiten y el costo de implementar una solución alternativa es demasiado alto. 
 
-Use [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) para detectar posibles problemas de compatibilidad que afecten a la funcionalidad de la base de datos en Azure SQL Database. DMA aún no admite Instancia administrada como destino de migración, pero se recomienda ejecutar la evaluación en Azure SQL Database y revisar atentamente la lista de problemas notificados sobre compatibilidad y paridad de las características con la documentación del producto. La mayoría de los problemas de bloqueo que impedían la migración a Azure SQL Database se eliminaron con Instancia administrada. Por ejemplo, características tales como consultas entre bases de datos, transacciones entre bases de datos dentro de la misma instancia, servidor vinculado a otros orígenes SQL, CLR, tablas temporales globales, vistas de nivel de instancia, Service Broker y similares están disponibles en Instancia administrada. 
+Use [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) para detectar posibles problemas de compatibilidad que afecten a la funcionalidad de la base de datos en Azure SQL Database. DMA aún no admite Instancia administrada como destino de migración, pero se recomienda ejecutar la evaluación en Azure SQL Database y revisar atentamente la lista de problemas notificados sobre compatibilidad y paridad de las características con la documentación del producto. Consulte las [diferencias entre una base de datos única y una instancia administrada de Azure SQL Database](sql-database-features.md) para comprobar si hay algún problema de bloqueo notificado que no bloquee en la instancia administrada, puesto que la mayoría de los problemas de bloqueo que evitaban la migración a Azure SQL Database se han eliminado con Instancia administrada. Por ejemplo, características tales como consultas entre bases de datos, transacciones entre bases de datos dentro de la misma instancia, servidor vinculado a otros orígenes SQL, CLR, tablas temporales globales, vistas de nivel de instancia, Service Broker y similares están disponibles en Instancia administrada. 
 
-Sin embargo, hay algunos casos en los que debe considerar una opción alternativa, por ejemplo, [SQL Server en Virtual Machines en Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Estos son algunos ejemplos:
+Si se ha notificado algún problema de bloqueo que no se haya eliminado en Instancia administrada de SQL Azure, quizá deba considerar una alternativa, como [SQL Server en Virtual Machines en Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Estos son algunos ejemplos:
 
 - Si necesita acceso directo al sistema operativo o al sistema de archivos, por ejemplo, para instalar agentes personalizados o de otros fabricantes en la misma máquina virtual con SQL Server.
 - Si las características tienen dependencias estrictas que aún no se admiten, por ejemplo, FileStream o FileTable, PolyBase y transacciones entre instancias.
@@ -52,13 +50,13 @@ Sin embargo, hay algunos casos en los que debe considerar una opción alternativ
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Implementación en una instancia administrada con un tamaño óptimo
 
-Instancia administrada ha sido diseñado para cargas de trabajo locales que se van a mover a la nube. Presenta un nuevo modelo de compra que ofrece mayor flexibilidad para seleccionar el nivel adecuado de recursos para las cargas de trabajo. En el mundo local, probablemente está acostumbrado a ajustar el tamaño de estas cargas de trabajo mediante el uso de núcleos físicos. El nuevo modelo de compra de Instancia administrada usa núcleos virtuales con almacenamiento adicional y E/S disponible por separado. El modelo de núcleos virtuales es una manera sencilla de comprender los requisitos de proceso en la nube en comparación con lo que usa en su entorno local hoy en día. Este nuevo modelo permite elegir el tamaño adecuado para el entorno de destino en la nube.
+Instancia administrada ha sido diseñado para cargas de trabajo locales que se van a mover a la nube. Presenta un [nuevo modelo de compra](sql-database-service-tiers-vcore.md) que ofrece mayor flexibilidad para seleccionar el nivel adecuado de recursos para las cargas de trabajo. En el mundo local, probablemente está acostumbrado a ajustar el tamaño de estas cargas de trabajo mediante el uso de núcleos físicos y ancho de banda de E/S. El nuevo modelo de compra de Instancia administrada usa núcleos virtuales con almacenamiento adicional y E/S disponible por separado. El modelo de núcleos virtuales es una manera sencilla de comprender los requisitos de proceso en la nube en comparación con lo que usa en su entorno local hoy en día. Este nuevo modelo permite elegir el tamaño adecuado para el entorno de destino en la nube.
 
-Puede seleccionar recursos de almacenamiento y proceso en el momento de la implementación y, posteriormente, cambiarlo sin introducir tiempo de inactividad de la aplicación.
+Puede seleccionar recursos de almacenamiento y proceso en el momento de la implementación y, posteriormente, cambiarlo sin introducir tiempo de inactividad de la aplicación con [Azure Portal](sql-database-scale-resources.md):
 
 ![ajuste de tamaño de la instancia administrada](./media/sql-database-managed-instance-migration/managed-instance-sizing.png)
 
-Para más información sobre la creación de la infraestructura de red virtual y una instancia administrada, consulte el artículo de [creación de una instancia administrada](sql-database-managed-instance-create-tutorial-portal.md).
+Para más información sobre la creación de la infraestructura de red virtual y una instancia administrada, consulte el artículo de [creación de una instancia administrada](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
 > Es importante que la red virtual y la subred de destino cumplan siempre los [requisitos de red virtual de Instancia administrada](sql-database-managed-instance-vnet-configuration.md#requirements). Cualquier incompatibilidad puede impedir crear nuevas instancias o usar las que ya ha creado.
@@ -76,8 +74,8 @@ Instancia administrada es un servicio completamente administrado que permite del
 
 Instancia administrada admite las siguientes opciones de migración de base de datos (actualmente son los únicos métodos de migración admitidos):
 
-- Azure Database Migration Service: migración prácticamente sin tiempo de inactividad
-- RESTAURACIÓN nativa desde la dirección URL: usa copias de seguridad nativas de SQL Server y supone tiempo de inactividad
+- Azure Database Migration Service: migración prácticamente sin tiempo de inactividad.
+- `RESTORE DATABASE FROM URL` nativo: usa copias de seguridad nativas de SQL Server y requiere tiempo de inactividad.
 
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
@@ -105,7 +103,7 @@ La siguiente tabla proporciona más información sobre los métodos que puede us
 |Restaurar desde Azure Storage en Instancia administrada|[RESTORE FROM URL WITH SAS CREDENTIAL](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> - Al migrar una base de datos protegida mediante [Cifrado de datos transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) a Instancia administrada de Azure SQL con la opción de restauración nativa, se debe migrar el certificado correspondiente de SQL Server local o IaaS antes de restaurar la base de datos. Para consultar los pasos detallados, vea [Migración de un certificado TDE a Instancia administrada](sql-database-managed-instance-migrate-tde-certificate.md)
+> - Al migrar una base de datos protegida mediante [Cifrado de datos transparente](transparent-data-encryption-azure-sql.md) a Instancia administrada de Azure SQL con la opción de restauración nativa, se debe migrar el certificado correspondiente de SQL Server local o IaaS antes de restaurar la base de datos. Para consultar los pasos detallados, vea [Migración de un certificado TDE a Instancia administrada](sql-database-managed-instance-migrate-tde-certificate.md)
 > - No se permite restaurar bases de datos del sistema. Para migrar objetos de nivel de instancia (almacenados en bases de datos maestras o msdb), se recomienda generar scripts y ejecutar scripts de T-SQL en la instancia de destino.
 
 Para un tutorial completo que incluye la restauración de una copia de seguridad de base de datos en una instancia administrada mediante credenciales SAS, consulte el artículo de [restauración en una instancia administrada de una copia de seguridad](sql-database-managed-instance-restore-from-backup-tutorial.md).
@@ -121,11 +119,10 @@ Además, no es necesario preocuparse por la configuración de la alta disponibil
 
 Para reforzar la seguridad, considere la posibilidad de utilizar algunas de las características que hay disponibles:
 - Autenticación con Azure Active Directory en el nivel de base de datos
-- Auditoría y detección de amenazas para supervisar las actividades
-- Control del acceso a datos confidenciales y con privilegios ([seguridad de nivel de fila](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) y [Enmascaramiento dinámico de datos](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)).
+- Use [características de seguridad avanzadas](sql-database-security-overview.md) como la [auditoría](sql-database-managed-instance-auditing.md), la [detección de amenazas](sql-advanced-threat-protection.md), la [seguridad de nivel de fila](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), y el [enmascaramiento dinámico de datos](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)) para proteger la instancia.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información acerca de las instancias administradas, consulte [¿Qué es una instancia administrada?](sql-database-managed-instance.md)
-- Para ver un tutorial que incluye una restauración desde una copia de seguridad, consulte [Creación de una instancia administrada](sql-database-managed-instance-create-tutorial-portal.md).
+- Para ver un tutorial que incluye una restauración desde una copia de seguridad, consulte [Creación de una instancia administrada](sql-database-managed-instance-get-started.md).
 - Para ver un tutorial que muestra la migración mediante DMS, consulte cómo [migrar una base de datos local a Instancia administrada con DMS](../dms/tutorial-sql-server-to-managed-instance.md).  

@@ -1,6 +1,6 @@
 ---
 title: Conceptos del servicio Azure IoT Hub Device Provisioning | Microsoft Docs
-description: Describe conceptos del servicio de aprovisionamiento específicos de los dispositivos con DPS e IoT Hub
+description: Describe conceptos del aprovisionamiento de servicios específicos de los dispositivos con el servicio Device Provisioning e IoT Hub
 author: nberdy
 ms.author: nberdy
 ms.date: 03/30/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 2908e08e36f41ebb8a154e7c490e5c6719d911be
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ca2ea3c000e811223ded3022021c2516f547ae66
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628307"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146692"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Conceptos del servicio IoT Hub Device Provisioning
 
@@ -29,17 +29,20 @@ El punto de conexión de las operaciones del servicio es para administrar la con
 
 ## <a name="device-provisioning-endpoint"></a>Punto de conexión de aprovisionamiento de dispositivos
 
-El punto de conexión de aprovisionamiento de dispositivos es el único que usan todos los dispositivos para el aprovisionamiento automático. La dirección URL es la misma para todas las instancias de los servicios de aprovisionamiento a fin de evitar tener que volver a programar los dispositivos con nueva información de conexión en escenarios de la cadena de suministro. El [ámbito de identificador](#id-scope) garantiza el aislamiento de los inquilinos.
+El punto de conexión de aprovisionamiento de dispositivos es el único que usan todos los dispositivos para el aprovisionamiento automático. La dirección URL es la misma para todas las instancias de los servicios de aprovisionamiento a fin de evitar tener que volver a programar los dispositivos con nueva información de conexión en escenarios de la cadena de suministro. El ámbito de identificador garantiza el aislamiento de los inquilinos.
 
 ## <a name="linked-iot-hubs"></a>Centros de IoT vinculados
 
-El servicio Device Provisioning solo puede aprovisionar los dispositivos para los centros de IoT que se hayan vinculado a él. Vincular un centro de IoT al servicio Device Provisioning proporciona los permisos de lectura/escritura del servicio al registro de dispositivos del centro de IoT; con el vínculo, el servicio puede registrar un identificador de dispositivo y establecer la configuración inicial en el dispositivo gemelo. Los centros de IoT vinculados pueden estar en cualquier región de Azure. Puede vincular centros de otras suscripciones a su servicio de aprovisionamiento.
+El servicio Device Provisioning solo puede aprovisionar los dispositivos para los centros de IoT que se hayan vinculado a él. Vincular un centro de IoT a una instancia del servicio Device Provisioning proporciona los permisos de lectura/escritura del servicio al registro de dispositivos del centro de IoT; con el vínculo, el servicio puede registrar un identificador de dispositivo y establecer la configuración inicial en el dispositivo gemelo. Los centros de IoT vinculados pueden estar en cualquier región de Azure. Puede vincular centros de otras suscripciones a su servicio de aprovisionamiento.
 
 ## <a name="allocation-policy"></a>Directiva de asignación
 
 La configuración del nivel de servicio que determina la forma en que el servicio Device Provisioning asigna dispositivos a un centro de IoT. Hay tres directivas de asignación admitidas:
+
 * **Distribución uniformemente ponderada**: los centros de IoT vinculados tienen la misma probabilidad de tener dispositivos aprovisionados para ellos. Es la configuración predeterminada. Si va a aprovisionar dispositivos para un único centro de IoT Hub, puede mantener esta configuración.
+
 * **Latencia más baja**: los dispositivos se aprovisionan en un centro de IoT con la latencia más baja en el dispositivo. Si varios centros de IoT vinculados proporcionarían la misma latencia más baja, el servicio de aprovisionamiento aplica hash a los dispositivos a través de esos centros
+
 * **Configuración estática a través de la lista de inscripción**: la especificación del centro de IoT deseado en la lista de inscripción tiene prioridad sobre la directiva de asignación del nivel de servicio.
 
 ## <a name="enrollment"></a>Inscripción
@@ -54,7 +57,7 @@ Hay dos tipos de inscripciones que admite el servicio Device Provisioning:
 
 ### <a name="enrollment-group"></a>Grupo de inscripción
 
-Un grupo de inscripción es un grupo de dispositivos que comparten un mecanismo de atestación específico. Todos los dispositivos del grupo de inscripción presentan los certificados X.509 que han sido firmados por la misma entidad de certificación raíz o intermedia. Los grupos de inscripción solo pueden utilizar el mecanismo de atestación X.509. Tanto el nombre del grupo de inscripción como el nombre del certificado deben ser alfanuméricos, estar en minúsculas y pueden contener guiones.
+Un grupo de inscripción es un grupo de dispositivos que comparten un mecanismo de atestación específico. Todos los dispositivos del grupo de inscripción presentan los certificados X.509 que han sido firmados por la misma entidad de certificación (CA) raíz o intermedia. Los grupos de inscripción solo pueden utilizar el mecanismo de atestación X.509. Tanto el nombre del grupo de inscripción como el nombre del certificado deben ser alfanuméricos, estar en minúsculas y pueden contener guiones.
 
 > [!TIP]
 > Se recomienda usar un grupo de inscripción para un gran número de dispositivos que compartan la configuración inicial deseada o para dispositivos que vayan todos al mismo inquilino.

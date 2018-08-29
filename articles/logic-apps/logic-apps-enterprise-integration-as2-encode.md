@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 08/08/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: fe8a2b00f15fa737c8ed343a47e1cab1c260346b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b3b57b2505c4185f3a81530cbc9eeb464dcfa518
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297937"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42146797"
 ---
 # <a name="encode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Codificación de mensajes AS2 para Azure Logic Apps con Enterprise Integration Pack
 
@@ -71,6 +71,14 @@ El conector de codificación AS2 lleva a cabo estas tareas:
 * Firma los mensajes salientes (en caso de haberse configurado).
 * Cifra los mensajes salientes (en caso de haberse configurado).
 * Comprime el mensaje (en caso de haberse configurado).
+* Transmitir el nombre de archivo en el encabezado MIME (si está configurado)
+
+
+  > [!NOTE]
+  > Si usa Azure Key Vault para la administración de certificados, asegúrese de configurar las claves para permitir la operación **Encrypt** (Codificar).
+  > En caso contrario, la codificación de AS2 producirá un error.
+  >
+  > ![Descifrados del almacén de claves](media/logic-apps-enterprise-integration-as2-encode/keyvault1.png)
 
 ## <a name="try-this-sample"></a>Ejemplo para probar
 

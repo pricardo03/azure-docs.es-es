@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 1ddc74b1960095509a77d4b3072017847df42d90
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 359648a843375477ea56ab791533208c11af9c81
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235540"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42146663"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Características de datos del cliente de Azure Key Vault
 
@@ -48,7 +48,7 @@ La eliminación temporal le permite recuperar los datos eliminados durante los n
 
 ## <a name="exporting-customer-data"></a>Exportación de datos del cliente
 
-Las mismas API de REST, la experiencia del portal y los SDK utilizados para crear almacenes, claves, secretos, certificados y cuentas de almacenamiento administradas también son las que le permiten ver y exportar estos objetos.
+Las mismas API de REST, la experiencia del portal y los SDK utilizados para crear almacenes, claves, secretos, certificados y cuentas de almacenamiento administradas también le permiten ver y exportar estos objetos.
 
 El registro de acceso de Azure Key Vault es una característica opcional que se puede activar para generar registros para cada llamada API de REST. Estos registros se transferirán a una cuenta de almacenamiento de la suscripción en la que aplica la directiva de retención que cumple los requisitos de la organización.
 
@@ -60,14 +60,10 @@ Los registros de diagnóstico de Azure Key Vault que contienen datos personales 
 
 - [Información general sobre la eliminación temporal de Azure Key Vault](key-vault-soft-delete-cli.md)
 
-- [Almacenes](https://docs.microsoft.com/rest/api/keyvault/vaults)
-
 - [Operaciones con claves de Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/key-operations)
 
 - [Operaciones con secretos de Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
 
 - [Certificados y directivas de Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
-
-- [Emisores de certificados](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers)
 
 - [Operaciones con cuentas de almacenamiento de Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)

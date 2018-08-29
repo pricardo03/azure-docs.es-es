@@ -14,17 +14,17 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 32953bacb8fdb135d5f3e0e9324218d2a71b0818
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 339029f14c4fd9a0158f2b7a4fb80bf03bd83cf3
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777026"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42144407"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Uso de Notification Hubs desde Python
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Puede tener acceso a todas las características de Notification Hubs desde un back-end Java/PHP/Python/Ruby mediante la interfaz REST de Notification Hubs, tal como se describe en el tema de MSDN [API de REST de Notification Hubs](http://msdn.microsoft.com/library/dn223264.aspx).
+Puede acceder a todas las características de Notification Hubs desde un back-end Java/PHP/Python/Ruby mediante la interfaz REST de Notification Hubs, tal como se describe en el artículo [Notification Hubs REST APIs](http://msdn.microsoft.com/library/dn223264.aspx) (API REST de Notification Hubs) de MSDN.
 
 > [!NOTE]
 > Esta es una implementación de referencia de ejemplo que permite implementar los envíos de notificaciones en Python, por lo que no es el SDK de Python oficialmente compatible del centro de notificaciones.
@@ -33,7 +33,7 @@ Puede tener acceso a todas las características de Notification Hubs desde un ba
 > 
 > 
 
-En este artículo se explica cómo:
+Este artículo muestra cómo:
 
 * Cree un cliente REST para las características de Notification Hubs en Python.
 * Envíe notificaciones mediante la interfaz de Python a la API REST del centro de notificaciones. 
@@ -261,7 +261,7 @@ Con esta clase, escribimos el envío de métodos de notificación dentro de la c
 Estos métodos envían una solicitud POST HTTP al extremo /messages del centro de notificaciones, con el cuerpo y encabezados correctos para enviar la notificación.
 
 ### <a name="using-debug-property-to-enable-detailed-logging"></a>Mediante la propiedad de depuración para habilitar el registro detallado
-Habilitar la propiedad de depuración durante el inicio del centro de notificaciones permite escribir información de registro detallada acerca de la solicitud HTTP y el volcado de respuesta, así como el resultado del envío de mensajes de notificación detallada. La [propiedad Notification Hubs TestSend](http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx) devuelve información detallada acerca del resultado del envío de notificaciones. Para utilizarla, realice la inicialización con el siguiente código:
+Habilitar la propiedad de depuración durante el inicio del centro de notificaciones permite escribir información de registro detallada acerca de la solicitud HTTP y el volcado de respuesta, así como el resultado del envío de mensajes de notificación detallada. La [propiedad Notification Hubs TestSend](https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn495827(v=azure.100)) devuelve información detallada acerca del resultado del envío de notificaciones. Para utilizarla, realice la inicialización con el siguiente código:
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 

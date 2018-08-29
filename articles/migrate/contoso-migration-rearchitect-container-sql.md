@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 08/13/2018
 ms.author: raynew
-ms.openlocfilehash: 7146865270accb73981b09be6409180c4ef1440f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 733a93d0fc80d86d28f13a9e1d32108b58893bf0
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003204"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42143046"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migración de Contoso: rediseñar la arquitectura de una aplicación local en un contenedor de Azure y Azure SQL Database
 
@@ -30,13 +30,13 @@ Este documento es el primero de una serie de artículos que muestran cómo la co
 [Artículo 6: Rehospedaje de una aplicación en VM de Azure y el grupo de disponibilidad Always On de SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Muestra cómo Contoso migra la aplicación SmartHotel. Contoso usa Site Recovery para migrar las VM de la aplicación, y Database Migration Service para migrar la base de datos de la aplicación a un clúster de SQL Server protegido por un grupo de disponibilidad Always On. | Disponible
 [Artículo 7: Rehospedaje de una aplicación Linux en VM de Azure](contoso-migration-rehost-linux-vm.md) | Muestra cómo Contoso hace una migración mediante lift-and-shift de la aplicación de osTicket de Linux para VM de Azure, con Site Recovery. | Disponible
 [Artículo 8: Rehospedaje de una aplicación de Linux en VM de Azure y en Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Se muestra cómo Contoso migra la aplicación osTicket de Linux a VM de Azure mediante Site Recovery y cómo migra la base de datos de aplicaciones a una instancia de Azure MySQL Server mediante MySQL Workbench. | Disponible
-[Artículo 9: Refactorizar una aplicación a Azure Web Apps y Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Muestra cómo Contoso migra la aplicación SmartHotel a Azure Web App y migra la base de datos de la aplicación a la instancia de Azure SQL Server | Disponible
-[Artículo 10: Refactorizar una aplicación Linux a Azure Web Apps y Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Muestra cómo Contoso migra la aplicación Linux osTicket a Azure Web Apps en varios sitios integrados con GitHub para la entrega continua. Se migra la base de datos de la aplicación a una instancia de Azure MySQL. | Disponible
-Artículo 11: Rediseñar la arquitectura de una aplicación en contenedores de Azure y Azure SQL Database | Muestra cómo Contoso migra la aplicación SmartHotel a Azure y rediseña su arquitectura. Rediseñan la arquitectura del nivel web de la aplicación como contenedor de Windows, y la base de datos de la aplicación en una instancia de Azure SQL Database. | Este artículo.
-[Artículo 12: Rediseñar la arquitectura de una aplicación en contenedores de Azure y Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Muestra cómo Contoso migra la aplicación SmartHotel a Azure y rediseña su arquitectura. Rediseñan la arquitectura del nivel web de la aplicación como contenedor de Windows, y la base de datos de la aplicación en una instancia de Azure SQL Database. | Disponible
-[Artículo 13: Volver a compilar una aplicación en Azure](contoso-migration-rebuild.md) | Muestra cómo Contoso vuelve a compilar su aplicación SmartHotel con una gama de funcionalidades y servicios de Azure, como App Services, Azure Kubernetes, Azure Functions, Cognitive Services y Cosmos DB. | Disponible
+[Artículo 9: Refactorizar una aplicación a Azure Web Apps y Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Muestra cómo Contoso migra la aplicación de SmartHotel a una aplicación web de Azure y migra la base de datos de la aplicación a la instancia de Azure SQL Server | Disponible
+[Artículo 10: Refactorizar una aplicación Linux a Azure Web Apps y Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Muestra cómo Contoso migra la aplicación Linux osTicket a Azure Web Apps en varios sitios integrados con GitHub para ofrecer una entrega continua. Se migra la base de datos de la aplicación a una instancia de Azure MySQL. | Disponible
+[Artículo 11: Refactorizar TFS en VSTS](contoso-migration-tfs-vsts.md) | Muestra cómo Contoso migra su implementación de Team Foundation Server (TFS) local mediante la migración a Visual Studio Team Services (VSTS) en Azure.
+Artículo 12: Rediseño de la arquitectura de una aplicación en Azure Containers y Azure SQL Database | Muestra cómo Contoso migra la aplicación de SmartHotel a Azure y rediseña su arquitectura. Rediseñan la arquitectura del nivel web de la aplicación como contenedor de Windows, y la base de datos de la aplicación en una instancia de Azure SQL Database. | Este artículo
+[Artículo 13: Volver a compilar una aplicación en Azure](contoso-migration-rebuild.md) | Muestra cómo Contoso vuelve a compilar su aplicación de SmartHotel con una gama de funcionalidades y servicios de Azure, como App Services, Azure Kubernetes, Azure Functions, Cognitive Services y Cosmos DB. | Disponible
 
-En este artículo, Contoso migra Windows de dos niveles. de .NET de Windows de dos niveles que se ejecuta en las VM de VMware. Esta aplicación está disponible en código abierto y, si quiere usarla, puede descargarla en [GitHub](https://github.com/Microsoft/SmartHotel360).
+En este artículo, Contoso migra el sistema operativo Windows de dos niveles. de .NET de Windows de dos niveles que se ejecuta en las VM de VMware. Esta aplicación está disponible en código abierto y, si quiere usarla, puede descargarla en [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 ## <a name="business-drivers"></a>Impulsores del negocio
 
@@ -46,7 +46,7 @@ El equipo directivo de TI ha trabajado estrechamente con sus asociados comercial
 - **Aumento de la eficacia**: Contoso debe eliminar los procedimientos innecesarios y optimizar los procesos para los desarrolladores y usuarios.  La empresa necesita que el equipo de TI sea rápido y no malgaste tiempo ni dinero, por lo que debe satisfacer más rápidamente los requisitos del cliente.
 - **Aumentar la agilidad**: el equipo de TI de Contoso necesita más capacidad de respuesta a las necesidades de la empresa. Debe poder reaccionar con más rapidez que los cambios del mercado para facilitar el éxito en una economía global.  No se debe interponer en el camino ni bloquear el negocio.
 - **Escalar**: a medida que el negocio crece satisfactoriamente, el equipo de TI de Contoso debe proporcionar sistemas que puedan crecer al mismo ritmo.
-- **Costos**: Contoso desea minimizar los costos de licencia.
+- **Costos**: Contoso quiere minimizar los costos de licencia.
 
 ## <a name="migration-goals"></a>Objetivos de la migración
 
@@ -55,12 +55,12 @@ El equipo de la nube de Contoso ha establecido los objetivos de esta migración.
 **Objetivos** | **Detalles**
 --- | --- 
 **Solicitudes de aplicación** | La aplicación de Azure seguirá siendo tan importante como lo es hoy en día.<br/><br/> Debe tener las mismas capacidades de rendimiento que las actuales en VMWare.<br/><br/> Quieren detener la compatibilidad con Windows Server 2008 R2, donde se ejecuta actualmente la aplicación, para invertir en la aplicación.<br/><br/> Quieren abandonar SQL Server 2008 R2 y pasar a una plataforma de base de datos PaaS moderna, lo que minimizará la necesidad de administración.<br/><br/> Contoso desea aprovechar su inversión en licencias de SQL Server y Software Assurance, siempre que sea posible.<br/><br/> Quieren poder escalar verticalmente el nivel de aplicación web.
-**Limitaciones** | La aplicación consta de una aplicación ASP.NET y un servicio WCF que se ejecutan en la misma máquina virtual. Desean dividir esto en dos aplicaciones web con Azure App Service. 
+**Limitaciones** | La aplicación está formada por una aplicación de ASP.NET y un servicio WCF que se ejecutan en la misma máquina virtual. Desean dividir esto en dos aplicaciones web con Azure App Service. 
 **Solicitudes de Azure** | Quieren mover la aplicación a Azure y ejecutarla en un contenedor para prolongar la duración de la aplicación. No desean empezar a implementar la aplicación en Azure completamente desde cero. 
 
 ## <a name="solution-design"></a>Diseño de la solución
 
-Después de anclar sus objetivos y requisitos, Contoso diseña y revisa una solución de implementación e identifica el proceso de migración, incluidos los servicios de Azure que se utilizarán para la migración.
+Después de fijar sus objetivos y requisitos, Contoso diseña y revisa una solución de implementación e identifica el proceso de migración, incluidos los servicios de Azure que utilizará para la migración.
 
 ### <a name="current-app"></a>Aplicación actual
 
@@ -73,10 +73,10 @@ Después de anclar sus objetivos y requisitos, Contoso diseña y revisa una solu
 
 ### <a name="proposed-architecture"></a>Arquitectura propuesta
 
-- Para el nivel de base de datos de la aplicación, Contoso comparó Azure SQL Database con SQL Server con [este artículo](https://docs.microsoft.com/azure/sql-database/sql-database-features). Se han decantado por Azure SQL Database por diversas razones:
-    - Azure SQL Database es un servicio administrado de base de datos relacional. Ofrece un rendimiento predecible en los diferentes niveles de un servicio, con administración casi inexistente. Las ventajas incluyen escalabilidad dinámica sin tiempo de inactividad, optimización inteligente integrada y disponibilidad y escalabilidad global.
-    - Pueden aprovechar la herramienta ligera Data Migration Assistant (DMA) para evaluar y migrar la base de datos local a Azure SQL.
-    - Con Software Assurance, pueden intercambiar sus licencias existentes para obtener descuentos en una instancia de SQL Database mediante el uso de la Ventaja híbrida de Azure para SQL Server. Esto puede proporcionar un ahorro de hasta un 30 %.
+- Para el nivel de base de datos de la aplicación, Contoso comparó Azure SQL Database con SQL Server con [este artículo](https://docs.microsoft.com/azure/sql-database/sql-database-features). Se decantó por Azure SQL Database por diversas razones:
+    - Azure SQL Database es un servicio administrado de base de datos relacional. Ofrece un rendimiento predecible en los diferentes niveles del servicio, con administración casi inexistente. Las ventajas incluyen escalabilidad dinámica sin tiempo de inactividad, optimización inteligente integrada y disponibilidad y escalabilidad global.
+    - Se puede aprovechar la herramienta ligera Data Migration Assistant (DMA) para evaluar y migrar la base de datos local a Azure SQL.
+    - Con Software Assurance, el equipo de Contoso puede intercambiar sus licencias existentes para obtener descuentos en una instancia de SQL Database mediante el uso de la Ventaja híbrida de Azure para SQL Server. Esto puede proporcionar un ahorro de hasta un 30 %.
     - SQL Database proporciona diferentes características de seguridad, incluidos el enmascaramiento dinámico de datos siempre cifrados y la detección de amenazas/seguridad de nivel de fila.
 - Para el nivel de aplicación web, decidieron convertirlo en el contenedor de Windows con Visual Studio.
     - Implementarán la aplicación con Azure Service Fabric y extraerán la imagen del contenedor de Windows desde Azure Container Registry (ACR).
@@ -90,7 +90,7 @@ Contoso evalúa el diseño propuesto creando una lista de ventajas y desventajas
 
 **Consideración** | **Detalles**
 --- | ---
-**Ventajas** | No será necesario modificar el código de la aplicación SmartHotel para la migración a Azure Service Fabric. Sin embargo, el esfuerzo es mínimo, si se usa SDK Tools de Service Fabric para los cambios.<br/><br/> Con el movimiento a Service Fabric, pueden empezar a desarrollar microservicios para agregarlos a la aplicación con rapidez en el tiempo, sin riesgo para el código base original.<br/><br/> Los contenedores de Windows ofrecen las mismas ventajas que los contenedores en general. Mejoran la agilidad, la portabilidad y el control.<br/><br/> Pueden aprovechar la inversión en Software Assurance con la Ventaja híbrida de Azure para SQL Server y Windows Server.<br/><br/> Después de la migración ya no necesitarán la compatibilidad con Windows Server 2008 R2. [Más información](https://support.microsoft.com/lifecycle).<br/><br/> Pueden configurar el nivel web de la aplicación con varias instancias, para que no haya un único punto de error.<br/><br/> Ya no dependerán de la antigüedad de SQL Server 2008 R2.<br/><br/> SQL Database es compatible con los requisitos técnicos de Contoso. Evaluaron la base de datos local con Data Migration Assistant y vieron que era compatible.<br/><br/> SQL Database cuenta con tolerancia a errores integrada que no es necesario que Contoso configure. Esto garantiza que la capa de datos ya no sea un único punto de conmutación por error.
+**Ventajas** | No será necesario modificar el código de la aplicación SmartHotel para la migración a Azure Service Fabric. Sin embargo, el esfuerzo es mínimo, si se usa SDK Tools de Service Fabric para los cambios.<br/><br/> Con el movimiento a Service Fabric, pueden empezar a desarrollar microservicios para agregarlos a la aplicación con rapidez en el tiempo, sin riesgo para el código base original.<br/><br/> Los contenedores de Windows ofrecen las mismas ventajas que los contenedores en general. Mejoran la agilidad, la portabilidad y el control.<br/><br/> Pueden aprovechar la inversión en Software Assurance con la Ventaja híbrida de Azure para SQL Server y Windows Server.<br/><br/> Después de la migración ya no necesitarán la compatibilidad con Windows Server 2008 R2. [Más información](https://support.microsoft.com/lifecycle).<br/><br/> Puede configurar el nivel web de la aplicación con varias instancias, para que no haya un único punto de error.<br/><br/> Ya no se dependerá de la antigüedad de SQL Server 2008 R2.<br/><br/> SQL Database es compatible con los requisitos técnicos de Contoso. Contoso evaluó la base de datos local con Data Migration Assistant y averiguó que es compatible.<br/><br/> SQL Database cuenta con tolerancia a errores integrada que no es necesario que Contoso configure. Esto garantiza que la capa de datos ya no sea un único punto de conmutación por error.
 **Desventajas** | Los contenedores son más complejos que otras opciones de migración. La curva de aprendizaje de los contenedores podría ser un problema para Contoso.  Introducen un nuevo nivel de complejidad que proporciona un gran valor a pesar de la curva.<br/><br/> El equipo de operaciones de Contoso deberá esforzarse para comprender y ofrecer soporte técnico de Azure, los contenedores y los microservicios de la aplicación.<br/><br/> Si usan Data Migration Assistant en lugar de Data Migration Service para migrar la base de datos, la infraestructura de Contoso no estará preparada para migrar bases de datos a escala.
 
 
@@ -109,7 +109,7 @@ Contoso evalúa el diseño propuesto creando una lista de ventajas y desventajas
 **Servicio** | **Descripción** | **Costee**
 --- | --- | ---
 [Database Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Usará DMA para valorar y detectar problemas de compatibilidad que podrían afectar a la funcionalidad de su base de datos en Azure. DMA evalúa una paridad de características entre orígenes y destinos de SQL, y recomienda mejoras de rendimiento y confiabilidad. | Es una herramienta que se puede descargar de forma gratuita.
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | Servicio de base de datos relacional inteligente y completamente administrada en la nube. | Costo basado en características, rendimiento y tamaño. [Más información](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | Servicio de base de datos relacional inteligente y completamente administrado en la nube. | Costo basado en características, rendimiento y tamaño. [Más información](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | Almacene imágenes para todos los tipos de implementaciones de contenedor. | Costo basado en características, almacenamiento y duración de la utilización. [Más información](https://azure.microsoft.com/pricing/details/container-registry/).
 [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | Compile y utilice aplicaciones escalables y distribuidas que estén siempre disponibles. | Costo basado en tamaño, ubicación y duración de los nodos de proceso. [Más información](https://azure.microsoft.com/pricing/details/service-fabric/).
 
@@ -141,28 +141,28 @@ Contoso ejecutará la migración de la forma siguiente:
 
 ## <a name="step-1-provision-an-azure-sql-database"></a>Paso 1: Aprovisionar una instancia de Azure SQL Database
 
-1. Seleccionan la creación de una instancia de SQL Database en Azure. 
+1. Selecciona crear una instancia de SQL Database en Azure. 
 
     ![Aprovisionar SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql1.png)
 
-2. Especifican un nombre de base de datos para que coincida con la base de datos que se ejecuta en la máquina virtual local (**SmartHotel.Registration**). Colocan la base de datos en el grupo de recursos ContosoRG. Este es el grupo de recursos que usan para los recursos de producción en Azure.
+2. Especifica un nombre de base de datos para que coincida con la base de datos que se ejecuta en la máquina virtual local (**SmartHotel.Registration**). Coloca la base de datos en el grupo de recursos ContosoRG. Este es el grupo de recursos que usa para los recursos de producción en Azure.
 
     ![Aprovisionar SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql2.png)
 
-3. Configuran una nueva instancia de SQL Server (**sql-smarthotel-eus2**) en la región primaria.
+3. Configura una nueva instancia de SQL Server (**sql-smarthotel-eus2**) en la región primaria.
 
     ![Aprovisionar SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql3.png)
 
-4. Establecen el plan de tarifa que mejor se adapta a las necesidades del servidor y base de datos. Así mismo, seleccionan esta opción para ahorrar dinero con la Ventaja híbrida de Azure, porque ya tienen una licencia de SQL Server.
-5. Para ajustar el tamaño realizan compras basadas en el núcleo y establecen los límites para los requisitos esperados.
+4. Establece el plan de tarifa que mejor se adapta a las necesidades de su servidor y base de datos. Así mismo, selecciona esta opción para ahorrar dinero con la Ventaja híbrida de Azure, porque ya tiene una licencia de SQL Server.
+5. Para ajustar el tamaño, realiza compras basadas en el núcleo virtual y establece los límites para los requisitos esperados.
 
     ![Aprovisionar SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql4.png)
 
-6. A continuación, crean la instancia de la base de datos.
+6. A continuación, Contoso crea la instancia de la base de datos.
 
     ![Aprovisionar SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql5.png)
 
-7. Una vez creada la instancia, abren la base de datos y anotan los detalles que necesitarán cuando usen Database Migration Assistance para la migración.
+7. Una vez creada la instancia, abre la base de datos y anota los detalles que necesitará cuando use Database Migration Assistance para la migración.
 
     ![Aprovisionar SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql6.png)
 
@@ -270,24 +270,24 @@ Para conectarse a SQL Azure Database, se necesita una regla de firewall.
 
 ### <a name="migrate"></a>Migrar
 
-1. En DMA, crean un nuevo proyecto (**SmartHotelDB**) y seleccionan **Migración** 
-2. Seleccionan el tipo de servidor de origen como **SQL Server** y el destino como **Azure SQL Database**. 
+1. En DMA, crea un nuevo proyecto (**SmartHotelDB**) y selecciona **Migración** 
+2. Contoso selecciona el tipo de servidor de origen como **SQL Server** y el destino como instancia de **Azure SQL Database**. 
 
     ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-1.png)
 
-3. En los detalles de la migración, agregan **SQLVM** como servidor de origen y la base de datos **SmartHotel.Registration**. 
+3. En los detalles de la migración, agrega **SQLVM** como servidor de origen y la base de datos **SmartHotel.Registration**. 
 
      ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-2.png)
 
-4. Reciben un error que parece asociado con la autenticación. Sin embargo, después de investigar, el problema es el punto (.) en el nombre de la base de datos. Como alternativa, deciden aprovisionar una nueva base de datos SQL con el nombre **SmartHotel-Registration**, para resolver el problema. Cuando vuelven a ejecutar DMA, pueden seleccionar **SmartHotel-Registration** y continuar con el asistente.
+4. Recibe un error que parece que se asociará con la autenticación. Sin embargo, después de investigar, el problema es el punto (.) en el nombre de la base de datos. Como alternativa, decide aprovisionar una nueva base de datos SQL con el nombre **SmartHotel-Registration**, para resolver el problema. Cuando vuelve a ejecutar DMA, puede seleccionar **SmartHotel-Registration** y continuar con el asistente.
 
     ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-3.png)
 
-5. En **Seleccionar objetos**, seleccionan las tablas de la base de datos y generan un script de SQL.
+5. En **Seleccionar objetos**, selecciona las tablas de la base de datos y genera un script de SQL.
 
     ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-4.png)
 
-6. Una vez que DMS crea el script, hacen clic en **Implementar esquema**.
+6. Una vez que DMS crea el script, hace clic en **Implementar esquema**.
 
     ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-5.png)
 
@@ -295,7 +295,7 @@ Para conectarse a SQL Azure Database, se necesita una regla de firewall.
 
     ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-6.png)
 
-8. Luego, inician la migración.
+8. Luego, se inicia la migración.
 
     ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-7.png)
 
@@ -303,7 +303,7 @@ Para conectarse a SQL Azure Database, se necesita una regla de firewall.
 
      ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-8.png)
 
-10. Eliminan la base de datos SQL adicional **SmartHotel.Registration** de Azure Portal.
+10. Elimina la base de datos SQL adicional **SmartHotel.Registration** de Azure Portal.
 
      ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-9.png)
 
@@ -321,7 +321,7 @@ Contoso convertirá la aplicación en un contenedor con Visual Studio y SDK Tool
 
 1. Clonan el repositorio localmente en una máquina de desarrollador:
 
-    **Clonación de git https://github.com/Microsoft/SmartHotel360-internal-booking-apps.git**
+    **clonación de GIThttps://github.com/Microsoft/SmartHotel360-internal-booking-apps.git**
 
     ![Contenedor](./media/contoso-migration-rearchitect-container-sql/container1.png)
 
@@ -483,7 +483,7 @@ Después de la migración, Contoso debe completar estos pasos de limpieza:
 
 - Quitar las VM locales del inventario de vCenter.
 - Quitar las VM de los trabajos de copia de seguridad locales.
-- Actualizar la documentación interna para que muestre las nuevas ubicaciones para la aplicación SmartHotel. Mostrar la base de datos en ejecución en Azure SQL Database y el front-end en ejecución en Service Fabric.
+- Actualizar la documentación interna para que muestre las nuevas ubicaciones para la aplicación de SmartHotel. Mostrar la base de datos en ejecución en Azure SQL Database y el front-end en ejecución en Service Fabric.
 - Revisar los recursos que interactúan con las VM retiradas y actualizar los valores de configuración pertinentes o la documentación para reflejar la nueva configuración.
 
 
@@ -495,19 +495,19 @@ Con los recursos migrados de Azure, Contoso debe proteger la infraestructura nue
 
 - Contoso debe asegurarse de que su nueva base de datos **SmartHotel-Registration** es segura. [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview).
 - En concreto, deben actualizar el contenedor para usar SSL con certificados.
-- Deben tomar en consideración la utilización de KeyVault para proteger los secretos de sus aplicaciones de Service Fabric. [Más información](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management).
+- Debería considerarse el uso de KeyVault para proteger los secretos de las aplicaciones de Service Fabric. [Más información](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management).
 
 ### <a name="backups"></a>Copias de seguridad
 
-- Contoso necesita revisar los requisitos de copia de seguridad para Azure SQL Database. [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
-- Deben considerar la implementación de grupos de conmutación por error para proporcionar conmutación por error regional para la base de datos. [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview).
-- Pueden aprovechar la replicación geográfica para el SKU premium de ACR. [Más información](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication).
-- Contoso debe considerar la implementación de Web App en las regiones principales Este de EE. UU. 2 y Centro de EE. UU. cuando Web App for Containers esté disponible. Podrían configurar Traffic Manager para garantizar la conmutación por error en caso de interrupciones regionales.
+- Contoso necesita revisar los requisitos de copia de seguridad para la instancia de Azure SQL Database. [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
+- Debe considerar la implementación de grupos de conmutación por error para proporcionar conmutación por error regional para la base de datos. [Más información](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview).
+- Puede aprovechar la replicación geográfica para el SKU premium de ACR. [Más información](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication).
+- Contoso debe considerar la implementación de Web App en las regiones principales Este de EE. UU. 2 y Centro de EE. UU. cuando Web App for Containers esté disponible. Podría configurar Traffic Manager para garantizar la conmutación por error en caso de que se produzcan interrupciones regionales.
 
 ### <a name="licensing-and-cost-optimization"></a>Optimización de los costos y licencias
 
 - Una vez implementados todos los recursos, Contoso debe asignar etiquetas de Azure según la [planificación de su infraestructura](contoso-migration-infrastructure.md#set-up-tagging).
-- Todas las licencias se integran en el costo de los servicios de PaaS que Contoso consume. Esto se deducirá del contrato Enterprise.
+- Todas las licencias se integran en el costo de los servicios de PaaS que consume Contoso. Esto se deducirá del contrato Enterprise.
 1. Contoso habilitará Azure Cost Management bajo licencia de Cloudyn, una subsidiaria de Microsoft. Es una solución de administración de costos en varias nubes que le permitirá utilizar y administrar Azure y otros recursos en la nube.  [Más información](https://docs.microsoft.com/azure/cost-management/overview) sobre Azure Cost Management. 
 
 ## <a name="conclusion"></a>Conclusión

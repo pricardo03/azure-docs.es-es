@@ -1,54 +1,50 @@
 ---
 title: 'Conversión de datos JSON con transformaciones Liquid: Azure Logic Apps | Microsoft Docs'
-description: Cree transformaciones o asignaciones para transformaciones JSON avanzadas mediante Logic Apps y una plantilla Liquid.
+description: Creación de transformaciones o asignaciones para transformaciones JSON avanzadas mediante Logic Apps y una plantilla Liquid
 services: logic-apps
-documentationcenter: ''
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: divyaswarnkar
+ms.author: divswa
+manager: jeconnoc
+ms.reviewer: estfan, LADocs
+ms.suite: integration
 ms.topic: article
-ms.date: 12/05/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: 42a102c9b2663380a93d56cc5f8fb82abaa83b74
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 08/16/2018
+ms.openlocfilehash: 140c92d260ac6423127e478e304cbebcf9c42124
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299518"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42143417"
 ---
-# <a name="perform-advanced-json-transformations-with-a-liquid-template"></a>Realice transformaciones JSON avanzadas con una plantilla Liquid
+# <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Realización de transformaciones JSON avanzadas con plantillas Liquid en Azure Logic Apps
 
-Azure Logic Apps admite transformaciones JSON básicas a través de acciones de operación de datos nativas como **escribir** o **analizar JSON**. Para las transformaciones JSON avanzadas, puede usar las plantillas Liquid con las aplicaciones lógicas. 
-[Liquid](https://shopify.github.io/liquid/) es un lenguaje de plantillas de código abierto para aplicaciones web flexibles.
- 
-En este artículo, aprenderá a usar una asignación o plantilla Liquid, que puede admitir transformaciones JSON más complejas, como iteraciones, flujos de control, variables, etc. Debe definir una asignación de JSON a JSON con una asignación Liquid y almacenar esa asignación en su cuenta de integración antes de poder realizar una transformación Liquid en la aplicación lógica.
+Puede realizar transformaciones JSON básicas en las aplicaciones lógicas mediante acciones de operación de datos nativas como **Redactar** o **Análisis del archivo JSON**. Para llevar a cabo transformaciones JSON avanzadas, puede crear plantillas o asignaciones con [Liquid](https://shopify.github.io/liquid/), que es un lenguaje de plantilla de código abierto para aplicaciones web flexibles. Con las plantillas de Liquid puede definir cómo transformar la salida de la transformación de JSON; además, admiten transformaciones JSON más complejas, como iteraciones, flujos de control, variables, etc. 
 
-## <a name="prerequisites"></a>requisitos previos
+Por lo tanto, para realizar una transformación de Liquid en la aplicación lógica, primero debe definir la asignación de JSON a JSON con una plantilla de Liquid y almacenarla en la cuenta de integración. En este artículo se muestra cómo crear y usar esta plantilla o asignación de Liquid. 
+
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Si no tiene una suscripción, puede [comenzar con una cuenta de Azure gratuita](https://azure.microsoft.com/free/). También puede [registrarse para obtener una suscripción de pago por uso](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Una [cuenta de integración](logic-apps-enterprise-integration-create-integration-account.md) básica
+* Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) básica
 
+## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Creación de una plantilla o asignación de Liquid para la cuenta de integración
 
-## <a name="create-a-liquid-template-or-map-for-your-integration-account"></a>Creación de una plantilla o asignación Liquid para la cuenta de integración
+1. Para este ejemplo, cree la plantilla de Liquid que aquí se describe.
+Si desea usar algún filtro en la plantilla de Liquid, asegúrese de que empiezan por mayúscula. Más información sobre los [filtros de Liquid](https://shopify.github.io/liquid/basics/introduction/#filters). 
 
-1. Cree la plantilla Liquid de muestra para este ejemplo. La plantilla Liquid define cómo transformar la entrada JSON como se describe aquí:
-
-   ``` json
+   ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
-      {
-        "fullName": "{{content.firstName | Append: ' ' | Append: content.lastName}}",
-        "firstNameUpperCase": "{{content.firstName | Upcase}}",
-        "phoneAreaCode": "{{content.phone | Slice: 1, 3}}",
-        "devices" : [
-        {%- for device in deviceList -%}
+   
+   {
+      "fullName": "{{content.firstName | Append: ' ' | Append: content.lastName}}",
+      "firstNameUpperCase": "{{content.firstName | Upcase}}",
+      "phoneAreaCode": "{{content.phone | Slice: 1, 3}}",
+      "devices" : [
+         {%- for device in deviceList -%}
             {%- if forloop.Last == true -%}
             "{{device}}"
             {%- else -%}
@@ -56,42 +52,39 @@ En este artículo, aprenderá a usar una asignación o plantilla Liquid, que pue
             {%- endif -%}
         {%- endfor -%}
         ]
-      }
+   }
    ```
-   > [!NOTE]
-   > Si la plantilla Liquid usa algún [filtro](https://shopify.github.io/liquid/basics/introduction/#filters), esos filtros deben comenzar con mayúsculas. 
 
-2. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-
-3. En el menú principal de Azure, elija **Todos los recursos**. 
-
-4. En el cuadro de búsqueda, busque y seleccione la cuenta de integración.
+2. Inicie sesión en el [Azure Portal](https://portal.azure.com). En el menú principal de Azure, seleccione **Todos los recursos**. En el cuadro de búsqueda, busque y seleccione la cuenta de integración.
 
    ![Seleccionar cuenta de integración](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
 
-5.  En el icono de cuenta de integración, seleccione **Asignaciones**.
+3.  En **Componentes**, seleccione **Asignaciones**.
 
-   ![Seleccionar asignaciones](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
+    ![Seleccionar asignaciones](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
 
-6. Elija **Agregar** y proporcione estos detalles para la asignación:
+4. Elija **Agregar** y proporcione estos detalles para la asignación:
 
-   * **Nombre**: nombre de la asignación, que es "JsontoJsonTemplate" en este ejemplo
-   * **Tipo de asignación**: tipo de la asignación. Para la transformación de JSON a JSON, debe seleccionar **liquid**.
-   * **Asignación**: un archivo de asignación o plantilla Liquid existente para usarlo para la transformación, que es "SimpleJsonToJsonTemplate.liquid" en este ejemplo. Puede usar el selector de archivos para buscar el archivo.
+   | Propiedad | Valor | DESCRIPCIÓN | 
+   |----------|-------|-------------|
+   | **Nombre** | JsonToJsonTemplate | Nombre de la asignación, que es "JsonToJsonTemplate" en este ejemplo | 
+   | **Tipo de asignación** | **liquid** | Tipo de la asignación. Para la transformación de JSON a JSON, debe seleccionar **liquid**. | 
+   | **Map** | "SimpleJsonToJsonTemplate.liquid" | Archivo de asignación o plantilla de Liquid existente para su uso en la transformación, "SimpleJsonToJsonTemplate.liquid" en este ejemplo. Puede usar el selector de archivos para buscar el archivo. |
+   ||| 
 
    ![Agregar la plantilla Liquid](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
     
 ## <a name="add-the-liquid-action-for-json-transformation"></a>Agregar la acción Liquid a la transformación JSON
 
-1. [Crear una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+1. En Azure Portal, siga estos pasos para [crear una aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. Agregue el [desencadenador de solicitud](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) a su aplicación lógica.
+2. En el Diseñador de aplicaciones lógicas, agregue el [desencadenador de solicitud](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) a la aplicación lógica.
 
-3. Elija **+ Nuevo paso > Agregar una acción**. En el cuadro de búsqueda, escriba *Liquid* y seleccione **Liquid: Transformar de JSON a JSON**.
+3. En el desencadenador, elija **New step** (Nuevo paso). En el cuadro de búsqueda, escriba "liquid" como filtro y seleccione esta acción: **Transform JSON to JSON - Liquid** (Transformar de JSON a JSON: Liquid)
 
    ![Búsqueda y selección de la acción Liquid](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
-4. En el cuadro **Contenido**, seleccione **Cuerpo** en la lista de contenido dinámico o parámetros (la que aparezca).
+4. Haga clic en el cuadro **Content** (Contenido) para que aparezca la lista de contenido dinámico y seleccione el token **Body** (Cuerpo).
   
    ![Selección de cuerpo](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
  
@@ -99,13 +92,14 @@ En este artículo, aprenderá a usar una asignación o plantilla Liquid, que pue
 
    ![Selección de asignación](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
 
-   Si la lista está vacía, probablemente, la aplicación lógica no está vinculada a la cuenta de integración. 
+   Si la lista de asignaciones está vacía, probablemente, la aplicación lógica no está vinculada a la cuenta de integración. 
    Para vincular la aplicación lógica a la cuenta de integración que tiene la plantilla o asignación Liquid, siga estos pasos:
 
    1. En el menú de la aplicación lógica, seleccione **Configuración del flujo de trabajo**.
+
    2. En la lista **Seleccione una cuenta de integración**, seleccione su cuenta de integración y elija **Guardar**.
 
-   ![Vincular la aplicación lógica a la cuenta de integración](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
+     ![Vincular la aplicación lógica a la cuenta de integración](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
 ## <a name="test-your-logic-app"></a>Comprobación de la aplicación lógica
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2018
+ms.date: 08/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6ca32d51a52cf636b1c41667e20872cfe49fa7e2
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 6c080d44aed7c2b3db54a34f4b711db66681cbe9
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390160"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146745"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historial de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -41,7 +41,7 @@ Descarga | [Descargar Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=6
 
 ### <a name="release-status"></a>Estado de la versión
 
-20/7/2018: Publicada para actualización automática. Pronto se ofrecerá la versión para su descarga.
+21/8/2018: Publicado para descarga y actualización automática. 
 
 ### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
 
@@ -67,7 +67,7 @@ Descarga | [Descargar Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=6
 - Se ha corregido un error que creaba problemas cuando el usuario va hacia delante y hacia atrás en el asistente
 - Se ha realizado una corrección para evitar un error que se produce debido a un control incorrecto de varios subprocesos en el asistente
 - Cuando la página Group Sync Filtering (filtros de sincronización de grupos) encuentra un error LDAP al resolver los grupos de seguridad, Azure AD Connect devuelve ahora la excepción con fidelidad total.  La causa raíz de la excepción de referencia aún no se conoce y se tratará en un error diferente.
--  Se ha corregido un error en el que los permisos para las claves STK y NGC (atributo msDS-KeyCredentialLink en objetos de usuario o dispositivo para WHfB) no se establecían correctamente.     
+-  Se ha corregido un error en el que los permisos para las claves STK y NGC (atributo ms-DS-KeyCredentialLink en objetos de usuario o dispositivo para WHfB) no se establecían correctamente.     
 - Se ha corregido un error en el que no se llamaba correctamente a "Set-ADSyncRestrictedPermissions"
 -  Se ha agregado compatibilidad para el permiso que se concede para la escritura diferida de grupos en el asistente para la instalación de AADConnect
 - Al cambiar el método de inicio de sesión de sincronización de hash de contraseña a AD FS, no se deshabilitaba la sincronización de hash de contraseña.
@@ -362,7 +362,7 @@ Estado: 19 de octubre de 2017
 
 ### <a name="ad-fs-management"></a>Administración de AD FS
 #### <a name="fixed-issue"></a>Problema corregido
-* Se corrigió un problema relacionado con el uso de la característica [msDS-ConsistencyGuid como sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor). Este problema afecta a los clientes que han configurado *Federación con AD FS* como método de inicio de sesión de usuario. Cuando se ejecuta la tarea *Configuración del delimitador de origen* en el asistente, Azure AD Connect pasa a utilizar * ms-DS-ConsistencyGuid como atributo de origen para immutableId. Como parte de este cambio, Azure AD Connect intenta actualizar las reglas de notificación para ImmutableId en AD FS. Sin embargo, este paso fallaba porque Azure AD Connect no tenía las credenciales de administrador necesarias para configurar AD FS. Con esta corrección, Azure AD Connect ahora le pide que escriba las credenciales de administrador para AD FS cuando se ejecuta la tarea *Configuración delimitador de origen*.
+* Se corrigió un problema relacionado con el uso de la característica [ms-DS-ConsistencyGuid como sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor). Este problema afecta a los clientes que han configurado *Federación con AD FS* como método de inicio de sesión de usuario. Cuando se ejecuta la tarea *Configuración del delimitador de origen* en el asistente, Azure AD Connect pasa a utilizar * ms-DS-ConsistencyGuid como atributo de origen para immutableId. Como parte de este cambio, Azure AD Connect intenta actualizar las reglas de notificación para ImmutableId en AD FS. Sin embargo, este paso fallaba porque Azure AD Connect no tenía las credenciales de administrador necesarias para configurar AD FS. Con esta corrección, Azure AD Connect ahora le pide que escriba las credenciales de administrador para AD FS cuando se ejecuta la tarea *Configuración delimitador de origen*.
 
 
 
@@ -377,7 +377,7 @@ Estado: 05 de septiembre de 2017
 * Hay un problema conocido con la actualización de Azure AD Connect que afecta a los clientes que han activado [Inicio de sesión único de conexión directa](active-directory-aadconnect-sso.md). Después de actualizar Azure AD Connect, la característica aparece como deshabilitada en el asistente, aunque realmente sigue estando habilitada. Se proporcionará una solución a este problema en una versión futura. Los clientes preocupados por este problema de presentación pueden solucionarlo manualmente habilitando la opción Inicio de sesión único de conexión directa en el asistente.
 
 #### <a name="fixed-issues"></a>Problemas corregidos
-* Se corrigió un problema que impedía que Azure AD Connect actualizara las reglas de notificaciones en AD FS local al tiempo que habilita la característica [msDS-ConsistencyGuid como delimitador de origen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor). El problema se produce si intenta habilitar la característica de una implementación de Azure AD Connect existente que tenga configurado AD FS como método de inicio de sesión. El problema se produce porque el asistente no solicita las credenciales de AD FS antes de intentar actualizar las reglas de notificaciones de AD FS.
+* Se corrigió un problema que impedía que Azure AD Connect actualizara las reglas de notificaciones en AD FS local al tiempo que habilita la característica [ms-DS-ConsistencyGuid como delimitador de origen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor). El problema se produce si intenta habilitar la característica de una implementación de Azure AD Connect existente que tenga configurado AD FS como método de inicio de sesión. El problema se produce porque el asistente no solicita las credenciales de AD FS antes de intentar actualizar las reglas de notificaciones de AD FS.
 * Se corrigió un problema que provocaba un error durante la instalación de Azure AD Connect si el bosque de AD local tenía NTLM deshabilitado. El problema se debe a que el asistente de Azure AD Connect no proporciona credenciales de acceso completas al crear los contextos de seguridad necesarios para la autenticación de Kerberos. Esto hace que se produzca un error durante la autenticación de Kerberos y que el asistente de Azure AD Connect recurra de nuevo al uso de NTLM.
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
@@ -427,7 +427,7 @@ Estado: 23 de julio de 2017
 
   * El problema se produce cuando se actualiza Azure AD Connect o cuando se usa la opción de tarea *Actualizar configuración de sincronización* del asistente de Azure AD Connect para actualizar la configuración de sincronización de Azure AD Connect.
   
-  * Esta regla de sincronización se aplica a los clientes que han habilitado la característica [msDS-ConsistencyGuid como delimitador de origen](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). Esta característica se presentó en la versión 1.1.524.0 y posteriores. Cuando se quita la regla de sincronización, Azure AD Connect ya no puede rellenar el atributo local de AD ms-DS-ConsistencyGuid con el valor del atributo ObjectGuid. No evita que se aprovisionen nuevos usuarios en Azure AD.
+  * Esta regla de sincronización se aplica a los clientes que han habilitado la característica [ms-DS-ConsistencyGuid como delimitador de origen](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). Esta característica se presentó en la versión 1.1.524.0 y posteriores. Cuando se quita la regla de sincronización, Azure AD Connect ya no puede rellenar el atributo local de AD ms-DS-ConsistencyGuid con el valor del atributo ObjectGuid. No evita que se aprovisionen nuevos usuarios en Azure AD.
   
   * La corrección garantiza que la regla de sincronización ya no se quite durante la actualización ni durante el cambio de configuración, siempre y cuando la característica esté habilitada. En el caso de los clientes existentes que se han visto afectados por este problema, la corrección también garantiza que la regla de sincronización se vuelva a agregar después de la actualización a esta versión de Azure AD Connect.
 
@@ -463,7 +463,7 @@ Estado: no se va a publicar. Los cambios en esta compilación se incluyen en la 
 
 #### <a name="fixed-issue"></a>Problema corregido
 
-* Se ha corregido un problema que hacía que se quitara la regla de sincronización predeterminada "Out to AD - User ImmutableId" al actualizar la configuración de filtrado basado en unidades organizativas. Esta regla de sincronización es necesaria para la característica [msDS-ConsistencyGuid como delimitador de origen](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
+* Se ha corregido un problema que hacía que se quitara la regla de sincronización predeterminada "Out to AD - User ImmutableId" al actualizar la configuración de filtrado basado en unidades organizativas. Esta regla de sincronización es necesaria para la característica [ms-DS-ConsistencyGuid como delimitador de origen](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
 
 * Se ha corregido un problema que consiste en que la [pantalla Filtrado de dominios y unidades organizativas](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) del asistente de Azure AD Connect muestra como seleccionada la opción *Sincronizar todos los dominios y unidades organizativas* aun cuando está habilitado el filtrado basado en unidades organizativas.
 
@@ -529,14 +529,14 @@ El problema que surge es que la **opción Sincronizar todos los dominios y unida
 
 * Se ha corregido un problema con la reescritura de contraseñas que permite que un administrador de Azure AD restablezca la contraseña de una cuenta de usuario con privilegios de AD local. El problema sucede cuando a Azure AD Connect se le concede el permiso Restablecer contraseña en la cuenta con privilegios. El problema se trata en esta versión de Azure AD Connect no permitiendo que un administrador de Azure AD restablezca la contraseña de una cuenta de usuario con privilegios de AD local arbitraria a no ser que el administrador sea el propietario de esa cuenta. Para obtener más información, vea [Aviso de seguridad 4033453](https://technet.microsoft.com/library/security/4033453).
 
-* Se ha corregido un problema relacionado con la característica [msDS-ConsistencyGuid como sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) donde Azure AD Connect no reescribe en el atributo msDS-ConsistencyGuid de AD local. Este problema sucede cuando hay varios bosques de AD local agregados a Azure AD Connect y la *opción Existen identidades de usuario entre varios directorios* está seleccionada. Cuando se usa dicha configuración, las reglas de sincronización resultantes no rellenan el atributo sourceAnchorBinary en el metaverso. El atributo sourceAnchorBinary se usa como el atributo de origen para el atributo msDS-ConsistencyGuid. Como resultado, no se produce la reescritura en el atributo ms-DSConsistencyGuid. Para corregir el problema, las siguientes reglas de sincronización se han actualizado para garantizar que siempre se rellene el atributo sourceAnchorBinary en el metaverso:
+* Se ha corregido un problema relacionado con la característica [ms-DS-ConsistencyGuid como sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) donde Azure AD Connect no reescribe en el atributo ms-DS-ConsistencyGuid de AD local. Este problema sucede cuando hay varios bosques de AD local agregados a Azure AD Connect y la *opción Existen identidades de usuario entre varios directorios* está seleccionada. Cuando se usa dicha configuración, las reglas de sincronización resultantes no rellenan el atributo sourceAnchorBinary en el metaverso. El atributo sourceAnchorBinary se usa como el atributo de origen para el atributo ms-DS-ConsistencyGuid. Como resultado, no se produce la reescritura en el atributo ms-DSConsistencyGuid. Para corregir el problema, las siguientes reglas de sincronización se han actualizado para garantizar que siempre se rellene el atributo sourceAnchorBinary en el metaverso:
   * In from AD - InetOrgPerson AccountEnabled.xml
   * In from AD - InetOrgPerson Common.xml
   * In from AD - User AccountEnabled.xml
   * In from AD - User Common.xml
   * In from AD - User Join SOAInAAD.xml
 
-* Anteriormente, aunque la característica [msDS-ConsistencyGuid como sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) no esté habilitada, la regla de sincronización "Out to AD – User ImmutableId" todavía se agrega a Azure AD Connect. El efecto es benigno y no provoca que se produzca la reescritura del atributo msDS-ConsistencyGuid. Para evitar confusión, se ha agregado lógica para garantizar que la regla de sincronización solo se agrega cuando la característica está habilitada.
+* Anteriormente, aunque la característica [ms-DS-ConsistencyGuid como sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) no esté habilitada, la regla de sincronización "Out to AD – User ImmutableId" todavía se agrega a Azure AD Connect. El efecto es benigno y no provoca que se produzca la reescritura del atributo ms-DS-ConsistencyGuid. Para evitar confusión, se ha agregado lógica para garantizar que la regla de sincronización solo se agrega cuando la característica está habilitada.
 
 * Se ha corregido un problema que provocaba un error en la sincronización de hash de contraseña con el evento de error 611. Este problema sucede después de que uno o más controladores de dominio se hayan quitado de AD local. Al final de cada ciclo de sincronización de contraseña, la cookie de sincronización que AD local ha emitido contiene identificadores de invocación de los controladores de dominio que se han quitado con el valor USN (Números de secuencias actualizadas) de 0. El administrador de sincronización de contraseña no puede conservar la cookie de sincronización que contiene el valor USN de 0 y produce un error con el evento de error 611. Durante el siguiente ciclo de sincronización, el administrador de sincronización de contraseña vuelve a usar la última cookie de sincronización conservada que no contiene el valor USN de 0. Esto provoca que la misma contraseña cambie para volver a sincronizarse. Con esta corrección, el administrador de sincronización de contraseña conserva la cookie de sincronización correctamente.
 
@@ -544,10 +544,10 @@ El problema que surge es que la **opción Sincronizar todos los dominios y unida
 
 #### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
 
-* Anteriormente, la característica [msDS-ConsistencyGuid como sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) estaba disponible solo para nuevas implementaciones. Ahora, está disponible para las implementaciones existentes. Más concretamente:
+* Anteriormente, la característica [ms-DS-ConsistencyGuid como sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) estaba disponible solo para nuevas implementaciones. Ahora, está disponible para las implementaciones existentes. Más concretamente:
   * Para tener acceso a la característica, inicie el asistente de Azure AD Connect y pulse la opción *Update Source Anchor* (Actualizar delimitador de origen).
   * Esta opción solo está visible para las implementaciones existentes que están usando objectGuid como el atributo sourceAnchor.
-  * Al configurar la opción, el asistente valida el estado del atributo msDS-ConsistencyGuid en Active Directory local. Si el atributo no está configurado en ningún objeto de usuario del directorio, el asistente usa msDS-ConsistencyGuid como atributo sourceAnchor. Si el atributo está configurado en uno o varios objetos de usuario del directorio, el asistente concluye que el atributo se está usando en otras aplicaciones, no es adecuado como atributo sourceAnchor y no permite el cambio de sourceAnchor para continuar. Si está seguro de que el atributo no se está usando en aplicaciones existentes, debe ponerse en contacto con el soporte técnico para obtener información sobre cómo suprimir el error.
+  * Al configurar la opción, el asistente valida el estado del atributo ms-DS-ConsistencyGuid en Active Directory local. Si el atributo no está configurado en ningún objeto de usuario del directorio, el asistente usa ms-DS-ConsistencyGuid como atributo sourceAnchor. Si el atributo está configurado en uno o varios objetos de usuario del directorio, el asistente concluye que el atributo se está usando en otras aplicaciones, no es adecuado como atributo sourceAnchor y no permite el cambio de sourceAnchor para continuar. Si está seguro de que el atributo no se está usando en aplicaciones existentes, debe ponerse en contacto con el soporte técnico para obtener información sobre cómo suprimir el error.
 
 * En relación al atributo **userCertificate** en los objetos de dispositivo, Azure AD Connect ahora busca los valores de certificado necesarios para [Conectar dispositivos unidos a dominio a Azure AD para la experiencia de Windows 10](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy) y filtra el resto antes de sincronizarse con Azure AD. Para permitir este comportamiento, la regla de sincronización inmediata "Out to AAD - Device Join SOAInAD" se ha actualizado.
 
@@ -667,7 +667,7 @@ Sincronización de Azure AD Connect
   * Se ha agregado **preferredDataLocation** al esquema de metaverso y al del conector de AAD. Los clientes que deseen actualizar cualquiera de los atributos en Azure AD pueden implementar reglas de sincronización personalizadas para hacerlo. 
   * Agregue **userType** al esquema de metaverso y al del conector de AAD. Los clientes que deseen actualizar cualquiera de los atributos en Azure AD pueden implementar reglas de sincronización personalizadas para hacerlo.
 
-* Ahora Azure AD Connect permite automáticamente el uso del atributo ConsistencyGuid como el atributo sourceAnchor para los objetos de AD local. Además, Azure AD Connect rellena el atributo ConsistencyGuid con el valor del atributo objectGuid si está vacío. Esta característica solo es aplicable a nueva implementaciones. Para más información sobre esta característica, consulte la sección [Uso de msDS-ConsistencyGuid como sourceAnchor en el artículo Azure AD Connect: conceptos de diseño](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
+* Ahora Azure AD Connect permite automáticamente el uso del atributo ConsistencyGuid como el atributo sourceAnchor para los objetos de AD local. Además, Azure AD Connect rellena el atributo ConsistencyGuid con el valor del atributo objectGuid si está vacío. Esta característica solo es aplicable a nueva implementaciones. Para más información sobre esta característica, consulte la sección [Uso de ms-DS-ConsistencyGuid como sourceAnchor en el artículo Azure AD Connect: conceptos de diseño](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
 * Se ha agregado un nuevo cmdlet de solución de problemas, Invoke-ADSyncDiagnostics, para ayudar a diagnosticar problemas relacionados con la sincronización de hash de contraseña. Para más información sobre el uso del cmdlet, consulte el artículo [Solución de problemas de sincronización de hash de contraseñas con la sincronización de Azure AD Connect](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 * Azure AD Connect es compatible ahora con la sincronización de objetos de carpeta pública habilitada para correo de una instancia local de AD a Azure AD. Puede habilitar la característica con el asistente de Azure AD Connect en Características opcionales. Para obtener más información sobre esta característica, vea el artículo [Compatibilidad del bloqueo perimetral basado en directorios de Office 365 para las carpetas públicas habilitadas para correo locales](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
 * Azure AD Connect necesita una cuenta de AD DS para sincronizar desde la instancia local de AD. Anteriormente, si se instalaba Azure AD Connect con el modo rápido, se podían proporcionar las credenciales de una cuenta de administrador de organización y Azure AD Connect creaba la cuenta de AD DS necesaria. Pero para una instalación personalizada y para agregar bosques a una implementación existente, había que proporcionar la cuenta de AD DS. Ahora, también tiene la opción de proporcionar las credenciales de una cuenta de administrador de organización durante una instalación personalizada y dejar que Azure AD Connect cree la cuenta de AD DS necesaria.
@@ -1070,7 +1070,7 @@ Fecha de publicación: diciembre de 2014
 **Nuevas características:**
 
 * Ahora es posible realizar la sincronización de contraseñas con filtrado basado en atributos. Para más información, consulte el artículo sobre la [sincronización de contraseñas con filtrado](active-directory-aadconnectsync-configure-filtering.md).
-* El atributo msDS-ExternalDirectoryObjectID se reescribe en Active Directory. Esta característica agrega compatibilidad para las aplicaciones de Office 365. Utiliza OAuth2 para acceder a los buzones de correo en línea y locales en una implementación híbrida de Exchange.
+* El atributo ms-DS-ExternalDirectoryObjectID se reescribe en Active Directory. Esta característica agrega compatibilidad para las aplicaciones de Office 365. Utiliza OAuth2 para acceder a los buzones de correo en línea y locales en una implementación híbrida de Exchange.
 
 **Problemas de actualización corregidos:**
 

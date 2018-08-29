@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ad4725ff6871ef489c6a10656af9a76e588edfa1
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 75805cad43f015f1741193ec5a1ead1fa7603f41
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308428"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144455"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperación de una Base de datos SQL de Azure mediante copias de seguridad automatizadas
 SQL Database proporciona estas opciones para la recuperación de bases de datos mediante [copias de seguridad automatizadas de la base de datos](sql-database-automated-backups.md) y [copias de seguridad en retención a largo plazo](sql-database-long-term-retention.md). Puede restaurar de una copia de seguridad de base de datos a:
@@ -61,7 +61,7 @@ Para una única suscripción, existen algunas limitaciones en el número de soli
 No existe ninguna funcionalidad integrada para restaurar de forma masiva. El script denominado [Azure SQL Database: recuperación completa del servidor](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) , es un ejemplo de uno de los diferentes modos de realizar esta tarea.
 
 > [!IMPORTANT]
-> Para poder efectuar una recuperación con copias de seguridad automatizadas, debe ser miembro del rol de colaborador de SQL Server en la suscripción o ser el propietario de la suscripción. Las recuperaciones se pueden realizar a través del Portal de Azure, PowerShell o la API de REST. No puede utilizar Transact-SQL. 
+> Para poder efectuar una recuperación con copias de seguridad automatizadas, debe ser miembro del rol de colaborador de SQL Server en la suscripción o ser el propietario de la suscripción; consulte [RBAC: roles integrados](../role-based-access-control/built-in-roles.md). Las recuperaciones se pueden realizar a través del Portal de Azure, PowerShell o la API de REST. No puede utilizar Transact-SQL. 
 > 
 
 ## <a name="point-in-time-restore"></a>Restauración a un momento dado

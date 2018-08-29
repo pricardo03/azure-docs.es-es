@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 07/31/2018
+ms.date: 08/22/2018
 ms.author: rolyon
-ms.openlocfilehash: edf8eccf8c0a1cba70ac178ac5863a68b26f14a3
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 6162ee59689df12e2dace9a0419490979a13d4c5
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622082"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616870"
 ---
-# <a name="azure-active-directory-terms-of-use-feature"></a>Característica Condiciones de uso de Azure Active Directory
+# <a name="azure-active-directory-terms-of-use-feature"></a>Característica Azure Active Directory Terms of Use
 Azure AD Terms of Use ofrece un método sencillo que pueden usar las organizaciones para presentar información a los usuarios finales. Esta presentación garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes de los requisitos legales o de cumplimiento. En este artículo se describe cómo empezar a trabajar con Azure AD Terms of Use.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
@@ -122,6 +122,8 @@ Una vez que se crean y aplican los términos de uso, los usuarios, que están de
 En la pantalla siguiente se muestra cómo aparecen los términos de uso en los dispositivos móviles.
 
 ![Evento de auditoría](media/active-directory-tou/mobile-tou.png)
+
+Los usuarios solo tienen que aceptar los Términos de uso una vez y no volverán a ver estos Términos de uso en posteriores inicios de sesión.
 
 ### <a name="how-users-can-review-their-terms-of-use"></a>Cómo los usuarios pueden revisar los términos de uso
 Los usuarios pueden revisar y ver los términos de uso que han aceptado mediante el procedimiento siguiente.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/21/2017
+ms.date: 08/16/2018
 ms.author: sethm
-ms.openlocfilehash: 28b8d7a71f01d8633d020b99fbe6bc5c16f272b4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0013301a33dabc9739eed45a1b801c33b791abb9
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188504"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144425"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Uso de Service Bus desde .NET con AMQP 1.0
 
@@ -29,7 +29,7 @@ La compatibilidad con AMQP 1.0 está disponible en el paquete de Service Bus ver
 
 De manera predeterminada, la biblioteca de clientes .NET de Service Bus se comunica con el servicio de Service Bus utilizando un protocolo dedicado basado en SOAP. Para usar AMQP 1.0 en lugar del protocolo predeterminado, es necesario configurar de manera explícita la cadena de conexión de Service Bus tal y como se describe en la sección siguiente. Aparte de este cambio, el código de la aplicación permanece invariable al utilizar AMQP 1.0.
 
-La versión actual incluye unas cuantas funciones de la API que no son compatibles con el uso de AMQP. Estas funciones incompatibles se enumeran más adelante en la sección [Funciones no admitidas, restricciones y diferencias de comportamiento](#unsupported-features-restrictions-and-behavioral-differences). Algunos de los parámetros de configuración avanzados también adquieren un significado diferente cuando se usa AMQP.
+La versión actual incluye unas cuantas funciones de la API que no son compatibles con el uso de AMQP. Estas funciones incompatibles se enumeran en la sección [Diferencias de comportamiento](#behavioral-differences). Algunos de los parámetros de configuración avanzados también adquieren un significado diferente cuando se usa AMQP.
 
 ### <a name="configuration-using-appconfig"></a>Configuración mediante App.config
 

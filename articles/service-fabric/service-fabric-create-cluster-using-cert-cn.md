@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8725dd1931b120b0369d0810fa49108a00c71e8e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c4c60cccb890c883e9e57c9f146cc93aae99f224
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211072"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143901"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implementar un clúster de Service Fabric que utiliza un nombre común del certificado en lugar de una huella digital
 No hay dos certificados que puedan tener la misma huella digital, lo que dificulta la sustitución o administración del certificado de clúster. Sin embargo, varios certificados pueden tener el mismo nombre o asunto común.  Si un clúster usa nombres comunes del certificado, se simplificará considerablemente la administración de certificados. En este artículo se describe cómo implementar un clúster de Service Fabric para que use un nombre común del certificado en lugar de la huella digital del certificado.
@@ -116,7 +116,15 @@ A continuación, abra el archivo *azuredeploy.json* en el editor de texto y real
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. En el recurso **Microsoft.Compute/virtualMachineScaleSets**, actualice la extensión de máquina virtual para usar el nombre común en la configuración del certificado en lugar de la huella digital.  En **virtualMachineProfile**->**extenstionProfile**->**extensiones**->**propiedades**->**configuración**->**certificado**, agregue `"commonNames": ["[parameters('certificateCommonName')]"],` y quite `"thumbprint": "[parameters('certificateThumbprint')]",`.
+3. En el recurso **Microsoft.Compute/virtualMachineScaleSets**, actualice la extensión de máquina virtual para usar el nombre común en la configuración del certificado en lugar de la huella digital.  En **virtualMachineProfile**->**extenstionProfile**->**extensiones**->**propiedades**->**configuración**->**certificado**, agregue 
+    ```json
+       "commonNames": [
+        "[parameters('certificateCommonName')]"
+       ],
+    ```
+
+    y quite `"thumbprint": "[parameters('certificateThumbprint')]",`.
+
     ```json
     "virtualMachineProfile": {
       "extensionProfile": {
@@ -139,7 +147,9 @@ A continuación, abra el archivo *azuredeploy.json* en el editor de texto y real
                 "enableParallelJobs": true,
                 "nicPrefixOverride": "[variables('subnet0Prefix')]",
                 "certificate": {
-                  "commonNames": ["[parameters('certificateCommonName')]"],
+                  "commonNames": [
+                     "[parameters('certificateCommonName')]"
+                  ],
                   "x509StoreName": "[parameters('certificateStoreValue')]"
                 }
               },
@@ -197,5 +207,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParame
 * Obtenga más información sobre la [seguridad del clúster](service-fabric-cluster-security.md).
 * Obtenga información acerca de cómo [sustituir un certificado de clúster](service-fabric-cluster-rollover-cert-cn.md)
 * [Actualizar y administrar certificados del clúster](service-fabric-cluster-security-update-certs-azure.md)
+* Simplificar la administración de certificados mediante el [cambio del clúster de huella digital de certificado a nombre común](service-fabric-cluster-change-cert-thumbprint-to-cn.md)
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

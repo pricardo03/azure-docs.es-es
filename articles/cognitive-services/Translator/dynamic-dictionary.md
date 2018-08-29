@@ -9,12 +9,12 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a18348c9786669ac41c4e149577d97cd631d5531
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dbc754093827730b8709d67f314e5b327518ef50
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382874"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41936188"
 ---
 # <a name="how-to-use-the-dynamic-dictionary-feature-of-the-microsoft-translator-text-api"></a>Descripción del uso de la característica de diccionario dinámico de Microsoft Translator Text API
 
@@ -32,5 +32,5 @@ Salida de destino: Das Wort "wordomatic" ist ein Wörterbucheintrag.
 
 Esta característica funciona del mismo modo con y sin el modo HTML. 
 
-La característica debe usarse con moderación. La mejor forma de personalización de traducción, y más adecuada, es mediante el uso de Microsoft Translator Hub. Hub hace un uso completo del contexto y las probabilidades estadísticas. Si tiene o puede permitirse crear datos de entrenamiento que muestren el trabajo o una frase en contexto, obtendrá resultados mucho mejores. Puede obtener más información sobre Hub en [http://hub.microsofttranslator.com](http://hub.microsofttranslator.com).
+La característica debe usarse con moderación. La mejor forma de personalización de traducción, y más adecuada, es mediante el uso de Custom Translator. Custom Translator hace un uso completo del contexto y las probabilidades estadísticas. Si tiene o puede crear datos de aprendizaje que muestren el trabajo o la frase en contexto, obtendrá resultados mucho mejores. Para más información sobre el traductor personalizado, consulte [http://aka.ms/CustomTranslator](http://aka.ms/CustomTranslator).
 

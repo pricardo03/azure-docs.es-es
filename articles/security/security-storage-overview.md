@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 08/17/2018
 ms.author: terrylan
-ms.openlocfilehash: 9558f1ec0d8ccd83da764a0967fa83d93e1e6a02
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4ed4e73348db8cfffb6e79afaa9d196e242d7488
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365393"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146584"
 ---
 # <a name="azure-storage-security-overview"></a>Información general sobre seguridad de Azure Storage
+
 Azure Storage es la solución de almacenamiento en la nube para las aplicaciones modernas que dependen de la durabilidad, la disponibilidad y la escalabilidad para satisfacer las necesidades de sus clientes. Azure Storage proporciona un conjunto completo de funcionalidades de seguridad. Puede:
 
 * Proteger la cuenta de almacenamiento mediante el control de acceso basado en roles (RBAC) y Azure Active Directory.
@@ -36,6 +37,7 @@ Para obtener más información sobre la seguridad en Azure Storage, consulte la 
 Igualmente, en este artículo se ofrece información general de las características de seguridad de Azure que se pueden usar con Azure Storage. Además, se incluyen vínculos a artículos que ofrecen detalles de cada una de estas características para que pueda tener más información al respecto.
 
 ## <a name="role-based-access-control"></a>Control de acceso basado en roles
+
 Puede proteger su cuenta de almacenamiento mediante el control de acceso basado en roles (RBAC). En organizaciones que quieren aplicar directivas de seguridad para el acceso a los datos, es imperativo restringir el acceso en función de los principios de seguridad [necesidad de saber](https://en.wikipedia.org/wiki/Need_to_know) y [mínimo privilegio](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Estos derechos de acceso se conceden al asignar el rol RBAC adecuado a grupos y aplicaciones de un determinado ámbito. Puede aprovechar los [roles integrados de RBAC](../role-based-access-control/built-in-roles.md), tales como el de colaborador de la cuenta de almacenamiento, para asignar privilegios a los usuarios.
 
 Más información:
@@ -43,6 +45,7 @@ Más información:
 * [Control de acceso basado en roles de Azure Active Directory](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="delegated-access-to-storage-objects"></a>Acceso delegado a objetos de almacenamiento
+
 Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Esto significa que puede conceder a un cliente permisos limitados para objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos sin tener que compartir las claves de acceso a las cuentas. 
 
 La SAS es un URI que incluye en sus parámetros de consulta toda la información necesaria para el acceso autenticado a un recurso de almacenamiento. Para obtener acceso a los recursos de almacenamiento con SAS, el cliente solo tiene que proporcionar SAS al método o constructor adecuados.
@@ -53,6 +56,7 @@ Más información:
 * [Crear y usar una SAS con Blob Storage](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)
 
 ## <a name="encryption-in-transit"></a>Cifrado en tránsito
+
 El cifrado en tránsito es un mecanismo para proteger datos cuando se transmiten a través de redes. Gracias a Azure Storage, puede proteger los datos mediante:
 
 * [El cifrado de nivel de transporte](../storage/common/storage-security-guide.md#encryption-in-transit), como HTTPS, para transferir datos a o desde Azure Storage.
@@ -65,6 +69,7 @@ Más información acerca del cifrado de cliente:
 * [Cloud security controls series: Encrypting Data in Transit (Serie de controles de seguridad en la nube: cifrado de datos en tránsito)](http://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
 
 ## <a name="encryption-at-rest"></a>Cifrado en reposo
+
 Para muchas organizaciones, el [cifrado de los datos en reposo](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) es un paso obligatorio en lo que respecta a la privacidad de los datos, el cumplimiento y la soberanía de los datos. Hay tres características de Azure que proporcionan el cifrado de datos que están en reposo:
 
 * [Storage Service Encryption](../storage/common/storage-security-guide.md#encryption-at-rest), que le permite solicitar que el servicio de almacenamiento cifre automáticamente los datos al escribirlos en Azure Storage.
@@ -77,18 +82,28 @@ Más información acerca del cifrado de servicio Storage
 * [Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)](../storage/common/storage-service-encryption.md)
 
 ## <a name="azure-disk-encryption"></a>Azure Disk Encryption
+
 Azure Disk Encryption para máquinas virtuales le ayuda a abordar la seguridad de la organización y los requisitos de cumplimiento. Se encarga de cifrar los discos de las máquinas virtuales (incluidos los discos de arranque y de datos) mediante el uso de claves y directivas que puede controlar en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 Cifrado de discos para máquinas virtuales funciona en sistemas operativos Linux y Windows. También utiliza Key Vault para ayudarle a proteger, administrar y auditar el uso de las claves de cifrado del disco. Todos los datos de los discos de máquinas virtuales se cifran en reposo mediante la tecnología de cifrado estándar del sector en las cuentas de Azure Storage. La solución Cifrado de discos para Windows se basa en la tecnología de [Cifrado de unidad BitLocker de Microsoft](https://technet.microsoft.com/library/cc732774.aspx), y la solución de Linux se basa en [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
-Más información:
+Más información
 
 * [Azure Disk Encryption for Windows and Linux Azure Virtual Machines (Azure Disk Encryption para máquinas virtuales IaaS de Linux y Windows)](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
+## <a name="azure-storage-firewalls-and-virtual-networks"></a>Firewalls y redes virtuales de Azure Storage
+
+El almacenamiento de Azure le permite habilitar las reglas de firewall para las cuentas de almacenamiento. Una vez habilitadas, se bloquearán las solicitudes entrantes para los datos, incluidas las solicitudes de otros servicios de Azure. Puede configurar excepciones para permitir el tráfico. Las reglas de firewall pueden habilitarse en las cuentas de almacenamiento existentes o durante el tiempo de creación.
+
+Debe usar esta funcionalidad para limitar las cuentas de almacenamiento a un conjunto específico de redes permitidas.
+
+Para obtener más información sobre los firewalls y redes virtuales de Azure Storage, consulte el artículo [Configuración de redes virtuales y firewalls de Azure Storage](../storage/common/storage-network-security.md).
+
 ## <a name="azure-key-vault"></a>Azure Key Vault
+
 Azure Disk Encryption usa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para ayudarle a controlar y administrar las claves y los secretos de cifrado de discos en la suscripción de Key Vault. Gracias a ello, se garantiza que todos los datos de los discos de máquinas virtuales se cifren en reposo en Azure Storage. Debe usar Key Vault para auditar el uso de la directiva y las claves.
 
-Más información:
+Más información
 
 * [¿Qué es Azure Key Vault?](../key-vault/key-vault-whatis.md)
 * [Introducción a Azure Key Vault](../key-vault/key-vault-get-started.md)

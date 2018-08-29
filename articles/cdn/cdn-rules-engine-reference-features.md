@@ -1,5 +1,5 @@
 ---
-title: Características del motor de reglas de la red CDN de Azure | Microsoft Docs
+title: Características del motor de reglas de Azure CDN | Microsoft Docs
 description: Documentación de referencia sobre las características del motor de reglas de Azure CDN.
 services: cdn
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-deasim
-ms.openlocfilehash: e1e002b51aa5a93e7fcc800f5cf48ac401c5cb2d
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 57648486e515b5438f937c4295b33843583e622e
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011431"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42143392"
 ---
-# <a name="azure-cdn-rules-engine-features"></a>Características del motor de reglas de la red CDN de Azure
+# <a name="azure-cdn-rules-engine-features"></a>Características del motor de reglas de Azure CDN
 En este tema se muestran descripciones detalladas de las características disponibles para el [motor de reglas](cdn-rules-engine.md)de Azure Content Delivery Network (CDN).
 
 La tercera parte de una regla es la característica. Una característica define el tipo de acción que se aplica al tipo de solicitud que se identifica con un conjunto de condiciones de coincidencia.
@@ -177,7 +177,7 @@ NOMBRE | Propósito
 
 
 
-## <a name="azure-cdn-rules-engine-features-reference"></a>Referencia de las características del motor de reglas de la red CDN de Azure
+## <a name="azure-cdn-rules-engine-features-reference"></a>Referencia de las características del motor de reglas de Azure CDN
 
 ---
 ### <a name="age-response-header"></a>Encabezado de respuesta Age
@@ -497,8 +497,8 @@ El formato para especificar los encabezados de solicitud y respuesta se define d
 
 Tipo de encabezado|Formato|Ejemplos
 -|-|-
-Encabezado de solicitud|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
-Encabezado de respuesta|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
+Encabezado de solicitud|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
+Encabezado de respuesta|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 Información importante:
 

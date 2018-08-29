@@ -10,12 +10,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 3dc9091934f3db8ededc13f74d2f302eccace4d6
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: d699d69362b2d28c205aab14a4bfb26570a68a4e
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312997"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42142698"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Probar una consulta de Stream Analytics con datos de ejemplo
 
@@ -29,9 +29,7 @@ Si usa Azure Stream Analytics, puede cargar datos de ejemplo y probar las consul
 
 3. En la página del trabajo de Stream Analytics, en el encabezado **Topología del trabajo**, seleccione **Consulta** para abrir la ventana del editor de consultas. 
 
-4. Para probar la consulta con datos de entrada de ejemplo, haga clic con el botón derecho en cualquiera de las entradas.  A continuación, seleccione **Cargar datos de ejemplo desde un archivo**.
-
-   Los datos deben ser datos con formato JSON. Si los datos tienen un formato distinto, como CSV, deberá convertirlos al formato JSON antes de cargarlos. Puede usar cualquier herramienta de conversión de código abierto, como este [convertidor de CSV a JSON](http://www.convertcsv.com/csv-to-json.htm), para convertir los datos al formato JSON.
+4. Para probar la consulta con datos de entrada de ejemplo, haga clic con el botón derecho en cualquiera de las entradas.  A continuación, seleccione **Cargar datos de ejemplo desde un archivo**. Los datos se deben serializar en JSON, CSV o AVRO.
 
     ![consulta de prueba del editor de consultas de Stream Analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 

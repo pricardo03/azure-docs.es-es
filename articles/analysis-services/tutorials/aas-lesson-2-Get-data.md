@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e10f6cdb60a2c03bfb42e46f179546b623d625dd
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5803bf2c71b2cf3fe7bb145b4d3d664c60642294
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443773"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42143888"
 ---
 # <a name="get-data"></a>Obtener los datos
 
@@ -26,7 +26,7 @@ Al usar Obtención de datos, puede importar datos de diversos de orígenes: Azur
   
 Tiempo estimado para completar esta lección: **10 minutos**  
   
-## <a name="prerequisites"></a>requisitos previos  
+## <a name="prerequisites"></a>Requisitos previos  
 Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 1: Creación de un proyecto de modelo tabular](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
 ## <a name="create-a-connection"></a>Crear una conexión  
@@ -52,11 +52,11 @@ Este tema forma parte de un tutorial de modelado tabular, que se debe completar 
   
 5.  En el navegador, seleccione la base de datos **AdventureWorksDW2014** y haga clic en **Aceptar**. De este modo, se crea la conexión con la base de datos. 
   
-6.  En el navegador, active la casilla de las tablas siguientes: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** y **FactInternetSales**.  
+6.  En el navegador, active la casilla de las siguientes tablas: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** y **FactInternetSales**, y haga clic en **Editar**.
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
-Después de hacer clic en Aceptar, se abre el Editor de consultas. En la sección siguiente, seleccione solo los datos que desea importar.
+    Se abrirá el editor de consultas. En la sección siguiente, seleccione solo los datos que desea importar.
 
   
 ## <a name="filter-the-table-data"></a>Filtrar los datos de tabla  

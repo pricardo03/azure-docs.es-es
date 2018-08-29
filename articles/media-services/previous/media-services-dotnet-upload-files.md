@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2017
+ms.date: 08/21/2018
 ms.author: juliako
-ms.openlocfilehash: 4b7383c4d2ee29a77120531041389b944a787763
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9edfa8ea0c9e469d09cef7ddbd1c7edda4484b47
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261872"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444636"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Cargar archivos en una cuenta de Media Services mediante .NET
 > [!div class="op_single_selector"]
@@ -199,16 +199,18 @@ En el ejemplo siguiente se agregan dos nuevos IngestManifestAssets que asocian l
     IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
 ```
 
-Puede usar cualquier aplicación cliente de alta velocidad capaz de cargar los archivos de recursos en el URI del contenedor de almacenamiento de blobs proporcionado por la propiedad **IIngestManifest.BlobStorageUriForUpload** de IngestManifest. Un servicio de carga de alta velocidad destacado es [Aspera On Demand para la aplicación de Azure](https://datamarket.azure.com/application/2cdbc511-cb12-4715-9871-c7e7fbbb82a6). También puede escribir código para cargar los archivos de recursos como se muestra en el ejemplo de código siguiente.
+Puede usar cualquier aplicación cliente de alta velocidad capaz de cargar los archivos de recursos en el URI del contenedor de almacenamiento de blobs proporcionado por la propiedad **IIngestManifest.BlobStorageUriForUpload** de IngestManifest. 
+
+El código siguiente muestra cómo usar el SDK de .NET para cargar los archivos de recursos.
 
 ```csharp
-    static void UploadBlobFile(string destBlobURI, string filename)
+    static void UploadBlobFile(string containerName, string filename)
     {
         Task copytask = new Task(() =>
         {
             var storageaccount = new CloudStorageAccount(new StorageCredentials(_storageAccountName, _storageAccountKey), true);
             CloudBlobClient blobClient = storageaccount.CreateCloudBlobClient();
-            CloudBlobContainer blobContainer = blobClient.GetContainerReference(destBlobURI);
+            CloudBlobContainer blobContainer = blobClient.GetContainerReference(containerName);
 
             string[] splitfilename = filename.Split('\\');
             var blob = blobContainer.GetBlockBlobReference(splitfilename[splitfilename.Length - 1]);

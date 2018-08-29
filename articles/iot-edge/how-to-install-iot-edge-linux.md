@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/14/2018
 ms.author: kgremban
-ms.openlocfilehash: be8fb801acfb625685604a302051d813bfd97939
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 5cd12d4fab97f295cad1e0ea06112fc53e376b12
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325309"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146963"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Instalar el entorno de ejecución de Azure IoT Edge en Linux (x64)
 
@@ -128,6 +128,9 @@ Después de introducir la información de aprovisionamiento en la configuración
 ```cmd/sh
 sudo systemctl restart iotedge
 ```
+
+>[!TIP]
+>Necesita privilegios elevados para ejecutar comandos `iotedge`. Cuando cierre la sesión en su máquina y la inicie de nuevo por primera vez después de instalar el entorno de ejecución de IoT Edge, sus permisos se actualizarán automáticamente. Hasta entonces, use **sudo** delante de los comandos. 
 
 ## <a name="verify-successful-installation"></a>Comprobación de instalación correcta
 

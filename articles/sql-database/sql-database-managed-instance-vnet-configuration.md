@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 08/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 0fea91fb067a6d78ef25cb0ff8014b65a8b6a916
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: f634167f24c221e702696174ea86a212c535695b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258107"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246742"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configuración de una red virtual para Instancia administrada de Azure SQL Database
 
@@ -29,7 +29,7 @@ Instancia administrada de Azure SQL Database (versión preliminar) debe implemen
 Planee cómo va a implementar Instancia administrada en una red virtual utilizando las respuestas a las siguientes preguntas: 
 - ¿Tiene pensado implementar una o varias instancias administradas? 
 
-  El número de instancias administradas determina el tamaño mínimo de la subred a asignar para las mismas. Para más información, consulte la sección [Determinación del tamaño de subred para Instancia administrada](#create-a-new-virtual-network-for-managed-instances). 
+  El número de instancias administradas determina el tamaño mínimo de la subred a asignar para las mismas. Para más información, consulte la sección [Determinación del tamaño de subred para Instancia administrada](#determine-the-size-of-subnet-for-managed-instances). 
 - ¿Tiene que implementar Instancia administrada en una red virtual existente o va a crear una nueva red? 
 
    Si piensa usar una red virtual existente, tiene que modificar la configuración de red para dar cabida a Instancia administrada. Para más información, consulte [Modificación de una red virtual existente para Instancia administrada](#modify-an-existing-virtual-network-for-managed-instances). 
@@ -38,7 +38,7 @@ Planee cómo va a implementar Instancia administrada en una red virtual utilizan
 
 ## <a name="requirements"></a>Requisitos
 
-Para crear una instancia administrada tiene que dedicar una subred dentro de la red virtual que se ajuste a los requisitos siguientes:
+Para crear una Instancia administrada, tiene que dedicar una subred dentro de la red virtual que se ajuste a los requisitos siguientes:
 - **Estar vacía**: la subred no puede contener ningún otro servicio de nube asociado a ella, y no puede ser la subred de puerta de enlace. No podrá crear una instancia administrada en una subred que contenga otros recursos que no sean los de la instancia administrada, ni podrá agregar otros recursos más adelante dentro de la subred.
 - **No ser NSG**: la subred no puede tener un grupo de seguridad de red asociado a ella.
 - **Tener una tabla de rutas específica**: la subred tiene que tener una tabla de rutas de usuario (UDR) con Internet de próximo salto 0.0.0.0/0 como única ruta asignada. Para más información, consulte la sección [Creación de la tabla de rutas necesaria y su asociación](#create-the-required-route-table-and-associate-it)
@@ -63,7 +63,28 @@ Si tiene previsto implementar varias instancias administradas dentro de la subre
 
 **Ejemplo**: planea tener tres instancias administradas de Propósito general y dos de Crítico para la empresa. Esto significa que necesita 5 + 3 * 2 + 2 * 4 = 19 direcciones IP. Como los intervalos de IP se definen en potencias de 2, necesita el intervalo de IP de 32 (2 ^ 5) direcciones IP. Por lo tanto, tiene que reservar la subred con la máscara de subred de /27. 
 
-## <a name="create-a-new-virtual-network-for-managed-instances"></a>Creación de una nueva red virtual para instancias administradas 
+## <a name="create-a-new-virtual-network-for-managed-instance-using-azure-resource-manager-deployment"></a>Creación de una red virtual para Instancia administrada con la implementación de Azure Resource Manager
+
+La manera más fácil de crear y configurar la red virtual es usar la plantilla de implementación de Azure Resource Manager.
+
+1. Inicie sesión en el Portal de Azure.
+
+2. Use el botón **Implementar en Azure** para implementar una red virtual en la nube de Azure:
+
+  <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
+
+  Este botón abrirá un formulario que puede usar para configurar el entorno de red, donde puede implementar Instancia administrada.
+
+  > [!Note]
+  > Esta plantilla de Azure Resource Manager implementará una red virtual con dos subredes. Una subred llamada **ManagedInstances** está reservada para instancias administradas y tiene una tabla de rutas configurada previamente, mientras que la otra subred se denomina **Default** y se usa para otros recursos que deben tener acceso a Instancia administrada (por ejemplo, Azure Virtual Machines). Puede quitar la subred **Default** si no la necesita.
+
+3. Configure el entorno de red. En el formulario siguiente, puede configurar parámetros de su entorno de red:
+
+![Configuración de la red de Azure](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
+
+Puede cambiar los nombres de la red virtual y de las subredes, y ajustar los intervalos IP asociados a sus recursos de red. Una vez que presione el botón "Comprar", se creará el formulario y configurará el entorno. Si no necesita dos subredes, puede eliminar la predeterminada. 
+
+## <a name="create-a-new-virtual-network-for-managed-instances-using-portal"></a>Creación de una nueva red virtual para instancias administradas mediante el portal
 
 La creación de una red virtual de Azure es un requisito previo para crear una instancia administrada. Puede usar Azure Portal, [PowerShell](../virtual-network/quick-create-powershell.md), o [CLI de Azure](../virtual-network/quick-create-cli.md). En la siguiente sección se muestran los pasos a seguir cuando se usa Azure Portal. Los detalles que se tratan aquí se aplican a cada uno de estos métodos.
 
@@ -92,7 +113,7 @@ La creación de una red virtual de Azure es un requisito previo para crear una i
 
    ![formulario de creación de una red virtual](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
 
-## <a name="create-the-required-route-table-and-associate-it"></a>Creación de la tabla de rutas necesaria y su asociación
+### <a name="create-the-required-route-table-and-associate-it"></a>Creación de la tabla de rutas necesaria y su asociación
 
 1. Inicio de sesión en Azure Portal  
 2. Busque una **tabla de rutas** y haga clic en ella y, después, haga clic en **Crear** en la página Tabla de rutas.

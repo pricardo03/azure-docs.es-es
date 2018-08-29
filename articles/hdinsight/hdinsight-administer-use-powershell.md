@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 60868ceb58a9ed4935ea540ad15abd0e5d35f559
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b23662ccda090b4d8a4cbb5eae3029affd075c33
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595535"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146962"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Administración de clústeres de Hadoop en HDInsight con PowerShell de Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Se puede usar Azure PowerShell para controlar y automatizar la implementación y la administración de las cargas de trabajo en Azure. En este artículo aprenderá a administrar clústeres de Hadoop en Azure HDInsight mediante Azure PowerShell. Para obtener más información sobre los cmdlets de PowerShell de HDInsight, consulte [Documentación de referencia de los cmdlets de HDInsight][hdinsight-powershell-reference].
+Se puede usar Azure PowerShell para controlar y automatizar la implementación y la administración de las cargas de trabajo en Azure. En este artículo aprenderá a administrar clústeres de Hadoop en Azure HDInsight mediante Azure PowerShell. Para más información sobre los cmdlets de PowerShell de HDInsight, consulte la [referencia de los cmdlets de HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx).
 
 **Requisitos previos**
 
@@ -231,7 +231,7 @@ Vea [Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en HDIn
 Consulte [Carga de datos en HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Otras referencias
-* [Documentación de referencia de los cmdlets de HDInsight][hdinsight-powershell-reference]
+* [Documentación de referencia de los cmdlets de HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx)
 * [Administración de HDInsight mediante Azure Portal][hdinsight-admin-portal]
 * [Administración de HDInsight con la interfaz de la línea de comandos][hdinsight-admin-cli]
 * [Creación de clústeres de HDInsight][hdinsight-provision]

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: cd97b00a522ff41a74f46195da5d8b1a0d92d344
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 04db7655f3f4b63edffcb731d0e92db25f1847b9
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960015"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42144410"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creación, modificación o eliminación de una tabla de rutas
 
@@ -43,7 +43,7 @@ Existe un límite para la cantidad de tablas de rutas que puede crear por suscri
 
 1. En la esquina superior izquierda del portal, seleccione **+ Crear un recurso**.
 2. Seleccione **Redes** y, luego, **Tabla de rutas**.
-3. Escriba un **nombre** para la tabla de rutas, seleccione la **suscripción**, cree un **grupo de recursos** nuevo o seleccione uno existe, seleccione una **ubicación** y, luego, seleccione **Crear**. La opción **Disable BGP route propagation** (Deshabilitar la propagación de rutas BGP) evita que las rutas locales se propaguen a través de BGP a las interfaces de red de cualquier subred a la que esté asociada la tabla de rutas. Si la red virtual no está conectada a una puerta de enlace de red de Azure (VPN o ExpressRoute), deje la opción *Disabled* (Deshabilitada).
+3. Escriba un **nombre** para la tabla de rutas, seleccione la **suscripción**, cree un **grupo de recursos** nuevo o seleccione uno existe, seleccione una **ubicación** y, luego, seleccione **Crear**. Si va a asociar la tabla de rutas a una subred de una red virtual conectada a la red local mediante una puerta de enlace VPN y deshabilita la **Propagación de rutas BGP**, las rutas locales no se propagan a la interfaces de red de la subred.
 
 **Comandos**
 

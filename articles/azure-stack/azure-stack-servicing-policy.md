@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 08/07/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: b1e162b9ae151ee947559d40f02909aea4010e5b
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: a76cf1394dc2c4900b370b52f3479dc03d1d8afe
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242927"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41947459"
 ---
 # <a name="azure-stack-servicing-policy"></a>Directiva de mantenimiento de Azure Stack
 En este artículo se describe la directiva de mantenimiento para sistemas integrados de Azure Stack y lo que debe hacer para mantener el sistema en un estado admitido. 
@@ -38,6 +38,7 @@ Hay dos tipos de actualizaciones para los sistemas integrados:
 Microsoft espera lanzar actualizaciones de software a un ritmo mensual. Sin embargo, puede haber varios lanzamientos de actualizaciones en un mes, o ninguno. Los proveedores de hardware de OEM lanzan sus actualizaciones en función de la necesidad. 
 
 Busque documentación sobre cómo planear y administrar actualizaciones y cómo determinar la versión actual en [Introducción a la administración de actualizaciones en Azure Stack](azure-stack-updates.md). Para obtener información sobre una actualización concreta, incluido cómo descargarla, vea las notas de versión de la actualización: 
+- [Actualización de Azure Stack 1807](azure-stack-update-1807.md)
 - [Actualización de Azure Stack 1805](azure-stack-update-1805.md)
 - [Actualización de Azure Stack 1804](azure-stack-update-1804.md)
 

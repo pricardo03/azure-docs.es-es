@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: 2730ab1d909ead0431f0dd7fd0061d3080834296
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 305a6c805f14e8d3ef9f77fcd90a78a50e0f770c
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443739"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42142704"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Uso de Virtual Kubelet con Azure Kubernetes Service (AKS)
 
@@ -36,31 +36,41 @@ Para instalar Virtual Kubelet, se requiere también [Helm](https://docs.helm.sh/
 
 ### <a name="for-rbac-enabled-clusters"></a>Para los clústeres habilitados para RBAC
 
-Si el clúster de AKS está habilitado para RBAC, debe crear una cuenta de servicio y el enlace de rol para usarse con Tiller. Para más información, consulte [Control de acceso basado en rol de Helm][helm-rbac].
-
-Se debe crear también *ClusterRoleBinding* para Virtual Kubelet. Para crear un enlace, cree un archivo denominado *rbac-virtualkubelet.yaml* y pegue la siguiente definición:
+Si el clúster de AKS está habilitado para RBAC, debe crear una cuenta de servicio y el enlace de rol para usarse con Tiller. Para más información, consulte [Control de acceso basado en rol de Helm][helm-rbac]. Para crear una cuenta de servicio y un enlace de rol, cree un archivo denominado *rbac-virtualkubelet.yaml* y pegue la siguiente definición:
 
 ```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tiller
+  namespace: kube-system
+---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
-  name: virtual-kubelet
+  name: tiller
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: cluster-admin
 subjects:
-- kind: ServiceAccount
-  name: default
-  namespace: default
+  - kind: ServiceAccount
+    name: tiller
+    namespace: kube-system
 ```
 
-Aplique el enlace con [kubectl apply] [ kubectl-apply] y especifique su archivo *rbac-virtualkubelet.yaml*, como se muestra en el ejemplo siguiente:
+Aplique la cuenta de servicio y el enlace con [kubectl apply][kubectl-apply] y especifique su archivo *rbac-virtualkubelet.yaml*, como se muestra en el ejemplo siguiente:
 
 ```
 $ kubectl apply -f rbac-virtual-kubelet.yaml
 
-clusterrolebinding.rbac.authorization.k8s.io/virtual-kubelet created
+clusterrolebinding.rbac.authorization.k8s.io/tiller created
+```
+
+Configuración de Helm para usar la cuenta de servicio de Tiller:
+
+```console
+helm init --service-account tiller
 ```
 
 Ahora puede seguir instalando Virtual Kubelet en el clúster de AKS.
@@ -164,7 +174,7 @@ spec:
     spec:
       containers:
       - name: nanoserver-iis
-        image: nanoserver/iis
+        image: microsoft/iis:nanoserver
         ports:
         - containerPort: 80
       nodeSelector:
@@ -199,7 +209,9 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre el kubelet virtual en el [proyecto del kubelet virtual en Github][vk-github].
+Para posibles problemas con Virtual Kubelet, consulte [Known quirks and workarounds][vk-troubleshooting] (Peculiaridades conocidas y soluciones alternativas). Para informar de problemas con Virtual Kubelet, [abra un problema de GitHub][vk-issues].
+
+Obtenga más información sobre Virtual Kubelet en el [proyecto Virtual Kubelet de Github][vk-github].
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
@@ -215,3 +227,5 @@ Obtenga más información sobre el kubelet virtual en el [proyecto del kubelet v
 [vk-github]: https://github.com/virtual-kubelet/virtual-kubelet
 [helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[vk-troubleshooting]: https://github.com/virtual-kubelet/virtual-kubelet#known-quirks-and-workarounds
+[vk-issues]: https://github.com/virtual-kubelet/virtual-kubelet/issues

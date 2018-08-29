@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: b89f1aad46621d35728934ea068a5893ba674094
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ab2a05c55ee248d8a74f70d36b06277db3a0f38a
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29124806"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42142934"
 ---
 # <a name="use-service-management-from-python"></a>Uso de la administración de servicios de Python
 En esta guía se muestra cómo ejecutar tareas comunes de administración de servicios mediante programación con Python. La clase **ServiceManagementService** de [Azure SDK para Python](https://github.com/Azure/azure-sdk-for-python) admite el acceso mediante programación a gran parte de la funcionalidad relacionada con la administración de servicios que se encuentra disponible en [Azure Portal][management-portal]. Puede utilizar esta funcionalidad para crear, actualizar y eliminar servicios en la nube, implementaciones, servicios de administración de datos y máquinas virtuales. Esta funcionalidad puede resultar útil para compilar aplicaciones que precisan de acceso mediante programación a la administración de servicios.
@@ -107,15 +107,15 @@ Al crear un servicio en la nube o un servicio de almacenamiento, deberá proporc
 * Europa del Norte
 * Sudeste asiático
 * Asia oriental
-* Central EE. UU:
+* Centro de EE. UU.
 * Centro-Norte de EE. UU
 * Centro-Sur de EE. UU
-* Oeste de EE. UU
+* Oeste de EE. UU.
 * Este de EE. UU
 * Este de Japón
 * Oeste de Japón
 * Sur de Brasil
-* Australia Oriental
+* Este de Australia
 * Sudeste de Australia
 
 ## <a name="CreateCloudService"> </a>Creación de un servicio en la nube
@@ -402,7 +402,7 @@ Para obtener más información sobre cómo capturar una máquina virtual Windows
 ## <a name="What's Next"> </a>Pasos siguientes
 Ahora que ha aprendido los conceptos básicos de la administración de servicios, puede tener acceso a la [documentación de referencia completa de la API para el SDK de Azure para Python](http://azure-sdk-for-python.readthedocs.org/) y realizar tareas complejas fácilmente para administrar la aplicación Python.
 
-Para más información, vea el [Centro para desarrolladores de Python](/develop/python/).
+Para más información, vea el [Centro para desarrolladores de Python](https://azure.microsoft.com/develop/python/).
 
 [What is service management?]: #WhatIs
 [Concepts]: #Concepts

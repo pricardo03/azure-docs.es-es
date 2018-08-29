@@ -1,6 +1,6 @@
 ---
-title: Supervisión de operaciones, eventos y contadores de Load Balancer | Microsoft Docs
-description: Aprenda a habilitar eventos de alerta y el registro del estado de mantenimiento del sondeo para el Equilibrador de carga de Azure
+title: Supervisión de operaciones, eventos y contadores para una instancia pública de Load Balancer | Microsoft Docs
+description: Aprenda como habilitar eventos de alerta y el registro del estado del sondeo de estado una instancia pública de Basic Load Balancer
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: dabf4bcae957559978e731636bb13554f1a68b73
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5c196a24d5cc9e4343762e55b5885c1264c2fcad
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30179062"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143090"
 ---
-# <a name="log-analytics-for-azure-load-balancer"></a>Análisis del registros para el Equilibrador de carga de Azure
+# <a name="log-analytics-for-public-basic-load-balancer"></a>Análisis del registros para Basic Load Balancer
 
->[!NOTE] 
->Azure Load Balancer admite dos tipos diferentes: Básico y Estándar. En este artículo se describe Load Balancer Básico. Para más información sobre Load Balancer Estándar, consulte [Introducción a Azure Load Balancer Estándar (versión preliminar)](load-balancer-standard-overview.md).
+>[!IMPORTANT] 
+>Azure Load Balancer admite dos tipos diferentes: Básico y Estándar. En este artículo se describe Load Balancer Básico. Para más información acerca de Standard Load Balancer, consulte [Introducción a Standard Load Balancer](load-balancer-standard-overview.md) que expone datos de telemetría mediante métricas multidimensionales en Azure Monitor.
 
-Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de equilibradores de carga. Se puede acceder a algunos de estos registros a través del portal. Se pueden extraer todos los registros desde Azure Blob Storage y visualizarse en distintas herramientas, como Excel y PowerBI. Puede obtener más información acerca de los diferentes tipos de registros en la lista siguiente.
+Puede usar diferentes tipos de registros en Azure para administrar y solucionar problemas de Basic Load Balancer. Se puede acceder a algunos de estos registros a través del portal. Se pueden extraer todos los registros desde Azure Blob Storage y visualizarse en distintas herramientas, como Excel y PowerBI. Puede obtener más información acerca de los diferentes tipos de registros en la lista siguiente.
 
 * **Registros de auditoría:** puede usar los [registros de auditoría de Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conocido como registros operativos) para ver todas las operaciones enviadas a sus suscripciones de Azure, así como su estado. Los registros de auditoría están habilitados de forma predeterminada y se pueden ver en el Portal de Azure.
 * **Registros de eventos de alerta:** puede utilizar este registro para las alertas generadas por el equilibrador de carga. El estado del equilibrador de carga se recopila cada cinco minutos. Este registro se escribe solo si se produce un evento de alerta del equilibrador de carga.
 * **Registros de sondeo de estado:** puede utilizar este registro para ver los problemas detectados por el sondeo de estado, como el número de instancias en el grupo back-end que no reciben las solicitudes del equilibrador de carga debido a errores de sondeo de estado. Este registro se escribe cuando se produce un cambio en el estatus del sondeo de estado.
 
 > [!IMPORTANT]
-> El análisis de registros actualmente solo funciona para los equilibradores de carga orientados hacia Internet. Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
+> El análisis de registros actualmente solo funciona para las instancias públicas de Basic Load Balancer. Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
 
 ## <a name="enable-logging"></a>Habilitación del registro
 
@@ -56,7 +56,9 @@ Inicie sesión en el [Portal de Azure](http://portal.azure.com). Si aún no tien
 7. En **Registros**, seleccione una cuenta de almacenamiento existente o cree una nueva. Utilice el control deslizante para determinar cuántos días de datos de eventos se almacenarán en los registros de eventos. 
 8. Haga clic en **Save**(Guardar).
 
-    ![Portal - Registros de diagnósticos](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
+Los diagnósticos se guardarán en Table Storage en la cuenta de almacenamiento especificada. Si no se guardan los registros, es porque no se ha generado ningún registro pertinente.
+
+![Portal - Registros de diagnósticos](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
 > [!NOTE]
 > Los registros de auditoría no requieren una cuenta de almacenamiento separada. El uso del almacenamiento para el registro de eventos y de sondeo de estado supondrán un costo adicional de servicio.

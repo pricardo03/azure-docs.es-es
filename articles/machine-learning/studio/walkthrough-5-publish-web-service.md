@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 7a0dc7e92df342789d2c498479aa54b94070c9f4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 436656195e00311dd350a5526b01fffa56ac02ca
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835950"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246743"
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Paso 5 del tutorial: Implementar el servicio web de Azure Machine Learning
 Este es el quinto paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -106,6 +106,7 @@ Nuestro experimento debería tener ahora un aspecto similar al siguiente:
 > 
 > Es cierto que el servicio no necesita los datos originales de la tarjeta de crédito. Pero sí necesita el esquema para esos datos, que incluye información como la cantidad de columnas que hay y cuáles son numéricas. Esta información del esquema es necesaria para interpretar los datos del usuario. Dejamos estos componentes conectados para que el módulo de puntuación tenga el esquema del conjunto de datos cuando el servicio se esté ejecutando. No se utilizan los datos, sino solamente el esquema.  
 > 
+>Una cosa importante a tener en cuenta es que si el conjunto de datos original contiene la etiqueta, el esquema esperado de la entrada web también espera una columna con la etiqueta. Una forma de evitarlo es quitar la etiqueta y cualquier otro dato que esté en el conjunto de datos de entrenamiento, pero que no esté en las entradas web, antes de conectar la entrada web y el conjunto de datos de entrenamiento en un módulo común. 
 > 
 
 Ejecute el experimento por última vez (haga clic en **Ejecutar**). Si desea comprobar que el modelo sigue funcionando, haga clic en la salida del módulo [Score Model][score-model] (Puntuar modelo) y seleccione **Ver resultados**. Puede ver que aparecen los datos originales, junto con el valor de riesgo de crédito (las "etiquetas puntuadas") y el valor de probabilidad de la puntuación (las "probabilidades puntuadas"). 

@@ -3,17 +3,16 @@ title: Esquema de eventos de suscripción de Azure Event Grid
 description: Describe las propiedades que se proporcionan para los eventos de suscripción con Azure Event Grid
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/02/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6eb5cd9a086522bfe5125189f87a2498dda0ef7e
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 18f2a64a4354fbd99f1a471c21cc35cbf5df6619
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493581"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146830"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Esquema de eventos de Azure Event Grid para las suscripciones
 
@@ -27,7 +26,9 @@ Cuando se suscribe a eventos para una suscripción de Azure, el punto de conexi�
 
 Para controlar los eventos mediante programación, puede ordenarlos examinando el valor `operationName`. Por ejemplo, el punto de conexión de eventos podría procesar solamente eventos para las operaciones que son iguales a `Microsoft.Compute/virtualMachines/write` o `Microsoft.Storage/storageAccounts/write`.
 
-El asunto del evento es el identificador de recurso correspondiente al recurso que es el destino de la operación. Para filtrar eventos para un recurso, proporcione ese identificador de recurso creando la suscripción de eventos. Para scripts de muestra, consulte [Subscribe and filter for resource group - PowerShell](scripts/event-grid-powershell-resource-group-filter.md) (Suscripción y filtro para grupo de recursos: PowerShell) o [Subscribe and filter for resource group - Azure CLI](scripts/event-grid-cli-resource-group-filter.md) (Suscripción y filtro para grupo de recursos: CLI de Azure). Para filtrar por un tipo de recurso, use un valor en el formato siguiente: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+El asunto del evento es el identificador de recurso correspondiente al recurso que es el destino de la operación. Para filtrar eventos para un recurso, proporcione ese identificador de recurso creando la suscripción de eventos. Para filtrar por un tipo de recurso, use un valor en el formato siguiente: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+
+Para ver una lista de scripts de ejemplo y tutoriales, consulte el [origen del evento de suscripción a Azure](event-sources.md#azure-subscriptions).
 
 ## <a name="available-event-types"></a>Tipos de eventos disponibles
 

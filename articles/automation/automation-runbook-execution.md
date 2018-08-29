@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3dfe16cc09f0453aef8adf8bf87a00aebd2054bc
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: eb6516400d362fe60adc05590353ec003c70e059
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214642"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42146653"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 
@@ -88,7 +88,7 @@ Puede utilizar los pasos siguientes para ver los trabajos de un runbook.
 
 ## <a name="retrieving-job-status-using-windows-powershell"></a>Recuperación del estado del trabajo con Windows PowerShell
 
-Puede usar [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx) para recuperar los trabajos creados para un runbook y los detalles de un trabajo determinado. Si inicia un runbook con Windows PowerShell mediante el uso de [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx), devuelve el trabajo resultante. Use la salida [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx) para obtener la salida de un trabajo.
+Puede usar [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) para recuperar los trabajos creados para un runbook y los detalles de un trabajo determinado. Si inicia un runbook con Windows PowerShell mediante el uso de [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook), devuelve el trabajo resultante. Use la salida [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) para obtener la salida de un trabajo.
 
 Los comandos de ejemplo siguientes recuperan el último trabajo para un runbook de ejemplo y muestran su estado, los valores proporcionados para los parámetros de runbook y la salida del trabajo.
 

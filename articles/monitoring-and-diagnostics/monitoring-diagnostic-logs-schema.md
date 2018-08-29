@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 7/18/2018
+ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: a075b60c525fc3883f4464f19a8964fb64ce15a0
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 69ff295e434f199f3a15e96f134f92098b1b8b79
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627719"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142989"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Servicios, esquemas y categorías admitidos en los registros de diagnóstico de Azure
 
@@ -53,6 +53,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 | Puertas de enlace de aplicaciones |[Registro de diagnóstico para Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics para Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Registros de diagnósticos de Azure Batch](../batch/batch-diagnostics.md) |
+| Cognitive Services | Esquema no disponible. |
 | Content Delivery Network | [Registro de Azure Diagnostics para CDN](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Registro de Azure Cosmos DB](../cosmos-db/logging.md) |
 | Data Factory | [Supervisión de factorías de datos mediante Azure Monitor](../data-factory/monitor-using-azure-monitor.md) |
@@ -61,13 +62,14 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 | DB for PostgreSQL |  Esquema no disponible. |
 | Event Hubs |[Registros de diagnóstico de Azure Event Hubs](../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Esquema no disponible. |
+| Azure Firewall | Esquema no disponible. |
 | IoT Hub | [Operaciones de IoT Hub](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Registro de Azure Key Vault](../key-vault/key-vault-logging.md) |
 | Load Balancer |[Log Analytics para Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Esquema de seguimiento personalizado de Logic Apps B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de seguridad de red |[Análisis del registro para grupos de seguridad de red (NSG)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS Protection | [Administración de Azure DDoS Protection estándar](../virtual-network/manage-ddos-protection.md) |
-| Dedicado a PowerBI | Esquema no disponible. |
+| Dedicado a PowerBI | [Registro de diagnóstico para Power BI Embedded en Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Modelo de datos para Azure Backup](../backup/backup-azure-reports-data-model.md)|
 | Search |[Habilitación y uso de Análisis de tráfico de búsqueda](../search/search-traffic-analytics.md) |
 | Azure Service Bus |[Registros de diagnóstico de Azure Service Bus](../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -88,6 +90,12 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Estado del nodo de DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Registros de servicios|
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtiene las métricas del punto de conexión; por ejemplo, ancho de banda, salida, etc.|
+|Microsoft.ClassicNetwork/networkSecurityGroups|Evento de flujo de reglas de grupo de seguridad de red|Evento de flujo de reglas de grupo de seguridad de red|
+|Microsoft.CognitiveServices/accounts|Auditoría|Auditoría|
+|Microsoft.ContainerService/managedClusters|kube-apiserver|Servidor de la API de Kubernetes|
+|Microsoft.ContainerService/managedClusters|kube-controller-manager|Administrador del controlador de Kubernetes|
+|Microsoft.ContainerService/managedClusters|kube-scheduler|Programador de Kubernetes|
+|Microsoft.ContainerService/managedClusters|guard|Webhook de autenticación|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|ActivityRuns|Registro de ejecuciones de actividad de canalización|
 |Microsoft.DataFactory/factories|PipelineRuns|Registro de ejecuciones de canalización|
@@ -97,7 +105,6 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.DataLakeStore/accounts|Auditoría|Registros de auditoría|
 |Microsoft.DataLakeStore/accounts|Requests|Registros de solicitud|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Registros del servidor PostgreSQL|
-|Microsoft.DBforPostgreSQL/servers|PostgreSQLBackupEvents|Eventos de copia de seguridad de PostgreSQL|
 |Microsoft.Devices/IotHubs|Conexiones|Conexiones|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Telemetría de dispositivo|
 |Microsoft.Devices/IotHubs|C2DCommands|Comandos C2D|
@@ -110,6 +117,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.Devices/IotHubs|JobsOperations|Operaciones de trabajos|
 |Microsoft.Devices/IotHubs|DirectMethods|Métodos directos|
 |Microsoft.Devices/IotHubs|E2EDiagnostics|Diagnóstico de E2E (versión preliminar)|
+|Microsoft.Devices/IotHubs|Configurations|Configurations|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Operaciones de dispositivo|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Operaciones del servicio|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
@@ -130,13 +138,17 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Registro de acceso de Application Gateway|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Registro de rendimiento de Application Gateway|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Registro de Firewall de Application Gateway|
+|Microsoft.Network/securegateways|AzureFirewallApplicationRule|Regla de aplicación de Azure Firewall|
+|Microsoft.Network/securegateways|AzureFirewallNetworkRule|Regla de red de Azure Firewall|
+|Microsoft.Network/azurefirewalls|AzureFirewallApplicationRule|Regla de aplicación de Azure Firewall|
+|Microsoft.Network/azurefirewalls|AzureFirewallNetworkRule|Regla de red de Azure Firewall|
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Registros de diagnóstico de puerta de enlace|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Registros de diagnóstico de túnel|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Registros de diagnóstico de ruta|
 |Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|Registros de IKE Diagnostic|
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|Registros de P2S Diagnostic|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Evento de resultados de estado de sondeo de Traffic Manager|
-|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabla de contadores GWM|
+|Microsoft.Network/expressRouteCircuits|PeeringRouteLog|Registros de tablas de rutas de emparejamiento|
 |Microsoft.PowerBIDedicated/capacities|Motor|Motor|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Datos de informes de Azure Backup|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Trabajos de Azure Site Recovery|
@@ -148,15 +160,19 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Actividad de los datos del disco protegido de Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Registros de operaciones|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Registros operativos|
+|Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|AutomaticTuning|Ajuste automático|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Estadísticas de tiempo de ejecución del Almacén de consultas|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Estadísticas de espera del Almacén de consultas|
 |Microsoft.Sql/servers/databases|Errors|Errors|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Estadísticas de espera de base de datos|
 |Microsoft.Sql/servers/databases|Tiempos de expiración|Tiempos de expiración|
 |Microsoft.Sql/servers/databases|Blocks|Blocks|
-|Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|Interbloqueos|Interbloqueos|
 |Microsoft.Sql/servers/databases|Auditoría|Registros de auditoría|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Evento de auditoría de seguridad de SQL|
+|Microsoft.Sql/servers/databases|SqlDw_Requests|Solicitudes de almacenamiento de datos SQL|
+|Microsoft.Sql/servers/databases|SqlDw_RequestSteps|Pasos de la solicitud de almacenamiento de datos SQL|
 |Microsoft.StreamAnalytics/streamingjobs|Ejecución|Ejecución|
 |Microsoft.StreamAnalytics/streamingjobs|Creación|Creación|
 

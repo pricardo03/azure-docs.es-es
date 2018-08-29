@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 24bd0e8eff616920dba0eb5353f983444e3161cd
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 31fe386cfbe5b6ccf842c05a2dd1d6fcd45bc9b7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019966"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142723"
 ---
 # <a name="security-frame-session-management--articles"></a>Marco de seguridad: Administración de sesiones | Artículos 
 | Producto o servicio | Artículo |
@@ -552,6 +552,11 @@ Filtro de autorización que comprueba que:
 | **Pasos** | Si la API web se protege con OAuth 2.0, espera un token de portador en el encabezado de solicitud de autorización y concede acceso a la solicitud solo si el token es válido. A diferencia de la autenticación basada en cookies, los exploradores no adjuntan los tokens de portador a las solicitudes. El cliente solicitante debe adjuntar explícitamente el token de portador al encabezado de solicitud. Por lo tanto, para las API web de ASP.NET protegidas con OAuth 2.0, los tokens de portador se consideran una defensa contra los ataques CSRF. Tenga en cuenta que, si la parte MVC de la aplicación utiliza la autenticación de formularios (es decir, usa cookies), la aplicación web de MVC debe usar tokens antifalsificación. |
 
 ### <a name="example"></a>Ejemplo
-Se ha de informar a la API web de que solo debe confiar en tokens de portador y no en cookies. Puede hacerse mediante la siguiente configuración en el método `WebApiConfig.Register`: ```C-Sharp code config.SuppressDefaultHostAuthentication(); config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+Se ha de informar a la API web de que solo debe confiar en tokens de portador y no en cookies. Se puede realizar mediante la siguiente configuración en el método `WebApiConfig.Register`:
+
+```csharp
+config.SuppressDefaultHostAuthentication();
+config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 ```
-The SuppressDefaultHostAuthentication method tells Web API to ignore any authentication that happens before the request reaches the Web API pipeline, either by IIS or by OWIN middleware. That way, we can restrict Web API to authenticate only using bearer tokens.
+
+El método SuppressDefaultHostAuthentication indica a API Web que ignore toda autenticación que se produzca antes de que la solicitud llegue a la canalización de API Web, ya sea mediante IIS o middleware de OWIN. De este modo, se puede restringir API Web para la autenticación solo con tokens de portador.

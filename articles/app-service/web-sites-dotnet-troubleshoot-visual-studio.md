@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 522bc9e757abeae930e47eaf53bb6da4bd9d0531
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 1c56f705c07e2001e1ef8f5f9f05c264c33c2c3f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224116"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143872"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Solución de problemas de una aplicación web en Azure App Service con Visual Studio
 ## <a name="overview"></a>Información general
-En este tutorial se muestra cómo usar herramientas de Visual Studio para ayudar a depurar una aplic. web en [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), ya sea en [modo de depuración](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) de manera remota o consultando los registros del servidor web o de aplicación.
+En este tutorial se muestra cómo usar herramientas de Visual Studio para ayudar a depurar una aplic. web en [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), ya sea en [modo de depuración](https://docs.microsoft.com/visualstudio/debugger/) de manera remota o consultando los registros del servidor web o de aplicación.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -134,7 +134,8 @@ public ActionResult About()
     return View();
 }
 ```
-4. [Establezca un punto de interrupción](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) en la línea `ViewBag.Message`.
+
+4. [Establezca un punto de interrupción](https://docs.microsoft.com/visualstudio/debugger/) en la línea `ViewBag.Message`.
 
 5. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y, luego, haga clic en **Publicar**.
 
@@ -185,7 +186,7 @@ La depuración remota solo funciona con WebJobs continuos. Los WebJobs bajo dema
 
 2. En el proyecto ContosoAdsWebJob, abra *Functions.cs*.
 
-3. [Establezca un punto de interrupción](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) en la primera instrucción del método `GnerateThumbnail`.
+3. [Establezca un punto de interrupción](https://docs.microsoft.com/visualstudio/debugger/) en la primera instrucción del método `GnerateThumbnail`.
 
     ![Establecimiento de punto de interrupción](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -250,7 +251,7 @@ Si la función [escribió registros](https://github.com/Azure/azure-webjobs-sdk/
   <httpRuntime targetFramework="4.5" />
 </system.web>
 ```
-* Si encuentra que el depurador no entra en el código que desea depurar, es posible que deba cambiar la configuración de Solo mi código.  Para obtener más información, consulte [Restricción de la ejecución paso a paso a Solo mi código](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
+* Si encuentra que el depurador no entra en el código que desea depurar, es posible que deba cambiar la configuración de Solo mi código.  Para más información, consulte [Specify whether to debug only user code using Just My Code in Visual Studio](https://docs.microsoft.com/visualstudio/debugger/just-my-code) (Elección de depurar solo código de usuario con Solo mi código en Visual Studio).
 * Cuando habilita la característica de depuración remota, se inicia un temporizador en el servidor y 48 horas después la característica se desactiva automáticamente. Este límite de 48 horas es por motivos de seguridad y rendimiento. Puede activar fácilmente la característica las veces que lo desee. Recomendamos dejarla deshabilitada cuando no esté realizando activamente una depuración.
 * Puede asociar manualmente el depurador a cualquier proceso, no solo al proceso de la aplicación web (w3wp.exe). Para obtener más información acerca de cómo utilizar el modo de depuración en Visual Studio, consulte [Depuración en Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
 

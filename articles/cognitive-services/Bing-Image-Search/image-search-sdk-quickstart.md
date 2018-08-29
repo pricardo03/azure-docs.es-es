@@ -1,6 +1,6 @@
 ---
-title: Guía de inicio rápido del SDK de Image Search para C# | Microsoft Docs
-description: Configuración de la aplicación de consola del SDK de Image Search en C#.
+title: 'Guía de inicio rápido: Solicitud y filtrado de imágenes mediante el SDK con C#'
+description: En esta guía de inicio rápido, solicita y filtra las imágenes devueltas por Bing Image Search, C#.
 titleSuffix: Azure cognitive services setup Image search SDK C# console application
 services: cognitive-services
 author: mikedodaro
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: v-gedod
-ms.openlocfilehash: f58556f13bb25c3ea2ed9378c0669d649554a8c0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 81375019e53b49b531fde1f81fbcb9a061cc5562
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382595"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41944433"
 ---
-# <a name="image-search-sdk-c-quickstart"></a>Guía de inicio rápido del SDK de Image Search para C#
+# <a name="quickstart-request-and-filter-images-using-the-sdk-and-c"></a>Guía de inicio rápido: Solicitud y filtrado de imágenes mediante el SDK y C#
 
 El SDK de Bing Image Search contiene la funcionalidad de la API REST para consultas de imagen y análisis de resultados. 
 

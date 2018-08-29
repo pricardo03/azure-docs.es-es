@@ -11,28 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 08/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 8468186d545d7aae484b037f3962b01b0ed4cd2e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e97bab36a9a1a18cab1d45abfa451139323b2320
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127557"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143915"
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Creación de búsquedas de registros en Azure Log Analytics mediante el portal correspondiente
-
-> [!NOTE]
-> Este artículo describe el portal de búsqueda de registros de Azure Log Analytics mediante el nuevo lenguaje de consulta.  Puede obtener más información sobre el nuevo lenguaje y conocer el procedimiento para actualizar el área de trabajo en [Upgrade your Azure Log Analytics workspace to new log search](log-analytics-log-search-upgrade.md) (Actualización del área de trabajo de Azure Log Analytics al nuevo registro de búsquedas)///.  
->
-> Si todavía no se ha actualizado el área de trabajo al nuevo lenguaje de consulta, vaya a [Búsqueda de datos mediante búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para obtener información sobre la versión actual del portal de búsqueda de registros.
 
 Este artículo incluye un tutorial que describe cómo crear búsquedas de registros y analizar los datos almacenados en el área de trabajo de Log Analytics mediante el portal de búsqueda de registros.  El tutorial incluye la ejecución de algunas consultas sencillas que devuelven distintos tipos de datos y el análisis de los resultados.  Se centra en las características del portal de búsqueda de registros que permiten modificar la consulta en lugar de hacerlo directamente.  Para más información sobre cómo editar directamente la consulta, vaya a la [referencia del lenguaje de consulta](https://go.microsoft.com/fwlink/?linkid=856079).
 
 Para crear búsquedas en el portal de análisis avanzado en lugar de en el portal de búsqueda de registros, consulte [Getting Started with the Analytics Portal](https://go.microsoft.com/fwlink/?linkid=856587) (Introducción al portal de análisis).  Ambos portales usan el mismo lenguaje de consulta para acceder a los mismos datos en el área de trabajo de Log Analytics.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este tutorial se da por supuesto que ya tiene un área de trabajo de Log Analytics con al menos un origen conectado que genera los datos para que las consultas los analicen.  
 
 - Si no tiene un área de trabajo, puede crear una gratis mediante el procedimiento descrito en [Introducción a un área de trabajo de Log Analytics](log-analytics-get-started.md).

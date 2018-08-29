@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: 4e62342a32456787863da775ea98df178ab1d559
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 70f80b880fadaeb4d5859524b3ba3b55ececbdda
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806305"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40258204"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Standard Storage rentable y discos de máquina virtual de Azure administrados y no administrados
 
@@ -42,7 +42,7 @@ Para obtener información acerca de cómo crear una máquina virtual con Managed
 
 Examinemos algunas de las características de Standard Storage. Para más información, consulte [Introducción a Azure Storage](../articles/storage/common/storage-introduction.md).
 
-**Standard Storage**: Azure Standard Storage admite discos de Azure, blobs de Azure, archivos de Azure, tablas de Azure y colas de Azure. Para utilizar el almacenamiento estándar, comience por [crear una cuenta de Azure Storage](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
+**Standard Storage**: Azure Standard Storage admite discos de Azure, blobs de Azure, archivos de Azure, tablas de Azure y colas de Azure. Para utilizar el almacenamiento estándar, comience por [crear una cuenta de Azure Storage](../articles/storage/common/storage-quickstart-create-account.md).
 
 **Discos SSD estándar:** estos proporcionan un rendimiento más fiable que los discos HDD estándar y están disponibles actualmente en versión preliminar. Para más información acerca de la disponibilidad en regiones de los discos SSD estándar, consulte la [disponibilidad en regiones de los discos SSD estándar (versión preliminar)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
 
@@ -119,7 +119,12 @@ Al usar Standard Storage, se aplican las siguientes consideraciones de facturaci
 
 **Tamaño de disco y datos de almacenamiento no administrado:** en el caso de discos no administrados y otros datos (blobs, tablas, colas y archivos), se cobra solo para la cantidad de espacio que se usa. Por ejemplo, si tiene una máquina virtual cuyo blob en páginas se aprovisiona como 127 GB, pero en realidad solo usa 10 GB de espacio, eso es lo que se le va a facturar. Se admite almacenamiento Estándar de hasta 8191 GB y discos no administrados estándar de hasta 4095 GB. 
 
-**Discos administrados:** los discos administrados se facturan por el tamaño aprovisionado. Si un disco se aprovisiona como un disco de 10 GB, pero se usan solo 5 GB, se cobra el tamaño del aprovisionamiento, es decir, 10 GB.
+**Discos administrados:** la facturación de los discos administrados estándar depende del tamaño aprovisionado del disco. Azure asigna el tamaño aprovisionado (redondeado) a la opción de disco de Managed Disks más cercana, como se especifica en las tablas siguientes. Cada disco administrado se asigna a uno de los tamaños aprovisionados admitidos y se factura según corresponda. Por ejemplo, si crea un disco administrado estándar y especifica un tamaño aprovisionado de 200 GiB, se le facturará según los precios del tipo de disco S15.
+
+| **Tipo de disco<br> administrado HDD estándar** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
+| Tamaño del disco        | 32 GiB  | 64 GiB  | 128 GB | 256 GiB | 512 GB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+
 
 **Instantáneas**: las instantáneas de los discos estándar se facturan por la capacidad adicional que usan. Para obtener información sobre las instantáneas, consulte [Crear una instantánea de un blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 262c864a9e580ab5e2ebb0d4fc1e6ec16adeacb3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0df23d50fa208482e45d2d35555ec79c587cc80a
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334333"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445667"
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios (versión preliminar)
 
 El objetivo de este tutorial consiste en mostrarle los pasos que debe llevar a cabo para importar usuarios de Workday a Active Directory y Azure Active Directory, con la reescritura opcional de algunos atributos en Workday.
 
@@ -31,9 +31,9 @@ El [servicio de aprovisionamiento de usuarios de Azure Active Directory](../acti
 
 * **Aprovisionamiento de usuarios en Active Directory**: sincronice los conjuntos de usuarios seleccionados de Workday con uno o varios bosques de Active Directory.
 
-* **Aprovisionamiento de usuarios que solo están en la nube en Azure Active Directory**: los usuarios híbridos que existen tanto en Active Directory como en Azure Active Directory se pueden aprovisionar en este último mediante [AAD Connect](../connect/active-directory-aadconnect.md), aunque los usuarios que solo están en la nube se pueden aprovisionar directamente desde Workday a Azure Active Directory mediante el servicio de aprovisionamiento de usuarios de Azure AD.
+* **Aprovisionamiento de usuarios solo de nube a Azure Active Directory**: en escenarios en los que no se utiliza Active Directory local, los usuarios pueden aprovisionarse directamente desde Workday a Azure Active Directory mediante el servicio de aprovisionamiento de usuarios de Azure AD. 
 
-* **Reescritura de las direcciones de correo electrónico en Workday**: el servicio de aprovisionamiento de usuarios de Azure AD puede reescribir los atributos de usuario de Azure AD seleccionados en Workday (por ejemplo, la dirección de correo electrónico).
+* **Reescritura de las direcciones de correo electrónico en Workday**: el servicio de aprovisionamiento de usuarios de Azure AD puede reescribir las direcciones de correo electrónico de los usuarios de Azure AD seleccionados en Workday. 
 
 ### <a name="what-human-resources-scenarios-does-it-cover"></a>¿Qué escenarios de recursos humanos se tratan?
 
@@ -67,7 +67,7 @@ Esta solución de aprovisionamiento de usuarios de Workday se encuentra actualme
 
 Antes de iniciar la integración de Workday, compruebe los requisitos previos siguientes y lea las siguientes instrucciones sobre cómo ajustar su arquitectura actual de Active Directory y los requisitos de aprovisionamiento de usuarios con las soluciones proporcionadas por Azure Active Directory.
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -281,7 +281,7 @@ Antes de configurar el aprovisionamiento de usuarios en un bosque de Active Dire
 
    * **Contraseña de administrador**: escriba la contraseña de la cuenta del sistema de integración de Workday.
 
-   * **URL de inquilino**: escriba la dirección URL al punto de conexión de servicios web de Workday de su inquilino. Debería ser similar a https://wd3-impl-services1.workday.com/ccx/service/contoso4, donde contoso4 se reemplaza por el nombre correcto del inquilino y wd3-impl se reemplaza por la cadena de entorno correcta.
+   * **URL de inquilino**: escriba la dirección URL al punto de conexión de servicios web de Workday de su inquilino. Debería ser similar a https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, donde contoso4 se reemplaza por el nombre correcto del inquilino y wd3-impl se reemplaza por la cadena de entorno correcta.
 
    * **Bosque de Active Directory**: "nombre" del bosque de Active Directory, tal como lo devuelve el commandlet de PowerShell Get-ADForest. Suele ser una cadena tipo *contoso.com*.
 
@@ -407,6 +407,9 @@ Una vez instalado el agente, ejecute los siguientes comandos de PowerShell para 
 * Entrada: en "DirectoryName", escriba el nombre del bosque de AD igual que en la parte n.\# 2
 * Entrada: nombre y contraseña del usuario administrador del bosque de Active Directory
 
+>[!TIP]
+> Si recibe un mensaje de error que indica que se ha producido un error en la relación entre el dominio principal y el dominio de confianza, se debe a que la máquina local se encuentra en un entorno en el que están configurados varios bosques o dominios de Active Directory y al menos una relación de confianza configurada está produciendo un error o no es operativa. Para resolver el problema, corrija o quite la relación de confianza rota.
+
 **Comando n.º 3**
 
 > Add-ADSyncAgentAzureActiveDirectoryConfiguration
@@ -418,7 +421,6 @@ Una vez instalado el agente, ejecute los siguientes comandos de PowerShell para 
 
 >[!IMPORTANT]
 >Actualmente hay un problema conocido: las credenciales de administrador global no funcionan si tienen habilitada la autenticación multifactor. Como alternativa, deshabilite la autenticación multifactor para el administrador global.
-
 
 **Comando n.º 4**
 
@@ -537,7 +539,7 @@ En las siguientes secciones se describe cómo configurar una conexión entre Wor
 
    * **Contraseña de administrador**: escriba la contraseña de la cuenta del sistema de integración de Workday.
 
-   * **URL de inquilino**: escriba la dirección URL al punto de conexión de servicios web de Workday de su inquilino. Debería ser similar a https://wd3-impl-services1.workday.com/ccx/service/contoso4, donde contoso4 se reemplaza por el nombre correcto del inquilino y wd3-impl se reemplaza por la cadena de entorno correcta. Si no se conoce esta dirección URL, trabaje con su asociado de integración o representante de soporte técnico de Workday para determinar la dirección URL correcta que se debe usar.
+   * **URL de inquilino**: escriba la dirección URL al punto de conexión de servicios web de Workday de su inquilino. Debería ser similar a https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, donde contoso4 se reemplaza por el nombre correcto del inquilino y wd3-impl se reemplaza por la cadena de entorno correcta. Si no se conoce esta dirección URL, trabaje con su asociado de integración o representante de soporte técnico de Workday para determinar la dirección URL correcta que se debe usar.
 
    * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Enviar una notificación por correo electrónico cuando se produzca un error".
 
@@ -640,7 +642,7 @@ Siga estas instrucciones para configurar la reescritura de direcciones de correo
 
    * **Contraseña de administrador**: escriba la contraseña de la cuenta del sistema de integración de Workday.
 
-   * **URL de inquilino**: escriba la dirección URL al punto de conexión de servicios web de Workday de su inquilino. Debería ser similar a https://wd3-impl-services1.workday.com/ccx/service/contoso4, donde contoso4 se reemplaza por el nombre correcto del inquilino y wd3-impl se reemplaza por la cadena de entorno correcta (si es necesario).
+   * **URL de inquilino**: escriba la dirección URL al punto de conexión de servicios web de Workday de su inquilino. Debería ser similar a https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, donde contoso4 se reemplaza por el nombre correcto del inquilino y wd3-impl se reemplaza por la cadena de entorno correcta (si es necesario).
 
    * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Enviar una notificación por correo electrónico cuando se produzca un error".
 
@@ -654,7 +656,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
 2. En el campo **Ámbito de objeto de origen** tiene la opción de filtrar los conjuntos de usuarios de Azure Active Directory que deben reescribir sus direcciones de correo electrónico en Workday. El ámbito predeterminado es "Todos los usuarios de Azure AD". 
 
-3. En la sección **Asignaciones de atributos** puede definir cómo se asignan los distintos atributos de Workday a los atributos de Active Directory. De forma predeterminada, hay una asignación para la dirección de correo electrónico, aunque el identificador coincidente se debe actualizar para hacer coincidir los usuarios de Azure AD con sus entradas correspondientes de Workday. Un método de búsqueda de coincidencias conocido consiste en sincronizar el Id. de trabajador de Workday o el Id. de empleado con el atributo extensionAttribute1-15 en Azure AD y, luego, usar dicho atributo en Azure AD para hacer coincidir los usuarios en Workday.
+3. En la sección **Asignaciones de atributos**, actualice el identificador coincidente para indicar el atributo en Azure Active Directory donde se almacena el identificador de trabajo o el identificador de empleado de Workday. Un método de búsqueda de coincidencias conocido consiste en sincronizar el Id. de trabajador de Workday o el Id. de empleado con el atributo extensionAttribute1-15 en Azure AD y, luego, usar dicho atributo en Azure AD para hacer coincidir los usuarios en Workday. 
 
 4. Para guardar las asignaciones, haga clic en **Guardar** en la parte superior de la sección Asignación de atributos.
 
@@ -794,6 +796,10 @@ Para ello, debe usar [Workday Studio](https://community.workday.com/studio-downl
 
 * Al ejecutar el comando **Add-ADSyncAgentAzureActiveDirectoryConfiguration** de Powershell, existe actualmente un problema conocido con las credenciales de administrador global, y es que no funcionan si usan un dominio personalizado (por ejemplo, admin@contoso.com). Como solución alternativa, cree y use una cuenta de administrador global en Azure AD con un dominio onmicrosoft.com (por ejemplo, admin@contoso.onmicrosoft.com).
 
+* Actualmente no se admite la escritura de datos en el atributo de usuario thumbnailPhoto en Active Directory local.
+
+* El conector "Workday a Azure AD" no se admite actualmente en los inquilinos de Azure AD en los que la conexión AAD está habilitada.  
+
 * Se ha resuelto un problema anterior en el que los registros de auditoría no aparecían en los inquilinos de Azure AD ubicados en la Unión Europea. Sin embargo, se requiere la configuración adicional del agente para inquilinos de Azure AD en la Unión Europea. Para más información, consulte [Parte 3: configuración del agente de sincronización local](#Part 3: Configure the on-premises synchronization agent).
 
 ## <a name="managing-personal-data"></a>Administración de datos personales
@@ -805,3 +811,4 @@ La solución de aprovisionamiento Workday para Active Directory requiere que se 
 * [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../active-directory-saas-provisioning-reporting.md)
 * [Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Workday](workday-tutorial.md)
 * [Aprenda a integrar otras aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
+

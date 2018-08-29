@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 08/15/2018
 ms.author: moslake
-ms.openlocfilehash: 5dce07996191af3df3a4bdf16b211c29d59a994f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 498e83e7c312480af6d2eff7d44bd13aee9c55fd
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003865"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143413"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Administración del espacio de archivo en Azure SQL Database
 En este artículo se describen los diferentes tipos de espacio de almacenamiento en Azure SQL Database y los pasos que se pueden realizar cuando el espacio de archivo asignado para bases de datos y grupos elásticos necesita administrarse explícitamente.
@@ -122,6 +122,8 @@ Modifique el siguiente script de PowerShell para devolver una tabla que muestre 
 
 Los resultados de la consulta para determinar el espacio asignado para cada base de datos del grupo se pueden agregar juntos para determinar el espacio total asignado para el grupo elástico. El espacio de grupo elástico asignado no puede exceder el tamaño máximo del grupo elástico.  
 
+El script de PowerShell requiere el módulo SQL Server PowerShell, consulte el artículo de [descarga del módulo de PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module?view=sql-server-2017) para la instalación.
+
 ```powershell
 # Resource group name
 $resourceGroupName = "rg1" 
@@ -143,7 +145,7 @@ $databaseStorageMetrics = @()
 
 # For each database in the elastic pool,
 # get its space allocated in MB and space allocated unused in MB.
-# Requires SQL Server PowerShell module – see here to install.  
+  
 foreach ($database in $databasesInPool)
 {
     $sqlCommand = "SELECT DB_NAME() as DatabaseName, `

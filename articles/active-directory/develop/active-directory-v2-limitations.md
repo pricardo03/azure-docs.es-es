@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/14/2018
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: edf0b52e5889fe8fa875de65fcaa8c2a22df1a7f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9245e85781482a3aa1e45333d8e8a748983675b6
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590756"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246673"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>¿Debo usar el punto de conexión v2.0?
 
@@ -101,6 +101,7 @@ En este momento, la compatibilidad del punto de conexión v2.0 con las bibliotec
 * Si crea una aplicación de escritorio o para dispositivos móviles, puede usar una de las bibliotecas de autenticación de Microsoft (MSAL) de versión preliminar. Estas bibliotecas están en una versión de versión preliminar compatible con producción, por lo que su uso en aplicaciones de producción es seguro. Puede obtener más información sobre los términos y condiciones de la versión preliminar y las bibliotecas disponibles en la [referencia de bibliotecas de autenticación](reference-v2-libraries.md).
 * En el caso de otras plataformas no cubiertas por las bibliotecas de Microsoft, pueden integrarse con el punto de conexión v2.0 enviando y recibiendo mensajes de protocolo directamente en el código de su aplicación. Los protocolos v2.0 OpenID Connect y OAuth [se documentan explícitamente](active-directory-v2-protocols.md) para ayudarle a realizar dicha integración.
 * Por último, puede usar las bibliotecas de código abierto de Open ID Connect y OAuth para integrarse con el punto de conexión v2.0. El protocolo v2.0 debe ser compatible con muchas bibliotecas de código abierto de los protocolos sin cambios importantes. La disponibilidad de estos tipos de bibliotecas varía según el lenguaje y la plataforma. Los sitios web [Open ID Connect](http://openid.net/connect/) y [OAuth 2.0](http://oauth.net/2/) mantienen una lista de las implementaciones populares. Para más información, consulte [Azure Active Directory v2.0 y bibliotecas de autenticación](reference-v2-libraries.md) y la lista de bibliotecas de cliente de código abierto y los ejemplos que se probaron con el punto de conexión v2.0.
+  * Como referencia, el punto de conexión `.well-known` para el punto de conexión v2.0 común es `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`.  Reemplace `common` con el identificador de inquilino para obtener los datos específicos para el inquilino.  
 
 ## <a name="restrictions-on-protocols"></a>Restricciones en los protocolos
 
@@ -109,7 +110,6 @@ El punto de conexión v2.0 no admite SAML ni WS-Federation; solo admite Open ID 
 Las siguientes funcionalidades y características de protocolo actualmente *no están disponibles* en el punto de conexión v2.0:
 
 * Actualmente, la notificación `email` solo se devuelve si se configura una notificación opcional y el ámbito es scope=email especificado en la solicitud. Sin embargo, este comportamiento cambiará cuando el punto de conexión v2.0 se actualice para cumplir aún más los estándares Open ID Connect y OAuth 2.0.
-* El punto de conexión de información de usuario de OpenID Connect no está implementado en el punto de conexión v2.0. Sin embargo, todos los datos de perfil de usuario que recibiría posiblemente en este punto de conexión están disponibles desde el punto de conexión `/me` de Microsoft Graph.
 * El punto de conexión v2.0 no admite la emisión de notificaciones de roles o grupos en los tokens de identificador.
 * La [concesión de credenciales de contraseña de propietario del recurso OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3) no es compatible con el punto de conexión v2.0.
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.openlocfilehash: 11e238fa901a164df1dfd896e38df828601e650b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7c78f27fa948c15202e83df4ed42a805a414a72e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30190405"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143541"
 ---
 # <a name="configure-a-docker-host-with-virtualbox"></a>Configuración de un host de Docker con VirtualBox
 ## <a name="overview"></a>Información general
-Este artículo le guiará por el proceso de configuración de una instancia de Docker predeterminada con la máquina de Docker y VirtualBox. Si utiliza [Docker para Windows beta](http://beta.docker.com/), esta configuración no es necesaria.
+Este artículo le guiará por el proceso de configuración de una instancia de Docker predeterminada con la máquina de Docker y VirtualBox. Si utiliza [Docker para Windows](https://www.docker.com/products/docker-desktop), esta configuración no es necesaria.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Es necesario instalar las siguientes herramientas.
 
 * [Docker Toolbox](https://github.com/docker/toolbox/releases)

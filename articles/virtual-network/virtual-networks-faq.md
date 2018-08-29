@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2018
+ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 8dfe313cb82fd0ace7221ea320bb2228be75196c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2802a725bca7f63f6956293048b0e854ebfb59b5
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038633"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142511"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) acerca de Azure Virtual Network
 
@@ -223,6 +223,9 @@ Sí. Más información acerca del uso de:
 
 ## <a name="vnet-peering"></a>Emparejamiento de VNET
 
+### <a name="what-is-vnet-peering"></a>¿Qué es el emparejamiento de VNet?
+El emparejamiento de VNet (o emparejamiento de redes virtuales) permite conectar redes virtuales. Una conexión de emparejamiento de VNet entre redes virtuales permite enrutar el tráfico entre ellas de manera privada a través de direcciones IPv4. Las máquinas virtuales de las VNet emparejadas pueden comunicarse entre sí como si estuvieran dentro de la misma red. Estas redes virtuales pueden estar en la misma región o en regiones diferentes (también conocidas como emparejamiento de VNet global). También se pueden crear conexiones de emparejamiento de VNet a través de las suscripciones a Azure.
+
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>¿Puedo crear una conexión de emparejamiento a una red virtual en una región diferente?
 Sí. El emparejamiento de VNET global permite emparejar redes virtuales en diferentes regiones. El emparejamiento de VNET global está disponible en todas las regiones públicas de Azure. No se puede emparejar globalmente desde las regiones públicas de Azure a las nubes nacionales. El emparejamiento global no está disponible actualmente en nubes nacionales.
 
@@ -231,6 +234,9 @@ Actualmente no es posible establecer el emparejamiento de VNET (ya sea local o g
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Mi conexión de emparejamiento de VNET se encuentra en estado *Iniciado*, ¿por qué no puedo conectarme?
 Si la conexión de emparejamiento está en estado Iniciado, esto significa que ha creado un solo vínculo. Se debe crear un vínculo bidireccional con el fin de establecer una conexión correcta. Por ejemplo, para emparejar VNET A a VNET B, debe crearse un vínculo de VNET A a VNET B y de VNET B a VNET A. La creación de ambos vínculos cambiará el estado a *Conectado*.
+
+### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Mi conexión de emparejamiento de VNet se encuentra en estado *Desconectado*, ¿por qué no puedo crear una conexión de emparejamiento?
+Si la conexión de emparejamiento de Vnet está en estado Desconectado, significa que se ha eliminado uno de los vínculos creados. Para volver a establecer una conexión de emparejamiento, deberá eliminar el vínculo y volverlo a crear.
 
 ### <a name="can-i-peer-my-vnet-with-a-vnet-in-a-different-subscription"></a>¿Puedo emparejar mi red virtual con otra en una suscripción diferente?
 Sí. Puede emparejar redes virtuales entre suscripciones y entre regiones.

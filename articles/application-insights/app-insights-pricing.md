@@ -12,16 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 06/21/2018
+ms.date: 08/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: a401bc3ed68dc9273ac14cfd357b9c05111dd54c
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 221d0d8a78a46cad9f1994e9313b21e2867d9563
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311109"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146970"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Administración de precios y volúmenes de datos de Application Insights
+
+> [!NOTE]
+> En este artículo se describe cómo analizar el uso de datos de Application Insights.  Consulte los artículos siguientes para obtener información relacionada.
+> - En [Supervisión del uso y costos estimados](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) se describe cómo ver el uso y los costos estimados a través de varias características de supervisión de Azure para los distintos modelos de precios. También se describe cómo cambiar el modelo de precios.
 
 Los precios para [Azure Application Insights][start] se basan en el volumen de datos por aplicación. Cada recurso de Application Insights se cobra como un servicio independiente y contribuye a la factura de la suscripción a Azure.
 

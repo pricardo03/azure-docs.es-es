@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: ba965b0610525f66c24dd6d5bad3fd113a6b6758
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ffe7337282d06dd9a7e22d6750ac98b3a56964bd
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050872"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143190"
 ---
 # <a name="azure-data-factory-service-identity"></a>Identidad de servicio de Azure Data Factory
 
@@ -27,10 +27,10 @@ Este artículo le ayudará a comprender qué es la identidad de servicio de Data
 
 Al crear una factoría de datos, se puede crear también una identidad de servicio. La identidad de servicio es una aplicación administrada registrada en Azure Active Directory y representa esta factoría de datos específica.
 
-La identidad de servicio de Data Factory beneficia a las dos características siguientes:
+La identidad de servicio de Data Factory beneficia a las características siguientes:
 
 - [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md), en cuyo caso se utiliza la identidad de servicio de Data Factory para la autenticación de Azure Key Vault.
-- [Copiar datos desde/hacia Azure Data Lake Store](connector-azure-data-lake-store.md), en cuyo caso, la identidad de servicio de Data Factory se puede utilizar como uno de los tipos de autenticación admitidos de Azure Data Lake Store.
+- Conectores incluidos [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure SQL Database](connector-azure-sql-database.md), y [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
 
 ## <a name="generate-service-identity"></a>Generación de la identidad de servicio
 

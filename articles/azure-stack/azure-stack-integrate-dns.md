@@ -10,12 +10,12 @@ ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 5bdac2f3e6082f9449800fe2d4b303e2d59ade46
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b4935dc95ccf525c0a40b10dcc8c59ec8aba710e
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29733866"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41954631"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integración del centro de datos de Azure Stack: DNS
 Para tener acceso a los puntos de conexión de Azure Stack (`portal`, `adminportal`, `management`, `adminmanagement`, etc.) desde fuera de Azure Stack, debe integrar los servicios de DNS de Azure Stack con los servidores DNS que hospedan las zonas DNS que quiere usar en Azure Stack.
@@ -115,7 +115,7 @@ Con los valores de ejemplo, los FQDN de los servidores DNS son los siguientes:
 
 Esta información también se crea al final de todas las implementaciones de Azure Stack en un archivo denominado `AzureStackStampDeploymentInfo.json`. Este archivo se encuentra en la carpeta `C:\CloudDeployment\logs` de la máquina virtual de implementación. Si no está seguro de qué valores se han usado para la implementación de Azure Stack, puede obtener los valores desde aquí.
 
-Si la máquina virtual de implementación ya no está disponible o no es accesible, puede obtener los valores si se conecta al punto de conexión con privilegios y ejecuta el cmdlet `Get-AzureStackInfo` de PowerShell. Para obtener más información sobre el punto de conexión con privilegios, vea (insertar aquí el vínculo al artículo).
+Si la máquina virtual de implementación ya no está disponible o no es accesible, puede obtener los valores si se conecta al punto de conexión con privilegios y ejecuta el cmdlet `Get-AzureStackInfo` de PowerShell. Para más información, consulte [Punto de conexión con privilegios](azure-stack-privileged-endpoint.md).
 
 ## <a name="setting-up-conditional-forwarding-to-azure-stack"></a>Configurar el reenvío condicional a Azure Stack
 

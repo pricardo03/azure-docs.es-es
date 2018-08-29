@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 08/22/2018
 ms.author: shlo
-ms.openlocfilehash: 25bb455ea46fdc96e32e34d434dd844779b0b650
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1023eadbf4b799cd8b0c761c1689b9249cee450a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495305"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616851"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Alerta y supervisión de factorías de datos mediante Azure Monitor
 Las aplicaciones de nube son complejas y tienen muchas partes móviles. La supervisión proporciona datos para garantizar que la aplicación permanece en funcionamiento en un estado correcto. También ayuda a evitar posibles problemas o a solucionar los existentes. Además, puede usar datos de supervisión para obtener un conocimiento más profundo sobre su aplicación. Este conocimiento puede ayudarle a mejorar el rendimiento o mantenimiento de la aplicación, o a automatizar acciones que de lo contrario requerirían intervención manual.
@@ -398,6 +398,70 @@ ADFV2 emite las siguientes métricas:
 | TriggerFailedRuns    | Métricas de ejecuciones de desencadenador erróneas     | Recuento    | Total                | Total de ejecuciones de desencadenador erróneas dentro de una ventana de minutos      |
 
 Para obtener acceso a las métricas, siga las instrucciones del artículo: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
+
+## <a name="monitor-data-factory-metrics-with-azure-monitor"></a>Supervisión de las métricas de Data Factory con Azure Monitor
+
+Puede usar la integración de Azure Data Factory con Azure Monitor para enrutar datos a Azure Monitor. Esta integración resulta útil en los escenarios siguientes:
+
+1.  Quiere escribir consultas complejas en un amplio conjunto de métricas que se publican mediante Data Factory en Azure Monitor. También puede crear alertas personalizadas sobre estas consultas a través de Azure Monitor.
+
+2.  Quiere realizar la supervisión entre fábricas de datos. Puede enrutar datos desde varias fábricas de datos a una sola área de trabajo de Azure Monitor.
+
+Si desea una demostración y una introducción de siete minutos de esta característica, vea el siguiente vídeo:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
+
+### <a name="configure-diagnostic-settings-and-workspace"></a>Configuración de las opciones de diagnóstico y el área de trabajo
+
+Habilite la configuración de diagnóstico de su fábrica de datos.
+
+1.  Seleccione **Azure Monitor** -> **Configuración de diagnóstico** -> Seleccione la fábrica de datos -> Activar diagnóstico.
+
+    ![monitor-oms-image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
+
+2.  Proporcione la configuración de diagnóstico, incluida la configuración del área de trabajo.
+
+    ![monitor-oms-image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Instale Azure Data Factory Analytics desde Azure Marketplace
+
+![monitor-oms-image3.png](media/data-factory-monitor-oms/monitor-oms-image3.png)
+
+![monitor-oms-image4.png](media/data-factory-monitor-oms/monitor-oms-image4.png)
+
+Haga clic en **Crear** y seleccione el área de trabajo y su configuración.
+
+![monitor-oms-image5.png](media/data-factory-monitor-oms/monitor-oms-image5.png)
+
+### <a name="monitor-data-factory-metrics"></a>Métricas de Data Factory
+
+Con la instalación de **Azure Data Factory Analytics** se crea un conjunto de vistas predeterminado que habilita las métricas siguientes:
+
+- Ejecuciones de ADF: 1) Ejecuciones de canalización por Data Factory
+
+- Ejecuciones de ADF: 2) Ejecuciones de actividad por Data Factory
+
+- Ejecuciones de ADF: 3) Ejecuciones de desencadenador por Data Factory
+
+- Errores de ADF: 1) Principales errores de canalización por Data Factory
+
+- Errores de ADF: 2) Principales errores de actividad por Data Factory
+
+- Errores de ADF: 3) Principales errores de desencadenador por Data Factory
+
+- Estadísticas de ADF: 1) Ejecuciones de actividad por tipo
+
+- Estadísticas de ADF: 2) Ejecuciones de desencadenador por tipo
+
+- Estadísticas de ADF: 3) Duración máxima de las ejecuciones de canalización
+
+![monitor-oms-image6.png](media/data-factory-monitor-oms/monitor-oms-image6.png)
+
+![monitor-oms-image7.png](media/data-factory-monitor-oms/monitor-oms-image7.png)
+
+Puede visualizar las métricas anteriores, examinar las consultas detrás de estas métricas, editar las consultas, crear alertas, etc.
+
+![monitor-oms-image8.png](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 ## <a name="alerts"></a>Alertas
 

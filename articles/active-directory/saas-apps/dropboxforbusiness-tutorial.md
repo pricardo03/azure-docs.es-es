@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 08/20/2018
 ms.author: jeedes
-ms.openlocfilehash: d46f2aac5fb16b10f33cccabdcd76d60f0d6dfb9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eadf6724891d348c2ea3654bcf19ef0d74078049
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438066"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143089"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Tutorial: Integración de Azure Active Directory con Dropbox para Empresas
 
@@ -50,29 +50,32 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
+
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba.
+El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Dropbox for Business desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-dropbox-for-business-from-the-gallery"></a>Adición de Dropbox for Business desde la galería
+
 Para configurar la integración de Dropbox for Business en Azure AD, es preciso agregar Dropbox for Business desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Dropbox for Business desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory][1]
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales][2]
-    
-1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![Botón Nueva aplicación][3]
 
-1. En el cuadro de búsqueda, escriba **Dropbox for Business**, seleccione **Dropbox for Business** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Dropbox for Business**, seleccione **Dropbox for Business** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Dropbox for Business en la lista de resultados](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_addfromgallery.png)
 
@@ -87,10 +90,10 @@ Para establecer la relación de vínculo, asigne el valor de **nombre de usuario
 Para configurar y probar el inicio de sesión único de Azure AD con Dropbox for Business, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de Dropbox for Business](#create-a-dropbox-for-business-test-user)**: para tener un homólogo de Britta Simon en Dropbox for Business que esté vinculado a la representación del usuario en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de Dropbox for Business](#create-a-dropbox-for-business-test-user)**: para tener un homólogo de Britta Simon en Dropbox for Business que esté vinculado a la representación del usuario en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -102,11 +105,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo Configurar inicio de sesión único][4]
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Cuadro de diálogo Inicio de sesión único](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_samlbase.png)
 
-1. En la sección de **dominio y direcciones URL de Dropbox for Business**, lleve a cabo los pasos siguientes:
+3. En la sección de **dominio y direcciones URL de Dropbox for Business**, lleve a cabo los pasos siguientes:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Dropbox for Business](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_url1.png)
 
@@ -114,59 +117,56 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. En el cuadro de texto **Identificador**, escriba un valor: `Dropbox`
 
-    > [!NOTE] 
-    > El valor de URL de inicio de sesión anterior no es real. El valor se actualizará con la dirección URL de inicio de sesión real, que se explica más adelante en el tutorial. Póngase en contacto con el [equipo de atención al cliente de Dropbox for Business](https://www.dropbox.com/business/contact) para obtener el valor. 
- 
+    > [!NOTE]
+    > El valor de URL de inicio de sesión anterior no es real. El valor se actualizará con la dirección URL de inicio de sesión real, que se explica más adelante en el tutorial.
 
-1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Vínculo de descarga del certificado](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_certificate.png) 
 
-1. Haga clic en el botón **Guardar** .
+5. Haga clic en el botón **Guardar** .
 
     ![Botón Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/tutorial_general_400.png)
 
-1. En la sección **Configuración de Dropbox for Business**, haga clic en **Configure Dropbox for Business** (Configurar Dropbox for Business) para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de servicio de inicio de sesión único de SAML** de la sección **Referencia rápida**.
+6. En la sección **Configuración de Dropbox for Business**, haga clic en **Configure Dropbox for Business** (Configurar Dropbox for Business) para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de servicio de inicio de sesión único de SAML** de la sección **Referencia rápida**.
 
     ![Configuración de Dropbox for Business](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_configure.png) 
 
-1. Para configurar el inicio de sesión único en **Dropbox for Business**, vaya al inquilino de Dropbox for Business.
+7. Para configurar el inicio de sesión único en **Dropbox for Business**, vaya al inquilino de Dropbox for Business e inicie sesión.
 
-    a. Inicie sesión en el inquilino de Dropbox for Business. 
-   
     ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/ic769509.png "Configurar inicio de sesión único")
-   
-    b. En el panel de navegación de la izquierda, haga clic en **Admin Console**(Consola de administración). 
-   
-    ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/ic769510.png "Configurar inicio de sesión único")
-   
-    c. En la **Admin Console** (Consola de administración), haga clic en la opción **Authentication** (Autenticación) del panel de navegación izquierdo. 
-   
-    ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/ic769511.png "Configurar inicio de sesión único")
-   
-    d. En la sección **Single sign-on** (Inicio de sesión único), seleccione **Enable single sign-on** (Habilitar inicio de sesión único) y haga clic en **More** (Más) para expandir esta sección.  
-   
-    ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/ic769512.png "Configurar inicio de sesión único")
-   
-    e. Copie la dirección URL que está al lado de **Users can sign in by entering their email address or they can go directly to** (Los usuarios pueden iniciar sesión especificando su dirección de correo electrónico o pueden ir directamente a) y péguela en el cuadro de texto **URL de inicio de sesión** de la sección **Dominio y direcciones URL de Dropbox for Business** de Azure Portal. 
-    
-    ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/ic769513.png)
-    
-1. En la sección **Inicio de sesión único** de la página **Autenticación**siga estos pasos: 
-   
-    ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/IC769516.png "Configurar inicio de sesión único")
-   
-    a. Haga clic en **Required**(Obligatorio).
-   
-    b. En el cuadro de texto **URL de inicio de sesión**, pegue el valor de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) que copió de Azure Portal.
 
-    c. Haga clic en **Elegir certificado** y vaya a su **archivo de certificado codificado en Base 64**.
+8. Haga clic en el **icono de usuario** y seleccione la pestaña **Settings** (Configuración).
 
-    d. Haga clic en **Guardar cambios** para completar la configuración en el inquilino de DropBox for Business.
+    ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/configure1.png "Configurar inicio de sesión único")
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+9. En el panel de navegación de la izquierda, haga clic en **Admin Console**(Consola de administración).
+
+    ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/configure2.png "Configurar inicio de sesión único")
+
+10. En **Admin Console** (Consola de administración), haga clic en la opción **Settings** (Configuración) del panel de navegación izquierdo.
+
+    ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/configure3.png "Configurar inicio de sesión único")
+
+11. Seleccione la opción **Single sign-on** (Inicio de sesión único) en la sección **Authentication** (Autenticación).
+
+    ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/configure4.png "Configurar inicio de sesión único")
+
+12. En la sección **Single sign-on** (Inicio de sesión único), siga estos pasos:  
+
+    ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/configure5.png "Configurar inicio de sesión único")
+
+    a. Seleccione **Required** (Obligatorio) como opción en el menú desplegable para **Single sign-on** (Inicio de sesión único).
+
+    b. Haga clic en **Add sign-in URL** (Agregar inicio de sesión único) y en el cuadro de texto **Identity provider sign-in URL** (Dirección URL del inicio de sesión único del proveedor de identidades), pegue el valor de **Dirección URL del servicio de inicio de sesión único de SAML**, que ha copiado desde Azure Portal y luego seleccione **Done** (Listo).
+
+    ![Configurar inicio de sesión único](./media/dropboxforbusiness-tutorial/configure6.png "Configurar inicio de sesión único")
+
+    c. Haga clic en **Upload certificate** (Cargar certificado) y, a continuación, vaya al **archivo de certificado codificado en Base64** que ha descargado de Azure Portal.
+
+    d. Haga clic en **Copy link** (Copiar vínculo) y pegue el valor copiado en el cuadro de texto **Dirección URL de inicio de sesión** en la sección de **Dominio y direcciones URL de Dropbox for Business** en Azure Portal.
+
+    e. Haga clic en **Save**(Guardar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 

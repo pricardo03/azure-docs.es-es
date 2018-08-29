@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/21/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 69cd7774c92cf1c213f8522dffeb02be6c024acb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3cd178333ee0d8d92db08fb08cbd02b05112f58b
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525144"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445029"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de la versión del agente de Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Las instalaciones de Windows Server se transforman en una memoria caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a los datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -25,7 +25,8 @@ Las siguientes versiones son compatibles con Azure File Sync:
 
 | Hito | Número de versión del agente | Fecha de lanzamiento | Status |
 |----|----------------------|--------------|------------------|
-| Disponibilidad general | 3.1 | 19 de julio de 2018 | Compatible (versión recomendada) |
+| Paquete acumulativo de actualizaciones de agosto | 3.2.0.0 | 15 de agosto de 2018 | Compatible (versión recomendada) |
+| Disponibilidad general | 3.1.0.0 | 19 de julio de 2018 | Compatible |
 | Paquete acumulativo de actualizaciones de junio | 3.0.13.0 | 29 de junio de 2018 | La versión del agente caducará el 4 de septiembre de 2018. |
 | Actualización 2 | 3.0.12.0 | 22 de mayo de 2018 | La versión del agente caducará el 4 de septiembre de 2018. |
 | Paquete acumulativo de actualizaciones de abril | 2.3.0.0 | 8 de mayo de 2018 | La versión del agente caducará el 4 de septiembre de 2018. |
@@ -39,6 +40,12 @@ Las siguientes versiones son compatibles con Azure File Sync:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Directiva de actualización del agente de Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-3200"></a>Versión del agente 3.2.0.0
+Las notas siguientes corresponden a la versión 3.2.0.0 del agente de Azure File Sync (publicada el 15 de agosto de 2018). Estas notas son adicionales a las notas de la versión enumeradas para la versión 3.1.0.0.
+
+Esta versión incluye las siguientes correcciones:
+- La sincronización produce un error de memoria insuficiente (0x8007000e) debido a una fuga de memoria.
 
 ## <a name="agent-version-3100"></a>Versión del agente 3.1.0.0
 Las notas siguientes corresponden a la versión 3.1.0.0 del agente de Azure File Sync (publicada el 19 de junio de 2018).
@@ -84,6 +91,7 @@ Los siguientes elementos no se sincronizan, pero el resto del sistema funciona c
 
 ### <a name="cloud-endpoint"></a>Punto de conexión de nube
 - Azure File Sync admite realizar cambios directamente en el recurso compartido de archivos de Azure. Sin embargo, los cambios realizados en el recurso compartido de archivos de Azure primero deben ser detectados por un trabajo de detección de cambios de Azure File Sync. Se inicia un trabajo de detección de cambios para un punto de conexión de nube una vez cada 24 horas. Además, los cambios realizados en un recurso compartido de archivos de Azure a través del protocolo de REST no actualizarán la hora de la última modificación de SMB y no se verán como cambios derivados de la sincronización.
+- El servicio de sincronización del almacenamiento o la cuenta de almacenamiento se pueden mover a un grupo de recursos o suscripción diferentes. Si se mueve la cuenta de almacenamiento, debe dar acceso al servicio File Sync híbrido a la cuenta de almacenamiento (consulte el apartado [Asegúrese de que Azure File Sync tiene acceso a la cuenta de almacenamiento](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
 ### <a name="cloud-tiering"></a>Niveles de nube
 - Si un archivo en niveles se copia en otra ubicación mediante el uso de Robocopy, el archivo resultante no estará en niveles. El atributo sin conexión podría estar establecido porque Robocopy incluye incorrectamente dicho atributo en las operaciones de copia.

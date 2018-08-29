@@ -10,18 +10,24 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 77f95ef6fb04673d79b01694d1d6f84d2c694e96
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 08179ae21465a57161cc6f18c12a3d9a21449359
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038504"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146736"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Información general: grupos de conmutación por error automática y replicación geográfica activa
+
+La replicación geográfica activa es la característica de Azure SQL Database que permite crear réplicas legibles de la base de datos del mismo centro de datos (región) o de otro.
+
+![Replicación geográfica](./media/sql-database-geo-replication-failover-portal/geo-replication.png )
+
 La replicación geográfica activa se ha diseñado como solución de continuidad empresarial que permite que la aplicación realice una rápida recuperación ante desastres en el caso de que se produzca una interrupción a escala del centro de datos. Si la replicación geográfica está habilitada, la aplicación puede iniciar la conmutación por error en una base de datos secundaria de otra región de Azure. Se admiten hasta cuatro bases de datos secundarias en las mismas o en otras regiones, y las secundarias también se pueden usar para las consultas de acceso de solo lectura. La aplicación o el usuario deben iniciar manualmente la conmutación por error. Después de la conmutación por error, el nuevo elemento principal tiene un punto de conexión diferente. 
 
 > [!NOTE]
 > La replicación geográfica activa está disponible para todas las bases de datos en todos los niveles de servicio de todas las regiones.
+> La replicación geográfica activa no está disponible en Instancia administrada.
 >  
 
 Los grupos de conmutación por error automática son una extensión de la replicación geográfica activa. Están diseñados para administrar simultáneamente la conmutación por error de múltiples bases de datos con replicación geográfica mediante una conmutación por error iniciada por una aplicación o delegando la conmutación por error para que la lleve a cabo el servicio SQL Database según los criterios definidos por el usuario. La última opción le permite recuperar automáticamente varias bases de datos relacionadas en una región secundaria después de errores catastróficos u otros eventos no planeados que generen una pérdida total o parcial de la disponibilidad del servicio SQL Database en la región primaria. Además, puede usar las bases de datos secundarias legibles para descargar las cargas de trabajo de consulta de solo lectura. Debido a que los grupos de conmutación por error automática implican varias bases de datos, se deben configurar en el servidor principal. Los servidores principales y los secundarios para las bases de datos del grupo de conmutación por error deben estar en la misma suscripción. Los grupos de conmutación por error automática admiten la replicación de todas las bases de datos en el grupo solo a un servidor secundario en otra región.

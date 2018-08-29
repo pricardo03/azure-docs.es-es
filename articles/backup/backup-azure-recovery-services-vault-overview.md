@@ -6,14 +6,14 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/15/2017
+ms.date: 8/10/2018
 ms.author: markgal
-ms.openlocfilehash: b6195feb25a7206d7c453e31f0ac312e070b3113
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04b755d7ca1ec72b075ecaa4b32a35f5009a938b
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606178"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42146928"
 ---
 # <a name="recovery-services-vaults-overview"></a>Introducción a los almacenes de Recovery Services
 
@@ -38,11 +38,17 @@ Los almacenes de Recovery Services se basan en el modelo de Azure Resource Manag
 - **Restauración instantánea para máquinas virtuales de IaaS**: con los almacenes de Recovery Services, puede restaurar archivos y carpetas desde una máquina virtual de IaaS sin tener que restaurar toda la máquina virtual, lo que permite unos tiempos de restauración más rápidos. La restauración instantánea para máquinas virtuales de IaaS está disponible tanto para máquinas virtuales Windows como Linux. [Más información](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Administración de almacenes de Recovery Services en el portal
-La creación y administración de almacenes de Recovery Services en Azure Portal es fácil porque el servicio Backup está integrado en el menú Configuración de Azure. Esta integración significa que se puede crear o administrar un almacén de Recovery Services *en el contexto del servicio de destino*. Por ejemplo, para ver los puntos de recuperación para una máquina virtual, selecciónela y haga clic en **Copia de seguridad** en el menú Configuración. Aparece la información de copia de seguridad específica de esa máquina virtual. En el ejemplo siguiente, **ContosoVM** es el nombre de la máquina virtual. **ContosoVM-demovault** es el nombre del almacén de Recovery Services. No es necesario que recuerde el nombre del almacén de Recovery Services que almacena los puntos de recuperación, ya que puede tener acceso a esta información en la máquina virtual.  
+La creación y administración de almacenes de Recovery Services en Azure Portal es fácil porque el servicio Backup está integrado en otros servicios de Azure. Esta integración significa que se puede crear o administrar un almacén de Recovery Services *en el contexto del servicio de destino*. Por ejemplo, para ver los puntos de recuperación de una máquina virtual, selecciónela y haga clic en **Copia de seguridad** en el menú Operaciones. 
 
-![Máquinas virtuales de detalles de almacén de Recovery Services](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context.png)
+![Máquinas virtuales de detalles de almacén de Recovery Services](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
 
-Si hay varios servidores protegidos con el mismo almacén de Recovery Services, puede ser más lógico mirar en el almacén de Recovery Services. Puede buscar todos los almacenes de Recovery Services de la suscripción y elegir uno de la lista.
+Si la máquina virtual no tiene una copia de seguridad configurada, se le pedirá que la configure. Si la copia de seguridad se ha configurado, verá información sobre la copia de seguridad de la máquina virtual, incluida una lista de puntos de restauración.  
+
+![Máquinas virtuales de detalles de almacén de Recovery Services](./media/backup-azure-recovery-services-vault-overview/vm-recovery-point-list.png)
+
+En el ejemplo anterior, **ContosoVM** es el nombre de la máquina virtual. **ContosoVM-demovault** es el nombre del almacén de Recovery Services. No es necesario que recuerde el nombre del almacén de Recovery Services que almacena los puntos de recuperación, ya que puede tener acceso a esta información en la máquina virtual.  
+
+Si un almacén de Recovery Services protege varios servidores, puede ser más lógico mirar en el almacén de Recovery Services. Puede buscar todos los almacenes de Recovery Services de la suscripción y elegir uno de la lista.
 
 Las secciones siguientes contienen vínculos a artículos que explican cómo usar un almacén de Recovery Services en cada tipo de actividad.
 

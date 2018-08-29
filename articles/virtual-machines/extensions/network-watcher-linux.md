@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: db508e2311602a66a2c252ffaa842f8bfb4f670b
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 22b18f77b3d997cdba7b60b53f1968b516701cc1
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076078"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146824"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual del agente de Network Watcher para Linux
 
@@ -28,9 +28,9 @@ ms.locfileid: "34076078"
 
 [Azure Network Watcher](/azure/network-watcher/) es un servicio de supervisión, diagnóstico y análisis del rendimiento de red que permite supervisar redes de Azure. La extensión de máquina virtual (VM) del agente de Network Watcher es un requisito para algunas características de Network Watcher en las VM de Azure, como capturar el tráfico de red a petición y otras funcionalidades avanzadas.
 
-En este artículo, se especifican las plataformas compatibles y las opciones de implementación de la extensión de VM del agente de Network Watcher para Linux. La instalación del agente no interrumpe la VM ni requiere reiniciarla.
+En este artículo, se especifican las plataformas compatibles y las opciones de implementación de la extensión de VM del agente de Network Watcher para Linux. La instalación del agente no interrumpe la VM ni requiere reiniciarla. Puede implementar la extensión en máquinas virtuales que implemente. Si la máquina virtual se ha implementado mediante un servicio de Azure, consulte la documentación del servicio para decidir si permite o no la instalación de extensiones en la máquina virtual.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -40,7 +40,7 @@ La extensión del agente de Network Watcher puede configurarse para las siguient
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS y 12.04 LTS |
 | Debian | 7 y 8 |
-| Redhat | 6 y 7 |
+| Red Hat | 6 y 7 |
 | Oracle Linux | 6.8 (o posterior) y 7 |
 | SUSE Linux Enterprise Server | 11 y 12 |
 | OpenSUSE Leap | 42.3 (o posterior) |

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 74d34e708fb74daa295642d50643b78af8f6cb7a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4bf92638e15767ea254b33e5804977f0d6ab5476
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412192"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42143278"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticación y autorización con Colecciones de áreas de trabajo de Power BI
 
@@ -44,10 +44,10 @@ Los tokens de aplicación son un JWT (JSON Web Token) que está firmado por una 
 
 El token de la aplicación puede contener las siguientes notificaciones:
 
-| Notificación | DESCRIPCIÓN |
+| Notificación | DESCRIPCIÓN |    
 | --- | --- |
 | **ver** |La versión del token de aplicación. La versión actual es 0.2.0. |
-| **aud** |El destinatario previsto del token. Para las colecciones de áreas de trabajo de Power BI use "https://analysis.windows.net/powerbi/api". |
+| **aud** |El destinatario previsto del token. Para Colecciones de áreas de trabajo de Power BI, use:  *https:\//analysis.windows.net/powerbi/api*. |
 | **iss** |Una cadena que indica la aplicación que emitió el token. |
 | **type** |El tipo de token de aplicación que se está creando. El único tipo admitido actualmente es **insertar**. |
 | **wcn** |El nombre de la colección de área de trabajo para el que se emite el token. |
@@ -100,7 +100,7 @@ Si usa tokens de inserción, puede restringir el uso de los recursos a los que p
 
 Los siguientes son los ámbitos disponibles para Colecciones de áreas de trabajo de Power BI.
 
-|Scope|DESCRIPCIÓN|
+|Ámbito|DESCRIPCIÓN|
 |---|---|
 |Dataset.Read|Proporciona permiso para leer el conjunto de datos especificado.|
 |Dataset.Write|Proporciona permiso para escribir en el conjunto de datos especificado.|

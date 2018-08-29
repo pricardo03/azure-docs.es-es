@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: f9a4588a444b5bfeb37f0bd98ada6a336baabb04
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5b2f902389b96136e0ea0c4c58f5e8be8144a248
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30908874"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143920"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Preparación de una máquina virtual Ubuntu para Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -32,7 +32,7 @@ Ahora Ubuntu publica discos duros virtuales de Azure oficiales que se pueden des
 * Ubuntu 14.04/Trusty: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
 * Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linux en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Notas de instalación de Ubuntu**
@@ -131,12 +131,12 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 
 9. Haga clic en **Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
+## <a name="references"></a>Referencias
+[Kernel de habilitación de hardware (HWE) de Ubuntu](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
+
 ## <a name="next-steps"></a>Pasos siguientes
 Ya está listo para usar el disco duro virtual de Ubuntu para crear nuevas máquinas virtuales de Azure. Si es la primera vez que carga el archivo .vhd en Azure, vea [Crear una VM Linux a partir de un disco personalizado](upload-vhd.md#option-1-upload-a-vhd).
 
-## <a name="references"></a>Referencias
-Kernel de habilitación de hardware (HWE) de Ubuntu
 
-* [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
-* [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
+
 

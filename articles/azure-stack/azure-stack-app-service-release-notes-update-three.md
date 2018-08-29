@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 7cf41a10f13e2edeb4ab1944c0d38cc7064c02bb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 88a4bcf018387ac83b485ec9e2efac11f85ba97c
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40161514"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42432296"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Notas de la versión de la actualización 3 de App Service en Azure Stack
 
@@ -70,6 +70,10 @@ La actualización 3 de Azure App Service en Azure Stack incluye las siguientes c
   - Se ha agregado Wincache 2.0.0.8
   - Se ha actualizado Git para Windows a la versión 2.17.1.2
   - Se ha actualizado Kudu a la versión 74.10611.3437
+  
+- **Actualizaciones al sistema operativo subyacente de todos los roles**:
+  - [Actualización de la pila de servicio para Windows Server 2016 en sistemas basados en x64 (KB4132216)](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
+  - [Actualización acumulativa 2018-07 para Windows Server 2016 en sistemas basados en x64 (KB4338822)](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
 
 ### <a name="post-update-steps-optional"></a>Pasos posteriores a la actualización (opcional)
 
@@ -80,7 +84,7 @@ Para los clientes que deseen migrar a una base de datos independiente para las i
 >
 >
 
-1. Agregue la [base de datos a un grupo de disponibilidad](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
+1. Agregue las [bases de datos de AppService (appservice_hosting y appservice_metering) al grupo de disponibilidad](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database).
 
 1. Habilite la base de datos independiente.
     ```sql

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 5f6538c69139b8cd254b44cb9875e18a14c8fa8b
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 183dad8f70a4094f6d6ba3605fd19f8921dcc988
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344154"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143591"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Enlaces HTTP y webhook en Azure Functions
 
@@ -58,6 +58,7 @@ Vea el ejemplo específico del lenguaje:
 * [Script de C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### <a name="trigger---c-example"></a>Desencadenador: ejemplo de C#
 
@@ -275,6 +276,45 @@ module.exports = function(context, req) {
     }
     context.done();
 };
+```
+
+### <a name="trigger---java-example"></a>Desencadenador: ejemplo de Java
+
+En el ejemplo siguiente se muestra un enlace de desencadenador en un archivo *function.json* y una [función de Java](functions-reference-java.md) que usa el enlace. La función devuelve una respuesta HTTP con código de estado 200 y cuerpo arequest que se antepone al cuerpo de solicitud de desencadenamiento con un saludo: "Hello,".
+
+
+Este es el archivo *function.json*:
+
+```json
+{
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "anonymous",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+Este es el código de Java:
+
+```java
+@FunctionName("hello")
+public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
+                        final ExecutionContext context) 
+    {
+        // default HTTP 200 response code
+        return String.format("Hello, %s!", request);
+    }
+}
 ```
      
 ## <a name="trigger---webhook-example"></a>Desencadenador: ejemplo de webhook

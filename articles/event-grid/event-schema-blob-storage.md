@@ -3,21 +3,22 @@ title: Esquema de eventos de Blob Storage de Azure Event Grid
 description: Describe las propiedades que se proporcionan para los eventos de Blob Storage con Azure Event Grid.
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: a4d3f5d50df49851437cfd3bcec16ad217220eca
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 11524f8868a0102e30b06f3385a26b1bd06aae6e
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301396"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146568"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Esquema de eventos de Azure Event Grid para Blob Storage
 
 En este artículo se proporcionan las propiedades y los esquemas de los eventos de Blob Storage. Para una introducción a los esquemas de eventos, consulte [Esquema de eventos de Azure Event Grid](event-schema.md).
+
+Para obtener una lista de scripts de ejemplo y tutoriales, consulte [Origen de eventos de almacenamiento](event-sources.md#storage).
 
 ## <a name="available-event-types"></a>Tipos de eventos disponibles
 

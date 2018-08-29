@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: 3708a2f7c445a161f02416cf8427b1707e1db8f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c510bb060d5c0dc866c3802fab751c1cbeff3745
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23126313"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42143153"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Conectividad de alta disponibilidad entre locales y de red virtual a red virtual
 En este artículo se proporciona información general sobre las opciones de configuración de alta disponibilidad para la conectividad entre locales y de red virtual a red virtual con instancias de Azure VPN Gateway.
@@ -44,7 +44,7 @@ Puede usar varios dispositivos VPN desde la red local para conectarse a su insta
 
 Esta configuración proporciona varios túneles activos desde la propia instancia de Azure VPN Gateway hacia los dispositivos locales en la misma ubicación. Existen algunos requisitos y restricciones:
 
-1. Debe crear varias conexiones de VPN S2S desde los dispositivos VPN a Azure. Cuando conecta varios dispositivos VPN desde la misma red local a Azure, necesita crear una puerta de enlace de red local para cada dispositivo VPN y una conexión desde su instancia de Azure VPN Gateway a la puerta de enlace de red local.
+1. Debe crear varias conexiones de VPN S2S desde los dispositivos VPN a Azure. Cuando conecta varios dispositivos VPN desde la misma red local a Azure, necesita crear una puerta de enlace de red local para cada dispositivo VPN y una conexión desde su instancia de Azure VPN Gateway a cada puerta de enlace de red local.
 2. Las puertas de enlace de red locales correspondientes a sus dispositivos VPN deben tener direcciones IP públicas únicas en la propiedad "GatewayIpAddress".
 3. Se necesita BGP para esta configuración. Cada puerta de enlace de red local que representa un dispositivo VPN debe tener una dirección IP de par BGP única especificada en la propiedad "BgpPeerIpAddress".
 4. Los campos de la propiedad AddressPrefix en cada puerta de enlace de red local no deben superponerse. Debe especificar la propiedad "BgpPeerIpAddress" en formato CIDR /32 en el campo AddressPrefix, por ejemplo, 10.200.200.254/32.

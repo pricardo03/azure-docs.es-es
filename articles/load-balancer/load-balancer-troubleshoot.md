@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 6777842f3ca336eb4ae0d134cbc7ffd062bc6f29
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1a4be7b5caba751f0f90e865d8ef23e5e9c899d6
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37890897"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42143846"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Solución de problemas de Azure Load Balancer
 
@@ -87,7 +87,7 @@ Si una máquina virtual del grupo de back-end aparece como correcta y responde a
 * Que una máquina virtual del grupo de back-end del equilibrador de carga no escuche en el puerto de datos 
 * Que un grupo de seguridad de red esté bloqueando el puerto de la máquina virtual del grupo de back-end del equilibrador de carga  
 * Que se acceda al equilibrador de carga desde la misma máquina virtual y NIC 
-* Que se acceda a la VIP del equilibrador de carga en Internet desde la máquina virtual del grupo de back-end del equilibrador de carga participante 
+* Que se acceda al front-end del equilibrador de carga en Internet desde la máquina virtual del grupo de back-end del equilibrador de carga participante 
 
 ### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>Motivo 1: una máquina virtual del grupo de back-end del equilibrador de carga no escucha en el puerto de datos 
 Si una máquina virtual no responde al tráfico de datos, puede deberse a que el puerto de destino no esté abierto en la máquina virtual participante, o a que la máquina virtual no escuche en ese puerto. 
@@ -119,10 +119,11 @@ Que la aplicación hospedada en la máquina virtual de back-end del equilibrador
 * Configure las máquinas virtuales del grupo de back-end por separado para cada aplicación. 
 * Configure la aplicación en máquinas virtuales de NIC doble para que cada aplicación use su propia interfaz de red y dirección IP. 
 
-### <a name="cause-4-accessing-the-internal-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>Motivo 4: acceso a la dirección VIP del equilibrador de carga interno desde la máquina virtual del grupo de back-end del equilibrador de carga participante
+### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Motivo 4: acceso al front-end del equilibrador de carga interno desde la máquina virtual del grupo de back-end del equilibrador de carga participante
 
-Si se configura una dirección VIP para el equilibrador de carga interno en una red virtual y una de las máquinas virtuales de back-end participantes intenta acceder a ella, se produce un error. Se trata de un escenario no admitido.
-**Resolución**: evalúe Application Gateway u otros servidores proxy (por ejemplo, nginx o haproxy) para que admitan esta variante de escenario. Para más información acerca de Application Gateway, consulte [Introducción a Application Gateway](../application-gateway/application-gateway-introduction.md)
+Si se configura un equilibrador de carga interno dentro de una red virtual y una de las máquinas virtuales de back-end participantes intenta acceder al front-end de este, pueden producirse errores al asignar el flujo a la máquina virtual original. Este escenario no se admite. Revise las [limitaciones](load-balancer-overview.md#limitations) para información detallada.
+
+**Solución**: hay varias maneras para desbloquear este escenario, incluido el uso de un proxy. Evalúe Application Gateway u otros proxys de terceros (por ejemplo, nginx o haproxy). Para más información acerca de Application Gateway, consulte [Introducción a Application Gateway](../application-gateway/application-gateway-introduction.md)
 
 ## <a name="additional-network-captures"></a>Capturas de red adicionales
 Si decide abrir un caso de soporte técnico, recopile la información siguiente para una resolución más rápida. Elija una sola máquina virtual de back-end para realizar las pruebas siguientes:

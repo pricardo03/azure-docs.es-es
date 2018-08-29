@@ -3,24 +3,24 @@ title: Actualización y escalado de una instancia de Azure API Management | Micr
 description: En este tema, se explica cómo se actualiza y se escala una instancia de Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: anneta
 editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 06/18/2018
+ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: ca32c72b1582b2a09f9f1754ad778cf1b682a1c2
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 99848cf4ba1e6e65a8c41c682916ca391128eb21
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293319"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143785"
 ---
-# <a name="upgrade-and-scale-an-api-management-instance"></a>Actualización y escalado de una instancia de API Management  
+# <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Actualización y escalado de una instancia de Azure API Management  
 
-Los clientes pueden escalar una instancia de API Management (APIM) agregando o quitando unidades. Una **unidad** se compone de recursos de Azure dedicados y tiene cierta capacidad de carga, que se expresa mediante el número de llamadas API que se realizan cada mes. Dicho número no representa un límite de llamadas, sino un valor de rendimiento máximo que permite el planeamiento de la capacidad aproximada. El rendimiento y la latencia reales varían considerablemente en función de factores como el número y la tasa de conexiones concurrentes, el tipo y número de directivas configuradas, los tamaños de las solicitudes y respuestas y la latencia del back-end.
+Para escalar una instancia de Azure API Management (APIM) los clientes pueden agregar o eliminar unidades. Una **unidad** se compone de recursos de Azure dedicados y tiene cierta capacidad de carga, que se expresa mediante el número de llamadas API que se realizan cada mes. Dicho número no representa un límite de llamadas, sino un valor de rendimiento máximo que permite el planeamiento de la capacidad aproximada. El rendimiento y la latencia reales varían considerablemente en función de factores como el número y la tasa de conexiones concurrentes, el tipo y número de directivas configuradas, los tamaños de las solicitudes y respuestas y la latencia del back-end.
 
 La capacidad y el precio de cada unidad dependen del **nivel** en que se encuentra la unidad. Puede elegir entre cuatro niveles: **Desarrollador**, **Básico**, **Estándar**, **Premium**. Si necesita más capacidad para un servicio de un nivel, debe agregar una unidad. Si el nivel que está seleccionado actualmente en la instancia de APIM no permite agregar más unidades, deberá actualizar a un nivel superior.
 
@@ -29,7 +29,7 @@ El precio de cada unidad y las características disponibles (por ejemplo, la imp
 >[!NOTE]
 >En este artículo sobre los [precios](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio), se indica el número aproximado de unidades que puede tener cada nivel. Para obtener unos datos más exactos, deberá consultar un escenario que se ajuste a la realidad de sus API. Consulte el artículo [Capacidad de una instancia de Azure API Management](api-management-capacity.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir los pasos de este artículo, debe:
 
@@ -47,7 +47,7 @@ Puede elegir entre cuatro niveles: **Desarrollador**, **Básico**, **Estándar**
 
 Los niveles de producción **Básico**, **Estándar** y **Premium** cuentan con un Acuerdo de Nivel de Servicio y se pueden escalar. El nivel **Básico** es el más económico que cuenta con un Acuerdo de Nivel de Servicio y puede escalarse hasta dos unidades. El nivel **Estándar** puede escalarse hasta cuatro unidades. Puede agregar cualquier número de unidades en el nivel **Premium**.
 
-El nivel **Premium** le permite distribuir una instancia de API Management entre cualquier número de regiones de Azure. Inicialmente, cuando se crea un servicio de API Management, la instancia contiene una sola unidad y reside en una única región de Azure. La región inicial se designa como región **primaria**. Pueden agregarse otras regiones fácilmente. Cuando agregue una región, debe especificar el número de unidades que desea asignar. Por ejemplo, puede tener una unidad en la región **primaria** y cinco unidades en otra región. Puede adaptar el número de unidades al tráfico que tiene en cada región. Para más información, consulte [Implementación de una instancia del servicio Azure API Management en varias regiones de Azure](api-management-howto-deploy-multi-region.md).
+El nivel **Premium** permite distribuir una instancia de Azure API Management individual entre cualquier número de regiones de Azure. Inicialmente, cuando se crea un servicio Azure API Management, la instancia contiene una sola unidad y reside en una única región de Azure. La región inicial se designa como región **primaria**. Pueden agregarse otras regiones fácilmente. Cuando agregue una región, debe especificar el número de unidades que desea asignar. Por ejemplo, puede tener una unidad en la región **primaria** y cinco unidades en otra región. Puede adaptar el número de unidades al tráfico que tiene en cada región. Para más información, consulte [Implementación de una instancia del servicio Azure API Management en varias regiones de Azure](api-management-howto-deploy-multi-region.md).
 
 Puede cambiar un nivel por otro superior o inferior. Tenga en cuenta que, si cambia a un nivel superior o inferior, es posible que algunas características dejen de estar disponibles, como ocurre con las VNET o las implementaciones en varias regiones cuando se pasa del nivel Premium al nivel Estándar o Básico.
 
@@ -63,8 +63,9 @@ Puede cambiar un nivel por otro superior o inferior. Tenga en cuenta que, si cam
 3. Elija el nivel que desee.
 4. Especifique el número de **unidades** que desea agregar. Puede utilizar el control deslizante o escribir directamente el número.  
     Si selecciona el nivel **Premium**, primero tendrá que seleccionar una región.
-5. Pulse **Guardar**.
+5. Presione **Save**(Guardar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Implementación de una instancia del servicio Azure API Management en varias regiones de Azure](api-management-howto-deploy-multi-region.md)
+*[Implementación de una instancia del servicio Azure API Management en varias regiones de Azure](api-management-howto-deploy-multi-region.md)
+*[Escalado automático de una instancia del servicio Azure API Management](api-management-howto-autoscale.md)

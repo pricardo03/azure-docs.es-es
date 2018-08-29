@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: f47b847b3a356540e5f366235713b8f99aea3404
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 443cb2786c12bddd87535a7267d66c0332473b1b
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113724"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42143686"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -42,6 +42,12 @@ ms.locfileid: "37113724"
 ## <a name="release-notes"></a>Notas de la versión
 
 ### <a name="v2-builds"></a>compilaciones v2
+
+### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
+* Se ha agregado una propiedad ChangeFeedEventHost.HostName pública para la compatibilidad con v1.
+
+### <a name="a-name205205"></a><a name="2.0.5"/>2.0.5
+* Se ha corregido una condición de carrera que se produce durante la división de la partición. La condición de carrera puede dar lugar a la adquisición de la concesión y perderla inmediatamente durante la división de la partición y causar contención. Se ha corregido el problema de la condición de carrera con esta versión.
 
 ### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
 * SDK de GA

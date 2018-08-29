@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: aa723fb765d4432d9bcdd56e4b520bf00660f84c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d89abfd0ec2ae5de8366a12bb38d9358aa8ab76d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444856"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144415"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual
 Una su instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual de Azure en los siguientes escenarios: 
@@ -86,11 +86,11 @@ Se recomienda seguir estos pasos:
 Para más información, vea [Resolución de nombres con su propio servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). 
 
 ### <a name="nsg"></a> Grupo de seguridad de red
-Si tiene que implementar grupos de seguridad de red (NSG) en una red virtual a la que se ha unido su instancia de Integration Runtime para la integración de SSIS en Azure, permita el tráfico entrante y saliente mediante los siguientes puertos: 
+Si tiene que implementar grupos de seguridad de red (NSG) par la subred que usa su instancia de Integration Runtime para la integración de SSIS en Azure, permita el tráfico entrante y saliente mediante los siguientes puertos: 
 
 | Dirección | Protocolo de transporte | Origen | Intervalo de puertos de origen | Destino | Intervalo de puertos de destino | Comentarios |
 |---|---|---|---|---|---|---|
-| Entrada | TCP | Internet | * | VirtualNetwork | 29876, 29877 (si une la instancia de Integration Runtime a una red virtual de Azure Resource Manager) <br/><br/>10100, 20100, 30100 (si une la instancia de Integration Runtime a una red virtual clásica)| El servicio Data Factory usa estos puertos para comunicarse con los nodos de su instancia de Integration Runtime para la integración de SSIS en Azure de la red virtual. <br/><br/> Tanto si especifica un NSG como si no, Data Factory siempre configura un NSG en el nivel de las tarjetas de interfaz de red (NIC) conectadas a las máquinas virtuales que hospedan la instancia de Integration Runtime para la integración de SSIS en Azure. Solo se permite el tráfico entrante de direcciones IP de Data Factory. Aunque si se abren estos puertos al tráfico de Internet, el tráfico de direcciones IP que no sean de Data Factory se bloquea en el nivel de NIC. |
+| Entrada | TCP | Internet | * | VirtualNetwork | 29876, 29877 (si une la instancia de Integration Runtime a una red virtual de Azure Resource Manager) <br/><br/>10100, 20100, 30100 (si une la instancia de Integration Runtime a una red virtual clásica)| El servicio Data Factory usa estos puertos para comunicarse con los nodos de su instancia de Integration Runtime para la integración de SSIS en Azure de la red virtual. <br/><br/> Tanto si crea un grupo de seguridad de red en el nivel de subred como si no, Data Factory siempre configura uno en el nivel de las tarjetas de interfaz de red (NIC) conectadas a las máquinas virtuales que hospedan la instancia de Integration Runtime para la integración de SSIS en Azure. Se permite solo el tráfico entrante desde direcciones IP de Data Factory en los puertos especificados por ese grupo de seguridad de red a nivel de NIC. Aunque si se abren estos puertos al tráfico de Internet en el nivel de la subred, el tráfico de direcciones IP que no sean de Data Factory se bloquea en el nivel de NIC. |
 | Salida | TCP | VirtualNetwork | * | Internet | 443 | Los nodos de su instancia de Integration Runtime para la integración de SSIS en Azure de la red virtual usan este puerto para acceder a servicios de Azure, como Azure Storage y Azure Event Hubs. |
 | Salida | TCP | VirtualNetwork | * | Internet o SQL | 1433, 11000-11999, 14000-14999 | Los nodos de su instancia de Integration Runtime de Azure SSIS en la red virtual usan estos puertos para acceder a la SSISDB que hospeda el servidor de Azure SQL Database (esta finalidad no se aplica a la SSISDB hospedada por Instancia administrada de Azure SQL Database [versión preliminar]). |
 ||||||||

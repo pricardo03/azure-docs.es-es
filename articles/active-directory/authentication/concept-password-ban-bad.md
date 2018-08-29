@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: dfeacb266d6aa6a43e49a39bd19c9699ef65ce82
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 1ad499e2703ff8376c063d933c0cc1f03765fc23
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162021"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42143517"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Elimine las contraseñas incorrectas de su organización
 
@@ -54,11 +54,10 @@ Cada vez que un usuario restablece o cambia la contraseña de Azure AD, esta pas
 
 ## <a name="license-requirements"></a>Requisitos de licencia
 
-Las ventajas de la lista global de contraseñas prohibidas se aplican a todos los usuarios de Azure Active Directory (Azure AD).
-
-La lista personalizada de contraseñas prohibidas requiere licencias básicas de Azure AD.
-
-Protección con contraseña de Azure AD para Windows Server Active Directory requiere licencias premium de Azure AD. 
+|   | Protección con contraseña de Azure AD con la lista global de contraseñas prohibidas | Protección con contraseña de Azure AD con la lista personalizada de contraseñas prohibidas|
+| --- | --- | --- |
+| Usuarios solo en la nube | Azure AD Free | Azure AD Basic |
+| Usuarios sincronizados desde un entorno local de Windows Server Active Directory | Azure AD Premium (P1 o P2) | Azure AD Premium (P1 o P2) |
 
 Puede encontrar información adicional sobre licencias, incluidos los costos, en la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

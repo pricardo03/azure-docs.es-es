@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 69e3e308fb5af98dd5763c56503cc28bd4ecfa9e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 19ba4a97b93c01a049f921904d0f5aba4b8c0617
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125255"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442061"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copia de datos desde y hacia Salesforce mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -184,7 +184,7 @@ Para copiar datos desde Salesforce, establezca el tipo de origen de la actividad
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **SalesforceSource**. | SÍ |
-| query |Utilice la consulta personalizada para leer los datos. Puede usar una consulta de SQL-92 o de [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Un ejemplo es `select * from MyTable__c`. | No (si se especifica "tableName" en el conjunto de datos) |
+| query |Utilice la consulta personalizada para leer los datos. Puede usar una consulta de SQL-92 o de [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Consulte más sugerencias en la sección [Sugerencias de consulta](#query-tips). | No (si se especifica "tableName" en el conjunto de datos) |
 | readBehavior | Indica si se van a consultar los registros existentes o todos, incluso los que se eliminaron. Si no se especifica, el comportamiento predeterminado es el primero. <br>Valores permitidos: **query** (valor predeterminado), **queryAll**.  | Sin  |
 
 > [!IMPORTANT]
@@ -282,10 +282,20 @@ Puede recuperar datos de informes de Salesforce especificando una consulta como 
 
 ### <a name="retrieve-deleted-records-from-the-salesforce-recycle-bin"></a>Recuperación de los registros eliminados desde la papelera de reciclaje de Salesforce
 
-Para consultar los registros eliminados temporalmente de la papelera de reciclaje de Salesforce, puede especificar **"IsDeleted = 1"** en la consulta. Por ejemplo: 
+Para consultar los registros eliminados temporalmente de la papelera de reciclaje de Salesforce, puede especificar `readBehavior` como `queryAll`. 
 
-* Para consultar solo los registros eliminados, especifique "select * from MyTable__c **where IsDeleted= 1**".
-* Para consultar todos los registros, los existentes y los eliminados, especifique "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**".
+### <a name="difference-between-soql-and-sql-query-syntax"></a>Diferencias entre la sintaxis de consulta SQL y SOQL
+
+Al copiar datos desde Salesforce, puede usar consultas SOQL o consultas SQL. Tenga en cuenta que estas dos tienen diferente compatibilidad con sintaxis y funciones, no las mezcle. Es recomendable que use la consulta SOQL que se admite de forma nativa en Salesforce. En la tabla siguiente se muestran las diferencias principales:
+
+| Sintaxis | Modo SOQL | Modo SQL |
+|:--- |:--- |:--- |
+| Selección de columnas | Necesita enumerar los campos que se van a copiar en la consulta, por ejemplo `SELECT field1, filed2 FROM objectname` | `SELECT *` se admite además de la selección de columna. |
+| Comillas | Los nombres de objetos o de campos no pueden entrecomillarse. | Los nombres de objetos o de campos no pueden entrecomillarse, por ejemplo `SELECT "id" FROM "Account"`. |
+| Formato de fecha y hora |  Consulte más detalles [aquí](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) y ejemplos en la sección siguiente. | Consulte más detalles [aquí](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) y ejemplos en la sección siguiente. |
+| Valores booleanos | Se representan como `False` y `Ture`, por ejemplo, `SELECT … WHERE IsDeleted=True`. | Se representan como 0 o 1, por ejemplo `SELECT … WHERE IsDeleted=1`. |
+| Cambio del nombre de la columna | No compatible. | Admitido, por ejemplo: `SELECT a AS b FROM …`. |
+| Relación | Admitido, por ejemplo: `Account_vod__r.nvs_Country__c`. | No compatible. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Recuperación de datos mediante el uso de una cláusula where en la columna DateTime
 

@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: a41cd658060ef92efb0fc21a98ca616276378c5e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 86d6c77dab817cf755c34bdd699ee1158e852f37
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113861"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42143512"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solución de problemas de replicación de máquinas virtuales de Azure a Azure
 
@@ -148,12 +148,44 @@ Como SuSE Linux usa vínculos simbólicos para mantener una lista de certificado
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Conectividad saliente para direcciones URL o intervalos IP de Site Recovery (código de error 151037 o 151072)
 
-Para que la replicación de Site Recovery funcione, la máquina virtual debe disponer de conectividad saliente a direcciones URL o intervalos IP específicos. Si la máquina virtual está detrás de un firewall o usa reglas de grupo de seguridad de red (NSG) para controlar la conectividad saliente, puede aparecer uno de estos mensajes de error:
+Para que la replicación de Site Recovery funcione, la máquina virtual debe disponer de conectividad saliente a direcciones URL o intervalos IP específicos. Si la máquina virtual está detrás de un firewall o usa reglas de grupo de seguridad de red (NSG) para controlar la conectividad saliente, puede encontrarse alguno de estos problemas.
 
-**Códigos de error** | **Causas posibles:** | **Recomendaciones**
---- | --- | ---
-151037<br></br>**Mensaje**: No se pudo registrar la máquina virtual de Azure en Site Recovery. | -Usa NSG para controlar el acceso de salida en la máquina virtual y los intervalos IP necesarios no están incluidos en la lista de permitidos para dicho acceso.</br></br>-Usa herramientas de firewall de terceros y los intervalos IP o las direcciones URL no están incluidos en lista de permitidos.</br>| - Si usa un proxy de firewall para controlar la conectividad de red de salida en la máquina virtual, asegúrese de que las direcciones URL o los intervalos IP de centro de datos, que son requisito previo, estén incluidos en la lista de permitidos. Para más información, consulte las [instrucciones sobre el proxy de firewall](https://aka.ms/a2a-firewall-proxy-guidance).</br></br>-- Si usa reglas de NSG para controlar la conectividad de red de salida en la máquina virtual, asegúrese de que los intervalos IP de centro de datos, que son requisito previo, estén incluidos en la lista de permitidos. Para más información, consulte la [instrucciones para los grupos de seguridad de red](https://aka.ms/a2a-nsg-guidance).
-151072<br></br>**Mensaje**: error de configuración de Site Recovery. | No se puede establecer la conexión a los puntos de conexión del servicio de Site Recovery. | - Si usa un proxy de firewall para controlar la conectividad de red de salida en la máquina virtual, asegúrese de que las direcciones URL o los intervalos IP de centro de datos, que son requisito previo, estén incluidos en la lista de permitidos. Para más información, consulte las [instrucciones sobre el proxy de firewall](https://aka.ms/a2a-firewall-proxy-guidance).</br></br>-- Si usa reglas de NSG para controlar la conectividad de red de salida en la máquina virtual, asegúrese de que los intervalos IP de centro de datos, que son requisito previo, estén incluidos en la lista de permitidos. Para más información, consulte la [instrucciones para los grupos de seguridad de red](https://aka.ms/a2a-nsg-guidance).
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151037-br"></a>Problema 1: no se pudo registrar la máquina virtual de Azure en Site Recovery (151037) </br>
+- **Causa posible** </br>
+  - Usa grupos de seguridad de red para controlar el acceso de salida en la máquina virtual y los intervalos IP necesarios no están incluidos en la lista de permitidos para ese acceso.
+  - Usa herramientas de firewall de terceros y los intervalos IP o las direcciones URL no están incluidos en lista de permitidos.
+
+
+- **Resolución**
+   - Si usa un proxy de firewall para controlar la conectividad de red de salida en la máquina virtual, asegúrese de que las direcciones URL o los intervalos IP de centro de datos, que son requisito previo, estén incluidos en la lista de permitidos. Para más información, consulte las [instrucciones sobre el proxy de firewall](https://aka.ms/a2a-firewall-proxy-guidance).
+   - Si usa reglas de grupo de seguridad de red para controlar la conectividad de red de salida en la máquina virtual, asegúrese de que los intervalos IP de centro de datos, que son requisito previo, estén incluidos en la lista de permitidos. Para más información, consulte la [instrucciones para los grupos de seguridad de red](https://aka.ms/a2a-nsg-guidance).
+   - Para incluir en la lista de permitidos [las direcciones URL necesarias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) o los [intervalos IP necesarios](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga los pasos del [documento de instrucciones para redes](site-recovery-azure-to-azure-networking-guidance.md).
+
+### <a name="issue-2-site-recovery-configuration-failed-151072"></a>Problema 2: error de configuración de Site Recovery (151072)
+- **Causa posible** </br>
+  - No se puede establecer la conexión a los puntos de conexión del servicio de Site Recovery
+
+
+- **Resolución**
+   - Si usa un proxy de firewall para controlar la conectividad de red de salida en la máquina virtual, asegúrese de que las direcciones URL o los intervalos IP de centro de datos, que son requisito previo, estén incluidos en la lista de permitidos. Para más información, consulte las [instrucciones sobre el proxy de firewall](https://aka.ms/a2a-firewall-proxy-guidance).
+   - Si usa reglas de grupo de seguridad de red para controlar la conectividad de red de salida en la máquina virtual, asegúrese de que los intervalos IP de centro de datos, que son requisito previo, estén incluidos en la lista de permitidos. Para más información, consulte la [instrucciones para los grupos de seguridad de red](https://aka.ms/a2a-nsg-guidance).
+   - Para incluir en la lista de permitidos [las direcciones URL necesarias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) o los [intervalos IP necesarios](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga los pasos del [documento de instrucciones para redes](site-recovery-azure-to-azure-networking-guidance.md).
+
+### <a name="issue-3-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>Problema 3: error de replicación A2A al salir el tráfico mediante el servidor proxy local (151072)
+ - **Causa posible** </br>
+   - La configuración de proxy personalizada no es válida y el agente de Mobility Service de ASR no detectó automáticamente la configuración de proxy de Internet Explorer
+
+
+ - **Resolución**
+  1.    El agente de Mobility Service detecta la configuración de proxy de Internet Explorer en Windows y /etc/environment en Linux.
+  2.  Si prefiere configurar el proxy solo para Mobility Service de ASR, puede proporcionar los detalles de este en ProxyInfo.conf en:</br>
+      - ``/usr/local/InMage/config/`` en ***Linux***
+      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` en ***Windows***
+  3.    ProxyInfo.conf debe tener la configuración de proxy en el siguiente formato INI. </br>
+                   *[proxy]*</br>
+                   *Address=http://1.2.3.4*</br>
+                   *Port=567*</br>
+  4. El agente de Mobility Service de ASR solo admite ***servidores proxy no autenticados***.
 
 ### <a name="fix-the-problem"></a>Corrección del problema
 Para incluir en la lista de permitidos [las direcciones URL necesarias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) o los [intervalos IP necesarios](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga los pasos del [documento de instrucciones para redes](site-recovery-azure-to-azure-networking-guidance.md).
@@ -213,6 +245,20 @@ Para habilitar la replicación en la máquina virtual, el estado de aprovisionam
 - Si **provisioningState** es **Error**, póngase en contacto con soporte técnico con detalles para solucionar el problema.
 - Si **provisioningState** es **Actualizando**, puede que se esté implementando otra extensión. Compruebe si hay operaciones en curso en la máquina virtual, espere a que finalicen y reintente el trabajo **Habilitar replicación** para la recuperación del sitio que presenta el error.
 
+## <a name="unable-to-select-target-virtual-network---network-selection-tab-is-grayed-out"></a>No se puede seleccionar la red virtual de destino: pestaña selección de red atenuada.
+
+**Causa 1: si la máquina virtual está conectada a una red que ya está asignada a una "red de destino".**
+- Si la máquina virtual de origen forma parte de una red virtual y otra máquina virtual de la misma red virtual ya está asignada a una red del grupo de recursos de destino, se deshabilitará la lista desplegable de selección de red de manera predeterminada.
+
+![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
+
+**Causa 2: si ha protegido previamente la máquina virtual mediante Azure Site Recovery y deshabilitado la replicación.**
+ - Deshabilitar la replicación de una máquina virtual no elimina la asignación de red. Debe eliminarse desde el almacén de Recovery Services donde está protegida. </br>
+ Vaya al almacén de Recovery Services > Site Recovery Infrastructure (Infraestructura de Site Recovery) > Asignaciones de red. </br>
+ ![Delete_NW_Mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
+ - La red de destino configurada durante la instalación de la recuperación ante desastres puede cambiarse después, una vez protegida la máquina virtual. </br>
+ ![Modify_NW_mapping](./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png)
+ - Tenga en cuenta que cambiar la asignación de red afecta a todas las máquinas virtuales protegidas que usen esa asignación de red específica.
 
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>Error del servicio de instantáneas de volumen/COM+ (código de error 151025)

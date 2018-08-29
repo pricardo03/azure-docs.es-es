@@ -8,29 +8,27 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/18/2017
+ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 4e9bdfab3abf9545218e80bf79d1b9b5df0cf2ff
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 33614628926e53354db14886530d7ca44da61f0a
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042017"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143081"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Referencia de la sintaxis SQL de Azure Cosmos DB
 
-Azure Cosmos DB admite consultar documentos mediante una instancia de SQL (lenguaje de consulta estructurado) familiar, como gramática, en documentos JSON jerárquicos sin necesidad de esquemas explícitos ni de índices secundarios. En este tema se proporciona documentación de referencia para el lenguaje de consulta SQL, que es compatible con las cuentas de API de SQL.
-
-Para ver un tutorial del lenguaje de consulta SQL, consulte [SQL queries for Azure Cosmos DB](sql-api-sql-query.md) (Consultas SQL para Azure Cosmos DB).  
+Azure Cosmos DB admite consultar documentos mediante una instancia de SQL (lenguaje de consulta estructurado) familiar, como gramática, en documentos JSON jerárquicos sin necesidad de esquemas explícitos ni de índices secundarios. En este tema se proporciona documentación de la sintaxis y de referencia para el lenguaje de consulta SQL, que es compatible con las cuentas de la API de SQL. Para ver un tutorial de las consultas SQL con datos de ejemplo, consulte [Consulta de datos de Azure Cosmos DB](sql-api-sql-query.md).  
   
-Le invitamos a visitar también [Query Playground](http://www.documentdb.com/sql/demo), donde puede probar Azure Cosmos DB y ejecutar consultas SQL en nuestro conjunto de datos.  
+Visite también [Query Playground](http://www.documentdb.com/sql/demo) (Patio de consultas), donde puede probar Azure Cosmos DB y ejecutar consultas SQL en nuestro conjunto de datos.  
   
 ## <a name="select-query"></a>Consulta SELECT  
-Recupera documentos JSON de la base de datos. Es compatible con la evaluación de expresiones, las proyecciones, el filtrado y las combinaciones.  Las convenciones que se usan para describir las instrucciones SELECT se tabulan en la sección de convenciones de sintaxis.  
+Todas las consultas constan de una cláusula SELECT y cláusulas FROM y WHERE opcionales por estándares ANSI-SQL. Normalmente, para cada consulta, se enumera el origen de la cláusula FROM. A continuación, el filtro de la cláusula WHERE se aplica en el origen para recuperar un subconjunto de documentos JSON. Por último, la cláusula SELECT se usa para proyectar los valores JSON solicitados en la lista seleccionada. Las convenciones que se usan para describir las instrucciones SELECT se tabulan en la sección de convenciones de sintaxis. Para ver ejemplos, consulte [Ejemplos de consultas SELECT](sql-api-sql-query.md#SelectClause)
   
 **Sintaxis**  
   
-```
+```sql
 <select_query> ::=  
 SELECT <select_specification>   
     [ FROM <from_specification>]   
@@ -42,17 +40,14 @@ SELECT <select_specification>
   
  Consulte las siguientes secciones para más información sobre las cláusulas:  
   
--   [Cláusula SELECT](#bk_select_query)  
-  
--   [Cláusula FROM](#bk_from_clause)  
-  
--   [Cláusula WHERE](#bk_where_clause)  
-  
+-   [Cláusula SELECT](#bk_select_query)    
+-   [Cláusula FROM](#bk_from_clause)    
+-   [Cláusula WHERE](#bk_where_clause)    
 -   [Cláusula ORDER BY](#bk_orderby_clause)  
   
 Las cláusulas de la instrucción SELECT se deben ordenar como se indicó anteriormente. Se puede omitir cualquiera de las cláusulas opcionales. Pero cuando se usen, deben aparecer en el orden correcto.  
   
-**Orden de procesamiento lógico de la instrucción SELECT**  
+### <a name="logical-processing-order-of-the-select-statement"></a>Orden de procesamiento lógico de la instrucción SELECT  
   
 El orden en que se procesan las cláusulas es el siguiente:  
 
@@ -63,7 +58,7 @@ El orden en que se procesan las cláusulas es el siguiente:
 
 Tenga en cuenta que difiere del orden en que aparecen en la sintaxis. La ordenación es tal que todos los símbolos nuevos introducidos por una cláusula procesada son visibles y pueden utilizarse en las cláusulas que se procesen después. Por ejemplo, las cláusulas WHERE y SELECT pueden acceder a los alias declarados en una cláusula FROM.  
 
-**Comentarios y caracteres de espacio en blanco**  
+### <a name="whitespace-characters-and-comments"></a>Comentarios y caracteres de espacio en blanco  
 
 Todos los caracteres de espacio en blanco que no formen parte de una cadena o identificador entrecomillados no forman parte de la gramática del lenguaje y se omiten durante el análisis.  
 
@@ -74,10 +69,11 @@ El lenguaje de consulta admite comentarios del estilo de T-SQL como
 Aunque los comentarios y los caracteres de espacio en blanco no tienen significado en la gramática, deben utilizarse para separar tokens. Por ejemplo: `-1e5` es un token de un solo número, mientras que `: – 1 e5` es un token de menos seguido por el número 1 y el identificador e5.  
 
 ##  <a name="bk_select_query"></a> Cláusula SELECT  
-Las cláusulas de la instrucción SELECT se deben ordenar como se indicó anteriormente. Se puede omitir cualquiera de las cláusulas opcionales. Pero cuando se usen, deben aparecer en el orden correcto.  
+Las cláusulas de la instrucción SELECT se deben ordenar como se indicó anteriormente. Se puede omitir cualquiera de las cláusulas opcionales. Pero cuando se usen, deben aparecer en el orden correcto. Para ver ejemplos, consulte [Ejemplos de consultas SELECT](sql-api-sql-query.md#SelectClause)
 
 **Sintaxis**  
-```  
+
+```sql
 SELECT <select_specification>  
 
 <select_specification> ::=   
@@ -92,25 +88,25 @@ SELECT <select_specification>
   
  **Argumentos**  
   
- `<select_specification>`  
+- `<select_specification>`  
+
+  Propiedades o valor que se van a seleccionar para los resultados.  
   
- Propiedades o valor que se van a seleccionar para los resultados.  
+- `'*'`  
+
+  Especifica que se debe recuperar el valor sin cambios. En particular, si el valor procesado es un objeto, se recuperarán todas las propiedades.  
   
- `'*'`  
+- `<object_property_list>`  
   
-Especifica que se debe recuperar el valor sin cambios. En particular, si el valor procesado es un objeto, se recuperarán todas las propiedades.  
+  Especifica la lista de propiedades que se recuperan. Los valores devueltos serán objetos con las propiedades especificadas.  
   
- `<object_property_list>`  
+- `VALUE`  
+
+  Especifica que se debe recuperar el valor JSON en lugar del objeto JSON completo. Esto, a diferencia de `<property_list>`, no encapsula el valor proyectado en un objeto.  
   
-Especifica la lista de propiedades que se recuperan. Los valores devueltos serán objetos con las propiedades especificadas.  
-  
-`VALUE`  
-  
-Especifica que se debe recuperar el valor JSON en lugar del objeto JSON completo. Esto, a diferencia de `<property_list>`, no encapsula el valor proyectado en un objeto.  
-  
-`<scalar_expression>`  
-  
-Expresión que representa el valor que hay que calcular. Consulte la sección [Expresiones escalares](#bk_scalar_expressions) para más información.  
+- `<scalar_expression>`  
+
+  Expresión que representa el valor que hay que calcular. Consulte la sección [Expresiones escalares](#bk_scalar_expressions) para más información.  
   
 **Comentarios:**  
   
@@ -118,17 +114,17 @@ La sintaxis `SELECT *` solo es válida si la cláusula FROM ha declarado exactam
   
 Tenga en cuenta que `SELECT <select_list>` y `SELECT *` son código sintáctico y pueden expresarse también mediante instrucciones SELECT sencillas, como se muestra a continuación.  
   
-1.  `SELECT * FROM ... AS from_alias ...`  
+1. `SELECT * FROM ... AS from_alias ...`  
   
-     equivale a:  
+   equivale a:  
   
-     `SELECT from_alias FROM ... AS from_alias ...`  
+   `SELECT from_alias FROM ... AS from_alias ...`  
   
-2.  `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
+2. `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
   
-     equivale a:  
+   equivale a:  
   
-     `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
+   `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
 **Consulte también**  
   
@@ -136,11 +132,11 @@ Tenga en cuenta que `SELECT <select_list>` y `SELECT *` son código sintáctico 
 [Cláusula SELECT](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> Cláusula FROM  
-Especifica el origen o la combinación de orígenes. La cláusula FROM es opcional. Si no se especifica, las demás cláusulas se continuarán ejecutando como si la cláusula FROM proporcionara un documento único.  
+Especifica el origen o la combinación de orígenes. La cláusula FROM es opcional, a menos que el origen se filtre o se proyecte posteriormente en la consulta. El objetivo de esta cláusula es especificar el origen de datos sobre el que debe operar la consulta. Normalmente, toda la recopilación es el origen pero, en su lugar, puede especificarse un subconjunto de la recopilación. Si esta cláusula no se especifica, las demás se continuarán ejecutando como si la cláusula FROM proporcionara un documento único. Para ver ejemplos, consulte [Ejemplos de la cláusula FROM](sql-api-sql-query.md#FromClause)
   
 **Sintaxis**  
   
-```  
+```sql  
 FROM <from_specification>  
   
 <from_specification> ::=   
@@ -160,55 +156,55 @@ FROM <from_specification>
   
 **Argumentos**  
   
-`<from_source>`  
+- `<from_source>`  
   
-Especifica un origen de datos, con o sin alias. Si no se especifica, se deducirá de `<collection_expression>` con las siguientes reglas:  
+  Especifica un origen de datos, con o sin alias. Si no se especifica, se deducirá de `<collection_expression>` con las siguientes reglas:  
   
--   Si la expresión es un nombre de colección, se utilizará collection_name como alias.  
+  -  Si la expresión es un nombre de colección, se utilizará collection_name como alias.  
   
--   Si la expresión es `<collection_expression>`, se utilizará property_name como alias. Si la expresión es un nombre de colección, se utilizará collection_name como alias.  
+  -  Si la expresión es `<collection_expression>`, se utilizará property_name como alias. Si la expresión es un nombre de colección, se utilizará collection_name como alias.  
   
-AS `input_alias`.  
+- AS `input_alias`.  
   
-Especifica que `input_alias` es un conjunto de valores que devuelve la expresión de la colección subyacente.  
+  Especifica que `input_alias` es un conjunto de valores que devuelve la expresión de la colección subyacente.  
  
-`input_alias` IN  
+- `input_alias` IN  
   
-Especifica que `input_alias` debe representar el conjunto de valores obtenidos al recorrer en iteración todos los elementos de las matrices que devuelve la expresión de la colección subyacente. Se omite cualquier valor que la expresión de colección subyacente devuelva que no sea una matriz.  
+  Especifica que `input_alias` debe representar el conjunto de valores obtenidos al recorrer en iteración todos los elementos de las matrices que devuelve la expresión de la colección subyacente. Se omite cualquier valor que la expresión de colección subyacente devuelva que no sea una matriz.  
   
-`<collection_expression>`  
+- `<collection_expression>`  
   
-Especifica la expresión de colección que se usará para recuperar los documentos.  
+  Especifica la expresión de colección que se usará para recuperar los documentos.  
   
-`ROOT`  
+- `ROOT`  
   
-Especifica que debe recuperarse ese documento predeterminado de la colección actualmente conectada.  
+  Especifica que debe recuperarse ese documento predeterminado de la colección actualmente conectada.  
   
-`collection_name`  
+- `collection_name`  
   
-Especifica que debe recuperarse ese documento de la colección indicada. El nombre de la colección debe coincidir con el nombre de la colección conectada actualmente.  
+  Especifica que debe recuperarse ese documento de la colección indicada. El nombre de la colección debe coincidir con el nombre de la colección conectada actualmente.  
   
-`input_alias`  
+- `input_alias`  
   
-Especifica que debe recuperarse ese documento desde otro origen que define el alias proporcionado.  
+  Especifica que debe recuperarse ese documento desde otro origen que define el alias proporcionado.  
   
-`<collection_expression> '.' property_`  
+- `<collection_expression> '.' property_`  
   
-Especifica que debe recuperarse ese documento mediante el acceso a la propiedad `property_name` o el elemento de matriz array_index para todos los documentos que recupera una expresión de colección específica.  
+  Especifica que debe recuperarse ese documento mediante el acceso a la propiedad `property_name` o el elemento de matriz array_index para todos los documentos que recupera una expresión de colección específica.  
   
-`<collection_expression> '[' "property_name" | array_index ']'`  
+- `<collection_expression> '[' "property_name" | array_index ']'`  
   
-Especifica que debe recuperarse ese documento mediante el acceso a la propiedad `property_name` o el elemento de matriz array_index para todos los documentos que recupera una expresión de colección específica.  
+  Especifica que debe recuperarse ese documento mediante el acceso a la propiedad `property_name` o el elemento de matriz array_index para todos los documentos que recupera una expresión de colección específica.  
   
 **Comentarios:**  
   
 Todos los alias proporcionados o deducidos en `<from_source>(` deben ser únicos. La sintaxis de property_name de `<collection_expression>.` es la misma que la de `<collection_expression>' ['"property_name"']'`. Sin embargo, esta última puede usarse si un nombre de propiedad contiene caracteres que no sean identificadores.  
   
-**Manejo de situaciones en las que faltan propiedades o elementos de matriz o en las que hay valores sin definir**  
+### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>control de propiedades que faltan, elementos de matriz que faltan y valores sin definir
   
 Si una expresión de colección accede a propiedades o elementos de matriz y el valor no existe, ese valor se omitirá y no se seguirá procesando.  
   
-**Ámbito de contexto de la expresión de la colección**  
+### <a name="collection-expression-context-scoping"></a>Ámbito de contexto de la expresión de la colección  
   
 El ámbito de las expresiones de colección puede ser de colección o de documento:  
   
@@ -216,11 +212,11 @@ El ámbito de las expresiones de colección puede ser de colección o de documen
   
 -   Una expresión es de ámbito de documento si el origen subyacente de la expresión de colección es el valor `input_alias` introducido anteriormente en la consulta. Esta expresión representa un conjunto de documentos obtenidos al evaluar la expresión de colección en el ámbito de cada documento perteneciente al conjunto asociado a la colección del alias.  El conjunto resultante será una unión de los conjuntos obtenidos al evaluar la expresión de colección para cada uno de los documentos del conjunto subyacente.  
   
-**Combinaciones**  
+### <a name="joins"></a>Combinaciones 
   
-En la versión actual, Azure Cosmos DB admite combinaciones internas. Las funcionalidades de combinación adicionales estarán disponibles próximamente.
+En la versión actual, Azure Cosmos DB admite combinaciones internas. Las funcionalidades de combinación adicionales estarán disponibles próximamente. 
 
-Las combinaciones internas derivan en un producto cruzado completo con los conjuntos participantes en la combinación. El resultado de una combinación de N es un conjunto de tuplas de N elementos, donde cada valor de la tupla se asocia con el conjunto del alias participante en la combinación, accesible mediante una referencia a ese alias en otras cláusulas.  
+Las combinaciones internas derivan en un producto cruzado completo con los conjuntos participantes en la combinación. El resultado de una combinación de N es un conjunto de tuplas de N elementos, donde cada valor de la tupla se asocia con el conjunto del alias participante en la combinación, accesible mediante una referencia a ese alias en otras cláusulas. Para ver ejemplos, consulte [Ejemplos de palabras clave de JOIN](sql-api-sql-query.md#Joins)
   
 La evaluación de la combinación depende del ámbito del contexto de los conjuntos participantes:  
   
@@ -230,13 +226,13 @@ La evaluación de la combinación depende del ámbito del contexto de los conjun
   
  En la versión actual, el procesador de consultas admite un máximo de una expresión de ámbito de colección.  
   
-**Ejemplos de combinaciones:**  
+### <a name="examples-of-joins"></a>Ejemplos de combinaciones  
   
 Observemos la siguiente cláusula FROM: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
  Los orígenes definirán `input_alias1, input_alias2, …, input_aliasN`. Esta cláusula FROM devuelve un conjunto de N tuplas (tupla con N valores). Cada tupla tiene valores generados por sus respectivos conjuntos en iteración de todos los alias de colección.  
   
-*Ejemplo de COMBINACIÓN 1, con 2 orígenes:*  
+**Ejemplo 1**: 2 orígenes  
   
 - `<from_source1>` tendrá ámbito de colección y representa el conjunto {A, B, C}.  
   
@@ -254,7 +250,7 @@ Observemos la siguiente cláusula FROM: `<from_source1> JOIN <from_source2> JOIN
   
     `(A, 1), (A, 2), (B, 3), (C, 4), (C, 5)`  
   
-*Ejemplo de COMBINACIÓN 2, con 3 orígenes:*  
+**Ejemplo 2**: 3 orígenes  
   
 - `<from_source1>` tendrá ámbito de colección y representa el conjunto {A, B, C}.  
   
@@ -278,10 +274,10 @@ Observemos la siguiente cláusula FROM: `<from_source1> JOIN <from_source2> JOIN
   
     (A, 1, 100), (A, 1, 200), (B, 3, 300)  
   
-> [!NOTE]
-> Faltan tuplas para otros valores de `input_alias1` y `input_alias2`, para los cuales `<from_source3>` no devolvió ningún valor.  
+  > [!NOTE]
+  > Faltan tuplas para otros valores de `input_alias1` y `input_alias2`, para los cuales `<from_source3>` no devolvió ningún valor.  
   
-*Ejemplo de COMBINACIÓN 3, con 3 orígenes:*  
+**Ejemplo 3**: 3 orígenes  
   
 - <from_source1> tendrá ámbito de colección y representa el conjunto {A, B, C}.  
   
@@ -307,19 +303,19 @@ Observemos la siguiente cláusula FROM: `<from_source1> JOIN <from_source2> JOIN
   
     (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200), (C, 4, 300), (C, 5, 300)  
   
-> [!NOTE]
-> Esto dio como resultado un producto cruzado entre `<from_source2>` y `<from_source3>`, ya que ambos tienen como ámbito el mismo `<from_source1>`.  Esto dio como resultado 4 (2 x 2) tuplas con valor A, 0 tuplas con valor B (1 x 0) y 2 (2 x 1) tuplas con valor C.  
+  > [!NOTE]
+  > Esto dio como resultado un producto cruzado entre `<from_source2>` y `<from_source3>`, ya que ambos tienen como ámbito el mismo `<from_source1>`.  Esto dio como resultado 4 (2 x 2) tuplas con valor A, 0 tuplas con valor B (1 x 0) y 2 (2 x 1) tuplas con valor C.  
   
 **Consulte también**  
   
  [Cláusula SELECT](#bk_select_query)  
   
 ##  <a name="bk_where_clause"></a> Cláusula WHERE  
- Especifica la condición de búsqueda para los documentos que devuelve la consulta.  
+ Especifica la condición de búsqueda para los documentos que devuelve la consulta. Para ver ejemplos, consulte [Ejemplos de la cláusula WHERE](sql-api-sql-query.md#WhereClause)
   
  **Sintaxis**  
   
-```  
+```sql  
 WHERE <filter_condition>  
 <filter_condition> ::= <scalar_expression>  
   
@@ -340,11 +336,11 @@ WHERE <filter_condition>
  Para que el documento se devuelva, debe establecerse en true una expresión especificada como condición de filtro. Solo un valor booleano true cumplirá la condición, los demás valores: undefined, null, false, número, matriz u objeto, no cumplirán la condición.  
   
 ##  <a name="bk_orderby_clause"></a> Cláusula ORDER BY  
- Especifica el criterio de ordenación para los resultados que devuelve la consulta.  
+ Especifica el criterio de ordenación para los resultados que devuelve la consulta. Para ver ejemplos, consulte [Ejemplos de la cláusula ORDER BY](sql-api-sql-query.md#OrderByClause)
   
  **Sintaxis**  
   
-```  
+```sql  
 ORDER BY <sort_specification>  
 <sort_specification> ::= <sort_expression> [, <sort_expression>]  
 <sort_expression> ::= <scalar_expression> [ASC | DESC]  
@@ -378,13 +374,13 @@ ORDER BY <sort_specification>
  Aunque la gramática de consulta admite varias propiedades para order by, el tiempo de ejecución de consulta de Azure Cosmos DB admite solo la ordenación por una propiedad y únicamente según los nombres de propiedad, es decir, no según las propiedades calculadas. La ordenación también requiere que la directiva de indexación incluya un índice de intervalo para la propiedad y el tipo especificado, con máxima precisión. Consulte la documentación de la directiva de indexación para más detalles.  
   
 ##  <a name="bk_scalar_expressions"></a> Expresiones escalares  
- Una expresión escalar es una combinación de símbolos y operadores que se puede evaluar para obtener un solo valor. Las expresiones simples pueden ser constantes, referencias de propiedad, referencias de elementos de matriz, referencias de alias o llamadas de función. Las expresiones simples se pueden combinar en expresiones complejas con operadores.  
+ Una expresión escalar es una combinación de símbolos y operadores que se puede evaluar para obtener un solo valor. Las expresiones simples pueden ser constantes, referencias de propiedad, referencias de elementos de matriz, referencias de alias o llamadas de función. Las expresiones simples se pueden combinar en expresiones complejas con operadores. Para ver ejemplos, consulte [Ejemplos de expresiones escalares](sql-api-sql-query.md#scalar-expressions)
   
  Para más información sobre los valores que puede tener una expresión escalar, consulte la sección [Constantes](#bk_constants).  
   
  **Sintaxis**  
   
-```  
+```sql  
 <scalar_expression> ::=  
        <constant>   
      | input_alias   
@@ -487,7 +483,7 @@ ORDER BY <sort_specification>
   
  **Operadores unarios:**  
   
-|**Name**|**Operador**|**Detalles**|  
+|**Nombre**|**Operador**|**Detalles**|  
 |-|-|-|  
 |**aritméticos**|+<br /><br /> -|Devuelve el valor numérico.<br /><br /> Negativos bit a bit. Devuelve el valor numérico negativo.|  
 |**bit a bit**|~|Complemento de uno. Devuelve un complemento de un valor numérico.|  
@@ -495,7 +491,7 @@ ORDER BY <sort_specification>
   
  **Operadores binarios:**  
   
-|**Name**|**Operador**|**Detalles**|  
+|**Nombre**|**Operador**|**Detalles**|  
 |-|-|-|  
 |**aritméticos**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Suma.<br /><br /> Resta.<br /><br /> Multiplicación.<br /><br /> División.<br /><br /> Modulación.|  
 |**bit a bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|OR bit a bit.<br /><br /> AND bit a bit.<br /><br /> XOR bit a bit.<br /><br /> Desplazamiento a la izquierda.<br /><br /> Desplazamiento a la derecha.<br /><br /> Desplazamiento a la derecha con relleno de ceros.|  
@@ -550,7 +546,7 @@ ORDER BY <sort_specification>
   
  **Sintaxis**  
   
-```  
+```sql  
 <constant> ::=  
    <undefined_constant>  
      | <null_constant>   
@@ -580,45 +576,45 @@ ORDER BY <sort_specification>
   
  **Argumentos**  
   
-1.  `<undefined_constant>; undefined`  
+* `<undefined_constant>; undefined`  
   
-     Representa un valor sin definir de tipo Undefined.  
+  Representa un valor sin definir de tipo Undefined.  
   
-2.  `<null_constant>; null`  
+* `<null_constant>; null`  
   
-     Representa el valor **null** de tipo **Null**.  
+  Representa el valor **null** de tipo **Null**.  
   
-3.  `<boolean_constant>`  
+* `<boolean_constant>`  
   
-     Representa la constante de tipo booleano.  
+  Representa la constante de tipo booleano.  
   
-4.  `false`  
+* `false`  
   
-     Representa el valor **false** de tipo booleano.  
+  Representa el valor **false** de tipo booleano.  
   
-5.  `true`  
+* `true`  
   
-     Representa el valor **true** de tipo booleano.  
+  Representa el valor **true** de tipo booleano.  
   
-6.  `<number_constant>`  
+* `<number_constant>`  
   
-     Representa una constante.  
+  Representa una constante.  
   
-7.  `decimal_literal`  
+* `decimal_literal`  
   
-     Los literales decimales son números representados mediante notación decimal o científica.  
+  Los literales decimales son números representados mediante notación decimal o científica.  
   
-8.  `hexadecimal_literal`  
+* `hexadecimal_literal`  
   
-     Los literales hexadecimales son números representados mediante el prefijo "0x-" seguido de uno o más dígitos hexadecimales.  
+  Los literales hexadecimales son números representados mediante el prefijo "0x-" seguido de uno o más dígitos hexadecimales.  
   
-9. `<string_constant>`  
+* `<string_constant>`  
   
-     Representa una constante de tipo cadena.  
+  Representa una constante de tipo cadena.  
   
-10. `string _literal`  
+* `string _literal`  
   
-     Los literales de cadena son cadenas Unicode representadas por una secuencia de cero o varios caracteres Unicode o secuencias de escape. Los literales de cadena se encierran entre comillas simples (apóstrofo: ') o comillas dobles (comillas: ").  
+  Los literales de cadena son cadenas Unicode representadas por una secuencia de cero o varios caracteres Unicode o secuencias de escape. Los literales de cadena se encierran entre comillas simples (apóstrofo: ') o comillas dobles (comillas: ").  
   
  Se permiten las secuencias de escape siguientes:  
   
@@ -1854,7 +1850,7 @@ SELECT
 |[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
 |[REPLICATE](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[SUBSTRING](#bk_substring)|  
-|[ToString](#bk_tostring)|[UPPER](#bk_upper)|||  
+|[ToString](#bk_tostring)|[TRIM](#bk_trim)|[UPPER](#bk_upper)||| 
   
 ####  <a name="bk_concat"></a> CONCAT  
  Devuelve una cadena que es el resultado de concatenar dos o más valores de cadena.  
@@ -2440,7 +2436,40 @@ JOIN n IN food.nutrients
 {"nutrientID":"307","nutritionVal":"912"},
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
- ```  
+ ``` 
+ 
+####  <a name="bk_trim"></a> TRIM  
+ Devuelve una expresión de cadena después de quitar los espacios en blanco iniciales y finales.  
+  
+ **Sintaxis**  
+  
+```  
+TRIM(<str_expr>)  
+```  
+  
+ **Argumentos**  
+  
+-   `str_expr`  
+  
+     Es cualquier expresión de cadena válida.  
+  
+ **Tipos de valor devuelto**  
+  
+ Devuelve una expresión de cadena.  
+  
+ **Ejemplos**  
+  
+ En el ejemplo siguiente se muestra cómo utilizar TRIM en una consulta.  
+  
+```  
+SELECT TRIM("   abc"), TRIM("   abc   "), TRIM("abc   "), TRIM("abc")   
+```  
+  
+ El conjunto de resultados es el siguiente:  
+  
+```  
+[{"$1": "abc", "$2": "abc", "$3": "abc", "$4": "abc"}]  
+``` 
 ####  <a name="bk_upper"></a> UPPER  
  Devuelve una expresión de cadena después de convertir datos de caracteres en minúsculas a mayúsculas.  
   

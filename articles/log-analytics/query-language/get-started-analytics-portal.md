@@ -1,6 +1,6 @@
 ---
-title: Introducción al portal de Analytics de Azure Log Analytics | Microsoft Docs
-description: En este artículo se proporciona un tutorial de uso del portal de Analytics para escribir consultas en Log Analytics.
+title: Introducción a la página de Log Analytics en Azure Portal | Microsoft Docs
+description: En este artículo se proporciona un tutorial sobre el uso de la página de Log Analytics para escribir consultas.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6f6916b27aa251bc0a0c25be060378c11faab607
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 493497476fdfe7d96d6f2dde735bab0147e547a7
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39633750"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42147022"
 ---
-# <a name="get-started-with-the-analytics-portal"></a>Introducción al portal de Analytics
+# <a name="get-started-with-the-log-analytics-page-in-the-azure-portal"></a>Introducción a la página de Log Analytics en Azure Portal
 
-En este tutorial aprenderá a usar el portal de Analytics para escribir consultas en Azure Log Analytics. Le mostrará cómo:
+En este tutorial aprenderá a usar la página de Log Analytics en Azure Portal (actualmente en versión preliminar) para escribir consultas de Log Analytics. Le mostrará cómo:
 
 - Escribir consultas sencillas
 - Comprender el esquema de los datos
@@ -35,12 +35,12 @@ En este tutorial aprenderá a usar el portal de Analytics para escribir consulta
 - Exportar y compartir consultas
 
 
-## <a name="meet-the-analytics-portal"></a>Portal de Analytics
-El portal de Analytics es una herramienta web que se utiliza para escribir y ejecutar consultas en Azure Log Analytics. 
+## <a name="meet-the-log-analytics-page"></a>Conocer la página de Log Analytics 
+La página de Log Analytics es una herramienta web que se utiliza para escribir y ejecutar consultas de Azure Log Analytics. Para abrirla, seleccione **Registros (versión preliminar)** en el menú de Log Analytics. Se inicia con una nueva consulta en blanco.
 
 ![Página de inicio](media/get-started-analytics-portal/homepage.png)
 
-La página principal ofrece fácil acceso a recursos útiles, como las consultas guardadas y recientes, y ejemplos. Abra una nueva pestaña para empezar a escribir sus propias consultas.
+
 
 ## <a name="basic-queries"></a>Consultas básicas
 Las consultas se pueden usar para buscar términos, identificar tendencias o analizar patrones y proporcionan muchas otras conclusiones basadas en los datos. Comencemos con una consulta básica:
@@ -83,7 +83,7 @@ Comencemos por obtener todo el contenido de la tabla _Event_.
 Event
 ```
 
-El portal de Analytics establece automáticamente el ámbito de los resultados por:
+La página de Log Analytics establece automáticamente el ámbito de los resultados por:
 
 - Intervalo de tiempo: de forma predeterminada, las consultas se limitan a las últimas 24 horas.
 - Número de resultados: limitado a 10 000 registros como máximo.
@@ -121,7 +121,7 @@ La tabla de resultados incluye a menudo una gran cantidad de columnas. Es posibl
 
 
 ## <a name="select-a-time-range"></a>Selección de un intervalo de tiempo
-De forma predeterminada, en el portal de Analytics se aplica el intervalo de tiempo de las _últimas 24 horas_. Para usar un intervalo diferente, seleccione otro valor mediante el selector de hora y haga clic en **Run** (Ejecutar). Además de los valores preestablecidos, puede usar la opción de _intervalo de tiempo personalizado_ para seleccionar un intervalo absoluto para la consulta.
+De forma predeterminada, en la página de Log Analytics se aplica el intervalo de tiempo de _últimas 24 horas_. Para usar un intervalo diferente, seleccione otro valor mediante el selector de hora y haga clic en **Run** (Ejecutar). Además de los valores preestablecidos, puede usar la opción de _intervalo de tiempo personalizado_ para seleccionar un intervalo absoluto para la consulta.
 
 ![Selector de hora](media/get-started-analytics-portal/time-picker.png)
 
@@ -131,7 +131,7 @@ Si la consulta contiene explícitamente un filtro para _TimeGenerated_, en el t�
 
 
 ## <a name="charts"></a>Gráficos
-Además de devolver los resultados en una tabla, se pueden presentar los resultados de la consulta en formatos visuales. Use la siguiente consulta como ejemplo:
+Además de devolver los resultados de consulta en una tabla, se pueden presentar en formatos visuales. Use la siguiente consulta como ejemplo:
 
 ```OQL
 Event 
@@ -183,7 +183,7 @@ El icono de Explorador de consultas se encuentra en la parte superior derecha. E
 ![Explorador de consultas](media/get-started-analytics-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Exportación y vínculo compartido
-El portal de Analytics admite varios métodos de exportación:
+La página de Log Analytics admite varios métodos de exportación:
 
 - Excel: los resultados se guardan en un archivo CSV.
 - Power BI: los resultados se exportan a Power BI. Consulte [Importación de datos de Azure Log Analytics en Power BI](../log-analytics-powerbi.md) para los detalles.

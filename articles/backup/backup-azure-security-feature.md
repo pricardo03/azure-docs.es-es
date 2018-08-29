@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
-ms.openlocfilehash: 714c8fde28be63e5173f89f92d186445f0990214
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 32eba23202eca1c71c4f3b01dcb364281cb2eb60
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447387"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246693"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup
 Cada vez es mayor la preocupación que generan problemas de seguridad como malware, ransomware e intrusión. Estos problemas de seguridad pueden ser costosos, en términos de dinero y datos. Para protegerse contra dichos ataques, Azure Backup proporciona características de seguridad que protegen las copias de seguridad híbridas. En este artículo se habla de cómo habilitar y usar estas características mediante un agente de Azure Recovery Services y Azure Backup Server. Estas características son:
@@ -80,6 +80,10 @@ Se han agregado comprobaciones para asegurarse de que los usuarios válidos son 
 
 ### <a name="authentication-to-perform-critical-operations"></a>Autenticación para realizar operaciones críticas
 Como parte de la adición de una capa de autenticación adicional para las operaciones críticas, se le solicita que escriba un PIN se seguridad al realizar las operaciones **Detener la protección con eliminación de datos** y **Cambio de la frase de contraseña**.
+
+> [!NOTE]
+
+> Actualmente, no se admite el pin de seguridad para **Detener la protección con eliminación de datos** para DPM y MABS. 
 
 Para recibir este PIN:
 

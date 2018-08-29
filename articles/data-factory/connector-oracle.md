@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 5039399ac875add02319e1a745d99344956c7bee
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: ec0fc11ac2caf421f331a8fe72f1dacdf6b8a702
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860221"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42312170"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copia de datos con Oracle como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,7 @@ En concreto, este conector Oracle admite las versiones siguientes de base de dat
 > [!Note]
 > El servidor proxy de Oracle no se admite.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para copiar datos con una base de datos Oracle como origen o destino que no es accesible públicamente, debe configurar un entorno de ejecución de integración autohospedado. Para más información acerca de un entorno de ejecución de integración, consulte el artículo sobre [Entorno de ejecución de integración autohospedado](create-self-hosted-integration-runtime.md). El entorno de ejecución de integración proporciona un controlador de Oracle integrado. Por tanto, no es necesario instalar manualmente un controlador para copiar datos con Oracle como origen y destino.
 
@@ -58,12 +58,18 @@ Las siguientes propiedades son compatibles con el servicio vinculado Oracle.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type se debe establecer en: **Oracle**. | Sí |
-| connectionString | Especifica la información necesaria para conectarse a la instancia de Oracle Database. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Tipo de conexión que se admite**: para identificar su base de datos, puede usar el **SID de Oracle** o el **nombre de servicio de Oracle**:<br>- Si usa el SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si usa el nombre del servicio: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Sí |
+| Tipo | La propiedad type se debe establecer en: **Oracle**. | SÍ |
+| connectionString | Especifica la información necesaria para conectarse a la instancia de Oracle Database. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Tipo de conexión que se admite**: para identificar su base de datos, puede usar el **SID de Oracle** o el **nombre de servicio de Oracle**:<br>- Si usa el SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si usa el nombre del servicio: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | SÍ |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 >[!TIP]
 >Si aparece un error que dice "ORA-01025: parámetro UPI fuera del intervalo" y tiene la versión 8i de Oracle, agregue `WireProtocolMode=1` a la cadena de conexión y vuelva a intentarlo.
+
+Para habilitar el cifrado en la conexión de Oracle, tiene dos opciones:
+
+1.  En el lado servidor de Oracle, vaya a Oracle Advanced Security (OAS) y realice la configuración de cifrado, que admite el cifrado Triple-DES (3DES) y el Estándar de cifrado avanzado (AES); consulte [aquí](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759) los detalles. El conector de Oracle ADF negocia automáticamente el método de cifrado para usar el que configura en OAS al establecer la conexión con Oracle.
+
+2.  En el lado cliente, puede agregar `EncryptionMethod=1` en la cadena de conexión. En este caso, se usará SSL/TLS como método de cifrado. Para usarlo, debe deshabilitar la configuración de cifrado no SSL en OAS en el lado servidor de Oracle para evitar conflictos de cifrado.
 
 **Ejemplo:**
 
@@ -94,8 +100,8 @@ Para copiar datos con Oracle como origen o destino, establezca la propiedad type
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos se debe establecer en: **OracleTable**. | Sí |
-| tableName |El nombre de la tabla de la base de datos Oracle a la que hace referencia el servicio vinculado. | Sí |
+| Tipo | La propiedad type del conjunto de datos se debe establecer en: **OracleTable**. | SÍ |
+| tableName |El nombre de la tabla de la base de datos Oracle a la que hace referencia el servicio vinculado. | SÍ |
 
 **Ejemplo:**
 
@@ -126,7 +132,7 @@ Para copiar datos desde Oracle, establezca el tipo de origen de la actividad de 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **OracleSource**. | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **OracleSource**. | SÍ |
 | oracleReaderQuery | Use la consulta SQL personalizada para leer los datos. Un ejemplo es `"SELECT * FROM MyTable"`. | Sin  |
 
 Si no se especifica "oracleReaderQuery", las columnas que se definen en la sección "structure" del conjunto de datos se usan para construir una consulta (`select column1, column2 from mytable`) para ejecutarla en la base de datos Oracle. Si la definición del conjunto de datos no tiene la sección "structure", se seleccionan todas las columnas de la tabla.
@@ -169,7 +175,7 @@ Si va a copiar datos en Oracle, establezca el tipo de receptor de la actividad d
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **OracleSink**. | Sí |
+| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **OracleSink**. | SÍ |
 | writeBatchSize | Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize.<br/>Los valores permitidos son: enteros (número de filas). |No (el valor predeterminado es 10 000) |
 | writeBatchTimeout | Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son intervalos de tiempo. Un ejemplo es 00:30:00 (30 minutos). | Sin  |
 | preCopyScript | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Oracle en cada ejecución. Puede usar esta propiedad para limpiar los datos cargados previamente. | Sin  |

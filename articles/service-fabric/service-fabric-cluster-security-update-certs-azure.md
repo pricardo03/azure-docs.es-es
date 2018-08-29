@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: chackdan
-ms.openlocfilehash: 16758cc85b552e82d3daa63893558e1048bcefb8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a1cfd68b526d8ce63fcfbc3b6e0eac84926fabaa
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207560"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143569"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Agregar o quitar certificados para un clúster de Service Fabric de Azure
 Se recomienda leer [Escenarios de seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md) para familiarizarse con cómo Service Fabric usa los certificados X.509. Debe entender qué es un certificado de clúster y para qué se usa antes de seguir avanzando.
+
+El comportamiento de carga de certificado predeterminado del SDK de Azure Service Fabric consiste en implementar y usar un certificado definido con un plazo de validez muy amplio; independientemente de la definición de configuración principal o secundaria. Volver al comportamiento clásico no es una acción avanzada recomendada y requiere establecer el valor del parámetro de configuración "UseSecondaryIfNever" en false en la configuración de Fabric.Code.
 
 Además de los certificados de client, al configurar la seguridad mediante certificados durante la creación del clúster, Service Fabric le permite especificar dos certificados de clúster: uno principal y uno secundario. Consulte el artículo sobre la [creación de un clúster de Service Fabric en Azure Portal](service-fabric-cluster-creation-via-portal.md) o la [creación de un clúster de Azure a través de Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para más información sobre cómo configurarlos en tiempo de creación. Si se especifica un único certificado de clúster en tiempo de creación, este se utilizará como el certificado principal. Después de la creación del clúster, puede agregar un nuevo certificado como elemento secundario.
 
@@ -34,17 +36,12 @@ Además de los certificados de client, al configurar la seguridad mediante certi
 ## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Incorporación de un certificado de clúster secundario mediante el portal
 No se pueden agregar certificados de clúster secundarios mediante Azure Portal; en su lugar, use Azure PowerShell. El proceso se describe más adelante en este documento.
 
-## <a name="swap-the-cluster-certificates-using-the-portal"></a>Intercambio de los certificados de clúster mediante el portal
-Después de implementar correctamente un certificado de clúster secundario, si desea intercambiar los certificados principales y secundarios, vaya a la sección Seguridad y, en el menú contextual, seleccione "Intercambiar con principal" para intercambiar el certificado secundario con el certificado principal.
-
-![Intercambiar certificado][Delete_Swap_Cert]
-
 ## <a name="remove-a-cluster-certificate-using-the-portal"></a>Eliminación de un certificado de clúster mediante el portal
-Para que un clúster sea seguro, siempre deberá tener implementado al menos un certificado principal o secundario válido (no revocado ni caducado), o el clúster dejará de funcionar.
+Para un clúster seguro, siempre necesitará al menos un certificado válido (no revocado ni caducado). Se utilizará el certificado implementado con el plazo de validez mayor y eliminarlo hará que el clúster deje de funcionar; asegúrese de solo eliminar el certificado caducado o el que no se use y caduque antes.
 
-Para quitar un certificado secundario y dejar de usarlo para la seguridad del clúster, vaya a la sección Seguridad y seleccione “Eliminar” en el menú contextual del certificado secundario.
+Para eliminar un certificado de seguridad sin usar, vaya a la sección Seguridad y seleccione la opción "Eliminar" en el menú contextual del certificado sin usar.
 
-Si su intención es quitar el certificado que está marcado como principal, debe intercambiarlo primero con el certificado secundario y, después, eliminar la base de datos secundaria una vez completada la actualización.
+Si su intención es eliminar el certificado marcado como principal, deberá implementar uno secundario con un plazo de validez mayor que el del certificado principal para permitir la sustitución automática; una vez completada la sustitución automática, quite el certificado principal.
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Incorporación de un certificado secundario mediante Powershell para Resource Manager
 > [!TIP]
@@ -295,7 +292,6 @@ Lea estos artículos para más información sobre la administración de clúster
 * [Control de acceso basado en roles para clientes de Service Fabric](service-fabric-cluster-security-roles.md)
 
 <!--Image references-->
-[Delete_Swap_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_09.PNG
 [Add_Client_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_13.PNG
 [Json_Pub_Setting1]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_14.PNG
 [Json_Pub_Setting2]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_15.PNG

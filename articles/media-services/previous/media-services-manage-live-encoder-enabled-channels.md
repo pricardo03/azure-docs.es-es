@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: f4b57241085381f4b975c07038b41133b8a4319b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 008fac84eedfd58cbcfe563504a50bc19d519382
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436198"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246792"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple
 
@@ -45,7 +45,7 @@ A partir de la versión 2.10 de Media Services, al crear un canal, puede especif
 > [!NOTE]
 > En este tema se describen los atributos de los canales habilitados para realizar la codificación en directo (tipo de codificación**Estándar** ). Para más información sobre cómo trabajar con canales no habilitados para realizar la codificación en directo, consulte [Transmisión en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md).
 > 
-> Asegúrese de revisar la sección [Consideraciones](media-services-manage-live-encoder-enabled-channels.md#Considerations).
+> Asegúrese de revisar la sección [Consideraciones](media-services-manage-live-encoder-enabled-channels.md#Considerations) .
 > 
 > 
 
@@ -164,7 +164,7 @@ Las mismas aplicables al apartado [RTMP de una sola velocidad de bits](media-ser
 ### <a name="ingest-urls-endpoints"></a>Direcciones URL de ingesta (extremos)
 Un canal proporciona un extremo de entrada (dirección URL de ingesta) que usted especifica en el codificador en directo, de modo que el codificador puede insertar secuencias en sus canales.
 
-Puede obtener las direcciones URL de ingesta al crear un canal. Para obtener estas direcciones URL, el canal no puede encontrarse en el estado **En ejecución**. Cuando esté listo para comenzar a insertar datos en el canal, este debe estar **En ejecución**. Una vez que el canal empieza a consumir datos, puede obtener una vista previa de la secuencia a través de la dirección URL de vista previa.
+Puede obtener las direcciones URL de ingesta al crear un canal. Para obtener estas direcciones URL, el canal no puede encontrarse en el estado **En ejecución** . Cuando esté listo para comenzar a insertar datos en el canal, este debe estar **En ejecución** . Una vez que el canal empieza a consumir datos, puede obtener una vista previa de la secuencia a través de la dirección URL de vista previa.
 
 Tiene la opción de consumir una secuencia en directo de MP4 fragmentado (Smooth Streaming) a través de una conexión SSL. Para introducir en SSL, asegúrese de actualizar la dirección URL de introducción a HTTPS. Tenga en cuenta que, actualmente, AMS no admite SSL con dominios personalizados.  
 
@@ -177,7 +177,7 @@ Si no se especifican direcciones IP y no hay ninguna definición de regla, no se
 ### <a name="preview-urls"></a>Direcciones URL de vista previa
 Los canales proporcionan un extremo de vista previa (dirección URL de vista previa) que se puede utilizar para obtener una vista previa y validar la secuencia antes de mayor procesamiento y entrega.
 
-Puede obtener la dirección URL de vista previa al crear el canal. Para obtenerla, el canal no puede encontrarse en el estado **En ejecución**.
+Puede obtener la dirección URL de vista previa al crear el canal. Para obtenerla, el canal no puede encontrarse en el estado **En ejecución** .
 
 Una vez que el canal empieza a consumir datos, puede obtener una vista previa de la secuencia.
 
@@ -228,7 +228,8 @@ Tenga en cuenta que, si necesita valores preestablecidos personalizados, debe po
 | 200 |340 |192 |30 |Línea base |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Secuencia de audio de salida
-El audio se codifica como estéreo AAC-LC a 64 kbps, con una frecuencia de muestreo de 44,1 kHz.
+
+El audio se codifica como estéreo AAC-LC a 128 kbps, con una frecuencia de muestreo de 48 kHz.
 
 ## <a name="signaling-advertisements"></a>Señalización de anuncios
 Si el canal tiene habilitado Live Encoding, dispone de un componente en la canalización de procesamiento de vídeo y puede manipularlo. Puede señalar que el canal inserte pizarras o anuncios en la secuencia de velocidad de bits adaptable saliente. Las pizarras son imágenes estáticas que puede usar para cubrir la fuente de entrada directa en determinados casos (por ejemplo, durante una pausa comercial). Las señales de anuncio son señales sincronizadas temporalmente que se insertan en la secuencia saliente para indicar al reproductor de vídeo que realice una acción determinada, por ejemplo, cambiar a un anuncio en el momento adecuado. Consulte este [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) para obtener información general sobre el mecanismo de señalización SCTE-35 usado para este fin. A continuación se muestra un escenario típico que puede implementar en el evento en directo.
@@ -281,7 +282,7 @@ Si no se especifica el **identificador del recurso de pizarra predeterminado** y
 ## <a name="channels-programs"></a>Programas del canal
 Un canal está asociado a programas que le permiten controlar la publicación y el almacenamiento de segmentos en una secuencia en directo. Los canales administran los programas. La relación entre canales y programas es muy similar a los medios tradicionales, donde un canal tiene un flujo constante de contenido y un programa se enfoca a algún evento programado en dicho canal.
 
-Puede especificar la cantidad de horas que desea conservar el contenido grabado del programa en la configuración de la duración de **Ventana de archivo**. Este valor se puede establecer desde un mínimo de cinco minutos a un máximo de 25 horas. La duración de la ventana de archivo también indica el tiempo máximo que los clientes pueden buscar hacia atrás a partir de la posición en vivo actual. Los programas pueden transmitirse durante la cantidad de tiempo especificada, pero el contenido que escape de esa longitud de ventana se descartará continuamente. El valor de esta propiedad también determina durante cuánto tiempo los manifiestos de cliente pueden crecer.
+Puede especificar la cantidad de horas que desea conservar el contenido grabado del programa en la configuración de la duración de **Ventana de archivo** . Este valor se puede establecer desde un mínimo de cinco minutos a un máximo de 25 horas. La duración de la ventana de archivo también determina el número máximo de veces que los clientes pueden buscar hacia atrás a partir de la posición en directo actual. Los programas pueden transmitirse durante la cantidad de tiempo especificada, pero el contenido que escape de esa longitud de ventana se descartará continuamente. El valor de esta propiedad también determina durante cuánto tiempo los manifiestos de cliente pueden crecer.
 
 Cada programa se asocia a un recurso que almacena el contenido transmitido por streaming. Un recurso se asigna a un contenedor de blobs en bloques de la cuenta de Azure Storage y los archivos del recurso se almacenan como blobs en ese contenedor. Para publicar el programa a fin de que los clientes puedan ver la secuencia, debe crear un localizador a petición para el recurso asociado. Contar con este localizador le permitirá crear una dirección URL de streaming que puede proporcionar a sus clientes.
 

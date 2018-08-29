@@ -128,31 +128,6 @@
 #### [Registro para el autoservicio de restablecimiento de contraseñas](user-help/active-directory-passwords-reset-register.md)
 
 
-## Administración de dispositivos
-### [Información general](devices/overview.md)
-
-### Guías de inicio rápido
-#### [Configuración de dispositivos con Windows 10 registrados en Azure AD](user-help/device-management-azuread-registered-devices-windows10-setup.md)
-#### [Configuración de dispositivos unidos a Azure AD](user-help/device-management-azuread-joined-devices-setup.md)
-
-### Tutoriales
-#### [Configuración de dispositivos híbridos unidos a Azure AD para dominios administrados](devices/hybrid-azuread-join-managed-domains.md)
-#### [Configuración de dispositivos híbridos unidos a Azure AD para dominios federados](devices/hybrid-azuread-join-federated-domains.md)
-#### [Configuración de dispositivos híbridos unidos a Azure AD manualmente](devices/hybrid-azuread-join-manual-steps.md)
-#### [Configuración de Azure AD durante la primera ejecución de Windows 10](devices/azuread-joined-devices-frx.md)
-
-### Guías de procedimientos
-#### [Planeación de la unión a Azure AD](devices/azureadjoin-plan.md)
-#### [Planeación de la implementación de la unión a Azure AD híbrido](devices/hybrid-azuread-join-plan.md)
-#### [Control de la unión a Azure AD híbrido de los dispositivos](devices/hybrid-azuread-join-control.md)
-#### [Asignación de administradores locales en dispositivos unidos a Azure AD](devices/assign-local-admin.md)
-#### [Solución de problemas de dispositivos actuales de Windows unidos a Azure AD híbrido](devices/troubleshoot-hybrid-join-windows-current.md)
-#### [Solución de problemas de dispositivos heredados de Windows unidos a Azure AD híbrido](devices/troubleshoot-hybrid-join-windows-legacy.md)
-
-### Conceptos
-#### [Administración de dispositivos con Azure Portal](devices/device-management-azure-portal.md)
-#### [Preguntas más frecuentes](devices/faq.md)
-
 ## Administración de aplicaciones
 ### [Información general](manage-apps/what-is-application-management.md)
 ### [Introducción](manage-apps/plan-an-application-integration.md)

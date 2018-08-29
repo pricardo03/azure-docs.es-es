@@ -9,18 +9,18 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: ca4754514ba5012f7e9e28981d0869d174561fb3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6eb559f8971583afe9619fb41fe331bd3013bb69
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381307"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41929806"
 ---
 # <a name="use-the-anomaly-finder-api-with-ruby"></a>Uso de Anomaly Finder API con Ruby
 
 En este artículo se ofrece información y ejemplos de código para ayudarle a comenzar a usar rápidamente Anomaly Finder API con Ruby para realizar la tarea de obtener resultados de detección de anomalías en los datos de serie temporal.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
@@ -28,7 +28,9 @@ En este artículo se ofrece información y ejemplos de código para ayudarle a c
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
 ### <a name="example-of-time-series-data"></a>Ejemplo de datos de series temporales
-Este es el ejemplo de los puntos de datos de series temporales, [!INCLUDE [Request](../includes/request.md)]
+Este es el ejemplo de los puntos de datos de series temporales:
+
+[!INCLUDE [Request](../includes/request.md)]
 
 ### <a name="analyze-data-and-get-anomaly-points-ruby-example"></a>Ejemplo de análisis de datos y obtención de puntos de anomalías en Ruby
 

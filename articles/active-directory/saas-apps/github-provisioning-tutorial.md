@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: d3b2f8860f5b8ddd2cc53d8805b7eace788e73a7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ff22ad4f8abae019591150dd9a8ea2cd4ca4e5d9
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230546"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143061"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configuración de GitHub para aprovisionar usuarios automáticamente
 
 
 El objetivo de este tutorial es explicar los pasos que hay que realizar en GitHub y Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD en GitHub. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -80,7 +80,7 @@ Esta sección lo guía a través de los pasos necesarios para conectar la API de
 
     ![Cuadro de diálogo de autorización](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. En Azure Portal, escriba la **dirección URL del inquilino** y haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación de GitHub. Si la conexión no se establece, asegúrese de que la cuenta de GitHub tiene permisos de administrador y de que la **dirección URL del inquilino** se escribió correctamente; luego repita el paso "Autorizar" (puede constituir la **dirección URL de inquilino** con la regla: "https://api.github.com/scim/v2/organizations/ + <Nombre_de_organizaciones>", puede encontrar las organizaciones en la cuenta de GitHub: **Configuración** > **Organizaciones**).
+7. En Azure Portal, escriba la **dirección URL del inquilino** y haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación de GitHub. Si la conexión no se establece, asegúrese de que la cuenta de GitHub tiene permisos de administrador y de que la **dirección URL del inquilino** se escribió correctamente; luego repita el paso "Autorizar" (puede constituir la **dirección URL de inquilino** con la regla: `https://api.github.com/scim/v2/<Organizations_name>`, puede encontrar las organizaciones en la cuenta de GitHub: **Configuración** > **Organizaciones**).
 
     ![Cuadro de diálogo de autorización](./media/github-provisioning-tutorial/GitHub3.png)
 

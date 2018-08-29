@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 321d70a04e3c524e578a01e8531d63733d088c3f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7704e08246798108aa251c19a4ab0c3baaaad570
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444191"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143287"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Lenguaje de consulta de IoT Hub para dispositivos y módulos gemelos, trabajos y enrutamiento de mensajes
 
@@ -309,7 +309,7 @@ Actualmente, las consultas en **devices.jobs** no admiten:
 
 Con las [rutas de dispositivo a la nube][lnk-devguide-messaging-routes], puede configurar IoT Hub para enviar mensajes de dispositivo a la nube en diferentes puntos de conexión. El envío se basa en expresiones evaluadas en mensajes individuales.
 
-La ruta [condición][lnk-query-expressions] utiliza el mismo lenguaje de consultas de IoT Hub como condiciones en consultas gemelas y de trabajo. Las condiciones de enrutamiento se evalúan en el cuerpo y los encabezados del mensaje. La expresión de consulta de enrutamiento puede implicar solo los encabezados del mensaje, solo el cuerpo del mensaje o ambos. IoT Hub da por supuesto un esquema específico de los encabezados y el cuerpo del mensaje para poder llevar a cabo el enrutamiento de los mensajes. En las siguientes secciones se describe qué necesita IoT Hub para enrutar elementos correctamente.
+La [condición][lnk-query-expressions] de ruta usa la sintaxis del lenguaje de consulta de IoT Hub como condiciones en las consultas gemelas y de trabajo, pero solo un subconjunto de las funciones está disponible. Las condiciones de enrutamiento se evalúan en el cuerpo y los encabezados del mensaje. La expresión de consulta de enrutamiento puede implicar solo los encabezados del mensaje, solo el cuerpo del mensaje o tanto los encabezados como el cuerpo del mensaje. IoT Hub da por supuesto un esquema específico para los encabezados y el cuerpo del mensaje con el fin de enrutar mensajes, y las secciones siguientes describen los elementos que se necesitan para que IoT Hub realice correctamente el enrutamiento.
 
 ### <a name="routing-on-message-headers"></a>Enrutamiento en los encabezados del mensaje
 

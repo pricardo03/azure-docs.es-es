@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 04502e80cea096ce384f97559bc7bad95ee2bcd8
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e034d6c57c619ea74003f531d3309f7da17210b0
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344106"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143759"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de Azure Queue Storage para Azure Functions
 
@@ -54,6 +54,7 @@ Vea el ejemplo específico del lenguaje:
 * [C#](#trigger---c-example)
 * [Script de C# (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---Java-example)
 
 ### <a name="trigger---c-example"></a>Desencadenador: ejemplo de C#
 
@@ -166,6 +167,22 @@ module.exports = function (context) {
 ```
 
 En la sección acerca del [uso](#trigger---usage) se explica `myQueueItem`, que recibe el nombre de la propiedad `name` de function.json.  En la [sección de metadatos del mensaje](#trigger---message-metadata) se explican el resto de variables que se muestran.
+
+### <a name="trigger---java-example"></a>Desencadenador: ejemplo de Java
+
+En el siguiente ejemplo de Java se muestra una función de desencadenador de cola de almacenamiento que registra el mensaje desencadenado que se pone en la cola `myqueuename`.
+ 
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
 
 ## <a name="trigger---attributes"></a>Desencadenador: atributos
  
@@ -299,6 +316,7 @@ Vea el ejemplo específico del lenguaje:
 * [C#](#output---c-example)
 * [Script de C# (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output---java-example)
 
 ### <a name="output---c-example"></a>Salida: ejemplo de C#
 
@@ -428,6 +446,25 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+### <a name="output---java-example"></a>Salida: ejemplo de Java
+
+ En el ejemplo siguiente se muestra una función de Java que crea un mensaje de cola cuando una solicitud HTTP la desencadena.
+
+```java
+@FunctionName("httpToQueue")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "AzureWebJobsStorage")
+ public String pushToQueue(
+     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+     final String message,
+     @HttpOutput(name = "response") final OutputBinding&lt;String&gt; result) {
+       result.setValue(message + " has been added.");
+       return message;
+ }
+ ```
+
+En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@QueueOutput` en los parámetros cuyo valor se escribiría en Queue Storage.  El parámetro type debe ser `OutputBinding<T>`, donde T es cualquier tipo nativo de Java de un POJO.
+
 
 ## <a name="output---attributes"></a>Salida: atributos
  

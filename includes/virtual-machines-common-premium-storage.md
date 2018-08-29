@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 4c14bfbad58849acefdc8c3a5513f681aba84ab8
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e6a2493b0bc9e2b4c9695e29ae0c175dac9814fe
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37909954"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40237982"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Discos administrados y Premium Storage de alto rendimiento para VM
 Azure Premium Storage le ofrece soporte de disco de alto rendimiento y latencia baja para máquinas virtuales (VM) con cargas de trabajo intensivas de entrada/salida (E/S). Los discos de VM que usan Premium Storage almacenan los datos en unidades de estado sólido (SSD). Para aprovechar la ventaja de la velocidad y el rendimiento de discos de Premium Storage, puede migrar los discos de VM existentes a Premium Storage.
@@ -52,7 +52,7 @@ Aquí se muestran algunas de las características de Premium Storage:
 
 * **Discos de Premium Storage**
 
-    Premium Storage es compatible con discos de VM que se pueden adjuntar a VM de series de tamaño específico. Premium Storage admite una amplia variedad de máquinas virtuales de Azure. Puede elegir entre siete tamaños de disco:  P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Los tamaños de disco P4 y P6 siguen admitiéndose solo para Managed Disks. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM. En [Objetivos de rendimiento y escalabilidad de Premium Storage](#scalability-and-performance-targets) se describen las especificaciones más detalladamente.
+    Premium Storage es compatible con discos de VM que se pueden adjuntar a VM de series de tamaño específico. Premium Storage admite una amplia variedad de máquinas virtuales de Azure. Puede elegir entre siete tamaños de disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P15 (256 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Los tamaños de disco P4 y P6 siguen admitiéndose solo para Managed Disks. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM. En [Objetivos de rendimiento y escalabilidad de Premium Storage](#scalability-and-performance-targets) se describen las especificaciones más detalladamente.
 
 * **Blobs en páginas Premium**
 
@@ -150,7 +150,7 @@ Para más información, consulte [Objetivos de escalabilidad y rendimiento de Az
 Si usa cuentas de Premium Storage para los discos no administrados y la aplicación supera los objetivos de escalabilidad de una cuenta de almacenamiento individual, es posible que quiera migrar a Managed Disks. Si no desea migrar a Managed Disks, compile la aplicación para que use varias cuentas de almacenamiento. A continuación, divida los datos en esas cuentas de almacenamiento. Por ejemplo, si desea asociar discos de 51 TB entre varias VM, distribúyalos entre dos cuentas de almacenamiento. 35 TB es el límite de una cuenta de Premium Storage única. Asegúrese de que una sola cuenta de Premium Storage nunca tenga más de 35 TB de discos aprovisionados.
 
 ### <a name="premium-storage-disk-limits"></a>Límites de discos de Premium Storage
-Cuando se aprovisiona un disco de Premium Storage, el tamaño del disco determina los valores máximos de IOPS y rendimiento (ancho de banda). Azure ofrece siete tipos de discos de Premium Storage: P4 (solo Managed Disks), P6 (solo Managed Disks), P10, P20, P30, P40 y P50. Cada tipo de disco de Premium Storage tiene límites específicos de E/S por segundo y rendimiento. Los límites de los tipos de disco se describen en la siguiente tabla.
+Cuando se aprovisiona un disco de Premium Storage, el tamaño del disco determina los valores máximos de IOPS y rendimiento (ancho de banda). Azure ofrece ocho tipos de discos de Premium Storage: P4 (solo Managed Disks), P6 (solo Managed Disks), P10, P15, P20, P30, P40 y P50. Cada tipo de disco de Premium Storage tiene límites específicos de E/S por segundo y rendimiento. Los límites de los tipos de disco se describen en la siguiente tabla.
 
 | Tipo de discos Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|

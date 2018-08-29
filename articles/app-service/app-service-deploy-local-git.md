@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: 0f6a0e2fe3aa632137392efe806aaab265eedf10
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f461a9a7cc900ce5f8fdba7b255417b1790d3f4d
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435549"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42143172"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementación de Git local a Azure App Service
 
@@ -124,7 +124,7 @@ En la página **Configurar**, configure una nueva cuenta VSTS o especifique una 
 
 En la página **Probar**, elija si desea habilitar las pruebas de carga y, después, haga clic en **Continuar**.
 
-En función del [plan de tarifa](/pricing/details/app-service/plans/) de App Service, también puede ver una página **Implementar en el almacenamiento provisional**. Elija si desea habilitar ranuras de implementación y después haga clic en **Continuar**.
+En función del [plan de tarifa](https://azure.microsoft.com/pricing/details/app-service/plans/) de App Service, también puede ver una página **Implementar en el almacenamiento provisional**. Elija si desea habilitar ranuras de implementación y después haga clic en **Continuar**.
 
 En la página **Resumen**, verifique las opciones y haga clic en **Finalizar**.
 
@@ -138,7 +138,7 @@ En la _ventana del terminal local_, agregue una instancia remota de Azure al rep
 git remote add vsts <url>
 ```
 
-Inserte en la instancia remota de Azure para implementar la aplicación con el comando siguiente. Cuando se lo solicite el Administrador de credenciales de GIT, inicie sesión con su usuario de visualstudio.com. Para consultar métodos de autenticación adicionales, vea la [información general sobre la autenticación en VSTS](/vsts/git/auth-overview?view=vsts).
+Inserte en la instancia remota de Azure para implementar la aplicación con el comando siguiente. Cuando se lo solicite el Administrador de credenciales de GIT, inicie sesión con su usuario de visualstudio.com. Para métodos de autenticación adicionales, consulte la [Introducción a la autenticación VSTS](/vsts/git/auth-overview?view=vsts).
 
 ```bash
 git push vsts master

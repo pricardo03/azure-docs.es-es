@@ -5,18 +5,24 @@ author: dalekoetke
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/31/2018
+ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: edfcc244105403ae33251777c560d4cc21dfe5cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 35e7d36043defd236252f86facf4b9e2ed945d67
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264289"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146826"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Supervisión del uso y costos estimados
+
+> [!NOTE]
+> En este artículo se describe cómo ver el uso y los costos estimados a través de varias características de supervisión de Azure para los distintos modelos de precios.  Consulte los artículos siguientes para obtener información relacionada.
+> - En [Administración de los costos mediante el control del volumen de datos y la retención en Log Analytics](../log-analytics/log-analytics-manage-cost-storage.md) se describe cómo controlar los costos al cambiar el período de retención de datos.
+> - En [Análisis del uso de datos en Log Analytics](../log-analytics/log-analytics-usage.md) se describe cómo analizar y alertar sobre el uso de datos.
+> - En [Administración de precios y volúmenes de datos de Application Insights](../application-insights/app-insights-pricing.md) se describe cómo analizar el uso de datos en Application Insights.
 
 En el centro Monitor de Azure Portal, la página **Uso y costos estimados** explica el uso de características de supervisión principales como [alertas, métricas, notificaciones](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) y [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Para los clientes en los planes de precios disponibles antes de abril de 2018, esto también incluye el uso de Log Analytics adquirido a través de la oferta Insights y Analytics.
 

@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 08/16/2018
 ms.author: douglasl
-ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448448"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144451"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integración e implementación continuas en Azure Data Factory
 
@@ -47,6 +47,10 @@ Esta acción abrirá Azure Portal, donde puede importar la plantilla exportada. 
 Seleccione **Cargar archivo** para seleccionar la plantilla de Resource Manager exportada y proporcione todos los valores de configuración (por ejemplo, los servicios vinculados).
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
+
+**Cadenas de conexión**. Puede encontrar la información necesaria para crear cadenas de conexión en los artículos sobre los conectores individuales. Por ejemplo, para Azure SQL Database, consulte [Copia de datos con una instancia de Azure SQL Database como origen o destino mediante Azure Data Factory](connector-azure-sql-database.md). Para comprobar la cadena de conexión correcta, por ejemplo, para un servicio vinculado, también puede abrir la vista de código para el recurso en la interfaz de usuario de Data Factory. En la vista de código, sin embargo, la parte de contraseña o clave de cuenta de la cadena de conexión se ha quitado. Para abrir la vista de código, seleccione el icono resaltado en la captura de pantalla siguiente.
+
+![Apertura de la vista de código para ver la cadena de conexión](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Ciclo de vida de la integración continua
 El siguiente es el ciclo de vida completo de la integración y la implementación continuas que puede utilizar después de habilitar la integración de GIT de VSTS en la interfaz de usuario de Data Factory:
@@ -174,11 +178,7 @@ Puede producirse un error en la implementación si intenta actualizar desencaden
 
 Puede seguir los mismos pasos y utilizar un código similar (con la función `Start-AzureRmDataFactoryV2Trigger`) para reiniciar los desencadenadores después de la implementación.
 
-## <a name="sample-template-and-script"></a>Plantilla y script de ejemplo
-A continuación se incluyen dos ejemplos que puede usar para empezar a trabajar con la integración y la implementación continuas para Data Factory:
-
--   Una plantilla de implementación de ejemplo que se puede importar en VSTS.
--   Un script de ejemplo para detener desencadenadores antes de la implementación y reiniciarlos posteriormente. El script también incluye el código para eliminar recursos que se han quitado.
+## <a name="sample-deployment-template"></a>Plantilla de implementación de ejemplo
 
 La siguiente es una plantilla de implementación de ejemplo que se puede importar en VSTS.
 
@@ -718,7 +718,9 @@ La siguiente es una plantilla de implementación de ejemplo que se puede importa
 }
 ```
 
-Este es un script de ejemplo para detener desencadenadores antes de la implementación y reiniciarlos posteriormente:
+## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Script de ejemplo para detener y reiniciar los desencadenadores y limpiar
+
+Este es un script de ejemplo para detener los desencadenadores antes de la implementación y reiniciarlos después. El script también incluye código para eliminar recursos que se han quitado.
 
 ```powershell
 param

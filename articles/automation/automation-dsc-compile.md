@@ -9,12 +9,12 @@ ms.author: dacoulte
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6f4f3939b1e8fc50c1a942498d7f90d6e0db0633
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 03b22e3a4c2c0b8eb87ee0b61edba3c6f0923170
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003101"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443822"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilación de configuraciones de DSC en Azure Automation State Configuration
 
@@ -55,7 +55,9 @@ Puede usar [`Start-AzureRmAutomationDscCompilationJob`](/powershell/module/azure
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
 ```
 
-`Start-AzureRmAutomationDscCompilationJob` devuelve un objeto de trabajo de compilación que puede usar para realizar el seguimiento de su estado. A continuación, puede usar dicho objeto de trabajo de compilación con [`Get-AzureRmAutomationDscCompilationJob`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob) para determinar el estado del trabajo de compilación y [`Get-AzureRmAutomationDscCompilationJobOutput`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput) para ver sus transmisiones (salida). El código de ejemplo siguiente inicia la compilación de la configuración **SampleConfig** , espera hasta que finalice y, a continuación, muestra sus flujos.
+`Start-AzureRmAutomationDscCompilationJob` devuelve un objeto de trabajo de compilación que puede usar para realizar el seguimiento de su estado. A continuación, puede usar este objeto de trabajo de compilación con [`Get-AzureRmAutomationDscCompilationJob`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob)
+para determinar el estado del trabajo de compilación, y [`Get-AzureRmAutomationDscCompilationJobOutput`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput)
+para ver sus flujos de datos (salida). El código de ejemplo siguiente inicia la compilación de la configuración **SampleConfig** , espera hasta que finalice y, a continuación, muestra sus flujos.
 
 ```powershell
 $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
@@ -233,8 +235,7 @@ Las referencias de recursos son las mismas en Azure Automation State Configurati
 
 ### <a name="credential-assets"></a>Recursos de credenciales
 
-Las configuraciones de DSC en Azure Automation pueden hacer referencia a los activos de credenciales de Automation mediante el uso de `Get-AzureRmAutomationCredential`. Si una configuración tiene un parámetro con el tipo **PSCredential**, puede usar el cmdlet `Get-AutomationRmAutomationCredential` pasando el nombre de cadena de un activo de credencial de Azure Automation al cmdlet para recuperar la credencial. Luego puede usar ese objeto para el parámetro que requiere el objeto **PSCredential**. En segundo plano, se recuperará el recurso de credenciales de Azure Automation con ese nombre y se pasará a la configuración.
-El ejemplo siguiente muestra esto en acción.
+Las configuraciones de DSC en Azure Automation pueden hacer referencia a los activos de credenciales de Automation mediante el uso de `Get-AzureRmAutomationCredential`. Si una configuración tiene un parámetro con el tipo **PSCredential**, puede usar el cmdlet `Get-AutomationRmAutomationCredential` pasando el nombre de cadena de un activo de credencial de Azure Automation al cmdlet para recuperar la credencial. Luego puede usar ese objeto para el parámetro que requiere el objeto **PSCredential**. En segundo plano, se recuperará el recurso de credenciales de Azure Automation con ese nombre y se pasará a la configuración. El ejemplo siguiente muestra esto en acción.
 
 Mantener las credenciales seguras en configuraciones de nodo (documentos de configuración MOF) exige el cifrado de las credenciales en el archivo MOF de configuración de nodo. Sin embargo, actualmente tiene que indicar a DSC de PowerShell que no importa que las credenciales tengan salida como texto sin formato durante la generación del MOF de configuración de nodo, porque PowerShell DSC desconoce que Azure Automation cifrará todo el archivo MOF después de su generación a través de un trabajo de compilación.
 
@@ -246,7 +247,7 @@ En el ejemplo siguiente se muestra una configuración de DSC que usa un recurso 
 Configuration CredentialSample
 {
     Import-DscResource -ModuleName PSDesiredStateConfiguration
-    $Cred = Get-AutomationRmAutomationCredential -ResourceGroupName 'ResourceGroup01' -AutomationAccountName 'ContosoAutomationAccount' -Name 'SomeCredentialAsset'
+    $Cred = Get-AutomationPSCredential 'SomeCredentialAsset'
 
     Node $AllNodes.NodeName
     {
@@ -317,8 +318,8 @@ Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomatio
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para empezar a usar Azure Automation State Configuration, consulte [Introducción a Azure Automation State Configuration](automation-dsc-getting-started.md).
-- Para obtener información acerca de la compilación de configuraciones de DSC para que poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones en Azure Automation State Configuration](automation-dsc-compile.md).
+- Para empezar a usar Azure Automation State Configuration, consulte [Introducción a Azure Automation State Configuration](automation-dsc-getting-started.md)
+- Para obtener información acerca de la compilación de configuraciones de DSC para que poder asignarlas a los nodos de destino, consulte [Compilación de configuraciones en Azure Automation State Configuration](automation-dsc-compile.md)
 - Para la referencia de cmdlets de PowerShell, consulte [cmdlets de Azure Automation State Configuration](/powershell/module/azurerm.automation/#automation)
-- Para obtener información de precios, consulte [Precios de Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
+- Para obtener información de precios, consulte [Precios de Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/)
 - Para ver un ejemplo del uso de Azure Automation State Configuration en una canalización de implementación continua, consulte [Implementación continua mediante Azure Automation State Configuration y Chocolatey](automation-dsc-cd-chocolatey.md)

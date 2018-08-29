@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 935b501964435e80172ef3e147f777bf47119b48
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: fa8bb25af1ecefefac4cb1347e64ac11af0c2c2c
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285129"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146983"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications
 
@@ -75,15 +75,13 @@ Lea primero las notas y los documentos de SAP siguientes:
 * [Planeación e implementación de Azure Virtual Machines para SAP en Linux][planning-guide]
 * [Implementación de Azure Virtual Machines para SAP en Linux (este artículo)][deployment-guide]
 * [Implementación de DBMS de Azure Virtual Machines para SAP en Linux][dbms-guide]
-* [Guías de prácticas recomendadas de SUSE SAP HA][suse-ha-guide] Las guías contienen toda la información necesaria para la configuración de Netweaver HA y la replicación del sistema de SAP HANA local. Usa estas guías como base de referencia general. Proporcionan información mucho más detallada.
-* [Highly Available NFS Storage with DRBD and Pacemaker][suse-drbd-guide] (Almacenamiento NFS de alta disponibilidad con DRBD y Pacemaker) La guía contiene toda la información necesaria para configurar un servidor NFS de alta disponibilidad. Esta guía sirve como orientación.
-
+* [Guías de procedimientos recomendados de SUSE SAP HA][suse-ha-guide] Las guías contienen toda la información necesaria para la configuración de Netweaver HA y la replicación del sistema de SAP HANA en el entorno local. Use estas guías como base de referencia general. Proporcionan información mucho más detallada.
 
 ## <a name="overview"></a>Información general
 
 Para lograr alta disponibilidad, SAP NetWeaver requiere un servidor NFS. El servidor NFS está configurado en un clúster distinto y lo pueden usar varios sistemas SAP.
 
-![Información general sobre la alta disponibilidad de SAP NetWeaver](./media/high-availability-guide-suse/img_001.png)
+![Información general sobre la alta disponibilidad de SAP NetWeaver](./media/high-availability-guide-suse/ha-suse.png)
 
 El servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la base de datos SAP HANA usan direcciones IP virtuales y nombre de host virtual. En Azure, se requiere un equilibrador de carga para usar una dirección IP virtual. En la lista siguiente se muestra la configuración del equilibrador de carga (A)SCS y ERS.
 
@@ -161,11 +159,11 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
 1. Creación de una red virtual
 1. Creación de un conjunto de disponibilidad  
    Establecimiento del dominio máximo de actualización
-1. Creación de la máquina virtual 1   
+1. Creación de la máquina virtual 1  
    Use al menos SLES4SAP 12 SP1; en este ejemplo se usa la imagen SLES4SAP 12 SP1 https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM.  
    Se usa SLES para SAP Applications 12 SP1  
    Seleccione el conjunto de disponibilidad creado anteriormente.  
-1. Creación de la máquina virtual 2   
+1. Creación de la máquina virtual 2  
    Use al menos SLES4SAP 12 SP1; en este ejemplo se usa la imagen SLES4SAP 12 SP1 https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM.  
    Se usa SLES para SAP Applications 12 SP1  
    Seleccione el conjunto de disponibilidad creado anteriormente.  
@@ -206,7 +204,7 @@ En primer lugar, debe crear las máquinas virtuales de este clúster NFS. Despu�
          1. Conserve el protocolo **TCP** y escriba el puerto **3200**.
          1. Aumente el tiempo de espera de inactividad a 30 minutos
          1. **Asegúrese de habilitar la dirección IP flotante**
-         1. Haga clic en Aceptar    
+         1. Haga clic en Aceptar
       1. Puertos adicionales para ASCS
          * Repita los pasos anteriores para los puertos 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 y TCP para ASCS.
       1. Puertos adicionales para ASCS ERS
@@ -221,15 +219,16 @@ Siga los pasos que se describen en [Configuración de Pacemaker en SUSE Linux En
 Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos, **[1]**: aplicable solo al nodo 1 o **[2]**: aplicable solo al nodo 2.
 
 1. **[A]** Instale el conector de SUSE
-   
-   <pre><code>
-   sudo zypper install sap-suse-cluster-connector
+
+   <pre><code>sudo zypper install sap-suse-cluster-connector
    </code></pre>
+
+   > [!NOTE]
+   > No use guiones en los nombres de host de los nodos del clúster. Si lo hace, el clúster no funcionará. Esta es una limitación conocida y SUSE está trabajando en ello para encontrar una corrección. La corrección se publicará como una revisión del paquete sap-suse-cloud-connector.
 
    Asegúrese de que instaló la nueva versión del conector de clúster SUSE SAP. La antigua se llamaba sap_suse_cluster_connector y la nueva se llama **sap-suse-cluster-connector**.
 
-   <pre><code>
-   sudo zypper info sap-suse-cluster-connector
+   <pre><code>sudo zypper info sap-suse-cluster-connector
    
    Information for package sap-suse-cluster-connector:
    ---------------------------------------------------
@@ -250,38 +249,33 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    
    Se requiere una revisión del paquete de agentes de recursos para usar la configuración nueva, que es la que describe este artículo. Puede usar el comando siguiente para comprobar si la revisión ya está instalada
 
-   <pre><code>
-   sudo grep 'parameter name="IS_ERS"' /usr/lib/ocf/resource.d/heartbeat/SAPInstance
+   <pre><code>sudo grep 'parameter name="IS_ERS"' /usr/lib/ocf/resource.d/heartbeat/SAPInstance
    </code></pre>
 
    La salida debe ser similar a
 
-   <pre><code>
-   &lt;parameter name="IS_ERS" unique="0" required="0"&gt;
+   <pre><code>&lt;parameter name="IS_ERS" unique="0" required="0"&gt;
    </code></pre>
 
    Si el comando grep no encuentra el parámetro IS_ERS, necesita instalar la revisión que aparece en [la página de descarga de SUSE](https://download.suse.com/patch/finder/#bu=suse&familyId=&productId=&dateRange=&startDate=&endDate=&priority=&architecture=&keywords=resource-agents)
 
-   <pre><code>
-   # example for patch for SLES 12 SP1
+   <pre><code># example for patch for SLES 12 SP1
    sudo zypper in -t patch SUSE-SLE-HA-12-SP1-2017-885=1
    # example for patch for SLES 12 SP2
    sudo zypper in -t patch SUSE-SLE-HA-12-SP2-2017-886=1
    </code></pre>
 
-1. **[A]** Configure la resolución nombres de host   
+1. **[A]** Configure la resolución nombres de host
 
    Puede usar un servidor DNS o modificar /etc/hosts en todos los nodos. En este ejemplo se muestra cómo utilizar el archivo /etc/hosts.
    Reemplace la dirección IP y el nombre de host en los siguientes comandos
 
-   <pre><code>
-   sudo vi /etc/hosts
+   <pre><code>sudo vi /etc/hosts
    </code></pre>
-   
+
    Inserte las siguientes líneas en /etc/hosts. Cambie la dirección IP y el nombre de host para que coincida con su entorno   
-   
-   <pre><code>
-   # IP address of the load balancer frontend configuration for NFS
+
+   <pre><code># IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
    <b>10.0.0.7 nw1-ascs</b>
@@ -295,13 +289,12 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
 1. **[A]** Cree los directorios compartidos
 
-   <pre><code>
-   sudo mkdir -p /sapmnt/<b>NW1</b>
+   <pre><code>sudo mkdir -p /sapmnt/<b>NW1</b>
    sudo mkdir -p /usr/sap/trans
    sudo mkdir -p /usr/sap/<b>NW1</b>/SYS
    sudo mkdir -p /usr/sap/<b>NW1</b>/ASCS<b>00</b>
    sudo mkdir -p /usr/sap/<b>NW1</b>/ERS<b>02</b>
-
+   
    sudo chattr +i /sapmnt/<b>NW1</b>
    sudo chattr +i /usr/sap/trans
    sudo chattr +i /usr/sap/<b>NW1</b>/SYS
@@ -310,9 +303,8 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    </code></pre>
 
 1. **[A]** Configure autofs
- 
-   <pre><code>
-   sudo vi /etc/auto.master
+
+   <pre><code>sudo vi /etc/auto.master
    
    # Add the following line to the file, save and exit
    +auto.master
@@ -321,28 +313,23 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
    Cree un archivo con
 
-   <pre><code>
-   sudo vi /etc/auto.direct
+   <pre><code>sudo vi /etc/auto.direct
    
    # Add the following lines to the file, save and exit
    /sapmnt/<b>NW1</b> -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/sapmntsid
    /usr/sap/trans -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/trans
    /usr/sap/<b>NW1</b>/SYS -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/sidsys
-   /usr/sap/<b>NW1</b>/ASCS<b>00</b> -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/ASCS
-   /usr/sap/<b>NW1</b>/ERS<b>02</b> -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/ASCSERS
    </code></pre>
 
    Reinicie autofs para montar los recursos compartidos nuevos
 
-   <pre><code>
-   sudo systemctl enable autofs
+   <pre><code>sudo systemctl enable autofs
    sudo service autofs restart
    </code></pre>
 
 1. **[A]** Configure el archivo de intercambio
 
-   <pre><code>
-   sudo vi /etc/waagent.conf
+   <pre><code>sudo vi /etc/waagent.conf
    
    # Set the property ResourceDisk.EnableSwap to y
    # Create and use swapfile on resource disk.
@@ -356,8 +343,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
    Reinicie el agente para activar el cambio
 
-   <pre><code>
-   sudo service waagent restart
+   <pre><code>sudo service waagent restart
    </code></pre>
 
 
@@ -365,8 +351,12 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
 1. **[1]** Cree un recurso IP virtual y un sondeo de estado para la instancia de ASCS
 
-   <pre><code>
-   sudo crm node standby <b>nw1-cl-1</b>
+   <pre><code>sudo crm node standby <b>nw1-cl-1</b>
+   
+   sudo crm configure primitive fs_<b>NW1</b>_ASCS Filesystem device='<b>nw1-nfs</b>:/<b>NW1</b>/ASCS' directory='/usr/sap/<b>NW1</b>/ASCS<b>00</b>' fstype='nfs4' \
+     op start timeout=60s interval=0 \
+     op stop timeout=60s interval=0 \
+     op monitor interval=20s timeout=40s
    
    sudo crm configure primitive vip_<b>NW1</b>_ASCS IPaddr2 \
      params ip=<b>10.0.0.7</b> cidr_netmask=<b>24</b> \
@@ -382,8 +372,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
    Asegúrese de que el estado del clúster sea el correcto y que se iniciaron todos los recursos. No es importante en qué nodo se ejecutan los recursos.
 
-   <pre><code>
-   sudo crm_mon -r
+   <pre><code>sudo crm_mon -r
    
    # Node nw1-cl-1: standby
    # <b>Online: [ nw1-cl-0 ]</b>
@@ -391,8 +380,8 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    # Full list of resources:
    # 
    # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-0</b>
-   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-0</b>
    #  Resource Group: g-NW1_ASCS
+   #      fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-0</b>
    #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
    </code></pre>
@@ -403,22 +392,24 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
    Puede usar el parámetro de sapinst SAPINST_REMOTE_ACCESS_USER para permitir que un usuario no raíz se conecta a sapinst.
 
-   <pre><code>
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
    Si se produce un error en la instalación para crear una subcarpeta en/usr/sap/**NW1**/ASCS**00**, pruebe a establecer el propietario y el grupo de la carpeta ASCS**00** e inténtelo de nuevo.
 
-   <pre><code>
-   chown nw1adm /usr/sap/<b>NW1</b>/ASCS<b>00</b>
+   <pre><code>chown nw1adm /usr/sap/<b>NW1</b>/ASCS<b>00</b>
    chgrp sapsys /usr/sap/<b>NW1</b>/ASCS<b>00</b>
    </code></pre>
 
 1. **[1]** Cree un recurso IP virtual y un sondeo de estado para la instancia de ERS
 
-   <pre><code>
-   sudo crm node online <b>nw1-cl-1</b>
+   <pre><code>sudo crm node online <b>nw1-cl-1</b>
    sudo crm node standby <b>nw1-cl-0</b>
+   
+   sudo crm configure primitive fs_<b>NW1</b>_ERS Filesystem device='<b>nw1-nfs</b>:/<b>NW1</b>/ASCSERS' directory='/usr/sap/<b>NW1</b>/ERS<b>02</b>' fstype='nfs4' \
+     op start timeout=60s interval=0 \
+     op stop timeout=60s interval=0 \
+     op monitor interval=20s timeout=40s
    
    sudo crm configure primitive vip_<b>NW1</b>_ERS IPaddr2 \
      params ip=<b>10.0.0.8</b> cidr_netmask=<b>24</b> \
@@ -431,13 +422,12 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    # WARNING: Resources nc_NW1_ASCS,nc_NW1_ERS violate uniqueness for parameter "binfile": "/usr/bin/nc"
    # Do you still want to commit (y/n)? y
    
-   sudo crm configure group g-<b>NW1</b>_ERS nc_<b>NW1</b>_ERS vip_<b>NW1</b>_ERS
+   sudo crm configure group g-<b>NW1</b>_ERS fs_<b>NW1</b>_ERS nc_<b>NW1</b>_ERS vip_<b>NW1</b>_ERS
    </code></pre>
- 
+
    Asegúrese de que el estado del clúster sea el correcto y que se iniciaron todos los recursos. No es importante en qué nodo se ejecutan los recursos.
 
-   <pre><code>
-   sudo crm_mon -r
+   <pre><code>sudo crm_mon -r
    
    # Node <b>nw1-cl-0: standby</b>
    # <b>Online: [ nw1-cl-1 ]</b>
@@ -445,23 +435,23 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    # Full list of resources:
    #
    # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-1</b>
-   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ASCS
+   #      fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-1</b>
    #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ERS
+   #      fs_NW1_ERS (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-1</b>
    #      nc_NW1_ERS (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
    #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
    </code></pre>
 
-1. **[2]** Instale SAP NetWeaver ERS  
+1. **[2]** Instale SAP NetWeaver ERS
 
    Instale SAP NetWeaver ERS como raíz en el segundo nodo mediante un nombre de host virtual que se asigna a la dirección IP de la configuración de front-end del equilibrador de carga para ERS (por ejemplo, <b>nw1-aers</b>, <b>10.0.0.8</b>) y el número de instancia que usó para el sondeo del equilibrador de carga (por ejemplo, <b>02</b>).
 
    Puede usar el parámetro de sapinst SAPINST_REMOTE_ACCESS_USER para permitir que un usuario no raíz se conecta a sapinst.
 
-   <pre><code>
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
    > [!NOTE]
@@ -469,18 +459,16 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
    Si se produce un error en la instalación para crear una subcarpeta en/usr/sap/**NW1**/ERS**00**, pruebe a establecer el propietario y el grupo de la carpeta ERS**02** e inténtelo de nuevo.
 
-   <pre><code>
-   chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
+   <pre><code>chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
    chgrp sapsys /usr/sap/<b>NW1</b>/ERS<b>02</b>
    </code></pre>
-   > 
+
 
 1. **[1]** Adapte los perfiles de instancias ASCS/SCS y ERS
  
    * Perfil ASCS/SCS
 
-   <pre><code> 
-   sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_<b>ASCS00</b>_<b>nw1-ascs</b>
+   <pre><code>sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_<b>ASCS00</b>_<b>nw1-ascs</b>
    
    # Change the restart command to a start command
    #Restart_Program_01 = local $(_EN) pf=$(_PF)
@@ -496,46 +484,47 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
    * Perfil ERS
 
-   <pre><code> 
-   sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>
+   <pre><code>sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>
+   
+   # Change the restart command to a start command
+   #Restart_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
+   Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
    
    # Add the following lines
    service/halib = $(DIR_CT_RUN)/saphascriptco.so
    service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
+   
+   # remove Autostart from ERS profile
+   # Autostart = 1
    </code></pre>
-
 
 1. **[A]** Configure la conexión persistente
 
    La comunicación entre el servidor de aplicaciones de SAP NetWeaver y ASCS/SCS se enruta a través de un equilibrador de carga de software. El equilibrador de carga desconecta las conexiones inactivas después de un tiempo de expiración que se puede configurar. Para evitar esto, debe establecer un parámetro en el perfil de SAP NetWeaver ASCS/SCS y cambiar la configuración del sistema Linux. Consulte la [nota de SAP 1410736][1410736] para más información.
-   
+
    El parámetro del perfil ASCS/SCS enque/encni/set_so_keepalive ya se agregó en el último paso.
 
-   <pre><code> 
-   # Change the Linux system configuration
+   <pre><code># Change the Linux system configuration
    sudo sysctl net.ipv4.tcp_keepalive_time=120
    </code></pre>
 
 1. **[A]** Configure los usuarios de SAP después de la instalación
- 
-   <pre><code>
-   # Add sidadm to the haclient group
-   sudo usermod -aG haclient <b>nw1</b>adm   
+
+   <pre><code># Add sidadm to the haclient group
+   sudo usermod -aG haclient <b>nw1</b>adm
    </code></pre>
 
 1. **[1]** Agregue los servicios SAP de ASCS y ERS al archivo sapservice
 
    Agregue la entrada del servicio ASCS al segundo nodo y copie la entrada del servicio ERS al primer nodo.
 
-   <pre><code>
-   cat /usr/sap/sapservices | grep ASCS<b>00</b> | sudo ssh <b>nw1-cl-1</b> "cat >>/usr/sap/sapservices"
+   <pre><code>cat /usr/sap/sapservices | grep ASCS<b>00</b> | sudo ssh <b>nw1-cl-1</b> "cat >>/usr/sap/sapservices"
    sudo ssh <b>nw1-cl-1</b> "cat /usr/sap/sapservices" | grep ERS<b>02</b> | sudo tee -a /usr/sap/sapservices
    </code></pre>
 
 1. **[1]** Cree los recursos de clúster de SAP
 
-   <pre><code>
-   sudo crm configure property maintenance-mode="true"   
+   <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
     operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
@@ -563,20 +552,20 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
    Asegúrese de que el estado del clúster sea el correcto y que se iniciaron todos los recursos. No es importante en qué nodo se ejecutan los recursos.
 
-   <pre><code>
-   sudo crm_mon -r
+   <pre><code>sudo crm_mon -r
    
    # Online: <b>[ nw1-cl-0 nw1-cl-1 ]</b>
    #
    # Full list of resources:
    #
    # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-1</b>
-   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ASCS
+   #      fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-1</b>
    #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
    #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
    #      rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-1</b>
    #  Resource Group: g-NW1_ERS
+   #      fs_NW1_ERS (ocf::heartbeat:Filesystem):    <b>Started nw1-cl-0</b>
    #      nc_NW1_ERS (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
    #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
    #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-0</b>
@@ -588,17 +577,29 @@ Algunas bases de datos requieren que la instalación de la instancia de base de 
 
 En los pasos siguientes se supone que instala el servidor de aplicaciones en un servidor distinto de los servidores ASCS/SCS y HANA. De lo contrario, no se necesitan algunos de los pasos que aparecen a continuación (como configurar la resolución de nombres de host).
 
+1. Configuración del sistema operativo
+
+   Reduzca el tamaño de la caché de datos incorrectos. Para más información, consulte [Low write performance on SLES 11/12 servers with large RAM](https://www.suse.com/support/kb/doc/?id=7010287) (Bajo rendimiento de escritura en servidores SLES 11/12 con RAM grande).
+
+   <pre><code>sudo vi /etc/sysctl.conf
+
+   # Change/set the following settings
+   vm.dirty_bytes = 629145600
+   vm.dirty_background_bytes = 314572800
+   </code></pre>
+
 1. Configure la resolución de nombres de host
 
    Puede usar un servidor DNS o modificar /etc/hosts en todos los nodos. En este ejemplo se muestra cómo utilizar el archivo /etc/hosts.
    Reemplace la dirección IP y el nombre de host en los siguientes comandos
+
    ```bash
    sudo vi /etc/hosts
    ```
-   Inserte las siguientes líneas en /etc/hosts. Cambie la dirección IP y el nombre de host para que coincida con su entorno    
-    
-   <pre><code>
-   # IP address of the load balancer frontend configuration for NFS
+
+   Inserte las siguientes líneas en /etc/hosts. Cambie la dirección IP y el nombre de host para que coincida con su entorno
+
+   <pre><code># IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
    <b>10.0.0.7 nw1-ascs</b>
@@ -613,8 +614,7 @@ En los pasos siguientes se supone que instala el servidor de aplicaciones en un 
 
 1. Cree el directorio sapmnt
 
-   <pre><code>
-   sudo mkdir -p /sapmnt/<b>NW1</b>
+   <pre><code>sudo mkdir -p /sapmnt/<b>NW1</b>
    sudo mkdir -p /usr/sap/trans
 
    sudo chattr +i /sapmnt/<b>NW1</b>
@@ -622,9 +622,8 @@ En los pasos siguientes se supone que instala el servidor de aplicaciones en un 
    </code></pre>
 
 1. Configure autofs
- 
-   <pre><code>
-   sudo vi /etc/auto.master
+
+   <pre><code>sudo vi /etc/auto.master
    
    # Add the following line to the file, save and exit
    +auto.master
@@ -633,8 +632,7 @@ En los pasos siguientes se supone que instala el servidor de aplicaciones en un 
 
    Cree un nuevo archivo con
 
-   <pre><code>
-   sudo vi /etc/auto.direct
+   <pre><code>sudo vi /etc/auto.direct
    
    # Add the following lines to the file, save and exit
    /sapmnt/<b>NW1</b> -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/sapmntsid
@@ -643,15 +641,13 @@ En los pasos siguientes se supone que instala el servidor de aplicaciones en un 
 
    Reinicie autofs para montar los recursos compartidos nuevos
 
-   <pre><code>
-   sudo systemctl enable autofs
+   <pre><code>sudo systemctl enable autofs
    sudo service autofs restart
    </code></pre>
 
 1. Configure el archivo de intercambio
- 
-   <pre><code>
-   sudo vi /etc/waagent.conf
+
+   <pre><code>sudo vi /etc/waagent.conf
    
    # Set the property ResourceDisk.EnableSwap to y
    # Create and use swapfile on resource disk.
@@ -665,8 +661,7 @@ En los pasos siguientes se supone que instala el servidor de aplicaciones en un 
 
    Reinicie el agente para activar el cambio
 
-   <pre><code>
-   sudo service waagent restart
+   <pre><code>sudo service waagent restart
    </code></pre>
 
 ## <a name="install-database"></a>Instalar la base de datos
@@ -679,13 +674,12 @@ En este ejemplo, SAP NetWeaver se instala en SAP HANA. En esta instalación pued
 
    Puede usar el parámetro de sapinst SAPINST_REMOTE_ACCESS_USER para permitir que un usuario no raíz se conecta a sapinst.
 
-   <pre><code>
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
 ## <a name="sap-netweaver-application-server-installation"></a>Instalación del servidor de aplicaciones de SAP NetWeaver
 
-Siga estos pasos para instalar un servidor de aplicaciones de SAP. 
+Siga estos pasos para instalar un servidor de aplicaciones de SAP.
 
 1. Preparación del servidor de aplicaciones
 
@@ -697,8 +691,7 @@ Siga los pasos descritos en el capítulo [Preparación del servidor de aplicacio
 
    Puede usar el parámetro de sapinst SAPINST_REMOTE_ACCESS_USER para permitir que un usuario no raíz se conecta a sapinst.
 
-   <pre><code>
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+   <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
 1. Actualice el almacenamiento seguro de SAP HANA
@@ -706,29 +699,459 @@ Siga los pasos descritos en el capítulo [Preparación del servidor de aplicacio
    Actualice el almacenamiento seguro de SAP HANA que apunte al nombre virtual de la configuración de la replicación del sistema SAP HANA.
 
    Ejecute el siguiente comando para mostrar las entradas:
-   <pre><code>
-   hdbuserstore List
+   <pre><code>hdbuserstore List
    </code></pre>
 
    Se deberían mostrar todas las entradas y deberían ser parecidas a estas:
-   <pre><code>
-   DATA FILE       : /home/nw1adm/.hdb/nw1-di-0/SSFS_HDB.DAT
+   <pre><code>DATA FILE       : /home/nw1adm/.hdb/nw1-di-0/SSFS_HDB.DAT
    KEY FILE        : /home/nw1adm/.hdb/nw1-di-0/SSFS_HDB.KEY
    
    KEY DEFAULT
      ENV : 10.0.0.14:<b>30313</b>
      USER: <b>SAPABAP1</b>
-     DATABASE: HN1
+     DATABASE: <b>HN1</b>
    </code></pre>
 
-   El resultado muestra que la dirección IP de la entrada predeterminada apunta a la máquina virtual y no a la dirección IP del equilibrador de carga. Esta entrada debe modificarse para que apunte al nombre de host virtual del equilibrador de carga. Asegúrese de usar el mismo puerto (**30313** en la salida anterior).
+   El resultado muestra que la dirección IP de la entrada predeterminada apunta a la máquina virtual y no a la dirección IP del equilibrador de carga. Esta entrada debe modificarse para que apunte al nombre de host virtual del equilibrador de carga. Asegúrese de usar el mismo puerto (**30313** en la salida anterior) y el mismo nombre de base de datos (**HN1** en la salida anterior).
 
-   <pre><code>
-   su - <b>nw1</b>adm
-   hdbuserstore SET DEFAULT <b>nw1-db</b>:<b>30313</b> <b>SAPABAP1</b> <b>&lt;password of ABAP schema&gt;</b>
+   <pre><code>su - <b>nw1</b>adm
+   hdbuserstore SET DEFAULT <b>nw1-db:30313@HN1</b> <b>SAPABAP1</b> <b>&lt;password of ABAP schema&gt;</b>
+   </code></pre>
+
+## <a name="test-the-cluster-setup"></a>Prueba de la configuración del clúster
+
+Las siguientes pruebas son una copia de los casos de prueba de las guías de procedimientos recomendados de SUSE. Para su comodidad, se han copiado en este artículo. Además, lea siempre las guías de procedimientos recomendados y realice todas las pruebas adicionales que puedan haberse agregado.
+
+1. Prueba de HAGetFailoverConfig, HACheckConfig y HACheckFailoverConfig
+
+   Ejecute los siguientes comandos como \<sapsid>adm en el nodo donde se ejecuta actualmente la instancia de ASCS. Si los comandos producen un error de memoria insuficiente, los guiones en el nombre de host pueden ser la causa. Se trata de un problema conocido que SUSE corregirá en el paquete sap-suse-cluster-connector.
+
+   <pre><code>nw1-cl-0:nw1adm 54> sapcontrol -nr <b>00</b> -function HAGetFailoverConfig
+   
+   # 15.08.2018 13:50:36
+   # HAGetFailoverConfig
+   # OK
+   # HAActive: TRUE
+   # HAProductVersion: Toolchain Module
+   # HASAPInterfaceVersion: Toolchain Module (sap_suse_cluster_connector 3.0.1)
+   # HADocumentation: https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
+   # HAActiveNode:
+   # HANodes: nw1-cl-0, nw1-cl-1
+   
+   nw1-cl-0:nw1adm 55> sapcontrol -nr 00 -function HACheckConfig
+   
+   # 15.08.2018 14:00:04
+   # HACheckConfig
+   # OK
+   # state, category, description, comment
+   # SUCCESS, SAP CONFIGURATION, Redundant ABAP instance configuration, 2 ABAP instances detected
+   # SUCCESS, SAP CONFIGURATION, Redundant Java instance configuration, 0 Java instances detected
+   # SUCCESS, SAP CONFIGURATION, Enqueue separation, All Enqueue server separated from application server
+   # SUCCESS, SAP CONFIGURATION, MessageServer separation, All MessageServer separated from application server
+   # SUCCESS, SAP CONFIGURATION, ABAP instances on multiple hosts, ABAP instances on multiple hosts detected
+   # SUCCESS, SAP CONFIGURATION, Redundant ABAP SPOOL service configuration, 2 ABAP instances with SPOOL service detected
+   # SUCCESS, SAP STATE, Redundant ABAP SPOOL service state, 2 ABAP instances with active SPOOL service detected
+   # SUCCESS, SAP STATE, ABAP instances with ABAP SPOOL service on multiple hosts, ABAP instances with active ABAP SPOOL service on multiple hosts detected
+   # SUCCESS, SAP CONFIGURATION, Redundant ABAP BATCH service configuration, 2 ABAP instances with BATCH service detected
+   # SUCCESS, SAP STATE, Redundant ABAP BATCH service state, 2 ABAP instances with active BATCH service detected
+   # SUCCESS, SAP STATE, ABAP instances with ABAP BATCH service on multiple hosts, ABAP instances with active ABAP BATCH service on multiple hosts detected
+   # SUCCESS, SAP CONFIGURATION, Redundant ABAP DIALOG service configuration, 2 ABAP instances with DIALOG service detected
+   # SUCCESS, SAP STATE, Redundant ABAP DIALOG service state, 2 ABAP instances with active DIALOG service detected
+   # SUCCESS, SAP STATE, ABAP instances with ABAP DIALOG service on multiple hosts, ABAP instances with active ABAP DIALOG service on multiple hosts detected
+   # SUCCESS, SAP CONFIGURATION, Redundant ABAP UPDATE service configuration, 2 ABAP instances with UPDATE service detected
+   # SUCCESS, SAP STATE, Redundant ABAP UPDATE service state, 2 ABAP instances with active UPDATE service detected
+   # SUCCESS, SAP STATE, ABAP instances with ABAP UPDATE service on multiple hosts, ABAP instances with active ABAP UPDATE service on multiple hosts detected
+   # SUCCESS, SAP STATE, SCS instance running, SCS instance status ok
+   # SUCCESS, SAP CONFIGURATION, SAPInstance RA sufficient version (nw1-ascs_NW1_00), SAPInstance includes is-ers patch
+   # SUCCESS, SAP CONFIGURATION, Enqueue replication (nw1-ascs_NW1_00), Enqueue replication enabled
+   # SUCCESS, SAP STATE, Enqueue replication state (nw1-ascs_NW1_00), Enqueue replication active
+   
+   nw1-cl-0:nw1adm 56> sapcontrol -nr 00 -function HACheckFailoverConfig
+   
+   # 15.08.2018 14:04:08
+   # HACheckFailoverConfig
+   # OK
+   # state, category, description, comment
+   # SUCCESS, SAP CONFIGURATION, SAPInstance RA sufficient version, SAPInstance includes is-ers patch
+   </code></pre>
+
+1. Migración manual de la instancia de ASCS
+
+   Estado del recurso antes de iniciar la prueba:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   </code></pre>
+
+   Ejecute los siguientes comandos como raíz para migrar la instancia de ASCS.
+
+   <pre><code>nw1-cl-0:~ # crm resource migrate rsc_sap_NW1_ASCS00 force
+   # INFO: Move constraint created for rsc_sap_NW1_ASCS00
+   
+   nw1-cl-0:~ # crm resource unmigrate rsc_sap_NW1_ASCS00
+   # INFO: Removed migration constraints for rsc_sap_NW1_ASCS00
+   
+   # Remove failed actions for the ERS that occured as part of the migration
+   nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   </code></pre>
+
+   Estado del recurso después de la prueba:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+1. Prueba de HAFailoverToNode
+
+   Estado del recurso antes de iniciar la prueba:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+   Ejecute los comandos siguientes como \<sapsid>adm para migrar la instancia de ASCS.
+
+   <pre><code>nw1-cl-0:nw1adm 55> sapcontrol -nr 00 -host nw1-ascs -user nw1adm &lt;password&gt; -function HAFailoverToNode ""
+   
+   # run as root
+   # Remove failed actions for the ERS that occured as part of the migration
+   nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   </code></pre>
+
+   Estado del recurso después de la prueba:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   </code></pre>
+
+1. Simulación de bloqueo de nodo
+
+   Estado del recurso antes de iniciar la prueba:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   </code></pre>
+
+   Ejecute el siguiente comando como raíz en el nodo donde se ejecuta la instancia de ASCS
+
+   <pre><code>nw1-cl-0:~ # echo b > /proc/sysrq-trigger
+   </code></pre>
+
+   Si usa SBD, Pacemaker no se iniciará automáticamente en el nodo terminado. El estado después de que el nodo se inicia de nuevo debe parecerse a este.
+
+   <pre><code>Online: [ nw1-cl-1 ]
+   OFFLINE: [ nw1-cl-0 ]
+   
+   Full list of resources:
+   
+   stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   
+   Failed Actions:
+   * rsc_sap_NW1_ERS02_monitor_11000 on nw1-cl-1 'not running' (7): call=219, status=complete, exitreason='none',
+       last-rc-change='Wed Aug 15 14:38:38 2018', queued=0ms, exec=0ms
+   </code></pre>
+
+   Use los siguientes comandos para iniciar Pacemaker en el nodo terminado, limpiar los mensajes de SBD y limpiar los recursos con error.
+
+   <pre><code># run as root
+   # list the SBD device(s)
+   nw1-cl-0:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
+   # SBD_DEVICE="/dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116;/dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1;/dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3"
+   
+   nw1-cl-0:~ # sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116 -d /dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1 -d /dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3 message nw1-cl-0 clear
+   
+   nw1-cl-0:~ # systemctl start pacemaker
+   nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ASCS00
+   nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   </code></pre>
+
+   Estado del recurso después de la prueba:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+1. Prueba del reinicio manual de la instancia de ASCS
+
+   Estado del recurso antes de iniciar la prueba:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+   Cree un bloqueo de puesta en cola; por ejemplo, edite un usuario en la transacción su01. Ejecute los comandos siguientes como \<sapsid>adm en el nodo donde se ejecuta la instancia de ASCS. Los comandos detendrán la instancia de ASCS y la volverán a iniciar. Está previsto que el bloqueo de puesta en cola se pierda en esta prueba.
+
+   <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
+   </code></pre>
+
+   Ahora, la instancia de ASCS se deshabilitará en Pacemaker.
+
+   <pre><code>rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Stopped (disabled)
+   </code></pre>
+
+   Vuelva a iniciar la instancia de ASCS en el mismo nodo.
+
+   <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StartWait 600 2
+   </code></pre>
+
+   El bloqueo de puesta en cola de la transacción su01 se perderá y el back-end se habrá restablecido. Estado del recurso después de la prueba:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+1. Terminación del proceso del servidor de mensajes
+
+   Estado del recurso antes de iniciar la prueba:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+   Ejecute los siguientes comandos como raíz para identificar el proceso del servidor de mensajes y terminarlo.
+
+   <pre><code>nw1-cl-1:~ # pgrep ms.sapNW1 | xargs kill -9
+   </code></pre>
+
+   Si solo termina el servidor de mensajes una vez, se reiniciará mediante sapstart. Si lo termina con bastante frecuencia, Pacemaker acabará moviendo la instancia de ASCS al otro nodo. Ejecute los siguientes comandos como raíz para limpiar el estado del recurso de la instancia de ASCS y ERS después de la prueba.
+
+   <pre><code>nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ASCS00
+   nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   </code></pre>
+
+   Estado del recurso después de la prueba:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   </code></pre>
+
+1. Terminación del proceso del servidor de puesta en cola
+
+   Estado del recurso antes de iniciar la prueba:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+   </code></pre>
+
+   Ejecute los siguientes comandos como raíz en el nodo donde se ejecuta la instancia de ASCS para terminar el servidor de puesta en cola.
+
+   <pre><code>nw1-cl-0:~ # pgrep en.sapNW1 | xargs kill -9
+   </code></pre>
+
+   La instancia de ASCS conmutará inmediatamente por error al otro nodo. La instancia de ERS también conmutará por error después de iniciarse la instancia de ASCS. Ejecute los siguientes comandos como raíz para limpiar el estado del recurso de la instancia de ASCS y ERS después de la prueba.
+
+   <pre><code>nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ASCS00
+   nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   </code></pre>
+
+   Estado del recurso después de la prueba:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+1. Terminación del proceso del servidor de replicación
+
+   Estado del recurso antes de iniciar la prueba:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+   Ejecute el siguiente comando como raíz en el nodo donde se ejecuta la instancia de ERS para terminar el proceso del servidor de replicación de puesta en cola.
+
+   <pre><code>nw1-cl-0:~ # pgrep er.sapNW1 | xargs kill -9
+   </code></pre>
+
+   Si solo ejecuta el comando una vez, sapstart reiniciará el proceso. Si lo ejecuta con bastante frecuencia, sapstart no reiniciará el proceso y el recurso estará en estado detenido. Ejecute los siguientes comandos como raíz para limpiar el estado del recurso de la instancia de ERS después de la prueba.
+
+   <pre><code>nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   </code></pre>
+
+   Estado del recurso después de la prueba:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+1. Terminación del proceso sapstartsrv de puesta en cola
+
+   Estado del recurso antes de iniciar la prueba:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
+   </code></pre>
+
+   Ejecute los siguientes comandos como raíz en el nodo donde se ejecuta ASCS.
+
+   <pre><code>nw1-cl-1:~ # pgrep -fl ASCS00.*sapstartsrv
+   # 59545 sapstartsrv
+   
+   nw1-cl-1:~ # kill -9 59545
+   </code></pre>
+
+   El proceso sapstartsrv siempre se debe reiniciar con el agente de recursos de Pacemaker. Estado del recurso después de la prueba:
+
+   <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
+    Resource Group: g-NW1_ASCS
+        fs_NW1_ASCS        (ocf::heartbeat:Filesystem):    Started nw1-cl-1
+        nc_NW1_ASCS        (ocf::heartbeat:anything):      Started nw1-cl-1
+        vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       Started nw1-cl-1
+        rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
+    Resource Group: g-NW1_ERS
+        fs_NW1_ERS (ocf::heartbeat:Filesystem):    Started nw1-cl-0
+        nc_NW1_ERS (ocf::heartbeat:anything):      Started nw1-cl-0
+        vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       Started nw1-cl-0
+        rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Planeación e implementación de Azure Virtual Machines para SAP][planning-guide]
 * [Implementación de Azure Virtual Machines para SAP][deployment-guide]
 * [Implementación de DBMS de Azure Virtual Machines para SAP][dbms-guide]

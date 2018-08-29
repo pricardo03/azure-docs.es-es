@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 11647c231db3ff7beb2fed641dc72ff339b2b45a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f9d1d2181649cf24784dc7ad11638946c9ee4406
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046248"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42143173"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copia de datos desde DB2 mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,7 @@ En concreto, este conector DB2 admite las siguientes plataformas y versiones de 
 > - DB2 para i (AS400): permita que el usuario avanzado cree la colección del usuario de inicio de sesión antes de usar la actividad de copia. Comando: `create collection <username>`
 > - DB2 para z/OS o LUW: use una cuenta con privilegios elevados (usuario avanzado o administrador con entidades de paquete y permisos BIND, BINDADD y GRANT EXECUTE TO PUBLIC) para ejecutar una vez la actividad de copia y, luego, el paquete necesario se creará automáticamente durante la copia. A continuación, puede cambiar al usuario normal para las ejecuciones de copia posteriores.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para usar los datos de la copia de una base de datos DB2 que no es accesible públicamente, debe configurar un entorno Integration Runtime (autohospedado). Para obtener información sobre los entornos Integration Runtime (autohospedado), consulte el artículo sobre los [entornos Integration Runtime (autohospedado)](create-self-hosted-integration-runtime.md). El entorno Integration Runtime proporciona un controlador DB2 integrado, por lo tanto, no es necesario instalar manualmente los controladores cuando se copian datos desde DB2.
 
@@ -62,12 +62,12 @@ Las siguientes propiedades son compatibles con el servicio vinculado de DB2:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Db2**. | Sí |
-| Servidor |Nombre del servidor DB2. |Sí |
-| Base de datos |Nombre de la base de datos DB2. |Sí |
-| authenticationType |Tipo de autenticación usado para conectarse a la base de datos DB2.<br/>El valor permitido es **Básica**. |Sí |
-| nombre de usuario |Especifique el nombre de usuario para conectarse a la base de datos DB2. |Sí |
-| contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
+| Tipo | La propiedad type debe establecerse en: **Db2**. | SÍ |
+| Servidor |Nombre del servidor DB2. Puede especificar el número de puerto después del nombre del servidor delimitado por dos puntos, por ejemplo `server:port`. |SÍ |
+| Base de datos |Nombre de la base de datos DB2. |SÍ |
+| authenticationType |Tipo de autenticación usado para conectarse a la base de datos DB2.<br/>El valor permitido es **Básica**. |SÍ |
+| nombre de usuario |Especifique el nombre de usuario para conectarse a la base de datos DB2. |SÍ |
+| contraseña |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
@@ -78,7 +78,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de DB2:
     "properties": {
         "type": "Db2",
         "typeProperties": {
-            "server": "<servername>",
+            "server": "<servername:port>",
             "database": "<dbname>",
             "authenticationType": "Basic",
             "username": "<username>",
@@ -103,7 +103,7 @@ Para copiar datos desde DB2, establezca la propiedad type del conjunto de datos 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** | SÍ |
 | tableName | Nombre de la tabla de la base de datos DB2. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -133,7 +133,7 @@ Para copiar datos desde DB2, establezca el tipo de origen de la actividad de cop
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **RelationalSource** | SÍ |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

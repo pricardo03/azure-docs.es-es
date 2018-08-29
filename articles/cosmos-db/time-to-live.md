@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 49f6d6ee65ffae71cba8c73301355bfe2bdcd1d6
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 020f9c8753b2b91b3336b304a1c92590f62be003
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480563"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146548"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Hacer que caduquen automáticamente los datos de colecciones de Azure Cosmos DB con período de vida
 Las aplicaciones pueden generar y almacenar enormes cantidades de datos. Algunos de estos datos, como los datos de eventos, los registros y la información de sesión de usuario que se generan automáticamente, solo son útiles durante un tiempo finito. Una vez que los datos se convierten en un excedente para las necesidades de la aplicación, es seguro purgarlos para así reducir sus necesidades de almacenamiento.
@@ -41,11 +41,11 @@ En cuanto el documento ha expirado (`ttl` + `_ts` <=hora actual del servidor), e
 
 La lógica anterior se puede mostrar en la siguiente matriz:
 
-|  | DefaultTTL falta o no establecido en la colección | DefaultTTL = -1 en la colección | DefaultTTL = "n" en la colección |
+|  | DefaultTTL falta o no establecido en la colección | DefaultTTL = -1 en la colección | DefaultTTL = n' en la colección |
 | --- |:--- |:--- |:--- |
-| Falta TTL en el documento |No hay nada que invalidar en el nivel de documento dado que tanto el documento como la colección no tienen concepto de TTL. |Ningún documento de esta colección caducará. |Los documentos de esta colección caducarán cuando transcurra el intervalo n. |
-| TTL = -1 en el documento |No hay nada que invalidar en el nivel de documento dado que la colección no define la propiedad DefaultTTL que puede invalidar un documento. El sistema no interpreta el TTL de un documento. |Ningún documento de esta colección caducará. |El documento con TTL =-1 en esta colección nunca caducará. Todos los demás documentos caducarán después del intervalo "n". |
-| TTL = n en documentos |No hay nada que invalidar en el nivel de documento. El sistema no interpreta el TTL de un documento. |El documento con TTL = n caducará después del intervalo n, en segundos. Otros documentos heredarán el intervalo de -1 y no caducarán nunca. |El documento con TTL = n caducará después del intervalo n, en segundos. Otros documentos heredarán el intervalo "n" de la colección. |
+| Falta TTL en el documento |No hay nada que invalidar en el nivel de documento dado que tanto el documento como la colección no tienen concepto de TTL. |Ningún documento de esta colección caducará. |Los documentos de esta colección caducarán cuando transcurra el intervalo n'. |
+| TTL = -1 en el documento |No hay nada que invalidar en el nivel de documento dado que la colección no define la propiedad DefaultTTL que puede invalidar un documento. El sistema no interpreta el TTL de un documento. |Ningún documento de esta colección caducará. |El documento con TTL =-1 en esta colección nunca caducará. Todos los demás documentos caducarán después del intervalo n'. |
+| TTL = n en documentos |No hay nada que invalidar en el nivel de documento. El sistema no interpreta el TTL de un documento. |El documento con TTL = n caducará después del intervalo n, en segundos. Otros documentos heredarán el intervalo de -1 y no caducarán nunca. |El documento con TTL = n caducará después del intervalo n, en segundos. Otros documentos heredarán el intervalo n' de la colección. |
 
 ## <a name="configuring-ttl"></a>Configuración de TTL
 De forma predeterminada, el período de vida está deshabilitado en todas las colecciones de Cosmos DB y en todos los documentos. TTL puede establecerse mediante programación o en Azure Portal. Use los pasos siguientes para configurar TTL desde Azure Portal:

@@ -12,14 +12,14 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 08/16/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 08bce6284b672ae092e2cee3c26140e8c6049a34
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: 6231ee760902618afedf64443690be0b02c4d0eb
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242859"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41946562"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Habilitación de la copia de seguridad de Azure Stack desde el portal de administración
 Habilite el servicio Infrastructure Backup con el portal de administración para que Azure Stack pueda generar copias de seguridad. Puede utilizar estas copias de seguridad para restaurar el entorno mediante recuperación en la nube si se produce un [error catastrófico](.\azure-stack-backup-recover-data.md). La finalidad de la recuperación en la nube es garantizar que los operadores y usuarios puedan volver a iniciar sesión en el portal una vez que se complete la recuperación. Los usuarios tendrán sus suscripciones restauradas, incluidos los permisos de acceso basado en roles y los roles, los planes originales, las ofertas, así como el proceso, el almacenamiento y las cuotas de red definidos previamente.
@@ -33,26 +33,60 @@ Los administradores y los usuarios son los responsables de realizar copias de se
 - [SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 
-> [!Note]  
-> Antes de habilitar la copia de seguridad mediante la consola, debe configurar el servicio de copia de seguridad. Puede configurar el servicio de copia de seguridad mediante PowerShell. Para más información, consulte [Habilitación de la copia de seguridad de Azure Stack con PowerShell](azure-stack-backup-enable-backup-powershell.md).
+## <a name="enable-or-reconfigure-backup"></a>Habilitación o reconfiguración de la copia de seguridad
 
-## <a name="enable-backup"></a>Habilitación de la copia de seguridad
-
-1. Abra el portal de administración de Azure Stack en [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
+1. Abra [el portal de administración de Azure Stack](azure-stack-manage-portals.md).
 2. Seleccione **Más servicios** > **Infrastructure backup** (Copia de seguridad de infraestructura). Elija **Configuración** en la hoja **Copia de seguridad de infraestructura**.
-
-    ![Azure Stack: configuración del controlador de copia de seguridad](media\azure-stack-backup\azure-stack-backup-settings.png).
-
 3. Escriba la ruta de acceso a la **ubicación de almacenamiento de la copia de seguridad**. Utilice una cadena de convención de nomenclatura universal (UNC) para la ruta de acceso de un recurso compartido de archivos hospedado en un dispositivo independiente. Una cadena UNC especifica la ubicación de recursos como archivos compartidos o dispositivos. Para el servicio, puede usar una dirección IP. Para garantizar la disponibilidad de los datos de copia de seguridad después de un desastre, el dispositivo debe estar en una ubicación independiente.
+
     > [!Note]  
     > Si el entorno admite la resolución de nombres de la red de infraestructura de Azure Stack para su entorno empresarial, puede usar un nombre de dominio completo en lugar de la dirección IP.
+    
 4. Escriba el **nombre de usuario** con el dominio y el nombre de usuario con acceso suficiente para leer y escribir archivos. Por ejemplo, `Contoso\backupshareuser`.
 5. Escriba la **Contraseña** del usuario.
-5. Escriba la contraseña de nuevo para **Confirmar la contraseña**.
-6. Proporcione una clave precompartida en la casilla **Clave de cifrado**. Los archivos de copia de seguridad se cifran mediante esta clave. Asegúrese de almacenar esta clave en una ubicación segura. Una vez que configure esta clave por primera vez o la rote en el futuro, no podrá verla desde esta interfaz. Para obtener más instrucciones sobre cómo generar una clave precompartida, siga los scripts de [Habilitación de la copia de seguridad para Azure Stack con PowerShell](azure-stack-backup-enable-backup-powershell.md).
-7. Seleccione **Aceptar** para guardar la configuración del controlador de copia de seguridad.
+6. Escriba la contraseña de nuevo para **Confirmar la contraseña**.
+7. La **frecuencia en horas** determina con qué frecuencia se crean las copias de seguridad. El valor predeterminado es 12. Scheduler admite un máximo de 12 y un mínimo de 4. 
+8. El **período de retención en días** determina cuántos días de copias de seguridad se conservan en la ubicación externa. El valor predeterminado es 7. Scheduler admite un máximo de 14 y un mínimo de 2. Las copias de seguridad anteriores al período de retención se eliminan automáticamente de la ubicación externa.
 
-Para ejecutar una copia de seguridad, debe descargar las herramientas de Azure Stack y, a continuación, ejecutar el cmdlet de PowerShell **Start-AzSBackup** en el nodo de administración de Azure Stack. Para obtener más información, consulte [Copia de seguridad de Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
+    > [!Note]  
+    > Si desea archivar las copias de seguridad anteriores al período de retención, asegúrese de hacer una copia de seguridad de los archivos antes de que Scheduler las elimine. Si reduce el período de retención de copia de seguridad (por ejemplo, de 7 a 5 días), Scheduler eliminará todas las copias de seguridad anteriores al período de retención nuevo. Asegúrese de que desea que las copias de seguridad se eliminen antes de actualizar este valor. 
+
+9. Proporcione una clave precompartida en la casilla **Clave de cifrado**. Los archivos de copia de seguridad se cifran mediante esta clave. Asegúrese de almacenar esta clave en una ubicación segura. Una vez que configure esta clave por primera vez o la rote en el futuro, no podrá verla desde esta interfaz. Para crear la clave, ejecute los siguientes comandos de PowerShell de Azure Stack:
+    ```powershell
+    New-AzsEncryptionKeyBase64
+    ```
+10. Seleccione **Aceptar** para guardar la configuración del controlador de copia de seguridad.
+
+    ![Azure Stack: configuración del controlador de copia de seguridad](media\azure-stack-backup\backup-controller-settings.png)
+
+## <a name="start-backup"></a>Inicio de la copia de seguridad
+Para iniciar una copia de seguridad, haga clic en **Backup now** (Hacer copia de seguridad ahora) y comience la copia de seguridad a petición. Una copia de seguridad a petición no modificará la hora de la siguiente copia de seguridad programada. Una vez completada la tarea, puede confirmar la configuración en **Información esencial**:
+
+![Azure Stack: copia de seguridad a petición](media\azure-stack-backup\scheduled-backup.png).
+
+También puede ejecutar el cmdlet de PowerShell **Start-AzsBackup** en el equipo de administración de Azure Stack. Para obtener más información, consulte [Copia de seguridad de Azure Stack](azure-stack-backup-back-up-azure-stack.md).
+
+## <a name="enable-or-disable-automatic-backups"></a>Habilitación o deshabilitación de las copias de seguridad automáticas
+Las copias de seguridad se programan automáticamente cuando se habilita la copia de seguridad. Puede comprobar el momento en que se realizará la próxima copia de seguridad en **Información esencial**. 
+
+![Azure Stack: copia de seguridad a petición](media\azure-stack-backup\on-demand-backup.png)
+
+Si necesita deshabilitar futuras copias de seguridad programadas, haga clic en **Deshabilitar copias de seguridad automáticas**. Al deshabilitar las copias de seguridad automáticas, se mantendrá la configuración y la programación de las copias de seguridad. De este modo, simplemente indica al programador que omita las futuras copias de seguridad. 
+
+![Azure Stack: deshabilitar las copias de seguridad programadas](media\azure-stack-backup\disable-auto-backup.png)
+
+Confirme en **Información esencial** que se han deshabilitado las copias de seguridad programadas futuras:
+
+![Azure Stack: confirmar que se han deshabilitado las copias de seguridad](media\azure-stack-backup\confirm-disable.png)
+
+Haga clic en **Habilitar copias de seguridad automáticas** para informar a Scheduler de que deben iniciarse las futuras copias de seguridad en el momento programado. 
+
+![Azure Stack: habilitar las copias de seguridad programadas](media\azure-stack-backup\enable-auto-backup.png)
+
+
+> [!Note]  
+> Si ha configurado la copia de seguridad de la infraestructura antes de actualizar a la versión 1807, se deshabilitarán las copias de seguridad automáticas. De este modo, las copias de seguridad iniciadas por Azure Stack no entran en conflicto con las iniciadas por un motor de programación de tareas externo. Una vez que deshabilite los programadores de tareas externos, haga clic en **Habilitar copias de seguridad automáticas**.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

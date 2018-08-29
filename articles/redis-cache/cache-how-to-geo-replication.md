@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 883683f6af7943fa4da49095c9a15aefd5cfa719
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 644a7414365ded53acb20bb2f9ae9d086f263765
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27911377"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42143690"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>Configuración de replicación geográfica para Azure Redis Cache
 
@@ -35,7 +35,9 @@ Para configurar la replicación geográfica entre dos cachés, se deben cumplir 
 - Si la caché vinculada principal tiene habilitada la agrupación en clústeres, la caché vinculada secundaria debe tener habilitada la agrupación en clústeres con el mismo número de particiones que la caché vinculada principal.
 - Ambas cachés deben estar creadas y en ejecución.
 - La persistencia no debe estar habilitada en ninguna de las cachés.
-- Se admite la replicación geográfica entre cachés de la misma VNET. También se admite la replicación geográfica entre cachés en distintas VNET, siempre que ambas VNET estén configurada de manera que los recursos en ellas puedan tener contacto entre sí a través de conexiones TCP.
+- Se admite la replicación geográfica entre cachés de la misma VNET. 
+- Actualmente, la replicación geográfica entre cachés en redes virtuales emparejadas en la misma región es una característica en versión preliminar. Las dos redes virtuales deben configurarse de tal manera que los recursos de las redes virtuales estén conectados a través de conexiones TCP.
+- La replicación geográfica entre cachés en redes virtuales emparejadas en distintas regiones aún no es compatible, pero pronto se presentará una versión preliminar.
 
 Una vez que se configura la replicación geográfica, se aplican las siguientes restricciones al par de cachés vinculadas:
 
@@ -178,7 +180,7 @@ En la versión inicial de la replicación geográfica, Azure Redis Cache no admi
 Actualmente, para iniciar la conmutación por error, es necesario quitar el vínculo de replicación geográfica en Azure Portal y, luego, cambiar el punto de conexión del cliente Redis de la caché vinculada principal a la caché secundaria (anteriormente vinculada). Cuando se elimina la asociación de ambas cachés, la réplica se vuelve a convertir en una caché normal de lectura y escritura y acepta solicitudes directamente de los clientes Redis.
 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre el [nivel Premium de Azure Redis Cache](cache-premium-tier-intro.md).
 

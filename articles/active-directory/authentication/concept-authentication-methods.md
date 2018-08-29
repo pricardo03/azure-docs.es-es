@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 4a0fb5739812950f3a01a18acae1d797fa4f9158
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7776ca63dd5c02e470ead35e3dad73c051731fd1
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622259"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142504"
 ---
 # <a name="what-are-authentication-methods"></a>¿Qué son los métodos de autenticación?
 
@@ -136,6 +136,8 @@ La aplicación Microsoft Authenticator puede ayudar a impedir el acceso no autor
 >
 > Si se requieren dos métodos, los usuarios podrán realizar el restablecimiento con la notificación **EITHER** **O** con el código de verificación, además de con cualquier otro método habilitado.
 >
+
+Si habilita el uso de la notificación a través de aplicación móvil y del código de verificación de aplicación móvil, los usuarios que registren la aplicación Microsoft Authenticator con una notificación podrán usar tanto la notificación como el código para comprobar su identidad.
 
 ### <a name="verification-code-from-mobile-app"></a>Código de verificación desde aplicación móvil
 

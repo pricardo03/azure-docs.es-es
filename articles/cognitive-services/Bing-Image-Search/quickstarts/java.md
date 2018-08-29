@@ -1,6 +1,6 @@
 ---
-title: 'Llamada y respuesta: inicio rápido de Java para Azure Cognitive Services, Bing Image Search API | Microsoft Docs'
-description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Image Search API en Microsoft Cognitive Services en Azure.
+title: 'Guía de inicio rápido: Envío de consultas de búsqueda con la API REST de Bing Image Search API y Java'
+description: 'En esta guía de inicio rápido, va a utilizar Java # para enviar consultas de búsqueda a Bing Search API y obtener una lista de imágenes pertinentes.'
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
@@ -9,24 +9,24 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 658025e997f27a3974b473e5c556780733d68045
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3d779bae099bde5b015ee8316906ace77c0ad3bb
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382131"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41929900"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-in-java"></a>Llamada y respuesta: la primera consulta de Bing Image Search en Java
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-java"></a>Guía de inicio rápido: Envío de consultas de búsqueda con la API REST y Java
 
-Bing Image Search API proporciona una experiencia similar a Bing.com/Images, al permitir enviar una consulta de búsqueda de usuario a Bing y obtener una lista de imágenes apropiadas.
+Bing Image Search API proporciona una experiencia similar a Bing.com/Images al permitir enviar una consulta de búsqueda de usuario a Bing y obtener una lista de imágenes apropiadas.
 
 En este artículo se incluye una aplicación de consola sencilla que realiza una consulta de Bing Image Search API y muestra los resultados de la búsqueda sin procesar devueltos, que se encuentran en formato JSON. Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Necesitará [JDK 7 u 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar y ejecutar este código. Puede utilizar un IDE de Java si tiene un favorito, pero bastará con un editor de texto.
 
-Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Bing Search APIs**. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) es suficiente para esta guía de inicio rápido. Necesita la clave de acceso que se le proporciona al activar la versión de evaluación gratuita, o puede usar una clave de suscripción de pago desde su panel de Azure.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>Ejecución de la aplicación
 
@@ -249,5 +249,5 @@ La siguiente es una respuesta de ejemplo. Para limitar la longitud de JSON, se m
 
 [¿Qué es Bing Image Search?](../overview.md)  
 [Pruébelo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-[Obtenga una clave de acceso para evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+[Obtenga una clave de acceso para la evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 [Referencia de Bing Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

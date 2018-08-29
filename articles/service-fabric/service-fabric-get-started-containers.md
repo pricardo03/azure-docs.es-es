@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: e76ffa3256da5acecf55ad37ea3d927510565ffe
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 41246e434f8adade65f39b3471417888f62d7528
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577295"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143079"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Cree la primera aplicación contenedora en Service Fabric en Windows
 > [!div class="op_single_selector"]
@@ -204,6 +204,8 @@ El servicio en contenedor necesita un punto de conexión para la comunicación. 
   </Endpoints>
 </Resources>
 ```
+> [!NOTE]
+> Pueden agregarse puntos de conexión adicionales para un servicio mediante la declaración de más elementos EndPoint con los valores de propiedad aplicables. Cada puerto solo puede declarar un valor de protocolo.
 
 Al definir un punto de conexión, Service Fabric publica el punto de conexión en el servicio de nomenclatura. Otros servicios que se ejecuten en el clúster pueden resolver este contenedor. También puede realizar la comunicación de contenedor a contenedor utilizando el [proxy inverso](service-fabric-reverseproxy.md). La comunicación se establece al proporcionar el puerto de escucha HTTP del proxy inverso y el nombre de los servicios con los que desea comunicarse como variables de entorno.
 
@@ -247,6 +249,8 @@ Configurar un puerto de host que se utiliza para comunicarse con el contenedor. 
     ...
 </ServiceManifestImport>
 ```
+> [!NOTE]
+> Pueden agregarse puertos de enlace adicionales para un servicio mediante la declaración de elementos PortBindings adicionales con los valores de propiedad aplicables.
 
 ## <a name="configure-container-registry-authentication"></a>Configurar la autenticación de Container Registry
 Configure la autenticación de Container Registry mediante la adición de `RepositoryCredentials` a `ContainerHostPolicies` en el archivo ApplicationManifest.xml. Agregue la cuenta y contraseña para el registro de contenedores myregistry.azurecr.io, que permite al servicio descargar la imagen de contenedor del repositorio.
@@ -598,13 +602,13 @@ El entorno de tiempo de ejecución de Service Fabric asigna 20 minutos para desc
 
 ```json
 {
-"name": "Hosting",
+        "name": "Hosting",
         "parameters": [
           {
               "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
-]
+        ]
 }
 ```
 
@@ -626,7 +630,7 @@ Con la versión 6.2 del entorno del tiempo de ejecución de Service Fabric y sup
 
 ```json
 { 
-   "name": "Hosting", 
+        "name": "Hosting", 
         "parameters": [ 
           { 
             "name": "ContainerServiceArguments", 

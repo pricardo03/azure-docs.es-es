@@ -1,5 +1,5 @@
 ---
-title: Servicio de voz de Microsoft | Microsoft Docs
+title: Servicio Bing Speech de Microsoft | Microsoft Docs
 description: Use Microsoft Speech API para agregar acciones de voz a las aplicaciones, incluida la interacción en tiempo real con usuarios.
 services: cognitive-services
 author: zhouwangzw
@@ -9,33 +9,36 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: c041132e992f07e94e4b6669ec7ce174f7c2d0dd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ee328145419aaf8962c08bca2fb9cf1a42daae0c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380562"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41929827"
 ---
-# <a name="microsoft-speech-api-overview"></a>Introducción a Microsoft Speech API
+# <a name="microsoft-bing-speech-api-overview"></a>Introducción a Microsoft Bing Speech API
 
-Microsoft Speech API basada en la nube ofrece a los desarrolladores una manera sencilla de crear eficaces características habilitadas para voz en las aplicaciones, como el control de comandos de voz, el diálogo con el usuario mediante una conversación de voz natural y la transcripción y el dictado de voz. Microsoft Speech API admite tanto la conversión de *voz en texto* como la conversión de *texto a voz*.
+Microsoft Bing Speech API es una API basada en la nube que proporciona a los desarrolladores un mecanismo sencillo para crear en las aplicaciones eficaces características con voz habilitada, como el control de comandos por voz, el diálogo con el usuario mediante una conversación en lenguaje natural y la transcripción y el dictado de voz. Microsoft Speech API admite tanto la conversión de *voz en texto* como la conversión de *texto a voz*.
 
 - **Speech to Text** API convierte la voz humana en texto que puede usarse como entrada o comandos para controlar la aplicación.
 - **Text to Speech** API convierte el texto en secuencias de audio que pueden reproducirse para el usuario de la aplicación.
+
+> [!NOTE] 
+> En mayo de 2018, lanzamos el nuevo [servicio Voz](/speech-service/overview.md) en versión preliminar pública. Le animamos a que [lo pruebe gratuitamente](/speech-service/get-started.md).
 
 ## <a name="speech-to-text-speech-recognition"></a>Conversión de voz a texto (reconocimiento de voz)
 
 Microsoft Speech Recognition API *transcribe* secuencias de audio en texto que la aplicación puede mostrar al usuario o actuar como si fueran entrada de comandos. Proporciona a los desarrolladores dos maneras agregar voz a sus aplicaciones: las API de REST **o** las bibliotecas cliente basadas en Websocket.
 
 - [API de REST](GetStarted/GetStartedREST.md): los desarrolladores pueden usar llamadas HTTP desde sus aplicaciones al servicio para el reconocimiento de voz.
-- [Bibliotecas cliente](GetStarted/GetStartedClientLibraries.md): para características avanzadas, los desarrolladores pueden descargar las bibliotecas cliente de voz de Microsoft y vincular sus aplicaciones.  Las bibliotecas cliente están disponibles en distintas plataformas (Windows, Android, iOS) con distintos lenguajes (C#, Java, JavaScript, ObjectiveC). A diferencia de las API de REST, las bibliotecas cliente utilizan el protocolo basado en Websocket.
+- [Bibliotecas cliente](GetStarted/GetStartedClientLibraries.md): para características avanzadas, los desarrolladores pueden descargar las bibliotecas cliente de voz de Microsoft y vincular sus aplicaciones.  Las bibliotecas cliente están disponibles en distintas plataformas (Windows, Android, iOS) con distintos lenguajes (C#, Java, JavaScript, ObjectiveC). A diferencia de las API REST, las bibliotecas cliente utilizan un protocolo basado en Websocket.
 
 | Casos de uso | [API de REST](GetStarted/GetStartedREST.md) | [Bibliotecas cliente](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Convertir un audio hablado corto, por ejemplo, comandos (longitud audio < 15 s) sin resultados provisionales | Sí | Sí |
-| Convertir un audio largo (> 15 s) | Sin  | Sí |
-| Audio de secuencia con resultados provisionales deseados | Sin  | Sí |
-| Comprender el texto convertido desde audio mediante LUIS | Sin  | Sí |
+| Convertir un audio hablado corto, por ejemplo, comandos (longitud audio < 15 s) sin resultados provisionales | SÍ | SÍ |
+| Convertir un audio largo (> 15 s) | Sin  | SÍ |
+| Audio de secuencia con resultados provisionales deseados | Sin  | SÍ |
+| Comprender el texto convertido desde audio mediante LUIS | Sin  | SÍ |
 
 Sea cual sea el enfoque que los desarrolladores elijan (las API de REST o las bibliotecas cliente), el servicio de voz de Microsoft admite lo siguiente:
 
@@ -43,7 +46,7 @@ Sea cual sea el enfoque que los desarrolladores elijan (las API de REST o las bi
 - Reconocimiento continuado en tiempo real. Speech Recognition API permite a los usuarios transcribir audio en texto en tiempo real y admite recibir los resultados intermedios de las palabras que se han reconocido hasta ahora. El servicio de voz también admite la detección del fin de voz. Además, los usuarios pueden elegir funcionalidades de formato adicionales, como el uso de mayúsculas y signos de puntuación, el enmascaramiento de palabras soeces y la normalización de texto.
 - Admite los resultados del reconocimiento de voz optimizados para escenarios *interactivos*, de *conversación* y de *dictado*. Para los escenarios de usuario que requieren modelos de lenguaje y modelos acústicos personalizados, [Custom Speech Service](../custom-speech-service/cognitive-services-custom-speech-home.md) le permite crear modelos de voz adaptados a la aplicación y los usuarios.
 - Admite muchos idiomas hablados en varios dialectos. Para obtener la lista completa de los idiomas admitidos en cada modo de reconocimiento, consulte los [idiomas de reconocimiento](api-reference-rest/supportedlanguages.md).
-- Integración con Language Understanding. Además de convertir el audio de entrada en texto, la conversión de *voz en texto* proporciona a las aplicaciones una capacidad adicional para comprender lo que significa el texto. Usa [Language Understanding Intelligent Service (LUIS)](../LUIS/Home.md) para extraer intenciones y entidades del texto reconocido.
+- Integración con Language Understanding. Además de convertir el audio de entrada en texto, la conversión de *voz en texto* proporciona a las aplicaciones una capacidad adicional para comprender lo que significa el texto. Usa [Language Understanding Intelligent Service (LUIS)](../LUIS/what-is-luis.md) para extraer intenciones y entidades del texto reconocido.
 
 ### <a name="next-steps"></a>Pasos siguientes
 

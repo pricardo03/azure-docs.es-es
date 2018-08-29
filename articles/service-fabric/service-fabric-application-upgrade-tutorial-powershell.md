@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 44f4dc3a9c876e383a6e4df8ef5f467f2b93eaa9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0238dce3f8cbf838e7fce3afefb866e3aaa791bc
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205491"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143546"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Actualización de aplicaciones de Service Fabric con PowerShell
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "34205491"
 
 El enfoque de actualización recomendado y usado con mayor frecuencia es la actualización gradual supervisada.  Azure Service Fabric supervisa el estado de la aplicación que se está actualizando en función de un conjunto de directivas de mantenimiento. Después de actualizar un dominio de actualización (UD), Service Fabric evalúa el estado de la aplicación y, o bien continúa con el siguiente dominio de actualización, o no realiza la actualización, según las directivas de mantenimiento.
 
-Se puede realizar una actualización de la aplicación supervisada mediante las API nativas o administradas, PowerShell o REST. Para obtener instrucciones sobre cómo realizar una actualización con Visual Studio, consulte [Actualización de la aplicación con Visual Studio](service-fabric-application-upgrade-tutorial.md).
+Se puede realizar una actualización de la aplicación supervisada mediante las API nativas o administradas, PowerShell, la CLI de Azure, Java o REST. Para obtener instrucciones sobre cómo realizar una actualización con Visual Studio, consulte [Actualización de la aplicación con Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
 Con la actualización gradual supervisada de Service Fabric, el Administrador de aplicaciones puede configurar la directiva de evaluación de estado que Service Fabric usa para determinar que la aplicación es correcta. Además, el Administrador puede configurar la acción que se realizará cuando la evaluación de estado encuentre errores (por ejemplo, realizar una reversión automática). En esta sección se ofrece orientación sobre una actualización supervisada para uno de los ejemplos del SDK que PowerShell utiliza. El siguiente vídeo de la Academia virtual de Microsoft también le guía a través de una actualización de la aplicación: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
 <img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">

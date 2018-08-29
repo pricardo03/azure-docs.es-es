@@ -5,15 +5,15 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 08/13/2018
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: aaae191baaa7b712c77d93303ded777afe97c249
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a0e2400163433ba5290525d0fe807ede624a31ed
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530595"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42143279"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transferencia de datos con AzCopy en Windows
 AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y desde los servicios de Almacenamiento de blobs de Microsoft Azure, File Storage y Table Storage con sencillos comandos diseñados para ofrecer un rendimiento óptimo. Puede copiar datos entre un sistema de archivos y una cuenta de almacenamiento o entre cuentas de almacenamiento.  
@@ -22,16 +22,16 @@ Hay dos versiones de AzCopy que puede descargar. AzCopy en Windows ofrece opcion
 
 ## <a name="download-and-install-azcopy-on-windows"></a>Descarga e instalación de AzCopy en Windows
 
-### <a name="latest-preview-version-v800"></a>Versión preliminar más reciente (v8.0.0)
-Descargue la [versión preliminar más reciente de AzCopy en Windows](https://aka.ms/downloadazcopypr). Esta versión preliminar ofrece importantes mejoras de rendimiento y paquetes .NET Core en la instalación.
+### <a name="latest-version-v81"></a>Versión más reciente (v8.1)
+Descargue la [versión más reciente de AzCopy en Windows](https://aka.ms/downloadazcopy).
 
-#### <a name="azcopy-on-windows-80-preview-release-notes"></a>Notas de la versión preliminar de AzCopy en Windows 8.0
-- Table service ya no se admite en la última versión. Si utiliza la característica de exportación de Table, descargue la versión estable.
+#### <a name="azcopy-on-windows-81-release-notes"></a>Notas de la versión de AzCopy en Windows 8.1
+- Table service ya no se admite en la última versión. Si utiliza la característica de exportación de Table, descargue la versión 7.3 de AzCopy.
 - Creado con .NET Core 2.1, y todas las dependencias de.NET Core ahora se empaquetan en la instalación.
-- Mejoras de rendimiento significativas para los escenarios de carga y descarga
+- Incorporación de compatibilidad con la autenticación de OAuth. Use ```azcopy login``` para iniciar sesión utilizando Azure Active Directory.
 
-### <a name="latest-stable-version-v710"></a>La versión estable más reciente (v7.1.0)
-Descargue la [versión estable más reciente de AzCopy en Windows](https://aka.ms/downloadazcopy).
+### <a name="azcopy-with-table-support-v73"></a>Azcopy con compatibilidad con Table (v7.3)
+Descargue [AzCopy 7.3 con compatibilidad con Table](https://aka.ms/downloadazcopynet).
 
 ### <a name="post-installation-step"></a>Pasos posteriores a la instalación
 

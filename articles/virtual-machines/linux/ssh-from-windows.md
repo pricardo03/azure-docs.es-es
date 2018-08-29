@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 08/20/2018
 ms.author: danlep
-ms.openlocfilehash: d0762f80267fa927681344a3e0de78b0800c8306
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fc245d38af90e0c395389e24b14d061fcfe0c10c
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630218"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143452"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Uso de claves SSH con Windows en Azure
 
@@ -33,9 +33,9 @@ En este artículo se presentan maneras de generar y utilizar claves de Secure Sh
 ## <a name="windows-packages-and-ssh-clients"></a>Paquetes de Windows y los clientes SSH
 Para conectarse a máquinas virtuales Linux de Azure y administraras, se usa un cliente *ssh*. Los equipos que ejecutan Linux o macOS suelen tener un conjunto de comandos SSH para generar y administrar claves SSH, y para establecer conexiones SSH. 
 
-Los equipos Windows no siempre tienen comandos SSH comparables instalados. Las versiones Windows 10 que incluyen el [subsistema de Windows para Linux](https://docs.microsoft.com/windows/wsl/about) permiten ejecutar utilidades y acceder a ellas, como un cliente SSH de forma nativa dentro del shell de Bash. 
+Los equipos Windows no siempre tienen comandos SSH comparables instalados. Las versiones recientes de Windows 10 proporcionan [comandos del cliente OpenSSH](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) para crear y administrar claves SSH y establecer conexiones SSH desde un símbolo del sistema. Las versiones recientes de Windows 10 también incluyen el [subsistema de Windows para Linux](https://docs.microsoft.com/windows/wsl/about) para ejecutar utilidades y acceder a ellas, como un cliente SSH nativo en el shell de Bash. 
 
-Si desea usar algo distinto de Bash para Windows, en los paquetes siguientes se incluyen clientes comunes de Windows SSH que puede instalar localmente:
+Si desea usar otra herramienta SSH para Windows, en los paquetes siguientes se incluyen clientes comunes de Windows SSH que puede instalar en la máquina local:
 
 * [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [Git para Windows](https://git-for-windows.github.io/)
@@ -52,7 +52,7 @@ En esta sección se muestran dos opciones para crear un par de claves SSH en Win
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>Crear claves SSH con ssh-keygen
 
-Si puede ejecutar un shell de comandos, como Bash para Windows o GitBash (o Bash en Azure Cloud Shell), cree un par de claves SSH mediante el comando `ssh-keygen`. Escribe el siguiente comando y responda a los mensajes. Si existe un par de claves SSH en la ubicación actual, esos archivos se sobrescribirán. 
+Si ejecuta un shell de comandos en Windows que admita las herramientas de cliente SSH (o usa Azure Cloud Shell), cree un par de claves SSH mediante el comando `ssh-keygen`. Escribe el siguiente comando y responda a los mensajes. Si existe un par de claves SSH en la ubicación actual, esos archivos se sobrescribirán. 
 
 ```bash
 ssh-keygen -t rsa -b 2048

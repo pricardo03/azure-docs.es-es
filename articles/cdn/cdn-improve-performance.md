@@ -1,10 +1,10 @@
 ---
-title: Mejora del rendimiento comprimiendo archivos en la red CDN de Azure | Microsoft Docs
+title: Mejora del rendimiento comprimiendo archivos en Azure CDN | Microsoft Docs
 description: Obtenga información sobre cómo mejorar la velocidad de transferencia de archivos y aumentar el rendimiento de carga de página mediante la compresión de los archivos en Azure CDN.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: cdn
@@ -12,16 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
-ms.author: v-deasim
-ms.openlocfilehash: bdff57275cf123079004ada732fe782d98399d71
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 08/15/2018
+ms.author: magattus
+ms.openlocfilehash: c3a20bd4fa1cccdca7cba0de52620f09fe01abc5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260403"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146547"
 ---
-# <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Mejora del rendimiento comprimiendo archivos en la red CDN de Azure
+# <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Mejora del rendimiento comprimiendo archivos en Azure CDN
 La compresión de archivo es un método sencillo y eficaz para mejorar la velocidad de transferencia de archivos y aumentar el rendimiento de carga de página al reducir el tamaño de un archivo antes de enviarlo al servidor. La compresión de archivo reduce los costos de ancho de banda y proporciona una mayor capacidad de respuesta para los usuarios.
 
 Se puede habilitar de dos maneras:
@@ -65,6 +65,10 @@ Los niveles Standard y Premium de CDN proporcionan la misma funcionalidad de com
    
    > [!TIP]
    > Aunque es posible, no se recomienda aplicar compresión a formatos comprimidos. Por ejemplo, ZIP, MP3, MP4 o JPG.
+   > 
+   
+   > [!NOTE]
+   > Actualmente no se admite la modificación de la lista predeterminada de los tipos MIME en Azure CDN estándar desde Microsoft.
    > 
  
 5. Seleccione **Guardar** después de hacer los cambios.
@@ -148,7 +152,8 @@ En las tablas siguientes se describe el comportamiento de la compresión de Azur
 | --- | --- | --- | --- |
 | Comprimidos |Comprimidos |Comprimidos |La red CDN transcodifica entre los formatos admitidos. |
 | Comprimidos |Sin comprimir |Comprimidos |La red CDN realiza una compresión. |
-| Comprimidos |No almacenado en caché |Comprimidos |La red CDN realiza una compresión si el origen devuelve un archivo sin comprimir. <br/>**CDN de Azure de Verizon** pasa el archivo descomprimido en la primera solicitud y luego lo comprime y lo almacena en caché para solicitudes posteriores. <br/>Los archivos con el encabezado `Cache-Control: no-cache` nunca se comprimen. |
+| Comprimidos |No almacenado en caché |Comprimidos |La red CDN realiza una compresión si el origen devuelve un archivo sin comprimir. <br/>
+  **Azure CDN de Verizon** pasa el archivo descomprimido en la primera solicitud y luego lo comprime y lo almacena en caché para solicitudes posteriores. <br/>Los archivos con el encabezado `Cache-Control: no-cache` nunca se comprimen. |
 | Sin comprimir |Comprimidos |Sin comprimir |La red CDN realiza una descompresión. |
 | Sin comprimir |Sin comprimir |Sin comprimir | |
 | Sin comprimir |No almacenado en caché |Sin comprimir | |

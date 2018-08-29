@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 25349d48d88b64568fef0f5a6bac5950da15196b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c4f83d2bf082b5f1358b4eee6468d470b5cb8088
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298644"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143408"
 ---
 # <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>Introducción: Escenarios B2B y comunicación con Enterprise Integration Pack
 
@@ -37,7 +37,7 @@ En cuanto a la arquitectura, Enterprise Integration Pack se basa en "cuentas de 
 
 ## <a name="how-to-get-started-with-enterprise-integration"></a>¿Cómo se puede empezar a disfrutar de Enterprise Integration Pack?
 
-Puede compilar y administrar aplicaciones B2B con Enterprise Integration Pack mediante el Diseñador de aplicación lógica en **Azure Portal**. También puede administrar las aplicaciones lógicas con [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Temas de Logic Apps y PowerShell").
+Puede compilar y administrar aplicaciones B2B con Enterprise Integration Pack mediante el Diseñador de aplicación lógica en **Azure Portal**. También puede administrar las aplicaciones lógicas con [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp "Logic Apps y PowerShell").
 
 A continuación, estos son los pasos de alto nivel que debe llevar a cabo para crear aplicaciones en Azure Portal:
 

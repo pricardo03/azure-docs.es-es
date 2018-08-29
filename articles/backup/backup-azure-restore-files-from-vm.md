@@ -7,14 +7,14 @@ manager: shivamg
 keywords: recuperación de elementos; recuperación de archivos desde una copia de seguridad de máquina virtual de Azure; restauración de archivos de máquina virtual de Azure
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 8/22/2018
 ms.author: pullabhk
-ms.openlocfilehash: fecdb54af58faaf601ab74f89039a47e0d32e650
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1f3b81c31dc566e5e3011167eee00145f6791cb1
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493388"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616916"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -33,9 +33,13 @@ Para restaurar archivos o carpetas desde el punto de recuperación, vaya a la m�
 
 2. En el menú de la máquina virtual, haga clic en **Backup** para abrir el panel de Backup.
 
-    ![Apertura del elemento de copia de seguridad del almacén de Recovery Services](./media/backup-azure-restore-files-from-vm/open-vault-from-vm.png)
+    ![Apertura del elemento de copia de seguridad del almacén de Recovery Services](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. En el menú del panel de Backup, haga clic en **Recuperación de archivos** para abrir el menú.
+3. En el menú del panel de Backup, haga clic en **Recuperación de archivos**.
+
+    ![Botón Recuperación de archivos](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+
+    Se abre el menú **Recuperación de archivos**.
 
     ![Menú Recuperación de archivos](./media/backup-azure-restore-files-from-vm/file-recovery-blade.png)
 
@@ -95,7 +99,7 @@ Después de identificar los archivos y copiarlos en una ubicación de almacenami
 
 ![Desmontar discos](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
-Cuando los discos estén desmontados, recibirá un mensaje que le informará de que la operación se ha realizado correctamente. Puede tardar unos minutos en actualizarse la conexión para que pueda quitar los discos.
+Cuando los discos estén desmontados, recibirá un mensaje. Puede tardar unos minutos en actualizarse la conexión para que pueda quitar los discos.
 
 En Linux, cuando se corta la conexión con el punto de recuperación, el sistema operativo no elimina las rutas de acceso de montaje correspondientes automáticamente. Las rutas de acceso de montaje adoptan la forma de volúmenes "huérfanos" y se pueden ver, pero se genera un error al acceder a los archivos o al escribir en ellos. Se pueden quitar manualmente. Cuando el script se ejecuta, este identifica todos los volúmenes existentes desde todos los puntos de recuperación anteriores y los limpia, aunque con consentimiento previo.
 
@@ -213,7 +217,7 @@ Si tiene problemas al tratar de recuperar archivos de las máquinas virtuales, c
 | Salida del ejecutable: *excepción relacionada con el destino*. |El script no puede acceder al punto de recuperación.    | Compruebe si la máquina cumple los requisitos de acceso anteriores. |  
 | Salida del archivo ejecutable: *el destino ya ha iniciado sesión mediante una sesión iSCSI* | El script ya se ejecutó en la misma máquina y se ha conectado la unidad. | Ya se han conectado los volúmenes del punto de recuperación. Es posible que NO se monten con las mismas letras de unidad de la máquina virtual original. Examine todos los volúmenes disponibles en el Explorador de archivos para buscar su archivo. |
 | Salida del archivo ejecutable: *este script no es válido porque se han desmontado los discos a través del portal o se ha superado el límite de 12 horas. Descargue un nuevo script del portal.* |    Se han desmontado los discos desde el portal o se ha superado el límite de 12 horas. | Este archivo ejecutable ahora no es válido y no se puede ejecutar. Si desea acceder a los archivos de esa recuperación en un momento dado, visite el portal para descargar un nuevo archivo ejecutable.|
-| En el equipo donde se ejecuta el archivo ejecutable: los nuevos volúmenes no se desmontan después de hacer clic en el botón Desmontar. | El iniciador iSCSI de la máquina no responde ni actualiza su conexión con el destino ni mantiene la caché. |    Espere algunos minutos después de hacer clic en el botón Desmontar. Si los nuevos volúmenes todavía no se han desmontado, examínelos todos. De este modo, el iniciador actualizará la conexión y se desmontará el volumen con un mensaje de error que indica que el disco no está disponible.|
+| En el equipo donde se ejecuta el archivo ejecutable: los nuevos volúmenes no se desmontan después de hacer clic en el botón Desmontar. | El iniciador iSCSI de la máquina no responde ni actualiza su conexión con el destino ni mantiene la caché. |  Espere unos minutos tras hacer clic **Desmontar**. Si los nuevos volúmenes no se han desmontado, examínelos todos. Al examinar todos los volúmenes se obliga al iniciador a actualizar la conexión y el volumen se desmonta con un mensaje de error que indica que el disco no está disponible.|
 | Salida del archivo ejecutable: el script se ejecuta correctamente, pero no se muestra en la salida del script el mensaje que indica que se han conectado nuevos volúmenes. |    Se trata de un problema transitorio.    | Los volúmenes ya deberían estar conectados. Abra el Explorador para examinarlos. Si usa siempre la misma máquina para ejecutar scripts, considere la posibilidad de reiniciarla; debería mostrarse la lista en las ejecuciones posteriores del ejecutable. |
 | Específico de Linux: no se pueden ver los volúmenes deseados. | El sistema operativo de la máquina en que se ejecuta el script puede no reconocer el sistema de archivos subyacente de la máquina virtual protegida. | Compruebe si el punto de recuperación es coherente frente a bloqueos o coherente con archivo. En caso de coherencia con archivo, ejecute el script en otra máquina cuyo sistema operativo reconozca el sistema de archivos de la máquina virtual protegida. |
 | Específico de Windows: no se pueden ver los volúmenes deseados | Se han adjuntado los discos, pero no se han configurado los volúmenes | En la pantalla de administración de discos, identifique los discos adicionales relacionados con el punto de recuperación. Si alguno de estos discos está sin conexión, intente ponerlo en línea haciendo clic con el botón derecho en él y, luego, haciendo clic en 'En línea'|

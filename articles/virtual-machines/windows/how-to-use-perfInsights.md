@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 2f496f906eef416b35e2e59b2db93481ce65acb1
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: 16d023a2f3abf0feb1f1c0478edb3de7a157d5a4
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36946288"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42143860"
 ---
 # <a name="how-to-use-perfinsights"></a>Cómo usar PerfInsights
 
@@ -64,7 +64,7 @@ En este escenario se ejecuta el banco de pruebas [Diskspd](https://github.com/Mi
 > Este escenario puede afectar al sistema y no se debe ejecutar en un sistema de producción activo. Si es necesario, ejecute este escenario en una ventana de mantenimiento dedicada para evitar cualquier problema. Un aumento de la carga de trabajo debido a una prueba de seguimiento o a un banco de pruebas puede afectar negativamente al rendimiento de la máquina virtual.
 >
 
-### <a name="slow-vm-analysis"></a>Análisis de máquinas virtuales lentas
+### <a name="performance-analysis"></a>Análisis de rendimiento
 
 En este escenario se ejecuta un seguimiento de [contador de rendimiento](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) mediante los contadores que se especifican en el archivo RuleEngineConfig.json. Si la máquina virtual se identifica como un servidor en el que se ejecuta SQL Server, se ejecuta un seguimiento del contador de rendimiento. Para ello, se usan los contadores que se encuentran en el archivo RuleEngineConfig.json. Este escenario también incluye datos de diagnóstico de rendimiento.
 
@@ -90,9 +90,9 @@ En este escenario se ejecuta una captura especial del contador de rendimiento ju
 |              | Prom. Longitud de la cola de escritura       |
 |              | Prom. Longitud de la cola de datos        |
 
-### <a name="advanced-slow-vm-analysis"></a>Análisis avanzado de máquinas virtuales lentas
+### <a name="advanced-performance-analysis"></a>Análisis avanzado del rendimiento
 
-Cuando ejecute un análisis avanzado de máquinas virtuales lentas, seleccione seguimientos que se ejecuten en paralelo. Si lo desea, puede ejecutarlos todos (Contador de rendimiento, Xperf, Red y StorPort).  
+Al ejecutar un análisis avanzado del rendimiento, seleccione seguimientos que se ejecuten en paralelo. Si lo desea, puede ejecutarlos todos (Contador de rendimiento, Xperf, Red y StorPort).  
 
 > [!Note]
 > Este escenario puede afectar al sistema y no se debe ejecutar en un sistema de producción activo. Si es necesario, ejecute este escenario en una ventana de mantenimiento dedicada para evitar cualquier problema. Un aumento de la carga de trabajo debido a una prueba de seguimiento o a un banco de pruebas puede afectar negativamente al rendimiento de la máquina virtual.
@@ -104,7 +104,7 @@ Se recopila información acerca de la máquina virtual Windows, la configuració
 
 |Datos recopilados                              |  |  | Escenarios de rendimiento |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Análisis rápido del rendimiento | Pruebas comparativas | Análisis de máquinas virtuales lentas | Análisis de Azure Files | Análisis avanzado de máquinas virtuales lentas |
+|                               | Análisis rápido del rendimiento | Pruebas comparativas | Análisis de rendimiento | Análisis de Azure Files | Análisis avanzado del rendimiento |
 | Información de los registros de eventos       | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
 | Información del sistema                | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
 | Asignación de volúmenes                        | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
@@ -119,13 +119,13 @@ Se recopila información acerca de la máquina virtual Windows, la configuració
 | Configuración del firewall            | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
 | Configuración de SQL Server          | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
 | Seguimientos de diagnóstico de rendimiento *  | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
-| Seguimiento de contadores de rendimiento **      |                            |                                    | Sí                      |                      | Sí                  |
+| Seguimiento de contadores de rendimiento **      |                            |                                    | SÍ                      |                      | SÍ                  |
 | Seguimiento del contador de SMB **              |                            |                                    |                          | Sí                  |                      |
-| Seguimiento del contador de SQL Server **       |                            |                                    | Sí                      |                      | Sí                  |
+| Seguimiento del contador de SQL Server **       |                            |                                    | SÍ                      |                      | SÍ                  |
 | Seguimiento de Xperf                       |                            |                                    |                          |                      | Sí                  |
 | Seguimiento de StorPort                    |                            |                                    |                          |                      | Sí                  |
 | Seguimiento de la red                     |                            |                                    |                          | Sí                  | Sí                  |
-| Seguimiento del banco de pruebas Diskspd ***       |                            | Sí                                |                          |                      |                      |
+| Seguimiento del banco de pruebas Diskspd ***       |                            | SÍ                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>Seguimiento del diagnóstico de rendimiento (*)
@@ -138,7 +138,7 @@ Se ejecuta un motor basado en reglas en segundo plano para recopilar datos y dia
 - Regla de HighMemoryUsage: detecta períodos de uso de memoria elevados y muestra los principales consumidores de uso de memoria durante esos períodos.
 
 > [!NOTE] 
-> Actualmente, se admiten las versiones de Windows que incluyen .NET Framework 3.5 o versiones posteriores.
+> Actualmente, se admiten las versiones de Windows que incluyen .NET Framework 4.5 o versiones posteriores.
 
 ### <a name="performance-counter-trace-"></a>Seguimiento de contadores de rendimiento (\*\*)
 
@@ -171,9 +171,9 @@ Pruebas de carga de trabajo de E/S de Diskspd [disco del sistema operativo (escr
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Posibles problemas al ejecutar la herramienta en máquinas virtuales de producción
 
--  Tanto en los escenarios de pruebas comparativas como en el de "Análisis avanzado de máquinas virtuales lentas" que está configurado para usar Xperf o Diskspd, la herramienta podría afectar de manera negativa al rendimiento de la máquina virtual. Estos escenarios no se deben ejecutar en un entorno de producción en vivo.
+-  Tanto en los escenarios de pruebas comparativas como en el de "Análisis avanzado del rendimiento" que está configurado para usar Xperf o Diskspd, la herramienta podría afectar de manera negativa al rendimiento de la máquina virtual. Estos escenarios no se deben ejecutar en un entorno de producción en vivo.
 
--  Tanto en los escenarios de pruebas comparativas como en el de "Análisis avanzado de máquinas virtuales lentas" que está configurado para usar Diskspd, asegúrese de que ninguna otra actividad en segundo plano interfiera con la carga de trabajo de E/S.
+-  Tanto en los escenarios de pruebas comparativas como en el de "Análisis avanzado del rendimiento" que está configurado para usar Diskspd, asegúrese de que ninguna otra actividad en segundo plano interfiera con la carga de trabajo de E/S.
 
 -  De forma predeterminada, la herramienta usa la unidad de almacenamiento temporal para recopilar los datos. Si el seguimiento permanece habilitado durante más tiempo, es posible que la cantidad de datos que se recopilan sea relevante. Esto puede reducir la disponibilidad de espacio en el disco temporal, lo que puede afectar a las aplicaciones que usen esta unidad.
 
@@ -212,7 +212,7 @@ Para ejecutar la herramienta PerfInsights, siga estos pasos:
     PerfInsights /run <ScenarioName> [AdditionalOptions]
     ```
 
-    Puede usar el siguiente ejemplo para ejecutar el escenario de máquinas virtuales lentas durante 5 minutos:
+    Puede usar el siguiente ejemplo para ejecutar el escenario de análisis del rendimiento durante 5 minutos:
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
@@ -224,7 +224,7 @@ Para ejecutar la herramienta PerfInsights, siga estos pasos:
     PerfInsights /run advanced xp /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    Puede usar el siguiente ejemplo para ejecutar el escenario de máquinas virtuales lentas durante 5 minutos y cargue el archivo zip en la cuenta de almacenamiento:
+    Puede usar el siguiente ejemplo para ejecutar el escenario de análisis del rendimiento durante 5 minutos y cargar el archivo zip en la cuenta de almacenamiento:
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>

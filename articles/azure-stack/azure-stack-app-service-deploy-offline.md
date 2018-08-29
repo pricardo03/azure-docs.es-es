@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 08/15/2018
 ms.author: anwestg
-ms.openlocfilehash: 7084243c0fc84429b585c3e8fd9e5c64df469ec4
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 9e36e470c3516c55089ce1e44540b6b1eacbb6b2
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604291"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41947920"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Incorporación de un proveedor de recursos de App Service a un entorno de Azure Stack desconectado protegido por AD FS
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 > [!IMPORTANT]
-> Aplique la actualización 1804 al sistema integrado de Azure Stack o implemente el Kit de desarrollo de Azure Stack más reciente antes de implementar Azure App Service 1.2.
+> Aplique la actualización 1807 al sistema integrado de Azure Stack o implemente el Kit de desarrollo de Azure Stack más reciente antes de implementar Azure App Service 1.3.
 >
 >
 
@@ -138,7 +138,17 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
     > [!NOTE]
     > El instalador intenta comprobar la conectividad con la instancia de SQL Server antes de continuar.  Sin embargo, si eligió realizar la implementación en una red virtual existente, puede que el instalador no pueda conectarse a la instancia de SQL Server y muestre una advertencia, que le pregunta si desea continuar.  Compruebe la información de SQL Server y continúe si es correcta.
     >
-    >
+    > Desde Azure App Service en Azure Stack 1.3 y versiones posteriores, el instalador comprobará que el servidor SQL Server tiene la contención de base de datos habilitada en el nivel de SQL Server.  Si no es así, se le indicará la siguiente excepción:
+    > ```sql
+    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
+    >    ***********************************************************
+    >    sp_configure 'contained database authentication', 1;  
+    >    GO  
+    >    RECONFIGURE;  
+    >    GO
+    >    ***********************************************************
+    > ```
+    > Remítase a las [notas de la versión de Azure App Service en Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) para más detalles.
    
    ![Instalador de App Service][12]
 
@@ -151,7 +161,7 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
 
     | Rol | Número mínimo de instancias | SKU mínima | Notas |
     | --- | --- | --- | --- |
-    | Controller | 1 | Standard_A1: (1 vCPU, 1792 MB) | Administra y mantiene el estado de la nube de App Service. |
+    | Controller | 1 | Standard_A2: (2 vCPU, 3584 MB) | Administra y mantiene el estado de la nube de App Service. |
     | Administración | 1 | Standard_A2: (2 vCPU, 3584 MB) | Administra los puntos de conexión de API y Azure Resource Manager de App Service, las extensiones de portales (portal de Functions, administración e inquilino) y el servicio de datos. Para admitir la conmutación por error, se incrementan las instancias recomendadas a 2. |
     | Publicador | 1 | Standard_A1: (1 vCPU, 1792 MB) | Publica contenido a través de la implementación de web y FTP. |
     | FrontEnd | 1 | Standard_A1: (1 vCPU, 1792 MB) | Enruta las solicitudes a las aplicaciones de App Service. |
@@ -160,7 +170,7 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
     ![Instalador de App Service][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core no es una imagen de plataforma compatible para su uso con Azure App Service en Azure Stack.  No use imágenes de evaluación para las implementaciones de producción.**
+    > **Windows Server 2016 Core no es una imagen de plataforma compatible para su uso con Azure App Service en Azure Stack.  No use imágenes de evaluación para las implementaciones de producción.  Azure App Service en Azure Stack requiere que Microsoft.Net 3.5.1 SP1 se active en la imagen utilizada para la implementación.   Las imágenes de Windows Server 2016 distribuidas en Marketplace no tienen habilitada esta característica.**
 
 14. En el cuadro **Select Platform Image** (Seleccionar imagen de plataforma), elija su imagen de máquina virtual Windows Server 2016 de implementación entre las que están disponibles en el proveedor de recursos de procesos para la nube de App Service. Haga clic en **Next**.
 

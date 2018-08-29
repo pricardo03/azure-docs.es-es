@@ -1,6 +1,6 @@
 ---
-title: Guía de inicio rápido del SDK de Image Search para Node | Microsoft Docs
-description: Configuración de la aplicación de consola del SDK de Image Search.
+title: 'Guía de inicio rápido: Solicitud y filtrado de imágenes mediante el SDK en Node.js'
+description: En esta guía de inicio rápido, va a solicitar y filtrar las imágenes devueltas por Bing Image Search mediante Node.js.
 titleSuffix: Azure cognitive services
 services: cognitive-services
 author: mikedodaro
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: e4c8303e39accbb7caec15c0ef47d701971ce632
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e88c045b220192a617e6b8caf5d8d53f70a25b5e
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382594"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41929713"
 ---
-# <a name="image-search-sdk-node-quickstart"></a>Guía de inicio rápido del SDK de Image Search para Node
+# <a name="quickstart-request-and-filter-images-using-the-sdk-and-nodejs"></a>Guía de inicio rápido: Solicitud y filtrado de imágenes mediante el SDK y Node.js
 
 El SDK de Bing Image Search contiene la funcionalidad de la API REST para consultas de imágenes y análisis de resultados. 
 
@@ -55,4 +55,4 @@ The code prints `result.value` items to the console without parsing any text. Th
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Ejemplos del SDK de Cognitive services para Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+[Ejemplos del SDK de Cognitive Services para Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)

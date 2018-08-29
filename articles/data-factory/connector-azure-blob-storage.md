@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 3fdece082401ca57beabe6334a0ea0ca292ba298
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 46e12378812788d147c903046b50a93c13119f2f
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052357"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444595"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Blob Storage como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ Puede copiar datos desde cualquier almacén de datos de origen admitido a Blob S
 En concreto, este conector de Blob Storage admite las siguientes operaciones:
 
 - Copia de blobs con cuentas de Azure Storage de uso general y almacenamiento de blobs en frío y en caliente como orígenes y destinos. 
-- Copia de blobs mediante autenticaciones de clave de cuenta y firma de acceso compartido de servicio.
+- Copia de blobs mediante el uso de la clave de cuenta, la firma de acceso compartido de servicio, las autenticaciones mediante una identidad de servicio administrada o una entidad de servicio.
 - Copia de blobs desde blobs en bloques, blobs con anexos o blobs en páginas y copia de datos solo a blobs en bloques. Azure Premium Storage no es compatible como receptor porque está respaldado por blobs en páginas.
 - Copia de blobs tal cual, o análisis o generación de los mismos con [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md).
 
@@ -42,23 +42,36 @@ En las secciones siguientes se proporcionan detalles acerca de las propiedades q
 
 ## <a name="linked-service-properties"></a>Propiedades del servicio vinculado
 
-### <a name="use-an-account-key"></a>Uso de una clave de cuenta
+El conector de Azure Blob admite los siguientes tipos de autenticación. Consulte la sección correspondiente para conocer más detalles:
 
-Puede crear un servicio vinculado de Storage mediante la clave de cuenta. Esto proporciona a la factoría de datos acceso global a Storage. Se admiten las siguientes propiedades.
+- [Autenticación de clave de cuenta](#account-key-authentication)
+- [Autenticación con firma de acceso compartido](#shared-access-signature-authentication)
+- [Autenticación de entidad de servicio](#service-principal-authentication)
+- [Autenticación con Managed Service Identity](#managed-service-identity-authentication)
+
+>[!NOTE]
+>HDInsights, Azure Machine Learning y la carga de PolyBase de Azure SQL Data Warehouse solo admiten la autenticación de clave de cuenta de Azure Blob Storage.
+
+### <a name="account-key-authentication"></a>Autenticación de clave de cuenta
+
+Para usar la autenticación de clave de cuenta de almacenamiento, se admiten las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type tiene que establecerse en **AzureStorage**. |Sí |
-| connectionString | Especifique la información necesaria para conectarse a Storage para la propiedad connectionString. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
+| Tipo | La propiedad type debe establecerse en **AzureBlobStorage** (recomendable) o **AzureStorage** (consulte las notas siguientes). |SÍ |
+| connectionString | Especifique la información necesaria para conectarse a Storage para la propiedad connectionString. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime autohospedado (si el almacén de datos está en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
+
+>[!NOTE]
+>Si estaba usando el servicio vinculado de tipo "AzureStorage", todavía se admite tal cual, pero es preferible que use este nuevo tipo "AzureBlobStorage" a partir de ahora.
 
 **Ejemplo:**
 
 ```json
 {
-    "name": "AzureStorageLinkedService",
+    "name": "AzureBlobStorageLinkedService",
     "properties": {
-        "type": "AzureStorage",
+        "type": "AzureBlobStorage",
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
@@ -73,35 +86,36 @@ Puede crear un servicio vinculado de Storage mediante la clave de cuenta. Esto p
 }
 ```
 
-### <a name="use-service-shared-access-signature-authentication"></a>Use la autenticación con firma de acceso compartido de servicio
-
-También puede crear un servicio vinculado de Storage mediante una firma de acceso compartido. Proporciona a la instancia de Data Factory acceso restringido o limitado por el tiempo a todos los recursos o a algunos específicos (blob o contenedor) del almacenamiento.
+### <a name="shared-access-signature-authentication"></a>Autenticación con firma de acceso compartido
 
 Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Puede utilizar una firma de acceso compartido para conceder a un cliente permisos limitados a los objetos de su cuenta de almacenamiento durante un periodo de tiempo especificado. No tiene que compartir las claves de acceso de su cuenta. La firma de acceso compartido es un URI que incluye en sus parámetros de consulta toda la información necesaria para el acceso autenticado a un recurso de almacenamiento. Para obtener acceso a los recursos de almacenamiento con la firma de acceso compartido, el cliente solo tiene que pasar la firma de acceso compartido al método o constructor adecuados. Para más información acerca de las firmas de acceso compartido, consulte el artículo de [información sobre el modelo de firmas de acceso compartido ](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Data Factory ahora admite firmas de acceso compartido de servicio y firmas de acceso compartido de cuenta. Para más información acerca de estos dos tipos y cómo construirlos consulte [Tipos de firmas de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
+> Data Factory ahora admite **firmas de acceso compartido de servicio** y **firmas de acceso compartido de cuenta**. Para más información acerca de estos dos tipos y cómo construirlos consulte [Tipos de firmas de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures). 
 
 > [!TIP]
 > Puede ejecutar los siguientes comandos de PowerShell para generar una firma de acceso compartido de servicio para la cuenta de almacenamiento. Reemplace los marcadores de posición y conceda el permiso necesario.
 > `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
-Para usar la autenticación con firma de acceso compartido de servicio, se admiten las siguientes propiedades.
+Para usar la autenticación con firma de acceso compartido, se admiten las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type tiene que establecerse en **AzureStorage**. |Sí |
-| sasUri | Especifique el URI de firma de acceso compartido a los recursos de Storage como blob, contenedor o tabla. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
+| Tipo | La propiedad type debe establecerse en **AzureBlobStorage** (recomendable) o **AzureStorage** (consulte las notas siguientes). |SÍ |
+| sasUri | Especifique el URI de firma de acceso compartido a los recursos de Storage como blob, contenedor o tabla. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |SÍ |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Azure Integration Runtime autohospedado (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
+
+>[!NOTE]
+>Si estaba usando el servicio vinculado de tipo "AzureStorage", todavía se admite tal cual, pero es preferible que use este nuevo tipo "AzureBlobStorage" a partir de ahora.
 
 **Ejemplo:**
 
 ```json
 {
-    "name": "AzureStorageLinkedService",
+    "name": "AzureBlobStorageLinkedService",
     "properties": {
-        "type": "AzureStorage",
+        "type": "AzureBlobStorage",
         "typeProperties": {
             "sasUri": {
                 "type": "SecureString",
@@ -122,6 +136,105 @@ Cuando cree un URI de firma de acceso compartido, tenga en cuenta lo siguiente:
 - Establezca la **hora de expiración** adecuadamente. Asegúrese de que el acceso a los objetos de Storage no expirará durante el período activo de la canalización.
 - El URI debe crearse en el nivel correcto del contenedor/blob o la tabla, en función de la necesidad. Un URI de firma de acceso compartido a un blob permite a Data Factory tener acceso a ese blob determinado. Un URI de firma de acceso compartido a un contenedor de Blob Storage permite a Data Factory recorrer en iteración los blobs de ese contenedor. Para proporcionar acceso a más o menos objetos más adelante, o actualizar el URI de firma de acceso compartida, no olvide actualizar el servicio vinculado con el nuevo URI.
 
+### <a name="service-principal-authentication"></a>Autenticación de entidad de servicio
+
+Para la autenticación con entidad de servicio de Azure Storage en general, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory](../storage/common/storage-auth-aad.md).
+
+Antes de usar la autenticación de entidad de servicio, siga estos pasos:
+
+1. Registre una entidad de aplicación en Azure Active Directory (Azure AD) como se indica en [Registro de la aplicación con un inquilino de Azure AD](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Anote los siguientes valores; los usará para definir el servicio vinculado:
+
+    - Identificador de aplicación
+    - Clave de la aplicación
+    - Id. de inquilino
+
+2. Conceda a la entidad de servicio el permiso adecuado en Azure Blob Storage. Consulte [Administración de los derechos de acceso a los datos de Azure Storage con RBAC](../storage/common/storage-auth-aad-rbac.md) con más detalles sobre los roles.
+
+    - **Como origen**, en el control de acceso (IAM), conceda al menos el rol **Lector de datos de blobs de almacenamiento**.
+    - **Como receptor**, en el control de acceso (IAM), conceda al menos el rol **Colaborador de datos de blobs de almacenamiento**.
+
+Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storage:
+
+| Propiedad | DESCRIPCIÓN | Obligatorio |
+|:--- |:--- |:--- |
+| Tipo | La propiedad type debe establecerse en: **AzureBlobStorage**. |SÍ |
+| serviceEndpoint | Especifique el punto de conexión de servicio de Azure Blob Storage con el patrón `https://<accountName>.blob.core.windows.net/`. |SÍ |
+| servicePrincipalId | Especifique el id. de cliente de la aplicación. | SÍ |
+| servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | SÍ |
+| tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarla, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | SÍ |
+| connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime autohospedado (si el almacén de datos está en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
+
+>[!NOTE]
+>Solo el servicio vinculado tipo "AzureBlobStorage" admite la autenticación con la entidad de servicio pero no el servicio vinculado tipo "AzureStorage" anterior.
+
+**Ejemplo:**
+
+```json
+{
+    "name": "AzureBlobStorageLinkedService",
+    "properties": {
+        "type": "AzureBlobStorage",
+        "typeProperties": {            
+            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="managed-service-identity-authentication"></a>Autenticación con Managed Service Identity
+
+Una factoría de datos puede asociarse con una [identidad de servicio administrada](data-factory-service-identity.md), que representa esta factoría de datos específica. Puede usar directamente esta identidad de servicio para la autenticación de Blob Storage, de manera similar a como usa su propia entidad de servicio. Permite que esta factoría designada acceda y copie los datos desde Blob Storage y hacia este.
+
+Para la autenticación con MSI de Azure Storage en general, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory](../storage/common/storage-auth-aad.md).
+
+Para usar la autenticación de identidades de servicio administradas (MSI), siga estos pasos:
+
+1. [Recupere la identidad de servicio de Data Factory](data-factory-service-identity.md#retrieve-service-identity) copiando el valor del id. de la aplicación de identidad de servicio que se genera con la factoría.
+
+2. Conceda a la entidad de servicio el permiso adecuado en Azure Blob Storage. Consulte [Administración de los derechos de acceso a los datos de Azure Storage con RBAC](../storage/common/storage-auth-aad-rbac.md) con más detalles sobre los roles.
+
+    - **Como origen**, en el control de acceso (IAM), conceda al menos el rol **Lector de datos de blobs de almacenamiento**.
+    - **Como receptor**, en el control de acceso (IAM), conceda al menos el rol **Colaborador de datos de blobs de almacenamiento**.
+
+Estas propiedades son compatibles con un servicio vinculado de Azure Blob Storage:
+
+| Propiedad | DESCRIPCIÓN | Obligatorio |
+|:--- |:--- |:--- |
+| Tipo | La propiedad type debe establecerse en: **AzureBlobStorage**. |SÍ |
+| serviceEndpoint | Especifique el punto de conexión de servicio de Azure Blob Storage con el patrón `https://<accountName>.blob.core.windows.net/`. |SÍ |
+| connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime autohospedado (si el almacén de datos está en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
+
+>[!NOTE]
+>Solo el servicio vinculado tipo "AzureBlobStorage" admite la autenticación con Managed Service Identity pero no el servicio vinculado tipo "AzureStorage" anterior. 
+
+**Ejemplo:**
+
+```json
+{
+    "name": "AzureBlobStorageLinkedService",
+    "properties": {
+        "type": "AzureBlobStorage",
+        "typeProperties": {            
+            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 ## <a name="dataset-properties"></a>Propiedades del conjunto de datos
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre [conjuntos de datos](concepts-datasets-linked-services.md). En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de Blob Storage.
@@ -130,8 +243,8 @@ Para copiar datos con Blob Storage como origen o destino, establezca la propieda
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos tiene que establecerse en **AzureBlob**. |Sí |
-| folderPath | Ruta de acceso para el contenedor y la carpeta en el almacenamiento de blobs. No se admiten filtros con caracteres comodín. Un ejemplo: myblobcontainer/myblobfolder/. |Sí |
+| Tipo | La propiedad type del conjunto de datos tiene que establecerse en **AzureBlob**. |SÍ |
+| folderPath | Ruta de acceso para el contenedor y la carpeta en el almacenamiento de blobs. No se admiten filtros con caracteres comodín. Un ejemplo: myblobcontainer/myblobfolder/. |SÍ |
 | fileName | **Filtro de nombre o de comodín** para los blobs de la ruta "folderPath" especificada. Si no especifica ningún valor para esta propiedad, el conjunto de datos apunta a todos los blobs de la carpeta. <br/><br/>Para filtrar, los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter).<br/>- Ejemplo 1: `"fileName": "*.csv"`<br/>- Ejemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` como escape si el nombre de archivo real contiene un comodín o este carácter de escape.<br/><br/>Cuando fileName no se especifica para un conjunto de datos de salida y **preserveHierarchy** no se determina en el receptor de la actividad, la actividad de copia generará automáticamente el nombre de blob con el siguiente patrón: "*Data.[GUID de ejecución de actividad].[GUID si FlattenHierarchy].[formato si está configurado].[compresión si está configurada]"*. Un ejemplo es "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". |Sin  |
 | formato | Si desea copiar los archivos tal cual entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si desea analizar o generar archivos con un formato concreto, se admiten los siguientes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** en **format** en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [Formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [Formato AVRO](supported-file-formats-and-compression-codecs.md#avro-format), [Formato ORC](supported-file-formats-and-compression-codecs.md#orc-format) y [Formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |No (solo para el escenario de copia binaria) |
 | compresión | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Niveles admitidos son **Optimal** y **Fastest**. |Sin  |
@@ -147,7 +260,7 @@ Para copiar datos con Blob Storage como origen o destino, establezca la propieda
     "properties": {
         "type": "AzureBlob",
         "linkedServiceName": {
-            "referenceName": "<Azure Storage linked service name>",
+            "referenceName": "<Azure Blob storage linked service name>",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -177,7 +290,7 @@ Para copiar datos desde Blob Storage, establezca el tipo de origen de la activid
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia tiene que establecerse en **BlobSource**. |Sí |
+| Tipo | La propiedad type del origen de la actividad de copia tiene que establecerse en **BlobSource**. |SÍ |
 | recursive | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor.<br/>Los valores permitidos son: **True** (valor predeterminado) y **False**. | Sin  |
 
 **Ejemplo:**
@@ -218,7 +331,7 @@ Para copiar datos en Blob Storage, establezca el tipo de receptor de la activida
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en **BlobSink**. |Sí |
+| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en **BlobSink**. |SÍ |
 | copyBehavior | Define el comportamiento de copia cuando el origen son archivos de un almacén de datos basados en archivos.<br/><br/>Los valores permitidos son:<br/><b>- PreserveHierarchy (valor predeterminado)</b>: conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen que apunta a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino que apunta a la carpeta de destino.<br/><b>- FlattenHierarchy:</b> todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen nombres generados automáticamente. <br/><b>- MergeFiles</b>: combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre del blob o del archivo, el nombre de archivo combinado es el nombre especificado. De lo contrario, es un nombre de archivo generado automáticamente. | Sin  |
 
 **Ejemplo:**

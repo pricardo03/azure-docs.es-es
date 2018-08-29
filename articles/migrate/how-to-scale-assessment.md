@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 4bcb6734c33d70e4045860a2c0f0acfedfa06eff
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 06905a2f16a23e5a7c4612f4b567aaf86322924d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215186"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42142709"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detección y evaluación de un entorno grande de VMware
 
@@ -94,7 +94,7 @@ Cuando esté listo con el plan, puede iniciar la detección de las máquinas vir
 Cree un proyecto de Azure Migrate según sus necesidades:
 
 1. En Azure Portal, haga clic en **Crear un recurso**.
-2. Busque **Azure Migrate** y seleccione el servicio **Azure Migrate (versión preliminar)** en los resultados de búsqueda. Seleccione **Crear**.
+2. Busque **Azure Migrate** y seleccione el servicio **Azure Migrate** en los resultados de búsqueda. Seleccione **Crear**.
 3. Especifique un nombre de proyecto y la suscripción de Azure para el proyecto.
 4. Cree un nuevo grupo de recursos.
 5. Especifique la ubicación en la que desea crear el proyecto y seleccione **Crear**. Tenga en cuenta que todavía puede evaluar las máquinas virtuales para una ubicación de destino diferente. La ubicación especificada para el proyecto se utiliza para almacenar los metadatos que se recopilan a partir de máquinas virtuales locales.

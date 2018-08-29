@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7a9adc8e9b7bcf69cce6b8ecf00e44477c1b0da3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3c447a37b1dfbdac2c6e2a4eaa61d0e0e08a2176
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430746"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442246"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copia de datos con Azure SQL Data Warehouse como origen o destino mediante Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -71,6 +71,9 @@ Para ver los distintos tipos de autenticación, consulte las secciones siguiente
 - [Autenticación de SQL](#sql-authentication)
 - Autenticación de tokens de aplicaciones de Azure AD: [Entidad de servicio](#service-principal-authentication)
 - Autenticación de tokens de aplicaciones de Azure AD: [Managed Service Identity](#managed-service-identity-authentication)
+
+>[!TIP]
+>Si recibió un error con código de error como "UserErrorFailedToConnectToSqlServer" y un mensaje como "The session limit for the database is XXX and has been reached" (El límite de sesión de la base de datos es XXX y ya se ha alcanzado), agregue `Pooling=false` a la cadena de conexión e inténtelo de nuevo.
 
 ### <a name="sql-authentication"></a>Autenticación de SQL
 
@@ -397,7 +400,7 @@ PolyBase de SQL Data Warehouse admite directamente Azure Blob y Azure Data Lake 
 
 Si no se cumplen los requisitos, Azure Data Factory comprobará la configuración y volverá automáticamente al mecanismo BULKINSERT para realizar el movimiento de datos.
 
-1. El tipo de **servicio de origen vinculado** es **AzureStorage** o **AzureDataLakeStore** con autenticación de la entidad de servicio.
+1. El tipo de **servicio vinculado de origen** es Azure Blob Storage (**AzureBLobStorage**/**AzureStorage**) con autenticación de clave de cuenta o Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) con autenticación de entidad de servicio.
 1. El tipo de **conjunto de datos de entrada** es **AzureBlob** o **AzureDataLakeStoreFile**. El tipo de formato de `type` es **OrcFormat**, **ParquetFormat** o **TextFormat**, con las configuraciones siguientes:
 
    1. `rowDelimiter` debe ser **\n**.

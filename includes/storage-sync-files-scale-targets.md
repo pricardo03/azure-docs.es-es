@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: a9aa4680d91a4ab95933ae636c4467217fd162b2
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: e2e8da3d2dec2c74bbd1c0ca0f52b7eaba5c024e
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39278012"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42358294"
 ---
 | Recurso | Destino | Límite máximo |
 |----------|--------------|------------|
@@ -27,5 +27,6 @@ ms.locfileid: "39278012"
 | Objetos del sistema de archivos (archivos y directorios) por grupo de sincronización | 25 millones de objetos | Sin  |
 | Número máximo de objetos del sistema de archivos (archivos y directorios) en un directorio | 200 000 de objetos | SÍ |
 | Longitud máxima del nombre de objeto (archivos y directorios) | 255 caracteres | SÍ |
+| Tamaño máximo del descriptor de seguridad de (archivos y directorios) del objeto | 4 KiB | SÍ |
 | Tamaño de archivo | 100 GiB | Sin  |
 | Tamaño mínimo de un archivo que se va a organizar en niveles | 64 KiB | SÍ |

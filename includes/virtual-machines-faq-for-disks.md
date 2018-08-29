@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 336e6e163178cd6d244460dbf9bee2a5bc9d714e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e8005da056c08b21bf0b91dc71b3dafac281de1f
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37935760"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40237019"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -67,7 +67,7 @@ No. Las máquinas virtuales de un conjunto de disponibilidad deben utilizar úni
 
 **¿Es Managed Disks la opción predeterminada en Azure Portal?**
 
-Sí. 
+Sí.
 
 **¿Puedo crear un disco administrado vacío?**
 
@@ -101,7 +101,6 @@ Los clientes pueden crear una instantánea de sus discos administrados y usarla 
 
 Sí, se admiten discos administrados y no administrados. Recomendamos que empiece a usar discos administrados para las cargas de trabajo nuevas y migre las cargas de trabajo actuales a discos administrados.
 
-
 **Si creo un disco de 128 GB y después lo aumento a 130 GB, ¿se me cobrará por el siguiente tamaño de disco (256 GB)?**
 
 Sí.
@@ -130,23 +129,24 @@ No. No se puede actualizar la propiedad de nombre de equipo. La nueva máquina v
 
 No.
 
+**Al crear un disco desde un blob, ¿hay alguna relación continuamente existente con ese blob de origen?**
+
+No, cuando se crea el nuevo disco es una copia completa independiente de ese blob en ese momento y no hay ninguna conexión entre los dos. Si lo desea, una vez que haya creado el disco, puede eliminar el blob de origen sin afectar al disco recién creado en modo alguno.
+
+**¿Se puede cambiar el nombre de un disco administrado o no administrado después de haberlo creado?**
+
+No se puede cambiar el nombre de los discos administrados. Sin embargo, es posible cambiar el nombre de un disco no administrado; siempre y cuando no esté asociado a una VM o a un disco duro virtual.
+
 ## <a name="standard-ssd-disks-preview"></a>Discos SSD estándar (versión preliminar)
 
 **¿Qué son los discos SSD estándar de Azure?**
 Los discos SSD estándar son discos estándar respaldados por soportes físicos, optimizados como solución de almacenamiento rentable para cargas de trabajo que necesitan un rendimiento constante en niveles inferiores de IOPS. En la versión preliminar, están disponibles en un número limitado de regiones, con capacidad de administración limitada (disponible a través de plantillas de Resource Manager).
 
-<a id="standard-ssds-azure-regions"></a>**¿Cuáles son las regiones que se admiten actualmente para los discos SSD estándar (versión preliminar)?**
-* Europa del Norte
-* Centro de Francia
-* Este de EE. UU. 2
-* Centro de EE. UU.
-* Centro de Canadá
-* Asia oriental
-* Corea del Sur
-* Este de Australia
+<a id="standard-ssds-azure-regions"></a>**¿Cuáles son las regiones que se admiten actualmente para los discos SSD estándar?**
+Todas las regiones de Azure ahora admiten discos SSD estándar.
 
 **¿Cómo creo discos SSD estándar?**
-Actualmente, puede crear discos SSD estándar mediante plantillas de Azure Resource Manager. A continuación se muestran los parámetros necesarios de la plantilla de Resource Manager para crear discos SSD estándar:
+Puede crear discos SSD estándar mediante plantillas de Azure Resource Manager, SDK, PowerShell o CLI. A continuación se muestran los parámetros necesarios de la plantilla de Resource Manager para crear discos SSD estándar:
 
 * La *apiVersion* para Microsoft.Compute se debe establecer en `2018-04-01` (o posterior)
 * Especifique *managedDisk.storageAccountType* como `StandardSSD_LRS`
@@ -171,17 +171,20 @@ Para obtener un ejemplo de plantilla completa de cómo crear un disco SSD están
 Sí, puede hacerlo. Consulte [Conversión de almacenamiento de Azure Managed Disks de estándar a premium, y viceversa](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) para conocer las directrices generales de la conversión de Managed Disks. Y utilice el siguiente valor para actualizar el tipo de disco a SSD estándar.
 -AccountType StandardSSD_LRS
 
+**¿Cuál es la ventaja de utilizar discos SSD estándar en lugar de unidades de disco duro?**
+Los discos SSD estándar ofrecen una mejor latencia, coherencia, disponibilidad y confiabilidad en comparación con los discos duros. Debido a esto, las cargas de trabajo de las aplicaciones se ejecutan mucho mejor. Tenga en cuenta que los discos SSD Premium son la solución recomendada para la mayoría de las cargas de trabajo producción con uso intensivo de E/S. 
+
 **¿Puedo usar discos SSD estándar como discos no administrados?**
 No, los discos SSD estándar solo están disponibles como discos administrados.
 
 **¿Los discos SSD estándar admiten "Acuerdo de Nivel de Servicio de máquina virtual de instancia única"?**
 No, los discos SSD estándar no tiene un Acuerdo de Nivel de Servicio de máquina virtual de instancia única. Use discos SSD Premium para tener ese acuerdo.
 
-## <a name="migrate-to-managed-disks"></a>Migración a Managed Disks 
+## <a name="migrate-to-managed-disks"></a>Migración a Managed Disks
 
 **¿Qué cambios son necesarios en una configuración del servicio Azure Backup preexistente antes y después de la migración a Managed Disks?**
 
-No es preciso realizar cambios. 
+No es preciso realizar cambios.
 
 **¿Las copias de seguridad de mi máquina virtual creadas con el servicio Azure Backup antes de la migración seguirán funcionando?**
 
@@ -189,15 +192,15 @@ Sí, las copias de seguridad funcionan sin problemas.
 
 **¿Qué cambios son necesarios en una configuración de Azure Disks Encryption ya existente antes y después de la migración a Managed Disks?**
 
-No es preciso realizar cambios. 
+No es preciso realizar cambios.
 
 **¿Está permitida la migración automática de un conjunto de escalado de máquinas virtuales existente de discos no administrados a Managed Disks?**
 
-No. Puede crear un nuevo conjunto de escalado con Managed Disks con la imagen del antiguo conjunto de escalado con discos no administrados. 
+No. Puede crear un nuevo conjunto de escalado con Managed Disks con la imagen del antiguo conjunto de escalado con discos no administrados.
 
 **¿Puedo crear un disco administrado desde una instantánea de blob en páginas tomada antes de migrar a Managed Disks?**
 
-No. Puede exportar una instantánea del blob en páginas como un blob en páginas y, a continuación, crear un disco administrado a partir del blob en páginas exportado. 
+No. Puede exportar una instantánea del blob en páginas como un blob en páginas y, a continuación, crear un disco administrado a partir del blob en páginas exportado.
 
 **¿Se puede realizar una conmutación por error de mis equipos locales protegidos por Azure Site Recovery a una máquina virtual con Managed Disks?**
 
@@ -209,9 +212,9 @@ Sí. Actualmente, la protección de Azure a Azure de Azure Site Recovery para m�
 
 **¿Puedo migrar máquinas virtuales con discos no administrados que se encuentran en las cuentas de almacenamiento que se hayan cifrado previamente en discos administrados?**
 
-Sí
+SÍ
 
-## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks y Storage Service Encryption 
+## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks y Storage Service Encryption
 
 **¿Está habilitado el servicio Storage Service Encryption de forma predeterminada al crear un disco administrado?**
 
@@ -246,7 +249,7 @@ Sí. Todas las instantáneas e imágenes administradas creadas después del 9 de
 
 **¿Puedo convertir máquinas virtuales con discos no administrados que se encuentran en las cuentas de almacenamiento o que se hayan cifrado previamente en discos administrados?**
 
-Sí
+SÍ
 
 **¿Se cifrará también un VHD exportado de un disco administrado o de una instantánea?**
 

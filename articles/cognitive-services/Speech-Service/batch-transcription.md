@@ -1,5 +1,5 @@
 ---
-title: Transcription API de Azure Batch
+title: API de transcripción de Azure Batch
 description: Ejemplos
 services: cognitive-services
 author: PanosPeriorellis
@@ -8,27 +8,27 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: f21973855ceb3a257627c147490ac50465c54020
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5af829ca076b39758973c28a44d918b9ba5782b1
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281946"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42351257"
 ---
 # <a name="batch-transcription"></a>Transcripción de Azure Batch
 
-La transcripción de Azure Batch es ideal para los casos de uso con grandes cantidades de audio. Permite al desarrollador apuntar a archivos de audio y obtener transcripciones de ellos en modo asincrónico.
+La transcripción de Batch resulta muy conveniente si tiene grandes cantidades de audio. Puede apuntar a archivos de audio y obtener transcripciones de ellos en modo asincrónico.
 
 ## <a name="batch-transcription-api"></a>API de transcripciones de Azure Batch
 
-La API de transcripciones de Azure Batch hace posible el escenario anterior. Ofrece la transcripción asíncrona de la conversión de voz en texto junto con otras características.
+La API de transcripción de Batch ofrece la transcripción asincrónica de voz a texto junto con otras características.
 
 > [!NOTE]
-> La API de transcripción de Azure Batch es ideal para centros de llamadas que suelen acumular miles de horas de audio. La filosofía "Dispara y olvida" de la API facilita la transcripción de grandes volúmenes de grabaciones de audio.
+> Esta API resulta muy adecuada para centros de llamadas que suelen acumular miles de horas de audio. Una filosofía "dispara y olvida" guía la API, lo que permite la transcripción fácil de grandes volúmenes de registros de audio.
 
 ### <a name="supported-formats"></a>Formatos compatibles
 
-La API de transcripción de Azure Batch pretende convertirse en el elemento de facto para todos los escenarios relacionados con centros de llamadas sin conexión y ofrecer compatibilidad con todos los formatos relacionados. Formatos compatibles actualmente:
+La API de transcripción de Batch admite los siguientes formatos:
 
 NOMBRE| Canal  |
 ----|----------|
@@ -37,7 +37,7 @@ mp3 |  Estéreo  |
 wav |   Mono   |
 wav |  Estéreo  |
 
-Si se trata de secuencias de audio estéreo, la transcripción de Azure Batch dividirá el canal izquierdo y derecho durante la transcripción. Los dos archivos JSON con el resultado se crean desde un único canal. Las marcas de tiempo por expresión permiten al desarrollador crear una transcripción final ordenada. En el siguiente ejemplo de JSON se muestra la salida de un canal.
+Si se trata de secuencias de audio estéreo, la transcripción de Batch divide el canal izquierdo y derecho durante la transcripción. Los dos archivos JSON con el resultado se crean desde un único canal. Las marcas de tiempo por expresión permiten al desarrollador crear una transcripción final ordenada. En el siguiente ejemplo de JSON se muestra la salida de un canal.
 
 ```json
        {
@@ -55,28 +55,28 @@ Si se trata de secuencias de audio estéreo, la transcripción de Azure Batch di
 ```
 
 > [!NOTE]
-> La API de transcripción de Azure Batch usa un servicio REST para solicitar transcripciones, su estado y los resultados asociados. La API puede usarse desde cualquier lenguaje. En la siguiente sección se describe su uso.
+> La API de transcripción de Azure Batch usa un servicio REST para solicitar transcripciones, su estado y los resultados asociados. Puede usar la API con cualquier lenguaje. En la siguiente sección se describe su uso.
 
 ## <a name="authorization-token"></a>Token de autorización
 
-Al igual que con todas las características de Unified Speech Service, el usuario necesita crear una clave de suscripción en [Azure Portal](https://portal.azure.com). Además, es necesario adquirir una clave de API desde el portal de voz. Estos son los pasos para generar una clave de API:
+Al igual que con todas las características de Unified Speech Service, creará una clave de suscripción en [Azure Portal](https://portal.azure.com). Además, adquirirá una clave de API desde el portal de Voz: 
 
-1. Inicie sesión en https://customspeech.ai.
+1. Inicie sesión en [Custom Speech](https://customspeech.ai).
 
-2. Haga clic en Suscripciones.
+2. Seleccione **Suscripciones**.
 
-3. Haga clic en la opción `Generate API Key`.
+3. Seleccione **Generate API Key** (Generar clave de API).
 
-    ![Vista de carga](media/stt/Subscriptions.jpg)
+    ![Captura de pantalla de la página de suscripciones de Custom Speech](media/stt/Subscriptions.jpg)
 
-4. Copie y pegue la clave en el código de cliente en el ejemplo siguiente.
+4. Copie y pegue esa clave en el código de cliente del ejemplo siguiente.
 
 > [!NOTE]
-> Si pretende usar un modelo personalizado, también necesitará el identificador de dicho modelo. Tenga en cuenta que no se trata del identificador de implementación o del punto de conexión que se encuentra en la vista Detalles de punto de conexión, sino del identificador del modelo que puede recuperar si hace clic en los detalles de dicho modelo.
+> Si pretende usar un modelo personalizado, también necesitará el identificador de dicho modelo. Tenga en cuenta que este no es el identificador de implementación o de punto de conexión que encontrará en la vista de detalles del punto de conexión. Es el identificador de modelo que se puede recuperar cuando se seleccionan los detalles de ese modelo.
 
 ## <a name="sample-code"></a>Código de ejemplo
 
-El uso de la API es bastante sencillo. El código de ejemplo a continuación se debe personalizar con una clave de suscripción y una clave de API que, a su vez, permite que el desarrollador obtenga un token de portador, tal como muestra el fragmento de código siguiente:
+Personalice el siguiente código de ejemplo con una clave de suscripción y una clave de API. Esto le permite obtener un token de portador.
 
 ```cs
     public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
@@ -93,7 +93,7 @@ El uso de la API es bastante sencillo. El código de ejemplo a continuación se 
         }
 ```
 
-Una vez que se obtiene el token, el desarrollador debe especificar el URI de SAS que apunta al archivo de audio que requiere transcripción. El resto del código simplemente procesa una iteración en el estado y muestra los resultados.
+Después de obtener el token, debe especificar el URI de SAS que apunta al archivo de audio que requiere transcripción. El resto del código procesa una iteración en el estado y muestra los resultados.
 
 ```cs
    static async Task TranscribeAsync()
@@ -152,21 +152,20 @@ Una vez que se obtiene el token, el desarrollador debe especificar el URI de SAS
 ```
 
 > [!NOTE]
-> La clave de suscripción mencionada en el fragmento de código anterior es la clave del recurso Speech (versión preliminar) creado en Azure Portal. Las claves obtenidas del recurso Custom Speech Service no servirán.
+> En el código anterior, la clave de suscripción es del recurso Speech(Preview) que crea en Azure Portal. Las claves obtenidas del recurso Custom Speech Service no sirven.
 
+Observe la configuración asincrónica para publicar audio y recibir el estado de la transcripción. El cliente creado es un cliente HTTP de .NET. Hay un método `PostTranscriptions` para enviar los detalles del archivo de audio y un método `GetTranscriptions` para recibir los resultados. `PostTranscriptions` devuelve un identificador, y `GetTranscriptions` usa este identificador para crear un identificador para obtener el estado de la transcripción.
 
-Observe la configuración asincrónica para publicar audio y recibir el estado de la transcripción. El cliente creado es un cliente HTTP de .NET. Hay un método `PostTranscriptions` para enviar los detalles del archivo de audio y un método `GetTranscriptions` para recibir los resultados. `PostTranscriptions` devuelve un identificador, y el método `GetTranscriptions` usa este identificador para crear un identificador a fin de obtener el estado de la transcripción.
+El código de ejemplo actual no especifica ningún modelo personalizado. El servicio usa los modelos base de referencia para transcribir los archivos. Para especificar los modelos, puede pasar los mismos identificadores de modelo para el modelo acústico y de lenguaje. 
 
-El código de ejemplo actual no especifica ningún modelo personalizado. El servicio usará los modelos de línea de base para transcribir los archivos. Si el usuario desea especificar los modelos, uno puede pasar el mismo método de modelIDs para el modelo acústico y de lenguaje. 
-
-Si no se desea utilizar la línea de base, es necesario pasar los identificadores de los modelos para los modelos acústico y de lenguaje.
+Si no quiere usar los modelos base de referencia, debe pasar los identificadores de modelo de los modelos acústico y de lenguaje.
 
 > [!NOTE]
-> Para la transcripción de línea de base, el usuario no tiene que declarar los puntos de conexión de los modelos de línea de base. Si el usuario desea usar los modelos personalizados, debería proporcionar los identificadores de los puntos de conexión como en el [ejemplo](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Si el usuario desea utilizar una línea de base acústica con un modelo de lenguaje de línea de base, tendría que declarar el identificador del punto de conexión del modelo personalizado. Internamente, nuestro sistema determinará el modelo de línea de base del asociado (ya sea el acústico o el de lenguaje) y lo usará para satisfacer la solicitud de transcripción.
+> Para la transcripción base de referencia, el usuario no tiene que declarar los puntos de conexión de los modelos base. Si quiere usar modelos personalizados, proporcione sus identificadores de puntos de conexión como [ejemplo](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Si quiere usar una base de referencia acústica con un modelo de lenguaje base de referencia, solo tiene que declarar el identificador de punto de conexión del modelo personalizado. Microsoft detecta el modelo base de referencia asociado (acústico o de lenguaje) y lo usa para satisfacer la solicitud de transcripción.
 
 ### <a name="supported-storage"></a>Almacenamiento compatible
 
-Actualmente, el único almacenamiento compatible es Azure Blob.
+Actualmente, el único almacenamiento admitido es Azure Blob Storage.
 
 ## <a name="downloading-the-sample"></a>Descarga del ejemplo
 

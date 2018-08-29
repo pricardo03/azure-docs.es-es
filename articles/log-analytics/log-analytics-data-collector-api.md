@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: a2aab89bcd550cc2b1dcc4f980f09b5c1e0e9464
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 3c4c2d8f49fbddc4875d7a4abf5d7629bc8f942e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436386"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146551"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Envío de datos a Log Analytics con la API del recopilador de datos HTTP (versión preliminar pública)
 Este artículo muestra cómo utilizar la API del recopilador de datos HTTP para enviar datos a Log Analytics desde un cliente de la API de REST.  Describe cómo dar formato a los datos recopilados por el script o la aplicación, incluirlos en una solicitud y hacer que esa solicitud se autorice por Log Analytics.  Se proporcionan ejemplos de PowerShell, C# y Python.
@@ -49,7 +49,7 @@ Para usar la API de recopilador de datos de HTTP, cree una solicitud POST que in
 | Tipo de contenido |application/json |
 
 ### <a name="request-uri-parameters"></a>Parámetros de URI de solicitud
-| . | DESCRIPCIÓN |
+| Parámetro | DESCRIPCIÓN |
 |:--- |:--- |
 | CustomerID |El identificador único del área de trabajo de Log Analytics. |
 | Recurso |Nombre de recurso de la API: /api/logs. |
@@ -471,3 +471,5 @@ post_data(customer_id, shared_key, body, log_type)
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Use la [API de búsqueda de registros](log-analytics-log-search-api.md) para recuperar datos desde el repositorio de Log Analytics.
+
+- Más información sobre cómo [crear una canalización de datos con Data Collector API](log-analytics-create-pipeline-datacollector-api.md) mediante el flujo de trabajo Logic Apps a Log Analytics.

@@ -11,16 +11,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2018
+ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 4dc4ddb2d11cf792bfa6288eadce8eb03470ae1d
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 6a52db27491ef707b813a7645d275b371b11368c
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099775"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42143284"
 ---
-# <a name="migrate-data-from-storsimple-5000-7000-series"></a>Migración de datos de la serie 5000-7000 de StorSimple 
+# <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migración de datos de la serie 5000-7000 de StorSimple a Azure File Sync
 
 La migración de datos es el proceso de mover datos de una ubicación de almacenamiento a otra. Implica realizar una copia exacta de los datos actuales de una organización de un dispositivo en otro dispositivo, preferiblemente sin interrumpir ni deshabilitar aplicaciones activas, y luego redirigir toda la actividad de entrada/salida (E/S) al nuevo dispositivo. 
 
@@ -67,17 +67,17 @@ La migración de datos de StorSimple 5000-7000 a AFS es un proceso en dos pasos:
 
 Realice los pasos siguientes para migrar el recurso compartido de archivos de Windows configurado en volúmenes de StorSimple a un recurso compartido de Azure File Sync. 
 1.  Realice estos pasos en el mismo host de Windows Server donde están montados los volúmenes de StorSimple o utilice otro sistema. 
-    - [Preparación de Windows Server para su uso con Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal).
-    - [Instalación del agente de Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal).
-    - [Implementación del servicio de sincronización de almacenamiento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 
-    - [Registro de un servidor de Windows Server con el servicio de sincronización de almacenamiento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 
-    - [Creación de un grupo de sincronización y un punto de conexión en la nube](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal. Hay que crear grupos de sincronización para cada recurso compartido de archivos de Windows que tenga que migrar desde el host.
-    - [Creación de un punto de conexión de servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). Especifique la ruta de acceso como ruta de acceso del volumen de StorSimple que contiene los datos del recurso compartido de archivos. Por ejemplo, si el volumen de StorSimple es la unidad `J` y los datos residen en `J:/<myafsshare>`, agregue esta ruta de acceso como un punto de conexión de servidor. Deje **Tiering** (Niveles) como **Deshabilitado**.
+    - [Preparación de Windows Server para su uso con Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#prepare-windows-server-to-use-with-azure-file-sync).
+    - [Instalación del agente de Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#install-the-azure-file-sync-agent).
+    - [Implementación del servicio de sincronización de almacenamiento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#deploy-the-storage-sync-service). 
+    - [Registro de un servidor de Windows Server con el servicio de sincronización de almacenamiento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#register-windows-server-with-storage-sync-service). 
+    - [Creación de un grupo de sincronización y un punto de conexión en la nube](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#create-a-sync-group-and-a-cloud-endpoint). Hay que crear grupos de sincronización para cada recurso compartido de archivos de Windows que tenga que migrar desde el host.
+    - [Creación de un punto de conexión de servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint). Especifique la ruta de acceso como ruta de acceso del volumen de StorSimple que contiene los datos del recurso compartido de archivos. Por ejemplo, si el volumen de StorSimple es la unidad `J` y los datos residen en `J:/<myafsshare>`, agregue esta ruta de acceso como un punto de conexión de servidor. Deje **Tiering** (Niveles) como **Deshabilitado**.
 2.  Espere hasta que finalice la sincronización del servidor de archivos. Para cada servidor de un determinado grupo de sincronización, asegúrese de que:
     - Las marcas de tiempo para el último intento de sincronización, tanto para la carga como para la descarga, son recientes.
     - El estado está en color verde para la carga y descarga.
-    - Actividad de sincronización muestra que quedan muy pocos archivos o ninguno por sincronizar.
-    - Archivos que no se están sincronizando es 0 tanto para la carga como para la descarga.
+    - La **actividad de sincronización** muestra que quedan muy pocos archivos o ninguno por sincronizar.
+    - **Archivos que no se están sincronizando** es 0 tanto para la carga como para la descarga.
     Para más información sobre cuándo finaliza la sincronización del servidor, vaya a [Solución de problemas de Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#how-do-i-know-if-my-servers-are-in-sync-with-each-other). La sincronización puede tardar de varias horas a días, según el tamaño de los datos y el ancho de banda. Una vez completada la sincronización, todos sus datos están seguros en el recurso compartido de archivos de Azure. 
 3.  Vaya a los recursos compartidos en los volúmenes de StorSimple. Seleccione un recurso compartido,haga clic con el botón derecho y elija **Propiedades**. Tenga en cuenta los permisos de recurso compartido en **Seguridad**. Estos permisos tendrán que aplicarse manualmente al nuevo recurso compartido en el paso posterior.
 4.  En función de que use el mismo host de Windows Server u otro distinto, los pasos siguientes serán diferentes.

@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: bd62ff03c3158743337ce958eb1bda7c7bd2a7f6
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e7b07ba892f8f904b1b2127fa8e76649eb004388
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348083"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143068"
 ---
 # <a name="set-up-security-info-to-use-an-authenticator-app-preview"></a>Configuración de la información de seguridad para usar una aplicación autenticadora (versión preliminar)
 
@@ -61,17 +61,20 @@ Para descargar la aplicación Microsoft Authenticator y obtener más informació
 
     La información de seguridad se actualiza para usar la aplicación Microsoft Authenticator a fin de verificar su identidad al usar la verificación en dos pasos o el autoservicio de restablecimiento de contraseña.
 
+    >[!Note]
+    >Si la organización lo permite, también obtendrá un código de verificación junto con la notificación de la aplicación Microsoft Authenticator. Si desea que el código sea el método predeterminado, siga las instrucciones de [Administración de la información de seguridad](security-info-setup-auth-app.md).
+
 ## <a name="additional-security-info-options"></a>Opciones de información de seguridad adicionales
 
 Tiene opciones adicionales para determinar cómo su organización se pone en contacto con usted para comprobar su identidad, basándose en lo está intentando hacer. Entre estas opciones se incluyen:
 
 - **Texto de dispositivo móvil.** Escriba el número del dispositivo móvil y obtendrá un código que podrá usar para la verificación en dos pasos o el restablecimiento de contraseña. Para obtener instrucciones detalladas sobre cómo verificar su identidad con un mensaje de texto (SMS), vea [Configuración de la información de seguridad para usar la mensajería de texto (SMS)](security-info-setup-text-msg.md).
 
-- **Llamada a dispositivo móvil o al teléfono del trabajo.** Escriba el número del dispositivo móvil y recibirá una llamada telefónica para la verificación en dos pasos o el restablecimiento de contraseña. Para obtener instrucciones detalladas sobre cómo verificar su identidad con un número de teléfono, vea [Configuración de la información de seguridad para usar llamadas de teléfono](security-info-setup-phone-number.md).
+- **Llamada a dispositivo móvil o al teléfono del trabajo.** Escriba el número del dispositivo móvil y recibirá una llamada telefónica para la verificación en dos pasos o el restablecimiento de contraseña. Para obtener instrucciones paso a paso sobre cómo comprobar su identidad con un número de teléfono, consulte [Configuración de la información de seguridad para usar llamadas de teléfono](security-info-setup-phone-number.md).
 
 - **Dirección de correo electrónico.** Escriba la dirección de correo electrónico profesional o educativa para recibir un correo electrónico para el restablecimiento de contraseña. Esta opción no está disponible para la verificación en dos pasos. Para obtener instrucciones detalladas sobre cómo configurar el correo electrónico, vea [Configuración de la información de seguridad para usar el correo electrónico](security-info-setup-email.md).
 
-- **Preguntas de seguridad.** Responda a algunas preguntas de seguridad creadas por el administrador para su organización. Esta opción solo está disponible para el restablecimiento de contraseña y no para la verificación en dos pasos. Para obtener instrucciones detalladas sobre cómo configurar las preguntas de seguridad, vea el artículo [Configuración de la información de seguridad para usar preguntas de seguridad](security-info-setup-questions.md).
+- **Preguntas de seguridad.** Responda a algunas preguntas de seguridad creadas por el administrador para su organización. Esta opción solo está disponible para el restablecimiento de contraseña y no para la verificación en dos pasos. Para obtener instrucciones paso a paso sobre cómo configurar las preguntas de seguridad, consulte el artículo [Configuración de la información de seguridad para usar las preguntas de seguridad](security-info-setup-questions.md).
     
     >[!Note]
     >Si faltan algunas de estas opciones, lo más probable es que su organización no permita esos métodos. Si este es el caso, tendrá que elegir uno de los métodos que sí están disponibles o ponerse en contacto con su administrador para obtener más ayuda.

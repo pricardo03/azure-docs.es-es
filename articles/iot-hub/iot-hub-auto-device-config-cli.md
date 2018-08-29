@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: c12a07aabdecb070cfa99f8851f907499599a1fc
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f81ef3c231874f314d6fe023ba247a0bcff61e90
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035689"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42146927"
 ---
 # <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-cli"></a>Configurar y supervisar dispositivos de IoT a escala mediante la CLI de Azure
 
@@ -23,7 +23,7 @@ La administración automática de dispositivos de Azure IoT Hub automatiza mucha
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Las configuraciones automáticas de dispositivos funcionan mediante la actualización de un conjunto de dispositivos gemelos con las propiedades deseadas y con la creación de informes de un resumen basado en las propiedades notificadas de los dispositivos gemelos.  Presenta una nueva clase y un documento JSON que llama a una _Configuración_ que tiene tres partes:
+Las configuraciones automáticas de dispositivos funcionan mediante la actualización de un conjunto de dispositivos gemelos con las propiedades deseadas y con la creación de informes de un resumen basado en las propiedades notificadas de los dispositivos gemelos.  Presenta una nueva clase y un documento JSON que llama a una *Configuración* que tiene tres partes:
 
 * La **condición de destino** define el ámbito de los dispositivos gemelos que se van a actualizar. La condición de destino se especifica como una consulta de las propiedades notificadas o de las etiquetas de los dispositivos gemelos.
 
@@ -39,7 +39,7 @@ Las configuraciones automáticas de dispositivos funcionan mediante la actualiza
 
 ## <a name="implement-device-twins-to-configure-devices"></a>Implementación de dispositivos gemelos para configurar dispositivos
 
-Las configuraciones automáticas de dispositivos requieren el uso de dispositivos gemelos para sincronizar el estado entre la nube y los dispositivos.  Consulte [Información y uso de los dispositivos gemelos en IoT Hub][lnk-device-twin] para obtener orientación sobre el uso de los dispositivos gemelos.
+Las configuraciones automáticas de dispositivos requieren el uso de dispositivos gemelos para sincronizar el estado entre la nube y los dispositivos.  Consulte [Información y uso de los dispositivos gemelos en IoT Hub](iot-hub-devguide-device-twins.md) para obtener orientación sobre el uso de los dispositivos gemelos.
 
 ## <a name="identify-devices-using-tags"></a>Identificación de dispositivos mediante etiquetas
 
@@ -53,9 +53,10 @@ Antes de crear una configuración, tendrá que especificar a qué dispositivos d
     }
 },
 ```
+
 ## <a name="define-the-target-content-and-metrics"></a>Definir el contenido de destino y las métricas
 
-El contenido de destino y las consultas de métricas se especifican como documentos JSON que describen las propiedades del dispositivo gemelo que quiere establecer y las propiedades notificadas que se medirán.  Para crear una configuración automática de dispositivos mediante la CLI de Azure 2.0, guarde el contenido y las métricas de destino de forma local y como archivos .txt. A continuación, deberá usar las rutas de los archivos en la sección siguiente, y ejecutar el comando para aplicar la configuración al dispositivo. 
+El contenido de destino y las consultas de métricas se especifican como documentos JSON que describen las propiedades del dispositivo gemelo que quiere establecer y las propiedades notificadas que se medirán.  Para crear una configuración automática de dispositivos mediante la CLI de Azure 2.0, guarde el contenido y las métricas de destino de forma local y como archivos .txt. A continuación, usará las rutas de acceso de los archivos en una sección posterior y ejecutará el comando para aplicar la configuración al dispositivo. 
 
 Aquí tiene un ejemplo de contenido de destino básico:
 
@@ -89,63 +90,92 @@ Debe configurar los dispositivos de destino creando una configuración que tenga
 
 Use el comando siguiente para crear una configuración:
 
-   ```cli
-   az iot hub configuration create --config-id [configuration id] --labels [labels] --content [file path] --hub-name [hub name] --target-condition [target query] --priority [int] --metrics [metric queries]
-   ```
+```cli
+   az iot hub configuration create --config-id [configuration id] \
+     --labels [labels] --content [file path] --hub-name [hub name] \
+     --target-condition [target query] --priority [int] \
+     --metrics [metric queries]
+```
 
-* **--config-id**: el nombre de la configuración que se creará en IoT Hub. Asigne a su configuración un nombre exclusivo de hasta 128 letras en minúscula. Evite los espacios y los siguientes caracteres no válidos: `& ^ [ ] { } \ | " < > /`.
-* **--labels**: agregue etiquetas para realizar un mejor seguimiento de la configuración. Las etiquetas son pares de Nombre y Valor que describen la implementación. Por ejemplo, `HostPlatform, Linux` o `Version, 3.0.1`.
-* **--content**: formato JSON alineado o la ruta del archivo al contenido de destino que se establecerá como las propiedades gemelas que quiera. 
-* **--hub-name**: nombre de la instancia de IoT Hub en la que se creará la configuración. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
-* **--target-condition**: escriba una condición de destino para determinar qué dispositivos se dirigirán a esta configuración. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades deseadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test'` o `properties.desired.devicemodel='4000x'`. 
-* **--priority**: debe ser un entero positivo. En el caso de que dos o más configuraciones se destinen al mismo dispositivo, se aplicará la configuración que tenga el mayor valor numérico, según la prioridad.
-* **--metrics** - ruta del archivo a las consultas de métrica. Las métricas proporcionan el número de resúmenes de los distintos estados que un dispositivo puede notificar como resultado de la aplicación del contenido de configuración. Por ejemplo, puede crear una métrica para los cambios de configuración pendientes, una métrica para los errores y una métrica para los cambios de configuración correctos. 
+* --**config-id**: el nombre de la configuración que se creará en IoT Hub. Asigne a su configuración un nombre exclusivo de hasta 128 letras en minúscula. Evite los espacios y los siguientes caracteres no válidos: `& ^ [ ] { } \ | " < > /`.
+
+* --**labels**: agrega etiquetas para ayudar a realizar un mejor seguimiento de la configuración. Las etiquetas son pares de Nombre y Valor que describen la implementación. Por ejemplo, `HostPlatform, Linux` o `Version, 3.0.1`.
+
+* --**content**: formato JSON alineado o ruta de acceso del archivo al contenido de destino que se establecerá como las propiedades gemelas que quiera. 
+
+* --**hub-name**: nombre de la instancia de IoT Hub en la que se creará la configuración. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
+
+* --**target-condition**: escriba una condición de destino para determinar qué dispositivos se dirigirán a esta configuración. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades deseadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test'` o `properties.desired.devicemodel='4000x'`. 
+
+* --**priority**: debe ser un entero positivo. En el caso de que dos o más configuraciones se destinen al mismo dispositivo, se aplicará la configuración que tenga el mayor valor numérico, según la prioridad.
+
+* --**metrics**: ruta de acceso de archivo a las consultas de métrica. Las métricas proporcionan el número de resúmenes de los distintos estados que un dispositivo puede notificar como resultado de la aplicación del contenido de configuración. Por ejemplo, puede crear una métrica para los cambios de configuración pendientes, una métrica para los errores y una métrica para los cambios de configuración correctos. 
 
 ## <a name="monitor-a-configuration"></a>Supervisión de una configuración
 
 Use los comandos siguientes para ver el contenido de una configuración:
 
-   ```cli
-az iot hub configuration show --config-id [configuration id] --hub-name [hub name]
-   ```
-* **--config-id**: el nombre de la configuración que está en IoT Hub.
-* **--hub-name**: el nombre de la instancia de IoT Hub en la que está la configuración. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
+```cli
+az iot hub configuration show --config-id [configuration id] \
+  --hub-name [hub name]
+```
+
+* --**config-id**: el nombre de la configuración que está en IoT Hub.
+
+* --**hub-name**: el nombre de la instancia de IoT Hub en la que está la configuración. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
 
 Revise la configuración en la ventana de comandos. La propiedad **metrics** enumera un recuento para cada métrica que evalúa cada centro:
+
 * **targetedCount**: es una métrica del sistema que especifica la cantidad de dispositivos gemelos que hay en IoT Hub que coinciden con las condiciones del destino.
+
 * **appliedCount**: es una métrica del sistema que especifica la cantidad de dispositivos cuyo contenido de destino se ha aplicado.
+
 * **Your custom metric**:cualquier métrica que haya definido se considerará métrica de usuario.
 
 Puede mostrar una lista de identificadores u objetos de dispositivos para cada una de las métricas mediante el siguiente comando:
 
-   ```cli
-az iot hub configuration show-metric --config-id [configuration id] --metric-id [metric id] --hub-name [hub name] --metric-type [type] 
-   ```
+```cli
+az iot hub configuration show-metric --config-id [configuration id] \
+   --metric-id [metric id] --hub-name [hub name] --metric-type [type] 
+```
 
-* **--config-id**: el nombre de la implementación que está en IoT Hub.
-* **--metric-id**: el nombre de la métrica de la cual quiere ver la lista de identificadores de dispositivos como, por ejemplo, `appliedCount`.
-* **--hub-name**: nombre de la instancia de IoT Hub en la que está la implementación. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
-* **--metric-type**: el tipo de métrica puede ser `system` o `user`.  Las métricas del sistema son `targetedCount` y `appliedCount`. El resto de métricas son métricas de usuario.
+* --**config-id**: el nombre de la implementación que está en IoT Hub.
+
+* --**metric-id**: el nombre de la métrica de la cual quiere ver la lista de identificadores de dispositivos, por ejemplo `appliedCount`.
+
+* --**hub-name**: nombre de la instancia de IoT Hub en la que está la implementación. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
+
+* --**metric-type**: el tipo de métrica puede ser `system` o `user`.  Las métricas del sistema son `targetedCount` y `appliedCount`. El resto de métricas son métricas de usuario.
 
 ## <a name="modify-a-configuration"></a>Modificación de una configuración
 
 Cuando se modifica una configuración, los cambios se replican inmediatamente a todos los dispositivos seleccionados. 
 
 Si actualiza la condición de destino, se producen las siguientes actualizaciones:
+
 * Si un dispositivo gemelo no cumplía la antigua condición de destino, pero cumple la nueva condición de destino y esta configuración es la prioridad más alta para ese dispositivo gemelo, esta configuración se aplica al dispositivo gemelo. 
+
 * Si un dispositivo gemelo ya no cumple la condición de destino, los ajustes de la configuración se eliminarán y el dispositivo gemelo se modificará con la configuración de la siguiente prioridad más alta. 
+
 * Si un dispositivo gemelo que ejecuta actualmente esta configuración ya no cumple la condición de destino y tampoco la condición de destino de cualquier otra configuración, los ajustes de la configuración se eliminarán y no se realizará ningún otro cambio en el dispositivo gemelo. 
 
 Use los comandos siguientes para actualizar una configuración:
 
-   ```cli
-az iot hub configuration update --config-id [configuration id] --hub-name [hub name] --set [property1.property2='value']
-   ```
-* **--config-id**: el nombre de la configuración que está en IoT Hub.
-* **--hub-name**: el nombre de la instancia de IoT Hub en la que está la configuración. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
-* **--set**: actualizar una propiedad de la configuración. Puede actualizar las propiedades siguientes:
+```cli
+az iot hub configuration update --config-id [configuration id] \
+   --hub-name [hub name] --set [property1.property2='value']
+```
+
+* --**config-id**: el nombre de la configuración que está en IoT Hub.
+
+* --**hub-name**: el nombre de la instancia de IoT Hub en la que está la configuración. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
+
+* --**set**: actualiza una propiedad de la configuración. Puede actualizar las propiedades siguientes:
+
     * targetCondition: por ejemplo, `targetCondition=tags.location.state='Oregon'`.
-    * etiquetas 
+
+    * labels 
+
     * prioridad
 
 ## <a name="delete-a-configuration"></a>Eliminación de una configuración
@@ -154,34 +184,27 @@ Al eliminar una configuración, los dispositivos gemelos adoptan la configuraci�
 
 Use los comandos siguientes para eliminar una configuración:
 
-   ```cli
-az iot hub configuration delete --config-id [configuration id] --hub-name [hub name] 
-   ```
-* **--config-id**: el nombre de la configuración que está en IoT Hub.
-* **--hub-name**: el nombre de la instancia de IoT Hub en la que está la configuración. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
+```cli
+az iot hub configuration delete --config-id [configuration id] \
+   --hub-name [hub name] 
+```
+* --**config-id**: el nombre de la configuración que está en IoT Hub.
+
+* --**hub-name**: el nombre de la instancia de IoT Hub en la que está la configuración. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 En este artículo, ha aprendido cómo configurar y supervisar dispositivos IoT a escala. Siga estos vínculos para más información sobre la administración de Azure IoT Hub:
 
-* [Administración de las identidades de dispositivo de IoT Hub de forma masiva][lnk-bulkIDs]
-* [Métricas de IoT Hub][lnk-metrics]
-* [Supervisión de operaciones][lnk-monitor]
+* [Administración de las identidades de dispositivo de IoT Hub de forma masiva](iot-hub-bulk-identity-mgmt.md)
+* [Métricas de IoT Hub](iot-hub-metrics.md)
+* [Supervisión de operaciones](iot-hub-operations-monitoring.md)
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
-* [Guía para desarrolladores de IoT Hub][lnk-devguide]
-* [Implementación de Azure IoT Edge en un dispositivo simulado en Linux: versión preliminar][lnk-iotedge]
+* [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md)
+* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Para explorar el uso del servicio IoT Hub Device Provisioning para habilitar el aprovisionamiento Just-In-Time sin intervención del usuario, vea: 
 
-* [Servicio Azure IoT Hub Device Provisioning][lnk-dps]
-
-[lnk-device-twin]: iot-hub-devguide-device-twins.md
-[lnk-bulkIDs]: iot-hub-bulk-identity-mgmt.md
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-monitor]: iot-hub-operations-monitoring.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
-[lnk-portal]: https://portal.azure.com
+* [Servicio Azure IoT Hub Device Provisioning](/azure/iot-dps)

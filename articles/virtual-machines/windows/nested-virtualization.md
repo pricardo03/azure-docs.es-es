@@ -11,22 +11,24 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 3b606fc78327035e135e0f037288a817171385dd
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 0d47b89a468aade8cec51ec04709ed99bfd4684c
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857951"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144424"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Habilitación de la virtualización anidada en una máquina virtual de Azure
 
-La virtualización anidada es compatible con las series Dv3 y Ev3 de Azure Virtual Machines. Esta funcionalidad proporciona gran flexibilidad para admitir escenarios como entornos de desarrollo, pruebas, aprendizaje y demostración. 
+La virtualización anidada es compatible con varias familias de máquinas virtuales de Azure. Esta funcionalidad proporciona gran flexibilidad para admitir escenarios como entornos de desarrollo, pruebas, aprendizaje y demostración.   
 
-Todas las máquinas virtuales de la serie Dv3 y Ev3 admiten la virtualización anidada sin configuración adicional.  En este artículo se analiza la habilitación de Hyper-V en una máquina virtual de Azure y la configuración de la conectividad de Internet a esa máquina virtual invitada.
+En este artículo se analiza la habilitación de Hyper-V en una máquina virtual de Azure y la configuración de la conectividad de Internet a esa máquina virtual invitada.
 
-## <a name="create-a-dv3-or-ev3-series-azure-vm"></a>Creación de una máquina virtual de Azure de la serie Dv3 o Ev3
+## <a name="create-a-nesting-capable-azure-vm"></a>Creación de una máquina virtual de Azure compatible con el anidamiento
 
-Cree una nueva máquina virtual Windows Server 2016 y elija un tamaño de la serie Dv3 o Ev3. Asegúrese de elegir un tamaño suficientemente grande para admitir las exigencias de una máquina virtual invitada. En este ejemplo, se usa una máquina virtual con tamaño D3_v3. 
+Cree una nueva máquina virtual de Azure con Windows Server 2016.  Como referencia rápida, todas las máquinas virtuales v3 admiten la virtualización anidada. Para una lista completa de los tamaños de máquina virtual que admiten anidamiento, visite el artículo [Unidad de proceso de Azure (ACU)](acu.md).
+
+Recuerde elegir un tamaño de máquina virtual lo suficientemente grande para admitir las exigencias de una invitada. En este ejemplo, se usa una máquina virtual con tamaño D3_v3. 
 
 Puede ver la disponibilidad regional de las máquinas virtuales de las series Dv3 o Ev3 [aquí](https://azure.microsoft.com/regions/services/).
 
