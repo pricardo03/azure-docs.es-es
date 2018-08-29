@@ -9,18 +9,18 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 21f63ebcca4b766f8df8c7b2390c4f44ff4dc7b1
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: d2c4c890e1a1599e68fba1a0728061ec244f382f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099774"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144559"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Uso de la fuente de cambios de Azure Cosmos DB para visualizar análisis de datos en tiempo real
 
 La fuente de cambios de Azure Cosmos DB es un mecanismo para obtener una fuente continua e incremental de los registros de un contenedor de Azure Cosmos DB a medida que esos registros se crean o modifican. La compatibilidad con la fuente de cambios funciona escuchando al contenedor para detectar los cambios. A continuación, muestra la lista ordenada de los documentos que han cambiado en el orden en el que se modificaron. Para más información sobre la fuente de cambios, vea el artículo [Compatibilidad con la fuente de cambios en Azure Cosmos DB](change-feed.md). 
 
-En este artículo se describe cómo una empresa minorista puede utilizar la fuente de cambios para reconocer patrones de usuario, realizar análisis de datos en tiempo real y obtener su visualización. Analizará eventos tales como que un usuario vea un artículo, agregue un artículo al carro o compre un artículo. Cuando se produce uno de estos eventos, se crea un nuevo registro que la fuente de cambios registra. La fuente de cambios desencadena entonces una serie de pasos que se traducen en la visualización de métricas que analizan el rendimiento y la actividad de la empresa. Las métricas de ejemplo que se pueden visualizar incluyen los ingresos, los visitantes únicos del sitio, los artículos más populares y el precio medio de los artículos que se ven en comparación con los que se agregan al carro y con los que se compran. Estas métricas de ejemplo pueden ayudar a una empresa de comercio electrónico a evaluar la popularidad de su sitio, desarrollar sus estrategias de publicidad y precios y tomar decisiones sobre el inventario en el que invertir.
+En este artículo se describe cómo una empresa de comercio electrónico puede utilizar la fuente de cambios para reconocer patrones de usuario, realizar análisis de datos en tiempo real y obtener su visualización. Analizará eventos tales como que un usuario vea un artículo, agregue un artículo al carro o compre un artículo. Cuando se produce uno de estos eventos, se crea un nuevo registro que la fuente de cambios registra. La fuente de cambios desencadena entonces una serie de pasos que se traducen en la visualización de métricas que analizan el rendimiento y la actividad de la empresa. Las métricas de ejemplo que se pueden visualizar incluyen los ingresos, los visitantes únicos del sitio, los artículos más populares y el precio medio de los artículos que se ven en comparación con los que se agregan al carro y con los que se compran. Estas métricas de ejemplo pueden ayudar a una empresa de comercio electrónico a evaluar la popularidad de su sitio, desarrollar sus estrategias de publicidad y precios y tomar decisiones sobre el inventario en el que invertir.
 
 Si está interesado en ver un vídeo sobre la solución antes de empezar, vea el siguiente vídeo:
 
@@ -315,7 +315,7 @@ Power BI es un conjunto de herramientas de análisis de negocios que sirve para 
    * En el caso de Revenue, tendría sentido hacer un gráfico de líneas con el tiempo como eje y el total de los precios como valor. La ventana de tiempo que se muestra debe ser lo más grande posible con el fin de entregar la mayor cantidad de información posible.  
    * En el caso de Unique Visitors, tendría sentido crear una visualización de tarjeta con el número de visitantes únicos como valor.
 
-   Este es el aspecto de nuestro panel con estos gráficos:
+   Este es el aspecto de un panel de ejemplo con estos gráficos:
 
    ![visualizaciones](./media/changefeed-ecommerce-solution/visualizations.png)
 
@@ -325,7 +325,7 @@ Ahora verá cómo puede usar la nueva herramienta de análisis de datos para con
 
 1. Navegue de nuevo a [Azure Portal](http://portal.azure.com/), luego a su **cuenta de Cosmos DB** y luego al **Explorador de datos**.  
 
-   Agregue dos colecciones en **changefeedlabdatabase**: **products** y **categories** con capacidad de almacenamiento fija.
+   Agregue dos colecciones en **changefeedlabdatabase** - **products** y **categories** con capacidad de almacenamiento fija.
 
    Agregue otra colección en **changefeedlabdatabase** de nombre **topItems** con capacidad de almacenamiento **Sin límite**. Escriba **/Item** como clave de partición.
 

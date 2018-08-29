@@ -9,19 +9,19 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: ad1bf15f198529487dbed92d8f8639704b0c5fc7
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: bbf10d9bd0912dab22c81e2bb850ede52a3bd9e3
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325132"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41929783"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en Java para Android mediante el SDK de Voz
 
 [!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 En este artículo, aprenderá a crear una aplicación Java en Android mediante el SDK de Voz de Cognitive Services para convertir voz en texto.
-La aplicación se basa en el paquete de Maven del SDK de Voz de Microsoft Cognitive Services, versión 0.5.0 y Android Studio 3.1.
+La aplicación se basa en el paquete de Maven del SDK de Voz de Microsoft Cognitive Services versión 0.6.0 y Android Studio 3.1.
 
 > [!NOTE]
 > Para información sobre el SDK de dispositivos de voz y el dispositivo Roobo, visite la página [SDK de dispositivos de voz](speech-devices-sdk.md).
@@ -63,7 +63,7 @@ Al cabo de un rato, aparecerá el proyecto de Android Studio recién creado.
 
 [!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versión actual del SDK de Speech de Cognitive Services es `0.5.0`.
+La versión actual del SDK de Speech de Cognitive Services es `0.6.0`.
 
 El SDK de Voz para Android está empaquetado como una [biblioteca de Android (AAR)](https://developer.android.com/studio/projects/android-library), que incluye las bibliotecas necesarias, así como los permisos necesarios de Android para usarla.
 Se hospeda en un repositorio de Maven en https://csspeechstorage.blob.core.windows.net/maven/.
@@ -81,7 +81,7 @@ En la ventana que aparece, realice los cambios siguientes (haga clic en **OK** [
 
   ![](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. En la ventana que aparece, escriba el nombre y la versión de nuestro SDK de Voz para Android, `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0` y, luego, haga clic en **OK** (Aceptar).
+1. En la ventana que aparece, escriba el nombre y la versión de nuestro SDK de Voz para Android, `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` y, luego, haga clic en **OK** (Aceptar).
    El SDK de Voz se agregará a la lista de dependencias, como se muestra a continuación:
 
   ![](media/sdk/qs-java-android-08-dependency-added.png)

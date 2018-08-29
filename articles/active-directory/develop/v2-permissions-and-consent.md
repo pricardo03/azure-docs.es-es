@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b38d90251ab59e537e7d637f45f04c4db87a94ae
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 6d3847f547646ae7c62f98b4cee716af5c6ba5e9
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581088"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143454"
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Ámbitos, permisos y consentimiento en el punto de conexión v2.0 de Azure Active Directory
 Las aplicaciones que se integran con Azure Active Directory (Azure AD) siguen un modelo de autorización que ofrece a los usuarios control sobre el modo en que una aplicación puede acceder a sus datos. La implementación v2.0 del modelo de implementación se ha actualizado, y cambia el modo en que una aplicación debe interactuar con Azure AD. En este artículo se tratan los conceptos básicos de este modelo de autorización, incluidos los ámbitos, los permisos y el consentimiento.
@@ -73,6 +73,19 @@ El ámbito [`offline_access` ](http://openid.net/specs/openid-connect-core-1_0.h
 Si la aplicación no solicita el ámbito `offline_access`, no recibirá tokens de actualización. Esto significa que cuando se canjea un código de autorización del [flujo del código de autorización de OAuth 2.0](active-directory-v2-protocols.md), solo se recibirá un token de acceso del punto de conexión `/token`. El token de acceso es válido durante un breve período de tiempo. Normalmente, expira al cabo de una hora. En ese momento, la aplicación tiene que redirigir al usuario de vuelta al punto de conexión `/authorize` para que obtenga un nuevo código de autorización. Durante esta redirección y, en función del tipo de aplicación, puede que el usuario tenga que volver a escribir sus credenciales o dar de nuevo el consentimiento a permisos.
 
 Para más información sobre cómo obtener y usar tokens de actualización, consulte la [referencia del protocolo v2.0](active-directory-v2-protocols.md).
+
+## <a name="accessing-v10-resources"></a>Acceso a los recursos de la versión v1.0
+Las aplicaciones v2.0 pueden solicitar tokens y permitir aplicaciones v1.0 (por ejemplo, la API de Power BI `https://analysis.windows.net/powerbi/api` o la API de Sharepoint `https://{tenant}.sharepoint.com`).  Para ello, haga referencia al identificador URI de la aplicación y la cadena de ámbito en el parámetro `scope`.  Por ejemplo, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All` solicitaría a `View all Datasets` de Power BI permiso para la aplicación. 
+
+Para solicitar varios permisos, anexe el identificador URI completo con un espacio o `+`, por ejemplo, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://analysis.windows.net/powerbi/api/Report.Read.All`.  Esto solicita tanto el permiso `View all Datasets` como `View all Reports`.  Tenga en cuenta que al igual que con todos los ámbitos y los permisos de Azure AD, las aplicaciones solo pueden realizar una solicitud a un recurso a la vez, por lo que la solicitud `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://api.skypeforbusiness.com/Conversations.Initiate`, que solicita tanto el permiso `View all Datasets` de Power BI como el `Initiate conversations` de Skype for Business, se rechazará, ya que solicita permiso en dos recursos distintos.  
+
+### <a name="v10-resources-and-tenancy"></a>Recursos y inquilinos de v1.0
+Tanto la versión v1.0 como v2.0 de los protocolos de Azure AD usan un parámetro `{tenant}` incrustado en el identificador URI (`https://login.microsoftonline.com/{tenant}/oauth2/`).  Al usar el punto de conexión v2.0 para acceder a un recurso organizativo v1.0, los inquilinos `common` y `consumers` no pueden usarse, ya que estos recursos solo son accesibles con cuentas organizativas (de Azure AD).  Por lo tanto, al acceder a estos recursos, solo pueden usarse el GUID del inquilino o `organizations` como parámetro `{tenant}`.  
+
+Si una aplicación intenta acceder a un recurso organizativo v1.0 mediante un inquilino incorrecto, se devolverá un error similar al siguiente. 
+
+`AADSTS90124: Resource 'https://analysis.windows.net/powerbi/api' (Microsoft.Azure.AnalysisServices) is not supported over the /common or /consumers endpoints. Please use the /organizations or tenant-specific endpoint.`
+
 
 ## <a name="requesting-individual-user-consent"></a>Solicitud de consentimiento de usuario individual
 En una solicitud de autorización de [OpenID Connect o OAuth 2.0](active-directory-v2-protocols.md), una aplicación puede solicitar los permisos que necesita mediante el parámetro de consulta `scope`. Por ejemplo, cuando un usuario inicia sesión en una aplicación, la aplicación envía una solicitud como la del ejemplo siguiente (se han agregado saltos de línea para una mayor legibilidad):
