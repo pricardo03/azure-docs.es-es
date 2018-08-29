@@ -8,13 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/29/2018
-ms.openlocfilehash: a832f45027fc5337d9e76ec9cc4898286121278c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 08/20/2018
+ms.openlocfilehash: 4f488128b3f7a9aa06be9358439536d78615430e
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660133"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144703"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Uso de reglas y puntos de conexión del servicio Virtual Network para Azure Database for PostgreSQL
 
@@ -25,7 +25,7 @@ Para crear una regla de red virtual, primero debe haber una [red virtual][vm-vir
 ![Ejemplo de cómo funciona un punto de conexión de servicio de red virtual](media/concepts-data-access-and-security-vnet/vnet-concept.png)
 
 > [!NOTE]
-> En el caso de Azure Database for PostgreSQL, esta característica está disponible en versión preliminar pública en todas las regiones de la nube pública de Azure en las que se implementa Azure Database for PostgreSQL.
+> Esta característica está disponible en todas las regiones de nube pública de Azure donde Azure Database for PostgreSQL se implementa para servidores de uso general y optimizados para memoria.
 
 <a name="anch-terminology-and-description-82f" />
 
@@ -69,7 +69,7 @@ Sin embargo, el enfoque de IP estática puede resultar difícil de administrar, 
 
 Si su servidor de **Microsoft.Sql** fuera un nodo de una subred de la red virtual, todos los nodos de la red virtual podrían comunicarse con su servidor de Azure Database for PostgreSQL. En este caso, las máquinas virtuales podrían comunicarse con Azure Database for PostgreSQL sin necesitar ninguna regla IP ni regla de red virtual.
 
-No obstante, a partir de mayo de 2018, el servicio de Azure Database for PostgreSQL aún no se encuentra entre los servicios que se pueden asignar directamente a una subred.
+No obstante, a partir de agosto de 2018, el servicio de Azure Database for PostgreSQL aún no se encuentra entre los servicios que se pueden asignar directamente a una subred.
 
 <a name="anch-details-about-vnet-rules-38q" />
 
@@ -117,9 +117,7 @@ Para Azure Database for PostgreSQL, la característica de las reglas de red virt
 
 - Al activar los puntos de conexión de servicio de red virtual en Azure Database for PostgreSQL usando la etiqueta de servicio de **Microsoft.Sql**, también se habilitan los puntos de conexión de todos los servicios de Azure Database: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database y Azure SQL Data Warehouse.
 
-- La versión preliminar pública no es compatible con las operaciones de desplazamiento de red virtual. Para desplazar una regla de red virtual, elimínela y vuelva a crearla.
-
-- La compatibilidad con puntos de conexión de servicio de red virtual solo existe para servidores optimizados para memoria y de uso general.
+- La compatibilidad con puntos de conexión de servicio de red virtual solo existe para servidores de uso general y optimizados para memoria.
 
 - En el firewall, los intervalos de direcciones IP se aplican a los siguientes elementos de red, pero no las reglas de red virtual:
     - [Red privada virtual (VPN) de sitio a sitio (S2S)][vpn-gateway-indexmd-608y]
@@ -130,6 +128,12 @@ Para Azure Database for PostgreSQL, la característica de las reglas de red virt
 Si la red está conectada a la red de Azure mediante el uso de [ExpressRoute][expressroute-indexmd-744v], cada circuito está configurado con dos direcciones IP públicas en Microsoft Edge. Las dos direcciones IP se utilizan para conectarse a servicios Microsoft, como a Azure Storage, mediante el uso del emparejamiento público de Azure.
 
 Para permitir la comunicación desde el circuito a Azure Database for PostgreSQL, debe crear reglas de red IP para direcciones IP públicas de los circuitos. Para encontrar las direcciones IP públicas del circuito de ExpressRoute, abra un vale de soporte con ExpressRoute mediante Azure Portal.
+
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Agregar una regla de firewall de VNET al servidor sin tener que activar los puntos de conexión de servicio
+
+Si solo establece una regla de firewall, no tendrá el servidor protegido en la red virtual. Por lo tanto, también debe **activar** los puntos de conexión de servicio de red virtual para que la seguridad surta efecto. Al **activar** los puntos de conexión de servicio, la subred de la red virtual experimenta cierto tiempo de inactividad hasta que estos puntos se **activan** **totalmente**. Esto sucede especialmente en redes virtuales de gran tamaño. Puede usar la marca **IgnoreMissingServiceEndpoint** para reducir o eliminar el tiempo de inactividad durante la activación.
+
+Puede establecer la marca **IgnoreMissingServiceEndpoint** mediante la CLI de Azure o el portal.
 
 ## <a name="related-articles"></a>Artículos relacionados
 - [Redes virtuales de Azure][vm-virtual-network-overview]

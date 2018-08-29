@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 9c26a85a50bf4e7272b229bac8a8b9aa8c1ae364
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 93b9075831db356607438288a7c153dde2f8b210
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238529"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145941"
 ---
 # <a name="http-application-routing"></a>Enrutamiento de aplicación HTTP
 
@@ -33,13 +33,19 @@ El complemento implementa dos componentes, un [controlador de entrada de Kuberne
 El complemento de enrutamiento de aplicación HTTP se puede habilitar con la CLI de Azure al implementar un clúster de AKS. Para hacerlo, use el comando [az aks create][az-aks-create] con el argumento `--enable-addons`.
 
 ```azurecli
-az aks create --resource-group myAKSCluster --name myAKSCluster --enable-addons http_application_routing
+az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
 
-Después de implementar el clúster, use el comando [az aks show][az-aks-show] para recuperar el nombre de la zona DNS. Este nombre es necesario para implementar aplicaciones en el clúster de AKS.
+También puede habilitar el enrutamiento de HTTP en un clúster de AKS existente mediante el comando [az aks enable-addons][az-aks-enable-addons]. Para habilitar el enrutamiento de HTTP en un clúster existente, agregue el parámetro `--addons` y especifique *http_application_routing* tal como se muestra en el ejemplo siguiente:
 
 ```azurecli
-$ az aks show --resource-group myAKSCluster --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
+az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
+```
+
+Después de implementar o actualizar el clúster, use el comando [az aks show][az-aks-show] para recuperar el nombre de la zona DNS. Este nombre es necesario para implementar aplicaciones en el clúster de AKS.
+
+```azurecli
+$ az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
 
 Result
 -----------------------------------------------------
@@ -155,7 +161,7 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 La solución de enrutamiento HTTP se puede eliminar mediante la CLI de Azure. Para ello, ejecute el siguiente comando, sustituyendo su clúster de AKS y el nombre del grupo de recursos.
 
 ```azurecli
-az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myAKSCluster --no-wait
+az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
 ## <a name="troubleshoot"></a>Solución de problemas
@@ -232,6 +238,7 @@ Para más información sobre cómo instalar un controlador de entrada protegido 
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
 [ingress-https]: ./ingress.md
+[az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 
 
 <!-- LINKS - external -->

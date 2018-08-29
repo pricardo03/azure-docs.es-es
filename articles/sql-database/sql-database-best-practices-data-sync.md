@@ -2,18 +2,18 @@
 title: Procedimientos recomendados para Azure SQL Data Sync | Microsoft Docs
 description: Conozca los procedimientos recomendados para configurar y ejecutar Azure SQL Data Sync.
 services: sql-database
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: 2b23f9f2edbec468ecbd1395bd138e1be801c6e5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 96fff35b95a63e4f806258eff59d08afb2db0ffd
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620807"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144598"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Procedimientos recomendados para SQL Data Sync 
 
@@ -77,15 +77,14 @@ En esta sección, se describen los límites del aprovisionamiento de SQL Data Sy
 
 SQL Data Sync tiene las siguientes limitaciones de aprovisionamiento automático:
 
--   Seleccione solo las columnas creadas en la tabla de destino.  
-    Todas las columnas que no forman parte del grupo de sincronización no se aprovisionan en las tablas de destino.
--   Los índices se crean únicamente para las columnas seleccionadas.  
-    Si el índice de la tabla de origen tiene columnas que no forman parte del grupo de sincronización, estos índices no se aprovisionan en las tablas de destino.  
+-   Seleccione solo las columnas creadas en la tabla de destino. Todas las columnas que no forman parte del grupo de sincronización no se aprovisionan en las tablas de destino.
+-   Los índices se crean únicamente para las columnas seleccionadas. Si el índice de la tabla de origen tiene columnas que no forman parte del grupo de sincronización, estos índices no se aprovisionan en las tablas de destino.  
 -   Los índices de las columnas de tipo XML no se aprovisionan.  
 -   Las restricciones CHECK no se aprovisionan.  
 -   Los desencadenadores existentes en las tablas de origen no se aprovisionan.  
 -   No se crean vistas ni procedimientos almacenados en la base de datos de destino.
 -   Las acciones ON UPDATE CASCADE Y ON DELETE CASCADE en las restricciones clave externas no se vuelven a crear en las tablas de destino.
+-   Si tiene columnas decimales o numéricas con una precisión mayor a 28, SQL Data Sync puede encontrar un problema de desbordamiento de conversión durante la sincronización. Se recomienda que limite la precisión de las columnas decimales o numéricas a 28 o menos.
 
 #### <a name="recommendations"></a>Recomendaciones
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: af57faddcc1413747b4bb847e27287ba86562175
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492899"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144694"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Registro convergente para autoservicio de restablecimiento de contraseña y Azure Multi-Factor Authentication (versión preliminar pública)
 
@@ -55,6 +55,9 @@ Los usuarios a los que se les pide que se registren al iniciar sesión verán la
 > Esta experiencia solo se muestra cuando se le pide a un usuario que se registre al iniciar sesión. Los usuarios que van directamente a la nueva experiencia en aka.ms/setupsecurityinfo verán una versión diferente de la experiencia, que se describe más adelante en este artículo.
 
 Los métodos de autenticación mostrados cambiarán en función de los métodos habilitados en las directivas de MFA o SSPR. Se le pedirá al usuario que registre el número mínimo de métodos de autenticación necesarios para cumplir la directiva de MFA, la directiva de SSPR o ambas. Si hay flexibilidad en los métodos de autenticación que el usuario puede registrar, se puede seleccionar **Elegir la información de seguridad** para elegir otros métodos de autenticación.  
+
+> [!NOTE]
+> Si habilita el uso de las notificaciones de aplicación móvil y del código de aplicación móvil, los usuarios que registren la aplicación Microsoft Authenticator con una notificación podrán usar tanto las notificaciones como el código para comprobar su identidad.
 
 A diferencia de la experiencia anterior de registro de MFA, no se les pedirá a los usuarios que registren una contraseña de aplicación al recorrer la nueva experiencia de registro. En su lugar, deben seguir los pasos indicados en nuestro tutorial de contraseñas de aplicación para registrar las contraseñas de aplicación en la nueva experiencia.  
 

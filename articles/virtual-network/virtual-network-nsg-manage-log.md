@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 81809660bdda957eb4502e02799b9f7f5538ae51
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 5635998eb72f08ddc665793e77008890b2cdb05d
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114030"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144590"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Registros de diagnóstico de un grupo de seguridad de red
 
@@ -140,7 +140,7 @@ Se escriben datos con formato JSON para las siguientes categorías de registro:
 
 ### <a name="event"></a>Evento
 
-El registro de eventos contiene información acerca de las reglas de NSG que se aplican a las máquinas virtuales en función de su dirección MAC. Los datos de ejemplo siguientes se registran para cada evento:
+El registro de eventos contiene información acerca de las reglas de NSG que se aplican a las máquinas virtuales en función de su dirección MAC. Los siguientes datos se registran para cada evento. En el ejemplo siguiente, los datos se registran para una máquina virtual con la dirección IP 192.168.1.4 y una dirección MAC de 00-0D-3A-92-6A-7C:
 
 ```json
 {
@@ -154,16 +154,16 @@ El registro de eventos contiene información acerca de las reglas de NSG que se 
         "subnetPrefix":"192.168.1.0/24",
         "macAddress":"00-0D-3A-92-6A-7C",
         "primaryIPv4Address":"192.168.1.4",
-        "ruleName":"[SECURITY RULE NAME]",
-        "direction":"In",
-        "priority":1000,
-        "type":"allow",
+        "ruleName":"[SECURITY-RULE-NAME]",
+        "direction":"[DIRECTION-SPECIFIED-IN-RULE]",
+        "priority":[PRIORITY-SPECIFIED-IN-RULE],
+        "type":"[ALLOW-OR-DENY-AS-SPECIFIED-IN-RULE]",
         "conditions":{
-            "protocols":"6",
-            "destinationPortRange":"[PORT RANGE]",
-            "sourcePortRange":"0-65535",
-            "sourceIP":"0.0.0.0/0",
-            "destinationIP":"0.0.0.0/0"
+            "protocols":"[PROTOCOLS-SPECIFIED-IN-RULE]",
+            "destinationPortRange":"[PORT-RANGE-SPECIFIED-IN-RULE]",
+            "sourcePortRange":"[PORT-RANGE-SPECIFIED-IN-RULE]",
+            "sourceIP":"[SOURCE-IP-OR-RANGE-SPECIFIED-IN-RULE]",
+            "destinationIP":"[DESTINATION-IP-OR-RANGE-SPECIFIED-IN-RULE]"
             }
         }
 }
@@ -171,7 +171,7 @@ El registro de eventos contiene información acerca de las reglas de NSG que se 
 
 ### <a name="rule-counter"></a>Contador de reglas
 
-El contador de reglas contiene información acerca de todas las reglas que se aplican a los recursos. Los datos de ejemplo siguiente se registran cada vez que se aplica una regla:
+El contador de reglas contiene información acerca de todas las reglas que se aplican a los recursos. Los datos de ejemplo siguientes se registran cada vez que se aplica una regla. En el ejemplo siguiente, los datos se registran para una máquina virtual con la dirección IP 192.168.1.4 y una dirección MAC de 00-0D-3A-92-6A-7C:
 
 ```json
 {
@@ -185,9 +185,9 @@ El contador de reglas contiene información acerca de todas las reglas que se ap
         "subnetPrefix":"192.168.1.0/24",
         "macAddress":"00-0D-3A-92-6A-7C",
         "primaryIPv4Address":"192.168.1.4",
-        "ruleName":"[SECURITY RULE NAME]",
-        "direction":"In",
-        "type":"allow",
+        "ruleName":"[SECURITY-RULE-NAME]",
+        "direction":"[DIRECTION-SPECIFIED-IN-RULE]",
+        "type":"[ALLOW-OR-DENY-AS-SPECIFIED-IN-RULE]",
         "matchedConnections":125
         }
 }

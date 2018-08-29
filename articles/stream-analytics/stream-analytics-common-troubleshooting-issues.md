@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: e04d1072acee635235b0a5bd8465ca38c861017b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d3b01e75a9b34ce4e38138816935bdae2e0ea778
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31523530"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144586"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Problemas comunes de Stream Analytics y pasos de solución de problemas
 
@@ -38,7 +38,9 @@ Si desea más información, habilite los registros de diagnóstico para ver los 
 
 3. Para obtener los datos JSON que tienen un formato incorrecto, ejecute el código CheckMalformedEvents.cs. Este ejemplo está disponible en el [repositorio de ejemplos de GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Este código lee el identificador de la partición y el desplazamiento e imprime los datos de este último. 
 
-4. Una vez leídos los datos, puede analizar y corregir el formato de serialización. 
+4. Una vez leídos los datos, puede analizar y corregir el formato de serialización.
+
+5. También puede [leer eventos de una instancia de IoT Hub con Service Bus Explorer](https://code.msdn.microsoft.com/How-to-read-events-from-an-1641eb1b).
 
 ## <a name="delayed-output"></a>Retraso en la salida
 

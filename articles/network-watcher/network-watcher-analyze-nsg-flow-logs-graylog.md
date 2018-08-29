@@ -3,7 +3,7 @@ title: Análisis de registros de flujo de grupo de seguridad de red de Azure con
 description: Aprenda a administrar y analizar registros de flujo de grupo de seguridad de red en Azure con Network Watcher y Graylog.
 services: network-watcher
 documentationcenter: na
-author: mareat
+author: mattreatMSFT
 manager: vitinnan
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 8d82ffa84c3d75ec3acd102a2de2bdce3718a995
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 87d7c39a9340a82813f4df971c03a10be56e8f94
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26639290"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143192"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Administre y analice registros de flujo de grupo de seguridad de red en Azure con Network Watcher y Graylog.
 
@@ -51,30 +51,30 @@ En este ejemplo se utiliza la instalación mínima de Graylog (es decir, una ún
 
 Graylog puede instalarse de muchas maneras, dependiendo de sus preferencias y de la plataforma. Para obtener una lista completa de los posibles métodos de instalación , consulte la [documentación](http://docs.graylog.org/en/2.2/pages/installation.html) oficial de Graylog. La aplicación del servidor de Graylog se ejecuta en las distribuciones Linux y tiene los siguientes requisitos previos:
 
--   Oracle Java SE 8 o posterior: [documentación de instalación de Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
--   Elasticsearch 2.x (2.1.0 o posterior): [documentación de instalación de Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
--   MongoDB 2.4 o posterior: [documentación de instalación de MongoDB](https://docs.mongodb.com/manual/administration/install-on-linux/)
+-  Oracle Java SE 8 o posterior: [documentación de instalación de Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+-  Elasticsearch 2.x (2.1.0 o posterior): [documentación de instalación de Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
+-  MongoDB 2.4 o posterior: [documentación de instalación de MongoDB](https://docs.mongodb.com/manual/administration/install-on-linux/)
 
 ### <a name="install-logstash"></a>Instalación de Logstash
 
 Logstash sirve para aplanar los registros de flujo con formato JSON a un nivel de tupla de flujo. El aplanamiento de los registros de flujo facilita la organización y búsqueda de registros en Graylog.
 
-1.  Para instalar Logstash, ejecute los siguientes comandos:
+1. Para instalar Logstash, ejecute los siguientes comandos:
 
-    ```bash
-    curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
-    sudo dpkg -i logstash-5.2.0.deb
-    ```
+   ```bash
+   curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
+   sudo dpkg -i logstash-5.2.0.deb
+   ```
 
-2.  Configure Logstash para analizar los registros de flujo y enviarlos a Graylog. Cree un archivo Logstash.conf:
+2. Configure Logstash para analizar los registros de flujo y enviarlos a Graylog. Cree un archivo Logstash.conf:
 
-    ```bash
-    sudo touch /etc/logstash/conf.d/logstash.conf
-    ```
+   ```bash
+   sudo touch /etc/logstash/conf.d/logstash.conf
+   ```
 
-3.  Agregue el siguiente contenido al archivo. Cambie los valores resaltados para reflejar los detalles de la cuenta de almacenamiento:
+3. Agregue el siguiente contenido al archivo. Cambie los valores resaltados para reflejar los detalles de la cuenta de almacenamiento:
 
-    ```
+   ```
     input {
         azureblob
         {
@@ -147,7 +147,7 @@ Logstash sirve para aplanar los registros de flujo con formato JSON a un nivel d
         }
     }
     ```
-El archivo de configuración de Logstash proporcionado consta de tres partes: la entrada, el filtro y la salida. La sección de entrada designa el origen de entrada de los registros que va a procesar Logstash; en este caso, vamos a usar un complemento de entrada de blog de Azure (instalado en los pasos siguientes) que permite tener acceso a los archivos JSON del registro de flujo de grupo de seguridad de red almacenados en el almacenamiento de blobs.
+El archivo de configuración de Logstash proporcionado consta de tres partes: la entrada, el filtro y la salida. La sección de entrada designa el origen de entrada de los registros que va a procesar Logstash; en este caso, vamos a usar un complemento de entrada de blog de Azure (instalado en los pasos siguientes) que permite acceder a los archivos JSON del registro de flujo de grupo de seguridad de red almacenados en el almacenamiento de blobs.
 
 La sección Filtro aplana, después, cada archivo de registro de flujo para que cada tupla flujo individual y sus propiedades asociadas se convierta en un evento de Logstash independiente.
 
@@ -171,30 +171,28 @@ Para más información sobre este complemento, consulte la [documentación](http
 
 ### <a name="set-up-connection-from-logstash-to-graylog"></a>Configuración de la conexión desde Logstash a Graylog
 
-Ahora que hemos establecido una conexión a los registros de flujo mediante Logstash y configurado el servidor de Graylog, hay que configurar Graylog para aceptar los archivos de registro entrantes.
+Ahora que hemos establecido una conexión a los registros de flujo mediante Logstash y configurado el servidor de Graylog, es necesario configurar Graylog para aceptar los archivos de registro entrantes.
 
-1.  Navegue a la interfaz web del servidor de Graylog mediante la dirección de URL configurada para ella. Puede acceder a la interfaz dirigiendo el explorador a `http://<graylog-server-ip>:9000/`
+1. Navegue a la interfaz web del servidor de Graylog mediante la dirección de URL configurada para ella. Puede acceder a la interfaz dirigiendo el explorador a `http://<graylog-server-ip>:9000/`
 
-2.  Para navegar a la página de configuración, seleccione el menú desplegable **Sistema** en la barra de navegación superior y, después, haga clic en **Entradas**.
-    O bien, vaya a `http://<graylog-server-ip>:9000/system/inputs`.
+2. Para navegar a la página de configuración, seleccione el menú desplegable **Sistema** en la barra de navegación superior y, después, haga clic en **Entradas**.
+   O bien, vaya a `http://<graylog-server-ip>:9000/system/inputs`.
 
-    ![Introducción](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
+   ![Introducción](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
-3.  Para iniciar la nueva entrada, seleccione *GELF UDP* en la lista desplegable **Seleccionar entrada** y, después, rellene el formulario. GELF es el acrónimo de Graylog Extended Log Format, o formato de registro extendido de Graylog. El formato GELF está desarrollado por Graylog. Para más información sobre sus ventajas, consulte la [documentación](http://docs.graylog.org/en/2.2/pages/gelf.html) de Graylog.
+3. Para iniciar la nueva entrada, seleccione *GELF UDP* en la lista desplegable **Seleccionar entrada** y, después, rellene el formulario. GELF es el acrónimo de Graylog Extended Log Format, o formato de registro extendido de Graylog. El formato GELF está desarrollado por Graylog. Para más información sobre sus ventajas, consulte la [documentación](http://docs.graylog.org/en/2.2/pages/gelf.html) de Graylog.
 
-    Asegúrese de que va a enlazar la entrada a la dirección IP en la que se ha configurado el servidor de Graylog. La dirección IP debe coincidir con el **host** campo de la salida UDP del archivo de configuración de Logstash. El puerto predeterminado debe ser *12201*. Asegúrese de que el puerto coincida con el campo del **puerto** de la salida de UDP designado en el archivo de configuración de Logstash.
+   Asegúrese de que va a enlazar la entrada a la dirección IP en la que se ha configurado el servidor de Graylog. La dirección IP debe coincidir con el **host** campo de la salida UDP del archivo de configuración de Logstash. El puerto predeterminado debe ser *12201*. Asegúrese de que el puerto coincida con el campo del **puerto** de la salida de UDP designado en el archivo de configuración de Logstash.
 
-    ![Entradas](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
+   ![Entradas](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
 
-    Una vez que se inicia la entrada, debería ver que aparece bajo la sección **Entradas locales**, como se muestra en la siguiente imagen:
+   Una vez que se inicia la entrada, debería ver que aparece bajo la sección **Entradas locales**, como se muestra en la siguiente imagen:
 
-    ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
+   ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
 
-    Para más información sobre las entradas de mensaje de Graylog, consulte la [documentación](http://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
+   Para más información sobre las entradas de mensaje de Graylog, consulte la [documentación](http://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
 
-4.  Cuando se hayan realizado estas configuraciones, puede iniciar Logstash para comenzar la lectura de los registros de flujo con el siguiente comando:
-
-    `sudo systemctl start logstash.service`
+4. Cuando se hayan realizado estas configuraciones, puede iniciar Logstash para comenzar la lectura de los registros de flujo con el siguiente comando: `sudo systemctl start logstash.service`.
 
 ### <a name="search-through-graylog-messages"></a>Búsqueda a través de los mensajes de Graylog
 
@@ -208,16 +206,15 @@ Al hacer clic en el vínculo azul "%{Message}", se expande cada mensaje para mos
 
 De forma predeterminada, se incluyen en la búsqueda todos los campos de mensaje si no se selecciona un campo de mensaje específico por el que buscar. Si desea buscar mensajes específicos (es decir, tuplas de flujo de una dirección IP de origen determinada), puede usar el lenguaje de consulta de búsqueda de Graylog como está [documentado](http://docs.graylog.org/en/2.2/pages/queries.html).
 
-
 ## <a name="analyze-network-security-group-flow-logs-using-graylog"></a>Análisis de registros de flujo de grupo de seguridad de red mediante Graylog
 
-Ahora que Graylog se está ejecutando, podemos usar algunas de sus funcionalidades para comprender mejor los datos de registro de flujo. Una manera es mediante el uso de paneles para crear vistas específicas de los datos.
+Ahora que Graylog se está ejecutando, podemos usar algunas de sus funcionalidades para comprender mejor los datos de registro de flujo. Una manera es usando paneles para crear vistas específicas de los datos.
 
 ### <a name="create-a-dashboard"></a>Creación de un panel
 
-1.  En la barra de navegación superior, seleccione **Paneles** o navegue a `http://<graylog-server-ip>:9000/dashboards/`.
+1. En la barra de navegación superior, seleccione **Paneles** o navegue a `http://<graylog-server-ip>:9000/dashboards/`.
 
-2.  Desde allí, haga clic en el botón verde **Crear panel** y rellene el breve formulario con el título y la descripción del panel. Pulse el botón **Guardar** para crear el nuevo panel. Verá un panel similar al de la siguiente imagen:
+2. Desde allí, haga clic en el botón verde **Crear panel** y rellene el breve formulario con el título y la descripción del panel. Pulse el botón **Guardar** para crear el nuevo panel. Verá un panel similar al de la siguiente imagen:
 
     ![Paneles](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
 
@@ -225,21 +222,21 @@ Ahora que Graylog se está ejecutando, podemos usar algunas de sus funcionalidad
 
 Puede hacer clic en el título del panel para verlo, pero en este momento está vacío, ya que no hemos agregado ningún widget. Un widget sencillo y útil para agregar al panel son los gráficos **Quick Values** (Valores rápidos), que muestran una lista de valores del campo seleccionado y su distribución.
 
-1.  Vuelva a los resultados de búsqueda de la entrada de UDP que recibe los registros de flujo mediante la selección de **Búsqueda** en la barra de navegación superior.
+1. Vuelva a los resultados de búsqueda de la entrada de UDP que recibe los registros de flujo mediante la selección de **Búsqueda** en la barra de navegación superior.
 
-2.  En el panel **Resultado de búsqueda**, a la izquierda de la pantalla, busque la pestaña **Campos**, que muestra los distintos campos de cada mensaje de tupla de flujo entrante.
+2. En el panel **Resultado de búsqueda**, a la izquierda de la pantalla, busque la pestaña **Campos**, que muestra los distintos campos de cada mensaje de tupla de flujo entrante.
 
-3.  Seleccione cualquier parámetro deseado en el que se va a visualizar (en este ejemplo hemos seleccionado la dirección IP de origen). Para mostrar la lista de posibles widgets, haga clic en la flecha de lista desplegable azul a la izquierda del campo y, después, seleccione **Quick values** (Valores rápidos) para generar el widget. Debería ver algo parecido a la siguiente imagen:
+3. Seleccione cualquier parámetro deseado en el que se va a visualizar (en este ejemplo hemos seleccionado la dirección IP de origen). Para mostrar la lista de posibles widgets, haga clic en la flecha de lista desplegable azul a la izquierda del campo y, después, seleccione **Quick values** (Valores rápidos) para generar el widget. Debería ver algo parecido a la siguiente imagen:
 
-    ![IP de origen](./media/network-watcher-analyze-nsg-flow-logs-graylog/srcip.png)
+   ![IP de origen](./media/network-watcher-analyze-nsg-flow-logs-graylog/srcip.png)
 
-4.  Desde allí, puede seleccionar el botón **Agregar al panel**, situado en la esquina superior derecha del widget, y seleccione el panel correspondiente para agregar.
+4. Desde allí, puede seleccionar el botón **Agregar al panel**, situado en la esquina superior derecha del widget, y seleccione el panel correspondiente para agregar.
 
-5.  Desplácese al panel para ver el widget que acaba de agregar.
+5. Desplácese al panel para ver el widget que acaba de agregar.
 
-    Puede agregar muchos otros widgets, como recuentos e histogramas en el panel, para realizar un seguimiento de métricas importantes, como el panel de ejemplo que se muestra en la siguiente imagen:
+   Puede agregar muchos otros widgets, como recuentos e histogramas en el panel, para realizar un seguimiento de métricas importantes, como el panel de ejemplo que se muestra en la siguiente imagen:
 
-    ![Panel de Flowlogs](./media/network-watcher-analyze-nsg-flow-logs-graylog/flowlogs-dashboard.png)
+   ![Panel de Flowlogs](./media/network-watcher-analyze-nsg-flow-logs-graylog/flowlogs-dashboard.png)
 
     Para obtener más explicaciones sobre los paneles y los otros tipos de widgets, consulte la [documentación](http://docs.graylog.org/en/2.2/pages/dashboards.html) de Graylog.
 
