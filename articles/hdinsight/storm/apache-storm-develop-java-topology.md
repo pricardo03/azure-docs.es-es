@@ -3,19 +3,19 @@ title: Ejemplo de topología de Apache Storm en Java - Azure HDInsight
 description: Aprenda a crear topologías de Apache Storm en Java al crear una topología de recuento de palabras de ejemplo.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 keywords: apache storm,ejemplo de apache storm,storm java,ejemplo de topología de storm
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 9376d80e3c856df570f3709ca52c353b81579100
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 10ea0eb3907abc0a90e589e57970c0e4622a4d56
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619012"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43043936"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Crear una topología de Apache Storm en Java
 
@@ -76,7 +76,7 @@ Elimine la prueba generada y los archivos de aplicación:
 
 ## <a name="add-maven-repositories"></a>Agregar repositorios de Maven
 
-HDInsight se basa en Hortonworks Data Platform (HDP), por lo que se recomienda usar el repositorio de Hortonworks para descargar las dependencias correspondientes a los proyectos de Apache Storm. En el archivo __pom.xml__, agregue el siguiente texto XML después de la línea `<url>http://maven.apache.org</url>`:
+HDInsight se basa en Hortonworks Data Platform (HDP), por lo que se recomienda usar el repositorio de Hortonworks para descargar las dependencias correspondientes a los proyectos de Apache Storm. En el archivo __pom.xml__, agregue el siguiente texto XML después de la línea `<url> http://maven.apache.org</url>`:
 
 ```xml
 <repositories>

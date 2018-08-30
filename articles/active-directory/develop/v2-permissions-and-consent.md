@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: celested
-ms.reviewer: hirsin, dastrock
+ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 6d3847f547646ae7c62f98b4cee716af5c6ba5e9
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: f83ca06843b94aecf44a4e4a58959d35f00532c2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143454"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125123"
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Ámbitos, permisos y consentimiento en el punto de conexión v2.0 de Azure Active Directory
+
 Las aplicaciones que se integran con Azure Active Directory (Azure AD) siguen un modelo de autorización que ofrece a los usuarios control sobre el modo en que una aplicación puede acceder a sus datos. La implementación v2.0 del modelo de implementación se ha actualizado, y cambia el modo en que una aplicación debe interactuar con Azure AD. En este artículo se tratan los conceptos básicos de este modelo de autorización, incluidos los ámbitos, los permisos y el consentimiento.
 
 > [!NOTE]
 > No todas las características y escenarios de Azure Active Directory son compatibles con la versión 2.0 del punto de conexión. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de esta versión](active-directory-v2-limitations.md).
->
->
 
 ## <a name="scopes-and-permissions"></a>Permisos y ámbitos
+
 Azure AD implementa el protocolo de autorización [OAuth 2.0](active-directory-v2-protocols.md). OAuth 2.0 es un método a través del cual una aplicación de terceros puede acceder a recursos hospedados en Web en nombre de un usuario. Cualquier recurso hospedado en Web que se integre con Azure AD tiene un identificador de recursos o *URI de id. de aplicación*. Por ejemplo, algunos de los recursos de Microsoft hospedados en la web incluyen:
 
 * La API de Correo unificado de Office 365: `https://outlook.office.com`
@@ -56,18 +56,23 @@ En Azure AD y OAuth, estos tipos de permisos se denominan *ámbitos*. En ocasion
 Una aplicación puede solicitar estos permisos mediante la especificación de los ámbitos en las solicitudes al punto de conexión v2.0.
 
 ## <a name="openid-connect-scopes"></a>Ámbitos de OpenID Connect
+
 La implementación v2.0 de OpenID Connect tiene unos cuantos ámbitos bien definidos que no se aplican a ningún recurso determinado: `openid`, `email`, `profile` y `offline_access`.
 
 ### <a name="openid"></a>openid
+
 Si una aplicación realiza el inicio de sesión mediante [OpenID Connect](active-directory-v2-protocols.md), debe solicitar el ámbito `openid`. El ámbito `openid` aparece en la pantalla de consentimiento de la cuenta profesional como el permiso "Sign you in" (Iniciar sesión) y en la pantalla de consentimiento de la cuenta personal de Microsoft como el permiso "View your profile and connect to apps and services using your Microsoft account" (Ver el perfil y conectarse a las aplicaciones y servicios con la cuenta de Microsoft). Este permiso permite que una aplicación reciba un identificador único para el usuario en forma de la notificación `sub` . También ofrece acceso de la aplicación al punto de conexión UserInfo. El ámbito `openid` se puede usar en el punto de conexión del token v.2.0 para adquirir tokens de identificador que se pueden emplear para proteger las llamadas HTTP entre distintos componentes de una aplicación.
 
 ### <a name="email"></a>email
+
 El ámbito `email` puede usarse con el ámbito `openid` y cualquier otro. Proporciona acceso de la aplicación a la dirección de correo electrónico principal del usuario en forma de la notificación `email`. La notificación `email` solo se incluye en los tokens si hay una dirección de correo electrónico asociada a la cuenta de usuario, que no siempre es el caso. Si usa el ámbito `email`, la aplicación debe estar preparada para controlar los casos en los que la notificación `email` no exista en el token.
 
 ### <a name="profile"></a>Perfil
+
 El ámbito `profile` puede usarse con el ámbito `openid` y cualquier otro. Proporciona acceso de la aplicación a una cantidad considerable de información sobre el usuario. Por ejemplo, el nombre propio del usuario, el apellido, el nombre de usuario preferido o el id. de objeto, entre otros datos. Para ver una lista completa de las notificaciones de perfil disponibles en el parámetro id_tokens para un usuario específico, consulte la [referencia de los tokens de v2.0](v2-id-and-access-tokens.md).
 
 ### <a name="offlineaccess"></a>offline_access
+
 El ámbito [`offline_access` ](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) proporciona acceso de la aplicación a recursos en nombre del usuario durante un periodo de tiempo prolongado. En la página de consentimiento de la cuenta profesional, este ámbito aparecerá como el permiso "Acceder a sus datos en cualquier momento". En la página de consentimiento de la cuenta personal de Microsoft, aparece como el permiso "Obtener acceso a tu información en cualquier momento". Cuando un usuario aprueba el ámbito `offline_access`, la aplicación puede recibir tokens de actualización del punto de conexión del token v2.0. Los tokens de actualización tienen una duración larga. La aplicación puede obtener nuevos tokens de acceso cuando expiren los antiguos.
 
 Si la aplicación no solicita el ámbito `offline_access`, no recibirá tokens de actualización. Esto significa que cuando se canjea un código de autorización del [flujo del código de autorización de OAuth 2.0](active-directory-v2-protocols.md), solo se recibirá un token de acceso del punto de conexión `/token`. El token de acceso es válido durante un breve período de tiempo. Normalmente, expira al cabo de una hora. En ese momento, la aplicación tiene que redirigir al usuario de vuelta al punto de conexión `/authorize` para que obtenga un nuevo código de autorización. Durante esta redirección y, en función del tipo de aplicación, puede que el usuario tenga que volver a escribir sus credenciales o dar de nuevo el consentimiento a permisos.
@@ -77,7 +82,7 @@ Para más información sobre cómo obtener y usar tokens de actualización, cons
 ## <a name="accessing-v10-resources"></a>Acceso a los recursos de la versión v1.0
 Las aplicaciones v2.0 pueden solicitar tokens y permitir aplicaciones v1.0 (por ejemplo, la API de Power BI `https://analysis.windows.net/powerbi/api` o la API de Sharepoint `https://{tenant}.sharepoint.com`).  Para ello, haga referencia al identificador URI de la aplicación y la cadena de ámbito en el parámetro `scope`.  Por ejemplo, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All` solicitaría a `View all Datasets` de Power BI permiso para la aplicación. 
 
-Para solicitar varios permisos, anexe el identificador URI completo con un espacio o `+`, por ejemplo, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://analysis.windows.net/powerbi/api/Report.Read.All`.  Esto solicita tanto el permiso `View all Datasets` como `View all Reports`.  Tenga en cuenta que al igual que con todos los ámbitos y los permisos de Azure AD, las aplicaciones solo pueden realizar una solicitud a un recurso a la vez, por lo que la solicitud `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://api.skypeforbusiness.com/Conversations.Initiate`, que solicita tanto el permiso `View all Datasets` de Power BI como el `Initiate conversations` de Skype for Business, se rechazará, ya que solicita permiso en dos recursos distintos.  
+Para solicitar varios permisos, anexe el identificador URI completo con un espacio o `+`, por ejemplo, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+ https://analysis.windows.net/powerbi/api/Report.Read.All`.  Esto solicita tanto el permiso `View all Datasets` como `View all Reports`.  Tenga en cuenta que al igual que con todos los ámbitos y los permisos de Azure AD, las aplicaciones solo pueden realizar una solicitud a un recurso a la vez, por lo que la solicitud `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+ https://api.skypeforbusiness.com/Conversations.Initiate`, que solicita tanto el permiso `View all Datasets` de Power BI como el `Initiate conversations` de Skype for Business, se rechazará, ya que solicita permiso en dos recursos distintos.  
 
 ### <a name="v10-resources-and-tenancy"></a>Recursos y inquilinos de v1.0
 Tanto la versión v1.0 como v2.0 de los protocolos de Azure AD usan un parámetro `{tenant}` incrustado en el identificador URI (`https://login.microsoftonline.com/{tenant}/oauth2/`).  Al usar el punto de conexión v2.0 para acceder a un recurso organizativo v1.0, los inquilinos `common` y `consumers` no pueden usarse, ya que estos recursos solo son accesibles con cuentas organizativas (de Azure AD).  Por lo tanto, al acceder a estos recursos, solo pueden usarse el GUID del inquilino o `organizations` como parámetro `{tenant}`.  
@@ -88,6 +93,7 @@ Si una aplicación intenta acceder a un recurso organizativo v1.0 mediante un in
 
 
 ## <a name="requesting-individual-user-consent"></a>Solicitud de consentimiento de usuario individual
+
 En una solicitud de autorización de [OpenID Connect o OAuth 2.0](active-directory-v2-protocols.md), una aplicación puede solicitar los permisos que necesita mediante el parámetro de consulta `scope`. Por ejemplo, cuando un usuario inicia sesión en una aplicación, la aplicación envía una solicitud como la del ejemplo siguiente (se han agregado saltos de línea para una mayor legibilidad):
 
 ```
@@ -111,11 +117,13 @@ Después de que el usuario escribe sus credenciales, el punto de conexión v2.0 
 Cuando el usuario aprueba el permiso, el consentimiento se registra, así el usuario no tiene que volver a dar su consentimiento en los sucesivos inicios de sesión.
 
 ## <a name="requesting-consent-for-an-entire-tenant"></a>Solicitud de consentimiento para un inquilino al completo
+
 A menudo, cuando una organización adquiere una licencia o una suscripción de una aplicación, quiere aprovisionar totalmente la aplicación para sus empleados. Como parte de este proceso, el administrador puede conceder consentimiento a la aplicación para que actúe en nombre de cualquier empleado. Si el administrador concede el consentimiento del inquilino entero, los empleados de la organización no verán una página de consentimiento para la aplicación.
 
 Para solicitar el consentimiento de todos los usuarios de un inquilino, la aplicación puede usar el punto de conexión de consentimiento del administrador.
 
 ## <a name="admin-restricted-scopes"></a>Ámbitos restringidos para los administradores
+
 Algunos permisos de privilegios elevados del ecosistema de Microsoft se pueden establecer en *restringido para los administradores*. Algunos ejemplos de estos tipos de ámbitos son los siguientes permisos:
 
 * Leer datos del directorio de una organización mediante `Directory.Read`
@@ -129,19 +137,23 @@ Si la aplicación necesita acceso a los ámbitos restringidos para los administr
 Cuando un administrador concede estos permisos mediante el punto de conexión de consentimiento del administrador, el consentimiento se concede a todos los usuarios del inquilino.
 
 ## <a name="using-the-admin-consent-endpoint"></a>Uso del punto de conexión de consentimiento del administrador
+
 Si sigue estos pasos, la aplicación puede recopilar permisos para todos los usuarios de un inquilino, incluidos los ámbitos restringido para los administradores. Para ver un ejemplo de código que implementa lo pasos, consulte el [ejemplo de ámbitos restringidos para los administradores](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitud de los permisos en el portal de registro de aplicaciones
+
 1. Vaya a la aplicación en el [Portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) o [cree una aplicación](quickstart-v2-register-an-app.md), si todavía no tiene una.
 2. Busque la sección de **permisos de Microsoft Graph** y agregue los permisos que necesite la aplicación.
-3. No olvide **guardar** el registro de la aplicación.
+3. **Guarde** el registro de aplicaciones.
 
 ### <a name="recommended-sign-the-user-in-to-your-app"></a>Recomendación: inicie la sesión del usuario en la aplicación
+
 Normalmente, cuando se compila una aplicación que usa el punto de conexión de consentimiento del administrador, la aplicación necesita una página o una vista en la que el administrador pueda aprobar los permisos de la aplicación. Esta página puede ser parte del flujo de inicio de sesión de la aplicación o de la configuración de la aplicación, o bien puede ser un flujo de "conexión" dedicado. En muchos casos, tiene sentido que la aplicación muestre esta vista de conexión solo después de que un usuario haya iniciado sesión con una cuenta Microsoft profesional o educativa.
 
 Cuando inicia la sesión del usuario en la aplicación, puede identificar la organización a la que pertenece el administrador antes de pedirle que apruebe los permisos necesarios. Aunque no es estrictamente necesario, puede ayudarle a crear una experiencia más intuitiva para los usuarios de la organización. Para iniciar la sesión del usuario, siga nuestros [tutoriales del protocolo de la versión 2.0](active-directory-v2-protocols.md).
 
 ### <a name="request-the-permissions-from-a-directory-admin"></a>Solicitud de los permisos de un administrador de directorios
+
 Cuando esté listo para solicitar permisos al administrador de la organización, puede redirigir al usuario al *punto de conexión de consentimiento del administrador* v2.0.
 
 ```
@@ -163,14 +175,15 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parámetro | Condición | DESCRIPCIÓN |
 | --- | --- | --- |
-| tenant |Obligatorio |El inquilino de directorio al que quiere solicitar permiso. Puede proporcionarse en formato de GUID o de nombre descriptivo, o puede hacerse referencia genéricamente con "common", como se muestra en el ejemplo. |
-| client_id |Obligatorio |El identificador de aplicación que el [portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) asignó a la aplicación. |
-| redirect_uri |Obligatorio |El URI de redirección adonde desea que se envíe la respuesta para que la controle la aplicación. Debe coincidir exactamente con uno de los identificadores URI de redirección que registró el Portal de registro de aplicaciones. |
-| state |Recomendado |Un valor incluido en la solicitud que se devolverá también en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Use el estado para codificar información sobre el estado del usuario en la aplicación antes de que se produzca la solicitud de autenticación, por ejemplo, la página o vista en la que estaba. |
+| `tenant` | Obligatorio | El inquilino de directorio al que quiere solicitar permiso. Puede proporcionarse en formato de GUID o de nombre descriptivo, o puede hacerse referencia genéricamente con "common", como se muestra en el ejemplo. |
+| `client_id` | Obligatorio | El identificador de aplicación que el [portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) asignó a la aplicación. |
+| `redirect_uri` | Obligatorio |El URI de redirección adonde desea que se envíe la respuesta para que la controle la aplicación. Debe coincidir exactamente con uno de los identificadores URI de redirección que registró el Portal de registro de aplicaciones. |
+| `state` | Recomendado | Un valor incluido en la solicitud que se devolverá también en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Use el estado para codificar información sobre el estado del usuario en la aplicación antes de que se produzca la solicitud de autenticación, por ejemplo, la página o vista en la que estaba. |
 
 En este momento, Azure AD requiere que un administrador de inquilinos inicie sesión para completar la solicitud. Se pedirá al administrador que apruebe todos los permisos que ha solicitado para la aplicación en el Portal de registro de aplicaciones.
 
 #### <a name="successful-response"></a>Respuesta correcta
+
 Si el administrador aprueba los permisos para la aplicación, la respuesta correcta tendrá un aspecto similar al siguiente:
 
 ```
@@ -179,11 +192,12 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | Parámetro | DESCRIPCIÓN |
 | --- | --- | --- |
-| tenant |El inquilino del directorio que concedió los permisos solicitados, en formato GUID. |
-| state |Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. El estado se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
-| admin_consent |Se establecerá en **true**. |
+| `tenant` | El inquilino del directorio que concedió los permisos solicitados, en formato GUID. |
+| `state` | Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. El estado se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
+| `admin_consent` | Se establecerá en **true**. |
 
 #### <a name="error-response"></a>Respuesta de error
+
 Si el administrador no aprueba los permisos de la aplicación, la respuesta de error tendrá el aspecto siguiente:
 
 ```
@@ -192,12 +206,13 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 | Parámetro | DESCRIPCIÓN |
 | --- | --- | --- |
-| error |Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
-| error_description |Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error. |
+| `error` |Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
+| `error_description` |Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error. |
 
 Cuando haya recibido una respuesta correcta del punto de conexión de consentimiento del administrador, la aplicación habrá obtenido los permisos solicitados. Ahora puede solicitar un token para el recurso que desee.
 
 ## <a name="using-permissions"></a>Uso de permisos
+
 Después de que el usuario da su consentimiento para los permisos de la aplicación, la aplicación puede obtener tokens de acceso que representan los permisos de la aplicación para acceder a un recurso de alguna manera. Un token de acceso solo se puede usar para un recurso, pero dentro del token de acceso están todos los permisos codificados que se han concedido a la aplicación para ese recurso. Para adquirir un token de acceso, la aplicación puede realizar una solicitud al punto de conexión del token v2.0, como esta:
 
 ```
