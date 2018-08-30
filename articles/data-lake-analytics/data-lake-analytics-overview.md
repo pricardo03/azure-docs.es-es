@@ -4,18 +4,17 @@ description: Data Lake Analytics le permite controlar su negocio con los detalle
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
-ms.openlocfilehash: f5425abc484d30f07ce29d6b7b6ec36dad79b651
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a0e4878987d55b57587fe949d3bdaa8921599a14
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623628"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053346"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>¿Qué es Azure Data Lake Analytics?
 
@@ -39,7 +38,7 @@ Data Lake Analytics utiliza las inversiones existentes en TI para identidad, adm
 
 ### <a name="affordable-and-cost-effective"></a>Asequible y rentable
 
-Análisis de Data Lake es una solución muy rentable para ejecutar cargas de trabajo de macrodatos. Usted paga por trabajo cuando se procesan los datos. No se requieren licencias, hardware ni contratos de soporte específicos para el servicio. El sistema se escala o reduce verticalmente de forma automática cuando el trabajo comienza y finaliza, por lo que nunca se paga por recursos que no sean estrictamente necesarios. [Más información sobre cómo controlar los costos y ahorrar dinero](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c).
+Análisis de Data Lake es una solución muy rentable para ejecutar cargas de trabajo de macrodatos. Usted paga por trabajo cuando se procesan los datos. No se requieren licencias, hardware ni contratos de soporte específicos para el servicio. El sistema se escala o reduce verticalmente de forma automática cuando el trabajo comienza y finaliza, por lo que nunca se paga por recursos que no sean estrictamente necesarios. [Más información sobre cómo controlar los costos y ahorrar dinero](https://aka.ms/adlasavemoney).
     
 ### <a name="works-with-all-your-azure-data"></a>Funciona con todos los datos de Azure
   

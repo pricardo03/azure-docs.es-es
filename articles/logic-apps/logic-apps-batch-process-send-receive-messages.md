@@ -3,19 +3,18 @@ title: 'Procesamiento por lotes de mensajes como grupo o colección: Azure Logic
 description: Envíe y reciba mensajes como lotes en Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-manager: jeconnoc
+ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.reviewer: estfan, LADocs
-ms.suite: integration
-ms.openlocfilehash: 5190e5d4191cb4d07b000920dd1be1b53e679350
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ee1df77dc18350a64082cb62c297a53700cad223
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142743"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128752"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Envío, recepción y procesamiento por lotes de mensajes en Azure Logic Apps
 
@@ -29,7 +28,7 @@ Para enviar y procesar mensajes juntos de forma específica como grupos, puede c
 
    También puede especificar una clave única, como un número de cliente, que *particione* o divida el lote de destino en subconjuntos lógicos basándose en esa clave. De este modo, la aplicación receptora puede recopilar todos los elementos con la misma clave y procesarlos juntos.
 
-Asegúrese de que la receptora de lotes y la remitente de lotes compartan la misma suscripción a Azure *y* región de Azure. Si no es así, no puede seleccionar la receptora de lotes al crear la remitente de lotes debido a que no son visibles entre sí.
+Asegúrese de que la receptora de lotes y la remitente de lotes compartan la misma suscripción a Azure *y* región de Azure. Si no es así, no puede seleccionar la receptora de lotes al crear la remitente de lotes, ya que no se verán entre ellas.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -47,11 +46,11 @@ Para seguir este ejemplo, necesita estos elementos:
 
 ## <a name="create-batch-receiver"></a>Creación de la receptora de lotes
 
-Antes de poder enviar mensajes a un lote, ese lote debe existir como el destino adonde enviar esos mensajes. Primero, debe crear la aplicación lógica "receptora de lotes", que comienza con el desencadenador **Lote**. De este modo, al crear la aplicación lógica "remitente de lotes", podrá seleccionar la aplicación lógica receptora de lotes. La receptora de lotes continúa recopilando los mensajes hasta que se cumplan los criterios especificados para liberar y procesar esos mensajes. Si bien las receptoras de lotes no necesitan saber nada sobre las remitentes de lotes, las remitentes de lotes deben conocer el destino adonde enviar los mensajes. 
+Antes de poder enviar mensajes a un lote, ese lote debe existir como el destino adonde enviar esos mensajes. Primero, debe crear la aplicación lógica "batch receiver", que comienza con el desencadenador **Batch**. De este modo, al crear la aplicación lógica "batch sender", podrá seleccionar la aplicación lógica batch receiver. La receptora de lotes continúa recopilando los mensajes hasta que se cumplan los criterios especificados para liberar y procesar esos mensajes. Si bien las receptoras de lotes no necesitan saber nada sobre las remitentes de lotes, las remitentes de lotes deben conocer el destino adonde enviar los mensajes. 
 
 1. En [Azure Portal](https://portal.azure.com) o Visual Studio, cree una aplicación lógica con este nombre: "BatchReceiver" 
 
-2. En el Diseñador de Logic Apps, agregue el desencadenador de **lotes** que inicia el flujo de trabajo de la aplicación lógica. En el cuadro de búsqueda, escriba "lotes" como filtro. Seleccione este desencadenador: **Mensajes de lote**
+2. En el Diseñador de Logic Apps, agregue el desencadenador de **lotes** que inicia el flujo de trabajo de la aplicación lógica. En el cuadro de búsqueda, escriba "lotes" como filtro. Seleccione este desencadenador: **Batch messages**
 
    ![Adición del desencadenador "Mensajes de lote"](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
@@ -59,7 +58,7 @@ Antes de poder enviar mensajes a un lote, ese lote debe existir como el destino 
 
    | Propiedad | DESCRIPCIÓN | 
    |----------|-------------|
-   | **Modo por lotes** | - **Inline**: para definir los criterios de versión en el desencadenador de lotes <br>- **Cuenta de integración**: para definir varias configuraciones de criterios de lanzamiento a través de una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Con una cuenta de integración, puede mantener todas estas configuraciones en un mismo lugar, en lugar de en aplicaciones lógicas independientes. | 
+   | **Batch Mode** | - **Inline**: para definir los criterios de versión en el desencadenador de lotes <br>- **Cuenta de integración**: para definir varias configuraciones de criterios de lanzamiento a través de una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Con una cuenta de integración, puede mantener todas estas configuraciones en un mismo lugar, en lugar de en aplicaciones lógicas independientes. | 
    | **Nombre del lote** | El nombre del lote, que es "TestBatch" en este ejemplo, y solo se aplica al modo por lotes **Inline** |  
    | **Criterios de lanzamiento** | Solo se aplica al modo por lotes **Inline** y especifica los criterios que deben cumplirse antes de procesar cada lote: <p>- **Basado en el número de mensajes**: el número de mensajes que se recopilan en el lote, por ejemplo, 10 mensajes <br>- **En función del tamaño**: el tamaño máximo de lote en bytes, por ejemplo, 100 MB <br>- **Basado en la programación**: el intervalo y la frecuencia entre las liberaciones de lotes, por ejemplo, 10 minutos. También puede especificar una fecha y hora de inicio. <br>- **Seleccionar todo**: use todos los criterios especificados. | 
    ||| 
@@ -118,7 +117,7 @@ Antes de poder enviar mensajes a un lote, ese lote debe existir como el destino 
 
     ![Guardado de la aplicación lógica](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
 
-8. Si usa Visual Studio, asegúrese de [implementar su aplicación lógica receptora de lotes en Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). En caso contrario, no podrá seleccionar la receptora de lotes cuando cree la remitente de lotes.
+8. Si usa Visual Studio, asegúrese de [implementar la aplicación lógica batch receiver en Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). En caso contrario, no podrá seleccionar la receptora de lotes cuando cree la remitente de lotes.
 
 <a name="batch-sender"></a>
 
@@ -126,9 +125,9 @@ Antes de poder enviar mensajes a un lote, ese lote debe existir como el destino 
 
 Ahora cree una o más aplicaciones lógicas remitentes de lotes que envíen mensajes a la aplicación lógica receptora de lotes. En cada remitente de lotes, especifique el nombre de la receptora de lotes y del lote, el contenido del mensaje, y el resto de las opciones. Opcionalmente, también puede proporcionar una clave de partición única para dividir el lote en subconjuntos lógicos para recopilar mensajes con esa clave. 
 
-* Asegúrese de haber ya [creado la receptora de lotes](#batch-receiver) de modo que, cuando cree la remitente de lotes, pueda seleccionar la receptora de lotes existente como lote de destino. Si bien las receptoras de lotes no necesitan saber nada sobre las remitentes de lotes, las remitentes de lotes deben conocer adonde enviar los mensajes. 
+* Asegúrese de haber ya [creado la receptora de lotes](#batch-receiver) de modo que, cuando cree la remitente de lotes, pueda seleccionar la receptora de lotes existente como lote de destino. Si bien las receptoras de lotes no necesitan saber nada sobre las remitentes de lotes, estas últimas deben saber adonde enviar los mensajes. 
 
-* Asegúrese de que la receptora de lotes y la remitente de lotes compartan la misma región de Azure *y* suscripción a Azure. Si no es así, no puede seleccionar la receptora de lotes al crear la remitente de lotes debido a que no son visibles entre sí.
+* Asegúrese de que la receptora de lotes y la remitente de lotes compartan la misma región de Azure *y* suscripción a Azure. Si no es así, no puede seleccionar la receptora de lotes al crear la remitente de lotes, ya que no se verán entre ellas.
 
 1. Cree otra aplicación lógica con este nombre: "BatchSender".
 
@@ -146,7 +145,7 @@ Ahora cree una o más aplicaciones lógicas remitentes de lotes que envíen mens
    1. En el desencadenador Periodicidad, elija **Nuevo paso**.
 
    2. En el cuadro de búsqueda, escriba "lotes" como filtro. 
-   Seleccione la lista **Acciones** y luego seleccione esta acción: **Escoja un flujo de trabajo de Logic Apps con el desencadenador de lotes: Enviar mensajes al lote**
+   Seleccione la lista **Acciones** y esta acción: **Choose a Logic Apps workflow with batch trigger - Send messages to batch**
 
       ![Seleccione "Escoja un flujo de trabajo de Logic Apps con el desencadenador de lotes"](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
 
@@ -167,7 +166,7 @@ Ahora cree una o más aplicaciones lógicas remitentes de lotes que envíen mens
 
    | Propiedad | DESCRIPCIÓN | 
    |----------|-------------| 
-   | **Nombre del lote** | El nombre de lote definido por la aplicación lógica receptora, que es "TestBatch" en este ejemplo <p>**Importante**: el nombre del lote se valida en tiempo de ejecución y debe coincidir con el nombre especificado por la aplicación lógica receptora. Si cambia el nombre del lote, provocará un error en la aplicación lógica remitente. | 
+   | **Batch Name** | El nombre de lote definido por la aplicación lógica receptora, "TestBatch" en este ejemplo <p>**Importante**: el nombre del lote se valida en tiempo de ejecución y debe coincidir con el nombre especificado por la aplicación lógica receptora. Si cambia el nombre del lote, provocará un error en la remitente de lotes. | 
    | **Contenido del mensaje** | El contenido del mensaje que desea enviar | 
    ||| 
 

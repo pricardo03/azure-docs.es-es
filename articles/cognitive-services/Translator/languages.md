@@ -9,12 +9,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 5542c1c0eee5e4c7c85c566908dc8999b118f06e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f5b916ba3b6b044f12b84958b2eb69f44e2f8136
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37032444"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888148"
 ---
 # <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Idiomas admitidos en Microsoft Translator Text API
 
@@ -141,7 +141,7 @@ El diccionario admite los siguientes idiomas desde o hacia el inglés con los m�
 | Criollo haitiano      | `ht`          |
 | Hebreo      | `he`          |
 | Hindi      | `hi`          |
-| Hmong daw      | `mww`          |
+| Hmong Daw      | `mww`          |
 | Húngaro      | `hu`          |
 | Islandés    | `is`  |
 | Indonesio      | `id`          |
@@ -187,8 +187,8 @@ Los siguientes idiomas pueden detectarse con el método Detect. Detect puede det
 | Búlgaro |
 | Catalán |
 | Chino |
-| Chino simplificado |
-| Chino tradicional |
+| Chino (simplificado) |
+| Chino (tradicional) |
 | Croata |
 | Checo |
 | Danés |
@@ -211,8 +211,8 @@ Los siguientes idiomas pueden detectarse con el método Detect. Detect puede det
 | Italiano |
 | Japonés |
 | Coreano |
-| Kurdo árabe |
-| Kurdo latín |
+| Kurdo (árabe) |
+| Kurdo (latino) |
 | Latín |
 | Letón |
 | Lituano |
@@ -220,15 +220,15 @@ Los siguientes idiomas pueden detectarse con el método Detect. Detect puede det
 | Malayo |
 | Maltés |
 | Noruego |
-| Noruego nynorsk |
+| Noruego (nynorsk) |
 | Pashto |
 | Persa |
 | Polaco |
 | Portugués |
 | Rumano |
 | Ruso |
-| Serbio cirílico |
-| Serbio latín |
+| Serbio (cirílico) |
+| Serbio (latino) |
 | Eslovaco |
 | Esloveno |
 | Somalí |
@@ -240,8 +240,8 @@ Los siguientes idiomas pueden detectarse con el método Detect. Detect puede det
 | Turco |
 | Ucraniano |
 | Urdu |
-| Uzbeko cirílico |
-| Uzbeko latín |
+| Uzbeko (cirílico) |
+| Uzbeko (latino) |
 | Vietnamita |
 | Galés |
 | Yidis |

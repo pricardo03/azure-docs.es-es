@@ -1,25 +1,19 @@
 ---
-title: "Introducción a Data Catalog | Microsoft Docs"
+title: Introducción a Azure Data Catalog
 description: Tutorial integral que muestra los escenarios y las funcionalidades de Azure Data Catalog.
-documentationcenter: 
 services: data-catalog
 author: steelanddata
-manager: jhubbard
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: d67f8871bbdd87e8a67057e6e8c5d4d770e5cad6
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: c65f5c2ca3f162c17d036198c4285f9c965bbd53
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053152"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Introducción a Azure Data Catalog
 Azure Data Catalog es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección para recursos de datos empresariales. Si desea información detallada, consulte [¿Qué es Azure Data Catalog](data-catalog-what-is-data-catalog.md).
@@ -40,14 +34,14 @@ Este tutorial le ayudará a empezar a trabajar con Azure Data Catalog. En este t
 ### <a name="azure-subscription"></a>Suscripción de Azure
 Para configurar Azure Data Catalog, debe ser propietario o copropietario de una suscripción de Azure.
 
-Las suscripciones de Azure le ayudan a organizar el acceso a los recursos de servicio en la nube como Azure Data Catalog. También le ayudan a controlar cómo se informa, factura y paga el uso de recursos. Cada suscripción puede tener una configuración de facturación y pago diferente, por lo que puede tener varias suscripciones y planes diferentes por departamento, proyecto, oficina regional, etc. Cada servicio en la nube pertenece a una suscripción, y debe tener una suscripción para poder configurar Azure Data Catalog. Para más información, consulte [Administración de cuentas, suscripciones y roles administrativos](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+Las suscripciones de Azure le ayudan a organizar el acceso a los recursos de servicio en la nube como Azure Data Catalog. También le ayudan a controlar cómo se informa, factura y paga el uso de recursos. Cada suscripción puede tener una configuración de facturación y pago diferente, por lo que puede tener varias suscripciones y planes diferentes por departamento, proyecto, oficina regional, etc. Cada servicio en la nube pertenece a una suscripción, y debe tener una suscripción para poder configurar Azure Data Catalog. Para más información, consulte [Administración de cuentas, suscripciones y roles administrativos](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 Si no tiene una suscripción, puede crear una cuenta de prueba gratuita en tan solo un par de minutos. Para más información, consulte [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) .
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 Para configurar Azure Data Catalog, debe haber iniciado sesión con una cuenta de usuario de Azure Active Directory (Azure AD). Debe ser propietario o copropietario de una suscripción de Azure.  
 
-Azure AD proporciona una manera fácil de que cualquier empresa pueda administrar la identidad y el acceso, tanto en la nube como de forma local. Puede usar una única cuenta profesional o educativa para iniciar sesión en cualquier aplicación web en la nube o local. Azure Data Catalog usa Azure AD para autenticar el inicio de sesión. Para más información, consulte [¿Qué es Azure Active Directory?](../active-directory/active-directory-whatis.md)
+Azure AD proporciona una manera fácil de que cualquier empresa pueda administrar la identidad y el acceso, tanto en la nube como de forma local. Puede usar una única cuenta profesional o educativa para iniciar sesión en cualquier aplicación web en la nube o local. Azure Data Catalog usa Azure AD para autenticar el inicio de sesión. Para más información, consulte [¿Qué es Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md)
 
 ### <a name="azure-active-directory-policy-configuration"></a>Configuración de directivas de Azure Active Directory
 Se puede dar el caso de que pueda iniciar sesión en el portal de Azure Data Catalog, pero al intentar iniciar sesión en la herramienta de registro de orígenes de datos, se mostrará un mensaje de error que le impedirá hacerlo. Dicho error puede aparecer cuando se utiliza la red de la empresa o cuando la conexión se realiza desde fuera de la red de la empresa.

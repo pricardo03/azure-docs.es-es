@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: diberry;
-ms.openlocfilehash: bf1931355fd873eaeac6c313b70717dfa99814c6
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.author: diberry
+ms.openlocfilehash: 8926ce48a8426aa667787f7bbe104e27e1a68669
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222603"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124691"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Cómo agregar patrones para mejorar la precisión de las predicciones
 Después de que una aplicación de LUIS reciba expresiones de punto de conexión, use el [concepto](luis-concept-patterns.md) de patrones para mejorar la precisión de la predicción para las expresiones que revelan un patrón en el orden y la elección de las palabras. En los patrones se usan [entidades](luis-concept-entity-types.md) y sus roles para extraer datos mediante una sintaxis de patrón concreta. 

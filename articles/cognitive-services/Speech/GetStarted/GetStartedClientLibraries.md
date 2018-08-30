@@ -9,12 +9,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: f4b6a97260c6dc176600af8844001e4de819ff7c
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6fb490def6807204943a1ce3ba3c53186055102b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42357517"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048464"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>Introducción a las bibliotecas de cliente del servicio Bing Speech
 
@@ -33,7 +33,7 @@ Actualmente, están disponibles las siguientes bibliotecas de cliente de Bing Sp
 - [Biblioteca de Objective-C para iOS](Get-Started-ObjectiveC-iOS.md)
 
 > [!NOTE] 
-En mayo de 2018, lanzamos también el nuevo [servicio de Voz](/speech-service/overview.md) en versión preliminar pública. Le animamos a que [lo pruebe gratuitamente](/speech-service/get-started.md). 
+En mayo de 2018, lanzamos también el nuevo [servicio de Voz](../../speech-service/index.yml) en versión preliminar pública. Le animamos a que [lo pruebe gratuitamente](../../speech-service/get-started.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

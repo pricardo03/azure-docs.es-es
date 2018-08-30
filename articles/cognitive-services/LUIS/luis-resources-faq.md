@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 93ced2d0c79d80a631ad90aa3f5d2dc9f8c79c7e
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a266055c7685dca87d985775584a9ea7a4bda883
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390201"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128527"
 ---
 # <a name="language-understanding-faq"></a>P+F sobre Language Understanding
 
@@ -151,7 +151,7 @@ Si utiliza el registro para el análisis de predicción, no capture las expresio
 
 No. El modelo de datos de la aplicación de LUIS no es utilizado por LUIS para su mejora como una plataforma ni utilizado por Microsoft de ninguna manera. Los datos de cada aplicación son independientes y pertenecen solo al usuario y los colaboradores. 
 
-Más información sobre la [privacidad del usuario](luis-reference-gdpr.md), el [cumplimiento de seguridad adicional](luis-concept-security.md#security-compliance) y el [almacenamiento de datos](luis-concept-data-storage.md).
+Más información sobre la [privacidad del usuario](luis-user-privacy.md), el [cumplimiento de seguridad adicional](luis-concept-security.md#security-compliance) y el [almacenamiento de datos](luis-concept-data-storage.md).
 
 ## <a name="language-and-translation-support"></a>Compatibilidad de idioma y traducción 
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdf5685ad8072175bdabf8938ef293bed6f5cc13
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: e7ad93cbfd096cacadaef8666b0ea5b31d7fd992
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075703"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918808"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -263,7 +263,7 @@ En este [tutorial](https://docs.microsoft.com/azure/virtual-machines/windows/tut
 
 
 ## <a name="azure-network-considerations"></a>Consideraciones sobre la red de Azure 
-En las implementaciones de SAP a gran escala, se recomienda usar el plano técnico de [Centro de datos virtual de Azure](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter) para la configuración de redes virtuales y las asignaciones de permisos y roles a las diferentes partes de la organización.
+En las implementaciones de SAP a gran escala, se recomienda usar el plano técnico de [Centro de datos virtual de Azure](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) para la configuración de redes virtuales y las asignaciones de permisos y roles a las diferentes partes de la organización.
 
 Hay varios procedimientos recomendados, fruto de cientos de implementaciones de clientes:
 

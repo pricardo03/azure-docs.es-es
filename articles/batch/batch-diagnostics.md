@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 54034b9a851fc6f06f97be9cfd5f261465bad455
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 85bda9e1a936f19a37be2f2c1c42f948cab727d6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248269"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122474"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas y registros de Batch para evaluación de diagnóstico y supervisión
 
@@ -64,7 +64,7 @@ Para configurar una alerta de métrica en el portal:
 2. En **Supervisión**, haga clic en **Reglas de alerta** > **Agregar alerta de métrica**.
 3. Seleccione una métrica, una condición de alerta (por ejemplo, cuando una métrica supere un valor determinado durante un período) y una o más notificaciones.
 
-También puede configurar una alerta casi en tiempo real mediante la [API REST](). Para más información, consulte [Usar las nuevas alertas de métricas para los servicios de Azure en Azure Portal](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md).
+También puede configurar una alerta casi en tiempo real mediante la [API REST](https://docs.microsoft.com/rest/api/monitor/). Para más información, consulte [Usar las nuevas alertas de métricas para los servicios de Azure en Azure Portal](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md).
 ## <a name="batch-diagnostics"></a>Diagnóstico de Batch
 
 Los registros de diagnóstico contienen información que emiten los recursos de Azure que describe el funcionamiento de cada recurso. En Batch, puede recopilar los registros siguientes:

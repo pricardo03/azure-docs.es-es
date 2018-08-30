@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 98c7bd5daf3b84499e8e31c0a7a2da612834b83e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e2ff826f21adf12d48b21acefe4b704866e02c04
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521989"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917965"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraciones y operaciones de infraestructura de SAP HANA en Azure
 En este documento se proporcionan instrucciones para configurar la infraestructura de Azure y sobre el funcionamiento de los sistemas SAP HANA que se implementaron en máquinas virtuales nativas de Azure. En el documento también se incluye información sobre la configuración de la escalabilidad horizontal de SAP HANA para la SKU de máquinas virtuales M128s. Este documento no pretende reemplazar ninguna documentación estándar de SAP, incluido el contenido siguiente:
@@ -215,7 +215,7 @@ Al instalar las máquinas virtuales para ejecutar SAP HANA, estas necesitan lo s
 
 Sin embargo, para implementaciones permanentes, deberá crear una arquitectura de red del centro de datos virtual en Azure. Esta arquitectura recomienda la separación de la puerta de enlace de Azure Virtual Network que se conecta a entornos locales en una instancia independiente de Azure Virtual Network. Esta red virtual independiente debe hospedar todo el tráfico que sale a entornos locales o a Internet. Este enfoque permite implementar software para la auditoría y el registro de tráfico que entra en el centro de datos virtual de Azure en esta red virtual hub independiente. De esta forma, dispondrá de una red virtual que hospeda todo el software y las configuraciones relacionados con el tráfico de entrada y salida de la implementación de Azure.
 
-En los artículos [Centro de datos virtual de Azure: una perspectiva de red](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter) y [Centro de datos virtual de Azure y el plano de control empresarial](https://docs.microsoft.com/azure/architecture/vdc/) se ofrece más información sobre el enfoque del centro de datos virtual y el diseño relacionado de Azure Virtual Network.
+En los artículos [Centro de datos virtual de Azure: una perspectiva de red](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) y [Centro de datos virtual de Azure y el plano de control empresarial](https://docs.microsoft.com/azure/architecture/vdc/) se ofrece más información sobre el enfoque del centro de datos virtual y el diseño relacionado de Azure Virtual Network.
 
 
 >[!NOTE]

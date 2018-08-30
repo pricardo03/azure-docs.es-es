@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 0626b958a9b822569f4d3b6d27f3395bed853174
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 9855becd7c047788ed310dff4317a5df87cc9b61
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030060"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047635"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Aplicación de revisiones al sistema operativo y al entorno de tiempo de ejecución en Azure App Service
 
@@ -94,7 +94,7 @@ En la tabla siguiente se muestra cómo consultar las versiones de Windows y del 
 | Versión de Python | En `https://<appname>.scm.azurewebsites.net/DebugConsole`, ejecute el siguiente comando en el símbolo del sistema: <br> `python --version` |  
 
 > [!NOTE]  
-> El acceso a la ubicación del registro `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, donde se almacena la información sobre las [revisiones "KB"]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)), está bloqueado.
+> El acceso a la ubicación del registro `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, donde se almacena la información sobre las [revisiones "KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins), está bloqueado.
 >
 >
 

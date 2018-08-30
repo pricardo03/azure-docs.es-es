@@ -1,25 +1,19 @@
 ---
-title: "Administración de recursos de datos en Azure Data Catalog | Microsoft Docs"
-description: "En este artículo se resalta cómo controlar la visibilidad y la propiedad de los recursos de datos registrados en Azure Data Catalog."
+title: Administración de recursos de datos en Azure Data Catalog
+description: En este artículo se resalta cómo controlar la visibilidad y la propiedad de los recursos de datos registrados en Azure Data Catalog.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 5a4b2b5734bf8bfbbc45a65b02362d1fa37b1a87
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e102b1f436b4f6d39f57445b02638ffd11f27786
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052919"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Administración de recursos de datos en Azure Data Catalog
 ## <a name="introduction"></a>Introducción

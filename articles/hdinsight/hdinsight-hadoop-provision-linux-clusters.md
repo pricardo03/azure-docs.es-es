@@ -4,18 +4,18 @@ description: Configure clústeres de Hadoop, Kafka, Spark, HBase, ML Services o 
 keywords: configuración de clústeres de hadoop, configuración de clústeres de kafka, configuración de clústeres de spark, qué es un clúster en hadoop
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 0cb3840c0ce40e062b4de0b7bbd5c9e324d6081f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.date: 08/27/2018
+ms.openlocfilehash: 0df38e1bd9c4db1cf988beab31b1c3189da4f0c2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595848"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127914"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configuración de clústeres en HDInsight con Hadoop, Spark, Kafka, etc.
 
@@ -86,7 +86,7 @@ Elija la versión de HDInsight para este clúster. Para más información, consu
 
 ### <a name="enterprise-security-package"></a>Paquete de seguridad de la empresa
 
-Para los tipos de clúster de Hadoop, Spark e Interactive Query, puede elegir habilitar **Paquete de seguridad de la empresa**. Este paquete ofrece la opción de tener una configuración de clúster más segura mediante Apache Ranger y la integración con Azure Active Directory. Para más información, consulte el [paquete de seguridad de la empresa en Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
+Para los tipos de clúster de Hadoop, Spark e Interactive Query, puede elegir habilitar **Paquete de seguridad de la empresa**. Este paquete ofrece la opción de tener una configuración de clúster más segura mediante Apache Ranger y la integración con Azure Active Directory. Para obtener más información, consulte el [paquete de seguridad de la empresa en Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
 
 ![Opciones de creación de hdinsight para elegir el paquete de seguridad de la empresa](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
 
@@ -140,10 +140,23 @@ Para aumentar el rendimiento al usar Oozie, utilice un Metastore personalizado. 
 > [!IMPORTANT]
 > No puede volver a usar un Oozie Metastore personalizado. Para usar un Oozie Metastore personalizado, debe proporcionar una base de datos Azure SQL Database vacía al crear el clúster HDInsight.
 
+
+## <a name="custom-cluster-setup"></a>Configuración personalizada de clústeres
+La configuración personalizada de clústeres se basa en el valor Creación rápida y agrega las siguientes opciones:
+- [Aplicaciones de HDInsight](#install-hdinsight-applications-on-clusters)
+- [Tamaño del clúster](#configure-cluster-size)
+- [Acciones de script](#advanced-settings-script-actions)
+- [Red virtual](#advanced-settings-extend-clusters-with-a-virtual-network)
+
+## <a name="install-hdinsight-applications-on-clusters"></a>Instalar aplicaciones de HDInsight en clústeres
+
+Una aplicación de HDInsight es una aplicación que los usuarios pueden instalar en un clúster de HDInsight basado en Linux. Puede usar aplicaciones proporcionadas por Microsoft, de terceros o desarrolladas por sí mismo. Para más información, consulte [Instalación de aplicaciones de Hadoop de terceros en Azure HDInsight](hdinsight-apps-install-applications.md).
+
+La mayoría de las aplicaciones de HDInsight se instalan en un nodo perimetral vacío.  Un nodo perimetral vacío es una máquina virtual Linux con las mismas herramientas cliente instaladas y configuradas que en el nodo principal. Se puede usar el nodo perimetral para acceder al clúster y para probar y hospedar las aplicaciones cliente. Para obtener más información, consulte [Uso de nodos perimetrales vacíos en HDInsight](hdinsight-apps-use-edge-node.md).
+
 ## <a name="configure-cluster-size"></a>Configuración del tamaño del clúster
 
 Mientras que exista el clúster se le facturará por el uso de nodos. La facturación se inicia una vez creado el clúster y se detiene cuando se elimina el clúster. Los clústeres no se puede desasignar ni ponerse en espera.
-
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Número de nodos de cada tipo de clúster
 Cada tipo de clúster tiene su propio número de nodos, terminología para los nodos y tamaño de máquina virtual predeterminado. En la siguiente tabla, el número de nodos de cada tipo de nodo se muestra entre paréntesis.
@@ -191,20 +204,6 @@ Para averiguar el valor que debe usar para especificar un tamaño de máquina vi
 >
 
 Para más información, consulte [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/windows/sizes.md). Para más información sobre los precios de los diferentes tamaños, consulte [Precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
-
-## <a name="custom-cluster-setup"></a>Configuración personalizada de clústeres
-La configuración personalizada de clústeres se basa en el valor Creación rápida y agrega las siguientes opciones:
-- [Aplicaciones de HDInsight](#hdinsight-applications)
-- [Tamaño del clúster](#cluster-size)
-- Configuración avanzada
-  - [Acciones de script](#customize-clusters-using-script-action)
-  - [Red virtual](#use-virtual-network)
-
-## <a name="install-hdinsight-applications-on-clusters"></a>Instalar aplicaciones de HDInsight en clústeres
-
-Una aplicación de HDInsight es una aplicación que los usuarios pueden instalar en un clúster de HDInsight basado en Linux. Puede usar aplicaciones proporcionadas por Microsoft, de terceros o desarrolladas por sí mismo. Para más información, consulte [Instalación de aplicaciones de Hadoop de terceros en Azure HDInsight](hdinsight-apps-install-applications.md).
-
-La mayoría de las aplicaciones de HDInsight se instalan en un nodo perimetral vacío.  Un nodo perimetral vacío es una máquina virtual Linux con las mismas herramientas cliente instaladas y configuradas que en el nodo principal. Se puede usar el nodo perimetral para acceder al clúster y para probar y hospedar las aplicaciones cliente. Para obtener más información, consulte [Uso de nodos perimetrales vacíos en HDInsight](hdinsight-apps-use-edge-node.md).
 
 ## <a name="advanced-settings-script-actions"></a>Configuración avanzada: acciones de script
 

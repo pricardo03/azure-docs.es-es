@@ -3,18 +3,18 @@ title: Extracción, transformación y carga de datos (ETL) a escala en Azure HDI
 description: Obtenga información acerca de cómo se usa ETL en HDInsight con Hadoop.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: bae6fde75e0939fc1f3f2f9c14f275d18ea2c4e2
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 6af55bf8311efc14687ee16c3226988fd730081d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598619"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049009"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extracción, transformación y carga de datos (ETL) a escala
 

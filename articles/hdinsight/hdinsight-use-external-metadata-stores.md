@@ -3,18 +3,18 @@ title: Uso de almacenes de metadatos externos en Azure HDInsight
 description: Use repositorios de metadatos externos con clústeres de HDInsight.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: fb1401578237a92a6f164ec98e8dbcdbbb88be38
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: a2c992a47e40a4f8764f5950c65bb90f1cd9e066
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595405"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045150"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Uso de repositorios de metadatos externos en Azure HDInsight
 

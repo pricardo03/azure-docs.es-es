@@ -4,29 +4,23 @@ description: Aprenda a usar Ansible para configurar un conjunto de escalado de m
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cuaderno de estrategias, máquina virtual, conjunto de escalado de máquinas virtuales, vmss
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: b9c8058606e13c0db4908530e98cddb69d2caf50
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.topic: tutorial
+ms.date: 08/24/2018
+ms.openlocfilehash: 762c14b5b6e30f6410a8d572d69651c803f079c2
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011503"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918093"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Implementación de aplicaciones en conjuntos de escalado de máquinas virtuales de Azure mediante Ansible
 Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para implementar sus aplicaciones en Azure. En este artículo se muestra cómo implementar una aplicación Java en un conjunto de escalado de máquinas virtuales (VMSS) de Azure.  
 
 ## <a name="prerequisites"></a>Requisitos previos
 - **Suscripción a Azure**: si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
-- **Configuración de Ansible** - [Creación de credenciales de Azure y configuración de Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **Ansible y los módulos de SDK de Python de Azure** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **Conjunto de escalado de máquinas virtuales**: si aún no tiene un conjunto de escalado de máquinas virtuales, puede [crear un conjunto de escalado de máquinas virtuales con Ansible](ansible-create-configure-vmss.md). 
 - **git** - [git](https://git-scm.com) se usa para descargar un ejemplo de Java utilizado en este tutorial.
 - **Java SE Development Kit (JDK)**: el JDK se usa para compilar el proyecto de Java de ejemplo.
@@ -159,7 +153,7 @@ Para usar el tipo de conexión ssh con contraseñas, debe instalar el programa s
   - En Ubuntu 16.04, ejecute el comando `apt-get install sshpass`.
   - En CentOS 7.4, ejecute el comando `yum install sshpass`.
 
-Puede ver un error como **Using an SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this.  Add this host's fingerprint to your known_hosts file to manage this host (El uso de una contraseña SSH en lugar de una clave no es posible, ya que la comprobación de clave de host está habilitada y sshpass no lo admite. Agregue la huella digital de este host a su archivo known_hosts para administrar este host).** Si ve este error, puede deshabilitar la comprobación de clave de host agregando la siguiente línea al archivo `/etc/ansible/ansible.cfg` o al archivo `~/.ansible.cfg`:
+Puede ver un error como **Using an SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this. Add this host's fingerprint to your known_hosts file to manage this host (El uso de una contraseña SSH en lugar de una clave no es posible, ya que la comprobación de clave de host está habilitada y sshpass no lo admite. Agregue la huella digital de este host a su archivo known_hosts para administrar este host).** Si ve este error, puede deshabilitar la comprobación de clave de host agregando la siguiente línea al archivo `/etc/ansible/ansible.cfg` o al archivo `~/.ansible.cfg`:
   ```bash
   [defaults]
   host_key_checking = False

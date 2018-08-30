@@ -5,17 +5,17 @@ keywords: hiveql,qué es hive,hadoop hiveql,cómo usar hive,aprender hive,qué e
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0ca968c0412396852e531af3b37f6675e0b519db
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 446bb23e15d908c8afe189a33e4d8a70faad284a
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596667"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126644"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>¿Qué son Apache Hive y HiveQL en Azure HDInsight?
 
@@ -222,7 +222,7 @@ Hay varios servicios que se pueden usar para ejecutar consultas de Hive como par
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
-Azure Data Factory permite usar HDInsight como parte de una canalización de Data Factory. Para más información sobre el uso de Hive desde una canalización, consulte el documento [Transformación de datos mediante una actividad de Hive en Azure Data Factory](/data-factory/transform-data-using-hadoop-hive.md).
+Azure Data Factory permite usar HDInsight como parte de una canalización de Data Factory. Para más información sobre el uso de Hive desde una canalización, consulte el documento [Transformación de datos mediante una actividad de Hive en Azure Data Factory](../../data-factory/transform-data-using-hadoop-hive.md).
 
 ### <a name="hive-jobs-and-sql-server-integration-services"></a>Trabajos de Hive y servicios de integración de SQL Server
 

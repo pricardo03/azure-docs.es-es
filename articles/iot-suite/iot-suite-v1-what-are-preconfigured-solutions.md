@@ -1,26 +1,18 @@
 ---
 title: Soluciones preconfiguradas de IoT de Azure | Microsoft Docs
 description: Descripción de las soluciones preconfiguradas de IoT de Azure y de sus arquitecturas con vínculos a recursos adicionales.
-services: ''
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
-manager: timlt
-editor: ''
-ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-suite
+ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: d860c768a73737e6c8c52a8652d6b43434a3a07d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9642bfb8bb6b2e6d63082ff8287c1d5b31bbaefa
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361995"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43191590"
 ---
 # <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>¿Qué son las soluciones preconfiguradas de Azure IoT Suite?
 
@@ -40,9 +32,9 @@ La tabla siguiente muestra cómo se asignan estas soluciones a las característi
 
 | Solución | Ingesta de datos | Identidad del dispositivo | Administración de dispositivos | Comando y control | Reglas y acciones | Análisis predictivo |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Supervisión remota][lnk-getstarted-preconfigured] |Sí |Sí |Sí |Sí |Sí |- |
-| [Mantenimiento predictivo][lnk-predictive-maintenance] |Sí |Sí |- |Sí |Sí |Sí |
-| [Fábrica conectada][lnk-getstarted-factory] |Sí |Sí |Sí |Sí |Sí |- |
+| [Supervisión remota][lnk-getstarted-preconfigured] |SÍ |Sí |Sí |Sí |SÍ |- |
+| [Mantenimiento predictivo][lnk-predictive-maintenance] |SÍ |Sí |- |Sí |Sí |SÍ |
+| [Fábrica conectada][lnk-getstarted-factory] |SÍ |Sí |Sí |Sí |SÍ |- |
 
 * *Ingesta de datos*: entrada de datos a escala en la nube.
 * *Identidad del dispositivo*: administre identidades de dispositivos únicas y controle el acceso de los dispositivos a la solución.
@@ -165,11 +157,11 @@ Ahora que ya sabe qué es una solución preconfigurada, puede comenzar por imple
 [img-dashboard]: ./media/iot-suite-v1-what-are-preconfigured-solutions/dashboard.png
 [lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
+[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
 [lnk-web-job]: ../app-service/web-sites-create-web-jobs.md
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-predictive-maintenance]: iot-suite-predictive-overview.md
-[lnk-azureiotsuite]: https://www.azureiotsuite.com/
+[lnk-predictive-maintenance]:../iot-accelerators/iot-accelerators-predictive-overview.md
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-getstarted-preconfigured]: iot-suite-v1-getstarted-preconfigured-solutions.md
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md

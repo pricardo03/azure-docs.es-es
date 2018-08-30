@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/22/2018
 ms.author: raynew
-ms.openlocfilehash: 23cf9430f82be860cb9acbfac42163f9243b2d0f
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: a734999f0fa473b5f1ee8ed55c4b73950566490d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42143045"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188780"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Proteger SQL Server con la recuperación ante desastres de SQL Server y Azure Site Recovery
 
@@ -83,7 +83,6 @@ En la siguiente tabla se resumen nuestras recomendaciones para integrar las tecn
 
 * La implementación local de SQL Server ejecuta una versión compatible de SQL Server. Normalmente, también necesitará Active Directory para SQL Server.
 * Requisitos para el escenario que desea implementar. Obtenga más información sobre los requisitos de compatibilidad para la [replicación en Azure](site-recovery-support-matrix-to-azure.md) y la replicación [local](site-recovery-support-matrix.md), y los [requisitos previos de implementación](site-recovery-prereq.md).
-* Para configurar la recuperación de Azure, ejecute la herramienta [Evaluación de preparación de máquinas virtuales de Azure](http://www.microsoft.com/download/details.aspx?id=40898) en sus máquinas virtuales de SQL Server para asegurarse de que son compatibles con Azure y Site Recovery.
 
 ## <a name="set-up-active-directory"></a>Configuración de Active Directory
 

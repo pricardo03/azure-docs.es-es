@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/25/2018
 ms.author: juliako
-ms.openlocfilehash: ba81030c3d6384ca6b66d6a3b14e614d1626e3e0
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: b8de9e8d73ba899fb7f3036d871c5d30daf101de
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41929847"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049362"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Inserción de widgets de Video Indexer en las aplicaciones
 
@@ -95,7 +95,7 @@ En esta sección se muestra cómo lograr la interacción entre dos widgets de Vi
 
 Ahora cuando un usuario hace clic en el control de información en la aplicación, el reproductor salta al momento relevante.
 
-Para más información, consulte [esta demostración](https://api-portal.videoindexer.ai/demo-all-widgets).
+Para más información, consulte [esta demostración](https://codepen.io/videoindexer/pen/NzJeOb).
 
 ### <a name="embed-the-cognitive-insights-widget-and-use-azure-media-player-to-play-the-content"></a>Inserte el widget Cognitive Insights y utilice Azure Media Player para reproducir el contenido.
 
@@ -153,7 +153,7 @@ En esta sección se muestra cómo lograr la interacción entre un widget **Cogni
 
 Ahora debería poder comunicarse con Azure Media Player.
 
-Para más información, consulte [esta demostración](https://api-portal.videoindexer.ai/demo-your-amp).
+Para más información, consulte [esta demostración](https://codepen.io/videoindexer/pen/rYONrO).
 
 ### <a name="embed-video-indexer-cognitive-insights-widget-and-use-your-own-player-could-be-any-player"></a>Inserción del widget Cognitive Insights de Video Indexer y uso de su propio reproductor (puede ser cualquier reproductor)
 
@@ -201,7 +201,7 @@ Si utiliza su propio reproductor, tiene que encargarse de manipularlo para logra
         </script>
 
 
-Para más información, consulte [esta demostración](https://api-portal.videoindexer.ai/demo-your-player).
+Para más información, consulte [esta demostración](https://codepen.io/videoindexer/pen/YEyPLd).
 
 ## <a name="adding-subtitles"></a>Adición de subtítulos
 

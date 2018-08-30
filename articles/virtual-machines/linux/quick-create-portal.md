@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 03d4ad081a788299bab563ca6b956edc347732da
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f659c424f7d5e705343c113d2ba0971164ca622a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447965"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108813"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Guía de inicio rápido: Creación de una máquina virtual Linux en Azure Portal
 
@@ -53,7 +53,7 @@ Inicie sesión en Azure Portal en http://portal.azure.com
 
 3. Proporcione un nombre de máquina virtual, como *myVM*, deje el tipo de disco como *SSD* y proporcione un nombre de usuario, como *azureuser*.
 
-4. . En **Tipo de autenticación**, seleccione **Clave pública SSH** y luego pegue la clave pública en el cuadro de texto. Tenga cuidado de no quitar los espacios en blanco finales o iniciales de la clave pública.
+4. En **Tipo de autenticación**, seleccione **Clave pública SSH** y luego pegue la clave pública en el cuadro de texto. Tenga cuidado de no quitar los espacios en blanco finales o iniciales de la clave pública.
 
     ![Especificación de la información básica de la máquina virtual en la hoja del Portal](./media/quick-create-portal/create-vm-portal-basic-blade.png)
 

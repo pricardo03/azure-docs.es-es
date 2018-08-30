@@ -15,16 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: genli
-ms.openlocfilehash: 97210c0d9dba9c4130b1da9ad17a257ff1d81b42
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b0e24e498acd823242b3613abb62df978466d56d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449227"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918319"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Agregar o cambiar los administradores de la suscripción de Azure
 
 Para administrar el acceso a recursos de Azure, debe tener el rol de administrador adecuado. En este artículo, se describe cómo agregar o cambiar el rol de administrador para un usuario en el nivel de suscripción.
+
+> [!div class="nextstepaction"]
+> [Ayude a mejorar la documentación sobre facturación de Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="what-administrator-role-do-i-use"></a>¿Qué rol de administrador debo usar?
 
@@ -90,8 +93,8 @@ Solo el administrador de cuenta puede cambiar el administrador de servicios de u
 
   | Método de inicio de sesión | ¿Agregar un usuario de cuenta Microsoft como administrador de servicios? | ¿Agregar una cuenta profesional o educativa de la misma organización como administrador de servicios? | ¿Agregar una cuenta profesional o educativa de otra organización como administrador de servicios? |
   | --- | --- | --- | --- |
-  |  Cuenta Microsoft |Sí |Sin  |Sin  |
-  |  Cuenta profesional o educativa |Sí |Sí |Sin  |
+  |  Cuenta Microsoft |SÍ |No |Sin  |
+  |  Cuenta profesional o educativa |SÍ |SÍ |Sin  |
 
 ## <a name="change-the-account-administrator-for-an-azure-subscription"></a>Cambio del administrador de cuenta de una suscripción a Azure
 

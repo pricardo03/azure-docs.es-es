@@ -3,18 +3,18 @@ title: Uso de acciones de script para instalar Solr en un clúster de Hadoop en 
 description: Obtenga información acerca de cómo personalizar un clúster de HDInsight con Solr mediante la acción de script.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: d9c2742081ec83a52f7029814acd7b04a2f0fdb7
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e0c1f2ecbe86eda5161324bfe84c7cf8f7d31d60
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595671"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110761"
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Instalación y uso de Solr en clústeres de HDInsight basados en Windows
 

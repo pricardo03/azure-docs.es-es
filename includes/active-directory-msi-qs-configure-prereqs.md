@@ -1,1 +1,1 @@
-Si no está familiarizado con la característica Managed Service Identity, consulte esta [introducción](../articles/active-directory/msi-overview.md). Si no tiene una cuenta de Azure, [regístrese para obtener una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Si no está familiarizado con la característica Managed Service Identity, consulte esta [introducción](../articles/active-directory/msi-overview.md). Si no tiene una cuenta de Azure, [regístrese para obtener una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.

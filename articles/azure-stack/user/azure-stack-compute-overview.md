@@ -2,19 +2,19 @@
 title: Introducción a máquinas virtuales de Azure Stack
 description: Más información sobre máquinas virtuales de Azure Stack
 services: azure-stack
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 05/21/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: 967fcb86c1bf0c85517bc13c2066ed32e8fa28d9
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: d478ccd0895ad067657bce56469a3a61d4ea0e17
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604138"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "43050442"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introducción a máquinas virtuales de Azure Stack
 
@@ -98,11 +98,11 @@ Los recursos de la tabla siguiente se usan en la máquina virtual y deben ya exi
 
 |Recurso|Obligatorio|DESCRIPCIÓN|
 |---------|---------|---------|
-|Grupos de recursos|Sí|La máquina virtual debe encontrarse en un grupo de recursos.|
-|Cuenta de almacenamiento|Sí|La máquina virtual necesita la cuenta de almacenamiento para almacenar sus discos duros virtuales.|
-|Red virtual|Sí|La máquina virtual debe ser miembro de una red virtual.|
+|Grupos de recursos|SÍ|La máquina virtual debe encontrarse en un grupo de recursos.|
+|Cuenta de almacenamiento|SÍ|La máquina virtual necesita la cuenta de almacenamiento para almacenar sus discos duros virtuales.|
+|Virtual network|SÍ|La máquina virtual debe ser miembro de una red virtual.|
 |Dirección IP pública|Sin |La máquina virtual puede tener una dirección IP pública asignada para acceder remotamente a ella.|
-|interfaz de red|Sí|La máquina virtual necesita la interfaz de red para comunicarse en la red.|
+|interfaz de red|SÍ|La máquina virtual necesita la interfaz de red para comunicarse en la red.|
 |Discos de datos|Sin |La máquina virtual puede incluir discos de datos para ampliar las funcionalidades de almacenamiento.|
 
 ## <a name="create-your-first-vm"></a>Creación de la primera máquina virtual

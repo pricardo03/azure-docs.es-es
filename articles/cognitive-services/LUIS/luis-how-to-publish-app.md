@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: diberry;
-ms.openlocfilehash: b827f157ccd2919c959385eefd0e0223a8e23607
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.author: diberry
+ms.openlocfilehash: a653d854901f5dc84b957c316c4174610af4be30
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225547"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43130495"
 ---
 # <a name="publish-your-trained-app"></a>Publicar la aplicación entrenada
 Cuando termine de compilar y probar la aplicación LUIS, publíquela. Después de publicar la aplicación, la página de publicación muestra todos los [puntos de conexión](luis-glossary.md#endpoint) HTTP asociados. Luego, estos puntos de conexión, por [región](luis-reference-regions.md) y por [clave](luis-how-to-manage-keys.md), se integran a cualquier aplicación cliente, bot de chat o back-end. 
@@ -136,7 +136,7 @@ Los siguientes parámetros de cadena de consulta se pueden utilizar con la direc
 
 <!-- TBD: what about speech priming? -->
 
-|Cadena de consulta|type|Valor de ejemplo|Propósito|
+|Cadena de consulta|Escriba|Valor de ejemplo|Propósito|
 |--|--|--|--|
 |verbose|boolean|true|Incluir [todas las puntuaciones de intención](#include-all-predicted-intent-scores) para la expresión|
 |timezoneOffset|número (unidad en minutos)|60|Establecer un [desplazamiento de zona horaria](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) para las [entidades predeterminadas de datetimeV2](luis-reference-prebuilt-datetimev2.md)|

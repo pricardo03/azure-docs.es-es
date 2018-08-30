@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 9ba7d8c403a7778a52b858a41ad41bca405cb199
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ec594a4ba3a794ca1b4c52962ff190b86dce5a81
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38586928"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051364"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creación de una función desencadenada por Azure Cosmos DB
 
@@ -29,11 +29,14 @@ Aprenda a crear una función que se desencadena cuando se agregan o se cambian d
 
 ![Vea el mensaje en los registros.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
 + Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+> [!NOTE]
+> [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="create-an-azure-function-app"></a>Creación de una Function App de Azure
 
@@ -59,7 +62,7 @@ Después, cree una función en la nueva Function App.
     
     | Configuración      | Valor sugerido  | Descripción                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Name** | Valor predeterminado | Use el nombre de función predeterminado sugerido por la plantilla. |
+    | **Nombre** | Valor predeterminado | Use el nombre de función predeterminado sugerido por la plantilla. |
     | **Nombre de colección** | Elementos | Nombre de la colección que se va a supervisar. |
     | **Create lease collection if it doesn't exist** (Crear colección de concesiones si no existe) | Activado | La colección no existe, por lo que se crea. |
     | **Nombre de la base de datos** | Tareas | Nombre de la base de datos con la colección que se va a supervisar. |

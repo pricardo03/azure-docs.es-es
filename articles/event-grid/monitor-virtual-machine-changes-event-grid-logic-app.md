@@ -1,22 +1,20 @@
 ---
 title: Supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps | Microsoft Docs
 description: Compruebe si hay cambios de configuración en las máquinas virtuales (VM) mediante el uso de Azure Event Grid y Logic Apps
-keywords: aplicaciones lógicas, cuadrículas de eventos, máquina virtual, VM
 services: logic-apps
-author: ecfan
-manager: anneta
-ms.assetid: ''
-ms.workload: logic-apps
 ms.service: logic-apps
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: ea3063b5c445dab85a7ef1e5663c40efc34f961e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 29b28b0d81314d062c1b334092979cc9bccbeb31
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303120"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127666"
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Supervisión de los cambios en máquinas virtuales con Azure Event Grid y Logic Apps
 
@@ -40,7 +38,7 @@ En este tutorial, aprenderá a:
 > * Incorporar una condición que comprueba específicamente cambios en la máquina virtual.
 > * Enviar un mensaje de correo electrónico cuando la máquina virtual cambia.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de correo electrónico de [cualquier proveedor de correo electrónico que sea compatible con Azure Logic Apps](../connectors/apis-list.md), como Office 365 Outlook, Outlook.com o Gmail, para el envío de notificaciones. Este tutorial usa Office 365 Outlook.
 
@@ -62,7 +60,7 @@ En primer lugar, cree una aplicación lógica y agregue un desencadenador de la 
 
    | Configuración | Valor sugerido | Descripción | 
    | ------- | --------------- | ----------- | 
-   | **Name** | *{nombre-de-la-aplicación-lógica}* | Proporcione un nombre único de aplicación lógica. | 
+   | **Nombre** | *{nombre-de-la-aplicación-lógica}* | Proporcione un nombre único de aplicación lógica. | 
    | **Suscripción** | *{su-suscripción-de-Azure}* | Seleccione la misma suscripción de Azure para todos los servicios de este tutorial. | 
    | **Grupos de recursos** | *{su-grupo-de-recursos-de-Azure}* | Seleccione el mismo grupo de recursos de Azure para todos los servicios de este tutorial. | 
    | **Ubicación** | *{su-región-de-Azure}* | Seleccione la misma región para todos los servicios de este tutorial. | 

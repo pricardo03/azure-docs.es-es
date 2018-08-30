@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: a3d6ad9f2f442481908bc02252fcc8ab1a74419e
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: aa2d8f50d8fb4ba356af20a290976b8b32601ebf
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205595"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188798"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Conexión de un dispositivo Raspberry Pi a una aplicación de Azure IoT Central (Python)
 
@@ -53,9 +53,9 @@ En los pasos siguientes se describe cómo descargar y configurar la aplicación 
 * Responde a los cambios de configuración realizados en Azure IoT Central.
 
 > [!NOTE]
-> Para más información sobre el ejemplo de Python de Raspberry Pi, consulte el archivo [Léame](https://github.com/Microsoft/microsoft-iot-central-firmware/blob/master/RaspberryPi/README.md) en GitHub.
+> Para más información sobre el ejemplo de Python de Raspberry Pi, consulte el archivo [Léame](https://github.com/Azure/iot-central-firmware/blob/master/RaspberryPi/README.md) en GitHub.
 
-1. Use el explorador web de Raspberry Pi para ir a la página de [versiones de firmware de Azure IoT Central](https://github.com/Microsoft/microsoft-iot-central-firmware/releases).
+1. Use el explorador web de Raspberry Pi para ir a la página de [versiones de firmware de Azure IoT Central](https://github.com/Azure/iot-central-firmware/releases).
 
 1. Descargue el archivo ZIP que contiene el firmware más reciente a la carpeta principal de Raspberry Pi. El nombre de archivo se parece a este: `RaspberryPi-IoTCentral-X.X.X.zip`.
 
@@ -122,7 +122,7 @@ Cambiar configuración
 
 ### <a name="properties"></a>Properties (Propiedades)
 
-| type            | Nombre para mostrar | Nombre del campo | Tipo de datos |
+| Escriba            | Nombre para mostrar | Nombre del campo | Tipo de datos |
 | --------------- | ------------ | ---------- | --------- |
 | Propiedad de dispositivo | Die number   | dieNumber  | número    |
 | Texto            | Ubicación     | location   | N/D       |

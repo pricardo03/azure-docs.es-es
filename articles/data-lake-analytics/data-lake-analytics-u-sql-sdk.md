@@ -5,16 +5,15 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanacai
 ms.author: yanacai
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 11a2bfdcda09a071667cc034ef1ff42794b73a33
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: ae5334dcb93e34569131ab51dca99c310831082d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737078"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052094"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Ejecución y prueba de U-SQL con el SDK de U-SQL para Azure Data Lake
 
@@ -333,7 +332,7 @@ LocalRunHelper.exe proporciona las interfaces de programación de compilación l
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|.|Escriba|DESCRIPCIÓN|
+|Parámetro|Escriba|DESCRIPCIÓN|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|para los mensajes de salida; establézcalo en null para usar la consola|
 
@@ -365,7 +364,7 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 **Método**
 
-|Método|DESCRIPCIÓN|Valor devuelto|.|
+|Método|DESCRIPCIÓN|Valor devuelto|Parámetro|
 |------|-----------|------|---------|
 |public bool DoCompile()|Compilación del script U-SQL|Si se realiza correctamente, devuelve True.| |
 |public bool DoExec()|Ejecución del resultado compilado|Si se realiza correctamente, devuelve True.| |

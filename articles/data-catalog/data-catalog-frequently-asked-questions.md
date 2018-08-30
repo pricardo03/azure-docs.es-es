@@ -1,25 +1,19 @@
 ---
-title: Preguntas frecuentes sobre Azure Data Catalog | Microsoft Docs
-description: "Preguntas más frecuentes sobre Azure Data Catalog, incluidas las funciones de detección de origen de datos, anotación y administración."
+title: Preguntas frecuentes sobre Azure Data Catalog
+description: Preguntas más frecuentes sobre Azure Data Catalog, incluidas las funciones de detección de origen de datos, anotación y administración.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 1f69912e654ac243a0c4f30426d17ce4199e498f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: bb9223e2eef11d3378c228f8cd5242e6ebbbc74d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053274"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Data Catalog
 En este artículo se responden algunas de las preguntas más frecuentes relativas al servicio Azure Data Catalog.
@@ -41,11 +35,11 @@ Data Catalog está diseñado tanto para usuarios técnicos como para no técnico
 ## <a name="what-is-its-availability-by-region"></a>¿Cuál es su disponibilidad por región?
 Actualmente, los servicios de Data Catalog están disponibles en los siguientes centros de datos:
 
-* Oeste de EE. UU
+* Oeste de EE. UU.
 * Este de EE. UU
 * Europa occidental
 * Europa del Norte
-* Australia Oriental
+* Este de Australia
 * Sudeste asiático
 
 ## <a name="what-are-its-limits-on-the-number-of-data-assets"></a>¿Cuáles son sus límites en cuanto al número de recursos de datos?

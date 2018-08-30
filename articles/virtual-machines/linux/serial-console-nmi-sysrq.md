@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 14bf68355550d756bd3f4da1a367133d83ddbf07
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 110bdcacf7433c1e0ab0cb31e1a04734137f9596
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42146986"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885246"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Uso de la consola serie para llamadas SysRq y NMI
 
@@ -84,13 +84,17 @@ En la guía del administrador de SysRq anterior:
 
 ### <a name="distribution-specific-documentation"></a>Documentación específica de la distribución ###
 Para obtener documentación específica de la distribución sobre SysRq y pasos para configurar Linux para crear un volcado de memoria cuando se recibe un comando de bloqueo de SysRq, consulte los siguientes vínculos:
+
 #### <a name="ubuntu"></a>Ubuntu ####
  - [Kernel Crash Dump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html) (Volcado de memoria del kernel)
+
 #### <a name="red-hat"></a>Red Hat ####
 - [What is the SysRq Facility and how do I use it?](https://access.redhat.com/articles/231663) (¿Qué es la utilidad SysRq y cómo usarla?)
 - [How to use the SysRq facility to collect information from a RHEL server](https://access.redhat.com/solutions/2023) (¿Cómo usar la utilidad SysRq para recopilar información de un servidor de RHEL?)
+
 #### <a name="suse"></a>SUSE ####
 - [Configure kernel core dump capture](https://www.suse.com/support/kb/doc/?id=3374462) (Configuración de la captura de volcado de núcleo del kernel)
+
 #### <a name="coreos"></a>CoreOS ####
 - [Collecting crash logs](https://coreos.com/os/docs/latest/collecting-crash-logs.html) (Recopilación de registros de bloqueo)
 
@@ -109,16 +113,17 @@ En el caso de sistemas Linux que admiten sysctl para configurar parámetros del 
 
 Para más información sobre las configuraciones del kernel de Linux, como `unknown_nmi_panic`, `panic_on_io_nmi` y `panic_on_unrecovered_nmi`, consulte la [documentación de /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Para obtener documentación específica de la distribución sobre NMI y pasos para configurar Linux para crear un volcado de memoria cuando se recibe una NMI, consulte los siguientes vínculos:
  
- ### <a name="ubuntu"></a>Ubuntu 
+### <a name="ubuntu"></a>Ubuntu 
  - [Kernel Crash Dump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html) (Volcado de memoria del kernel)
 
- ### <a name="red-hat"></a>Red Hat 
+### <a name="red-hat"></a>Red Hat 
  - [What is an NMI and what can I use it for?](https://access.redhat.com/solutions/4127) (¿Qué es una NMI y para qué puedo usarla?)
  - [How can I configure my system to crash when NMI switch is pushed?](https://access.redhat.com/solutions/125103) (¿Cómo puedo configurar mi sistema para que se bloquee cuando se inserta un modificador de NMI?)
  - [Crash Dump Admin Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/pdf/kernel_crash_dump_guide/kernel-crash-dump-guide.pdf) (Guía del administrador de volcados de memoria)
 
 ### <a name="suse"></a>SUSE 
 - [Configure kernel core dump capture](https://www.suse.com/support/kb/doc/?id=3374462) (Configuración de la captura de volcado de núcleo del kernel)
+
 ### <a name="coreos"></a>CoreOS 
 - [Collecting crash logs](https://coreos.com/os/docs/latest/collecting-crash-logs.html) (Recopilación de registros de bloqueo)
 
@@ -126,4 +131,4 @@ Para más información sobre las configuraciones del kernel de Linux, como `unkn
 * La página principal de la documentación de Linux de la consola serie se encuentra [aquí](serial-console.md).
 * Use la consola serie para arrancar en [GRUB y entrar en modo de usuario único](serial-console-grub-single-user-mode.md).
 * La consola serie también está disponible para máquinas virtuales [Windows](../windows/serial-console.md).
-* Más información sobre [diagnósticos de arranque](boot-diagnostics.md).
+* Obtenga más información sobre [Diagnósticos de arranque](boot-diagnostics.md)

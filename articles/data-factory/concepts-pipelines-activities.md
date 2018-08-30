@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 4cf62e609505487961dbfbab3f46c37d54e8f50b
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: ca64c87a0211ae00218493fe7bfddcbbb81a032a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259061"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43109446"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -95,10 +95,10 @@ Aquí encontrará cómo se define una canalización en formato JSON:
 }
 ```
 
-Etiqueta | DESCRIPCIÓN | type | Obligatorio
+Etiqueta | DESCRIPCIÓN | Escriba | Obligatorio
 --- | ----------- | ---- | --------
 Nombre | Nombre de la canalización. Especifique un nombre que represente la acción que realizará la canalización. <br/><ul><li>Número máximo de caracteres: 140</li><li>Debe empezar por una letra, un número o un carácter de subrayado (_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\”</li></ul> | string | SÍ
-Descripción | Especifique el texto que describe para qué se usa la canalización. | string | Sin 
+description | Especifique el texto que describe para qué se usa la canalización. | string | Sin 
 actividades | La sección **activities** puede contener una o más actividades definidas. Consulte la sección [JSON de actividades](#activity-json) para obtener más información sobre el elemento JSON de actividades. | Matriz | SÍ
 parameters | La sección **parámetros** puede tener uno o varios de los parámetros definidos dentro de la canalización, lo que hace que la canalización sea flexible para su reutilización. | Enumerar | Sin 
 
@@ -131,7 +131,7 @@ En la tabla siguiente se describen las propiedades en la definición JSON de la 
 Etiqueta | DESCRIPCIÓN | Obligatorio
 --- | ----------- | ---------
 Nombre | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad. <br/><ul><li>Número máximo de caracteres: 55</li><li>Debe empezar en una letra, un número o un carácter de subrayado (_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\” | SÍ</li></ul>
-Descripción | Texto que describe para qué se usa la actividad. | SÍ
+description | Texto que describe para qué se usa la actividad. | SÍ
 Tipo | Tipo de la actividad. Consulte las secciones [Actividades de movimiento de datos](#data-movement-activities), [Actividades de transformación de datos](#data-transformation-activities) y [Actividades de control](#control-activities) para ver los diferentes tipos de actividades. | SÍ
 linkedServiceName | Nombre del servicio vinculado utilizado por la actividad.<br/><br/>Una actividad puede requerir que especifique el servicio vinculado que enlaza con el entorno de procesos necesario. | Sí para la actividad de HDInsight, la actividad Scoring de Azure Machine Learning y la actividad de procedimiento almacenado. <br/><br/>No para todos los demás
 typeProperties | Las propiedades en la sección typeProperties dependen de cada tipo de actividad. Para ver las propiedades de tipo de una actividad, haga clic en vínculos a la actividad de la sección anterior. | Sin 
@@ -195,7 +195,7 @@ Las actividades de control tienen la siguiente estructura de nivel superior:
 Etiqueta | DESCRIPCIÓN | Obligatorio
 --- | ----------- | --------
 Nombre | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad.<br/><ul><li>Número máximo de caracteres: 55</li><li>Debe empezar en una letra, un número o un carácter de subrayado (_)</li><li>No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\” | SÍ</li><ul>
-Descripción | Texto que describe para qué se usa la actividad. | SÍ
+description | Texto que describe para qué se usa la actividad. | SÍ
 Tipo | Tipo de la actividad. Consulte las secciones [Actividades de movimiento de datos](#data-movement-activities), [Actividades de transformación de datos](#data-transformation-activities) y [Actividades de control](#control-activities) para ver los diferentes tipos de actividades. | SÍ
 typeProperties | Las propiedades en la sección typeProperties dependen de cada tipo de actividad. Para ver las propiedades de tipo de una actividad, haga clic en vínculos a la actividad de la sección anterior. | Sin 
 dependsOn | Esta propiedad se utiliza para definir las dependencias de actividad, y cómo las actividades siguientes dependen de actividades anteriores. Para obtener más información, consulte [Dependencia de actividades](#activity-dependency). | Sin 

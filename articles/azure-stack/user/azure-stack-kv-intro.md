@@ -3,7 +3,7 @@ title: Introducción al almacén de claves de Azure Stack | Microsoft Docs
 description: Aprenda cómo el almacén de claves de Azure Stack administra claves y secretos
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 70f1684a-3fbb-4cd1-bf29-9f9882e98fe9
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/04/2017
-ms.author: mabrigg
-ms.openlocfilehash: a50a03e70ccf014a8a9d33e0f177febed560853f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.date: 08/15/2018
+ms.author: sethm
+ms.openlocfilehash: a6b4e8c3543d4681c92fbbde30eec0a543fcb0fd
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26636733"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "43050384"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Introducción a Key Vault en Azure Stack
 

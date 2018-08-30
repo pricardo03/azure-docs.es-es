@@ -5,16 +5,16 @@ services: hdinsight
 ms.service: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
 ms.date: 06/14/2018
-ms.openlocfilehash: 27c8a51ee3f0274489041f4dafbbf73d906e2fa4
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9cdb5ae31e2743b5ebe877ddd8d6680423e3d9b2
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617656"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046259"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-spark-in-hdinsight"></a>Tutorial: Procesamiento de tweets con Azure Event Hubs y Spark en HDInsight
 

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 34ee673ee1cf870e376ac8c954a9f3fc468abaa2
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 0f053c0293488f19adcd058f1ba8304d8d238738
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42142693"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128313"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Solucionar los problemas de rendimiento reducido de aplicaciones web en Azure App Service
 Este artículo lo ayuda a solucionar los problemas de rendimiento reducido en las aplicaciones web del [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -46,7 +46,7 @@ El procedimiento de solución de problemas se puede dividir en tres tareas disti
 2. [Recopilación de datos](#collect)
 3. [Mitigación del problema](#mitigate)
 
-[App Service Web Apps](/services/app-service/web/) ofrece diversas opciones en cada paso.
+[Azure App Service Web Apps](app-service-web-overview.md) ofrece diversas opciones en cada paso.
 
 <a name="observe" />
 

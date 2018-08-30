@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: e83a722ee58f49c20871faaca6aae7d7a5678361
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 2dcbd0cab055e8a2b2128b1f83f5c080a0887b85
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130614"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122527"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimización del entorno de SQL con la solución SQL Server Health Check en Log Analytics
 
@@ -40,7 +40,7 @@ Después de haber agregado la solución y completar una evaluación, se muestra 
 
 ![imagen del panel de SQL Health Check](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * La solución SQL Health Check requiere que esté instalada una versión compatible de .NET Framework 4 en todos los equipos que tengan Microsoft Monitoring Agent (MMA) instalado.  System Center 2016 - Operations Manager y Operations Manager 2012 R2, y el servicio Log Analytics, usan el agente de MMA.  
 * La solución es compatible con las versiones 2012, 2014 y 2016 de SQL Server.
@@ -174,8 +174,6 @@ Consulte un resumen de las evaluaciones de cumplimiento para su infraestructura 
 
 ## <a name="ignore-recommendations"></a>Omisión de las recomendaciones
 Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log Analytics usará para evitar que aparezcan las recomendaciones en los resultados de la evaluación.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar las recomendaciones que omitirá
 1. En Azure Portal, en la página del área de trabajo de Log Analytics correspondiente al área de trabajo seleccionado, haga clic en el icono de **Búsqueda de registros**.

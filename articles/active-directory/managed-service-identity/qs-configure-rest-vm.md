@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: 71cca8e36a319d4e74eb68044a2ae741a747c27d
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: f4831f257f706838817f60a9299551ca8feec3e6
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42143289"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885552"
 ---
 # <a name="configure-managed-identity-on-an-azure-vm-using-rest-api-calls"></a>Configuración de la identidad administrada en una máquina virtual de Azure mediante llamadas a la API REST
 
@@ -41,7 +41,7 @@ En este artículo, aprenderá a realizar las siguientes operaciones de Managed I
     - Rol [Colaborador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para crear una identidad asignada por el usuario.
     - Rol [Operador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para asignar y quitar una identidad asignada por el usuario en una máquina virtual.
 - Si usa Windows, instale el [subsistema de Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) o [Azure Cloud Shell](../../cloud-shell/overview.md) en Azure Portal.
-- [Instale la consola local de la CLI de Azure](/azure/install-azure-cli) si utiliza el [subsistema de Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) o un [sistema operativo de distribución de Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
+- [Instale la consola local de la CLI de Azure](/cli/azure/install-azure-cli) si utiliza el [subsistema de Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) o un [sistema operativo de distribución de Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
 - Si utiliza la consola local de la CLI de Azure, inicie sesión en Azure mediante `az login` con una cuenta que esté asociada a la suscripción de Azure de la que desea administrar las identidades asignadas por el usuario o por el sistema.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -101,7 +101,7 @@ Para habilitar la identidad asignada por el sistema en una máquina virtual exis
    
    Por ejemplo, si la máquina virtual tiene asignadas las identidades de usuario `ID1` y `ID2`, y desea agregar una identidad asignada por el sistema a dicha máquina virtual, utilice la siguiente llamada CURL. Reemplace `<ACCESS TOKEN>` y `<SUBSCRIPTION ID>` por los valores adecuados para su entorno.
 
-   La versión de API `2018-06-01` almacena las identidades asignadas por el usuario en el valor `userAssignedIdentities` en un formato de diccionario, en contraposición al valor `identityIds` en formato de matriz que se usaba en la versión `2017-12-01` y versiones anteriores de la API.
+   La versión de API `2018-06-01` almacena las identidades que asignó el usuario en el valor `userAssignedIdentities` en un formato de diccionario, en contraposición al valor `identityIds` en el formato de la matriz que se usaba en la versión `2017-12-01` y las versiones anteriores de API.
    
    **VERSIÓN DE API 2018-06-01**
 
@@ -253,7 +253,7 @@ En esta sección, aprenderá a agregar y a quitar una identidad asignada por el 
    
    **VERSIÓN DE API 2018-06-01**
 
-   Agregue `null` a la identidad asignada por el usuario que desea quitar:
+   Agregue `null` a la identidad que asignó el usuario que quiere quitar:
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":null}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -261,7 +261,7 @@ En esta sección, aprenderá a agregar y a quitar una identidad asignada por el 
 
    **VERSIÓN DE API 2017-12-01 y versiones anteriores**
 
-   Conserve solo la identidad o identidades asignadas por el usuario que le gustaría mantener en la matriz `identityIds`:
+   Conserve solo la identidad o identidades que asignó el usuario que le gustaría mantener en la matriz `identityIds`:
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"

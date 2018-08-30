@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nini
 ms.component: na
-ms.openlocfilehash: 9bc1f7d9eab73a086e664dcc520ecf26befbbf0e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7c86c1006d7139356426c0cfb8fc5e684a4c9be6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432898"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125685"
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Evaluación de aplicaciones y microservicios de Service Fabric con Azure Portal
 
@@ -80,8 +80,6 @@ Siguiendo los mismos pasos, escriba los parámetros necesarios e inicie una impl
 
 Para ver datos de rendimiento de los nodos, siga estos pasos:
 
-
-[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 - Inicie el área de trabajo de Log Analytics desde Azure Portal.
   ![Service Fabric](./media/log-analytics-service-fabric/6.png)

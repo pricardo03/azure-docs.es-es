@@ -2,18 +2,18 @@
 title: Conexión de un dispositivo Windows IoT Core a una aplicación de Azure IoT Central | Microsoft Docs
 description: Como desarrollador de dispositivos, aprenda a conectar un dispositivo MXChip IoT DevKit a una aplicación de Azure IoT Central.
 author: miriambrus
-ms.author: mriamb
+ms.author: miriamb
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 39eb6f137750f7f741c88dcdf9a55f34d24eaa59
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 73a23ace23d2373e238c6887c4a41c6037d233de
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205755"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189011"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo Windows IoT Core a una aplicación de Azure IoT Central
 
@@ -44,7 +44,7 @@ En su aplicación de Azure IoT Central, agregue un dispositivo real de la planti
 
 ### <a name="prepare-the-windows-iot-core-device"></a>Preparación del dispositivo Windows IoT Core
 
-Para configurar un dispositivo de Windows IoT Core, siga la guía paso a paso en [Set up a Windows IoT Core device] (Configuración de un dispositivo Windows IoT Core) (https://github.com/Microsoft/microsoft-iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
+Para configurar un dispositivo de Windows IoT Core, siga la guía paso a paso en [Set up a Windows IoT Core device] (Configuración de un dispositivo Windows IoT Core) (https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
 
 ### <a name="add-a-real-device"></a>Adición de un dispositivo real
 
@@ -116,7 +116,7 @@ Valores numéricos
 
 ### <a name="properties"></a>Properties (Propiedades)
 
-| type            | Nombre para mostrar | Nombre del campo | Tipo de datos |
+| Escriba            | Nombre para mostrar | Nombre del campo | Tipo de datos |
 | --------------- | ------------ | ---------- | --------- |
 | Propiedad de dispositivo | Die number   | dieNumber  | número    |
 | Texto            | Ubicación     | location   | N/D       |

@@ -5,16 +5,15 @@ services: logic-apps
 ms.service: logic-apps
 author: divyaswarnkar
 ms.author: divswa
-manager: jeconnoc
+ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.reviewer: estfan, LADocs
-ms.openlocfilehash: 77965e20e7d42d12b34bcb2f7cc6c8680ba34b3a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 7e058b7cebb9c2cdc3fb8b97bf99554b2f26dd8c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143774"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43121582"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Envío de mensajes EDI por lotes a socios comerciales con Azure Logic Apps
 
@@ -73,7 +72,7 @@ Para la receptora de lotes, especifique el modo del lote, el nombre, los criteri
    | **Release Criteria** | Depende de Message count based y Schedule based | Disponible solo con Batch Mode **Inline** | 
    | **Message Count** | 10 | Disponible solo con Release Criteria **Message count based** | 
    | **Intervalo** | 10 | Disponible solo con Release Criteria **Schedule based** | 
-   | **Frecuencia** | minutos | Disponible solo con Release Criteria **Schedule based** | 
+   | **Frecuencia** | minuto | Disponible solo con Release Criteria **Schedule based** | 
    ||| 
 
    ![Incorporación de los detalles del desencadenador en lote](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)

@@ -2,19 +2,19 @@
 title: 'Administración de clústeres de Hadoop en HDInsight con PowerShell: Azure'
 description: Vea cómo realizar tareas administrativas para clústeres de Hadoop en HDInsight usando Azure PowerShell.
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: b23662ccda090b4d8a4cbb5eae3029affd075c33
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 7abd75347d7bd2673a9e6040ee15def6638de440
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42146962"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43096589"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Administración de clústeres de Hadoop en HDInsight con PowerShell de Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]

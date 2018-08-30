@@ -3,18 +3,18 @@ title: Creación de clústeres de Hadoop mediante la línea de comandos en Azure
 description: Aprenda a crear clústeres de HDInsight con la CLI multiplataforma de Azure 1.0.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 7185e492a2cc42835ce1fa7043a963c7d5d0afb4
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 523c2a85929d8474c283055a8ae38d489cbd4b12
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594804"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090981"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Creación de clústeres de HDInsight mediante la CLI de Azure
 

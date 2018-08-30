@@ -5,16 +5,16 @@ keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hado
 services: hdinsight
 author: jejiang
 ms.author: jejiang
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 255f1ecb3c55ef94b6f4f3393257b3054ff1b725
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b66658bde818e2b4cce2cbc0dc5b419ba33dc737
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038608"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108835"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Uso de las Herramientas de Azure HDInsight para Visual Studio Code
 
@@ -25,7 +25,7 @@ Aprenda a usar las Herramientas de Azure HDInsight para Visual Studio Code (VS C
 
 Para completar los pasos de este artículo, se requieren los elementos siguientes:
 
-- Un clúster de HDInsight. Para crear un clúster, vea la [introducción a HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
+- Un clúster de HDInsight. Para crear un clúster, vea la [introducción a HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 - [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono solo es obligatorio para Linux y macOS.
 
@@ -286,7 +286,7 @@ Se admite la configuración de Livy; se puede establecer en los parámetros del 
     **POST /batches**   
     Cuerpo de la solicitud
 
-    | Nombre | Descripción | Tipo | 
+    | Nombre | description | Tipo | 
     | :- | :- | :- | 
     | file | Archivo que contiene la aplicación para ejecutar | ruta de acceso (obligatorio) | 
     | proxyUser | Usuario para suplantar cuando se ejecuta el trabajo | string | 
@@ -308,7 +308,7 @@ Se admite la configuración de Livy; se puede establecer en los parámetros del 
     Cuerpo de respuesta   
     El objeto Batch creado.
 
-    | Nombre | Descripción | Tipo | 
+    | Nombre | description | Tipo | 
     | :- | :- | :- | 
     | id | Identificador de sesión | int | 
     | appId | Identificador de la aplicación de esta sesión |  string |

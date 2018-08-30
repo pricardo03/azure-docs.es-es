@@ -4,18 +4,18 @@ description: Aprenda a usar Microsoft Power BI para visualizar datos de Hive pro
 keywords: hdinsight,hadoop,hive,consulta interactiva,hive interactivo,LLAP,odbc
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
-ms.openlocfilehash: d3459a9905719be8849b9f6bb79f500121ca8d8d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: c24818f6b746754111540bae5fbf7f21d22c3a61
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597327"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041911"
 ---
 # <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualización de datos de Hive con Microsoft Power BI mediante ODBC en Azure HDInsight
 
