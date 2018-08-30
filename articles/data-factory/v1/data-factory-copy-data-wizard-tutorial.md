@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c0823fa839df98fa81f42bfbb3f7cd2bec6d7c1a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 85cea4bea0b1cff65464a2ad692e500efdc50c10
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582543"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095381"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ El **Asistente para copia** de Azure Data Factory le permite crear rápidamente 
 
 En este tutorial se muestra cómo crear una instancia de Azure Data Factory, iniciar el Asistente para copia, y realizar una serie de pasos en los que se proporcionan detalles acerca del escenario de ingesta y movimiento de datos. Al terminar los pasos del asistente, este crea automáticamente una canalización con una actividad de copia para copiar datos desde Azure Blob Storage a Azure SQL Database. Para más información acerca de la actividad de copia, consulte las [actividades de movimiento de datos](data-factory-data-movement-activities.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de realizar este tutorial, complete los requisitos previos que se enumeran en el artículo [Copia de datos de Almacenamiento de blobs en Base de datos SQL mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 ## <a name="create-data-factory"></a>Creación de Data Factory

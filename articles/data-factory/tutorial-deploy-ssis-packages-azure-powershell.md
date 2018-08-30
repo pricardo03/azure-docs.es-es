@@ -7,18 +7,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 06/27/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 8dc41eb3507368bb810c30a7680b73d0d1f26408
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 30e02f0b852ef0af8105a69575ea2c88e1265639
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085426"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43109751"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory-with-powershell"></a>Aprovisionamiento del entorno de ejecución de integración de SSIS para Azure en Azure Data Factory con PowerShell
 En este tutorial, se describen los pasos necesarios para aprovisionar un entorno de ejecución de integración (IR) de SSIS para Azure en Azure Data Factory. Posteriormente, podrá usar SQL Server Data Tools (SSDT) o SQL Server Management Studio (SSMS) para implementar y ejecutar paquetes de SQL Server Integration Services (SSIS) en este entorno de ejecución de Azure. En este tutorial, realizará los siguientes pasos:

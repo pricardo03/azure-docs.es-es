@@ -9,20 +9,20 @@ ms.topic: quickstart
 ms.date: 05/08/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 282cd4bc9256fc483014b53626c02106d0de236a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e6c3330519692eb829803af2582b711be2fb3efe
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885126"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092885"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>Inicio rápido: Creación de una instancia de Azure Container Registry mediante PowerShell
 
 Azure Container Registry es un servicio privado y administrado de registro de contenedores de Docker, que se usa para compilar, almacenar y proporcionar imágenes de contenedor de Docker. Gracias a esta guía de inicio rápido, aprenderá a crear un registro de contenedor de Azure mediante PowerShell. Después de crear el registro, inserte una imagen de contenedor en él e implemente el contenedor del registro en Azure Container Instances (ACI).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-Para realizar los pasos de esta guía, se requiere la versión 5.7.0 o posterior del módulo Azure PowerShell. Ejecute `Get-Module -ListAvailable AzureRM` para determinar la versión instalada. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
+Para realizar los pasos de esta guía, se requiere la versión 5.7.0 o posterior del módulo Azure PowerShell. Ejecute `Get-Module -ListAvailable AzureRM` para determinar la versión instalada. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 También debe tener instalado Docker localmente. Docker ofrece paquetes para los sistemas [macOS][docker-mac], [Windows][docker-windows] y [Linux][docker-linux].
 
@@ -252,7 +252,7 @@ En esta guía de inicio rápido, ha creado una instancia de Azure Container Regi
 [Get-AzureRmContainerRegistryCredential]: /powershell/module/azurerm.containerregistry/get-azurermcontainerregistrycredential
 [Get-Module]: /powershell/module/microsoft.powershell.core/get-module
 [New-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
-[New-AzureRMContainerRegistry]: /powershell/module/containerregistry/New-AzureRMContainerRegistry
+[New-AzureRMContainerRegistry]: /powershell/module/azurerm.containerregistry/New-AzureRMContainerRegistry
 [New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
 [Remove-AzureRmResourceGroup]: /powershell/module/azurerm.resources/remove-azurermresourcegroup
 

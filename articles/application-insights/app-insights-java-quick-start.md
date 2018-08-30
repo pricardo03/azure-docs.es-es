@@ -5,17 +5,18 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
+ms.reviewer: lagayhar
 ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: c0a1caca1c7b026965d2a83211c87d49db53c4ca
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: b36e4598f5ff20b921c5cd150ae19be233cc2d14
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991701"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246520"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Inicio de la supervisión de la aplicación web Java
 
@@ -53,7 +54,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
     | Configuración        | Valor           | DESCRIPCIÓN  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
+   | **Nombre**      | Nombre único global | Nombre que identifica la aplicación que se está supervisando |
    | **Tipo de aplicación** | Aplicación web Java | Tipo de aplicación que se está supervisando |
    | **Grupo de recursos**     | myResourceGroup      | Nombre para el nuevo grupo de recursos que hospedará los datos de Application Insights |
    | **Ubicación** | Este de EE. UU | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |

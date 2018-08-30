@@ -11,16 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 172de59561892f0f17fc1f90016cc95495ceb2cb
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a04e91cea4ce1670fcc0a7be2d7591d5856b738f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051314"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106869"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Compilación de la primera Data Factory de Azure con la plantilla de Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ La canalización de este tutorial tiene una actividad: **actividad de HDInsight 
 > 
 > La canalización de este tutorial tiene solo una actividad de tipo: HDInsightHive. pero se puede tener más de una actividad en una canalización. También puede encadenar dos actividades (ejecutar una después de otra) haciendo que el conjunto de datos de salida de una actividad sea el conjunto de datos de entrada de la otra actividad. Para más información, consulte [Programación y ejecución en Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Lea el artículo [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md) y complete los pasos de los **requisitos previos** .
 * Siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) para instalar la última versión de Azure PowerShell en su equipo.
 * Para más información sobre las plantillas de Azure Resource Manager (ARM), consulte [Creación de plantillas del Administrador de recursos de Azure](../../azure-resource-manager/resource-group-authoring-templates.md) . 
@@ -619,7 +619,7 @@ Aquí aparece una plantilla de Resource Manager de ejemplo para crear una puerta
 Esta plantilla crea una factoría de datos denominada GatewayUsingArmDF con una puerta de enlace llamada GatewayUsingARM. 
 
 ## <a name="see-also"></a>Otras referencias
-| Tema. | DESCRIPCIÓN |
+| Tema | DESCRIPCIÓN |
 |:--- |:--- |
 | [Procesos](data-factory-create-pipelines.md) |Este artículo ayuda a conocer las canalizaciones y actividades de Azure Data Factory y cómo aprovecharlas para construir flujos de trabajo controlados por datos de un extremo a otro para su escenario o negocio. |
 | [Conjuntos de datos](data-factory-create-datasets.md) |Este artículo le ayuda a comprender los conjuntos de datos de Azure Data Factory. |
