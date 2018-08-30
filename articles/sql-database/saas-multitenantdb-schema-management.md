@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 816cde31e84eeda8110c042f4e0640f12fb4cc53
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 026f3450535e4bed6a636fc5ae6ee9d821dbbb72
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645997"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247673"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Administración de esquema en una aplicación SaaS que usa bases de datos SQL multiinquilino particionadas
 
@@ -40,7 +40,7 @@ En este tutorial, aprenderá a:
 > * Actualizar los datos de referencia en todas las bases de datos de inquilino.
 > * Crear un índice en una tabla en todas las bases de datos de inquilino.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - La aplicación de base de datos multiinquilino de Wingtip Tickets ya debe estar implementada:
     - Si desea ver las instrucciones, consulte el primer tutorial, en el que se presenta la aplicación de base de datos multiinquilino Wingtip Tickets de SaaS:<br />[Implementación y exploración de una aplicación multiinquilino con particiones que usa Azure SQL Database](saas-multitenantdb-get-started-deploy.md).
@@ -168,7 +168,6 @@ Observe los elementos siguientes en el script *OnlineReindex.sql*:
 En este tutorial, ha aprendido cómo:
 
 > [!div class="checklist"]
-.
 > * Crear un agente de trabajo para ejecutar trabajos T-SQL en varias bases de datos
 > * Actualizar los datos de referencia en todas las bases de datos de inquilino
 > * Crear un índice en una tabla en todas las bases de datos de inquilino

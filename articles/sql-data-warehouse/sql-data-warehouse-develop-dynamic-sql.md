@@ -3,19 +3,19 @@ title: Uso de SQL dinámico en Azure SQL Data Warehouse | Microsoft Docs
 description: Sugerencias para usar SQL dinámico en Azure SQL Data Warehouse para desarrollar soluciones.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 604074e0a645918f7033360b79a1b7cad050c9e4
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 6793fba1476595918ac20c0484a661e3af7897d7
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31523173"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247307"
 ---
 # <a name="dynamic-sql-in-sql-data-warehouse"></a>SQL dinámico en SQL Data Warehouse
 Sugerencias para usar SQL dinámico en Azure SQL Data Warehouse para desarrollar soluciones.
@@ -42,5 +42,5 @@ Si la cadena es corta, puede usar [sp_executesql](/sql/relational-databases/syst
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo](sql-data-warehouse-overview-develop.md).
+Para obtener más sugerencias sobre desarrollo, vea la [información general sobre desarrollo](sql-data-warehouse-overview-develop.md).
 

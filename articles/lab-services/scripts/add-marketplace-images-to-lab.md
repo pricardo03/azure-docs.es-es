@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 9a65237b3eba6c9878d73148f0143f20dd60dd79
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a3a007bf19a28e6f361837856f83a191a761ef9b
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636555"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247421"
 ---
 # <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Usar PowerShell para agregar una imagen de Marketplace a un laboratorio de Azure DevTest Labs
 
@@ -25,7 +25,7 @@ Este script de PowerShell de ejemplo agrega una imagen de Marketplace a un labor
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * **Un laboratorio**. Este script requiere que disponga de un laboratorio existente. 
 
 ## <a name="sample-script"></a>Script de ejemplo
@@ -38,7 +38,7 @@ Este script usa los siguientes comandos:
 
 | Get-Help | Notas |
 |---|---|
-| [Find-AzureRmResource](/module/azurerm.resources/find-azurermresource) | Busca recursos en función de los parámetros especificados. |
+| [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) | Busca recursos en función de los parámetros especificados. |
 | [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Obtiene recursos. |
 | [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Modifica un recurso. |
 | [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | Crea un recurso. |
