@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 08/29/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 253edccef064e729e96bceac619458cf4c585ae4
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: abd4a3b21ede2ddbdede2ec133938d412d5d4c8d
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522492"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248172"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Uso de una identidad de Azure AD para acceder a Azure Storage con la CLI o PowerShell (versión preliminar).
 
@@ -66,7 +66,7 @@ Para usar Azure PowerShell para iniciar sesión con una identidad de Azure AD:
 1. Asegúrese de tener instalada la versión más reciente de PowerShellGet. Ejecute el siguiente comando para instalar la versión más reciente:
  
     ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
+    Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber -RequiredVersion "4.4.1-preview"
     ```
 
 2. Desinstale las instalaciones anteriores de Azure PowerShell.

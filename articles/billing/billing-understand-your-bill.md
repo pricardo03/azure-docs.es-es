@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
 ms.author: tonguyen
-ms.openlocfilehash: 689ea9e0d029bb65bc579fc914c6ed3073b4a96b
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c782cadadb0250e6c3ca4912dbf8f81e19cb88c5
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064696"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919061"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprender la factura de Microsoft Azure
 Para entender la factura de Azure, compare la factura con el archivo de uso diario detallado y los informes de administración de costos en Azure Portal.
@@ -33,6 +33,9 @@ Para obtener la factura en PDF y una copia de la descarga del archivo CSV de uso
 Para términos y descripciones detallados de su factura y el archivo de uso diario detallado, vea [Descripción de los términos en su factura de Microsoft Azure](billing-understand-your-invoice.md) y [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md) (Descripción de los términos sobre el uso detallado de Microsoft Azure). 
 
 Para obtener información sobre los informes de administración de costes, vea [Azure portal cost management](https://docs.microsoft.com/azure/billing/billing-getting-started) (Administración de costos de Azure Portal).
+
+> [!div class="nextstepaction"]
+> [Ayude a mejorar la documentación sobre facturación de Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="charges"></a>¿Cómo puedo asegurarme de que los cargos de mi factura son correctos?
 

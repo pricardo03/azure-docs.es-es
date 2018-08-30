@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 03a96770462e66c897b93ae0790838a9c8f1bd9b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43130641"
+documentType: LandingData
+title: Documentación sobre la administración de dispositivos de Azure AD
+metadata:
+  document_id: 
+  title: 'Documentación sobre la administración de dispositivos de Azure Active Directory: Tutoriales, conceptos, referencias | Microsoft Docs'
+  description: Aprenda a configurar y probar la administración de dispositivos de Azure Active Directory.
+  services: active-directory
+  ms.component: devices
+  author: MarkusVi
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/14/2018
+  ms.author: markvi
+abstract:
+  description: Los usuarios acceden a los recursos corporativos a través de sus dispositivos. Para proteger los recursos corporativos, como administrador de TI, desea tener control sobre estos dispositivos. De esta forma, se asegura de que los usuarios acceden a los recursos desde dispositivos que satisfacen los estándares de seguridad y cumplimiento.<br>La administración de dispositivos también es la base del acceso condicional basado en dispositivos. Con el acceso condicional basado en dispositivos, puede asegurarse de que el acceso a los recursos del entorno solo es posible con dispositivos administrados.
+sections:
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: Aprenda a integrar sus dispositivos unidos a AD locales con Azure AD.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Dominios administrados
+      href: hybrid-azuread-join-managed-domains.md
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Dominios federados
+      href: hybrid-azuread-join-federated-domains.md

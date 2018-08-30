@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 5c133c61c989bf19be3e84287cb76a7d110dccc8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6bfe6f9b76693ded79aa9b9d21ddcac4e1a0733e
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440480"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110311"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster"></a>Creación de un clúster de Azure Kubernetes Service (AKS)
 
@@ -48,7 +48,7 @@ Las siguientes opciones están disponibles con el comando `az aks create`. Para 
 | `--enable-rbac``-r` | Habilita el control de acceso basado en rol de Kubernetes. | no |
 | `--generate-ssh-keys` | Generar archivos de clave pública y privada SSH si faltan. | no |
 | `--kubernetes-version``-k` | Versión de Kubernetes que se va a usar para crear el clúster; por ejemplo, "1.7.9" o "1.9.6". | no |
-| `--locaton``-l` | Ubicación del grupo de recursos creado automáticamente. | no |
+| `--location``-l` | Ubicación del grupo de recursos creado automáticamente. | no |
 | `--max-pods``-m` | Número máximo de pods que se pueden implementar en un nodo. | no |
 | `--network-plugin` | Complemento de red de Kubernetes que se va a utilizar. | no |
 | `--no-ssh-key``-x` | No se utilizan ni crean claves de SSH locales. | no |

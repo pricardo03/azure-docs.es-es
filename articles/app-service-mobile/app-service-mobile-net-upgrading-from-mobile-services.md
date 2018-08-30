@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 05041637aa5cbb044e6731208825f75edec83352
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 25eb5c732927dcfb18bfd92991391ff99d4e3629
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157051"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918265"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Actualización del Servicio móvil de .NET existente a App Service
 Aplicaciones móviles de App Service es una nueva forma de crear aplicaciones móviles con Microsoft Azure. Para más información, vea [¿Qué es Mobile Apps?].
@@ -64,11 +64,11 @@ El esquema completo del proceso de actualización es el siguiente:
 4. (Opcional) Eliminación de la instancia original migrada
 
 ## <a name="mobile-app-version"></a>Creación de una segunda instancia de aplicación
-El primer paso en la actualización es crear el recurso de aplicación móvil que hospedará la nueva versión de la aplicación. Si ya ha migrado un servicio móvil existente, conviene crear esta versión en el mismo plan de hospedaje. Abra el [Portal de Azure] y vaya a la aplicación migrada. Tome nota del plan de App Service en el que se ejecuta.
+El primer paso en la actualización es crear el recurso de aplicación móvil que hospedará la nueva versión de la aplicación. Si ya ha migrado un servicio móvil existente, conviene crear esta versión en el mismo plan de hospedaje. Abra el [Azure Portal] y vaya a la aplicación migrada. Tome nota del plan de App Service en el que se ejecuta.
 
 A continuación, cree la segunda instancia de aplicación siguiendo las [instrucciones de creación de back-end de .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). Cuando se le pida que seleccione el plan de App Service o el "plan de hospedaje", elija el plan de la aplicación migrada.
 
-Probablemente deseará usar la misma base de datos y la base de datos central de notificaciones como hizo en Mobile Services. Para copiar estos valores, abra [Portal de Azure] y navegue hasta la aplicación original, haga clic en **Configuración** > **Configuración de aplicación**. En **Cadenas de conexión**, copie `MS_NotificationHubConnectionString` y `MS_TableConnectionString`. Navegue al nuevo sitio de actualización y péguelos en él, sobrescribiendo los valores existentes. Repita este proceso para cualquier otra opción de configuración de la aplicación que la aplicación requiera. Si no usa un servicio migrado, puede leer las cadenas de conexión y la configuración de la aplicación en la pestaña **Configurar** de la sección Mobile Services del [Portal de Azure clásico].
+Probablemente deseará usar la misma base de datos y la base de datos central de notificaciones como hizo en Mobile Services. Para copiar estos valores, abra [Azure Portal] y navegue hasta la aplicación original, haga clic en **Configuración** > **Configuración de aplicación**. En **Cadenas de conexión**, copie `MS_NotificationHubConnectionString` y `MS_TableConnectionString`. Navegue al nuevo sitio de actualización y péguelos en él, sobrescribiendo los valores existentes. Repita este proceso para cualquier otra opción de configuración de la aplicación que la aplicación requiera. Si no usa un servicio migrado, puede leer las cadenas de conexión y la configuración de la aplicación en la pestaña **Configurar** de la sección Mobile Services del [Portal de Azure clásico].
 
 Haga una copia del proyecto de ASP.NET para la aplicación y publíquela en el nuevo sitio web. Mediante una copia de la aplicación cliente actualizada con la nueva dirección URL, compruebe que todo funciona según lo esperado.
 
@@ -98,7 +98,7 @@ por
         .ApplyTo(config);
 
 > [!NOTE]
-> Si desea más información sobre el nuevo SDK de servidor .NET y sobre cómo agregar o quitar características de la aplicación, vea el tema [Uso del SDK de servidor .NET] .
+> Si desea más información sobre el nuevo SDK de servidor .NET y sobre cómo agregar o quitar características de la aplicación, vea el tema [Cómo usar el SDK de servidor de .NET] .
 >
 >
 
@@ -258,7 +258,7 @@ Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de ser
 
 <!-- URLs. -->
 
-[Portal de Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Portal de Azure clásico]: https://manage.windowsazure.com/
 [¿Qué es Mobile Apps?]: app-service-mobile-value-prop.md
 [I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
@@ -266,9 +266,9 @@ Cuando tenga la nueva versión de cliente lista, pruébela en el proyecto de ser
 [Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
 [Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
-[Azure Scheduler]: /en-us/documentation/services/scheduler/
+[Azure Scheduler]: /azure/scheduler/
 [trabajo web]: https://github.com/Azure/azure-webjobs-sdk/wiki
-[Uso del SDK de servidor .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[Cómo usar el SDK de servidor de .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [precios de App Service]: https://azure.microsoft.com/pricing/details/app-service/

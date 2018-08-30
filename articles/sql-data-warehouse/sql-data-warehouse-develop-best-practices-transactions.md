@@ -3,19 +3,19 @@ title: Optimización de transacciones para Azure SQL Data Warehouse | Microsoft 
 description: Aprenda a optimizar el rendimiento del código transaccional en Azure SQL Data Warehouse al tiempo que minimiza el riesgo de que se produzcan reversiones extensas.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/19/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 59467c0cd93141cef56e1c9d2f36b0870a589712
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: eb9c66c23440d2fd55c62de02b6c0070245c6d67
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795541"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247926"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Optimización de transacciones en Azure SQL Data Warehouse
 Aprenda a optimizar el rendimiento del código transaccional en Azure SQL Data Warehouse al tiempo que minimiza el riesgo de que se produzcan reversiones extensas.

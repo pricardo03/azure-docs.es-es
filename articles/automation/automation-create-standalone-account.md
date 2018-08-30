@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 77d766358135f5cdabfe7e9b62e54513c2604ed3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 021ab6cd29634c2e2f17234e188edce2a14449cf
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193573"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146028"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creación de una cuenta independiente de Azure Automation
 
@@ -41,7 +41,7 @@ Para crear o actualizar una cuenta de Automation, y completar las tareas que se 
 
 Si no es miembro de la instancia de Active Directory de la suscripción antes de que le agreguen al rol de administrador global/coadministrador de esta última, se le agregará a Active Directory como invitado. En este escenario, verá este mensaje en la página **Agregar cuenta de Automation**: "No tiene permisos para crear".
 
-Si un usuario se agrega primero al rol de administrador global/coadministrador, puede quitarlo de la instancia de Active Directory de la suscripción y volver a agregarlo para convertirlo en un usuario completo en Active Directory.
+Si un usuario se agrega primero a los roles de administrador global o coadministrador, se puede quitar de la instancia de Active Directory de la suscripción y volver a agregarlo al rol de usuario completo en Active Directory.
 
 Para comprobar los roles de usuario:
 
@@ -68,7 +68,7 @@ Para crear una cuenta de Azure Automation en Azure Portal, complete los pasos si
   >
   > ![Advertencia de Agregar cuenta de Automation](media/automation-create-standalone-account/create-account-without-perms.png)
   >
-1. En el panel **Agregar cuenta de Automation**, en el cuadro **Nombre**, escriba el nombre de la nueva cuenta de Automation.
+1. En el panel **Agregar cuenta de Automation**, en el cuadro **Nombre**, escriba el nombre de la nueva cuenta de Automation. Este nombre no puede cambiarse una vez que se elige.
 1. Si tiene más de una suscripción, en el cuadro **Suscripción**, especifique qué suscripción quiere usar para la cuenta nueva.
 1. Para **Grupo de recursos**, escriba o seleccione un grupo de recursos nuevo o existente.
 1. Para **Ubicación**, seleccione una ubicación del centro de datos de Azure.
@@ -86,7 +86,7 @@ Para crear una cuenta de Azure Automation en Azure Portal, complete los pasos si
 
 ### <a name="resources-included"></a>Recursos incluidos
 
-Una vez que se crea la cuenta de Automation, se también varios recursos automáticamente. Una vez creados estos runbooks, si no desea conservarlos, podrá eliminarlos sin poner en riesgo la seguridad. Las cuentas de ejecución pueden utilizarse para autenticarse con la cuenta en un runbook y deben conservarse a menos que se cree otra o que ya no sean necesarias. La siguiente tabla resume los recursos de la cuenta de ejecución.
+Una vez que se crea la cuenta de Automation, se también varios recursos automáticamente. Una vez creados, estos runbooks se pueden eliminar de forma segura, en caso de que no se desee conservarlos. Las cuentas de ejecución pueden utilizarse para autenticarse con la cuenta en un runbook y deben conservarse a menos que se cree otra o que ya no sean necesarias. La siguiente tabla resume los recursos de la cuenta de ejecución.
 
 | Recurso | DESCRIPCIÓN |
 | --- | --- |

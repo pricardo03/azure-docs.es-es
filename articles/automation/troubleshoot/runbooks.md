@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 53b35fbdc469639b1fdc09293e05247bcc5d8c31
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 78f9ba817008a28e63ec167c4e2ccc7f3859be16
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714492"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146057"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solución de problemas relativos a errores con runbooks
 
@@ -137,7 +137,43 @@ Este error puede deberse al uso de módulos de Azure obsoletos.
 
 Este error se puede resolver con la actualización de los módulos de Azure a la versión más reciente.
 
-En su cuenta de Automation, haga clic en **Módulos** y en **Actualizar módulos de Azure**. La actualización tarda aproximadamente 15 minutos, una vez que se ha vuelto a ejecutar el runbook que producía un error.
+En su cuenta de Automation, haga clic en **Módulos** y en **Actualizar módulos de Azure**. La actualización tarda aproximadamente 15 minutos, una vez que se ha vuelto a ejecutar el runbook que producía un error. Para más información acerca de cómo actualizar los módulos, consulte [Actualización de módulos de Azure en Azure Automation](../automation-update-azure-modules.md).
+
+### <a name="child-runbook-auth-failure"></a>Escenario: Se produce un error en un runbook secundario cuando se trabaja con varias suscripciones
+
+#### <a name="issue"></a>Problema
+
+Al ejecutar runbooks secundarios con `Start-AzureRmRunbook`, el runbook secundario no puede administrar los recursos de Azure.
+
+#### <a name="cause"></a>Causa
+
+El runbook secundario no está utilizando el contexto correcto cuando se ejecuta.
+
+#### <a name="resolution"></a>Resolución
+
+Si trabaja con varias suscripciones, se puede perder el contexto de suscripción al invocar runbooks secundarios. Para asegurarse de que el contexto de suscripción se pasa a los runbooks secundarios, agregue el parámetro `DefaultProfile` al cmdlet y pase el contexto a él.
+
+```azurepowershell-interactive
+# Connect to Azure with RunAs account
+$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+
+Add-AzureRmAccount `
+    -ServicePrincipal `
+    -TenantId $ServicePrincipalConnection.TenantId `
+    -ApplicationId $ServicePrincipalConnection.ApplicationId `
+    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+
+$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
+
+Start-AzureRmAutomationRunbook `
+    –AutomationAccountName 'MyAutomationAccount' `
+    –Name 'Test-ChildRunbook' `
+    -ResourceGroupName 'LabRG' `
+    -DefaultProfile $AzureContext `
+    –Parameters $params –wait
+```
 
 ### <a name="not-recognized-as-cmdlet"></a>Escenario: Se produce un error en el runbook debido a un cmdlet que falta
 
@@ -189,6 +225,8 @@ Cualquiera de las siguientes soluciones resolverá el problema:
 * Algunos métodos sugeridos para trabajar dentro del límite de memoria son dividir la carga de trabajo entre varios runbooks, no procesar tantos datos en la memoria, no escribir el resultado innecesario de los runbooks o considerar cuántos puntos de control se escriben en los runbooks de flujo de trabajo de PowerShell.  
 
 * Actualice los módulos de Azure siguiendo los pasos de [Actualización de módulos de Azure PowerShell en Azure Automation](../automation-update-azure-modules.md).  
+
+* Otra solución consiste en ejecutar el runbook en un [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Los Hybrid Worker no están limitados por el límite de runbook de [distribución equilibrada](../automation-runbook-execution.md#fair-share) como los espacios aislados de Azure.
 
 ### <a name="fails-deserialized-object"></a>Escenario: error en runbook debido a un objeto deserializado
 

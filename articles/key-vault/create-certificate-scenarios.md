@@ -3,7 +3,7 @@ title: Supervisión y administración de la creación de certificados
 description: Escenarios que muestran una variedad de opciones para la creación, la supervisión y la interacción con el proceso de creación de certificados con Key Vault.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 0d0995aa-b60d-4811-be12-ba0a45390197
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: e1ea77304fa59b67e0e28a4c7e0b13633eeeff6f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: bryanla
+ms.openlocfilehash: 80f350b9b83438ee04540527cce0ea6821d148ca
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011988"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42142695"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Supervisión y administración de la creación de certificados
 Se aplica a: Azure  
@@ -46,7 +46,7 @@ escenarios y operaciones que se describen en este artículo son:
 |------------|-----------------|  
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|  
 
-Los siguientes ejemplos requieren un objeto denominado "mydigicert" que ya esté disponible en el almacén de claves con el proveedor emisor DigiCert. Para más información acerca de cómo trabajar con emisores, consulte [Emisores de certificados](/rest/api/keyvault/certificate-issuers.md).  
+Los siguientes ejemplos requieren un objeto denominado "mydigicert" que ya esté disponible en el almacén de claves con el proveedor emisor DigiCert. El emisor de certificados es una entidad que se representa en Azure Key Vault (KV) como un recurso CertificateIssuer. Se utiliza para proporcionar información sobre el origen de un certificado de KV; el nombre del emisor, el proveedor, las credenciales y otros detalles administrativos.  
 
 ### <a name="request"></a>Solicitud  
 
@@ -429,7 +429,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 |Nombre del elemento|Obligatorio|Escriba|Versión|DESCRIPCIÓN|  
 |------------------|--------------|----------|-------------|-----------------|  
-|x5c|Sí|array|\<versión de introducción>|Cadena de certificados X.509 como matriz de cadenas de base 64.|  
+|x5c|SÍ|array|\<versión de introducción>|Cadena de certificados X.509 como matriz de cadenas de base 64.|  
 
 ### <a name="response"></a>Response  
 

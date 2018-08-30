@@ -3,18 +3,18 @@ title: Habilitación de volcados de montón de los servicios de Hadoop en HDInsi
 description: Habilitar los volcados de montón de los servicios de Hadoop en los clústeres de HDInsight basado en Linux para la depuración y el análisis.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: e96cda8560d6fffa3475e7b3130ebc5954548eac
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 7fa0ebb1946a856d02296b4ec752113ff8fecbd5
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592897"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095589"
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Habilitación de los volcados de montón de los servicios de Hadoop en HDInsight basado en Linux
 

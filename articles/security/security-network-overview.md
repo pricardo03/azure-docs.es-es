@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 08/17/2018
 ms.author: terrylan
-ms.openlocfilehash: 7533f9db25da8e69d3fcfa76a61a06af2f1bc78c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: ec8e4b1edfe815670664de83edf98a9e478101d2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345964"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142621"
 ---
 # <a name="azure-network-security-overview"></a>Introducción a Azure Network Security
 
@@ -57,6 +57,9 @@ Azure admite varios tipos de controles de acceso de red, como:
 ### <a name="network-layer-control"></a>Control de capa de red
 
 Toda implementación segura requiere alguna medida de control del acceso a la red. El objetivo del control de acceso de red es restringir la comunicación de la máquina virtual con los sistemas necesarios. Se bloquean los demás intentos de comunicación.
+
+>[!NOTE]
+Los firewalls de Storage se tratan en el artículo [Introducción a la seguridad de Azure Storage](security-storage-overview.md)
 
 #### <a name="network-security-rules-nsgs"></a>Reglas de seguridad de red (NSG)
 
@@ -323,7 +326,6 @@ También puede usar [Microsoft Power BI](https://powerbi.microsoft.com/what-is-p
 Más información:
 
 * [Análisis del registro para grupos de seguridad de red (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)
-
 
 ## <a name="azure-ddos-protection"></a>Azure DDoS Protection
 

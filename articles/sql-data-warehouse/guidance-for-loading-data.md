@@ -3,19 +3,19 @@ title: 'Procedimientos recomendados para la carga de datos: Azure SQL Data Wareh
 description: Recomendaciones y optimizaciones de rendimiento para cargar datos en Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 5ccf0ce0cc94f0ae08213167ee54628a9d059859
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a2cc5b02744c04752ba11cbba14fe95c487d737c
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701525"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248124"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Procedimientos recomendados para la carga de datos en Azure SQL Data Warehouse
 Recomendaciones y optimizaciones de rendimiento para cargar datos en Azure SQL Data Warehouse. 

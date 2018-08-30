@@ -3,19 +3,19 @@ title: Instrucción CREATE TABLE AS SELECT (CTAS) en Azure SQL Data Warehouse | 
 description: Sugerencias para la codificación con la instrucción CREATE TABLE AS SELECT (CTAS) en Azure SQL Data Warehouse para el desarrollo de soluciones.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 9bff6b1216ae826203b24a2cdf8a3d7fd0fd586f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: dad0b1570f54cde1b1d474d8ebfc78f793724ef4
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599091"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247760"
 ---
 # <a name="using-create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>Uso de la instrucción CREATE TABLE AS SELECT (CTAS) en Azure SQL Data Warehouse
 Sugerencias para la codificación con la instrucción CREATE TABLE AS SELECT (CTAS) de T-SQL en Azure SQL Data Warehouse para el desarrollo de soluciones.
@@ -438,5 +438,5 @@ Por lo tanto, puede ver que la coherencia de los tipos y el mantenimiento de las
 Consulte la documentación de [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse). Es una de las instrucciones más importantes de SQL Data Warehouse. Asegúrese de que la comprende perfectamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo](sql-data-warehouse-overview-develop.md).
+Para obtener más sugerencias sobre desarrollo, vea la [información general sobre desarrollo](sql-data-warehouse-overview-develop.md).
 

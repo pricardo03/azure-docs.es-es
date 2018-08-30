@@ -57,8 +57,10 @@ items:
     href: security-center-monitoring.md
     items:
     - name: Seguridad de procesos y aplicaciones
-      href: security-center-virtual-machine-recommendations.md
+      href: security-center-virtual-machine-protection.md
       items:
+      - name: Recomendaciones sobre máquinas virtuales
+        href: security-center-virtual-machine-recommendations.md
       - name: Aplicación del cifrado de discos
         href: security-center-apply-disk-encryption.md
       - name: Aplicar actualizaciones del sistema
@@ -143,6 +145,8 @@ items:
       href: security-center-custom-alert.md
     - name: Validación de alertas
       href: security-center-alert-validation.md
+    - name: Puntuación de confianza de la alerta
+      href: security-center-confidence-score.md
     - name: Mapa de información sobre amenazas
       href: security-center-threat-intel.md
     - name: Investigación
@@ -183,10 +187,6 @@ items:
     href: security-center-faq.md
   - name: Plataformas compatibles
     href: security-center-os-coverage.md
-  - name: Migración de plataformas
-    href: security-center-platform-migration.md
-  - name: Preguntas más frecuentes sobre la migración de plataformas
-    href: security-center-platform-migration-faq.md
   - name: Planeamiento y operaciones
     href: security-center-planning-and-operations-guide.md
   - name: Azure Security
@@ -207,9 +207,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Disponibilidad regional
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: c382c8e4d17352d7f87e82fe9a03a4c2e30880b8
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 62f713d5e0412eef2cb4dbb176e355371cbc924a
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42810181"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126409"

@@ -8,24 +8,25 @@ ms.topic: include
 ms.date: 04/02/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 752feca30fdca663aaf8bd88e6686781b9065682
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 527567ee3f3a939c7358fb6a62271cbe38e16974
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33836688"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42915161"
 ---
 Cuando se envían notificaciones de plantilla, solo necesita proporcionar un conjunto de propiedades. En este escenario, el conjunto de propiedades contiene la versión localizada de las noticias actuales.
 
-    {
-        "News_English": "World News in English!",
-        "News_French": "World News in French!",
-        "News_Mandarin": "World News in Mandarin!"
-    }
-
-
+```json
+{
+    "News_English": "World News in English!",
+    "News_French": "World News in French!",
+    "News_Mandarin": "World News in Mandarin!"
+}
+```
 
 ### <a name="send-notifications-using-a-c-console-app"></a>Envío de notificaciones mediante una aplicación de consola de C#
+
 En esta sección se muestra cómo enviar notificaciones con una aplicación de consola. El código difunde las notificaciones a los dispositivos iOS y a la Tienda Windows. Modifique el método `SendTemplateNotificationAsync` en la aplicación de consola que creó anteriormente con el código siguiente:
 
 ```csharp
@@ -66,6 +67,7 @@ private static async void SendTemplateNotificationAsync()
 El método SendTemplateNotificationAsync entrega las noticias localizadas a **todos** los dispositivos, independientemente de la plataforma. El centro de notificaciones crea y entrega la carga nativa correcta a todos los dispositivos suscritos a una etiqueta específica.
 
 ### <a name="sending-notification-with-mobile-services"></a>Envío de la notificación con Mobile Services
+
 En el programador de Mobile Services, use el script siguiente:
 
 ```csharp
@@ -82,4 +84,3 @@ notificationHubService.send('World', notification, function(error) {
     }
 });
 ```
-

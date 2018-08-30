@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 24d89b617c347bc9443b437c92cb034acb3e05cb
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 2eb7fb82b358d4ec8628bfa546b572ee3cbe47fa
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33901336"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "40209538"
 ---
 Cuando se crea una máquina virtual (VM), se reinician las detenidas (desasignadas) o se les cambia el tamaño, Microsoft Azure asigna recursos de proceso a la suscripción. Invertimos continuamente en infraestructura y características adicionales para asegurarnos de que todos los tipos de máquina virtual están disponibles para respaldar la demanda de los clientes. Sin embargo, en ocasiones, puede experimentar errores de asignación de recursos debido al crecimiento sin precedentes de la demanda de los servicios de Azure en determinadas regiones. Este problema puede producirse al intentar crear o iniciar máquinas virtuales en una región mientras estas muestran los siguientes código de error y mensaje:
 
 **Código de error**: AllocationFailed o ZonalAllocationFailed
 
-**Mensaje de error**: "Error en la asignación. No tenemos capacidad suficiente para el tamaño de VM solicitado en esta región. Lea más información sobre cómo mejorar la probabilidad de éxito de asignación en http://aka.ms/allocation-guidance"
+**Mensaje de error**: "Allocation failed. No tenemos capacidad suficiente para el tamaño de VM solicitado en esta región. Read more about improving likelihood of allocation success at http://aka.ms/allocation-guidance" (Error en la asignación. No tenemos capacidad suficiente para el tamaño de VM solicitado en esta región. Lea más información sobre cómo mejorar la probabilidad de éxito de asignación en http://aka.ms/allocation-guidance")
 
 En este artículo se explican las causas de algunos de los errores de asignación más comunes y se sugieren posibles soluciones.
 
@@ -81,8 +81,9 @@ A medida que ampliamos la infraestructura de Azure, implementamos hardware de nu
 |----------------------|----------------------------|--------------------|
 |Serie Av1|[Serie Av2](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
 |Serie Dv1 o DSv1 (D1 a D5)|[Serie Dv3 o DSv3](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
-|Serie Dv1 o DSv1 (D11 a D14)|[Serie Ev3 o ESv3](../articles/virtual-machines/windows/sizes-memory.md#ev3-series)|
-|D15v2 o DS15v2|Si usa el modelo de implementación de Resource Manager para aprovechar los tamaños de VM más grandes, considere la posibilidad de trasladarse a D16v3/DS16v3 o D32v3/DS32v3. Estos están diseñados para ejecutarse en el hardware de última generación. Si usa el modelo de implementación de Resource Manager para asegurarse de que su máquina virtual está aislada para hardware dedicado a un solo cliente, considere la posibilidad de trasladarse a los nuevos tamaños de VM aislados, E64i_v3 or E64is_v3, diseñados para ejecutarse en el hardware de última generación. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
+|Serie Dv1 o DSv1 (D11 a D14)|[Serie Ev3 o ESv3](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)|
+|D15v2 o DS15v2|Si usa el modelo de implementación de Resource Manager para aprovechar los tamaños de máquina virtual más grandes, considere la posibilidad de cambiar a E16v3/E16sv3 o E32v3/E32sv3. Estos están diseñados para ejecutarse en el hardware de última generación. Si usa el modelo de implementación de Resource Manager para asegurarse de que su máquina virtual está aislada para hardware dedicado a un solo cliente, considere la posibilidad de trasladarse a los nuevos tamaños de VM aislados, E64i_v3 or E64is_v3, diseñados para ejecutarse en el hardware de última generación. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
+
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>Errores de asignación para grandes implementaciones (más de 500 núcleos)
 

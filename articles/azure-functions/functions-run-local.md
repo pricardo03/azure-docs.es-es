@@ -4,7 +4,7 @@ description: Aprenda a codificar y probar funciones de Azure en el símbolo del 
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: functions
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 08/14/2018
 ms.author: glenga
-ms.openlocfilehash: 57011e1f7633688e00a4639ba36fd4442073161d
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: cb336d6742aab10e1fd8305fd52f1376bb4f2598
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618621"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142639"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -131,13 +131,13 @@ En la ventana de terminal o desde un símbolo del sistema, ejecute el siguiente 
 func init MyFunctionProj
 ```
 
+Al especificar un nombre de proyecto, se crea una carpeta con dicho nombre y posteriormente se inicializa. En caso contrario, se inicializa la carpeta actual.  
 En la versión 2.x, cuando ejecute el comando, debe elegir un tiempo de ejecución para el proyecto. Si va a desarrollar funciones de JavaScript, elija **node**:
 
 ```output
 Select a worker runtime:
 dotnet
 node
-java
 ```
 
 Use las flechas arriba/abajo para elegir un lenguaje, a continuación, presione ENTRAR. La salida tendrá un aspecto similar al siguiente ejemplo de un proyecto de JavaScript:
@@ -298,19 +298,24 @@ Para ejecutar un proyecto de Functions, ejecute el host de Functions. El host ha
 ```bash
 func host start
 ```
+El comando `host` solo es necesario en la versión 1.x.
 
 `func host start` admite las siguientes opciones:
 
 | Opción     | DESCRIPCIÓN                            |
 | ------------ | -------------------------------------- |
-|**`--port -p`** | Puerto local en el que se escucha. Valor predeterminado: 7071. |
-| **`--debug <type>`** | Inicia el host con el puerto de depuración abierto, de modo que pueda adjuntar al proceso **func.exe** de [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) o [Visual Studio 2017](functions-dotnet-class-library.md). Las opciones de *\<type\>* son `VSCode`y `VS`.  |
 | **`--cors`** | Lista separada por comas de orígenes CORS, sin espacios en blanco. |
-| **`--nodeDebugPort -n`** | Puerto del depurador de nodo que se va a usar. Valor predeterminado: un valor de launch.json o 5858. |
-| **`--debugLevel -d`** | Nivel de seguimiento de la consola (desactivado, detallado, información, advertencia o error). Valor predeterminado: información.|
+| **`--debug <type>`** | Inicia el host con el puerto de depuración abierto, de modo que pueda adjuntar al proceso **func.exe** de [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) o [Visual Studio 2017](functions-dotnet-class-library.md). Las opciones de *\<type\>* son `VSCode`y `VS`.  |
+| **`--port -p`** | Puerto local en el que se escucha. Valor predeterminado: 7071. |
 | **`--timeout -t`** | Tiempo de espera en segundos para que se inicie el host de Functions. Valor predeterminado: 20 segundos.|
 | **`--useHttps`** | Enlace con `https://localhost:{port}` en lugar de con `http://localhost:{port}`. De forma predeterminada, esta opción crea un certificado de confianza en el equipo.|
-| **`--pause-on-error`** | Se pone en pausa en espera de entrada adicional antes de salir del proceso. Se usa al iniciar Core Tools desde Visual Studio o VS Code.|
+| **`--build`** | Compilación del proyecto actual antes de su ejecución. Solo versión 2.x y proyectos de C#. |
+| **`--cert`** | La ruta de acceso a un archivo .pfx que contiene una clave privada. Solo se usa con `--useHttps`. Solo versión 2.x. | 
+| **`--password`** | La contraseña o un archivo que contenga la contraseña de un archivo. pfx. Solo se usa con `--cert`. Solo versión 2.x. |
+| **`--language-worker`** | Argumentos para configurar el trabajo del lenguaje. Solo versión 2.x. |
+| **`--nodeDebugPort -n`** | Puerto del depurador de nodo que se va a usar. Valor predeterminado: un valor de launch.json o 5858. Solo versión 1.x. |
+
+En el caso de un proyecto de la biblioteca de clases de C# (.csproj), debe incluir la opción `--build` para generar el archivo .dll de biblioteca.
 
 Cuando se inicia el host de Functions, devuelve la dirección URL de las funciones desencadenadas por HTTP:
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e22fedda4861e68f2318aff89bc3fe5a15cb6ede
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6348a6d003aa3efcd1b9c45e61438e0ac4b4c8d5
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160110"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146066"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integración de la infraestructura de la puerta de enlace de Escritorio remoto utilizando la extensión Servidor de directivas de redes (NPS) y Azure AD
 
@@ -175,7 +175,7 @@ Las directivas de autorización de conexiones de Escritorio remoto (CAP de RD) e
 
   ![Servicios de Escritorio remoto](./media/howto-mfa-nps-extension-rdg/image8.png)
 
-3. En el Administrador de puerta de enlace de Escritorio remoto, haga clic con el botón derecho en  **\[Nombre del servidor\] (Local)** y haga clic en **Propiedades**.
+3. En el Administrador de puerta de enlace de Escritorio remoto, haga clic con el botón derecho en **\[Nombre del servidor\] (Local)** y haga clic en **Propiedades**.
 
   ![Nombre del servidor](./media/howto-mfa-nps-extension-rdg/image9.png)
 
@@ -226,7 +226,7 @@ Para asegurarse de que hay tiempo para validar las credenciales de los usuarios,
 De forma predeterminada, al configurar la puerta de enlace de Escritorio remoto para usar un almacén de directivas central para las directivas de autorización de conexiones, la puerta de enlace de Escritorio remoto se configura para reenviar las solicitudes de CAP al servidor NPS. El servidor NPS con la extensión Azure MFA instalada procesa la solicitud de acceso RADIUS. Los pasos siguientes muestran cómo verificar la directiva de solicitud de conexión predeterminada. 
 
 1. En la puerta de enlace de Escritorio remoto, en la consola NPS (Local), expanda **Directivas** y seleccione **Directivas de solicitud de conexión**.
-2. Haga clic con el botón derecho en **Directivas de solicitud de conexión** y haga doble clic en **Directiva de autorización de puerta de enlace de TS**.
+2. Haga doble clic en **DIRECTIVA DE AUTORIZACIÓN DE PUERTA DE ENLACE DE TS**.
 3. En el cuadro de diálogo **Propiedades de la directiva de autorización de puerta de enlace de TS**, haga clic en la pestaña **Configuración**.
 4. En la pestaña **Configuración**, bajo Reenvío de solicitud de conexión, haga clic en **Autenticación**. El cliente RADIUS está configurado para reenviar las solicitudes de autenticación.
 
@@ -266,7 +266,7 @@ La puerta de enlace de Escritorio remoto debe configurarse como un cliente RADIU
 ### <a name="configure-network-policy"></a>Configuración de la directiva de red
 Recuerde que el servidor NPS con la extensión de Azure MFA es el almacén de directivas central designado para la directiva de autorización de conexiones (CAP). Por lo tanto, debe implementar un CAP en el servidor NPS para autorizar las solicitudes de conexión válidas.  
 
-1. En la consola NPS (Local), expanda **Directivas** y haga clic en **Directivas de red**.
+1. En el servidor NPS, abra la consola NPS (Local), expanda **Directivas** y haga clic en **Directivas de red**.
 2. Haga clic con el botón derecho en **Conexiones a otros servidores de acceso** y haga clic en **Duplicar directiva**. 
 
  ![Duplicar directiva](./media/howto-mfa-nps-extension-rdg/image19.png)

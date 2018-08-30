@@ -4,25 +4,23 @@ description: Describe cómo realizar un seguimiento de las operaciones asincrón
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: f62212f0488e4d1be49b419615b3a16b80033fd9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 601f4a899393d8ddd5ea698d4d01ade7141ee91f
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358717"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146072"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Seguimiento de las operaciones asincrónicas de Azure
-Algunas operaciones de REST de Azure se ejecutan asincrónicamente porque la operación no se puede completar rápidamente. En este tema se describe cómo realizar un seguimiento del estado de las operaciones asincrónicas a través de los valores devueltos en la respuesta.  
+Algunas operaciones de REST de Azure se ejecutan asincrónicamente porque la operación no se puede completar rápidamente. En este artículo se describe cómo realizar un seguimiento del estado de las operaciones asincrónicas a través de los valores devueltos en la respuesta.  
 
 ## <a name="status-codes-for-asynchronous-operations"></a>Códigos de estado para las operaciones asincrónicas
 Una operación asincrónica devuelve inicialmente un código de estado HTTP de alguno de estos tipos:
@@ -35,13 +33,13 @@ Cuando la operación se completa correctamente, devuelve:
 * 200 (OK)
 * 204 (No Content) 
 
-Consulte la [documentación de la API de REST](/rest/api/) para ver respuestas para la operación que está ejecutando. 
+Consulte la [documentación de la API REST](/rest/api/) para ver respuestas para la operación que está ejecutando.
 
 ## <a name="monitor-status-of-operation"></a>Supervisión del estado de la operación
 Las operaciones asincrónicas de REST devuelven valores de encabezado, que se utilizan para determinar el estado de la operación. Hay potencialmente tres valores de encabezado para examinar:
 
 * `Azure-AsyncOperation`: dirección URL para comprobar el estado actual de la operación. Si la operación devuelve este valor, utilícelo siempre (en lugar de Location) para realizar un seguimiento del estado de la operación.
-* `Location`: dirección URL para determinar cuándo se ha completado una operación. Use este valor sólo cuando no se devuelva Azure-AsyncOperation.
+* `Location`: dirección URL para determinar cuándo se ha completado una operación. Use este valor solo cuando no se devuelva Azure-AsyncOperation.
 * `Retry-After`: el número de segundos que deben transcurrir antes de comprobar el estado de la operación asincrónica.
 
 Sin embargo, no todas las operaciones asincrónicas devuelven todos estos valores. Por ejemplo, debe evaluar el valor del encabezado Azure-AsyncOperation para una operación y el valor del encabezado Location para otra operación. 
