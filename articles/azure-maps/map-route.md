@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 5e9ab73ddc16517e17894cddd9bc102f3941f00c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 52462c1c5a2a1a9698a2b51708e63b1bb1664f6e
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "35778805"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745543"
 ---
 # <a name="show-directions-from-a-to-b"></a>Presentación de indicaciones de ruta de A a B 
 
@@ -29,7 +29,7 @@ En el código anterior, el primer bloque de código construye un objeto mapa. Pu
 
 El segundo bloque de código crea y agrega anclajes en el mapa para representar los puntos inicial y final de la ruta. Puede consultar [Adición de un anclaje en el mapa](map-add-pin.md) para obtener instrucciones.
 
-El tercer bloque de código usa la función [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamerabounds) de la clase Map para establecer el cuadro de límites del mapa en función de los puntos inicial y final de la ruta.
+El tercer bloque de código usa la función [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) de la clase Map para establecer el cuadro de límites del mapa en función de los puntos inicial y final de la ruta.
 
 El cuarto bloque de código envía una solicitud [XMLHttpRequest](https://xhr.spec.whatwg.org/) a [Route API de Azure Maps](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
 
@@ -39,10 +39,10 @@ El último bloque de código analiza la respuesta de entrada. Para una respuesta
 
 Más información sobre las clases y los métodos utilizados en este artículo: 
 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamerabounds)
-    * [addLinestrings](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addlinestrings)
-    * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
+* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds)
+    * [addLinestrings](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addlinestrings)
+    * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins)
 
 Para más ejemplos de código para agregar a los mapas, consulte los siguientes artículos: 
 * [Visualización del tráfico en el mapa](./map-show-traffic.md)

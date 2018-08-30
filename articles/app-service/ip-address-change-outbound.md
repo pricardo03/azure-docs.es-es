@@ -10,12 +10,12 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: 5e17638e030ae2827b0de7dc82ecf75062504112
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: dfc0a13c1804d8ea74c78a61bfa85e9f5bdd1685
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39575937"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42819077"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Preparación de un cambio de dirección IP de salida
 
@@ -39,7 +39,7 @@ Las nuevas direcciones IP de salida se muestran en el portal antes de entrar en 
 
 3.  Seleccione la aplicación de App Service en la lista.
 
-4.  Si la aplicación es una aplicación de función, consulte la sección [Function app outbound IP address](../azure-functions/ip-addresses.md#function-app-outbound-ip-addresses) (Dirección IP saliente de la aplicación de función).
+4.  Si la aplicación es una aplicación de función, consulte la sección [Function app outbound IP address](../azure-functions/ip-addresses.md#find-outbound-ip-addresses) (Dirección IP saliente de la aplicación de función).
 
 4.  En el encabezado **Configuración**, haga clic en **Propiedades** en el menú de navegación izquierdo y busque la sección denominada **Direcciones IP de salida**.
 

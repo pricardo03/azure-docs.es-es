@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 9f37a7665521b69634329078258b00cb9f53c407
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 644089cea4dccc79e67b9117187b553eb4616d9f
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358725"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818221"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>¿Qué desea saber sobre Service Fabric?
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables.  Sin embargo, Service Fabric tiene un área expuesta de gran tamaño, y hay mucho por aprender.  En este artículo se proporciona una sinopsis de Service Fabric y se describen los conceptos principales, los modelos de programación, el ciclo de vida de la aplicación, las pruebas, los clústeres y la supervisión del estado. Lea [Información general](service-fabric-overview.md) y [¿Qué son los microservicios?](service-fabric-overview-microservices.md) para obtener una introducción y conocer cómo se puede utilizar Service Fabric para crear microservicios. Este artículo no contiene una lista completa de contenido, pero incluye vínculos a información general y artículos de introducción de cada área de Service Fabric. 
@@ -146,7 +146,7 @@ Hay algunas características que se admiten en Windows, pero no en Linux. Para m
 ### <a name="standalone-clusters"></a>Clústeres independientes
 Service Fabric le proporciona un paquete de instalación para que cree clústeres independientes de Service Fabric de forma local o en cualquier proveedor en la nube. Los clústeres independientes le dan la libertad de hospedar un clúster siempre que lo desee. Si los datos están sujetos a restricciones legales o de cumplimiento o si desea mantener los datos locales, puede hospedar clústeres y aplicaciones propios. Las aplicaciones de Service Fabric se pueden ejecutar en varios entornos de hospedaje sin realizar cambios, de tal forma que puede transferir los conocimientos sobre la creación de aplicaciones de un entorno de hospedaje a otro. 
 
-[Creación del primer clúster independiente de Service Fabric](service-fabric-get-started-standalone-cluster.md)
+[Creación del primer clúster independiente de Service Fabric](service-fabric-cluster-creation-for-windows-server.md)
 
 Aún no se admiten clústeres de Linux independientes.
 

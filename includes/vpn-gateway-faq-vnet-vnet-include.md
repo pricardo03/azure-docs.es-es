@@ -9,10 +9,10 @@ ms.date: 04/05/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 66ff1e2e02728e05cb0aeedce90de1882a8804ce
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/28/2018
 ms.locfileid: "30921315"
 ---
 Las preguntas más frecuentes sobre red virtual a red virtual se aplican a las conexiones VPN Gateway. Si busca información sobre el emparejamiento de redes virtuales, consulte [Emparejamiento de redes virtuales](../articles/virtual-network/virtual-network-peering-overview.md).
@@ -23,7 +23,7 @@ El tráfico entre redes virtuales dentro de la misma región es gratuito en amba
 
 ### <a name="does-vnet-to-vnet-traffic-travel-across-the-internet"></a>¿Viaja el tráfico entre dos redes virtuales a través de Internet?
 
-Nº Viaja por la red troncal de Microsoft Azure, no por Internet.
+No. Viaja por la red troncal de Microsoft Azure, no por Internet.
 
 ### <a name="can-i-establish-a-vnet-to-vnet-connection-across-aad-tenants"></a>¿Se puede establecer una conexión de red virtual a red virtual a través de los inquilinos de AAD?
 
@@ -35,19 +35,19 @@ Sí, se protege mediante cifrado IPsec/IKE.
 
 ### <a name="do-i-need-a-vpn-device-to-connect-vnets-together"></a>¿Necesito un dispositivo VPN para conectar redes virtuales?
 
-Nº La conexión simultánea de varias redes virtuales de Azure no requiere dispositivos VPN, a menos que sea necesaria la conectividad entre locales.
+No. La conexión simultánea de varias redes virtuales de Azure no requiere dispositivos VPN, a menos que sea necesaria la conectividad entre locales.
 
 ### <a name="do-my-vnets-need-to-be-in-the-same-region"></a>¿Deben estar mis redes virtuales en la misma región?
 
-Nº Las redes virtuales pueden estar en la misma región de Azure o en regiones distintas (ubicaciones).
+No. Las redes virtuales pueden estar en la misma región de Azure o en regiones distintas (ubicaciones).
 
 ### <a name="if-the-vnets-are-not-in-the-same-subscription-do-the-subscriptions-need-to-be-associated-with-the-same-ad-tenant"></a>Si las redes virtuales no están en la misma suscripción, ¿las suscripciones tienen que estar asociadas con el mismo inquilino de AD?
 
-Nº
+No.
 
 ### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>¿Puedo usar una conexión entre redes virtuales para conectar redes virtuales en instancias independientes de Azure? 
 
-Nº La conexión entre redes virtuales permite conectar redes virtuales dentro de la misma instancia de Azure. Por ejemplo, no puede crear una conexión entre instancias de Azure del gobierno estadounidense, chino o alemán con una instancia pública de Azure. En estos casos, considere la posibilidad de usar una conexión VPN de sitio a sitio.
+No. La conexión entre redes virtuales permite conectar redes virtuales dentro de la misma instancia de Azure. Por ejemplo, no puede crear una conexión entre instancias de Azure del gobierno estadounidense, chino o alemán con una instancia pública de Azure. En estos casos, considere la posibilidad de usar una conexión VPN de sitio a sitio.
 
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>¿Puedo usar las conexiones entre dos redes virtuales con conexiones multisitio?
 
@@ -59,15 +59,15 @@ Consulte la tabla [Requisitos de la puerta de enlace](../articles/vpn-gateway/vp
 
 ### <a name="can-i-use-vnet-to-vnet-to-connect-vms-or-cloud-services-outside-of-a-vnet"></a>¿Puedo usar la conexión entre dos redes virtuales para conectar máquinas virtuales o servicios en la nube fuera de una red virtual?
 
-Nº VNet a VNet admite la conexión de redes virtuales. No admite la conexión de máquinas virtuales ni servicios en la nube que no estén en una red virtual.
+No. VNet a VNet admite la conexión de redes virtuales. No admite la conexión de máquinas virtuales ni servicios en la nube que no estén en una red virtual.
 
 ### <a name="can-a-cloud-service-or-a-load-balancing-endpoint-span-vnets"></a>¿Abarca redes virtuales un servicio en la nube o un punto de conexión de equilibrio de carga?
 
-Nº Un servicio en la nube o un punto de conexión de equilibrio de carga no puede abarcar varias redes virtuales, aunque estas estén conectadas entre sí.
+No. Un servicio en la nube o un punto de conexión de equilibrio de carga no puede abarcar varias redes virtuales, aunque estas estén conectadas entre sí.
 
 ### <a name="can-i-used-a-policybased-vpn-type-for-vnet-to-vnet-or-multi-site-connections"></a>¿Puedo usar un tipo de VPN PolicyBased para las conexiones entre dos redes virtuales o multisitio?
 
-Nº Las conexiones entre dos redes virtuales y multisitio requieren puertas de enlace de VPN de Azure con tipos de VPN RouteBased (antes denominado enrutamiento dinámico).
+No. Las conexiones entre dos redes virtuales y multisitio requieren puertas de enlace de VPN de Azure con tipos de VPN RouteBased (antes denominado enrutamiento dinámico).
 
 ### <a name="can-i-connect-a-vnet-with-a-routebased-vpn-type-to-another-vnet-with-a-policybased-vpn-type"></a>¿Puedo conectar una red virtual con un tipo de VPN RouteBased a otra red virtual con un tipo de VPN PolicyBased?
 
@@ -83,11 +83,11 @@ Los túneles redundantes entre dos redes virtuales se admiten cuando la puerta d
 
 ### <a name="can-i-have-overlapping-address-spaces-for-vnet-to-vnet-configurations"></a>¿Puedo tener espacios de direcciones superpuestos para configuraciones de red virtual a red virtual?
 
-Nº No puede tener intervalos de direcciones de IP superpuestos.
+No. No puede tener intervalos de direcciones de IP superpuestos.
 
 ### <a name="can-there-be-overlapping-address-spaces-among-connected-virtual-networks-and-on-premises-local-sites"></a>¿Puede haber espacios de direcciones superpuestos entre las redes virtuales conectadas y los sitios locales?
 
-Nº No puede tener intervalos de direcciones de IP superpuestos.
+No. No puede tener intervalos de direcciones de IP superpuestos.
 
 
 

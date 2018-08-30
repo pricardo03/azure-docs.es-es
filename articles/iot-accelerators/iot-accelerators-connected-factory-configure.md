@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: c6c5e27dad7f80a329edbd8fbcb95647dc4cd15a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cb3cae396016545c5d78a2ff7ccde4a053c4cf1
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626741"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746986"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configuración del acelerador de soluciones de factoría conectada
 
@@ -282,7 +282,7 @@ Las cifras de OEE/KPI para la simulación de factoría conectada están parametr
 * Los valores del nodo OPC UA que se incluirán en el cálculo.
 * Cómo se calcula la cifra a partir de los valores de telemetría.
 
-La solución de factoría conectada usa fórmulas OEE como se publica en http://oeeindustrystandard.oeefoundation.org.
+La solución de factoría conectada usa fórmulas OEE como se publica en http://www.oeefoundation.org.
 
 Los objetos del nodo OPC UA de las estaciones permiten el etiquetado para su uso en el cálculo de OEE/KPI. La propiedad **Relevance** indica para qué cifra de OEE/KPI debe usarse el valor del nodo OPC UA. La propiedad **OpCode** define cómo se incluye el valor en el cálculo.
 

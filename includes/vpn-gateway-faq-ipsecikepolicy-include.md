@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 738ebdcc612d944db3794525085d220b33533245
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/28/2018
 ms.locfileid: "30198237"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>¿Se admite la directiva de IPsec o IKE personalizada en todas las SKU de Azure VPN Gateway?
@@ -101,4 +101,4 @@ Sí, puede aplicar directivas personalizadas en las conexiones entre entornos de
 Sí. Un túnel entre redes virtuales consta de dos recursos de conexión en Azure, una para cada dirección. Asegúrese de que los dos recursos de conexión tienen la misma directiva, ya que, de no ser así, la conexión entre redes virtuales no se establecerá.
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>¿Funciona la directiva de IPsec o IKE personalizada en una conexión ExpressRoute?
-Nº La directiva de IPsec o IKE solo funciona en conexiones entre redes virtuales a través de las puertas de enlace de VPN de Azure y VPN de S2S.
+No. La directiva de IPsec o IKE solo funciona en conexiones entre redes virtuales a través de las puertas de enlace de VPN de Azure y VPN de S2S.

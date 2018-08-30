@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
 ms.openlocfilehash: 48c21638fe5756e6527288ed0fdc73dd9e331afd
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2018
+ms.lasthandoff: 08/28/2018
 ms.locfileid: "35640643"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Clasificación de imágenes con Azure Machine Learning Workbench
@@ -46,7 +46,7 @@ Este tutorial se divide en tres partes:
 No se requiere experiencia previa de aprendizaje automático y CNTK, pero sí resulta útil para comprender los principios subyacentes. La precisión de los números, la duración del entrenamiento y otras cuestiones reflejadas en el tutorial se incluyen exclusivamente a modo de referencia; de igual modo, los valores reales que se obtengan al ejecutar el código variarán casi con toda seguridad.
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Los requisitos previos para ejecutar este ejemplo son los siguientes:
 

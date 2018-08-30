@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bd3eeb5ebb9b30ac315fee1597348f3bd34f3bb6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 6b310daec67f41ba589ce279e4a2dad427adb734
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146590"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818899"
 ---
 # <a name="getting-compliance-data"></a>Obtención de datos de cumplimiento
 
@@ -23,7 +23,7 @@ Una de las ventajas más grandes de Azure Policy es la información y los contro
 Hay varias maneras de acceder a la información de cumplimiento generada por la directiva y las asignaciones de iniciativa:
 
 - Usando [Azure Portal](#portal)
-- Mediante scripting de [línea de comandos](#command_line)
+- Mediante scripting de [línea de comandos](#command-line)
 
 Antes de pasar a los métodos que informan sobre el cumplimiento, veamos cuándo se actualiza la información de cumplimiento y la frecuencia y eventos que desencadenan un ciclo de evaluación.
 

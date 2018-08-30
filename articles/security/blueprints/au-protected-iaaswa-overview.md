@@ -6,19 +6,18 @@ author: meladie
 ms.assetid: f53a25c4-1c75-42d6-a0e7-a91661673891
 ms.service: security
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 2179398cdd79db99540ce219b8f4eae24f0eca39
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: b269a145c78aaf025ef05a4562cf55124c17e2ee
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246282"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818012"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-australia-protected"></a>Plano técnico de seguridad y cumplimiento de Azure: aplicación web IaaS con clasificación Protegida para Australia
 
 ## <a name="overview"></a>Información general
-
 Este Plano técnico de seguridad y cumplimiento de Azure proporciona orientación para la implementación de un entorno de infraestructura como servicio (IaaS) adecuado para la colección, el almacenamiento y la recuperación de datos con clasificación Protegida del Gobierno de Australia que sea compatibles con los objetivos del Manual de Seguridad de la Información (ISM) del Gobierno australiano producido por la Dirección Australiana de Señales (ASD). Este plano técnico muestra una arquitectura de referencia común y ayuda a comprobar cómo tratar adecuadamente los datos confidenciales del Gobierno en un entorno seguro, de cumplimiento, con varios niveles.
 
 Esta arquitectura de referencia, la guía de implementación, y el modelo de amenazas proporcionan una base para que los clientes se encarguen de sus propios procesos de planificación y acreditación del sistema, lo que ayuda a los clientes a implementar cargas de trabajo en Azure conforme a ASD. Los clientes pueden elegir implementar una instancia de Azure VPN Gateway o ExpressRoute para usar servicios federados y para integrar los recursos locales en recursos de Azure. Los clientes deben considerar las consecuencias de seguridad del uso de recursos locales. Es necesaria la configuración adicional para cumplir todos los requisitos, ya que pueden variar en función de las características propias de la implementación de cada cliente.
@@ -71,7 +70,6 @@ Esta solución usa los siguientes servicios de Azure. Se puede encontrar más in
 Este plano técnico contiene servicios de Azure que no están certificados para su uso en la clasificación Protegida por el Centro Australiano de Seguridad Cibernética (ACSC). ACSC ha certificado todos los servicios incluidos en esta arquitectura de referencia en el nivel de marcadores de limitación de difusión (DLM). Microsoft recomienda que los clientes revisen los informes de seguridad y auditoría publicados relacionados con estos servicios de Azure y usen su marco de administración de riesgos para determinar si el servicio de Azure es adecuado para su acreditación interna y el uso en el clasificación Protegida.
 
 ## <a name="deployment-architecture"></a>Arquitectura de implementación
-
 En la siguiente sección se detallan los elementos de desarrollo e implementación.
 
 **Host de tipo bastión**: el host de tipo bastión es el único punto de entrada que permite a los usuarios acceder a los recursos implementados en este entorno. El host de tipo bastión proporciona una conexión segura a los recursos implementados al permitir solo el tráfico remoto desde las direcciones IP públicas de una lista segura. Para permitir el tráfico de escritorio remoto (RDP), el origen del tráfico debe definirse en el grupo de seguridad de red.
@@ -84,7 +82,6 @@ Esta solución crea una máquina virtual como host de tipo bastión unido median
 -   [Credential Guard de Windows Defender](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) habilitado para que las credenciales y otros secretos se ejecuten en un entorno protegido aislado del sistema operativo en ejecución
 
 ### <a name="virtual-network"></a>Virtual network
-
 La arquitectura define una red virtual privada con un espacio de direcciones de 10.200.0.0/16.
 
 **Grupos de seguridad de red**: esta solución implementa los recursos en una arquitectura con una subred web independiente, la subred de la base de datos, la subred de Active Directory y la subred de administración dentro de una red virtual. Las subredes se separan de forma lógica mediante las reglas del grupo de seguridad de red aplicadas a las subredes individuales para restringir el tráfico entre subredes unicamente según sea necesario para la funcionalidad de administración y del sistema.
@@ -105,7 +102,6 @@ Para los datos protegidos en tránsito desde las redes pertenecientes al cliente
 Además, todas las transacciones a Azure a través del portal de administración de Azure se realizan mediante HTTPS con TLS 1.2.
 
 ### <a name="data-at-rest"></a>Datos en reposo
-
 La arquitectura protege los datos en reposo mediante el cifrado, la auditoría de base de datos y otras medidas.
 
 **Azure Storage**: para cumplir con los requisitos de los datos en reposo cifrados, [Azure Storage](https://azure.microsoft.com/services/storage/) usa [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Esto ayuda a proteger y salvaguardar los datos en apoyo de los compromisos de seguridad y requisitos de cumplimiento de la organización definidos por el ISM del Gobierno australiano.
@@ -113,7 +109,6 @@ La arquitectura protege los datos en reposo mediante el cifrado, la auditoría d
 **Azure Disk Encryption**: [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) aprovecha la función de BitLocker de Windows para proporcionar el cifrado del volumen de discos de datos. La solución se integra con Azure Key Vault para ayudar a controlar y administrar las claves de cifrado del disco.
 
 **SQL Server**: la instancia de SQL Server usa las siguientes medidas de seguridad de base de datos:
-
 -   La [auditoría de SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-2017) realiza el seguimiento de eventos de base de datos y los escribe en registros de auditoría.
 -   El [cifrado de datos transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) realiza el cifrado y descifrado en tiempo real de la base de datos, las copias de seguridad asociadas y los archivos de registro de transacciones, para proteger la información en reposo. El cifrado de datos transparente garantiza que los datos almacenados no hayan estado sujetos a un acceso no autorizado.
 -   Las [reglas de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) impiden el acceso a los servidores de bases de datos hasta que se otorgan los permisos adecuados. Asimismo, otorgan acceso a las bases de datos según la dirección IP de origen de cada solicitud.
@@ -121,7 +116,6 @@ La arquitectura protege los datos en reposo mediante el cifrado, la auditoría d
 - El [enmascaramiento dinámico de datos](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?view=sql-server-2017) limita la exposición de los datos confidenciales al enmascarar los datos para usuarios o aplicaciones sin privilegios. El enmascaramiento dinámico de datos puede detectar de forma automática datos potencialmente confidenciales y sugerir las máscaras adecuadas que se pueden aplicar. Esto contribuye a reducir el acceso de forma que los datos confidenciales no salen de la base de datos por medio de acceso no autorizado. **Los clientes son responsables de ajustar la configuración del enmascaramiento dinámico de datos para cumplir con el esquema de la base de datos.**
 
 ### <a name="identity-management"></a>Administración de identidades
-
 Los clientes pueden utilizar de forma local Servicios de federación de Active Directory para federar con [Azure Active Directory](https://azure.microsoft.com/services/active-directory/), que es el directorio basado en la nube multiempresa y servicio de administración de identidades de Microsoft. [Azure Active Directory Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) integra directorios locales con Azure Active Directory. Todos los usuarios de esta solución requieren cuentas de Azure Active Directory. Con el inicio de sesión de federación, los usuarios pueden iniciar sesión en Azure Active Directory y autenticarse en recursos de Azure mediante credenciales locales.
 
 Además, las siguientes funcionalidades de Azure Active Directory ayudan a administrar el acceso a los datos en el entorno de Azure:
@@ -133,7 +127,6 @@ Además, las siguientes funcionalidades de Azure Active Directory ayudan a admin
 **Azure Multi-Factor Authentication**: para proteger las identidades, debe implementarse la autenticación multifactor. [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) es una solución fácil de usar, escalable y confiable que proporciona un segundo método de autenticación para proteger a los usuarios. Azure Multi-Factor Authenticaton utiliza la potencia de la nube y se integra con la instancia local de Active Directory y aplicaciones personalizadas. Esta protección se extiende a los escenarios críticos de gran volumen.
 
 ### <a name="security"></a>Seguridad
-
 **Administración de secretos**: la solución utiliza [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para la administración de claves y secretos. Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Las siguientes funcionalidades de Azure Key Vault ayudan a los clientes a proteger los datos y el acceso a dichos datos:
 
 - Se configuran directivas de acceso avanzadas según las necesidades.
@@ -169,7 +162,6 @@ Además, esta arquitectura de referencia usa la [evaluación de vulnerabilidad](
 - [Azure Security Center](https://azure.microsoft.com/services/security-center) y [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) que proporcionan protección adicional y notificaciones. Asimismo, Azure Security Center también proporciona un sistema de reputación.
 
 ### <a name="business-continuity"></a>Continuidad del negocio
-
 **Alta disponibilidad**: la solución implementa todas las máquinas virtuales en un [conjunto de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Los conjuntos de disponibilidad garantizan que las máquinas virtuales se distribuyan entre varios clústeres de hardware aislados para mejorar la disponibilidad. Durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual está disponible para cumplir el 99,95 % del Acuerdo de Nivel de Servicio de Azure.
 
 **Almacén de Recovery Services**: el [almacén de Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) aloja datos de copia de seguridad y protege todas las configuraciones de Azure Virtual machines en esta arquitectura. Con los almacenes de Recovery Services, los clientes pueden restaurar archivos y carpetas desde una máquina virtual de IaaS sin tener que restaurar toda la máquina virtual, lo que permite unos tiempos de restauración más rápidos.
@@ -177,7 +169,6 @@ Además, esta arquitectura de referencia usa la [evaluación de vulnerabilidad](
 **Testigo en la nube**: el [testigo en la nube](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) es un tipo de testigo del cuórum de clúster de conmutación por error en Windows Server 2016 que usa Azure como punto de arbitraje. El testigo en la nube, como cualquier otro testigo del cuórum, tiene voto y puede participar en los cálculos del cuórum, pero usa Azure Blob Storage estándar públicamente disponible. Con esto, se elimina la sobrecarga de mantenimiento adicional de las máquinas virtuales hospedadas en una nube pública.
 
 ### <a name="logging-and-auditing"></a>Registro y auditoría
-
 Los servicios de Azure proporcionan un registro completo de la actividad de usuario y del sistema, así como de mantenimiento del sistema:
 - **Registros de actividad:** [los registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) proporcionan información detallada sobre las operaciones realizadas en los recursos de la suscripción. Los registros de actividad pueden ayudar a determinar el iniciador de una operación, el momento en que se produce y el estado.
 - **Registros de diagnóstico:** [los registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluyen todos los registros emitidos por todos los recursos. Estos registros incluyen registros del sistema de eventos de Windows, registros de Azure Storage, registros de auditoría de Key Vault, y registros de firewall y acceso a Application Gateway. Todos los registros de diagnóstico se escriben en una cuenta de almacenamiento de Azure centralizada y cifrada para su archivado. El usuario puede configurar la retención hasta 730 días para cumplir los requisitos de retención específicos de una organización.
@@ -197,13 +188,11 @@ Las siguientes [soluciones de administración](https://docs.microsoft.com/azure/
 [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Azure Network Watcher proporciona herramientas para supervisar, diagnosticar, ver las métricas y habilitar o deshabilitar registros de recursos en una red virtual de Azure.  Las entidades de la Commonwealth deben implementar los registros de flujo de Network Watcher para grupos de seguridad de red y máquinas virtuales. Estos registros deben almacenarse en una cuenta de almacenamiento dedicada donde solo se guarden registros de seguridad; el acceso a la cuenta de almacenamiento debe estar protegida con controles de acceso basados en rol.
 
 ## <a name="threat-model"></a>Modelo de amenazas
-
 El diagrama de flujo de datos de esta arquitectura de referencia está disponible para su [descarga](https://aka.ms/au-protected-iaaswa-tm) y se encuentra a continuación. El modelo puede ayudar a los clientes a comprender los puntos de riesgo potencial de la infraestructura del sistema al realizar modificaciones.
 
 ![Modelo de amenazas de aplicación web de IaaS con clasificación Protegida de Australia](images/au-protected-iaaswa-threat-model.png?raw=true "Diagrama de modelo de amenazas de aplicación web de IaaS con clasificación Protegida de Australia")
 
 ## <a name="compliance-documentation"></a>Documentación de cumplimiento
-
 Microsoft produce esta documentación de cumplimiento en función de las plataformas y los servicios disponibles en Microsoft. Debido a la gran variedad de implementaciones de clientes, esta documentación proporciona un enfoque generalizado para una solución que solo se hospeda en el entorno de Azure. Los clientes pueden identificar y utilizar otros productos y servicios según sus propios entornos operativos y resultados empresariales. Los clientes que elijan utilizar recursos locales deben resolver la seguridad y las operaciones de esos recursos locales. Los clientes pueden personalizar la solución documentada para abordar sus requisitos locales y de seguridad específicos.
 
 [Azure Security and Compliance Blueprint - AU-PROTECTED Customer Responsibility Matrix](https://aka.ms/au-protected-crm) (Plano técnico de seguridad y cumplimiento de Azure: matriz de responsabilidades del cliente con clasificación Protegida de Australia) muestra todos los controles de seguridad que exige la clasificación Protegida de Australia. En esta matriz se detalla si la implementación de cada objetivo es responsabilidad de Microsoft, del cliente o de ambos.
@@ -211,10 +200,8 @@ Microsoft produce esta documentación de cumplimiento en función de las platafo
 [Azure Security and Compliance Blueprint - AU-PROTECTED IaaS Web Application Implementation Matrix](https://aka.ms/au-protected-iaaswa-cim) (Plano técnico de seguridad y cumplimiento de Azure: matriz de implementación de controles de aplicación web IaaS con clasificación Protegida de Australia) se proporciona información sobre qué controles de clasificación Protegida de Australia se abordan en la arquitectura de aplicaciones web PaaS; se incluyen descripciones detalladas de cómo la implementación satisface los requisitos de cada control tratado.
 
 ## <a name="guidance-and-recommendations"></a>Instrucciones y recomendaciones
-
 ### <a name="vpn-and-expressroute"></a>VPN y ExpressRoute
-
-Para la información clasificada,dDebe configurarse un túnel VPN IPSec seguro para establecer una conexión segura a los recursos implementados como parte de esta arquitectura de referencia de aplicaciones web de IaaS. Al configurar una VPN IPSec adecuadamente, los clientes pueden agregar una capa de protección para los datos en tránsito.
+Para la información clasificada, debe configurarse un túnel VPN IPSec seguro para establecer una conexión segura a los recursos implementados como parte de esta arquitectura de referencia de aplicaciones web de IaaS. Al configurar una VPN IPSec adecuadamente, los clientes pueden agregar una capa de protección para los datos en tránsito.
 
 Mediante la implementación de un túnel VPN IPSec seguro con Azure, se puede crear una conexión privada virtual entre una red local y una red virtual de Azure. Esta conexión puede tener lugar a través de Internet y permite a los clientes colocar con seguridad la información en un "túnel" dentro de un vínculo cifrado entre la red del cliente y Azure. La VPN de sitio a sitio es una tecnología segura y madura que empresas de todos los tamaños han implementado durante décadas. 
 
@@ -244,7 +231,6 @@ Para evitar que los datos clasificados se sincronicen con Azure Active Directory
 - Deje la configuración predeterminada para [evitar eliminaciones accidentales](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-prevent-accidental-deletes) y [actualizaciones automáticas](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-feature-automatic-upgrade)
 
 ## <a name="disclaimer"></a>Renuncia de responsabilidades
-
 - Este documento es meramente informativo. MICROSOFT NO EFECTÚA NINGÚN TIPO DE GARANTÍA, YA SEA EXPRESA, IMPLÍCITA O ESTATUTARIA, SOBRE LA INFORMACIÓN INCLUIDA EN EL PRESENTE DOCUMENTO. Este documento se proporciona "tal cual". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso. Los clientes que lean este documento se atienen a las consecuencias de usarlo.
 - Este documento no proporciona a los clientes ningún derecho legal sobre ninguna propiedad intelectual de ningún producto o solución de Microsoft.
 - Los clientes pueden copiar y usar este documento con fines internos y de referencia.

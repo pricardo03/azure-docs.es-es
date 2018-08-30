@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d0ec146d276f72abf4cbbe3da4d11c0d5539df6d
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 803e82a294b64452ffd788880097b9d86ac1065b
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144200"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745297"
 ---
 # <a name="what-is-azure-maps"></a>¿Qué es Azure Maps?
 Azure Maps es una colección de servicios geoespaciales respaldado por los nuevos datos de asignación para que pueda proporcionar contexto geográfico preciso a las aplicaciones web y móviles. Contiene API REST para representar mapas, buscar puntos de interés, rutas a los puntos de interés, condiciones del tráfico, zonas horarias e IP de servicios de ubicación. Puede usar estas API con herramientas conocidas para desarrollar y escalar rápidamente las soluciones de Azure con información de ubicación integrada. Junto con las API REST, ofrece control de JavaScript basado en web que hace que el desarrollo sea sencillo, flexible y portátil en varios medios. 
@@ -98,7 +98,7 @@ Para más información sobre las API REST para el servicio IP to Location, visit
 
 Azure Maps se ha diseñado pensando en la movilidad y potencia las aplicaciones multiplataforma. Usa un modelo de programación independiente del idioma y admite salidas JSON mediante [API REST](https://docs.microsoft.com/rest/api/maps/). 
 
-Además, Azure Maps ofrece un práctico [control de mapas de JavaScript](https://docs.microsoft.com/javascript/api/azure-maps-javascript/?view=azure-iot-typescript-latest) con un modelo sencillo de programación para el desarrollo fácil y rápido de aplicaciones web y móviles. 
+Además, Azure Maps ofrece un práctico [control de mapas de JavaScript](https://docs.microsoft.com/javascript/api/azure-maps-control/models?view=azure-iot-typescript-latest) con un modelo sencillo de programación para el desarrollo fácil y rápido de aplicaciones web y móviles. 
 
 
 ## <a name="usage"></a>Uso

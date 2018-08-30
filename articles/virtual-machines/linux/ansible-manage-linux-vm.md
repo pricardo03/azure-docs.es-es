@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
-ms.date: 08/21/2018
-ms.openlocfilehash: 66106346b298fae22cce47081916a6c8eec8fd40
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.date: 08/22/2018
+ms.openlocfilehash: 79b10a30eea9e19f7ec21f9f9b7ebb95b4c34bf2
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40250676"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42813392"
 ---
 # <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Uso de Ansible para administrar una máquina virtual Linux en Azure
 Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para administrar máquinas virtuales de Azure al igual que podría hacerlo con cualquier otro recurso. Este artículo muestra cómo utilizar un cuaderno de Ansible para iniciar y detener una máquina virtual Linux. 
@@ -22,21 +22,7 @@ Ansible permite automatizar la implementación y la configuración de recursos e
 
 - **Suscripción de Azure**: si no tiene una suscripción de Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- **Configurar Azure Cloud Shell** o **instalar y configurar Ansible en una máquina virtual Linux**
-
-  **Configuración de Azure Cloud Shell**
-
-  1. **Configuración de Azure Cloud Shell**: si es la primera vez que usa Azure Cloud Shell, el artículo [Guía de inicio rápido para Bash en Azure Cloud Shell](/azure/cloud-shell/quickstart) muestra cómo iniciar y configurar Cloud Shell. 
-
-  1. **Máquina virtual Linux**: si no tiene acceso a una máquina virtual Linux, puede [crear una máquina virtual con Ansible](ansible-create-vm.md).
-
-  **O bien,**
-
-  **Instalar y configurar Ansible en una máquina virtual Linux**
-
-  1. **Instalación de Ansible**: instale Ansible en una [plataforma Linux compatible](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine).
-
-  1. **Configuración de Ansible** - [Creación de credenciales de Azure y configuración de Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="use-ansible-to-deallocate-stop-an-azure-virtual-machine"></a>Uso de Ansible para desasignar (detener) una máquina virtual de Azure
 Esta sección muestra cómo usar Ansible para desasignar (detener) una máquina virtual de Azure

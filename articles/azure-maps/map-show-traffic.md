@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 6ff7a0270509c244fc97bd04d8ba648fd262dc58
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2499822db587dbf47dccedf6039d0fb5823c58b5
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600126"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746085"
 ---
 # <a name="show-traffic-on-the-map"></a>Visualización del tráfico en el mapa
 
@@ -27,13 +27,13 @@ En este artículo se muestra cómo mostrar información de tráfico y de los inc
 
 En el código anterior, el primer bloque de código construye un objeto mapa. Puede consultar [Creación de un mapa](map-create.md) para obtener instrucciones.
 
-El segundo bloque de código utiliza la función [setTraffic ](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#settraffic) de la clase map para mostrar los flujos de tráfico y las incidencias en el mapa.
+El segundo bloque de código utiliza la función [setTraffic ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) de la clase map para mostrar los flujos de tráfico y las incidencias en el mapa.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre las clases y los métodos utilizados en este artículo: 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#settraffic)
+* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic)
 
 Para más ejemplos de código para agregar a los mapas, consulte los siguientes artículos: 
 * [Interacción con el mapa: eventos del mouse](./map-events.md)
