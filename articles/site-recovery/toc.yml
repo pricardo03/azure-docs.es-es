@@ -72,16 +72,18 @@ items:
       items:
       - name: Preguntas habituales sobre la replicación de VMware en Azure
         href: vmware-azure-common-questions.md
-      - name: Matriz de compatibilidad de VMware o dispositivo físico a Azure
+      - name: Matrices compatibles
         href: vmware-physical-azure-support-matrix.md
       - name: Arquitectura de VMware a Azure
         href: vmware-azure-architecture.md
       - name: Arquitectura de dispositivo físico a Azure
         href: physical-azure-architecture.md
-      - name: Compatibilidad multiinquilino para la replicación de VMware en Azure
-        href: vmware-azure-multi-tenant-overview.md
-      - name: Opciones de ubicación de conmutación por recuperación
+      - name: Acerca de la recuperación ante desastres
+        href: vmware-azure-about-disaster-recovery.md
+      - name: Acerca de las opciones de ubicación de conmutación por recuperación
         href: concepts-types-of-failback.md
+      - name: Acerca de la compatibilidad multiinquilino para VMware
+        href: vmware-azure-multi-tenant-overview.md
     - name: Replicación en un sitio secundario
       items:
       - name: Matriz de compatibilidad de VMware o dispositivo físico a sitio secundario
@@ -388,9 +390,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Actualizaciones del servicio
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: f0469d554b25565411bb8c484f3d3937bb9a87f6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 63d404406e3b33d4022974246a227cad1e6535a6
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126077"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43285113"
