@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: f504f3bf513a20d8590d9907106b1fd12f907877
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 654cb09621837c360deccecb7778c5d467592dd1
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651692"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124221"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: Actualización del inventario mediante Azure Portal y temas y suscripciones
 
@@ -34,7 +34,7 @@ Un ejemplo de este escenario es una actualización del surtido de inventario de 
 
 Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][] antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, asegúrese de que tiene instalados los siguientes elementos:
 
@@ -43,9 +43,9 @@ Para completar este tutorial, asegúrese de que tiene instalados los siguientes 
 
 ## <a name="service-bus-topics-and-subscriptions"></a>Temas y suscripciones de Service Bus
 
-Cada [suscripción a un tema](service-bus-messaging-overview.md#topics) puede recibir una copia de cada mensaje. Los temas son completamente compatibles desde el punto de vista semántico y del protocolo con las colas de Service Bus. Los temas de Service Bus admiten una amplia gama de reglas de selección con condiciones de filtro, con acciones opcionales que establecerán o modificarán las propiedades del mensaje. Cada vez que coincide una regla, esta genera un mensaje. Para más información acerca de reglas, filtros y acciones, siga este [vínculo](topic-filters.md).
+Cada [suscripción a un tema](service-bus-messaging-overview.md#topics) puede recibir una copia de cada mensaje. Los temas son completamente compatibles desde el punto de vista semántico y del protocolo con las colas de Service Bus. Los temas de Service Bus admiten una amplia variedad de reglas de selección con condiciones de filtro, con acciones opcionales que establecerán o modificarán las propiedades del mensaje. Cada vez que coincide una regla, esta genera un mensaje. Para más información acerca de reglas, filtros y acciones, siga este [vínculo](topic-filters.md).
 
-## <a name="log-on-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
 Primero, vaya a [Azure Portal][Azure portal] e inicie sesión con su suscripción de Azure. El primer paso es crear un espacio de nombres de Service Bus del tipo **Mensajería**.
 
@@ -54,7 +54,7 @@ Primero, vaya a [Azure Portal][Azure portal] e inicie sesión con su suscripció
 Un espacio de nombres de mensajería de Service Bus proporciona un contenedor con un único ámbito, al que hace referencia su [nombre de dominio completo][], en el que puede crear una o varias colas, temas y suscripciones. En el ejemplo siguiente se crea un espacio de nombres de mensajería de Service Bus en un [grupo de recursos](/azure/azure-resource-manager/resource-group-portal) nuevo o ya existente:
 
 1. En el panel de navegación izquierdo del portal, haga clic en **+ Crear un recurso**, luego, en **Enterprise Integration** y, finalmente, en **Service Bus**.
-2. En el cuadro de diálogo **Crear un espacio de nombres** , especifique un nombre para el espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
+2. En el cuadro de diálogo **Crear un espacio de nombres**, especifique un nombre para el espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
 3. Después de asegurarse de que el espacio de nombres está disponible, elija el plan de tarifas (Estándar o Premium).
 4. En el campo **Suscripción** elija la suscripción de Azure en la que se va a crear el espacio de nombres.
 5. En el campo **Grupo de recursos** , elija un grupo de recursos existente en el que residirá el espacio de nombres o cree uno.      
@@ -91,7 +91,7 @@ Para crear un tema de Service Bus, especifique el espacio de nombres en el que d
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Creación de reglas de filtro en suscripciones
 
-Después de aprovisionar el espacio de nombres y los temas y suscripciones, y de tener las credenciales necesarias, está listo para crear reglas de filtro en las suscripciones y, posteriormente, enviar y recibir mensajes. Puede examinar el código en [esta carpeta de ejemplo de GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted\BasicSendReceiveTutorialwithFilters).
+Después de aprovisionar el espacio de nombres y los temas y suscripciones, y de tener las credenciales necesarias, está listo para crear reglas de filtro en las suscripciones y, posteriormente, enviar y recibir mensajes. Puede examinar el código en [esta carpeta de ejemplos de GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted\BasicSendReceiveTutorialwithFilters).
 
 ### <a name="send-and-receive-messages"></a>Envío y recepción de mensajes
 
@@ -142,7 +142,7 @@ Cuando ya no necesite el espacio de nombres y la cola, elimínelos. Para ello, s
 
 ## <a name="understand-the-sample-code"></a>Descripción del código de ejemplo
 
-Esta sección contiene información más detallada sobre lo que hace el código de ejemplo.
+Esta sección contiene información más detallada acerca de lo que hace el código de ejemplo.
 
 ### <a name="get-connection-string-and-topic"></a>Obtención de la cadena de conexión y el tema
 
@@ -235,7 +235,7 @@ private async Task RemoveDefaultFilters()
 }
 ```
 
-### <a name="create-filters"></a>Crear filtros
+### <a name="create-filters"></a>Creación de filtros
 
 El código siguiente agrega los filtros personalizados definidos en este tutorial:
 
@@ -448,7 +448,7 @@ Para más ejemplos de envío y recepción de mensajes, empiece a trabajar con lo
 Avance hasta el siguiente tutorial para aprender más acerca del uso de las funcionalidades de publicación y suscripción de Service Bus.
 
 > [!div class="nextstepaction"]
-> [Actualización del inventario mediante PowerShell y temas y suscripciones](service-bus-tutorial-topics-subscriptions-powershell.md)
+> [Actualización del inventario mediante PowerShell y temas/suscripciones](service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Nombre de dominio completo]: https://wikipedia.org/wiki/Fully_qualified_domain_name

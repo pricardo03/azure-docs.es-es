@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 05c30504eb9b4440694f78ee979d4b25f30f65dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6246e951cb9b1e0b4dac656fef6acf8027e79271
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237971"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126558"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutorial: Actualización del inventario mediante PowerShell y temas y suscripciones
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 
 Un ejemplo de este escenario es una actualización del surtido de inventario de varias tiendas. En este escenario, cada tienda o conjunto de tiendas, recibe mensajes dirigidos a que actualicen sus inventarios. En este tutorial se muestra cómo implementar este escenario mediante suscripciones y filtros. En primer lugar puede crear un tema con 3 suscripciones, agregar algunas reglas y filtros y, a continuación, enviar y recibir mensajes de los temas y las suscripciones.
 
-![queue](./media/service-bus-quickstart-powershell/quick-start-queue.png)
+![topic](./media/service-bus-tutorial-topics-subscriptions-powershell/about-service-bus-topic.png)
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita][] antes de empezar.
 
@@ -47,9 +47,9 @@ En este tutorial es necesario ejecutar la versión más reciente de Azure PowerS
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Emita los comandos siguientes para iniciar sesión en Azure. Estos pasos no son necesarios si ejecuta comandos de PowerShell en Cloud Shell: 
+Use los siguientes comandos para iniciar sesión en Azure. Estos pasos no son necesarios si ejecuta comandos de PowerShell en Cloud Shell: 
 
 1. Instale el módulo de PowerShell de Service Bus:
 
@@ -57,7 +57,7 @@ Emita los comandos siguientes para iniciar sesión en Azure. Estos pasos no son 
    Install-Module AzureRM.ServiceBus
    ```
 
-2. Ejecute el siguiente comando para iniciar sesión en Azure:
+2. Ejecute el siguiente comandos para iniciar sesión en Azure:
 
    ```azurepowershell-interactive
    Login-AzureRmAccount
@@ -72,7 +72,7 @@ Emita los comandos siguientes para iniciar sesión en Azure. Estos pasos no son 
 
 ## <a name="provision-resources"></a>Aprovisionamiento de recursos
 
-Después de iniciar sesión en Azure, emita los siguientes comandos para aprovisionar recursos de Service Bus. Asegúrese de reemplazar todos los marcadores de posición por los valores apropiados:
+Después de iniciar sesión en Azure, use los siguientes comandos para aprovisionar recursos de Service Bus. Asegúrese de reemplazar todos los marcadores de posición por los valores apropiados:
 
 ```azurepowershell-interactive
 # Create a resource group 

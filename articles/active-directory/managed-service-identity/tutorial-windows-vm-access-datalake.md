@@ -14,21 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: f5d4a5e26ecf4bde286a5163bf5ec7da492e474d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: a472a0f1fe052b0bc8130f5d81c91692c7723377
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247920"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885895"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-data-lake-store"></a>Tutorial: Uso de la característica Managed Service Identity de una máquina virtual Windows para acceder a Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-En este tutorial se muestra cómo usar Managed Service Identity en una máquina virtual (VM) Windows para acceder a Azure Data Lake Store. Las identidades de MSI son administradas automáticamente por Azure y le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código. Aprenderá a:
+En este tutorial se muestra cómo usar una identidad asignada por el sistema para una máquina virtual (VM) Windows para acceder a Azure Data Lake Store. Las identidades de MSI son administradas automáticamente por Azure y le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código. Aprenderá a:
 
 > [!div class="checklist"]
-> * Habilitar Managed Service Identity en una máquina virtual Windows 
 > * Conceder a una máquina virtual acceso a Azure Data Lake Store
 > * Obtener un token de acceso mediante la identidad de máquina virtual y usarlo para acceder a Azure Data Lake Store
 
@@ -38,36 +37,11 @@ En este tutorial se muestra cómo usar Managed Service Identity en una máquina 
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+- [Iniciar sesión en Azure Portal](https://portal.azure.com)
 
-Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
+- [Crear una máquina virtual Windows](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Creación de una máquina virtual Windows en un nuevo grupo de recursos
-
-En este tutorial, se crea una nueva máquina virtual Windows.  Managed Service Identity también se puede habilitar en una máquina virtual existente.
-
-1. Haga clic en el botón **Crear un recurso** de la esquina superior izquierda de Azure Portal.
-2. Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**. 
-3. Escriba la información de la máquina virtual. El **nombre de usuario** y la **contraseña** creados aquí son las credenciales que se usan para iniciar sesión en la máquina virtual.
-4. Elija la **suscripción** adecuada de la máquina virtual en la lista desplegable.
-5. Para seleccionar un nuevo **grupo de recursos** en el que crear la máquina virtual, elija **Crear nuevo**. Cuando haya terminado, haga clic en **Aceptar**.
-6. Seleccione el tamaño de la máquina virtual. Para ver más tamaños, seleccione **Ver todo** o cambie el filtro **Supported disk type** (Tipo de disco admitido). En la página de configuración, conserve los valores predeterminados y haga clic en **Aceptar**.
-
-   ![Texto alternativo de imagen](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Habilitación de Managed Service Identity en una máquina virtual 
-
-La característica Managed Service Identity de una máquina virtual le permite obtener tokens de acceso desde Azure AD sin la necesidad de incluir credenciales en el código. La habilitación de Managed Service Identity indica a Azure que cree una identidad administrada para una máquina virtual. En segundo plano, la habilitación de Managed Service Identity realiza dos acciones: registra una máquina virtual en Azure Active Directory para crear su identidad administrada y configura la identidad en la máquina virtual.
-
-1. Seleccione la **máquina virtual** en la que desea habilitar Managed Service Identity.  
-2. En la barra de navegación de la izquierda, haga clic en **Configuración**. 
-3. Verá **Managed Service Identity**. Para registrar y habilitar Managed Service Identity, seleccione **Sí**; si desea deshabilitarla, elija No. 
-4. No olvide hacer clic en **Guardar** para guardar la configuración.  
-   ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Si desea comprobar las extensiones que están en esta máquina virtual, haga clic en **Extensiones**. Si Managed Service Identity está habilitado, **ManagedIdentityExtensionforWindows** aparece en la lista.
-
-   ![Texto alternativo de imagen](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+- [Habilitar la identidad asignada por el sistema en la máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Concesión a una máquina virtual del acceso a Azure Data Lake Store
 

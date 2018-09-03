@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: aeb4ff26b05a5542fd77ac32589c8f8efb622798
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4c4a5b66fe35da01a3661715e17a9fda20bc2411
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40166533"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184705"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Creación de un clúster de Kubernetes habilitado para Azure Dev Spaces
 
@@ -42,7 +42,7 @@ ms.locfileid: "40166533"
 
    ![Habilitación del enrutamiento de aplicación HTTP](../media/common/Kubernetes-Create-Cluster-3.PNG)
 
-    > [!IMPORTANT]
-    > Asegúrese de habilitar el enrutamiento de aplicación HTTP cuando se crea el clúster de AKS. No es posible cambiar esta configuración más adelante.
+    > [!Note]
+    > Para habilitar el [enrutamiento de aplicación HTTP](/azure/aks/http-application-routing) en un clúster existente, use el comando: `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
 
 1. Seleccione **Review + create** (Revisar y crear) y, a continuación, **Create** cuando haya terminado.

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 07/13/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: ce84498ab89891bd7b96cfcc6b0c7ac029c93cbd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9a623156ad2a27abf7fa5e865f8b7452e2c70b3c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423086"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124525"
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Compilación de una aplicación web Docker Python con PostgreSQL en Azure
 
@@ -169,7 +169,9 @@ Cuando se crea la base de datos de Azure para el servidor de PostgreSQL, la CLI 
 
 ### <a name="create-a-firewall-rule-for-the-postgresql-server"></a>Creación de una regla de firewall para el servidor de PostgreSQL
 
-En Cloud Shell, ejecute el siguiente comando de la CLI de Azure para permitir el acceso a la base de datos desde todas las direcciones IP. Cuando las direcciones IP de inicio y fin están establecidas en `0.0.0.0`, el firewall solo se abre para otros recursos de Azure. 
+En Cloud Shell, ejecute el siguiente comando de la CLI de Azure para permitir el acceso a la base de datos desde todas las direcciones IP. 
+> [!Note]
+> No se recomienda dejar todos los puertos abiertos para la base de datos ni que se pueda acceder desde Internet a la base de datos.  Para proteger adecuadamente su base de datos para usarla en producción, consulte otros [artículos acerca de la seguridad de Azure](https://docs.microsoft.com/azure/security/).  
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAzureIPs

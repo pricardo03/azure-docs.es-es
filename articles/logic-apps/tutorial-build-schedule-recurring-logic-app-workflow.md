@@ -1,28 +1,23 @@
 ---
-title: Creación de flujos de trabajo automatizados basados en un programador - Azure Logic Apps | Microsoft Docs
-description: Este tutorial muestra cómo crear un flujo de trabajo automatizado, periódico y basado en un programador mediante Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-editor: ''
+title: Creación de flujos de trabajo automatizados basados en programación - Azure Logic Apps | Microsoft Docs
+description: 'Tutorial: cómo crear un flujo de trabajo automatizado, periódico y basado en un programador mediante Azure Logic Apps'
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: 84779d3e56b089c34e6556368008d794e634d535
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 43f826414ae7f279c23f6e9e2e39d4d21267e158
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300776"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124025"
 ---
-# <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Comprobación del tráfico con una aplicación lógica basada en un programador
+# <a name="check-traffic-with-a-schedule-based-logic-app"></a>Comprobación del tráfico con una aplicación lógica basada en una programación
 
 Azure Logic Apps le ayuda a automatizar los flujos de trabajo que se ejecutan mediante un programador. Este tutorial muestra cómo puede crear una [aplicación lógica](../logic-apps/logic-apps-overview.md) con un desencadenador de programador que se ejecuta por las mañanas los días de entre semana y comprueba el tiempo de desplazamiento, incluido el tráfico, entre dos lugares. Si el tiempo supera un límite específico, la aplicación lógica envía un correo electrónico con el tiempo de desplazamiento y el tiempo adicional necesario para el destino.
 
@@ -42,13 +37,13 @@ Cuando haya terminado, la aplicación lógica se parecerá a este flujo de traba
 
 Si no tiene ninguna suscripción a Azure, <a href="https://azure.microsoft.com/free/" target="_blank">cree una cuenta gratuita de Azure</a> antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de correo electrónico con un proveedor de correo electrónico compatible con Logic Apps, como Office 365 Outlook, Outlook.com o Gmail. En el caso de otros proveedores, [consulte la lista de conectores que se muestra aquí](https://docs.microsoft.com/connectors/). Esta guía de inicio rápido usa una cuenta de Outlook.com. Si utiliza una cuenta de correo electrónico diferente, los pasos generales siguen siendo los mismos pero la interfaz de usuario podría ser ligeramente distinta.
 
 * Para obtener el tiempo de desplazamiento para una ruta, necesita una clave de acceso para la API de Mapas de Bing. Para obtener esta clave, siga los pasos sobre <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">cómo obtener una clave de Mapas de Bing</a>. 
 
-## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
 Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Portal</a> con sus credenciales de su cuenta de Azure.
 
@@ -64,7 +59,7 @@ Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Porta
 
    | Configuración | Valor | DESCRIPCIÓN | 
    | ------- | ----- | ----------- | 
-   | **Name** | LA TravelTime | Nombre de la aplicación lógica | 
+   | **Nombre** | LA TravelTime | Nombre de la aplicación lógica | 
    | **Suscripción** | <*nombre-de-su-suscripción-a-Azure*> | El nombre de la suscripción a Azure | 
    | **Grupos de recursos** | LA-TravelTime-RG | Nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) que se utiliza para organizar recursos relacionados | 
    | **Ubicación** | Este de EE. UU. 2 | Región en la que desea almacenar información sobre la aplicación lógica | 
@@ -176,7 +171,7 @@ De forma predeterminada, la acción anterior **Get route** (Obtener ruta) devuel
 
    | Configuración | Valor | DESCRIPCIÓN | 
    | ------- | ----- | ----------- | 
-   | **Name** | travelTime | Nombre de la variable | 
+   | **Nombre** | travelTime | Nombre de la variable | 
    | **Tipo** | Entero | Tipo de datos de la variable | 
    | **Valor** | Expresión que convierte el tiempo de desplazamiento actual de segundos a minutos (consulte los pasos a continuación de esta tabla). | Valor inicial de la variable | 
    |||| 

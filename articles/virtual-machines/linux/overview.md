@@ -15,20 +15,20 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: d2e4a014a0f7bb7f94885528abc930d2b243318b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1ac55b728a29ff1bb8129087da5992ffe5f23df9
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30911325"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42820316"
 ---
 # <a name="azure-and-linux"></a>Azure y Linux
-Microsoft Azure es una colección cada vez mayor de servicios en la nube, públicos e integrados, que incluyen servicios de análisis, máquinas virtuales, bases de datos, móviles, de red, de almacenamiento y web, ideales para hospedar sus soluciones.  Microsoft Azure proporciona una plataforma informática escalable que permite pagar solo por lo que use, cuando lo desee, sin tener que invertir en hardware local.  Azure está listo cuando tenga que escalar sus soluciones vertical y horizontalmente a cualquier escala que necesite para atender las necesidades de sus clientes.
+Microsoft Azure es una colección cada vez mayor de servicios en la nube, públicos e integrados, que incluyen servicios de análisis, máquinas virtuales, bases de datos, móviles, de red, de almacenamiento y web,&mdash;ideales para hospedar sus soluciones.  Microsoft Azure proporciona una plataforma informática escalable que permite pagar solo por lo que use, cuando lo desee, sin tener que invertir en hardware local.  Azure está listo cuando tenga que escalar sus soluciones vertical y horizontalmente a cualquier escala que necesite para atender las necesidades de sus clientes.
 
 Si está familiarizado con las distintas características de AWS de Amazon, puede examinar el [documento de asignación de definiciones](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/)donde se comparan Azure y AWS.
 
 ## <a name="regions"></a>Regiones
-Los recursos de Microsoft Azure se distribuyen en diversas regiones geográficas de todo el mundo.  Un "region" representa varios centros de datos en una única área geográfica. Actualmente (en noviembre de 2017), Azure tiene 36 regiones con disponibilidad general en todo el mundo y se ha anunciado que tendrá 6 regiones más. En la siguiente página se puede encontrar una lista actualizada de las regiones existentes y de las recién anunciadas:
+Los recursos de Microsoft Azure se distribuyen en diversas regiones geográficas de todo el mundo.  Un "region" representa varios centros de datos en una única área geográfica. Actualmente (en agosto de 2018), Azure tiene 42 regiones con disponibilidad general en todo el mundo y se ha anunciado que tendrá 12 regiones más; más regiones globales que cualquier otro proveedor de servicios en la nube. En la siguiente página se puede encontrar una lista actualizada de las regiones existentes y de las recién anunciadas:
 
 * [Regiones de Azure](https://azure.microsoft.com/regions/)
 
@@ -73,7 +73,7 @@ En Microsoft trabajamos estrechamente con los asociados para garantizar que las 
 
 * Linux en Azure: [distribuciones aprobadas](endorsed-distros.md)
 * SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
-* Red Hat: [Azure Marketplace - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
+* Red Hat - [Azure Marketplace - Red Hat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 * Canonical: [Azure Marketplace - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian: [Azure Marketplace - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
 * FreeBSD: [Azure Marketplace - FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)

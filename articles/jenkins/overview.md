@@ -1,25 +1,25 @@
 ---
-title: Introducción sobre Jenkins y Azure | Microsoft Docs
+title: Introducción sobre Jenkins y Azure
 description: Hospede la compilación de Jenkins e implemente el servidor de automatización en Azure y use los recursos de proceso y almacenamiento de Azure para extender sus canalizaciones de integración y entrega continuas (CI/CD).
-ms.topic: overview
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, introducción
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: overview
 ms.date: 07/25/2018
-ms.openlocfilehash: ecb4ea7aee005cb539910b2cb25f0b84de7ba510
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: cb4082046e57ac16abd6cdef3d5779525e7cfc82
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281562"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105536"
 ---
 # <a name="azure-and-jenkins"></a>Azure y Jenkins
 
 [Jenkins](https://jenkins.io/) es un conocido servidor de automatización de código abierto usado para configurar la integración y entrega continuas (CI/CD) de los proyectos de software. Puede hospedar la implementación de Jenkins en Azure o ampliar la configuración de Jenkins existente con recursos de Azure. También hay complementos de Jenkins disponibles para simplificar la integración y entrega continuas de las aplicaciones en Azure.
 
-Este artículo es una introducción al uso de Azure con Jenkins que detalla las principales características de Azure que están disponibles para los usuarios de Jenkins. Para empezar a trabajar con su propio servidor de Jenkins en Azure, consulte nuestro [inicio rápido](install-jenkins-solution-template.md).
+Este artículo es una introducción al uso de Azure con Jenkins que detalla las principales características de Azure que están disponibles para los usuarios de Jenkins. Para más información sobre cómo empezar a trabajar con su propio servidor de Jenkins en Azure, consulte [Creación de un servidor de Jenkins en Azure](install-jenkins-solution-template.md).
 
 ## <a name="host-your-jenkins-servers-in-azure"></a>Hospedaje de los servidores de Jenkins en Azure
 

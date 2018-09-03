@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: 4c34bd10768ab7acf4700b29386d3a71532490db
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cf47b2d6bd17fa5a9f7cbe98ab7db2799f6e8287
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38674859"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42916307"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Guía de inicio rápido: Creación de un salón de chat con SignalR Service
 
@@ -39,7 +39,7 @@ El código de este tutorial está disponible para su descarga en el [repositorio
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Instalar el [SDK de .NET Core](https://www.microsoft.com/net/download/windows)
 * Descargar o clonar el repositorio de github [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples). 
@@ -93,15 +93,20 @@ En esta sección, agregará la [herramienta Secret Manager](https://docs.microso
 
         dotnet restore
 
-3. Agregue un secreto llamado *Azure__SignalR__ConnectionString* en el administrador de secretos. Este secreto es un valor de configuración jerárquico, y es posible que los dos puntos (:) no funcionen en todas las plataformas. El carácter de subrayado doble (__), como ya usa este secreto, lo admiten todas las plataformas.  Este secreto contendrá la cadena de conexión para tener acceso al recurso de SignalR Service. *Azure__SignalR__ConnectionString* es la clave de configuración predeterminada que busca SignalR con el fin de establecer una conexión. Sustituya el valor en el comando siguiente por la cadena de conexión para el recurso de SignalR Service.
+3. Agregue un secreto llamado *Azure:SignalR:ConnectionString* a Secret Manager. 
+
+    Este secreto contendrá la cadena de conexión para tener acceso al recurso de SignalR Service. *Azure: SignalR:ConnectionString* es la clave de configuración predeterminada que busca SignalR con el fin de establecer una conexión. Sustituya el valor en el comando siguiente por la cadena de conexión para el recurso de SignalR Service.
 
     Este comando debe ejecutarse en el mismo directorio que el archivo *.csproj*.
 
     ```
-    dotnet user-secrets set Azure__SignalR__ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     Secret Manager solo se usará para probar la aplicación web mientras se hospeda localmente. En un tutorial posterior, se implementará la aplicación web de chat en Azure. Una vez que la aplicación web se haya implementado en Azure, usará una configuración de la aplicación en lugar de almacenar la cadena de conexión con Secret Manager.
+
+    Se accede a este secreto con la API de configuración. Un signo de dos puntos (:) funciona en el nombre de configuración con la API de configuración en todas las plataformas compatibles. Para más información, consulte [Configuración por entornos](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment). 
+
 
 4. Abra *Startup.cs* y actualice el método `ConfigureServices` para usar Azure SignalR Service mediante una llamada al método `services.AddSignalR().AddAzureSignalR()`:
 
@@ -113,7 +118,7 @@ En esta sección, agregará la [herramienta Secret Manager](https://docs.microso
     }
     ```
 
-    Al no pasar un parámetro a `AddAzureSignalR()`, este código usa la clave de configuración predeterminada, *Azure__SignalR__ConnectionString*, para la cadena de conexión del recurso de SignalR Service.
+    Al no pasar un parámetro a `AddAzureSignalR()`, este código usa la clave de configuración predeterminada, *Azure:SignalR:ConnectionString*, para la cadena de conexión del recurso de SignalR Service.
 
 5. También en *Startup.cs*, actualice el método `Configure` sustituyendo la llamada a `app.UseStaticFiles()` con el código siguiente y guarde el archivo.
 

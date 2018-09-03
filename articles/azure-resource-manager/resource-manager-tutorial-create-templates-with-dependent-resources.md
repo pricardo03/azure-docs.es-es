@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bd559cb9f0140706a4b9735c642367e03616a14d
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 7509ed46ba07cd8250f82f8eb258d18e3f4a1ee6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188172"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107112"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes
 
@@ -56,12 +56,27 @@ Las plantillas de inicio rápido de Azure consisten en un repositorio de plantil
 
 ## <a name="explore-the-template"></a>Exploración de la plantilla
 
+Al explorar la plantilla de esta sección, intente responder estas preguntas:
+
+- ¿Cuántos recursos de Azure se definen en esta plantilla?
+- Uno de los recursos es una cuenta de Azure Storage.  ¿Se parece la definición a la que se usó en el último tutorial?
+- ¿Encuentra las referencias de la plantilla para los recursos definidos en esta plantilla?
+- ¿Encuentra las dependencias de los recursos?
+
 1. En Visual Studio Code, contraiga los elementos hasta que vea únicamente los elementos de primer nivel y los de segundo nivel dentro de **Recursos**:
 
     ![Plantillas de Azure Resource Manager en Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
     La plantilla define cinco recursos.
-2. Expanda el cuarto elemento:
+2. Expanda el primer recurso. Es una cuenta de almacenamiento. La definición será idéntica a la que se usó al principio del último tutorial.
+
+    ![Definición de la cuenta de almacenamiento de las plantillas de Azure Resource Manager en Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
+
+3. Expanda el segundo recurso. El tipo de recurso es **Microsoft.Network/publicIPAddresses**. Para buscar la referencia de la plantilla, vaya a la [referencia de la plantilla](https://docs.microsoft.com/azure/templates/), escriba **dirección ip pública** o **direcciones ip públicas** en el campo **Filtrar por título**. Comparar la definición del recurso con la referencia de la plantilla.
+
+    ![Definición de dirección IP pública de las plantillas de Azure Resource Manager en Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
+4. Repita el último paso para buscar las referencias de la plantilla de los restantes recursos definidos en esta plantilla.  Comparar las definiciones de los recursos con las referencias.
+5. Expanda el cuarto recurso:
 
     ![Elemento dependson de las plantillas de Azure Resource Manager en Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
@@ -70,7 +85,7 @@ Las plantillas de inicio rápido de Azure consisten en un repositorio de plantil
     * publicIPAddress
     * virtualNetwork
 
-3. Expanda el quinto elemento. Este recurso es una máquina virtual. Depende de otros dos recursos:
+6. Expanda el quinto recurso. Este recurso es una máquina virtual. Depende de otros dos recursos:
 
     * StorageAccount
     * networkInterface

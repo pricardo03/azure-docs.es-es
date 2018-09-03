@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 8489992303425cc00c15994b55ade958d77549e4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4ce4c9e2479c8d570766169ce5094dcc2b4bc511
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29969141"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42812878"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Búsqueda y diagnóstico de problemas de rendimiento con Azure Application Insights
 
@@ -28,7 +28,7 @@ Azure Application Insights recopila datos de telemetría de cualquier aplicació
 > * Analizar los detalles de las vistas de página mediante el lenguaje de consulta
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -53,27 +53,20 @@ Application Insights recopila datos de rendimiento de las distintas operaciones 
 
     ![Panel Rendimiento](media/app-insights-tutorial-performance/performance-blade.png)
 
-3. Actualmente, el grafo muestra la duración media de todas las operaciones a lo largo del tiempo.  Para agregar las operaciones que le interesen, ánclelas al grafo.  Esto muestra que hay algunos valores máximos que merece la pena investigar.  Y para aislarlos aún más, puede reducir la ventana de tiempo del grafo.
+3. Actualmente, el grafo muestra la duración media de las operaciones a lo largo del tiempo. Puede cambiar al percentil 95 para detectar los problemas de rendimiento. Para agregar las operaciones que le interesen, ánclelas al grafo.  Esto muestra que hay algunos valores máximos que merece la pena investigar.  Y para aislarlos aún más, puede reducir la ventana de tiempo del grafo.
 
     ![Anclar operaciones](media/app-insights-tutorial-performance/pin-operations.png)
 
-4.  Haga clic en una operación para ver su panel de rendimiento de la derecha. En él se muestra la distribución de las duraciones de las diferentes solicitudes.  Los usuarios suelen notar una ralentización del rendimiento cuando llega a aproximadamente medio segundo, así que reduzca la ventana a solicitudes que superen los 500 milisegundos.  
+4.  El panel de rendimiento de la derecha muestra la distribución de duraciones de distintas solicitudes para la operación seleccionada.  Reduzca la ventana para empezar alrededor del percentil 95. La tarjeta de información "3 dependencias principales" puede indicarle de un vistazo que las dependencias externas probablemente estén coadyuvando a que se produzcan las transacciones lentas.  Haga clic en el botón con el número de ejemplos para ver una lista de los ejemplos. A continuación, puede seleccionar cualquier ejemplo para ver los detalles de transacción.
 
     ![Distribución de las duraciones](media/app-insights-tutorial-performance/duration-distribution.png)
 
-5.  En este ejemplo, puede ver que un número considerable de solicitudes tardan más de un segundo en procesarse. Para ver los detalles de esta operación, haga clic en **Detalles de la operación**.
+5.  Puede ver a simple vista que la llamada a la tabla de Azure Fabrikamaccount es la que más contribuye a la duración total de la transacción. También puede ver que una excepción ha provocado un error. Puede hacer clic en cualquier elemento de la lista para ver sus detalles en el lado derecho. [Más información acerca de la experiencia de diagnósticos de transacción](app-insights-transaction-diagnostics.md)
 
     ![Detalles de la operación](media/app-insights-tutorial-performance/operation-details.png)
+    
 
-    > [!NOTE]
-    Habilite la experiencia de [versión preliminar](app-insights-previews.md) "Unified details: E2E Transaction Diagnostics" (Detalles unificados: Diagnóstico de transacciones E2E) para ver toda la telemetría relacionada con el lado servidor como, por ejemplo, las solicitudes, dependencias, excepciones, seguimientos, eventos, etc, en una única vista de pantalla completa. 
-
-    Con la versión preliminar habilitada, puede ver el tiempo empleado en llamadas de dependencia, junto con todos los errores o excepciones de una experiencia unificada. Para las transacciones entre componentes, el gráfico de Gantt junto con el panel de detalles pueden ayudarle a diagnosticar rápidamente la causa principal, la dependencia o la excepción. Puede expandir la sección inferior para ver la secuencia temporal de todos los seguimientos o eventos recopilados para la operación de componente seleccionada. [Más información acerca de la nueva experiencia](app-insights-transaction-diagnostics.md)  
-
-    ![Diagnósticos de la transacción](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
-
-
-6.  La información que ha recopilado hasta ahora solo confirma un ralentización del rendimiento, pero no ayuda mucho a conocer la causa principal.  **Profiler** ayuda mostrando el código real que se ejecutó para la operación y el tiempo necesario para cada paso. Es posible que no se pueda realizar un seguimiento de algunas operaciones, ya que el generador de perfiles se ejecuta periódicamente.  Con el tiempo, más operaciones deben tener seguimientos.  Para iniciar el generador de perfiles de la operación, haga clic en **Seguimientos de Profiler**.
+6.  **Profiler** ayuda a profundizar en los diagnósticos de nivel de código al mostrar el código real que se ejecutó para la operación y el tiempo necesario para cada paso. Es posible que no se pueda realizar un seguimiento de algunas operaciones, ya que el generador de perfiles se ejecuta periódicamente.  Con el tiempo, más operaciones deben tener seguimientos.  Para iniciar el generador de perfiles de la operación, haga clic en **Seguimientos de Profiler**.
 5.  El seguimiento muestra los eventos individuales de cada operación, por lo que puede diagnosticar la causa principal por la duración de la operación global.  Haga clic en uno de los ejemplos superiores, que son los que tienen una duración mayor.
 6.  Haga clic en **Mostrar ruta de acceso activa** para resaltar la ruta de acceso específica de los eventos que más contribuyen a la duración total de la operación.  En este ejemplo, puede ver que la llamada más lenta procede del método *FabrikamFiberAzureStorage.GetStorageTableData*. La parte que tiene la mayor parte del tiempo es el método *CloudTable.CreateIfNotExist*. Si esta línea de código se ejecuta cada vez que se llama a la función, se consumirán recursos de CPU y llamadas de red innecesarios. La mejor manera de corregir el código es poner esta línea en algún método de inicio que solo se ejecute una vez. 
 

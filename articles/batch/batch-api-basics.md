@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 04/06/2018
+ms.date: 08/22/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d404e3a300a953ccc1cfb691cbde6f6d7ee54b26
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f1c933c9dcb3e3e2c2cb267073386d4b9c4e2022
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216315"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746025"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
 
@@ -288,7 +288,7 @@ Si una tarea de inicio da error en un nodo de proceso, el estado del nodo se act
 Si agrega una tarea de inicio a un grupo existente o la actualiza, debe reiniciar sus nodos de proceso para que la tarea de inicio se les aplique.
 
 >[!NOTE]
-> El tamaño total de una tarea de inicio debe ser menor o igual a 32 768 caracteres, incluidos los archivos de recursos y las variables de entorno. Para garantizar que la tarea de inicio cumple este requisito, puede usar uno de estos dos enfoques:
+> Batch limita el tamaño total de una tarea de inicio, que incluye archivos de recursos y variables de entorno. Si necesita reducir el tamaño de una tarea de inicio, puede usar uno de estos dos enfoques:
 >
 > 1. Puede utilizar paquetes de aplicación para distribuir las aplicaciones o los datos por los nodos del grupo de Batch. Para más información sobre los paquetes de aplicación, consulte [Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch](batch-application-packages.md).
 > 2. Puede crear manualmente un archivo comprimido que contenga los archivos de aplicación. Cargue el archivo comprimido en Azure Storage como blob. Defina el archivo comprimido como archivo de recursos para la tarea de inicio. Antes de ejecutar la línea de comandos para la tarea de inicio, descomprima el archivo desde la línea de comandos. 

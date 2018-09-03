@@ -1,19 +1,19 @@
 ---
 title: Uso de Jenkins para implementar aplicaciones web en Azure
 description: Configure la integración continua desde GitHub en Azure App Service para las aplicaciones web de Java con Jenkins y Docker.
-ms.topic: tutorial
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, el servicio de aplicación, integración continua, ci, implementación continua, cd
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: e880d84c3ae0fd23c11bb9b30733544bd5f28872
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b1af82060d316a18cd6427f70695ca4fa982064d
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389949"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106804"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configuración de la integración continua y la implementación en Azure App Service con Jenkins
 
@@ -33,7 +33,7 @@ En este tutorial, realizará las siguientes tareas:
 
 Para completar este tutorial, necesita:
 
-* [Jenkins](https://jenkins.io/) con las herramientas JDK y Maven configuradas. Si no tiene un sistema Jenkins, cree uno ahora en Azure desde la [plantilla de solución de Jenkins](/azure/jenkins/install-jenkins-solution-template).
+* [Jenkins](https://jenkins.io/) con herramientas JDK y Maven configuradas. Si no tiene un sistema Jenkins, cree uno ahora en Azure desde la [plantilla de solución de Jenkins](/azure/jenkins/install-jenkins-solution-template).
 * Una cuenta de [GitHub](https://github.com).
 * La [CLI de Azure 2.0](/cli/azure), ya sea desde la línea de comandos local o desde [Azure Cloud Shell](/azure/cloud-shell/overview).
 
@@ -164,7 +164,7 @@ Configure Jenkins para recibir [webhooks de GitHub](https://developer.github.com
 ## <a name="deploy-the-app-from-github"></a>Implementación de la aplicación desde GitHub
 
 1. En el proyecto de Jenkins, seleccione **Build now** (Compilar ahora) para implementar la aplicación de ejemplo en Azure.
-2. Una vez finalizada la compilación, la aplicación estará activa en Azure mediante la URL de publicación, por ejemplo http://myjavaapp.azurewebsites.net.   
+2. Una vez finalizada la compilación, la aplicación estará activa en Azure en la dirección URL de publicación, por ejemplo http://myjavaapp.azurewebsites.net.   
    ![Visualización de la aplicación implementada en Azure](media/jenkins-java-quickstart/hello_docker_world_unedited.png)
 
 ## <a name="push-changes-and-redeploy"></a>Confirmación de cambios y reimplementación

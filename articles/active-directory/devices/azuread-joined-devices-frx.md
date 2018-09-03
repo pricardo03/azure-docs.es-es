@@ -12,18 +12,18 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1376f011d056aac33333f6ac31ee2eaadaf3ef4a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: eaf0b3e3b607145598660dbb64cadd5a277360cb
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415798"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046329"
 ---
-# <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Unir un nuevo dispositivo Windows 10 con Azure AD durante la primera vista de Windows
+# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Tutorial: Unión de un nuevo dispositivo Windows 10 con Azure AD durante la primera vista de Windows
 
 Con la administración de dispositivos en Azure Active Directory (Azure AD), puede asegurarse de que los usuarios tienen acceso a los recursos desde dispositivos que cumplen los estándares de seguridad y cumplimiento. Para más información, consulte [Introducción a la administración de dispositivos en Azure Active Directory](overview.md).
 
@@ -34,9 +34,13 @@ Si tiene Windows 10 Professional o Windows 10 Enterprise instalado en un disposi
 
 En la *configuración rápida* de Windows, no se puede unir a un dominio local de Active Directory (AD). Si planea unir un equipo a un dominio de AD, durante la configuración, debe seleccionar el vínculo **Configurar Windows con una cuenta local**. Luego, puede unirse al dominio desde la configuración del equipo.
  
+En este tutorial, aprenderá a unir un dispositivo a Azure AD durante FRX:
+ > [!div class="checklist"]
+> * Requisitos previos
+> * Unión de un dispositivo
+> * Comprobación
 
-
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisites"></a>Requisitos previos
 
 Para unir un dispositivo Windows 10, el servicio de registro de dispositivos debe configurarse para que pueda registrar dispositivos. Además de tener permiso para unir dispositivos en su inquilino de Azure AD, debe tener menos dispositivos registrados que el máximo configurado. Para obtener más información, consulte [Configure device settings](device-management-azure-portal.md#configure-device-settings) (Configuración del dispositivo).
 

@@ -4,17 +4,17 @@ description: En este tutorial, va a implementar una función de Azure como módu
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/10/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 426d9fd81a0cd856378be3bb4f430f310bee53eb
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: cf973899a6f56010c47588bdd506418a3d9a7cd8
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41918945"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42744049"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>Tutorial: Implementación de funciones de Azure como módulos de IoT Edge (versión preliminar)
 
@@ -170,7 +170,7 @@ En la sección anterior se ha creado una solución de IoT Edge y se ha agregado 
 
 En esta sección, se proporcionan las credenciales para el registro de contenedor dos veces. La primera consiste en iniciar sesión localmente desde el equipo de desarrollo para que Visual Studio Code pueda insertar imágenes en el registro. La segunda se encuentra en el archivo **.env** de la solución IoT Edge, que concede a su dispositivo IoT Edge permisos para extraer imágenes del registro. 
 
-1. Para abrir el terminal integrado de VSCode, seleccione **Ver** > **Terminal integrado**. 
+1. Abra el terminal integrado de VS Code, para lo que debe seleccionar **View** > **Terminal** (Ver > Terminal). 
 
 1. Inicie sesión en su registro de contenedor, para lo que debe escribir el comando siguiente en el terminal integrado. A continuación, puede insertar la imagen del módulo en Azure Container Registry: 
      
@@ -219,7 +219,7 @@ Puede usar Azure Portal para implementar el módulo de función en un dispositiv
 
 5. En el explorador de VS Code, expanda la sección **Azure IoT Hub Devices** (Dispositivos de Azure IoT Hub). 
 
-6. Haga clic con el botón derecho en el nombre del dispositivo IoT Edge y seleccione **Create Deployment for IoT Edge device** (Crear implementación para el dispositivo IoT Edge). 
+6. Haga clic con el botón derecho en el nombre del dispositivo IoT Edge y seleccione **Create Deployment for IoT Edge device** (Crear una implementación para un dispositivo individual). 
 
 7. Vaya a la carpeta de la solución que contiene **CSharpFunction**. Abra la carpeta config, seleccione el archivo deployment.json y, a continuación, haga clic en **Select Edge Deployment Manifest** (Seleccionar manifiesto de implementación de Edge).
 
@@ -238,7 +238,7 @@ Para dejar de supervisar mensajes, ejecute el comando **Azure IoT Hub: Stop moni
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si prevé seguir con el siguiente artículo recomendado, puede mantener los recursos y las configuraciones que ya ha creado y volverlos a utilizar. También puede seguir usando el mismo dispositivo IoT Edge como dispositivo de prueba. 
+Si prevé seguir con el siguiente artículo recomendado, puede mantener los recursos y las configuraciones que ya ha creado y volverlos a utilizar. También puede seguir usando el mismo dispositivo de IoT Edge como dispositivo de prueba. 
 
 En caso contrario, para evitar gastos, puede eliminar las configuraciones locales y los recursos de Azure que creó en este artículo. 
 

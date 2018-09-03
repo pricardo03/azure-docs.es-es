@@ -14,22 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: e001907b9df77eff1455043a3fd7ce5533838fcc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0781bf3fe9806c2c8aaa911433c4d6eddcafe04c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056181"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885500"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-identity-to-access-azure-storage"></a>Tutorial: Uso de Managed Identity en una máquina virtual Windows para acceder a Azure Storage
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-En este tutorial se muestra cómo habilitar Managed Identity para una máquina virtual Windows y usar esa identidad para acceder a Azure Storage.  Aprenderá a:
+En este tutorial se muestra cómo a usar una identidad asignada por el sistema en una máquina virtual (VM) Windows para acceder a Azure Storage. Aprenderá a:
 
 > [!div class="checklist"]
-> * Creación de una máquina virtual Windows en un nuevo grupo de recursos 
-> * Habilitar Managed Identity en una máquina virtual (VM) Windows
 > * Crear un contenedor de blobs en una cuenta de almacenamiento
 > * Conceder a Managed Identity de la máquina virtual Windows acceso a una cuenta de almacenamiento 
 > * Obtener un acceso y usarlo para llamar a Azure Storage 
@@ -43,31 +41,11 @@ En este tutorial se muestra cómo habilitar Managed Identity para una máquina v
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+- [Iniciar sesión en Azure Portal](https://portal.azure.com)
 
-Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
+- [Crear una máquina virtual Windows](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Creación de una máquina virtual Windows en un nuevo grupo de recursos
-
-En esta sección se creará una máquina virtual Windows a la que más tarde se concederá una identidad Managed Identity.
-
-1.  Haga clic en el botón **+/Crear nuevo servicio** de la esquina superior izquierda de Azure Portal.
-2.  Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**. 
-3.  Escriba la información de la máquina virtual. El **nombre de usuario** y la **contraseña** creados aquí son las credenciales que se usan para iniciar sesión en la máquina virtual.
-4.  Elija la **suscripción** adecuada de la máquina virtual en la lista desplegable.
-5.  Para seleccionar un nuevo **grupo de recursos** en el que quiere crear la máquina virtual, elija **Crear nuevo**. Cuando haya terminado, haga clic en **Aceptar**.
-6.  Seleccione el tamaño de la máquina virtual. Para ver más tamaños, seleccione **Ver todo** o cambie el filtro **Supported disk type** (Tipo de disco admitido). En la hoja de configuración, conserve los valores predeterminados y haga clic en **Aceptar**.
-
-    ![Texto alternativo de imagen](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-identity-on-your-vm"></a>Habilitación de Managed Identity en la máquina virtual
-
-Una identidad Managed Identity de máquina virtual le permite obtener tokens de acceso desde Azure AD sin la necesidad de incluir credenciales en el código. En un segundo plano, habilitar Managed Identity en una máquina virtual mediante Azure Portal permite hacer dos cosas: registrar la máquina virtual con Azure AD para crear una identidad administrada y configurar la identidad en la máquina virtual. 
-
-1. Desplácese hasta el grupo de recursos de la nueva máquina virtual y seleccione la máquina virtual que creó en el paso anterior.
-2. En la categoría **Configuración**, haga clic en **Configuración**.
-3. Para habilitar Managed Identity, seleccione **Sí**.
-4. Haga clic en **Guardar** para aplicar la configuración. 
+- [Habilitar la identidad asignada por el sistema en la máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento 
 

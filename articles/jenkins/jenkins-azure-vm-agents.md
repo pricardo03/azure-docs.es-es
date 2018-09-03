@@ -1,19 +1,19 @@
 ---
 title: Escale las implementaciones de Jenkins con agentes de máquina virtual de Azure.
 description: Agregue una funcionalidad adicional a las canalizaciones de Jenkins mediante Azure Virtual Machines con el complemento de agente de máquina virtual de Azure.
-ms.topic: tutorial
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, máquina virtual, agentes
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 069c6df38f9caa73a30fbc25baafdf7efbd2f402
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 46710b3a669b6a00dc1826c55e8d35fe700f312f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429403"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106230"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Escalado de las implementaciones de Jenkins para satisfacer la demanda con agentes de máquina virtual de Azure
 
@@ -118,7 +118,7 @@ En la sección **Image Configuration** (Configuración de la imagen) de la confi
 
 ![Configuración de las herramientas y el sistema operativo de la máquina virtual](./media/jenkins-azure-vm-agents/jenkins-os-config.png)
 
-Seleccione **Add** (Agregar) junto a **Admin Credentials** (Credenciales de administrador) y después seleccione **Jenkins**. Escriba un nombre de usuario y la contraseña que utiliza para iniciar sesión en los agentes, pero asegúrese de que cumplan la [directiva de nombre de usuario y contraseña](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm) de las cuentas administrativas de Azure Virtual Machines.
+Seleccione **Add** (Agregar) junto a **Admin Credentials** (Credenciales de administrador) y después seleccione **Jenkins**. Escriba el nombre de usuario y la contraseña que se usan para iniciar sesión en los agentes, pero asegúrese de que cumplen la [directiva de nombre de usuario y contraseña](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm) de las cuentas administrativas de las máquinas virtuales de Azure.
 
 Seleccione **Verify Template** (Verificar plantilla) para verificar la configuración y después seleccione **Save** (Guardar) para guardar los cambios y volver al panel de Jenkins.
 

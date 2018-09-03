@@ -14,23 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: d4daccfdcb2bc11831e960aa20533e32801db946
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5117444b6312d96f87f9e1edf8ce26d0360417ef
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049344"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885758"
 ---
 # <a name="tutorial-use-a-linux-vms-managed-identity-to-access-azure-storage"></a>Tutorial: Uso de una identidad administrada en una máquina virtual Linux para acceder a Azure Storage 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-
-Este tutorial muestra cómo crear y usar una identidad administrada en una máquina virtual Linux para acceder a Azure Storage. Aprenderá a:
+En este tutorial se muestra cómo usar una identidad asignada por el sistema para una máquina virtual Linux a fin de acceder a Azure Storage. Aprenderá a:
 
 > [!div class="checklist"]
-> * Crear una máquina virtual Linux en un nuevo grupo de recursos
-> * Habilitación de una identidad administrada en una máquina virtual Linux
+> * Crear una cuenta de almacenamiento
 > * Crear un contenedor de blobs en una cuenta de almacenamiento
 > * Concesión de acceso a una identidad administrada de una máquina virtual Linux para un contenedor de Azure Storage
 > * Obtención de un token de acceso y su uso para llamar a Azure Storage
@@ -40,41 +38,20 @@ Este tutorial muestra cómo crear y usar una identidad administrada en una máqu
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com) antes de continuar.
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+- [Iniciar sesión en Azure Portal](https://portal.azure.com)
+
+- [Crear una máquina virtual Linux](/azure/virtual-machines/linux/quick-create-portal)
+
+- [Habilitar la identidad asignada por el sistema en la máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 Para ejecutar los ejemplos de script de la CLI de este tutorial, tiene dos opciones:
 
 - Use [Azure Cloud Shell](~/articles/cloud-shell/overview.md) desde Azure Portal o mediante el botón **Pruébelo**, situado en la esquina superior derecha de cada bloque de código.
 - [Instale la versión más reciente de la CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o posterior), si prefiere usar una consola de la CLI local.
-
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
-
-Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
-
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Crear una máquina virtual Linux en un nuevo grupo de recursos
-
-En esta sección, creará una máquina virtual Linux a la que más tarde se concederá una identidad administrada.
-
-1. Seleccione el botón **Nuevo** en la esquina superior izquierda de Azure Portal.
-2. Seleccione **Compute**y, después, seleccione **Ubuntu Server 16.04 LTS**.
-3. Escriba la información de la máquina virtual. En **Tipo de autenticación**, seleccione **Clave pública SSH** o **Contraseña**. Las credenciales creadas le permiten iniciar sesión en la máquina virtual.
-
-   ![Panel "Básico" para crear una máquina virtual](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. En la lista **Suscripción**, seleccione una suscripción para la máquina virtual.
-5. Para seleccionar un nuevo grupo de recursos en el que desea crear la máquina virtual, seleccione **Grupo de recursos** > **Crear nuevo**. Cuando termine, seleccione **Aceptar**.
-6. Seleccione el tamaño de la máquina virtual. Para ver más tamaños, seleccione **Ver todo** o cambie el filtro **Supported disk type** (Tipo de disco admitido). En la panel de configuración, mantenga los valores predeterminados y seleccione **Aceptar**.
-
-## <a name="enable-managed-identity-on-your-vm"></a>Habilitación de Managed Identity en la máquina virtual
-
-Una identidad Managed Identity de máquina virtual le permite obtener tokens de acceso desde Azure AD sin la necesidad de incluir credenciales en el código. En un segundo plano, habilitar Managed Identity en una máquina virtual mediante Azure Portal permite hacer dos cosas: registrar la máquina virtual con Azure AD para crear una identidad administrada y configurar la identidad en la máquina virtual.
-
-1. Desplácese hasta el grupo de recursos de la nueva máquina virtual y seleccione la máquina virtual que creó en el paso anterior.
-2. En la categoría **Configuración**, haga clic en **Configuración**.
-3. Para habilitar Managed Identity, seleccione **Sí**.
-4. Haga clic en **Guardar** para aplicar la configuración. 
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento 
 

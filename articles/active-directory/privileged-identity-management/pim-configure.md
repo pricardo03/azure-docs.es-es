@@ -1,6 +1,6 @@
 ---
-title: Configuración de Azure AD Privileged Identity Management | Microsoft Docs
-description: Un tema que explica qué es Privileged Identity Management de Azure AD y cómo usar PIM para mejorar la seguridad de la nube.
+title: ¿Qué es Azure AD Privileged Identity Management? | Microsoft Docs
+description: Ofrece una introducción a Azure Active Directory Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8ac1dad9413d9e2710722127c2e837223a5b6f7f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ff4e5322ac9ccc0bbfd0706ca9f4863670bbf1b5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618859"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186218"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>¿Qué es Azure AD Privileged Identity Management?
 
@@ -51,6 +51,35 @@ En Azure AD, Azure AD Privileged Identity Management puede administrar los usuar
 ## <a name="just-in-time-administrator-access"></a>Acceso de administrador justo a tiempo
 
 Históricamente, podía asignar un usuario a un rol de administrador mediante Azure Portal, otros portales de Microsoft Online Services o los cmdlets de Azure AD de Windows PowerShell. Por lo tanto, ese usuario se convierte en **administrador permanente**, siempre activo en su rol asignado. Privileged Identity Management de Azure AD presenta el concepto de **administrador apto**. Los administradores aptos deben ser usuarios que necesiten acceso con privilegios de vez en cuando, pero no todo el día cada día. El rol está inactivo hasta que el usuario necesita acceso, luego realiza un proceso de activación y se convierte en un administrador activo durante una cantidad de tiempo predeterminada. Cada vez hay más organizaciones que se deciden a usar este enfoque para reducir o eliminar un "acceso de administración permanente" para roles con privilegios.
+
+
+## <a name="terminology"></a>Terminología
+
+*Usuario de rol apto*: es un usuario de la organización que se ha asignado a un rol de Azure AD como apto (el rol requiere activación).
+
+*Aprobador delegado*: se trata de una o varias personas o grupos de Azure AD responsables de la aprobación de las solicitudes para activar roles.
+
+## <a name="scenarios"></a>Escenarios
+
+Privileged Identity Management admite los siguientes escenarios:
+
+**Como administrador de rol con privilegios, puede:**
+
+- Habilitar la aprobación de roles específicos
+- Especificar usuarios y grupos de aprobadores para la aprobación de solicitudes
+- Ver el historial de solicitudes y aprobaciones de todos los roles con privilegios
+
+**Como un aprobador designado, puede:**
+
+- Ver aprobaciones o solicitudes pendientes
+- Aprobar o rechazar solicitudes de elevación de rol (de forma individual o masiva)
+- Proporcionar una justificación de la aprobación o el rechazo 
+
+**Como usuario de rol apto, puede:**
+
+- Solicitar la activación de un rol que requiere aprobación
+- Ver el estado de la solicitud de activación
+- Completar la tarea en Azure AD si la activación se ha aprobado
 
 ## <a name="enable-privileged-identity-management-for-your-directory"></a>Habilitación de Privileged Identity Management para el directorio
 
@@ -157,4 +186,6 @@ Si su organización no renueva Azure AD Premium P2 o expira el período de prueb
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+- [Requisitos de suscripción de Azure Active Directory Privileged Identity Management](subscription-requirements.md)
+- [Roles de directorio de Azure AD que se pueden administrar en PIM](pim-roles.md)
+- [Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

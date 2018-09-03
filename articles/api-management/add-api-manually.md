@@ -3,7 +3,7 @@ title: Adición manual de una API mediante Azure Portal| Microsoft Docs
 description: En este tutorial se muestra cómo utilizar la API de administración (APIM) para agregar manualmente una API.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,16 +11,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: ef7cfa0f30eaaa426c312b21ce0a73aa4409d2ec
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 35b4777c7de4db1f8514b24e7b1e4d11775d0ca0
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307455"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247909"
 ---
-# <a name="add-an-api-manually"></a>Adición manual de una API 
+# <a name="add-an-api-manually"></a>Adición manual de una API
 
 En los pasos de este artículo se explica cómo usar Azure Portal para agregar manualmente una API a la instancia de API Management (APIM). Un escenario común es si quiere crear una API en blanco y definirla manualmente cuando desee simular la API. Para obtener más información sobre la simulación de una API, consulte el artículo sobre cómo [simular respuestas de API](mock-api-responses.md).
 
@@ -28,7 +28,7 @@ Si desea importar una API existente, consulte la sección de [temas relacionados
 
 En este artículo, creará una API en blanco y especificará [httpbin.org](http://httpbin.org) (un servicio de prueba público) como API de back-end.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 
@@ -45,7 +45,7 @@ Completar la guía de inicio rápido siguiente: [Creación de una instancia de A
 
     ![Configuración](media/add-api-manually/settings.png)
 
-    |**Name**|**Valor**|**Descripción**|
+    |**Nombre**|**Valor**|**Descripción**|
     |---|---|---|
     |**Nombre para mostrar**|"*API en blanco*" |El nombre se muestra en el Portal para desarrolladores.|
     |**Dirección URL de servicio web** (opcional)| "*http://httpbin.org*"| Si desea simular una API, recomendamos no escribir nada. <br/>En este caso, escribimos [http://httpbin.org](http://httpbin.org). Se trata de un servicio de prueba público. <br/>Si desea importar una API que se asigne automáticamente a un back-end, consulte uno de los temas de la sección de [temas relacionados](#related-topics).|
@@ -54,25 +54,24 @@ Completar la guía de inicio rápido siguiente: [Creación de una instancia de A
     |**Productos**|"*Sin límite*" |Publique la API asociándola a un producto. Si desea que la API se publique y esté disponible para los desarrolladores, agréguela a un producto. Puede hacerlo durante la creación de la API o configurarla más adelante.<br/><br/>Los productos son asociaciones de una o varias API. Puede incluir varias API y ofrecerlas a los desarrolladores mediante el portal para desarrolladores. <br/>En primer lugar, los desarrolladores deben suscribirse a un producto para acceder a la API. Al suscribirse, obtienen una clave de suscripción que funciona con cualquier API de ese producto. Si creó la instancia de APIM, ya es un administrador, así que, de forma predeterminada, está suscrito a todos los productos.<br/><br/> De forma predeterminada, cada instancia de API Management incluye dos productos de ejemplo: **Starter** y **Unlimited**.| 
 5. Seleccione **Crear**.
 
-En este momento, no tiene ninguna operación en APIM que se asigne a las operaciones en la API de back-end. Si se llama a una operación que se expone a través del back-end, pero no a través de la APIM, obtendrá una respuesta **404**. 
+En este momento, no tiene ninguna operación en APIM que se asigne a las operaciones en la API de back-end. Si se llama a una operación que se expone a través del back-end, pero no a través de la APIM, obtendrá una respuesta **404**.
 
 >[!NOTE] 
 > De forma predeterminada, cuando agrega una API, aunque esté conectado a algún servicio back-end, APIM no expondrá ninguna operación hasta que incorpore a la lista blanca. Para incluir en la lista blanca una operación del servicio de back-end, cree una operación de APIM que se asigne a la operación de back-end.
->
 
 ## <a name="add-and-test-an-operation"></a>Adición y prueba de una operación
 
 En esta sección se muestra cómo agregar una operación "/get" para asignarla a la operación de back-end "http://httpbin.org/get".
 
-### <a name="add-the-operation"></a>Adición de la operación
+### <a name="add-an-operation"></a>Agregar una operación
 
-1. Seleccione API que creó en los pasos anteriores.
+1. Seleccione la API que creó en los pasos anteriores.
 2. Haga clic en **+ Agregar operación**.
 3. En la **URL**, seleccione **GET** y escriba "*/get*" en el recurso.
 4. Escriba "*FetchData*" en **Nombre para mostrar**.
 5. Seleccione **Guardar**.
 
-### <a name="test-the-operation"></a>Prueba de la operación
+### <a name="test-an-operation"></a>Probar una operación
 
 Pruebe la operación en Azure Portal. También puede probarla en el **Portal para desarrolladores**.
 

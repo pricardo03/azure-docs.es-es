@@ -1,26 +1,21 @@
 ---
 title: 'Creación de flujos de trabajo de aprobación para procesar solicitudes de la lista de distribución de correo: Azure Logic Apps | Microsoft Docs'
-description: Este tutorial muestra cómo crear flujos de trabajo de aprobación automatizados para el procesamiento de suscripciones de listas de distribución de correo con Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-editor: ''
+description: 'Tutorial: cómo crear flujos de trabajo de aprobación automatizados para el procesamiento de suscripciones de listas de distribución de correo con Azure Logic Apps'
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: e31be6ac24b7b194ab77856cb7376f9431a79f24
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 4ac5861dabbc473099886b4f099824cde60f38b9
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300681"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122876"
 ---
 # <a name="manage-mailing-list-requests-with-a-logic-app"></a>Administración de solicitudes de lista de distribución de correo con una aplicación lógica
 
@@ -44,13 +39,13 @@ Cuando haya terminado, la aplicación lógica se parecerá a este flujo de traba
 
 Si no tiene ninguna suscripción a Azure, <a href="https://azure.microsoft.com/free/" target="_blank">cree una cuenta gratuita de Azure</a> antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de MailChimp. Cree una lista denominada "test-members-ML" en la que la aplicación lógica pueda agregar direcciones de correo electrónico para los miembros aprobados. Si no tiene una cuenta, [regístrese en una cuenta gratuita](https://login.mailchimp.com/signup/) y aprenda a [crear una lista](https://us17.admin.mailchimp.com/lists/#). 
 
 * Una cuenta de correo electrónico con Office 365 Outlook o Outlook.com, que admita los flujos de trabajo de aprobación. Este artículo utiliza Office 365 Outlook. Si utiliza una cuenta de correo electrónico diferente, los pasos generales siguen siendo los mismos pero la interfaz de usuario podría ser ligeramente distinta.
 
-## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
 Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Portal</a> con sus credenciales de su cuenta de Azure.
 
@@ -66,7 +61,7 @@ Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Porta
 
    | Configuración | Valor | DESCRIPCIÓN | 
    | ------- | ----- | ----------- | 
-   | **Name** | LA-MailingList | Nombre de la aplicación lógica | 
+   | **Nombre** | LA-MailingList | Nombre de la aplicación lógica | 
    | **Suscripción** | <*nombre-de-su-suscripción-a-Azure*> | El nombre de la suscripción a Azure | 
    | **Grupos de recursos** | LA-MailingList-RG | Nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) que se utiliza para organizar recursos relacionados | 
    | **Ubicación** | Este de EE. UU. 2 | Región en la que desea almacenar información sobre la aplicación lógica | 

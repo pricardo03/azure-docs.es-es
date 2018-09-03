@@ -14,25 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 54a763a768a57692cf0298c07f23fb4ed84f758f
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9a4aaa17c8ab325f93002d55e301363fd9f2d4e5
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258157"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885051"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-key-vault"></a>Tutorial: Uso de la característica Managed Service Identity de una máquina virtual Linux para acceder a Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-En este tutorial se muestra cómo habilitar Managed Service Identity en una máquina virtual Linux y, después, usar dicha identidad para acceder a Azure Key Vault. Actuando como un arranque, Key Vault hace posible que la aplicación de cliente use el secreto para tener acceso a recursos que no están protegidos por Azure Active Directory (AD). Las identidades de MSI son administradas automáticamente por Azure y le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código. 
+En este tutorial se muestra cómo usar una identidad asignada por el sistema para una máquina virtual Linux a fin de acceder a Azure Key Vault. Actuando como un arranque, Key Vault hace posible que la aplicación de cliente use el secreto para tener acceso a recursos que no están protegidos por Azure Active Directory (AD). Las identidades de MSI son administradas automáticamente por Azure y le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código. 
 
 Aprenderá a:
 
 > [!div class="checklist"]
-> * Habilitar Managed Service Identity en una máquina virtual Linux 
 > * Concesión de acceso a la máquina virtual a un secreto almacenado en un almacén de claves 
-> * Obtener un token de acceso mediante la identidad de máquina virtual y usarlo para recuperar el secreto del almacén de claves 
+> * Obtención de un token de acceso mediante la identidad de máquina virtual y usarlo para recuperar el secreto de Key Vault 
  
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -40,33 +39,11 @@ Aprenderá a:
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
-Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com). 
+- [Iniciar sesión en Azure Portal](https://portal.azure.com)
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Creación de una máquina virtual Linux en un nuevo grupo de recursos
+- [Crear una máquina virtual Linux](/azure/virtual-machines/linux/quick-create-portal)
 
-En este tutorial, vamos a crear una nueva máquina virtual Linux. Managed Service Identity también se puede habilitar en una máquina virtual existente.
-
-1. Haga clic en el botón **Crear un recurso** de la esquina superior izquierda de Azure Portal.
-2. Seleccione **Compute**y, después, seleccione **Ubuntu Server 16.04 LTS**.
-3. Escriba la información de la máquina virtual. En **Tipo de autenticación**, seleccione **Clave pública SSH** o **Contraseña**. Las credenciales creadas le permiten iniciar sesión en la máquina virtual.
-
-    ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. Elija una **Suscripción** para la máquina virtual en la lista desplegable.
-5. Para seleccionar un nuevo **Grupo de recursos** en el que desearía crear la máquina virtual, elija **Crear nuevo**. Cuando haya terminado, haga clic en **Aceptar**.
-6. Seleccione el tamaño de la máquina virtual. Para ver más tamaños, seleccione **Ver todo** o cambie el filtro de tipo de disco admitido. En la página de configuración, conserve los valores predeterminados y haga clic en **Aceptar**.
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Habilitación de Managed Service Identity en una máquina virtual
-
-La característica Managed Service Identity de una máquina virtual le permite obtener tokens de acceso desde Azure AD sin tener que incluir credenciales en el código. Al habilitar Managed Service Identity se realizan dos acciones: por una parte, se registra la máquina virtual en Azure Active Directory para crear su identidad administrada y por otra, se configura la identidad en la máquina virtual.
-
-1. Seleccione la **máquina virtual** en la que desea habilitar Managed Service Identity.
-2. En la barra de navegación de la izquierda, haga clic en **Configuración**.
-3. Verá **Managed Service Identity**. Para registrar y habilitar Managed Service Identity, seleccione **Sí**; si desea deshabilitarla, elija No.
-4. No olvide hacer clic en **Guardar** para guardar la configuración.
-
-    ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [Habilitar la identidad asignada por el sistema en la máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Concesión de acceso a la máquina virtual a un secreto almacenado en un almacén de claves  
 

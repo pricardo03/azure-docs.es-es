@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 42f0781de5412310ecb5326f0384268aba9c53dd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 81d538c0324f8fa89a7ce86ceaf2b0a2a76b4d51
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651676"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43120691"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: Actualización del inventario mediante la CLI y temas/suscripciones
 
@@ -34,7 +34,7 @@ Un ejemplo de este escenario es una actualización del surtido de inventario de 
 
 Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][] antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para desarrollar una aplicación de Service Bus con Java, debe tener instalado lo siguiente:
 
@@ -50,9 +50,9 @@ Si decide instalar y usar la CLI localmente, para este tutorial es preciso que e
 
 Cada [suscripción a un tema](service-bus-messaging-overview.md#topics) puede recibir una copia de cada mensaje. Los temas son completamente compatibles desde el punto de vista semántico y del protocolo con las colas de Service Bus. Los temas de Service Bus admiten una amplia variedad de reglas de selección con condiciones de filtro, con acciones opcionales que establecerán o modificarán las propiedades del mensaje. Cada vez que coincide una regla, esta genera un mensaje. Para más información acerca de reglas, filtros y acciones, siga este [vínculo](topic-filters.md).
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Una vez instalada la CLI, abra un símbolo del sistema y emita los siguientes comandos para iniciar sesión en Azure. Estos pasos no son necesarios si usa Cloud Shell:
+Una vez instalada la CLI, abra un símbolo del sistema y use los siguientes comandos para iniciar sesión en Azure. Estos pasos no son necesarios si usa Cloud Shell:
 
 1. Si usa la CLI de Azure localmente, ejecute el siguiente comando para iniciar sesión en Azure. Este paso de inicio de sesión no es necesario si ejecuta estos comandos en Cloud Shell:
 
@@ -165,7 +165,7 @@ az group delete --resource-group my-resourcegroup
 
 ## <a name="understand-the-sample-code"></a>Descripción del código de ejemplo
 
-Esta sección contiene información más detallada sobre lo que hace el código de ejemplo.
+Esta sección contiene información más detallada acerca de lo que hace el código de ejemplo.
 
 ### <a name="get-connection-string-and-queue"></a>Obtención de la cadena de conexión y la cola
 

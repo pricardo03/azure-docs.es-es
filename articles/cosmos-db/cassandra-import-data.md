@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: b53328875f2242faba369dea0df655bc78117009
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 55a6fec1b6ac018b4b24c0d27dcfdd5812455800
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41919426"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189683"
 ---
-# <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB: importación de datos de Cassandra
+# <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Migración de los datos a una cuenta de Cassandra API de Azure Cosmos DB
 
 Este tutorial proporciona instrucciones sobre cómo importar datos de Cassandra en Azure Cosmos DB mediante el comando COPY de lenguaje de consulta de Cassandra (CQL). 
 
@@ -31,11 +31,13 @@ En este tutorial se describen las tareas siguientes:
 
 # <a name="prerequisites"></a>Requisitos previos
 
-* Instale [Apache Cassandra](http://cassandra.apache.org/download/) y asegúrese de forma específica de que *cqlsh* está presente.
-* Aumente el rendimiento: la duración de la migración de datos depende de la cantidad de rendimiento aprovisionado para las tablas. Asegúrese de aumentar el rendimiento para migraciones de datos más grandes. Después de haber completado la migración, reduzca el rendimiento para ahorrar costos. Para más información sobre cómo aumentar el rendimiento en [Azure Portal](https://portal.azure.com), consulte [Configuración del rendimiento para contenedores de Azure Cosmos DB](set-throughput.md).
+* Instale [Apache Cassandra](http://cassandra.apache.org/download/) y asegúrese de forma específica de que *cqlsh* está presente.  
+
+* Aumente el rendimiento: la duración de la migración de datos depende de la cantidad de rendimiento aprovisionado para las tablas. Asegúrese de aumentar el rendimiento para migraciones de datos más grandes. Después de haber completado la migración, reduzca el rendimiento para ahorrar costos. Para más información sobre cómo aumentar el rendimiento en [Azure Portal](https://portal.azure.com), consulte [Configuración del rendimiento para contenedores de Azure Cosmos DB](set-throughput.md).  
+
 * Habilite SSL: Azure Cosmos DB tiene estrictos estándares y requisitos de seguridad. No olvide habilitar SSL al interactuar con la cuenta. Al usar CQL con SSH, tiene una opción para proporcionar información de SSL. 
 
-## <a name="find-your-connection-string"></a>Búsqueda de la cadena de conexión
+## <a name="get-your-connection-string"></a>Obtención de la cadena de conexión
 
 1. En [Azure Portal](https://portal.azure.com), en el extremo izquierdo, haga clic en **Azure Cosmos DB**.
 
@@ -45,14 +47,14 @@ En este tutorial se describen las tareas siguientes:
 
     ![Página Cadena de conexión](./media/cassandra-import-data/keys.png)
 
-## <a name="use-cqlsh-copy"></a>Uso de COPY de cqlsh
+## <a name="migrate-data-by-using-cqlsh-copy"></a>Migración de datos mediante cqlsh COPY
 
 Para importar datos de Cassandra en Azure Cosmos DB para usarlos con Apache Cassandra API, utilice la siguiente guía:
 
 1. Inicie sesión en cqhsh con la información de conexión del portal.
 2. Use el [comando COPY de CQL](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) para copiar datos locales en el punto de conexión de Apache Cassandra API. Asegúrese de que el origen y el destino están en el mismo centro de datos para minimizar los problemas de latencia.
 
-### <a name="guide-for-moving-data-with-cqlsh"></a>Guía para mover datos con cqlsh
+### <a name="steps-to-move-data-with-cqlsh"></a>Pasos para mover datos con cqlsh
 
 1. Cree previamente la tabla y escálela:
     * De forma predeterminada, Azure Cosmos DB aprovisiona una nueva tabla de Apache Cassandra API con 1000 unidades de solicitud por segundo (RU/s) (la creación basada en CQL se aprovisiona con 400 RU/s). Antes de iniciar la migración mediante cqlsh, cree previamente todas las tablas a partir de [Azure Portal](https://portal.azure.com) o cqlsh. 
@@ -80,11 +82,11 @@ Para importar datos de Cassandra en Azure Cosmos DB para usarlos con Apache Cass
 
 5. Ejecute el comando de migración final. La ejecución de este comando supone que ha iniciado cqlsh mediante la información sobre la cadena de conexión.
 
-   ```
+   ```bash
    COPY exampleks.tablename FROM filefolderx/*.csv 
    ```
 
-## <a name="use-spark-to-import-data"></a>Usar Spark para importar datos
+## <a name="migrate-data-by-using-spark"></a>Migración de datos mediante Spark
 
 Para los datos que residen en un clúster existente en Azure Virtual Machines, la importación de datos mediante Spark también es una opción posible. Esto requiere que Spark se configure como intermediario para una ingesta única o regular. 
 

@@ -8,16 +8,16 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 03b204d9970a3831543a03dfa08e2a4d8b274034
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebaa72f87a64484dd8687a0ec7548e67b0df9510
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23073867"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190682"
 ---
 # <a name="windows-virtual-machines-documentation"></a>Documentación sobre máquinas virtuales Windows
 
-Máquinas virtuales Windows de Azure proporciona una infraestructura bajo demanda, a gran escala, segura y virtualizada con Windows Server. Aprenda a crear, configurar, administrar y escalar máquinas virtuales Windows con nuestros inicios rápidos, tutoriales y ejemplos.
+Azure Virtual Machines proporciona una infraestructura bajo demanda, a gran escala, segura y virtualizada con Windows Server. Aprenda a crear, configurar, administrar y escalar máquinas virtuales Windows con nuestros inicios rápidos, tutoriales y ejemplos.
 
 ## <a name="5-minute-quickstarts"></a>Inicios rápidos en 5 minutos
 
@@ -46,11 +46,9 @@ Aprenda a implementar, administrar y supervisar máquinas virtuales Windows en A
 
 ## <a name="free-pluralsight-video-training"></a>Vídeo gratuito de aprendizaje de PluralSight
 
-- [Administración de la infraestructura](https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02)
-- [Introducción a Virtual Machines](https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02)
-- [Introducción a la supervisión de IaaS](https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02")
+- [Administrador de Azure](https://go.microsoft.com/fwlink/?linkid=2012827)
 
-## <a name="samples"></a>Muestras
+## <a name="samples"></a>Ejemplos
 
 Implemente su primera aplicación en Azure.
 

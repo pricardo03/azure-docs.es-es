@@ -3,7 +3,7 @@ title: En este tutorial, va a crear una máquina virtual de Azure Stack mediante
 description: Describe cómo usar el Kit de desarrollo de Azure Stack para crear una máquina virtual mediante una plantilla predefinida y una plantilla personalizada de GitHub.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/07/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: e772dc41ce2cb77a03b91515cae35ffc48f5dbc3
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5026a7a753ec744d281266b2fb30a70a66a7f9db
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35237002"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "43050453"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Tutorial: creación de una máquina virtual mediante una plantilla de comunidad
 Como operador o usuario de Azure Stack, puede crear una máquina virtual mediante [plantillas de inicio rápido personalizadas de GitHub](https://github.com/Azure/AzureStack-QuickStart-Templates) en lugar de implementar una manualmente desde Marketplace de Azure Stack.
@@ -100,7 +100,7 @@ Esta plantilla instala los componentes siguientes:
    >[!NOTE]
    > La máquina virtual se ejecutará cuando se complete la implementación. 
 
-## <a name="start-minikube-and-install-an-application"></a>Inicio de minikube e instalación de una aplicación
+## <a name="start-minikube-and-install-an-application"></a>Iniciar minikube e instalar una aplicación
 Ahora que se ha creado correctamente la máquina virtual Linux, puede iniciar sesión para iniciar minikube e instalar una aplicación. 
 
 1. Una vez finalizada la implementación, haga clic en **Conectar** para ver la dirección IP pública que se usará para conectarse a la máquina virtual Linux. 

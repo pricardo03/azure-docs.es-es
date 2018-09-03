@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/17/2018
+ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 5288e9900c75eae7601b84f7366edf9ac739d5da
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 931b3fd4730ed9ca3a901b423d6c804dfa7e5305
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125810"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143549"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>¿Qué es Azure Data Box Disk? (versión preliminar)
 
@@ -31,7 +31,7 @@ Las preguntas y respuestas se organizan en las categorías siguientes:
 - Acerca del servicio
 - Configuración y conexión 
 - Seguimiento del estado
-- Migración de datos 
+- Migración de los datos 
 - Comprobación y carga de datos 
 
 > [!IMPORTANT]
@@ -60,10 +60,10 @@ A.  Para obtener los discos de Azure Data Box, primero es preciso registrarse pa
 A. Para cinco discos de 8 TB cada uno (7 TB de capacidad usable), la capacidad máxima usable es 35 TB. Por tanto, puede transferir 35 TB de datos en una instancia.  Para transferir más datos, es preciso solicitar más discos.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>P: ¿Cómo se puede comprobar si los discos de Data Box están disponibles en una región concreta? 
-A.  Los discos de Data Box están disponibles en Estados Unidos y en todos los países en la Unión Europea durante la fase de versión preliminar.  
+A.  Los discos de Data Box están disponibles en Estados Unidos, Canadá y en todos los países en la Unión Europea durante la fase de versión preliminar.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>P: ¿En qué regiones puedo almacenar datos con los discos de Data Box?
-A. Data Box Disk es compatible con todas las regiones de Estados Unidos, Europa Occidental y Europa del Norte en la versión preliminar. Solo se admiten las regiones con nube pública de Azure. Azure Government u otras nubes soberanas no se admiten.
+A. Data Box Disk se admite en todas las regiones de Estados Unidos, Europa Occidental y Europa del Norte en la versión preliminar. Solo se admiten las regiones con nube pública de Azure. Azure Government u otras nubes soberanas no se admiten.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>P: ¿Con quién debo ponerme en contacto si surge algún problemas con los discos de Data Box?
 A. Si surge algún problema con los discos de Data Box, póngase en contacto con el [soporte técnico de Data Box Disk](mailto:expresspodsupport@microsoft.com).
@@ -102,7 +102,7 @@ A.  La solución Data Box Disks puede tener hasta cinco discos, con una capacida
 A.  El tamaño máximo lo determinan los límites de Azure Storage. El blob en bloques máximo es, aproximadamente, de 4,768 TiB, mientras que el tamaño de blob en páginas máximo es de 8 TiB. Para más información, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage](../storage/common/storage-scalability-targets.md). 
 
 ### <a name="q-what-is-the-data-transfer-speed-for-data-box-disks"></a>P: ¿Cuál es la velocidad de transferencia de datos de los discos de Data Box?
-A. Cuando se ha probado con discos conectados a través de USB 3.0, el rendimiento ha sido de hasta 430 MB/s. Los números reales varían en función del tamaño de archivo utilizado. Si los archivos son pequeños, es posible que el rendimiento sea menor.
+A. Cuando se prueba con discos conectados mediante USB 3.0, el rendimiento del disco era de hasta 430 MB/s. Los números reales varían según el tamaño de archivo usado. Con archivos más pequeños, es posible que observe un rendimiento menor.
 
 ### <a name="q-how-do-i-know-that-my-data-is-secure-during-transit"></a>P: ¿Cómo se sabe si los datos están protegidos durante el tránsito? 
 A.  Con los discos de Data Box se emplea el cifrado BitLocker AES de 128 bits y la clave de paso solo está disponible en Azure Portal. Para obtenerla, debe iniciar sesión en Azure Portal con las credenciales de su cuenta. Escriba dicha clave al ejecutar la herramienta de desbloqueo de Data Box Disk.

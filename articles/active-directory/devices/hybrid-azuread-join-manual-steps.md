@@ -12,27 +12,38 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/08/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ba47223f86005809189214f26a63b75b21449e3a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4155ea7c24746f9d3381f2d1e4a1e08a7a56206a
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630626"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049944"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configuración manual de dispositivos unidos a Azure Active Directory híbrido 
 
 Con la administración de dispositivos en Azure Active Directory (Azure AD), puede asegurarse de que los usuarios tienen acceso a los recursos desde dispositivos que cumplen los estándares de seguridad y cumplimiento. Para más información, consulte [Introducción a la administración de dispositivos en Azure Active Directory](overview.md).
 
-Si tiene un entorno local de Active Directory y quiere unir sus dispositivos unidos a un dominio a Azure AD, puede hacerlo configurando dispositivos híbridos unidos a Azure AD. En este artículo, se indican los pasos relacionados. 
-
-
 
 > [!TIP]
 > Si el uso de Azure AD Connect es una opción en su caso, consulte [Select your scenario](hybrid-azuread-join-plan.md#select-your-scenario) (Selección del escenario). Mediante Azure AD Connect, puede simplificar considerablemente la configuración de la unión a Azure AD híbrido.
+
+
+
+Si tiene un entorno local de Active Directory y quiere unir sus dispositivos unidos a un dominio a Azure AD, puede hacerlo configurando dispositivos híbridos unidos a Azure AD. En este tutorial aprenderá a configurar manualmente la unión a Azure AD híbrido para los dispositivos.
+
+> [!div class="checklist"]
+> * Requisitos previos
+> * Pasos de configuración
+> * Configuración del punto de conexión de servicio
+> * Configuración de la emisión de notificaciones
+> * Habilitación de dispositivos de Windows de nivel inferior
+> * Comprobación dispositivos unidos
+> * Solución de problemas de la implementación
+ 
 
 
 

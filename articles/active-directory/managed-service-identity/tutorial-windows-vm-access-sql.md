@@ -14,22 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ca920a93d754254390a5c5c5a066be3144b47fc7
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b6b2985bf72d9ecb2041d51852b5a4230e11d8be
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920345"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886060"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-sql"></a>Tutorial: Uso de la característica Managed Service Identity de una máquina virtual Windows para acceder a Azure SQL
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-En este tutorial se muestra cómo usar Managed Service Identity en una máquina virtual (VM) Windows para acceder a un servidor SQL de Azure. Las identidades de MSI son administradas automáticamente por Azure y le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código. Aprenderá a:
+En este tutorial se muestra cómo usar una identidad asignada por el sistema en una máquina virtual (VM) Windows para acceder a Azure SQL Server. Las identidades de MSI son administradas automáticamente por Azure y le permiten autenticar los servicios que admiten la autenticación de Azure AD sin necesidad de insertar credenciales en el código. Aprenderá a:
 
 > [!div class="checklist"]
-> * Habilitar Managed Service Identity en una máquina virtual Windows 
 > * Conceder a una máquina virtual el acceso a un servidor de Azure SQL
+> * Cree un grupo en Azure AD y convierta la característica Managed Service Identity de la máquina virtual en miembro del mismo
+> * Habilite la autenticación de Azure AD para el servidor SQL
+> * Cree un usuario contenido en la base de datos que representa el grupo de Azure AD
 > * Obtener un token de acceso mediante la identidad de máquina virtual y usarla para consultar un servidor SQL de Azure
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -38,32 +40,11 @@ En este tutorial se muestra cómo usar Managed Service Identity en una máquina 
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+- [Iniciar sesión en Azure Portal](https://portal.azure.com)
 
-Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
+- [Crear una máquina virtual Windows](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Creación de una máquina virtual Windows en un nuevo grupo de recursos
-
-En este tutorial, se crea una nueva máquina virtual Windows.  Managed Service Identity también se puede habilitar en una máquina virtual existente.
-
-1.  Haga clic en el botón **Crear un recurso** de la esquina superior izquierda de Azure Portal.
-2.  Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**. 
-3.  Escriba la información de la máquina virtual. El **nombre de usuario** y la **contraseña** creados aquí son las credenciales que se usan para iniciar sesión en la máquina virtual.
-4.  Elija la **suscripción** adecuada de la máquina virtual en la lista desplegable.
-5.  Para seleccionar un nuevo **grupo de recursos** en el que crear la máquina virtual, elija **Crear nuevo**. Cuando haya terminado, haga clic en **Aceptar**.
-6.  Seleccione el tamaño de la máquina virtual. Para ver más tamaños, seleccione **Ver todo** o cambie el filtro **Supported disk type** (Tipo de disco admitido). En la página de configuración, conserve los valores predeterminados y haga clic en **Aceptar**.
-
-    ![Texto alternativo de imagen](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Habilitación de Managed Service Identity en una máquina virtual 
-
-La característica Managed Service Identity de una máquina virtual le permite obtener tokens de acceso desde Azure AD sin la necesidad de incluir credenciales en el código. La habilitación de Managed Service Identity indica a Azure que cree una identidad administrada para una máquina virtual. En segundo plano, la habilitación de Managed Service Identity realiza dos acciones: registra una máquina virtual en Azure Active Directory para crear su identidad administrada y configura la identidad en la máquina virtual.
-
-1.  Seleccione la **máquina virtual** en la que desea habilitar Managed Service Identity.  
-2.  En la barra de navegación de la izquierda, haga clic en **Configuración**. 
-3.  Verá **Managed Service Identity**. Para registrar y habilitar Managed Service Identity, seleccione **Sí**; si desea deshabilitarla, elija No. 
-4.  No olvide hacer clic en **Guardar** para guardar la configuración.  
-    ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [Habilitar la identidad asignada por el sistema en la máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Conceda a la máquina virtual acceso a un servidor SQL de Azure
 
@@ -78,7 +59,7 @@ Hay tres pasos para conceder a una máquina virtual el acceso a una base de dato
 > Normalmente crearía un usuario contenido que se asigna directamente a la característica Managed Service Identity de la máquina virtual.  En la actualidad, Azure SQL no permite que la entidad de servicio de Azure AD que representa la característica Managed Service Identity de la máquina virtual que se asigna a un usuario contenido.  Como solución alternativa admitida, convierta la característica Managed Service Identity de la máquina virtual en miembro de un grupo de Azure AD y, luego, cree un usuario contenido en la base de datos que representa el grupo.
 
 
-### <a name="create-a-group-in-azure-ad-and-make-the-vm-managed-service-identity-a-member-of-the-group"></a>Cree un grupo en Azure AD y convierta la característica Managed Service Identity de la máquina virtual en miembro del mismo
+## <a name="create-a-group-in-azure-ad-and-make-the-vm-managed-service-identity-a-member-of-the-group"></a>Cree un grupo en Azure AD y convierta la característica Managed Service Identity de la máquina virtual en miembro del mismo
 
 Puede utilizar un grupo de Azure AD existente o crear uno nuevo con PowerShell de Azure AD.  
 
@@ -132,7 +113,7 @@ ObjectId                             AppId                                Displa
 b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTestWinVM
 ```
 
-### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Habilite la autenticación de Azure AD para el servidor SQL
+## <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Habilite la autenticación de Azure AD para el servidor SQL
 
 Ahora que ha creado el grupo y agregado la característica Managed Service Identity de la máquina virtual a la pertenencia, puede [configurar la autenticación de Azure AD para el servidor SQL](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) mediante los siguientes pasos:
 
@@ -143,7 +124,7 @@ Ahora que ha creado el grupo y agregado la característica Managed Service Ident
 5.  Seleccione una cuenta de usuario de Azure AD para que se convierta en administrador del servidor y haga clic en **Seleccionar.**
 6.  En la barra de comandos, haga clic en **Guardar**
 
-### <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Cree un usuario contenido en la base de datos que representa el grupo de Azure AD
+## <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Cree un usuario contenido en la base de datos que representa el grupo de Azure AD
 
 En el paso siguiente, necesitará [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Antes de comenzar, también puede ser útil revisar los artículos siguientes para obtener información sobre la integración de Azure AD:
 

@@ -14,22 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: 05b31dffbe51dcbcd76c13a17f6ecc640b63569b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 5f7a0f2bd6820ce65490ae9241dac519fb635da2
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248975"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885465"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-cosmos-db"></a>Tutorial: Uso de la característica Managed Service Identity de una máquina virtual Windows para acceder a Azure Cosmos DB
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial le muestra cómo crear y utilizar la característica Managed Service Identity de una máquina virtual Windows para acceder a Cosmos DB. Aprenderá a:
+En este tutorial se muestra cómo usar una identidad asignada por el sistema en una máquina virtual (VM) Windows para acceder a Cosmos DB. Aprenderá a:
 
 > [!div class="checklist"]
-> * Crear una máquina virtual Windows con Managed Service Identity habilitada 
-> * Crear una cuenta de Cosmos DB
+> * Creación de una cuenta de Cosmos DB
 > * Conceder acceso mediante Managed Service Identity de máquina virtual Windows a las claves de acceso de la cuenta de Cosmos DB
 > * Obtener un token de acceso mediante la característica Managed Service Identity de una máquina virtual Windows para llamar a Azure Resource Manager
 > * Obtención de las claves de acceso desde Azure Resource Manager para realizar llamadas a Cosmos DB
@@ -40,33 +39,11 @@ Este tutorial le muestra cómo crear y utilizar la característica Managed Servi
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
+- [Iniciar sesión en Azure Portal](https://portal.azure.com)
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+- [Crear una máquina virtual Windows](/azure/virtual-machines/windows/quick-create-portal)
 
-Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
-
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Creación de una máquina virtual Windows en un nuevo grupo de recursos
-
-En este tutorial, se crea una nueva máquina virtual Windows.  Managed Service Identity también se puede habilitar en una máquina virtual existente.
-
-1. Haga clic en el botón **Crear un recurso** de la esquina superior izquierda de Azure Portal.
-2. Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**. 
-3. Escriba la información de la máquina virtual. El **nombre de usuario** y la **contraseña** creados aquí son las credenciales que se usan para iniciar sesión en la máquina virtual.
-4. Elija la **suscripción** adecuada de la máquina virtual en la lista desplegable.
-5. Para seleccionar un nuevo **grupo de recursos** en el que crear la máquina virtual, elija **Crear nuevo**. Cuando haya terminado, haga clic en **Aceptar**.
-6. Seleccione el tamaño de la máquina virtual. Para ver más tamaños, seleccione **Ver todo** o cambie el filtro **Supported disk type** (Tipo de disco admitido). En la página de configuración, conserve los valores predeterminados y haga clic en **Aceptar**.
-
-   ![Texto alternativo de imagen](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Habilitación de Managed Service Identity en una máquina virtual 
-
-La característica Managed Service Identity de una máquina virtual le permite obtener tokens de acceso de Azure AD sin la necesidad de incluir credenciales en el código. En un segundo plano, la habilitación de Managed Service Identity en una máquina virtual mediante Azure Portal permite hacer dos cosas: registrar la máquina virtual con Azure AD para crear una identidad administrada y configurar la identidad en la máquina virtual.
-
-1. Seleccione la **máquina virtual** en la que desea habilitar Managed Service Identity.  
-2. En la barra de navegación de la izquierda, haga clic en **Configuración**. 
-3. Verá **Managed Service Identity**. Para registrar y habilitar Managed Service Identity, seleccione **Sí**; si desea deshabilitarla, elija No. 
-4. No olvide hacer clic en **Guardar** para guardar la configuración.  
-   ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [Habilitar la identidad asignada por el sistema en la máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-cosmos-db-account"></a>Creación de una cuenta de Cosmos DB 
 

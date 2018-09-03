@@ -4,17 +4,17 @@ description: Use Azure Policy para aplicar estándares, satisfacer los requisito
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 07/13/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: b8ac93da2f0dd4099ab1aa2df93e5d979ecdd285
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 68ee6b64baf4284bbd0977e82fc473a58a59874c
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049751"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42813431"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creación y administración de directivas para aplicar el cumplimiento
 
@@ -36,26 +36,26 @@ El primer paso para aplicar cumplimientos con Azure Policy es asignar una defini
 
    ![Búsqueda de directivas](media/create-manage-policy/search-policy.png)
 
-2. Seleccione **Asignaciones** en el panel izquierdo de la página de Azure Policy. Una asignación es una directiva que se asignó para que se lleve a cabo dentro de un ámbito específico.
-3. Seleccione **Asignar directiva** en la parte superior de la página **Policy - Asignaciones**.
+1. Seleccione **Asignaciones** en el panel izquierdo de la página de Azure Policy. Una asignación es una directiva que se asignó para que se lleve a cabo dentro de un ámbito específico.
+1. Seleccione **Asignar directiva** en la parte superior de la página **Policy - Asignaciones**.
 
    ![Asignación de una definición de directiva](media/create-manage-policy/select-assign-policy.png)
 
-4. En la página **Asignar directiva**, haga clic en los puntos suspensivos para seleccionar una opción de **Ámbito** y seleccione una suscripción (obligatorio) y un grupo de recursos (opcional). Un ámbito determina en qué recursos o agrupación de recursos se implementa la asignación de directiva.  Después, haga clic en **Seleccionar** en la parte inferior de la página **Ámbito**.
+1. En la página **Asignar directiva**, haga clic en los puntos suspensivos para seleccionar una opción de **Ámbito** y seleccione una suscripción (obligatorio) y un grupo de recursos (opcional). Un ámbito determina en qué recursos o agrupación de recursos se implementa la asignación de directiva.  Después, haga clic en **Seleccionar** en la parte inferior de la página **Ámbito**.
 
    En este ejemplo se utiliza la **suscripción de Contoso**. Su suscripción variará.
 
-5. Si quiere excluir uno o más grupos de recursos (en caso de que solo haya agregado ámbito a una suscripción) o recursos específicos dentro de un grupo de recursos (cualquier caso de ámbito), puede configurar **Exclusiones** en la asignación de directiva. Déjelo en blanco por ahora.
+1. Si quiere excluir uno o más grupos de recursos (en caso de que solo haya agregado ámbito a una suscripción) o recursos específicos dentro de un grupo de recursos (cualquier caso de ámbito), puede configurar **Exclusiones** en la asignación de directiva. Déjelo en blanco por ahora.
 
-6. Seleccione los puntos suspensivos de **Definición de directiva** para abrir la lista de definiciones disponibles. Puede filtrar el campo **Tipo** de la definición de directiva por *Integrada* para verlas todas y leer sus descripciones.
+1. Seleccione los puntos suspensivos de **Definición de directiva** para abrir la lista de definiciones disponibles. Puede filtrar el campo **Tipo** de la definición de directiva por *Integrada* para verlas todas y leer sus descripciones.
 
-7. Seleccione **Require SQL Server version 12.0** (Requerir SQL Server 12.0). Si no la encuentra inmediatamente, escriba **require sql server** en el cuadro de búsqueda y, a continuación, presione ENTRAR o haga clic fuera del cuadro de búsqueda. Haga clic en **Seleccionar** en la parte inferior de la página **Definiciones disponibles** después de encontrar y seleccionar la definición de directiva.
+1. Seleccione **Require SQL Server version 12.0** (Requerir SQL Server 12.0). Si no la encuentra inmediatamente, escriba **require sql server** en el cuadro de búsqueda y, a continuación, presione ENTRAR o haga clic fuera del cuadro de búsqueda. Haga clic en **Seleccionar** en la parte inferior de la página **Definiciones disponibles** después de encontrar y seleccionar la definición de directiva.
 
    ![Búsqueda de una directiva](media/create-manage-policy/select-available-definition.png)
 
-8. **Nombre de asignación** se rellena automáticamente con el nombre de directiva seleccionado, pero puede cambiarlo. En este ejemplo, deje *Require SQL Server version 12.0* (Requerir SQL Server 12.0). También puede agregar una **Descripción** opcional. La descripción ofrece detalles sobre esta asignación de directiva.
+1. **Nombre de asignación** se rellena automáticamente con el nombre de directiva seleccionado, pero puede cambiarlo. En este ejemplo, deje *Require SQL Server version 12.0* (Requerir SQL Server 12.0). También puede agregar una **Descripción** opcional. La descripción ofrece detalles sobre esta asignación de directiva.
 
-9. Haga clic en **Asignar**.
+1. Haga clic en **Asignar**.
 
 ## <a name="implement-a-new-custom-policy"></a>Implementación de una nueva directiva personalizada
 
@@ -65,8 +65,8 @@ Ahora que ha asignado una definición de directiva integrada, puede hacer más c
 
    ![Definición en creación](media/create-manage-policy/definition-under-authoring.png)
 
-2. Seleccione **+ Definición de directiva** en la parte superior de la página. Se abrirá la página **Definición de directiva**.
-3. Escriba lo siguiente:
+1. Seleccione **+ Definición de directiva** en la parte superior de la página. Se abrirá la página **Definición de directiva**.
+1. Escriba lo siguiente:
 
    - El grupo de administración o la suscripción donde está guardada la definición de directiva. Para la selección use los puntos suspensivos en **Ubicación de definición**.
 
@@ -108,7 +108,7 @@ Ahora que ha asignado una definición de directiva integrada, puede hacer más c
 
     Para ver más ejemplos de directivas de Azure, consulte [Plantillas para Azure Policy](json-samples.md).
 
-4. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
 ## <a name="create-a-policy-definition-with-rest-api"></a>Creación de una definición de directiva con la API de REST
 
@@ -247,7 +247,7 @@ Get-AzureRmPolicyDefinition
 
 Devuelve todas las definiciones de directiva disponibles, incluidas las directivas integradas. Cada directiva se devuelve con el formato siguiente:
 
-```
+```output
 Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
 ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
 ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
@@ -327,19 +327,19 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
    ![Selección de definiciones](media/create-manage-policy/select-definitions.png)
 
-2. Seleccione **+ Initiative Definition** (+ Definición de iniciativa) en la parte superior de la página para abrir la página **Definición de iniciativa** (Definición de iniciativa).
+1. Seleccione **+ Initiative Definition** (+ Definición de iniciativa) en la parte superior de la página para abrir la página **Definición de iniciativa** (Definición de iniciativa).
 
    ![Definición de iniciativa](media/create-manage-policy/initiative-definition.png)
 
-3. Use **Ubicación de definición** para seleccionar una suscripción para almacenar la definición.
+1. Use **Ubicación de definición** para seleccionar un grupo de administración o una suscripción para almacenar la definición.
 
-4. Defina los campos **Nombre** y **Descripción** de la iniciativa.
+1. Defina los campos **Nombre** y **Descripción** de la iniciativa.
 
    En este ejemplo, se asegurará de que los recursos guarden conformidad con las definiciones de directiva sobre protección. Por tanto, el nombre de la iniciativa sería **Get Secure** (Estar protegido) y la descripción sería: **This initiative has been created to handle all policy definitions associated with securing resources** (Esta iniciativa se ha creado para administrar todas las definiciones de directiva asociadas con la protección de los recursos).
 
-5. En **Categoría**, elija entre las opciones existentes o cree una nueva categoría.
+1. En **Categoría**, elija entre las opciones existentes o cree una nueva categoría.
 
-6. Examine la lista **Definiciones disponibles** [mitad derecha de la página **Initiative definition** (definición de iniciativa)] y seleccione las definiciones de directiva que le gustaría agregar a esta iniciativa. En el caso de la iniciativa **Get secure** (Estar protegido), para agregar las siguientes definiciones de directiva integradas, haga clic en **+** junto a la información de definición de directiva o en una fila de definición de directiva y, a continuación, en la opción **+ Agregar** de la página de detalles:
+1. Examine la lista **Definiciones disponibles** [mitad derecha de la página **Initiative definition** (definición de iniciativa)] y seleccione las definiciones de directiva que le gustaría agregar a esta iniciativa. En el caso de la iniciativa **Get secure** (Estar protegido), para agregar las siguientes definiciones de directiva integradas, haga clic en **+** junto a la información de definición de directiva o en una fila de definición de directiva y, a continuación, en la opción **+ Agregar** de la página de detalles:
    - Requisito de la versión 12.0 de SQL Server
    - [Preview]: Monitor unprotected web applications in Security Center.
    - [Preview]: Monitor permissive network across in Security Center.
@@ -350,13 +350,20 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
    ![Definiciones de iniciativa](media/create-manage-policy/initiative-definition-2.png)
 
-7. Haga clic en **Save**(Guardar).
+1. Si una definición de directiva que se va a agregar a la iniciativa tiene parámetros, estos se muestran bajo el nombre de la directiva en el área **DIRECTIVAS Y PARÁMETROS**. El _valor_ puede establecerse en "Establecer valor" (de forma rígida para todas las asignaciones de esta iniciativa) o en "Utilice el parámetro de iniciativa" (establecido durante cada asignación de iniciativa). Si se selecciona "Establecer valor", la lista desplegable situada a la derecha de _Valores_ permite escribir o seleccionar los valores deseados. Si se selecciona "Utilice el parámetro de iniciativa", se muestra una nueva sección llamada **Parámetros de iniciativa** que le permite definir el parámetro que se establecerá durante la asignación de iniciativa. Los valores permitidos en este parámetro de iniciativa pueden restringir aún más lo que puede establecerse durante la asignación de iniciativa.
+
+   ![Parámetros de definición de iniciativa](media/create-manage-policy/initiative-definition-3.png)
+
+   > [!NOTE]
+   > En el caso de algunos parámetros `strongType`, la lista de valores no se puede determinar automáticamente. En estos casos, se mostrarán puntos suspensivos a la derecha de la fila de parámetros. Al hacer clic en estos puntos suspensivos, se abrirá la página "Ámbito de parámetro (&lt;nombre del parámetro&gt;)". En esta página, seleccione la suscripción que se usará para proporcionar las opciones de valor. Este ámbito de parámetro solo se usa durante la creación de la definición de iniciativa y no influye en la evaluación de directivas ni en el ámbito de la iniciativa cuando se asigna.
+
+1. Haga clic en **Save**(Guardar).
 
 ### <a name="assign-an-initiative-definition"></a>Asignación de una definición de iniciativa
 
 1. Seleccione **Definiciones** en **CREACIÓN** en el lado izquierdo de la página de Azure Policy.
-2. Busque la definición de directiva **Get Secure** (Estar protegido) que creó anteriormente y selecciónela.
-3. Seleccione **Asignar** en la parte superior de la página para abrir la página **Get Secure: Assign Initiative** (Estar protegido: asignar iniciativa).
+1. Busque la definición de directiva **Get Secure** (Estar protegido) que creó anteriormente y selecciónela.
+1. Seleccione **Asignar** en la parte superior de la página para abrir la página **Get Secure: Assign Initiative** (Estar protegido: asignar iniciativa).
 
    ![Asignación de una definición](media/create-manage-policy/assign-definition.png)
 
@@ -364,14 +371,14 @@ Con una definición de iniciativa, puede agrupar varias definiciones de directiv
 
    ![Haga clic con el botón derecho en una fila.](media/create-manage-policy/select-right-click.png)
 
-4. Rellene la página **Get Secure: Assign Initiative** (Estar protegido: asignar iniciativa) con la siguiente información de ejemplo. Puede usar su propia información.
+1. Rellene la página **Get Secure: Assign Initiative** (Estar protegido: asignar iniciativa) con la siguiente información de ejemplo. Puede usar su propia información.
 
    - Ámbito: la suscripción donde guardó la iniciativa será la predeterminada.  También puede cambiar ámbito para asignar la iniciativa a un grupo de recursos en la ubicación de almacenamiento de la suscripción.
    - Exclusiones: configure los recursos del ámbito para evitar que se les aplique la asignación de iniciativa.
    - Initiative definition (Definición de iniciativa) y Nombre de asignación: Get Secure (Estar protegido; rellenado previamente como el nombre de la iniciativa que se está asignando).
    - Descripción: esta asignación de iniciativa está adaptada para aplicar este grupo de definiciones de directiva.
 
-5. Haga clic en **Asignar**.
+1. Haga clic en **Asignar**.
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Exclusión de un recurso no conforme o denegado mediante Exclusión
 
@@ -392,15 +399,15 @@ En este ejemplo, Trent Baker, uno de los especialistas de virtualización de Con
 ### <a name="update-assignment-with-exclusion"></a>Actualización de la asignación con la exclusión
 
 1. Seleccione **Asignaciones** en **CREACIÓN** en el lado izquierdo de la página de Azure Policy.
-2. Examine todas las asignaciones de directiva y abra la asignación *Require SQL Server version 12.0* (Requerir SQL Server 12.0).
-3. Para establecer la **exclusión**, haga clic en los puntos suspensivos y seleccione el grupo de recursos que quiere excluir, *SQLServers_Excluded*, en este ejemplo.
+1. Examine todas las asignaciones de directiva y abra la asignación *Require SQL Server version 12.0* (Requerir SQL Server 12.0).
+1. Para establecer la **exclusión**, haga clic en los puntos suspensivos y seleccione el grupo de recursos que quiere excluir, *SQLServers_Excluded*, en este ejemplo.
 
    ![Solicitud de exclusión](media/create-manage-policy/request-exclusion.png)
 
    > [!NOTE]
    > Dependiendo de la directiva y de su efecto, es posible que la exclusión también se conceda a los recursos específicos dentro de un grupo de recursos dentro del ámbito de la asignación. Dado que se usó un efecto **Denegar** en este tutorial, no tendría sentido establecer la exclusión en un recurso concreto que ya existe.
 
-4. Haga clic en **Seleccionar** y después en **Guardar**.
+1. Haga clic en **Seleccionar** y después en **Guardar**.
 
 En esta sección, ha resuelto la denegación del intento para crear un servidor de SQL Server mediante la creación de una exclusión de un grupo de recursos único.
 
@@ -409,8 +416,8 @@ En esta sección, ha resuelto la denegación del intento para crear un servidor 
 Si terminó de trabajar con los recursos de este tutorial, use los pasos siguientes para eliminar todas las asignaciones y definiciones creadas anteriormente:
 
 1. Seleccione **Definiciones** (o **Asignaciones** si intenta eliminar una asignación) en **CREACIÓN** en el lado izquierdo de la página de Azure Policy.
-2. Busque la nueva definición de iniciativa o directiva (o asignación) que quiere quitar.
-3. Haga clic con el botón derecho en la fila o seleccione los puntos suspensivos al final de la definición (o asignación) y elija **Eliminar definición** (o **Eliminar asignación** ).
+1. Busque la nueva definición de iniciativa o directiva (o asignación) que quiere quitar.
+1. Haga clic con el botón derecho en la fila o seleccione los puntos suspensivos al final de la definición (o asignación) y elija **Eliminar definición** (o **Eliminar asignación** ).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

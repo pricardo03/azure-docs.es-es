@@ -3,7 +3,7 @@ title: Guía de solución de problemas de Azure Security Center | Microsoft Docs
 description: Este documento ayuda a solucionar problemas en Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2018
-ms.author: yurid
-ms.openlocfilehash: 0cbc0db7e982ad85dd1e3514def8cf13be595f24
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 08/26/2018
+ms.author: rkarlin
+ms.openlocfilehash: eebdff338454b1fb50b27d5b3d8c1c37d28f6b6f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779233"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43121209"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guía de solución de problemas de Azure Security Center
 Esta guía está destinada a profesionales de tecnologías de la información (TI), analistas de seguridad de la información y administradores de la nube cuyas organizaciones utilizan Azure Security Center y necesitan solucionar problemas relacionados con Security Center.
@@ -64,7 +64,7 @@ Existen dos escenarios de instalación que pueden producir resultados diferentes
 > Para evitar el comportamiento explicado en el segundo caso, asegúrese de descargar la versión más reciente del agente.
 >
 
-## <a name="monitoring-agent-health-issues"></a>Supervisión de problemas de Agent Health
+## Supervisión de problemas de Agent Health <a name="mon-agent"></a>
 **Estado de supervisión** define el motivo por el que Security Center no puede supervisar correctamente las máquinas virtuales y los equipos inicializados para el aprovisionamiento automático. La tabla siguiente muestra los valores, las descripciones y los pasos de resolución de **Estado de supervisión**.
 
 | Estado de supervisión | DESCRIPCIÓN | Pasos de la solución |
@@ -81,7 +81,7 @@ Existen dos escenarios de instalación que pueden producir resultados diferentes
 | Agente no instalado | La colección de datos está deshabilitada. | Active la colección de datos en la directiva de seguridad o instale manualmente Microsoft Monitoring Agent. |
 
 
-## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Solución de problemas de los requisitos e red del agente de supervisión
+## Solución de problemas relativos a los requisitos de red del agente de supervisión <a name="mon-network-req"></a>
 Para que los agentes se puedan conectar a Security Center y registrarse ahí, deben tener acceso a los recursos de red, lo que incluye los números de puerto y las direcciones URL de dominio.
 
 - Para los servidores proxy, debe asegurarse de que los recursos de servidor proxy adecuados están configurados en la configuración del agente. Lea este artículo para más información sobre [cómo cambiar la configuración del servidor proxy](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
@@ -91,10 +91,10 @@ En la siguiente tabla se muestran los recursos necesarios para la comunicación.
 
 | Recurso del agente | Puertos | Omitir inspección de HTTPS |
 |---|---|---|
-| * .ods.opinsights.azure.com | 443 | Sí |
-| *.oms.opinsights.azure.com | 443 | Sí |
-| * .blob.core.windows.net | 443 | Sí |
-| *.azure-automation.net | 443 | Sí |
+| * .ods.opinsights.azure.com | 443 | SÍ |
+| *.oms.opinsights.azure.com | 443 | SÍ |
+| * .blob.core.windows.net | 443 | SÍ |
+| *.azure-automation.net | 443 | SÍ |
 
 Si experimenta problemas con la incorporación del agente, asegúrese de leer el artículo [Solución de problemas de incorporación en Operations Management Suite](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
