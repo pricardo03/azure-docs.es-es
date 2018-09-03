@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d3be19c67027746ddb73cf2cd9b4545584fd3ce0
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: ccc508b8dbfb990639abe24efa2822ff27f2f910
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389788"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341571"
 documentType: LandingData
-title: Documentación sobre Azure Active Directory Managed Service Identity
+title: Identidades administradas de Azure AD para la documentación de recursos de Azure
 metadata:
   document_id: 
-  title: Documentación sobre Azure Active Directory Managed Service Identity
-  description: Aprenda a usar Managed Service Identity para autenticarse con seguridad en los servicios en la nube de Azure sin tener que mantener las credenciales en el código fuente.
+  title: Identidades administradas de Azure AD para la documentación de recursos de Azure
+  description: Aprenda a usar las identidades administradas de los recursos de Azure para autenticarse con seguridad en los servicios en la nube de Azure sin tener que mantener las credenciales en el código fuente.
   services: active-directory
   ms.component: msi
   author: daveba
@@ -22,21 +22,21 @@ metadata:
   ms.date: 03/16/2018
   ms.author: daveba
 abstract:
-  description: Managed Service Identity proporciona a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticarse en cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código.  Aprenda a crear y administrar Managed Service Identity con nuestros tutoriales y guías de inicio rápido.
+  description: Las identidades administradas de los recursos de Azure proporcionan a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticarse en cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código.  Aprenda a crear y administrar identidades administradas con nuestros tutoriales y guías de inicio rápido.
   aside:
     image:
       alt: 
       height: 112
       src: media/index/video-thumb-landing-page.png
       width: 200
-    title: Introducción a Managed Service Identity
+    title: Introducción a las identidades administradas de recursos de Azure
     href: https://www.youtube.com/embed/bBi1bll2928
     width: 200
 sections:
 - title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
-    text: Aprenda a usar Managed Service Identity para acceder a la API de Azure Resource Manager
+    text: Aprenda a usar identidades administradas de recursos de Azure para acceder a la API de Azure Resource Manager
   - type: list
     style: unordered
     items:
@@ -45,7 +45,7 @@ sections:
 - title: Tutoriales detallados
   items:
   - type: paragraph
-    text: Aprenda a usar Managed Service Identity para acceder de forma segura a los recursos de Azure
+    text: Aprenda a usar identidades administradas de recursos de Azure para acceder de forma segura a los recursos de Azure
   - type: paragraph
     text: VM/VMSS de Windows
   - type: list

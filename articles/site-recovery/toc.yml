@@ -196,20 +196,22 @@ items:
         href: vmware-azure-deploy-configuration-server.md
       - name: Configuración del entorno de destino para máquinas virtuales de VMware
         href: vmware-azure-set-up-target.md
-      - name: Configuración de las opciones de replicación
+      - name: Configuración de las opciones de replicación para máquinas virtuales de VMware
         href: vmware-azure-set-up-replication.md
-      - name: Habilitar replicación de máquinas virtuales de VMware
+      - name: Habilitar la replicación para las máquinas virtuales de VMware
         href: vmware-azure-enable-replication.md
-      - name: Excluir discos de la replicación
+      - name: Excluir discos de la replicación de máquina virtual de VMware
         href: vmware-azure-exclude-disk.md
-      - name: Servicios multiinquilino con CSP para máquinas virtuales de VMWare
+      - name: Configuración de una replicación con varios inquilinos y CSP para máquinas virtuales de VMWare
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
-      - name: Configuración del entorno de origen para los servidores físicos
-        href: physical-azure-set-up-source.md
-      - name: Configuración del entorno de destino para los servidores físicos
-        href: physical-azure-set-up-target.md
-      - name: Recuperación ante desastres de servidores físicos en Azure
+      - name: Configuración de la recuperación ante desastres de servidores físicos en Azure
         href: physical-azure-disaster-recovery.md
+      - name: Configuración del entorno de origen para la replicación de servidores físicos
+        href: physical-azure-set-up-source.md
+      - name: Configuración del entorno de destino para la replicación de servidores físicos
+        href: physical-azure-set-up-target.md
+      - name: Configuración de la recuperación ante desastres de máquinas virtuales de Azure Stack
+        href: azure-stack-site-recovery.md
     - name: Implementación de Mobility Service
       items:
       - name: Introducción a Mobility Service
@@ -390,9 +392,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Actualizaciones del servicio
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 63d404406e3b33d4022974246a227cad1e6535a6
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 01f369aede31d44ff404c1ff5e7d2d1e9bb92950
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43285113"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343980"
