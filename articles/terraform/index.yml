@@ -1,24 +1,23 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 38f55894925febb66a50f019de15f8e7dcd9ef23
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666986"
 documentType: LandingData
 title: Terraform en la documentación de Azure
 metadata:
-  title: 'Terraform en la documentación de Azure: Tutoriales y referencia'
-  meta.description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
+  title: 'Terraform en la documentación de Azure: tutoriales, ejemplos, referencia y recursos'
+  description: Aprenda a usar Terraform para aprovisionar de forma confiable las máquinas virtuales y otras infraestructuras en Azure.
   services: terraform
-  author: rloutlaw
-  manager: justhe
   ms.service: terraform
-  ms.tgt_pltfrm: na
-  ms.devlang: devops
+  keywords: terraform, azure, devops, tutoriales, ejemplos, referencia
+  author: tomarcher
+  manager: jeconnoc
+  ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 09/21/2017
-  ms.author: routlaw
-  ms.openlocfilehash: b12e9b8f611bb456d0eda04a1b9e8d42d1256d0a
-  ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-  ms.translationtype: HT
-  ms.contentlocale: es-ES
-  ms.lasthandoff: 06/11/2018
-  ms.locfileid: "35300616"
+  ms.date: 08/31/2018
 abstract:
   description: Use Terraform para controlar las versiones de forma confiable y crear infraestructura en Azure. Aprenda a crear recursos, usar los módulos de Azure Terraform y mantener la infraestructura con código mediante nuestros inicios rápidos y tutoriales.
 sections:

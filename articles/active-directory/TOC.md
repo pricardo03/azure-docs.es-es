@@ -103,6 +103,7 @@
 #### [Enrutamiento de registros de actividad a un centro de eventos de Azure](reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 #### [Archivado de registros de actividad en una cuenta de almacenamiento de Azure](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Integración de registros de actividad con Splunk mediante Azure Monitor](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
+#### [Integración de registros de actividad con SumoLogic mediante Azure Monitor](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
 
 ### Referencia
 #### [Retención](reports-monitoring/reference-reports-data-retention.md)
@@ -332,6 +333,8 @@
 ### [Administración del acceso de usuarios con revisiones](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [Administración de programas y controles](active-directory-azure-ad-controls-manage-programs-controls.md)
 ### [Recuperación de los resultados de revisión de acceso](active-directory-azure-ad-controls-retrieve-access-review.md)
+
+## [Condiciones de uso](active-directory-tou.md)
 
 ## Protección de las identidades
 

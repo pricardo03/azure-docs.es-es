@@ -12,6 +12,8 @@ items:
     href: pim-roles.md
   - name: Protección del acceso con privilegios
     href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+  - name: MFA y PIM
+    href: pim-how-to-require-mfa.md
   - name: Introducción a los paneles
     href: pim-resource-roles-overview-dashboards.md
   - name: Notificaciones por correo electrónico
@@ -42,30 +44,28 @@ items:
     items:
     - name: Asignación de roles
       href: pim-how-to-add-role-to-user.md
-    - name: Configuración de los roles
-      href: pim-how-to-change-default-settings.md
-    - name: Requerir MFA
-      href: pim-how-to-require-mfa.md
-    - name: Configurar alertas
-      href: pim-how-to-configure-security-alerts.md
     - name: Aprobar solicitudes
       href: azure-ad-pim-approval-workflow.md
+    - name: Configuración de los roles
+      href: pim-how-to-change-default-settings.md
+    - name: Configurar alertas
+      href: pim-how-to-configure-security-alerts.md
     - name: Visualización del historial de auditoría
       href: pim-how-to-use-audit-log.md
   - name: Administración de roles de recurso
     items:
-    - name: Visualización de quién ha accedido
-      href: azure-pim-resource-rbac.md
     - name: Asignación de roles
       href: pim-resource-roles-assign-roles.md
-    - name: Configuración de los roles
-      href: pim-resource-roles-configure-role-settings.md
-    - name: Configurar alertas
-      href: pim-resource-roles-configure-alerts.md
     - name: Aprobar solicitudes
       href: pim-resource-roles-approval-workflow.md
     - name: Ampliación o renovación de los roles
       href: pim-resource-roles-renew-extend.md
+    - name: Configuración de los roles
+      href: pim-resource-roles-configure-role-settings.md
+    - name: Configurar alertas
+      href: pim-resource-roles-configure-alerts.md
+    - name: Visualización de quién ha accedido
+      href: azure-pim-resource-rbac.md
     - name: Visualización del historial de auditoría
       href: pim-resource-roles-use-the-audit-log.md
     - name: Uso de roles personalizados
@@ -89,9 +89,9 @@ items:
       - name: Finalización de una revisión de acceso
         href: pim-resource-roles-complete-access-review.md
   expanded: true
-ms.openlocfilehash: e545faae657ae3dc0feadca7f4a5eed10db7ff34
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 3f42a0786cfa0d2e6caffccd6e84d5cc21d2d74c
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340494"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667785"
