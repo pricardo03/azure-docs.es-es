@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9e013e237a996d722d958920a1310e3aaea36c52
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: fb9193066c9501341efb779b9f9e2ccace02cccf
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170915"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888211"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Uso de la propiedad "Entidad esperada" de las acciones
 
@@ -59,14 +59,14 @@ Concretamente, si el campo "entidad esperada" de una acción está establecido e
 
 ### <a name="create-two-actions"></a>Crear dos acciones
 
-1. Haga clic en Actions (Acciones) y, a continuación, en New Action (Nueva acción).
+1. Haga clic en Actions (Acciones) y, después, en New Action (Nueva acción).
 2. En Respuesta, escriba "What's your name?" (¿Cómo se llama?).
 3. En Expected Entities (Entidades esperadas), escriba $name. Haga clic en Guardar.
     - Este valor significa que si se plantea esta pregunta y la respuesta del usuario no tienen ninguna entidad detectada, el bot asumiría la respuesta completa del usuario en esta entidad.
 2. Haga clic en Actions (Acciones) y en New Action (Nueva acción) para crear una segunda acción.
 3. En Response (Respuesta), escriba "Hello $name" (Hola, $name).
-    - La entidad se agrega automáticamente como una entidad descalificadora. 
-4. Haga clic en Guardar
+    - La entidad se agrega automáticamente como una entidad obligatoria. 
+4. Haga clic en Guardar.
 
 Ahora tiene dos acciones.
 

@@ -1,28 +1,24 @@
 ---
-title: 'Conversión de datos XML con transformaciones: Azure Logic Apps | Microsoft Docs'
-description: Crear transformaciones o mapas para convertir datos XML de un formato a otro en las aplicaciones lógicas mediante el SDK de Enterprise Integration
+title: 'Transformación de XML entre formatos: Azure Logic Apps | Microsoft Docs'
+description: Crear transformaciones o asignaciones para convertir XML de un formato a otro en Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 1621843d58954aa05a572f43fdab0fb16097332e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9dd471f70407191734b4c5a3aa84d5365a7beab8
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299460"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125302"
 ---
-# <a name="enterprise-integration-with-xml-transforms"></a>Integración de empresas con transformaciones XML
-## <a name="overview"></a>Información general
+# <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Creación de asignaciones para transformar XML de un formato a otro en Azure Logic Apps con Enterprise Integration Pack
+
 El conector de transformación de integración de empresas convierte los datos de un formato a otro. Por ejemplo, puede darse el caso de que tenga un mensaje entrante en el que la fecha actual tenga el formato añoMesDía. Puede utilizar una transformación para cambiar el formato de la fecha a mesDíaAño.
 
 ## <a name="what-does-a-transform-do"></a>¿Para qué sirve una transformación?
@@ -36,7 +32,7 @@ Cuando cargue la transformación o la asignación en la cuenta de integración, 
 
 **Estos son los pasos para utilizar una transformación**:
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 * Crear una cuenta de integración y agregarle una asignación.  
 

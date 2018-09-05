@@ -1,6 +1,6 @@
 ---
-title: 'Privileged Identity Management para recursos de Azure: habilitar la administración de suscripciones | Microsoft Docs'
-description: Conozca cómo los administradores globales pueden administrar suscripciones en el inquilino.
+title: 'Habilitación de la administración de suscripciones en un inquilino: Azure | Microsoft Docs'
+description: Aprenda a habilitar la administración de suscripciones en un inquilino al usar Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 03/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d7a9c0090d3bfaaf1161b6255c4c0b659c77d692
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 89bb6fd48c58b7672b7a2251a172cc169093d368
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620287"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190002"
 ---
-# <a name="enable-subscription-management-in-your-tenant"></a>Habilitar la administración de suscripciones
+# <a name="enable-subscription-management-in-your-tenant"></a>Habilitar la administración de suscripciones en un inquilino
 
 Como administrador global del directorio, puede que no tenga acceso de forma predeterminada a todos los recursos de suscripción del inquilino. En este artículo se describen los pasos para dar acceso a todas las suscripciones en el inquilino. También se proporciona un enfoque recomendado para seguir cumpliendo con los controles de seguridad que la organización requiere después de recibir acceso.
 
@@ -79,14 +79,5 @@ Ahora que tiene asignaciones aptas para las suscripciones importantes de la orga
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Detección de recursos](pim-resource-roles-discover-resources.md)
-
-[Configurar los roles](pim-resource-roles-configure-role-settings.md)
-
-
-
-
-
-
-
-
+- [Detección de recursos de Azure que se administran en PIM](pim-resource-roles-discover-resources.md)
+- [Configuración de roles de recurso de Azure en PIM](pim-resource-roles-configure-role-settings.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 9845476e23396eecc4149f3e856c40b0f80f13cb
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: f099eefbc6d196f25c2b09669cdc1c3cdec68a12
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004773"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050021"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Solución de problemas de una máquina virtual Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure PowerShell
 Si la máquina virtual Windows de Azure se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco. Un ejemplo habitual sería una actualización de aplicación con error que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar Azure PowerShell para conectar el disco a otra máquina virtual Windows para solucionar los errores y, posteriormente, reparar la máquina virtual original. 
@@ -39,6 +39,8 @@ El proceso de solución de problemas es el siguiente:
 5. Conéctese a la máquina virtual de recuperación. Edite los archivos o ejecute cualquier herramienta necesaria para solucionar los problemas del disco copiado del sistema operativo.
 6. Desmonte y desasocie el disco de la máquina virtual de recuperación.
 7. Cambie el disco del sistema operativo de la máquina virtual afectada.
+
+Puede usar los scripts de recuperación de máquina virtual para automatizar los pasos 1, 2, 3, 4, 6 y 7. Para más documentación e instrucciones, consulte los [scripts de recuperación para máquinas virtuales Resource Manager](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager).
 
 Asegúrese de que tiene [la Azure PowerShell más reciente](/powershell/azure/overview) instalada y con la sesión iniciada en su suscripción:
 

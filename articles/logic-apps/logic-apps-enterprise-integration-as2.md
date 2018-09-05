@@ -1,27 +1,23 @@
 ---
 title: 'Mensajes AS2 para la integración empresarial B2B: Azure Logic Apps | Microsoft Docs'
-description: Intercambio de mensajes AS2 para la integración empresarial B2B con Azure Logic Apps
+description: Intercambio de mensajes AS2 para la integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.date: 06/08/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: 8984b76c68ebd562ce9e5af9bded859b38d498da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 2604cdd6bf758858328c2d30fc4cde535f0a7148
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298246"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124669"
 ---
-# <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Intercambio de mensajes AS2 para la integración empresarial con las aplicaciones lógicas
+# <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes AS2 para la integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 
 Para poder intercambiar mensajes AS2 para Azure Logic Apps, debe crear un contrato AS2 y almacenarlo en la cuenta de integración. Estos son los pasos para crear un contrato AS2.
 
@@ -64,7 +60,7 @@ Cuando haya [creado una cuenta de integración](../logic-apps/logic-apps-enterpr
 
     ![Especificación de los detalles del contrato](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
-    | Propiedad | DESCRIPCIÓN |
+    | Propiedad | Descripción |
     | --- | --- |
     | NOMBRE |Nombre del contrato |
     | Tipo de contrato | Debe ser AS2 |

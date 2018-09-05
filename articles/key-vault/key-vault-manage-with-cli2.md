@@ -12,46 +12,54 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 47a78b71f51e4fe975341b8e9425f47fd8c4d31c
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7d2b38a27644eed088f4a204cf989f44346e1654
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503543"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126918"
 ---
 # <a name="manage-key-vault-using-cli-20"></a>Administración de Key Vault mediante CLI 2.0
 
 En este artículo se describe cómo empezar a trabajar con Azure Key Vault mediante la CLI de Azure 2.0. Puede ver información sobre:
+
+- Requisitos previos
 - Procedimiento para crear un contenedor protegido (un almacén) en Azure.
-- Procedimiento para almacenar y administrar las claves criptográficas y los secretos en Azure. 
-- Creación de un almacén mediante la CLI de Azure.
-- Creación de una clave o contraseña que puede utilizar con una aplicación de Azure. 
-- Procedimiento para que una aplicación use la clave o contraseña que se crearon.
+- Agregar una clave, un secreto o un certificado al almacén de claves
+- Registrar una aplicación con Azure Active Directory
+- Autorizar una aplicación para que use una clave o un secreto
+- Configuración de directivas de acceso avanzado de almacén de claves
+- Trabajar con un módulo de seguridad de hardware (HSM)
+- Eliminar el almacén de claves y las claves y los secretos asociados
+- Otros comandos de la interfaz de la línea de comandos multiplataforma de Azure
+
 
 Azure Key Vault está disponible en la mayoría de las regiones. Para obtener más información, consulte la [página de precios de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
-
 
 > [!NOTE]
 > En este artículo no se incluyen instrucciones sobre cómo escribir la aplicación de Azure incluida en uno de los pasos, en el que se muestra cómo autorizar a una aplicación para que use una clave o un secreto del almacén de claves.
 >
 
 Para obtener información general sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](key-vault-whatis.md)
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Para usar los comandos de la CLI de Azure, debe tener los siguientes elementos:
 
 * Una suscripción a Microsoft Azure. Si no tiene una, puede registrarse para una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial).
 * Versión 2.0 de la interfaz de la línea de comandos o posterior. Para instalar la última versión, consulte el artículo sobre la [instalación y configuración de la interfaz de la línea de comandos 2.0 entre plataformas de Azure](/cli/azure/install-azure-cli).
 * Aplicación que se configurará para utilizar la clave o contraseña creada en este artículo. Hay una aplicación de ejemplo disponible en el [Centro de descarga de Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Para obtener instrucciones, consulte el archivo Léame incluido.
 
-## <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Obtención de ayuda con la interfaz de la línea de comandos entre plataformas de Azure
+### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Obtención de ayuda con la interfaz de la línea de comandos entre plataformas de Azure
+
 En este artículo se asume que está familiarizado con la interfaz de la línea de comandos (Bash, Terminal, símbolo del sistema).
 
 Los parámetros --help o -h se pueden usar para ver la ayuda de comandos específicos. También puede usar el formato Azure help [command] [options]. Si duda sobre los parámetros que necesita un comando, consulte la ayuda. Por ejemplo, todos los comandos siguientes devuelven la misma información:
 
-```azurecli-interactive
+```azurecli
 az account set --help
 az account set -h
 ```
@@ -61,9 +69,13 @@ También puede leer los artículos siguientes para familiarizarse con Azure Reso
 * [Instalación de la CLI de Azure](/cli/azure/install-azure-cli)
 * [Introducción a la CLI de Azure 2.0](/cli/azure/get-started-with-azure-cli)
 
-## <a name="connect-to-your-subscriptions"></a>Conectarse a sus suscripciones
+## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Procedimiento para crear un contenedor protegido (un almacén) en Azure.
 
-Para iniciar sesión interactivamente, use el comando siguiente:
+Los almacenes son contenedores protegidos respaldados por módulos de seguridad de hardware. Los almacenes ayudan a reducir las posibilidades de que se produzca una pérdida accidental de información de seguridad centralizando el almacenamiento de los secretos de aplicación. Key Vault también permite controlar y registrar el acceso a todo lo que está almacenado en ellos. Azure Key Vault puede administrar la solicitud y renovación de los certificados de Seguridad de la capa de transporte (TLS), proporcionando las características necesarias para conseguir una eficaz solución de administración del ciclo de vida de los certificados. En los pasos siguientes, creará un almacén.
+
+### <a name="connect-to-your-subscriptions"></a>Conectarse a sus suscripciones
+
+Para iniciar sesión de forma interactiva, use el comando siguiente:
 
 ```azurecli
 az login
@@ -88,7 +100,8 @@ az account set --subscription <subscription name or ID>
 
 Para más información acerca de cómo configurar la interfaz de la línea de comandos entre plataformas de Azure, consulte el artículo sobre la [instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-a-new-resource-group"></a>Creación de un nuevo grupo de recursos
+### <a name="create-a-new-resource-group"></a>Creación de un nuevo grupo de recursos
+
 Cuando se utiliza el Administrador de recursos de Azure, todos los recursos relacionados se crean dentro de un grupo de recursos. Puede crear un almacén de claves en un grupo de recursos existente. Si quiere usar un nuevo grupo de recursos, puede crearlo.
 
 ```azurecli
@@ -101,15 +114,15 @@ El primer parámetro es el nombre del grupo de recursos y el segundo parámetro 
 az account list-locations
 ``` 
 
-## <a name="register-the-key-vault-resource-provider"></a>Registro del proveedor de recursos de Key Vault
+### <a name="register-the-key-vault-resource-provider"></a>Registro del proveedor de recursos de Key Vault
+
  Al intentar crear un almacén de claves, puede ver el error "La suscripción no está registrada para usar el espacio de nombres 'Microsoft.KeyVault'". Si aparece ese mensaje, asegúrese de que el proveedor de recursos de Key Vault está registrado en la suscripción. Se trata de una operación única para cada suscripción.
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
 ```
 
-
-## <a name="create-a-key-vault"></a>Creación de un Almacén de claves
+### <a name="create-a-key-vault"></a>Creación de un Almacén de claves
 
 Utilice el comando `az keyvault create` para crear un Almacén de claves. Este script tiene tres parámetros obligatorios: el nombre del grupo de recursos, el nombre del Almacén de claves y la ubicación geográfica.
 
@@ -126,7 +139,7 @@ La salida de este comando muestra las propiedades del almacén de claves que ha 
 
 Su cuenta de Azure ahora está autorizada para realizar operaciones en este Almacén de claves. Hasta ahora, nadie más está autorizado.
 
-## <a name="add-a-key-secret-or-certificate-to-the-key-vault"></a>Agregue una clave, un secreto o un certificado al almacén de claves
+## <a name="adding-a-key-secret-or-certificate-to-the-key-vault"></a>Agregar una clave, un secreto o un certificado al almacén de claves
 
 Si quiere que Azure Key Vault cree una clave protegida mediante software, utilice el comando `az key create`.
 
@@ -176,7 +189,8 @@ az keyvault secret list --vault-name 'ContosoKeyVault'
 az keyvault certificate list --vault-name 'ContosoKeyVault'
 ```
 
-## <a name="register-an-application-with-azure-active-directory"></a>Registro de una aplicación con Azure Active Directory
+## <a name="registering-an-application-with-azure-active-directory"></a>Registrar una aplicación con Azure Active Directory
+
 Este paso lo haría normalmente un programador en un equipo independiente. No es específico de Azure Key Vault, pero se incluye aquí para fines de información. Para completar el registro de la aplicación, su cuenta, el almacén y la aplicación deben estar en el mismo directorio de Azure.
 
 Las aplicaciones que utilizan un Almacén de claves deben autenticarse utilizando un token de Azure Active Directory.  El propietario de la aplicación debe registrarla primero en Azure Active Directory. Al final del registro, el propietario de la aplicación obtiene los valores siguientes:
@@ -195,7 +209,7 @@ az ad sp create-for-rbac -n "MyApp" --password 'Pa$$w0rd' --skip-assignment
 # If you don't specify a password, one will be created for you.
 ```
 
-## <a name="authorize-the-application-to-use-the-key-or-secret"></a>Autorización de la aplicación para que use la clave o el secreto
+## <a name="authorizing-an-application-to-use-a-key-or-secret"></a>Autorizar una aplicación para que use una clave o un secreto
 
 Para que la aplicación pueda acceder a la clave o el secreto en el almacén, use el comando `az keyvault set-policy` .
 
@@ -211,7 +225,8 @@ Para autorizar a la misma aplicación a leer secretos en su almacén, escriba el
 az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
-## <a name="bkmk_KVperCLI"></a> Configurar las directivas de acceso avanzado del almacén de claves 
+## <a name="bkmk_KVperCLI"></a> Configuración de directivas de acceso avanzado de almacén de claves
+
 Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) para habilitar directivas avanzadas para el almacén de claves. 
 
  Habilitar Key Vault para la implementación: permite que las máquinas virtuales recuperen certificados almacenados como secretos del almacén.
@@ -230,7 +245,7 @@ Habilitar Key Vault para la implementación de plantillas: permite que Resource 
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
  ```
 
-## <a name="if-you-want-to-use-a-hardware-security-module-hsm"></a>Si desea utilizar un módulo de seguridad de hardware (HSM)
+## <a name="working-with-hardware-security-modules-hsms"></a>Trabajar con un módulo de seguridad de hardware (HSM)
 
 Para obtener seguridad adicional, puede importar o generar claves de módulos de seguridad de hardware (HSM) que no se salen nunca del límite de los HSM. Los HSM tienen la validación FIPS 140-2 de nivel 2. Si este requisito no es relevante para usted, omita esta sección y vaya al paso [Eliminación del Almacén de claves junto con las claves y secretos asociados](#delete-the-key-vault-and-associated-keys-and-secrets).
 
@@ -262,7 +277,7 @@ az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSM
 
 Para obtener instrucciones detalladas sobre cómo generar este paquete BYOK, consulte [Generación y transferencia de claves protegidas con HSM para Azure Key Vault](key-vault-hsm-protected-keys.md).
 
-## <a name="delete-the-key-vault-and-associated-keys-and-secrets"></a>Eliminación del Almacén de claves junto con las claves y secretos asociados
+## <a name="deleting-the-key-vault-and-associated-keys-and-secrets"></a>Eliminar el almacén de claves y las claves y los secretos asociados
 
 Si ya no necesita el almacén de claves ni sus claves o secretos, puede eliminarla con el comando `az keyvault delete`:
 
@@ -276,7 +291,7 @@ O bien puede eliminar un grupo de recursos de Azure completo, que incluye el Alm
 az group delete --name 'ContosoResourceGroup'
 ```
 
-## <a name="other-azure-cross-platform-command-line-interface-commands"></a>Otros comandos de la interfaz de la línea de comandos entre plataformas de Azure
+## <a name="miscellaneous-azure-cross-platform-command-line-interface-commands"></a>Otros comandos de la interfaz de la línea de comandos multiplataforma de Azure
 
 Otros comandos que puede encontrar útiles para gestionar Azure Key Vault.
 

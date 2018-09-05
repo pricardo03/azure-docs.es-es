@@ -13,25 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 08/28/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 9d38f6e6d6b9fa47b1cd1497820f7ff887954ad5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: bebabad4c7beb27022e12e5d48b77d88fc054fc2
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156194"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190122"
 ---
 # <a name="app-registration-reference"></a>Referencia del registro de aplicaciones
-En este documento se proporciona el contexto y las descripciones de las distintas características que se encuentran en el portal de registro de aplicaciones de Microsoft [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
+En este documento se proporciona el contexto y las descripciones de las distintas características que se encuentran en el [Portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
 
-## <a name="my-applications"></a>Mis aplicaciones
+## <a name="my-applications-or-converged-applications"></a>Mis aplicaciones o aplicaciones convergentes
 Esta lista contiene todas las aplicaciones que se registran para su uso con el punto de conexión v2.0 de Azure AD. Estas aplicaciones tienen la capacidad de permitir el inicio de sesión de los usuarios tanto con cuentas personales de Microsoft como con cuentas profesionales o educativas de Azure Active Directory. Para obtener más información sobre el punto de conexión v2.0 de Azure AD, consulte la [información general sobre v2.0](active-directory-appmodel-v2-overview.md). Estas aplicaciones también se pueden usar para la integración con el punto de conexión de autenticación de la cuenta Microsoft, `https://login.live.com`.
 
+## <a name="azure-ad-only-applications"></a>Aplicaciones que solo usan Azure AD
+Esta lista contiene todas las aplicaciones que se registran para su uso con el punto de conexión de Azure AD v1.0. Estas aplicaciones solo tienen la capacidad de iniciar la sesión de usuarios con cuentas profesionales o educativas de Azure Active Directory. Esta lista incluye las aplicaciones que se registraron mediante los **registros de aplicaciones** de [Azure Portal](https://portal.azure.com).
+
 ## <a name="live-sdk-applications"></a>Aplicaciones de SDK de Live
-Esta lista contiene todas las aplicaciones registradas para su uso únicamente con la cuenta Microsoft. No están habilitadas para su uso con Azure Active Directory. Aquí es donde encontrará todas las aplicaciones que se registraron previamente en el portal de desarrolladores de MSA en `https://account.live.com/developers/applications`. Todas las funciones que realizaba anteriormente en `https://account.live.com/developers/applications` ahora se pueden realizar en este nuevo portal, `https://apps.dev.microsoft.com`. Si tiene alguna pregunta acerca de las aplicaciones de la cuenta de Microsoft, póngase en contacto con nosotros.
+Esta lista contiene todas las aplicaciones registradas para su uso únicamente con la cuenta Microsoft. No están habilitadas para su uso con Azure Active Directory. Aquí es donde encontrará todas las aplicaciones que se registraron previamente en el portal de desarrolladores de MSA en `https://account.live.com/developers/applications`. Todas las funciones que realizaba anteriormente en `https://account.live.com/developers/applications` ahora se pueden realizar en este nuevo portal, `https://apps.dev.microsoft.com`.
 
 ## <a name="application-secrets"></a>Secretos de aplicación
 Los secretos de aplicación son credenciales que permiten que la aplicación realice una [autenticación de cliente](http://tools.ietf.org/html/rfc6749#section-2.3) confiable con Azure AD. En OAuth y OpenID Connect, un secreto de aplicación se conoce comúnmente como `client_secret`. En el protocolo v2.0, cualquier aplicación que reciba un token de seguridad en una ubicación direccionable web (mediante un esquema `https` ) debe usar un secreto de aplicación para identificarse en Azure AD en el momento del canje de ese token de seguridad. Además, cualquier cliente nativo que reciba tokens en un dispositivo tendrá prohibido el uso de un secreto de aplicación para realizar la autenticación de cliente. De esta forma, se evita el almacenamiento de secretos en entornos no seguros.

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: fbc40d0768a7cf1cb83a3e78dd524fac26254bea
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 12d3b358be8bb90b63e5e7310123f8ae7093994c
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146700"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190279"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Planeamiento de la implementación de unión a Azure Active Directory híbrido
 
@@ -131,6 +131,7 @@ Si el entorno tiene dominios administrados, a unión a Azure AD híbrido admite:
 Desde la versión 1.1.819.0, Azure AD Connect proporciona un asistente para configurar la unión a Azure AD híbrido. El asistente permite simplificar considerablemente el proceso de configuración. Para más información, consulte:
 
 - [Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios federados](hybrid-azuread-join-federated-domains.md)
+
 
 - [Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios administrados](hybrid-azuread-join-managed-domains.md)
 

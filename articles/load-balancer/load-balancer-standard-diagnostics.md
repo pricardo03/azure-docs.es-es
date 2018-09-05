@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 08/27/2018
 ms.author: Kumud
-ms.openlocfilehash: 9d5d596254f673b86650e8d9754dacdb70be0666
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 43945dc8810151eb701aa9e1aa1be47d4fbb0491
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179801"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125651"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Métricas y diagnóstico de mantenimiento de Load Balancer Estándar
 
@@ -219,5 +219,6 @@ En la tabla siguiente se enumeran los estados de mantenimiento de varios recurso
 
 - Más información acerca de [Load Balancer Estándar](load-balancer-standard-overview.md).
 - Más información sobre la [conectividad saliente de Load Balancer](https://aka.ms/lboutbound).
+- Información acerca de la [API REST de métricas de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metrics/).
 
 

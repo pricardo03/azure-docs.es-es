@@ -1,6 +1,6 @@
 ---
-title: Suscripciones de Privileged Identity Management - Azure | Microsoft Docs
-description: Explica los requisitos de suscripción y licencia para administrar y usar Azure AD Privileged Identity Management en su inquilino
+title: 'Requisitos de suscripción para usar PIM: Azure | Microsoft Docs'
+description: Describe los requisitos de suscripción y licencia necesarios para usar Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.component: pim
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: dbe4efa57a7c4c31b2bdca84665eef8179564a8f
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 1554895dcba0c09a3a2e19c284a1cd6f0416cfe1
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617076"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190617"
 ---
-# <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Requisitos de suscripción de Azure Active Directory Privileged Identity Management
+# <a name="subscription-requirements-to-use-pim"></a>Requisitos de la suscripción para usar PIM
 
 Azure AD Privileged Identity Management está disponible como parte de la edición Premium P2 de Azure AD. Para más información sobre las demás características de P2 y compararlo con Premium P1, consulte [Ediciones de Azure Active Directory](../active-directory-editions.md).
 
@@ -61,5 +61,5 @@ Cuando una suscripción de Azure AD Premium P2 o EMS E5 expira, o una organizaci
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Introducción a Privileged Identity Management de Azure AD](pim-getting-started.md)
-- [Roles en Privileged Identity Management de Azure AD](pim-roles.md)
+- [Primer uso de PIM](pim-getting-started.md)
+- [Roles de directorio de Azure AD que se pueden administrar en PIM](pim-roles.md)

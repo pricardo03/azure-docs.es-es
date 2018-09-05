@@ -1,6 +1,6 @@
 ---
-title: Detectar y administrar recursos de Azure mediante Privileged Identity Management | Microsoft Docs
-description: En este artículo se explica cómo proteger recursos de Azure mediante PIM.
+title: Detección de recursos de Azure que se administran en PIM | Microsoft Docs
+description: Aprenda a detectar recursos de Azure que se administran en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: c5b26c01028e2a5746132939a2058cacdcad859f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: b5d48b3f854afaa79574e0ec13cff91f60396ac6
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622109"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190665"
 ---
-# <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Detectar y administrar recursos de Azure mediante Privileged Identity Management
+# <a name="discover-azure-resources-to-manage-in-pim"></a>Detección de recursos de Azure que se administran en PIM
 
 Obtenga información sobre cómo detectar y administrar recursos de Azure al usar Privileged Identity Management (PIM) en Azure Active Directory (Azure AD). Esta información puede ser útil para las organizaciones que ya usan PIM para proteger los recursos de administrador y para los propietarios de suscripciones que buscan proteger los recursos de producción.
 
 La primera vez que se configura PIM para recursos de Azure, hay que detectar y seleccionar los recursos que se van a proteger con PIM. No hay ningún límite en cuanto al número de recursos que se pueden administrar con PIM. Pero se recomienda empezar por los recursos más críticos (producción).
 
 > [!NOTE]
-> Solo se pueden buscar y seleccionar recursos de la suscripción para su administración mediante PIM. Al administrar una suscripción en PIM, también se pueden administrar los recursos secundarios de la suscripción.
+> Solo se pueden buscar y seleccionar recursos de la suscripción o de un grupo de administración para administrarlos mediante PIM. Al administrar un grupo de administración o una suscripción en PIM, también se pueden administrar sus recursos secundarios.
 
 ## <a name="discover-resources"></a>Detección de recursos
 
@@ -64,5 +64,5 @@ Los recursos seleccionados se administran ahora con PIM. Para cerrar la pantalla
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configurar los roles](pim-resource-roles-configure-role-settings.md)
-- [Asignar roles en PIM](pim-resource-roles-assign-roles.md)
+- [Configuración de roles de recurso de Azure en PIM](pim-resource-roles-configure-role-settings.md)
+- [Asignación de roles de recursos de Azure en PIM](pim-resource-roles-assign-roles.md)

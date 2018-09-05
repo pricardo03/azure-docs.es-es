@@ -1,6 +1,6 @@
 ---
-title: Asignación de roles de directorio a los usuarios mediante Azure AD PIM | Microsoft Docs
-description: Aprenda a asignar roles de directorio a los usuarios mediante Azure Active Directory Privileged Identity Management y Azure Portal.
+title: Asignación de roles de directorio de Azure AD en PIM | Microsoft Docs
+description: Aprenda a asignar los roles de directorio de Azure AD en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
-ms.openlocfilehash: 1aede38cabba7f9811f2b9320bc1e9a9da857f08
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 33bfe28bf612c47c9f42345dabccc017337c3d45
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621820"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190163"
 ---
-# <a name="assign-directory-roles-to-users-using-azure-ad-pim"></a>Asignación de roles de directorio a los usuarios mediante Azure AD PIM
+# <a name="assign-azure-ad-directory-roles-in-pim"></a>Asignación de roles de directorio de Azure AD en PIM
 
 Con Azure Active Directory (Azure AD), un administrador global puede realizar asignaciones de roles de directorio **permanentes**. Estas asignaciones de roles se pueden crear mediante [Azure Portal](../users-groups-roles/directory-assign-admin-roles.md) o mediante [comandos de PowerShell](/powershell/module/azuread#directory_roles).
 
-El servicio Azure AD Privileged Identity Management (PIM) permite también a los administradores de roles con privilegios realizar asignaciones de roles de directorio permanentes. Además, los administradores de rol con privilegios pueden hacer que los usuarios sean **aptos** para roles de directorio. Un administrador apto puede activar el rol cuando lo necesite y, cuando termina, sus permisos caducan. Para información sobre los roles que puede administrar mediante PIM, consulte [Rol administrativo diferente en Azure Active Directory PIM](pim-roles.md).
+El servicio Azure AD Privileged Identity Management (PIM) permite también a los administradores de roles con privilegios realizar asignaciones de roles de directorio permanentes. Además, los administradores de rol con privilegios pueden hacer que los usuarios sean **aptos** para roles de directorio. Un administrador apto puede activar el rol cuando lo necesite y, cuando termina, sus permisos caducan. Para información acerca de los roles que puede administrar mediante PIM, consulte [Roles de directorio que pueden administrar con Azure AD PIM](pim-roles.md).
 
 ## <a name="make-a-user-eligible-for-a-role"></a>Hacer que un usuario sea apto para un rol
 
@@ -31,15 +31,15 @@ Siga estos pasos para hacer que un usuario sea apto para un rol de directorio de
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que sea miembro del [con Administrador de rol con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 
-    Para información sobre cómo conceder a otro usuario acceso para administrar PIM, consulte [cómo conceder acceso a PIM](pim-how-to-give-access-to-pim.md).
+    Para obtener información acerca de cómo conceder otro acceso de administrador para administrar PIM, consulte [Concesión de acceso para administrar Azure AD Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
 1. Abra **Azure AD Privileged Identity Management**.
 
-    Si aún no ha habilitado PIM en Azure Portal, vaya a [Comenzar a usar Azure AD Privileged Identity Management](pim-getting-started.md).
+    Si aún no ha iniciado PIM en Azure Portal, vaya a [Primer uso de PIM](pim-getting-started.md).
 
 1. Haga clic en **Roles de directorio de Azure AD**.
 
-1. Haga clic en **Rol (versión preliminar)** o **Miembros**.
+1. Haga clic en **Roles** o en **Miembros**.
 
     ![Roles de directorio de Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
@@ -55,7 +55,9 @@ Siga estos pasos para hacer que un usuario sea apto para un rol de directorio de
 
 1. En Agregar miembros administrados, haga clic en **Aceptar** para agregar el usuario al rol.
 
-     Cuando el rol esté asignado, el usuario que seleccionó aparecerá en la lista de miembros como **apto** para el rol.
+1. En la lista de roles, haga clic en el que acaba de asignar para ver la lista de miembros.
+
+     Cuando el rol esté asignado, el usuario que ha seleccionado aparecerá en la lista de miembros como **Elegible** para el rol.
 
     ![Usuario apto para un rol](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
 
@@ -75,7 +77,7 @@ De forma predeterminada, los usuarios nuevos solo son aptos para un rol de direc
 
     ![Lista de miembros](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members.png)
 
-1. Haga clic en un rol **apto** que desea convertir en permanente.
+1. Haga clic en un rol **elegible** que desee convertir en permanente.
 
 1. Haga clic en **Más** y luego en **Establecer como permanente**.
 
@@ -112,4 +114,6 @@ Siga estos pasos para quitar a un usuario específico de un rol diferente.
     La asignación de rol se quita.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Configuración de roles de directorio de Azure AD en PIM](pim-how-to-change-default-settings.md)
+- [Asignación de roles de recursos de Azure en PIM](pim-resource-roles-assign-roles.md)

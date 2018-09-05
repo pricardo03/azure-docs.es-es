@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 5ffba386ae6b1e1e5d18f92803bc8cb74b2ff89e
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: fb6a984ff838305b4ce411538465c0b9b5c152da
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061306"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886921"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Información general de seguridad de Azure Virtual Machines
 Puede usar las máquinas virtuales de Azure para implementar una amplia gama de soluciones informáticas con facilidad. El servicio es compatible con Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP y Azure BizTalk Services. Gracias a ello, puede implementar cualquier carga de trabajo y cualquier lenguaje en casi cualquier sistema operativo.
@@ -82,9 +82,8 @@ La solución se integra con Azure Key Vault para controlar y administrar los sec
 
 Más información:
 
-* [Azure Disk Encryption para máquinas virtuales IaaS Linux y Windows](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
-* [Azure Disk Encryption for Linux and Windows Virtual Machines (Azure Disk Encryption para máquinas virtuales Linux y Windows)](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/azure-disk-encryption-for-linux-and-windows-virtual-machines-public-preview-now-available/)
-* [Cifrado de una máquina virtual de Azure](../security-center/security-center-disk-encryption.md)
+* [Azure Disk Encryption para máquinas virtuales IaaS](../security/azure-security-disk-encryption-overview.md)
+* [Guía de inicio rápido: Cifrado de una máquina virtual IaaS Windows con Azure PowerShell](../security/quick-encrypt-vm-powershell.md)
 
 ## <a name="virtual-machine-backup"></a>Copia de seguridad de máquina virtual
 Azure Backup es una solución escalable que protege los datos de su aplicación sin necesidad de realizar ninguna inversión y afrontando unos costos operativos mínimos. Los errores de una aplicación pueden dañar los datos, y los errores humanos pueden crear errores en las aplicaciones. Con Azure Backup, las máquinas virtuales que ejecutan Windows y Linux están protegidas.

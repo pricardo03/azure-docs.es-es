@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/25/2018
+ms.date: 08/27/2018
 ms.author: aljo
-ms.openlocfilehash: 9e4d65875085ec293813e2683acde095ae112b75
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: ed904f7d4de9406e60de1652cefeb5bb84e5a1d8
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503713"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144045"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se explica cómo personalizar las diversas opciones de configuración para el clúster de Service Fabric. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. En clústeres independientes, para personalizar la configuración debe actualizar el archivo ClusterConfig.json y realizar una actualización de la configuración en el clúster. 
@@ -187,9 +187,10 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 ## <a name="dnsservice"></a>DnsService
 | **Parámetro** | **Valores permitidos** |**Directiva de actualización**| **Orientación o breve descripción** |
 | --- | --- | --- | --- |
+|EnablePartitionedQuery|bool, el valor predeterminado es FALSE|estática|Marca para habilitar la compatibilidad de los servicios con particiones con las consultas DNS. La característica está desactivada de forma predeterminada. Para más información, consulte [Servicio DNS en Azure Service Fabric](service-fabric-dnsservice.md).|
 |InstanceCount|int, el valor predeterminado es -1|estática|El valor predeterminado es -1, lo que significa que DnsService se ejecuta en cada nodo. OneBox necesita estar establecido en 1, puesto que DnsService usa el conocido puerto 53, por lo que no puede tener varias instancias en el mismo equipo.|
 |IsEnabled|bool, el valor predeterminado es FALSE|estática|Habilita o deshabilita DnsService. DnsService está deshabilitado de forma predeterminada y es necesario establecer esta configuración para habilitarlo. |
-|PartitionPrefix|string, el valor predeterminado es "-".|estática|Controla el valor de cadena del prefijo de partición en las consultas de DNS para servicios con particiones. El valor: <ul><li>Debe ser compatible con RFC, ya que formará parte de una consulta de DNS.</li><li>No debe contener un punto, ".", ya que el punto interfiere con el comportamiento del sufijo DNS.</li><li>No puede tener más de cinco caracteres.</li><li>No puede ser una cadena vacía.</li><li>Si se invalida la configuración de PartitionPrefix, se debe invalidar PartitionSuffix y viceversa.</li></ul>Para más información, vea [Servicio DNS en Azure Service Fabric](service-fabric-dnsservice.md).|
+|PartitionPrefix|string, el valor predeterminado es "--"|estática|Controla el valor de cadena del prefijo de partición en las consultas de DNS para servicios con particiones. El valor: <ul><li>Debe ser compatible con RFC, ya que formará parte de una consulta de DNS.</li><li>No debe contener un punto, ".", ya que el punto interfiere con el comportamiento del sufijo DNS.</li><li>No puede tener más de cinco caracteres.</li><li>No puede ser una cadena vacía.</li><li>Si se invalida la configuración de PartitionPrefix, se debe invalidar PartitionSuffix y viceversa.</li></ul>Para más información, vea [Servicio DNS en Azure Service Fabric](service-fabric-dnsservice.md).|
 |PartitionSuffix|string, el valor predeterminado es "".|estática|Controla el valor de cadena del sufijo de partición en las consultas de DNS para servicios con particiones. El valor: <ul><li>Debe ser compatible con RFC, ya que formará parte de una consulta de DNS.</li><li>No debe contener un punto, ".", ya que el punto interfiere con el comportamiento del sufijo DNS.</li><li>No puede tener más de cinco caracteres.</li><li>Si se invalida la configuración de PartitionPrefix, se debe invalidar PartitionSuffix y viceversa.</li></ul>Para más información, vea [Servicio DNS en Azure Service Fabric](service-fabric-dnsservice.md). |
 
 ## <a name="fabricclient"></a>FabricClient
@@ -350,6 +351,9 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |ApplicationHostCloseTimeout| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(120)|Dinámica| Especifique el intervalo de tiempo en segundos. Cuando se detecta el cierre de Fabric en procesos autoactivados, FabricRuntime cierra todas las réplicas en el proceso de host (applicationhost) del usuario. Se trata del tiempo de espera para la operación de cierre. |
 |ApplicationUpgradeTimeout| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(360)|Dinámica| Especifique el intervalo de tiempo en segundos. Tiempo de espera de la actualización de la aplicación. Si el tiempo de espera es menor que el tiempo de "ActivationTimeout", se producirá un error en el implementador. |
 |ContainerServiceArguments|string, el valor predeterminado es "-H localhost:2375 -H npipe://".|estática|Service Fabric (SF) administra el demonio de Docker (excepto en las máquinas de cliente Windows como Win10). Esta configuración permite al usuario especificar argumentos personalizados que deben pasarse al demonio de Docker al iniciarlo. Cuando se especifican argumentos personalizados, Service Fabric no pasa ningún otro argumento al motor de Docker excepto el argumento "--pidfile". Por lo tanto, los usuarios no deben especificar el argumento "--pidfile" como parte de sus argumentos personalizados. Además, los argumentos personalizados deberán asegurarse de que el demonio de Docker escuche en la canalización de nombres predeterminada en Windows (o en el socket de dominio Unix en Linux) para que Service Fabric pueda comunicarse con él.|
+|ContainerServiceLogFileMaxSizeInKb|int, el valor predeterminado es 32768|estática|Tamaño máximo del archivo de registro generado por los contenedores de Docker.  Solo Windows.|
+|ContainerServiceLogFileNamePrefix|string, el valor predeterminado es "sfcontainerlogs"|estática|Prefijo del nombre de los archivos de registro generados por los contenedores de Docker.  Solo Windows.|
+|ContainerServiceLogFileRetentionCount|int, el valor predeterminado es 10|estática|Número de archivos de registro generados por los contenedores de Docker antes de que se sobrescriban.  Solo Windows.|
 |CreateFabricRuntimeTimeout|TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(120)|Dinámica| Especifique el intervalo de tiempo en segundos. Valor de tiempo de espera de la llamada de sincronización FabricCreateRuntime. |
 |DefaultContainerRepositoryAccountName|string, el valor predeterminado es "".|estática|Las credenciales predeterminadas usadas en lugar de las credenciales especificadas en ApplicationManifest.xml. |
 |DefaultContainerRepositoryPassword|string, el valor predeterminado es "".|estática|Las credenciales de contraseña predeterminadas usadas en lugar de las credenciales especificadas en ApplicationManifest.xml.|
@@ -357,6 +361,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |DeploymentMaxRetryInterval| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(3600)|Dinámica| Especifique el intervalo de tiempo en segundos. Intervalo de reintento máximo para la implementación. Con cada error continuo, el intervalo de reintento se calcula como Min( DeploymentMaxRetryInterval; Recuento continuo de errores * DeploymentRetryBackoffInterval). |
 |DeploymentRetryBackoffInterval| TimeSpan, el valor predeterminado es Common::TimeSpan::FromSeconds(10)|Dinámica|Especifique el intervalo de tiempo en segundos. Intervalo de espera para el error de implementación. En cada caso de error de implementación continuo, el sistema reintentará la implementación hasta las veces especificadas en MaxDeploymentFailureCount. El intervalo de reintento es producto de un error de implementación continua y el intervalo de espera de la implementación. |
 |EnableActivateNoWindow| bool, el valor predeterminado es FALSE|Dinámica| El proceso de activación se crea en segundo plano sin ninguna consola. |
+|EnableContainerServiceDebugMode|bool, el valor predeterminado es TRUE|estática|Habilite o deshabilite el registro para contenedores de Docker.  Solo Windows.|
 |EnableDockerHealthCheckIntegration|bool, el valor predeterminado es TRUE|estática|Habilita la integración de eventos HEALTHCHECK de Docker con el informe de mantenimiento del sistema de Service Fabric. |
 |EnableProcessDebugging|bool, el valor predeterminado es FALSE|Dinámica| Permite iniciar hosts de aplicaciones en el depurador. |
 |EndpointProviderEnabled| bool, el valor predeterminado es FALSE|estática| Permite la administración de recursos de punto de conexión con Fabric. Requiere la especificación del inicio y del fin del intervalo de puertos de la aplicación en FabricNode. |

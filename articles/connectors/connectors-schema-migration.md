@@ -1,55 +1,46 @@
 ---
-title: Migración de aplicaciones lógicas a la versión de esquema 2015-08-01-preview | Microsoft Docs
-description: 'Puede migrar fácilmente las aplicaciones lógicas a la última versión de esquema. Simplemente, siga estos pasos:'
+title: 'Migración de aplicaciones al esquema más reciente: Azure Logic Apps | Microsoft Docs'
+description: Cómo migrar las aplicaciones lógicas a la versión de esquema más reciente
 services: logic-apps
-documentationcenter: ''
-author: MSFTMAN
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/23/2016
-ms.author: deonhe
-ms.openlocfilehash: a5a73a9f124e5339b61dbc49021444a208a471f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
+ms.topic: article
+ms.date: 08/25/2018
+ms.openlocfilehash: 8a6925d79b225a34d980472d4fb3241ab9eb1017
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22707131"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127418"
 ---
-# <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>Migración de aplicaciones lógicas a la versión de esquema 2015-08-01-preview
-Para mover las aplicaciones lógicas existentes al nuevo esquema, realice lo siguiente:  
+# <a name="migrate-logic-apps-to-latest-schema-version"></a>Migración de aplicaciones lógicas a la versión de esquema más reciente
 
-1. Abra la aplicación lógica en el Portal de Azure  
-2. Haga clic en Actualizar esquema:
-   
-   ![Icono de API][step1]   
-   La página Actualizar esquema aparece y ofrece un vínculo a un documento que proporciona más información acerca de las mejoras del nuevo esquema: ![Icono de API][step2]
+Para mover las aplicaciones lógicas existentes al esquema más reciente, siga estos pasos: 
 
-> [!NOTE]
-> Al seleccionar **Actualizar esquema**, automáticamente se ejecutan los pasos de migración y se le proporciona la salida de código. Con ello puede actualizar la definición, sin embargo, asegúrese de seguir las buenas prácticas de codificación descritas en la sección **Procedimientos recomendados** de más adelante.
-> 
-> 
+1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en Diseñador de aplicación lógica.
 
-## <a name="best-practices-when-migrating-your-logic-apps-to-the-latest-schema-version"></a>Procedimientos recomendados al migrar las aplicaciones lógicas a la última versión de esquema:
-* Copie el script migrado a una nueva aplicación lógica: no sobrescriba el antiguo hasta que haya completado las pruebas y confirmado que la aplicación migrada funciona según lo previsto.
-* Pruebe la aplicación lógica **antes de** ponerla en producción
-* Una vez finalizada la migración, comience la actualización de las aplicaciones lógicas para usar las [API administradas](apis-list.md) siempre que sea posible. Por ejemplo, puede empezar a utilizar Dropbox v2, en cualquier ocasión que esté utilizando DropBox v1.
+2. En el menú de la aplicación lógica, elija **Información general**. En la barra de herramientas, elija **Actualizar esquema**.
 
-## <a name="whats-next"></a>Pasos siguientes
-* [Obtenga información sobre cómo migrar las aplicaciones lógicas de forma manual](../logic-apps/logic-apps-schema-2015-08-01.md)
+   > [!NOTE]
+   > Cuando elige **Actualizar esquema**, Azure Logic Apps ejecuta los pasos de migración y proporciona el código de salida automáticamente. Puede usar esta salida para actualizar la definición de aplicación lógica. Sin embargo, asegúrese de seguir los procedimientos recomendados que se describen en la siguiente sección **Procedimientos recomendados**.
 
-<!--Icon references-->
-[step1]: ./media/connectors-schema-migration/migrateschema1.png
-[step2]: ./media/connectors-schema-migration/migrateschema2.png
+   ![Actualizar esquema](./media/connectors-schema-migration/update-schema.png)
 
+   La página Actualizar esquema aparece y muestra un vínculo a un documento que describe las mejoras en el nuevo esquema.
 
+## <a name="best-practices"></a>Procedimientos recomendados
 
+Estos son algunos procedimientos recomendados para migrar las aplicaciones lógicas a la versión de esquema más reciente:
 
+* Copie el script migrado en una nueva aplicación lógica. No sobrescriba la versión anterior hasta que finalice las pruebas y confirme que la aplicación migrada funciona según lo previsto.
 
+* Pruebe la aplicación lógica **antes** de pasarla a producción
 
+* Una vez finalizada la migración, comience a actualizar las aplicaciones lógicas para usar las [API administradas](../connectors/apis-list.md) siempre que sea posible. Por ejemplo, comience a usar Dropbox v2 en cualquier lugar que use DropBox v1.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* Aprenda a [migrar manualmente las aplicaciones lógicas](../logic-apps/logic-apps-schema-2015-08-01.md).

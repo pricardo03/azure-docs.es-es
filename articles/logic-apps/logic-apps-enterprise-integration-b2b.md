@@ -1,31 +1,27 @@
 ---
-title: 'Creación de soluciones B2B: Azure Logic Apps | Microsoft Docs'
-description: Recepción de datos en aplicaciones lógicas mediante las características B2B de Enterprise Integration Pack
+title: 'Creación de integraciones empresariales B2B: Azure Logic Apps | Microsoft Docs'
+description: Recepción de datos B2B en Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: a27a413ba9a0d974cf90fe842d5fc325ab308a56
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ad7a29f4a554d599b17576921542b1ac6e403911
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298124"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127771"
 ---
-# <a name="receive-data-in-logic-apps-with-the-b2b-features-in-the-enterprise-integration-pack"></a>Recepción de datos en aplicaciones lógicas con las características B2B de Enterprise Integration Pack
+# <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>Recepción de datos B2B con Azure Logic Apps y Enterprise Integration Pack
 
 Después de crear una cuenta de integración que tiene asociados y contratos, está listo para crear un flujo de trabajo de negocio a negocio (B2B) para la aplicación lógica mediante [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para utilizar las acciones AS2 y X12, debe disponer de una cuenta de Enterprise Integration. Aprenda a [crear una cuenta de Enterprise Integration](../logic-apps/logic-apps-enterprise-integration-accounts.md).
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 08/24/2018
 ms.author: jingwang
-ms.openlocfilehash: a27d90006d31c83b5ebe6cfc4a8d97969743a91e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5afb2fccd5c7b8ca306079941837d854c0b21349
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049865"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091724"
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copia de datos desde el punto de conexión HTTP mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,10 +54,10 @@ Las siguientes propiedades son compatibles con el servicio vinculado de HTTP:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **HttpServer**. | Sí |
-| URL | Dirección URL base para el servidor web | Sí |
+| Tipo | La propiedad type debe establecerse en: **HttpServer**. | SÍ |
+| URL | Dirección URL base para el servidor web | SÍ |
 | enableServerCertificateValidation | Especifique si desea habilitar la validación de certificados SSL al conectarse al punto de conexión HTTP. Si el servidor HTTPS está usando un certificado autofirmado, establezca esta propiedad en false. | No, el valor predeterminado es True. |
-| authenticationType | Especifica el tipo de autenticación. Los valores permitidos son: **Anonymous**, **Basic**, **Digest**, **Windows** y **ClientCertificate**. <br><br> Consulte en las secciones después de esta tabla más propiedades y ejemplos de JSON para esos tipos de autenticación respectivamente. | Sí |
+| authenticationType | Especifica el tipo de autenticación. Los valores permitidos son: **Anonymous**, **Basic**, **Digest**, **Windows** y **ClientCertificate**. <br><br> Consulte en las secciones después de esta tabla más propiedades y ejemplos de JSON para esos tipos de autenticación respectivamente. | SÍ |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Uso de la autenticación Basic, Digest o Windows
@@ -66,8 +66,8 @@ Establezca la propiedad "authenticationType" en **Básica**, **Implícita** o **
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| userName | Nombre de usuario para acceder al punto de conexión HTTP. | Sí |
-| contraseña | Contraseña para el usuario (nombre de usuario). Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| userName | Nombre de usuario para acceder al punto de conexión HTTP. | SÍ |
+| contraseña | Contraseña para el usuario (nombre de usuario). Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
 
 **Ejemplo**
 
@@ -162,13 +162,16 @@ Para copiar datos desde HTTP, establezca la propiedad type del conjunto de datos
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **HttpFile**. | Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **HttpFile**. | SÍ |
 | relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la propiedad, se solo se usa la dirección URL especificada en la definición de servicio vinculado. | Sin  |
 | requestMethod | Método HTTP.<br/>Los valores permitidos son **Get** (valor predeterminado) o **Post**. | Sin  |
 | additionalHeaders | Encabezados de solicitud HTTP adicionales. | Sin  |
 | requestBody | Cuerpo de la solicitud HTTP. | Sin  |
 | formato | Si desea **recuperar datos tal cual desde el punto de conexión HTTP** sin analizarlos ni copiarlos en un almacén basado en archivos, ignore la sección de formato de las definiciones de los conjuntos de datos de entrada y salida.<br/><br/>Si desea analizar el contenido de la respuesta HTTP durante la copia, se admiten los siguientes tipos de formato de archivos: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** y **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para obtener más información, consulte las secciones sobre [formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format) y [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Sin  |
 | compresión | Especifique el tipo y el nivel de compresión de los datos. Para más información, consulte el artículo sobre [códecs de compresión y formatos de archivo compatibles](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Los tipos admitidos son **GZip**, **Deflate**, **BZip2** y **ZipDeflate**.<br/>Los niveles admitidos son **Optimal** y **Fastest**. |Sin  |
+
+>[!NOTE]
+>El tamaño de carga de la solicitud HTTP admitido es aproximadamente 500 KB. Si el que desea pasar al punto de conexión web es mayor, considere la posibilidad de agruparlo en fragmentos menores.
 
 **Ejemplo 1: Uso del método Get (valor predeterminado)**
 
@@ -219,7 +222,7 @@ Para copiar datos desde HTTP, establezca el tipo de origen de la actividad de co
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **HttpSource**. | Sí |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **HttpSource**. | SÍ |
 | httpRequestTimeout | El tiempo que la solicitud HTTP espera (TimeSpan) a obtener una respuesta. Es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta.<br/> El valor predeterminado es: 00:01:40.  | Sin  |
 
 **Ejemplo:**

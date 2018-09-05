@@ -1,6 +1,6 @@
 ---
-title: Extensión y revisión de roles de recursos de Azure mediante Privileged Identity Management | Microsoft Docs
-description: Este documento describe cómo extender y renovar los roles de los recursos de Azure para los recursos de PIM.
+title: Ampliación o renovación de roles de recursos de Azure en PIM | Microsoft Docs
+description: Aprenda a ampliar o renovar roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7eb30f895214ff7d5a1607fc7e477d3d876a6fc1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2c85c5bbbd4c152113108e0fdb717d23f85f9fde
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617530"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189657"
 ---
-# <a name="extend-and-review-roles-in-azure-resources-by-using-privileged-identity-management"></a>Extensión y revisión de roles de recursos de Azure mediante Privileged Identity Management
+# <a name="extend-or-renew-azure-resource-roles-in-pim"></a>Ampliación o renovación de roles de recursos de Azure en PIM
 
 Privileged Identity Management (PIM) para recursos de Azure introduce nuevos controles para administrar el ciclo de vida de acceso y asignación de los recursos de Azure. Los administradores pueden asignar pertenencia mediante las propiedades de fecha y hora de inicio y finalización. Cuando el fin de la asignación se aproxima, PIM envía notificaciones por correo electrónico a los usuarios o grupos afectados. También envía notificaciones por correo electrónico a los administradores del recurso para asegurarse de que se mantenga el acceso adecuado. Las asignaciones pueden renovarse y permanecer visibles en un estado expirado durante un máximo de 30 días, incluso si el acceso no se extiende.
 
@@ -131,8 +131,5 @@ En la pantalla **Miembros**, seleccione **Roles expirados** para ver una lista d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Solicitar aprobación para activar](pim-resource-roles-approval-workflow.md)
-
-[Activación de un rol](pim-resource-roles-use-the-audit-log.md)
-
-
+- [Aprobación o rechazo de solicitudes de roles de recursos de Azure en PIM](pim-resource-roles-approval-workflow.md)
+- [Configuración de roles de recurso de Azure en PIM](pim-resource-roles-configure-role-settings.md)

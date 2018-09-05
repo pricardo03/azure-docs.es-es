@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/31/2018
+ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 2990ba290dfdaf45d8a341138ea515bad16d5b30
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e4bbf86c6cb7e827672fe279e86c8d3fd76e8e8b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628178"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049131"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa
 
@@ -48,26 +48,26 @@ Antes de empezar, debe [crear un espacio de nombres de Event Hubs y un centro de
 
 Consulte también [Preguntas frecuentes sobre Event Hubs](../event-hubs/event-hubs-faq.md).
 
-## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>¿Cómo configuro los datos de supervisión de inquilino de Azure para el flujo a un centro de eventos?
+## <a name="azure-tenant-monitoring-data"></a>Datos de supervisión de inquilino de Azure
 
 Los datos de supervisión de inquilino actualmente solo están disponibles para Azure Active Directory. Puede usar los datos de [informes de Azure Active Directory](../active-directory/reports-monitoring/overview-reports.md), que contienen el historial de la actividad de inicio de sesión y la traza de auditoría de los cambios realizados en un inquilino determinado.
 
-### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Flujo de datos de Azure Active Directory a un centro de eventos
+### <a name="azure-active-directory-data"></a>Datos de Azure Active Directory
 
 Para enviar datos desde el registro de Azure Active Directory en un espacio de nombres de Event Hubs, configure los valores de diagnóstico de inquilino en su inquilino de AAD. [Siga esta guía](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) para configurar los valores de diagnóstico de inquilino.
 
-## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>¿Cómo configuro los datos de supervisión de suscripción de Azure para el flujo a un centro de eventos?
+## <a name="azure-subscription-monitoring-data"></a>Datos de supervisión de la suscripción de Azure
 
 Los datos de supervisión de la suscripción de Azure están disponibles en el [registro de actividad de Azure](./monitoring-overview-activity-logs.md). Este registro contiene las operaciones de creación, actualización y eliminación de Resource Manager, los cambios de [estado del servicio Azure](../service-health/service-health-overview.md) que puede afectar a los recursos de la suscripción, las transiciones de [estado de los recursos](../service-health/resource-health-overview.md) y otros muchos tipos de eventos de nivel de suscripción. [En este artículo se detallan todas las categorías de eventos que aparecen en el registro de actividad de Azure](./monitoring-activity-log-schema.md).
 
-### <a name="stream-azure-activity-log-data-into-an-event-hub"></a>Flujo de datos de registro de actividad de Azure a un centro de eventos
+### <a name="activity-log-data"></a>Datos del registro de actividad
 
 Para enviar datos del registro de actividad de Azure a un espacio de nombres de Event Hubs, configure un perfil de registro en la suscripción. [Siga esta guía](./monitoring-stream-activity-logs-event-hubs.md) para configurar un perfil de registro en la suscripción. Haga esto con cada suscripción que desee supervisar.
 
 > [!TIP]
 > Un perfil de registro actualmente solo permite seleccionar un espacio de nombres de Event Hubs, en el que se crea un centro de eventos con el nombre "Insights-operational-logs". No, aún es posible especificar un nombre de centro de eventos propio en un perfil de registro.
 
-## <a name="how-do-i-set-up-azure-resource-monitoring-data-to-be-streamed-to-an-event-hub"></a>¿Cómo configuro los datos de supervisión de recursos de Azure para el flujo a un centro de eventos?
+## <a name="azure-resource-metrics-and-diagnostics-logs"></a>Métricas y registros de diagnóstico de los recursos de Azure
 
 Los recursos de Azure emiten dos tipos de datos de supervisión:
 1. [Registros de diagnóstico de recursos](./monitoring-overview-of-diagnostic-logs.md)
@@ -78,25 +78,25 @@ Ambos tipos de datos se envían a un centro de eventos mediante la configuració
 > [!TIP]
 > Puede usar Azure Policy para asegurarse de que todos los recursos de un ámbito determinado siempre se definen con una configuración de diagnóstico [con el efecto de DeployIfNotExists en la regla de directiva](../azure-policy/policy-definition.md#policy-rule). Hoy en día, DeployIfNotExists solo se admite en las directivas integradas.
 
-## <a name="how-do-i-set-up-guest-os-monitoring-data-to-be-streamed-to-an-event-hub"></a>¿Cómo configuro los datos de supervisión de sistema operativo invitado para el flujo a un centro de eventos?
+## <a name="guest-os-data"></a>Datos del sistema operativo invitado
 
 Debe instalar un agente para enviar los datos de supervisión de sistema operativo invitado a un centro de eventos. Para Windows o Linux, especifique los datos que desea que se envíen al centro de eventos y el centro de eventos donde enviarlos en un archivo de configuración y pase ese archivo de configuración al agente que se ejecuta en la máquina virtual.
 
-### <a name="stream-linux-data-to-an-event-hub"></a>Flujo de datos de Linux a un centro de eventos
+### <a name="linux-data"></a>Datos de Linux
 
 Puede utilizarse el [agente de Azure Diagnostics para Linux](../virtual-machines/extensions/diagnostics-linux.md) para enviar datos de supervisión de una máquina Linux a un centro de eventos. Esto se hace al agregar el centro de eventos como receptor en el archivo de configuración protegido JSON de LAD. [Consulte este artículo para más información sobre cómo agregar el centro de eventos receptor al agente de Azure Diagnostics para Linux](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
 
 > [!NOTE]
 > No se puede establecer el flujo de datos de supervisión de sistema operativo invitado a un centro de eventos en el portal. En su lugar, debe editar manualmente el archivo de configuración.
 
-### <a name="stream-windows-data-to-an-event-hub"></a>Flujo de datos de Windows a un centro de eventos
+### <a name="windows-data"></a>Datos de Windows
 
 Puede utilizarse el [agente de Azure Diagnostics para Windows](./azure-diagnostics.md) para enviar datos de supervisión de una máquina Windows a un centro de eventos. Esto se hace al agregar el centro de eventos como receptor en la sección privateConfig del archivo de configuración WAD. [Consulte este artículo para más información sobre cómo agregar el centro de eventos receptor al agente de Azure Diagnostics para Windows](./azure-diagnostics-streaming-event-hubs.md).
 
 > [!NOTE]
 > No se puede establecer el flujo de datos de supervisión de sistema operativo invitado a un centro de eventos en el portal. En su lugar, debe editar manualmente el archivo de configuración.
 
-## <a name="how-do-i-set-up-application-monitoring-data-to-be-streamed-to-event-hub"></a>¿Cómo configuro los datos de supervisión de aplicaciones invitado para el flujo a un centro de eventos?
+## <a name="application-monitoring-data"></a>Datos de supervisión de aplicaciones
 
 Los datos de supervisión de aplicaciones requieren la instrumentación del código mediante SDK, por lo que no hay una solución general al enrutamiento de datos de supervisión de aplicaciones a un centro de eventos en Azure. Sin embargo, [Azure Application Insights](../application-insights/app-insights-overview.md) es un servicio que puede usarse para recopilar datos de nivel de aplicación de Azure. Si usa Application Insights, puede haber un flujo de datos de supervisión a un centro de eventos al hacer lo siguiente:
 

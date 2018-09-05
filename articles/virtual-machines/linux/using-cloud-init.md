@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: fbb6fc15663570d9b9470fc7d4de3c8eb30de9d9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 0f7660e8534a74eabe32611c4c01ae5587af7cee
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
-ms.locfileid: "29763152"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188880"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Compatibilidad con cloud-init para máquinas virtuales en Azure
 En este artículo se explica la compatibilidad que existe para [cloud-init](https://cloudinit.readthedocs.io) para configurar una máquina virtual (VM) o conjuntos de escalado de máquinas virtuales (VMSS) en el momento del aprovisionamiento en Azure. Estos scripts de cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos.  
@@ -32,8 +32,10 @@ cloud-init también funciona entre distribuciones. Por ejemplo, no use **apt-get
 
  Estamos trabajando activamente con nuestros asociados de distribuciones de Linux certificadas para disponer de imágenes con cloud-init habilitado en Azure Marketplace. Estas imágenes harán que las implementaciones y configuraciones de cloud-init funcionen perfectamente con las máquinas virtuales y los conjuntos de escalado de máquinas virtuales (VMSS). En la tabla siguiente se describe la disponibilidad actual de imágenes con cloud-init habilitado en la plataforma de Azure:
 
-| Publicador | Oferta | SKU | Versión | Preparado para cloud-init
-|:--- |:--- |:--- |:--- |:--- |:--- |
+| Publicador | Oferta | SKU | Versión | Preparado para cloud-init |
+|:--- |:--- |:--- |:--- |:--- |
+|Canonical |UbuntuServer |18.04-LTS |más reciente |Sí | 
+|Canonical |UbuntuServer |17.10 |más reciente |Sí | 
 |Canonical |UbuntuServer |16.04-LTS |más reciente |Sí | 
 |Canonical |UbuntuServer |14.04.5-LTS |más reciente |Sí |
 |CoreOS |CoreOS |Stable |más reciente |Sí |

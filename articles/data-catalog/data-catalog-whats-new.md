@@ -1,24 +1,19 @@
 ---
-title: Novedades de Azure Data Catalog | Microsoft Docs
+title: Novedades en Azure Data Catalog
 description: En este artículo se proporciona una introducción a las nuevas funciones agregadas a Azure Data Catalog.
 services: data-catalog
-documentationcenter: ''
 author: steelanddata
-manager: NA
-editor: ''
-tags: ''
+ms.author: maroche
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 3d2c0d21d0cf4cc0654c8f7ee2debee4f0320461
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 61f837fbe7f53cdf9f313e5498c6f99ea14203a7
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577069"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047012"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Novedades en Azure Data Catalog
 De forma periódica se publican actualizaciones de **Azure Data Catalog**. No todas las versiones incluyen nuevas características de cara al usuario, ya que algunas se centran en las funcionalidades del servicio back-end. En esta página se resaltan las nuevas funcionalidades de cara al usuario que se han agregado al servicio Azure Data Catalog.

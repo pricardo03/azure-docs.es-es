@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ad0366d333266af0b16a7acaaa4519f20a951a80
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342715"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128602"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Ejecución de scripts de PowerShell en la máquina virtual Windows con el comando Ejecutar
 
@@ -56,14 +56,13 @@ Una vez que se elige el comando, haga clic en **Ejecutar** para ejecutar el scri
 
 Esta tabla muestra la lista de comandos disponibles para máquinas virtuales Windows. El comando **RunPowerShellScript** se puede usar para ejecutar un script personalizado que desee.
 
-|**Name**|**Descripción**|
+|**Nombre**|**Descripción**|
 |---|---|
 |**RunPowerShellScript**|Ejecuta un script de PowerShell.|
 |**EnableRemotePS**|Configura la máquina para habilitar PowerShell remoto.|
 |**EnableAdminAccount**|Comprueba si la cuenta de administrador local está deshabilitada, y si lo está, la habilita.|
 |**IPConfig**| Muestra información detallada de la dirección IP, la máscara de subred y la puerta de enlace predeterminada de cada adaptador enlazado a TCP/IP.|
 |**RDPSettings**|Comprueba la configuración del registro y de la directiva de dominio. Recomienda acciones de directiva si la máquina forma parte de un dominio o modifica la configuración a los valores predeterminados.|
-|**ResetAccountPassword**| Restablece la contraseña de la cuenta predefinida de administrador.|
 |**ResetRDPCert**|Quita el certificado SSL asociado al agente de escucha RDP y restaura la seguridad de este a los valores predeterminados. Use este script si ve algún problema con el certificado.|
 |**SetRDPPort**|Establece el número de puerto especificado por el usuario o predeterminado para las conexiones del Escritorio remoto. Habilita la regla de firewall para el acceso entrante al puerto.|
 

@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2fd473226dca2576be79b90bc05d66599f759713
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 633bf16790437ba83e9a2a99f33a23fef9255364
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524151"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090533"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>Tutorial: Mejorar la aplicación con roles de patrón
 
@@ -52,7 +52,7 @@ En este tutorial, la aplicación de recursos humanos detecta expresiones sobre c
 |[Jerárquica (sin roles)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
 |Este tutorial (con roles)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
 
-No puede usar la entidad jerárquica en el patrón porque solo los elementos principales jerárquicos se usan en los elementos principales. Para volver a las ubicaciones con nombre de origen y destino, debe usar un patrón.
+No puede usar la entidad jerárquica en el patrón porque en él solo se usan los elementos primarios jerárquicos. Para volver a las ubicaciones con nombre de origen y destino, debe usar un patrón.
 
 ### <a name="simple-entity-for-new-employee-name"></a>Entidad simple para el nombre del empleado nuevo
 El nombre del empleado nuevo, Billy Patterson, todavía no forma parte de la entidad de la lista **Employee** (Empleado). En primer lugar, se extrae el nombre del empleado nuevo con el fin de enviar el nombre a un sistema externo para crear las credenciales de la empresa. Una vez creadas las credenciales de la empresa, las credenciales del empleado se agregan a la entidad de la lista **Employee** (Empleado).

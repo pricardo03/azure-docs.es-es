@@ -1,153 +1,151 @@
 ---
-title: 'Lista de errores y soluciones para Logic Apps B2B: Azure App Service | Microsoft Docs'
-description: Lista de errores y soluciones para Logic Apps B2B
+title: 'Errores y soluciones para escenarios de B2B: Azure Logic Apps | Microsoft Docs'
+description: Buscar errores y soluciones para escenarios B2B en Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 8503792d57dd7ed64434d5a306afce850ced77db
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 11fbec81e88eec6c7daa9136eb5421387b79d71c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298345"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124341"
 ---
-# <a name="logic-apps-b2b-list-of-errors-and-solutions"></a>Lista de errores y soluciones para Logic Apps B2B  
-Este artículo le ayuda a solucionar los errores que puedan ocurrir en escenarios de Logic Apps B2B y le sugiere las acciones adecuadas para corregirlos.
+# <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Errores y soluciones de B2B para Azure Logic Apps
 
+Este artículo le ayuda a solucionar los errores que puedan ocurrir en escenarios de Logic Apps B2B y le sugiere las acciones adecuadas para corregirlos.
 
 ## <a name="agreement-resolution"></a>Resolución de contrato
 
-### <a name="no-agreement-found"></a>*No agreement found (No se encontró ningún contrato) 
+### <a name="no-agreement-found"></a>No agreement found (No se encontró ningún contrato) 
 
 |   |   |  
 |---|---|
-| Descripción del error | No se encontró ningún contrato con parámetros de resolución de contrato|    
-| Acción del usuario | Se debe agregar el contrato a la cuenta de integración con identidades de negocio acordadas.</br> Las identidades de negocio deben coincidir con los identificadores de mensaje de entrada|  
+| Descripción del error | No se ha encontró ningún contrato con parámetros de resolución de contrato. | 
+| Acción del usuario | Se debe agregar el contrato a la cuenta de integración con identidades de negocio acordadas. </br>Las identidades de negocio deben coincidir con los identificadores de mensaje de entrada. |  
 |   |   |
 
-### <a name="-no-agreement-found-with-identities"></a>* No se encontró ningún contrato con las identidades
+### <a name="no-agreement-found-with-identities"></a>No agreement found with identities (No se encontró ningún contrato con identidades)
 
 |   |   | 
 |---|---|
-| Descripción del error | No se encontró ningún contrato con las identidades: 'AS2Identity'::'Partner1' y 'AS2Identity'::'Partner3'| 
-| Acción del usuario | AS2-From o AS2-To configurados para el contrato no válidos. </br> Corrija los encabezados AS2-From o AS2-To del mensaje AS2 o el contrato para que coincidan con los identificadores AS2 en los encabezados del mensaje AS2 con configuraciones de contrato |
+| Descripción del error | No se encontró ningún contrato con las identidades: 'AS2Identity'::'Partner1' y 'AS2Identity'::'Partner3' | 
+| Acción del usuario | AS2-From o AS2-To configurados para el contrato no válidos. </br>Corrija los encabezados AS2-From o AS2-To del mensaje AS2, o el contrato para que coincidan con los identificadores AS2 en los encabezados del mensaje AS2 con configuraciones de contrato. |
 |   |   |     
 
 ## <a name="as2"></a>AS2
 
-### <a name="-missing-as2-message-headers"></a>* Missing AS2 message headers (Faltan encabezados del mensaje AS2)  
+### <a name="missing-as2-message-headers"></a>Missing AS2 message headers (Faltan encabezados del mensaje AS2)  
 
 |   |   |  
 |---|---|
-| Descripción del error| Encabezados AS2 no válidos. Uno de los encabezados "AS2-To" o "AS2-From" está vacío| 
-| Acción del usuario | Se recibió un mensaje AS2 que no contenía el encabezado AS2-From, el AS2-To o ambos. </br> Compruebe los encabezados AS2-From y AS2-To del mensaje AS2 y corríjalos basándose en la configuración del contrato |
+| Descripción del error | Encabezados AS2 no válidos. Uno de los encabezados "AS2-To" o "AS2-From" está vacío. | 
+| Acción del usuario | Se recibió un mensaje AS2 que no contenía el encabezado AS2-From, el AS2-To o ambos. </br> Compruebe los encabezados AS2-From y AS2-To del mensaje AS2 y corríjalos basándose en la configuración del contrato. |
 |  |  | 
 
-
-### <a name="-missing-as2-message-body-and-headers"></a>* Missing AS2 message body and headers (Faltan el cuerpo y los encabezados del mensaje AS2)    
+### <a name="missing-as2-message-body-and-headers"></a>Missing AS2 message body and headers (Faltan el cuerpo y los encabezados del mensaje AS2)    
 
 |   |   |  
 |---|---|
-| Descripción del error| El contenido de la solicitud es nulo o está vacío | 
-| Acción del usuario | Se recibió un mensaje AS2 que no contenía el cuerpo del mensaje |
+| Descripción del error | El contenido de la solicitud es nulo o está vacío. | 
+| Acción del usuario | Se recibió un mensaje AS2 que no contenía el cuerpo del mensaje. |
 |  |  | 
 
-### <a name="-as2-message-decryption-failure"></a>* AS2 message decryption failure (Error de descifrado del mensaje AS2)
+### <a name="as2-message-decryption-failure"></a>AS2 message decryption failure (Error de descifrado del mensaje AS2)
 
 |   |   | 
 |---|---|
 | Descripción del error |  [processed/Error: decryption-failed] | 
-| Acción del usuario | Agregue @base64ToBinary a AS2Message antes de enviarlo al asociado 
-```java
-            "HTTP": {
-                "inputs": {
-                    "body": "@base64ToBinary(body('Encode_to_AS2_message')?['AS2Message']?['Content'])",
-                    "headers": "@body('Encode_to_AS2_message')?['AS2Message']?['OutboundHeaders']",
-                    "method": "POST",
-                    "uri": "xxxxx.xxx"
-                },
-                
+| Acción del usuario | Agregue @base64ToBinary a AS2Message antes de enviarlo a un asociado. |
+|||
+
+Por ejemplo: 
+
+```json
+"HTTP": {
+   "inputs": {
+   "body": "@base64ToBinary(body('Encode_to_AS2_message')?['AS2Message']?['Content'])",
+   "headers": "@body('Encode_to_AS2_message')?['AS2Message']?['OutboundHeaders']",
+   "method": "POST",
+   "uri": "xxxxx.xxx"
+},
 ``` 
 
-### <a name="-mdn-decryption-failure"></a>* Error de descifrado de MDN
+### <a name="mdn-decryption-failure"></a>MDN decryption failure (Error de descifrado de MDN)
 
 |   |   | 
 |---|---|
 | Descripción del error |  [processed/Error: decryption-failed] | 
-| Acción del usuario | Agregue @base64ToBinary a la MDN antes de enviarlo al asociado 
-```java
-            "Response": {
-                "inputs": {
-                    "body": "@base64ToBinary(body('Decode_AS2_message')?['OutgoingMDN']?['Content'])",
-                    "headers": "@body('Decode_AS2_message')?['OutgoingMDN']?['OutboundHeaders']",
-                    "statusCode": 200
-                },
-                
+| Acción del usuario | Agregue @base64ToBinary a la MDN antes de enviarlo a un asociado. | 
+|||
+
+Por ejemplo: 
+
+```json
+"Response": {
+   "inputs": {
+   "body": "@base64ToBinary(body('Decode_AS2_message')?['OutgoingMDN']?['Content'])",
+   "headers": "@body('Decode_AS2_message')?['OutgoingMDN']?['OutboundHeaders']",
+   "statusCode": 200
+},               
 ``` 
 
-### <a name="-missing-signing-certificate"></a>* Missing signing certificate (Falta el certificado de firma)
+### <a name="missing-signing-certificate"></a>Missing signing certificate (Falta el certificado de firma)
 
 |   |   |  
 |---|---|
-| Descripción del error| El certificado de firma no se ha configurado para la entidad AS2. </br> AS2-From: partner1 AS2-To: partner2 | 
-| Acción del usuario | Configure el contrato AS2 con el certificado correcto para la firma |
+| Descripción del error| El certificado de firma no se ha configurado para la entidad AS2. </br>AS2-From: partner1 AS2-To: partner2 | 
+| Acción del usuario | Configure los valores del contrato AS2 con el certificado correcto para la firma. |
 |  |  | 
 
 ## <a name="x12-and-edifact"></a>X12 y EDIFACT
 
-### <a name="-leading-or-trailing-space-found"></a>* Espacio inicial o final detectado    
+### <a name="leading-or-trailing-space-found"></a>Leading or trailing space found (Se detectó un espacio inicial o final)    
     
 |   |   | 
 |---|---|
-| Descripción del error | Error al analizar. El conjunto de transacciones Edifact con Id. '123456' contenido en el intercambio (sin grupo) con Id. '987654', Id. de remitente 'Partner1' e Id. de destinatario 'Partner2' se está suspendiendo por los errores siguientes: Separador final encontrado |
-| Acción del usuario | Se debe definir la configuración de contrato para que permita espacios iniciales y finales. </br> Edite la configuración de contrato para permitir un espacio inicial y final |
+| Descripción del error | Error al analizar. El conjunto de transacciones EDIFACT con identificador "123456" contenido en el intercambio (sin grupo) con identificador "987654", identificador de remitente "Partner1" e identificador de destinatario "Partner2" se ha suspendido con los errores siguientes: <p>"Separador inicial o final encontrado" |
+| Acción del usuario | Se debe definir la configuración de contrato para que permita espacios iniciales y finales. </br>Edite la configuración de contrato para permitir un espacio inicial y final. |
 |   |   |
 
 ![permitir espacio](./media/logic-apps-enterprise-integration-b2b-list-errors-solutions/leadingandtrailing.png)
 
-### <a name="-duplicate-check-has-enabled-in-the-agreement"></a>* Duplicate check has enabled in the agreement (Comprobación de duplicados habilitada en el contrato)
+### <a name="duplicate-check-has-enabled-in-the-agreement"></a>Duplicate check has enabled in the agreement (Comprobación de duplicados habilitada en el contrato)
 
 |   |   | 
 |---|---| 
 | Descripción del error | Número de control duplicado |
-| Acción del usuario | Este error indica que el mensaje recibido tiene números de control duplicados. </br> Corrija el número de control y vuelva a enviar el mensaje |
+| Acción del usuario | Este error indica que el mensaje recibido tiene números de control duplicados. </br>Corrija el número de control y vuelva a enviar el mensaje. |
 |   |   |
 
-### <a name="-missing-schema-in-the-agreement"></a>* Missing schema in the agreement (Falta un esquema en el contrato)
+### <a name="missing-schema-in-the-agreement"></a>Missing schema in the agreement (Falta un esquema en el contrato)
 
 |   |   | 
 |---|---| 
-| Descripción del error | Error al analizar. El conjunto de transacciones X12 con Id. '564220001', contenido en el grupo funcional con Id. '56422', en el intercambio con Id. '000056422', con Id. de remitente '12345678' e Id. de destinatario '87654321' se suspende por los siguientes errores. "El mensaje tiene un tipo de documento desconocido y no se resolvió en ninguno de los esquemas existentes configurados en el contrato" |
-| Acción del usuario | Configure el esquema en la configuración del contrato  |
+| Descripción del error | Error al analizar. El conjunto de transacciones X12 con identificador "564220001", contenido en el grupo funcional con identificador "56422" en el intercambio con identificador "000056422", con identificador de remitente "12345678" e identificador de destinatario "87654321" se ha suspendido con los siguientes errores: <p>"El mensaje tiene un tipo de documento desconocido y no se resolvió en ninguno de los esquemas existentes configurados en el contrato" |
+| Acción del usuario | Configure el esquema en los valores de configuración del contrato.  |
 |   |   |
 
-### <a name="-incorrect-schema-in-the-agreement"></a>* Incorrect schema in the agreement (Esquema incorrecto en el contrato)
+### <a name="incorrect-schema-in-the-agreement"></a>Incorrect schema in the agreement (Esquema incorrecto en el contrato)
 
 |   |   | 
 |---|---| 
 | Descripción del error | El mensaje tiene un tipo de documento desconocido y no se resolvió en ninguno de los esquemas existentes configurados en el contrato. |
-| Acción del usuario | Configure el esquema correcto en la configuración del contrato  |
+| Acción del usuario | Configure el esquema correcto en los valores de configuración del contrato. |
 |   |   |
 
 ## <a name="flat-file"></a>Archivo plano
 
-### <a name="-input-message-with-no-body"></a>* Input message with no body (Mensaje de entrada sin cuerpo)
+### <a name="input-message-with-no-body"></a>Input message with no body (Mensaje de entrada sin cuerpo)
 
 |   |   | 
 |---|---|
 | Descripción del error | InvalidTemplate. No se pueden procesar las expresiones de lenguaje de plantilla en las entradas de la acción 'Flat_File_Decoding' en la línea '1' y la columna '1902': 'La propiedad obligatoria 'content' espera un valor pero obtuvo nulo. Ruta de acceso ''.'. |
-| Acción del usuario | Este error indica que el mensaje de entrada no contiene un cuerpo |
+| Acción del usuario | Este error indica que el mensaje de entrada no tiene cuerpo. |
 |   |   | 
 
-## <a name="learn-more"></a>Más información
-[Más información acerca de Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)

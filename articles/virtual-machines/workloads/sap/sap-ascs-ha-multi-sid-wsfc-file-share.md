@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 604179ec856d21dce51101fdafa5d51eed08f89f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1e21357eeb795a26874cddb90b4d3a6303b83ac0
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657220"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189640"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -216,7 +216,7 @@ En este artículo nos centraremos en cómo pasar de una sola instalación ASCS/S
 
 Para más información sobre los límites del equilibrador de carga, consulte "Dirección IP de front-end pública por Load Balancer" en [Límites de redes: Azure Resource Manager][networking-limits-azure-resource-manager].
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Ya ha configurado un clúster de WSFC que se utiliza para una instancia de ASCS/SCS de SAP con un **recurso compartido de archivos**, tal y como se muestra en este diagrama.
 
@@ -227,6 +227,7 @@ _**Figura 1:** instancia de SAP ASCS/SCS y SOFS implementados en dos clústeres_
 > [!IMPORTANT]
 > Debe cumplir las condiciones siguientes:
 > * Las instancias ASCS/SCS de SAP deben compartir el mismo clúster de WSFC.
+> * Los diferentes recursos compartidos de archivos de hosts globales de SAP que pertenezcan a diferentes SID de SAP deben compartir el mismo clúster SOFS.
 > * Cada SID del sistema de administración de bases de datos (DBMS) tiene que tener su propio clúster de WSFC dedicado.
 > * Los servidores de aplicaciones de SAP que pertenecen a un SID del sistema SAP tienen sus propias máquinas virtuales dedicadas.
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: d0dbf603c600639679e121723556a7f3ceb17e37
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 67806563dcd67876d4d922c7f2c76379f7ad7222
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158988"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125520"
 ---
 # <a name="billing-options-in-the-azure-marketplace"></a>Opciones de facturación de Azure Marketplace
 
@@ -70,7 +70,7 @@ Una ventaja importante del uso de la opción de lista de transacciones en Market
 En este escenario, Microsoft factura y cobra en su nombre. La facturación de Microsoft elimina la necesidad de crear una relación de adquisición propia con el cliente. La facturación única puede ahorrarle tiempo y recursos. También puede ayudarle a centrarse en conseguir la venta en lugar de en cobrar la factura. 
 
 ## <a name="enterprise-agreement"></a>Contrato Enterprise  
-Si es un cliente con contrato Enterprise de Microsoft, puede usar su contrato Enterprise para pagar los productos de Microsoft. Se le pueden facturar los productos incluyendo el uso de Azure. El uso del contrato Enterprise como opción de pago está diseñado para organizaciones que quieren tener licencias de software y servicios en la nube durante tres o más años. Con ello se distribuyen los pagos en lugar de realizar un único  pago anticipado. Si utiliza la opción de publicación Pago por uso, la facturación de los costos de licencia de software sigue el ciclo de facturación trimestral de uso por encima del límite del contrato Enterprise.  
+Si es un cliente con contrato Enterprise de Microsoft, puede usar su contrato Enterprise para pagar los productos de Microsoft. Se le pueden facturar los productos incluyendo el uso de Azure. El uso del contrato Enterprise como opción de pago está diseñado para organizaciones que quieren tener licencias de software y servicios en la nube durante tres o más años. Con ello se distribuyen los pagos en lugar de realizar un único pago anticipado. Si utiliza la opción de publicación Pago por uso, la facturación de los costos de licencia de software sigue el ciclo de facturación trimestral de uso por encima del límite del contrato Enterprise.  
 
 ### <a name="monetary-commitment"></a>Compromiso monetario
 Si es un cliente con contrato Enterprise, puede agregar Azure a su contrato. Para agregar Azure a su contrato, realice un compromiso monetario inicial en Azure. El compromiso monetario se consume durante el año. El compromiso incluye cualquier combinación de uso de la amplia gama de servicios de Azure.

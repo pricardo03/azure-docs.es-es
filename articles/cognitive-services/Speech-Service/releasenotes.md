@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 0900588f818855d72e415678338c96fb6505318d
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: bbf3c5930de2ec6c709b6b527ae3eac107382420
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41929925"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047806"
 ---
 # <a name="release-notes"></a>Notas de la versión
 
@@ -78,7 +78,7 @@ ms.locfileid: "41929925"
 
 * Se han corregido los valores devueltos incorrectos cuando se agota el tiempo de espera de `RecognizeAsync()`.
 * Se ha quitado la dependencia en las bibliotecas de Media Foundation en Windows. El SDK ahora usa las API de Core Audio.
-* Corrección de documentación: se ha agregado una página de regiones para describir cuáles son las regiones admitidas.
+* Corrección de documentación: se ha agregado una página de [regiones](regions.md) para describir cuáles son las regiones admitidas.
 
 **Problemas conocidos**
 

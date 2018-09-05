@@ -1,6 +1,6 @@
 ---
-title: Envío de notificaciones por correo electrónico en Azure AD PIM | Microsoft Docs
-description: Se describen las notificaciones por correo electrónico en Azure AD Privileged Identity Management (PIM)
+title: 'Envío de notificaciones por correo electrónico en PIM: Azure | Microsoft Docs'
+description: Se describen las notificaciones por correo electrónico en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 07/24/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 7943b4fb8c2027b50ce04c30d21f1b0a58f98ace
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 1a1635e0ba16bdc0fa6dc90aa0e1a417f43e04ac
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621589"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190183"
 ---
-# <a name="email-notifications-in-azure-ad-pim"></a>Notificaciones por correo electrónico en Azure AD PIM
+# <a name="email-notifications-in-pim"></a>Notificaciones por correo electrónico en PIM
 
 Cuando se producen eventos clave en Azure AD Privileged Identity Management (PIM), se envían notificaciones por correo electrónico al usuario o administrador pertinentes. Por ejemplo, PIM envía mensajes de correo electrónico con los siguientes eventos:
 
@@ -74,5 +74,5 @@ Anteriormente, cuando se asignaba a un usuario un rol con privilegios, el correo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Administración de la configuración de activación de rol en Privileged Identity Management de Azure AD](pim-how-to-change-default-settings.md)
-- [Aprobaciones en Azure AD PIM](azure-ad-pim-approval-workflow.md)
+- [Configuración de roles de directorio de Azure AD en PIM](pim-how-to-change-default-settings.md)
+- [Aprobación o rechazo de solicitudes para los roles de directorio de Azure AD en PIM](azure-ad-pim-approval-workflow.md)

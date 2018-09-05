@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 543f581659d54bd14ccb2a818fd74e379bcc8cfe
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: af2a3da788fd26387ccdcc36422ffa5b11893212
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42142825"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888090"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Uso del emulador de Azure Storage para desarrollo y pruebas
 
@@ -26,9 +26,8 @@ El emulador de almacenamiento solo se ejecuta actualmente en Windows. Para quien
 
 > [!NOTE]
 > No se garantiza que los datos que se crean en una versión del emulador de almacenamiento estén disponibles cuando se utilice una versión diferente. Si necesita conservar los datos a largo plazo, es recomendable que almacene esos datos en una cuenta de almacenamiento de Azure y no en el mismo emulador de almacenamiento.
-> <p/>
+> 
 > El emulador de almacenamiento depende de versiones específicas de las bibliotecas de OData. No se admite la sustitución de las DLL de OData usadas por el emulador de almacenamiento con otras versiones y, de ser así, puede provocar un comportamiento inesperado. Sin embargo, cualquier versión de OData admitida por el servicio de almacenamiento puede utilizarse para enviar las solicitudes al emulador.
->
 
 ## <a name="how-the-storage-emulator-works"></a>Cómo funciona el emulador de almacenamiento.
 El emulador de almacenamiento usa una instancia de Microsoft SQL Server local, así como el sistema de archivos local para emular los servicios de almacenamiento de Azure. De manera predeterminada, el emulador de almacenamiento usa una base de datos en Microsoft SQL Server 2012 Express LocalDB. Puede configurar el emulador de almacenamiento para acceder a una instancia local de SQL Server en lugar de una de LocalDB. Para más información, consulte la sección [Iniciar e inicializar el emulador de almacenamiento](#start-and-initialize-the-storage-emulator) más adelante en este artículo.
@@ -187,6 +186,7 @@ Dado que el emulador de almacenamiento es un entorno emulado que se ejecuta en u
 Las siguientes diferencias se aplican al almacenamiento de blobs en el emulador:
 
 * El emulador de almacenamiento solo admite tamaños de blobs de hasta 2 GB.
+* La longitud máxima de un nombre de blob en el emulador de almacenamiento es de 256 caracteres, mientras que en Azure Storage es de 1024.
 * La copia incremental permite copiar instantáneas desde los blobs sobrescritos, lo que devuelve un error en el servicio.
 * Get Page Ranges Diff no funciona entre instantáneas copiadas con el blob de copia incremental.
 * Una operación Put Blob puede ser correcta con un blob que existe en el emulador de almacenamiento con una concesión activa, incluso si el identificador de concesión no se ha especificado en la solicitud.

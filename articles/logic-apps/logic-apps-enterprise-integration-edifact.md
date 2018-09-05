@@ -1,28 +1,23 @@
 ---
 title: 'Mensajes EDIFACT para la integración empresarial B2B: Azure Logic Apps | Microsoft Docs'
-description: Intercambio de mensajes EDIFACT en formato EDI para la integración empresarial B2B con Azure Logic Apps
+description: Intercambio de mensajes EDIFACT en formato EDI para la integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
-ms.author: LADocs; jonfan
-ms.openlocfilehash: d85db6f5be487578ceab261d2779589439bfad31
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 2da672e1f55af1e38ae0a3fa90b7ecb10d2f17c7
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300103"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128384"
 ---
-# <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Intercambio de mensajes EDIFACT para la integración empresarial con las aplicaciones lógicas
+# <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes EDIFACT para integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 
 Para poder intercambiar mensajes EDIFACT para Azure Logic Apps, debe crear un contrato EDIFACT y almacenarlo en la cuenta de integración. Estos son los pasos para crear un contrato EDIFACT.
 
@@ -68,7 +63,7 @@ Cuando haya [creado una cuenta de integración](../logic-apps/logic-apps-enterpr
 
    ![Especificación de los detalles del contrato](./media/logic-apps-enterprise-integration-edifact/edifact-1.png)
 
-   | Propiedad | DESCRIPCIÓN |
+   | Propiedad | Descripción |
    | --- | --- |
    | NOMBRE |Nombre del contrato |
    | Tipo de contrato | Debe ser EDIFACT |

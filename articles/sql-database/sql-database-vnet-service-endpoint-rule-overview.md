@@ -8,15 +8,15 @@ author: DhruvMsft
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 08/28/2018
 ms.reviewer: carlrab
 ms.author: dmalik
-ms.openlocfilehash: cdf067839c73f9da40d03628ff1c9920764e2219
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 223a8da0c3c940c57dfc58d9cc87a19ae45a64eb
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127502"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143817"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Uso de reglas y puntos de conexión del servicio Virtual Network para Azure SQL Database y SQL Data Warehouse
 
@@ -181,11 +181,10 @@ Azure Storage ha implementado la misma característica que le permite limitar la
 Si decide usar esta característica con una cuenta de Storage que se está usando como un servidor de Azure SQL Server puede que se produzcan errores. A continuación, aparece una lista y una explicación de las características de Azure SQLDB que se ven afectadas por esto.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase normalmente se usa para cargar datos en Azure SQLDW desde cuentas de Storage. Si la cuenta de Storage desde la que está cargando los datos limita el acceso a solo un conjunto de subredes de red virtual, se interrumpirá la conectividad de PolyBase a la cuenta. Hay una solución; póngase en contacto con *dmalik@microsoft.com* para obtener más información.
+PolyBase normalmente se usa para cargar datos en Azure SQLDW desde cuentas de Storage. Si la cuenta de Storage desde la que está cargando los datos limita el acceso a solo un conjunto de subredes de red virtual, se interrumpirá la conectividad de PolyBase a la cuenta. Hay una mitigación; póngase en contacto con el soporte técnico de Microsoft para más información.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Auditoría de blobs de Azure SQLDB
 La auditoría de blobs inserta los registros de auditoría en su propia cuenta de almacenamiento. Si esta cuenta de almacenamiento usa la característica VENT de puntos de conexión de servicio, la conectividad entre Azure SQLDB y la cuenta de almacenamiento se interrumpirá.
-
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Agregar una regla de firewall de VNET al servidor sin tener que activar los puntos de conexión de servicio
 

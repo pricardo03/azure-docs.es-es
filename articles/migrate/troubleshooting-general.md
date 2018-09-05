@@ -4,14 +4,14 @@ description: Se proporciona información general sobre los problemas conocidos d
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 08/25/2018
 ms.author: raynew
-ms.openlocfilehash: 896e918f6031f3bc6b925a2ecdfa2a5c82f00e0b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ca34f27e1d22c6235ec0d6b965d49ec5266f17f6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228261"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126371"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solución de problemas de Azure Migrate
 
@@ -50,6 +50,10 @@ Si va a usar un proxy de firewall basado en direcciones URL para controlar la co
 --- | ---
 *.portal.azure.com | Se requiere comprobar la conectividad con el servicio de Azure y validar los problemas de sincronización horaria.
 *.oneget.org | Se requiere para descargar el módulo PowerCLI de vCenter basado en PowerShell.
+
+**El recopilador no se puede conectar a Internet debido a un error de validación del certificado**
+
+Esto puede ocurrir si usa un proxy de interceptación para conectarse a Internet, y si no ha importado el certificado de proxy en la máquina virtual del recopilador. Puede importar el certificado de proxy mediante los pasos detallados [aquí](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
 
 **El recopilador no se puede conectar al proyecto con el identificador de proyecto y la clave que copié del portal**
 

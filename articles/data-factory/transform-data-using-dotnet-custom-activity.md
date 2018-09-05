@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 08/29/2018
 ms.author: douglasl
-ms.openlocfilehash: 2dab0adb0728a1fb5e8ac9bebe01f861ed8c7c3a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f4a88c5495fc3297699110d8a12a22ff7d6c2bbb
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055506"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144361"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -99,15 +99,19 @@ En la tabla siguiente se describen los nombres y descripciones de las propiedade
 
 | Propiedad              | DESCRIPCIÓN                              | Obligatorio |
 | :-------------------- | :--------------------------------------- | :------- |
-| Nombre                  | Nombre de la actividad en la canalización     | Sí      |
-| Descripción           | Texto que describe para qué se usa la actividad.  | Sin        |
-| Tipo                  | Para la actividad personalizada, el tipo de actividad es **Custom**. | Sí      |
-| linkedServiceName     | Servicio vinculado a Azure Batch. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos).  | Sí      |
-| command               | Comando de la aplicación personalizada que se va a ejecutar. Si la aplicación ya está disponible en el nodo del grupo de Azure Batch, se pueden omitir las propiedades resourceLinkedService y folderPath. Por ejemplo, puede especificar que el comando sea `cmd /c dir`, que el nodo del grupo de lotes de Windows admite de forma nativa. | Sí      |
+| Nombre                  | Nombre de la actividad en la canalización     | SÍ      |
+| description           | Texto que describe para qué se usa la actividad.  | Sin        |
+| Tipo                  | Para la actividad personalizada, el tipo de actividad es **Custom**. | SÍ      |
+| linkedServiceName     | Servicio vinculado a Azure Batch. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos).  | SÍ      |
+| command               | Comando de la aplicación personalizada que se va a ejecutar. Si la aplicación ya está disponible en el nodo del grupo de Azure Batch, se pueden omitir las propiedades resourceLinkedService y folderPath. Por ejemplo, puede especificar que el comando sea `cmd /c dir`, que el nodo del grupo de lotes de Windows admite de forma nativa. | SÍ      |
 | resourceLinkedService | Servicio de Azure Storage vinculado a la cuenta de almacenamiento en la que está almacenada la aplicación personalizada | Sin        |
 | folderPath            | Ruta de acceso a la carpeta de la aplicación personalizada y todas sus dependencias | Sin        |
 | referenceObjects      | Matriz de servicios vinculados y conjuntos de datos existentes. Los servicios vinculados y los conjuntos de datos a los que se hace referencia se pasan a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a recursos de Data Factory | Sin        |
 | extendedProperties    | Propiedades definidas por el usuario que se pueden pasar a la aplicación personalizada en formato JSON, por lo que el código personalizado puede hacer referencia a propiedades adicionales | Sin        |
+
+## <a name="custom-activity-permissions"></a>Permisos de la actividad personalizada
+
+La actividad personalizada establece la cuenta de usuario automático de Azure Batch en *Acceso sin privilegios de administrador con ámbito de la tarea* (la especificación de usuario automático predeterminada). No se puede cambiar el nivel de permiso de la cuenta de usuario automático. Para más información, consulte [Ejecución de tareas en cuentas de usuario en Batch | Cuentas de usuario automático](../batch/batch-user-accounts.md#auto-user-accounts).
 
 ## <a name="executing-commands"></a>Ejecución de comandos
 

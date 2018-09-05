@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/10/2018
+ms.date: 08/28/2018
 ms.author: kumud
-ms.openlocfilehash: 91c7d16296653aea2381793f2e52f2b33b831185
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 5ceddb1bcd6ce89f7014e034b56c873f02cc2007
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42143394"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190740"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
@@ -181,7 +181,12 @@ Si se produce un error en todos los sondeos de todas las instancias de un grupo 
 
 ## <a name="probesource"></a>Dirección IP de origen del sondeo
 
-Todos los sondeos de Load Balancer tienen como origen la dirección IP 168.63.129.16.  Al usar sus propias direcciones IP en la red virtual de Azure, se garantiza que esta dirección IP de origen del sondeo de estado es único, ya que está reservada globalmente para Microsoft.  Esta dirección es la misma en todas las regiones y no cambia. No se debe considerar un riesgo para la seguridad, porque la plataforma interna de Azure es la única que puede enviar un paquete desde esta dirección IP. 
+Load Balancer usa un servicio de sondeo distribuido para su modelo de mantenimiento interno. Todos los host en que residan máquinas virtuales se pueden programar para generar sondeos de estado por cada configuración de cliente. El tráfico del sondeo de estado se encuentra directamente entre el componente de la infraestructura que genera el sondeo de estado y la máquina virtual del cliente. Todos los sondeos de Load Balancer tienen como origen la dirección IP 168.63.129.16.  Al usar sus propias direcciones IP en la red virtual de Azure, se garantiza que esta dirección IP de origen del sondeo de estado es único, ya que está reservada globalmente para Microsoft.  Esta dirección es la misma en todas las regiones y no cambia. No se debe considerar un riesgo para la seguridad, porque la plataforma interna de Azure es la única que puede enviar un paquete desde esta dirección IP. 
+
+Además de los sondeos de estado de Load Balancer, las siguientes operaciones usan esta dirección IP:
+
+- Permite al agente de VM comunicarse con la plataforma para indicar que se encuentra en estado "Listo"
+- Permite la comunicación con el servidor virtual de DNS para proporcionar resolución de nombres filtrada a los clientes que no definen servidores DNS personalizados.  Este filtro garantiza que los clientes solo pueden resolver los nombres de host de su implementación.
 
 Para que el sondeo de estado de Load Balancer marque su instancia como activa, se **debe** permitir esta dirección IP en todos los [grupos de seguridad](../virtual-network/security-overview.md) de Azure y en las directivas de firewall locales.
 

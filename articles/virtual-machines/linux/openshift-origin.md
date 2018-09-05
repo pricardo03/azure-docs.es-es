@@ -1,6 +1,6 @@
 ---
-title: Implementación de OpenShift Origin en Azure | Microsoft Docs
-description: Implemente OpenShift Origin en Azure.
+title: Implementación de OKD en Azure | Microsoft Docs
+description: Implementación de OKD en Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: f7a668f30d7acb1ea14fe9fd8921066d40a6669b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0d3a9f05802bef7d6dfc99fcfae6668044f214c8
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29123126"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190311"
 ---
-# <a name="deploy-openshift-origin-in-azure"></a>Implementación de OpenShift Origin en Azure
+# <a name="deploy-okd-in-azure"></a>Implementación de OKD en Azure
 
-Existen dos maneras de implementar OpenShift Origin en Azure:
+Existen dos maneras de implementar OKD (antes OpenShift Origin) en Azure:
 
-- Puede implementar manualmente todos los componentes de infraestructura de Azure necesarios y, después, seguir la [documentación](https://docs.openshift.org/3.6/welcome/index.html) de OpenShift Origin.
-- También puede usar una [plantilla de Resource Manager](https://github.com/Microsoft/openshift-origin) que simplifique la implementación del clúster de OpenShift Origin.
+- Se pueden implementar manualmente todos los componentes de la infraestructura de Azure necesarios y, después, seguir la [documentación](https://docs.okd.io/3.10/welcome/index.html) de OKD.
+- También se puede usar una [plantilla de Resource Manager](https://github.com/Microsoft/openshift-origin) existente, lo que simplifica la implementación del clúster de OKD.
 
-## <a name="deploy-by-using-the-openshift-origin-template"></a>Implementación mediante el uso de la plantilla de OpenShift Origin
+## <a name="deploy-by-using-the-okd-template"></a>Implementación mediante la plantilla de OKD
 
 Use el valor `appId` de la entidad de servicio que creó anteriormente para el parámetro `aadClientId`.
 
@@ -101,7 +101,7 @@ En el ejemplo siguiente se crea un archivo de parámetros llamado azuredeploy.pa
 > [!NOTE] 
 > El comando siguiente requiere la CLI de Azure 2.0.8 o una versión posterior. Puede comprobar la versión de la CLI con el comando `az --version`. Para actualizar la versión de la CLI, consulte [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-En el ejemplo siguiente se implementa el clúster de OpenShift y todos los recursos relacionados en un grupo de recursos llamado myResourceGroup, con el nombre de implementación myOpenShiftCluster. Se hace referencia a la plantilla directamente desde el repositorio de GitHub mediante el uso de un archivo de parámetros local denominado azuredeploy.parameters.json.
+En el ejemplo siguiente se implementa el clúster de OKD y todos los recursos relacionados en un grupo de recursos llamado myResourceGroup con una implementación llamada myOpenShiftCluster. Se hace referencia a la plantilla directamente desde el repositorio de GitHub mediante el uso de un archivo de parámetros local denominado azuredeploy.parameters.json.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -109,7 +109,7 @@ az group deployment create -g myResourceGroup --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-La implementación tarda al menos 25 minutos en completarse, según el número total de nodos implementados. La dirección URL de la consola de OpenShift y el nombre DNS del maestro de OpenShift se imprime en el terminal cuando concluye la implementación.
+La implementación tarda al menos 25 minutos en completarse, según el número total de nodos implementados. La dirección URL de la consola de OKS y el nombre DNS del maestro de OpenShift se imprime en el terminal cuando concluye la implementación.
 
 ```json
 {
@@ -118,9 +118,9 @@ La implementación tarda al menos 25 minutos en completarse, según el número t
 }
 ```
 
-## <a name="connect-to-the-openshift-cluster"></a>Conexión con el clúster de OpenShift
+## <a name="connect-to-the-okd-cluster"></a>Conexión al clúster de OKD
 
-Cuando concluya la implementación, conéctese a la consola de OpenShift con el explorador mediante `OpenShift Console Uri`. Como alternativa, puede conectarse al maestro de OpenShift con el siguiente comando:
+Cuando concluya la implementación, conéctese a la consola de OKD con el explorador mediante `OpenShift Console Uri`. Como alternativa, puede conectarse al maestro de OKD con el siguiente comando:
 
 ```bash
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
@@ -134,8 +134,8 @@ Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/gr
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Tareas posteriores a la implementación](./openshift-post-deployment.md)
 - [Solución de problemas de implementación de OpenShift](./openshift-troubleshooting.md)
-- [Introducción a OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
+- [Introducción a OKD](https://docs.okd.io/latest/getting_started/index.html)

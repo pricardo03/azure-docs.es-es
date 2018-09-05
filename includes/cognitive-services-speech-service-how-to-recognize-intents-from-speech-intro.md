@@ -1,0 +1,31 @@
+---
+author: wolfma61
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 07/27/2018
+ms.author: wolfma
+ms.openlocfilehash: a4accb0846ec9cf5efc5ca5aa00c731edd41d4d4
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143051"
+---
+<!-- N.B. no header, language-agnostic -->
+
+Microsoft Cognitive Services [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) proporciona una manera de reconocer **intenciones a partir de contenido de voz** y es compatible con el servicio [Language Understanding Intelligent Service (LUIS)](https://www.luis.ai/home) de Cognitive Services.
+
+1. Cree una factoría de voz con una clave de suscripción de LUIS y una [región](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition) como parámetros. La clave de suscripción de LUIS se denomina **clave de punto de conexión** en la documento de servicio. No se puede usar la clave de creación de LUIS. Consulte la nota que aparece más adelante en esta sección.
+
+1. Obtenga un reconocedor de intenciones a partir de la factoría de voz. Un reconocedor puede usar el micrófono predeterminado del dispositivo, una secuencia de audio o audio de un archivo.
+
+1. Obtenga el modelo de reconocimiento del lenguaje que se basa en su **AppId**. Agregue las intenciones que requiera. 
+
+1. Si quiere, asocie los eventos para la operación asincrónica. Después, el reconocedor llama a los controladores de eventos cuando tiene resultados provisionales y finales (incluye intenciones). Si no asocia los eventos, la aplicación recibe solo un resultado final de transcripción.
+
+1. Inicie el reconocimiento de intenciones. Para el reconocimiento de una toma como, por ejemplo, el reconocimiento de comandos o consultas, use el método `RecognizeAsync()`. Este método devuelve la primera expresión reconocida. Para el reconocimiento de larga ejecución, utilice el método `StartContinuousRecognitionAsync()`. Asocie los eventos para obtener los resultados de reconocimiento asincrónico.
+
+Consulte los siguientes fragmentos de código para escenarios de reconocimiento de intenciones que utilizan Speech SDK. Reemplace los valores del ejemplo por su propia clave de suscripción a LUIS (clave de punto de conexión), la [región de la suscripción](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition) y el identificador **AppId** del modelo de intención.
+
+> [!NOTE]
+> A diferencia de otros servicios compatibles con Speech SDK, el reconocimiento de intenciones requiere una clave de suscripción específica (clave de punto de conexión de LUIS). Para más información acerca de la tecnología de reconocimiento de intenciones, consulte el [sitio web de LUIS](https://www.luis.ai). Para más información sobre cómo adquirir la **clave de punto de conexión**, consulte [Creación de una clave de punto de conexión de LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription#create-luis-endpoint-key).

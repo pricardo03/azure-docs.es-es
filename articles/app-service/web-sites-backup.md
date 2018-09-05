@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: fd1e10239d63417a21eb6f76017539ec0d447258
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 44b4da7c293da0643fb88cc2de21433c6ea72c5c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224809"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886411"
 ---
 # <a name="back-up-your-app-in-azure"></a>Realizar una copia de seguridad de la aplicación en Azure
 La característica Copia de seguridad y restauración de [Azure App Service](app-service-web-overview.md) le permite crear fácilmente las copias de seguridad de la aplicación manualmente o con base en una programación. Puede restaurar la aplicación a una instantánea de un estado anterior sobrescribiendo la aplicación existente o restaurando en otra aplicación. 
@@ -55,6 +55,7 @@ Las siguientes soluciones de base de datos son compatibles con la característic
 * Puede realizar copias de seguridad de hasta 10 GB de contenido de base de datos y aplicaciones. Si el tamaño de la copia de seguridad supera este límite, obtendrá un error.
 * No se admiten las copias de seguridad de SSL habilitadas para Azure Database for MySQL. Si se configura una copia de seguridad, obtendrá copias de seguridad con errores.
 * No se admiten las copias de seguridad de SSL habilitadas para Azure Database for PostgreSQL. Si se configura una copia de seguridad, obtendrá copias de seguridad con errores.
+* Se hace una copia de datos automáticamente de las bases de datos MySQL en la aplicación sin ninguna configuración. Si realiza manualmente la configuración para las bases de datos MySQL en la aplicación, como agregar cadenas de conexión, es posible que las copias de seguridad no funcionen correctamente.
 * No se admite el uso de una cuenta de almacenamiento habilitada para firewall como destino para las copias de seguridad. Si se configura una copia de seguridad, obtendrá copias de seguridad con errores.
 
 
@@ -85,7 +86,9 @@ Las siguientes soluciones de base de datos son compatibles con la característic
     ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > Para que una base de datos aparezca en esta lista, su cadena de conexión debe existir en la sección **Cadenas de conexión** de la página **Configuración de la aplicación** de la aplicación.
+   > Para que una base de datos aparezca en esta lista, su cadena de conexión debe existir en la sección **Cadenas de conexión** de la página **Configuración de la aplicación** de la aplicación. 
+   >
+   > Se hace una copia de datos automáticamente de las bases de datos MySQL en la aplicación sin ninguna configuración. Si realiza manualmente la configuración para las bases de datos MySQL en la aplicación, como agregar cadenas de conexión, es posible que las copias de seguridad no funcionen correctamente.
    > 
    > 
 6. En la página **Configuración de copia de seguridad**, haga clic en **Guardar**.    

@@ -7,20 +7,22 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: ea576c0d434d4db7077fc41bc1f5bbbc89e7779e
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d6852b5b1fe3d0b3c248fc1948fa4c3a9428de89
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576654"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125415"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Instalación del entorno de ejecución de Azure IoT Edge en Windows para su uso con contenedores de Linux
 
-El entorno de ejecución de Azure IoT Edge se implementa en todos los dispositivos IoT Edge. Tiene tres componentes. El **demonio de seguridad de IoT Edge** proporciona y mantiene los estándares de seguridad en el dispositivo Edge. El demonio se inicia en cada inicio e inicia el agente de IoT Edge para arrancar el dispositivo. El **agente de IoT Edge** facilita la implementación y supervisión de los módulos en el dispositivo IoT Edge, incluido el centro de IoT Edge. El **centro de IoT Edge** administra las comunicaciones entre los módulos del dispositivo de IoT Edge y entre el dispositivo y la instancia de IoT Hub.
+El entorno de ejecución de Azure IoT Edge es lo que convierte a un dispositivo en un dispositivo IoT Edge. El entorno de ejecución se puede implementar en dispositivos tan pequeños como un Raspberry Pi o tan grandes como un servidor industrial. Una vez que un dispositivo está configurado con el entorno de ejecución de IoT Edge, puede empezar a implementar lógica de negocios en él desde la nube. 
 
-En este artículo se enumeran los pasos para instalar el entorno de ejecución de Azure IoT Edge en el sistema Windows x64 (AMD e Intel). Esta compatibilidad con Windows se encuentra actualmente en versión preliminar.
+Para más información acerca de cómo funciona el entorno de ejecución de Azure IoT Edge y los componentes que se incluyen, consulte [Información del entorno de ejecución de Azure IoT Edge y su arquitectura](iot-edge-runtime.md).
+
+En este artículo se enumeran los pasos para instalar el entorno de ejecución de Azure IoT Edge con contenedores Linux en el sistema Windows x64 (AMD e Intel). Esta compatibilidad con Windows se encuentra actualmente en versión preliminar.
 
 >[!NOTE]
 El uso de contenedores Linux en sistemas Windows no es una configuración de producción recomendada o compatible con Azure IoT Edge. Sin embargo, se puede usar con fines de desarrollo y pruebas.
@@ -29,6 +31,8 @@ El uso de contenedores Linux en sistemas Windows no es una configuración de pro
 Azure IoT Edge se puede usar para el desarrollo y pruebas en las siguientes versiones de Windows, si se usan contenedores de Linux.
   * Windows 10 o sistemas operativos de escritorio más recientes.
   * Windows Server 2016 o sistemas operativos de servidor más recientes.
+
+Para más información acerca de qué sistemas operativos se admiten actualmente, consulte [Compatibilidad de Azure IoT Edge](support.md#operating-systems). 
 
 ## <a name="install-the-container-runtime"></a>Instalación del entorno de ejecución del contenedor 
 
@@ -43,7 +47,7 @@ Se puede usar [Docker para Windows][lnk-docker-for-windows] para desarrollo y pr
 
 Un único dispositivo de IoT Edge se puede aprovisionar manualmente mediante una cadena de conexiones de dispositivo proporcionada por IoT Hub. O bien, puede usar el servicio Device Provisioning para aprovisionar dispositivos automáticamente, lo que resulta útil cuando tiene muchos dispositivos para aprovisionar. Según la elección de aprovisionamiento, elija el script de instalación adecuado. 
 
-### <a name="install-and-manually-provision"></a>Instalación y aprovisionamiento manual
+### <a name="option-1-install-and-manually-provision"></a>Opción 1: Instalación y aprovisionamiento manual
 
 1. Siga los pasos de [Registro de un nuevo dispositivo Azure IoT Edge desde Azure Portal][lnk-dcs] para registrar el dispositivo y recuperar la cadena de conexión de dicho dispositivo. 
 
@@ -58,7 +62,7 @@ Un único dispositivo de IoT Edge se puede aprovisionar manualmente mediante una
 
 4. Cuando se le pida **DeviceConnectionString**, proporcione la cadena de conexión que recuperó de IoT Hub. No incluya comillas para la cadena de conexión. 
 
-### <a name="install-and-automatically-provision"></a>Instalación y aprovisionamiento automático
+### <a name="option-2-install-and-automatically-provision"></a>Opción 2: Instalación y aprovisionamiento automático
 
 1. Siga los pasos de [Creación y aprovisionamiento de un dispositivo TPM Edge simulado en Windows][lnk-dps] para configurar el servicio Device Provisioning y recuperar su **identificador de ámbito**, simular un dispositivo TPM y recuperar su **identificador de registro**; luego, cree una inscripción individual. Una vez que el dispositivo esté registrado en IoT Hub, continúe con la instalación.  
 

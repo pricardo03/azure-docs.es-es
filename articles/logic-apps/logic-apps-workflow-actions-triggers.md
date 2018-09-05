@@ -5,17 +5,16 @@ services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: reference
-ms.date: 06/22/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 427964a6651dd4ab71d0029f89e40afdd34d162a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.topic: reference
+ms.date: 06/22/2018
+ms.openlocfilehash: 8adfd0b3d6d87834441ab87af194de141b77af34
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390711"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093625"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referencia sobre los tipos de desencadenador y de acción del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 
@@ -158,6 +157,7 @@ Este desencadenador comprueba o *sondea* un punto de conexión mediante [API adm
 |---------|------|-------------| 
 | encabezados | Objeto JSON | Encabezados de la respuesta | 
 | Cuerpo | Objeto JSON | Cuerpo de la respuesta | 
+| Código de estado | Entero | El código de estado de la respuesta | 
 |||| 
 
 *Ejemplo*
@@ -330,6 +330,7 @@ Este desencadenador comprueba o sondea el punto de conexión especificado según
 |---------|------|-------------| 
 | encabezados | Objeto JSON | Encabezados de la respuesta | 
 | Cuerpo | Objeto JSON | Cuerpo de la respuesta | 
+| Código de estado | Entero | El código de estado de la respuesta | 
 |||| 
 
 *Requisitos de las solicitudes entrantes*
@@ -337,10 +338,10 @@ Este desencadenador comprueba o sondea el punto de conexión especificado según
 Para que funcione bien con la aplicación lógica, el punto de conexión debe cumplir con un patrón de desencadenador específico o un contrato y reconocer estas propiedades:  
   
 | Response | Obligatorio | DESCRIPCIÓN | 
-|----------|----------|-------------|  
+|----------|----------|-------------| 
 | Código de estado | SÍ | El código de estado "200 OK" inicia una ejecución. Cualquier otro código de estado no inicia una ejecución. | 
-| Encabezado Retry-after | Sin  | Número de segundos hasta que la aplicación lógica sondea de nuevo el punto de conexión | 
-| Encabezado Location | Sin  | La dirección URL para llamar en el siguiente intervalo de sondeo. Si no se especifica, se usa la dirección URL original. | 
+| Encabezado Retry-after | No | Número de segundos hasta que la aplicación lógica sondea de nuevo el punto de conexión | 
+| Encabezado Location | No | La dirección URL para llamar en el siguiente intervalo de sondeo. Si no se especifica, se usa la dirección URL original. | 
 |||| 
 
 *Comportamientos de ejemplo para solicitudes distintas*
@@ -424,6 +425,7 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 |---------|------|-------------| 
 | encabezados | Objeto JSON | Encabezados de la respuesta | 
 | Cuerpo | Objeto JSON | Cuerpo de la respuesta | 
+| Código de estado | Entero | El código de estado de la respuesta | 
 |||| 
 
 *Ejemplo*
@@ -2552,6 +2554,159 @@ Para una única ejecución de aplicación lógica, el número de acciones que se
    "runAfter": {}
 }
 ```
+
+<a name="connector-authentication"></a>
+
+## <a name="authenticate-triggers-or-actions"></a>Autenticación de desencadenadores o acciones
+
+Los puntos de conexión HTTP admiten diferentes tipos de autenticación. Puede configurar la autenticación para estas acciones y desencadenadores HTTP:
+
+* [HTTP](../connectors/connectors-native-http.md)
+* [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
+* [Webhook HTTP](../connectors/connectors-native-webhook.md)
+
+Estos son los tipos de autenticación que se pueden configurar:
+
+* [Autenticación básica](#basic-authentication)
+* [Autenticación de certificados de clientes](#client-certificate-authentication)
+* [Autenticación de OAuth de Azure Active Directory (Azure AD)](#azure-active-directory-oauth-authentication)
+
+<a name="basic-authentication"></a>
+
+### <a name="basic-authentication"></a>Autenticación básica
+
+Para este tipo de autenticación, la definición del desencadenador o acción puede incluir un objeto JSON `authentication` que tenga estas propiedades:
+
+| Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
+|----------|----------|-------|-------------| 
+| **type** | SÍ | "Básica" | Tipo de autenticación que se debe usar, que en este caso es "Básica" | 
+| **username** | SÍ | "@parameters('userNameParam')" | Un parámetro que pasa el nombre de usuario para autenticar para el acceso al punto de conexión de servicio de destino |
+| **password** | SÍ | "@parameters('passwordParam')" | Un parámetro que pasa la contraseña para autenticar para el acceso al punto de conexión de servicio de destino |
+||||| 
+
+Por ejemplo, este es el formato para el objeto `authentication` en la definición del desencadenador o acción. Para más información acerca de cómo proteger los parámetros, consulte [Protección de la información confidencial](#secure-info). 
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+<a name="client-certificate-authentication"></a>
+
+### <a name="client-certificate-authentication"></a>Autenticación de certificados de cliente
+
+Para este tipo de autenticación, la definición del desencadenador o acción puede incluir un objeto JSON `authentication` que tenga estas propiedades:
+
+| Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
+|----------|----------|-------|-------------| 
+| **type** | SÍ | "ClientCertificate" | El tipo de autenticación que se usará para los certificados de cliente de capa de sockets seguros (SSL) | 
+| **pfx** | SÍ | <*base64-encoded-pfx-file*> | El contenido codificado en base 64 del archivo de intercambio de información personal (PFX) |
+| **password** | SÍ | "@parameters('passwordParam')" | Un parámetro con la contraseña para acceder al archivo PFX |
+||||| 
+
+Por ejemplo, este es el formato para el objeto `authentication` en la definición del desencadenador o acción. Para más información acerca de cómo proteger los parámetros, consulte [Protección de la información confidencial](#secure-info). 
+
+```javascript
+"authentication": {
+   "password": "@parameters('passwordParam')",
+   "pfx": "aGVsbG8g...d29ybGQ=",
+   "type": "ClientCertificate"
+}
+```
+
+<a name="azure-active-directory-oauth-authentication"></a>
+
+### <a name="azure-active-directory-ad-oauth-authentication"></a>Autenticación de OAuth de Azure Active Directory (AD)
+
+Para este tipo de autenticación, la definición del desencadenador o acción puede incluir un objeto JSON `authentication` que tenga estas propiedades:
+
+| Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
+|----------|----------|-------|-------------| 
+| **type** | SÍ | `ActiveDirectoryOAuth` | El tipo de autenticación para usar, que es "ActiveDirectoryOAuth" para OAuth de Azure AD | 
+| **authority** | Sin  | <*URL-for-authority-token-issuer*> | La dirección URL de la autoridad que proporciona el token de autenticación |  
+| **tenant** | SÍ | <*tenant-ID*> | El identificador del inquilino de Azure AD | 
+| **audience** | SÍ | <*resource-to-authorize*> | El recurso que desea que la autorización use, por ejemplo, `https://management.core.windows.net/` | 
+| **clientId** | SÍ | <*client-ID*> | El identificador de cliente para la aplicación que solicita autorización | 
+| **credentialType** | SÍ | "Secreto" o "Certificado" | El tipo de credencial que el cliente usa para solicitar autorización. Esta propiedad y el valor no aparecen en la definición subyacente, pero determina los parámetros necesarios para el tipo de credencial. | 
+| **password** | Sí, solo para el tipo de credencial de "Certificado" | "@parameters('passwordParam')" | Un parámetro con la contraseña para acceder al archivo PFX | 
+| **pfx** | Sí, solo para el tipo de credencial de "Certificado" | <*base64-encoded-pfx-file*> | El contenido codificado en base 64 del archivo de intercambio de información personal (PFX) |
+| **secret** | Sí, solo para el tipo de credencial de "Secreto" | <*secret-for-authentication*> | El secreto codificado en base 64 que el cliente usa para solicitar autorización |
+||||| 
+
+Por ejemplo, este es el formato para el objeto `authentication` cuando su definición de acción o desencadenador usa el tipo de credencial "Secreto": para más información acerca de cómo proteger los parámetros, consulte [Protección de la información confidencial](#secure-info). 
+
+```javascript
+"authentication": {
+   "audience": "https://management.core.windows.net/",
+   "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+   "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
+   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+   "type": "ActiveDirectoryOAuth"
+}
+```
+
+<a name="secure-info"></a>
+
+## <a name="secure-sensitive-information"></a>Protección de la información confidencial
+
+Para proteger la información confidencial que se usa para la autenticación, como los nombres de usuario y contraseñas, en las definiciones de acciones y desencadenadores, puede usar parámetros y la expresión `@parameters()` para que esta información no esté visible después de guardar su aplicación lógica. 
+
+Por ejemplo, suponga que utiliza la autenticación "Básica" en la definición de acción o desencadenador. Este es un ejemplo de objeto `authentication` que especifica un nombre de usuario y una contraseña:
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+En la sección `parameters` de la definición de aplicación lógica, defina los parámetros que usó en la definición de acción o desencadenador:
+
+```javascript
+"definition": {
+   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+   "actions": {
+      "HTTP": {
+      }
+   },
+   "parameters": {
+      "passwordParam": {
+         "type": "securestring"
+      },
+      "userNameParam": {
+         "type": "securestring"
+      }
+   },
+   "triggers": {
+      "HTTP": {
+      }
+   },
+   "contentVersion": "1.0.0.0",
+   "outputs": {}
+},
+```
+
+Si está creando o utilizando una plantilla de implementación de Azure Resource Manager, también tiene que incluir una sección `parameters` externa para la definición de plantilla. Para más información acerca de cómo proteger los parámetros, consulte [Protección del acceso a las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

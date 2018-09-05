@@ -1,27 +1,23 @@
 ---
 title: 'Descodificación de mensajes AS2: Azure Logic Apps | Microsoft Docs'
-description: Uso del descodificador AS2 en Enterprise Integration Pack para Azure Logic Apps
+description: Descodificación de mensajes AS con Azure Logic Apps y Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 08/08/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: a1b2d68a4a9433dc5c68d65552bf6bd509463958
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 06ffa6bddc1340ad548f9baf30eba65ba503bf73
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42144522"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128288"
 ---
-# <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Descodificación de mensajes AS2 para Azure Logic Apps con Enterprise Integration Pack 
+# <a name="decode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>Descodificación de mensajes AS2 con Azure Logic Apps y Enterprise Integration Pack 
 
 Utilice el conector de descodificación de mensajes AS2 para garantizar la seguridad y confiabilidad al transmitir mensajes. Este conector proporciona firma digital, descifrado y confirmaciones a través de las notificaciones de disposición de mensajes (MDN).
 

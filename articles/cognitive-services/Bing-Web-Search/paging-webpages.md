@@ -1,6 +1,6 @@
 ---
-title: Paginación mediante las páginas web disponibles | Microsoft Docs
-description: Se muestra cómo paginar mediante todas las páginas web que puede devolver Bing.
+title: Navegación por las páginas de resultados de Bing Web Search API | Microsoft Docs
+description: Aprenda a navegar por las páginas de resultados de Bing Web Search API.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
@@ -8,22 +8,22 @@ ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 04/15/2017
-ms.author: scottwhi
-ms.openlocfilehash: bf29783246c603270d59b20b63027fccdbd45b89
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/20/2018
+ms.author: erhopf
+ms.openlocfilehash: cd03b3af08746674dd2ba2d4af593e19e066efca
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380110"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888248"
 ---
-# <a name="paging-webpages"></a>Paginación de páginas web 
+# <a name="how-to-page-through-bing-web-search-api-results"></a>Navegación por las páginas de resultados de Bing Web Search API
 
 Cuando se llama a Web Search API, Bing devuelve una lista de resultados. La lista es un subconjunto del número total de resultados que pueden estar relacionados con la consulta. Para obtener el número total estimado de resultados disponibles, consulte el campo [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#totalestimatedmatches) del objeto de respuesta.  
   
 En el siguiente ejemplo se muestra el campo `totalEstimatedMatches` que incluye una respuesta web.  
   
-```  
+```
 {
     "_type" : "SearchResponse",
     "webPages" : {
@@ -32,7 +32,7 @@ En el siguiente ejemplo se muestra el campo `totalEstimatedMatches` que incluye 
         "value" : [...]
     }
 }  
-```  
+```
   
 Para paginar mediante las páginas web disponibles, use los parámetros de consulta [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#count) y [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#offset).  
   

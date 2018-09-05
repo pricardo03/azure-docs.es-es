@@ -1,35 +1,31 @@
 ---
 title: Acceso seguro a Azure Logic Apps | Microsoft Docs
-description: Aumente la seguridad para proteger el acceso a desencadenadores, entradas y salidas, parámetros de acción y servicios que se utilizan con flujos de trabajo en Azure Logic Apps.
+description: Protección del acceso a desencadenadores, entradas y salidas, parámetros de acción y servicios en los flujos de trabajo de Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
+ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
 ms.date: 11/22/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 2052e58dab7241836409fb013778f9702004021c
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fc4fdff5080e6ebe13850157e8d560a1d31e7719
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299916"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127486"
 ---
-# <a name="secure-access-to-your-logic-apps"></a>Acceso seguro a aplicaciones lógicas
+# <a name="secure-access-in-azure-logic-apps"></a>Protección del acceso en Azure Logic Apps
 
-Hay muchas herramientas disponibles que le ayudarán a proteger la aplicación lógica.
+Las siguientes son formas de proteger el acceso a los diferentes componentes de la aplicación lógica:
 
-* Protección del acceso para desencadenar una aplicación lógica (desencadenador de solicitud de HTTP)
-* Protección del acceso para administrar, editar o leer una aplicación lógica
-* Protección del acceso al contenido de entradas y salidas para una ejecución
-* Protección de parámetros o entradas en las acciones de un flujo de trabajo
-* Protección del acceso a los servicios que reciben solicitudes de un flujo de trabajo
+* Proteger el acceso para desencadenar un flujo de trabajo de aplicación lógica con el desencadenador HTTP request
+* Proteger el acceso para administrar, editar o leer una aplicación lógica
+* Proteger el acceso al contenido dentro de las entradas y salidas en la ejecución de una aplicación lógica
+* Proteger parámetros o entradas en acciones de un flujo de trabajo de aplicación lógica
+* Proteger el acceso a servicios que reciben solicitudes de un flujo de trabajo de aplicación lógica.
 
 ## <a name="secure-access-to-trigger"></a>Acceso seguro al desencadenador
 

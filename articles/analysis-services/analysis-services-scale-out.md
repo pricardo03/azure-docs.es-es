@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4cb7b165311f57fadd63770646907ddfc0378844
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f89a6bdbe906d490231725cf528396928faebe47
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445027"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092101"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalabilidad horizontal de Azure Analysis Services
 
@@ -37,19 +37,7 @@ Una vez completadas las operaciones de procesamiento, debe realizarse una sincro
 
 ## <a name="region-limits"></a>Límites de región
 
-El número de réplicas de consultas que puede configurar está limitado por la región en la que se encuentra el servidor. Se aplican los límites siguientes:
-
-|Region  |Número máximo de réplicas  |
-|---------|---------|
-|Este de EE. UU. 2    |    7     |
-|Centro occidental de EE.UU.     |    7     |
-|Europa occidental     |    7     |
-|Oeste de EE. UU     |     7    |
-|Central EE. UU:     |     3    |
-|Sudeste asiático    |     3    |
-|Todas las demás regiones  |   1    |
-
-
+El número de réplicas de consultas que puede configurar está limitado por la región en la que se encuentra el servidor. Para más información, consulte la [disponibilidad por región](analysis-services-overview.md#availability-by-region).
 
 ## <a name="monitor-qpu-usage"></a>Supervisión del uso de QPU
 

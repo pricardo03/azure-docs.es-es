@@ -12,15 +12,15 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/21/2017
 ms.author: ghogen
-ms.openlocfilehash: f41628c29f40443cc213892a0cc457eda110ebca
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 3e6ab2078c6b9233360d7cabdc49eddf557b9b57
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144580"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189247"
 ---
 # <a name="creating-an-azure-cloud-service-project-with-visual-studio"></a>Creación de un proyecto de servicio en la nube de Azure con Visual Studio
-Azure Tools para Visual Studio proporciona una plantilla de proyecto que permite crear un servicio en la nube de Azure. Una vez creado el proyecto, Visual Studio le permite configurar, depurar e implementar el servicio en la nube en Azure.
+Azure Tools para Visual Studio proporciona una plantilla de proyecto que le permite crear un [servicio en la nube de Azure](/azure/cloud-services/cloud-services-choose-me), que constituye un servicio sencillo con fines generales de Azure. Una vez creado el proyecto, Visual Studio le permite configurar, depurar e implementar el servicio en la nube en Azure.
 
 ## <a name="steps-to-create-an-azure-cloud-service-project-in-visual-studio"></a>Pasos para crear un proyecto de servicio en la nube de Azure en Visual Studio
 En esta sección se le enseñará cómo crear un proyecto de servicio en la nube de Azure en Visual Studio con uno o más roles web.  

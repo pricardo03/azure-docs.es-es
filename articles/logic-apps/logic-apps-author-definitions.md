@@ -1,27 +1,23 @@
 ---
 title: Creación, edición o extensión de JSON para definiciones de aplicaciones lógicas en Azure Logic Apps | Microsoft Docs
-description: Creación y personalización de definiciones de aplicaciones lógicas en JSON
-author: ecfan
-manager: jeconnoc
-editor: ''
+description: Creación y extensión de JSON para definiciones de aplicaciones lógicas en Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
+ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 9793fdf2bd351bd1f15bcb88ffd25d6b19485303
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1f2e136810194ad044255f9d129b5c03549221b9
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297859"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128667"
 ---
-# <a name="create-edit-or-customize-json-for-logic-app-definitions"></a>Creación, edición o personalización de JSON para definiciones de aplicaciones lógicas
+# <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Creación, edición o extensión de JSON para definiciones de aplicaciones lógicas en Azure Logic Apps
 
 Al crear soluciones de integración empresarial con flujos de trabajo automatizados en [Azure Logic Apps](../logic-apps/logic-apps-overview.md), las definiciones de aplicaciones lógicas subyacentes usan una notación de objetos JavaScript (JSON) sencilla y declarativa con el [esquema del lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md) para su descripción y validación. Estos formatos facilitan la lectura y comprensión de las definiciones de aplicaciones lógicas sin necesidad de saber mucho sobre el código. Si desea automatizar la creación e implementación de aplicaciones lógicas, puede incluir las definiciones de aplicaciones lógicas como [recursos de Azure](../azure-resource-manager/resource-group-overview.md) en las [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment). Para crear, administrar e implementar las aplicaciones lógicas, puede usar [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp), la [CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) o las [API de REST de Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/).
 

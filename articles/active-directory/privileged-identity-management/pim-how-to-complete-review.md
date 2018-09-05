@@ -1,6 +1,6 @@
 ---
-title: Revisión de acceso | Microsoft Docs
-description: Después de iniciar una revisión de acceso en Privileged Identity Management de Azure AD, aprenda a realizarla y ver los resultados.
+title: Completar una revisión de acceso para los roles de directorio de Azure AD en PIM | Microsoft Docs
+description: Aprenda a completar una revisión de acceso para los roles de directorio de Azure AD en Azure AD Privileged Identity Management y a ver los resultados.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 3b4135368c2222a08b155c851b384244774ce246
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 3955f4bf9b579ae40424c2650f9d3b4c2ac4f030
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622537"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188593"
 ---
-# <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>Revisión de acceso en Privileged Identity Management de Azure AD
+# <a name="complete-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Completar una revisión de acceso para los roles de directorio de Azure AD en PIM
 Los administradores de roles con privilegios pueden revisar el acceso con privilegios una vez que se [ha iniciado una revisión del acceso](pim-how-to-start-security-review.md). Privileged Identity Management (PIM) de Azure AD enviará automáticamente un correo electrónico para pedir a los usuarios que revisen su acceso. Si algún usuario no ha recibido un correo electrónico, puede enviarle las instrucciones necesarias para [realizar una revisión del acceso](pim-how-to-perform-security-review.md).
 
 Cuando acabe el período de la revisión del acceso o cuando todos los usuarios hayan finalizado su autorrevisión, siga los pasos de este artículo para administrar la revisión y ver los resultados.
@@ -53,4 +53,6 @@ Si ya no le interesa más la revisión, elimínela. El botón **Eliminar** quita
 > No recibirá ninguna advertencia antes de la eliminación, así que asegúrese de que realmente quiere eliminar esa revisión. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Iniciar una revisión de acceso para los roles de directorio de Azure AD en PIM](pim-how-to-start-security-review.md)
+- [Realización de una revisión de acceso para los roles de directorio de Azure AD en PIM](pim-how-to-perform-security-review.md)

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5508b5943e116545297d91e85621d2a11a635299
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b8caeab7f08ffeee81492b01750cbb255e172872
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058077"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144529"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guía de publicación de ofertas de máquinas virtuales
 
@@ -42,7 +42,7 @@ Puede disponer que los usuarios prueben la oferta mediante el acceso a licencias
 
 Se implementan una o varias máquinas virtuales a través de aplicaciones de infraestructura como servicio (IaaS) o SaaS. Una ventaja de la opción de publicación de versión de prueba es el aprovisionamiento automatizado de una máquina virtual o una solución completa dirigida por una visita guiada hospedada por un asociado. Una versión limitada de prueba proporciona una prueba sin ningún costo adicional para el cliente. El cliente no tiene que ser un cliente existente de Azure para poder participar en la experiencia de prueba. 
 
-Envíe un correo a amp-testdrive@microsoft.com para empezar. 
+Póngase en contacto con nosotros en [amp-testdrive](mailto:amp-testdrive@microsoft.com) para empezar a trabajar. 
 
 |Requisitos  |Detalles |
 |---------|---------|

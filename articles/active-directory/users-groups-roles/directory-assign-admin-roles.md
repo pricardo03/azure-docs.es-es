@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 6c97d7c2f901110421f9fc5d0a1d4468d832c472
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 9b56f540af2b8d35258a4db79502c9edf83cdb45
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42146864"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128473"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Asignación de roles de administrador en Azure Active Directory
 
@@ -76,7 +76,9 @@ Los roles de administrador disponibles son los siguientes:
 
 * **[Administrador de servicios de Intune](#intune-service-administrator)**: los usuarios con este rol tienen permisos globales en Microsoft Intune Online, cuando el servicio está presente. Además, este rol contiene la capacidad de administrar usuarios y dispositivos para asociar una directiva, así como también para crear y administrar grupos. Para más información, consulte [Control de administración basado en rol (RBAC) con Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
 
-* **[Lector del centro de mensajes](#message-center-reader)**: los usuarios con este rol pueden supervisar las notificaciones y las actualizaciones de mantenimiento de aviso en el [Centro de mensajes de Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) para su organización en los servicios configurados como Exchange, Intune y de Microsoft Teams. Los lectores del centro de mensajes reciben semanal resúmenes de correo electrónico de publicaciones y actualizaciones y pueden compartir entradas del centro de mensajes en Office 365. En Azure AD, los usuarios asignados a este rol solo tendrán acceso de solo lectura en los servicios de Azure AD, como usuarios y grupos. 
+* **[Administrador de licencias](#license-administrator)**: los usuarios con este rol pueden agregar, quitar y actualizar las asignaciones de licencias de usuarios y grupos (mediante licencias basadas en grupo) y administrar la ubicación de uso de los usuarios. El rol no otorga la posibilidad de adquirir o administrar suscripciones, crear o administrar grupos o crear o administrar usuarios más allá de la ubicación de uso.
+
+* **[Lector del centro de mensajes](#message-center-reader)**: los usuarios con este rol pueden supervisar las notificaciones y las actualizaciones de mantenimiento de aviso en el [Centro de mensajes de Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) para su organización en los servicios configurados, como Exchange, Intune y de Microsoft Teams. Los lectores del centro de mensajes reciben semanal resúmenes de correo electrónico de publicaciones y actualizaciones y pueden compartir entradas del centro de mensajes en Office 365. En Azure AD, los usuarios asignados a este rol solo tendrán acceso de solo lectura en los servicios de Azure AD, como usuarios y grupos. 
 
 * **[Soporte para asociados de nivel 1](#partner-tier1-support)**: no se usa. Este rol está en desuso y se quitará de Azure AD en el futuro. Este rol está diseñado para que lo usen un pequeño número de asociados de reventa de Microsoft, no para un uso general.
 
@@ -611,6 +613,23 @@ Puede administrar todos los aspectos del producto Intune.
 | microsoft.aad.supporttickets/AllEntities/AllActions | Crea y administra incidencias de soporte técnico de Office 365. |
 | microsoft.intune/AllEntities/AllActions | Administra todos los aspectos de Intune. |
 
+
+### <a name="license-administrator"></a>Administrador de licencias
+Puede administrar licencias de producto de usuarios y grupos.
+ 
+  > [!NOTE]
+  > Este rol hereda permisos adicionales del rol de lectores de directorios.
+  >
+  >
+ 
+| **Acciones** | **Descripción** |
+| --- | --- |
+| microsoft.aad.directory/users/assignLicense | Administrar licencias de usuarios de Azure Active Directory. |
+| microsoft.aad.directory/users/usageLocation/update | Actualizar la propiedad users.UsageLocation en Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Administrar todos los aspectos del servicio de acceso de Azure. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Leer y configurar Azure Service Health. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Lee y configura el estado de mantenimiento del servicio Office 365. |
+
 ### <a name="lync-service-administrator"></a>Administrador de servicios de Lync
 Puede administrar todos los aspectos del producto Skype Empresarial.
 
@@ -820,7 +839,7 @@ Puede leer la información y los informes de seguridad de Azure AD y Office 365.
   >
 
   > [!NOTE]
-  > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información vea la descripción del rol arriba.
+  > Este rol tiene permisos adicionales fuera de Azure Active Directory. Vea la descripción del rol que aparece anteriormente para obtener más información.
   >
   >
 
@@ -841,7 +860,7 @@ Puede leer la información de estado del servicio y administrar las incidencias 
   >
 
   > [!NOTE]
-  > Este rol tiene permisos adicionales fuera de Azure Active Directory. Vea la descripción del rol que aparece anteriormente para obtener más información.
+  > Este rol tiene permisos adicionales fuera de Azure Active Directory. Para más información vea la descripción del rol arriba.
   >
   >
 

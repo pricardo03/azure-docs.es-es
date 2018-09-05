@@ -12,19 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/21/2018
+ms.date: 08/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: cad3723f3109fa2fa7e6a1a7ab61d5c7eaca2674
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 8e1c194ea2ebc0e06918c8389c9ee6f72afb3e86
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623193"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887795"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Escalado horizontal de un clúster de Service Fabric mediante la adición de un conjunto de escalado de máquinas virtuales
 En este artículo se describe cómo escalar un clúster de Azure Service Fabric mediante la adición de un nuevo conjunto de escalado de máquinas virtuales a un clúster existente. Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Un equipo o máquina virtual que forma parte de un clúster se denomina nodo. Los conjuntos de escalado de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Azure está [configurado como un conjunto de escalado independiente](service-fabric-cluster-nodetypes.md). Cada tipo de nodo, a continuación, se puede administrar por separado. Después de crear un clúster de Service Fabric, puede escalar el tipo de nodo del clúster verticalmente (cambiar los recursos de los nodos), actualizar el sistema operativo de las máquinas virtuales del tipo de nodo o agregar un nuevo conjunto de escalado de máquinas virtuales a un clúster existente.  Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster.  Según se escala el clúster, las aplicaciones se escalan automáticamente.
 
 > [!WARNING]
+> No comience cambiando el tipo de nodo principal VM SKU, si el estado del clúster no es bueno. En este caso, si intenta cambiar la SKU de las máquinas virtuales, solo desestabilizará aún más el clúster.
+>
 > Se recomienda no cambiar la SKU de las máquinas virtuales de un tipo de nodo o conjunto de escalado a menos que se esté ejecutando en la [durabilidad Silver o mayor](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Modificar el tamaño de la SKU de VM constituye una operación de infraestructura local de destrucción de datos. Sin la posibilidad de retrasar o supervisar este cambio, es posible que la operación pueda provocar una pérdida de datos en los servicios con estado o bien causar otros problemas de funcionamiento imprevistos, incluso en las cargas de trabajo sin estado. Esto significa el tipo de nodo principal, que ejecuta servicios del sistema de Service Fabric con estado, o cualquier tipo de nodo que ejecute sus cargas de trabajo de aplicaciones con estado.
 >
 

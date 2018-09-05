@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8886c08e88c1dd46d2b325b9ba8e9e0b8ae104f9
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 956cb80ddbf96f23585dd52f3dc1013c7a665113
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007696"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886317"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configuración de controles de acceso basado en rol en el acelerador de soluciones de supervisión remota
 
@@ -51,7 +51,7 @@ Use Azure Portal para agregar o quitar usuarios de la solución de supervisión 
 
 1. Compruebe que el [usuario está en el directorio](../active-directory/fundamentals/add-users-azure-active-directory.md) que usa. El directorio se elige al iniciar sesión en el sitio de [aceleradores de soluciones de Microsoft Azure IoT](https://www.azureiotsolutions.com/Accelerators). El nombre del directorio se puede ver en la esquina superior derecha de la [página](https://www.azureiotsolutions.com/Accelerators).
 
-1. Busque la **aplicación empresarial** para su solución en Azure Portal. El nombre de la aplicación es el nombre de la solución de supervisión remota. En la siguiente captura de pantalla, los nombres para mostrar de la solución y de la aplicación son **contoso-rm4**.
+1. Busque la **aplicación empresarial** para su solución en Azure Portal. Una vez allí, filtre la lista mediante el establecimiento de **Tipo de aplicación** en **Todas las aplicaciones**. Busque la aplicación por su nombre. El nombre de la aplicación es el nombre de la solución de supervisión remota. En la siguiente captura de pantalla, los nombres para mostrar de la solución y de la aplicación son **contoso-rm4**.
 
     ![Aplicación empresarial](media/iot-accelerators-remote-monitoring-rbac/appregistration.png)
 

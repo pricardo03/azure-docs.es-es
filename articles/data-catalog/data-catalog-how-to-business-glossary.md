@@ -1,25 +1,19 @@
 ---
-title: "Configuración del glosario empresarial para el etiquetado regulado en Azure Data Catalog| Microsoft Docs"
-description: "Artículo de procedimientos que resalta el glosario empresarial en Azure Data Catalog para definir y utilizar un vocabulario empresarial común para etiquetar recursos de datos registrados."
+title: Configuración del glosario empresarial para el etiquetado regulado en Azure Data Catalog
+description: Artículo de procedimientos que resalta el glosario empresarial en Azure Data Catalog para definir y utilizar un vocabulario empresarial común para etiquetar recursos de datos registrados.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: b3d63dbe-1ae7-499f-bc46-42124e950cd6
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: a80b7fd0c21851a6670431e9b8647ca5cf5f51ec
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b4586133a6d3b7514d6b47e2e0c93b0e79988f09
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053199"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>Configuración del glosario empresarial para el etiquetado regulado
 ## <a name="introduction"></a>Introducción

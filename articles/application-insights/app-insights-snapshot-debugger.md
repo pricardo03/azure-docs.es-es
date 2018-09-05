@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: b180c7e8d26acc86aa1d1982ace92efafa85f9ef
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: d4c27c8297fb5a2ad13a245279a206d00fc4f8b1
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115742"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144132"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantáneas cuando se producen excepciones en aplicaciones de .NET
 
@@ -251,7 +251,8 @@ El proceso principal sigue ejecutándose y ofrece tráfico a los usuarios con po
 ## <a name="current-limitations"></a>Limitaciones actuales
 
 ### <a name="publish-symbols"></a>Publicación de símbolos
-El Depurador de instantáneas requiere que los archivos de símbolos estén presentes en el servidor de producción para descodificar variables y proporcionar una experiencia de depuración en Visual Studio. La versión 15.2 de Visual Studio 2017 publica símbolos de compilaciones de versión de forma predeterminada al publicar en App Service. En las versiones anteriores, tiene que agregar la siguiente línea al archivo `.pubxml` de su perfil de publicación para que los símbolos se publiquen en modo de versión:
+El Depurador de instantáneas requiere que los archivos de símbolos estén presentes en el servidor de producción para descodificar variables y proporcionar una experiencia de depuración en Visual Studio.
+La versión 15.2 (o superior) de Visual Studio 2017 publica símbolos de compilaciones de versión de forma predeterminada al publicar en App Service. En las versiones anteriores, tiene que agregar la siguiente línea al archivo `.pubxml` de su perfil de publicación para que los símbolos se publiquen en modo de versión:
 
 ```xml
     <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>
@@ -400,6 +401,49 @@ Siga estos pasos para configurar el rol del servicio en la nube con un recurso l
       <!-- Other SnapshotCollector configuration options -->
     </Add>
    </TelemetryProcessors>
+   ```
+
+### <a name="overriding-the-shadow-copy-folder"></a>Invalidación de la carpeta Instantáneas
+
+Cuando se inicia Snapshot Collector, intenta encontrar una carpeta del disco que sea adecuada para ejecutar el proceso del cargador de instantáneas. La carpeta elegida se conoce como carpeta de instantáneas.
+
+Snapshot Collector comprueba unas cuantas ubicaciones conocidas, asegurándose de que tiene permisos para copiar los archivos binarios del cargador de instantáneas. Se usaron las siguientes variables de entorno:
+- Fabric_Folder_App_Temp
+- LOCALAPPDATA
+- APPDATA
+- TEMP
+
+Si no se puede encontrar una carpeta adecuada, Snapshot Collector envía un error que dice _"Could not find a suitable shadow copy folder."_ (No se pudo encontrar una carpeta de instantáneas adecuada).
+
+Si se produce un error en la copia, Snapshot Collector envía un error `ShadowCopyFailed`.
+
+Si no se puede iniciar el cargador, Snapshot Collector enviará un error `UploaderCannotStartFromShadowCopy`. El cuerpo del mensaje normalmente incluye `System.UnauthorizedAccessException`. Este error se suele producir porque la aplicación se ejecuta en una cuenta con permisos reducidos. La cuenta tiene permiso para escribir en la carpeta de instantáneas, pero no tiene permiso para ejecutar código.
+
+Puesto que estos errores suelen ocurrir durante el inicio, normalmente van seguidos de un error `ExceptionDuringConnect` que dice _"Uploader failed to start"_ ("Error al iniciar el cargador").
+
+Para resolver estos errores, puede especificar la carpeta de copia de instantáneas manualmente a través de la opción de configuración `ShadowCopyFolder`. Por ejemplo, use ApplicationInsights.config:
+
+   ```xml
+   <TelemetryProcessors>
+    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+      <!-- Override the default shadow copy folder. -->
+      <ShadowCopyFolder>D:\SnapshotUploader</ShadowCopyFolder>
+      <!-- Other SnapshotCollector configuration options -->
+    </Add>
+   </TelemetryProcessors>
+   ```
+
+O bien, si usa appsettings.json con una aplicación .NET Core:
+
+   ```json
+   {
+     "ApplicationInsights": {
+       "InstrumentationKey": "<your instrumentation key>"
+     },
+     "SnapshotCollectorConfiguration": {
+       "ShadowCopyFolder": "D:\\SnapshotUploader"
+     }
+   }
    ```
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Usar la búsqueda de Application Insights para buscar excepciones con instantáneas

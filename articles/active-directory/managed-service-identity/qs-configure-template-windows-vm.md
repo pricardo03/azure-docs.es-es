@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 4b25c82de4d2d3f4300fbb688c75be74ce63fe40
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 6a5f8fc126f9c94ce139b99c94936e01da8b4099
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42143552"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126428"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configuración de Managed Service Identity (MSI) en una máquina virtual mediante una plantilla
 
@@ -380,7 +380,7 @@ Si tiene una máquina virtual que ya no necesita una identidad de servicio admin
  
    **Microsoft.Compute/virtualMachines versión 2017-12-01 de la API**
 
-   Para quitar una identidad asignada por un usuario único desde una máquina virtual, quítela de la matriz `identityIds`.
+   Para quitar una única identidad asignada por un usuario de una máquina virtual, quítela de la matriz `identityIds`.
 
    Si tiene una identidad asignada por el sistema, consérvela en el valor `type` de `identity`.
    

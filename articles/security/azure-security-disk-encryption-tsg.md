@@ -11,28 +11,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: e669fb5da0e3fd3c6a14ffed5cbdf80b8a4d9590
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: e63d798c24159777711c9cdd765e40b44826a530
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390728"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888736"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guía de solución de problemas de Azure Disk Encryption
 
-Esta guía está destinada a profesionales de tecnologías de la información (TI), analistas de seguridad de la información y administradores de la nube cuyas organizaciones utilizan Azure Disk Encryption. En este artículo se ofrece orientación para solucionar problemas relacionados con el cifrado de disco.
+Esta guía está destinada a profesionales de tecnologías de la información (TI), analistas de seguridad de la información y administradores de la nube cuyas organizaciones utilizan Azure Disk Encryption. En este artículo se ofrece ayuda para solucionar problemas relacionados con el cifrado de disco.
 
 ## <a name="troubleshooting-linux-os-disk-encryption"></a>Solución de problemas del cifrado de discos con el SO Linux
 
 El cifrado de discos con el sistema operativo Linux debe desmontar la unidad del sistema operativo antes de pasar por el proceso de cifrado de disco completo. Si no puede desmontar la unidad, es probable que aparezca el mensaje de error "no se pudo desmontar después de...".
 
-Este error suele ocurrir cuando se intenta el cifrado del disco del sistema operativo en un entorno de máquina virtual de destino que se ha modificado desde su imagen de la galería admitida. Estos son algunos ejemplos de desviaciones de la imagen admitida que pueden interferir con la capacidad de la extensión de desmontar la unidad del sistema operativo:
+Este error suele ocurrir cuando se intenta el cifrado del disco del sistema operativo en un entorno de máquina virtual de destino que se ha modificado desde su imagen de la galería admitida. Las desviaciones de la imagen admitida pueden interferir con la capacidad de la extensión para desmontar la unidad del sistema operativo. Algunos ejemplos de desviaciones pueden incluir los siguientes elementos:
 - Imágenes personalizadas que ya no coinciden con un sistema de archivos o esquema de particiones compatibles.
-- Las aplicaciones grandes, como SAP, MongoDB, Apache Casandra y Docker, no se admiten cuando se instalan y ejecutan en el sistema operativo antes del cifrado. Azure Disk Encryption no puede apagar con seguridad estos procesos tal como se requiere en la preparación de la unidad del sistema operativo para el cifrado de disco. Si hay procesos que siguen activos y que contienen identificadores de archivos abiertos en la unidad del sistema operativo, dicha unidad no se podrá desmontar y se producirá un error al cifrarla. 
+- Las aplicaciones grandes, como SAP, MongoDB, Apache Cassandra y Docker, no se admiten cuando están instaladas y se ejecutan en el sistema operativo antes de que se realice el cifrado. Azure Disk Encryption no puede apagar con seguridad estos procesos tal como se requiere en la preparación de la unidad del sistema operativo para el cifrado de disco. Si hay procesos que siguen activos y que contienen identificadores de archivos abiertos en la unidad del sistema operativo, dicha unidad no se podrá desmontar y se producirá un error al cifrarla. 
 - Se ejecutan scripts personalizados casi al mismo tiempo que se deshabilita el cifrado, o si se hace algún otro cambio en la máquina virtual durante el proceso de cifrado. Este conflicto puede ocurrir cuando una plantilla de Azure Resource Manager define varias extensiones para ejecutarse al mismo tiempo o cuando una extensión de script personalizada u otra acción se ejecutan simultáneamente que el cifrado del disco. La serialización y el aislamiento de estos pasos podría resolver el problema.
-- Linux con seguridad mejorada (SELinux) no se ha deshabilitado antes de habilitar el cifrado, de modo que se produce un error en el paso de desmontaje. SELinux puede habilitarse de nuevo después de completarse el cifrado.
+- Security Enhanced Linux (SELinux) no se ha deshabilitado antes de habilitar el cifrado, por lo que se ha producido un error en el paso de desmontaje. SELinux puede habilitarse de nuevo después de completarse el cifrado.
 - El disco del sistema operativo utiliza un esquema de administrador de volúmenes lógicos (LVM). Aunque hay compatibilidad limitada con los discos de datos LVM, no se admite el disco del sistema operativo LVM.
 - No se cumplen los requisitos mínimos de memoria (se recomiendan 7 GB para el cifrado del disco de sistema operativo).
 - Las unidades de datos se han montado recursivamente en el directorio /mnt/ o entre sí (por ejemplo, /mnt/datos1, /mnt/datos2, /datos3 + /datos3/datos4).
@@ -67,7 +67,7 @@ En los casos siguientes, se recomienda que restaure la máquina virtual con la i
    - Si la secuencia de reinicio descrita anteriormente no se produce.
    - Si la información de inicio, el mensaje de progreso u otro indicador informa de que se ha producido un error en el cifrado del sistema operativo en mitad de este proceso. Un ejemplo de mensaje es el error "no se pudo desmontar" que se describe en esta guía.
 
-Antes de volver a intentarlo, vuelva a evaluar las características de la máquina virtual y asegúrese de que se cumplan todos los requisitos previos.
+Antes de volver a intentarlo, vuelva a evaluar las características de la máquina virtual y asegúrese de que se cumplen todos los requisitos previos.
 
 ## <a name="troubleshooting-azure-disk-encryption-behind-a-firewall"></a>Solución de problemas de Azure Disk Encryption detrás de un firewall
 Cuando la conectividad está limitada por un firewall, la configuración del grupo de seguridad de red (NSG) o el requisito de proxy, podría perderse la capacidad de la extensión para realizar las tareas necesarias. Esto puede dar lugar a mensajes de estado similares a "El estado de extensión no está disponible en la máquina virtual". En los escenarios esperados, el cifrado no puede finalizar. En las secciones siguientes se enumeran algunos problemas comunes del firewall que podría investigar.
@@ -80,7 +80,7 @@ La máquina virtual debe poder tener acceso al almacén de claves. Consulte la d
 
 ### <a name="linux-package-management-behind-a-firewall"></a>Administración de paquetes de Linux detrás de un firewall
 
-En el entorno de ejecución, Azure Disk Encryption para Linux se basa en el sistema de administración de paquetes de la distribución de destino para instalar los componentes de requisitos previos necesarios antes de habilitar el cifrado. Si la configuración de firewall impide que la máquina virtual pueda descargar e instalar estos componentes, es previsible que se produzcan errores. Los pasos para configurar este sistema de administración de paquetes pueden variar según la distribución. En Red Hat, cuando se requiere un proxy, debe asegurarse de que el administrador de la suscripción y yum están configurados correctamente. Para obtener más información, consulte [cómo solucionar problemas de administrador de suscripción y yum](https://access.redhat.com/solutions/189533).  
+En el entorno de ejecución, Azure Disk Encryption para Linux se basa en el sistema de administración de paquetes de la distribución de destino para instalar los componentes necesarios conforme a los requisitos previos antes de habilitar el cifrado. Si la configuración de firewall impide que la máquina virtual pueda descargar e instalar estos componentes, es previsible que se produzcan errores. Los pasos para configurar este sistema de administración de paquetes pueden variar según la distribución. En Red Hat, cuando se necesite un proxy, debe asegurarse de que el administrador de la suscripción y yum están configurados correctamente. Para obtener más información, consulte [cómo solucionar problemas de administrador de suscripción y yum](https://access.redhat.com/solutions/189533).  
 
 
 ## <a name="troubleshooting-windows-server-2016-server-core"></a>Solución de problemas de Windows Server 2016 Server Core
@@ -117,14 +117,14 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
-## <a name="troubleshooting-encryption-status"></a>Solución de problemas de estado del cifrado
+<!-- ## Troubleshooting encryption status
 
-Si el estado del cifrado esperado no coincide con lo que se está notifica en el portal, consulte el siguiente artículo de asistencia técnica: [Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) (El estado de cifrado se muestra incorrectamente en el Portal de administración de Azure).
+If the expected encryption state does not match what is being reported in the portal, see the following support article:
+[Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) --> 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este documento, aprendió más acerca de algunos problemas comunes de Azure Disk Encryption y cómo solucionarlos. Para más información acerca de este servicio y su funcionalidad, consulte los artículos siguientes:
 
 - [Aplicación de cifrado de discos en Azure Security Center](../security-center/security-center-apply-disk-encryption.md)
-- [Cifrado de una máquina virtual de Azure](../security-center/security-center-disk-encryption.md)
 - [Cifrado de datos en reposo de Azure](azure-security-encryption-atrest.md)

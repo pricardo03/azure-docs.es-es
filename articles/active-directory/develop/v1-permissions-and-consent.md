@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: db50a43e23d982722a4f3a7b663086863d915dd2
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 735c5a3645f5e2e0f31bac4d4b2f61d73dfe069e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580891"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128786"
 ---
 # <a name="permissions-in-azure-active-directory"></a>Permisos en Azure Active Directory
 
@@ -38,10 +38,10 @@ Los permisos efectivos son los permisos que la aplicación tendrá al realizar s
 
 * En el caso de los permisos delegados, los permisos efectivos de la aplicación serán la intersección con menos privilegios de los permisos delegados que se le han concedido a la aplicación (mediante consentimiento) y los privilegios del usuario que tiene iniciada la sesión actualmente. La aplicación nunca puede tener más privilegios que el usuario que tiene la sesión iniciada. Dentro de las organizaciones, los privilegios del usuario que tiene la sesión iniciada pueden determinarse mediante directivas o pertenencia a uno o varios roles de administrador. Para más información acerca de los roles de administrador, vea [Asignación de roles de administrador en Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
     Por ejemplo, suponga que a su aplicación se le ha concedido el permiso delegado `User.ReadWrite.All` en Microsoft Graph. Este permiso concede a su aplicación de forma nominal un permiso para leer y actualizar el perfil de cada usuario de una organización. Si el usuario que inició sesión es un administrador global, la aplicación podrá actualizar el perfil de cada usuario de la organización. Sin embargo, si el usuario con la sesión iniciada no pertenece a un rol de administrador, la aplicación podrá actualizar solo el perfil del usuario que tiene la sesión iniciada. No podrá actualizar los perfiles de otros usuarios de la organización, porque el usuario para el que tiene permiso para actuar en su nombre no tiene tales privilegios.
-* Para los permisos de aplicación, los permisos efectivos de la aplicación son el nivel completo de privilegios que concede el permiso. Por ejemplo, una aplicación que tiene el permiso de aplicación `User.ReadWrite.All` puede actualizar el perfil de cada usuario de la organización. 
+* Para los permisos de aplicación, los permisos efectivos de la aplicación son el nivel completo de privilegios que concede el permiso. Por ejemplo, una aplicación que tiene el permiso de aplicación `User.ReadWrite.All` puede actualizar el perfil de cada usuario de la organización.
 
 ## <a name="permission-attributes"></a>Atributos de los permisos
-Los permisos de Azure AD tienen un número de propiedades que ayudan a los usuarios, administradores o desarrolladores de aplicaciones a tomar decisiones fundamentadas sobre a qué concede acceso el permiso. 
+Los permisos de Azure AD tienen un número de propiedades que ayudan a los usuarios, administradores o desarrolladores de aplicaciones a tomar decisiones fundamentadas sobre a qué concede acceso el permiso.
 
 > [!NOTE]
 > Puede ver los permisos que una entidad de servicio o aplicación de Azure AD exponen mediante Azure Portal o PowerShell. Pruebe este script para ver los permisos expuestos por Microsoft Graph.
@@ -55,18 +55,19 @@ Los permisos de Azure AD tienen un número de propiedades que ayudan a los usuar
 > (Get-AzureADServicePrincipal -filter "DisplayName eq 'Microsoft Graph'").AppRoles
 > ```
 
-| Nombre de propiedad | DESCRIPCIÓN | Ejemplo | 
+| Nombre de propiedad | DESCRIPCIÓN | Ejemplo |
 | --- | --- | --- |
-| `ID` | Es un valor de GUID que identifica este permiso de forma única. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca | 
-| `IsEnabled` | Indica si este permiso está disponible para su uso. | true | 
-| `Type` | Indica si este permiso requiere el consentimiento del usuario o el consentimiento del administrador. | Usuario | 
-| `AdminConsentDescription` | Es una descripción que se muestra a los administradores durante las experiencias de consentimiento de administración. | Permite que la aplicación lea el correo electrónico de los buzones del usuario. | 
-| `AdminConsentDisplayName` | Es el nombre descriptivo que se muestra a los administradores durante las experiencias de consentimiento de administración. | Permite leer el correo del usuario. | 
-| `UserConsentDescription` | Es una descripción que se muestra a los usuarios durante una experiencia de consentimiento del usuario. |  Permite que la aplicación lea el correo electrónico del buzón. | 
-| `UserConsentDisplayName` | Es el nombre descriptivo que se muestra a los usuarios durante la experiencia de consentimiento de usuario. | Permite leer su correo | 
-| `Value` | Es la cadena que se usa para identificar el permiso durante los flujos de autorización de OAuth 2.0. `Value` también puede combinarse con la cadena del URI del identificador de la aplicación para formar un nombre de permiso completo. | `Mail.Read` | 
+| `ID` | Es un valor de GUID que identifica este permiso de forma única. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
+| `IsEnabled` | Indica si este permiso está disponible para su uso. | true |
+| `Type` | Indica si este permiso requiere el consentimiento del usuario o el consentimiento del administrador. | Usuario |
+| `AdminConsentDescription` | Es una descripción que se muestra a los administradores durante las experiencias de consentimiento de administración. | Permite que la aplicación lea el correo electrónico de los buzones del usuario. |
+| `AdminConsentDisplayName` | Es el nombre descriptivo que se muestra a los administradores durante las experiencias de consentimiento de administración. | Permite leer el correo del usuario. |
+| `UserConsentDescription` | Es una descripción que se muestra a los usuarios durante una experiencia de consentimiento del usuario. |  Permite que la aplicación lea el correo electrónico del buzón. |
+| `UserConsentDisplayName` | Es el nombre descriptivo que se muestra a los usuarios durante la experiencia de consentimiento de usuario. | Permite leer su correo |
+| `Value` | Es la cadena que se usa para identificar el permiso durante los flujos de autorización de OAuth 2.0. `Value` también puede combinarse con la cadena del URI del identificador de la aplicación para formar un nombre de permiso completo. | `Mail.Read` |
 
 ## <a name="types-of-consent"></a>Tipos de consentimiento
+
 Las aplicaciones de Azure AD dependen del consentimiento para poder acceder a los recursos o las API necesarios. Hay una serie de tipos de consentimiento que la aplicación puede necesitar saber para que se pueda ejecutar correctamente. Si va a definir permisos, también debe saber cómo accederán los usuarios a la aplicación o la API.
 
 * **Consentimiento de usuario estático**: se concede automáticamente durante el [flujo de autorización de OAuth 2.0](v1-protocols-oauth-code.md#request-an-authorization-code) al especificar el recurso con el que la aplicación desea interactuar. En el escenario del consentimiento de usuario estático, la aplicación debe haber especificado a todos los permisos que necesita en la configuración de la aplicación en Azure Portal. Si al usuario o al administrador, según corresponda, no se le concede permiso a esta aplicación, Azure AD pedirá al usuario que proporcione su consentimiento en este momento. 
@@ -74,8 +75,8 @@ Las aplicaciones de Azure AD dependen del consentimiento para poder acceder a lo
     Obtenga más información sobre el registro de una aplicación de Azure AD que solicita acceso a un conjunto estático de API.
 * **Consentimiento de usuario dinámico**: es una característica del modelo de aplicación v2 de Azure AD. En este escenario, la aplicación solicita un conjunto de permisos que necesita en el [flujo de autorización de OAuth 2.0 para aplicaciones v2](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent). Si el usuario aún no ha dado su consentimiento, se le pedirá en este momento. [Obtenga más información sobre el consentimiento dinámico](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
 
-    > [!NOTE]
-    > El consentimiento dinámico puede resultar conveniente, pero presenta un gran desafío para los permisos que requieren el consentimiento del administrador, ya que la experiencia de consentimiento de administrador no conoce los permisos en el momento del consentimiento. Si necesita permisos con privilegios de administrador, la aplicación debe registrarlos en Azure Portal.
+    > [!IMPORTANT]
+    > El consentimiento dinámico puede resultar conveniente, pero presenta un gran desafío para los permisos que requieren el consentimiento del administrador, ya que la experiencia de consentimiento de administrador no conoce los permisos en el momento del consentimiento. Si necesita permisos con privilegios de administrador o si su aplicación usa el consentimiento dinámico, debe registrar todos los permisos en Azure Portal (no solo el subconjunto de permisos que requieren el consentimiento del administrador). Esto permite a los administradores de inquilinos dar su consentimiento en nombre de todos los usuarios.
   
 * **Consentimiento del administrador**: es necesario si la aplicación necesita acceder a determinados permisos con privilegios elevados. El consentimiento de administrador garantiza que los administradores dispongan de algunos controles adicionales antes de autorizar a las aplicaciones o a los usuarios a acceder a datos con privilegios elevados de la organización. [Obtenga más información sobre cómo conceder el permiso de administrador](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
@@ -84,7 +85,7 @@ Las aplicaciones de Azure AD dependen del consentimiento para poder acceder a lo
 ### <a name="client-best-practices"></a>Procedimientos recomendados de cliente
 
 - Solicite únicamente los permisos que necesita la aplicación. Las aplicaciones con demasiados permisos corren el riesgo de exponer los datos del usuario si se ven comprometidos.
-- Elija entre permisos delegados y permisos de aplicación en función del escenario que admite la aplicación. 
+- Elija entre permisos delegados y permisos de aplicación en función del escenario que admite la aplicación.
     - Utilice siempre permisos delegados si la llamada se está realizando en nombre del usuario.
     - Use solo los permisos de aplicación si la aplicación no es interactiva y no realiza llamadas en nombre de ningún usuario específico. Los permisos de aplicación cuentan con altos privilegios y solo deben utilizarse cuando sea absolutamente necesario.
 - Cuando se utiliza una aplicación basada en el punto de conexión v2.0, establezca siempre los permisos estáticos (aquellos especificados en el registro de aplicación) como el superconjunto de los permisos dinámicos que solicita en tiempo de ejecución (aquellos especificados en el código y enviados como parámetros de consulta en la solicitud de autorización) para que escenarios como el consentimiento de administrador funcionen correctamente.
@@ -96,15 +97,10 @@ Las aplicaciones de Azure AD dependen del consentimiento para poder acceder a lo
 - Los recursos deben marcar todos los permisos que permiten acceder a los datos más allá de los límites del usuario como permisos `Admin`.
 - Los recursos deben seguir el patrón de nomenclatura `Subject.Permission[.Modifier]`, donde:
     - `Subject` se corresponde con el tipo de datos que están disponibles,
-    - `Permission` se corresponde con la acción que un usuario puede realizar en esos datos y 
-    - `Modifier` se utiliza opcionalmente para describir las especializaciones de otro permiso. 
+    - `Permission` se corresponde con la acción que un usuario puede realizar en esos datos y
+    - `Modifier` se utiliza opcionalmente para describir las especializaciones de otro permiso.
     
-    Por ejemplo:  
+    Por ejemplo: 
     * Mail.Read: permite a los usuarios leer correos.
     * Mail.ReadWrite: permite a los usuarios leer o escribir correos.
     * Mail.ReadWrite.All: permite que un administrador o usuario tenga acceso a todo el correo de la organización.
-
-
-
-
-

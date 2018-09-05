@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: dba43f0823282bd385dca30402a9b16fa3b99de6
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: afbe3ff2e6be4e03f8de8ac2490922c3ec788733
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41947953"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091387"
 ---
 # <a name="azure-stack-1807-update"></a>Actualización de Azure Stack 1807
 
@@ -168,6 +168,8 @@ Para más información acerca de estos puntos vulnerables, haga clic en los vín
 Los siguientes son problemas conocidos posteriores a la instalación de esta compilación.
 
 ### <a name="portal"></a>Portal
+- <!-- 2931230 – IS  ASDK --> No se pueden eliminar los planes que se agregan a una suscripción de usuario como plan complementario, aunque se quite el pan de la suscripción. Este permanecerá hasta que también se eliminen las suscripciones a las que haga referencia el plan complementario. 
+
 - <!--2760466 – IS  ASDK --> Cuando se instala un nuevo entorno de Azure Stack que ejecuta esta versión, la alerta que indica *Activación necesaria* podría no mostrarse. La [activación](azure-stack-registration.md) se requiere para poder usar la redifusión de marketplace.  
 
 - <!-- TBD - IS ASDK --> Los dos tipos de suscripción administrativa que se [incluyeron con la versión 1804](azure-stack-update-1804.md#new-features) no deberían usarse. Los tipos de suscripción son **suscripción de medición** y **suscripción de consumo**. Estos tipos de suscripción están visibles en los nuevos entornos de Azure Stack a partir de la versión 1804 pero aún no están listos para su uso. Tendrá que seguir usando el tipo de suscripción del **proveedor predeterminado**.
@@ -245,7 +247,9 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 
 - <!-- 1662991 IS ASDK --> No se admite el diagnóstico de máquinas virtuales Linux en Azure Stack. Si implementa una máquina virtual Linux con diagnósticos de máquina virtual habilitado, se producirá un error en la implementación. Tampoco se podrá realizar la implementación si habilita las métricas básicas de máquina virtual Linux a través de la configuración de diagnóstico.  
 
-- <!-- 2724961- IS ASDK --> Al registrar el proveedor de recursos **Microsoft.Insight** en la configuración de la suscripción y crear una máquina virtual Windows con el diagnóstico del SO invitado habilitado, el gráfico Porcentaje de CPU en la página de información general de la máquina virtual no podrá mostrar los datos de métrica. Para buscar el gráfico Porcentaje de CPU para la máquina virtual, vaya a la hoja **Métrica** y muestre todas las métricas de invitado de las máquinas virtuales de Windows admitidas.
+- <!-- 2724961- IS ASDK --> Al registrar el proveedor de recursos **Microsoft.Insight** en la configuración de la suscripción y crear una máquina virtual Windows con el diagnóstico del sistema operativo invitado habilitado, la página de información general de la máquina virtual no muestra los datos de las métricas. 
+
+   Para buscar datos de métricas, como el gráfico Porcentaje de CPU para la máquina virtual, vaya a la hoja **Métrica** y muestre todas las métricas de invitado de las máquinas virtuales Windows admitidas.
 
 ### <a name="networking"></a>Redes  
 

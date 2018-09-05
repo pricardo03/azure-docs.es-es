@@ -2,18 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 06/04/2018
-ms.author: sethm
+ms.date: 08/29/2018
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 0ff1e31e52c7db5c41f92cb9e4cb1a17f28dea6f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 481ae07ae9f8877ff93b2fee948849076c054906
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38756190"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43187048"
 ---
 En la siguiente tabla se muestra la información de cuotas específica de la mensajería de Service Bus. Para obtener información sobre los precios y otras cuotas de Service Bus, consulte la información general sobre los [precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) .
 
@@ -24,7 +24,7 @@ En la siguiente tabla se muestra la información de cuotas específica de la men
 | Tamaño de cola o tema |Entidad |Definido al crear una cola o un tema. <br/><br/> Los sucesivos mensajes entrantes se rechazan y el código de llamada recibe una excepción. |1, 2, 3, 4 o 5 GB.<br /><br />En la SKU Premium, así como en la Estándar con [particiones](/azure/service-bus-messaging/service-bus-partitioning) habilitadas, el tamaño máximo de cola o tema es de 80 GB. |
 | Número de conexiones simultáneas en un espacio de nombres |Espacio de nombres |Las solicitudes posteriores de conexiones adicionales se rechazarán y el código que realizó la llamada recibe una excepción. Las operaciones REST no se cuentan en las conexiones de TCP simultáneas. |NetMessaging: 1.000<br /><br />AMQP: 5.000 |
 | Número de solicitudes de recepción simultáneas en una cola, un tema o una entidad de suscripción |Entidad |Las solicitudes de recepción posteriores se rechazan y el código de llamada recibe una excepción. Esta cuota se aplica a un número combinado de operaciones de recepción simultáneas en todas las suscripciones de un tema. |5.000 |
-| Número de temas o colas por espacio de nombres |Espacio de nombres |Se rechazan las posteriores solicitudes de creación colas o temas nuevos en el espacio de nombres. Como resultado, si se configuran mediante [Azure Portal][Azure portal], se genera un mensaje de error. Si se realiza una llamada desde la API de administración, el código de llamada recibe una excepción. |10.000<br /><br />El número total de temas, más las colas de un espacio de nombres, debe ser menor o igual a 10 000. |
+| Número de temas o colas por espacio de nombres |Espacio de nombres |Se rechazan las posteriores solicitudes de creación colas o temas nuevos en el espacio de nombres. Como resultado, si se configuran mediante [Azure Portal][Azure portal], se genera un mensaje de error. Si se realiza una llamada desde la API de administración, el código de llamada recibe una excepción. |10 000 (nivel Básico o Estándar). El número total de temas y colas de un espacio de nombres debe ser menor o igual a 10 000. <br/><br/>En el nivel Premium, 1000 por unidad de mensajería. El límite máximo es 4000. |
 | Número de [temas o colas con particiones](/azure/service-bus-messaging/service-bus-partitioning) por espacio de nombres |Espacio de nombres |Se rechazan las posteriores solicitudes de creación colas o temas con particiones nuevos en el espacio de nombres. Como resultado, si se configuran mediante [Azure Portal][Azure portal], se genera un mensaje de error. Si se realiza una llamada desde la API de administración, el código de llamada recibe una excepción **QuotaExceededException**. |Niveles Basic y Estándar: 100<br/><br/>No se admiten las entidades con particiones en el nivel [Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md).<br/><br />Cada cola o tema con particiones se tiene en cuenta para la cuota de 10 000 entidades por espacio de nombres. |
 | Tamaño máximo de cualquier ruta de entidad de mensajería: cola o tema |Entidad |- |260 caracteres |
 | Tamaño máximo de cualquier nombre de entidad de mensajería: espacio de nombres, suscripción o regla de suscripción |Entidad |- |50 caracteres |

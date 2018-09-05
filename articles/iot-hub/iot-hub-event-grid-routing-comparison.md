@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 320320687e441a1296065eb9d0b7b12771036459
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: af03f737c082a7fda90104303e018f7b417729b9
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636178"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143800"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Comparación del enrutamiento de mensajes y Event Grid para IoT Hub
 
@@ -29,11 +29,11 @@ Aunque tanto el enrutamiento de mensajes como Event Grid habilitan la configurac
 | Característica | Enrutamiento de mensajes de IoT Hub | Integración de IoT Hub con Event Grid |
 | ------- | --------------- | ---------- |
 | **Mensajes del dispositivo** | Sí, se puede usar el enrutamiento de mensajes para los datos de telemetría. | No, Event Grid solo puede utilizarse para eventos de IoT Hub que no son de telemetría. |
-| **Tipo de evento** | Sí, el enrutamiento de mensajes puede notificar cambios gemelos y eventos del ciclo de vida del dispositivo. | Sí, Event Grid puede notificar cuándo los dispositivos se registran en una instancia de IoT Hub y cuándo se eliminan los dispositivos. |
+| **Tipo de evento** | Sí, el enrutamiento de mensajes puede notificar cambios gemelos y eventos del ciclo de vida del dispositivo. | Sí, Event Grid puede notificar cuando se crean, eliminan, conectan y desconectan los dispositivos desde IoT Hub. |
 | **Orden** | Sí, se mantiene el orden de los eventos.  | No, no se garantiza el orden de los eventos. | 
 | **Tamaño de mensaje máximo** | 256 KB, del dispositivo a la nube | 64 KB |
 | **Filtrado** | El filtrado enriquecido mediante el lenguaje SQL es compatible con el filtrado en los encabezados y cuerpo de los mensajes. Para obtener ejemplos, consulte [Lenguaje de consulta de IoT Hub](iot-hub-devguide-query-language.md). | Filtrado basado en el sufijo o prefijo de los identificadores de dispositivo, que funciona bien para servicios jerárquicos como el almacenamiento. |
-| **Extremos** | <ul><li>Centro de eventos</li> <li>Blob de almacenamiento</li> <li>Cola de Service Bus</li> <li>Temas de Service Bus</li></ul><br>Los SKU de IoT Hub de pago (S1, S2 y S3) están limitados a 10 puntos de conexión personalizados. Se pueden crear 100 rutas por instancia de IoT Hub. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Centro de eventos</li> <li>Logic Apps</li> <li>Microsoft Flow</li> <li>Servicios de terceros mediante webhooks</li></ul><br>Para obtener la lista más actualizada de los puntos de conexión, consulte [Controladores de eventos de Event Grid](../event-grid/overview.md#event-handlers). |
+| **Extremos** | <ul><li>Event Hubs</li> <li>Blob de almacenamiento</li> <li>Cola de Service Bus</li> <li>Temas de Service Bus</li></ul><br>Los SKU de IoT Hub de pago (S1, S2 y S3) están limitados a 10 puntos de conexión personalizados. Se pueden crear 100 rutas por instancia de IoT Hub. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>Storage Blob</li> <li>Temas personalizados</li> <li>Servicios de terceros mediante webhooks</li></ul><br>Para obtener la lista más actualizada de los puntos de conexión, consulte [Controladores de eventos de Event Grid](../event-grid/overview.md#event-handlers). |
 | **Costee** | El enrutamiento de mensajes no se cobra aparte. Solo se cobra una entrada de telemetría en IoT Hub. Por ejemplo, si tiene un mensaje enrutado a tres puntos de conexión diferentes, se le facturará por un único mensaje. | No hay cargos desde IoT Hub. Event Grid ofrece las primeras 100 000 operaciones por mes de forma gratuita, y luego 0,60 USD por millón de operaciones. |
 
 El enrutamiento de mensajes de IoT Hub y Event Grid también tienen similitudes, algunas de las cuales se detallan en la siguiente tabla:
@@ -54,7 +54,7 @@ El enrutamiento de mensajes IoT Hub y la integración de Hub IoT con Event Grid 
 
    Utilice el enrutamiento de mensajes de IoT Hub cuando tenga que enviar datos de telemetría a otros servicios. El enrutamiento de mensajes también permite consultar los encabezados y el cuerpo de los mensajes. 
 
-   La integración de Hub de IoT con Event Grid funciona con eventos que tienen lugar en el servicio IoT Hub. Estos eventos de IoT Hub incluyen la eliminación y creación de dispositivos. 
+   La integración de Hub de IoT con Event Grid funciona con eventos que tienen lugar en el servicio IoT Hub. Estos eventos de IoT Hub incluyen eventos de dispositivo creado, eliminado, conectado y desconectado. 
 
 * **¿Qué puntos de conexión deben recibir esta información?**
 

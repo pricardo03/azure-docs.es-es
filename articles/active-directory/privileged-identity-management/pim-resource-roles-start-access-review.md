@@ -1,6 +1,6 @@
 ---
-title: Realización de revisiones de acceso en recursos de Azure mediante Privileged Identity Management | Microsoft Docs
-description: Se explica cómo iniciar una revisión de acceso en Privileged Identity Management para Azure Resources.
+title: Iniciar una revisión de acceso para los roles de recurso de Azure en PIM | Microsoft Docs
+description: Aprenda a iniciar una revisión de acceso para los roles de recurso de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f88c4a2f7e6eb569c9c0de33ab86e8b484a923e3
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9a35d32d89931a03b33f232ba4f79226fc3f57e5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622888"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189181"
 ---
-# <a name="perform-access-reviews-in-azure-resources-by-using-privileged-identity-management"></a>Realización de revisiones de acceso en recursos de Azure mediante Privileged Identity Management
+# <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>Iniciar una revisión de acceso para los roles de recurso de Azure en PIM
 Las asignaciones de roles se convierten en "obsoletas" cuando los usuarios tienen acceso con privilegios que ya no necesitan. Para reducir el riesgo asociado a estas asignaciones de roles obsoletos, los administradores de roles con privilegios deben revisar regularmente los roles. En este documento se describen los pasos para iniciar una revisión de acceso en Privileged Identity Management (PIM) para Azure Resources.
 
 Desde la página principal de la aplicación de PIM, vaya a:
@@ -71,3 +71,8 @@ En el panel de PIM para recursos de Azure, puede hacer un seguimiento del progre
 
 Hasta que termine el período de revisión, puede recordar a los usuarios completar su revisión o detener la revisión antes desde la sección de revisiones de acceso.
 
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Completar una revisión de acceso para los roles de recurso de Azure en PIM](pim-resource-roles-complete-access-review.md)
+- [Realización de una revisión de acceso para los roles de recurso de Azure en PIM](pim-resource-roles-perform-access-review.md)
+- [Iniciar una revisión de acceso para los roles de directorio de Azure AD en PIM](pim-how-to-start-security-review.md)

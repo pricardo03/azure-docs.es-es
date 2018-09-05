@@ -7,14 +7,14 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 08/27/2018
 ms.author: shvija
-ms.openlocfilehash: 6217f507b83325acb9a5062aada150fa6f8bc5d2
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: f67982eda60a8fdfdf0d50785827c513275fd202
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007567"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124762"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>Envío de eventos a Azure Event Hubs mediante Java
 
@@ -35,13 +35,13 @@ El código de este tutorial se basa en el [ejemplo SimpleSend GitHub](https://gi
 
 ## <a name="send-events-to-event-hubs"></a>Envío de eventos a Event Hubs
 
-La biblioteca de cliente de Java para Event Hubs está disponible para su uso en proyectos de Maven desde el [repositorio central de Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22). Puede hacer referencia a esta biblioteca con la siguiente declaración de dependencia en el archivo de proyecto de Maven. La versión actual es 1.0.1:    
+La biblioteca de cliente de Java para Event Hubs está disponible para su uso en proyectos de Maven desde el [repositorio central de Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22). Puede hacer referencia a esta biblioteca con la siguiente declaración de dependencia en el archivo de proyecto de Maven. La versión actual es 1.0.2:    
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 
@@ -74,6 +74,10 @@ public class SimpleSend {
 
     public static void main(String[] args)
             throws EventHubException, ExecutionException, InterruptedException, IOException {
+            
+            
+    }
+ }
 ```
 
 ### <a name="construct-connection-string"></a>Crear cadena de conexión
@@ -104,6 +108,33 @@ ehClient.sendSync(sendEvent);
 ehClient.closeSync();
 
 ``` 
+
+### <a name="how-messages-are-routed-to-eventhub-partitions"></a>Cómo se enrutan los mensajes a las particiones de EventHub
+
+Antes de que los consumidores puedan recuperar los mensajes, los editores tienen que publicarlos primero en las particiones. Cuando los mensajes se publican en el centro de eventos de manera sincrónica con el método sendSync() en el objeto com.microsoft.azure.eventhubs.EventHubClient, se pueden enviar a una partición específica o distribuirse a todas las particiones disponibles en modo round-robin, según si se especifica o no la clave de partición.
+
+Cuando se especifica una cadena que representa la clave de partición, se aplicará un algoritmo hash a la clave para determinar la partición a la que desea enviar el evento.
+
+Cuando no se establece la clave de partición, los mensajes se envían en modo round-robin a todas las particiones disponibles
+
+```java
+// Serialize the event into bytes
+byte[] payloadBytes = gson.toJson(messagePayload).getBytes(Charset.defaultCharset());
+
+// Use the bytes to construct an {@link EventData} object
+EventData sendEvent = EventData.create(payloadBytes);
+
+// Transmits the event to event hub without a partition key
+// If a partition key is not set, then we will round-robin to all topic partitions
+eventHubClient.sendSync(sendEvent);
+
+//  the partitionKey will be hash'ed to determine the partitionId to send the eventData to.
+eventHubClient.sendSync(sendEvent, partitionKey);
+
+// close the client at the end of your program
+eventHubClient.closeSync();
+
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,28 +1,23 @@
 ---
-title: 'Creación de asociados para mensajes de negocio a negocio (B2B): Azure Logic Apps | Microsoft Docs'
-description: Información sobre cómo agregar asociados a una cuenta de integración con Enterprise Integration Pack y Logic Apps
+title: 'Incorporación de socios comerciales para integraciones de B2B: Azure Logic Apps | Microsoft Docs'
+description: Crear socios comerciales para la cuenta de integración en Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: b179325c-a511-4c1b-9796-f7484b4f6873
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4abfdaa8145f14bc6496e57ebce0da10cdd2c365
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 20ca5e06cd1cd0d0abfe6d31f622cd6b61b4178f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299746"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125268"
 ---
-# <a name="add-or-update-partners-in-business-to-business-agreements-in-your-workflow"></a>Incorporación o actualización de asociados de contratos de negocio a negocio del flujo de trabajo
+# <a name="add-trading-partners-for-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>Incorporación de socios comerciales para cuentas de integración en Azure Logic Apps con Enterprise Integration Pack
 
 Los asociados son entidades que participan en transacciones de negocio a negocio (B2B) e intercambian mensajes entre ellos. Antes de poder crear asociados que le representen a usted y a otra organización en estas transacciones, debe compartir la información que identifica y valida los mensajes enviados por cada uno. Después de analizar estos detalles y prepararse para comenzar la relación de negocios, podrá crear asociados en la cuenta de integración para que los represente a ambos.
 

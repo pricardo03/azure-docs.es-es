@@ -1,125 +1,141 @@
 ---
-title: Configuración de la mensajería con Azure Service Bus para Azure Logic Apps | Microsoft Docs
-description: Envío y recepción de mensajes con aplicaciones lógicas mediante Azure Service Bus
+title: 'Envío y recepción de mensajes con Azure Service Bus: Azure Logic Apps | Microsoft Docs'
+description: Configuración de la mensajería empresarial en la nube con Azure Service Bus en Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: logic-apps
-ms.date: 02/06/2018
-ms.author: ladocs
-ms.openlocfilehash: aa6ab10dded541b352bdb7c8c3a47dbbbfe6a15c
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: 813df5b4ef37ad1264df48863aa8f0ed5a4d4789
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295475"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048781"
 ---
-# <a name="send-and-receive-messages-with-the-azure-service-bus-connector"></a>Envío y recepción de mensajes con el conector de Azure Service Bus
+# <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Intercambio de mensajes en la nube con Azure Service Bus y Azure Logic Apps
 
-Para enviar y recibir mensajes con una aplicación lógica, conéctese a [Azure Service Bus](https://azure.microsoft.com/services/service-bus/). Puede realizar acciones como enviar a una cola, enviar a un tema, recibir de una cola o recibir de una suscripción. Más información sobre [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) y [Modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md).
+Con Azure Logic Apps y el conector de Azure Service Bus puede crear tareas automatizadas y flujos de trabajo de transferencia de datos, por ejemplo, ventas y pedidos de compra, diarios y movimientos del inventario, en todas las aplicaciones de la organización. El conector no solo supervisa, envía y administra los mensajes, sino que además realiza acciones con las colas, las sesiones, los temas, las suscripciones, etc., por ejemplo:
 
-## <a name="prerequisites"></a>requisitos previos
+* Supervisa los mensajes cuando llegan (autocompletar) o se reciben (bloqueo de información) en las colas, los temas y las suscripciones a los temas. 
+* Envía mensajes.
+* Crea y elimina suscripciones a temas.
+* Administra los mensajes de las colas y las suscripciones a temas, por ejemplo, realiza acciones como obtener, obtener los aplazados, completar, aplazar, abandonar y administrar los mensajes fallidos.
+* Renueva los bloqueos de mensajes y sesiones en las colas y suscripciones a temas.
+* Cierra sesiones en las colas y los temas.
 
-Para poder usar el conector de Service Bus, debe tener estos elementos, que deben existir en la misma suscripción de Azure de modo que sean visibles entre sí:
+Puede usar desencadenadores que obtengan respuestas de Service Bus y hagan que la salida esté disponible para otras acciones en las aplicaciones lógicas. También puede hacer que otras acciones usen la salida de las de Service Bus. Si no está familiarizado con Service Bus y Logic Apps, revise [Qué es Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) y [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-* Un [espacio de nombres de Service Bus y una entidad de mensajería, como una cola](../service-bus-messaging/service-bus-create-namespace-portal.md)
-* Una [aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+## <a name="prerequisites"></a>Requisitos previos
+
+* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
+
+* Un espacio de nombres de Service Bus y una entidad de mensajería, como una cola. Si no tiene estos elementos, aprenda a [crear el espacio de nombres de Service Bus y una cola](../service-bus-messaging/service-bus-create-namespace-portal.md). 
+
+  Estos elementos deben existir en la misma suscripción de Azure que las aplicaciones lógicas que los van a usar.
+
+* Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* La aplicación lógica con la que desea usar Service Bus. La aplicación lógica debe existir en la misma suscripción de Azure que la instancia de Service Bus. Para comenzar con un desencadenador de Service Bus, [cree una aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar una acción de Service Bus, inicie la aplicación lógica con otro desencadenador, por ejemplo, el de **periodicidad**.
 
 <a name="permissions-connection-string"></a>
 
-## <a name="connect-to-azure-service-bus"></a>Conexión a Azure Service Bus
+## <a name="check-permissions"></a>Comprobación de los permisos
 
-Para que la aplicación lógica tenga acceso a algún servicio, tendrá que crear una [*conexión*](./connectors-overview.md) entre la aplicación lógica y el servicio, si todavía no lo ha hecho. Esta conexión autoriza a la aplicación lógica a acceder a los datos. Para que la aplicación lógica tenga acceso a su cuenta de Service Bus, compruebe sus permisos.
+Confirme que la aplicación lógica tiene permiso para acceder al espacio de nombres de Service Bus. 
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com "Azure Portal"). 
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
 
-2. Vaya a su *espacio de nombres* de Service Bus, no a una entidad de mensajería específica. En la página del espacio de nombres, en **Configuración**, elija **Directivas de acceso compartido**. En **Notificaciones**, compruebe que tenga permisos de **Administrador** para ese espacio de nombres.
+2. Vaya al *espacio de nombres* de Service Bus. En la página del espacio de nombres, en **Configuración**, seleccione **Directivas de acceso compartido**. En **Notificaciones**, compruebe que tenga permisos de **Administrador** para ese espacio de nombres.
 
    ![Administración de permisos para un espacio de nombres de Service Bus](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
 
-3. Si más adelante desea escribir manualmente su información de conexión, obtenga la cadena de conexión para su espacio de nombres de Service Bus. Elija **RootManageSharedAccessKey**. Al lado de la cadena de conexión de su clave principal, elija el botón Copiar. Guarde la cadena de conexión para usarla más adelante.
+3. Obtenga la cadena de conexión para el espacio de nombres de Service Bus. La necesita al escribir la información de conexión en la aplicación lógica.
 
-   ![Copia de la cadena de conexión del espacio de nombres de Service Bus](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
+   1. Seleccione **RootManageSharedAccessKey**. 
+   
+   1. Al lado de la cadena de conexión principal, elija el botón de copia. Guarde la cadena de conexión para usarla más adelante.
+
+      ![Copia de la cadena de conexión del espacio de nombres de Service Bus](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Para confirmar si la cadena de conexión está asociada al espacio de nombres de Service Bus o a una entidad específica, compruebe la cadena de conexión del parámetro `EntityPath`. Si encuentra este parámetro, la cadena de conexión es para una entidad específica y no es la correcta para utilizar con la aplicación lógica.
+   > Para confirmar si la cadena de conexión está asociada al espacio de nombres de Service Bus o a una entidad de mensajería, como una cola, compruebe la cadena de conexión del parámetro `EntityPath`. Si encuentra este parámetro, la cadena de conexión es para una entidad específica y no es la correcta para la aplicación lógica.
 
-## <a name="trigger-workflow-when-your-service-bus-gets-new-messages"></a>Inicio del flujo de trabajo cuando Service Bus recibe mensajes nuevos
+## <a name="add-trigger-or-action"></a>Incorporación de un desencadenador o una acción
 
-Un [*desencadenador*](../logic-apps/logic-apps-overview.md#logic-app-concepts) es un evento que inicia un flujo de trabajo en la aplicación lógica. Para iniciar un flujo de trabajo cuando se envían mensajes nuevos a Service Bus, siga estos pasos para agregar el desencadenador que detecta estos mensajes.
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. En [Azure Portal](https://portal.azure.com "Azure Portal"), vaya a la aplicación lógica existente o cree una aplicación de lógica en blanco.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el diseñador de aplicaciones lógicas, si aún no lo ha hecho.
 
-2. En el Diseñador de aplicaciones lógicas, escriba "service bus" en el cuadro de búsqueda como filtro. Seleccione el conector de **Service Bus**. 
+1. Para agregar un *desencadenador* a una aplicación lógica en blanco, en el cuadro de búsqueda, escriba "Azure Service Bus" como filtro. En la lista de desencadenadores, seleccione el que desee. 
 
-   ![Selección del conector de Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-connector.png) 
-
-3. Seleccione el desencadenador que desea usar. Por ejemplo, para ejecutar una aplicación lógica cuando un nuevo elemento se envía a una cola de Service Bus, seleccione este desencadenador **Service Bus - When a message is received in a queue** (Service Bus: cuando se recibe un mensaje en una cola).
+   Por ejemplo, para desencadenar la aplicación lógica cuando un nuevo elemento se envía a una cola de Service Bus, seleccione este desencadenador: **Cuando se recibe un mensaje en una cola (autocompletar)**
 
    ![Selección de un desencadenador de Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
    > [!NOTE]
-   > Algunos desencadenadores devuelven uno o varios mensajes, como el desencadenador *Service Bus - Cuando llegan uno o más mensajes a una cola (autocompletar)*.
-   > Cuando se activan estos desencadenadores, devuelven un valor comprendido entre 1 y el número de mensajes especificados por la propiedad **Recuento máximo de mensajes** del desencadenador.
+   > Algunos desencadenadores devuelven uno o varios mensajes, como **Cuando llegan uno o más mensajes a una cola (autocompletar)**. Cuando se activan estos desencadenadores, devuelven un valor comprendido entre 1 y el número de mensajes especificados por la propiedad **Recuento máximo de mensajes** del desencadenador.
 
-   1. Si todavía no tiene una conexión al espacio de nombres de Service Bus, se le pedirá que cree ahora esta conexión. Asigne un nombre a la conexión y seleccione el espacio de nombres de Service Bus que desea usar.
+   *Todos los desencadenadores de Service Bus son de sondeo largo*, lo que significa que, cuando se activa un desencadenador, este procesa todos los mensajes y espera 30 segundos a que aparezcan más en la suscripción al tema o la cola. 
+   Si no es el caso, se omite la ejecución del desencadenador. 
+   De lo contrario, el desencadenador sigue leyendo mensajes hasta que la suscripción del tema o de la cola se queda vacía. El siguiente sondeo del desencadenador se basa en el intervalo de periodicidad especificado en las propiedades del desencadenador.
 
-      ![Creación de una conexión de Service Bus](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
+1. Para agregar una *acción* a una aplicación lógica existente, siga estos pasos: 
 
-      O bien, para escribir de forma manual la cadena de conexión, elija **Especificar la información de conexión manualmente**. 
-      Obtenga información acerca de [cómo buscar la cadena de conexión](#permissions-connection-string).
-      
+   1. En el último paso para agregar una acción, elija **Nuevo paso**. 
 
-   2. Ahora, seleccione la directiva de Service Bus que desea usar y elija **Crear**.
+      Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. 
+      Elija el signo más (**+**) que aparece y seleccione **Agregar una acción**.
+
+   1. En el cuadro de búsqueda, escriba "Azure Service Bus" como filtro. 
+   En la lista de acciones, seleccione la que desee. 
+ 
+      Por ejemplo, seleccione esta acción: **Enviar mensaje**
+
+      ![Selección de una acción de Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
+
+1. Si se va a conectar la aplicación lógica al espacio de nombres de Service Bus por primera vez, el diseñador de aplicaciones lógicas solicitará la información de conexión en este momento. 
+
+   1. Proporcione un nombre para la conexión y seleccione el espacio de nombres de Service Bus.
+
+      ![Creación de la conexión de Service Bus, parte 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
+
+      Si prefiere en cambio escribir manualmente la cadena de conexión, elija **Especificar la información de conexión manualmente**. 
+      Si no tiene la cadena de conexión, aprenda a [buscar la cadena de conexión](#permissions-connection-string).
+
+   1. Ahora seleccione la directiva de Service Bus y elija **Crear**.
 
       ![Creación de una conexión de Service Bus, parte 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-2.png)
 
-4. Seleccione la cola de Service Bus que desea usar y configure el intervalo y la frecuencia que determinan cuándo comprobarla.
+1. En este ejemplo, seleccione la entidad de mensajería que desee, como una cola o un tema. En este ejemplo, seleccione la cola de Service Bus. 
+   
+   ![Selección de la cola de Service Bus](./media/connectors-create-api-azure-service-bus/service-bus-select-queue.png)
 
-   ![Selección de la cola de Service Bus, configuración del intervalo de sondeo](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
+1. Proporcione la información necesaria para el desencadenador o la acción. En este ejemplo, siga los pasos pertinentes para el desencadenador o la acción: 
 
-   > [!NOTE]
-   > Todos los desencadenadores de Service Bus son de **sondeo largo**, lo que significa que, cuando se activa un desencadenador, este procesa todos los mensajes y después espera 30 segundos a que aparezcan más mensajes en la suscripción del tema o de la cola.
-   > Si no se recibe ningún mensaje después de 30 segundos, se omite la ejecución del desencadenador. De lo contrario, el desencadenador sigue leyendo mensajes hasta que la suscripción del tema o de la cola se queda vacía.
-   > El siguiente sondeo del desencadenador se basa en el intervalo de periodicidad especificado en las propiedades del desencadenador.
+   * **Para el desencadenador de ejemplo**: establezca el intervalo de sondeo y la frecuencia de comprobación de la cola.
 
-5. Guarde la aplicación lógica. En la barra de herramientas del diseñador, haga clic en **Guardar**.
+     ![Configuración del intervalo de sondeo](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
-Ahora, cuando la aplicación lógica comprueba la cola seleccionada y encuentra un mensaje nuevo, el desencadenador ejecuta las acciones de la aplicación lógica para el mensaje encontrado.
+     Cuando haya terminado, continúe la creación del flujo de trabajo de la aplicación lógica mediante la incorporación de las acciones que desee. Por ejemplo, puede agregar una acción que envíe un correo electrónico cuando llegue un mensaje nuevo.
+     Cuando el desencadenador comprueba la cola y encuentra un nuevo mensaje, la aplicación lógica ejecuta las acciones seleccionadas para él.
 
-## <a name="send-messages-from-your-logic-app-to-your-service-bus"></a>Envío de mensajes desde la aplicación lógica al Service Bus
+   * **Para la acción de ejemplo**: escriba el contenido del mensaje y los demás detalles. 
 
-Una [*acción*](../logic-apps/logic-apps-overview.md#logic-app-concepts) es una tarea realizada por el flujo de trabajo de la aplicación lógica. Después de agregar un desencadenador a la aplicación lógica, puede agregar una acción para llevar a cabo operaciones con los datos generados por ese desencadenador. Para enviar un mensaje a la entidad de mensajería de Service Bus desde la aplicación lógica, siga estos pasos.
+     ![Indicación del contenido del mensaje y los detalles](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
-1. En el Diseñador de aplicaciones lógicas, bajo el desencadenador, elija **+ Nuevo paso** > **Agregar una acción**.
+     Cuando haya terminado, continúe la creación del flujo de trabajo de la aplicación lógica mediante la incorporación cualquier otra acción que desee. Por ejemplo, puede agregar una acción que envíe un correo electrónico de confirmación de envío del mensaje.
 
-2. En el cuadro de búsqueda, escriba "service bus" como filtro. Seleccione este conector: **Service Bus**.
+1. Guarde la aplicación lógica. En la barra de herramientas del diseñador, haga clic en **Guardar**.
 
-   ![Selección del conector de Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-connector-for-action.png) 
+## <a name="connector-reference"></a>Referencia de conectores
 
-3. Seleccione esta acción: **Service Bus: Enviar mensaje**
-
-   ![Selección de "Service Bus: Enviar mensaje"](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png)
-
-4. Seleccione la entidad de mensajería, que es el nombre de la cola o del tema a donde enviar el mensaje. A continuación, escriba el contenido del mensaje y otros detalles.
-
-   ![Selección de la entidad de mensajería y detalles del mensaje](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)    
-
-5. Guarde la aplicación lógica. 
-
-Ahora ha configurado una acción que envía mensajes desde la aplicación lógica. 
-
-## <a name="connector-specific-details"></a>Detalles específicos del conector
-
-Para obtener más información acerca de los desencadenadores y las acciones definidos por el archivo Swagger y los límites, repase los [detalles del conector](/connectors/servicebus/).
+Para obtener detalles técnicos acerca de desencadenadores, acciones y límites, que se describen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/servicebus/) del conector.
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
@@ -128,4 +144,4 @@ Para obtener más información acerca de los desencadenadores y las acciones def
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre [otros conectores para Azure Logic Apps](../connectors/apis-list.md)
+* Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)

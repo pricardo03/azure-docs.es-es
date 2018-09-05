@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 08/28/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: luleon
-ms.openlocfilehash: 90b8a9bd45d2c6a8551e3af84a5bfa915f4c3cea
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.reviewer: celested
+ms.openlocfilehash: c9db5169a978875cf639f6c534ce7920909c896e
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592210"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188247"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integración de aplicaciones con Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -112,7 +112,7 @@ Además, para que un cliente pueda tener acceso a una API web expuesta por una a
 - Permisos delegados: la aplicación cliente necesita acceso a la API web como el usuario que inició sesión, pero con acceso limitado por el permiso seleccionado. Este tipo de permiso lo puede conceder un usuario a menos que el permiso requiera el consentimiento del administrador. 
 
   > [!NOTE]
-  > La adición de un permiso delegado a una aplicación no concede consentimiento automáticamente a los usuarios del inquilino. Los usuarios todavía deben consentir manualmente los permisos delegados agregados en tiempo de ejecución, a menos que el administrador haga clic en el botón **Conceder permisos** en la sección **Permisos necesarios** de la página de la aplicación en Azure Portal. 
+  > La adición de un permiso delegado a una aplicación no concede consentimiento automáticamente a los usuarios del inquilino. Los usuarios tienen todavía que conceder manualmente el consentimiento para los permisos delegados agregados en tiempo de ejecución, a menos que lo haga el administrador en nombre de todos los usuarios.
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Para agregar credenciales o permisos para tener acceso a las API web
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
@@ -121,13 +121,15 @@ Además, para que un cliente pueda tener acceso a una API web expuesta por una a
 
    ![Actualización del registro de una aplicación](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
-4. Pasará a la página de registro principal de la aplicación, lo que abre la página **Configuración** de la aplicación. Para agregar una clave secreta a las credenciales de la aplicación web:
+4. Pasará a la página de registro principal de la aplicación, lo que abre la página **Configuración** de la aplicación. Para agregar una credencial para la aplicación web:
   - Haga clic en la sección **Claves** en la página **Configuración**. 
-  - Agregue una descripción para la clave.
-  - Seleccione uno o dos años de duración.
-  - Haga clic en **Save**(Guardar). La columna situada más a la derecha contendrá el valor de clave después de que guarde los cambios de configuración. **Asegúrese de copiar la clave** para su uso en el código de la aplicación cliente, ya que no es accesible una vez se sale de esta página.
-
-  ![Actualización del registro de una aplicación: claves](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-keys.png)
+  - Para agregar un certificado:
+    - Seleccione **Cargar clave pública**.
+    - Seleccione el archivo que desea cargar. Debe ser uno de los siguientes tipos de archivo: .cer, .pem, .crt.
+  - Para agregar una contraseña:
+    - Agregue una descripción para la clave.
+    - Seleccione una duración.
+    - Haga clic en **Save**(Guardar). La columna situada más a la derecha contendrá el valor de clave después de que guarde los cambios de configuración. **Asegúrese de copiar la clave** para su uso en el código de la aplicación cliente, ya que no es accesible una vez se sale de esta página.
 
 5. Para agregar permisos para tener acceso a las API de recursos desde el cliente
   - Haga clic en la sección **Permisos necesarios** en la página **Configuración**. 
@@ -141,11 +143,6 @@ Además, para que un cliente pueda tener acceso a una API web expuesta por una a
   ![Actualización del registro de una aplicación: permisos](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. Cuando termine, haga clic en el botón **Seleccionar** de la página **Habilitar acceso** y, a continuación, en el botón **Listo** de la página **Agregar acceso de API**. Se le redirigirá a la página **Permisos necesarios**, donde se agrega el nuevo recurso a la lista de las API.
-
-  > [!NOTE]
-  > Al hacer clic en el botón **Listo** también se establecen automáticamente los permisos para la aplicación en el directorio en función de los permisos para otras aplicaciones que configuró. Puede ver estos permisos de la aplicación examinando la página **Configuración** de la aplicación.
-  > 
-  > 
 
 ### <a name="configuring-a-resource-application-to-expose-web-apis"></a>Configuración de una aplicación de recursos para exponer las API web
 

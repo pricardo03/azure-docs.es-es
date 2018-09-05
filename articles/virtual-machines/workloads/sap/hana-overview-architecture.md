@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
+ms.date: 08/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3918096a977cfd48e2128646d7c552e842ab8834
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9d28b6ea5612a3db539c51d2603c3f12282ca519
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063687"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090423"
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Introducción y arquitectura de SAP HANA en Azure (instancias grandes)
 
@@ -94,7 +94,7 @@ Comparada con la ejecución de SAP HANA en máquinas virtuales, esta solución t
 - Además de las soluciones descritas aquí, puede instalar otros componentes en la suscripción de Azure conectada a SAP HANA en Azure (Instancias grandes). Por ejemplo, los componentes que permiten la comunicación, directa o no, con la base de datos de SAP HANA, como los servidores de salto, servidores RDP, SAP HANA Studio, SAP Data Services para escenarios de BI de SAP o soluciones de supervisión de red.
 - Como en Azure, HANA (instancias grandes) ofrece funcionalidades auxiliares de alta disponibilidad y recuperación ante desastres.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Arquitectura
 
 En un nivel genérico, en la solución SAP HANA en Azure (instancias grandes), el nivel de aplicación de SAP reside en máquinas virtuales. La capa de base de datos reside en hardware configurado según SAP TDI ubicado en una demarcación de instancias grandes en la misma región de Azure que está conectada a la IaaS de Azure.
 
@@ -304,7 +304,7 @@ En esta lista se recopilan los requisitos para ejecutar SAP HANA en Azure (insta
 
 - ExpressRoute entre la infraestructura local y la de Azure: asegúrese de pedir a su ISP una conexión de 1 Gbps como mínimo para conectar el centro de datos local a Azure. 
 
-**Sistema operativos**
+**Sistema operativo**
 
 - Licencias para SUSE Linux Enterprise Server 12 for SAP Applications.
 
@@ -325,6 +325,10 @@ En esta lista se recopilan los requisitos para ejecutar SAP HANA en Azure (insta
 Para la matriz de compatibilidad de las distintas versiones de SAP HANA con las diferentes versiones de Linux, consulte la [Nota de SAP 2235581](https://launchpad.support.sap.com/#/notes/2235581).
 
 Para la matriz de compatibilidad del sistema operativo y de las versiones de firmware HLI o de controlador, consulte [OS Upgrade for HLI](os-upgrade-hana-large-instance.md) (Actualización del sistema operativo para HLI).
+
+
+> [!IMPORTANT] 
+> Para las unidades de tipo II, en este momento solo se admite la versión del sistema operativo SLES 12 SP2. 
 
 
 **Base de datos**

@@ -7,20 +7,22 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 39e0de6b378ed61ab375c6468b58c8c4a87b5fb9
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e92adc5dbd0da6ab4f60f8cc7bf6dbe7a58694c6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39575971"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128425"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Instalación del entorno de ejecución de Azure IoT Edge en Windows para usar con contenedores de Windows
 
-El entorno de ejecución de IoT Edge se implementa en todos los dispositivos IoT Edge. Tiene tres componentes. El **demonio de seguridad de IoT Edge** proporciona y mantiene los estándares de seguridad en el dispositivo Edge. El demonio se inicia en cada inicio e inicia el agente de IoT Edge para arrancar el dispositivo. El **agente de IoT Edge** facilita la implementación y supervisión de los módulos en el dispositivo IoT Edge, incluido el centro de IoT Edge. El **centro de IoT Edge** administra las comunicaciones entre los módulos del dispositivo de IoT Edge y entre el dispositivo y la instancia de IoT Hub.
+El entorno de ejecución de Azure IoT Edge es lo que convierte a un dispositivo en un dispositivo IoT Edge. El entorno de ejecución se puede implementar en dispositivos tan pequeños como un Raspberry Pi o tan grandes como un servidor industrial. Una vez que un dispositivo está configurado con el entorno de ejecución de IoT Edge, puede empezar a implementar lógica de negocios en él desde la nube. 
 
-En este artículo se enumeran los pasos para instalar el entorno de ejecución de Azure IoT Edge en el sistema Windows x64 (AMD e Intel). 
+Para más información acerca de cómo funciona el entorno de ejecución de IoT Edge y los componentes que se incluyen, consulte [Información del entorno de ejecución de Azure IoT Edge y su arquitectura](iot-edge-runtime.md).
+
+En este artículo se enumeran los pasos para instalar el entorno de ejecución de Azure IoT Edge con contenedores Windows en el sistema Windows x64 (AMD e Intel). 
 
 Esta compatibilidad con Windows se encuentra actualmente en versión preliminar.
 
@@ -28,6 +30,8 @@ Esta compatibilidad con Windows se encuentra actualmente en versión preliminar.
 Se puede utilizar Azure IoT Edge con contenedores de Windows con:
   * Windows 10/IoT Enterprise/IoT Core con la actualización de abril de 2018 (compilación 17134).
   * Windows Server 1803
+
+Para más información acerca de qué sistemas operativos se admiten actualmente, consulte [Compatibilidad de Azure IoT Edge](support.md#operating-systems).
 
 ## <a name="install-the-container-runtime"></a>Instalación del entorno de ejecución del contenedor 
 

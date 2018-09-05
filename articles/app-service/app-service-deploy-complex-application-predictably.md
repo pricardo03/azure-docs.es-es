@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 884edbf56fbf67e4ee71e0832f8924a3747994c9
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 049f5211e800dace4b8968cd9e3db9ad968f8813
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42146932"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050753"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Aprovisionamiento e implementación predecibles de microservicios en Azure
 En este tutorial se explica cómo aprovisionar e implementar una aplicación formada por [microservicios](https://en.wikipedia.org/wiki/Microservices) en [Azure App Service](https://azure.microsoft.com/services/app-service/) como una sola unidad y de forma predecible con plantillas de grupo de recursos JSON y scripting de PowerShell. 
@@ -40,7 +40,7 @@ En el tutorial, implementará una aplicación que incluye:
 En este tutorial, utilizará las siguientes herramientas. Habida cuenta de que no se trata de un tema dedicado íntegramente a las herramientas, voy a presentar un escenario de un extremo a otro y a dar solo una breve introducción acerca de cada una, además de indicar dónde se puede encontrar más información al respecto. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Plantillas del Administrador de recursos de Azure (JSON)
-Cada vez que crea una aplicación web en Azure App Service, por ejemplo, el Administrador de recursos de Azure utiliza una plantilla JSON para crear el grupo de recursos completo con los recursos del componente. Una plantilla compleja de [Azure Marketplace](/marketplace) como la aplicación [WordPress escalable](/marketplace/partners/wordpress/scalablewordpress/) puede incluir la base de datos MySQL, cuentas de almacenamiento, el plan de App Service, la propia aplicación web, las reglas de alerta, la configuración de la aplicación, valores de escalado automático, etc., y todas estas plantillas están disponibles en PowerShell. Para obtener información acerca de cómo descargar y usar estas plantillas, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
+Cada vez que crea una aplicación web en Azure App Service, por ejemplo, el Administrador de recursos de Azure utiliza una plantilla JSON para crear el grupo de recursos completo con los recursos del componente. Una plantilla compleja de [Azure Marketplace](/azure/marketplace) puede incluir la base de datos, cuentas de almacenamiento, el plan de App Service, la propia aplicación web, las reglas de alerta, la configuración de la aplicación, valores de escalado automático, etc., y todas estas plantillas están disponibles en PowerShell. Para obtener información acerca de cómo descargar y usar estas plantillas, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
 
 Para obtener más información sobre las plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas de Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 

@@ -1,28 +1,23 @@
 ---
-title: 'Supervisión de transacciones B2B y configuración de los registros: Azure Logic Apps | Microsoft Docs'
-description: Supervisión de mensajes AS2, X12 y EDIFACT, inicio del registro de diagnóstico para la cuenta de integración
-author: padmavc
-manager: jeconnoc
-editor: ''
+title: 'Supervisión de mensajes B2B y configuración de registros: Azure Logic Apps | Microsoft Docs'
+description: Supervise los mensajes AS2, X12 y EDIFACT. Configure el registro de diagnóstico para la cuenta de integración en Azure Logic Apps.
 services: logic-apps
-documentationcenter: ''
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 399c7b91949a854f3a152e9a3788d9163c565934
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: decc0271ae0e7c359f72648d7c4d0076892285da
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299324"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125182"
 ---
-# <a name="monitor-and-set-up-diagnostics-logging-for-b2b-communication-in-integration-accounts"></a>Supervisión y configuración del registro de diagnóstico para la comunicación B2B en cuentas de integración
+# <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>Supervisión de mensajes B2B y configuración del registro para las cuentas de integración de Azure Logic Apps
 
 Después de configurar la comunicación B2B entre dos procesos o aplicaciones empresariales mediante la cuenta de integración, esas entidades pueden intercambiar mensajes entre sí. Para confirmar que esta comunicación funciona según lo esperado, puede configurar la supervisión de los mensajes AS2, X12 y EDIFACT, junto con el registro de diagnóstico de la cuenta de integración mediante el servicio [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Este servicio supervisa los entornos locales y en la nube, lo que le permite conservar la disponibilidad y el rendimiento, y también recopila detalles de entorno de tiempo de ejecución y eventos para lograr una depuración más completa. También puede [usar los datos de diagnóstico con otros servicios](#extend-diagnostic-data), como Azure Storage y Azure Event Hubs.
 

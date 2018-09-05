@@ -1,6 +1,6 @@
 ---
-title: Auditar roles de recurso para los recursos de Azure mediante Privileged Identity Management | Microsoft Docs
-description: Se explica cómo obtener una vista de toda la actividad de rol para un recurso determinado.
+title: Visualización del historial de auditoría para los roles de recurso de Azure en PIM | Microsoft Docs
+description: Aprenda a visualizar el historial de auditoría para los roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8f328a609d696886ed452589d3cdfb5f45aec62a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: c0536423e9640f78149b612ec66b0a07cdcf24bb
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621290"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189318"
 ---
-# <a name="audit-resource-roles-for-azure-resources-by-using-privileged-identity-management"></a>Auditar roles de recurso para los recursos de Azure mediante Privileged Identity Management 
+# <a name="view-audit-history-for-azure-resource-roles-in-pim"></a>Visualización del historial de auditoría para los roles de recurso de Azure en PIM
 
 Auditoría de recursos proporciona una vista de todas las actividades de rol del recurso. Puede filtrar la información con una fecha predefinida o un intervalo personalizado.
 ![Filtrar información](media/azure-pim-resource-rbac/rbac-resource-audit.png)
@@ -31,12 +31,12 @@ La auditoría de recursos también proporciona acceso rápido a los detalles de 
 
 ![Más detalles de actividad](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
-# <a name="my-audit"></a>Mi auditoría
+## <a name="my-audit"></a>Mi auditoría
 
 Mi auditoría proporciona una vista de la actividad personal de roles de un usuario. Puede filtrar la información con una fecha predefinida o un intervalo personalizado.
 ![Actividad de un rol personal](media/azure-pim-resource-rbac/my-audit-time.png)
 
-## <a name="view-activation-and-azure-resource-activity"></a>Consulta de la activación y la actividad de los recursos de Azure
+## <a name="view-activation-and-azure-resource-activity"></a>Visualización de la activación y de la actividad de los recursos de Azure
 
 Para ver las acciones que realizó un usuario específico en varios recursos, puede revisar la actividad de los recursos de Azure asociada a un período de activación específico. Primero, seleccione el usuario de la vista **Miembros** o de la lista de miembros de un rol específico. El resultado muestra una vista gráfica de las acciones del usuario en los recursos de Azure por fecha. También muestra las activaciones de roles recientes durante ese mismo período de tiempo.
 
@@ -46,3 +46,6 @@ Al seleccionar la activación de un rol específico se muestran los detalles de 
 
 ![Seleccionar activación de rol](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Visualización del historial de auditorías de los roles de directorios de Azure AD en PIM](pim-how-to-use-audit-log.md)

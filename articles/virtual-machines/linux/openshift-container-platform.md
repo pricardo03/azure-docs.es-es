@@ -15,23 +15,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: f1ba6a3d3b9e576d513b55beac4e9365102433e9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a275df4567053149688694315ff24ac1ad7f711f
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29125748"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186921"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Implementación de OpenShift Container Platform en Azure
 
 Puede usar uno de los diversos métodos para implementar OpenShift Container Platform en Azure:
 
-- Puede implementar manualmente los componentes necesarios de la infraestructura Azure y, a continuación, seguir la [documentación](https://docs.openshift.com/container-platform/3.6/welcome/index.html) de OpenShift Container Platform.
+- Puede implementar manualmente los componentes necesarios de la infraestructura Azure y, a continuación, seguir la [documentación](https://docs.openshift.com/container-platform/3.10/welcome/index.html) de OpenShift Container Platform.
 - También puede usar una plantilla existente de [Resource Manager](https://github.com/Microsoft/openshift-container-platform/) que simplifica la implementación del clúster de OpenShift Container Platform.
 - Otra opción consiste en usar la [oferta de Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
 En todos los casos, se requiere una suscripción a Red Hat. Durante la implementación, la instancia de Red Hat Enterprise Linux está registrada en la suscripción de Red Hat y asociada al identificador de grupo que contiene los derechos para OpenShift Container Platform.
-Asegúrese de que tiene un nombre de usuario de Red Hat Subscription Manager (RHSM), una contraseña y un identificador de grupo válidos. Puede comprobar la información de registro iniciando sesión en https://access.redhat.com.
+Asegúrese de que tiene un nombre de usuario de Red Hat Subscription Manager (RHSM), una contraseña y un identificador de grupo válidos. Puede comprobar esta información iniciando sesión en https://access.redhat.com.
 
 ## <a name="deploy-by-using-the-openshift-container-platform-resource-manager-template"></a>Implementación con la plantilla de Resource Manager para OpenShift Container Platform
 
@@ -186,7 +186,7 @@ Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/gr
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Tareas posteriores a la implementación](./openshift-post-deployment.md)
 - [Solución de problemas de implementación de OpenShift en Azure](./openshift-troubleshooting.md)

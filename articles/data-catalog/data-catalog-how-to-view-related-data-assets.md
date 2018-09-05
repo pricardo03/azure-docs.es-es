@@ -1,24 +1,18 @@
 ---
-title: "Visualización de recursos de datos relacionados en Azure Data Catalog | Microsoft Docs"
-description: "En este artículo se explica cómo ver los recursos de datos relacionados de un recurso de datos seleccionado en Azure Data Catalog."
+title: Visualización de los recursos de datos relacionados en Azure Data Catalog
+description: En este artículo se explica cómo ver los recursos de datos relacionados de un recurso de datos seleccionado en Azure Data Catalog.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
-ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 37d12209d28b73f0d7fc6d940ded344fbeae968d
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.service: data-catalog
+ms.topic: conceptual
+ms.date: 01/18/2018
+ms.openlocfilehash: d680cc69d27681883014a414255ad0ea4d022cd4
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053053"
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>¿Cómo ver los recursos de datos relacionados en Azure Data Catalog?
 Azure Data Catalog permite ver los recursos de datos relacionados con un recurso de datos seleccionado, así como ver las relaciones entre ellos. 

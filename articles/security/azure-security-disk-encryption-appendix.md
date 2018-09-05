@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: cf3e9ce055219bccb44c19fd8e77fe39c938c968
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9efd8730af292e6f720c3bacd5707c48f0eab7ac
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392602"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887940"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Apéndice de Azure Disk Encryption 
 Este artículo es un apéndice de [Azure Disk Encryption para máquinas virtuales IaaS](azure-security-disk-encryption-overview.md). Asegúrese de leer los artículos sobre Azure Disk Encryption para máquinas virtuales IaaS para entender el contexto. En este artículo se describe cómo preparar discos duros virtuales previamente cifrados y otras tareas.
 
 ## <a name="connect-to-your-subscription"></a>su suscripción
-Antes de continuar, revise el artículo de [Requisitos previos](azure-security-disk-encryption-prerequisites.md). Después de asegurarse de que se cumplen todos los requisitos previos, conéctese a su suscripción mediante la ejecución de los siguientes cmdlets:
+Antes de empezar, revise el artículo de [Requisitos previos](azure-security-disk-encryption-prerequisites.md). Cuando se hayan cumplido todos los requisitos previos, conéctese a su suscripción mediante la ejecución de los siguientes cmdlets:
 
 ### <a name="bkmk_ConnectPSH"></a> Conexión a la suscripción con PowerShell
 
@@ -106,33 +106,77 @@ Antes de continuar, revise el artículo de [Requisitos previos](azure-security-d
      Get-AzureKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
      ```
 
+### <a name="bkmk_prereq-script"></a> Uso del script de PowerShell de requisitos previos de Azure Disk Encryption
+Si ya está familiarizado con los requisitos previos para Azure Disk Encryption, puede usar el [script de PowerShell de requisitos previos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para un ejemplo de uso de este script de PowerShell, consulte la [guía de inicio rápido para el cifrado de máquinas virtuales](quick-encrypt-vm-powershell.md). Puede quitar los comentarios de una sección del script, a partir de la línea 211, para cifrar todos los discos de las máquinas virtuales de un grupo de recursos existente. 
+
+En la siguiente tabla se muestran los parámetros que se pueden usar en el script de PowerShell: 
+
+
+|Parámetro|DESCRIPCIÓN|Obligatorio|
+|------|------|------|
+|$resourceGroupName| Nombre del grupo de recursos al que pertenece la instancia de KeyVault.  Si no existe, se creará un grupo de recursos con este nombre.| True|
+|$keyVaultName|Nombre de la instancia de KeyVault en donde se colocarán las claves de cifrado. Si no existe, se creará un almacén con este nombre.| True|
+|$location|Ubicación de la instancia de KeyVault. Asegúrese de que la instancia de KeyVault y las máquinas virtuales que se van a cifrar están en la misma ubicación. Obtenga una lista de ubicaciones con `Get-AzureRMLocation`.|True|
+|$subscriptionId|Identificador de la suscripción de Azure que se va a utilizar.  El identificador de la suscripción se puede obtener con `Get-AzureRMSubscription`.|True|
+|$aadAppName|Nombre de la aplicación de Azure AD que se va a utilizar para escribir secretos en KeyVault. Si no existe, se creará una aplicación con este nombre. Si esta aplicación ya existe, pasará el parámetro aadClientSecret al script.|False|
+|$aadClientSecret|Secreto de cliente de la aplicación de Azure AD que se creó anteriormente.|False|
+|$keyEncryptionKeyName|Nombre de la clave de cifrado de clave opcional en KeyVault. Si no existe, se creará una clave con este nombre.|False|
+
+
 ## <a name="resource-manager-templates"></a>Plantillas de Resource Manager
 
-- [Creación de un Almacén de claves](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create) 
+<!--   - [Create a key vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create) -->
+
+### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Cifrado o descifrado de máquinas virtuales sin aplicación de Azure AD
+
+
+- [Habilitar el cifrado de disco en máquinas virtuales IaaS de Windows existentes o en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)
+- [Deshabilitar el cifrado de disco en máquinas virtuales IaaS de Windows existentes o en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad)
+- [Habilitar el cifrado de disco en una máquina virtual IaaS de Linux existente o en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
+ -  [Deshabilitar el cifrado en una máquina virtual Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
+    - La deshabilitación del cifrado solo se permite en volúmenes de datos de máquinas virtuales Linux.  
+
+### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Cifrado o descifrado de máquinas virtuales con aplicación de Azure AD (versión anterior) 
  
-- [Habilitar el cifrado de discos en nuevas máquinas virtuales IaaS de Windows desde Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)
-    - Esta plantilla crea una nueva máquina virtual con Windows cifrada que usa una imagen de la galería de Windows Server 2012.
-
-- [Implementación de RHEL 7.2 con cifrado de disco completo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
-    - Esta plantilla crea una máquina virtual RHEL 7.2 totalmente cifrada en Azure con una unidad de sistema operativo cifrada de 30 GB y una matriz RAID-0 de 200 GB montada en /mnt/raidencrypted. Consulte el artículo de [P+F](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) para ver las distribuciones de servidor de Linux admitidas. 
-
-- [Habilitar el cifrado de disco en un disco duro virtual de Windows o Linux previamente cifrado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm)
-
 - [Habilitar el cifrado de disco en máquinas virtuales IaaS de Windows existentes o en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)
 
-- [Habilitar el cifrado de disco en una máquina virtual IaaS de Linux existente o en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrt-running-linux-vm)    
+- [Habilitar el cifrado de disco en una máquina virtual IaaS de Linux existente o en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
 
 - [Deshabilitar el cifrado de disco en máquinas virtuales IaaS de Windows en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) 
 
--  [Deshabilitar el cifrado en una máquina virtual Linux en ejecución](https://aka.ms/decrypt-linuxvm) 
+-  [Deshabilitar el cifrado en una máquina virtual Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) 
     - La deshabilitación del cifrado solo se permite en volúmenes de datos de máquinas virtuales Linux. 
+
+- [Habilitar el cifrado de discos en nuevas máquinas virtuales IaaS de Windows desde Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)
+    - Esta plantilla crea una nueva máquina virtual con Windows cifrada que usa una imagen de la galería de Windows Server 2012.
+
+- [Crear una máquina virtual de disco administrado IaaS de Windows a partir de una imagen de la galería](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
+    - Esta plantilla crea una máquina virtual Windows cifrada con discos administrados mediante la imagen de la galería de Windows Server 2012.
+
+- [Implementación de RHEL 7.2 con cifrado de disco completo con discos administrados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
+    - Con esta plantilla se crea una máquina virtual RHEL 7.2 completamente cifrada en Azure mediante discos administrados. Incluye una unidad de sistema operativo cifrada de 30 GB y una matriz cifrada de 200 GB (RAID-0) montada en /mnt/raidencrypted. Consulte el artículo de [P+F](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) para ver las distribuciones de servidor de Linux admitidas. 
+
+- [Implementación de RHEL 7.2 con cifrado de disco completo con discos no administrados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel-unmanaged)
+    - Con esta plantilla se crea una máquina virtual RHEL 7.2 totalmente cifrada en Azure con una unidad de sistema operativo cifrada de 30 GB y una matriz cifrada de 200 GB (RAID-0) montada en /mnt/raidencrypted. Consulte el artículo de [P+F](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) para ver las distribuciones de servidor de Linux admitidas. 
+
+- [Habilitar el cifrado de disco en un disco duro virtual de Windows o Linux previamente cifrado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm)
 
 - [Crear un disco administrado cifrado a partir de un blob de almacenamiento o disco duro virtual previamente cifrado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
     - Crea un disco administrado cifrado a partir de un disco duro virtual previamente cifrado y su correspondiente configuración de cifrado.
 
-- [Crear una máquina virtual de disco administrado IaaS de Windows a partir de una imagen de la galería](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
-    - Esta plantilla crea una máquina virtual Windows cifrada con discos administrados mediante la imagen de la galería de Windows Server 2012.
+- [Habilitar el cifrado de disco en una máquina virtual Windows en ejecución mediante huella digital del certificado de cliente de Azure AD](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-aad-client-cert)
     
+- [Habilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
+
+- [Habilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales Windows en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
+
+ - [Implementar un conjunto de escalado de máquinas virtuales Linux con JumpBox y habilitar su cifrado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+
+ - [Implementar un conjunto de escalado de máquinas virtuales Windows con JumpBox y habilitar su cifrado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+
+- [Deshabilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales Linux en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+
+- [Deshabilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales Windows en ejecución](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
 ## <a name="bkmk_preWin"></a> Preparación de un disco duro virtual previamente cifrado
 Las secciones siguientes son necesarias para preparar un VHD con Windows precifrado para implementarlo como VHD cifrado en IaaS de Azure. Utilice la información para preparar y arrancar una máquina virtual (VHD) con Windows nueva en Azure Site Recovery o Azure. Para más información sobre cómo preparar y cargar un disco duro virtual, consulte [Carga de un VHD generalizado y su uso para crear máquinas virtuales nuevas en Azure](../virtual-machines/windows/upload-generalized-managed.md).
@@ -197,7 +241,7 @@ Use el comando [`manage-bde`](https://technet.microsoft.com/library/ff829849.asp
 
 5. Supervise periódicamente el progreso del cifrado con las instrucciones de la [sección siguiente](#monitoring-os-encryption-progress).
 
-6. Cuando Get-AzureRmVmDiskEncryptionStatus muestra "VMRestartPending", reinicie la máquina virtual iniciando sesión en ella o a través del portal, PowerShell o la CLI.
+6. Cuando Get-AzureRmVmDiskEncryptionStatus muestre "VMRestartPending", inicie sesión en la máquina virtual para reiniciarla o hágalo mediante el portal, PowerShell o la CLI.
     ```powershell
     C:\> Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
     -ExtensionName $ExtensionName
@@ -247,13 +291,13 @@ Hay tres maneras de supervisar el progreso de cifrado del sistema operativo:
 
     /var/log/azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
 
- Se recomienda que no inicie sesión en la máquina virtual mientras el cifrado del sistema operativo esté en curso. Copie los registros solo cuando los otros dos métodos no den resultado.
+ Se recomienda que no inicie sesión en la máquina virtual con el cifrado del sistema operativo en curso. Copie los registros solo cuando los otros dos métodos no den resultado.
 
 ## <a name="bkmk_preLinux"></a> Preparación de un disco duro virtual Linux previamente cifrado
 La preparación de disco duros virtuales previamente cifrados puede variar dependiendo de la distribución. Se pueden encontrar ejemplos sobre cómo preparar [Ubuntu 16](#bkmk_Ubuntu), [openSUSE 13.2](#bkmk_openSUSE) y [CentOS 7](#bkmk_CentOS). 
 
 ### <a name="bkmk_Ubuntu"></a> Ubuntu 16
-Configure el cifrado durante la instalación de la distribución haciendo lo siguiente:
+Configure el cifrado durante la instalación de la distribución; para ello, siga estos pasos:
 
 1. Seleccione **Configure encrypted volumes** (Configurar volúmenes cifrados) al realizar la partición de los discos.
 
@@ -279,7 +323,7 @@ Configure el cifrado durante la instalación de la distribución haciendo lo sig
 
 Configure el cifrado para que funcione con Azure de esta manera:
 
-1. Cree un archivo en /usr/local/sbin/azure_crypt_key.sh con el contenido del script siguiente. Preste atención a KeyFileName, porque es el nombre que Azure ha puesto al archivo de frase de contraseña.
+1. Cree un archivo en /usr/local/sbin/azure_crypt_key.sh con el contenido del script siguiente. Preste atención a KeyFileName, porque es el nombre que Azure ha asignado al archivo de frase de contraseña.
 
     ```
     #!/bin/sh
@@ -465,7 +509,7 @@ to
 ```
     if [ 1 ]; then
 ```
-4. Edite /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh y anéxelo después de "# Open LUKS device":
+4. Edite /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh y anexe lo siguiente después de "# Open LUKS device":
     ```
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
@@ -496,7 +540,7 @@ Cuando el cifrado de BitLocker o el cifrado DM-Crypt están habilitados, el VHD 
     Add-AzureRmVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
 ## <a name="bkmk_UploadSecret"></a> Carga del secreto de la máquina virtual previamente cifrada en el almacén de claves
-El secreto de cifrado del disco que obtuvo con anterioridad se debe cargar como un secreto en el almacén de claves. El almacén de claves debe tener habilitados el cifrado de discos y los permisos para el cliente de Azure AD.
+Al cifrar mediante una aplicación de Azure AD (versión anterior), el secreto de cifrado del disco que obtuvo con anterioridad se debe cargar como secreto en el almacén de claves. El almacén de claves debe tener habilitados el cifrado de discos y los permisos para el cliente de Azure AD.
 
 ```powershell 
  $AadClientId = "My-AAD-Client-Id"

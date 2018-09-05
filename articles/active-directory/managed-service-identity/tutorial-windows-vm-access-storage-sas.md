@@ -14,24 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 983cecdcdb95dca398f728dbdbe5feac69075d6a
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 7f6049e874f329c1e3a4f72417dd9a7eebc42628
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248377"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887070"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: usar Managed Service Identity en una máquina virtual de Windows para obtener acceso a Azure Storage con una credencial SAS
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-En este tutorial se explica cómo habilitar Managed Service Identity en una máquina virtual Windows y, después, usar Managed Service Identity para obtener una credencial de firma de acceso compartido (SAS) del almacenamiento. En concreto, una [credencial SAS de servicio](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+Este tutorial muestra cómo usar una identidad asignada por el sistema para una máquina virtual Windows a fin de obtener una credencial de Firma de acceso compartido (SAS) del almacenamiento. En concreto, una [credencial SAS de servicio](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 Una credencial SAS de servicio permite conceder acceso limitado a los objetos de una cuenta de almacenamiento, durante un período de tiempo limitado y con un servicio específico (en nuestro caso, el servicio blob), sin exponer una clave de acceso a la cuenta. Puede usar una credencial SAS de la forma habitual al realizar operaciones de almacenamiento, por ejemplo, al usar el SDK de Storage. En este tutorial, mostramos cómo cargar y descargar un blob mediante PowerShell de Azure Storage. Aprenderá a:
 
-
 > [!div class="checklist"]
-> * Habilitar Managed Service Identity en una máquina virtual Windows 
+> * Crear una cuenta de almacenamiento
 > * Conceder acceso a la máquina virtual a una SAS de cuenta de almacenamiento en Resource Manager 
 > * Obtener un token de acceso mediante la identidad de la máquina virtual y utilizarlo para recuperar la credencial SAS desde Resource Manager 
 
@@ -41,33 +40,12 @@ Una credencial SAS de servicio permite conceder acceso limitado a los objetos de
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+- [Iniciar sesión en Azure Portal](https://portal.azure.com)
 
-Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
+- [Crear una máquina virtual Windows](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Creación de una máquina virtual Windows en un nuevo grupo de recursos
+- [Habilitar la identidad asignada por el sistema en la máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
-En este tutorial, se crea una nueva máquina virtual Windows. Managed Service Identity también se puede habilitar en una máquina virtual existente.
-
-1.  Haga clic en el botón **+/Crear nuevo servicio** de la esquina superior izquierda de Azure Portal.
-2.  Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**. 
-3.  Escriba la información de la máquina virtual. El **nombre de usuario** y la **contraseña** creados aquí son las credenciales que se usan para iniciar sesión en la máquina virtual.
-4.  Elija la **suscripción** adecuada de la máquina virtual en la lista desplegable.
-5.  Para seleccionar un nuevo **grupo de recursos** en el que quiere crear la máquina virtual, elija **Crear nuevo**. Cuando haya terminado, haga clic en **Aceptar**.
-6.  Seleccione el tamaño de la máquina virtual. Para ver más tamaños, seleccione **Ver todo** o cambie el filtro **Supported disk type** (Tipo de disco admitido). En la hoja de configuración, conserve los valores predeterminados y haga clic en **Aceptar**.
-
-    ![Texto alternativo de imagen](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Habilitación de Managed Service Identity en una máquina virtual
-
-La característica Managed Service Identity de una máquina virtual le permite obtener tokens de acceso desde Azure AD sin tener que incluir credenciales en el código. En segundo plano, la habilitación de Managed Service Identity realiza dos acciones: registra una máquina virtual en Azure Active Directory para crear su identidad administrada y configura la identidad en la máquina virtual.
-
-1. Desplácese hasta el grupo de recursos de la nueva máquina virtual y seleccione la máquina virtual que creó en el paso anterior.
-2. En la configuración de máquina virtual, en el panel de la izquierda, haga clic en **Configuración**.
-3. Para registrar y habilitar Managed Service Identity, seleccione **Sí**; si desea deshabilitarla, elija No.
-4. No olvide hacer clic en **Guardar** para guardar la configuración.
-
-    ![Texto alternativo de imagen](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento 
 

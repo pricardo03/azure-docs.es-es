@@ -1,6 +1,6 @@
 ---
-title: Asignaciones aptas y visibilidad de recursos para Azure en Privileged Identity Management | Microsoft Docs
-description: Aquí se describe cómo asignar miembros aptos a los roles de recursos al usar PIM.
+title: 'Asignaciones aptas y visibilidad de recursos en PIM: Azure | Microsoft Docs'
+description: Describe cómo asignar miembros que sean aptos para los roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 336453c1ef6ef8d0295d00f31afc6a5e7e42e8b6
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 3551c3231a94f8a844d26a713cbf171ca7653815
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621555"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189221"
 ---
-# <a name="eligible-assignments-and-resource-visibility-with-privileged-identity-management"></a>Asignaciones aptas y visibilidad de recursos con Privileged Identity Management
+# <a name="eligible-assignments-and-resource-visibility-in-pim"></a>Asignaciones aptas y visibilidad de recursos en PIM
 
 Privileged Identity Management (PIM) para los roles de recursos de Azure proporciona una mayor seguridad para las organizaciones con recursos de Azure críticos. Los administradores de recursos pueden usar PIM para asignar miembros aptos a los roles de recursos. Obtenga más información sobre los distintos tipos y estados de asignación para los roles de recursos de Azure de las siguientes secciones. 
 
@@ -70,4 +70,4 @@ Cuando vea una pertenencia que aparezca en **Roles activos**, podrá usar el val
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Asignar roles en Privileged Identity Management](pim-resource-roles-assign-roles.md)
+- [Asignación de roles de recursos de Azure en PIM](pim-resource-roles-assign-roles.md)

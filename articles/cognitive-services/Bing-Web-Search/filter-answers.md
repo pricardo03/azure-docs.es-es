@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: a5ee6241630ee24a05c2c4b932453bd7946a7508
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 64095089e4c0841aa1f77165969221836c747738
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381023"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888580"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrado de los resultados incluidos en la respuesta de búsqueda  
 
@@ -79,6 +79,12 @@ A continuación se muestra la respuesta de la consulta anterior. Como puede ver,
         }
     }
 }
+```
+
+Si desea excluir determinados tipos de contenido (por ejemplo, imágenes) de la respuesta, puede excluirlos agregando un prefijo con un guion (signo menos) al valor responseFilter. Separe los tipos excluidos con comas: 
+
+```
+&responseFilter=-images,-videos
 ```
 
 Aunque Bing no devolvió resultados de vídeo y de noticias en la respuesta anterior, no significa que no exista contenido de vídeo y de noticias. Solo quiere decir que la página no los incluyó. Sin embargo, si [página](./paging-webpages.md) más resultados, probablemente las páginas siguientes los incluyan. Además, si se llama directamente a los puntos de conexión de [Video Search API](../bing-video-search/search-the-web.md) y [News Search API](../bing-news-search/search-the-web.md), es probable que la respuesta contenga resultados. 

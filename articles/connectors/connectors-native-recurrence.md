@@ -1,28 +1,24 @@
 ---
-title: 'Programación de tareas y flujos de trabajo ejecutados con regularidad: Azure Logic Apps | Microsoft Docs'
-description: Creación y programación con Logic Apps de tareas, acciones, flujos de trabajo, procesos y cargas de trabajo ejecutados con regularidad
+title: Creación de tareas y flujos de trabajo que se ejecutan regularmente con Azure Logic Apps | Microsoft Docs
+description: Automatización de tareas y flujos de trabajo que se ejecutan según una programación con el conector de periodicidad de Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
+tags: connectors
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/25/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: 3bd396355681cdde486cfbea7004c9c1aece09da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 905157ab530ae042318de520f9d6fe24cb9d59ce
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296794"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127061"
 ---
-# <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>Creación y programación de tareas ejecutadas con regularidad con Azure Logic Apps
+# <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Creación y ejecución de tareas y flujos de trabajo repetitivos con Azure Logic Apps
 
 Para programar tareas, acciones, cargas de trabajo o procesos que se ejecutan con regularidad, puede crear un flujo de trabajo de aplicación lógica que se inicie con el [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts) **Schedule - Recurrence**. Con este desencadenador, puede establecer una fecha y hora para iniciar la periodicidad y una programación de periodicidad para realizar tareas, como estos ejemplos, y mucho más:
 
@@ -43,7 +39,7 @@ Este desencadenador es compatible con muchos patrones, por ejemplo:
 
 Cada vez que el desencadenador de periodicidad se activa, Logic Apps crea y ejecuta una instancia nueva del flujo de trabajo de aplicación lógica.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Si no tiene una suscripción, puede [comenzar con una cuenta de Azure gratuita](https://azure.microsoft.com/free/). También puede [registrarse para obtener una suscripción de pago por uso](https://azure.microsoft.com/pricing/purchase-options/).
 
@@ -99,8 +95,8 @@ Puede configurar estas propiedades en el desencadenador de periodicidad.
 
 | NOMBRE | Obligatorio | Nombre de propiedad | Escriba | DESCRIPCIÓN | 
 |----- | -------- | ------------- | ---- | ----------- | 
-| **Frecuencia** | Sí | frequency | string | La unidad de tiempo para la periodicidad: **segundo**, **minuto**, **hora**, **día**, **semana** o **mes** | 
-| **Intervalo** | Sí | interval | Entero | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. <p>El intervalo predeterminado es 1. Estos son los intervalos mínimo y máximo: <p>- Month: 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
+| **Frecuencia** | SÍ | frequency | string | La unidad de tiempo para la periodicidad: **segundo**, **minuto**, **hora**, **día**, **semana** o **mes** | 
+| **Intervalo** | SÍ | interval | Entero | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. <p>El intervalo predeterminado es 1. Estos son los intervalos mínimo y máximo: <p>- Month: 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
 | **Zona horaria** | Sin  | timeZone | string | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Seleccione la zona horaria que desea aplicar. | 
 | **Hora de inicio** | Sin  | startTime | string | Proporcione una hora de inicio con este formato: <p>AAAA-MM-DDThh:mm:ss si selecciona una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no selecciona una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2017 a las 2:00 p. m., especifique entonces "2017-09-18T14:00:00" y selecciona una zona horaria como Hora estándar del Pacífico. O bien, especifique "2017-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de hora y fecha UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se selecciona una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. [*¿De qué formas puedo usar la fecha y hora de inicio?*](#start-time) | 
 | **En estos días** | Sin  | weekDays | Cadena o matriz de cadenas | Si selecciona "Week", puede seleccionar uno o varios días en los que desea ejecutar el flujo de trabajo: **Monday**, **Tuesday**, **Wednesday**, **Thursday**, **Friday**, **Saturday** y **Sunday** | 

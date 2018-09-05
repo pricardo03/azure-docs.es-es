@@ -1,6 +1,6 @@
 ---
-title: Roles de Azure AD Privileged Identity Management | Microsoft Docs
-description: Obtenga información sobre los roles que se usan para identidades con privilegios con la extensión de Privileged Identity Management de Azure.
+title: Roles de directorio de Azure AD que se pueden administrar en PIM | Microsoft Docs
+description: Describe los roles de directorio de Azure AD que puede administrar en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: f8045d70ab4926cdc0e28a9a2290685c4f11205a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: c8870e4da63dc52d5926bdfd5f7c9b3218e5f53a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618570"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188993"
 ---
-# <a name="directory-roles-you-can-manage-using-azure-ad-pim"></a>Roles de directorio que pueden administrar con Azure AD PIM
+# <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>Roles de directorio de Azure AD que se pueden administrar en PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 En su organización, puede asignar a usuarios a roles administrativos diferentes en Azure AD. Estas asignaciones de roles controlan las tareas, como agregar y quitar usuarios o cambiar la configuración de los servicios, que pueden realizar los usuarios en Azure AD, Office 365 y otros servicios Microsoft Online Services y aplicaciones conectadas.  
@@ -86,5 +86,7 @@ El acceso a Microsoft Online Services puede requerir que se le asigne una licenc
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Pasos siguientes
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Primer uso de PIM](pim-getting-started.md)
+- [Asignación de roles de directorio de Azure AD en PIM](pim-how-to-add-role-to-user.md)
 

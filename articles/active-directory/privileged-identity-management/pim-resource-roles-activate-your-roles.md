@@ -1,6 +1,6 @@
 ---
-title: Activar roles para recursos de Azure mediante Privileged Identity Management | Microsoft Docs
-description: Se describe cómo activar roles en PIM.
+title: Activación de mis roles de recursos de Azure en PIM | Microsoft Docs
+description: Aprenda a activar sus roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/02/2018
+ms.date: 08/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 45a2747a60df4d91c2fe1c5247e1d4ac82ff819f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 234c1d71f0ec17d15a4dd589e3db92fd9bf68df2
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617156"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189496"
 ---
-# <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Activar roles para recursos de Azure mediante Privileged Identity Management
+# <a name="activate-my-azure-resource-roles-in-pim"></a>Activación de mis roles de recursos de Azure en PIM
 Privileged Identity Management (PIM) presenta una nueva experiencia de activación de roles para los recursos de Azure. Los miembros del rol que sean aptos pueden programar la activación para una fecha y hora futuras. Asimismo, también pueden seleccionar una duración de activación específica dentro del valor máximo establecido (configurado por los administradores). Para obtener más información, consulte [How to activate or deactivate roles in Azure AD Privileged Identity Management](pim-how-to-activate-role.md) (Cómo activar o desactivar roles en Privileged Identity Management para Azure AD).
 
-## <a name="activate-roles"></a>Activación de roles
+## <a name="activate-a-role"></a>Activación de un rol
 Vaya a la sección **Mis roles** en el panel izquierdo. Seleccione **Activar** para el rol que quiera activar.
 
 ![Pestaña "Roles aptos" del panel "Mis roles".](media/azure-pim-resource-rbac/rbac-roles.png)
@@ -39,6 +39,19 @@ Si la activación está programada para una fecha y hora futuras, la solicitud p
 
 ![Lista de solicitudes pendientes con botones "Cancelar"](media/azure-pim-resource-rbac/rbac-activate-pending.png)
 
+## <a name="use-a-role-immediately-after-activation"></a>Uso de un rol inmediatamente después de la activación
+
+El almacenamiento en caché es el responsable de que las activaciones no se produzcan inmediatamente en Azure Portal sin una actualización. Si necesita reducir la posibilidad de retrasos tras la activación de un rol, puede usar la página **Acceso a la aplicación** del portal. Las aplicaciones a las que se accede desde esta página comprueban si hay nuevas asignaciones de roles de inmediato.
+
+1. Abra Azure AD Privileged Identity Management.
+
+1. Haga clic en la página **Acceso a la aplicación**.
+
+    ![Acceso a la aplicación de PIM: captura de pantalla](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
+
+1. Haga clic en **Recursos de Azure** para volver a abrir el portal en la página **Todos los recursos**.
+
+    Al hacer clic en este vínculo, se fuerza la actualización y se comprueba si hay nuevas asignaciones de roles de recursos de Azure.
 
 ## <a name="apply-just-enough-administration-practices"></a>Aplicar prácticas de Just Enough Administration.
 
@@ -51,3 +64,7 @@ En la página de búsqueda, busque el recurso subordinado que necesite administr
 Seleccione **Mis roles** del panel izquierdo y elija el rol que desee activar. El tipo de asignación es **Heredado**, puesto que el rol se asignó a la suscripción, en lugar de al grupo de recursos.
 
 ![Lista de asignaciones de roles aptos, con el tipo de asignación resaltado](media/azure-pim-resource-rbac/my-roles-02.png)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Activación de mis roles de directorio de Azure AD en PIM](pim-how-to-activate-role.md)

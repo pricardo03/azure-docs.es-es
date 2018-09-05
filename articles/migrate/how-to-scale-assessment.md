@@ -4,14 +4,14 @@ description: Se describe cómo evaluar un número elevado de máquinas locales m
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/25/2018
 ms.author: raynew
-ms.openlocfilehash: 06905a2f16a23e5a7c4612f4b567aaf86322924d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 553e0d6569a3a35802703ef58e1460878dcd930b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42142709"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127521"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detección y evaluación de un entorno grande de VMware
 
@@ -22,7 +22,7 @@ Azure Migrate tiene un límite de 1500 máquinas por proyecto. En este artículo
 - **VMware**: las máquinas virtuales que planea migrar deben administrarse mediante vCenter Server, versión 5.5, 6.0 o 6.5. Además, necesita un host de ESXi que ejecute la versión 5.0 o posterior para implementar la máquina virtual del recopilador.
 - **Cuenta de vCenter**: necesita una cuenta de solo lectura para acceder a vCenter Server. Azure Migrate usa esta cuenta para detectar las máquinas virtuales locales.
 - **Permisos**: en vCenter Server, necesitará permisos para crear una máquina virtual mediante la importación de un archivo en formato OVA.
-- **Configuración de estadísticas**: la configuración de las estadísticas de vCenter Server se debe establecer en el nivel 3 antes de empezar la implementación. Si el nivel es inferior al 3, la evaluación funcionará, pero no se recopilarán datos de rendimiento del almacenamiento y la red. El tamaño de las recomendaciones en este caso se basará en los datos de rendimiento de los datos de CPU y memoria, y de los datos de configuración de adaptadores de red y disco.
+- **Configuración de estadísticas**: la configuración de las estadísticas de vCenter Server se debe establecer en el nivel 3 antes de empezar la implementación. El nivel estadístico se establecerá en 3 para cada uno de los intervalos de colección de día, semana y mes. Si el nivel es inferior a 3 en cualquiera de los tres intervalos de colección, la valoración funcionará, pero los datos de rendimiento de almacenamiento y red no se recopilarán. Las recomendaciones de tamaño se basarán entonces en los datos de rendimiento de CPU y memoria y en los datos de configuración de discos y adaptadores de red.
 
 
 ### <a name="set-up-permissions"></a>Configuración de permisos

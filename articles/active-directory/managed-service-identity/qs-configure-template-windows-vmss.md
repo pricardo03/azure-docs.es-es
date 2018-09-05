@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 68304b3e5eea50aba28f46344abcbd7ad060c5c8
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 69b88b5aabbadadea3b04f96d9a21f266c85a52f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42143060"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125391"
 ---
 # <a name="configure-managed-service-identity-on-virtual-machine-scale-using-a-template"></a>Configuración de Managed Service Identity en un conjunto de escalado de máquinas virtuales mediante una plantilla
 
@@ -322,7 +322,7 @@ Si tiene un conjunto de escalado de máquinas virtuales que ya no necesita una i
 
 1. Independientemente de que inicie sesión localmente en Azure o mediante Azure Portal, use una cuenta que esté asociada a la suscripción de Azure que contiene el conjunto de escalado de máquinas virtuales.
 
-2. Cargue la plantilla en un [editor](#azure-resource-manager-templates) y busque el `Microsoft.Compute/virtualMachineScaleSets`recurso de interés dentro de la sección `resources`. Si dispone de un conjunto de escalado de máquinas virtuales que solo tenga una identidad asignada por el usuario, puede deshabilitarla cambiando el tipo de identidad a `None`.
+2. Cargue la plantilla en un [editor](#azure-resource-manager-templates) y busque el `Microsoft.Compute/virtualMachineScaleSets`recurso de interés dentro de la sección `resources`. Si dispone de un conjunto de escalado de máquinas virtuales que solo tiene una identidad asignada por el usuario, puede deshabilitarla cambiando el tipo de identidad a `None`.
 
    En el ejemplo siguiente se muestra cómo quitar todas las identidades asignada por un usuario de una máquina virtual sin identidades asignadas por el sistema:
 
@@ -339,7 +339,7 @@ Si tiene un conjunto de escalado de máquinas virtuales que ya no necesita una i
    
    **Microsoft.Compute/virtualMachineScaleSets versión de API 2018-06-01**
     
-   Para quitar una identidad asignada por un usuario único desde un conjunto de escalado de máquinas virtuales, quítela del diccionario `userAssignedIdentities`.
+   Para quitar una identidad asignada por un usuario único de un conjunto de escalado de máquinas virtuales, elimínela del diccionario `userAssignedIdentities`.
 
    Si tiene una identidad asignada por el sistema, consérvela en el valor `type` de `identity`.
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 98b8883a5ab0096102ab7daf90b5b2791a6f7e41
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b93ad4d6d4637b3060d92fb5e17747294c7e6211
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389582"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885999"
 ---
 # <a name="azure-disk-encryption-faq"></a>Preguntas más frecuentes de Azure Disk Encryption
 
@@ -66,9 +66,9 @@ Azure Disk Encryption se admite en las siguientes distribuciones y versiones del
 | CentOS | 6.5 | Disco de datos |
 | openSUSE | 13.2 | Disco de datos |
 | SLES | 12 SP1 | Disco de datos |
-| SLES | Priority:12-SP1 | Disco de datos |
+| SLES | Prioridad: 12-SP1 | Disco de datos |
 | SLES | HPC 12 | Disco de datos |
-| SLES | Priority:11-SP4 | Disco de datos |
+| SLES | Prioridad: 11-SP4 | Disco de datos |
 | SLES | 11 SP4 | Disco de datos |
 
 
@@ -96,11 +96,17 @@ No puede utilizar el servicio de administración de claves local ni HSM para pro
 
 ## <a name="what-are-the-prerequisites-to-configure-azure-disk-encryption"></a>¿Cuáles son los requisitos previos para configurar Azure Disk Encryption?
 
-Hay requisitos previos para Azure Disk Encryption. Consulte el artículo [Requisitos previos de Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) para crear una aplicación de Azure Active Directory, crear un nuevo almacén de claves o configurar el existente para el acceso al cifrado de disco y habilitar el cifrado y proteger los secretos y las claves. Para más información acerca de los escenarios de compatibilidad con claves de cifrado de claves, consulte la [información general sobre Azure Disk Encryption](azure-security-disk-encryption-overview.md).
+Hay requisitos previos para Azure Disk Encryption. Consulte el artículo [Requisitos previos de Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) para crear un nuevo almacén de claves o configurar el existente para el acceso al cifrado de disco y habilitar el cifrado y proteger los secretos y las claves. Para más información acerca de los escenarios de compatibilidad con claves de cifrado de claves, consulte la [información general sobre Azure Disk Encryption](azure-security-disk-encryption-overview.md).
 
-## <a name="where-can-i-get-more-information-on-how-to-use-powershell-for-configuring-azure-disk-encryption"></a>¿Dónde puedo obtener más información sobre cómo usar PowerShell para configurar Azure Disk Encryption?
+## <a name="what-are-the-prerequisites-to-configure-azure-disk-encryption-with-an-azure-ad-app-previous-release"></a>¿Cuáles son los requisitos previos para configurar Azure Disk Encryption con una aplicación de Azure AD (versión anterior)?
 
-Hay algunos artículos excelentes sobre cómo realizar tareas básicas de Azure Disk Encryption, así como escenarios más avanzados. Para las tareas básicas, consulte [Exploración de Azure Disk Encryption con Azure PowerShell, parte 1](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/explore-azure-disk-encryption-with-azure-powershell/). Para escenarios más avanzados, consulte [Azure Disk Encryption con Azure PowerShell, parte 2](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2/).
+Hay requisitos previos para Azure Disk Encryption. Consulte el artículo [Requisitos previos de Azure Disk Encryption](azure-security-disk-encryption-prerequisites-aad.md) para crear una aplicación de Azure Active Directory, crear un nuevo almacén de claves o configurar el existente para el acceso al cifrado de disco y habilitar el cifrado y proteger los secretos y las claves. Para más información acerca de los escenarios de compatibilidad con claves de cifrado de claves, consulte la [información general sobre Azure Disk Encryption](azure-security-disk-encryption-overview.md).
+
+## <a name="is-azure-disk-encryption-using-an-azure-ad-app-previous-release-still-supported"></a>¿Sigue siendo compatible Azure Disk Encryption con una aplicación de Azure AD (versión anterior)?
+Sí. Todavía se admite el cifrado de disco mediante una aplicación de Azure AD. Sin embargo, al cifrar nuevas máquinas virtuales, se recomienda utilizar el nuevo método en lugar de cifrar con una aplicación de Azure AD. 
+
+## <a name="can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app"></a>¿Se pueden migrar las máquinas virtuales cifradas con una aplicación de Azure AD para el cifrado sin una aplicación de Azure AD?
+En la actualidad, no existe una ruta de migración directa para los equipos que se cifraron con una aplicación de Azure AD al cifrado sin una aplicación de Azure AD. Además, tampoco hay una ruta directa desde el cifrado sin una aplicación Azure AD al cifrado con una aplicación de AD. 
 
 ## <a name="what-version-of-azure-powershell-does-azure-disk-encryption-support"></a>¿Qué versión de Azure PowerShell es compatible con Azure Disk Encryption?
 
@@ -125,7 +131,7 @@ Para obtener los mejores resultados en Linux, se recomienda el siguiente flujo d
 * Cifrar (puede tardar varias horas o incluso días según las características de la máquina virtual y el tamaño de los discos de datos adjuntos).
 * Personalizar y agregar software a la imagen según sea necesario.
 
-Si este flujo de trabajo no es posible, el uso del [Cifrado del servicio de almacenamiento](../storage/common/storage-service-encryption.md) (SSE) en el nivel de la cuenta de almacenamiento de la plataforma puede ser una alternativa al cifrado del disco completo mediante dm-crypt.
+Si este flujo de trabajo no es posible, el uso de [Storage Service Encryption](../storage/common/storage-service-encryption.md) (SSE) en el nivel de la cuenta de almacenamiento de la plataforma puede ser una alternativa al cifrado del disco completo mediante dm-crypt.
 
 ## <a name="what-is-the-disk-bek-volume-or-mntazurebekdisk"></a>¿Qué es el disco "volumen Bek" o "/mnt/azure_bek_disk"?
 
@@ -140,6 +146,6 @@ Puede realizar preguntas o publicar comentarios en el [Foro de Azure Disk Encryp
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, aprendió más acerca de las preguntas más frecuentes sobre Azure Disk Encryption. Para más información acerca de este servicio y su funcionalidad, consulte los artículos siguientes:
 
+- [Introducción a Azure Disk Encryption](azure-security-disk-encryption-overview.md)
 - [Aplicación de cifrado de discos en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Cifrado de una máquina virtual de Azure](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [Cifrado de datos en reposo de Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)

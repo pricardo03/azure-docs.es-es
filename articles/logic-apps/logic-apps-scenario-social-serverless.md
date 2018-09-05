@@ -1,28 +1,23 @@
 ---
-title: 'Escenario sin servidor: creación de un panel de Customer Insights con Azure | Microsoft Docs'
-description: Obtenga información sobre cómo se pueden administrar los comentarios de clientes, datos de redes sociales, etc. mediante la compilación de un panel de clientes con Azure Logic Apps y Azure Functions.
-keywords: ''
+title: 'Escenario sin servidor: Creación de un panel de Customer Insights con los servicios de Azure | Microsoft Docs'
+description: Administre los comentarios de clientes, datos de redes sociales, etc. mediante la compilación de un panel de clientes con Azure Logic Apps y Azure Functions
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: jeffhollan
+ms.author: jehollan
+ms.reviewer: estfan, LADocs
+ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.author: jehollan; LADocs
-ms.openlocfilehash: 3ee3ec3107cf8aad834e8201405c9aa833d838af
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9d6d74c4afb4d1cd62e5946b7e6f8c401e7ef2aa
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299967"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124651"
 ---
-# <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creación de un panel de streaming de Customer Insights con Azure Logic Apps y Azure Functions
+# <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creación de un panel de streaming de Customer Insights con Azure Logic Apps y Azure Functions
 
 Azure ofrece herramientas sin servidor que ayudan a generar rápidamente y hospedar aplicaciones en la nube, sin tener que preocuparse de la infraestructura. En este tutorial, puede crear un panel para actuar en función de los comentarios de los clientes, analizarlos con Machine Learning y publicar información en un origen, como Power BI o Azure Data Lake.
 

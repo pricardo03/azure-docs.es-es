@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 08/27/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86b8f76bd221be9f30a5b9336af858359ae0af8f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238886"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128133"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
 
@@ -94,8 +94,18 @@ Use los pasos siguientes para configurar los archivos de los que se realizará u
 |habilitado     | Determina si se aplica la configuración.        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar.        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos.        |
-|Escriba la ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "c:\temp\myfile.txt"       |
+|Escriba la ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "c:\temp\\\*.txt".<br>También puede usar variables de entorno, como "%winDir%\System32\\\*. *"       |
+|Recursividad     | Determina si se usa recursividad al buscar el elemento cuyo seguimiento se va a realizar.        |
 |Cargar archivo de contenido para toda la configuración| Activa o desactiva la carga de contenido de archivos en los cambios sometidos a seguimiento. Opciones disponibles: **True** o **False**.|
+
+## <a name="wildcard-recursion-and-environment-settings"></a>Configuración de caracteres comodín, recursividad y entorno
+
+La recursividad le permite especificar caracteres comodín para simplificar el seguimiento entre directorios y variables de entorno para que pueda realizar el seguimiento de los archivos en entornos con nombres de unidad múltiples o dinámicos. Esta es una lista de información común que debe conocer al configurar la recursividad:
+
+* Los caracteres comodín son necesarios para realizar el seguimiento de varios archivos.
+* Si usa caracteres comodín, solo se pueden usar en el último segmento de una ruta de acceso. (por ejemplo, C:\folder\\**archivo** o /etc/*.conf)
+* Si una variable de entorno tiene una ruta de acceso no válida, la validación será correcta pero se producirá un error en dicha ruta cuando se ejecute el inventario.
+* Al establecer la ruta de acceso, evite las generales como `c:\*.*`, ya que daría lugar a que se recorrieran demasiadas carpetas.
 
 ## <a name="configure-file-content-tracking"></a>Configuración del seguimiento del contenido de los archivos
 
@@ -122,13 +132,8 @@ Use los pasos siguientes para configurar las claves del registro para realizar u
 
 Actualmente, la solución Change Tracking no admite los elementos siguientes:
 
-* Carpetas (directorios) para el seguimiento de archivos de Windows
-* Recursión para el seguimiento de archivos de Windows
-* Caracteres comodín para el seguimiento de archivos de Windows
 * Recursión para el seguimiento del registro de Windows
-* Variables de ruta de acceso
 * Sistemas de archivos de red
-* Contenido del archivo
 
 Otras limitaciones:
 

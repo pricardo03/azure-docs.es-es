@@ -1,6 +1,6 @@
 ---
-title: Configuración de alertas de seguridad | Microsoft Docs
-description: Aprenda cómo configurar alertas de seguridad para la extensión de Privileged Identity Management de Azure.
+title: Configuración de alertas de seguridad para roles de directorio de Azure AD en PIM | Microsoft Docs
+description: Aprenda a configurar alertas de seguridad para los roles de directorios de Azure AD en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8df9bc7c332a83e9761ea71dddfbfbfaa3ae5154
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: fc39b6ad2dd63d45995b76011f4ebbe0228b4c2d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622160"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190398"
 ---
-# <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Configuración de alertas de seguridad en Privileged Identity Management de Azure AD
+# <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Configuración de alertas de seguridad para roles de directorio de Azure AD en PIM
 ## <a name="security-alerts"></a>Alertas de seguridad
 Privileged Identity Management (PIM) de Azure genera alertas cuando existen actividades sospechosas o no seguras en su entorno. Cuando se desencadena una alerta, se muestra en el panel de PIM. Seleccione la alerta para ver un informe en el que se enumeren los usuarios o roles que activaron la alerta.
 
@@ -65,4 +65,6 @@ Esta alerta se desencadena si un usuario pasa un cierto tiempo sin activar un ro
 * **Número de días**: especifique el número de días, de 0 a 100, que un usuario puede pasar sin activar un rol.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Configuración de roles de directorio de Azure AD en PIM](pim-how-to-change-default-settings.md)
+- [Exigencia de MFA en Privileged Identity Management de Azure AD](pim-how-to-require-mfa.md)

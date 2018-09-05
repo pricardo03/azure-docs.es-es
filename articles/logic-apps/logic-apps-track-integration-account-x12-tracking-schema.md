@@ -1,29 +1,25 @@
 ---
-title: Esquemas de seguimiento de X12 para la supervisión de B2B - Azure Logic Apps | Microsoft Docs
-description: Utilice esquemas de seguimiento de X12 para supervisar mensajes B2B de transacciones en la cuenta de la integración de Azure.
-author: padmavc
-manager: jeconnoc
-editor: ''
+title: 'Esquemas de seguimiento de X12 para mensajes B2B: Azure Logic Apps | Microsoft Docs'
+description: Cree esquemas de seguimiento de X12 que supervisen los mensajes B2B en cuentas de integración para Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
-documentationcenter: ''
-ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 385ff73d780f62f19af2face591cd0b2291ef396
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: cfd195f2f812c8b2e09058d325d0dbb6f7a60d59
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300980"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125608"
 ---
-# <a name="start-or-enable-tracking-of-x12-messages-to-monitor-success-errors-and-message-properties"></a>Inicio o habilitación del seguimiento de mensajes X12 para supervisar propiedades de mensaje, errores y éxitos
-Puede usar estos esquemas de seguimiento de X12 en su cuenta de integración de Azure para ayudarle a supervisar las transacciones de negocio a negocio (B2B):
+# <a name="create-schemas-for-tracking-x12-messages-in-integration-accounts-for-azure-logic-apps"></a>Creación de esquemas para el seguimiento de mensajes X12 en cuentas de integración para Azure Logic Apps
+
+Para ayudarle a supervisar éxitos, errores y propiedades de mensaje para transacciones de negocio a negocio (B2B), puede usar estos esquemas de seguimiento de X12 en su cuenta de integración de Azure:
 
 * Esquema de seguimiento de conjuntos de transacciones de X12
 * Esquema de seguimiento de confirmación de conjuntos de transacciones de X12
@@ -33,33 +29,33 @@ Puede usar estos esquemas de seguimiento de X12 en su cuenta de integración de 
 * Esquema de seguimiento de confirmación de grupos funcionales de X12
 
 ## <a name="x12-transaction-set-tracking-schema"></a>Esquema de seguimiento de conjuntos de transacciones de X12
-````java
 
-    {
-            "agreementProperties": {
-                "senderPartnerName": "",
-                "receiverPartnerName": "",
-                "senderQualifier": "",
-                "senderIdentifier": "",
-                "receiverQualifier": "",
-                "receiverIdentifier": "",
-                "agreementName": ""
-            },
-            "messageProperties": {
-                "direction": "",
-                "interchangeControlNumber": "",
-                "functionalGroupControlNumber": "",
-                "transactionSetControlNumber": "",
-                "CorrelationMessageId": "",
-                "messageType": "",
-                "isMessageFailed": "",
-                "isTechnicalAcknowledgmentExpected": "",
-                "isFunctionalAcknowledgmentExpected": "",
-                "needAk2LoopForValidMessages":  "",
-                "segmentsCount": ""
-            }
-    }
-````
+```json
+{
+   "agreementProperties": {
+      "senderPartnerName": "",
+      "receiverPartnerName": "",
+      "senderQualifier": "",
+      "senderIdentifier": "",
+      "receiverQualifier": "",
+      "receiverIdentifier": "",
+      "agreementName": ""
+   },
+   "messageProperties": {
+      "direction": "",
+      "interchangeControlNumber": "",
+      "functionalGroupControlNumber": "",
+      "transactionSetControlNumber": "",
+      "CorrelationMessageId": "",
+      "messageType": "",
+      "isMessageFailed": "",
+      "isTechnicalAcknowledgmentExpected": "",
+      "isFunctionalAcknowledgmentExpected": "",
+      "needAk2LoopForValidMessages":  "",
+      "segmentsCount": ""
+   }
+}
+```
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
@@ -81,40 +77,41 @@ Puede usar estos esquemas de seguimiento de X12 en su cuenta de integración de 
 | isFunctionalAcknowledgmentExpected | boolean | Si la confirmación funcional se ha configurado en el contrato X12. (Obligatorio) |
 | needAk2LoopForValidMessages | boolean | Si el bucle AK2 se requiere para un mensaje válido. (Obligatorio) |
 | segmentsCount | Entero | Número de segmentos del conjunto de transacciones de X12. (Opcional) |
+||||
 
 ## <a name="x12-transaction-set-acknowledgement-tracking-schema"></a>Esquema de seguimiento de confirmación de conjuntos de transacciones de X12
-````java
 
-    {
-            "agreementProperties": {
-                "senderPartnerName": "",
-                "receiverPartnerName": "",
-                "senderQualifier": "",
-                "senderIdentifier": "",
-                "receiverQualifier": "",
-                "receiverIdentifier": "",
-                "agreementName": ""
-            },
-            "messageProperties": {
-                "direction": "",
-                "interchangeControlNumber": "",
-                "functionalGroupControlNumber": "",
-                "isaSegment": "",
-                "gsSegment": "",
-                "respondingfunctionalGroupControlNumber": "",
-                "respondingFunctionalGroupId": "",
-                "respondingtransactionSetControlNumber": "",
-                "respondingTransactionSetId": "",
-                "statusCode": "",
-                "processingStatus": "",
-                "CorrelationMessageId": ""
-                "isMessageFailed": "",
-                "ak2Segment": "",
-                "ak3Segment": "",
-                "ak5Segment": ""
-            }
-    }
-````
+```json
+{
+   "agreementProperties": {
+      "senderPartnerName": "",
+      "receiverPartnerName": "",
+      "senderQualifier": "",
+      "senderIdentifier": "",
+      "receiverQualifier": "",
+      "receiverIdentifier": "",
+      "agreementName": ""
+   },
+   "messageProperties": {
+      "direction": "",
+      "interchangeControlNumber": "",
+      "functionalGroupControlNumber": "",
+      "isaSegment": "",
+      "gsSegment": "",
+      "respondingfunctionalGroupControlNumber": "",
+      "respondingFunctionalGroupId": "",
+      "respondingtransactionSetControlNumber": "",
+      "respondingTransactionSetId": "",
+      "statusCode": "",
+      "processingStatus": "",
+      "CorrelationMessageId": "",
+      "isMessageFailed": "",
+      "ak2Segment": "",
+      "ak3Segment": "",
+      "ak5Segment": ""
+   }
+}
+```
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
@@ -142,36 +139,37 @@ Puede usar estos esquemas de seguimiento de X12 en su cuenta de integración de 
 | ak2Segment | string | Confirmación para un conjunto de transacciones del grupo funcional recibido. (Opcional) |
 | ak3Segment | string | Indica que hay errores en un segmento de datos. (Opcional) |
 | ak5Segment | string | Indica si el conjunto de transacciones identificado en el segmento de AK2 se acepta o se rechaza, y el motivo de la aceptación o rechazo. (Opcional) |
+||||
 
 ## <a name="x12-interchange-tracking-schema"></a>Esquema de seguimiento de intercambio de X12
-````java
 
-    {
-            "agreementProperties": {
-                "senderPartnerName": "",
-                "receiverPartnerName": "",
-                "senderQualifier": "",
-                "senderIdentifier": "",
-                "receiverQualifier": "",
-                "receiverIdentifier": "",
-                "agreementName": ""
-            },
-            "messageProperties": {
-                "direction": "",
-                "interchangeControlNumber": "",
-                "isaSegment": "",
-                "isTechnicalAcknowledgmentExpected": "",
-                "isMessageFailed": "",
-                "isa09": "",
-                "isa10": "",
-                "isa11": "",
-                "isa12": "",
-                "isa14": "",
-                "isa15": "",
-                "isa16": ""
-            }
-    }
-````
+```json
+{
+   "agreementProperties": {
+      "senderPartnerName": "",
+      "receiverPartnerName": "",
+      "senderQualifier": "",
+      "senderIdentifier": "",
+      "receiverQualifier": "",
+      "receiverIdentifier": "",
+      "agreementName": ""
+   },
+   "messageProperties": {
+      "direction": "",
+      "interchangeControlNumber": "",
+      "isaSegment": "",
+      "isTechnicalAcknowledgmentExpected": "",
+      "isMessageFailed": "",
+      "isa09": "",
+      "isa10": "",
+      "isa11": "",
+      "isa12": "",
+      "isa14": "",
+      "isa15": "",
+      "isa16": ""
+   }
+}
+```
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
@@ -194,33 +192,35 @@ Puede usar estos esquemas de seguimiento de X12 en su cuenta de integración de 
 | isa14 | string | Se solicita la confirmación de X12. (Opcional) |
 | isa15 | string | Indicador de prueba o de producción. (Opcional) |
 | isa16 | string | Separador de elementos. (Opcional) |
+||||
 
 ## <a name="x12-interchange-acknowledgement-tracking-schema"></a>Esquema de seguimiento de confirmación de intercambio de X12
-````java
-    {
-            "agreementProperties": {
-                "senderPartnerName": "",
-                "receiverPartnerName": "",
-                "senderQualifier": "",
-                "senderIdentifier": "",
-                "receiverQualifier": "",
-                "receiverIdentifier": "",
-                "agreementName": ""
-            },
-            "messageProperties": {
-                "direction": "",
-                "interchangeControlNumber": "",
-                "isaSegment": "",
-                "respondingInterchangeControlNumber": "",
-                "isMessageFailed": "",
-                "statusCode": "",
-                "processingStatus": "",
-                "ta102": "",
-                "ta103": "",
-                "ta105": ""
-            }
-    }
-````
+
+```json
+{
+   "agreementProperties": {
+      "senderPartnerName": "",
+      "receiverPartnerName": "",
+      "senderQualifier": "",
+      "senderIdentifier": "",
+      "receiverQualifier": "",
+      "receiverIdentifier": "",
+      "agreementName": ""
+   },
+   "messageProperties": {
+      "direction": "",
+      "interchangeControlNumber": "",
+      "isaSegment": "",
+      "respondingInterchangeControlNumber": "",
+      "isMessageFailed": "",
+      "statusCode": "",
+      "processingStatus": "",
+      "ta102": "",
+      "ta103": "",
+      "ta105": ""
+   }
+}
+```
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
@@ -241,38 +241,39 @@ Puede usar estos esquemas de seguimiento de X12 en su cuenta de integración de 
 | ta102 | string | Fecha de intercambio. (Opcional) |
 | ta103 | string | Hora de intercambio. (Opcional) |
 | ta105 | string | Código de nota de intercambio. (Opcional) |
+||||
 
 ## <a name="x12-functional-group-tracking-schema"></a>Esquema de seguimiento de grupos funcionales de X12
-````java
 
-    {
-            "agreementProperties": {
-                "senderPartnerName": "",
-                "receiverPartnerName": "",
-                "senderQualifier": "",
-                "senderIdentifier": "",
-                "receiverQualifier": "",
-                "receiverIdentifier": "",
-                "agreementName": ""
-            },
-            "messageProperties": {
-                "direction": "",
-                "interchangeControlNumber": "",
-                "functionalGroupControlNumber": "",
-                "gsSegment": "",
-                "isTechnicalAcknowledgmentExpected": "",
-                "isFunctionalAcknowledgmentExpected": "",
-                "isMessageFailed": "",
-                "gs01": "",
-                "gs02": "",
-                "gs03": "",
-                "gs04": "",
-                "gs05": "",
-                "gs07": "",
-                "gs08": ""
-            }
-    }
-````
+```json
+{
+   "agreementProperties": {
+      "senderPartnerName": "",
+      "receiverPartnerName": "",
+      "senderQualifier": "",
+      "senderIdentifier": "",
+      "receiverQualifier": "",
+      "receiverIdentifier": "",
+      "agreementName": ""
+   },
+   "messageProperties": {
+      "direction": "",
+      "interchangeControlNumber": "",
+      "functionalGroupControlNumber": "",
+      "gsSegment": "",
+      "isTechnicalAcknowledgmentExpected": "",
+      "isFunctionalAcknowledgmentExpected": "",
+      "isMessageFailed": "",
+      "gs01": "",
+      "gs02": "",
+      "gs03": "",
+      "gs04": "",
+      "gs05": "",
+      "gs07": "",
+      "gs08": ""
+   }
+}
+```
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
@@ -297,36 +298,38 @@ Puede usar estos esquemas de seguimiento de X12 en su cuenta de integración de 
 | gs05 | string | Hora del grupo funcional. (Opcional) |
 | gs07 | string | Código de agencia responsable. (Opcional) |
 | gs08 | string | Código de identificador de versión/lanzamiento/industria. (Opcional) |
+||||
 
 ## <a name="x12-functional-group-acknowledgement-tracking-schema"></a>Esquema de seguimiento de confirmación de grupos funcionales de X12
-````java
-    {
-            "agreementProperties": {
-                "senderPartnerName": "",
-                "receiverPartnerName": "",
-                "senderQualifier": "",
-                "senderIdentifier": "",
-                "receiverQualifier": "",
-                "receiverIdentifier": "",
-                "agreementName": ""
-            },
-            "messageProperties": {
-                "direction": "",
-                "interchangeControlNumber": "",
-                "functionalGroupControlNumber": "",
-                "isaSegment": "",
-                "gsSegment": "",
-                "respondingfunctionalGroupControlNumber": "",
-                "respondingFunctionalGroupId": "",
-                "isMessageFailed": "",
-                "statusCode": "",
-                "processingStatus": "",
-                "ak903": "",
-                "ak904": "",
-                "ak9Segment": ""
-            }
-    }
-````
+
+```json
+{
+   "agreementProperties": {
+      "senderPartnerName": "",
+      "receiverPartnerName": "",
+      "senderQualifier": "",
+      "senderIdentifier": "",
+      "receiverQualifier": "",
+      "receiverIdentifier": "",
+      "agreementName": ""
+   },
+   "messageProperties": {
+      "direction": "",
+      "interchangeControlNumber": "",
+      "functionalGroupControlNumber": "",
+      "isaSegment": "",
+      "gsSegment": "",
+      "respondingfunctionalGroupControlNumber": "",
+      "respondingFunctionalGroupId": "",
+      "isMessageFailed": "",
+      "statusCode": "",
+      "processingStatus": "",
+      "ak903": "",
+      "ak904": "",
+      "ak9Segment": ""
+   }
+}
+```
 
 | Propiedad | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
@@ -350,10 +353,16 @@ Puede usar estos esquemas de seguimiento de X12 en su cuenta de integración de 
 | ak903 | string | Número de conjuntos de transacciones recibidos. (Opcional) |
 | ak904 | string | Número de conjuntos de transacciones aceptados en el grupo funcional identificado. (Opcional) |
 | ak9Segment | string | Si el grupo funcional identificado en el segmento AK1 se acepta o se rechaza, y el motivo de la aceptación o el rechazo. (Opcional) |
+|||| 
+
+## <a name="b2b-protocol-tracking-schemas"></a>Esquemas de seguimiento de protocolos B2B
+
+Para obtener información sobre los esquemas de seguimiento de protocolos B2B, consulte:
+
+* [Esquemas de seguimiento de AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)   
+* [Esquemas de seguimiento personalizado de B2B](logic-apps-track-integration-account-custom-tracking-schema.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Más información sobre la [supervisión de mensajes B2B](logic-apps-monitor-b2b-message.md).
-* Más información sobre los [esquemas de seguimiento de AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md).
-* Más información sobre los [esquemas de seguimiento personalizado de B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md).
 * Obtenga información acerca del [seguimiento de mensajes B2B en Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
-* Más información sobre el [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)  

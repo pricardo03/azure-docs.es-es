@@ -1,6 +1,6 @@
 ---
-title: Asignar roles para recursos de Azure mediante Privileged Identity Management | Microsoft Docs
-description: Se describe cómo asignar roles en PIM.
+title: Asignación de roles de recursos de Azure en PIM | Microsoft Docs
+description: Aprenda a asignar roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,25 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 52320fe160fc1df2997dd419b406fce24f43b786
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7019a6f97a9590d3b652584015f3077f4ed075af
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622983"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188927"
 ---
-# <a name="assign-roles-for-azure-resources-by-using-privileged-identity-management"></a>Asignar roles para recursos de Azure mediante Privileged Identity Management
+# <a name="assign-azure-resource-roles-in-pim"></a>Asignación de roles de recursos de Azure en PIM
+
+Azure AD PIM puede administrar los roles incorporados de los recursos de Azure, así como los roles personalizados, entre ellos, los siguientes:
+
+- Propietario
+- Administrador de acceso de usuario
+- Colaborador
+- Administrador de seguridad
+- Y muchos otros
+
+>[!NOTE]
+Los usuarios o los miembros de un grupo asignados a los roles Propietario o Administrador de acceso de usuario y los administradores globales que permiten la administración de suscripciones de Azure AD son administradores de recursos. Estos administradores pueden asignar roles, configurar opciones de rol y revisar el acceso con PIM a los recursos de Azure. Consulte la lista de [roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="assign-roles"></a>Asignación de roles
 
@@ -76,3 +87,8 @@ Si tiene un rol pendiente de activación, se muestra un banner de notificación 
 Para modificar las asignaciones existentes desde la vista de detalles del usuario o grupo, seleccione **Cambiar configuración** en la barra de acciones. Cambie el tipo de asignación a **Just-In-Time** o **Directa**.
 
 ![Panel "Detalles de usuario" con el botón "Cambiar configuración"](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Configuración de roles de recurso de Azure en PIM](pim-resource-roles-configure-role-settings.md)
+- [Asignación de roles de directorio de Azure AD en PIM](pim-how-to-add-role-to-user.md)

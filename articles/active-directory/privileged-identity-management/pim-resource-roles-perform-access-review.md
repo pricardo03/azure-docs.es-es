@@ -1,6 +1,6 @@
 ---
-title: Realización de una revisión de acceso en Privileged Identity Management para recursos de Azure | Microsoft Docs
-description: En este documento se describe cómo realizar una revisión de acceso en PIM para recursos de Azure, de acuerdo con un rol de recursos.
+title: Realización de una revisión de acceso para los roles de recurso de Azure en PIM | Microsoft Docs
+description: Aprenda a realizar una revisión de acceso de los roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 336ad1d7eff8eee0f2370e206eb98f20b4efb45b
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: a96a1de7828797f1124280fca95a3358210b55b7
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617231"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189725"
 ---
-# <a name="perform-an-access-review-in-pim-according-to-resource-role"></a>Realización de una revisión de acceso de PIM, según el rol de recurso
+# <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>Realización de una revisión de acceso para los roles de recurso de Azure en PIM
 Privileged Identity Management (PIM) para recursos de Azure simplifica el modo en que las empresas administran el acceso con privilegios a los recursos de Azure. 
 
 Si se le ha asignado un rol administrativo, el administrador de roles con privilegios de su organización le puede pedir que revise y confirme periódicamente que aún necesita ese rol para su trabajo. Puede que reciba un correo electrónico con un vínculo o que vaya directamente al [Portal de Azure](https://portal.azure.com). Siga los pasos de este artículo para realizar una autorrevisión de los roles asignados.
@@ -50,3 +50,7 @@ Para buscar y completar la revisión de acceso, siga estos pasos:
 4. Elija **Aprobar** o **Denegar**. En el cuadro de texto **Proporcionar un motivo**, puede que necesite incluir un motivo de su decisión.
 
    ![Captura de pantalla de la página de detalles de la revisión](media/azure-pim-resource-rbac/rbac-access-review-choice.png)
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Realización de una revisión de acceso para los roles de directorio de Azure AD en PIM](pim-how-to-perform-security-review.md)
