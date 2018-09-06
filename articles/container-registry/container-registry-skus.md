@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 08/28/2018
 ms.author: marsma
-ms.openlocfilehash: 5d9001bce4f835e4b9b82ba1c30d09f74eebd1d2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5c10c961519614d1560f27c41ba57237085261ba
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442758"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190415"
 ---
 # <a name="azure-container-registry-skus"></a>SKU de Azure Container Registry
 
@@ -24,13 +24,11 @@ Azure Container Registry (ACR) está disponible en varios niveles de servicio, c
 | **Básico** | SÍ | Un punto de entrada optimizado para los costos para que los desarrolladores aprendan sobre Azure Container Registry. Los registros básicos tienen las mismas funcionalidades de programación que los estándar y premium (integración de la autenticación de Azure Active Directory, eliminación de imágenes y webhooks), sin embargo, existen restricciones de uso y tamaño. |
 | **Estándar** | SÍ | Los registros estándar ofrecen las mismas funcionalidades que los básicos, pero con mayores límites de almacenamiento y un mayor rendimiento de las imágenes. Los registros estándar deberían satisfacer las necesidades de la mayoría de los escenarios de producción. |
 | **Premium** | SÍ | Los registros premium proporcionan límites superiores en las restricciones como las operaciones de almacenamiento y simultáneas, por lo que permiten trabajar con escenarios de mayor volumen. Además de la mayor capacidad de rendimiento de las imágenes, el nivel Premium agrega características como la [replicación geográfica][container-registry-geo-replication] para la administración de un único registro en varias regiones y el mantenimiento de un registro cercano a la red para cada implementación. |
-| Clásico | Sin  | La SKU de registro clásica habilitó la versión inicial del servicio Azure Container Registry en Azure. Los registros clásicos se basan en una cuenta de almacenamiento que Azure crea en su suscripción, lo que limita la capacidad de ACR de proporcionar funcionalidades de nivel superior, como el aumento del rendimiento y la replicación geográfica. Debido a sus funcionalidades limitadas, se prevé que la SKU clásica quede en desuso en el futuro. |
+| Clásico<sup>1</sup> | Sin  | Con esta SKU se habilitó la versión inicial del servicio Azure Container Registry en Azure. Los registros clásicos se basan en una cuenta de almacenamiento que Azure crea en su suscripción, lo que limita la capacidad de ACR de proporcionar funcionalidades de nivel superior, como el aumento del rendimiento y la replicación geográfica. |
+
+<sup>1</sup> La SKU Clásico quedará **en desuso** en **marzo de 2019**. Utilice Básica, Estándar o Premium con todos los nuevos registros de contenedor.
 
 Elegir una SKU de nivel superior proporciona más rendimiento y escalado, sin embargo, todas las SKU administradas proporcionan las mismas capacidades de programación. Con varios niveles de servicio, puede empezar a trabajar con Basic, a continuación, pasar a Standard y luego Premium a medida que aumente su uso del registro.
-
-> [!NOTE]
-> Debido a la degradación planeada de la SKU de registro clásica, se recomienda usar los niveles Básico, Estándar o Premium para todos los registros nuevos. Para información acerca de cómo convertir el registro clásico existente, consulte [Actualización de un registro clásico][container-registry-upgrade].
->
 
 ## <a name="managed-vs-unmanaged"></a>Registros administrados frente a no administrados
 
@@ -41,6 +39,9 @@ Las SKU Básico, Estándar y Premium se conocen colectivamente como registros *a
 Los registros administrados aprovechan el almacenamiento de imágenes administrado totalmente por Azure. Es decir, una cuenta de almacenamiento que almacena las imágenes no aparece en su suscripción a Azure. El uso de una de las SKU de registro administrado tiene varias ventajas que se analizan en profundidad en [Almacenamiento de imágenes de contenedor en Azure Container Registry][container-registry-storage]. En este artículo se centra en las SKU de registro administrado y sus capacidades.
 
 ### <a name="unmanaged-classic"></a>No administrados (clásicos)
+
+> [!IMPORTANT]
+> La SKU Clásico está en desuso y dejará de estar disponible a partir de marzo de 2019. Utilice Básico, Estándar o Premium con todos los nuevos registros de contenedor.
 
 Los registros clásicos son "no administrados" en el sentido de que la cuenta de almacenamiento que respalda a un registro clásico se encuentra en *su* suscripción de Azure. Por lo tanto, usted es responsable de la administración de la cuenta de almacenamiento en el que se almacenan las imágenes de contenedor. Con los registros no administrados, no puede cambiar entre las SKU a medida que sus necesidades cambian (excepto [actualizar][container-registry-upgrade] a un registro administrado), y varias características de los registros administrados no están disponibles (por ejemplo, la eliminación de imágenes de contenedor, [la replicación geográfica][container-registry-geo-replication] y [los webhooks][container-registry-webhook]).
 

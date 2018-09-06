@@ -1,27 +1,23 @@
 ---
 title: 'Solución de problemas y diagnóstico de errores: Azure Logic Apps | Microsoft Docs'
-description: Comprender cómo y por qué se producirá un error en las aplicaciones lógicas
+description: Más información sobre cómo solucionar problemas y diagnosticar errores de flujo de trabajo en Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.service: logic-apps
-ms.devlang: ''
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: logic-apps
+ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.date: 10/15/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: b0bf6cd747860d938f80787d9bef6634a6a22d09
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 994e7945a7107815029bd415f4cc0d45bb68e335
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441539"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123694"
 ---
-# <a name="troubleshoot-and-diagnose-logic-app-failures"></a>Solución de problemas y diagnóstico de errores en las aplicaciones lógicas
+# <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Solución de problemas y diagnóstico de errores de flujo de trabajo en Azure Logic Apps
 
 La aplicación lógica genera información que puede ayudarle a diagnosticar y depurar los problemas de la aplicación. Puede diagnosticar una aplicación lógica revisando cada paso del flujo de trabajo a través de Azure Portal. O bien, puede agregar algunos pasos a un flujo de trabajo para la depuración en tiempo de ejecución.
 

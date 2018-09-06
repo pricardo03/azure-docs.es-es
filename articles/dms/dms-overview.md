@@ -9,13 +9,13 @@ ms.reviewer: douglasl
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/20/2018
-ms.openlocfilehash: 4bfa6ef778f51446146de4c10575ac7a287c68dc
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.date: 08/27/2018
+ms.openlocfilehash: 443edcaf1d087028120f4996ba5abef00b1d2c94
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246849"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041344"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>¿Qué es Azure Database Migration Service?
 Azure Database Migration Service es un servicio totalmente administrado diseñado para permitir migraciones completas desde varios orígenes de base de datos hasta las plataformas de datos de Azure con un tiempo de inactividad mínimo.
@@ -25,6 +25,12 @@ Azure Database Migration Service integra una parte de la funcionalidad de nuestr
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 Para obtener información actualizada acerca de las regiones donde esté disponible Database Migration Service, consulte [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/).
+
+> [!NOTE]
+> Las migraciones en línea y la funcionalidad de recomendación de SKU actualmente solo están disponibles en las siguientes regiones:
+> - Central EE. UU.
+> - Este de EE. UU. 2
+> - Europa occidental
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Creación de una instancia de Azure Database Migration Service mediante Azure Portal](quickstart-create-data-migration-service-portal.md).

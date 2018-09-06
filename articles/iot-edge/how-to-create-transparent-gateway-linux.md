@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f54001c26938ea508111542b930b189342303633
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: f8ac885444c0ba52802024be9a78dfc0737e2673
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186870"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247690"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Creación de un dispositivo de IoT Edge con Linux que actúa como una puerta de enlace transparente
 
@@ -80,9 +80,9 @@ Los pasos siguientes le guían por el proceso de crear los certificados e instal
    >[!NOTE]
    > **NO** use un nombre que sea igual que el nombre de host DNS de la puerta de enlace. Si lo hace, la certificación del cliente con estos certificados generará un error.
 
-      ```cmd
-      ./certGen.sh create_edge_device_certificate "<gateway device name>"
-      ```
+   ```cmd
+   ./certGen.sh create_edge_device_certificate "<gateway device name>"
+   ```
 
    Las salidas de la ejecución del script son los certificados y la clave siguientes:
    * `$WRKDIR/certs/new-edge-device.*`
@@ -101,18 +101,24 @@ Cree una cadena de certificado a partir del certificado de entidad de certificac
    * Certificado de entidad de certificación de dispositivo: `$WRKDIR/certs/new-edge-device-full-chain.cert.pem`
    * Clave privada de entidad de certificación de dispositivo: `$WRKDIR/private/new-edge-device.key.pem`
    * Entidad de certificación de propietario: `$WRKDIR/certs/azure-iot-test-only.root.ca.cert.pem`
+   
+2. Abra el archivo de configuración de IoT Edge. Es un archivo protegido por lo que puede que tenga que usar privilegios elevados para acceder a él.
+   
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
 
-2.  Establezca las propiedades `certificate` del archivo YAML de configuración del demonio de seguridad en la ruta de acceso donde colocó los archivos de certificado y clave.
+3.  Establezca las propiedades `certificate` del archivo YAML de configuración del demonio de Iot Edge en la ruta de acceso donde colocó los archivos de certificado y clave.
 
-```yaml
-certificates:
-  device_ca_cert: "$CERTDIR/certs/new-edge-device-full-chain.cert.pem"
-  device_ca_pk: "$CERTDIR/private/new-edge-device.key.pem"
-  trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
-```
+   ```yaml
+   certificates:
+     device_ca_cert: "$CERTDIR/certs/new-edge-device-full-chain.cert.pem"
+     device_ca_pk: "$CERTDIR/private/new-edge-device.key.pem"
+     trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
+   ```
 
 ## <a name="deploy-edgehub-to-the-gateway"></a>Implementación de EdgeHub en la puerta de enlace
-Una de las funcionalidades clave de Azure IoT Edge es que puede implementar módulos en dispositivos de IoT Edge desde la nube. En esta sección tiene que crear una implementación aparentemente vacía; sin embargo, Edge Hub se agrega automáticamente a todas las implementaciones incluso si no existe ningún otro módulo. Edge Hub es el único módulo que necesita en un dispositivo de Edge para que actúe como una puerta de enlace transparente, así que es suficiente con crear una implementación vacía. 
+Una de las funcionalidades clave de Azure IoT Edge es que puede implementar módulos en dispositivos de IoT Edge desde la nube. En esta sección tiene que crear una implementación aparentemente vacía; pero Edge Hub se agrega automáticamente a todas las implementaciones aunque no exista ningún otro módulo. Edge Hub es el único módulo que necesita en un dispositivo de Edge para que actúe como una puerta de enlace transparente, así que es suficiente con crear una implementación vacía. 
 1. En Azure Portal, navegue hasta el centro de IoT.
 2. Vaya a **IoT Edge** y seleccione el dispositivo IoT Edge que quiere usar como puerta de enlace.
 3. Seleccione **Set modules** (Establecer módulos).

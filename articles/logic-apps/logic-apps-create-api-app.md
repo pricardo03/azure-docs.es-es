@@ -1,28 +1,23 @@
 ---
 title: Creación de API web y API de REST para Azure Logic Apps | Microsoft Docs
-description: Creación de API web y API de REST para llamar a las API, los servicios o los sistemas de flujos de trabajo de aplicación lógica para integraciones de sistemas
-keywords: API web, API de REST, flujos de trabajo, integraciones de sistemas
+description: Creación de API web y API REST para llamar a las API, los servicios o los sistemas para integraciones de sistemas en Azure Logic Apps
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.date: 5/26/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 748070d43c34b501af3455d03429be1f44178b7f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
+ms.date: 05/26/2017
+ms.openlocfilehash: a761e384a356a0cbf5531eee7340ddbbd1526909
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172024"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122253"
 ---
-# <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Creación de API personalizadas que se pueden llamar desde flujos de trabajo de aplicación lógica
+# <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creación de API personalizadas que se pueden llamar desde Azure Logic Apps
 
 Aunque Azure Logic Apps ofrece [más de 100 conectores integrados](../connectors/apis-list.md) que puede usar en flujos de trabajo de aplicación lógica, es posible que desee llamar a las API, los sistemas y los servicios que no estén disponibles como conectores. Puede crear sus propias API que proporcionan acciones y desencadenadores para usarlos en aplicaciones lógicas. Estas son otras razones por las que podría interesarle crear sus propias API que puede llamar desde flujos de trabajo de aplicación lógica:
 

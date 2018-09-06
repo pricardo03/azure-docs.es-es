@@ -1,66 +1,89 @@
 ---
-title: Información sobre cómo utilizar el conector de SFTP en Logic Apps | Microsoft Docs
-description: Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. Conéctese a la API de SFTP para enviar y recibir archivos. Puede realizar varias operaciones, como crear, actualizar, obtener o eliminar archivos.
+title: Conexión a una cuenta de SFTP desde Azure Logic Apps | Microsoft Docs
+description: Automatice tareas y flujos de trabajo que supervisan, crean, administran, envían y reciben archivos en un servidor SFTP mediante Azure Logic Apps.
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 07/20/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 28ea02082903f71f619a52672ba41ce65557b0c7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/24/2018
+ms.openlocfilehash: 8f430477883543aa8f87eb3fb0fb49ab31e2d723
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296009"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042045"
 ---
-# <a name="get-started-with-the-sftp-connector"></a>Introducción al conector de SFTP
-Use el conector SFTP a fin de acceder a una cuenta SFTP para enviar y recibir archivos. Puede realizar varias operaciones, como crear, actualizar, obtener o eliminar archivos.  
+# <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante Azure Logic Apps
 
-Para poder usar [un conector](apis-list.md), primero debe crear una aplicación lógica. Por tanto, puede comenzar [creando una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Con Azure Logic Apps y el conector SFTP, puede crear tareas y flujos de trabajo automatizados que supervisan, crean, envían y reciben archivos mediante su cuenta en un servidor [SFTP](https://www.ssh.com/ssh/sftp/), junto con otras acciones, por ejemplo:
+
+* Supervisar cuándo se agregan o cambian archivos
+* Obtener, crear, copiar, actualizar, enumerar y eliminar archivos
+* Obtener contenido de archivos y metadatos
+* Extraer archivos en carpetas
+
+Puede usar desencadenadores que obtengan respuestas de su servidor SFTP y permitan que la salida esté disponible para otras acciones. Puede usar las acciones en las aplicaciones lógicas para realizar tareas con archivos en el servidor SFTP. También puede hacer que otras acciones usen la salida de las acciones de SFTP. Por ejemplo, si recupera archivos del servidor SFTP con regularidad, puede enviar un correo electrónico sobre esos archivos y su contenido mediante el conector Office 365 Outlook o el conector Outlook.com.
+Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
+
+* Las credenciales de la cuenta y la dirección del servidor host SFTP.
+
+   Las credenciales autorizan a la aplicación lógica a crear una conexión con la cuenta de SFTP y acceder a ella.
+
+* Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* La aplicación lógica desde donde quiere acceder a la cuenta de SFTP. Para comenzar con un desencadenador de SFTP, [cree una aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar una acción de SFTP, inicie la aplicación lógica con otro desencadenador, por ejemplo, el desencadenador **Recurrence**.
 
 ## <a name="connect-to-sftp"></a>Conexión a SFTP
-Para que la aplicación lógica pueda acceder a un servicio, primero debe crear una *conexión* con dicho servicio. Una [conexión](connectors-overview.md) proporciona conectividad entre una aplicación lógica y otro servicio.  
 
-### <a name="create-a-connection-to-sftp"></a>Creación de una conexión a SFTP
-> [!INCLUDE [Steps to create a connection to SFTP](../../includes/connectors-create-api-sftp.md)]
-> 
-> 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-## <a name="use-an-sftp-trigger"></a>Uso de un desencadenador de SFTP
-Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
 
-En este ejemplo, el desencadenador **SFTP - When a file is added or modified** (SFTP - Cuando se agrega o modifica un archivo) se usa para iniciar un flujo de trabajo de una aplicación lógica cuando un archivo se agrega a un servidor SFTP, o se modifica en él. También se agrega una condición que comprueba el contenido del archivo nuevo o modificado, y toma una decisión para extraer el archivo si su contenido indica que debe extraerse antes de usar el contenido. Por último, se agrega una acción para extraer el contenido de un archivo y colocar el contenido extraído en una carpeta del servidor SFTP. 
+1. Para las aplicaciones lógicas en blanco, en el cuadro de búsqueda, escriba "sftp" como filtro. En la lista de desencadenadores, seleccione el que desee. 
 
-En un entorno empresarial, este desencadenador se puede utilizar para supervisar en una carpeta SFTP los nuevos archivos que representan los pedidos de los clientes.  Posteriormente, puede utilizar una acción del conector de SFTP, como **Get file content** (Obtener contenido del archivo), para obtener el contenido del pedido, con el fin de procesarlo y almacenarlo en una base de datos de pedidos.
+   O bien
 
-> [!INCLUDE [Steps to create an SFTP trigger](../../includes/connectors-create-api-sftp-trigger.md)]
-> 
-> 
+   Para las aplicaciones lógicas existentes, en el último paso donde desea agregar una acción, elija **Nuevo paso**. 
+   En el cuadro de búsqueda, escriba "sftp" como filtro. 
+   En la lista de acciones, seleccione la acción que desee.
 
-## <a name="add-a-condition"></a>Agregar una condición
-> [!INCLUDE [Steps to add a condition](../../includes/connectors-create-api-sftp-condition.md)]
-> 
-> 
+   Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. 
+   Elija el signo más (**+**) que aparece y seleccione **Agregar una acción**.
 
-## <a name="use-an-sftp-action"></a>Uso de una acción de SFTP
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+1. Proporcione la información necesaria para la conexión y, a continuación, seleccione **Crear**:
 
-> [!INCLUDE [Steps to create an SFTP action](../../includes/connectors-create-api-sftp-action.md)]
-> 
-> 
+1. Proporcione los detalles necesarios para el desencadenador o la acción seleccionados y continúe con la compilación del flujo de trabajo de la aplicación lógica.
 
-## <a name="connector-specific-details"></a>Detalles específicos del conector
+## <a name="examples"></a>Ejemplos
 
-Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/sftpconnector/).
+### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>Desencadenador de SFTP: When a file is added or modified
 
-## <a name="more-connectors"></a>Más conectores
-Volver a la [lista de API](apis-list.md).
+Este desencadenador inicia un flujo de trabajo de aplicación lógica cuando detecta que se ha agregado o cambiado un archivo en un servidor SFTP. Por ejemplo, puede agregar una condición que compruebe el contenido del archivo y decida si obtener ese contenido, en función de si cumple una condición especificada. Por último, puede agregar una acción que obtenga el contenido del archivo y lo coloque en una carpeta en el servidor SFTP. 
+
+**Ejemplo empresarial**: puede usar este desencadenador para supervisar nuevos archivos en una carpeta de SFTP que representan los pedidos de los clientes. Luego, puede usar una acción de SFTP, como **Get file content** para obtener el contenido del pedido para su posterior procesamiento y almacenar ese pedido en una base de datos de pedidos.
+
+### <a name="sftp-action-get-content"></a>Acción de SFTP: Get content
+
+Esta acción obtiene el contenido de un archivo en un servidor SFTP. Por ejemplo, puede agregar el desencadenador del ejemplo anterior y una condición que debe cumplir el contenido del archivo. Si la condición es verdadera, se puede ejecutar la acción que obtiene el contenido. 
+
+## <a name="connector-reference"></a>Referencia de conectores
+
+Para conocer los detalles técnicos sobre desencadenadores, acciones y límites, que se incluyen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/sftpconnector/) del conector.
+
+## <a name="get-support"></a>Obtención de soporte técnico
+
+* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)

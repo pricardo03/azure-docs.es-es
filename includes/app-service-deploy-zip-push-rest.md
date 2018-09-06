@@ -12,7 +12,7 @@ En el ejemplo siguiente se usa la herramienta cURL para implementar un archivo .
 curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
 ```
 
-Esta solicitud desencadena la implementación de inserción desde el archivo .zip cargado. Puede revisar las implementaciones actuales y pasadas mediante el punto de conexión https://<app_name>.scm.azurewebsites.net/api/deployments, tal como se muestra en el siguiente ejemplo de cURL. Una vez más, reemplace `<app_name>` por el nombre de la aplicación y `<deployment_user>` por el nombre de usuario de las credenciales de implementación.
+Esta solicitud desencadena la implementación de inserción desde el archivo .zip cargado. Puede revisar las implementaciones actuales y pasadas mediante el punto de conexión `https://<app_name>.scm.azurewebsites.net/api/deployments`, tal como se muestra en el siguiente ejemplo de cURL. Una vez más, reemplace `<app_name>` por el nombre de la aplicación y `<deployment_user>` por el nombre de usuario de las credenciales de implementación.
 
 ```bash
 curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deployments

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b05eef79e94cff74b1e02243cd7c8d94e5acbb3c
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c9cebd16d34758550144a50b6ff26da84924a964
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493977"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745675"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,6 +58,11 @@ Si el almacén de datos en la nube es compatible con HTTPS o TLS, todas las tran
 
 > [!NOTE]
 > Todas las conexiones a Azure SQL Database y Azure SQL Data Warehouse requieren cifrado (SSL/TLS) siempre que haya datos en tránsito hacia y desde la base de datos. Al crear una canalización con JSON, agregue la propiedad encryption y establézcala en **true** en la cadena de conexión. Para Azure Storage, puede usar **HTTPS** en la cadena de conexión.
+
+> [!NOTE]
+> Para habilitar el cifrado en tránsito al mover los datos desde Oracle, aplique alguna de las opciones siguientes:
+> 1. En el servidor de Oracle, vaya a Oracle Advanced Security (OAS) y realice la configuración de cifrado, que admite el cifrado Triple-DES (3DES) y el Estándar de cifrado avanzado (AES); consulte [aquí](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759) los detalles. ADF negocia automáticamente el método de cifrado para usar el que configura en OAS al establecer la conexión con Oracle.
+> 2. En ADF, puede agregar EncryptionMethod=1 en la cadena de conexión (en el servicio vinculado). En este caso, se usará SSL/TLS como método de cifrado. Para usarlo, debe deshabilitar la configuración de cifrado no SSL en OAS en el lado servidor de Oracle para evitar conflictos de cifrado.
 
 > [!NOTE]
 > La versión de TLS usada es la 1.2.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: c9d656908d265aeb6143e857b0ea4f635203bdd9
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 82e8836892b033ccbb3c3ad9806257348afe3702
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258735"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818409"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conexión de la aplicación a Instancia administrada de Azure SQL Database
 
@@ -75,9 +75,23 @@ Este escenario se ilustra en el diagrama siguiente:
 
 A Instancia administrada se puede acceder solo mediante una dirección IP privada, por ello, para acceder desde el cuadro de desarrollo, primero debe realizar una conexión entre el cuadro de desarrollo y la red virtual de Instancia administrada.  
  
-En la configuración de una conexión de punto a sitio a una red virtual en los artículos de autenticación con certificados de Azure nativos ([Azure Portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [CLI de Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) se muestran los detalles de cómo se hace.  
+En la configuración de una conexión de punto a sitio a una red virtual en los artículos de autenticación con certificados de Azure nativos ([Azure Portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [CLI de Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) se muestran los detalles de cómo se hace. 
+
+## <a name="required-versions-of-drivers-and-tools"></a>Versiones necesarias de los controladores y las herramientas
+
+Si desea conectarse a Instancia administrada, se recomiendan las siguientes versiones mínimas de las herramientas y los controladores:
+
+| Controlador/Herramienta | Versión |
+| --- | --- |
+|.NET Framework | 4.6.1 o .NET Core | 
+|Controlador ODBC    | v17 |
+|Controlador PHP | 5.2.0 |
+|Controlador JDBC    | 6.4.0 |
+|Controlador de Node.js | 2.1.1 |
+|Controlador de OLEDB   | 18.0.2.0 |
+|SSMS   | 17.8.1 o [posterior](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información acerca de Instancia administrada, consulte [¿Qué es Instancia administrada de SQL Database (versión preliminar)?](sql-database-managed-instance.md).
-- Para un tutorial que muestra cómo crear una instancia administrada, consulte el artículo de [creación de instancias administradas](sql-database-managed-instance-create-tutorial-portal.md).
+- Para un tutorial que muestra cómo crear una instancia administrada, consulte el artículo de [creación de instancias administradas](sql-database-managed-instance-get-started.md).

@@ -1,5 +1,5 @@
 ---
-title: Consola serie de máquina virtual en Azure | Microsoft Docs
+title: Consola serie de máquina virtual de Azure | Microsoft Docs
 description: Consola serie bidireccional para máquinas virtuales de Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 20bd2d61671d89a5c2a13525ea119595cf0b7c93
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: d4ca44268740f48702594d9c87aa568d4f8eecb6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246642"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122412"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Consola serie de máquina virtual (versión preliminar) 
 
@@ -35,12 +35,20 @@ Para obtener documentación de la consola serie para VM Windows, [haga clic aqu�
 ## <a name="prerequisites"></a>Requisitos previos 
 
 * Debe utilizar el modelo de implementación de Resource Manager. No se admiten implementaciones clásicas. 
-* La máquina virtual TIENE QUE tener los [diagnósticos de arranque](boot-diagnostics.md) habilitados 
-* La cuenta que utilice la consola serie tiene que tener el [rol Colaborador](../../role-based-access-control/built-in-roles.md) para la máquina virtual y la cuenta de almacenamiento de [diagnósticos de arranque](boot-diagnostics.md). 
+* La máquina virtual DEBE tener los [diagnósticos de arranque](boot-diagnostics.md) habilitados (vea la captura de pantalla a continuación).
+
+    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
+    
+* La cuenta de Azure que utilice la consola serie tiene que tener el [rol Colaborador](../../role-based-access-control/built-in-roles.md) para la máquina virtual y la cuenta de almacenamiento de [diagnósticos de arranque](boot-diagnostics.md). 
+* La máquina virtual para la que está accediendo a la consola serie también debe tener una cuenta basada en contraseñas. Puede crear una con la funcionalidad [restablecer contraseña](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de la extensión de acceso de máquina virtual. Consulte la captura de pantalla siguiente.
+
+    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
+
 * Para conocer valores específicos de distribución de Linux, consulte [Acceso a la consola serie para Linux](#access-serial-console-for-linux).
 
 
-## <a name="open-the-serial-console"></a>Apertura de la consola serie
+
+## <a name="get-started-with-serial-console"></a>Introducción al uso de la consola serie
 La consola serie para las máquinas virtuales solo es accesible mediante [Azure Portal](https://portal.azure.com). A continuación se muestran los pasos requeridos para acceder a la consola de serie para las máquinas virtuales a través del portal. 
 
   1. Abra Azure Portal.
@@ -65,7 +73,7 @@ La consola serie puede deshabilitarse para toda una suscripción a través de la
 Como alternativa, puede usar el conjunto de comandos siguiente en Cloud Shell (comandos de bash que se muestran) para deshabilitar, habilitar y ver el estado deshabilitado de la consola serie para una suscripción. 
 
 * Para obtener el estado deshabilitado de la consola serie para una suscripción:
-    ```
+    ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
@@ -73,7 +81,7 @@ Como alternativa, puede usar el conjunto de comandos siguiente en Cloud Shell (c
     $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
     ```
 * Para deshabilitar la consola serie para una suscripción:
-    ```
+    ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
@@ -81,7 +89,7 @@ Como alternativa, puede usar el conjunto de comandos siguiente en Cloud Shell (c
     $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
     ```
 * Para habilitar la consola serie para una suscripción:
-    ```
+    ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
@@ -139,7 +147,7 @@ Oracle Linux        | Las imágenes de Oracle Linux disponibles en Azure tienen 
 Imágenes personalizadas de Linux     | Para habilitar la consola de serie para la imagen de VM de Linux personalizada, habilite el acceso de la consola en /etc/inittab para ejecutar un terminal en ttyS0. A continuación se muestra un ejemplo de cómo se agrega esto al archivo inittab: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Para obtener más información sobre la creación de imágenes personalizadas correctamente, consulte [Creación y carga de un VHD de Linux en Azure](https://aka.ms/createuploadvhd).
 
 ## <a name="errors"></a>Errors
-La mayoría de los errores son transitorios por naturaleza, y basta con reintentar establecer a menudo la conexión a la consola serie para solucionarlos. La tabla siguiente muestra una lista de errores y su solución 
+La mayoría de los errores son transitorios por naturaleza, y basta con reintentar establecer a menudo la conexión a la consola serie para solucionarlos. La tabla siguiente muestra una lista de errores y mitigaciones
 
 Error                            |   Mitigación 
 :---------------------------------|:--------------------------------------------|
@@ -154,7 +162,7 @@ Como nos encontramos aún en las etapas de versión preliminar para el acceso a 
 Problema                           |   Mitigación 
 :---------------------------------|:--------------------------------------------|
 No hay opción para la consola serie con la instancia de conjunto de escalado de máquinas virtuales |  Con esta versión preliminar, no se admite el acceso a la consola serie para las instancias del conjunto de escalado de máquinas virtuales.
-Al pulsar Entrar tras un banner de conexión no aparece la solicitud de inicio de sesión | [Pulsar Entrar no hace nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
+Al pulsar Entrar tras un banner de conexión no aparece la solicitud de inicio de sesión | Consulte esta página: [Pulsar Entrar no hace nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Esto puede ocurrir si está ejecutando una máquina virtual personalizada, un dispositivo reforzado o una configuración de GRUB que hace que Linux no pueda conectarse correctamente al puerto serie.
 Se encontró una respuesta "Prohibido" al obtener acceso a la cuenta de almacenamiento de diagnóstico de arranque de la VM. | Asegúrese de que el diagnóstico de arranque no tenga un firewall de cuentas. Se necesita una cuenta de almacenamiento de diagnóstico de arranque accesible para que la consola serie funcione.
 
 

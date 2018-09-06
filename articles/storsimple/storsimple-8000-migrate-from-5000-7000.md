@@ -4,25 +4,26 @@ description: Proporciona información general y los requisitos previos de la car
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: jeconnoc
+manager: twooley
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/11/2017
+ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 378eaea4c0cf19c48f47067e4f548f2d7f530377
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 23fde5fab8f223ff1d958a8fac6a31818f1fdd7c
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856695"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818923"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migración de datos del dispositivo de la serie 5000-7000 de StorSimple a la serie 8000
 
 > [!IMPORTANT]
+> - El 31 de julio de 2019, finalizará el estado de compatibilidad de la serie StorSimple 5000/7000. Se recomienda que los clientes de la serie StorSimple 5000/7000 migren a una de las alternativas descritas en el documento.
 > - La migración es actualmente una operación asistida. Si tiene la intención de migrar datos de su dispositivo StorSimple de la serie 5000-7000 a un dispositivo de la serie 8000, necesita programar la migración con Soporte técnico de Microsoft. Soporte técnico de Microsoft habilitará entonces la suscripción para la migración. Para más información, consulte cómo [abrir una incidencia de soporte técnico](storsimple-8000-contact-microsoft-support.md).
 > - Después de archivar la solicitud de servicio, puede tardar un par de semanas en ejecutar el plan de migración e iniciar la migración.
 > - Antes de ponerse en contacto con Soporte técnico de Microsoft, asegúrese de revisar y completar los [requisitos previos de migración](#migration-prerequisites) indicados en el artículo.

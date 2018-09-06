@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
+ms.date: 08/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecef13f0ce97c7cec5a6583479911a08a99b0877
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 1d335e135551b7b6faed8ee566acb14b46fd6c81
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110735"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107518"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Procedimiento para instalar y configurar SAP HANA en Azure (instancias grandes)
 
@@ -41,6 +41,9 @@ La instalación de SAP HANA es su responsabilidad y puede hacerlo inmediatamente
 > Según la directiva de SAP, la instalación de SAP HANA debe realizarla una persona certificada para realizar instalaciones de SAP HANA. Una persona que haya superado el examen de Certified SAP Technology Associate, el examen de certificación Instalación de SAP HANA o un integrador de sistemas (SI) certificado de SAP.
 
 Vuelva a comprobar, en especial si tiene pensado instalar HANA 2.0, [Nota de compatibilidad de SAP n.º 2235581 - SAP HANA: Sistemas operativos admitidos](https://launchpad.support.sap.com/#/notes/2235581/E) que el sistema operativo es compatible con la versión de SAP HANA que ha decidido instalar. Comprobará que el sistema operativo compatible con HANA 2.0 tiene más restricciones que el sistema operativo compatible con HANA 1.0. 
+
+> [!IMPORTANT] 
+> Para las unidades de tipo II, en este momento solo se admite la versión del sistema operativo SLES 12 SP2. 
 
 ## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>Primeros pasos después de recibir las unidades de instancia grande de HANA
 
@@ -142,6 +145,9 @@ Con SAP HANA 2.0, el marco de hdbparam está en desuso. Como resultado, los par�
 Consulte los [escenarios admitidos por HLI](hana-supported-scenario.md) para conocer la distribución de almacenamiento correspondiente a su arquitectura.
 
 ## <a name="operating-system"></a>Sistema operativo
+
+> [!IMPORTANT] 
+> Para las unidades de tipo II, en este momento solo se admite la versión del sistema operativo SLES 12 SP2. 
 
 El espacio de intercambio de la imagen del sistema operativo proporcionada está establecido en 2 GB de acuerdo con la [SAP Support Note #1999997 - FAQ: SAP HANA Memory](https://launchpad.support.sap.com/#/notes/1999997/E) (Nota de compatibilidad de SAP 1999997: Preguntas más frecuentes sobre la memoria de SAP HANA). Cualquier valor diferente deseado debe establecerlo el cliente.
 

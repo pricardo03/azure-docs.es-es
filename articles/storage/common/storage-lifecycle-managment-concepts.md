@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: a3208152ddf198d00c0a158e466c9d024c17b4d6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: af32ea826f8150284c242fb6d1013924945aee97
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528450"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247789"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Administración del ciclo de vida de Azure Blob Storage (versión preliminar)
 
@@ -37,7 +37,7 @@ La directiva de administración del ciclo de vida está disponible con la cuenta
 La característica de administración del ciclo de vida es gratuita en la versión preliminar. A los clientes se les cobra el costo operativo habitual para las llamadas API [Mostrar blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) y [Establecer el nivel del blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier). Vea los [precios de blobs en bloques](https://azure.microsoft.com/pricing/details/storage/blobs/) para obtener más información sobre los precios.
 
 ## <a name="register-for-preview"></a>Registro en la versión preliminar 
-Para inscribirse en la versión preliminar pública, debe enviar una solicitud para registrar esta característica en la suscripción. Una vez aprobada su solicitud (en el plazo de unos días), cualquier cuenta existente o nueva de GPv2 o Blob Storage de las regiones Oeste de EE. UU. 2 y Centro-oeste de EE. UU. tendrá la característica habilitada. Durante la versión preliminar, solo se admiten los blobs en bloques. Como sucede con la mayoría de las versiones preliminares, esta característica no debe usarse para cargas de trabajo de producción hasta que se lance la disponibilidad general.
+Para inscribirse en la versión preliminar pública, debe enviar una solicitud para registrar esta característica en la suscripción. Una vez aprobada su solicitud (en el plazo de unos días), cualquier cuenta existente o nueva de GPv2 o Blob Storage de las regiones Oeste de EE. UU. 2, Centro-oeste de EE. UU. y Europa Occidental tendrá la característica habilitada. Durante la versión preliminar, solo se admiten los blobs en bloques. Como sucede con la mayoría de las versiones preliminares, esta característica no debe usarse para cargas de trabajo de producción hasta que se lance la disponibilidad general.
 
 Para enviar una solicitud, ejecute los siguientes comandos de PowerShell o de la CLI.
 

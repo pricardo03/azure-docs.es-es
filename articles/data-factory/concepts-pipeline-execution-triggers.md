@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 0af6ea05b663f0954785ce966440e3f698ad14a8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 8dfc2448861ca9b376246ac42f7563e44422d6de
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867093"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122440"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Ejecución y desencadenadores de canalización en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -276,12 +276,12 @@ En la tabla siguiente se muestra información general de los elementos del esque
 
 ### <a name="schema-defaults-limits-and-examples"></a>Valores predeterminados del esquema, límites y ejemplos
 
-| Propiedad JSON | type | Obligatorio | Valor predeterminado | Valores válidos | Ejemplo |
+| Propiedad JSON | Escriba | Obligatorio | Valor predeterminado | Valores válidos | Ejemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | string | Sí | None | Fechas y horas ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | objeto | Sí | None | Objeto de periodicidad | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | string | SÍ | None | Fechas y horas ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | objeto | SÍ | None | Objeto de periodicidad | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | número | Sin  | 1 | 1 a 1000 | `"interval":10` |
-| **endTime** | string | Sí | None | Valor de fecha y hora que representa un período de tiempo en el futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | string | SÍ | None | Valor de fecha y hora que representa un período de tiempo en el futuro | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | objeto | Sin  | None | Objeto de programación | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Propiedad startTime
@@ -324,7 +324,7 @@ Para más información sobre los desencadenadores de ventanas de saltos de tama�
 
 ## <a name="event-based-trigger"></a>Desencadenador basado en eventos
 
-Un desencadenador basado en eventos ejecuta canalizaciones en respuesta a un evento como, por ejemplo, la llegada de un archivo, o su eliminación, a Azure Blob Storage.
+Un desencadenador basado en eventos ejecuta canalizaciones en respuesta a un evento como, por ejemplo, la llegada de un archivo, o su eliminación, en Azure Blob Storage.
 
 Para más información acerca de los desencadenadores basados en eventos, consulte [Create a trigger that runs a pipeline in response to an event](how-to-create-event-trigger.md) (Creación de un desencadenador que ejecuta una canalización en respuesta a un evento).
 

@@ -1,105 +1,96 @@
 ---
-title: Aprenda a usar el conector de Twitter en Logic Apps | Microsoft Docs
-description: Información general del conector de Twitter con parámetros de la API de REST
-services: ''
-documentationcenter: ''
+title: Conexión a Twitter desde Azure Logic Apps | Microsoft Docs
+description: Automatice tareas y flujos de trabajo que supervisan y administran tweets, además de obtener datos sobre los seguidores, los usuarios a los que sigue, otros usuarios, escalas de tiempo y mucho más desde su cuenta de Twitter con Azure Logic Apps.
+services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
-ms.service: multiple
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: b44a973a94043f71f2fd9803abca47652363d8a1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: eea70d979a69a4855b6eeb892d1705ecadaa8434
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296550"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918652"
 ---
-# <a name="get-started-with-the-twitter-connector"></a>Introducción al conector de Twitter
-Con el conector de Twitter puede:
+# <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Supervisión y administración de Twitter con Azure Logic Apps
 
-* Publicar y obtener tweets
-* Acceder a escalas de tiempo, amigos y seguidores
-* Ejecutar cualquiera de las demás acciones y desencadenadores que se describen en este artículo
+Con Azure Logic Apps y el conector de Twitter, puede crear tareas automatizadas y flujos de trabajo que supervisan y administran los datos que le interesan en Twitter como tweets, seguidores, usuarios y usuarios a los que sigue, escalas de tiempo y mucho más, junto con otras acciones, por ejemplo:
 
-Para poder usar [un conector](apis-list.md), primero debe crear una aplicación lógica. Por tanto, puede comenzar [creando una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).  
+* Supervisar, publicar y buscar tweets
+* Obtener datos como seguidores, usuarios seguidos, escalas de tiempo y mucho más
+
+Puede usar desencadenadores que obtengan respuestas de su cuenta de Twitter y permitan que la salida esté disponible para otras acciones. Puede usar acciones que realicen tareas con su cuenta de Twitter. También puede hacer que otras acciones usen la salida de las acciones de Twitter. Por ejemplo, cuando aparezca un nuevo tweet con un hashtag específico, puede enviar mensajes con el conector de Slack. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+
+## <a name="prerequisites"></a>Requisitos previos
+
+* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
+
+* Las credenciales de usuario y la cuenta de Twitter
+
+   Las credenciales autorizan a la aplicación lógica a crear una conexión con la cuenta de Twitter y acceder a ella.
+
+* Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* La aplicación lógica desde donde quiere acceder a la cuenta de Twitter. Para comenzar con un desencadenador de Twitter, [cree una aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar una acción de Twitter, inicie la aplicación lógica con otro desencadenador, por ejemplo, **Recurrence**.
 
 ## <a name="connect-to-twitter"></a>Conexión a Twitter
-Para que la aplicación lógica pueda acceder a un servicio, primero debe crear una *conexión* con dicho servicio. Una [conexión](connectors-overview.md) proporciona conectividad entre una aplicación lógica y otro servicio.  
 
-### <a name="create-a-connection-to-twitter"></a>Creación de una conexión a Twitter
-> [!INCLUDE [Steps to create a connection to Twitter](../../includes/connectors-create-api-twitter.md)]
-> 
-> 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-## <a name="use-a-twitter-trigger"></a>Uso de un desencadenador de Twitter
-Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
 
-En este ejemplo, se usa el desencadenador **Cuando se publique un nuevo tweet** para buscar #Seattle. Y si se encuentra #Seattle, se actualiza un archivo en Dropbox con el texto del tweet. En un ejemplo de la empresa, puede buscar el nombre de su compañía y actualizar una base de datos SQL con el texto del tweet.
+1. Elija una ruta de acceso: 
 
-1. Escriba *twitter* en el cuadro de búsqueda del Diseñador de Logic Apps y seleccione el desencadenador **Twitter - When a new tweet is posted (Twitter - Cuando se publica un nuevo tweet)**.   
-   ![Imagen de desencadenador de Twitter 1](./media/connectors-create-api-twitter/trigger-1.png)  
-2. Escriba *#Seattle* en el control **Buscar texto**.  
-   ![Imagen de desencadenador de Twitter 2](./media/connectors-create-api-twitter/trigger-2.png) 
+   * Para las aplicaciones lógicas en blanco, en el cuadro de búsqueda, escriba "twitter" como filtro. 
+   En la lista de desencadenadores, seleccione el que desee. 
 
-En este punto, la aplicación lógica se ha configurado con un desencadenador que iniciará una ejecución de los otros desencadenadores y acciones en el flujo de trabajo. 
+     O bien
 
-> [!NOTE]
-> Para que una aplicación lógica sea funcional, debe contener al menos un desencadenador y una acción. Siga los pasos que se describen en la sección siguiente para agregar una acción.
+   * Para las aplicaciones lógicas existentes: 
+   
+     * En el último paso para agregar una acción, elija **Nuevo paso**. 
 
-## <a name="add-a-condition"></a>Agregar una condición
-Solo nos interesan tweets de los usuarios con más de 50 usuarios. Por lo tanto, se agrega primero una condición que confirme el número de seguidores a la aplicación lógica.  
+       O bien
 
-1. Seleccione **+ Nuevo paso** para agregar la acción que quiere que se ejecute cuando se encuentre #Seattle en un nuevo tweet.  
-   ![Imagen de acción de Twitter 1](../../includes/media/connectors-create-api-twitter/action-1.png)  
-2. Seleccione el vínculo **Agregar una condición**.  
-   ![Imagen de condición de Twitter 1](../../includes/media/connectors-create-api-twitter/condition-1.png)   
-   Se abrirá el control **Condición** donde puede comprobar las condiciones como *es igual a*, *es menor que*, *es mayor que*, *contiene*, etc.  
-   ![Imagen de condición de Twitter 2](../../includes/media/connectors-create-api-twitter/condition-2.png)   
-3. Seleccione el control **Elegir un valor**. En este control, puede seleccionar una o varias de las propiedades de cualquier acción o desencadenador anterior. La condición de este valor de propiedad se evalúa como true o false.
-   ![Imagen de condición de Twitter 3](../../includes/media/connectors-create-api-twitter/condition-3.png)   
-4. Seleccione **…** para expandir la lista de propiedades y ver todas las propiedades que están disponibles.        
-   ![Imagen de condición de Twitter 4](../../includes/media/connectors-create-api-twitter/condition-4.png)   
-5. Seleccione la propiedad **Número de seguidores**.    
-   ![Imagen de condición de Twitter 5](../../includes/media/connectors-create-api-twitter/condition-5.png)   
-6. Observe que la propiedad de número de seguidores ahora está en el control de valor.    
-   ![Imagen de condición de Twitter 6](../../includes/media/connectors-create-api-twitter/condition-6.png)   
-7. Seleccione **es mayor que** de la lista de operadores.    
-   ![Imagen de condición de Twitter 7](../../includes/media/connectors-create-api-twitter/condition-7.png)   
-8. Escriba 50 como el operando para el operador *es mayor que*.  
-   Se agrega la condición. Guarde su trabajo mediante el vínculo **Guardar** del menú.    
-   ![Imagen de condición de Twitter 8](../../includes/media/connectors-create-api-twitter/condition-8.png)   
+     * Entre los pasos en los que desee agregar una acción, mueva el puntero sobre la flecha. 
+     Elija el signo más (**+**) que aparece y seleccione **Agregar una acción**.
+     
+       En el cuadro de búsqueda, escriba "twitter" como filtro. 
+       En la lista de acciones, seleccione la acción que desee.
 
-## <a name="use-a-twitter-action"></a>Uso de una acción de Twitter
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+1. Si se le solicita que inicie sesión en Twitter, inicie sesión ahora para que pueda autorizar el acceso a la aplicación lógica.
 
-Ahora que hay un desencadenador, agregue una acción que publique un nuevo tweet con el contenido de los tweets detectados por el desencadenador. Para los fines de este tutorial, solo se publicarán tweets de los usuarios con más de 50 seguidores.  
+1. Proporcione los detalles necesarios para el desencadenador o la acción seleccionados y continúe con la compilación del flujo de trabajo de la aplicación lógica.
 
-En el paso siguiente, agregue una acción de Twitter que publique un tweet utilizando algunas de las propiedades de cada tweet publicado por un usuario con más de 50 seguidores.  
+## <a name="examples"></a>Ejemplos
 
-1. Seleccione **Add an action**(Agregar una acción). Este paso abre el control de búsqueda, donde puede buscar otras acciones y desencadenadores.  
-   ![Imagen de condición de Twitter 9](../../includes/media/connectors-create-api-twitter/condition-9.png)   
-2. Escriba *twitter* en el cuadro de búsqueda, después, seleccione la acción **Twitter - Post a tweet (Twitter - Publicar un tweet)**. Este paso abre el control **Post a tweet** (Publicar un tweet) donde especificará todos los detalles para el tweet publicado.      
-   ![Imagen de acción de Twitter 1-5](../../includes/media/connectors-create-api-twitter/action-1-5.png)   
-3. Seleccione el control **Tweet text (Texto del tweet)**. Todos los resultados de las acciones y desencadenadores anteriores de la aplicación lógica ya están visibles. Puede seleccionar cualquiera de ellos y usarlos como parte del texto del tweet del nuevo tweet.     
-   ![Imagen de acción de Twitter 2](../../includes/media/connectors-create-api-twitter/action-2.png)   
-4. Seleccione **Nombre de usuario**.   
-5. Inmediatamente después del nombre de usuario, escriba *dice:* en el control de texto del tweet.
-6. Seleccione *Tweet text (Texto del tweet)*.       
-   ![Imagen de acción de Twitter 3](../../includes/media/connectors-create-api-twitter/action-3.png)   
-7. Para activar el flujo de trabajo, guarde el trabajo y envíe un tweet con el hashtag #Seattle.
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Desencadenador de Twitter: cuando se publica un nuevo tweet
 
+Este desencadenador inicia un flujo de trabajo de la aplicación lógica cuando detecta un nuevo tweet, por ejemplo, con el hashtag #Seattle. Por ejemplo, cuando se detectan estos tweets, puede agregar un archivo con el contenido de los tweets al almacenamiento, por ejemplo, una cuenta de Dropbox mediante el conector de Dropbox. 
 
-## <a name="connector-specific-details"></a>Detalles específicos del conector
+Opcionalmente, puede incluir una condición de que los tweets válidos deben provenir de los usuarios con al menos un número especificado de seguidores.
 
-Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/twitterconnector/). 
+**Ejemplo empresarial**: puede usar este desencadenador para supervisar los tweets sobre su empresa y cargar el contenido de los tweets en una base de datos SQL.
+
+### <a name="twitter-action-post-a-tweet"></a>Acción de Twitter: publicación de un tweet
+
+Esta acción publica un tweet, pero puede configurarla para que el tweet incluya el contenido de los tweets encontrados por el desencadenador descrito anteriormente. 
+
+## <a name="connector-reference"></a>Referencia de conectores
+
+Para conocer los detalles técnicos sobre desencadenadores, acciones y límites, que se incluyen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/twitterconnector/) del conector.
+
+## <a name="get-support"></a>Obtención de soporte técnico
+
+* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)

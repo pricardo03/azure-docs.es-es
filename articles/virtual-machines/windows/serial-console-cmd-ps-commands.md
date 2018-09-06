@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 83b3aa1efdde367577a563b477403c313a51d4fe
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: a6f8984086771fea4df4851b2a878d480b2050ea
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177540"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918524"
 ---
-# <a name="windows-commands---cmd"></a>Comandos de Windows: CMD 
+# <a name="windows-commands---cmd-and-powershell"></a>Comandos de Windows: CMD y PowerShell
 
 En esta sección se incluyen ejemplos de comandos para realizar tareas comunes en escenarios donde puede ser necesario usar SAC para acceder a la máquina virtual Windows, como cuando necesita solucionar errores de conexión de RDP.
 
@@ -91,6 +91,8 @@ o
 `netsh interface set interface name="<interface name>" admin=enabled`
 ### <a name="set-nic-to-use-dhcp"></a>Establecer NIC para usar DHCP
 `netsh interface ip set address name="<interface name>" source=dhcp`
+
+Para más información sobre `netsh`, [haga clic aquí](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts).
 
 Las máquinas virtuales de Azure se deben configurar siempre en el sistema operativo invitado para usar DHCP para obtener una dirección IP. La configuración de IP estática de Azure sigue usando DHCP para proporcionar la dirección IP estática a la máquina virtual.
 ### <a name="ping"></a>Ping
@@ -283,8 +285,7 @@ Cuando se use una cuenta de servicio distinta de `NT AUTHORITY\LocalService`, `N
 ### <a name="set-service-startup-type"></a>Establecer el tipo de inicio del servicio
 `set-service termservice -startuptype Manual`
 
-
-  `Set-service` acepta `Automatic`, `Manual` o `Disabled` como tipo de inicio.
+`Set-service` acepta `Automatic`, `Manual` o `Disabled` como tipo de inicio.
 ### <a name="set-service-dependencies"></a>Establecer las dependencias del servicio
 `Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\TermService' -Name DependOnService -Value @('RPCSS','TermDD')`
 ### <a name="start-service"></a>Iniciar el servicio

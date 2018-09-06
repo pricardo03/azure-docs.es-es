@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: 610771e659a80e330fbb1c9d6fd97c15ff832386
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 3ff4c23c0538adcc3a064503431cb18016db04cd
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146724"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747051"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Enlaces de Azure Event Hubs para Azure Functions
 
@@ -52,24 +52,24 @@ Cuando se activa una función de desencadenador de Event Hubs, el mensaje que la
 
 ## <a name="trigger---scaling"></a>Desencadenador: escalado
 
-Cada instancia de una función de desencadenador de Event Hubs está respaldado por solo 1 instancia de EventProcessorHost (EPH). Event Hubs garantizan que solo 1 EPH puede obtener una concesión en una partición determinada.
+Cada instancia e una función de desencadenador de Event Hubs está respaldada por una única instancia de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). Event Hubs garantizan que solo una instancia de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) puede obtener una concesión en una partición determinada.
 
-Por ejemplo, supongamos que comienza con la instalación y las suposiciones siguientes para un centro de Event Hubs:
+Por ejemplo, considere una instancia de Event Hubs con las siguientes características:
 
-1. 10 particiones.
-1. 1000 eventos distribuidos uniformemente en todas las particiones = > 100 mensajes en cada partición.
+* 10 particiones.
+* 1000 eventos distribuidos uniformemente en todas las particiones, con 100 mensajes en cada partición.
 
-Cuando se habilita la función por primera vez, solo hay una instancia de la función. Vamos a llamar a esta instancia de función Function_0. Function_0 tendrá 1 EPH que administra para obtener una concesión en las 10 particiones. Comenzará a leer eventos de las particiones 0-9. Desde este punto en adelante, se producirá una de las siguientes acciones:
+Cuando se habilita la función por primera vez, solo hay una instancia de la función. Vamos a asignar a esta instancia de función el nombre `Function_0`. `Function_0` tiene una sola instancia de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) que tiene una concesión en las diez particiones. Esta instancia lee eventos de las particiones 0-9. A partir de este punto, se producirá una de las siguientes acciones:
 
-* **Solo se necesita 1 función**: Function_0 puede procesar todos los 1000 antes de que la lógica de escalado de Azure Functions se inicie. Por lo tanto, se procesan todos los mensajes de 1000 mediante Function_0.
+* **No se necesitan nuevas instancias de función**: `Function_0` puede procesar los 1000 eventos antes de que la lógica de escalado de Azure Functions se inicie. En este caso, `Function_0` procesa los 1000 mensajes.
 
-* **Agregue 1 más instancia de función**: la lógica de escalado de Azure Functions determina que Function_0 tiene más mensajes de los que puede procesar, por lo que se crea una nueva instancia, Function_1. Event Hubs detecta que una nueva instancia de EPH está tratando leer los mensajes. Event Hubs comenzará a equilibrar la carga de las particiones entre las instancias de EPH, p. ej., 0-4 particiones se asignan a Function_0 y 5-9 particiones se asignan a Function_1. 
+* **Se agrega una instancia de función adicional**: la lógica de escalado de Azure Functions determina que `Function_0` tiene más mensajes de los que puede procesar. En este caso, se crea una instancia de aplicación de función (`Function_1`), junto con una nueva instancia de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). Event Hubs detecta que una nueva instancia de host está tratando de leer los mensajes. Event Hubs equilibra la carga de las particiones entre sus instancias de host. Por ejemplo, las particiones 0-4 pueden asignarse a `Function_0` y las particiones 5-9, a `Function_1`. 
 
-* **Agregue N instancias de función más**: la lógica de escalado de Azure Functions determina que Function_0 y Function_1 tiene más mensajes que los que puede procesar. Se volverá a escalar hasta Function_2... N, donde N es mayor que las particiones de Event Hubs. Event Hubs equilibrará la carga de las particiones entre las instancias de Function_0...9.
+* **Se agregan N instancias de función más**: la lógica de escalado de Azure Functions determina que `Function_0` y `Function_1` tienen más mensajes de los que pueden procesar. Se crean instancias de aplicación de función `Function_2`...`Functions_N`, donde `N` es mayor que el número de particiones del centro de eventos. En nuestro ejemplo, Event Hubs vuelve a equilibrar la carga de las particiones, en este caso, entre las instancias `Function_0`...`Functions_9`. 
 
-El hecho de que N sea mayor que el número de particiones es algo que solo pasa en la lógica de escalado actual de Azure Functions. Esto se hace para garantizar que siempre haya instancias de EPH disponibles listas para su uso para obtener rápidamente un bloqueo en las particiones cuando estén disponibles de otras instancias. Solo se cobra a los usuarios por los recursos usados cuando se ejecuta la instancia de la función, y no por este aprovisionamiento en exceso.
+Tenga en cuenta cuando Azure Functions escala a `N`, que es un número mayor que el número de particiones del centro de eventos. Esto se hace para asegurarse de que siempre haya instancias de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) disponibles para obtener bloqueos de las particiones a medida que estén disponibles en otras instancias. Solo se le cobra por los recursos usados cuando se ejecuta la instancia de la función, y no por este aprovisionamiento en exceso.
 
-Si todas las ejecuciones de funciones se realizan sin errores, se agregan puntos de comprobación a la cuenta de almacenamiento asociada. Cuando se agreguen correctamente, los mensajes de 1000 no deberían poderse recuperar.
+Cuando se completa la ejecución de todas las funciones con o sin errores, se agregan puntos de comprobación a la cuenta de almacenamiento asociada. Cuando estos puntos de conexión se agregan correctamente, los 1000 mensajes ya no se vuelven a recuperar.
 
 ## <a name="trigger---example"></a>Desencadenador: ejemplo
 

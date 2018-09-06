@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: bc9fbf56b37cb8c6690bd036db704532cb8b0437
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: f43715b9c419aab1f5b95e140eac72642ef74198
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143092"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746904"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -139,7 +139,7 @@ Es posible que las actualizaciones automáticas de Windows provoquen la pérdida
 
 Se puede descargar la aplicación junto con los scripts de instalación desde el [vínculo de archivo](https://go.microsoft.com/fwlink/?linkid=869566).
 
-Se puede descargar la aplicación en formato de sfpkg desde el [vínculo sfpkg](https://go.microsoft.com/fwlink/?linkid=869567). Esto resulta útil para [la implementación de aplicaciones basada en Azure Resource Manager](service-fabric-application-arm-resource.md).
+Se puede descargar la aplicación en formato de sfpkg desde el [vínculo sfpkg](https://aka.ms/POA/POA_v1.2.2.sfpkg). Esto resulta útil para [la implementación de aplicaciones basada en Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configuración de la aplicación
 
@@ -398,3 +398,5 @@ Un administrador debe intervenir y determinar por qué la aplicación o el clús
 ### <a name="version-122-latest"></a>Versión 1.2.2 (más reciente)
 
 - Correcciones de errores varios.
+- Ahora se firman los archivos binarios.
+- El vínculo de descarga de sfpkg ahora apunta a una versión específica.

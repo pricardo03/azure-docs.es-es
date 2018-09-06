@@ -3,19 +3,19 @@ title: 'Analizar la carga de trabajo: Azure SQL Data Warehouse | Microsoft Docs'
 description: Técnicas para analizar la priorización de consultas para la carga de trabajo en Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6b0d39b81b72615a9522e95558a59007b10bf109
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4ce84e9714b580bcc243285dc1da5ae24a27e8e5
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795364"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248100"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Análisis de la carga de trabajo en Azure SQL Data Warehouse
 Técnicas para analizar la priorización de consultas para la carga de trabajo en Azure SQL Data Warehouse.
@@ -39,8 +39,7 @@ La tabla siguiente muestra las asignaciones de importancia para cada grupo de ca
 | SloDWGroupC07   | 128                      | 12.800                         | 32 000                      | Alto               |
 | SloDWGroupC08   | 256                      | 25.600                         | 64 000                      | Alto               |
 
-<!-- where are the allocation and consumption of concurrency slots charts? -->
-Desde el gráfico **Asignación y consumo de espacios de simultaneidad**, es posible ver que un DW500 usa 1, 4, 8 o 16 espacios de simultaneidad para smallrc, mediumrc, largerc y xlargerc, respectivamente. Puede buscar estos valores en el gráfico anterior para encontrar la importancia de cada clase de recursos.
+<!-- where are the allocation and consumption of concurrency slots charts? --> El gráfico **Asignación y consumo de espacios de simultaneidad** muestra un DW500 que usa 1, 4, 8 o 16 espacios de simultaneidad para smallrc, mediumrc, largerc y xlargerc, respectivamente. Puede buscar estos valores en el gráfico anterior para encontrar la importancia de cada clase de recursos.
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Asignación de DW500 de las clases de recursos a importancia
 | clase de recursos | Grupo de cargas de trabajo | Espacios de simultaneidad usados | MB/Distribución | importancia |

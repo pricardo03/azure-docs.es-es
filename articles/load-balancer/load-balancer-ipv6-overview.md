@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 08/24/2018
 ms.author: kumud
-ms.openlocfilehash: 9622ad4922aa98efe093e7f809a490a8797eb1fd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fc7cda30beaea8a9e15794c9330832e9ca651eb7
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30189671"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918695"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Información general de IPv6 para Azure Load Balancer
 
@@ -79,6 +79,7 @@ Limitaciones
 * El cambio del parámetro IdleTimeout de IPv6 **no se admite actualmente**. El valor predeterminado es de cuatro minutos.
 * El cambio del parámetro loadDistributionMethod de IPv6 **no se admite actualmente**.
 * Las direcciones IP de reserva de IPv6 (donde IPAllocationMethod = static) **no se admiten actualmente**.
+* NAT64 (traducción de IPv6 a IPv4) no se admite.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

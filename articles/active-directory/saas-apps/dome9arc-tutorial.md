@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 08/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 944f1b7ecc3fdc9f063d764a6deae49a68a24d77
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 934520764749b5abce9aefe22b8eb9a5d8e490f2
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433534"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746498"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Tutorial: Integración de Azure Active Directory con Dome9 Arc
 
@@ -50,29 +50,32 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
+
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba.
+El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Dome9 Arc desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+2. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-dome9-arc-from-the-gallery"></a>Adición de Dome9 Arc desde la galería
+
 Para configurar la integración de Dome9 Arc en Azure AD, debe agregar Dome9 Arc desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Dome9 Arc desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory][1]
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
     ![Hoja Aplicaciones empresariales][2]
-    
-1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
     ![Botón Nueva aplicación][3]
 
-1. En el cuadro de búsqueda, escriba **Dome9 Arc**, seleccione **Dome9 Arc** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Dome9 Arc**, seleccione **Dome9 Arc** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Dome9 Arc en la lista de resultados](./media/dome9arc-tutorial/tutorial_dome9arc_addfromgallery.png)
 
@@ -82,15 +85,13 @@ En esta sección, va a configurar y probar el inicio de sesión único de Azure 
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Dome9 Arc para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Dome9 Arc.
 
-Para establecer la relación de vínculo, en Dome9 Arc, asigne el valor de **nombre de usuario** de Azure AD como valor de **nombre de usuario**.
-
 Para configurar y probar el inicio de sesión único de Azure AD con Dome9 Arc, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de Dome9 Arc](#create-a-dome9-arc-test-user)**: para tener un homólogo de Britta Simon en Dome9 Arc que esté vinculado a la representación del usuario en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de Dome9 Arc](#create-a-dome9-arc-test-user)**: para tener un homólogo de Britta Simon en Dome9 Arc que esté vinculado a la representación del usuario en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -102,11 +103,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo Configurar inicio de sesión único][4]
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Cuadro de diálogo Inicio de sesión único](./media/dome9arc-tutorial/tutorial_dome9arc_samlbase.png)
 
-1. En la sección **Dominio y direcciones URL de Dome9 Arc**, realice los siguientes pasos si desea configurar la aplicación en el modo iniciado por **IDP**:
+3. En la sección **Dominio y direcciones URL de Dome9 Arc**, realice los siguientes pasos si desea configurar la aplicación en el modo iniciado por **IDP**:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Dome9 Arc](./media/dome9arc-tutorial/tutorial_dome9arc_url.png)
 
@@ -117,24 +118,24 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!NOTE]
     > Seleccionará el valor de nombre de la empresa en el portal de administración de dome9, un proceso que se explica más adelante en el tutorial.
 
-1. Active **Mostrar configuración avanzada de URL** y siga estos pasos si desea configurar la aplicación en el modo iniciado por **SP**:
+4. Active **Mostrar configuración avanzada de URL** y siga estos pasos si desea configurar la aplicación en el modo iniciado por **SP**:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Dome9 Arc](./media/dome9arc-tutorial/tutorial_dome9arc_url1.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://secure.dome9.com/sso/saml/<yourcompanyname>`.
-     
+ 
     > [!NOTE] 
     > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Dome9 Arc](https://dome9.com/about/contact-us/) para obtener estos valores. 
 
-1. La aplicación de software Dome9 Arc espera las aserciones de SAML en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección "**Atributos de usuario**" de la página de integración de aplicaciones. La siguiente captura de pantalla le muestra un ejemplo de esto.
+5. La aplicación de software Dome9 Arc espera las aserciones de SAML en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección "**Atributos de usuario**" de la página de integración de aplicaciones. La siguiente captura de pantalla le muestra un ejemplo de esto.
 
     ![Configurar el atributo de inicio de sesión único](./media/dome9arc-tutorial/tutorial_dome9arc_attribute.png)
 
-1. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
+6. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
     
     | Nombre del atributo  | Valor de atributo | 
     | --------------- | --------------- | 
-    | memberof | user.assignedroles | 
+    | memberof | user.assignedroles |
     
     a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
@@ -145,32 +146,35 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
 
     c. En la lista **Valor**, seleccione el atributo que se muestra para esa fila.
-    
-    d. Haga clic en **Aceptar**.
 
-1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+    d. Haga clic en **Aceptar**.
+    
+    > [!NOTE]
+    > Consulte este [vínculo](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) para obtener información sobre cómo configurar e instalar los roles de la aplicación.
+
+7. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Vínculo de descarga del certificado](./media/dome9arc-tutorial/tutorial_dome9arc_certificate.png) 
 
-1. Haga clic en el botón **Guardar** .
+8. Haga clic en el botón **Guardar** .
 
     ![Botón Configurar inicio de sesión único](./media/dome9arc-tutorial/tutorial_general_400.png)
-    
-1. En la sección **Configuración de Dome9 Arc**, haga clic en **Configurar Dome9 Arc** para abrir la ventana **Configurar inicio de sesión**. Copie **SAML Entity ID and SAML Single Sign-On Service URL** (URL del servicio de inicio de sesión único de SAML e Identificador de entidad de SAML) de la sección **Referencia rápida**.
+
+9. En la sección **Configuración de Dome9 Arc**, haga clic en **Configurar Dome9 Arc** para abrir la ventana **Configurar inicio de sesión**. Copie **SAML Entity ID and SAML Single Sign-On Service URL** (URL del servicio de inicio de sesión único de SAML e Identificador de entidad de SAML) de la sección **Referencia rápida**.
 
     ![Configuración de Dome9 Arc](./media/dome9arc-tutorial/tutorial_dome9arc_configure.png) 
 
-1. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de Dome9 Arc.
+10. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de Dome9 Arc.
 
-1. Haga clic en **Profile Settings** (Configuración de perfil) en la esquina superior derecha y, luego, en **Account Settings** (Configuración de la cuenta). 
+11. Haga clic en **Profile Settings** (Configuración de perfil) en la esquina superior derecha y, luego, en **Account Settings** (Configuración de la cuenta). 
 
     ![Configuración de Dome9 Arc](./media/dome9arc-tutorial/configure1.png)
 
-1. Vaya a **SSO** y después haga clic en **ENABLE** (HABILITAR).
+12. Vaya a **SSO** y después haga clic en **ENABLE** (HABILITAR).
 
     ![Configuración de Dome9 Arc](./media/dome9arc-tutorial/configure2.png)
 
-1. En la sección de configuración de SSO, realice los pasos siguientes:
+13. En la sección de configuración de SSO, realice los pasos siguientes:
 
     ![Configuración de Dome9 Arc](./media/dome9arc-tutorial/configure3.png)
 
@@ -184,9 +188,6 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     e. Haga clic en **Save**(Guardar).
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
@@ -199,15 +200,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Botón Azure Active Directory](./media/dome9arc-tutorial/create_aaduser_01.png)
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/dome9arc-tutorial/create_aaduser_02.png)
 
-1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
 
     ![Botón Agregar](./media/dome9arc-tutorial/create_aaduser_03.png)
 
-1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
+4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
 
     ![Cuadro de diálogo Usuario](./media/dome9arc-tutorial/create_aaduser_04.png)
 
@@ -218,28 +219,28 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
     d. Haga clic en **Create**(Crear).
- 
+
 ### <a name="create-a-dome9-arc-test-user"></a>Creación de un usuario de prueba de Dome9 Arc
 
 Para permitir que los usuarios de Azure AD inicien sesión en Dome9 Arc, tienen que aprovisionarse en la aplicación. Dome9 Arc admite el aprovisionamiento Just-In-Time, pero para que funcione correctamente, el usuario debe seleccionar un **rol** determinado y asignarlo al usuario.
 
-   >[!Note] 
+   >[!Note]
    >Para la creación del **rol** y otros detalles, póngase en contacto con el [equipo de soporte técnico de Dome9 Arc](https://dome9.com/about/contact-us/).
 
 **Para aprovisionar una cuenta de usuario manualmente, realice estos pasos:**
 
 1. Inicie sesión como administrador en el sitio de la compañía de Dome9 Arc.
 
-1. Haga clic en **Users & Roles** (Usuarios y roles) y luego en **Users** (Usuarios).
+2. Haga clic en **Users & Roles** (Usuarios y roles) y luego en **Users** (Usuarios).
 
     ![Agregar empleado](./media/dome9arc-tutorial/user1.png)
 
-1. Haga clic en **ADD USER** (Agregar usuario).
+3. Haga clic en **ADD USER** (Agregar usuario).
 
     ![Agregar empleado](./media/dome9arc-tutorial/user2.png)
 
-1. En la sección **Crear usuario** , lleve a cabo estos pasos:
-    
+4. En la sección **Crear usuario** , lleve a cabo estos pasos:
+
     ![Agregar empleado](./media/dome9arc-tutorial/user3.png)
 
     a. En el cuadro de texto **Email** (Correo electrónico), escriba el correo electrónico del usuario, en el ejemplo Brittasimon@contoso.com.
@@ -264,24 +265,24 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Asignar usuario][201] 
 
-1. En la lista de aplicaciones, seleccione **Dome9 Arc**.
+2. En la lista de aplicaciones, seleccione **Dome9 Arc**.
 
     ![Vínculo a Dome9 Arc en la lista de aplicaciones](./media/dome9arc-tutorial/tutorial_dome9arc_app.png)  
 
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
     ![Vínculo "Usuarios y grupos"][202]
 
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
     ![Panel Agregar asignación][203]
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
 
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
 
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
+7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
@@ -293,8 +294,6 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 

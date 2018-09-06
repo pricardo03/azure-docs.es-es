@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 85a2f0c13d483df40b6de2a158cf5fa43c45b5eb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b4905c8bcf3c14c7f1dfa752a930f57ccbfd8fd7
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530081"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818493"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante el protocolo SMB estándar. Dado que Azure Files está totalmente administrado, su implementación en escenarios de producción resulta mucho más sencilla que la implementación y administración de un servidor de archivos o un dispositivo NAS. En este artículo se tratan las cuestiones que deben tenerse en cuenta al implementar un recurso compartido de archivos de Azure para su uso en producción dentro de la organización.
@@ -81,7 +81,7 @@ Azure Files admite tres opciones de redundancia de datos: almacenamiento con red
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>Patrón de crecimiento de datos
-En la actualidad, el tamaño máximo de un recurso compartido de archivos de Azure es de 5 TiB, incluidas las instantáneas del recurso compartido. Debido a esta limitación actual, debe tener en cuenta el crecimiento esperado de los datos al implementar un recurso compartido de archivos de Azure. Tenga en cuenta que una cuenta de Azure Storage puede almacenar varios recursos compartidos con un total de 500 TiB almacenados en todos los recursos compartidos.
+Actualmente, el tamaño máximo de un recurso compartido de archivos de Azure es de 5 TiB. Debido a esta limitación actual, debe tener en cuenta el crecimiento esperado de los datos al implementar un recurso compartido de archivos de Azure. Tenga en cuenta que una cuenta de Azure Storage puede almacenar varios recursos compartidos con un total de 500 TiB almacenados en todos los recursos compartidos.
 
 Es posible sincronizar varios recursos compartidos de archivos de Azure en un único servidor de archivos de Windows con Azure File Sync. Esto permite garantizar que los recursos compartidos de archivos anteriores de gran tamaño que pueda tener en local se incluyan en Azure File Sync. Vea [Planeamiento de una implementación de Azure File Sync](storage-files-planning.md) para más información.
 

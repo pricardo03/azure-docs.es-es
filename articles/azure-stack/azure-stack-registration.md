@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 08/24/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: e2411a91174fd0b52227b4cfe8783c8c74c4039e
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 58c8568da0a818f87a5bb3d6966d2d4a6c977fd9
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41954630"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247830"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registro de Azure Stack con Azure
 
@@ -84,13 +84,12 @@ La implementación de Azure Stack puede ser *conectada* o *desconectada*.
 
  - **Conectada**  
  Que sea conectada significa que ha implementado Azure Stack para que pueda conectarse a Internet y a Azure. Puede usar Azure Active Directory (Azure AD) o Servicios de federación de Active Directory (AD FS) como almacén de identidades. Con una implementación conectada, puede elegir entre dos modelos de facturación: de pago por uso o según la capacidad.
-    - [Registro de una implementación conectada de Azure Stack en Azure mediante el modelo de facturación de **pago por uso**](#register-a-connected-azure-stack-with-azure-using-the-pay-as-you-use-billing-model)
-    - [Registro de una implementación de Azure Stack conectada en Azure mediante el modelo de facturación por **capacidad**](#register-a-connected-azure-stack-with-azure-using-the-capacity-billing-model)
+    - [Registro de una implementación conectada de Azure Stack en Azure mediante el modelo de facturación de **pago por uso**](#register-connected-with-pay-as-you-go-billing)
+    - [Registro de una implementación de Azure Stack conectada en Azure mediante el modelo de facturación por **capacidad**](#register-connected-with-capacity-billing)
 
  - **Desconectada**  
  Con la opción de implementación sin conexión a Azure, Azure Stack se podrá implementar y usar sin conexión a Internet. Sin embargo, este tipo de implementación tiene la limitación de que solo se puede usar un almacén de identidades de AD FS y el modelo de facturación por capacidad.
-    - [Registro de una implementación de Azure Stack desconectada mediante el modelo de facturación por **capacidad**](#register-a-disconnected-Azure-Stack-using-the-capacity-billing-model
-)
+    - [Registro de una implementación de Azure Stack desconectada mediante el modelo de facturación por **capacidad**](#register-disconnected-with-capacity-billing)
 
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>Registro conectado con la facturación de pago por uso
 
@@ -218,7 +217,7 @@ Si va a registrar Azure Stack en un entorno desconectado (sin conexión a Intern
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
    Para más información acerca del cmdlet Get-AzsRegistrationToken, consulte [Referencia del registro](#registration-reference).
 
@@ -358,7 +357,7 @@ Ya ha anulado completamente el registro en un escenario sin conexión y debe rep
 
 ### <a name="disable-or-enable-usage-reporting"></a>Deshabilitar o habilitar los informes de uso
 
-Para entornos de Azure Stack que usan un modelo de facturación por capacidad, desactive los informes de uso con el parámetro **EnableUsageReporting** mediante los cmdlets **Set-AzsRegistration** o **Get-AzsRegistrationToken**. Azure Stack informa de las métricas de uso de forma predeterminada. Los operadores que tienen usos de capacidad o admiten un entorno desconectado deben desactivar los informes de uso.
+En entornos de Azure Stack que usan un modelo de facturación por capacidad, desactive los informes de uso con el parámetro **UsageReportingEnabled** mediante los cmdlets **Set-AzsRegistration** o **Get-AzsRegistrationToken**. Azure Stack informa de las métricas de uso de forma predeterminada. Los operadores que tienen usos de capacidad o admiten un entorno desconectado deben desactivar los informes de uso.
 
 #### <a name="with-a-connected-azure-stack"></a>Con una implementación conectada de Azure Stack
 
@@ -378,7 +377,7 @@ Para entornos de Azure Stack que usan un modelo de facturación por capacidad, d
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False
    $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 

@@ -4,16 +4,16 @@ description: Describe cómo Azure Policy usa la definición de directiva de recu
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/03/2018
+ms.date: 08/16/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ced8ebad0122973595cdede4497cd200e3090043
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ac561be75306cab6b73b457a7d450bd640aac067
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524114"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818704"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -26,7 +26,7 @@ Para crear una definición de directiva se utiliza JSON. La definición de direc
 - modo
 - parameters
 - nombre para mostrar
-- Descripción
+- description
 - regla de directiva
   - evaluación lógica
   - efecto
@@ -107,7 +107,7 @@ Dentro de la propiedad de metadatos, puede usar **strongType** para proporcionar
 - `"existingResourceGroups"`
 - `"omsWorkspace"`
 
-En la regla de directiva, se hace referencia a los parámetros con la sintaxis siguiente:
+En la regla de directiva, se hace referencia a los parámetros con la siguiente sintaxis de función con el valor de implementación `parameters`:
 
 ```json
 {
@@ -245,6 +245,53 @@ Con **AuditIfNotExists** y **DeployIfNotExists**, puede evaluar la existencia de
 Para un ejemplo de auditoría cuando no se implementa una extensión de máquina virtual, consulte el artículo sobre la [auditoría si la extensión no existe](scripts/audit-ext-not-exist.md).
 
 Para obtener información detallada sobre cada efecto, el orden de evaluación, las propiedades y algunos ejemplos, consulte [Descripción de los efectos de la directiva](policy-effects.md).
+
+### <a name="policy-functions"></a>Funciones de directiva
+
+Se encuentra disponible un subconjunto de [funciones de plantilla de Resource Manager](../azure-resource-manager/resource-group-template-functions.md) para usarlo en una regla de directiva. Actualmente se admiten estas funciones:
+
+- [parameters](../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
+- [concat](../azure-resource-manager/resource-group-template-functions-array.md#concat)
+- [resourceGroup](../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
+- [suscripción](../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+
+Además, la función `field` está disponible para las reglas de directiva. Esta función se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** para hacer referencia a los campos del recurso que se va a evaluar. Esto se puede observar en el [ejemplo de DeployIfNotExists](policy-effects.md#deployifnotexists-example).
+
+#### <a name="policy-function-examples"></a>Ejemplos de función de directiva
+
+Este ejemplo de regla de directiva usa la función de recurso `resourceGroup` para obtener la propiedad **nombre**, combinada con la matriz `concat` y la función de objeto para compilar una condición `like` que exige que el nombre del recurso empiece con el nombre del grupo de recursos.
+
+```json
+{
+    "if": {
+        "not": {
+            "field": "name",
+            "like": "[concat(resourceGroup().name,'*')]"
+        }
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+Este ejemplo de regla de directiva usa la función de recurso `resourceGroup` para obtener el valor de la matriz de la propiedad **etiquetas** de la etiqueta **CostCenter** del grupo de recursos y adjuntarlo a la etiqueta **CostCenter** del nuevo recurso.
+
+```json
+{
+    "if": {
+        "field": "tags.CostCenter",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "tags.CostCenter",
+            "value": "[resourceGroup().tags.CostCenter]"
+        }]
+    }
+}
+```
 
 ## <a name="aliases"></a>Alias
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: a6f6beedfc6c23be70693428388f6d0e585260bc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 143d0d4b66fc8e6e62364090e3d3187c4aa7bb51
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433177"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919013"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager
 
@@ -37,10 +37,11 @@ Más información acerca de las muchas [ventajas del uso de plantillas de Resour
 > [!NOTE]
 > Al usar una plantilla de Resource Manager como punto de partida para crear más máquinas virtuales de laboratorio, existen algunas diferencias entre crear una o varias. En el artículo sobre el [uso de una plantilla de máquina virtual de Azure Resource Manager](devtest-lab-use-resource-manager-template.md) se explican estas diferencias con mayor detalle.
 >
->
 
-## <a name="configure-azure-resource-manager-template-repositories"></a>Configuración de los repositorios de plantillas de Azure Resource Manager
+## <a name="devtest-labs-public-environments"></a>Entornos públicos de DevTest Labs
+Azure DevTest Labs tiene un [repositorio público de plantillas de Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) que puede usar para crear entornos sin tener que conectarse a un origen externo de GitHub por sí mismo. Este repositorio incluye plantillas usadas con frecuencia, como Azure Web Apps, Clúster de Service Fabric y entorno de desarrollo de Granja de SharePoint. Esta característica es similar al repositorio público de artefactos que se incluye para todos los laboratorios que cree. El repositorio de entorno le permite empezar a trabajar rápidamente con las plantillas de entorno ya creadas, con el mínimo de parámetros de entrada, para proporcionarle una experiencia de introducción sin problemas a los recursos de PaaS en laboratorios. Para más información, consulte [Configuración y uso de entornos públicos en Azure DevTest Labs](devtest-lab-configure-use-public-environments.md).
 
+## <a name="configure-your-own-template-repositories"></a>Configuración de sus propios repositorios de plantilla
 Como uno de los procedimientos recomendados con infraestructura como código y configuración como código, las plantillas de entorno deben administrarse con control de código fuente. Azure DevTest Labs sigue este procedimiento y carga todas las plantillas de Azure Resource Manager directamente desde los repositorios de GitHub o VSTS Git. Como resultado, las plantillas de Resource Manager pueden utilizarse en todo el ciclo de versiones, desde el entorno de prueba hasta el entorno de producción.
 
 Consulte las plantillas creadas por el equipo de DevTest Labs en el [repositorio público de GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Environments). En este repositorio público, puede ver las plantillas compartidas por otros usuarios que puede utilizar directamente o personalizarlas para adaptarlas a sus necesidades. Después de crear la plantilla, almacénela en este repositorio para compartirla con otros usuarios. También puede configurar su propio repositorio de Git con plantillas que se pueden usar para configurar los entornos en la nube. 
@@ -56,12 +57,9 @@ Hay un par de reglas que seguir para organizar las plantillas de Azure Resource 
 - Los metadatos pueden definirse para especificar el nombre para mostrar y la descripción de la plantilla. Estos metadatos deben estar en un archivo denominado `metadata.json`. El archivo de metadatos de ejemplo siguiente muestra cómo especificar el nombre para mostrar y la descripción: 
 
     ```json
-    {
- 
-        "itemDisplayName": "<your template name>",
- 
-        "description": "<description of the template>"
- 
+    { 
+        "itemDisplayName": "<your template name>", 
+        "description": "<description of the template>" 
     }
     ```
 

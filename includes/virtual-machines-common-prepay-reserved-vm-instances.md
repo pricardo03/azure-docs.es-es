@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-07-2018
-ms.openlocfilehash: 19a153a5cdc9d5f878494984313baebd12dbcbb5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 764470bbf47c18a2ec66dc91d433f8dd14b99a8f
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631170"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43039267"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances
 
@@ -30,6 +30,9 @@ Los campos Subcategoría de medidor y Producto de los datos de uso no distinguen
 
 Las instancias reservadas de máquinas virtuales están disponibles para la mayoría de los tamaños de máquina virtual, a excepción de los siguientes:
 
+- Las máquinas virtuales clásicas y los servicios en la nube no obtienen el descuento de reserva.
+- Las máquinas virtuales de núcleos suprimidas no obtienen descuentos de reserva.
+- Las siguientes series de máquinas virtuales no obtienen descuentos de reserva: serie A, serie Av2 o serie G.
 - Máquinas virtuales en versión preliminar: las series de máquinas virtuales o los tamaños que estén en versión preliminar no estarán disponibles para la compra de una reserva.
 - Nubes: la compra de reservas no está disponible en las regiones de Azure Gobierno de EE. UU., Alemania y China.
 - Cuota insuficiente: una reserva cuyo ámbito sea de una sola suscripción debe tener cuota de vCPU disponible en la suscripción para la nueva instancia reservada. Por ejemplo, si la suscripción de destino tiene un límite de cuota de 10 vCPU para la serie D, no podrá comprar una reserva para 11 instancias Standard_D1. La comprobación de cuota para las reservas incluye las máquinas virtuales ya implementadas en la suscripción. Por ejemplo, si la suscripción tiene una cuota de 10 vCPU para la serie D y tiene implementadas dos instancias standard_D1, podrá comprar una reserva para 10 instancias standard_D1 en esta suscripción. 

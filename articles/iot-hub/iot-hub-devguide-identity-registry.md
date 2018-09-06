@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 2039b7760704de35c688dda41e3b75425e5ec0e8
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 4e23b70c8dc5fdacfd609fb4664a78293b9e2362
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186278"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247652"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Descripción del registro de identidades de un centro de IoT
 
@@ -85,10 +85,9 @@ Los datos del dispositivo que almacena una solución de IoT determinada dependen
 
 ## <a name="device-heartbeat"></a>Latido de dispositivo
 
-El registro de identidades de IoT Hub contiene un campo llamado **connectionState**. Utilice únicamente el campo **connectionState** durante el desarrollo y la depuración. Las soluciones de IoT no deben consultar el campo en tiempo de ejecución. Por ejemplo, no hay que consultar el campo **connectionState** para comprobar si el dispositivo está conectado antes de enviar un mensaje de la nube al dispositivo o un SMS.
+El registro de identidades de IoT Hub contiene un campo llamado **connectionState**. Utilice únicamente el campo **connectionState** durante el desarrollo y la depuración. Las soluciones de IoT no deben consultar el campo en tiempo de ejecución. Por ejemplo, no hay que consultar el campo **connectionState** para comprobar si el dispositivo está conectado antes de enviar un mensaje de la nube al dispositivo o un SMS. Se recomienda suscribirse al [**evento dispositivo desconectado**](https://docs.microsoft.com/azure/iot-hub/iot-hub-event-grid#event-types) en Event Grid para obtener alertas y supervisar el estado de conexión del dispositivo. Siga este [tutorial](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) para aprender a integrar eventos de IoT Hub en la solución de IoT.
 
 Si la solución de IoT necesita saber si un dispositivo está conectado, debe implementar el *patrón de latido*.
-
 En el patrón de latido, el dispositivo envía mensajes de dispositivo a la nube al menos una vez en un período de tiempo predeterminado (por ejemplo, al menos una vez cada hora). Por lo tanto, incluso si un dispositivo no tiene ningún dato que enviar, seguirá enviando un mensaje de dispositivo a la nube vacío (normalmente con una propiedad que lo identifica como un latido). En el lado del servicio, la solución mantiene un mapa con el último latido recibido para cada dispositivo. Si solución si no recibe del dispositivo un mensaje de latido en el tiempo esperado, da por supuesto que hay un problema con un dispositivo.
 
 Una implementación más compleja podría incluir la información de [supervisión de operaciones][lnk-devguide-opmon] para identificar los dispositivos que están intentando conectarse o comunicarse sin éxito. Al implementar el patrón de latido, asegúrese de echar un vistazo a las [cuotas y limitaciones de IoT Hub][lnk-quotas].

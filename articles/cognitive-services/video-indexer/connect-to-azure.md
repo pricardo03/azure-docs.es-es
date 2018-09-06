@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/05/2018
 ms.author: juliako
-ms.openlocfilehash: 66ba79926a949371cb2280de408835862dd1a099
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 64a38ba617a1cc5fe1fdb3473e3cb88a49d89bb0
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41929741"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42744757"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Creación de una cuenta de Video Indexer conectada a Azure
 
@@ -46,7 +46,7 @@ En este artículo se muestra cómo crear una cuenta de Video Indexer que está v
 
 * Registrar el proveedor de recursos EventGrid mediante Azure Portal.
 
-    En Azure Portal, vaya a **Suscripciones** > [suscripción] > **Proveedores de recursos** > **Microsoft.EventGrid**. Si no se encuentra en el estado "Registrado", haga clic en **Registrarse**. Tarda unos minutos en registrarse. 
+    En [Azure Portal](https://portal.azure.com/), vaya a **Suscripciones** > [suscripción] > **Proveedores de recursos** > **Microsoft.EventGrid**. Si no se encuentra en el estado "Registrado", haga clic en **Registrarse**. Tarda unos minutos en registrarse. 
 
     ![EventGrid](./media/create-account/event-grid.png)
 
@@ -96,19 +96,16 @@ Tenga en cuenta las siguientes consideraciones con relación a Azure Media Servi
 
     Es posible que tenga que ajustar el tipo y número de **Unidades reservadas**, según la carga planeada. Tenga en cuenta que si la carga es alta y no tiene suficientes unidades o velocidad, el procesamiento de los vídeos pueden producir errores de tiempo de espera agotado.
 
-* Si se ha conectado a una nueva cuenta de Media Services, Video Indexer inicia automáticamente un **punto de conexión de streaming** en ella:
+* Si se ha conectado a una nueva cuenta de Media Services, Video Indexer inicia automáticamente el **punto de conexión de streaming** predeterminado en ella:
 
     ![Punto de conexión de streaming de Media Services](./media/create-account/ams-streaming-endpoint.png)
 
-* Si se ha conectado a una cuenta de Media Services existente, Video Indexer no cambia la configuración de los puntos de conexión de streaming. Si no hay ningún **punto de conexión de streaming** en ejecución, no podrá ver vídeos desde esta cuenta de Media Services ni en Video Indexer.
+* Si se ha conectado a una cuenta de Media Services existente, Video Indexer no cambia la configuración del punto de conexión de streaming predeterminado. Si no hay ningún **punto de conexión de streaming** en ejecución, no podrá ver vídeos desde esta cuenta de Media Services ni en Video Indexer.
 
-## <a name="use-video-indexer-apis-v2"></a>Uso de Video Indexer API v2
+## <a name="next-steps"></a>Pasos siguientes
 
 Para interactuar mediante programación con su cuenta de evaluación gratuita o con sus cuentas de Video Indexer conectadas a Azure, siga las instrucciones descritas en [Uso de las API](video-indexer-use-apis.md).
 
 Debe utilizar el mismo usuario de Azure AD que usa al conectarse a Azure.
 
-## <a name="next-steps"></a>Pasos siguientes
-
-[Examen detallado de la salida JSON](video-indexer-output-json-v2.md).
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a98c8ac65de930eabcedea2a009769ed6d245216
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: a7d62531492695be6ec148c3bf7b9786b2a428cf
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617199"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247402"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -67,18 +67,66 @@ Niveles de nube es una característica opcional de Azure File Sync, con la que l
 > [!Important]  
 > Los niveles de nube no se admiten para varios puntos de conexión en los volúmenes del sistema Windows.
 
-## <a name="azure-file-sync-interoperability"></a>Interoperabilidad de Azure File Sync 
-En esta sección se trata la interoperabilidad de Azure File Sync son características y roles de Windows Server y soluciones de terceros.
+## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Requisitos del sistema de Azure File Sync e interoperabilidad 
+En esta sección se tratan los requisitos del sistema del agente de Azure File Sync y la interoperabilidad con las características y roles de Windows Server y las soluciones de terceros.
 
-### <a name="supported-versions-of-windows-server"></a>Versiones compatibles de Windows Server
-En la actualidad, la versiones de Windows Server que admite Azure File Sync son:
+### <a name="evaluation-tool"></a>Herramienta de evaluación
+Antes de implementar Azure File Sync, debe evaluar si es compatible con el sistema mediante la herramienta de evaluación de Azure File Sync. Esta herramienta es un cmdlet de AzureRM PowerShell que busca posibles problemas con el sistema de archivos y el conjunto de datos, tales como caracteres no admitidos o una versión de sistema operativo no compatible. Tenga en cuenta que las comprobaciones incluyen la mayoría de las características que se mencionan a continuación, pero no todas; se recomienda que lea el resto de esta sección detenidamente para asegurarse de que la implementación se realiza sin problemas. 
 
-| Versión | SKU compatibles | Opciones de implementación compatibles |
-|---------|----------------|------------------------------|
-| Windows Server 2016 | Datacenter y Standard | Completo (servidor con una interfaz de usuario) |
-| Windows Server 2012 R2 | Datacenter y Standard | Completo (servidor con una interfaz de usuario) |
+#### <a name="download-instructions"></a>Instrucciones de descarga
+1. Asegúrese de que tiene las versiones más recientes de PackageManagement y PowerShellGet instaladas (esto le permite instalar módulos de versión preliminar).
+    
+    ```PowerShell
+        Install-Module -Name PackageManagement -Repository PSGallery -Force
+        Install-Module -Name PowerShellGet -Repository PSGallery -Force
+    ```
+ 
+2. Reinicie PowerShell.
+3. Instalación de los módulos
+    
+    ```PowerShell
+        Install-Module -Name AzureRM.StorageSync -AllowPrerelease
+    ```
 
-Las versiones futuras de Windows Server se agregarán tan pronto como se publiquen. Las versiones anteriores de Windows podrían agregarse en función de los comentarios del usuario.
+#### <a name="usage"></a>Uso  
+Puede invocar la herramienta de evaluación de varias maneras diferentes: puede realizar las comprobaciones del sistema, las comprobaciones del conjunto de datos o ambas. Para realizar las comprobaciones del sistema y el conjunto de datos: 
+
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path>
+```
+
+Para probar solo el conjunto de datos:
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
+```
+ 
+Para probar solo los requisitos del sistema:
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -ComputerName <computer name>
+```
+ 
+Para mostrar los resultados en CSV:
+```PowerShell
+    $errors = Invoke-AzureRmStorageSyncCompatibilityCheck […]
+    $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+```
+
+### <a name="system-requirements"></a>Requisitos del sistema
+- Un servidor que ejecute Windows Server 2012 R2 o Windows Server 2016 
+
+    | Versión | SKU compatibles | Opciones de implementación compatibles |
+    |---------|----------------|------------------------------|
+    | Windows Server 2016 | Datacenter y Standard | Completo (servidor con una interfaz de usuario) |
+    | Windows Server 2012 R2 | Datacenter y Standard | Completo (servidor con una interfaz de usuario) |
+
+    Las versiones futuras de Windows Server se agregarán tan pronto como se publiquen. Las versiones anteriores de Windows podrían agregarse en función de los comentarios del usuario.
+
+- Un servidor con un mínimo de 2GB de memoria
+
+    > [!Important]  
+    > Si el servidor se ejecuta en una máquina virtual con habilitación de memoria dinámica, la máquina virtual debe configurarse con un mínimo de 2048 MB de memoria.
+    
+- Un volumen asociado localmente con formato del sistema de archivos NTFS
 
 > [!Important]  
 > Se recomienda mantener sincronizadas todas las instancias que use con Azure File Sync con las actualizaciones más recientes de Windows Update. 

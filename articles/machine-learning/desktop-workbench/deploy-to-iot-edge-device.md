@@ -7,40 +7,40 @@ ms.author: tedway
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
-ms.date: 2/1/2018
-ms.openlocfilehash: 1dffdee032c5b079aa5b81284cebe8f6471efebd
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.date: 08/24/2018
+ms.openlocfilehash: 24d3cf0c4b1a1283e7a6a7f61f0bb23dae7143d5
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833645"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43113544"
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Implementación de un modelo de Azure Machine Learning en un dispositivo de Azure IoT Edge
 
-Todos los modelos de Azure Machine Learning almacenados en contenedores como servicios web basados en Docker-también se pueden ejecutar en dispositivos de Azure IoT Edge. Se pueden encontrar scripts e instrucciones adicionales en el [kit de herramientas de AI para Azure IoT Edge](http://aka.ms/AI-toolkit).
+Todos los modelos de Azure Machine Learning pueden almacenarse en contenedores como servicios web basados en Docker. Azure IoT Edge le permite implementar contenedores de forma remota en dispositivos. Utilice estos servicios juntos para ejecutar los modelos en Edge para reducir los tiempos de respuesta y la transferencia de datos. 
+
+Se pueden encontrar scripts e instrucciones adicionales en el [kit de herramientas de AI para Azure IoT Edge](http://aka.ms/AI-toolkit).
 
 ## <a name="operationalize-the-model"></a>Puesta en marcha del modelo
+
+Los módulos de Azure IoT Edge se basan en las imágenes de contenedor. Para implementar el modelo de Machine Learning en un dispositivo IoT Edge, deberá crear una imagen de Docker.
+
 Ponga en marcha el modelo mediante las instrucciones que se describen en [Implementación de un servicio web de administración de modelos de Azure Machine Learning](model-management-service-deploy.md) para crear una imagen de Docker con su modelo.
 
 ## <a name="deploy-to-azure-iot-edge"></a>Implementación en Azure IoT Edge
-Azure IoT Edge traslada los análisis en la nube y la lógica de negocios personalizada a los dispositivos. Todos los modelos de Machine Learning se pueden ejecutar en dispositivos IoT Edge. La documentación para configurar un dispositivo IoT Edge y crear una implementación se puede encontrar en [aka.ms/azure-iot-edge-doc](https://aka.ms/azure-iot-edge-doc).
 
-Algunos aspectos adicionales que se deben tener en cuenta son:
+Una vez que tenga la imagen del modelo, puede implementarla en cualquier dispositivo de Azure IoT Edge. Todos los modelos de Machine Learning se pueden ejecutar en dispositivos IoT Edge. 
 
-### <a name="add-registry-credentials-to-the-edge-runtime-on-your-edge-device"></a>Agregar credenciales del Registro al entorno de tiempo de ejecución de Edge en el dispositivo de Edge
-En la máquina donde se ejecuta IoT Edge, agregue las credenciales de su registro para que el entorno de tiempo de ejecución pueda tener acceso al contenedor y extraerlo.
+### <a name="set-up-an-iot-edge-device"></a>Configuración de un dispositivo de IoT Edge
 
-En Windows, ejecute el siguiente comando:
-```cmd/sh
-iotedgectl login --address <docker-registry-address> --username <docker-username> --password <docker-password>
-```
-En Linux, ejecute el siguiente comando:
-```cmd/sh
-sudo iotedgectl login --address <docker-registry-address> --username <docker-username> --password <docker-password>
-```
+Use la documentación de Azure IoT Edge para preparar un dispositivo. 
+
+1. [Registre un dispositivo con Azure IoT Hub](../../iot-edge/how-to-register-device-portal.md). La salida de este proceso es una cadena de conexión que puede usar para configurar el dispositivo físico. 
+2. Instale el entorno de ejecución de IoT Edge en el dispositivo físico y configúrelo con una cadena de conexión. Puede instalar el tiempo de ejecución en dispositivos [Windows](../../iot-edge/how-to-install-iot-edge-windows-with-windows.md) o [Linux](../../iot-edge/how-to-install-iot-edge-linux.md).  
+
 
 ### <a name="find-the-machine-learning-container-image-location"></a>Buscar la ubicación de la imagen de contenedor de Machine Learning
 Necesita la ubicación de la imagen de contenedor de Machine Learning. Para buscar la ubicación de la imagen de contenedor:
@@ -49,7 +49,17 @@ Necesita la ubicación de la imagen de contenedor de Machine Learning. Para busc
 2. En **Azure Container Registry**, seleccione el registro que desea inspeccionar.
 3. En el registro, haga clic en **Repositorios** para ver una lista de todos los repositorios y sus imágenes.
 
+Mientras mira el registro de contenedor en Azure Portal, recupere las credenciales del registro de contenedor. Estas credenciales deben proporcionarse en al dispositivo de IoT Edge para que pueda extraer la imagen del registro privado. 
 
+1. En el registro de contenedor, haga clic en **Claves de acceso**. 
+2. **Habilite** el usuario administrador, si aún no lo está. 
+3. Guarde los valores de **Servidor de inicio de sesión**, **Nombre de usuario** y **Contraseña**. 
+
+### <a name="deploy-the-container-image-to-your-device"></a>Implementación de la imagen de contenedor en el dispositivo
+
+Con la imagen de contenedor y las credenciales del registro de contenedor, está listo para implementar el modelo de Machine Learning en su dispositivo de IoT Edge. 
+
+Siga las instrucciones de [Implementación de módulos de Azure IoT Edge desde Azure Portal](../../iot-edge/how-to-deploy-modules-portal.md) para iniciar el modelo en su dispositivo IoT Edge. 
 
 
 

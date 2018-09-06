@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 08/24/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 46e46cfea621f99e150446fcc75b71feb468fa49
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: aedaa729ec51d7b60b2c242239935f7b3e41794f
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052705"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918194"
 ---
 # <a name="provider-resource-usage-api"></a>API de uso de recursos de proveedor
 El término *proveedor* se aplica al administrador de servicios y a los proveedores delegados. Los operadores de Azure Stack y los proveedores delegados pueden usar la API de uso del proveedor para ver el uso de sus inquilinos directos. Por ejemplo, como se muestra en el diagrama, P0 puede llamar a la API de proveedores para obtener información del uso directo de P1 y de P2 y P1 puede llamarla para obtener información de uso sobre P3 y P4.
@@ -93,6 +93,8 @@ meterID1",
 
 ## <a name="retrieve-usage-information"></a>Recuperar información de utilización
 
+### <a name="powershell"></a>PowerShell
+
 Para generar los datos de uso, es preciso tener recursos en ejecución y que utilicen activamente el sistema, por ejemplo, una máquina virtual activa, una cuenta de almacenamiento que contiene algunos datos, etc. Si no está seguro de si tiene algún recurso que se ejecute en Azure Stack Marketplace, implemente una máquina virtual (VM) y compruebe la hoja de supervisión de la máquina virtual para asegurarse de que se está ejecutando. Use los siguientes cmdlets de PowerShell para ver los datos de utilización:
 
 1. [Instale PowerShell para Azure Stack.](azure-stack-powershell-install.md)
@@ -101,6 +103,22 @@ Para generar los datos de uso, es preciso tener recursos en ejecución y que uti
 ```powershell
 Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
 ```
+### <a name="rest-api"></a>API DE REST
+
+Puede recopilar información de uso de las suscripciones eliminadas mediante la llamada al servicio Microsoft.Commerce.Admin. 
+
+**Para devolver todo el uso de inquilino para usuarios activos o eliminados:**
+
+| **Método** | **URI de solicitud** |
+| --- | --- |
+| GET | https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview |
+
+**Para devolver el uso de inquilinos activos o eliminados:**
+
+| **Método** | **URI de solicitud** |
+| --- | --- |
+| GET |https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Referencia de la API de uso de recursos de inquilino](azure-stack-tenant-resource-usage-api.md)

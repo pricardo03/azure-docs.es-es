@@ -1,67 +1,82 @@
 ---
-title: Uso del conector de Slack en Azure Logic Apps | Microsoft Docs
-description: Conéctese a Slack en las aplicaciones lógicas
+title: Conexión a Slack desde Azure Logic Apps | Microsoft Docs
+description: Automatice tareas y flujos de trabajo que supervisan archivos y administran canales, grupos y mensajes en la cuenta de Slack con Azure Logic Apps.
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 88b134a90ac385ad957d76f420fe85dc2dbbf751
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: 7af2db528866d687064e854e00e43e81d2601b2b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296230"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042332"
 ---
-# <a name="get-started-with-the-slack-connector"></a>Introducción al conector de Slack
-Slack es una herramienta de comunicación de equipo, que reúne todas las comunicaciones del equipo en un solo lugar, inmediatamente localizables y disponibles dondequiera que vaya. 
+# <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Supervisión y administración de Slack con Azure Logic Apps
 
-Empiece por crear una aplicación lógica ahora. Para ello, consulte [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Con Azure Logic Apps y el conector Slack, puede crear tareas y flujos de trabajo automatizados que supervisan los archivos de Slack y administran los canales, mensajes o grupos de Slack. Por ejemplo:
 
-## <a name="create-a-connection-to-slack"></a>Creación de una conexión a Slack
-Para usar el conector de Slack, cree primero una **conexión** y, después, especifique los detalles de las siguientes propiedades: 
+* Supervisar cuándo se crean nuevos archivos
+* Crear, enumerar y unirse a canales 
+* Publicar mensajes
+* Crear grupos y establecer "no molestar"
 
-| Propiedad | Obligatorio | DESCRIPCIÓN |
-| --- | --- | --- |
-| Se necesita el cifrado de tokens |Sí |Proporcionar credenciales de Slack |
+Puede usar desencadenadores que obtengan respuestas de su cuenta de Slack y permitan que la salida esté disponible para otras acciones. Puede usar acciones que realicen tareas con su cuenta de Slack. También puede hacer que otras acciones usen la salida de las acciones de Slack. Por ejemplo, cuando se crea un nuevo archivo, puede enviar un correo electrónico con el conector Office 365 Outlook. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-Inicie sesión en Slack con estos pasos y complete la configuración de la **conexión** de Slack en la aplicación lógica:
+## <a name="prerequisites"></a>Requisitos previos
 
-1. Seleccione **Periodicidad**
-2. Seleccione un valor para **Frequency** (Frecuencia) y especifique el correspondiente a **Interval** (Intervalo)
-3. Seleccione **Add an action**(Agregar una acción)  
-   ![Configurar Slack][1]  
-4. Escriba Slack en el cuadro de búsqueda y espere a que la búsqueda devuelva todas las entradas que incluyan Slack en el nombre.
-5. Seleccione **Slack - exponer mensaje**
-6. Seleccione **Sign in to Slack** (Iniciar sesión en Slack):  
-   ![Configurar Slack][2]
-7. Especifique sus credenciales de Slack para iniciar sesión y autorizar la aplicación    
-   ![Configurar Slack][3]  
-8. Se le redirigirá a la página de inicio de sesión de su organización. **Autorice** la interacción de Slack con la aplicación lógica:      
-   ![Configurar Slack][5] 
-9. Una vez completada la autorización se le redirigirá a la aplicación lógica para terminar mediante la configuración de la sección **Slack - obtener todos los mensajes**. Agregue otros desencadenadores y acciones que necesite.  
-   ![Configurar Slack][6]
-10. Guarde el trabajo seleccionando **Guardar** en el menú (cerca de la parte superior).
+* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
 
-## <a name="connector-specific-details"></a>Detalles específicos del conector
+* La cuenta y las credenciales de usuario de [Slack](https://slack.com/).
 
-Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/slack/).
+  Las credenciales autorizan a la aplicación lógica a crear una conexión con la cuenta de Slack y acceder a ella.
 
-## <a name="more-connectors"></a>Más conectores
-Volver a la [lista de API](apis-list.md).
+* Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-[1]: ./media/connectors-create-api-slack/connectionconfig1.png
-[2]: ./media/connectors-create-api-slack/connectionconfig2.png 
-[3]: ./media/connectors-create-api-slack/connectionconfig3.png
-[4]: ./media/connectors-create-api-slack/connectionconfig4.png
-[5]: ./media/connectors-create-api-slack/connectionconfig5.png
-[6]: ./media/connectors-create-api-slack/connectionconfig6.png
+* La aplicación lógica desde donde quiere acceder a la cuenta de Slack. Para comenzar con un desencadenador de Slack, [cree una aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar una acción de Slack, inicie la aplicación lógica con un desencadenador, por ejemplo, uno de Slack u otro desencadenador, como **Recurrence**.
+
+## <a name="connect-to-slack"></a>Conexión a Slack
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Si aún no lo ha hecho, inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el Diseñador de aplicaciones lógicas.
+
+1. Para las aplicaciones lógicas en blanco, en el cuadro de búsqueda, escriba "slack" como filtro. En la lista de desencadenadores, seleccione el que desee. 
+
+   O bien
+
+   Para las aplicaciones lógicas existentes, en el último paso donde desea agregar una acción, elija **Nuevo paso**. 
+   En el cuadro de búsqueda, escriba "slack" como filtro. 
+   En la lista de acciones, seleccione la acción que desee.
+
+   Para agregar una acción entre un paso y otro, mueva el puntero sobre la flecha entre ellos. 
+   Elija el signo más (**+**) que aparece y seleccione **Agregar una acción**.
+
+1. Si se le pide que inicie sesión en Slack, inicie sesión en el área de trabajo de Slack. 
+
+   ![Inicio de sesión en el área de trabajo de Slack](./media/connectors-create-api-slack/slack-sign-in-workspace.png)
+
+1. Autorice el acceso para la aplicación lógica.
+
+   ![Autorización del acceso a Slack](./media/connectors-create-api-slack/slack-authorize-access.png)
+
+1. Proporcione la información necesaria para el desencadenador o la acción seleccionados. Para continuar con la creación del flujo de trabajo de la aplicación lógica, agregue más acciones.
+
+## <a name="connector-reference"></a>Referencia de conectores
+
+Para conocer los detalles técnicos sobre desencadenadores, acciones y límites, que se incluyen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/slack/) del conector.
+
+## <a name="get-support"></a>Obtención de soporte técnico
+
+* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)

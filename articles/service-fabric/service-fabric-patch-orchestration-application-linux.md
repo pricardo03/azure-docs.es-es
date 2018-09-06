@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 00e5f5a73973a34a8611143719c91a2b1ad0c8eb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971273"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746724"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Linux en el clúster de Service Fabric
 
@@ -57,7 +57,7 @@ La aplicación de orquestación de revisiones consta de los siguientes subcompon
 > [!NOTE]
 > La aplicación de orquestación de revisiones usa el servicio de sistema de administrador de reparaciones de Service Fabric para habilitar o deshabilitar el nodo, y llevar a cabo comprobaciones de estado. La tarea de reparación creada por la aplicación de orquestación de revisiones sigue el progreso de actualización en cada nodo.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 ### <a name="ensure-that-your-azure-vms-are-running-ubuntu-1604"></a>Asegúrese de que las máquinas virtuales de Azure ejecutan Ubuntu 16.04
 En el momento de escribir este documento, Ubuntu 16.04 (`Xenial Xerus`) es la única versión admitida.
@@ -121,7 +121,7 @@ En Ubuntu, la aplicación de orquestación de revisiones deshabilita las [actual
 
 Se puede descargar la aplicación junto con los scripts de instalación desde el [vínculo de archivo](https://go.microsoft.com/fwlink/?linkid=867984).
 
-Se puede descargar la aplicación en formato de sfpkg desde el [vínculo sfpkg](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg). Esto resulta útil para [la implementación de aplicaciones basada en Azure Resource Manager](service-fabric-application-arm-resource.md).
+Se puede descargar la aplicación en formato de sfpkg desde el [vínculo sfpkg](https://aka.ms/POA/POA_v2.0.2.sfpkg). Esto resulta útil para [la implementación de aplicaciones basada en Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configuración de la aplicación
 
@@ -370,5 +370,8 @@ La aplicación de orquestación de revisiones recopila datos de telemetría para
 ### <a name="version-200"></a>Versión 2.0.0
 - Versión pública
 
-### <a name="version-201-latest"></a>Versión 2.0.1 (más reciente)
+### <a name="version-201"></a>Versión 2.0.1
 - Aplicación recompilada con el último SDK de Service Fabric
+
+### <a name="version-202-latest"></a>Versión 2.0.2 (la última)
+- Se corrió un problema con al advertencia de mantenimiento generada durante el reinicio.

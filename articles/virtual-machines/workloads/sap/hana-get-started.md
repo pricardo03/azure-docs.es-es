@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 14cdb2d3e433da38913ffa29b3b150bdb264278b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1948fb927c00e928a46c347bc6f1a01a43e155df
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658713"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43112146"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Inicio rápido: instalación manual de una única instancia de SAP HANA en máquinas virtuales de Azure
 ## <a name="introduction"></a>Introducción
@@ -30,7 +30,7 @@ Esta guía de inicio rápido le ayuda a configurar una instancia única de SAP H
 >[!Note]
 >En ella se describen las implementaciones de SAP HANA en máquinas virtuales de Azure. Para más información sobre la implementación de SAP HANA en instancias grandes de HANA, consulte [Uso de SAP en máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
  
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En esta guía se da por supuesto que está familiarizado con los conceptos básicos de la infraestructura como servicio (IaaS), por ejemplo:
  * Cómo implementar máquinas virtuales o redes virtuales mediante Azure Portal o PowerShell.
  * La interfaz de línea de comandos (CLI) multiplataforma de Azure, incluida la opción para usar plantillas de notificación de objetos JavaScript (JSON).
@@ -41,7 +41,7 @@ También se da por supuesto que está familiarizado con:
 * Los siguientes conceptos y procedimientos:
    * Planeamiento de la implementación de SAP en Azure, como el planeamiento de Azure Virtual Network y el uso de Azure Storage. Consulte [SAP NetWeaver en Azure Virtual Machines: guía de planeación e implementación](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide).
    * Principios de implementación y maneras de implementar máquinas virtuales en Azure. Consulte [Implementación de Azure Virtual Machines para SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide).
-   * Alta disponibilidad para SAP NetWeaver ASCS (ABAP SAP Central Services), SCS (SAP Central Services) y ERS (Evaluated Receipt Settlement) en Azure. Consulte [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide).
+   * Alta disponibilidad para SAP NetWeaver ASCS (ABAP SAP Central Services), SCS (SAP Central Services) y ERS (Enqueue Replication Server) en Azure. Consulte [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide).
    * Información detallada sobre cómo mejorar la eficacia en el aprovechamiento de una instalación de varios SID de ASCS/SCS en Azure. Consulte [Creación de una configuración de varios SID de SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-multi-sid). 
    * Principios de ejecución de SAP NetWeaver basado en máquinas virtuales orientadas a Linux en Azure. Consulte [Ejecución de SAP NetWeaver en máquinas virtuales de SUSE Linux de Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart). En esta guía se proporcionan configuraciones específicas para Linux en máquinas virtuales de Azure y detalles sobre cómo conectar correctamente discos de Azure Storage a máquinas virtuales Linux.
 

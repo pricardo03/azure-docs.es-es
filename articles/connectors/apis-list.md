@@ -1,26 +1,29 @@
 ---
 title: Conectores para Azure Logic Apps | Microsoft Docs
-description: Automatización de flujos de trabajo con API administradas integradas, una cuenta de integración local y conectores empresariales para Azure Logic Apps
+description: Automatización de flujos de trabajo con conectores para Azure Logic Apps, que incluyen la cuenta integrada, administrada y local y los conectores empresariales
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 06/29/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 2bb3e2ce29037372395aa0b30e9f76f3e712667d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.topic: article
+ms.date: 08/23/2018
+ms.openlocfilehash: 6b31882ec3916e60ac7dc7b8117328176abef1b4
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096618"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818541"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para Azure Logic Apps
 
-Los conectores juegan un papel fundamental cuando se crean flujos de trabajo automatizados con Azure Logic Apps. Usar conectores en las aplicaciones lógicas permite ampliar las funcionalidades de las aplicaciones locales y en la nube para realizar tareas con los datos que ya tiene y con los que cree. Aunque Logic Apps ofrece más de 200 conectores, en este artículo se describen los conectores populares y más utilizados que miles de aplicaciones y millones de ejecuciones usan correctamente para el procesamiento de datos e información.
-Los conectores están disponibles como conectores integrados o administrados. 
+Los conectores juegan un papel fundamental cuando se crean flujos de trabajo automatizados con Azure Logic Apps. Usar conectores en las aplicaciones lógicas permite ampliar las funcionalidades de las aplicaciones locales y en la nube para realizar tareas con los datos que ya tiene y con los que cree. 
+
+Aunque Logic Apps ofrece [más de 200 conectores](https://docs.microsoft.com/connectors), en este artículo se describen los conectores populares y más utilizados que miles de aplicaciones y millones de ejecuciones usan correctamente para el procesamiento de datos e información. Los conectores están disponibles como conectores integrados o administrados. 
+
+> [!NOTE]
+> Para obtener la lista completa de conectores y la información de referencia de cada conector, por ejemplo, acciones, desencadenadores y límites, vea la [Introducción a los conectores](https://docs.microsoft.com/connectors).
 
 * [**Elementos integrados**](#built-ins): estas acciones y desencadenadores integrados ayudan a crear aplicaciones lógicas que se ejecutan en programaciones personalizadas, se comunican con otros puntos de conexión, reciben solicitudes y responden a ellas, y llaman a funciones de Azure, aplicaciones web de Azure API Apps, sus propias API administradas y publicadas con Azure API Management, y aplicaciones lógicas anidadas que pueden recibir solicitudes. También puede usar acciones integradas que le ayudarán a organizar y controlar el flujo de trabajo de la aplicación lógica, y a trabajar con datos.
 
@@ -37,7 +40,8 @@ Los conectores están disponibles como conectores integrados o administrados.
   Por ejemplo, si usa Microsoft BizTalk Server, las aplicaciones lógicas podrán conectarse y comunicarse con BizTalk Server utilizando el [conector de BizTalk Server](#on-premises-connectors). 
   Después, puede ampliar o realizar operaciones de BizTalk en las aplicaciones lógicas mediante los [conectores de la cuenta de integración](#integration-account-connectors). 
 
-Para obtener información técnica sobre los desencadenadores y las acciones definidos por la descripción de Swagger, así como los límites de cada uno, consulte [Conectores](/connectors/). Para obtener información sobre costos, consulte [los detalles de precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) y el [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md). 
+> [!NOTE] 
+> Para obtener la lista completa de conectores y la información de referencia de cada conector, como acciones y desencadenadores, que se definen mediante una descripción de Swagger, además de los límites, vea la [Introducción a los conectores](/connectors/). Para obtener información sobre precios, consulte los [detalles de precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) y el [modelo de precios de Logic Apps](../logic-apps/logic-apps-pricing.md). 
 
 <a name="built-ins"></a>
 
@@ -160,6 +164,7 @@ Para que las aplicaciones de API o los conectores personalizados sean públicos 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* Búsqueda de la [lista completa de conectores](https://docs.microsoft.com/connectors)
 * [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Creación de conectores personalizados para aplicaciones lógicas](https://docs.microsoft.com/connectors/custom-connectors/)
 * [Creación de API personalizadas para las aplicaciones lógicas](../logic-apps/logic-apps-create-api-app.md)

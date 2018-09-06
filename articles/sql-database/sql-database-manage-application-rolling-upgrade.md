@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 08/23/2018
 ms.author: sashan
-ms.openlocfilehash: a73284d679b4be1fbae6d5e1688915c98cbf2392
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 37960995c89c2b30d90ac45dcd8cc44d80088398
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649506"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818623"
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Administración de actualizaciones graduales de aplicaciones en la nube mediante la replicación geográfica activa de SQL Database
 > [!NOTE]
@@ -31,10 +31,10 @@ Al evaluar las opciones de actualización, se deben considerar los factores sigu
 * El costo total en dólares.  Incluye redundancia adicional y costos incrementales de los componentes temporales usados en el proceso de actualización. 
 
 ## <a name="upgrading-applications-that-rely-on-database-backups-for-disaster-recovery"></a>La actualización de las aplicaciones que dependen de las copias de seguridad de base de datos para recuperación ante desastres.
-Si la aplicación se basa en copias de seguridad automáticas y utiliza la restauración geográfica para la recuperación ante desastres, normalmente se implementa en una única región de Azure. En este caso el proceso de actualización implica la creación de una implementación de copia de seguridad de todos los componentes de la aplicación implicados en la actualización. Para minimizar la interrupción para el usuario final, se aprovechará del Administrador de tráfico de Azure (WATM) con el perfil de conmutación por error.  En el siguiente diagrama se ilustra el entorno operativo antes del proceso de actualización. El punto de conexión <i>contoso-1.azurewebsites.net</i> representa una ranura de producción de la aplicación que debe actualizarse. Para habilitar la capacidad de revertir la actualización, necesita crear un espacio de almacenamiento provisional con una copia totalmente sincronizada de la aplicación. Los siguientes pasos son necesarios para preparar la aplicación para la actualización:
+Si la aplicación se basa en copias de seguridad automáticas y utiliza la restauración geográfica para la recuperación ante desastres, normalmente se implementa en una única región de Azure. En este caso el proceso de actualización implica la creación de una implementación de copia de seguridad de todos los componentes de la aplicación implicados en la actualización. Para minimizar la interrupción para el usuario final, se utilizará Azure Traffic Manager (ATM) con el perfil de conmutación por error.  En el siguiente diagrama se ilustra el entorno operativo antes del proceso de actualización. El punto de conexión <i>contoso-1.azurewebsites.net</i> representa una ranura de producción de la aplicación que debe actualizarse. Para habilitar la capacidad de revertir la actualización, necesita crear un espacio de almacenamiento provisional con una copia totalmente sincronizada de la aplicación. Los siguientes pasos son necesarios para preparar la aplicación para la actualización:
 
 1. Cree una ranura de almacenamiento provisional para la actualización. Para ello, cree una base de datos secundaria (1) e implemente un sitio web idéntico en la misma región de Azure. Supervise la base de datos secundaria para ver si se completa el proceso de propagación.
-2. Cree un perfil de conmutación por error en WATM con <i>contoso-1.azurewebsites.net</i> como punto de conexión en línea y <i>contoso 2.azurewebsites.net</i> como punto de conexión desconectado. 
+2. Cree un perfil de conmutación por error en ATM con <i>contoso-1.azurewebsites.net</i> como punto de conexión en línea y <i>contoso 2.azurewebsites.net</i> como punto de conexión desconectado. 
 
 > [!NOTE]
 > Tenga en cuenta los pasos preparatorios no afectarán a la aplicación de la ranura de producción y puede funcionar en modo de acceso completo.
@@ -52,7 +52,7 @@ Una vez completados los pasos preparatorios, la aplicación está preparada para
 
 Si la actualización se completó correctamente, ya está listo para cambiar los usuarios finales a la copia almacenada provisionalmente. Ahora se convertirá en la ranura de producción de la aplicación.  Esto implica unos pocos pasos más, tal como se muestra en el diagrama siguiente.
 
-1. Cambie el punto de conexión en línea en el perfil de WATM a <i>contoso-2.azurewebsites.net</i>, que señala a la versión V2 del sitio web (6). Ahora se convierte en el espacio de producción con la aplicación V2 y el tráfico de usuarios finales se dirige a él.  
+1. Cambie el punto de conexión en línea en el perfil de ATM a <i>contoso-2.azurewebsites.net</i>, que apunta a la versión V2 del sitio web (6). Ahora se convierte en el espacio de producción con la aplicación V2 y el tráfico de usuarios finales se dirige a él.  
 2. Si ya no necesita los componentes de la aplicación V1, puede quitarlos (7).   
 
 ![Configuración de replicación geográfica de SQL Database. Recuperación ante desastres en la nube.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
@@ -65,7 +65,7 @@ Si el proceso de actualización es incorrecto, por ejemplo debido a un error en 
 En este punto, la aplicación es totalmente funcional y se pueden repetir los pasos de actualización.
 
 > [!NOTE]
-> La reversión no requiere cambios en el perfil de WATM, ya que apunta a <i>contoso-1.azurewebsites.net</i> como el punto de conexión activo.
+> La reversión no requiere cambios en el perfil de ATM, ya que apunta a <i>contoso-1.azurewebsites.net</i> como el punto de conexión activo.
 > 
 > 
 
@@ -79,12 +79,12 @@ Si la aplicación aprovecha la replicación geográfica para la continuidad empr
 * La aplicación permanece protegida frente a errores catastróficos en todo momento durante el proceso de actualización.
 * Los componentes con redundancia geográfica de la aplicación se actualizan en paralelo con los componentes activos.
 
-Para lograr estos objetivos, aprovechará el Administrador de tráfico de Azure (WATM) con el perfil de conmutación por error con un punto de conexión activo y tres de copia de seguridad.  En el siguiente diagrama se ilustra el entorno operativo antes del proceso de actualización. Los sitios web <i>contoso-1.azurewebsites.net</i> y <i>contoso-dr.azurewebsites.net</i> representan una ranura de producción de la aplicación con redundancia geográfica completa. Para habilitar la capacidad de revertir la actualización, necesita crear un espacio de almacenamiento provisional con una copia totalmente sincronizada de la aplicación. Dado que debe asegurarse de que la aplicación puede recuperarse rápidamente en caso de que se produzca un error grave durante el proceso de actualización, el espacio de almacenamiento provisional tiene que tener también redundancia geográfica. Los siguientes pasos son necesarios para preparar la aplicación para la actualización:
+Para lograr estos objetivos, usará Azure Traffic Manager (ATM) con el perfil de conmutación por error con un punto de conexión activo y tres de copia de seguridad.  En el siguiente diagrama se ilustra el entorno operativo antes del proceso de actualización. Los sitios web <i>contoso-1.azurewebsites.net</i> y <i>contoso-dr.azurewebsites.net</i> representan una ranura de producción de la aplicación con redundancia geográfica completa. Para habilitar la capacidad de revertir la actualización, necesita crear un espacio de almacenamiento provisional con una copia totalmente sincronizada de la aplicación. Dado que debe asegurarse de que la aplicación puede recuperarse rápidamente en caso de que se produzca un error grave durante el proceso de actualización, el espacio de almacenamiento provisional tiene que tener también redundancia geográfica. Los siguientes pasos son necesarios para preparar la aplicación para la actualización:
 
 1. Cree una ranura de almacenamiento provisional para la actualización. Para ello, cree una base de datos secundaria (1) e implemente una copia idéntica del sitio web en la misma región de Azure. Supervise la base de datos secundaria para ver si se completa el proceso de propagación.
 2. Cree una base de datos secundaria con redundancia geográfica en la ranura de almacenamiento provisional mediante la replicación geográfica de la base de datos secundaria a la región de copia de seguridad (esto se denomina "replicación geográfica encadenada"). Supervise la copia de seguridad secundaria para ver si se completa el proceso de propagación (3).
 3. Cree una copia en espera del sitio web de la región de copia de seguridad y vincúlela a la base de datos secundaria con redundancia geográfica (4).  
-4. Agregue los puntos de conexión adicionales <i>contoso-2.azurewebsites.net</i> y <i>contoso-3.azurewebsites.net</i> al perfil de conmutación por error de WATM como puntos de conexión desconectados (5). 
+4. Agregue los puntos de conexión adicionales <i>contoso-2.azurewebsites.net</i> y <i>contoso-3.azurewebsites.net</i> al perfil de conmutación por error de ATM como puntos de conexión desconectados (5). 
 
 > [!NOTE]
 > Tenga en cuenta los pasos preparatorios no afectarán a la aplicación de la ranura de producción y puede funcionar en modo de acceso completo.
@@ -103,7 +103,7 @@ Una vez completados los pasos preparatorios, la ranura de almacenamiento provisi
 
 Si la actualización se completó correctamente, ya está listo para cambiar los usuarios finales a la versión V2 de la aplicación. En el siguiente diagrama se ilustran los pasos implicados.
 
-1. Cambie el punto de conexión activo en el perfil de WATM a <i>contoso-2.azurewebsites.net</i>, que ahora señala a la versión V2 del sitio web (9). Ahora se convierte en un espacio de producción con la aplicación V2 y el tráfico de usuarios finales se dirige a ella. 
+1. Cambie el punto de conexión activo en el perfil de ATM a <i>contoso-2.azurewebsites.net</i>, que ahora apunta a la versión V2 del sitio web (9). Ahora se convierte en un espacio de producción con la aplicación V2 y el tráfico de usuarios finales se dirige a ella. 
 2. Si ya no necesita la aplicación V1, puede quitarla con seguridad (10 y 11).  
 
 ![Configuración de replicación geográfica de SQL Database. Recuperación ante desastres en la nube.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
@@ -116,7 +116,7 @@ Si el proceso de actualización es incorrecto, por ejemplo debido a un error en 
 En este punto, la aplicación es totalmente funcional y se pueden repetir los pasos de actualización.
 
 > [!NOTE]
-> La reversión no requiere cambios en el perfil de WATM, ya que apunta a <i>contoso-1.azurewebsites.net</i> como el punto de conexión activo.
+> La reversión no requiere cambios en el perfil de ATM, ya que apunta a <i>contoso-1.azurewebsites.net</i> como el punto de conexión activo.
 > 
 > 
 

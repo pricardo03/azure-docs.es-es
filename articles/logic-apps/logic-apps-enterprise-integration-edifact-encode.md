@@ -1,27 +1,23 @@
 ---
 title: 'Codificación de mensajes EDIFACT: Azure Logic Apps | Microsoft Docs'
-description: Valide EDI y genere XML con el codificador de mensajes EDIFACT en Enterprise Integration Pack para Azure Logic Apps
+description: Valide EDI y genere XML con el codificador de mensajes EDIFACT para Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 974ac339-d97a-4715-bc92-62d02281e900
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 974ac339-d97a-4715-bc92-62d02281e900
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: eaad2561254d858af99f06e576d67c05838e1220
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e1c990030a9fa9ad25950ccb24b36b82a8c69f5c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299899"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122360"
 ---
-# <a name="encode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Codificación de mensajes EDIFACT para Azure Logic Apps con Enterprise Integration Pack
+# <a name="encode-edifact-messages-for-azure-logic-apps-with-enterprise-integration-pack"></a>Codificación de mensajes EDIFACT para Azure Logic Apps con Enterprise Integration Pack
 
 Con el conector de codificación de mensajes EDIFACT puede validar EDI y propiedades específicas del asociado, generar un documento XML para cada conjunto de transacciones y solicitar la confirmación técnica, la funcional o ambas.
 Para usar este conector, debe agregarlo a un desencadenador existente en la aplicación lógica.

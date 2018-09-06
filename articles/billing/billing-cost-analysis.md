@@ -1,5 +1,5 @@
 ---
-title: Explore los costos de Azure con Análisis de costos | Microsoft Docs
+title: Exploración de los costos de Azure con Análisis de costos | Microsoft Docs
 description: En este artículo se le ayuda a usar análisis de costos para explorar y analizar sus costos de organización de Azure.
 services: billing
 keywords: ''
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: billing
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: eeaf02853f8ffe9ca67dbf31afc687afb7dee242
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: db06956e01ed38ce1f8ee0ce92526be16733fd73
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40180682"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818131"
 ---
 # <a name="explore-and-analyze-costs-with-cost-analysis"></a>Explore y analice los costos con Análisis de costos
 

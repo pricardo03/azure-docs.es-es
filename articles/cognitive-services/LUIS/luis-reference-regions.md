@@ -1,21 +1,21 @@
 ---
-title: Regiones de Language Understanding (LUIS) | Microsoft Docs
+title: Regiones y puntos de conexión de Language Understanding (LUIS) - Azure - Cognitive Services LUIS | Microsoft Docs
 titleSuffix: Azure
-description: Este artículo contiene listas de las regiones de LUIS para el sitio web de LUIS, suscripciones de Azure y regiones del mundo.
+description: La región en la que publique la aplicación de LUIS corresponde a la región o ubicación que especifique en Azure Portal al crear una clave de punto de conexión de LUIS para Azure. Al publicar una aplicación, LUIS genera automáticamente una dirección URL de punto de conexión para la región asociada a la clave. Para publicar una aplicación de LUIS en más de una región, necesitará al menos una clave por región.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 08/23/2018
 ms.author: diberry
-ms.openlocfilehash: 1f6090bf1ac588585a16f93d2ac091e8950ca45f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 7812ce37cb22c8774c785f5f645b8fef90b02a3e
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238937"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42815510"
 ---
 # <a name="regions-and-keys"></a>Regiones y claves
 
@@ -59,6 +59,24 @@ Para publicar en las regiones europeas, solo debe crear aplicaciones de LUIS en 
 ## <a name="publishing-to-australia"></a>Publicación en Australia
 
 Para publicar en las regiones australianas, solo debe crear aplicaciones de LUIS en https://au.luis.ai. Si intenta publicar en cualquier otro lugar con una clave en la región australiana, LUIS mostrará un mensaje de advertencia. En su lugar, use https://au.luis.ai. Las aplicaciones de LUIS creadas en [https://au.luis.ai][au.luis.ai] no se migran automáticamente a otras regiones. Exporte e importe la aplicación de LUIS para poder migrarla.
+
+## <a name="endpoints"></a>Puntos de conexión
+
+LUIS actualmente tiene dos puntos de conexión: uno para la creación y otro para el análisis de texto.
+
+|Propósito|URL|
+|--|--|
+|Creación|`https://{region}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appID}/`|
+|Análisis de texto (predicción de consultas)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]`|
+
+En la tabla siguiente se explican los parámetros que se muestran entre llaves `{}` en la tabla anterior.
+
+|Parámetro|Propósito|
+|--|--|
+|region|Región de Azure: la creación y publicación tienen diferentes regiones|
+|appID|Identificador de la aplicación de LUIS utilizado en la ruta de la dirección URL que se encuentra en el panel de la aplicación|
+|q|Texto de expresión enviado desde la aplicación cliente, como un bot de chat|
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

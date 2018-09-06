@@ -4,15 +4,15 @@ description: Proporciona información general sobre la aplicación del recopilad
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/25/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: c99d0f74dbb8cc28cabebae60fe10645f4bdb3b6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 551276f88f5c27cd860a400a5769c95f4d94cbbb
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308466"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122894"
 ---
 # <a name="collector-appliance"></a>Aplicación del recopilador
 
@@ -58,6 +58,30 @@ La aplicación del recopilador debe estar conectada a Internet para enviar la in
 
 > [!NOTE]
 > El recopilador no admite servidores proxy basados en https.
+
+#### <a name="internet-connectivity-with-intercepting-proxy"></a>Conectividad a Internet con proxy de interceptación
+
+Si el servidor proxy que utiliza para conectarse a Internet es un proxy de interceptación, deberá importar el certificado proxy a la máquina virtual del recopilador. Estos son los pasos para importar el certificado a la máquina virtual del recopilador.
+
+1. En la máquina virtual del recopilador, vaya al **menú Inicio** y busque y abra **Administrar certificados de equipo**.
+2. En el panel izquierdo de la herramienta Certificados, en **Certificados - Equipo local**, busque **Editores de confianza**. En **editores de confianza**, haga clic en **certificados** para ver la lista de certificados en el panel de la derecha.
+
+    ![Herramienta Certificados](./media/concepts-intercepting-proxy/certificates-tool.png)
+
+3. Copie el certificado de proxy en la máquina virtual del recopilador. Es posible que tenga que póngase en contacto con el equipo del administrador de red de su organización para obtener este certificado.
+4. Haga doble clic en el certificado para abrirlo. Haga clic en **Instalar certificado**. Se iniciará al Asistente para importación de certificados.
+5. En el Asistente para importación de certificados, elija **Máquina Local** como Ubicación del almacén. Haga clic en **Siguiente**.
+
+    ![Ubicación del almacén de certificados](./media/concepts-intercepting-proxy/certificate-store-location.png)
+
+6. Elija la opción **Colocar todos los certificados en el siguiente almacén**. Haga clic en **Examinar** y seleccione **Editores de confianza** en la lista de certificados que aparece. Haga clic en **Next**.
+
+    ![Almacén de certificados](./media/concepts-intercepting-proxy/certificate-store.png)
+    
+7. Haga clic en **Finalizar** El certificado se importará. 
+8. También puede comprobar que el certificado se importa abriendo la herramienta Certificados como en los pasos 1 y 2 anteriores.
+9. En la aplicación Azure Migrate Collector, asegúrese de que la comprobación de requisitos previos de conectividad de internet es correcta.
+
 
 #### <a name="whitelisting-urls-for-internet-connection"></a>Lista de direcciones URL permitidas para conexión a Internet
 

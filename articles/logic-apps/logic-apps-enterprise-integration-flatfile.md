@@ -1,27 +1,23 @@
 ---
-title: Codificación o descodificación de archivos sin formato en Azure Logic Apps | Microsoft Docs
-description: Uso del codificador o descodificador de archivos de Enterprise Integration Pack en Logic Apps
+title: 'Codificación o descodificación de archivos planos: Azure Logic Apps | Microsoft Docs'
+description: Codificación o descodificación de archivos planos para integración empresarial con Azure Logic Apps y Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.date: 07/08/2016
-ms.author: LADocs; divswa
-ms.openlocfilehash: b13e8da04c984456027f152f5af63cfa6604ddc4
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: d0ef61b94d7bd604b6c0062341224510f3048c57
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038377"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123935"
 ---
-# <a name="overview-of-enterprise-integration-with-flat-files"></a>Información general sobre Enterprise Integration Pack con archivos sin formato
+# <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Codificación o descodificación de archivos planos con Azure Logic Apps y Enterprise Integration Pack
 
 Es posible que quiera codificar el contenido XML antes de enviarlo a un socio comercial en un escenario de negocio a negocio (B2B). Para ello, en las aplicaciones lógicas, puede utilizar el conector de codificación de archivos planos. La aplicación lógica que cree puede obtener el contenido XML desde distintos orígenes; entre ellos, un desencadenador de solicitud HTTP u otra aplicación, o incluso uno de los numerosos [conectores](../connectors/apis-list.md). Para más información sobre Logic Apps, consulte la [documentación de Logic Apps](logic-apps-overview.md "Más información sobre Logic Apps").  
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/20/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e06db4e356de6a4572721d1652d6a2666e7cfefc
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 231a9876c7a84953a7d9a88b761a1da9475d1f48
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142847"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248148"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -127,7 +127,7 @@ En el panel **Nueva implementación de actualización**, especifique la siguient
 
 - **Nombre**: proporcione un nombre único para identificar la implementación de actualizaciones.
 - **Sistema operativo**: seleccione **Windows** o **Linux**.
-- **Máquinas para actualizar**: seleccione una Búsqueda guardada, Grupo importado o Máquinas para elegir las máquinas que desea actualizar. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**. Puede ver el estado de mantenimiento de la máquina antes de programar la implementación de actualizaciones. Para obtener información sobre los distintos métodos de creación de grupos de equipos en Log Analytics, consulte [Grupos de equipos en búsquedas de registros en Log Analytics](../log-analytics/log-analytics-computer-groups.md).
+- **Máquinas para actualizar**: seleccione una Búsqueda guardada, Grupo importado o Máquinas para elegir las máquinas que desea actualizar. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**. Puede ver el estado de mantenimiento de la máquina antes de programar la implementación de actualizaciones. Para obtener información sobre los distintos métodos de creación de grupos de equipos en Log Analytics, consulte [Grupos de equipos en búsquedas de registros en Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
   ![Panel Nueva implementación de actualización](./media/manage-update-multi/update-select-computers.png)
 
@@ -154,10 +154,10 @@ En el panel **Nueva implementación de actualización**, especifique la siguient
 
    |Opción|DESCRIPCIÓN|
    |---|---|
-   |Reiniciar si es necesario| **(predeterminado)** Si es necesario, se inicia un reinicio si la ventana de mantenimiento lo permite.|
-   |Reiniciar siempre|Se inicia un reinicio, independientemente de si se necesita. |
-   |Never reboot (No reiniciar nunca)|Independientemente de si se requieren reinicios, se suprimen.|
-   |Only reboot (solo reiniciar), no instalará las actualizaciones|Esta opción omite la instalación de actualizaciones y solo inicia un reinicio.|
+   |Reiniciar si es necesario| **(Valor predeterminado)** En caso necesario, se inicia un reinicio cuando la ventana de mantenimiento lo permite.|
+   |Always reboot (Reiniciar siempre)|Se inicia un reinicio, independientemente de si se necesita. |
+   |Never reboot (No reiniciar nunca)|Independientemente de que se requiera un reinicio, los reinicios se suprimen.|
+   |Only reboot (solo reiniciar), no se instalarán las actualizaciones|Esta opción omite la instalación de actualizaciones y solo inicia un reinicio.|
 
 Cuando haya terminado de configurar la programación, seleccione el botón **Crear** para volver al panel de estado. En la tabla **Programada** se muestra la programación de implementaciones que ha creado.
 

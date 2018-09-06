@@ -2,170 +2,198 @@
 title: Conectarse a Dynamics 365 - desde Azure Logic Apps | Microsoft Docs
 description: Crear y administrar registros con las API REST de Dynamics 365 (en línea) y Azure Logic Apps
 author: Mattp123
-manager: jeconnoc
 ms.author: matp
-ms.date: 02/10/2017
-ms.topic: article
 ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.reviewer: estfan, LADocs
 ms.suite: integration
+ms.topic: article
+ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: 6ac45d45ed1df0e89eb27657a064a8c95ad4be79
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b1ff93f1e03e047ad5ac00259c1aa53afda0c76d
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294850"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818947"
 ---
-# <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Conexión a Dynamics 365 desde flujos de trabajo de aplicación lógica
+# <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Administración de registros de Dynamics 365 con Azure Logic Apps
 
-Con Logic Apps puede conectarse a Dynamics 365 (en línea) y crear flujos de negocio útiles que creen registros, actualicen elementos o devuelvan una lista de registros. Con el conector de Dynamics 365, puede:
+Con Azure Logic Apps y el conector de Dynamics 365, puede crear tareas y flujos de trabajo automatizados en función de los registros de Dynamics 365. Los flujos de trabajo pueden crear registros, actualizar elementos, devolver registros y mucho más en su cuenta de Dynamics 365. Puede incluir acciones en las aplicaciones lógicas que obtengan respuestas de Dynamics 365 y que permitan que la salida esté disponible para otras acciones. Por ejemplo, cuando se actualice un elemento en Dynamics 365, puede enviar un correo electrónico mediante Office 365.
 
-* Compilar el flujo de negocio en función de los datos que obtiene de Dynamics 365 (en línea).
-* Usar acciones que obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, cuando se actualice un elemento en Dynamics 365 (en línea), puede enviar un correo electrónico mediante Office 365.
+En este artículo se explica cómo crear una aplicación lógica que crea una tarea en Dynamics 365 cada vez que se crea un registro de cliente potencial en Dynamics 365.
+Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-En este tema se muestra cómo crear una aplicación lógica que crea una tarea en Dynamics 365 cada vez que se crea un nuevo cliente potencial en Dynamics 365.
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="prerequisites"></a>requisitos previos
-* Una cuenta de Azure.
-* Una cuenta de Dynamics 365 (en línea).
+* Una suscripción de Azure. Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. 
 
-## <a name="create-a-task-when-a-new-lead-is-created-in-dynamics-365"></a>Creación de una tarea cuando se crea un nuevo cliente potencial en Dynamics 365
+* Una [cuenta de Dynamics 365](https://dynamics.microsoft.com)
 
-1.  [Inicie de sesión en Azure](https://portal.azure.com).
+* Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-2.  En el cuadro de búsqueda de Azure, escriba `Logic apps` y presione ENTRAR.
+* La aplicación lógica desde donde quiere acceder a la cuenta de Dynamics 365. Para iniciar la aplicación lógica con un desencadenador de Dynamics 365, necesita una [aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-      ![Búsqueda de Logic Apps](./media/connectors-create-api-crmonline/find-logic-apps.png)
+## <a name="add-dynamics-365-trigger"></a>Adición del desencadenador de Dynamics 365
 
-3.  En **Logic Apps**, haga clic en **Agregar**.
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-      ![Agregar LogicApp](./media/connectors-create-api-crmonline/add-logic-app.png)
+En primer lugar, agregue un desencadenador de Dynamics 365 que se activa cuando aparece un nuevo registro de cliente potencial en Dynamics 365.
 
-4.  Para crear la aplicación lógica, rellene los campos **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**, y haga clic en **Crear**.
+1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en blanco en el Diseñador de aplicación lógica, si aún no está abierta.
 
-5.  Seleccione la nueva aplicación lógica. Cuando reciba la notificación **Implementación correcta**, haga clic en **Actualizar**.
+1. En el cuadro de búsqueda, escriba "Dynamics 365" como filtro. En este ejemplo, en la lista de desencadenadores, seleccione este desencadenador: **Al crear un registro**.
 
-6.  En **Herramientas de desarrollo**, haga clic en **Diseñador de aplicación lógica**. En la lista de plantillas, haga clic en **Aplicación lógica en blanco**.
+   ![Seleccionar un desencadenador](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
-7.  En el cuadro de búsqueda, escriba `Dynamics 365`. En la lista de desencadenadores de Dynamics 365, seleccione **Dynamics 365: Al crear un registro**.
+1. Si se le pide que inicie sesión en Dynamics 365, hágalo ahora.
 
-8.  Si se le pide que inicie sesión en Dynamics 365, hágalo.
+1. Proporcione estos detalles para el desencadenador:
 
-9.  Escriba la información a continuación en los detalles del desencadenador:
+   | Propiedad | Obligatorio | DESCRIPCIÓN | 
+   |----------|----------|-------------| 
+   | **Nombre de la organización** | SÍ | El nombre de la instancia de Dynamics 365 de la organización que desea supervisar; por ejemplo, "Contoso" |
+   | **Nombre de entidad** | SÍ | El nombre de la entidad que desea supervisar; por ejemplo, "Clientes potenciales" | 
+   | **Frecuencia** | SÍ | La unidad de tiempo que se usará con intervalos de comprobación de actualizaciones relacionadas con el desencadenador |
+   | **Intervalo** | SÍ | El número de segundos, minutos, horas, días, semanas o meses que deben pasar antes de la siguiente comprobación |
+   ||| 
 
-  * **Nombre de la organización**. Seleccione la instancia de Dynamics 365 a la que desea que la aplicación lógica escuche.
+   ![Detalles del desencadenador](./media/connectors-create-api-crmonline/trigger-details.png)
 
-  * **Nombre de entidad**. Seleccione la entidad que desea escuchar. Este evento actúa como desencadenador para iniciar la aplicación lógica. 
-  En este tutorial está seleccionado **Leads**.
+## <a name="add-dynamics-365-action"></a>Adición de acción de Dynamics 365
 
-  * **¿Con qué frecuencia quiere comprobar elementos?** Estos valores configuran la frecuencia con la que la aplicación lógica busca actualizaciones relacionadas con el desencadenador. El valor predeterminado es comprobar si hay actualizaciones cada tres minutos.
+Ahora, agregue la acción de Dynamics 365 que crea un registro de tareas para el nuevo registro de cliente potencial.
 
-    * **Frecuencia**. Seleccione segundos, minutos, horas o días.
+1. En el desencadenador, elija **Nuevo paso**.
 
-    * **Intervalo**. Escriba el número de segundos, minutos, horas o días que deben pasar para la siguiente comprobación.
+1. En el cuadro de búsqueda, escriba "Dynamics 365" como filtro. En la lista de acciones, seleccione esta acción: **Crear un nuevo registro**.
 
-      ![Detalles del desencadenador de aplicación lógica](./media/connectors-create-api-crmonline/trigger-details.png)
+   ![Acción Select](./media/connectors-create-api-crmonline/select-action.png)
 
-10. Haga clic en **Nuevo paso** y, a continuación, en **Agregar una acción**.
+1. Proporcione estos detalles para la acción:
 
-11. En el cuadro de búsqueda, escriba `Dynamics 365`. En la lista de acciones, seleccione **Dynamics 365: Crear un nuevo registro**.
+   | Propiedad | Obligatorio | DESCRIPCIÓN | 
+   |----------|----------|-------------| 
+   | **Nombre de la organización** | SÍ | La instancia de Dynamics 365 donde desea crear el registro, que no tiene que ser la misma instancia del desencadenador; en este ejemplo es "Contoso" |
+   | **Nombre de entidad** | SÍ | La entidad donde desea crear el registro; por ejemplo, "Tareas" | 
+   | | |
 
-12. Escriba la siguiente información:
+   ![Detalles de la acción](./media/connectors-create-api-crmonline/action-details.png)
 
-    * **Nombre de la organización**. Seleccione la instancia de Dynamics 365 en la que desea que el flujo cree el registro. 
-    Tenga en cuenta que no tiene que ser la misma instancia desde la que se desencadena el evento.
+1. Si aparece el cuadro **Asunto** en la acción, haga clic dentro del cuadro **Asunto** para que aparezca la lista de contenido dinámico. En la lista, seleccione los valores de campo que desea incluir en el registro de tareas asociado con el nuevo registro de cliente potencial:
 
-    * **Nombre de entidad**. Seleccione la entidad que desea que cree un registro cuando se desencadene el evento. 
-    En este tutorial está seleccionado **Tasks**.
+   | Campo | DESCRIPCIÓN | 
+   |-------|-------------| 
+   | **Apellidos** | El apellido del cliente potencial como contacto principal en el registro |
+   | **Tema.** | El nombre descriptivo del cliente potencial en el registro | 
+   | | | 
 
-13. Haga clic en el cuadro **Asunto** que aparece. En la lista de contenido dinámica que aparece, puede seleccionar cualquiera de estos campos:
+   ![Detalles del registro de tareas](./media/connectors-create-api-crmonline/create-record-details.png)
 
-    * **Apellido**. Al seleccionar este campo, se inserta el apellido del cliente potencial en el campo de Asunto de la tarea, cuando se cree el registro de tareas.
-    * **Tema**. Al seleccionar este campo, se inserta el campo Tema del cliente potencial en el campo de Asunto de la tarea, cuando se cree el registro de tareas. 
-    Haga clic en **Tema** para agregarlo al cuadro **Asunto**.
+1. En la barra de herramientas del diseñador, haga clic en **Guardar** para guardar la aplicación lógica. 
 
-      ![Creación de detalles del nuevo registro en la aplicación lógica](./media/connectors-create-api-crmonline/create-record-details.png)
+1. Para iniciar manualmente la aplicación lógica, en la barra de herramientas del diseñador, elija **Ejecutar**.
 
-14. Haga clic en **Guardar** en la barra de herramientas del Diseñador de aplicación lógica.
+   ![Ejecución de la aplicación lógica](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
 
-    ![Guardado en la barra de herramientas del Diseñador de aplicación lógica](./media/connectors-create-api-crmonline/designer-toolbar-save.png)
+1. Ahora cree un registro de clientes potenciales en Dynamics 365, para poder desencadenar el flujo de trabajo de la aplicación lógica.
 
-15. Para iniciar la aplicación lógica, haga clic en **Ejecutar**.
+## <a name="add-filter-or-query"></a>Adición de filtro o consulta
 
-    ![Guardado en la barra de herramientas del Diseñador de aplicación lógica](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
+Para especificar cómo filtrar datos en una acción de Dynamics 365, elija **Mostrar opciones avanzadas** en esa acción. A continuación, puede agregar un filtro u ordenar por consulta.
+Por ejemplo, puede usar una consulta de filtro para obtener solo las cuentas activas y ordenar tales registros según el nombre de la cuenta. Para esta tarea, siga estos pasos:
 
-16. Ahora cree un registro de cliente potencial en Dynamics 365 para Ventas y podrá ver el flujo en acción.
+1. En **Consulta de filtro**, escriba esta consulta de filtro de OData: `statuscode eq 1`.
 
-## <a name="set-advanced-options-for-a-logic-app-step"></a>Establecimiento de opciones avanzadas para un paso de aplicación lógica
+2. En **Ordenar por**, cuando aparezca la lista de contenido dinámico, seleccione **Nombre de cuenta**. 
 
-Para especificar cómo filtrar datos en un paso de la aplicación de lógica, haga clic en **Mostrar opciones avanzadas** en ese paso y agregue un filtro u ordenar por consulta.
+   ![Definición de filtro y orden](./media/connectors-create-api-crmonline/advanced-options.png)
 
-Por ejemplo, puede usar una consulta de filtro para recuperar solo cuentas activas y ordenar según el nombre de la cuenta. Para realizar esta tarea, escriba la consulta de filtro OData `statuscode eq 1` y seleccione **Nombre de cuenta** en la lista de contenido dinámica. Para más información consulte: [MSDN: $filter](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_1) y [$orderby](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_2).
+Para más información, vea estas opciones de consulta del sistema de API web de Dynamics 365 Customer Engagement: 
 
-![Opciones avanzadas de la aplicación lógica](./media/connectors-create-api-crmonline/advanced-options.png)
+* [$filter](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#filter-results)
+* [$orderby](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#order-results)
 
-### <a name="best-practices-when-using-advanced-options"></a>Procedimientos recomendados al usar las opciones avanzadas
+### <a name="best-practices-for-advanced-options"></a>Procedimientos recomendados para las opciones avanzadas
 
-Cuando agregue un valor a un campo, el tipo de campo tiene que coincidir, tanto si escribe el valor como si lo selecciona de la lista de contenido dinámica.
+Cuando se especifica un valor para un campo de una acción o desencadenador, el tipo de datos del valor debe coincidir con el tipo de campo, tanto si escribe el valor manualmente como si selecciona el valor de la lista de contenido dinámico.
 
-Tipo de campo  |Modo de uso  |Dónde encontrarlo  |NOMBRE  |Tipo de datos  
----------|---------|---------|---------|---------
-Campos de texto|Los campos de texto requieren una sola línea de texto o contenido dinámico que sea un campo de tipo texto. Algunos ejemplos son los campos de categoría y subcategoría.|Configuración > Personalizaciones > Personalizar el sistema > Entidades > Tarea > Campos |categoría |Línea de texto única        
-Campos numéricos enteros | Algunos campos requieren un número entero o un contenido dinámico que sea un campo de tipo numérico entero. Algunos ejemplos son Porcentaje completado y Duración. |Configuración > Personalizaciones > Personalizar el sistema > Entidades > Tarea > Campos |percentcomplete |Número entero         
-Campos de fecha | Algunos campos, requieren una fecha escrita en formato mm/dd/aaaa o contenido dinámico que sea un campo de tipo de fecha. Algunos ejemplos son fecha de creación, fecha de inicio, inicio real, último periodo de retención, finalización real y fecha de vencimiento. | Configuración > Personalizaciones > Personalizar el sistema > Entidades > Tarea > Campos |createdon |Fecha y hora
-Campos que requieren un identificador de registro y un tipo de búsqueda |Algunos campos que hacen referencia a otro registro de entidad requieren el identificador de registro y el tipo de búsqueda. |Configuración > Personalizaciones > Personalizar el sistema > Entidades > Cuenta > Campos  | accountid  | Clave principal
+En esta tabla se describen algunos tipos de campos y los tipos de datos necesarios para sus valores.
 
-### <a name="more-examples-of-fields-that-require-both-a-record-id-and-lookup-type"></a>Más ejemplos de campos que requieren tanto un identificador de registro como un tipo de búsqueda
-Ampliando la tabla anterior, aquí tiene más ejemplos de campos que no funcionan con valores seleccionados de la lista de contenido dinámica. En su lugar, estos campos requieren tanto un identificador de registro como un tipo de búsqueda especificados en los campos en PowerApps.  
-* Propietario y Tipo de propietario. El campo Propietario tiene que ser un usuario válido o un identificador de registro de equipo. El Tipo de propietario tiene que ser **systemusers** o **equipos**.
-* Cliente y Tipo de cliente. El campo Cliente tiene que ser una cuenta válida o un identificador de registro de contacto. El Tipo de propietario tiene que ser **cuentas** o **contactos**.
-* Referente a y Tipo referente a. El campo Referente a tiene que ser un identificador de registro válido, como una cuenta o un identificador de registro de contacto. El Tipo referente a tiene que ser el tipo de búsqueda para el registro, como **cuentas** o **contactos**.
+| Tipo de campo | Tipo de datos necesario | DESCRIPCIÓN | 
+|------------|--------------------|-------------|
+| Campos de texto | Línea de texto única | Estos campos requieren una sola línea de texto o de contenido dinámico que tenga el tipo de texto. <p><p>*Campos de ejemplo*: **Descripción** y **Categoría** | 
+| Campos numéricos enteros | Número entero | Algunos campos requieren un número entero o un contenido dinámico que tenga el tipo numérico entero. <p><p>*Campos de ejemplo*: **Porcentaje completado** y **Duración** | 
+| Campos de fecha | Fecha y hora | Algunos campos requieren una fecha con formato mm/dd/yyyy o contenido dinámico que tenga el tipo de fecha. <p><p>*Campos de ejemplo*: **Fecha de creación**, **Fecha de inicio**, **Inicio real**, **Finalización real** y **Fecha de vencimiento** | 
+| Campos que requieren un identificador de registro y un tipo de búsqueda | Clave principal | Algunos campos que hacen referencia a otro registro de entidad requieren un identificador de registro y un tipo de búsqueda. | 
+||||
 
-El siguiente ejemplo de acción de creación de tarea agrega un registro de cuenta que corresponde al identificador de registro, agregándolo al campo Referente a de la tarea.
+Para ampliar estos tipos de campos, a continuación se indican campos de ejemplo de desencadenadores y acciones de Dynamics 365 que requieren un identificador de registro y el tipo de búsqueda. Este requisito implica que los valores seleccionados de la lista dinámica no funcionarán. 
 
-![Identificador de registro de flujo y tipo de cuenta](./media/connectors-create-api-crmonline/recordid-type-account.png)
+| Campo | DESCRIPCIÓN | 
+|-------|-------------|
+| **Propietario** | Debe ser un identificador de usuario válido o un identificador de registro de equipo. | 
+| **Tipo de propietario** | Debe ser **usuarios del sistema** o **equipos**. | 
+| **Referente** | Debe ser un identificador de registro válido, como un identificador de cuenta o un identificador de registro de contacto. | 
+| **Tipo de referente** | Debe ser un tipo de búsqueda, como **cuentas** o **contactos**. | 
+| **Cliente** | Debe ser un identificador de registro válido, como un identificador de cuenta o un identificador de registro de contacto. | 
+| **Tipo de cliente** | Debe ser el tipo de búsqueda, como **cuentas** o **contactos**. | 
+|||
 
-Este ejemplo también asigna la tarea a un usuario específico basado en el identificador de registro. del usuario.
+En este ejemplo, la acción denominada **Crear un nuevo registro** crea un registro de tareas: 
 
-![Identificador de registro de flujo y tipo de cuenta](./media/connectors-create-api-crmonline/recordid-type-user.png)
+![Crear registro de tareas con identificadores de registro y tipos de búsqueda](./media/connectors-create-api-crmonline/create-record-advanced.png)
 
-Para obtener un identificador de registro, consulte la siguiente sección *Localización del identificador de registro*.
+Esta acción asigna el registro de tareas a un identificador de usuario específico o un identificador de registro de equipo, según el identificador de registro del campo **Propietario** y el tipo de búsqueda del campo **Tipo de propietario**:
 
-## <a name="find-the-record-id"></a>Localización del identificador de registro
+![Tipo de búsqueda e identificador de registro del propietario](./media/connectors-create-api-crmonline/owner-record-id-and-lookup-type.png)
 
-1. Abra un registro, como un registro de cuenta.
+Esta acción también agrega un registro de cuenta asociado al identificador de registro agregado en el campo **Referente** y el tipo de búsqueda del campo **Tipo de referente**: 
 
-2. En la barra de herramientas de acciones, haga clic en el **emergente** ![registro emergente](./media/connectors-create-api-crmonline/popout-record.png).
-O bien, en la barra de herramientas de acciones, haga clic en **ENVIAR UN VÍNCULO POR CORREO ELECTRÓNICO** para copiar la dirección URL completa en el programa de correo electrónico predeterminado.
+![Tipo de búsqueda e identificador de registro del referente](./media/connectors-create-api-crmonline/regarding-record-id-lookup-type-account.png)
 
-   El identificador de registro se muestra entre los caracteres codificados %7b y %7d de la dirección URL.
+## <a name="find-record-id"></a>Búsqueda del identificador de registro
 
-   ![Identificador de registro de flujo y tipo de cuenta](./media/connectors-create-api-crmonline/recordid.png)
+Para buscar un identificador de registro, siga estos pasos: 
 
-## <a name="troubleshooting"></a>solución de problemas
-Para solucionar problemas de un paso con errores en una aplicación de lógica, vea los detalles de estado del evento.
+1. En Dynamics 365, abra un registro, como un registro de cuenta.
 
-1. En **Logic Apps**, seleccione la aplicación lógica y haga clic en **Información general**. 
+2. En la barra de herramientas de acciones, elija uno de estos pasos:
 
-   Se muestra el área de resumen y se proporciona el estado de ejecución de la aplicación lógica. 
+   * Seleccione el elemento **emergente**. ![Registro emergente](./media/connectors-create-api-crmonline/popout-record.png) 
+   * Elija **ENVIAR UN VÍNCULO POR CORREO ELECTRÓNICO** para que pueda copiar la dirección URL completa en el programa de correo electrónico predeterminado.
 
-   ![Estado de ejecución de la aplicación lógica](./media/connectors-create-api-crmonline/tshoot1.png)
+   El identificador de registro aparece en la dirección URL entre los caracteres de codificación `%7b` y `%7d`:
 
-2. Para ver más información sobre cualquier ejecución que haya fallado, haga clic en el evento con error. Para expandir un paso con errores, haga clic en ese paso.
+   ![Búsqueda del identificador de registro](./media/connectors-create-api-crmonline/find-record-ID.png)
 
-   ![Expansión del paso con errores](./media/connectors-create-api-crmonline/tshoot2.png)
+## <a name="troubleshoot-failed-runs"></a>Solución de problemas de ejecuciones con errores
 
-   Los detalles del paso aparecen y pueden ayudar a solucionar la causa del error.
+Para buscar y revisar los pasos con error en la aplicación lógica, puede consultar el historial de ejecuciones de la aplicación lógica, los estados, las entradas, las salidas y muchos otros parámetros.
 
-   ![Detalles del paso con errores](./media/connectors-create-api-crmonline/tshoot3.png)
+1. En Azure Portal, en el menú principal de la aplicación lógica, seleccione **Introducción**. En la sección **Historial de ejecuciones**, que muestra todos los estados de ejecución de la aplicación lógica, seleccione una ejecutar con error para obtener más información.
+
+   ![Estado de ejecución de la aplicación lógica](./media/connectors-create-api-crmonline/run-history.png)
+
+1. Expanda un paso con errores para poder ver más detalles. 
+
+   ![Expansión del paso con errores](./media/connectors-create-api-crmonline/expand-failed-step.png)
+
+1. Revise los detalles del paso, como las entradas y salidas, ya que puede ayudar a encontrar la causa subyacente del error.
+
+   ![Paso con error: entradas y salidas](./media/connectors-create-api-crmonline/expand-failed-step-inputs-outputs.png)
 
 Para más información sobre cómo solucionar problemas de las aplicaciones lógicas, consulte [Diagnóstico de errores de aplicaciones lógicas](../logic-apps/logic-apps-diagnosing-failures.md).
 
-## <a name="connector-specific-details"></a>Detalles específicos del conector
+## <a name="connector-reference"></a>Referencia de conectores
 
-Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/crm/). 
+Para obtener datos técnica, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo Swagger del conector, consulte la [página de referencia del conector](/connectors/crm/). 
+
+## <a name="get-support"></a>Obtención de soporte técnico
+
+* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
+
+* Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)

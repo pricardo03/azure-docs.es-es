@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 96f4ecb433277c747ddb1d1dc977bd609f93d5ff
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 89270a0bd1914a2486c8cc634563bdded743adaa
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578592"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746480"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Supervisión y solución de problemas de Site Recovery
 
@@ -153,13 +153,14 @@ Además del panel, puede supervisar máquinas en la página de máquinas virtual
 3.  Haga clic en **Columnas** para mostrar columnas adicionales. Por ejemplo, para mostrar RPO, problemas de configuración de destino y errores de replicación.
 4. Haga clic en **Filtrar** para ver información basada en parámetros específicos como el estado de la replicación, o bien una directiva de replicación determinada.
 5. Haga clic con el botón derecho en una máquina para iniciar operaciones como la conmutación por error de prueba para ella o ver detalles del error específicos asociados a ella.
-6. Haga clic en una máquina para profundizar en más detalles para ella. Entre los detalles se incluyen: - **Información de replicación**: estado y mantenimiento actual de la máquina.
-        - **RPO** (objetivo de punto de recuperación): el RPO actual de la máquina virtual y la hora a la que se calculó por última vez el RPO.
-        - **Puntos de recuperación**: puntos de recuperación disponibles más recientes de la máquina.
-        - **Preparación de la conmutación por error**: indica si se ejecutó una conmutación por error de prueba para la máquina, la versión del agente que se ejecuta en la máquina (para las máquinas que ejecutan Mobility Service) y cualquier problema de configuración.
-        - **Errores**: lista de síntomas de errores de replicación observados actualmente en la máquina y posibles causas o acciones.
-        - **Eventos**: una lista cronológica de eventos recientes que afectan a la máquina. Los detalles del error muestran los síntomas de errores observados actualmente, mientras que los eventos son un registro histórico de problemas que han afectado a la máquina.
-        - **Vista de la infraestructura**: muestra el estado de la infraestructura para el escenario al replicarse las máquinas en Azure.
+6. Haga clic en una máquina para profundizar en más detalles para ella. Los detalles incluyen:
+      - **Información de replicación**: estado y mantenimiento actual de la máquina.
+      - **RPO** (objetivo de punto de recuperación): el RPO actual de la máquina virtual y la hora a la que se calculó por última vez el RPO.
+      - **Puntos de recuperación**: puntos de recuperación disponibles más recientes de la máquina.
+      - **Preparación de la conmutación por error**: indica si se ejecutó una conmutación por error de prueba para la máquina, la versión del agente que se ejecuta en la máquina (para las máquinas que ejecutan Mobility Service) y cualquier problema de configuración.
+      - **Errores**: lista de síntomas de errores de replicación observados actualmente en la máquina y posibles causas o acciones.
+      - **Eventos**: una lista cronológica de eventos recientes que afectan a la máquina. Los detalles del error muestran los síntomas de errores observados actualmente, mientras que los eventos son un registro histórico de problemas que han afectado a la máquina.
+      - **Vista de la infraestructura**: muestra el estado de la infraestructura para el escenario al replicarse las máquinas en Azure.
 
     ![Información general/detalles de elementos replicados de Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 

@@ -1,27 +1,23 @@
 ---
-title: 'Esquemas para la validación de XML: Azure Logic Apps | Microsoft Docs'
-description: Validación de documentos XML con esquemas para Azure Logic Apps y Enterprise Integration Pack
+title: 'Incorporación de esquemas para la validación XML: Azure Logic Apps | Microsoft Docs'
+description: Creación de esquemas de validación de documentos XML en Azure Logic Apps con Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 07/29/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: e23500ec3c16e66b8dc74fcba29e9b58f0b41790
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e03346da1c2b77f885c39d5329f990684979c56e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299069"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123080"
 ---
-# <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>Validación de documentos XML con esquemas para Azure Logic Apps y Enterprise Integration Pack
+# <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validación XML con esquemas en Azure Logic Apps con Enterprise Integration Pack
 
 Los esquemas permiten confirmar que los documentos XML recibidos son válidos y que contienen los datos esperados en un formato predefinido. Los esquemas también ayudan a validar los mensajes que se intercambian en un escenario B2B.
 

@@ -3,34 +3,32 @@ title: 'Copia de seguridad y restauración de Azure SQL Data Warehouse: instant�
 description: Obtenga información acerca de cómo funcionan la copia de seguridad y la restauración en Azure SQL Data Warehouse. Use copias de seguridad de almacenamiento de datos para restaurar el almacenamiento de datos a un punto de restauración en la región primaria. Use copias de seguridad con redundancia geográfica para restaurar en una región geográfica distinta.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 08/24/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a4f24aad95f13315eaeac790c9006ca00f61af69
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e9b5005fad1eeb13314e1fb6a5708bb02b96cbf9
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187606"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248644"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Copia de seguridad y restauración en Azure SQL Data Warehouse
-Obtenga información acerca de cómo funcionan la copia de seguridad y la restauración en Azure SQL Data Warehouse. Use copias de seguridad de almacenamiento de datos para restaurar el almacenamiento de datos a un punto de restauración en la región primaria. Use copias de seguridad con redundancia geográfica para restaurar en una región geográfica distinta. 
+Obtenga información acerca de cómo funcionan la copia de seguridad y la restauración en Azure SQL Data Warehouse. Utilice instantáneas de almacenamiento de datos para recuperar o copiar el almacenamiento de datos en un punto de restauración en la región primaria. Utilice copias de seguridad con redundancia geográfica del almacenamiento de datos para restaurarlo en otra región geográfica. 
 
-## <a name="what-is-backup-and-restore"></a>¿Qué es la copia de seguridad y la restauración?
-Una *copia de seguridad de almacenamiento de datos* es la copia de su base de datos, que se puede usar para restaurar un almacenamiento de datos.  Dado que SQL Data Warehouse es un sistema distribuido, una copia de seguridad de almacenamiento de datos consta de muchos archivos que se almacenan en Azure Storage. Una copia de seguridad de almacenamiento de datos incluye las instantáneas de base de datos local y geográfica de todas las bases de datos y todos los archivos que están asociados a un almacén de datos. 
+## <a name="what-is-a-data-warehouse-snapshot"></a>¿Qué es una instantánea de almacenamiento de datos?
+Una *instantánea de almacenamiento de datos* crea un punto de restauración que se puede aprovechar para recuperar o copiar el almacenamiento de datos en un estado anterior.  Dado que SQL Data Warehouse es un sistema distribuido, una instantánea de almacenamiento de datos consta de muchos archivos que se almacenan en Azure Storage. Las instantáneas capturan los cambios incrementales de los datos almacenados en el almacenamiento de datos.
 
-Una *restauración de almacenamiento de datos* es un nuevo almacenamiento de datos que se crea a partir de una copia de seguridad de un almacenamiento de datos existente o eliminado. El almacenamiento de datos restaurado vuelve a crear el de copia de seguridad en un momento determinado. La restauración del almacenamiento de datos es una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad empresarial, ya que vuelve a crear los datos tras daños o eliminaciones accidentales.
+Una *restauración de almacenamiento de datos* es un nuevo almacenamiento de datos que se crea a partir de un punto de restauración de un almacenamiento de datos existente o eliminado. La restauración del almacenamiento de datos es una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad empresarial, ya que vuelve a crear los datos tras daños o eliminaciones accidentales. El almacenamiento de datos es también un mecanismo eficaz para crear copias del almacenamiento de datos con fines de prueba o desarrollo.  SQL Data Warehouse utiliza mecanismos de restauración rápida en la misma región, lo que se ha medido para que tarde menos de 20 minutos con cualquier tamaño de datos. 
 
-Las restauraciones locales y geográficas forman parte de las funcionalidades de recuperación ante desastres de SQL Data Warehouse. 
+## <a name="automatic-restore-points"></a>Puntos de restauración automática
+Las instantáneas son una característica integrada del servicio que crea los puntos de restauración. No es necesario habilitar esta funcionalidad. Actualmente, los usuarios no pueden eliminar los puntos de restauración automática cuando el servicio utiliza estos puntos de restauración para mantener los contratos de nivel de servicio para la recuperación.
 
-## <a name="local-snapshot-backups"></a>Copias de seguridad de la instantánea local
-Las copias de seguridad de instantáneas locales son una característica integrada del servicio.  No es necesario habilitarlas. 
-
-SQL Data Warehouse captura las instantáneas de su almacenamiento de datos a lo largo del día. Las instantáneas están disponibles durante siete días. SQL Data Warehouse admite un objetivo de punto de recuperación (RPO) de ocho horas. Puede restaurar su almacenamiento de datos de la región primaria a cualquiera de las instantáneas capturadas en los últimos siete días.
+SQL Data Warehouse toma instantáneas del almacenamiento de datos a lo largo del día que crean puntos de restauración que están disponibles durante siete días. No se puede cambiar este período de retención. SQL Data Warehouse admite un objetivo de punto de recuperación (RPO) de ocho horas. Puede restaurar el almacenamiento de datos de la región primaria a partir de cualquiera de las instantáneas capturadas en los últimos siete días.
 
 Para ver cuándo se inició la última instantánea, ejecute esta consulta en SQL Data Warehouse en línea. 
 
@@ -41,43 +39,51 @@ order by run_id desc
 ;
 ```
 
+## <a name="user-defined-restore-points"></a>Puntos de restauración definidos por el usuario
+Esta característica permite desencadenar instantáneas manualmente para crear puntos de restauración del almacenamiento de datos antes y después de realizar grandes modificaciones. Esta funcionalidad garantiza que los puntos de restauración sean lógicamente coherentes, lo que proporciona una protección de datos adicional en caso de interrupciones de la carga de trabajo o de errores del usuario que permite un tiempo de recuperación rápido. Los puntos de restauración definidos por el usuario están disponibles durante siete días y se eliminan automáticamente. No se puede cambiar el período de retención de los puntos de restauración definidos por el usuario. Solo se admiten 42 puntos de restauración definidos por el usuario en un momento dado, por lo que deben [eliminarse](https://go.microsoft.com/fwlink/?linkid=875299) antes de crear otro punto de restauración. Puede desencadenar instantáneas para crear puntos de restauración definidos por el usuario a través de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) o Azure Portal.
+
+
+> [!NOTE]
+> Si necesita más de siete días de puntos de restauración, vote por esta funcionalidad [aquí](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). También puede crear un punto de restauración definido por el usuario y restaurar desde el punto de restauración recién creado en un nuevo almacenamiento de datos. Cuando haya realizado la restauración, tendrá el almacenamiento de datos en línea y podrá pausarlo indefinidamente para ahorrar costos de proceso. La base de datos en pausa genera gastos de almacenamiento según la tarifa de Azure Premium Storage. Si necesita una copia activa del almacenamiento de datos restaurado, puede reanudarlo, lo que sólo le llevará unos minutos.
+>
+
 ### <a name="snapshot-retention-when-a-data-warehouse-is-paused"></a>Retención de instantáneas cuando un almacenamiento de datos está en pausa
-SQL Data Warehouse no crea instantáneas y no caduca las copias de seguridad mientras un almacenamiento de datos está en pausa. Y tampoco cambia la antigüedad de la instantánea mientras el almacenamiento de datos está en pausa. La retención de instantáneas se basa en el número de días que el almacenamiento de datos está en línea, no en los días de calendario.
+SQL Data Warehouse no crea instantáneas ni caduca los puntos de restauración mientras un almacenamiento de datos está en pausa. Los puntos de restauración no cambian mientras el almacenamiento de datos está en pausa. La retención de puntos de restauración se basa en el número de días que el almacenamiento de datos está en línea, no en los días naturales.
 
-Por ejemplo, si una instantánea comienza el 1 de octubre a las 4 de la tarde y el almacenamiento de datos se detiene el 3 de octubre a las 4 de la tarde, las instantáneas tienen dos días de antigüedad. Cuando el almacenamiento de datos vuelve a estar en línea, la instantánea tiene dos días de antigüedad. Si el almacenamiento de datos vuelve a estar en línea el 5 de octubre a las 4 de la tarde, la instantánea tiene dos días de antigüedad y permanece cinco días más.
+Por ejemplo, si una instantánea comienza el 1 de octubre a las 4 de la tarde y el almacenamiento de datos se pausa el 3 de octubre a las 4 de la tarde, los puntos de restauración tienen dos días de antigüedad. Cuando el almacenamiento de datos vuelve a estar en línea, el punto de restauración tiene dos días de antigüedad. Si el almacenamiento de datos vuelve a estar en línea el 5 de octubre a las 4 de la tarde, el punto de restauración tiene dos días de antigüedad y permanece cinco días más.
 
-Cuando el almacenamiento de datos vuelve a estar en línea, SQL Data Warehouse reanuda las nuevas instantáneas y caduca aquellas que tienen más de siete días de datos.
+Cuando el almacenamiento de datos vuelve a estar en línea, SQL Data Warehouse reanuda la creación de puntos de restauración y caduca los que tienen más de siete días de datos.
 
 ### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Retención de instantáneas cuando se quita un almacenamiento de datos
 Cuando se quita un almacenamiento de datos SQL Data Warehouse crea una instantánea final y la guarda durante siete días. Puede restaurar el almacenamiento de datos en el punto de restauración final durante la eliminación. 
 
 > [!IMPORTANT]
 > Si elimina una instancia de servidor de SQL lógica, todas las bases de datos que pertenecen a la instancia también se eliminan y no se pueden recuperar. No puede restaurar un servidor eliminado.
-> 
+>
 
 ## <a name="geo-backups"></a>Copias de seguridad geográficas
-SQL Data Warehouse realiza una copia de seguridad geográfica una vez al día en un [centro de datos emparejado](../best-practices-availability-paired-regions.md). El RPO para una restauración geográfica es de 24 horas. Puede restaurar la copia de seguridad de replicación geográfica en un servidor de cualquier otra región donde se admita SQL Data Warehouse. Una copia de seguridad geográfica garantiza que pueda restaurar el almacenamiento de datos en caso de que no pueda acceder a las instantáneas de su región primaria.
+SQL Data Warehouse realiza una copia de seguridad geográfica una vez al día en un [centro de datos emparejado](../best-practices-availability-paired-regions.md). El RPO para una restauración geográfica es de 24 horas. Puede restaurar la copia de seguridad de replicación geográfica en un servidor de cualquier otra región donde se admita SQL Data Warehouse. Una copia de seguridad geográfica garantiza que pueda restaurar el almacenamiento de datos en caso de que no tenga acceso a los puntos de restauración de su región primaria.
 
-Las copias de seguridad geográficas están activadas de manera predeterminada. Si el almacenamiento de datos es Gen1, puede [optar por no participar](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy), si lo desea. No se pueden optar por no realizar las copias de seguridad de replicación geográfica para Gen2, ya que la protección de datos es una garantía integrada.
-
-## <a name="backup-costs"></a>Costos de la copia de seguridad
-Observará que la factura de Azure tiene un elemento de línea para Premium Storage de Azure y un elemento de línea para el almacenamiento con redundancia geográfica. El cargo de Premium Storage es el costo total del almacenamiento de sus datos en la región primaria, que incluye las instantáneas.  El cargo con redundancia geográfica abarca el costo de almacenamiento de las copias de seguridad geográficas.  
-
-El costo total del almacenamiento de datos principal y de los siete días de instantáneas de Azure Blob se redondea al TB más cercano. Por ejemplo, si el almacenamiento de datos es de 1,5 TB y las instantáneas usan 100 GB, se le facturan 2 TB de datos según las tarifas de Azure Premium Storage. 
+Las copias de seguridad geográficas están activadas de manera predeterminada. Si el almacenamiento de datos es Gen1, puede [optar por no participar](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy), si lo desea. No se puede optar por no realizar las copias de seguridad de replicación geográfica para Gen2, ya que la protección de datos es una garantía integrada.
 
 > [!NOTE]
-> Cada instantánea está vacía inicialmente y crece a medida que se realizan cambios en el almacenamiento de datos principal. Todas las instantáneas aumentan de tamaño cuando cambia el almacenamiento de datos. Por lo tanto, los costos de almacenamiento de las instantáneas crecen según el porcentaje de cambio.
-> 
-> 
+> Si necesita un RPO más reducido para copias de seguridad de replicación geográfica, vote por esta funcionalidad [aquí](https://feedback.azure.com/forums/307516-sql-data-warehouse). También puede crear un punto de restauración definido por el usuario y restaurar a partir del punto de restauración recién creado en un nuevo almacenamiento de datos. Cuando haya realizado la restauración, tendrá el almacenamiento de datos en línea y podrá pausarlo indefinidamente para ahorrar costos de proceso. La base de datos en pausa genera gastos de almacenamiento según la tarifa de Azure Premium Storage. Y luego se pausa. Si necesita una copia activa del almacenamiento de datos, puede reanudarlo, lo que solo le llevará unos minutos.
+>
+
+
+## <a name="backup-and-restore-costs"></a>Costos de copia de seguridad y restauración
+Observará que la factura de Azure tiene un elemento de línea para Storage y un elemento de línea para Storage de recuperación ante desastres. El cargo de Storage corresponde al costo total del almacenamiento de sus datos en la región primaria con los cambios incrementales que capturan las instantáneas. Para una explicación más detallada sobre cómo se realizan actualmente las instantáneas, consulte esta [documentación](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). El cargo con redundancia geográfica abarca el costo de almacenamiento de las copias de seguridad geográficas.  
+
+El costo total del almacenamiento de datos principal y de los siete días de cambios de instantánea se redondea al TB más cercano. Por ejemplo, si el almacenamiento de datos es de 1,5 TB y las capturas de instantáneas 100 GB, se le facturan 2 TB de datos según las tarifas de Azure Premium Storage. 
 
 Si usa almacenamiento con redundancia geográfica, recibirá un cargo de almacenamiento por separado. El almacenamiento con redundancia geográfica se factura según la tarifa estándar de almacenamiento geográficamente redundante con acceso de lectura (RA-GRS).
 
-Para más información sobre los precios de SQL Data Warehouse, consulte [Precios de SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+Para más información sobre los precios de SQL Data Warehouse, vea [Precios de SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) y [cargos de salida](https://azure.microsoft.com/pricing/details/bandwidth/) al restaurar entre regiones.
 
 ## <a name="restoring-from-restore-points"></a>Restauración a partir de puntos de restauración
-Cada instantánea tiene un punto de restauración que representa la hora de inicio de la instantánea. Para restaurar un almacenamiento de datos, elija un punto de restauración y emita un comando de restauración.  
+Cada instantánea crea un punto de restauración que representa la hora de inicio de la instantánea. Para restaurar un almacenamiento de datos, elija un punto de restauración y emita un comando de restauración.  
 
-SQL Data Warehouse siempre restaura la copia de seguridad en un nuevo almacenamiento de datos. Puede mantener el almacenamiento de datos restaurado y el actual, o eliminar uno de ellos. Si quiere reemplazar el almacenamiento de datos actual por el restaurado, puede cambiarle el nombre mediante [ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) con la opción MODIFY NAME. 
+Puede mantener el almacenamiento de datos restaurado y el actual, o eliminar uno de ellos. Si quiere reemplazar el almacenamiento de datos actual por el restaurado, puede cambiarle el nombre mediante [ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) con la opción MODIFY NAME. 
 
 Para restaurar un almacenamiento de datos, consulte [Restauración de un almacenamiento de datos mediante Azure Portal](sql-data-warehouse-restore-database-portal.md), [Restauración de un almacenamiento de datos mediante PowerShell](sql-data-warehouse-restore-database-powershell.md) o [Restauración de un almacenamiento de datos mediante T-SQL](sql-data-warehouse-restore-database-rest-api.md).
 
@@ -85,27 +91,11 @@ Para restaurar un almacenamiento de datos eliminado o en pausa, puede [crear una
 
 
 ## <a name="geo-redundant-restore"></a>Restauración con redundancia geográfica
-Puede restaurar el almacenamiento de datos en cualquier región que admita Azure SQL Data Warehouse en el nivel de rendimiento elegido. 
+Puede [restaurar el almacenamiento de datos](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) en cualquier región que admita SQL Data Warehouse en el nivel de rendimiento elegido. 
 
 > [!NOTE]
 > Para llevar a cabo una restauración con redundancia geográfica no puede haber anulado esta característica.
-> 
-> 
-
-## <a name="restore-timeline"></a>Escala de tiempo de restauración
-Puede restaurar una base de datos a cualquier punto de restauración disponible de los últimos siete días. Las instantáneas se inician entre cada cuatro y ocho horas y están disponibles durante siete días. Cuando una instantánea tiene una antigüedad superior a siete días, caduca y su punto de restauración ya no está disponible. 
-
-Las copias de seguridad no se realizan en un almacenamiento de datos en pausa. Si su almacenamiento de datos está en pausa durante más de siete días, no tendrá ningún punto de restauración. 
-
-## <a name="restore-costs"></a>Costos de restauración
-Los cargos de almacenamiento por el almacenamiento de datos restaurado se facturan con la tarifa de Azure Premium Storage. 
-
-Si se pausa un almacenamiento de datos restaurado, se le cobrará por el almacenamiento según la tarifa de Azure Premium Storage. La ventaja de pausar es que no se le cobra nada por los recursos de computación.
-
-Para más información sobre los precios de SQL Data Warehouse, consulte [Precios de SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
-
-## <a name="restore-use-cases"></a>Casos de uso de restauración
-El uso principal de la restauración del almacenamiento de datos es recuperar información tras las pérdidas de datos o daños accidentales. También puede utilizar la restauración del almacenamiento de datos para conservar una copia de seguridad durante más de siete días. Una vez restaurada la copia de seguridad, tiene el almacenamiento de datos en línea y puede pausarlo indefinidamente para ahorrar costos de computación. La base de datos en pausa genera gastos de almacenamiento según la tarifa de Azure Premium Storage. 
+>
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información acerca de la planificación ante desastres, consulte [Información general sobre la continuidad empresarial](../sql-database/sql-database-business-continuity.md).

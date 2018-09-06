@@ -1,26 +1,21 @@
 ---
 title: Comprobar el estado, configurar el registro y recibir alertas - Azure Logic Apps | Microsoft Docs
-description: Supervise el estado y el rendimiento de aplicaciones lógicas, registre datos de diagnóstico y configure alertas
-author: jeffhollan
-manager: jeconnoc
-editor: ''
+description: Supervisión de estado, registro de datos de diagnóstico y configuración de alertas para Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: f11db2009328118dda036057918ba853f5032200
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: a08cd6289fc85b79ccec731126a33a9549d60546
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293530"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123540"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Supervisar el estado, configurar el registro de diagnósticos y activar alertas para Azure Logic Apps
 
@@ -89,7 +84,7 @@ Antes de empezar, necesita un área de trabajo de Log Analytics. Aprenda a [crea
 
 3. En **Configuración de diagnóstico**, elija **Activado**.
 
-   ![Activación de los registros de diagnóstico](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
+   ![Activación de los registros de diagnósticos](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
 4. Ahora seleccione el área de trabajo de Log Analytics y la categoría de evento para el registro como se muestra:
 

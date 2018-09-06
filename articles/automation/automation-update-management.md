@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/28/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ea96898e36080096c91285f3ff7621f84bf81edf
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: e0d92cc52b34e1e04f13e03ec2196d13961fb7de
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42144990"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247943"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -35,6 +35,8 @@ El siguiente diagrama muestra una vista conceptual del comportamiento y un flujo
 
 ![Flujo del proceso de Update Management](media/automation-update-management/update-mgmt-updateworkflow.png)
 
+Se puede utilizar Update Management para incorporar de forma nativa máquinas en varias suscripciones en el mismo inquilino. Para administrar máquinas en otro inquilino, debe incorporarlas como [máquinas que no son de Azure](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+
 Después de que un equipo realiza un examen de cumplimiento de las actualizaciones, el agente reenvía la información de forma masiva a Azure Log Analytics. En un equipo Windows, el examen de cumplimiento se realiza cada 12 horas de forma predeterminada.
 
 Además del examen programado, el examen de cumplimiento de las actualizaciones se inicia a los 15 minutos si se reinicia MMA, antes y después de la instalación de actualizaciones.
@@ -48,7 +50,7 @@ La solución informa del grado de actualización del equipo en función del orig
 
 Puede implementar e instalar las actualizaciones de software en equipos que requieren las actualizaciones mediante la creación de una implementación programada. Las actualizaciones clasificadas como *Opcional* no se incluyen en el ámbito de implementación en equipos Windows. Solo se incluyen las actualizaciones necesarias. 
 
-La implementación programada define qué equipos de destino reciben las actualizaciones aplicables, ya sea mediante la especificación explícita de los equipos o por medio de la selección de un [grupo de equipos](../log-analytics/log-analytics-computer-groups.md) que se basa en las búsquedas en registros de un conjunto determinado de equipos. También se especifica una programación para aprobar y designar un período de tiempo durante el que se pueden instalar actualizaciones. 
+La implementación programada define qué equipos de destino reciben las actualizaciones aplicables, ya sea mediante la especificación explícita de los equipos o por medio de la selección de un [grupo de equipos](../log-analytics/log-analytics-computer-groups.md) que se basa en las búsquedas en registros de un conjunto determinado de equipos. También se especifica una programación para aprobar y designar un período de tiempo durante el que se pueden instalar actualizaciones.
 
 Los Runbooks instalan las actualizaciones en Azure Automation. No puede ver estos runbooks, y los runbooks no requieren ninguna configuración. Cuando se crea una implementación de actualizaciones, esta crea una programación que inicia un runbook de actualización maestro a la hora especificada para los equipos incluidos. El runbook maestro inicia un runbook secundario en cada agente para realizar la instalación de las actualizaciones necesarias.
 
@@ -217,10 +219,10 @@ Para crear una nueva implementación de actualizaciones, seleccione **Programar 
 |Sistema operativo| Linux o Windows|
 | Máquinas para actualizar |Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**.</br> Para obtener información sobre los distintos métodos de creación de grupos de equipos en Log Analytics, consulte [Grupos de equipos en búsquedas de registros en Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
 |Clasificaciones de actualizaciones|Seleccione todas las clasificaciones de actualizaciones que necesite|
-|Actualizaciones para excluir|Escriba las actualizaciones que desea excluir. Para Windows, escriba el KB sin el prefijo "KB". Para Linux, escriba el nombre del paquete o use un carácter comodín.  |
+|Actualizaciones para excluir|Escriba las actualizaciones que desea excluir. Para Windows, escriba el artículo de KB sin el prefijo "KB". Para Linux, escriba el nombre del paquete o use un carácter comodín.  |
 |Configuración de programación|Seleccione la hora de inicio y seleccione Una vez o de manera periódica para la periodicidad|
 | Ventana de mantenimiento |Número de minutos establecido para las actualizaciones. El valor no puede ser inferior a 30 minutos ni más de 6 horas |
-| Control de reinicio| Determina cómo se deben controlar los reinicios.</br>Las opciones disponibles son la siguientes:</br>Reiniciar si es necesario (predeterminada)</br>Reiniciar siempre</br>Never reboot (No reiniciar nunca)</br>Only reboot (solo reiniciar), no instalará las actualizaciones|
+| Control de reinicio| Determina cómo se deben controlar los reinicios. Las opciones disponibles son la siguientes:</br>Reboot if required (Default) [Reiniciar si es necesario (predeterminada)]</br>Always reboot (Reiniciar siempre)</br>Never reboot (No reiniciar nunca)</br>Only reboot (solo reiniciar), no se instalarán las actualizaciones|
 
 ## <a name="update-classifications"></a>Clasificaciones de actualizaciones
 

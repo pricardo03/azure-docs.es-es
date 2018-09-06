@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: glenga
-ms.openlocfilehash: c2e066ddf444cb81d7f0033641a300d18b266f62
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ce520c5972bf27c30ecb175d58b6b6071bf804db
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397854"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818299"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Direcciones IP en Azure Functions
 
@@ -39,7 +39,7 @@ Cada aplicación de función tiene una única dirección IP de entrada. Para enc
 3. Seleccione **Características de la plataforma**.
 4. Seleccione **Propiedades** y la dirección IP de entrada aparece en **Dirección IP virtual**.
 
-## <a name="function-app-outbound-ip-addresses"></a>Direcciones IP de salida de una aplicación de función
+## <a name="find-outbound-ip-addresses"></a>Direcciones IP de salida de una aplicación de función
 
 Cada aplicación de función tiene un conjunto de direcciones IP de salida disponibles. Las conexiones de salida desde cualquier función, como a una base de datos back-end, usan una de las direcciones IP de salida disponibles como dirección IP de origen. No se puede saber con antelación qué dirección IP usará una conexión determinada. Por este motivo, el servicio back-end debe abrir su firewall a todas las direcciones IP de salida de la aplicación de función.
 

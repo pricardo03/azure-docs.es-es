@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2018
+ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 51895731efd466a314877e963a5fd2c6d868ec02
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: a7ba92d871bb440b7b8c8a12c1e90f9aa10df3be
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110879"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105348"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidad de diagnóstico para Reliable Services con estado
 La clase StatefulServiceBase de Reliable Services con estado de Azure Service Fabric emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) que pueden usarse para depurar el servicio, ofrecer información acerca de cómo funciona el tiempo de ejecución y ayudar a solucionar problemas.
@@ -117,7 +117,10 @@ El tiempo de ejecución de Reliable Services emite los siguientes eventos en la 
 
  Nombre del contador | DESCRIPCIÓN |
 | --- | --- |
-| Número de elementos | Número de claves en el almacén.|
+| Número de elementos | Número de elementos en el almacén.|
+| Tamaño del disco | Tamaño total del disco, en bytes, de los archivos de punto de control del almacén.|
+| Escritura de archivos de punto de control en bytes/s | Número de bytes escritos por segundo para el archivo de punto de control más reciente.|
+| Transferencia de discos de copia en bytes/seg | Número de bytes de disco leídos (en la réplica principal) o escritos (en una réplica secundaria) por segundo durante una copia del almacén.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Proveedores de EventSource en PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

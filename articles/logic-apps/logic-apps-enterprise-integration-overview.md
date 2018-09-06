@@ -1,27 +1,23 @@
 ---
-title: 'Enterprise Integration para B2B: Azure Logic Apps | Microsoft Docs'
-description: Compilación de flujos de trabajo de B2B y compatibilidad con escenarios de integración empresarial para las aplicaciones lógicas con Enterprise Integration Pack
+title: 'Información general sobre la integración empresarial B2B: Azure Logic Apps | Microsoft Docs'
+description: Compilación de flujos de trabajo B2B automatizados para soluciones de integración empresarial con Azure Logic Apps y Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: c4f83d2bf082b5f1358b4eee6468d470b5cb8088
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b2e2c81914e8c0440b358d59c7f0248db46b6c50
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42143408"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124299"
 ---
-# <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>Introducción: Escenarios B2B y comunicación con Enterprise Integration Pack
+# <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>Información general: Escenarios de integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 
 Si desea obtener flujos de trabajo de negocio a negocio (B2B) y una comunicación sin problemas con Azure Logic Apps, puede habilitar escenarios de integración empresarial con la solución basada en la nube de Microsoft llamada Enterprise Integration Pack. Las organizaciones pueden intercambiar mensajes electrónicamente, incluso si usan formatos y protocolos diferentes. El paquete transforma distintos formatos a un formato que pueden interpretar y procesar los sistemas de las organizaciones. Las organizaciones pueden intercambiar mensajes mediante protocolos estándar del sector, entre ellos [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) y [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). También puede proteger los mensajes con cifrado y firmas digitales.
 
