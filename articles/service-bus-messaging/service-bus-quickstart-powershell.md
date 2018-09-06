@@ -2,20 +2,20 @@
 title: 'Guía de inicio rápido: Envío y recepción de mensajes con Azure Service Bus | Microsoft Docs'
 description: En esta guía de inicio rápido, aprenderá a enviar y recibir mensajes de Service Bus mediante PowerShell y el cliente de .NET Standard
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
-ms.author: sethm
-ms.openlocfilehash: b22bf2acc83f46eda1aa74981377e66261d13394
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: spelluru
+ms.openlocfilehash: 5652069e7a81f54936a41ddb563b49fe6131e7e0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660628"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696843"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>Guía de inicio rápido: Envío y recepción de mensajes mediante Azure PowerShell y .NET
 
@@ -27,14 +27,14 @@ Esta guía de inicio rápido describe cómo enviar y recibir mensajes de una col
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita][] antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, asegúrese de que tiene instalados los siguientes elementos:
 
 - [Visual Studio 2017 Update 3 (versión 15.3, 26730.01)](http://www.visualstudio.com/vs) o posterior.
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), versión 2.0 o posterior.
 
-Para esta guía de inicio rápido es necesario ejecutar la versión más reciente de Azure PowerShell. Si necesita instalarla o actualizarla, consulte [Instalación y configuración de Azure PowerShell][].
+Para esta guía de inicio rápido es necesario ejecutar la versión más reciente de Azure PowerShell. Si necesita instalarlo o actualizarlo, consulte [Instalación y configuración de Azure PowerShell][].
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -83,7 +83,7 @@ Una vez que haya creado el espacio de nombres y la cola, y disponga de las crede
 
 Para ejecutar el código, haga lo siguiente:
 
-1. Clone el [repositorio de GitHub de Service Bus](https://github.com/Azure/azure-service-bus/) emitiendo el comando siguiente:
+1. Clone el [repositorio de GitHub de Service Bus](https://github.com/Azure/azure-service-bus/) mediante la emisión del comando siguiente:
 
    ```shell
    git clone https://github.com/Azure/azure-service-bus.git
@@ -125,7 +125,7 @@ Remove-AzureRmResourceGroup -Name my-resourcegroup
 
 ## <a name="understand-the-sample-code"></a>Descripción del código de ejemplo
 
-Esta sección contiene información más detallada sobre lo que hace el código de ejemplo. 
+Esta sección contiene información más detallada acerca de lo que hace el código de ejemplo. 
 
 ### <a name="get-connection-string-and-queue"></a>Obtención de la cadena de conexión y la cola
 

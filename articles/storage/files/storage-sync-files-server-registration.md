@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 468bd70682b1b36e906d32cd7bde58c78bdbb376
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 1aa1bd085a312e379dc996a860c7f97b2e0dfe73
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522006"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918883"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Administración de servidores registrados con Azure File Sync
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Para ello, transforma los servidores de Windows Server en una caché rápida del recurso compartido de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para tener acceso a los datos localmente (incluidos SMB, NFS y FTPS) y puede tener tantas cachés según sea necesario en todo el mundo.
@@ -26,7 +26,7 @@ Al registrar un servidor con Azure File Sync se establece una relación de confi
 ### <a name="prerequisites"></a>Requisitos previos
 Para registrar un servidor con un servicio de sincronización de almacenamiento, debe preparar el servidor con los requisitos previos necesarios:
 
-* El servidor debe ejecutar una versión compatible de Windows Server. Para más información, consulte [Versiones compatibles de Windows Server](storage-sync-files-planning.md#supported-versions-of-windows-server).
+* El servidor debe ejecutar una versión compatible de Windows Server. Para más información, consulte [Requisitos del sistema de Azure File Sync e interoperabilidad](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
 * Asegúrese de que se ha implementado un servicio de sincronización de almacenamiento. Para más información sobre cómo implementar un servicio de sincronización de almacenamiento, vea [How to deploy Azure File Sync](storage-sync-files-deployment-guide.md) (Implementación de Azure Files Sync).
 * Asegúrese de que el servidor está conectado a Internet y que se puede acceder a Azure.
 * Deshabilite la configuración de seguridad mejorada de IE para administradores con la interfaz de usuario del Administrador del servidor.

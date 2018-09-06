@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 35210a8e93b8437ea4d8c3b5f002c81c549d3afe
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 061e2257200b6d660a421a86c540f43597112c5e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444843"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337892"
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: configuración de tokens, sesión e inicio de sesión único
 
@@ -69,8 +69,8 @@ Aquí puede ver un par de casos de uso que puede habilitar mediante el uso de es
 Hemos realizado cambios de formato en notificaciones importantes de los tokens de seguridad emitidos por Azure AD B2C. con el fin de mejorar la compatibilidad del protocolo estándar y para mejorar la interoperabilidad con las bibliotecas de identidades de otros fabricantes. Sin embargo, para no interrumpir las aplicaciones existentes, hemos creado las siguientes propiedades, con el fin de que los clientes puedan optar por recibirlas cuando sea necesario:
 
 * **Notificación de emisor (iss)**: identifica el inquilino de Azure AD B2C que emitió el token.
-  * `https://login.microsoftonline.com/{B2C tenant GUID}/v2.0/`: este es el valor predeterminado.
-  * `https://login.microsoftonline.com/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: este valor incluye los identificadores tanto del inquilino B2C como de la directiva utilizada en la solicitud de token. Si una aplicación o biblioteca necesita que Azure AD B2C sea compatible con la [especificación OpenID Connect Discovery 1.0](http://openid.net/specs/openid-connect-discovery-1_0.html), use este valor.
+  * `https://<domain>/{B2C tenant GUID}/v2.0/`: este es el valor predeterminado.
+  * `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: este valor incluye los identificadores tanto del inquilino B2C como de la directiva utilizada en la solicitud de token. Si una aplicación o biblioteca necesita que Azure AD B2C sea compatible con la [especificación OpenID Connect Discovery 1.0](http://openid.net/specs/openid-connect-discovery-1_0.html), use este valor.
 * **Notificación de asunto (sub)**: identifica la entidad, es decir, el usuario, para que el token valida la información.
   * **ObjectID**: este es el valor predeterminado. Rellena el identificador de objeto del usuario del directorio de la notificación `sub` del token.
   * **No se admite**: solo se proporciona para que haya compatibilidad con las versiones anteriores y se recomienda cambiar a **ObjectID** lo antes posible.

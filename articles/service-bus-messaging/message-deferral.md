@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
-ms.author: sethm
-ms.openlocfilehash: bece2be88a020610dfd3d22f15f7d276d99bb153
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: f9dbd663ce3b15e6a825f0ef73f3dd5d1f5df76b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28196982"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697550"
 ---
 # <a name="message-deferral"></a>Aplazamiento de mensajes
 
@@ -42,7 +42,7 @@ Si no se puede procesar un mensaje porque un recurso concreto para controlar ese
 
 El aplazamiento de mensajes no afecta a la expiración de los mensajes, lo que significa que los mensajes diferidos todavía expiran en el momento inicialmente programado y, después, se mueven a la cola de mensajes fallidos, si está configurada.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

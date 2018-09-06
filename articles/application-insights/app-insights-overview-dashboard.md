@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: cf7c151121ddf8b2dc57d5db66a62f4d46e463de
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 313be519662570debdd7c78a43bbfe7c27e63296
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970979"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344637"
 ---
 # <a name="application-insights-overview-dashboard"></a>Panel de información general de Application Insights
 
@@ -50,7 +50,7 @@ Para acceder al panel predeterminado, seleccione _Panel de la aplicación_ en la
 
 Si esta es la primera vez que accede al panel, se iniciará una vista predeterminada:
 
-![Vista de panel](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
+![Vista de panel](.\media\app-insights-overview-dashboard\0001-dashboard.png)
 
 Puede conservar la vista predeterminada si así lo desea. Aunque también puede agregar o eliminar elementos del panel para adaptarlo mejor a las necesidades de su equipo.
 

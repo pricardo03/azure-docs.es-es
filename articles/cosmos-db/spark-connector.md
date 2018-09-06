@@ -10,20 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: 57ad621006a79148aaa6e9435d6ede446539c648
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: e7ed0049e64a7740063f2fab7bdfddff38d45ed9
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714760"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287717"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Aceleración de análisis de macrodatos mediante el conector de Apache Spark a Azure Cosmos DB
  
 El conector de Apache Spark a Azure Cosmos DB permite que Azure Cosmos DB actúe como entrada o salida de los trabajos de Apache Spark. La conexión de [Spark](http://spark.apache.org/) a [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) acelera su capacidad para resolver problemas de ciencia de datos de avance rápido. Puede usar Azure Cosmos DB para almacenar y consultar datos rápidamente. El conector usa eficazmente los índices administrados nativos de Azure Cosmos DB. Los índices permiten columnas actualizables al realizar análisis y aplicar el filtrado de predicados en los datos distribuidos globalmente que cambian rápidamente. Este tipo de datos puede abarcar desde escenarios de Internet de las cosas (IoT) a escenarios de análisis y ciencia de datos.
-
-Más información sobre el conector en este vídeo:
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] 
 
 ## <a name="connector-components"></a>Componentes del conector
 
@@ -195,7 +191,7 @@ La comunicación entre Spark y Azure Cosmos DB es mucho más rápida porque el m
 
 ### <a name="find-and-attach-the-java-sdk-to-the-spark-cluster"></a>Búsqueda y conexión del SDK de Java al clúster de Spark
 
-1. Cree un [área de trabajo de Azure Databricks](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) y un [clúster de Spark](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-a-spark-cluster-in-databricks). La versión 4.0 del entorno de tiempo de ejecución de Azure Databricks incluye Apache Spark 2.3.0 y Scala 2.11 dentro de esa área de trabajo.  
+1. Cree un [área de trabajo de Azure Databricks](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-an-azure-databricks-workspace) y un [clúster de Spark](../azure-databricks/quickstart-create-databricks-workspace-portal.md#create-a-spark-cluster-in-databricks). La versión 4.0 del runtime de Azure Databricks incluye Apache Spark 2.3.0 y Scala 2.11 dentro de esa área de trabajo.  
 
 2. Cuando se haya creado el clúster y esté en ejecución, vaya a **Workspace** > **Create** > **Library** (Área de trabajo > Crear > Biblioteca).  
 

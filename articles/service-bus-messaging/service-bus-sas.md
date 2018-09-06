@@ -3,7 +3,7 @@ title: Control de acceso de Azure Service Bus con Firmas de acceso compartido | 
 description: Información general sobre el control de acceso de Service Bus con Firmas de acceso compartido, detalles de la autorización con SAS mediante Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2018
-ms.author: sethm
-ms.openlocfilehash: 420f4573fbe8b5139a4e1e5fa4dea3404c4e099d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: spelluru
+ms.openlocfilehash: 2905bff56c5ab49c91f85e0816b84018b27bbb57
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312532"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700246"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Control de acceso de Service Bus con Firmas de acceso compartido
 
@@ -267,7 +267,7 @@ La siguiente tabla muestra los derechos de acceso necesarios para realizar diver
 | Enumerar colas |administración |/$Resources/Queues |
 | Obtener la descripción de la cola |administración |Cualquier dirección de cola válida |
 | Configurar la regla de autorización para una cola |administración |Cualquier dirección de cola válida |
-| Enviar a la cola |Los métodos Send |Cualquier dirección de cola válida |
+| Enviar a la cola |Envío |Cualquier dirección de cola válida |
 | mensajes de una cola |Escuchar |Cualquier dirección de cola válida |
 | Abandone o complete los mensajes después de recibir el mensaje en el modo de bloqueo de información |Escuchar |Cualquier dirección de cola válida |
 | Aplazar un mensaje para su recuperación posterior |Escuchar |Cualquier dirección de cola válida |
@@ -281,7 +281,7 @@ La siguiente tabla muestra los derechos de acceso necesarios para realizar diver
 | Enumerar temas |administración |/$Resources/Topics |
 | Obtener la descripción del tema |administración |Cualquier dirección de tema válida |
 | Configurar la regla de autorización para un tema |administración |Cualquier dirección de tema válida |
-| Enviar al tema |Los métodos Send |Cualquier dirección de tema válida |
+| Enviar al tema |Envío |Cualquier dirección de tema válida |
 | **Suscripción** | | |
 | una suscripción |administración |Cualquier dirección de espacio de nombres |
 | Eliminar suscripción |administración |../myTopic/Subscriptions/mySubscription |

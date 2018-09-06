@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: c153153313511640f7969938f63ea9fbe7b0847c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: f312f29e14c371e7b500f3eee6471151e3544513
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282658"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338862"
 ---
 # <a name="understand-the-device-model-schema"></a>Descripción del esquema de modelo del dispositivo
 
@@ -24,7 +24,7 @@ En este artículo se describe el esquema de modelo del dispositivo que especific
 Los siguientes artículos están relacionadas con el artículo actual:
 
 * [Implement the device model behavior](iot-accelerators-remote-monitoring-device-behavior.md) (Implementar el comportamiento de modelo del dispositivo): describe los archivos de JavaScript que se usan para implementar el comportamiento de un dispositivo simulado.
-* [Create a new simulated device](iot-accelerators-remote-monitoring-test.md) (Crear un nuevo dispositivo simulado): reúne todos los elementos necesarios y le muestra cómo implementar un nuevo tipo de dispositivo simulado en la solución.
+* [Create a new simulated device](iot-accelerators-remote-monitoring-create-simulated-device.md) (Crear un nuevo dispositivo simulado): reúne todos los elementos necesarios y le muestra cómo implementar un nuevo tipo de dispositivo simulado en la solución.
 
 En este artículo, aprenderá a:
 
@@ -47,7 +47,7 @@ En este artículo se describe la manera de crear su propio modelo de dispositivo
 > * Especificar la telemetría que envía el dispositivo simulado.
 > * Especificar los métodos de tipo "de la nube al dispositivo" a los que el dispositivo responde.
 
-Ahora que tiene información acerca del esquema JSON, el siguiente paso sugerido es saber cómo [implementar el comportamiento del dispositivo simulado](iot-accelerators-remote-monitoring-device-behavior.md).
+Ahora que tiene información sobre el esquema JSON, el siguiente paso propuesto aprender a [implementar el comportamiento del dispositivo simulado](iot-accelerators-remote-monitoring-device-behavior.md).
 
 Para más información sobre la solución de supervisión remota para los desarrolladores, consulte:
 

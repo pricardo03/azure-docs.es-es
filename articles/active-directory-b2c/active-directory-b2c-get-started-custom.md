@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e25103d2fcbfc70be7f96f5c0e5fa6abe13fe393
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 36fad697758273246d567dfa1010f0e6bfc68939
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446748"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344569"
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: introducción a las directivas personalizadas
 
@@ -23,7 +23,7 @@ ms.locfileid: "37446748"
 
 Después de completar los pasos de este artículo, la directiva personalizada admitirá el registro o el inicio de sesión de la "cuenta local" mediante una dirección de correo electrónico y una contraseña. También preparará el entorno para agregar proveedores de identidades (como Facebook o Azure Active Directory). Le recomendamos que siga estos pasos antes de informarse sobre otros usos del marco de experiencia de identidad de Azure Active Directory (Azure AD) B2C.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, asegúrese de que tiene un inquilino de Azure AD B2C, que es un contenedor para todos los usuarios, las aplicaciones, las directivas y mucho más. Si todavía no tiene uno, debe [crear un inquilino de Azure AD B2C](active-directory-b2c-get-started.md). Se recomienda encarecidamente a todos los desarrolladores que completen los tutoriales de las directivas integradas de Azure AD B2C y que configuren las aplicaciones con directivas integradas antes de continuar. Las aplicaciones funcionarán con ambos tipos de directivas una vez que se realice un pequeño cambio en el nombre de la directiva para invocar la directiva personalizada.
 
@@ -77,7 +77,7 @@ Azure AD B2C requiere que registre dos aplicaciones adicionales que el motor usa
 4. Seleccione **Nuevo registro de aplicaciones**.
    * En **Nombre**, use `IdentityExperienceFramework`.
    * En **Tipo de aplicación**, use **Aplicación web o API**.
-   * En **Dirección URL de inicio de sesión**, use `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, donde `yourtenant` es el nombre de dominio del inquilino de Azure AD B2C.
+   * En **Dirección URL de inicio de sesión**, use `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`, donde `yourtenant` es el nombre de dominio del inquilino de Azure AD B2C.
 5. Seleccione **Crear**.
 6. Una vez que se ha creado, seleccione la aplicación **IdentityExperienceFramework** recién creada.<br>
    * Seleccione **Propiedades**.<br>
@@ -89,7 +89,7 @@ Azure AD B2C requiere que registre dos aplicaciones adicionales que el motor usa
 1. Seleccione **Nuevo registro de aplicaciones**.
    * En **Nombre**, use `ProxyIdentityExperienceFramework`.
    * En **Tipo de aplicación**, use **Nativa**.
-   * En **URI de redirección**, use `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, donde `yourtenant` es el inquilino de Azure AD B2C.
+   * En **URI de redirección**, use `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`, donde `yourtenant` es el inquilino de Azure AD B2C.
 1. Seleccione **Crear**.
 1. Una vez que se ha creado, seleccione la aplicación **ProxyIdentityExperienceFramework**.<br>
    * Seleccione **Propiedades**. <br>

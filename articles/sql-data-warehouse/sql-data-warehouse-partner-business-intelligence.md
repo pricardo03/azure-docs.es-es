@@ -3,19 +3,19 @@ title: Asociados de inteligencia empresarial de SQL Data Warehouse | Microsoft D
 description: Lista de los asociados de inteligencia empresarial con soluciones compatibles con SQL Data Warehouse.
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 410d234e8a3aa098edd029eda09c421d2af2886e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 36f0b1c0ac503efb13f69b489557af891e1286fa
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42143544"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301496"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Partners de inteligencia empresarial de SQL Data Warehouse
 Para crear la solución de almacenamiento de datos de un extremo a otro, elija entre una amplia variedad de herramientas líderes del sector.  En este artículo se destacan las empresas asociadas de Microsoft con soluciones de inteligencia empresarial compatibles con Azure SQL Data Warehouse.

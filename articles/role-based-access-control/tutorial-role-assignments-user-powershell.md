@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/11/2018
 ms.author: rolyon
-ms.openlocfilehash: 4eeae864721040bda18409b48abf5d33b81ca609
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: cac585b36c3b5969a18c941215b623443850cd4c
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295905"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301735"
 ---
 # <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>Tutorial: Concesión de acceso a un usuario mediante RBAC y Azure PowerShell
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesitará:
 
@@ -44,7 +44,7 @@ Para completar este tutorial, necesitará:
 
 En RBAC, para conceder acceso es preciso crear una asignación de roles. Una asignación de roles consta de tres elementos: entidad de seguridad, definición de rol y ámbito. Estas son las dos asignaciones de roles que llevará a cabo en este tutorial:
 
-| Entidad de seguridad | Definición de roles | Scope |
+| Entidad de seguridad | Definición de roles | Ámbito |
 | --- | --- | --- |
 | Usuario<br>(Usuario de tutorial de RBAC) | [Lector](built-in-roles.md#reader) | Subscription |
 | Usuario<br>(Usuario de tutorial de RBAC)| [Colaborador](built-in-roles.md#contributor) | Grupos de recursos<br>(rbac-tutorial-resource-group) |
@@ -109,7 +109,7 @@ Use un grupo de recursos para mostrar cómo asignar un rol a un ámbito de un gr
 
 Para conceder acceso al usuario, utilice el comando [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) para asignar un rol. Debe especificar la entidad de seguridad, la definición del rol y el ámbito.
 
-1. Obtenga el identificador de la suscripción mediante el comando [Get AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription).
+1. Obtenga el identificador de la suscripción mediante el comando [Get AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
 
     ```azurepowershell
     Get-AzureRmSubscription

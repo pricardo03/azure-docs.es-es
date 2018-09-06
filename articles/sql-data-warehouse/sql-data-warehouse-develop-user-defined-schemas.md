@@ -3,19 +3,19 @@ title: Uso de esquemas definidos por el usuario en SQL Data Warehouse | Microsof
 description: Sugerencias para usar los esquemas definidos por el usuario en Azure SQL Data Warehouse para desarrollar soluciones.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: c18e6d34416390ae7e93b69b28d508a540f7b1ab
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d46f41e75538fae230219068d3530b7181564ac0
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31522714"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302648"
 ---
 # <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Uso de esquemas definidos por el usuario en SQL Data Warehouse
 Sugerencias para usar los esquemas definidos por el usuario en Azure SQL Data Warehouse para desarrollar soluciones.
@@ -121,5 +121,5 @@ FROM    [edw].customer
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo](sql-data-warehouse-overview-develop.md).
+Para obtener más sugerencias sobre desarrollo, vea la [información general sobre desarrollo](sql-data-warehouse-overview-develop.md).
 

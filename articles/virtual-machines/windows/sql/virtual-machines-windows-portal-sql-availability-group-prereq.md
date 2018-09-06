@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: f2a0af65af068f3a78a08e46e0e42caefd87d7b1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d75bb780a17653aaacbc74413fb4240a8052a983
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30322903"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371492"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Realización de los requisitos previos para crear grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure.
 
@@ -39,7 +39,7 @@ En este tutorial se da por supuesto que tiene conocimientos básicos de grupos d
 
 
 ## <a name="create-an-azure-account"></a>Crear una cuenta de Azure
-Necesitará una cuenta de Azure. Puede [abrir una cuenta gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas que disfrutan los suscriptores de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+Necesitará una cuenta de Azure. Puede [abrir una cuenta gratuita de Azure](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) o [activar las ventajas que disfrutan los suscriptores de Visual Studio](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 1. Inicie sesión en el [Azure Portal](http://portal.azure.com).
@@ -83,7 +83,7 @@ Para crear la red virtual:
 
    | **Campo** | Valor |
    | --- | --- |
-   | **Name** |autoHAVNET |
+   | **Nombre** |autoHAVNET |
    | **Espacio de direcciones** |10.33.0.0/24 |
    | **Nombre de subred** |Administración |
    | **Intervalo de direcciones de subred** |10.33.0.0/29 |
@@ -123,7 +123,7 @@ En la tabla siguiente se resumen las opciones de configuración de red:
 
 | **Campo** | Valor |
 | --- | --- |
-| **Name** |**autoHAVNET** |
+| **Nombre** |**autoHAVNET** |
 | **Espacio de direcciones** |Este valor depende de los espacios de direcciones disponibles en su suscripción. Un valor típico es 10.0.0.0/16. |
 | **Nombre de subred** |**admin** |
 | **Intervalo de direcciones de subred** |Este valor depende de los intervalos de direcciones disponibles en su suscripción. Un valor típico es 10.0.0.0/24. |
@@ -145,7 +145,7 @@ Configure dos conjuntos de disponibilidad según los parámetros de la tabla sig
 
 | **Campo** | Conjunto de disponibilidad del controlador de dominio | Conjunto de disponibilidad de SQL Server |
 | --- | --- | --- |
-| **Name** |adavailabilityset |sqlavailabilityset |
+| **Nombre** |adavailabilityset |sqlavailabilityset |
 | **Grupos de recursos** |SQL-HA-RG |SQL-HA-RG |
 | **Dominios de error** |3 |3 |
 | **Dominios de actualización** |5 |3 |
@@ -176,10 +176,10 @@ La siguiente tabla muestra la configuración de estas dos máquinas:
 
 | **Campo** | Valor |
 | --- | --- |
-| **Name** |Primer controlador de dominio: *ad-primary-dc*.</br>Segundo controlador de dominio: *ad-secondary-dc*. |
+| **Nombre** |Primer controlador de dominio: *ad-primary-dc*.</br>Segundo controlador de dominio: *ad-secondary-dc*. |
 | **Tipo de disco de máquina virtual** |SSD |
 | **Nombre de usuario** |DomainAdmin |
-| **Password** |Contoso!0000 |
+| **Contraseña** |Contoso!0000 |
 | **Suscripción** |*Su suscripción* |
 | **Grupos de recursos** |SQL-HA-RG |
 | **Ubicación** |*Su ubicación* |

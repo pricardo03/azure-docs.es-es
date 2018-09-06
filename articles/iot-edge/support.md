@@ -8,12 +8,12 @@ ms.date: 6/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 696a752f199e2f7018713cb87c3b098556c5b4f5
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 2163179d3353626e12495381fc64792db56ec78e
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247623"
+ms.locfileid: "43286369"
 ---
 # <a name="azure-iot-edge-support"></a>Compatibilidad de Azure IoT Edge
 Hay varias maneras de buscar compatibilidad para el producto de Azure IoT Edge.
@@ -35,16 +35,16 @@ Los sistemas de nivel 1 se pueden considerar como oficialmente compatibles. Esto
 Disponibilidad general
 | Sistema operativo | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Ubuntu Server 18.04 | SÍ | Sin  |
-| Ubuntu Server 16.04 | SÍ | Sin  |
 | Raspbian-stretch | Sin  | SÍ|
+| Ubuntu Server 16.04 | SÍ | Sin  |
+| Ubuntu Server 18.04 | SÍ | Sin  |
 
 Vista previa pública
 | Sistema operativo | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Windows 10 Server 1803 | SÍ | Sin  |
-| Windows 10 IoT Enterprise (actualización de abril de 2018) | SÍ | Sin  |
 | Windows 10 IoT Core (actualización de abril de 2018) | SÍ | Sin  |
+| Windows 10 IoT Enterprise (actualización de abril de 2018) | SÍ | Sin  |
+| Windows 10 Server 1803 | SÍ | Sin  |
 
 ### <a name="tier-2"></a>Nivel 2
 Los sistemas de nivel 2 se pueden considerar como compatible con Azure IoT Edge y pueden usarse con relativa facilidad. Esto significa que:
@@ -53,14 +53,14 @@ Los sistemas de nivel 2 se pueden considerar como compatible con Azure IoT Edge 
 
 | Sistema operativo | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Ubuntu 18.04 | SÍ | SÍ |
-| Ubuntu 16.04 | SÍ | SÍ |
 | CentOS 7.5 | SÍ | SÍ |
-| RHEL 7.5 | SÍ | SÍ |
-| Wind River 8 | SÍ | Sin  |
-| Yocto | SÍ | Sin  |
 | Debian 8 | SÍ | SÍ |
 | Debian 9 | SÍ | SÍ |
+| RHEL 7.5 | SÍ | SÍ |
+| Ubuntu 18.04 | SÍ | SÍ |
+| Ubuntu 16.04 | SÍ | SÍ |
+| Wind River 8 | SÍ | Sin  |
+| Yocto | SÍ | Sin  |
 
 ## <a name="container-engines"></a>Motores de contenedor
 Azure IoT Edge necesita un motor de contenedor para iniciar módulos, independientemente del sistema operativo en el que se esté ejecutando. Microsoft ofrece un motor de contenedor, moby-engine, para satisfacer este requisito. Se basa en el proyecto de código abierto de Moby. Docker CE y Docker EE son otros motores de contenedores conocidos. También están basados en el proyecto de código abierto de Moby y son compatibles con Azure IoT Edge. Microsoft proporciona el mejor soporte técnico posible para los sistemas que usan esos motores de contenedores pero, sin embargo, no puede proporcionar soluciones para los problemas de ellos. Por esta razón, Microsoft recomienda el uso de moby-engine en sistemas de producción.

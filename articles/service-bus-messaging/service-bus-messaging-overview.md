@@ -3,20 +3,20 @@ title: Información general sobre la mensajería de Azure Service Bus | Microsof
 description: Descripción de la mensajería de Service Bus
 services: service-bus-messaging
 documentationcenter: ''
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.service: service-bus-messaging
 ms.topic: overview
 ms.date: 05/22/2018
 ms.custom: mvc
-ms.author: sethm
-ms.openlocfilehash: 0357602e6085b25fc6d11363113ebc962dc4d008
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: spelluru
+ms.openlocfilehash: a291d4d7ecafde366a20b7e7f1f12a95303da90d
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643097"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697625"
 ---
 # <a name="what-is-azure-service-bus"></a>Qué es Azure Service Bus
 
@@ -45,7 +45,7 @@ Los mensajes de las colas se ordenan y se les asigna una marca de tiempo a su ll
 
 También puede usar *temas* para enviar y recibir mensajes. Mientras que una cola se utiliza a menudo para la comunicación punto a punto, los temas son útiles en escenarios de publicación y suscripción.
 
-![Tema.](./media/service-bus-messaging-overview/about-service-bus-topic.png)
+![Tema](./media/service-bus-messaging-overview/about-service-bus-topic.png)
 
 Los temas pueden tener varias suscripciones independientes. Un suscriptor a un tema puede recibir una copia de cada mensaje enviado a ese tema. Las suscripciones son entidades con nombre, que se crean de forma duradera pero pueden, opcionalmente, expirar o eliminarse automáticamente.
 

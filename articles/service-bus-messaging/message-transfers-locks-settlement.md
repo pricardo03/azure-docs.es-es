@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
-ms.author: sethm
-ms.openlocfilehash: 4789da3c84d52b2615bf4250a36093a74154e1d4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: d4f387d484fe895d8b6c5196c3a5527947ee3925
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28199039"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702068"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferencias, bloqueos y liquidación de mensajes
 
@@ -122,7 +122,7 @@ Si el método **Complete** produce un error, que surge normalmente al final del 
 
 El mecanismo típico para identificar entregas de mensajes duplicados es la comprobación del identificador de mensaje, lo que puede y debe establecerse por el remitente a un valor único, que posiblemente se alinea con un identificador de proceso de origen. Un programador de trabajos probablemente establecería el identificador del mensaje para el identificador del trabajo que está intentando volver a asignar a un trabajo con el trabajo determinado y el trabajo puede ignorar la segunda aparición de la asignación de trabajo si ese trabajo ya se ha realizado.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

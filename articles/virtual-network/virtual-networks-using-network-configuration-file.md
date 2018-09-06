@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: ed47a5d1449ba634f90e93a82f15daf6e44a553e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 57ad5541bb7b61f8d26002168bb069fad3058965
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793868"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339082"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configuración de una red virtual (clásica) mediante un archivo de configuración de red
 > [!IMPORTANT]
@@ -37,7 +37,7 @@ Puede usar PowerShell o la CLI de Azure para exportar un archivo de configuraci�
 
 ### <a name="powershell"></a>PowerShell
  
-1. [Instale Azure PowerShell e inicie sesión en Azure](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. [Instale Azure PowerShell e inicie sesión en Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 2. Cambie el directorio (y asegúrese de que exista) y el nombre de archivo en el siguiente comando según corresponda. A continuación, ejecute el comando para exportar el archivo de configuración de red:
 
     ```powershell
@@ -125,7 +125,7 @@ Puede usar PowerShell o la CLI de Azure para importar un archivo de configuraci�
 
 ### <a name="powershell"></a>PowerShell
  
-1. [Instale Azure PowerShell e inicie sesión en Azure](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. [Instale Azure PowerShell e inicie sesión en Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 2. Cambie el directorio y el nombre de archivo en el siguiente comando según sea necesario. A continuación, ejecute el comando para importar el archivo de configuración de red:
  
     ```powershell

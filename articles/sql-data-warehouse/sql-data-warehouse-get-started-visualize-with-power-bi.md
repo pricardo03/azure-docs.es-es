@@ -3,19 +3,19 @@ title: Visualización de datos de SQL Data Warehouse con Power BI | Microsoft Az
 description: Visualización de datos de SQL Data Warehouse con Power BI
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 52581a87caac419a79caab647cc9c5a4ee7453ba
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 514516dcc28e99d03611c7db6ec09c7b4a48ff0e
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31601584"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306670"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualización de datos con Power BI
 Este tutorial muestra cómo usar Power BI para conectar con SQL Data Warehouse y crear unas visualizaciones básicas.
@@ -24,7 +24,7 @@ Este tutorial muestra cómo usar Power BI para conectar con SQL Data Warehouse y
 > 
 > 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para seguir paso a paso este tutorial, necesita:
 
 * Una instancia de SQL Data Warehouse cargada previamente con la base de datos de AdventureWorksDW. Para aprovisionar un almacenamiento de datos, consulte [Creación de una instancia de Azure SQL Data Warehouse](create-data-warehouse-portal.md) y seleccione la opción para cargar los datos de ejemplo. Si ya tiene un almacenamiento de datos pero no tiene datos de ejemplo, puede [cargar WideWorldImportersDW](load-data-wideworldimportersdw.md).

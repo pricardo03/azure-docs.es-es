@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 60da24b5b0bb7d83414539f07936c61a196e0b62
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d8c3bb07c88dc96b7ca779ca0f4dfe09052ab290
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783694"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666177"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Análisis del contenido multimedia mediante Azure Portal
 > [!NOTE]
@@ -35,7 +35,7 @@ En este tema se describe cómo procesar los medios con procesadores de multimedi
 ## <a name="choose-an-asset-that-you-want-to-analyze"></a>Selección de recursos para analizar
 1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de Azure Media Services.
 2. En la ventana **Configuración**, seleccione **Activos**.  
-   .
+   
     ![Análisis de vídeos](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
 3. Seleccione el recurso que desea analizar y haga clic en el botón **Analizar**.
    

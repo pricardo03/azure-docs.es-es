@@ -3,19 +3,19 @@ title: Uso de las opciones de Group by en Azure SQL Data Warehouse | Microsoft D
 description: Sugerencias para implementar opciones de Group by en Azure SQL Data Warehouse para el desarrollo de soluciones.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 0548983df23b158385783ac777b23268b5ac7d01
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1f5723bd160abc164779062f213762751e5875c8
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526053"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43303385"
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>Opciones de Group by en SQL Data Warehouse
 Sugerencias para implementar opciones de Group by en Azure SQL Data Warehouse para el desarrollo de soluciones.
@@ -181,5 +181,5 @@ ORDER BY 1,2,3
 Al dividir el código en secciones y generar una construcción de bucle, el código resulta más fácil de administrar y mantener.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo](sql-data-warehouse-overview-develop.md).
+Para obtener más sugerencias sobre desarrollo, vea la [información general sobre desarrollo](sql-data-warehouse-overview-develop.md).
 

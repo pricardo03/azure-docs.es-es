@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 889cedf555c8a9a86cc8a2101f27cafcb48376df
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0066ec20c68d70fac9a6529f8f5b85855d6c5349
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523162"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666831"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Creación de un trabajo de exportación para el servicio Azure Import/Export
 Para crear un trabajo de exportación para el servicio Microsoft Azure Import/Export con la API de REST, debe seguir estos pasos:
@@ -48,7 +48,7 @@ Para crear un trabajo de exportación para el servicio Microsoft Azure Import/Ex
  Para obtener más información sobre cómo especificar los blobs que va a exportar, vea la operación [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate).
 
 ## <a name="obtaining-your-shipping-location"></a>Obtención de la ubicación de envío
-Antes de crear un trabajo de exportación, necesita obtener un nombre de la ubicación de envío y una dirección mediante una llamada a la operación [Get Location](https://portal.azure.com) o [List Locations](/rest/api/storageimportexport/listlocations). `List Locations` devolverá una lista de ubicaciones y sus direcciones de correo. Puede seleccionar una ubicación de la lista devuelta y enviar las unidades de disco duro a esa dirección. También puede usar la operación `Get Location` para obtener directamente la dirección de envío para una ubicación específica.
+Antes de crear un trabajo de exportación, necesita obtener un nombre de la ubicación de envío y una dirección mediante una llamada a la operación [Get Location](https://portal.azure.com) o [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list). `List Locations` devolverá una lista de ubicaciones y sus direcciones de correo. Puede seleccionar una ubicación de la lista devuelta y enviar las unidades de disco duro a esa dirección. También puede usar la operación `Get Location` para obtener directamente la dirección de envío para una ubicación específica.
 
 Siga los pasos siguientes para obtener la ubicación de envío:
 

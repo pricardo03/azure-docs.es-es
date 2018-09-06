@@ -6,14 +6,14 @@ author: meladie
 ms.assetid: 708aa129-b226-4e02-85c6-1f86e54564e4
 ms.service: security
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: a8d2eca785ad166aa4cff26bce876e41770a3427
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7d200cfa6a529c33555a18cd6598183fedbfd2fc
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246302"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818280"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Plano técnico de seguridad y cumplimiento de Azure: aplicación web PaaS con clasificación Protegida para Australia
 
@@ -36,7 +36,7 @@ La federación con Azure Active Directory debe usarse para permitir que los usua
 
 La solución utiliza cuentas de Azure Storage que los clientes pueden configurar para que usen Storage Service Encryption para preservar la confidencialidad de los datos en reposo. Azure almacena tres copias de los datos en una región seleccionada de un cliente para proporcionar resistencia. Las regiones de Azure se implementan en pares de regiones resistentes, y el almacenamiento con redundancia geográfica garantiza que los datos se repliquen en la segunda región también con tres copias. Esto evita que un evento adverso en la ubicación de datos principal del cliente produzca una pérdida de datos.
 
-Para mejorar la seguridad, todos los recursos de Azure de esta solución se administran como un grupo de recursos mediante Azure Resource Manager. El control de acceso basado en roles de Azure Active Directory se utiliza para controlar el acceso a los recursos y claves implementados de Azure Key Vault. El mantenimiento del sistema se supervisa mediante Azure Security Center y Azure Monitor. Los clientes configuran ambos servicios de monitorización para capturar registros y mostrar el estado del sistema en un único panel de fácil navegación. Azure Application Gateway está configurado como un firewall en modo de prevención y no permite tráfico que no sea TLSv1.2 o superior. La solución utiliza Azure Application Service Environment v2 para aislar el nivel web en un entorno que no es multiinquilino.
+Para mejorar la seguridad, todos los recursos de Azure de esta solución se administran como un grupo de recursos mediante Azure Resource Manager. El control de acceso basado en roles de Azure Active Directory se utiliza para controlar el acceso a los recursos y claves implementados de Azure Key Vault. El mantenimiento del sistema se supervisa mediante Azure Security Center y Azure Monitor. Los clientes configuran ambos servicios de monitorización para capturar registros y mostrar el estado del sistema en un único panel de fácil navegación. Azure Application Gateway está configurado como un firewall en modo de prevención y no permite tráfico que no sea TLS v1.2 o posterior. La solución utiliza Azure Application Service Environment v2 para aislar el nivel web en un entorno que no es multiinquilino.
 
 ![Arquitectura de referencia de una aplicación web PaaS con clasificación Protegida de Australia](images/au-protected-paaswa-architecture.png?raw=true "Diagrama de una arquitectura de referencia de una aplicación web PaaS con clasificación Protegida de Australia")
 
@@ -95,7 +95,7 @@ El uso de entornos de App Service para esta arquitectura permite los siguientes 
 - Un host dentro de una red virtual de Azure protegida y reglas de seguridad de red.
 - Entornos de App Service configurados con un certificado de equilibrador de carga interno autofirmado para la comunicación HTTPS. Como procedimiento recomendado, Microsoft recomienda el uso de una entidad de certificación de confianza para mejorar la seguridad.
 - [Modo de equilibrio de carga interno](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer) (modo 3).
-- Deshabilitación de [TLS 1.0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
+- Opción para deshabilitar [TLS v1.0 y v1.1](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - Cambio del [cifrado TLS](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - Control de [puertos N/W de tráfico entrante](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic)
 - [Firewall de aplicaciones web: restringir datos](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
@@ -128,11 +128,9 @@ De manera predeterminada, Azure cifra todas las comunicaciones hacia y desde los
 
 Para los datos protegidos en tránsito desde las redes pertenecientes al cliente, la arquitectura utiliza Azure, Internet o ExpressRoute con una VPN Gateway configurada con IPSEC.
 
-Además, todas las transacciones a Azure a través del portal de administración de Azure se realizan mediante HTTPS con TLS 1.2.
-Datos en reposo
+Además, todas las transacciones a Azure mediante el portal de administración de Azure se realizan mediante HTTPS con TLS v1.2.
 
 ### <a name="data-at-rest"></a>Datos en reposo
-
 La arquitectura protege los datos en reposo mediante el cifrado, la auditoría de base de datos y otras medidas.
 
 **Azure Storage**: para cumplir con los requisitos de los datos en reposo cifrados, [Azure Storage](https://azure.microsoft.com/services/storage/) usa [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Esto ayuda a proteger y salvaguardar los datos en apoyo de los compromisos de seguridad y requisitos de cumplimiento de la organización definidos por el ISM del Gobierno australiano.
@@ -204,7 +202,7 @@ Las siguientes [soluciones de administración](https://docs.microsoft.com/azure/
 
 **Azure Monitor**: [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ayuda a los usuarios a realizar un seguimiento del rendimiento, mantener la seguridad e identificar tendencias y permite a las organizaciones auditar, crear alertas y archivar datos, incluido el seguimiento de las llamadas a API en sus recursos de Azure.
 
-Azure Network Watcher: [Azure Network Watcher]9https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) proporciona herramientas para supervisar, diagnosticar, ver las métricas y habilitar o deshabilitar registros de recursos en una red virtual de Azure.  Las entidades de la Commonwealth deben implementar los registros de flujo de Network Watcher para grupos de seguridad de red y máquinas virtuales. Estos registros deben almacenarse en una cuenta de almacenamiento dedicada donde solo se guarden registros de seguridad; el acceso a la cuenta de almacenamiento debe estar protegida con controles de acceso basados en rol.
+Azure Network Watcher: [Azure Network Watcher]9 https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) proporciona herramientas para supervisar, diagnosticar, ver las métricas y habilitar o deshabilitar registros de recursos en una red virtual de Azure.  Las entidades de la Commonwealth deben implementar los registros de flujo de Network Watcher para grupos de seguridad de red y máquinas virtuales. Estos registros deben almacenarse en una cuenta de almacenamiento dedicada donde solo se guarden registros de seguridad; el acceso a la cuenta de almacenamiento debe estar protegida con controles de acceso basados en rol.
 
 ## <a name="threat-model"></a>Modelo de amenazas
 
