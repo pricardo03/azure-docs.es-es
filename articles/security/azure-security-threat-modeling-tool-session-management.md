@@ -3,23 +3,23 @@ title: 'Administración de sesiones: Microsoft Threat Modeling Tool (Azure) | Mi
 description: mitigaciones para amenazas expuestas en Threat Modeling Tool
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 31fe386cfbe5b6ccf842c05a2dd1d6fcd45bc9b7
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.date: 02/07/2017
+ms.author: jegeib
+ms.openlocfilehash: cd843f1826ad65098a7c0f6d30383113ccd28f6a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142723"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306446"
 ---
 # <a name="security-frame-session-management--articles"></a>Marco de seguridad: Administración de sesiones | Artículos 
 | Producto o servicio | Artículo |
@@ -271,7 +271,7 @@ En el siguiente ejemplo se muestra la configuración correcta:
 | **Tecnologías aplicables** | MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referencias**              | [XSRF/CSRF Prevention in ASP.NET MVC and Web Pages](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) (Prevención de XSRF y CSRF en ASP.NET MVC y Web Pages) |
-| **Pasos** | En formularios anti-CSRF y de ASP.NET MVC: use el método auxiliar `AntiForgeryToken` en vistas; incluya un elemento `Html.AntiForgeryToken()` en el formulario, como en el siguiente ejemplo.|
+| **Pasos** | En formularios anti-CSRF y de ASP.NET MVC: use el método del asistente `AntiForgeryToken` en vistas; incluya un elemento `Html.AntiForgeryToken()` en el formulario, como en el siguiente ejemplo.|
 
 ### <a name="example"></a>Ejemplo
 ```csharp
@@ -510,7 +510,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 ```
 
 ### <a name="example"></a>Ejemplo
-En formularios anti-CSRF y de ASP.NET MVC: use el método auxiliar AntiForgeryToken en vistas; incluya un elemento Html.AntiForgeryToken() en el formulario, como en el siguiente ejemplo.
+En formularios anti-CSRF y de ASP.NET MVC: use método del asistente AntiForgeryToken en vistas; incluya un elemento Html.AntiForgeryToken() en el formulario, como en el siguiente ejemplo.
 ```csharp
 @using (Html.BeginForm("UserProfile", "SubmitUpdate")) { 
     @Html.ValidationSummary(true) 

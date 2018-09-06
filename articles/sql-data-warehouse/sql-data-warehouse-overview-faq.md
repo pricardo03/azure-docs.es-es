@@ -3,19 +3,19 @@ title: Preguntas frecuentes sobre Azure SQL Data Warehouse | Microsoft Docs
 description: En este artículo se muestran las preguntas más frecuentes sobre Azure SQL Data Warehouse para clientes y desarrolladores
 services: sql-data-warehouse
 author: acomet
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 7a570dfa6e0a2812a8dd3a25b8903c70fe07befc
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 35252b4d262833daef330a89f1874cc0835c480a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971710"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306747"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>Preguntas más frecuentes de SQL Data Warehouse
 
@@ -53,7 +53,7 @@ A. Para obtener ayuda con las tareas de desarrollo con SQL Data Warehouse, puede
 
 P: ¿Cómo puedo enviar una vale de asistencia técnica?
 
-A. Los [Vales de asistencia técnica] puede presentarse a través de Azure Portal.
+A. Los [vales de asistencia técnica] puede presentarse a través de Azure Portal.
 
 ## <a name="sql-languagefeature-support"></a>Compatibilidad con características o lenguajes de SQL 
 
@@ -109,7 +109,7 @@ Para obtener más información sobre SQL Data Warehouse, vea nuestra página [In
 [Vales de asistencia técnica]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Seguridad]: ./sql-data-warehouse-overview-manage-security.md
 [Cumplimiento de Microsoft]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
-[límites de capacidad]: ./sql-data-warehouse-service-capacity-limits.md
+[Límites de capacidad]: ./sql-data-warehouse-service-capacity-limits.md
 [tipos de datos]: ./sql-data-warehouse-tables-data-types.md
 [Características de tablas no compatibles]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
 [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md

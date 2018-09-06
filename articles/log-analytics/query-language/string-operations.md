@@ -40,7 +40,7 @@ Los valores de cadena se encapsulan con los caracteres de comillas simples o dob
 print "this is a 'string' literal in double \" quotes"
 ```
 
-Para evitar que "\\" actúe como carácter de escape, agregue "@" como prefijo a la cadena:
+Para evitar que "\\" actúe como carácter de escape, agregue \"\@\" como prefijo a la cadena:
 
 ```OQL
 print @"C:\backslash\not\escaped\with @ prefix"

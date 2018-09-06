@@ -54,7 +54,7 @@ PP = En versión preliminar pública
 | Admite reglas de sincronización y conectores de FIM para el aprovisionamiento de sistemas locales. | | | |● |● |
 
  
-& #42; Actualmente hay dos opciones admitidas para esto.  Son las siguientes: 
+&#42; Actualmente hay dos opciones admitidas para esto.  Son las siguientes: 
 
    1. Puede usar el conector LDAP genérico y habilitarlo fuera de Azure AD Connect.  Es un proceso complejo y requiere un asociado para la incorporación y un acuerdo de soporte técnico Premier para su mantenimiento.  Esta opción puede controlar uno o varios directorios LDAP. 
 
