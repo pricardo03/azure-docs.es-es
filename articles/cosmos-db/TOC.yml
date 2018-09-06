@@ -81,7 +81,7 @@ items:
     items:
     - name: Obtención y establecimiento del rendimiento
       href: set-throughput.md
-  - name: Creación de particiones
+  - name: Partición y distribución de datos
     href: partition-data.md
   - name: Indización
     href: indexing-policies.md
@@ -111,12 +111,20 @@ items:
       href: vnet-service-endpoint.md
     - name: Compatibilidad con Key Vault
       href: access-secrets-from-keyvault.md
+  - name: Copia de seguridad y restauración
+    href: online-backup-and-restore.md
+  - name: Alta disponibilidad
+    href: regional-failover.md
 - name: API de varios modelos
   items:
   - name: Documentos de la API de SQL
     items:
     - name: Información general
       href: sql-api-introduction.md
+    - name: Escritura de consultas de SQL
+      href: sql-api-sql-query.md
+    - name: Datos del documento de modelo
+      href: modeling-data.md
     - name: Tutoriales
       items:
       - name: 1 - Crear cuenta
@@ -175,14 +183,10 @@ items:
         href: cli-samples.md
     - name: Guías de procedimientos
       items:
-      - name: 'BulkExecutor: biblioteca de .NET'
-        href: bulk-executor-dot-net.md
-      - name: 'BulkExecutor: biblioteca de Java'
-        href: bulk-executor-java.md
-      - name: Escritura de consultas de SQL
-        href: sql-api-sql-query.md
       - name: Ajustar rendimiento de consulta
         href: sql-api-sql-query-metrics.md
+      - name: procedimientos almacenados, desencadenadores y UDF
+        href: programming.md
       - name: Tipos de datos
         items:
         - name: Datetime
@@ -374,36 +378,30 @@ items:
       href: local-emulator-export-ssl-certificates.md
     - name: Extensión de Visual Studio Code
       href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
-  - name: Ajustar rendimiento
-    items:
-    - name: Sugerencias de rendimiento para SDK de .NET
-      href: performance-tips.md
-    - name: Sugerencias de rendimiento para SDK de Java
-      href: performance-tips-java.md
-    - name: Sugerencias de rendimiento para SDK de Async Java
-      href: performance-tips-async-java.md
-    - name: Prueba de rendimiento - aplicación de ejemplo
-      href: performance-testing.md
+  - name: Configuración de canalizaciones de integración y entrega continuas de Visual Studio Team Services
+    href: tutorial-setup-ci-cd.md
   - name: Procedimientos recomendados
     items:
-    - name: Datos del documento de modelo
-      href: modeling-data.md
+    - name: Consejos de rendimiento
+      items:
+      - name: Sugerencias de rendimiento para SDK de .NET
+        href: performance-tips.md
+      - name: Sugerencias de rendimiento para SDK de Java
+        href: performance-tips-java.md
+      - name: Sugerencias de rendimiento para SDK de Async Java
+        href: performance-tips-async-java.md
+      - name: Prueba de rendimiento - aplicación de ejemplo
+        href: performance-testing.md
+    - name: Escrituras y lecturas rentables
+      href: key-value-store-cost.md
     - name: Creación de particiones de datos de SQL
       href: sql-api-partition-data.md
     - name: Creación de particiones de datos de gráfico
       href: graph-partitioning.md
-  - name: Macrodatos y análisis
-    items:
-    - name: Arquitectura lambda
-      href: lambda-architecture.md
-    - name: Spark Connector
-      href: spark-connector.md
-    - name: Spark, Kafka y Azure Cosmos DB
-      href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
-    - name: Solución de comercio electrónico de fuente de cambios
-      href: changefeed-ecommerce-solution.md
   - name: Integración con otros servicios de Azure
     items:
+    - name: Solución de comercio electrónico de fuente de cambios
+      href: changefeed-ecommerce-solution.md
     - name: Azure App Service
       href: create-website.md
     - name: Indexador de Azure Search
@@ -424,22 +422,24 @@ items:
       href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
     - name: Uso de Spring Boot Starter
       href: https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json
-  - name: Visualización de datos
-    items:
-    - name: Visualización mediante el conector de Power BI
+    - name: Arquitectura lambda
+      href: lambda-architecture.md
+    - name: Azure Databricks (conector de Spark)
+      href: spark-connector.md
+    - name: Spark y Kafka
+      href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
+    - name: Conector de Power BI
       href: powerbi-visualize.md
-    - name: Visualización mediante el controlador ODBC
+    - name: Controlador ODBC
       href: odbc-driver.md
-  - name: Copia de seguridad y restauración
-    href: online-backup-and-restore.md
-  - name: Alta disponibilidad
-    href: regional-failover.md
-  - name: procedimientos almacenados, desencadenadores y UDF
-    href: programming.md
-  - name: Acerca de la biblioteca BulkExecutor para .NET
-    href: bulk-executor-overview.md
-  - name: Escrituras y lecturas rentables
-    href: key-value-store-cost.md
+  - name: Biblioteca de BulkExecutor
+    items:
+    - name: Acerca de la biblioteca BulkExecutor para .NET
+      href: bulk-executor-overview.md
+    - name: 'BulkExecutor: biblioteca de .NET'
+      href: bulk-executor-dot-net.md
+    - name: 'BulkExecutor: biblioteca de Java'
+      href: bulk-executor-java.md
 - name: Recursos
   items:
   - name: Hoja de referencia rápida de consultas
@@ -463,9 +463,9 @@ items:
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
   - name: Aplicaciones de redes sociales
     href: social-media-apps.md
-ms.openlocfilehash: 8837d9bc6cf492a146d96d917d9157e51bffa0f5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: afa2ccd0998ba78aa0f9e75bb87691ead8b96697
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695989"
+ms.locfileid: "43783263"
