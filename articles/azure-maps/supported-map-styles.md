@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 33b0f5df57623f0b4433a4a09c7cd15688783485
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 04c8f43e3b484ceeb942ae13ea95baf7f0215b53
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191397"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344842"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Estilos de mapa admitidos en Azure Maps
 Azure Maps admite cuatro estilos de mapa integrados distintos. Los estilos con sus descripciones se indican a continuación.
@@ -52,4 +52,4 @@ Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
 **API correspondientes:**
-* Control de mapa JS
+* Control de mapa JS 

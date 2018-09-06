@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e0d92cc52b34e1e04f13e03ec2196d13961fb7de
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 62a7bb9bf63e8ebf97f9aeb5b08bf08ef06da43b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247943"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782797"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -119,7 +119,7 @@ Si el grupo de administración de System Center Operations Manager está conecta
 Para más información sobre cómo se actualizan los módulos de administración de soluciones, consulte [Conexión de Operations Manager con Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
 > [!NOTE]
-> Para los sistemas con Operations Manager Agent, se debe actualizar el agente a Microsoft Monitoring Agent para que Update Management pueda administrarlo por completo. Para aprender a actualizar el agente, consulte [Actualización de Operations Manager Agent](/system-center/scom/deploy-upgrade-agents.md).
+> Para los sistemas con Operations Manager Agent, se debe actualizar el agente a Microsoft Monitoring Agent para que Update Management pueda administrarlo por completo. Para aprender a actualizar el agente, consulte [Actualización de Operations Manager Agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
 
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Confirmación de que las máquinas que no son de Azure están incorporadas
 

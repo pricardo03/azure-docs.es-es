@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: e708ae741c6835395e8eb35f6835c2d8c7002780
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: af7d4253b4e631295f8c04c96601e932595af9c1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044737"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697771"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Creación y configuración de una instancia de Integration Runtime autohospedado
 Integration Runtime es la infraestructura de proceso que usa Azure Data Factory para proporcionar capacidades de integración de datos en distintos entornos de red. Para más información acerca del entorno de ejecución de integración, consulte [Introducción a Integration Runtime](concepts-integration-runtime.md).
@@ -219,7 +219,7 @@ En el **firewall corporativo**, debe configurar los siguientes dominios y puerto
 
 Nombres de dominio | Puertos | DESCRIPCIÓN
 ------------ | ----- | ------------
-*.servicebus.windows.net | 443, 80 | Usado para la comunicación con el back-end del servicio de movimiento de datos
+*.servicebus.windows.net | 443 | Usado para la comunicación con el back-end del servicio de movimiento de datos
 *.core.windows.net | 443 | Usado para la copia de almacenamiento provisional que usa el blob de Azure (si está configurado)
 *.frontend.clouddatahub.net | 443 | Usado para la comunicación con el back-end del servicio de movimiento de datos
 download.Microsoft.com | 443 | Usado para descargar las actualizaciones
