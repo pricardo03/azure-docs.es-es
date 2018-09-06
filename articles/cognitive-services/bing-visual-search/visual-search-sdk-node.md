@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 51797f4b674224b4348f3f51518a5b087fd2329a
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: bb245f9eab0f367a0e1b69af88352c54132ea29d
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961901"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782447"
 ---
 # <a name="visual-search-sdk-node-quickstart"></a>Guía de inicio rápido del SDK de Visual Search para Node
 
@@ -26,9 +26,9 @@ Los escenarios de código se documentan en los siguientes encabezados:
 * [Cliente de Visual Search](#client)
 * [Aplicación completa de consola](#complete)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-* Se requiere una clave de API de Cognitive Services para autenticar las llamadas del SDK. Regístrese para obtener una [clave de evaluación gratuita]((https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7)). La clave de evaluación es válida durante siete días con una llamada por segundo. Para escenarios de producción, [compre una clave de acceso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Consulte también la [información sobre precios](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Se requiere una clave de API de Cognitive Services para autenticar las llamadas del SDK. Regístrese para obtener una [clave de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). La clave de evaluación es válida durante siete días con una llamada por segundo. Para escenarios de producción, [compre una clave de acceso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Consulte también la [información sobre precios](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
 
 ## <a name="application-dependencies"></a>Dependencias de aplicaciones
 

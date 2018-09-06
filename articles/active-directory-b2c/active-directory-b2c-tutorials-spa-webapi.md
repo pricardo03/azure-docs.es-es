@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: a2fbdebfc800c33a99b19b366209aeabb03fe115
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 54ddafbf0e4fe02bfc1445aad23ac3e20b42acb0
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590840"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339393"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Tutorial: Conceder acceso a una API web de ASP.NET Core desde una aplicación de una sola página mediante Azure Active Directory B2C
 
@@ -56,7 +56,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador g
     
     | Configuración      | Valor sugerido  | Descripción                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | Hello Core API | Escriba un **Nombre** que describa su API web para los desarrolladores. |
+    | **Nombre** | Hello Core API | Escriba un **Nombre** que describa su API web para los desarrolladores. |
     | **Incluir aplicación web o API web** | SÍ | Seleccione **Sí** para una API web. |
     | **Permitir flujo implícito** | SÍ | Seleccione **Sí**, ya que la API utiliza el [inicio de sesión con OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL de respuesta** | `http://localhost:44332` | Las direcciones URL de respuesta son puntos de conexión en los que Azure AD B2C devolverá los tokens que su API solicite. En este tutorial, la API web de ejemplo se ejecuta localmente (localhost) y escucha en el puerto 5000. |
@@ -172,7 +172,7 @@ Para cambiar la configuración de la aplicación:
     // The current application coordinates were pre-registered in a B2C tenant.
     var applicationConfig = {
         clientID: '<Application ID for your SPA obtained from portal app registration>',
-        authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
+        authority: "https://<your-tenant-name>.b2clogin.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/HelloCoreAPI/demo.read"],
         webApi: 'http://localhost:64791/api/values',
     };

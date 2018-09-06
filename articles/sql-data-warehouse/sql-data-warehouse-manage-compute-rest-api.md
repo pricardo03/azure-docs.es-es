@@ -3,19 +3,19 @@ title: Pausa, reanudación y escalado con REST en Azure SQL Data Warehouse | Mic
 description: Administre la potencia de proceso en SQL Data Warehouse mediante las API REST.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 21423d69bf2cf06bcd208082ce492bf5dd038e29
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8db4d5cb69b65e60cd77d85d743798168bc6d813
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790668"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300840"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>API REST para Azure SQL Data Warehouse
 API REST para administrar los procesos en Azure SQL Data Warehouse.

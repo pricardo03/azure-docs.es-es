@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 07a24db7d611f7d29b7fcf9feb22d6fab208c89e
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781951"
 documentType: LandingData
 title: Documentación de Azure CDN
 metadata:
@@ -13,12 +19,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/08/2018
   ms.author: carolz
-  ms.openlocfilehash: 37250873e61b4fa1db95e5f4846f2cf054395b4a
-  ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
-  ms.translationtype: HT
-  ms.contentlocale: es-ES
-  ms.lasthandoff: 06/11/2018
-  ms.locfileid: "35260030"
 abstract:
   description: Azure Content Delivery Network (CDN) es una solución global de CDN para la entrega de contenido de ancho de banda alto. Se puede hospedar en Azure o en cualquier otra ubicación. Con Azure CDN, puede almacenar en caché objetos estáticos cargados desde Azure Blob Storage, una aplicación web o cualquier servidor web de acceso público, mediante el servidor de punto de presencia (POP) más cercano. Azure CDN también puede acelerar el contenido dinámico, que no puede almacenarse en caché, aprovechando para ello varias optimizaciones de red y de enrutamiento.
 sections:
@@ -79,8 +79,8 @@ sections:
     className: cardsD
     items:
     - title: Línea de comandos
-      html: <p><a href="/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn">PowerShell</a></p>
-    - title: Idiomas
+      html: <p><a href="/powershell/module/azurerm.cdn">PowerShell</a></p>
+    - title: Lenguajes
       html: <p><a href="/dotnet/api/microsoft.azure.management.cdn">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.cdn">Java</a></p>
     - title: REST
       html: <p><a href="/rest/api/cdn/">Referencia de API de REST</a></p>

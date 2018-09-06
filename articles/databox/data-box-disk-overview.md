@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: f2e1a59584507b52d0a834af1869e3e9f2db5f07
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: b1beb0e9a5a0435bdf298eddbefc230b2f95ed0a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127371"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698509"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>¿Qué es Azure Data Box Disk? (versión preliminar)
 
@@ -106,14 +106,14 @@ Durante la versión preliminar, Data Box Disk puede transferir datos a las sigui
 
 |Región de Azure  |Región de Azure  |
 |---------|---------|
-|Centro occidental de EE.UU.     |Este de EE. UU        |        
-|Oeste de EE. UU. 2     |Este de EE. UU. 2          |     
+|Centro occidental de EE.UU.     |Centro de Canadá       |        
+|Oeste de EE. UU. 2     |Este de Canadá         |     
 |Oeste de EE. UU.     | Europa occidental        |      
 |Centro-Sur de EE. UU   |Europa del Norte     |         
-|Centro de EE. UU.     |Este de Canadá|
-|Centro-Norte de EE. UU  |Centro de Canadá    |
-
-
+|Centro de EE. UU.     |Este de Australia|
+|Centro-Norte de EE. UU  |Sudeste de Australia   |
+|Este de EE. UU      |Centro de Australia |
+|Este de EE. UU. 2     |Centro de Australia 2|
 
 
 ## <a name="pricing"></a>Precios

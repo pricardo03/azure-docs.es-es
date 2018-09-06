@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 1b1e6d3e5a0a1eb789b6a31ca66232ea6beb5b89
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 6ad943d2ae98093f7e5b94df59757ff603083cfe
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144683"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668962"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Alta disponibilidad para NFS en máquinas virtuales de Azure en SUSE Linux Enterprise Server
 
@@ -75,7 +75,7 @@ Lea primero las notas y los documentos de SAP siguientes:
 * [Implementación de DBMS de Azure Virtual Machines para SAP en Linux][dbms-guide]
 * [Guía de prácticas recomendadas para la extensión de alta disponibilidad 12 SP3 para SUSE Linux Enterprise][sles-hae-guides]
   * Almacenamiento NFS de alta disponibilidad con DRBD y Pacemaker
-* [Guías de prácticas recomendadas de SUSE Linux Enterprise Server para SAP Applications 12 SP3][sles-for-sap-bp]
+* [Guías de procedimientos recomendados de SUSE Linux Enterprise Server para SAP Applications 12 SP3][sles-for-sap-bp]
 
 ## <a name="overview"></a>Información general
 
@@ -106,7 +106,7 @@ Puede usar una plantilla de Azure de GitHub para implementar todos los recursos 
 ### <a name="deploy-linux-via-azure-template"></a>Implementación de Linux mediante una plantilla de Azure
 
 Azure Marketplace contiene una imagen de SUSE Linux Enterprise Server para SAP Applications 12 que puede usar para implementar nuevas máquinas virtuales.
-Puede usar una de las plantillas de inicio rápido de GitHub para implementar todos los recursos necesarios. La plantilla implementa las máquinas virtuales, el equilibrador de carga, el conjunto de disponibilidad, etc. Siga estos pasos para implementar la plantilla:
+Para implementar todos los recursos necesarios, puede usar una de las plantillas de inicio rápido de GitHub. La plantilla implementa las máquinas virtuales, el equilibrador de carga, el conjunto de disponibilidad, etc. Siga estos pasos para implementar la plantilla:
 
 1. Abra la [plantilla del servidor de archivos SAP][template-file-server] en Azure Portal   
 1. Escriba los siguientes parámetros:
@@ -397,7 +397,6 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    sudo mkdir /srv/nfs/NW1
    sudo chattr +i /srv/nfs/NW1
    sudo mount -t xfs /dev/drbd0 /srv/nfs/NW1
-   sudo mkdir /srv/nfs/NW1
    sudo mkdir /srv/nfs/NW1/sidsys
    sudo mkdir /srv/nfs/NW1/sapmntsid
    sudo mkdir /srv/nfs/NW1/trans

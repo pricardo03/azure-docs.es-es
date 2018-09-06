@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
-ms.author: sethm
-ms.openlocfilehash: 9ac7e71002a375961b8d06b44bbccce2919129e4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: 100559f86a72cd5a5148d1db99764e5b04f3e3b1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28200070"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702483"
 ---
 # <a name="messages-payloads-and-serialization"></a>Mensajes, cargas y serialización
 
@@ -85,7 +85,7 @@ Por lo general se recomienda JSON y Apache Avro como formatos de carga de datos 
 
 Las variantes de .NET Standard y la API de Java solo aceptan matrices de bytes, lo que significa que la aplicación debe administrar el control de la serialización de objetos. 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

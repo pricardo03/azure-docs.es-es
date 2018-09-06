@@ -3,7 +3,7 @@ title: Introducción a los Websockets de Conexiones híbridas de Azure Relay en 
 description: Escritura de una aplicación de consola en Node.js para Websockets de Conexiones híbridas de Azure Relay
 services: service-bus-relay
 documentationcenter: node
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: e44e4867-3cf3-46be-8f8a-7671e2013bc4
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 05/02/2018
-ms.author: sethm
-ms.openlocfilehash: 1e0b76b96029e1a7ed84f1c8cd895090e8acbc6f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: 25e9095561f72583bad86aa96b64a412e0983ab6
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38671009"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702364"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-node"></a>Introducción a los Websockets de Conexiones híbridas de Relay en Node
 
@@ -36,7 +36,7 @@ Dado que Conexiones híbridas requiere un cliente y un componente de servidor, e
 3. Escritura de una aplicación de consola de servidor para recibir mensajes.
 4. Escritura de una aplicación de consola de cliente para enviar mensajes.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 1. [Node.js](https://nodejs.org/en/).
 2. Una suscripción de Azure.

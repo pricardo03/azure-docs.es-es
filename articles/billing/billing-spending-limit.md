@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 06/15/2018
 ms.author: genli
-ms.openlocfilehash: 6049e3614b63bfabee6721dcaa83008eb3306493
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 448622f0406eb709c8d94d60722edb4ef00f42de
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069989"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669997"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Comprender el límite de gasto de Azure y cómo quitarlo
 
@@ -48,8 +48,7 @@ Puede quitar el límite de gasto en cualquier momento siempre que haya un métod
 Para quitar el límite de gasto, siga estos pasos:
 
 1. Inicie sesión en el [Centro de cuentas](https://account.windowsazure.com/Subscriptions).
-1. Seleccione una suscripción.
-. Si la suscripción está deshabilitada porque se ha alcanzado el límite de gasto, haga clic en esta notificación: "La suscripción alcanzó un límite de gasto y se deshabilitó para evitar cargos". De lo contrario, haga clic en **Quitar límite de gasto** en el área **ESTADO DE LA SUSCRIPCIÓN**.
+1. Seleccione una suscripción. Si la suscripción está deshabilitada porque se ha alcanzado el límite de gasto, haga clic en esta notificación: "La suscripción alcanzó un límite de gasto y se deshabilitó para evitar cargos". De lo contrario, haga clic en **Quitar límite de gasto** en el área **ESTADO DE LA SUSCRIPCIÓN**.
 1. Seleccione una opción que sea apropiada para usted.
 
 ![Selección de una opción para quitar el límite de gasto](./media/billing-spending-limit/remove-spending-limit.PNG)

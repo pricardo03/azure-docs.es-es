@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 8e27ba7d5b245d8857f0c07bfe2923afe9d7e3a0
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: a3f40624e51ef287d70bed547eba7ec9e0882b0e
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39267536"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669202"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Tutorial: Integración de Azure Active Directory con Meta Networks Connector
 
@@ -52,7 +52,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de Meta Networks Connector desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+1. Configuración y comprobación del inicio de sesión único de Azure AD
 
 ## <a name="adding-meta-networks-connector-from-the-gallery"></a>Incorporación de Meta Networks Connector desde la galería
 Para configurar la integración de Meta Networks Connector en Azure AD, deberá agregar Meta Networks Connector desde la galería a la lista de aplicaciones SaaS administradas.
@@ -60,19 +60,19 @@ Para configurar la integración de Meta Networks Connector en Azure AD, deberá 
 **Para agregar Meta Networks Connector desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
-
+    
     ![Botón Azure Active Directory][1]
-
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
-
+    
+1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+    
     ![Hoja Aplicaciones empresariales][2]
     
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
-
+1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+    
     ![Botón Nueva aplicación][3]
-
-4. En el cuadro de búsqueda, escriba **Meta Networks Connector**, seleccione **Meta Networks Connector** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
-
+    
+1. En el cuadro de búsqueda, escriba **Meta Networks Connector**, seleccione **Meta Networks Connector** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+    
     ![Meta Networks Connector en la lista de resultados](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
@@ -84,10 +84,10 @@ Para que el inicio de sesión único funcione, es preciso que Azure AD sepa cuá
 Para configurar y probar el inicio de sesión único de Azure AD con Meta Networks Connector, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Meta Networks Connector](#create-a-meta-networks-connector-test-user)**: para tener un homólogo de Britta Simon en Meta Networks Connector que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Creación de un usuario de prueba de Meta Networks Connector](#create-a-meta-networks-connector-test-user)**: para tener un homólogo de Britta Simon en Meta Networks Connector que esté vinculado a la representación del usuario en Azure AD.
+1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -99,35 +99,35 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo Configurar inicio de sesión único][4]
 
-2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
+1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
  
     ![Cuadro de diálogo Inicio de sesión único](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de Meta Networks Connector**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por **IDP**:
+1. En la sección **Dominio y direcciones URL de Meta Networks Connector**, realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por **IDP**:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Meta Networks Connector](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_url.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
-
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`.
-
-4. Active **Mostrar configuración avanzada de URL** y siga estos pasos si desea configurar la aplicación en el modo iniciado por **SP**:
+    1. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
+    
+    1. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`.
+    
+1. Active **Mostrar configuración avanzada de URL** y siga estos pasos si desea configurar la aplicación en el modo iniciado por **SP**:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Meta Networks Connector](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_url1.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`.
-
-    b. En el cuadro de texto **Estado de la retransmisión**, escriba una dirección URL que siga este patrón: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
-
+    1. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`.
+    
+    1. En el cuadro de texto **Estado de la retransmisión**, escriba una dirección URL que siga este patrón: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
+    
     > [!NOTE]
     > Estos valores no son reales. La actualización de estos valores por el identificador, dirección URL de respuesta y dirección URL de inicio de sesión reales se explica más adelante en el tutorial.
-
-5. La aplicación Meta Networks Connector espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. La siguiente captura de pantalla le muestra un ejemplo de esto.
-
+    
+1. La aplicación Meta Networks Connector espera las aserciones de SAML en un formato específico. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **Atributos de usuario** de la página de integración de aplicaciones. La siguiente captura de pantalla le muestra un ejemplo de esto.
+    
     ![Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_attribute.png)
-
-6. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
-
+    
+1. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
+    
     | Nombre del atributo | Valor de atributo | Espacio de nombres|
     | ---------------| --------------- | -------- |
     | firstname | user.givenname | |
@@ -136,105 +136,105 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | Nombre | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | phone | user.telephonenumber | |
 
-    a. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
+    1. Haga clic en **Agregar atributo** para abrir el cuadro de diálogo **Agregar atributo**.
 
-    ![Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/tutorial_attribute_04.png)
-
-    ![Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/tutorial_attribute_05.png)
-
-    b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
-
-    c. En la lista **Valor**, seleccione el atributo que se muestra para esa fila.
-
-    d. En el cuadro de texto **Espacio de nombres**, escriba el valor del espacio de nombres que se muestra para esa fila.
-
-    e. Haga clic en **Aceptar**.
-
-7. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
-
+        ![Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/tutorial_attribute_04.png)
+    
+        ![Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/tutorial_attribute_05.png)   
+    
+    1. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
+    
+    1. En la lista **Valor**, seleccione el atributo que se muestra para esa fila.
+    
+    1. En el cuadro de texto **Espacio de nombres**, escriba el valor del espacio de nombres que se muestra para esa fila.
+    
+    1. Haga clic en **Aceptar**.
+    
+1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+    
     ![Vínculo de descarga del certificado](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_certificate.png)
-
-8. En la sección **Configuración de Meta Networks Connector**, haga clic en **Configurar Meta Networks Connector** para abrir la ventana **Configurar inicio de sesión**. Copie **SAML Entity ID and SAML Single Sign-On Service URL** (URL del servicio de inicio de sesión único de SAML e Identificador de entidad de SAML) de la sección **Referencia rápida**.
-
+    
+1. En la sección **Configuración de Meta Networks Connector**, haga clic en **Configurar Meta Networks Connector** para abrir la ventana **Configurar inicio de sesión**. Copie **SAML Entity ID and SAML Single Sign-On Service URL** (URL del servicio de inicio de sesión único de SAML e Identificador de entidad de SAML) de la sección **Referencia rápida**.
+    
     ![Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_configure.png)
-
-9. Haga clic en el botón **Guardar** .
-
+    
+1. Haga clic en el botón **Guardar** .
+    
     ![Botón Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/tutorial_general_400.png)
-
-10. Abra una nueva pestaña en el explorador e inicie sesión en su cuenta de administrador de Meta Networks Connector.
-
+    
+1. Abra una nueva pestaña en el explorador e inicie sesión en su cuenta de administrador de Meta Networks Connector.
+    
     > [!NOTE]
     > Meta Networks Connector es un sistema seguro. Por lo que antes de acceder a su portal deberá hacer que su dirección IP pública se incluya en lista de permitidos en su lado. Para obtener la dirección IP pública, siga el vínculo especificado [aquí](https://whatismyipaddress.com/). Envíe su dirección IP al [equipo de soporte técnico de Meta Networks Connector](mailto:support@metanetworks.com) para que su dirección IP se incluya en lista de permitidos.
-
-11. Vaya a **Administrador** y seleccione **Configuración**.
-
+    
+1. Vaya a **Administrador** y seleccione **Configuración**.
+    
     ![Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/configure3.png)
-
-12. Asegúrese de que **Registro del tráfico de Internet** y **Forzar MFA de VPN** se establecen en Desactivado.
-
+    
+1. Asegúrese de que **Registro del tráfico de Internet** y **Forzar MFA de VPN** se establecen en Desactivado.
+    
     ![Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/configure1.png)
-
-13. Vaya a **Administrador** y seleccione **SAML**.
-
+    
+1. Vaya a **Administrador** y seleccione **SAML**.
+    
     ![Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/configure4.png)
-
-14. En la página **Detalles**, lleve a cabo los pasos siguientes:
-
+    
+1. En la página **Detalles**, lleve a cabo los pasos siguientes:
+    
     ![Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/configure2.png)
-
-    a. Copie el valor de **Dirección URL de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión** en la sección **Dominio y direcciones URL de Meta Networks Connector**.
-
-    b. Copie el valor de **Dirección URL del destinatario** y péguelo en el cuadro de texto **Dirección URL de respuesta** en la sección **Dominio y direcciones URL de Meta Networks Connector**.
-
-    c. Copie el valor de **Identificador URI de audiencia** y péguelo en el cuadro de texto **Identificador (Identificador de entidad)** en la sección **Dominio y direcciones URL de Meta Networks Connector**.
-
-    d. Habilitación de SAML
-
-15. En la pestaña **General**, realice los pasos siguientes:
+    
+    1. Copie el valor de **Dirección URL de inicio de sesión único** y péguelo en el cuadro de texto **Dirección URL de inicio de sesión** en la sección **Dominio y direcciones URL de Meta Networks Connector**.
+    
+    1. Copie el valor de **Dirección URL del destinatario** y péguelo en el cuadro de texto **Dirección URL de respuesta** en la sección **Dominio y direcciones URL de Meta Networks Connector**.
+    
+    1. Copie el valor de **Identificador URI de audiencia** y péguelo en el cuadro de texto **Identificador (Identificador de entidad)** en la sección **Dominio y direcciones URL de Meta Networks Connector**.
+    
+    1. Habilitación de SAML
+    
+1. En la pestaña **General**, realice los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/metanetworksconnector-tutorial/configure5.png)
 
-    a. En **Dirección URL de inicio de sesión único del proveedor de identidades**, pegue el valor de **Dirección URL del servicio de inicio de sesión único de SAML** que ha copiado desde Azure Portal.
+    1. En **Dirección URL de inicio de sesión único del proveedor de identidades**, pegue el valor de **Dirección URL del servicio de inicio de sesión único de SAML** que ha copiado desde Azure Portal.
 
-    b. En el cuadro de texto **Emisor de proveedor de identidades**, pegue el valor de **Identificador de entidad de SAML** que ha copiado de Azure Portal.
+    1. En el cuadro de texto **Emisor de proveedor de identidades**, pegue el valor de **Identificador de entidad de SAML** que ha copiado de Azure Portal.
 
-    c. Abra el certificado descargado desde Azure Portal en el Bloc de notas y péguelo en el cuadro de texto **Certificado X.509**.
+    1. Abra el certificado descargado desde Azure Portal en el Bloc de notas y péguelo en el cuadro de texto **Certificado X.509**.
 
-    d. Habilite el **Aprovisionamiento Just-in-Time**.
+    1. Habilite el **Aprovisionamiento Just-in-Time**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
-
-   ![Creación de un usuario de prueba de Azure AD][100]
-
+    
+![Creación de un usuario de prueba de Azure AD][100]
+    
 **Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
 1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
-
+    
     ![Botón Azure Active Directory](./media/metanetworksconnector-tutorial/create_aaduser_01.png)
-
-2. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
-
+    
+1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+    
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/metanetworksconnector-tutorial/create_aaduser_02.png)
-
-3. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
-
+    
+1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+    
     ![Botón Agregar](./media/metanetworksconnector-tutorial/create_aaduser_03.png)
-
-4. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
+    
+1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
 
     ![Cuadro de diálogo Usuario](./media/metanetworksconnector-tutorial/create_aaduser_04.png)
+    
+    1. En el cuadro **Nombre**, escriba **BrittaSimon**.
 
-    a. En el cuadro **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-
-    d. Haga clic en **Create**(Crear).
-
+    1. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
+    
+    1. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    
+    1. Haga clic en **Create**(Crear).
+    
 ### <a name="create-a-meta-networks-connector-test-user"></a>Creación de un usuario de prueba de Meta Networks Connector
 
 El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Meta Networks Connector. Meta Networks Connector admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a Meta Networks Connector se creará un nuevo usuario, en caso de que no exista.
@@ -251,27 +251,27 @@ En esta sección, habilitará a Britta Simon para usar el inicio de sesión úni
 **Para asignar a Britta Simon a Meta Networks Connector, realice los pasos siguientes:**
 
 1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
-
+    
     ![Asignar usuario][201]
-
-2. En la lista de aplicaciones, seleccione **Meta Networks Connector**.
-
+    
+1. En la lista de aplicaciones, seleccione **Meta Networks Connector**.
+    
     ![Vínculo de Meta Networks Connector en la lista de aplicaciones](./media/metanetworksconnector-tutorial/tutorial_metanetworksconnector_app.png)  
-
-3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
-
+    
+1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+    
     ![Vínculo "Usuarios y grupos"][202]
-
-4. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
-
+    
+1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+    
     ![Panel Agregar asignación][203]
-
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
-
-6. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
-
-7. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-
+    
+1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+    
+1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+    
+1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
+    
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
@@ -281,8 +281,8 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

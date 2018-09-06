@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c4f1b63e2d564f0480508c3ec5a5a24c76ea6bc4
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 7ae235ea52c5c505e535cc3fad2306167d349ee9
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41919435"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782267"
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Tutorial de Azure Container Service - Administrar DC/OS
 
@@ -238,7 +238,7 @@ Esta dirección dirige al sitio de NGINX predeterminado.
 
 ## <a name="scale-dcos-cluster"></a>Escalado del clúster de DC/OS
 
-En los ejemplos anteriores, una aplicación se ha escalado a varias instancias. También se puede escalar la infraestructura de DC/OS para proporcionar más o menos capacidad de proceso. Esto se realiza con el comando [az acs scale](). 
+En los ejemplos anteriores, una aplicación se ha escalado a varias instancias. También se puede escalar la infraestructura de DC/OS para proporcionar más o menos capacidad de proceso. Esto se realiza con el comando [az acs scale](/cli/azure/acs#az-acs-scale). 
 
 Para ver el recuento actual de agentes de DC/OS, use el comando [az acs show](/cli/azure/acs#az-acs-show).
 

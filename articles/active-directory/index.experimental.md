@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
 ms.author: mtillman
-ms.openlocfilehash: 5acb697d5c830db1301fbe7b3ca3d8aebcdb823d
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 7c55ccd1234dfe6454e506cc8e1e06fff415ffa9
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887959"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340876"
 ---
 # <a name="azure-active-directory-documentation"></a>Documentación de Azure Active Directory
 
@@ -84,7 +84,7 @@ Azure Active Directory (Azure AD) es el directorio multiinquilino basado en la n
                         <a href="/azure/active-directory/active-directory-passwords-overview">Contraseñas</a><br/>
                         <a href="/azure/active-directory/authentication/concept-mfa-howitworks">Multi-Factor Authentication</a><br/>
                         <a href="/azure/active-directory/active-directory-azureadjoin-passport">Windows Hello</a><br/>
-                        <a href="/azure/active-directory/active-directory-certificate-based-authentication-get-started">Autenticación basada en certificados</a>
+                        <a href="/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started">Autenticación basada en certificados</a>
                         </p>
                     </div>
                 </div>

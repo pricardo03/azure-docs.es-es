@@ -3,14 +3,14 @@ title: VMware para la replicación de la arquitectura en Azure con Azure Site Re
 description: Este artículo proporciona información general sobre los componentes y la arquitectura que se utilizan para replicar máquinas virtuales locales de VMware en Azure con Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 08/29/2018
 ms.author: raynew
-ms.openlocfilehash: 48adf61dc0f1796b820e1e14ca509d4618c6256b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4a97c44226d875a08f81a6306fc9ddd4ee29c409
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920574"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288148"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>Arquitectura de replicación de VMware a Azure
 
@@ -32,22 +32,7 @@ En la siguiente tabla y gráfico se proporciona una visión general de los compo
 
 ![Componentes](./media/vmware-azure-architecture/arch-enhanced.png)
 
-## <a name="configuration-steps"></a>Pasos de configuración
 
-Los pasos generales para configurar VMware para la migración o recuperación ante desastres de Azure son los siguientes:
-
-1. **Configuración de los componentes de Azure**. Necesita una cuenta de Azure con los permisos adecuados, una cuenta de almacenamiento de Azure, una red virtual de Azure y un almacén de Recovery Services. [Más información](tutorial-prepare-azure.md).
-2. **Configuración del entorno local**. Entre ellas se incluye la configuración de una cuenta en el servidor de VMware para que Site Recovery pueda detectar automáticamente las máquinas virtuales que desea replicar, la configuración de una cuenta que se pueda utilizar para instalar el componente Mobility Service en las máquinas virtuales que desea replicar y la comprobación de que los servidores de VMware y las máquinas virtuales cumplen con los requisitos previos. Opcionalmente, también puede prepararse para conectarse a estas máquinas virtuales de Azure después de la conmutación por error. Site Recovery replica los datos de las máquinas virtuales a una cuenta de almacenamiento de Azure y crea máquinas virtuales de Azure con los datos cuando se ejecute una conmutación por error a Azure. [Más información](vmware-azure-tutorial-prepare-on-premises.md).
-3. **Configuración de la replicación**. Elija dónde quiere replicar. Configure el entorno de replicación de origen mediante la configuración de una única máquina virtual de VMware local (el servidor de configuración) que ejecute todos los componentes de Site Recovery locales que necesite. Después de la configuración, registre la máquina del servidor de configuración en el almacén de Recovery Services. Después, seleccione la configuración de destino. [Más información](vmware-azure-tutorial.md).
-4. **Creación de una directiva de replicación**. Va a crear una directiva de replicación que especifica cómo debe producirse la replicación. 
-    - **Umbral de RPO**: esta configuración de supervisión indica que si la replicación no se produce en el tiempo especificado, se emite una alerta (y opcionalmente un correo electrónico). Por ejemplo, si establece el umbral RPO en 30 minutos y un problema impide la replicación durante 30 minutos, se genera un evento. Esta configuración no afecta a la replicación. La replicación es continua y los puntos de recuperación se crean cada pocos minutos.
-    - **Retención**: la retención del punto de recuperación especifica cuánto tiempo se deben mantener los puntos de recuperación en Azure. Puede especificar un valor entre 0 y 24 horas para Premium Storage, o hasta 72 horas para Standard Storage. Puede realizar la conmutación por error al último punto de recuperación o a un punto almacenado si establece el valor por encima de cero. Después de la ventana de retención, los puntos de recuperación se purgan.
-    - **Instantáneas coherentes con los bloqueos**: de forma predeterminada, Site Recovery toma las instantáneas coherentes con los bloqueos y crea puntos de recuperación con ellos cada pocos minutos. Un punto de recuperación es frente a bloqueos si todos los componentes de datos interrelacionados son coherentes de orden de escritura, tal como estaban en el momento en que se creó el punto de recuperación. Para comprenderlo todo mejor, imagínese el estado de los datos en el disco duro del equipo después de un corte de energía o evento similar. Un punto de recuperación coherente con los bloqueos por lo general es suficiente si la aplicación está diseñada para recuperarse de un bloqueo sin incoherencia en los datos.
-    - **Instantáneas coherentes con la aplicación**: si este valor no es cero, la instancia de Mobility Service que se ejecuta en la máquina virtual intenta generar puntos de recuperación e instantáneas coherentes con el sistema de archivos. Una vez completada la replicación inicial, se realiza la primera instantánea. Después, las instantáneas se realizan a la frecuencia que especifique. Un punto de recuperación es coherente con la aplicación si, además de ser coherente con el orden de escritura, las aplicaciones que se ejecutan completan todas sus operaciones y vacían sus búferes en el disco (modo de inactividad de aplicación). Se recomiendan puntos de recuperación coherentes la aplicación para aplicaciones de bases de datos como SQL, Oracle y Exchange. Si una instantánea coherente con los bloqueos es suficiente, este valor se puede establecer en 0.  
-    - **Coherencia con varias máquinas virtuales**: también puede crear un grupo de replicación. Después, cuando se habilita la replicación, puede recopilar las máquinas virtuales de ese grupo. Todas las máquinas virtuales de un grupo de replicación se replican al mismo tiempo y comparten puntos de recuperación coherentes con los bloqueos y coherentes con la aplicación cuando han conmutado por error. Debe utilizar esta opción con cuidado, ya que puede afectar al rendimiento de la carga de trabajo, ya que es necesario recopilar instantáneas en varios equipos. Haga esto únicamente si las máquinas virtuales ejecutan la misma carga de trabajo y necesitan ser coherentes, y las máquinas virtuales tienen renovaciones similares. Puede agregar hasta ocho máquinas virtuales a un grupo. 
-5. **Habilitación de la replicación de máquinas virtuales**. Por último, va a habilitar la replicación para las máquinas virtuales de VMware locales. Si ha creado una cuenta para instalar Mobility Service y especifica que la recuperación del sitio debe hacer una instalación de inserción, se instalará en cada máquina virtual para que la replicación se habilita el servicio de movilidad. [Más información](vmware-azure-tutorial.md#enable-replication). Si ha creado un grupo de replicación para la coherencia con varias máquinas virtuales, puede agregar las máquinas virtuales a ese grupo.
-6. **Conmutación por error de prueba**. Después de que todo esté configurado, puede hacer una conmutación por error de prueba para comprobar que las máquinas virtuales conmutan por error a Azure como se esperaba. [Más información](tutorial-dr-drill-azure.md).
-7. **Conmutación por error**. Si simplemente está migrando las máquinas virtuales a Azure: ejecute una conmutación por error completa para hacerlo. Si está configurando la recuperación ante desastres, puede ejecutar una conmutación por error completa cuando sea necesario. Para una recuperación ante desastres completa, después de la conmutación por error a Azure, puede volver a realizar una conmutación por recuperación en su sitio local cuando esté disponible. [Más información](vmware-azure-tutorial-failover-failback.md).
 
 ## <a name="replication-process"></a>Proceso de replicación
 

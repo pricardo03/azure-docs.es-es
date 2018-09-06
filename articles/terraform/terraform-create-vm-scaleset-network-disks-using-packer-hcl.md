@@ -1,17 +1,20 @@
 ---
 title: Uso de Terraform para crear un conjunto de escalado de máquinas virtuales de Azure a partir de una imagen personalizada de Packer
 description: Use Terraform para configurar y controlar las versiones de un conjunto de escalado de máquinas virtuales de Azure a partir de una imagen personalizada generada por Packer (junto con una red virtual y discos asociados administrados).
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, conjunto de escalado, máquina virtual, red, almacenamiento, módulos, imágenes personalizadas, packer
-author: VaijanathB
+author: tomarcher
+manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 10/29/2017
-ms.topic: article
-ms.openlocfilehash: 284eae93de36986e41ba80f98f86495d8f34f57b
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 9e999ba8a36edd990bbab4648d9d4d98e3301153
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23655397"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668638"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Uso de Terraform para crear un conjunto de escalado de máquinas virtuales de Azure a partir de una imagen personalizada de Packer
 
@@ -65,7 +68,7 @@ variable "resource_group_name" {
 > [!NOTE]
 > El valor predeterminado de la variable resource_group_name no está establecido, defina su propio valor.
 
-Guarde el archivo .
+Guarde el archivo.
 
 Al implementar la plantilla de Terraform, querrá obtener el nombre de dominio completo que se utiliza para acceder a la aplicación. Use el tipo de recurso ```output``` de Terraform y obtenga la propiedad ```fqdn``` del recurso. 
 

@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
-ms.author: sethm
-ms.openlocfilehash: a67a9d01f686c6aa8a569239667ae14d7bf087a9
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: 7f31adcd7ebdd51cf930fcaf0cd2f214c7566565
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28200741"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699376"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Secuenciación y marcas de tiempo de los mensajes
 
@@ -46,7 +46,7 @@ El valor de **SequenceNumber** de un mensaje programado solo es válido mientras
 
 Dado que la característica está anclada en mensajes individuales y los mensajes solo pueden ponerse en cola una vez, Service Bus no admite las programaciones recurrentes de los mensajes.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

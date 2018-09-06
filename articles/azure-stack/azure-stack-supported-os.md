@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: Brenduns
 ms.reviewer: JeffGoldner
-ms.openlocfilehash: 8d9337053c8905886ed4429d64f8ef5b4e2c7d14
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d6e9531edf8915e4b6c2636372b756002fca10fd
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060454"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382406"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Sistemas operativos invitados compatibles con Azure Stack
 
@@ -57,19 +57,19 @@ Las distribuciones Linux indicadas como disponibles en Marketplace incluyen el a
 
 | Distribución | DESCRIPCIÓN | Publicador | Marketplace |
 | --- | --- | --- | --- | --- | --- |
-| Basado en CentOS 6.9 | 64 bits | Rogue Wave | Sí |
-| Basado en CentOS 7.4 | 64 bits | Rogue Wave | Sí |
-| ClearLinux | 64 bits | ClearLinux.org | Sí |
+| Basado en CentOS 6.9 | 64 bits | Rogue Wave | SÍ |
+| Basado en CentOS 7.4 | 64 bits | Rogue Wave | SÍ |
+| ClearLinux | 64 bits | ClearLinux.org | SÍ |
 | Container Linux |  64 bits | CoreOS | Stable |
-| Debian 8 "Jessie" | 64 bits | credativ |  Sí |
-| Debian 9 "Stretch" | 64 bits | credativ | Sí |
+| Debian 8 "Jessie" | 64 bits | credativ |  SÍ |
+| Debian 9 "Stretch" | 64 bits | credativ | SÍ |
 | Red Hat Enterprise Linux 7.x | 64 bits | Red Hat |Traiga su propia imagen |
-| SLES 11SP4 | 64 bits | SUSE | Sí |
-| SLES 12SP3 | 64 bits | SUSE | Sí |
-| Ubuntu 14.04 LTS | 64 bits | Canonical | Sí |
-| Ubuntu 16.04 LTS | 64 bits | Canonical | Sí |
-| Ubuntu 18.04-LTS | 64 bits | Canonical | Sí |
+| SLES 11SP4 | 64 bits | SUSE | SÍ |
+| SLES 12SP3 | 64 bits | SUSE | SÍ |
+| Ubuntu 14.04 LTS | 64 bits | Canonical | SÍ |
+| Ubuntu 16.04 LTS | 64 bits | Canonical | SÍ |
+| Ubuntu 18.04-LTS | 64 bits | Canonical | SÍ |
 
 Puede que otras distribuciones Linux sean compatibles en el futuro.
 
-Para obtener información de soporte técnico de Red Hat Enterprise Linux, vea [Red Hat and Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531) (Red Hat y Azure Stack: preguntas más frecuentes).
+Para información de soporte técnico de Red Hat Enterprise Linux, consulte [Red Hat and Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531) (Red Hat y Azure Stack: preguntas más frecuentes).

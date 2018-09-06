@@ -3,20 +3,21 @@ title: Implementación de una aplicación SaaS de base de datos multiinquilino c
 description: Implemente y explore la aplicación de base de datos multiinquilino SaaS Wingtip Tickets con particiones que muestra los patrones de SaaS con Azure SQL Database.
 keywords: tutorial de SQL Database
 services: sql-database
-author: MightyPen
+author: billgib
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: genemi
-ms.openlocfilehash: ac53443140b792d01147cdf22b81d0e6658fa429
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 04/02/2018
+ms.reviewer: genemi
+ms.author: billgib
+ms.openlocfilehash: 0c2677622b118c11216bef62ff70e87f4de4cded
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646463"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665930"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implementación y exploración de una aplicación multiinquilino con particiones que usa Azure SQL Database
 
@@ -46,7 +47,7 @@ Cualquier usuario puede descargar el código fuente de C# y PowerShell para Wing
 
 Hay disponible una serie de tutoriales relacionados que se basan en esta implementación inicial. En los tutoriales se explora una variedad de patrones de diseño y administración de SaaS. Cuando trabaja con los tutoriales, se recomienda que recorra los scripts proporcionados para ver cómo se implementan los distintos patrones de SaaS.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 

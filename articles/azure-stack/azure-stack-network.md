@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 48e2f85488adfb776da5f52c154028f8aafb167a
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 9b1eb6878dcafba68c230255f3b3f43e005421ab
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617028"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340195"
 ---
 # <a name="network-connectivity"></a>Conectividad de red
 En este artículo se ofrece información sobre la infraestructura de red de Azure Stack que le ayudará decidir cuál es la mejor forma de integrar Azure Stack en su entorno de red existente. 
@@ -45,7 +45,7 @@ En la siguiente tabla se muestran las redes lógicas y los intervalos de subred 
 | Infraestructura del conmutador | Direcciones IP de punto a punto con fines de enrutamiento, interfaces de administración de conmutador dedicado y direcciones de bucle invertido asignadas al conmutador. | /26 | 
 | Infraestructura | Se utiliza para que los componentes internos de Azure Stack se comuniquen. | /24 |
 | Privada | Se utiliza para la red de almacenamiento y las VIP privadas. | /24 | 
-| BMC | Se utiliza para comunicarse con los BMC en los hosts físicos. | /27 | 
+| BMC | Se utiliza para comunicarse con los BMC en los hosts físicos. | /26 | 
 | | | |
 
 ## <a name="network-infrastructure"></a>Infraestructura de red

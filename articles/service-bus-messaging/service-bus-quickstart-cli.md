@@ -2,19 +2,19 @@
 title: 'Guía de inicio rápido: Uso de la CLI de Azure y de Java para enviar y recibir mensajes desde Azure Service Bus | Microsoft Docs'
 description: En esta guía de inicio rápido, aprenderá a enviar y recibir mensajes de Azure Service Bus mediante la CLI de Azure y una aplicación Java de ejemplo
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/22/2018
-ms.author: sethm
-ms.openlocfilehash: 717ac3c61ba4e362f01bad91f52ecb217cdbe1cd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: a39b93a0b778de6fb6e09e4359678713cc308aac
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630392"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701656"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Guía de inicio rápido: Envío y recepción de mensajes mediante la CLI de Azure y Java
 

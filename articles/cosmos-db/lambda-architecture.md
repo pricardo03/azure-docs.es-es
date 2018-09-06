@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ramkris
-ms.openlocfilehash: 20fea7f4f4ccf852045d53ba06c3f8fcbdd1d60d
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: c926c67a330648e09c1fd8133164f64582ad9a34
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959838"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701082"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Implementación de una arquitectura lambda en la plataforma Azure 
 
@@ -29,11 +29,6 @@ Para implementar una arquitectura lambda en Azure, puede combinar las siguientes
 * El [Conector de Spark a Azure Cosmos DB](spark-connector.md)
 
 En este artículo se describen los aspectos básicos de una arquitectura lambda basada en el diseño original multicapa y las ventajas de una arquitectura lambda "rediseñada" que simplifica las operaciones.  
-
-Si desea obtener información general de la arquitectura lambda y de los recursos disponibles en el ejemplo de este tipo de arquitectura, vea el vídeo siguiente:
-
-> [!VIDEO https:///channel9.msdn.com/Events/Connect/2017/T135/player]
->
 
 ## <a name="what-is-a-lambda-architecture"></a>¿Qué es una arquitectura lambda?
 Una arquitectura lambda es una arquitectura de procesamiento de datos genérica, escalable y con tolerancia a errores que se utiliza en escenarios de procesamiento por lotes y mejora de la latencia, tal y como lo describe [Nathan Marz](https://twitter.com/nathanmarz).
@@ -206,7 +201,7 @@ Esta última instrucción ha guardado la trama de datos de Spark en una nueva co
  
 #### <a name="resources"></a>Recursos
 
-Para obtener ejemplos de código completos, consulte [azure-cosmosdb-spark/lambda/samples](vhttps://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda), incluido:
+Para obtener ejemplos de código completos, consulte [azure-cosmosdb-spark/lambda/samples](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda), incluido:
 * Lambda Architecture Rearchitected - Batch Layer (Arquitectura lambda rediseñada: Capa de procesamiento por lotes) [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb)
 * Lambda Architecture Rearchitected - Batch to Serving Layer (Arquitectura lambda rediseñada: De capa de procesamiento por lotes a capa de servicio) [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb)
 

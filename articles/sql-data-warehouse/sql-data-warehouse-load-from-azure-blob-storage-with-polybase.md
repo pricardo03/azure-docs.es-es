@@ -3,19 +3,19 @@ title: Carga de datos de Contoso Retail en Azure SQL Data Warehouse | Microsoft 
 description: Use PolyBase y comandos de T-SQL para cargar dos tablas de datos de Contoso Retail en Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 0b066699475b753bb1104a78a4a1c60564535700
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cf484d5d7a48117bac659dcfad356238f1e9f8a2
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190905"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307444"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Carga de datos de Contoso Retail en Azure SQL Data Warehouse
 

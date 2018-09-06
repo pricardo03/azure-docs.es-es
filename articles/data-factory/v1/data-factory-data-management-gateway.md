@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7ca0e8eb2d496bdcd8eff7dbee2af2e549f123dd
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 988c264ef6052b4b41de493944ac8d39a197a083
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626862"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698764"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -142,7 +142,7 @@ En el firewall corporativo, debe configurar los siguientes dominios y puertos de
 
 | Nombres de dominio | Puertos | DESCRIPCIÓN |
 | --- | --- | --- |
-| *.servicebus.windows.net |443, 80 |Usado para la comunicación con el back-end del servicio de movimiento de datos |
+| *.servicebus.windows.net |443 |Usado para la comunicación con el back-end del servicio de movimiento de datos |
 | *.core.windows.net |443 |Usado para la copia de almacenamiento provisional que usa el blob de Azure (si está configurado)|
 | *.frontend.clouddatahub.net |443 |Usado para la comunicación con el back-end del servicio de movimiento de datos |
 | *.servicebus.windows.net |9350-9354, 5671 |Service Bus Relay opcional a través de TCP utilizado por el Asistente para copiar |

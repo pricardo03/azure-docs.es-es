@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: d5f775761def1c06063cd02b4141c5de2a752cce
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: d3fc3ef6c5fdcf5a87c691c73169ef2bec95805e
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089917"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382695"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Adición de inquilinos en Azure Stack para uso y facturación
 
@@ -67,7 +67,7 @@ Actualice el registro con la suscripción del nuevo cliente. Azure informa del u
     New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties <PSObject>
 ```
 ### <a name="new-azurermresource-powershell-parameters"></a>Parámetros del comando de PowerShell New-AzureRmResource
-| . | DESCRIPCIÓN |
+| Parámetro | DESCRIPCIÓN |
 | --- | --- | 
 |registrationSubscriptionID | La suscripción de Azure que se ha usado para el registro inicial de Azure Stack. |
 | customerSubscriptionID | La suscripción de Azure (no de Azure Stack) que pertenece al cliente que se va a registrar. Se debe crear en la oferta del CSP; en la práctica, esto significa mediante el centro de partners. Si un cliente tiene más de un inquilino de Azure Active Directory, esta suscripción debe crearse en el inquilino que se usará para iniciar sesión en Azure Stack.
@@ -91,5 +91,5 @@ Una vez que haya agregado al nuevo cliente a Azure Stack o el inquilino del clie
 ## <a name="next-steps"></a>Pasos siguientes
 
  - Para revisar los mensajes de error que se desencadenen en el proceso de registro, consulte [Mensajes de error del registro de inquilinos](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
- - Para más información sobre cómo recuperar la información de utilización de recursos de Azure Stack, consulte [Uso y facturación en Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - Para más información sobre cómo recuperar la información de utilización de recursos de Azure Stack, consulte [Uso y facturación en Azure Stack](azure-stack-billing-and-chargeback.md).
  - Para revisar cómo un cliente final puede agregarle, en calidad de CSP, como el administrador de su inquilino de Azure Stack, consulte [Habilitación de un proveedor de servicios en la nube para administrar la suscripción de Azure Stack](user\azure-stack-csp-enable-billing-usage-tracking.md).

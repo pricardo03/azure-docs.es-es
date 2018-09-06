@@ -3,7 +3,7 @@ title: Excepciones de Azure Relay y cómo resolverlas | Microsoft Docs
 description: Lista de excepciones de Azure Relay y las acciones sugeridas que puede seguir para ayudar a resolverlas.
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 5f9dd02c-cce0-43b3-8eb8-744f0c27f38c
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2017
-ms.author: sethm
-ms.openlocfilehash: 1dbe73dac0d09db96ab902909125869959963e6f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: spelluru
+ms.openlocfilehash: 0fe30fe95e77adceaa5013f89206b08daf2a58a2
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "26855868"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702102"
 ---
 # <a name="azure-relay-exceptions"></a>Excepciones de Azure Relay
 
@@ -90,7 +90,7 @@ Hay dos causas comunes de este error:
 
     En ocasiones, el servicio Relay podría experimentar retrasos en el procesamiento de solicitudes. Esto puede ocurrir, por ejemplo, durante los períodos de mucho tráfico. Si esto ocurre, vuelva a intentar la operación después de un retraso hasta que la operación sea correcta. Si la misma operación aún experimenta errores después de varios intentos, visite el [sitio de estado del servicio de Azure](https://azure.microsoft.com/status/) para ver si hay interrupciones del servicio conocidas.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Preguntas frecuentes sobre Azure Relay](relay-faq.md)
 * [Crear un espacio de nombres de Relay](relay-create-namespace-portal.md)
 * [Introducción a Azure Relay y .NET](relay-hybrid-connections-dotnet-get-started.md)

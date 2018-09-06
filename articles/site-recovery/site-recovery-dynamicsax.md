@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 931cc628dccc77a026791b27a7a8159b37c585d4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: eb6f7d9b34e00ce1efd8c871439c2504e5f550d5
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919570"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669449"
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Replicación de una implementación de Dynamics AX en varios niveles múltiples mediante Azure Site Recovery
 
@@ -34,7 +34,7 @@ En este artículo se explica cómo crear una solución de recuperación ante des
 
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 La implementación de la recuperación ante desastres para aplicaciones de Dynamics AX mediante Site Recovery requiere los siguientes requisitos previos:
 
@@ -52,9 +52,9 @@ Para elaborar este artículo, se utilizaron máquinas virtuales de VMware con Dy
 
 **Escenario** | **En un sitio secundario** | **En Azure**
 --- | --- | ---
-**Hyper-V** | Sí | Sí
-**VMware** | Sí | Sí
-**Servidor físico** | Sí | Sí
+**Hyper-V** | SÍ | SÍ
+**VMware** | SÍ | SÍ
+**Servidor físico** | SÍ | SÍ
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Habilitación de la recuperación ante desastres de la aplicación Dynamics AX mediante Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Proteger la aplicación Dynamics AX
@@ -99,7 +99,7 @@ Puede seleccionar la máquina virtual en los elementos replicados para configura
 
 * Si utiliza una IP estática, especifique en el campo **IP de destino** la dirección IP que desea que use la máquina virtual.
 
-    ![Configuración de red ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png).
+    ![Configuración de red ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### <a name="5-create-a-recovery-plan"></a>5. Creación de un plan de recuperación

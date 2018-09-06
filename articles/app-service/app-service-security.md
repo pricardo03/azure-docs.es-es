@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 78487061dd49c057e8f569fd2ccdaa6408443fd2
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 40fdd22bdbb3fc0676688430069d58c0422a7ca2
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885877"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382123"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Seguridad en Azure App Service y Azure Functions
 
@@ -29,7 +29,7 @@ Los componentes de plataforma de App Service, incluidas las máquinas virtuales 
 
 - Los recursos de aplicación estén [protegidos](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) de los recursos de Azure de otros clientes.
 - [Las instancias de máquina virtual y el software en tiempo de ejecución se actualicen periódicamente](app-service-patch-os-runtime.md) para abordar puntos vulnerables recién detectados. 
-- La comunicación de secretos (por ejemplo, cadenas de conexión) entre su aplicación y otros recursos de Azure (por ejemplo, [SQL Database](/services/sql-database/)) permanezca dentro de Azure y no cruce ningún límite de la red. Los secretos siempre se cifren al guardarlos.
+- La comunicación de secretos (por ejemplo, cadenas de conexión) entre su aplicación y otros recursos de Azure (por ejemplo, [SQL Database](https://azure.microsoft.com/services/sql-database/)) permanezca dentro de Azure y no cruce ningún límite de la red. Los secretos siempre se cifren al guardarlos.
 - Todas las comunicaciones que se realicen con las características de conectividad de App Service, como la [conexión híbrida](app-service-hybrid-connections.md), se cifren. 
 - Todas las conexiones con herramientas de administración remota como Azure PowerShell, la CLI de Azure, los SDK de Azure o las API REST, se cifren.
 - La administración ininterrumpida de amenazas proteja la infraestructura y la plataforma frente a malware, ataques por denegación de servicio distribuido (DDoS), ataques de tipo "Man in the middle" (MITM) y otras amenazas.
@@ -84,7 +84,7 @@ En cada uno de estos casos, App Service ofrece una manera de crear conexiones se
 
 ### <a name="azure-resources"></a>Recursos de Azure
 
-Cuando la aplicación se conecta a recursos de Azure tales como [Azure SQL Database](/services/sql-database/) y [Azure Storage](/azure/storage/), la conexión permanece dentro de Azure y no cruza los límites de la red. Sin embargo, la conexión va a través de la red compartida en Azure, por lo que siempre debe asegurarse de que la conexión esté cifrada. 
+Cuando la aplicación se conecta a recursos de Azure tales como [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) y [Azure Storage](/azure/storage/), la conexión permanece dentro de Azure y no cruza los límites de la red. Sin embargo, la conexión va a través de la red compartida en Azure, por lo que siempre debe asegurarse de que la conexión esté cifrada. 
 
 Si la aplicación se hospeda en un [entorno de App Service](environment/intro.md), deberá [conectarse a los servicios de Azure mediante puntos de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
 
@@ -117,4 +117,4 @@ Excepto en el plan de tarifa **Aislado**, todos los niveles ejecutan las aplicac
 - Servir la aplicación interna usando un equilibrador de carga interno (ILB), que permite el acceso únicamente desde dentro de la red virtual de Azure. El ILB tiene una dirección IP de la subred privada, que aísla completamente las aplicaciones de Internet.
 - [Uso de un ILB detrás de un firewall de aplicaciones web (WAF)](environment/integrate-with-application-gateway.md). WAFS ofrece protección de nivel empresarial para las aplicaciones de acceso público, tales como protección frente a DDoS, filtrado de URI y prevención de inyección de SQL.
 
-Para más información, consulte [Introducción a los entornos de Azure App Service](environment/intro.md).
+Para más información, consulte [Introducción a los entornos de Azure App Service](environment/intro.md). 

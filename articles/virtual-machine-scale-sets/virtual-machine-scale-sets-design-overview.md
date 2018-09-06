@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 8c9253caad8b85b25e3142429c1e23be6f92dd64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1716ebf1d3490511d7102c8c756c78c0f0c55291
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652406"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43670053"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Consideraciones de diseño para conjuntos de escalado
 En este artículo se analizan consideraciones de diseño de Virtual Machine Scale Sets. Para información sobre qué son los conjuntos de escalado de máquinas virtuales, consulte [Información general de conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-overview.md).
@@ -33,8 +33,8 @@ Por lo general, los conjuntos de escala son útiles para implementar infraestruc
 
 - Una vez que especifique la configuración del conjunto de escalado, puede actualizar la propiedad *Capacidad* para implementar más máquinas virtuales en paralelo. Este proceso es mejor que escribir un script para organizar la implementación de muchas máquinas virtuales individuales en paralelo.
 - Puede [usar el escalado automático de Azure para escalar automáticamente un conjunto de escalado](./virtual-machine-scale-sets-autoscale-overview.md), pero no máquinas virtuales individuales.
-- Puede [restablecer la imagen inicial de máquinas virtuales del conjunto de escalado](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm), pero [no las máquinas virtuales individuales](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- También puede [sobreaprovisionar](./virtual-machine-scale-sets-design-overview.md) máquinas virtuales del conjunto de escalado para lograr una mejor confiabilidad y tiempos de implementación más rápidos. No puede sobreaprovisionar máquinas virtuales individuales a menos que escriba el código personalizado para realizar esta acción.
+- Puede [restablecer la imagen inicial de máquinas virtuales del conjunto de escalado](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/reimage), pero [no las máquinas virtuales individuales](https://docs.microsoft.com/rest/api/compute/virtualmachines).
+- También puede [sobreaprovisionar](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) máquinas virtuales del conjunto de escalado para lograr una mejor confiabilidad y tiempos de implementación más rápidos. No puede sobreaprovisionar máquinas virtuales individuales a menos que escriba el código personalizado para realizar esta acción.
 - Puede especificar una [directiva de actualización](./virtual-machine-scale-sets-upgrade-scale-set.md) para facilitar la implementación de actualizaciones en las máquinas virtuales del conjunto de escalado. Con las máquinas virtuales individuales, debe organizar usted mismo las actualizaciones.
 
 ### <a name="vm-specific-features"></a>Características específicas de máquinas virtuales

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: dec981ad750a49646916dbef40a4cc632ab71da2
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 19e47e0dba1a89ea32f42ef0bafc26f8c59b4ad7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856647"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288309"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Cómo se distribuyen datos globalmente con Azure Cosmos DB
 Azure es ubicuo, se puede encontrar en más de cincuenta regiones geográficas y se halla en continua expansión. Dada su presencia en todo el mundo, una de las funcionalidades únicas que Azure ofrece a los desarrolladores es la capacidad de compilar, implementar y administrar fácilmente aplicaciones distribuidas globalmente. 
@@ -34,11 +34,6 @@ En este artículo se ofrece información general sobre las funcionalidades de di
 
 ## <a id="EnableGlobalDistribution"></a>Habilitación de una distribución global inmediata
 Azure Cosmos DB ofrece las siguientes funcionalidades, que permiten escribir fácilmente aplicaciones distribuidas a escala mundial. Estas funcionalidades están disponibles a través de las [API de REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) basadas en el proveedor de recursos de Azure Cosmos DB, así como en Azure Portal.
-
-Consulte el siguiente vídeo para ver en acción la característica de distribución global inmediata en Azure Cosmos DB.
-
-> [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
->
 
 ### <a id="RegionalPresence"></a>Presencia regional ubicua 
 La presencia geográfica de Azure crece constantemente y aumenta el número de [regiones nuevas](https://azure.microsoft.com/regions/) en línea. Azure Cosmos DB está clasificado como *servicio fundamental* en Azure y está disponible en todas las nuevas regiones de Azure de forma predeterminada. Esto permite asociar una región geográfica a una cuenta de base de datos de Azure Cosmos DB en cuanto Azure abra la nueva región para la empresa.

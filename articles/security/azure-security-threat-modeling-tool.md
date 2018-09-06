@@ -3,23 +3,23 @@ title: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs
 description: página principal de Microsoft Threat Modeling Tool, que contiene información acerca de cómo empezar a usar la herramienta, lo que incluye el proceso de modelado de amenazas
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 6e26b0af2a16a872c8e02b736e24019b47ed5780
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 02/16/2017
+ms.author: jegeib
+ms.openlocfilehash: 8b0700e76bbcc0913b376e607f706f540b1df2bb
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23043360"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307082"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft Threat Modeling Tool
 
@@ -33,7 +33,7 @@ La herramienta permite a cualquier persona:
 
 Estas son algunas funcionalidades e innovaciones de herramientas, solo por nombrar algunas:
 
-* **Automatización:** instrucciones y comentarios en el dibujo de un modelo.
+* **Automation:** instrucciones y comentarios en el dibujo de un modelo.
 * **STRIDE por elemento:** análisis guiado de amenazas y mitigaciones.
 * **Informes:** actividades de seguridad y de prueba en la fase de comprobación.
 * **Metodología única:** permite a los usuarios visualizar y comprender mejor las amenazas.
@@ -44,7 +44,7 @@ Estas son algunas funcionalidades e innovaciones de herramientas, solo por nombr
 
 La tabla siguiente contiene vínculos importantes para ayudarle a comenzar con Threat Modeling Tool:
 
-| Paso  | Descripción                                                                                   |
+| Paso  | DESCRIPCIÓN                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
 | **1** | [Descarga de Threat Modeling Tool](https://aka.ms/tmtpreview)                                |
 | **2** | [Lea nuestra guía de introducción](./azure-security-threat-modeling-tool-getting-started.md)    |

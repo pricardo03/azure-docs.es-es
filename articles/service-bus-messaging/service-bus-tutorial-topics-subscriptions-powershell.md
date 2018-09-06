@@ -2,19 +2,19 @@
 title: 'Tutorial: Actualización del surtido de inventario comercial mediante canales de publicación-suscripción y filtros de tema con Azure PowerShell | Microsoft Docs'
 description: En este tutorial, aprenderá a enviar y recibir mensajes desde un tema y una suscripción, y a agregar y usar reglas de filtro mediante Azure PowerShell
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
-ms.author: sethm
+ms.author: spelluru
 ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 6246e951cb9b1e0b4dac656fef6acf8027e79271
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 14f3fe81ab613f05154365b832d860808c3184bf
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126558"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702194"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutorial: Actualización del inventario mediante PowerShell y temas y suscripciones
 
