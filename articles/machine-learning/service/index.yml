@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 15863679b42962d414493804f234c9fde46172ea
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781165"
 documentType: LandingData
 title: Documentación de Azure Machine Learning (versión preliminar)
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/18/2018
   ms.author: garye
-  ms.openlocfilehash: 8e0856cd7470c65ba1484ab47d840e4b61ee91f9
-  ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-  ms.translationtype: HT
-  ms.contentlocale: es-ES
-  ms.lasthandoff: 06/19/2018
-  ms.locfileid: "36266573"
 abstract:
   description: Los servicios de Azure Machine Learning (versión preliminar) permiten crear, implementar y administrar modelos de aprendizaje automático y de inteligencia artificial mediante cualquiera de las herramientas y bibliotecas de Python. Puede usar una gran variedad de servicios de datos y procesos de Azure para almacenar y procesar los datos.
 sections:
@@ -68,7 +68,7 @@ sections:
     items:
     - title: Paquetes
       html: <p><a href="reference-python-package-overview#amlpcv">Computer Vision</a></p><p><a href="reference-python-package-overview#amlpf">Forecasting</a></p><p><a href="reference-python-package-overview#amlrealtimeai">FPGA Acceleration</a></p><p><a href="reference-python-package-overview#amlpta">Análisis de texto</a></p>
-    - title: Idiomas
+    - title: Lenguajes
       html: <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
     - title: REST
-      html: <p><a href="model-management-api-reference">API de REST de administración de modelos</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/machinelearning/">API de administración de REST</a></p>

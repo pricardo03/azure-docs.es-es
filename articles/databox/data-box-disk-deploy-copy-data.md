@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 09/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b0769ba70f495728df5c38b43bae4059b27de88b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f25d0b3522658d5fcd4b34110cb03b624dd9e7b1
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010827"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841512"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copia de datos a Azure Data Box Disk y comprobación de los mismos
 
@@ -29,7 +29,7 @@ Este tutorial describe cómo copiar datos desde el equipo host y, a continuació
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Copiar datos a Data Box Disk
+> * Copia de datos a Data Box Disk
 > * Comprobar la integridad de los datos
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -62,7 +62,7 @@ Realice los pasos siguientes para conectarse y copiar datos desde el equipo a Da
     |Entidad   |Convenciones  |
     |---------|---------|
     |Nombres de contenedor, de blob en bloques y de blob en páginas     |Deben comenzar con una letra o un número, y solo pueden contener letras en minúsculas, números y guiones. Cada carácter de guión (-) debe estar inmediatamente precedido y seguido por una letra o un número. En los nombres, no se permiten guiones consecutivos. <br>Debe ser un nombre DNS válido, cuya longitud tenga entre 3 y 63 caracteres.          |
-    |Nombres de blob para blob en bloques y blob en páginas    |Los nombres de blob distinguen mayúsculas de minúsculas y pueden contener cualquier combinación de caracteres. <br>El nombre de blob debe tener entre 1 y 1 024 caracteres.<br>Los caracteres de direcciones URL reservadas deben señalarse adecuadamente.<br>El número de segmentos de ruta de acceso que componen el nombre del blob no puede superar 254. Un segmento de ruta de acceso es la cadena entre caracteres delimitadores consecutivos (por ejemplo, la barra diagonal '/') que se corresponden con el nombre de un directorio virtual.         |
+    |Nombres de blob para blob en bloques y blob en páginas    |Los nombres de blob distinguen mayúsculas de minúsculas y pueden contener cualquier combinación de caracteres. <br>Un nombre de blob debe tener entre 1 y 1024 caracteres.<br>Los caracteres de URL reservadas deben convertirse correspondientemente.<br>El número de segmentos de ruta de acceso que componen el nombre del blob no puede superar los 254. Un segmento de ruta de acceso es la cadena entre caracteres delimitadores consecutivos (por ejemplo, la barra diagonal '/') que se corresponden con el nombre de un directorio virtual.         |
 
     > [!IMPORTANT] 
     > Todos los contenedores y blobs deben adecuarse a las [convenciones de nomenclatura de Azure](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Si no se siguen estas reglas, se producirá un error en la carga de datos en Azure.
@@ -76,8 +76,8 @@ Realice los pasos siguientes para conectarse y copiar datos desde el equipo a Da
     
     |Parámetros/opciones  |DESCRIPCIÓN |
     |--------------------|------------|
-    |<Source>            | Especifica la ruta de acceso del directorio de origen.        |
-    |<Destination>       | Especifica la ruta de acceso del directorio de destino.        |
+    |Origen            | Especifica la ruta de acceso del directorio de origen.        |
+    |Destino       | Especifica la ruta de acceso del directorio de destino.        |
     |/E                  | Copia los subdirectorios incluyendo los directorios vacíos. |
     |/MT[:N]             | Crea copias multiproceso con N subprocesos, donde N es un entero entre 1 y 128. <br>El valor predeterminado de N es 8.        |
     |/R: <N>             | Especifica el número de reintentos en las copias con errores. El valor predeterminado de N es 1 000 000 (un millón de reintentos).        |
