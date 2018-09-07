@@ -223,9 +223,8 @@ items:
     items:
     - name: Información general
       href: mongodb-introduction.md
-      items:
-      - name: Soporte técnico de MongoDB
-        href: mongodb-feature-support.md
+    - name: Soporte técnico de MongoDB
+      href: mongodb-feature-support.md
     - name: Tutoriales
       items:
       - name: 1 - Crear cuenta
@@ -274,9 +273,8 @@ items:
     items:
     - name: Información general
       href: graph-introduction.md
-      items:
-      - name: Compatibilidad con Gremlin
-        href: gremlin-support.md
+    - name: Compatibilidad con Gremlin
+      href: gremlin-support.md
     - name: Tutoriales
       items:
       - name: 1 - Consulta de datos
@@ -396,8 +394,6 @@ items:
       href: key-value-store-cost.md
     - name: Creación de particiones de datos de SQL
       href: sql-api-partition-data.md
-    - name: Creación de particiones de datos de gráfico
-      href: graph-partitioning.md
   - name: Integración con otros servicios de Azure
     items:
     - name: Solución de comercio electrónico de fuente de cambios
@@ -459,13 +455,11 @@ items:
   - name: Precios
     href: https://azure.microsoft.com/pricing/details/cosmos-db/
   - name: Casos de uso
-  - name: Coherencia de los datos explicada a través del béisbol
-    href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
   - name: Aplicaciones de redes sociales
     href: social-media-apps.md
-ms.openlocfilehash: afa2ccd0998ba78aa0f9e75bb87691ead8b96697
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 6f7d5290dd64b074a9933c8e10ccab2922355283
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783263"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054128"

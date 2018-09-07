@@ -34,12 +34,12 @@
 ### [Configuración de un alias de nombre del servidor](analysis-services-server-alias.md)
 ### [Configuración de la escalabilidad horizontal](analysis-services-scale-out.md)
 ### [Instalación y configuración de una puerta de enlace de datos local](analysis-services-gateway-install.md)
-### [Uso de la puerta de enlace para orígenes de datos en una red virtual de Azure](analysis-services-vnet-gateway.md)
+### [Uso de la puerta de enlace para orígenes de datos en Azure Virtual Network](analysis-services-vnet-gateway.md)
 ### [Administración de un servicio](analysis-services-manage.md)
 ### [Supervisión de las métricas del servidor](analysis-services-monitor.md)
 ### [Configuración del registro de diagnósticos](analysis-services-logging.md)
-### [Creación de entidad de servicio: Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [Creación de entidad de servicio: PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Creación de una entidad de servicio: Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Creación de una entidad de servicio: PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 ### [Incorporación de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md)
 
 ## Modelo
