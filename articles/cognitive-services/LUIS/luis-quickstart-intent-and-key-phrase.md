@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: d5b92681b9677db085b3c271c37490154d781d84
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: ef7a1c81f453a8d4ff9526a4844518782e152c4f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494317"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159493"
 ---
 # <a name="tutorial-8-add-keyphrase-entity"></a>Tutorial: 8. Adición de la entidad KeyPhrase 
 En este tutorial, va a usar una aplicación que muestra cómo extraer los temas principales de las expresiones.
@@ -27,7 +27,7 @@ En este tutorial, va a usar una aplicación que muestra cómo extraer los temas 
 > * Entrenamiento y publicación de la aplicación
 > * Consulta del punto de conexión de la aplicación para ver la respuesta JSON de LUIS que incluye elementos las frases principales
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 Si no tiene la aplicación de recursos humanos del tutorial de [entidades simples](luis-quickstart-primary-and-secondary-data.md), [importe](luis-how-to-start-new-app.md#import-new-app) el archivo JSON en una nueva aplicación en el sitio web de [LUIS](luis-reference-regions.md#luis-website). La aplicación que se va a importar se encuentra en el repositorio de GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json).
@@ -72,16 +72,16 @@ Agregue la entidad predefinida keyPhrase para extraer los temas principales de l
 
 ## <a name="train-the-luis-app"></a>Entrenamiento de la aplicación de LUIS
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>Publicación de la aplicación en un punto de conexión
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>Consulta del punto de conexión con una expresión
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Vaya al final de la dirección URL en la dirección y escriba `does form hrf-123456 cover the new dental benefits and medical plan`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. 
 
@@ -184,7 +184,7 @@ LUIS ha terminado con esta solicitud. La aplicación que realiza la llamada, com
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

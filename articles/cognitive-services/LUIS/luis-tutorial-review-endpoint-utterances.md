@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 5ce08861934305cccca9933a822fccf642746a59
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: db44bfad5ece59ed3373699c10d6134201bf1879
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527711"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160088"
 ---
 # <a name="tutorial-review-endpoint-utterances"></a>Tutorial: Revisión de las expresiones de punto de conexión
 En este tutorial, va a mejorar las predicciones de aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTP de LUIS. 
@@ -27,7 +27,7 @@ En este tutorial, va a mejorar las predicciones de aplicaciones mediante la comp
 > * Entrenamiento y publicación de la aplicación
 > * Consulta del punto de conexión de la aplicación para ver la respuesta JSON de LUIS
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 Si no tiene la aplicación de Recursos Humanos del tutorial de [opinión](luis-quickstart-intent-and-sentiment-analysis.md), importe la aplicación desde el repositorio Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json). Si utiliza este tutorial como una nueva aplicación importada, también tendrá que entrenar, publicar y, después, agregar las expresiones al punto de conexión con un [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) o desde el punto de conexión en un explorador. Las expresiones que se van a agregar son las siguientes:
@@ -104,19 +104,19 @@ Mantenga actualizada la lista de frases con los nombres de trabajo que se acaban
 
 LUIS no sabe nada acerca de los cambios hasta que se entrena. 
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicación de la aplicación para obtener la dirección URL del punto de conexión
 
 Si ha importado a esta aplicación, deberá seleccionar **Sentiment analysis** (Análisis de sentimiento).
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>Consulta del punto de conexión con una expresión
 
 Pruebe con una expresión próxima a la expresión corregida. 
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Vaya al final de la dirección URL en la dirección y escriba `Are there any natural language processing jobs in my department right now?`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. 
 
@@ -230,7 +230,7 @@ Esta precisión de predicción de la aplicación ha aumentado al revisar las exp
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

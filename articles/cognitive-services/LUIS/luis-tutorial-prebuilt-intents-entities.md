@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 5e4201f3d0684066bb6ba75850191e28405d8e8a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0e45b659508c71a9f1220ef5e76b9a95438fa1e6
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522278"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162247"
 ---
 # <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Tutorial: 2. Agregar entidades e intenciones creados previamente
 Agregue intenciones y entidades creadas previamente a la aplicación de tutorial de recursos humanos para obtener de manera inmediata predicciones de intenciones y extracciones de datos. 
@@ -27,7 +27,7 @@ En este tutorial, aprenderá a:
 * Entrenar y publicar
 * Consultar a LUIS y recibir una respuesta de predicción
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 Si no tiene la aplicación de [Recursos humanos](luis-quickstart-intents-only.md) del tutorial anterior, [importe](luis-how-to-start-new-app.md#import-new-app) el archivo JSON a una nueva aplicación en el sitio web de [LUIS](luis-reference-regions.md#luis-website), desde el repositorio Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json).
@@ -73,15 +73,15 @@ LUIS proporciona varias entidades creadas previamente para la extracción de dat
 
 ## <a name="train-and-publish-the-app"></a>Entrenamiento y publicación de la aplicación
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>Publicación de la aplicación en un punto de conexión
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-endpoint-with-an-utterance"></a>Consultar un punto de conexión con una expresión
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Vaya al final de la dirección URL en la dirección y escriba `I want to cancel on March 3`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. 
 
@@ -168,7 +168,7 @@ LUIS proporciona varias entidades creadas previamente para la extracción de dat
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
