@@ -18,8 +18,12 @@ items:
   items:
   - name: Creación de una cuenta de almacenamiento cifrada
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
-  - name: Creación de varios recursos
+  - name: Creación de varias instancias de cuentas de almacenamiento
+    href: resource-manager-tutorial-create-multiple-instances.md
+  - name: Establecimiento del orden de implementación de los recursos
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
+  - name: Creación de plantillas vinculadas
+    href: resource-manager-tutorial-create-linked-templates.md
 - name: Conceptos
   items:
   - name: Tipos y proveedores de recursos
@@ -109,6 +113,9 @@ items:
       href: resource-group-using-tags.md
     - name: Traslado de recursos a una suscripción o grupo nuevo
       href: resource-group-move-resources.md
+      items:
+      - name: Traslado del soporte técnico por tipo de recurso
+        href: move-support-resources.md
     - name: Creación de suscripciones de EA
       href: programmatically-create-subscription.md
     - name: Concesión de acceso para crear suscripciones de EA
@@ -219,9 +226,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 685aecbe4667b76f0ff6c44794294abf4e05cd24
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: a7f0c89d6e44696024fa0b724130cbaee4d10829
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841758"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159442"

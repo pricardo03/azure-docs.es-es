@@ -27,7 +27,7 @@ items:
     href: concept-authentication-methods.md
   - name: Registro convergido
     href: concept-registration-mfa-sspr-converged.md
-  - name: Restablecimiento de la contraseña de autoservicio
+  - name: Restablecimiento de contraseña
     items:
     - name: Funcionamiento del restablecimiento de contraseñas
       href: concept-sspr-howitworks.md
@@ -47,7 +47,7 @@ items:
       href: concept-mfa-whichversion.md
     - name: Concesión de licencias a sus usuarios
       href: concept-mfa-licensing.md
-    - name: Creación de un proveedor de autenticación
+    - name: Administración de un proveedor de autenticación
       href: concept-mfa-authprovider.md
     - name: Guía de seguridad
       href: multi-factor-authentication-security-best-practices.md
@@ -64,9 +64,9 @@ items:
   expanded: true
 - name: Guías de procedimientos
   items:
-  - name: Restablecimiento de contraseña
+  - name: Restablecimiento de la contraseña de autoservicio
     items:
-    - name: Implementación del restablecimiento de contraseña
+    - name: Implementación del autoservicio de restablecimiento de contraseña
       href: howto-sspr-deployment.md
     - name: Registro previo de los datos de autenticación
       href: howto-sspr-authenticationdata.md
@@ -211,9 +211,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 39be14a49ecdf30d75cc49a37aa9fc7bc55304cc
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 83ad45c90c964df880c2b7fb79fcd3fdff214fbe
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338952"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091550"
