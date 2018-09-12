@@ -1,76 +1,86 @@
 ---
-title: Tutorial para aprender a llamar a una aplicación de Language Understanding Intelligent Service (LUIS) mediante Ruby | Microsoft Docs
-description: En este tutorial, aprenderá a llamar a una aplicación de LUIS mediante Ruby.
+title: Análisis de texto en lenguaje natural en Language Understanding (LUIS) mediante Ruby en Cognitive Services (Azure Cognitive Services) | Microsoft Docs
+description: En esta guía de inicio rápido, usará una aplicación de LUIS disponible públicamente para determinar la intención de un usuario a partir de texto conversacional. Con Ruby, envíe la intención del usuario como texto al punto de conexión de predicción HTTP de la aplicación pública. En el punto de conexión, LUIS aplica el modelo de la aplicación pública para analizar el texto en lenguaje natural y lo que significa, y así determinar la intención general y extraer los datos que son pertinentes para el dominio del sujeto de la aplicación.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 683f17df29388e9d645dc813785f1c545c1506dc
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/23/2018
+ms.author: diberry
+ms.openlocfilehash: 7344d0e4d649134b7d928daec99fa79d0644a7e4
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265116"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "43771705"
 ---
-# <a name="tutorial-call-a-luis-endpoint-using-ruby"></a>Tutorial: Llamada a un punto de conexión de LUIS mediante Ruby
-Pase las expresiones a un punto de conexión de LUIS y obtenga las entidades e intenciones.
+# <a name="quickstart-analyze-text-using-ruby"></a>Guía de inicio rápido: análisis de texto con Ruby
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Creación de una suscripción de LUIS y copia del valor de la clave para su uso posterior
-> * Visualización de los resultados de punto de conexión de LUIS desde el explorador a la aplicación de ejemplo pública de IoT
-> * Creación de una aplicación de consola de Visual Studio C# para realizar una llamada HTTPS a un punto de conexión de LUIS
+[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-Para este artículo, necesita una cuenta de [LUIS][LUIS] gratuita para crear la aplicación de LUIS.
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="create-luis-subscription-key"></a>Creación de una clave de suscripción de LUIS
-Para realizar llamadas a la aplicación de LUIS de ejemplo que se utiliza en este tutorial se necesita la clave de la API de Cognitive Services. 
-
-Para obtener una clave de API, siga estos pasos: 
-
-1. En primer lugar, hay que crear una [cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) en Azure Portal. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-2. Inicie sesión en Azure Portal en https://portal.azure.com. 
-
-3. Para obtener una clave, siga los pasos de [Creación de claves de suscripción mediante Azure](./luis-how-to-azure-subscription.md).
-
-4. Vuelva al sitio web de [LUIS](luis-reference-regions.md) e inicie sesión con su cuenta de Azure. 
-
-    [![](media/luis-get-started-node-get-intent/app-list.png "Captura de pantalla de una lista de aplicaciones")](media/luis-get-started-node-get-intent/app-list.png)
-
-## <a name="understand-what-luis-returns"></a>Descripción de lo que LUIS devuelve
-
-Para comprender lo que devuelve una aplicación de LUIS, puede pegar la dirección URL de una aplicación de LUIS de ejemplo en una ventana del explorador. La aplicación de ejemplo es una aplicación de IoT que detecta si el usuario desea encender o apagar las luces.
-
-1. El punto de conexión de la aplicación de ejemplo está en este formato: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20bedroom%20light` Copie la dirección URL y sustituya la clave de suscripción por el valor del campo `subscription-key`.
-2. Pegue la dirección URL en una ventana del explorador y presione ENTRAR. El explorador muestra el resultado JSON que indica que LUIS ha detectado la intención `HomeAutomation.TurnOn` y la entidad `HomeAutomation.Room` con el valor `bedroom`.
-
-    ![El resultado JSON detecta la intención TurnOn](./media/luis-get-started-node-get-intent/turn-on-bedroom.png)
-3. Cambie el valor del parámetro `q=` en la dirección URL por `turn off the living room light` y presione ENTRAR. Ahora, el resultado indica que LUIS ha detectado la intención `HomeAutomation.TurnOff` y la entidad `HomeAutomation.Room` con el valor `living room`. 
-
-    ![El resultado JSON detecta la intención TurnOff](./media/luis-get-started-node-get-intent/turn-off-living-room.png)
+* Lenguaje de programación [Ruby](https://www.ruby-lang.org/)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* Identificador de la aplicación pública: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 
-## <a name="consume-a-luis-result-using-the-endpoint-api-with-ruby"></a>Uso de un resultado de LUIS mediante la API de punto de conexión con Ruby 
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
+
+<a name="create-luis-subscription-key"></a>
+
+## <a name="get-luis-key"></a>Obtención de la clave de LUIS
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+
+## <a name="analyze-text-with-browser"></a>Análisis de texto con el explorador
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+
+## <a name="analyze-text-with-ruby"></a>Análisis de texto con Ruby 
 
 Puede usar Ruby para acceder a los mismos resultados que vio en la ventana del explorador del paso anterior. 
-1. Copie el código que sigue y guárdelo en un archivo HTML:
 
-   [!code-ruby[Ruby code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/ruby/endpoint-call.rb)]
-2. Reemplace `"YOUR-SUBSCRIPTION-KEY"` por su clave de suscripción en esta línea de código: `subscriptionKey = "YOUR-SUBSCRIPTION-KEY"`
+1. Copie el código siguiente y guárdelo en un archivo llamado `endpoint-call.rb`:
 
-3. Ejecute la aplicación de Ruby. Muestra el mismo código JSON que vio anteriormente en la ventana del explorador.
+   [!code-ruby[Ruby code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/ruby/endpoint-call.rb)]
+
+2. Reemplace `"YOUR-KEY"` con su clave de punto de conexión.
+
+3. Ejecute la aplicación de Ruby en la línea de comandos con `ruby endpoint-call.rb`. Muestra el mismo código JSON que vio anteriormente en la ventana del explorador.
+
+    ```
+    LUIS query: turn on the left light
+    
+    Request URI: https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn+on+the+left+light&timezoneOffset=0&verbose=false&spellCheck=false&staging=false
+    
+    JSON Response:
+    
+    {
+      "query": "turn on the left light",
+      "topScoringIntent": {
+        "intent": "HomeAutomation.TurnOn",
+        "score": 0.933549
+      },
+      "entities": [
+        {
+          "entity": "left",
+          "type": "HomeAutomation.Room",
+          "startIndex": 12,
+          "endIndex": 15,
+          "score": 0.540835142
+        }
+      ]
+    }
+```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Los dos recursos creados en este tutorial son la clave de suscripción de LUIS y el proyecto de C#. Elimine la clave de suscripción de LUIS en Azure Portal. Cierre el proyecto de Visual Studio y quite el directorio del sistema de archivos. 
+
+Elimine el archivo de Ruby.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Adición de grabaciones de voz](luis-get-started-ruby-add-utterance.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

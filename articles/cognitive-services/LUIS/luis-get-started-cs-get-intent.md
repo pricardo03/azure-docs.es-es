@@ -1,77 +1,75 @@
 ---
-title: Tutorial para aprender a llamar a una aplicación de Language Understanding Intelligent Service (LUIS) mediante C# | Microsoft Docs
-description: En este tutorial, aprenderá a llamar a una aplicación de LUIS mediante C#.
+title: 'Análisis de texto en lenguaje natural en Language Understanding (LUIS) mediante C#: Azure Cognitive Services | Microsoft Docs'
+description: En esta guía de inicio rápido, usará una aplicación de LUIS disponible públicamente para determinar la intención de un usuario a partir de texto conversacional. Con C#, envíe la intención del usuario como texto al punto de conexión de predicción HTTP de la aplicación pública. En el punto de conexión, LUIS aplica el modelo de la aplicación pública para analizar el texto en lenguaje natural y lo que significa, y así determinar la intención general y extraer los datos que son pertinentes para el dominio del sujeto de la aplicación.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 0416d19d27810a2ab8eeb20e16b2f921fc7826ee
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/23/2018
+ms.author: diberry
+ms.openlocfilehash: 676546a215bbb8964f1cb2d26ae0fb9fd2ed9289
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263496"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "43771657"
 ---
-# <a name="tutorial-call-a-luis-endpoint-using-c"></a>Tutorial: Llamada a un punto de conexión de LUIS mediante C#
+# <a name="quickstart-analyze-text-using-c"></a>Guía de inicio rápido: análisis de texto con C#
 
-Pase las expresiones a un punto de conexión de LUIS y obtenga las entidades e intenciones.
+[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Creación de una suscripción de LUIS y copia del valor de la clave para su uso posterior
-> * Visualización de los resultados de punto de conexión de LUIS desde el explorador a la aplicación de ejemplo pública de IoT
-> * Creación de una aplicación de consola de Visual Studio C# para realizar una llamada HTTPS a un punto de conexión de LUIS
+<a name="create-luis-subscription-key"></a>
 
-<!-- link to free account --> Para este artículo, necesita una cuenta de [LUIS][LUIS] gratuita para crear la aplicación de LUIS.
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="create-luis-subscription-key"></a>Creación de una clave de suscripción de LUIS
-1. En primer lugar, hay que crear una [cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) en Azure Portal. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-2. Inicie sesión en Azure Portal en https://portal.azure.com. 
-
-3. Para obtener una clave, siga los pasos de [Creación de claves de suscripción mediante Azure](./luis-how-to-azure-subscription.md).
-
-4. Vuelva al sitio web de [LUIS](luis-reference-regions.md). Inicie sesión con la cuenta de Azure. 
-
-    [![](media/luis-get-started-cs-get-intent/app-list.png "Captura de pantalla de una lista de aplicaciones")](media/luis-get-started-cs-get-intent/app-list.png)
-
-## <a name="understand-what-luis-returns"></a>Descripción de lo que LUIS devuelve
-
-Para comprender lo que devuelve una aplicación de LUIS, puede pegar la dirección URL de una aplicación de LUIS de ejemplo en una ventana del explorador. La aplicación de ejemplo es una aplicación de IoT que detecta si el usuario desea encender o apagar las luces.
-
-1. El punto de conexión de la aplicación de ejemplo está en este formato: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20bedroom%20light` Copie la dirección URL y sustituya la clave de suscripción por el valor del campo `subscription-key`.
-2. Pegue la dirección URL en una ventana del explorador y presione ENTRAR. El explorador muestra el resultado JSON que indica que LUIS ha detectado la intención `HomeAutomation.TurnOn` y la entidad `HomeAutomation.Room` con el valor `bedroom`.
-
-    ![El resultado JSON detecta la intención TurnOn](./media/luis-get-started-cs-get-intent/turn-on-bedroom.png)
-3. Cambie el valor del parámetro `q=` en la dirección URL por `turn off the living room light` y presione ENTRAR. Ahora, el resultado indica que LUIS ha detectado la intención `HomeAutomation.TurnOff` y la entidad `HomeAutomation.Room` con el valor `living room`. 
-
-    ![El resultado JSON detecta la intención TurnOff](./media/luis-get-started-cs-get-intent/turn-off-living-room.png)
+* [Visual Studio Community Edition 2017](https://visualstudio.microsoft.com/vs/community/)
+* Lenguaje de programación de C# (incluido con Visual Studio Community 2017)
+* Identificador de la aplicación pública: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 
-## <a name="consume-a-luis-result-using-the-endpoint-api-with-c"></a>Uso de un resultado de LUIS mediante la API de punto de conexión con C# 
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
-Puede usar C# para acceder a los mismos resultados que vio en la ventana del explorador del paso anterior. 
+## <a name="get-luis-key"></a>Obtención de la clave de LUIS
 
-1. Cree una aplicación de consola en Visual Studio. Copie el código siguiente y guárdelo en un archivo *.cs:
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+
+## <a name="analyze-text-with-browser"></a>Análisis de texto con el explorador
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+
+## <a name="analyze-text-with-c"></a>Análisis de texto con C# 
+
+Utilice C# para consultar el punto de conexión de predicción GET [API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) para obtener los mismos resultados que vio en la ventana del explorador en la sección anterior. 
+
+1. Cree una aplicación de consola en Visual Studio. 
+
+    ![Acceso al menú de configuración de usuario de LUIS](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
+
+2. En el proyecto de Visual Studio, en el Explorador de soluciones, seleccione **Agregar referencia**, a continuación, seleccione **System.Web** en la pestaña Ensamblados.
+
+    ![Acceso al menú de configuración de usuario de LUIS](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
+
+3. Sobrescriba Program.cs con el código siguiente:
     
-   [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/csharp/Program.cs)]
-1. Sustituya el valor de la variable `subscriptionKey` por su clave de suscripción de LUIS.
+   [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/csharp/Program.cs)]
 
-3. En el proyecto de Visual Studio, agregue una referencia a **System.Web**.
+4. Reemplace el valor de `YOUR_KEY` con su clave de LUIS.
 
-4. Ejecución de la aplicación de consola. Muestra el mismo código JSON que vio anteriormente en la ventana del explorador.
+5. Compilación y ejecución de la aplicación de consola. Muestra el mismo código JSON que vio anteriormente en la ventana del explorador.
 
-![Ventana de la consola que muestra el resultado JSON de LUIS](./media/luis-get-started-cs-get-intent/console-turn-on.png)
+    ![Ventana de la consola que muestra el resultado JSON de LUIS](./media/luis-get-started-cs-get-intent/console-turn-on.png)
+
+## <a name="luis-keys"></a>Claves de LUIS
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Los dos recursos creados en este tutorial son la clave de suscripción de LUIS y el proyecto de C#. Elimine la clave de suscripción de LUIS en Azure Portal. Cierre el proyecto de Visual Studio y quite el directorio del sistema de archivos. 
+
+Cuando haya terminado con esta guía de inicio rápido, cierre el proyecto de Visual Studio y quite el directorio del proyecto desde el sistema de archivos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-> [!div class="nextstepaction"]
-> [Adición de grabaciones de voz](luis-get-started-cs-add-utterance.md)
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+> [!div class="nextstepaction"]
+> [Incorporación de expresiones y entrenamiento con C#](luis-get-started-cs-add-utterance.md)

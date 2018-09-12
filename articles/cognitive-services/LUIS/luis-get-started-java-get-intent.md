@@ -1,78 +1,67 @@
 ---
-title: Tutorial para aprender a llamar a una aplicación de Language Understanding Intelligent Service (LUIS) mediante Java | Microsoft Docs
-description: En este tutorial, aprenderá a llamar a una aplicación de LUIS con Java.
-services: cognitive-services
-author: v-geberr
-manager: kaiqb
+title: Análisis de texto en lenguaje natural en Language Understanding (LUIS) mediante Java en Cognitive Services (Azure Cognitive Services) | Microsoft Docs
+description: En esta guía de inicio rápido, usará una aplicación de LUIS disponible públicamente para determinar la intención de un usuario a partir de texto conversacional. Con Java, envíe la intención del usuario como texto al punto de conexión de predicción HTTP de la aplicación pública. En el punto de conexión, LUIS aplica el modelo de la aplicación pública para analizar el texto en lenguaje natural y lo que significa, y así determinar la intención general y extraer los datos que son pertinentes para el dominio del sujeto de la aplicación.
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 7d27b464c86e979132dd44c0edcf981a475040b3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 06/27/2018
+ms.author: diberry
+ms.openlocfilehash: 559c0e5832249b095b923fe88467f8f4c5ffa5e1
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263727"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "43771766"
 ---
-# <a name="tutorial-call-a-luis-endpoint-using-java"></a>Tutorial: Llamada a un punto de conexión de LUIS mediante Java
-Pase las expresiones a un punto de conexión de LUIS y obtenga las entidades e intenciones.
+# <a name="quickstart-analyze-text-using-java"></a>Guía de inicio rápido: Análisis de texto con Java
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Creación de una suscripción de LUIS y copia del valor de la clave para su uso posterior
-> * Visualización de los resultados de punto de conexión de LUIS desde el explorador a la aplicación de ejemplo pública de IoT
-> * Creación de una aplicación de consola de Visual Studio C# para realizar una llamada HTTPS a un punto de conexión de LUIS
+[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-Para este artículo necesita una cuenta de [LUIS][LUIS] gratuita para crear la aplicación de LUIS.
+<a name="create-luis-subscription-key"></a>
 
-## <a name="create-luis-subscription-key"></a>Creación de una clave de suscripción de LUIS
-Para realizar llamadas a la aplicación de LUIS de ejemplo que se utiliza en este tutorial se necesita la clave de la API de Cognitive Services. 
+## <a name="prerequisites"></a>Requisitos previos
 
-Para obtener una clave de API, siga estos pasos: 
-1. En primer lugar, hay que crear una [cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) en Azure Portal. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-2. Inicie sesión en Azure Portal en https://portal.azure.com. 
-
-3. Para obtener una clave, siga los pasos de [Creación de claves de suscripción mediante Azure](./luis-how-to-azure-subscription.md).
-
-4. Vuelva al sitio web de [LUIS](luis-reference-regions.md) e inicie sesión con su cuenta de Azure. 
-
-    [![](media/luis-get-started-java-get-intent/app-list.png "Captura de pantalla de una lista de aplicaciones")](media/luis-get-started-java-get-intent/app-list.png)
-
-## <a name="understand-what-luis-returns"></a>Descripción de lo que LUIS devuelve
-
-Para comprender lo que devuelve una aplicación de LUIS, puede pegar la dirección URL de una aplicación de LUIS de ejemplo en una ventana del explorador. La aplicación de ejemplo es una aplicación de IoT que detecta si el usuario desea encender o apagar las luces.
-
-1. El punto de conexión de la aplicación de ejemplo está en este formato: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20bedroom%20light` Copie la dirección URL y sustituya la clave de suscripción por el valor del campo `subscription-key`.
-2. Pegue la dirección URL en una ventana del explorador y presione ENTRAR. El explorador muestra el resultado JSON que indica que LUIS ha detectado la intención `HomeAutomation.TurnOn` y la entidad `HomeAutomation.Room` con el valor `bedroom`.
-
-    ![El resultado JSON detecta la intención TurnOn](./media/luis-get-started-java-get-intent/turn-on-bedroom.png)
-3. Cambie el valor del parámetro `q=` en la dirección URL por `turn off the living room light` y presione ENTRAR. Ahora, el resultado indica que LUIS ha detectado la intención `HomeAutomation.TurnOff` y la entidad `HomeAutomation.Room` con el valor `living room`. 
-
-    ![El resultado JSON detecta la intención TurnOff](./media/luis-get-started-java-get-intent/turn-off-living-room.png)
+* [JDK SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (Kit de desarrollo de Java, Standard Edition)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* Identificador de la aplicación pública: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 
-## <a name="consume-a-luis-result-using-the-endpoint-api-with-java"></a>Uso de un resultado de LUIS mediante la API de punto de conexión con Java 
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
+
+## <a name="get-luis-key"></a>Obtención de la clave de LUIS
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+
+## <a name="analyze-text-with-browser"></a>Análisis de texto con el explorador
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+
+## <a name="analyze-text-with-java"></a>Análisis de texto con Java 
 
 Puede usar Java para acceder a los mismos resultados que vio en la ventana del explorador del paso anterior. 
-1. Copie el código siguiente para crear una clase en el IDE:
 
-   [!code-java[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/java/call-endpoint.java)]
-2. Sustituya el valor de la variable `SubscriptionKey` por su clave de suscripción de LUIS.
+1. Copie el código siguiente para crear una clase en un archivo llamado `LuisGetRequest.java`:
 
-3. En el IDE, agregue referencias a las bibliotecas `httpclient` y `httpcore`.
+   [!code-java[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/java/call-endpoint.java)]
 
-4. Ejecución de la aplicación de consola. Muestra el mismo código JSON que vio anteriormente en la ventana del explorador.
+2. Sustituya el valor de la variable `YOUR-KEY` por su clave de LUIS.
 
-![Ventana de la consola que muestra el resultado JSON de LUIS](./media/luis-get-started-java-get-intent/console-turn-on.png)
+3. Compile el programa de Java con `javac -cp ":lib/*" LuisGetRequest.java`. 
+
+4. Presione `java -cp ":lib/*" LuisGetRequest.java`para ejecutar la aplicación. Muestra el mismo código JSON que vio anteriormente en la ventana del explorador.
+
+    ![Ventana de la consola que muestra el resultado JSON de LUIS](./media/luis-get-started-java-get-intent/console-turn-on.png)
+    
+## <a name="luis-keys"></a>Claves de LUIS
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Los dos recursos creados en este tutorial son la clave de suscripción de LUIS y el proyecto de C#. Elimine la clave de suscripción de LUIS en Azure Portal. Cierre el proyecto de Visual Studio y quite el directorio del sistema de archivos.
+
+Elimine el archivo de Java. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
 > [Adición de grabaciones de voz](luis-get-started-java-add-utterance.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
