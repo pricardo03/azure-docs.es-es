@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: e87b791dda03521def32ca7473336d7d37644773
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c1effeba7e4b0750d5af3a5a82b755704379af68
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666026"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021853"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Creación de un trabajo de importación para el servicio Azure Import/Export
 
@@ -97,7 +97,7 @@ Debe enviar las unidades de disco a la dirección que ha obtenido en el paso ant
 >  Debe enviar las unidades de disco a través de un servicio de transporte admitido, que proporcionará un número de seguimiento del paquete.
 
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>Actualización del trabajo de importación con la información de envío
-Cuando tenga el número de seguimiento, llame a la operación [Update Job Properties](/api/storageimportexport/jobs#Jobs_Update) para actualizar el nombre del transportista, el número de seguimiento del trabajo y el número de cuenta del transportista para el envío de devolución. También puede especificar el número de unidades y la fecha de envío.
+Cuando tenga el número de seguimiento, llame a la operación [Update Job Properties](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Update) para actualizar el nombre del transportista, el número de seguimiento del trabajo y el número de cuenta del transportista para el envío de devolución. También puede especificar el número de unidades y la fecha de envío.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: kumud
-ms.openlocfilehash: f9cd6405f5c3c87cdf004f8a71b9e72d58532a12
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 4080e4e3e274d64046f46d24b34959542e0ad304
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37108935"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049599"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Equilibrio de carga en configuraciones de varias IP mediante la CLI de Azure
 
@@ -32,7 +32,7 @@ En este artículo, se explica cómo se utiliza Azure Load Balancer con varias di
 
 Para reproducir el escenario que se describe en este artículo, siga los pasos que se describen a continuación:
 
-1. [Instale y configure la CLI de Azure ]((https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)) siguiendo los pasos que se describen en el artículo vinculado e inicie sesión en la cuenta de Azure.
+1. [Instale y configure la CLI de Azure ](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) siguiendo los pasos que se describen en el artículo vinculado e inicie sesión en la cuenta de Azure.
 2. [Cree un grupo de recursos](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-group) llamado *contosofabrikam*, tal y como se describe a continuación:
 
     ```azurecli

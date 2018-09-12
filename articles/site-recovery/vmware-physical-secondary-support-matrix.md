@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 2ea1c337b4193997039876a05e71fb0088d455b1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4df929e8a185a04aef5cb13f30c19b0db707e765
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923413"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022000"
 ---
 # <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de compatibilidad de replicación de máquinas virtuales de VMware y servidores físicos en un sitio secundario
 
@@ -57,15 +57,15 @@ Solo se pueden replicar máquinas Linux con el almacenamiento siguiente:
 
 **Configuración** | **Compatible**  
 --- | --- 
-Host: formación de equipos NIC | Sí 
-Host: VLAN | Sí 
-Host: IPv4 | Sí 
+Host: formación de equipos NIC | SÍ 
+Host: VLAN | SÍ 
+Host: IPv4 | SÍ 
 Host: IPv6 | Sin  
 VM invitada: formación de equipos NIC | Sin 
-VM invitada: IPv4 | Sí
+VM invitada: IPv4 | SÍ
 VM invitada: IPv6 | Sin 
-VM invitada: Windows/Linux - dirección IP estática | Sí
-VM invitada: múltiples NIC | Sí
+VM invitada: Windows/Linux - dirección IP estática | SÍ
+VM invitada: múltiples NIC | SÍ
 
 
 ## <a name="storage"></a>Storage
@@ -74,29 +74,29 @@ VM invitada: múltiples NIC | Sí
 
 **Storage (host)** | **Compatible** 
 --- | --- 
-NFS | Sí 
+NFS | SÍ 
 SMB 3.0 | N/D 
-SAN (ISCSI) | Sí 
-Varias rutas (MPIO) | Sí 
+SAN (ISCSI) | SÍ 
+Varias rutas (MPIO) | SÍ 
 
 ### <a name="guest-or-physical-server-storage"></a>Almacenamiento de servidor físico o invitado
 
 **Configuración** | **Compatible** 
 --- | --- 
-VMDK | Sí 
+VMDK | SÍ 
 VHD/VHDX | N/D 
 VM de 2 generación | N/D 
-Disco en clúster compartido | Sí 
+Disco en clúster compartido | SÍ 
 Disco cifrado | Sin  
-UEFI| Sí 
+UEFI| SÍ 
 NFS | Sin  
 SMB 3.0 | Sin  
-RDM | Sí 
-Disco > 1 TB | Sí 
-Volumen con disco en bandas > 1 TB<br/><br/> LVM | Sí 
+RDM | SÍ 
+Disco > 1 TB | SÍ 
+Volumen con disco en bandas > 1 TB<br/><br/> LVM | SÍ 
 Espacios de almacenamiento | Sin  
-Agregar/quitar disco en caliente | Sí 
-Excluir el disco | Sí 
+Agregar/quitar disco en caliente | SÍ 
+Excluir el disco | SÍ 
 Varias rutas (MPIO) | N/D 
 
 ## <a name="vaults"></a>Almacenes
@@ -112,7 +112,7 @@ Mobility Service coordina la replicación entre los servidores físicos o los se
 
 **Actualizar** | **Detalles** 
 --- | --- 
-Actualizaciones de Scout | [Conozca y descargue](/vmware-physical-secondary-disaster-recovery.md#updates) las últimas actualizaciones de Scout | Las actualizaciones de Scout son acumulativas.
+Actualizaciones de Scout | [Conozca y descargue](vmware-physical-secondary-disaster-recovery.md#updates) las últimas actualizaciones de Scout | Las actualizaciones de Scout son acumulativas.
 Actualizaciones de componentes | Las actualizaciones de Scout contienen actualizaciones para todos los componentes, como el servidor de RX, el servidor de configuración, el servidor de destino de proceso, el servidor de destino maestro, los servidores de vContinuum y los servidores de origen que desee proteger.<br/><br/> [Más información](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
 
 

@@ -78,7 +78,7 @@ La canalización de enriquecimiento extrae los orígenes de datos de Azure. Los 
 
 1. Regístrese en Azure Blob Storage, cree una cuenta de almacenamiento, inicie sesión en el Explorador de Storage y cree un contenedor llamado `basicdemo`. Consulte en la [guía de inicio rápido del Explorador de Azure Storage](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) las instrucciones de todos los pasos.
 
-1. Use el Explorador de Azure Storage y, en el contenedor que creó, haga clic en `basicdemo`Cargar** para cargar los archivos de ejemplo.
+1. Use el Explorador de Azure Storage y, en el contenedor que creó, haga clic en `basicdemo` **Cargar** para cargar los archivos de ejemplo.
 
 1. Una vez cargados los archivos de ejemplo, obtenga el nombre del contenedor y una cadena de conexión de Blob Storage. Para hacerlo puede navegar a la cuenta de almacenamiento en Azure Portal. Vaya a **Claves de acceso** y copie el valor del campo **Cadena de conexión**.
 

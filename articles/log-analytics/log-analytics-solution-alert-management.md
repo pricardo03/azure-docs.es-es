@@ -15,20 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: eb61a48e8c479db4742d65187b202655f29b032d
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: acf9e512e188c34c0124832a6a534135790f1e2d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131054"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049208"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solución Alert Management en Azure Log Analytics
 
 ![Icono Administración de alertas](media/log-analytics-solution-alert-management/icon.png)
 
-La solución Administración de alertas le ayuda a analizar todas las alertas del repositorio de Log Analytics.  Estas alertas pueden proceder de diversos orígenes, incluidos los [creados por Log Analytics ](log-analytics-alerts.md) o los [importados de Nagios o Zabbix](log-analytics-linux-agents.md).  La solución también importa alertas desde cualquier [grupo de administración conectado de System Center Operations Manager](log-analytics-om-agents.md).
+La solución Administración de alertas le ayuda a analizar todas las alertas del repositorio de Log Analytics.  Estas alertas pueden proceder de diversos orígenes, incluidos los [creados por Log Analytics ](log-analytics-alerts.md) o los [importados de Nagios o Zabbix](log-analytics-linux-agents.md). La solución también importa alertas desde cualquier [grupo de administración conectado de System Center Operations Manager](log-analytics-om-agents.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 La solución funciona con todos los registros del repositorio de Log Analytics con un tipo de **Alerta**, por lo que debe realizar las configuraciones que sean necesarias para recopilar estos registros.
 
 - Para las alertas de Log Analytics, [cree reglas de alerta](log-analytics-alerts.md) para crear registros de alerta directamente en el repositorio.
@@ -36,10 +36,10 @@ La solución funciona con todos los registros del repositorio de Log Analytics c
 - Para las alertas de System Center Operations Manager,[conecte el grupo de administración de Operations Manager al área de trabajo de Log Analytics](log-analytics-om-agents.md).  Las alertas creadas en System Center Operations Manager se importan en Log Analytics.  
 
 ## <a name="configuration"></a>Configuración
-Agregue la solución Alert Management al área de trabajo de Log Analytics mediante el proceso descrito en [Incorporación de soluciones](log-analytics-add-solutions.md).  No es necesario realizar ninguna configuración más.
+Agregue la solución Alert Management al área de trabajo de Log Analytics mediante el proceso descrito en [Adición de soluciones](log-analytics-add-solutions.md). No es necesario realizar ninguna configuración más.
 
 ## <a name="management-packs"></a>Módulos de administración
-Si el grupo de administración de System Center Operations Manager está conectado al área de trabajo de Log Analytics, se instalarán los siguientes módulos de administración en System Center Operations Manager al agregar esta solución.  No es necesario realizar tareas de configuración o mantenimiento de estos módulos de administración.  
+Si el grupo de administración de System Center Operations Manager está conectado al área de trabajo de Log Analytics, se instalarán los siguientes módulos de administración en System Center Operations Manager al agregar esta solución.  No es necesario realizar tareas de configuración o mantenimiento de estos módulos de administración.
 
 * Administración de alertas de Microsoft System Center Advisor (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -53,7 +53,7 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 |:--- |:--- |:--- |
 | [Agentes de Windows](log-analytics-windows-agent.md) | Sin  |Los agentes directos de Windows no generan alertas.  Se pueden crear alertas de Log Analytics de eventos y datos de rendimiento recopilados desde agentes de Windows. |
 | [Agentes de Linux](log-analytics-linux-agents.md) | Sin  |Los agentes directos de Linux no generan alertas.  Se pueden crear alertas de Log Analytics de eventos y datos de rendimiento recopilados desde agentes de Linux.  Las alertas de Nagios y Zabbix se recopilan desde los servidores que requieren el agente de Linux. |
-| [Grupo de administración de System Center Operations](log-analytics-om-agents.md) |Sí |Las alertas que se generan en agentes de Operations Manager se entregan al grupo de administración y luego se reenvían a Log Analytics.<br><br>No se requiere ninguna conexión directa entre los agentes de Operations Manager y Log Analytics. Los datos de alerta se reenvían desde el grupo de administración al repositorio de Log Analytics. |
+| [Grupo de administración de System Center Operations](log-analytics-om-agents.md) |SÍ |Las alertas que se generan en agentes de Operations Manager se entregan al grupo de administración y luego se reenvían a Log Analytics.<br><br>No se requiere ninguna conexión directa entre los agentes de Operations Manager y Log Analytics. Los datos de alerta se reenvían desde el grupo de administración al repositorio de Log Analytics. |
 
 
 ### <a name="collection-frequency"></a>Frecuencia de recopilación
