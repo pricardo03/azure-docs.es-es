@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 1587debecd82072c29d4caffc2b81629b1f52b0e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 43f169ae11191c2e98c4538189bce781821de980
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527371"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157861"
 ---
 # <a name="tutorial-improve-app-with-patternany-entity"></a>Tutorial: Mejorar la aplicación con la entidad pattern.any
 
@@ -26,7 +26,7 @@ En este tutorial, use la entidad pattern.any para aumentar las predicciones de i
 * Crear el patrón que usa la entidad pattern.any
 * Comprobar las mejoras de las predicciones
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 Si no tiene la aplicación de recursos humanos del tutorial sobre [roles de patrón](luis-tutorial-pattern-roles.md), [importe](luis-how-to-start-new-app.md#import-new-app) el archivo JSON a una nueva aplicación en el sitio web de [LUIS](luis-reference-regions.md#luis-website). La aplicación que se va a importar se encuentra en el repositorio de GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json).
@@ -108,7 +108,7 @@ La entidad Pattern.any extrae entidades de diferente longitud. Solo funciona en 
 
 ## <a name="train-the-luis-app"></a>Entrenamiento de la aplicación de LUIS
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Probar el nuevo patrón para extraer datos de forma libre
 1. Haga clic en **Probar** en la barra superior para abrir el panel de pruebas. 
@@ -125,7 +125,7 @@ La entidad Pattern.any extrae entidades de diferente longitud. Solo funciona en 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/02/2017
 ms.author: spelluru
-ms.openlocfilehash: 23e0e487914b6e8810d8db00462c353c99955665
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: fa8c4b07f79564a1e9aa4e78b2323789283d4e73
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697475"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054628"
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Aplicación híbrida en la nube o local de .NET con la retransmisión de WCF de Azure
 
@@ -232,7 +232,7 @@ En esta sección se creará una aplicación ASP.NET simple que mostrará los dat
     ![][18]
 
 7. De vuelta en el cuadro de diálogo **Nueva aplicación web ASP.NET**, haga clic en **Aceptar** para crear la aplicación de MVC.
-8. Ahora debe configurar recursos de Azure para una aplicación web nueva. Siga los pasos de la [sección Publicación en Azure de este artículo](../app-service/app-service-web-get-started-dotnet-framework.md#publish-to-azure). A continuación, vuelva a este tutorial y continúe con el paso siguiente.
+8. Ahora debe configurar recursos de Azure para una aplicación web nueva. Siga los pasos de la [sección Publicación en Azure de este artículo](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard). A continuación, vuelva a este tutorial y continúe con el paso siguiente.
 10. En el Explorador de soluciones, haga clic con el botón derecho en **Modelos** y, luego, en **Agregar** y, por último, en **Clase**. En el cuadro **Name**, escriba el nombre **Product.cs**. A continuación, haga clic en **Agregar**.
 
     ![][17]

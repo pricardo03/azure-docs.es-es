@@ -4,24 +4,20 @@ description: Use Azure Functions para crear una función sin servidor que se inv
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 05ad567e407a6506222acdb66ab38c4cfab76e4b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 671c19aec1fd1a742f3ee606e88c45e1750ad303
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602559"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091431"
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>Creación de una función desencadenada por Webhook de GitHub
 
@@ -29,7 +25,7 @@ Obtenga información sobre cómo crear una función que se desencadena mediante 
 
 ![Función desencadenada mediante un webhook de GitHub en Azure Portal](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 + Una cuenta de GitHub con un proyecto como mínimo.
 + Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.

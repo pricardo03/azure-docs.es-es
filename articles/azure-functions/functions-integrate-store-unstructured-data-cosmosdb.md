@@ -4,38 +4,34 @@ description: Almacenamiento de datos no estructurados mediante Azure Functions y
 services: functions
 documentationcenter: functions
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, functions, procesamiento de eventos, Cosmos DB, proceso dinámico, arquitectura sin servidor
 ms.assetid: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b9bb71adf85490fe68bf6b73133017c5e9c377e1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: ddd9a3186e86b1b5bd24c0c99f5fcb18c456119a
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
-ms.locfileid: "27767560"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091635"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Almacenamiento de datos no estructurados mediante Azure Functions y Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) es una excelente manera de almacenar datos no estructurados y JSON. En combinación con Azure Functions, Cosmos DB facilita y agiliza el almacenamiento de datos con mucho menos código que el necesario para almacenar datos en una base de datos relacional.
 
 > [!NOTE]
-> En este momento, el desencadenador de Azure Cosmos DB y los enlaces de entrada y de salida solo funcionan con cuentas de SQL API, y API Graph.
+> En este momento, el desencadenador de Azure Cosmos DB y los enlaces de entrada y de salida solo funcionan con cuentas de SQL API y Graph API.
 
 En Azure Functions, los enlaces de entrada y salida proporcionan una manera declarativa de conectarse a los datos de servicio externos desde su función. En este tema, aprenda a actualizar una función de C# existente para agregar un enlace de salida que almacene los datos no estructurados en un documento de Cosmos DB. 
 
 ![Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -69,7 +65,7 @@ Para completar este tutorial:
     | Configuración      | Valor sugerido  | DESCRIPCIÓN                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Id** | Nombre de base de datos | Identificador único para la base de datos de Azure Cosmos DB  |
-    | **API** | SQL | Seleccione SQL API. En este momento, el desencadenador de Azure Cosmos DB y los enlaces de entrada y de salida solo funcionan con cuentas de SQL API, y API Graph. |
+    | **API** | SQL | Seleccione SQL API. En este momento, el desencadenador de Azure Cosmos DB y los enlaces de entrada y de salida solo funcionan con cuentas de SQL API y Graph API. |
     | **Suscripción** | Suscripción de Azure | Suscripción de Azure  |
     | **Grupo de recursos** | myResourceGroup |  Use el grupo de recursos existente que contiene la aplicación de función. |
     | **Ubicación**  | WestEurope | Seleccione una ubicación cerca de la aplicación de función o de otras aplicaciones que usen los documentos almacenados.  |
@@ -142,7 +138,7 @@ Ha agregado correctamente un enlace al desencadenador HTTP que almacena datos no
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
 

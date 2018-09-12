@@ -3,25 +3,20 @@ title: Creación de una función que se integre con Azure Logic Apps | Microsoft
 description: Creación de una función que se integre con Azure Logic Apps y Azure Cognitive Services para categorizar las opiniones de tweet y enviar notificaciones en caso de que las opiniones sean negativas.
 services: functions, logic-apps, cognitive-services
 keywords: flujo de trabajo, aplicaciones de nube, servicios en la nube, procesos empresariales, integración de sistemas, integración de aplicaciones empresariales, EAI
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 16a46b4c49687186e25c399dcc2c5c168e7c5004
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 23db8d307892b100f291a1f32c9b77c73a60f23e
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38586881"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44090770"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creación de una función que se integre con Azure Logic Apps
 
@@ -41,7 +36,7 @@ En este tutorial, aprenderá a:
 > * Conectar la aplicación lógica a la función.
 > * Enviar un correo electrónico en función de la respuesta de la función.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 + Una cuenta de [Twitter](https://twitter.com/) activa. 
 + Una cuenta de [Outlook.com](https://outlook.com/) (para enviar las notificaciones).
@@ -62,7 +57,7 @@ Cognitive Services APIs están disponibles en Azure como recursos individuales. 
 
     | Configuración      |  Valor sugerido   | Descripción                                        |
     | --- | --- | --- |
-    | **Name** | MyCognitiveServicesAccnt | Elija un nombre de cuenta único. |
+    | **Nombre** | MyCognitiveServicesAccnt | Elija un nombre de cuenta único. |
     | **Ubicación** | Oeste de EE. UU. | Use la ubicación más cercana. |
     | **Plan de tarifa** | F0 | Comience con la tarifa más baja. Si se queda sin llamadas, aumente a un nivel superior.|
     | **Grupos de recursos** | myResourceGroup | Utilice el mismo grupo de recursos para todos los servicios de este tutorial.|
@@ -142,7 +137,7 @@ Ahora, tiene una función que clasifica las puntuaciones de opinión. A continua
 
     | Configuración      |  Valor sugerido   | Descripción                                        |
     | ----------------- | ------------ | ------------- |
-    | **Name** | TweetSentiment | Elija un nombre adecuado para la aplicación. |
+    | **Nombre** | TweetSentiment | Elija un nombre adecuado para la aplicación. |
     | **Grupos de recursos** | myResourceGroup | Elija el mismo grupo de recursos existente que antes. |
     | **Ubicación** | Este de EE. UU | Elija una ubicación cercana a usted. |    
 

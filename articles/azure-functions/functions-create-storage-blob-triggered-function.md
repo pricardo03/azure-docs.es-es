@@ -4,24 +4,20 @@ description: Use Azure Functions para crear una función sin servidor que se inv
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 03/27/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 928ea1dbb68206e128f0593ba15cb48935ab1ccf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 48bb97b298b24951982b69fa07a7e366fcb3e38e
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602670"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093863"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Crear una función desencadenada por Azure Blob Storage
 
@@ -29,7 +25,7 @@ Obtenga información sobre cómo crear una función que se desencadena cuando se
 
 ![Vea el mensaje en los registros.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 + Descargue e instale el [Explorador de Microsoft Azure Storage](http://storageexplorer.com/).
 + Una suscripción de Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
@@ -60,7 +56,7 @@ Después, cree una función en la nueva Function App.
 
     | Configuración | Valor sugerido | Descripción |
     |---|---|---|
-    | **Name** | Único en la Function App | Nombre de la función desencadenada por este blob. |
+    | **Nombre** | Único en la Function App | Nombre de la función desencadenada por este blob. |
     | **Path**   | samples-workitems/{name}    | Ubicación de Blob Storage que se está supervisando. El nombre de archivo del blob se pasa en el enlace como parámetro _name_.  |
     | **Conexión de la cuenta de almacenamiento** | AzureWebJobsStorage | Puede usar la conexión de cuenta de almacenamiento que ya usa la Function App o crear una nueva.  |
 

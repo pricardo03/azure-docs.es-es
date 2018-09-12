@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2018
 ms.author: shlo
-ms.openlocfilehash: 1023eadbf4b799cd8b0c761c1689b9249cee450a
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d0f36551fb06e04b50af464bac6953dda64c6202
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616851"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054155"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Alerta y supervisión de factorías de datos mediante Azure Monitor
 Las aplicaciones de nube son complejas y tienen muchas partes móviles. La supervisión proporciona datos para garantizar que la aplicación permanece en funcionamiento en un estado correcto. También ayuda a evitar posibles problemas o a solucionar los existentes. Además, puede usar datos de supervisión para obtener un conocimiento más profundo sobre su aplicación. Este conocimiento puede ayudarle a mejorar el rendimiento o mantenimiento de la aplicación, o a automatizar acciones que de lo contrario requerirían intervención manual.
@@ -392,7 +392,7 @@ ADFV2 emite las siguientes métricas:
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
 | PipelineSucceededRun | Las métricas de ejecuciones de canalización se realizaron correctamente | Recuento    | Total                | Total de ejecuciones de canalizaciones realizadas correctamente dentro de una ventana de minutos |
 | PipelineFailedRuns   | Métricas de ejecuciones de canalización erróneas    | Recuento    | Total                | Total de ejecuciones de canalizaciones erróneas dentro de una ventana de minutos    |
-| ActiviySucceededRuns | Métricas de ejecución de actividad realizadas correctamente | Recuento    | Total                | Total de ejecuciones de actividad realizadas correctamente dentro de una ventana de minutos  |
+| ActivitySucceededRuns | Métricas de ejecución de actividad realizadas correctamente | Recuento    | Total                | Total de ejecuciones de actividad realizadas correctamente dentro de una ventana de minutos  |
 | ActivityFailedRuns   | Métricas de ejecuciones de actividad erróneas    | Recuento    | Total                | Total de ejecuciones de actividad erróneas dentro de una ventana de minutos     |
 | TriggerSucceededRuns | Métricas de ejecuciones de desencadenador realizadas correctamente  | Recuento    | Total                | Total de ejecuciones de desencadenador realizadas correctamente dentro de una ventana de minutos   |
 | TriggerFailedRuns    | Métricas de ejecuciones de desencadenador erróneas     | Recuento    | Total                | Total de ejecuciones de desencadenador erróneas dentro de una ventana de minutos      |
