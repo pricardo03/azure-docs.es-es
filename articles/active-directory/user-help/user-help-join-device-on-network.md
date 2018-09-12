@@ -61,7 +61,7 @@ Puede asegurarse de que se ha unido fijándose en su configuración.
 
     ![Cuentas en la pantalla Configuración](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Seleccione **Obtener acceso a trabajo o escuela** y asegúrese de que ve texto que dice algo como **Conectado al Azure AD de *<su_organización>***.
+2. Seleccione **Obtener acceso a trabajo o escuela** y asegúrese de que ve texto que dice algo como **Conectado al Azure AD de *<su_organización>*.**
 
     ![Pantalla Obtener acceso a trabajo o escuela con cuenta Contoso conectada](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -106,7 +106,7 @@ Puede asegurarse de que se ha unido fijándose en su configuración.
 
     ![Cuentas en la pantalla Configuración](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Seleccione **Obtener acceso a trabajo o escuela** y asegúrese de que ve texto que dice algo como **Conectado al Azure AD de *<su_organización>***.
+2. Seleccione **Obtener acceso a trabajo o escuela** y asegúrese de que ve texto que dice algo como **Conectado al Azure AD de *<su_organización>*.**
 
     ![Pantalla Obtener acceso a trabajo o escuela con cuenta Contoso conectada](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

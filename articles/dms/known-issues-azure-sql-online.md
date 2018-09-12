@@ -10,108 +10,111 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/24/2018
-ms.openlocfilehash: 1f8e3ede4140ab5346285f7c247864f8ef8e2d48
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 09/11/2018
+ms.openlocfilehash: e61e975a07dd643652ca4847025499e3e77f42be
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889149"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377078"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure SQL DB
 
 A continuación se describen problemas conocidos y limitaciones relacionadas con las migraciones en línea de SQL Server a Azure SQL Database.
 
-- Migración de tablas temporales no compatibles
+### <a name="migration-of-temporal-tables-not-supported"></a>Migración de tablas temporales no compatibles
 
-    **Síntoma**
+**Síntoma**
 
-    Si la base de datos de origen consta de una o de varias tablas temporales, se produce un error en la migración de la base de datos durante la operación de "carga completa de datos" y verá el mensaje siguiente:
+Si la base de datos de origen consta de una o de varias tablas temporales, se produce un error en la migración de la base de datos durante la operación de "carga completa de datos" y verá el mensaje siguiente:
 
-    { "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Database migration error", "errorEvents":"["Capture functionalities could not be set. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 Message: [Microsoft][SQL Server Native Client 11.0][SQL Server]The use of replication is not supported with system-versioned temporal table '[Application. Cities]' Line: 1 Column: -1 "]" }
+{ "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Database migration error", "errorEvents":"["Capture functionalities could not be set. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 Message: [Microsoft][SQL Server Native Client 11.0][SQL Server]The use of replication is not supported with system-versioned temporal table '[Application. Cities]' Line: 1 Column: -1 "]" }
  
-   ![Ejemplo de errores de tablas temporales](media\known-issues-azure-sql-online\dms-temporal-tables-errors.png)
+ ![Ejemplo de errores de tablas temporales](media\known-issues-azure-sql-online\dms-temporal-tables-errors.png)
 
-   **Solución alternativa**
+**Solución alternativa**
 
-   1. Busque las tablas temporales en el esquema de origen mediante la siguiente consulta.
-        ``` 
-       select name,temporal_type,temporal_type_desc,* from sys.tables where temporal_type <>0
-        ```
-   2. Excluya estas tablas de la hoja **Configurar los valores de la migración**, en la que especifica las tablas para la migración.
-   3. Vuelva a ejecutar la actividad de migración.
+1. Busque las tablas temporales en el esquema de origen mediante la siguiente consulta.
+     ``` 
+     select name,temporal_type,temporal_type_desc,* from sys.tables where temporal_type <>0
+     ```
+2. Excluya estas tablas de la hoja **Configurar los valores de la migración**, en la que especifica las tablas para la migración.
 
-    **Recursos**
+3. Vuelva a ejecutar la actividad de migración.
 
-    Para más información, consulte el artículo [Tablas temporales](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
+**Recursos**
+
+Para más información, consulte el artículo [Tablas temporales](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables?view=sql-server-2017).
  
-- La migración de las tablas incluye una o varias columnas con el tipo de datos hierarchyid
+### <a name="migration-of-tables-includes-one-or-more-columns-with-the-hierarchyid-data-type"></a>La migración de las tablas incluye una o varias columnas con el tipo de datos hierarchyid
 
-    **Síntoma**
+**Síntoma**
 
-    Es posible que vea una excepción SQL que indique que "ntext no es compatible con hierarchyid" durante la operación de "carga completa de datos":
+Es posible que vea una excepción SQL que indique que "ntext no es compatible con hierarchyid" durante la operación de "carga completa de datos":
      
-    ![ejemplo de errores de hierarchyid](media\known-issues-azure-sql-online\dms-hierarchyid-errors.png)
+![ejemplo de errores de hierarchyid](media\known-issues-azure-sql-online\dms-hierarchyid-errors.png)
 
-    **Solución alternativa**
+**Solución alternativa**
 
-    1. Busque las tablas de usuario que incluyan columnas con el tipo de datos hierarchyid mediante la siguiente consulta.
+1. Busque las tablas de usuario que incluyan columnas con el tipo de datos hierarchyid mediante la siguiente consulta.
 
-        ``` 
-        select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
-        ``` 
+      ``` 
+      select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
+      ``` 
 
-    2.  Excluya estas tablas de la hoja **Configurar los valores de la migración**, en la que especifica las tablas para la migración.
-    3.  Vuelva a ejecutar la actividad de migración.
+ 2. Excluya estas tablas de la hoja **Configurar los valores de la migración**, en la que especifica las tablas para la migración.
 
-- Errores de migración con varias infracciones de integridad con desencadenadores activos en el esquema durante la "carga completa de datos" o la "sincronización de datos incrementales"
+ 3. Vuelva a ejecutar la actividad de migración.
 
-    **Solución alternativa**
-    1. Busque los desencadenadores que están actualmente activos en la base de datos de origen mediante la siguiente consulta:
-        ```
-        select * from sys.triggers where is_disabled =0
-        ```
-    2.  Deshabilite los desencadenadores en la base de datos de origen mediante los pasos proporcionados en el artículo [DISABLE TRIGGER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
-    3.  Vuelva a ejecutar la actividad de migración.
+### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>Errores de migración con varias infracciones de integridad con desencadenadores activos en el esquema durante la "carga completa de datos" o la "sincronización de datos incrementales"
 
-- Compatibilidad con tipos de datos de LOB
+**Solución alternativa**
+1. Busque los desencadenadores que están actualmente activos en la base de datos de origen mediante la siguiente consulta:
+     ```
+     select * from sys.triggers where is_disabled =0
+     ```
+2. Deshabilite los desencadenadores en la base de datos de origen mediante los pasos proporcionados en el artículo [DISABLE TRIGGER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
 
-    **Síntoma**
+3. Vuelva a ejecutar la actividad de migración.
 
-    Si la longitud de columna de objetos grandes (LOB) es mayor que 32 KB, es posible que se trunquen los datos en el destino. Puede comprobar la longitud de columna de LOB mediante la siguiente consulta: 
+### <a name="support-for-lob-data-types"></a>Compatibilidad con tipos de datos de LOB
 
-    ``` 
-    SELECT max(len(ColumnName)) as LEN from TableName
-    ```
+**Síntoma**
 
-    **Solución alternativa**
+Si la longitud de columna de objetos grandes (LOB) es mayor que 32 KB, es posible que se trunquen los datos en el destino. Puede comprobar la longitud de columna de LOB mediante la siguiente consulta: 
 
-    Si tiene una columna de LOB que sea mayor que 32 KB, póngase en contacto con el equipo de ingeniería en [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
+``` 
+SELECT max(len(ColumnName)) as LEN from TableName
+```
 
-- Problemas con las columnas de marca de tiempo
+**Solución alternativa**
 
-    **Síntoma**
+Si tiene una columna de LOB que sea mayor que 32 KB, póngase en contacto con el equipo de ingeniería en [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
 
-    DMS no migra el valor de marca de tiempo de origen; en su lugar, DMS genera un nuevo valor de marca de tiempo en la tabla de destino.
+### <a name="issues-with-timestamp-columns"></a>Problemas con las columnas de marca de tiempo
 
-    **Solución alternativa**
+**Síntoma**
 
-    Si necesita DMS para migrar el valor de marca de tiempo exacto almacenado en la tabla de origen, póngase en contacto con el equipo de ingeniería en [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
+DMS no migra el valor de marca de tiempo de origen; en su lugar, DMS genera un nuevo valor de marca de tiempo en la tabla de destino.
 
-- Los errores de migración de datos no proporcionan detalles adicionales en la hoja de estado detallado de la base de datos.
+**Solución alternativa**
 
-    **Síntoma**
+Si necesita DMS para migrar el valor de marca de tiempo exacto almacenado en la tabla de origen, póngase en contacto con el equipo de ingeniería en [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
 
-    Cuando vea los errores de migración en la vista de estado de detalles de las bases de datos, si selecciona el vínculo **Errores de migración de datos** en la cinta de opciones superior, es posible que no se proporcionen detalles adicionales específicos de los errores de migración.
+### <a name="data-migration-errors-do-not-provide-additional-details-on-the-database-detailed-status-blade"></a>Los errores de migración de datos no proporcionan detalles adicionales en la hoja de estado detallado de la base de datos.
 
-     ![ejemplo no detallado de errores de migración de datos](media\known-issues-azure-sql-online\dms-data-migration-errors-no-details.png)
+**Síntoma**
 
-    **Solución alternativa**
+Cuando vea los errores de migración en la vista de estado de detalles de las bases de datos, si selecciona el vínculo **Errores de migración de datos** en la cinta de opciones superior, es posible que no se proporcionen detalles adicionales específicos de los errores de migración.
 
-    Para obtener detalles concretos del error, siga estos pasos.
+![ejemplo no detallado de errores de migración de datos](media\known-issues-azure-sql-online\dms-data-migration-errors-no-details.png)
 
-    1.  Cierre la hoja de estado detallado de la base de datos para mostrar la pantalla de la actividad de migración.
+**Solución alternativa**
+
+Para obtener detalles concretos del error, siga estos pasos.
+
+1. Cierre la hoja de estado detallado de la base de datos para mostrar la pantalla de la actividad de migración.
 
      ![pantalla de la actividad de migración](media\known-issues-azure-sql-online\dms-migration-activity-screen.png)
 
-    2. Seleccione **Ver detalles del error** para ver mensajes de error específicos que le ayudarán a solucionar los errores de migración.
+2. Seleccione **Ver detalles del error** para ver mensajes de error específicos que le ayudarán a solucionar los errores de migración.

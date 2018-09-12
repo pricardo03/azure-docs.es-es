@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 07/11/2018
-ms.openlocfilehash: 70891e4c1425badb43dac66ada9c0b3a43b8fb0d
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 614ea0dd69c9bb07df20634298c1192e6ffee789
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173680"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380342"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Planes de tarifa de Azure Database for MySQL
 
@@ -45,7 +45,7 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 
 | **Región de Azure** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| Centro de EE. UU. | X |  |
+| Centro de EE. UU. | X | X |
 | Este de EE. UU | X | X |
 | Este de EE. UU. 2 | X | X |
 | Centro-Norte de EE. UU | X | X |
