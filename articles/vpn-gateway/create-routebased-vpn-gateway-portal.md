@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 550f655f6eac5a114636978255578eb3753e0d4b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fe05ab36f971105cf72342b8df5e2a82de7fc2b8
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30918139"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391800"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Creación de una instancia de VPN Gateway basada en rutas mediante Azure Portal
 
@@ -54,12 +54,12 @@ La subred de puerta de enlace contiene las direcciones IP reservadas que usan lo
 2. En la página de la red virtual, haga clic en **Subredes** para expandir la página **VNet1 - Subredes**.
 3. Haga clic en **+Subred de puerta de enlace** en la parte superior para abrir la página **Agregar subred**.
 
-  ![Agregar la subred de la puerta de enlace](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "Agregar la subred de la puerta de enlace")
+  ![Agregar la subred de la puerta de enlace](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "Agregar la subred de la puerta de enlace")
 4. El campo **Nombre** de la subred se rellena automáticamente con el valor requerido "GatewaySubnet". Ajuste los valores de **Intervalo de direcciones** rellenados automáticamente para que coincidan con los siguientes valores:
 
   **Intervalo de direcciones (bloque CIDR)**: 10.1.255.0/27
 
-  ![Adición de la subred de la puerta de enlace](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "Adición de la subred de la puerta de enlace")
+  ![Adición de la subred de la puerta de enlace](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "Adición de la subred de la puerta de enlace")
 5. Para crear la subred de puerta de enlace, haga clic en **Aceptar** en la parte inferior de la página.
 
 ## <a name="gwvalues"></a>Configuración de la puerta de enlace

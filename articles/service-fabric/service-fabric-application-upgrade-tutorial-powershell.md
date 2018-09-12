@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0238dce3f8cbf838e7fce3afefb866e3aaa791bc
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: c1005d60df0b1cfd3b24be954ab4ff1b18c8f7a8
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42143546"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348776"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Actualización de aplicaciones de Service Fabric con PowerShell
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Para compilar y publicar la aplicación, haga clic con el botón derecho en el p
 > 
 > 
 
-Después de compilar el proyecto en Visual Studio, puede utilizar el comando de PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) para copiar el paquete de aplicación en ImageStore. Si quiere comprobar el paquete de la aplicación de forma local, use el cmdlet [ServiceFabricApplicationPackage prueba](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage). El siguiente paso es registrar la aplicación en el runtime de Service Fabric mediante el cmdlet [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype). El siguiente paso es iniciar una instancia de la aplicación mediante el cmdlet [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps).  Estos tres pasos son análogos al uso del elemento de menú **Implementar** en Visual Studio.  Una vez completado el aprovisionamiento, es preciso limpiar el paquete de aplicación copiado del almacén de imágenes para reducir el consumo de recursos.  Si algún tipo de aplicación deja de requerirse, se debe anular su registro por el mismo motivo. Para más información, consulte [Actualización de aplicaciones de Service Fabric con PowerShell](service-fabric-application-upgrade-tutorial-powershell.md).
+Después de compilar el proyecto en Visual Studio, puede utilizar el comando de PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) para copiar el paquete de aplicación en ImageStore. Si quiere comprobar el paquete de la aplicación de forma local, use el cmdlet [ServiceFabricApplicationPackage prueba](/powershell/module/servicefabric/test-servicefabricapplicationpackage). El siguiente paso es registrar la aplicación en el runtime de Service Fabric mediante el cmdlet [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype). El siguiente paso es iniciar una instancia de la aplicación mediante el cmdlet [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps).  Estos tres pasos son análogos al uso del elemento de menú **Implementar** en Visual Studio.  Una vez completado el aprovisionamiento, es preciso limpiar el paquete de aplicación copiado del almacén de imágenes para reducir el consumo de recursos.  Si algún tipo de aplicación deja de requerirse, se debe anular su registro por el mismo motivo. Para más información, consulte [Actualización de aplicaciones de Service Fabric con PowerShell](service-fabric-application-upgrade-tutorial-powershell.md).
 
 Ahora, puede usar el [explorador de Service Fabric para ver el clúster y la aplicación](service-fabric-visualizing-your-cluster.md). La aplicación tiene un servicio web hasta el que se puede navegar en Internet Explorer; para ello, escriba [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) en la barra de direcciones.  Debería ver algunos objetos visuales flotantes desplazándose por la pantalla.  Además, se puede usar [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) para comprobar el estado de la aplicación.
 

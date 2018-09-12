@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b013627c5a0dc596c9897d7fa2c5bf2b2a79ee40
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 9eea0cabebb67095d4c6c813e7d13c885a447db4
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114013"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378897"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Tutorial: Supervisión de contenedores Windows en Service Fabric con Log Analytics
 
-Esta es la segunda parte de un tutorial y le guía a través de la configuración de Log Analytics para supervisar sus contenedores Windows orquestados en Service Fabric.
+Esta es la tercera parte de un tutorial y le guía a través de la configuración de Log Analytics para supervisar sus contenedores Windows orquestados en Service Fabric.
 
 En este tutorial, aprenderá a:
 
