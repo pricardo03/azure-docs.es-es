@@ -11,29 +11,29 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 56d207dc47b9e055782568f1c4a4cedc4d19a288
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e527a0eaec433b96b5c37c5ec22f392a7166dfe8
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348212"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162451"
 ---
 # <a name="manage-app-passwords-using-security-info-preview"></a>Administración de contraseñas de aplicación mediante información de seguridad (versión preliminar)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 Determinadas aplicaciones sin navegador, como Outlook 2010, no admiten la verificación en dos pasos. Esta falta de compatibilidad significa que si usa la verificación en dos pasos, la aplicación no funcionará. Para solucionar este problema, puede crear una contraseña generada automáticamente para usar con cada aplicación sin explorador, independiente de la contraseña normal.
 
-Al utilizar las contraseñas de aplicación, es importante recordar:
+Al utilizar las contraseñas de aplicaciones, es importante recordar:
 
-- Las contraseñas de aplicación se generan automáticamente y solo se escriben una vez por cada aplicación.
+- Las contraseñas de aplicaciones se generan automáticamente y solo se escriben una vez por cada aplicación.
 
 - Hay un límite de 40 contraseñas por usuario. Si intenta crear una después de ese límite, se le pedirá que elimine una contraseña existente antes de que se le permita crear una nueva.
 
 - Utilice una contraseña de aplicación por dispositivo, no por aplicación. Por ejemplo, cree una única contraseña para todas las aplicaciones del equipo portátil y luego otra contraseña única para todas las aplicaciones del equipo de sobremesa.
 
     >[!Note]
-    >Los clientes de Office 2013 (incluido Outlook) admiten nuevos protocolos de autenticación que se pueden usar con la verificación en dos pasos. Esta compatibilidad significa que después de activar la verificación en dos pasos, ya no necesitará contraseñas de aplicación para clientes de Office 2013. Para obtener más información, consulte el artículo [Cómo funciona la autenticación moderna para las aplicaciones de cliente de Office 2013 y Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517).
+    >Los clientes de Office 2013 (incluido Outlook) admiten nuevos protocolos de autenticación que se pueden usar con la verificación en dos pasos. Esta compatibilidad significa que después de activar la verificación en dos pasos, ya no necesitará contraseñas de aplicaciones para clientes de Office 2013. Para obtener más información, consulte el artículo [Cómo funciona la autenticación moderna para las aplicaciones de cliente de Office 2013 y Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517).
 
 ## <a name="create-and-delete-app-passwords-using-security-info"></a>Creación y eliminación de contraseñas de aplicación mediante información de seguridad
 
@@ -81,6 +81,6 @@ Si el administrador no ha activado la experiencia de información de seguridad, 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si necesita actualizar la información de seguridad, siga las instrucciones del artículo [Manage your security info](security-info-manage-settings.md) (Administrar la información de seguridad).
+- Si necesita actualizar la información de seguridad, siga las instrucciones del artículo [Administración de la información de seguridad](security-info-manage-settings.md).
 
 - Para información más general sobre la información de seguridad y qué puede hacer, consulte [Security info overview](user-help-security-info-overview.md) (Introducción a la información de seguridad). 

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: v-deasim
-ms.openlocfilehash: f09195dc07a96ebcca7f7a9e4bcf521fae13630c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: f18b6edb900640e48e5ca87639f71cec9287af38
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26343895"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159748"
 ---
 # <a name="custom-reports-from-verizon"></a>Informes personalizados de Verizon
 
-[!INCLUDE[cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 Mediante los informes personalizados de Verizon a través del portal de administración para los perfiles de Verizon, puede definir el tipo de datos que se debe recopilar para los informes de CNAME perimetrales.
 
@@ -33,7 +33,7 @@ Mediante los informes personalizados de Verizon a través del portal de administ
    
     ![Botón de administración del perfil de la red CDN](./media/cdn-reports/cdn-manage-btn.png)
    
-    Se abre el portal de administración de CDN.
+    Se abre el Portal de administración de CDN.
 2. Mueva el puntero sobre la pestaña **Análisis** y después sobre el control flotante **Informes personalizados**. Haga clic en **Edge CNAMEs** (CNAME perimetrales).
    
     ![Portal de administración de la red CDN: menú de informes personalizados](./media/cdn-reports/cdn-custom-reports.png)
@@ -68,7 +68,7 @@ Puede exportar los datos en formato de Excel haciendo clic en el símbolo de Exc
 
 ## <a name="edge-cnames-custom-report-fields"></a>Campos de informes personalizados de CNAME perimetrales
 
-| Campo                     | Descripción   |
+| Campo                     | DESCRIPCIÓN   |
 |---------------------------|---------------|
 | 2xx                       | Indica el número total de solicitudes o datos transferidos (MB) para el CNAME perimetral que da como resultado un código de estado HTTP 2xx (por ejemplo, 200 - Correcto. |
 | 3xx                       | Indica el número total de solicitudes o datos transferidos (MB) para el CNAME perimetral que da como resultado un código de estado HTTP 3xx (por ejemplo, 302 - Encontrado o 304 - No modificado). |
@@ -77,7 +77,7 @@ Puede exportar los datos en formato de Excel haciendo clic en el símbolo de Exc
 | Porcentaje de aciertos de caché               | Indica el porcentaje de solicitudes almacenadas en caché que se sirven directamente desde la memoria caché al solicitante. |
 | Aciertos de caché                | Indica el número total de solicitudes o datos transferidos (MB) para el CNAME perimetral que da como resultado un acierto de caché (por ejemplo, TCP_EXPIRED_HIT, TCP_HIT o TCP_PARTIAL_HIT). Un acierto de caché se produce cuando se detecta una versión almacenada en caché del contenido solicitado. |
 | Datos transferidos (MB)     | Indica la cantidad total de datos transferidos (MB) desde los servidores perimetrales a clientes HTTP (exploradores web) para el CNAME perimetral. La cantidad de datos transferidos se calcula agregando encabezados de respuesta HTTP al cuerpo de respuesta. Como resultado, la cantidad de datos transferidos para cada recurso es mayor que el tamaño real del archivo. |
-| Descripción               | Identifica un CNME perimetral por su nombre de host. |
+| DESCRIPCIÓN               | Identifica un CNME perimetral por su nombre de host. |
 | Aciertos                      | Indica el número total de solicitudes para el CNAME perimetral. |
 | Errores                    | Indica el número total de solicitudes o datos transferidos (MB) para el CNAME perimetral que da como resultado un error de caché (por ejemplo, TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS o TCP_MISS). Se produce un error de caché cuando el contenido solicitado no se ha almacenado en caché en el servidor perimetral que respetaba la solicitud. | 
 | No Cache (Sin caché)                  | Indica el número total de solicitudes o datos transferidos (MB) para el CNAME perimetral que da como resultado un código de estado de la caché CONFIG_NOCACHE.  |

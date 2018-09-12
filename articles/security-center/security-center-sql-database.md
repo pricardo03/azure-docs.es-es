@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: b507a62db9a80866005cb63d2008fb14612b516f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d8be831469659993da4f9f392e23b9408eb283e3
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31415952"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302227"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Servicios Azure Security Center y Azure SQL Database
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) ayuda a evita y a detectar las amenazas, además de a responder a ellas. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
@@ -36,7 +36,7 @@ Security Center ayuda a proteger los datos de SQL Database ofreciendo visibilida
 
 Además de ayudarlo a proteger los recursos de SQL Database, Security Center también proporciona funcionalidades de administración y supervisión de seguridad de máquinas virtuales de Azure, Cloud Services, App Services, redes virtuales y mucho más. Obtenga más información sobre Security Center [aquí](security-center-intro.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. El nivel Gratis de Security Center se habilita con su suscripción. Para obtener más información sobre los niveles Gratis y Estándar de Security Center, consulte [Centro de seguridad Precios](https://azure.microsoft.com/pricing/details/security-center/).
 
 El Centro de seguridad admite el acceso basado en rol. Para obtener más información sobre el control de acceso basado en rol (RBAC) de Azure, consulte [Control de acceso basado en roles de Azure Active Directory](../role-based-access-control/role-assignments-portal.md). Las P+F de Security Center proporcionan información sobre [cómo se controlan los permisos en Security Center](security-center-faq.md#permissions).

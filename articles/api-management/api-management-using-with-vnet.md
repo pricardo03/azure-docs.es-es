@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: deba3ad8a283b111dc94a5361f3fa4e73d95c0b8
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a74d91ad986b606a36a8040ac849e7fcbec03f16
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187390"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093199"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Azure Virtual Network (VNET) le permiten colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet y a la que controla el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -109,7 +109,7 @@ Cuando la instancia del servicio de API Management se hospeda en una red virtual
 | Puertos de origen/destino | Dirección | Protocolo de transporte | Origen/destino | Propósito (*) | Tipo de red virtual |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Entrada |TCP |INTERNET/VIRTUAL_NETWORK|Comunicación de cliente con Administración de API|Externo |
-| * / 3443 |Entrada |TCP |INTERNET/VIRTUAL_NETWORK|Punto de conexión de administración para Azure Portal y Powershell |Interno |
+| * / 3443 |Entrada |TCP |INTERNET/VIRTUAL_NETWORK|Punto de conexión de administración para Azure Portal y Powershell |Externa e interna |
 | * / 80, 443 |Salida |TCP |VIRTUAL_NETWORK/INTERNET|**Dependencia de Azure Storage**, Azure Service Bus y Azure Active Directory (cuando corresponda).|Externa e interna |
 | * / 1433 |Salida |TCP |VIRTUAL_NETWORK / SQL|**Acceso a los puntos de conexión de Azure SQL** |Externa e interna |
 | * / 5672 |Salida |TCP |VIRTUAL_NETWORK/INTERNET|Dependencia de la directiva de registro en el centro de eventos y el agente de supervisión |Externa e interna |

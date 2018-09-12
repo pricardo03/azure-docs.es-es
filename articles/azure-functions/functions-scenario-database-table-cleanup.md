@@ -4,30 +4,26 @@ description: Use Azure Functions para programar una tarea que se conecte a Azure
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: 2947fc6da0c4559e81cf97255b8375b020e0b657
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a257948c97437d6045f705acb02054928d22ff89
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30231283"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092876"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Uso de Azure Functions para conectarse a una base de datos de Azure SQL Database
 En este tema se indica cómo usar Azure Functions para crear un trabajo programado que limpie hileras de una tabla en Azure SQL Database. La nueva función de script de C# se crea a partir de una plantilla de desencadenador de temporizador predefinida de Azure Portal. Para que este escenario sea posible, también debe establecer una cadena de conexión de base de datos como una configuración de aplicación en la aplicación de función. En este escenario se utiliza una operación masiva en la base de datos. 
 
 Para que la función procese operaciones individuales de creación, lectura, actualización y eliminación (CRUD) en una tabla de Mobile Apps, debería usar en su lugar [enlaces de Mobile Apps](functions-bindings-mobile-apps.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 + En este tema se usa una función desencadenada por un temporizador. Efectúe los pasos del tema [Cree una función en Azure que se desencadena mediante un temporizador](functions-create-scheduled-function.md) para crear una versión en C# de esta función.   
 
@@ -61,7 +57,7 @@ Una aplicación de función hospeda la ejecución de sus funciones en Azure. Se 
 
     | Configuración       | Valor sugerido | Descripción             | 
     | ------------ | ------------------ | --------------------- | 
-    | **Name**  |  sqldb_connection  | Se usa para acceder a la cadena de conexión almacenada en el código de función.    |
+    | **Nombre**  |  sqldb_connection  | Se usa para acceder a la cadena de conexión almacenada en el código de función.    |
     | **Valor** | Cadena copiada  | Pegue la cadena de conexión que copió en la sección anterior y reemplace los marcadores de posición `{your_username}` y `{your_password}` por valores reales. |
     | **Tipo** | SQL Database | Use la conexión predeterminada de SQL Database. |   
 

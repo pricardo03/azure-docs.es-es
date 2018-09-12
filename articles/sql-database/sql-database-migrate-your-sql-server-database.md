@@ -9,12 +9,12 @@ ms.custom: mvc,migrate
 ms.topic: tutorial
 ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: ceab627d98149774a3eb767ee56d688f9c11ff99
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1d8ec772293354c059f21aaae8006f5c40540058
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346848"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050211"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>Migración de una base de datos SQL Server a Azure SQL Database mediante DMA
 
@@ -43,7 +43,7 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
 
-Inicie sesión en [Azure Portal](https://portal.azure.com/).
+Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Crear una instancia en blanco en SQL Database
 
@@ -133,7 +133,7 @@ Ahora puede conectarse al servidor de SQL Database y a sus bases de datos median
 
 Obtenga el nombre completo del servidor de Azure SQL Database en Azure Portal. Utilice el nombre completo del servidor para conectarse a su servidor SQL de Azure mediante herramientas de cliente, incluidas Data Migration Assistance y SQL Server Management Studio.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Seleccione **SQL Database** en el menú de la izquierda y haga clic en la base de datos en la página **SQL Database**. 
 3. En el panel **Essentials** de la página de Azure Portal de la base de datos, busque y copie el **nombre del servidor**.
 
@@ -175,7 +175,7 @@ Siga estos pasos para usar **[Data Migration Assistant](https://www.microsoft.co
 
 6. En la página **Seleccionar destino**, complete los valores requeridos y, después, haga clic en **Conectar**:
 
-    | Configuración      | Valor sugerido | Descripción | 
+    | Configuración      | Valor sugerido | DESCRIPCIÓN | 
     | ------------ | ------------------ | ------------------------------------------------- | 
     | Nombre de servidor | El nombre completo del servidor de Azure Database | El nombre completo del servidor de Azure Database del procedimiento anterior |
     | Tipo de autenticación | Autenticación de SQL Server | Autenticación de SQL Server es la única opción en el momento en el que se escribió este tutorial; sin embargo, Autenticación integrada de Active Directory y Autenticación de contraseña de Active Directory también son compatibles con Azure SQL Database |
@@ -224,7 +224,7 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-serve
 
 2. En el cuadro de diálogo **Conectar con el servidor**, especifique la siguiente información:
 
-   | Configuración       | Valor sugerido | Descripción | 
+   | Configuración       | Valor sugerido | DESCRIPCIÓN | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
    | Nombre de servidor | Nombre completo del servidor | Dicho nombre debe parecerse al siguiente: **mynewserver20170824.database.windows.net**. |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 03623c64aad875ed46e7f578350e77cbd17c7c3b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 4e65801a59a0c3d8aa6f0c654d6396bb2e86eb60
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42146562"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023501"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -339,7 +339,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    sudo systemctl --no-pager show | grep DefaultTasksMax
    </code></pre>
 
-   Reduzca el tamaño de la caché de datos incorrectos. Para obtener más información, consulte [Low write performance on SLES 11/12 servers with large RAM](https://www.suse.com/support/kb/doc/?id=7010287) (Bajo rendimiento de escritura en servidores SLES 11/12 con RAM grande).
+   Reduzca el tamaño de la caché de datos incorrectos. Para más información, consulte [Low write performance on SLES 11/12 servers with large RAM](https://www.suse.com/support/kb/doc/?id=7010287) (Bajo rendimiento de escritura en servidores SLES 11/12 con RAM grande).
 
    <pre><code>sudo vi /etc/sysctl.conf
 
@@ -442,7 +442,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
      <b>token:          30000
      token_retransmits_before_loss_const: 10
      join:           60
-     consensus:      6000
+     consensus:      36000
      max_messages:   20</b>
      
      interface { 

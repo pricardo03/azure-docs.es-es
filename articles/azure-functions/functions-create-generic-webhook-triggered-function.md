@@ -4,24 +4,20 @@ description: Use Azure Functions para crear una función sin servidor que se inv
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: fafc10c0-84da-4404-b4fa-eea03c7bf2b1
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 83e751cc0c5b6c53d409dc61556a6bcdbed2415a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3ac16c1abd72b62a979e35b3fb86547a53417667
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467816"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346138"
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>Creación de una función desencadenada por un webhook genérico
 
@@ -29,7 +25,7 @@ Azure Functions permite ejecutar el código en un entorno sin servidor sin neces
 
 ![Función desencadenada mediante un webhook genérico en Azure Portal](./media/functions-create-generic-webhook-triggered-function/function-completed.png)
 
-## <a name="prerequisites"></a>requisitos previos 
+## <a name="prerequisites"></a>Requisitos previos 
 
 Para completar este tutorial:
 
@@ -92,7 +88,7 @@ Después, cree un punto de conexión de webhook en una alerta de registro de act
 
     | Configuración      |  Valor sugerido   | Descripción                              |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Name** | CallFunctionWebhook | Nombre para la acción. |
+    | **Nombre** | CallFunctionWebhook | Nombre para la acción. |
     | **Tipo de acción** | webhook | La respuesta a la alerta es que se llama a una dirección URL del webhook. |
     | **Detalles** | Dirección URL de la función | Pegue la URL del webhook de la función que copió anteriormente. |v
 
@@ -125,7 +121,8 @@ Ahora se llama al webhook cuando se crea un grupo de recursos en la suscripción
     
         // Return an error if the resource in the activity log isn't a resource group. 
         if (activityLog == null || !string.Equals((string)activityLog["resourceType"], 
-            "Microsoft.Resources/subscriptions/resourcegroups"))
+            "Microsoft.Resources/subscriptions/resourceGroups", 
+            System.StringComparison.OrdinalIgnoreCase))
         {
             log.Error("An error occurred");
             return req.CreateResponse(HttpStatusCode.BadRequest, new

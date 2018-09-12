@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 593ea4d23f8ddcec8efc4be632afa2aab1a5210f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7f2b97479ffcdb7ec8b3a1a635562d1fe68c3269
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381010"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158437"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configure su experiencia de interfaz de usuario hospedada.
 Después de configurar la instancia de búsqueda personalizada, puede llamar a Custom Search API para obtener los resultados de búsqueda y mostrarlos en la aplicación. O bien, si la aplicación es una aplicación web, puede usar la interfaz de usuario hospedada que proporciona Custom Search.   
@@ -58,7 +58,7 @@ Utilice las siguientes instrucciones para configurar una interfaz de usuario hos
 > [!NOTE]
 > Cuando realice cambios en la configuración de IU hospedada personalizada, el panel de la derecha proporciona una referencia visual para los cambios realizados. Los resultados de búsqueda mostrados no son los resultados reales de la instancia.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="consume-custom-ui"></a>Uso de la IU personalizada
 Para utilizar la IU hospedada, elija una de estas dos opciones: 

@@ -3,26 +3,21 @@ title: Llamada a una función desde PowerApps | Microsoft Docs
 description: Cree un conector personalizado y después llame a una función mediante ese conector.
 services: functions
 keywords: aplicaciones en la nube, servicios en la nube, PowerApps, procesos empresariales, aplicación empresarial
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 3693b167f196b82c520703fa50ffabb27b555050
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 55de3cd8830834a2af512661d5389952d927ef9f
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38586983"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094322"
 ---
 # <a name="call-a-function-from-powerapps"></a>Llamada a una función desde PowerApps
 La plataforma [PowerApps](https://powerapps.microsoft.com) está diseñada para que expertos empresariales creen aplicaciones sin código de aplicación tradicional. Los desarrolladores profesionales pueden usar Azure Functions para ampliar las capacidades de PowerApps, evitándoles los detalles técnicos a los compiladores de aplicaciones de PowerApps.
@@ -44,7 +39,7 @@ En este tema, aprenderá cómo:
 > * Agregar controles para llamar a la función y mostrar los datos.
 > * Ejecutar la aplicación para determinar si una reparación es rentable.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 + Una [cuenta de PowerApps](https://docs.microsoft.com/en-us/powerapps/maker/signup-for-powerapps) activa con las mismas credenciales de inicio de sesión que su cuenta de Azure. 
 + Excel y el [archivo de Excel de ejemplo](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) que va a utilizar como origen de datos para la aplicación.

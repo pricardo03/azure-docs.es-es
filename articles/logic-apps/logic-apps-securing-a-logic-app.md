@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 11/22/2016
-ms.openlocfilehash: fc4fdff5080e6ebe13850157e8d560a1d31e7719
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127486"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377401"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Protección del acceso en Azure Logic Apps
 
@@ -77,7 +77,7 @@ Esta opción se puede configurar en la configuración de la aplicación lógica:
 1. Haga clic en el elemento del menú **Configuración del flujo de trabajo** en **Configuración**
 1. Especifique la lista de intervalos de direcciones IP que van a ser aceptados por el desencadenador.
 
-Un intervalo IP válido adopta el formato `192.168.1.1/255`. Si quiere que la aplicación lógica solo se active como una aplicación lógica anidada, seleccione la opción **Solo otras aplicaciones lógicas**. Esta opción escribe una matriz vacía en el recurso, lo que significa que solo las llamadas realizadas desde el mismo servicio (aplicaciones lógicas principales) se activan correctamente.
+Un intervalo IP válido adopta el formato `192.168.1.1/32`. Si quiere que la aplicación lógica solo se active como una aplicación lógica anidada, seleccione la opción **Solo otras aplicaciones lógicas**. Esta opción escribe una matriz vacía en el recurso, lo que significa que solo las llamadas realizadas desde el mismo servicio (aplicaciones lógicas principales) se activan correctamente.
 
 > [!NOTE]
 > Todavía puede ejecutar una aplicación de lógica con un desencadenador de solicitud a través de la API de REST/Management `/triggers/{triggerName}/run`, con independencia de la IP. Este escenario requiere la autenticación con la API de REST de Azure y todos los eventos podrían aparecer en el registro de auditoría de Azure. Establezca las directivas de control de acceso en consecuencia.

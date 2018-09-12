@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: cde70518164c386697127b079979b5b3b76ae088
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: cd95a1f1e0631340fa9844fd31c3d8c0af1168dd
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144430"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347059"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de artículos sobre la administración de aplicaciones en Azure Active Directory
 Esta página proporciona una lista completa de todos los documentos escritos sobre las diversas características relacionadas con aplicaciones de Azure Active Directory (Azure AD).
@@ -42,7 +42,7 @@ Esta sección proporciona acceso rápido a las guías de solución de problemas 
 | Área de características |  |
 |:---:| --- |
 | Inicio de sesión único federado |[Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](develop/howto-v1-debug-saml-sso-issues.md) |
-| Inicio de sesión único con contraseña |[Solución de problemas de la extensión del Panel de acceso para Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
+| Inicio de sesión único con contraseña |[Solución de problemas de la extensión del Panel de acceso para Internet Explorer](manage-apps/manage-access-panel-browser-extension.md) |
 | Proxy de aplicación |[Solucionar problemas del proxy de aplicación](manage-apps/application-proxy-troubleshoot.md) |
 | Inicio de sesión único entre un AD local y Azure AD |[Solución de problemas de sincronización de hash de contraseñas](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Solución de problemas de escritura diferida de contraseñas](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Pertenencia a grupos dinámicos. |[Solución de problemas de pertenencias a grupos dinámicos](users-groups-roles/groups-troubleshooting.md) |
@@ -56,7 +56,7 @@ El inicio de sesión único permite a los usuarios acceder a varias aplicaciones
 | Una introducción a la federación y otros tipos de inicio de sesión |[Inicio de sesión único con Azure AD](manage-apps/what-is-single-sign-on.md) |
 | Miles de aplicaciones SaaS integradas previamente con Azure AD con pasos de configuración de inicio de sesión único simplificados |[Introducción a la Galería de aplicaciones de Azure AD](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Lista completa de las aplicaciones integradas previamente que admiten federación](saas-apps/tutorial-list.md)<br /><br />[Anuncio de la aplicación en la Galería de aplicaciones de Azure AD](develop/howto-app-gallery-listing.md) |
 | Tutoriales de más de 150 aplicaciones en los que se explica cómo configurar el inicio de sesión único de aplicaciones como [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md) y [Workday](saas-apps/workday-tutorial.md), entre otras |[Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](saas-apps/tutorial-list.md) |
-| Configuración y personalización manual de una configuración de inicio de sesión único |[Configuración del inicio de sesión único federado en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Personalización de notificaciones emitidas en el token SAML para aplicaciones previamente integradas en Azure Active Directory](active-directory-saml-claims-customization.md) |
+| Configuración y personalización manual de una configuración de inicio de sesión único |[Configuración del inicio de sesión único federado en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)<br /><br />[Personalización de notificaciones emitidas en el token SAML para aplicaciones previamente integradas en Azure Active Directory](active-directory-saml-claims-customization.md) |
 | Guía de solución de problemas de aplicaciones federadas que utilizan el protocolo SAML |[Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](develop/howto-v1-debug-saml-sso-issues.md) |
 | Configuración de la fecha de expiración del certificado de la aplicación y renovación de certificados |[Administración de certificados para inicio de sesión único federado en Azure Active Directory](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
@@ -70,7 +70,7 @@ Para habilitar el inicio de sesión único en aplicaciones que no son compatible
 | Una introducción al funcionamiento de SSO con contraseña y una breve introducción técnica |[Inicio de sesión único con contraseña](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on) |
 | Un resumen de los escenarios relacionados con el uso compartido de cuentas y la forma en que Azure AD resuelve estos problemas |[Uso compartido de cuentas con Azure AD](active-directory-sharing-accounts.md) |
 | Cambio automático de la contraseña de ciertas aplicaciones a intervalos regulares |[Sustitución automática de contraseña (vista previa)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
-| Guías de implementación y solución de problemas de la versión de Internet Explorer de la extensión de administración de contraseñas de Azure AD |[Implementación de la extensión del Panel de acceso para Internet Explorer mediante la directiva de grupo](active-directory-saas-ie-group-policy.md)<br /><br />[Solución de problemas de la extensión del Panel de acceso para Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
+| Guías de implementación y solución de problemas de la versión de Internet Explorer de la extensión de administración de contraseñas de Azure AD |[Implementación de la extensión del Panel de acceso para Internet Explorer mediante la directiva de grupo](manage-apps/deploy-access-panel-browser-extension.md)<br /><br />[Solución de problemas de la extensión del Panel de acceso para Internet Explorer](manage-apps/manage-access-panel-browser-extension.md) |
 
 El inicio de sesión único con contraseña está disponible para todas las ediciones de Azure AD para un máximo de diez aplicaciones por usuario. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) admite un número ilimitado de aplicaciones. Si la organización tiene [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), se pueden [utilizar grupos para asignar el acceso a las aplicaciones](#managing-access-to-applications). La sustitución automática de contraseña es una característica de [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
 
@@ -130,11 +130,11 @@ Automatice la creación, el mantenimiento y la eliminación de identidades de us
 
 | Guía de artículos |  |
 |:---:| --- |
-| Información acerca de su funcionamientos y respuestas a preguntas comunes |[Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md) |
-| Configuración de cómo se asigna información entre Azure AD y una aplicación SaaS |[Personalización de asignaciones de atributos](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Escritura de expresiones para la asignación de atributos](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
+| Información acerca de su funcionamientos y respuestas a preguntas comunes |[Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](manage-apps/user-provisioning.md) |
+| Configuración de cómo se asigna información entre Azure AD y una aplicación SaaS |[Personalización de asignaciones de atributos](manage-apps/customize-application-attributes.md)<br><br>[Escritura de expresiones para asignaciones de atributos](manage-apps/functions-for-customizing-application-data.md) |
 | Habilitación del aprovisionamiento automático en todas las aplicaciones que admitan el protocolo SCIM |[Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](manage-apps/use-scim-to-provision-users-and-groups.md) |
-| Cómo notificar y solucionar problemas de aprovisionamiento de usuarios |[Notificación del aprovisionamiento automático de usuarios](active-directory-saas-provisioning-reporting.md)<br><br>[Solución de problemas con aprovisionamiento de usuarios](active-directory-application-provisioning-content-map.md) |
-| Limitación de quiénes se aprovisionan en una aplicación en función de los valores de sus atributos |[Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](active-directory-saas-scoping-filters.md) |
+| Cómo notificar y solucionar problemas de aprovisionamiento de usuarios |[Notificación del aprovisionamiento automático de usuarios](manage-apps/check-status-user-account-provisioning.md)<br><br>[Solución de problemas con aprovisionamiento de usuarios](active-directory-application-provisioning-content-map.md) |
+| Limitación de quiénes se aprovisionan en una aplicación en función de los valores de sus atributos |[Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](manage-apps/define-conditional-rules-for-provisioning-user-accounts.md) |
 
 El aprovisionamiento automático de usuarios está disponible para todas las ediciones de Azure AD para un máximo de diez aplicaciones por usuario. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) admite un número ilimitado de aplicaciones. Si la organización tiene [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) o [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), se pueden [utilizar grupos para administrar los usuarios que se aprovisionan](#managing-access-to-applications).
 

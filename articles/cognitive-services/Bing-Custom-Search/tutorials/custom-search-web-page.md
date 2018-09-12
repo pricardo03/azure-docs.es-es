@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: c1431ec852cab943e00d3933ef4f0500a4fdb151
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1f9b689ac6127bc2f7d1e810356ae9a23b8e0996
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381022"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162400"
 ---
 # <a name="build-a-custom-search-web-page"></a>Creación de una página web de Custom Search
 Bing Custom Search le permite crear experiencias de búsqueda a medida de los temas que le interesan. Por ejemplo, si tiene un sitio web de artes marciales que proporciona una experiencia de búsqueda, puede especificar los dominios, subsitios y páginas web en las que busque Bing. Los usuarios ven los resultados de búsqueda adaptados al contenido que les interesa en lugar de recorrer las páginas de resultados de búsqueda generales que pueden contener contenido carente de interés. 
@@ -30,11 +30,11 @@ Las tareas que se tratan son:
 > - Agregar entradas ancladas
 > - Integrar la búsqueda personalizada en una página web
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 - Para seguir con el tutorial, necesita una clave de suscripción para Bing Custom Search API.  Para obtener una clave, consulte [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
 - Si aún no tiene Visual Studio de 2017 instalado, puede descargar y usar la versión **gratis** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
 
-## <a name="create-a-custom-search-instance"></a>Crear una instancia de búsqueda personalizada
+## <a name="create-a-custom-search-instance"></a>Creación de una instancia de búsqueda personalizada
 Para crear una instancia de Bing Custom Search:
 
 1.  Abra un explorador de Internet.
@@ -96,7 +96,7 @@ Custom Search proporciona una interfaz de usuario hospedada para presentar la re
 
     ![Captura de pantalla del paso de configuraciones adicionales de la UI hospedada](./media/custom-search-hosted-ui-subscription-key.png)
 
-[!INCLUDE[publish or revert](../includes/publish-revert.md)]
+[!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
 <a name="consuminghostedui"></a>
 ## <a name="consuming-hosted-ui"></a>Consumo de la UI hospedada

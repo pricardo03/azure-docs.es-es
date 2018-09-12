@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 57d017e2320e5cfea15f1716bc3b6518606e2ea4
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: fc0ccd84f493fd69c84515331386592ec11a887e
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282259"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025300"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos
 
@@ -27,7 +27,7 @@ Si tiene código que necesita tener acceso a ciertos recursos o modificarlos, de
 En este artículo se muestra cómo realizar estos pasos en el portal. Se centra en una aplicación de un único inquilino donde la aplicación está diseñada para ejecutarse en una sola organización. Normalmente, utiliza aplicaciones de inquilino único para aplicaciones de línea de negocio que se ejecutan dentro de su organización.
 
 > [!IMPORTANT]
-> En lugar de crear una entidad de servicio, considere el uso de la identidad de servicio administrada de Azure AD para la identidad de la aplicación. La identidad de servicio administrada de Azure AD es una característica pública en versión preliminar de Azure Active Directory que simplifica la creación de una identidad para el código. Si el código se ejecuta en un servicio que admite la a identidad de servicio administrada de Azure AD y tiene acceso a recursos que admiten la autenticación de Azure Active Directory, la identidad de servicio administrada de Azure AD es una opción mejor para usted. Para obtener más información sobre la identidad de servicio administrada de Azure AD, incluidos los servicios que actualmente lo admiten, consulte [Managed Service Identity for Azure resources](../active-directory/managed-service-identity/overview.md) (Identidad de servicio administrada para recursos de Azure).
+> En lugar de crear una entidad de servicio, considere el uso de la identidad de servicio administrada de Azure AD para la identidad de la aplicación. La identidad de servicio administrada de Azure AD es una característica pública en versión preliminar de Azure Active Directory que simplifica la creación de una identidad para el código. Si el código se ejecuta en un servicio que admite la a identidad de servicio administrada de Azure AD y tiene acceso a recursos que admiten la autenticación de Azure Active Directory, la identidad de servicio administrada de Azure AD es una opción mejor para usted. Para obtener más información sobre la identidad de servicio administrada de Azure AD, incluidos los servicios que actualmente lo admiten, consulte [Managed Service Identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) (Identidad de servicio administrada para recursos de Azure).
 
 ## <a name="required-permissions"></a>Permisos necesarios
 

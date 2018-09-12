@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: spelluru
-ms.openlocfilehash: ff0e3124168927d03816079a4f5ab322663459ac
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e6dd30fc8da919995849ba818f608604a57a0b37
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702459"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346833"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Captura previa de mensajes de Azure Service Bus
 
@@ -44,7 +44,7 @@ Con modo de recepción [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messa
 
 En el modo de recepción [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock), los mensajes capturados en el búfer de captura previa se adquieren en el búfer en un estado bloqueado y se selecciona el reloj de tiempo de espera para el bloqueo. Si el búfer de captura previa es grande y el procesamiento tarda tanto tiempo que expiran los bloqueos de ese mensaje mientras reside en el búfer de captura previa o incluso mientras la aplicación está procesando el mensaje, puede haber algunos eventos confusos que aplicación tenga que controlar.
 
-La aplicación podría adquirir un mensaje con un bloqueo que haya expirado o que esté a punto a punto de expirar. Si es así, la aplicación puede procesar el mensaje, pero, después, encuentra que no puede completarlo debido a la expiración de un bloqueo. La aplicación puede comprobar la propiedad [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc) (que está sujeta a desfases del reloj entre el reloj del agente y de la máquina local). Si el bloqueo del mensaje ha expirado, la aplicación debe ignorar el mensaje; no debe realizarse ninguna llamada de API en el mensaje o con él. Si el mensaje no ha expirado pero la expiración es inminente, el bloqueo se puede renovar y ampliar durante otro período de bloqueo predeterminado mediante una llamada a [message. RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_).
+La aplicación podría adquirir un mensaje con un bloqueo que haya expirado o que esté a punto a punto de expirar. Si es así, la aplicación puede procesar el mensaje, pero, después, encuentra que no puede completarlo debido a la expiración de un bloqueo. La aplicación puede comprobar la propiedad [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) (que está sujeta a desfases del reloj entre el reloj del agente y de la máquina local). Si el bloqueo del mensaje ha expirado, la aplicación debe ignorar el mensaje; no debe realizarse ninguna llamada de API en el mensaje o con él. Si el mensaje no ha expirado pero la expiración es inminente, el bloqueo se puede renovar y ampliar durante otro período de bloqueo predeterminado mediante una llamada a [message. RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_).
 
 Si el bloqueo expira en modo silencioso en el búfer de captura previa, el mensaje se trata como abandonado y de nuevo estará disponible para su recuperación desde la cola. Esto puede provocar que se capture en el búfer de captura previa; colocado al final. Si no se suele trabajar en el búfer de captura previa durante la expiración de los mensajes, esto provoca que los mensajes se capturen de manera previa repetidamente pero que nunca se entreguen de manera eficaz en un estado utilizable (legítimamente bloqueado) y finalmente se mueven en la cola de mensajes fallidos una vez que se ha superado el número máximo de entregas.
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: 0f4d5105b7266ba24fc5efa9af887b4458c05d5e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 3aa452cd178bd0d064726c5be7dbdf65c6ef8d92
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186203"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160055"
 ---
 # <a name="iot-hub-operations-monitoring"></a>Supervisión de operaciones de IoT Hub
 
@@ -186,26 +186,6 @@ La categoría de enrutamiento de mensajes realiza un seguimiento de los errores 
 }
 ```
 
-## <a name="view-events"></a>Ver eventos
-
-Puede usar la herramienta *iothub-explorer* para probar de forma rápida que IoT Hub está generando eventos de supervisión. Para instalar la herramienta, vea las instrucciones en el repositorio de GitHub [iothub-explorer][lnk-iothub-explorer].
-
-1. Asegúrese de que la categoría de supervisión **Conexiones** se establece en **Detallado** en el portal.
-
-1. En una línea de comandos, ejecute el comando siguiente para leer desde el punto de conexión de supervisión:
-
-    ```
-    iothub-explorer monitor-ops --login {your iothubowner connection string}
-    ```
-
-1. En otra línea de comandos, ejecute el siguiente comando para simular un dispositivo que envía mensajes de dispositivo a nube:
-
-    ```
-    iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
-    ```
-
-1. La primera línea de comandos muestra los eventos de supervisión cuando el dispositivo simulado se conecta a IoT Hub.
-
 ## <a name="connect-to-the-monitoring-endpoint"></a>Conexión con el punto de conexión de supervisión
 
 El punto de conexión de supervisión en su centro de IoT es un punto de conexión compatible con centros de eventos. Puede utilizar cualquier mecanismo que funcione con Event Hubs para leer mensajes de supervisión desde este punto de conexión. El ejemplo siguiente crea un lector básico que no es apto para una implementación de alta capacidad de procesamiento. Para más información sobre cómo procesar los mensajes de los Centros de eventos, consulte el tutorial [Introducción a Event Hubs][lnk-eventhubs-tutorial].
@@ -303,5 +283,4 @@ Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md

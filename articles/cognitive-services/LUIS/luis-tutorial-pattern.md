@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: diberry
-ms.openlocfilehash: 355c1edd4fa7433e68a9c0e903f4f782203326fe
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9c14f2121cd83cec802f4fd4a92661d58eb7efb3
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365885"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159580"
 ---
 # <a name="tutorial-improve-app-with-patterns"></a>Tutorial: Mejorar la aplicación con patrones
 
@@ -26,7 +26,7 @@ En este tutorial, use patrones para mejorar la predicción de intenciones y enti
 * Cómo crear un patrón
 * Cómo comprobar las mejoras de la predicción de patrones
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -114,15 +114,15 @@ La cantidad de expresiones de ejemplo en estas intenciones no es suficiente para
 
 ## <a name="train-the-luis-app"></a>Entrenamiento de la aplicación de LUIS
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicación de la aplicación para obtener la dirección URL del punto de conexión
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Consulta del punto de conexión con una expresión diferente
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Vaya al final de la dirección URL en la dirección y escriba `Who is the boss of Jill Jones?`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. 
 
@@ -355,9 +355,9 @@ Las expresiones de ejemplo son:
 
 |Intención|Expresiones de ejemplo con texto opcional y entidades creadas previamente|
 |:--|:--|
-|Organigrama-Administrador|`Who was Jill Jones manager on March 3?`|
-|Organigrama-Administrador|`Who is Jill Jones manager now?`|
-|Organigrama-Administrador|`Who will be Jill Jones manager in a month?`|
+|OrgChart-Manager (Organigrama-Administrador)|`Who was Jill Jones manager on March 3?`|
+|OrgChart-Manager (Organigrama-Administrador)|`Who is Jill Jones manager now?`|
+|OrgChart-Manager (Organigrama-Administrador)|`Who will be Jill Jones manager in a month?`|
 |Organigrama-Administrador|`Who will be Jill Jones manager on March 3?`|
 
 Cada uno de estos ejemplos usa un tiempo verbal, `was`, `is`, `will be`, así como una fecha, `March 3`, `now` y `in a month`, que LUIS debe predecir correctamente. Observe que los dos últimos ejemplos usan casi el mismo texto, excepto para `in` y `on`.
@@ -365,9 +365,9 @@ Cada uno de estos ejemplos usa un tiempo verbal, `was`, `is`, `will be`, así co
 Expresiones de plantilla de ejemplo:
 |Intención|Expresiones de ejemplo con texto opcional y entidades creadas previamente|
 |:--|:--|
-|Organigrama-Administrador|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
-|Organigrama-Administrador|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
-|Organigrama-Administrador|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager (Organigrama-Administrador)|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
+|OrgChart-Manager (Organigrama-Administrador)|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager (Organigrama-Administrador)|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
 |Organigrama-Administrador|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
 El uso de la sintaxis opcional de corchetes, `[]`, facilita la adición de este texto opcional a la expresión de plantilla y se pueden anidar hasta un segundo nivel, `[[]]` e incluir entidades o texto.
@@ -424,7 +424,7 @@ Todas estas expresiones encuentran las entidades, por lo tanto coinciden con el 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

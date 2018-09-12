@@ -3,26 +3,21 @@ title: Llamada a una función de Azure desde Microsoft Flow | Microsoft Docs
 description: Cree un conector personalizado y después llame a una función mediante ese conector.
 services: functions
 keywords: aplicaciones de nube, servicios en la nube, Microsoft Flow, procesos empresariales, aplicación empresarial
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 57d80ad836a16b8821ba0cce42c822728c654dfd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 662c78fc7074b0dafc53c393962aa4b578779095
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467751"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092265"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Llamada a una función desde Microsoft Flow
 
@@ -41,7 +36,7 @@ En este tema, aprenderá cómo:
 > * Crear un flujo para enviar correo electrónico si una reparación es rentable.
 > * Ejecutar el flujo.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 + Una [cuenta de Microsoft Flow](https://flow.microsoft.com/documentation/sign-up-sign-in/) activa con las mismas credenciales de inicio de sesión que la cuenta de Azure. 
 + SharePoint, que se usa como un origen de datos para este flujo. Si aún no tiene SharePoint, suscríbase a [una evaluación gratuita de Office 365](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1).
@@ -234,7 +229,7 @@ Ahora que se ha completado el flujo, agregará una fila a la lista de SharePoint
     | **Título**           | Turbina 60 |
     | **LastServiceDate** | 08/04/2017 |
     | **MaxOutput**       | 2.500 |
-    | **ServiceRequired** | Sí |
+    | **ServiceRequired** | SÍ |
     | **EstimatedEffort** | 10 |
 
 3. Haga clic en **Done**(Listo).

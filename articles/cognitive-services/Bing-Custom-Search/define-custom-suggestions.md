@@ -9,12 +9,12 @@ ms.technology: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: a41b4e5b6c268ec68488c6764d4192cf8d2345a4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e7a62a79bdc2e486fb6bfca34eb4addeba2bde0e
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380990"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158320"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configuración de experiencia de Custom Autosuggest
 Si está suscrito a Custom Search en el nivel adecuado (consulte las [páginas de precios](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), puede personalizar las sugerencias de búsqueda realizadas en su experiencia de Custom Search. Custom Autosuggest devuelve una lista de consultas sugeridas basándose en una cadena de consulta parcial proporcionada por el usuario. Con Custom Autosuggest, proporcione sugerencias de búsqueda personalizada pertinentes para su experiencia de búsqueda. Especifique si desea devolver solo sugerencias personalizadas o también incluir sugerencias de Bing. Si incluye sugerencias de Bing, las sugerencias personalizadas aparecen antes de las sugerencias de Bing. Las sugerencias de Bing están restringidas al contexto de la instancia de Custom Search.
@@ -38,7 +38,7 @@ Puede cargar una lista de sugerencias de un archivo. Coloque cada sugerencia en 
 ## <a name="remove-suggestions"></a>Eliminación de sugerencias
 Para quitar una sugerencia, haga clic en el icono de eliminación situado junto a la sugerencia que desea quitar.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
   >[!NOTE]  
   >La configuración de Custom Autosuggest puede tardar hasta 24 horas en surtir efecto.

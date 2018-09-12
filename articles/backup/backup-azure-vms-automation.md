@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 8/06/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d8e2d3e6a303009f5718a86772cdc3db8ed332a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: faa0908f9317c10713c41d06a22e9251998fe3c7
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523859"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378455"
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Uso de los cmdlets AzureRM.RecoveryServices.Backup para realizar copias de seguridad de máquinas virtuales
 
@@ -450,7 +450,7 @@ El cifrado de discos de datos debe habilitarse manualmente mediante el comando s
    En el caso de máquinas virtuales administradas y no cifradas, deberá crear discos administrados desde Blob Storage y, después, adjuntar los discos. Para obtener información detallada, vea el artículo [Adjuntar un disco de datos a una máquina virtual de Windows mediante PowerShell](../virtual-machines/windows/attach-disk-ps.md). En el ejemplo de código siguiente se muestra cómo adjuntar discos de datos para máquinas virtuales administradas y no cifradas.
 
     ```
-    PS C:\> $storageType = "StandardLRS"
+    PS C:\> $storageType = "Standard_LRS"
     PS C:\> $osDiskName = $vm.Name + "_osdisk"
     PS C:\> $osVhdUri = $obj.'properties.storageProfile'.osDisk.vhd.uri
     PS C:\> $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $osVhdUri
@@ -473,7 +473,7 @@ El cifrado de discos de datos debe habilitarse manualmente mediante el comando s
      ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
     PS C:\> $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
-    PS C:\> $storageType = "StandardLRS"
+    PS C:\> $storageType = "Standard_LRS"
     PS C:\> $osDiskName = $vm.Name + "_osdisk"
     PS C:\> $osVhdUri = $obj.'properties.storageProfile'.osDisk.vhd.uri
     PS C:\> $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $osVhdUri
@@ -503,7 +503,7 @@ El cifrado de discos de datos debe habilitarse manualmente mediante el comando s
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
     PS C:\> $kekUrl = "https://ContosoKeyVault.vault.azure.net:443/keys/ContosoKey007/x9xxx00000x0000x9b9949999xx0x006"
     PS C:\> $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
-    PS C:\> $storageType = "StandardLRS"
+    PS C:\> $storageType = "Standard_LRS"
     PS C:\> $osDiskName = $vm.Name + "_osdisk"
     PS C:\> $osVhdUri = $obj.'properties.storageProfile'.osDisk.vhd.uri
     PS C:\> $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $osVhdUri

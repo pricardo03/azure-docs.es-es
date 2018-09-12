@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/09/2018
 ms.author: mlandzic
 manager: craigg
-ms.openlocfilehash: afecd69cdf9832e1c6dc294ca01968ee50a3eabd
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 73990d6feeed56114bc3c66164bbb53c093bbe21
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920095"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050618"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-managed-instance"></a>Migración de certificados de una base de datos protegida por TDE a Instancia administrada de Azure SQL
 
@@ -141,4 +141,4 @@ El certificado ya está disponible para la instancia administrada especificada y
 
 En este artículo, aprendió a migrar el certificado que protege la clave de cifrado de base de datos con Cifrado de datos transparente, de una instancia local o IaaS de SQL Server a Instancia administrada de Azure SQL.
 
-Para saber cómo restaurar la copia de seguridad de una base de datos en Instancia administrada de Azure SQL Database, consulte [Restauración de una copia de seguridad de datos en una instancia administrada de Azure SQL Database](sql-database-managed-instance-restore-from-backup-tutorial.md).
+Para saber cómo restaurar la copia de seguridad de una base de datos en Instancia administrada de Azure SQL Database, consulte [Restauración de una copia de seguridad de datos en una instancia administrada de Azure SQL Database](sql-database-managed-instance-get-started-restore.md).

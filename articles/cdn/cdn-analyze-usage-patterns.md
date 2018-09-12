@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: fa828bfa736d677fb4881e5cc2628c0e03eb8749
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: d10a40d03f0f76676e70afdec94e9adfaa0dd09f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26345254"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162077"
 ---
 # <a name="core-reports-from-verizon"></a>Informes principales de Verizon
 
-[!INCLUDE[cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 Mediante el uso de los informes principales de Verizon a través del portal de administración para perfiles de Verizon, puede ver los patrones de uso de la red CDN con los siguientes informes:
 
@@ -39,7 +39,7 @@ Mediante el uso de los informes principales de Verizon a través del portal de a
    
     ![Botón de administración del perfil de la red CDN](./media/cdn-reports/cdn-manage-btn.png)
    
-    Se abre el portal de administración de CDN.
+    Se abre el Portal de administración de CDN.
 2. Mueva el puntero sobre la pestaña **Análisis** y después sobre el control flotante **Core Reports** (Informes básicos). Haga clic en un informe en el menú.
    
     ![Portal de administración de la red CDN - menú Core Reports (Informes básicos)](./media/cdn-reports/cdn-core-reports.png)

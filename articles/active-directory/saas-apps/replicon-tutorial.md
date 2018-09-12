@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 10f4749524c4d4b35b83e5637d35f4ef9a8f9ab6
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 7edfe5a115caf4ee6e4677e5fd7f324b8f3873ee
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041337"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159051"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Tutorial: Integración de Azure Active Directory con Replicon
 
@@ -177,7 +177,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="create-a-replicon-test-user"></a>Crear un usuario de prueba de Replicon
 
-El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Replicon. Replicon admite el aprovisionamiento automático de usuarios, que está habilitado de forma predeterminada. [Aquí](replicon-provisioning-tutorial.md) puede encontrar más información sobre cómo configurar el aprovisionamiento automático de usuarios.
+El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Replicon.
 
 **Para crear un usuario manualmente, siga los pasos siguientes:**
 
@@ -249,7 +249,6 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configuración del aprovisionamiento de usuarios](replicon-provisioning-tutorial.md)
 
 <!--Image references-->
 

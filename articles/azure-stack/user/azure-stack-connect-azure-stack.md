@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/22/2017
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 21015d31a738d3ad57048fe4a703bf78dda7e40c
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e982df514784c37de29c9931da063f37d6886655
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865777"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377334"
 ---
 # <a name="connect-to-azure-stack"></a>Conexión a Azure Stack
 
@@ -45,7 +45,7 @@ Puede establecer un túnel de conexión de red privada virtual (VPN) al Kit de d
 > [!NOTE] 
 > Esta conexión VPN no proporciona conectividad a las máquinas virtuales de infraestructura de Azure Stack. 
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 * Instale [Azure PowerShell compatible con Azure Stack](azure-stack-powershell-install.md) en el equipo local.  
 * Descargue las [herramientas necesarias para trabajar con Azure Stack](azure-stack-powershell-download.md). 

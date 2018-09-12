@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 673b1144fe927e0619f5f8638d7e8ce9a181f48c
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: cea59d061dadfa3e10330cbce7b6005a286524cc
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248527"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024173"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Uso del portal de administración de Azure Stack
 
@@ -33,18 +33,18 @@ En un entorno de kit de desarrollo, primero deberá asegurarse de que puede [con
 
 Para acceder al portal de administración, vaya a la dirección URL del portal e inicie sesión con las credenciales de un operador de Azure Stack. En un sistema integrado, la dirección URL del portal varía según el nombre de la región y el nombre de dominio completo (FQDN) externo de la implementación de Azure Stack.
 
-| Environment | Dirección URL del portal de administración |   
+| Entorno | Dirección URL del portal de administración |   
 | -- | -- | 
 | Kit de desarrollo| https://adminportal.local.azurestack.external  |
 | Sistemas integrados | https://adminportal.&lt;*región*&gt;.&lt;*FQDN*&gt; | 
 | | |
 
- ![El portal de administración](media/azure-stack-manage-portals/image1.png)
+ ![El portal de administración](media/azure-stack-manage-portals/admin-portal.png)
 
 En el portal de administración, puede hacer cosas como las siguientes:
 
 * Administrar la infraestructura (lo que incluye el mantenimiento, las actualizaciones y la capacidad del sistema, entre otros)
-* Rellenar Marketplace
+* Rellenado de Marketplace
 * Crear suscripciones para los usuarios
 * Crear planes y ofertas
 

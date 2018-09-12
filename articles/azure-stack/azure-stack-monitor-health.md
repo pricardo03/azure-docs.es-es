@@ -6,20 +6,19 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 69901c7b-4673-4bd8-acf2-8c6bdd9d1546
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 9/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: e20670476f4549a06d80d5f85e2ebd8ab1f50b05
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 69ed08e8f6c820790c432bfa25988e038fd0efbd
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047248"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379696"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Supervisar el estado y las alertas en Azure Stack
 
@@ -37,11 +36,11 @@ Azure Stack incluye funciones de supervisión de infraestructura que le permiten
 
 En Azure Stack las alertas se crean con solo dos niveles de severidad: **advertencia** y **crítica**.
 
-**Warning (ADVERTENCIA)**  
-Un operador puede abordar la alerta de advertencia de manera programada. Esta alerta generalmente no afecta a las cargas de trabajo del usuario.
+- **Warning (ADVERTENCIA)**  
+  Un operador puede abordar la alerta de advertencia de manera programada. Esta alerta generalmente no afecta a las cargas de trabajo del usuario.
 
-**Critical)** (Crítico)  
-Un operador debe abordar la alerta crítica con urgencia. Estos son problemas que actualmente afectan o que pronto afectarán a los usuarios de Azure Stack. 
+- **Critical)** (Crítico)  
+  Un operador debe abordar la alerta crítica con urgencia. Estos son problemas que actualmente afectan o que pronto afectarán a los usuarios de Azure Stack. 
 
  
  ## <a name="view-and-manage-component-health-state"></a>Ver y administrar el estado de mantenimiento de un componente
@@ -54,8 +53,8 @@ Para ver el estado de mantenimiento en el portal, haga clic en la región que qu
 
 Puede hacer clic en un proveedor de recursos o rol de infraestructura para ver información más detallada.
 
-> [!WARNING]
->Si hace clic en un rol de infraestructura y, luego, hace clic en la instancia de rol, hay opciones para iniciar, reiniciar o apagar. No use estas acciones al aplicar actualizaciones a un sistema integrado. **No** use tampoco estas opciones en un entorno del Kit de desarrollo de Azure Stack. Estas opciones están diseñadas únicamente para un entorno de sistemas integrados, donde hay más de una instancia de rol por rol de infraestructura. Reiniciar una instancia de rol (especialmente AzS-Xrp01) en el kit de desarrollo provoca inestabilidad del sistema. Para obtener asistencia para solucionar problemas, publique su problema en el [foro de Azure Stack](https://aka.ms/azurestackforum).
+> [!WARNING]  
+> Si hace clic en un rol de infraestructura y, luego, hace clic en la instancia de rol, hay opciones para iniciar, reiniciar o apagar. No use estas acciones al aplicar actualizaciones a un sistema integrado. **No** use tampoco estas opciones en un entorno del Kit de desarrollo de Azure Stack. Estas opciones están diseñadas únicamente para un entorno de sistemas integrados, donde hay más de una instancia de rol por rol de infraestructura. Reiniciar una instancia de rol (especialmente AzS-Xrp01) en el kit de desarrollo provoca inestabilidad del sistema. Para obtener asistencia para solucionar problemas, publique su problema en el [foro de Azure Stack](https://aka.ms/azurestackforum).
 >
  
 ## <a name="view-alerts"></a>Visualización de alertas

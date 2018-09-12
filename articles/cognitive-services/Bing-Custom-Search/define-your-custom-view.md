@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 8ffe3087df398d6310828e41d0c6992199fafbed
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8ef8aabc7363db88317a6428301512b0a0d4c055
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381027"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158779"
 ---
 # <a name="configure-your-custom-search-experience"></a>Configuración de la experiencia de búsqueda personalizada
 Una instancia de Custom Search le permite adaptar la experiencia de búsqueda para incluir contenido solo de sitios web que interesan a los usuarios. En lugar de realizar una búsqueda en toda la Web, Bing solo busca el sector de la Web que le interesa.
@@ -113,7 +113,7 @@ Siga estos pasos para usar Bing para agregar sectores a la instancia de búsqued
 5.  Haga clic en **Add site** (Agregar sitio) junto al resultado que quiere incluir.
 6.  Haga clic en el botón **Ok** (Aceptar).
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="view-statistics"></a>Visualización de estadísticas
 Si se ha suscrito a Custom Search en el nivel adecuado (consulte los [planes de tarifa](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), se agrega una pestaña **Statistics** (Estadísticas) a las instancias de producción. En la pestaña de estadísticas se muestra información detallada sobre cómo se usan los puntos de conexión de Custom Search, como el volumen de llamadas, las mejores consultas, la distribución geográfica, los códigos de respuesta y la búsqueda segura. Puede filtrar esta información mediante los controles proporcionados.
@@ -126,7 +126,7 @@ Si se ha suscrito a Custom Search en el nivel adecuado (consulte los [planes de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Llamar a la búsqueda personalizada](./search-your-custom-view.md)
+- [Call your custom search](./search-your-custom-view.md) (Llamada a la búsqueda personalizada)
 - [Configuración de la experiencia de interfaz de usuario hospedada](./hosted-ui.md)
 - [Uso de marcadores de decoración para resaltar texto](./hit-highlighting.md)
 - [Paginación de páginas web](./page-webpages.md)

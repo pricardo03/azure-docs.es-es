@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: spelluru
-ms.openlocfilehash: 100559f86a72cd5a5148d1db99764e5b04f3e3b1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 44c25aa589b757ec29dad6863ff1969e76aed872
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702483"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346243"
 ---
 # <a name="messages-payloads-and-serialization"></a>Mensajes, cargas y serialización
 
@@ -36,7 +36,7 @@ Los nombres equivalentes usados en el nivel de protocolo AMQP aparecen entre par
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) (content-type)           | Opcionalmente, describe la carga del mensaje con un descriptor que obedece el formato de RFC2045, sección 5, por ejemplo, `application/json`.                                                                                                                                                                                                                                                                                             |
 |  [CorrelationId](/dotnet/api/microsoft.azure.servicebus.message.correlationid#Microsoft_Azure_ServiceBus_Message_CorrelationId) (correlation-id)       | Permite que una aplicación especifique un contexto del mensaje con fines de correlación, por ejemplo, que refleje el elemento **MessageId** de un mensaje que se ha respondido.                                                                                                                                                                                                                                                                  |
-| [DeadLetterSource](/dotnet/api/microsoft.azure.servicebus.message.deadlettersource)                      | Solo se establece en aquellos mensajes fallidos y posteriormente reenviados automáticamente de la cola de mensajes fallidos a otra entidad. Indica la entidad donde se encontraba el mensaje fallido. Esta propiedad es de solo lectura.                                                                                                                                                                                                                                  |
+| [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource)                      | Solo se establece en aquellos mensajes fallidos y posteriormente reenviados automáticamente de la cola de mensajes fallidos a otra entidad. Indica la entidad donde se encontraba el mensaje fallido. Esta propiedad es de solo lectura.                                                                                                                                                                                                                                  |
 | [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deliverycount)                         | Número de entregas que se han intentado para este mensaje. El recuento se incrementa cuando expira un bloqueo del mensaje o si el mensaje lo abandona explícitamente el receptor. Esta propiedad es de solo lectura.                                                                                                                                                                                                                                                  |
 | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber)                | Para los mensajes que se reenvían de manera automática, esta propiedad refleja el número de secuencia que primero se había asignado al mensaje en su momento del envío original. Esta propiedad es de solo lectura.                                                                                                                                                                                                                                                                |
 | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc)                       | El instante en hora UTC en el que el mensaje se ha aceptado y almacenado en la entidad. Este valor puede usarse como un indicador de hora de llegada autoritativo y neutro cuando el receptor no desea confiar en el reloj del remitente. Esta propiedad es de solo lectura.                                                                                                                                                                                                   |

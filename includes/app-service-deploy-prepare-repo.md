@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 1c2a4f1e463fff278981de2297662a94cca8944e
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: c212bda3b59037f99139e02ee6adc63b0084cbe5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850811"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44305621"
 ---
 ## <a name="prepare-your-repository"></a>Preparación del repositorio
 
@@ -34,7 +34,7 @@ Para obtener compilaciones automáticas del servidor de compilación de Kudu par
 Para personalizar la implementación puede incluir un archivo _.deployment_ en la raíz del repositorio. Para más información, consulte el artículo sobre la [personalización de las implementaciones](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) y el artículo sobre el [script de implementación personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 
 > [!NOTE]
-> Si desarrolla en Visual Studio, deje que [Visual Studio cree un repositorio en su lugar](/vsts/git/tutorial/creatingrepo?view=vsts&tabs=visual-studio). El proyecto está listo inmediatamente para su implementación mediante Git.
+> Si desarrolla en Visual Studio, deje que [Visual Studio cree un repositorio en su lugar](/azure/devops/repos/git/creatingrepo?view=vsts&tabs=visual-studio). El proyecto está listo inmediatamente para su implementación mediante Git.
 >
 >
 

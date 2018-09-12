@@ -1,10 +1,26 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: iot-hub
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 09/07/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 73b7604e3072e76c69383481259e1cd8990f4df4
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44168745"
+---
 ## <a name="extended-iot-scenarios"></a>Escenarios de IoT ampliados
 
 Use otras herramientas y servicios de Azure. Cuando el dispositivo se ha conectado a IoT Hub, puede explorar escenarios adicionales que utilizan otras herramientas y servicios de Azure:
 
 | Escenario                                                   | Herramienta o servicio de Azure              |
 |----------------------------------------------------------- |------------------------------------|
-| [Administración de mensajes de IoT Hub][Mg_IoT_Hub_Msg]                  | herramienta iothub-explorer               |
 | [Administración de mensajes de IoT Hub][Mg_IoT_Toolkit]                  | Extensión del kit de herramientas de IoT de Azure de VS Code|
 | [Administración de su dispositivo IoT][Mg_IoT_Dv]                        | CLI de Azure 2.0 y la extensión de IoT|
 | [Administración de su dispositivo IoT][Mg_IoT_Dv_Toolkit]                | Extensión del kit de herramientas de IoT de Azure de VS Code|
@@ -19,7 +35,6 @@ Use otras herramientas y servicios de Azure. Cuando el dispositivo se ha conecta
 Cuando se hayan completado estos tutoriales, puede explorar aún más las funcionalidades de IoT Hub mediante la [guía del desarrollador][lnk-dev-guide]. Puede encontrar más tutoriales en la sección [Cómo][lnk-how-to].
 
 
-[Mg_IoT_Hub_Msg]: ../articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md
 [Mg_IoT_Toolkit]: ../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
 [Mg_IoT_Dv]: ../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md
 [Mg_IoT_Dv_Toolkit]: ../articles/iot-hub/iot-hub-device-management-iot-toolkit.md
