@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 90c18af0f846061c102f1daf1b84a332aaec1dc6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 1e908a8cf5576ce3bc3d58d1ef6f29d596ebc58b
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234183"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158184"
 ---
 # <a name="validate-a-new-azure-stack-solution"></a>Validación de una nueva solución de Azure Stack
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Obtenga información sobre cómo puede usar el flujo de trabajo de validación de soluciones para la certificación nuevas soluciones de Azure Stack.
 
@@ -76,7 +76,7 @@ Agregue los siguientes parámetros del entorno:
 | Id. de inquilino | Obligatorio | Identificador del inquilino de Active Directory. Esto debe ser un GUID (por ejemplo ECA23256-6BA0-4F27-8E4D-AFB02F088363) |
 | Region | Obligatorio | Región de implementación de Azure Stack |
 | Punto de conexión de Resource Manager del inquilino | Obligatorio | Punto de conexión para las operaciones de Azure Resource Manager del inquilino (por ejemplo, https://management.loc-ext.domain.com)) |
-| Punto de conexión de Resource Manager de administración | No se requiere | Punto de conexión para las operaciones de Azure Resource Manager del inquilino (por ejemplo, https://management.loc-ext.domain.com)) |
+| Punto de conexión de Resource Manager de administrador | No se requiere | Punto de conexión para las operaciones de Azure Resource Manager del inquilino (por ejemplo, https://management.loc-ext.domain.com)) |
 | FQDN externo | No se requiere | Nombre de dominio completo externo utilizado como sufijo para los puntos de conexión. (Por ejemplo, local.azurestack.external o redmond.contoso.com) |
 | Número de nodos | Obligatorio | Número de nodos de la solución. |
 

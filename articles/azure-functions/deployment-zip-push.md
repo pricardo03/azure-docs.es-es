@@ -5,21 +5,17 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: 06124a0a0db47d76552ddf2172a7f656c6d869cf
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: d7396ddb94017048247050726f83b0302e946633
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818474"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347127"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Implementación de archivos ZIP en Azure Functions
 
@@ -97,7 +93,7 @@ También puede ejecutar las funciones directamente desde el archivo del paquete 
 > [!NOTE]
 > La capacidad de ejecutar la aplicación de función desde el paquete de implementación se encuentra en versión preliminar.
 
-La implementación de ZIP se integra con esta característica, que se puede habilitar al configurar la opción de la aplicación de función `WEBSITE_RUN_FROM_ZIP` en un valor de `1`. Para más información, consulte [Run your functions from a deployment package file](run-functions-from-deployment-package.md) (Ejecución de Azure Functions desde un archivo de paquete de implementación).
+La implementación de ZIP se integra con esta característica, que se puede habilitar al configurar la opción de la aplicación de función `WEBSITE_RUN_FROM_PACKAGE` en un valor de `1`. Para más información, consulte [Run your functions from a deployment package file](run-functions-from-deployment-package.md) (Ejecución de Azure Functions desde un archivo de paquete de implementación).
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 

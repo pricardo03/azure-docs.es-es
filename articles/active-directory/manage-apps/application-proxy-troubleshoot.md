@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 20cc91a1754c3d68b447430abf21a3aad5925e05
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: aa7962e3659618b8c5a4f161d667c5e90477acc9
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365355"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347654"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Solución de problemas y mensajes de error de Proxy de aplicación
 Si se producen errores al obtener acceso a una aplicación publicada o al publicar aplicaciones, compruebe las siguientes opciones para ver si Proxy de aplicación de Microsoft Azure AD funciona correctamente:
@@ -67,7 +67,7 @@ En esta tabla se incluyen los errores más comunes de instalación y configuraci
 | 13016: Azure AD no puede recuperar un vale Kerberos en nombre del usuario porque no hay ningún UPN en el token perimetral o en la cookie de acceso. | Hay un problema con la configuración de STS. Corrija la configuración de notificación de UPN en STS. |
 | 13019: Azure AD no puede recuperar un vale Kerberos en nombre del usuario debido al siguiente error general API. | Este evento puede indicar una configuración incorrecta entre Azure AD y el servidor controlador de dominios o un problema en la configuración de fecha y hora de ambos equipos. El controlador de dominio rechazó el vale Kerberos creado por Azure AD. Compruebe que tanto Azure AD como el servidor de aplicaciones back-end están configurados correctamente, especialmente la configuración de SPN. Asegúrese de que Azure AD está unido mediante dominio al mismo dominio que el controlador de dominio para garantizar que este establezca la confianza con Azure AD. Asegúrese de que la configuración de fecha y hora de Azure AD y el controlador de dominio está sincronizada. |
 | 13020: Azure AD no puede recuperar un vale Kerberos en nombre del usuario al no estar definido el SPN del servidor backend. | Este evento puede indicar una configuración incorrecta entre Azure AD y el servidor controlador de dominios o un problema en la configuración de fecha y hora de ambos equipos. El controlador de dominio rechazó el vale Kerberos creado por Azure AD. Compruebe que tanto Azure AD como el servidor de aplicaciones back-end están configurados correctamente, especialmente la configuración de SPN. Asegúrese de que Azure AD está unido mediante dominio al mismo dominio que el controlador de dominio para garantizar que este establezca la confianza con Azure AD. Asegúrese de que la configuración de fecha y hora de Azure AD y el controlador de dominio está sincronizada. |
-| 13022: Azure AD no puede autenticar el usuario porque el servidor backend responde a los intentos de autenticación Kerberos con un error HTTP 401. | Este evento puede indicar una configuración incorrecta entre Azure AD y el servidor de aplicaciones backend o un problema en la configuración de fecha y hora de ambos equipos. El servidor backend rechazó el vale Kerberos creado por Azure AD. Compruebe que tanto Azure AD como el servidor de aplicaciones back-end están configurados correctamente. Asegúrese de que la configuración de fecha y hora de Azure AD y el servidor de aplicaciones backend está sincronizada. Para obtener más información, consulte [Solucionar problemas de las configuraciones de delegación limitada de Kerberos para el proxy de aplicación](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md).  |
+| 13022: Azure AD no puede autenticar el usuario porque el servidor backend responde a los intentos de autenticación Kerberos con un error HTTP 401. | Este evento puede indicar una configuración incorrecta entre Azure AD y el servidor de aplicaciones backend o un problema en la configuración de fecha y hora de ambos equipos. El servidor backend rechazó el vale Kerberos creado por Azure AD. Compruebe que tanto Azure AD como el servidor de aplicaciones back-end están configurados correctamente. Asegúrese de que la configuración de fecha y hora de Azure AD y el servidor de aplicaciones backend está sincronizada. Para obtener más información, consulte [Solucionar problemas de las configuraciones de delegación limitada de Kerberos para el proxy de aplicación](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).  |
 
 ## <a name="end-user-errors"></a>Errores del usuario final
 

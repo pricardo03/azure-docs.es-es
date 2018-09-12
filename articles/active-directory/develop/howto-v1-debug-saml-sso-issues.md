@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 5895e918fbd3b67074069ccc81bd794a75725c9a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 388337fa80d174cb17dae12fa9d5f2fbdfe7e737
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620943"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347790"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depuración del inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory
 
@@ -96,11 +96,11 @@ Para resolver el error:
     - Notificaciones emitidas en el token
     - Certificado usado en el token de inicio de sesión. Para obtener información sobre cómo revisar la respuesta SAML, vea [Protocolo SAML de inicio de sesión único](single-sign-on-saml-protocol.md).
 4. Para más información sobre la respuesta SAML, vea [Protocolo SAML de inicio de sesión único](single-sign-on-saml-protocol.md).
-5. Ahora que ha revisado la respuesta SAML, vea [Error en la página de aplicación después de iniciar sesión](../application-sign-in-problem-application-error.md) para obtener instrucciones sobre la resolución del problema. 
+5. Ahora que ha revisado la respuesta SAML, vea [Error en la página de aplicación después de iniciar sesión](../manage-apps/application-sign-in-problem-application-error.md) para obtener instrucciones sobre la resolución del problema. 
 6. Si sigue sin poder iniciar sesión correctamente, puede preguntar al proveedor de la aplicación lo que falta en la respuesta SAML.
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que el inicio de sesión único funciona para la aplicación, puede ir a la [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../active-directory-saas-app-provisioning.md) o a la [Introducción al acceso condicional en Azure Active Directory](../conditional-access/app-based-conditional-access.md).
+Ahora que el inicio de sesión único funciona para la aplicación, puede ir a la [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md) o a la [Introducción al acceso condicional en Azure Active Directory](../conditional-access/app-based-conditional-access.md).
 
 

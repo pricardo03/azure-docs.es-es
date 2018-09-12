@@ -1,24 +1,18 @@
 ---
 title: Requisitos previos de Azure Disk Encryption con una aplicación de Azure AD (versión anterior) | Microsoft Docs
 description: En este artículo se proporcionan los requisitos previos para usar Microsoft Azure Disk Encryption para máquinas virtuales IaaS.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 973cbdc1-12bc-4e0e-90cd-f19b045417a2
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/28/2018
 ms.author: mstewart
-ms.openlocfilehash: 701418c4c2f17d151061ffde704b5a7f05551d9c
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.date: 09/10/2018
+ms.openlocfilehash: 510ca032f77da25238ec060d4122a25345c9fb90
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338468"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346655"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Requisitos previos Azure Disk Encryption (versión anterior)
 
@@ -44,7 +38,7 @@ Azure Disk Encryption es compatible con los siguientes sistemas operativos:
 ## <a name="bkmk_LinuxPrereq"></a> Requisitos previos adicionales para máquinas virtuales Iaas Linux 
 
 - Azure Disk Encryption para Linux requiere 7 GB de RAM en la máquina virtual para habilitar el cifrado de disco del sistema operativo en las [imágenes compatibles](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Una vez completado el proceso de cifrado de disco del sistema operativo, la máquina virtual se puede configurar para que se ejecute con menos memoria.
-- Antes de habilitar el cifrado, los discos de datos que se van a cifrar deben aparecer correctamente en /etc/fstab. Use un nombre de dispositivo de bloqueo persistente para esta entrada, ya que los nombres de dispositivo con el formato "/ dev/sdX" no son confiables para asociarlos con el mismo disco en los distintos reinicios, especialmente después de que se aplica el cifrado. Para más detalles sobre este comportamiento, consulte: [Solución de problemas: se cambian los nombres de dispositivo de máquinas virtuales Linux](../virtual-machines/linux/troubleshoot-device-names-problems.md)
+- Antes de habilitar el cifrado, los discos de datos que se van a cifrar deben aparecer correctamente en /etc/fstab. Use un nombre de dispositivo de bloqueo persistente para esta entrada, ya que los nombres de dispositivo con el formato "/ dev/sdX" no son confiables para asociarlos al mismo disco en los distintos reinicios, especialmente después de que se aplica el cifrado. Para más detalles sobre este comportamiento, consulte: [Solución de problemas: se cambian los nombres de dispositivo de máquinas virtuales Linux](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - Asegúrese de que el valor /etc/fstab está configurado correctamente para el montaje. Para configurar estos valores, ejecute el comando mount -a o reinicie la máquina virtual y desencadene el nuevo montaje de ese modo. Cuando haya finalizado, revise la salida del comando lsblk para comprobar que la unidad deseada sigue montada. 
     - Si el archivo/etc/fstab no monta la unidad correctamente antes de habilitar el cifrado, Azure Disk Encryption no podrá montarla correctamente.
     - El proceso de Azure Disk Encryption sacará la información de montaje de/etc/fstab y la colocará en su propio archivo de configuración como parte del proceso de cifrado. No se alarme si ve que falta la entrada de/etc/fstab después de que se completa el cifrado de la unidad de datos.
@@ -65,7 +59,7 @@ Puede encontrar un ejemplo de los comandos que se pueden usar para montar los di
 **Directiva de grupo:**
  - La solución Azure Disk Encryption usa el protector de claves externas de BitLocker para máquinas virtuales IaaS con Windows. Para las máquinas virtuales unidas en un dominio, no cree ninguna directiva de grupo que exija protectores de TPM. Para obtener información acerca de la directiva de grupo para "Permitir BitLocker sin un TPM compatible", consulte la [Referencia de la directiva de grupo de BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup).
 
--  La directiva de BitLocker en las máquinas virtuales unidas a un dominio con una directiva de grupo personalizada debe incluir la siguiente configuración: [Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings) (Configurar el almacenamiento de usuario de la información de recuperación de BitLocker -> Permitir clave de recuperación de 256 bits). Azure Disk Encryption presentará un error cuando la configuración de la directiva de grupo personalizada para Bitlocker es incompatible. En máquinas que no tengan la configuración de directiva correcta, puede ser necesario aplicar la nueva directiva, forzar la nueva directiva a actualizarse (gpupdate.exe /force) y, luego, reiniciar.  
+-  La directiva de BitLocker en las máquinas virtuales unidas a un dominio con una directiva de grupo personalizada debe incluir la siguiente configuración: [Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings) (Configurar el almacenamiento de usuario de la información de recuperación de BitLocker -> Permitir clave de recuperación de 256 bits). Azure Disk Encryption presentará un error cuando la configuración de la directiva de grupo personalizada para Bitlocker es incompatible. En máquinas que no tengan la configuración de directiva correcta, puede que sea necesario aplicar la nueva directiva, forzar la nueva directiva a actualizarse (gpupdate.exe /force) y luego reiniciar.  
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -140,7 +134,7 @@ La [CLI de Azure 2.0](/cli/azure) es una herramienta de línea de comandos para 
 
 ## <a name="prerequisite-workflow-for-key-vault-and-the-azure-ad-app"></a>Flujo de trabajo de requisitos previos de Key Vault y la aplicación de Azure AD
 
-Si ya está familiarizado con los requisitos previos de Key Vault y Azure AD para Azure Disk Encryption, puede usar el [script de PowerShell de requisitos previos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para más información sobre el uso del script de requisitos previos, consulte la [guía de inicio rápido de cifrado de una máquina virtual](quick-encrypt-vm-powershell.md) y el [apéndice de Azure Disk Encryption](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
+Si ya está familiarizado con los requisitos previos de Key Vault y Azure AD para Azure Disk Encryption, puede usar el [script de PowerShell de requisitos previos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para más información sobre el uso del script de requisitos previos, vea la [guía de inicio rápido de cifrado de una máquina virtual](quick-encrypt-vm-powershell.md) y el [apéndice de Azure Disk Encryption](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
 
 1. Cree un almacén de claves. 
 2. Configure una aplicación de Azure AD y una entidad de servicio.

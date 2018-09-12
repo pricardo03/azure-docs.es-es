@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 26715c6abb9c2c940090c84b64a30f7fb701d059
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 924584a77d36ec41488d8c76d9631baf484ff494
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445696"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346396"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configuración de G Suite para aprovisionar usuarios automáticamente
 
 El objetivo de este tutorial es explicar cómo aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure Active Directory (Azure AD) para G Suite.
 
 > [!NOTE]
-> Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](./../active-directory-saas-app-provisioning.md).
+> Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -172,7 +172,7 @@ Esta sección lo guiará a través del proceso de conexión de Azure AD a la API
 
 Este proceso inicia la sincronización inicial de todos los usuarios y grupos asignados a G Suite en la sección Usuarios y grupos. La primera sincronización tarda más tiempo en realizarse que las sincronizaciones posteriores, que, mientras el servicio esté en ejecución, tendrán lugar aproximadamente cada 40 minutos. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y utilizar los vínculos a los registros de actividad de aprovisionamiento. En estos registros, se describen todas las acciones que lleva a cabo el servicio de aprovisionamiento en la aplicación.
 
-Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../active-directory-saas-provisioning-reporting.md).
+Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
