@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: f8dcee53aecfcb7468d87c480c68f14715dea035
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391579"
 documentType: LandingData
 title: Documentación sobre Azure IoT Central (versión preliminar)
 metadata:
@@ -11,15 +17,13 @@ metadata:
   ms.service: iot-central
   services: iot-central
   manager: timlt
-  ms.openlocfilehash: df6acc821183e7336d8079895c7494eed397eea1
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-  ms.translationtype: HT
-  ms.contentlocale: es-ES
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34628579"
 abstract:
   description: Azure IoT Central es una solución SaaS (software como servicio) totalmente administrada que facilita la conexión, la supervisión y la administración de sus recursos de IoT a escala. Azure IoT Central simplifica la configuración inicial de la solución de IoT y reduce la carga de administración, los costos operativos y la sobrecarga de un proyecto típico de IoT. Aprenda a crear, personalizar, administrar y usar una aplicación de Azure IoT Central con nuestros tutoriales y guías de inicio rápido.
 sections:
+- title: Próximo cambio
+  items:
+  - type: paragraph
+    text: Azure IoT Central pasará a usar el servicio Azure IoT Hub Device Provisioning (DPS) para todas las conexiones de dispositivos en las próximas semanas. Una vez que este cambio esté activo, se le pedirá que actualice el código de dispositivo para que use el SDK de DPS para registrar y conectar los dispositivos. A todas las aplicaciones que usan la característica de exportación de datos continua y la plantilla de soluciones de Power BI, se les pedirá que cambien el contenedor de almacenamiento de destino y creen una nueva plantilla de soluciones. <a href="https://aka.ms/iotcentral-create-technical-support-ticket">Póngase en contacto con el equipo de soporte técnico para más información.</a>
 - title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph

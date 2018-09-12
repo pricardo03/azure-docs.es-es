@@ -27,7 +27,7 @@ Si necesita una aplicación cliente de LUIS multilingüe como un bot de chat, di
 LUIS entiende expresiones en los idiomas siguientes:
 
 
-| Idioma |Configuración regional  |  Dominio creado previamente | Entidad creada previamente | Sugerencias de frase | **[Análisis de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Las opiniones y<br>palabras clave)| 
+| Idioma |Configuración regional  |  Dominio creado previamente | Entidad creada previamente | Sugerencias de frase | \**[Análisis de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Las opiniones y<br>palabras clave)| 
 |--|--|:--:|:--:|:--:|:--:|
 | Inglés de Estados Unidos |`en-US` | ✔ | ✔  |✔|✔|
 | Francés canadiense |`fr-CA` |-|   -   |-|✔|
@@ -58,7 +58,7 @@ La compatibilidad con idiomas varía para las [entidades creadas previamente](lu
      - でございます no es lo mismo que です. 
      - です no es lo mismo que だ. 
 
-### <a name="text-analytics-support-notes"></a>**Notas de compatibilidad para el análisis de texto
+### <a name="text-analytics-support-notes"></a>\*\*Notas de compatibilidad para el análisis de texto
 El análisis de texto incluye el análisis de opinión y la entidad precompilada de keyPhrase. Solo se admite el portugués para las subreferencias culturales: `pt-PT` y `pt-BR`. Todas las demás referencias culturales se admiten en el nivel de la referencia cultural principal. Obtenga más información sobre los [idiomas admitidos](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) de Text Analytics. 
 
 ### <a name="speech-api-supported-languages"></a>Idiomas admitidos en Speech API

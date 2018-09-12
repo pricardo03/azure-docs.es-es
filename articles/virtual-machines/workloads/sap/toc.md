@@ -24,7 +24,11 @@
 ## Instalación de SAP HANA
 ### [Validación de la configuración](hana-installation.md)
 ### [Instalación de ejemplo de HANA](hana-example-installation.md)
-## [Alta disponibilidad y recuperación ante desastres](hana-overview-high-availability-disaster-recovery.md)
+## Alta disponibilidad y recuperación ante desastres
+### [Opciones y consideraciones](hana-overview-high-availability-disaster-recovery.md)
+### [Copia de seguridad y restauración](hana-backup-restore.md)
+### [Principios y preparación](hana-concept-preparation.md)
+### [Procedimiento de conmutación por error de recuperación ante desastres](hana-failover-procedure.md)
 ## Solución de problemas y supervisión
 ### [Supervisión de HLI](troubleshooting-monitoring.md)
 ### [Supervisión y solución de problemas en el lado de HANA](hana-monitor-troubleshoot.md)

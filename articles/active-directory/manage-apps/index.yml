@@ -1,0 +1,47 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: d7df652a5549f3cea1b3d5bd5652c6e39fbd456a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44381818"
+documentType: LandingData
+title: Documentación sobre la administración de aplicaciones de Azure AD
+metadata:
+  title: Documentación sobre administración de aplicaciones de Azure Active Directory
+  meta.description: Learn how to manage and deploy applications with Azure Active Directory.
+  services: active-directory
+  author: barbkess
+  manager: mtillman
+  layout: LandingPage
+  ms.assetid: 
+  ms.service: active-directory
+  ms.topic: landing-page
+  ms.date: 09/06/2018
+  ms.author: barbkess
+abstract:
+  description: Aprenda a administrar e implementar aplicaciones con Azure Active Directory.
+sections:
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: Aprenda a agregar una aplicación para que los usuarios accedan mediante Azure Active Directory.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/media/common/i_protect.svg
+      text: Adición de una aplicación
+      href: https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal
+    - image:
+        src: https://docs.microsoft.com/media/common/i_protect.svg
+      text: Visualización de sus aplicaciones
+      href: https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: Aprenda a habilitar un proceso sencillo y seguro de inicio de sesión para sus aplicaciones.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Configuración del inicio de sesión único</a>
