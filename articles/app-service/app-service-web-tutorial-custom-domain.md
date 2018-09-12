@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5c0aa042f97e10f90787b1cdf8e03cd6d849441e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 30199005db93f9a43a37d2c72bb34dd772265419
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461646"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664894"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Tutorial: Asignación de un nombre DNS personalizado a Azure Web Apps
 
@@ -38,9 +38,7 @@ En este tutorial, aprenderá a:
 > * Redireccionamiento de una dirección URL predeterminada a un directorio personalizado
 > * Automatizar la asignación de dominio con scripts
 
-Para migrar un sitio en vivo y su nombre de dominio DNS a App Service, consulte [Migración de un nombre DNS activo a Azure App Service](app-service-custom-domain-name-migrate.md).
-
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial:
 
@@ -304,6 +302,10 @@ Si recibe un error HTTP 404 (No se encuentra) al ir a la dirección URL de su do
 - El cliente del explorador ha almacenado en caché la dirección IP antigua del dominio. Borre la caché y pruebe la resolución DNS de nuevo. En un equipo Windows, borre la memoria caché con `ipconfig /flushdns`.
 
 <a name="virtualdir"></a>
+
+## <a name="migrate-an-active-domain"></a>Migración de un dominio activo
+
+Para migrar un sitio en vivo y su nombre de dominio DNS a App Service sin tiempo de inactividad, consulte [Migración de un nombre DNS activo a Azure App Service](app-service-custom-domain-name-migrate.md).
 
 ## <a name="redirect-to-a-custom-directory"></a>Redirección a un directorio personalizado
 

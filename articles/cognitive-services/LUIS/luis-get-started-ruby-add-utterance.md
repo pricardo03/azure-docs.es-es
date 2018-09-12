@@ -1,117 +1,79 @@
 ---
-title: Tutorial para aprender a agregar expresiones a una aplicación de LUIS mediante Ruby | Microsoft Docs
-description: En este tutorial, aprenderá a llamar a una aplicación de LUIS mediante Ruby.
+title: 'Guía de inicio rápido: Cambio del modelo y entrenamiento de la aplicación de LUIS con Ruby (Azure Cognitive Services) | Microsoft Docs'
+description: En esta guía de inicio rápido de Ruby, agregará expresiones de ejemplo a una aplicación de automatización de dispositivos del hogar y entrenará la aplicación. Las expresiones de ejemplo son texto de usuario conversacional que se asigna a una intención. Al proporcionar expresiones de ejemplo para las intenciones, enseñará a LUIS qué clases de texto suministrado por el usuario pertenecen a qué intención.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 7a470fd551a58978e6f2be0450a2e2a6cd471fc4
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/24/2018
+ms.author: diberry
+ms.openlocfilehash: 4df6352c140328b93044fd2340fb7c46d44e1b04
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266063"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43771803"
 ---
-# <a name="tutorial-add-utterances-to-app-using-ruby"></a>Tutorial: Adición de expresiones a una aplicación mediante Ruby 
-En este tutorial, va a escribir un programa para agregar una expresión a una intención mediante las API de creación de Ruby.
+# <a name="quickstart-change-model-using-ruby"></a>Guía de inicio rápido: Cambio del modelo mediante Ruby
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Creación de un proyecto de consola de Visual Studio 
-> * Adición de un método para llamar a la API de LUIS para agregar una expresión y entrenar la aplicación
-> * Adición de un archivo JSON con expresiones de ejemplo para la intención de BookFlight
-> * Ejecución de la consola y visualización del estado de entrenamiento de las expresiones
+[!include[Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-Para más información, consulte la documentación técnica de las API [agregar expresión de ejemplo a intención](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [entrenar](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) y [estado del entrenamiento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46).
+## <a name="prerequisites"></a>Requisitos previos
 
-Para este artículo necesita una cuenta de [LUIS][LUIS] gratuita para crear la aplicación de LUIS.
-
-## <a name="prerequisites"></a>requisitos previos
-
+[!include[Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * [Ruby](http://rubyinstaller.org/) 
-* Su **[clave de creación](luis-concept-keys.md#authoring-key)** de LUIS. Dicha clave se puede encontrar en la configuración de la cuenta en el sitio web de [LUIS](luis-reference-regions.md).
-* El [**identificador de aplicación**](./luis-get-started-create-app.md) de LUIS existente. El identificador de aplicación se muestra en el panel de la aplicación. La aplicación de LUIS con las intenciones y las entidades utilizadas en el archivo `utterances.json` debe existir antes de ejecutar el código en `add-utterances.rb`. El código de este artículo no crea las intenciones ni las entidades. Solo agrega las expresiones para las intenciones y entidades existentes. 
-* El **identificador de versión** dentro de la aplicación que recibe las expresiones. El valor predeterminado es "0.1".
-* Cree un archivo nuevo llamado proyecto `add-utterances.rb` en VSCode.
+* [Visual Studio Code](https://code.visualstudio.com/)
 
-> [!NOTE] 
-> El archivo `add-utterances.cs` completo y un archivo `utterances.json` de ejemplo están disponibles en el repositorio [**LUIS-Samples** de Github](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/ruby/).
+[!include[Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
+## <a name="example-utterances-json-file"></a>Archivo JSON de expresiones de ejemplo
 
-## <a name="write-the-ruby-code"></a>Escritura del código de Ruby
+[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
-Agregue las dependencias al archivo.
+## <a name="create-quickstart-code"></a>Creación de código de inicio rápido 
 
-   [!code-ruby[Ruby and LUIS Dependencies](~/samples-luis/documentation-samples/authoring-api-samples/ruby/add-utterances.rb?range=1-28 "Ruby and LUIS Dependencies")]
+Agregue las dependencias al archivo llamado `add-utterances.rb`.
+
+   [!code-ruby[Ruby and LUIS Dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=1-21 "Ruby and LUIS Dependencies")]
 
 Agregue la solicitud GET que se usa para el estado de entrenamiento.
 
-   [!code-ruby[SendGet](~/samples-luis/documentation-samples/authoring-api-samples/ruby/add-utterances.rb?range=30-40 "SendGet")]
+   [!code-ruby[SendGet](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=23-33 "SendGet")]
 
 Agregue la solicitud POST que se usa para crear expresiones o iniciar el entrenamiento. 
 
-   [!code-ruby[SendPost](~/samples-luis/documentation-samples/authoring-api-samples/ruby/add-utterances.rb?range=42-54 "SendPost")]
+   [!code-ruby[SendPost](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=35-47 "SendPost")]
 
 Agregue la función `AddUtterances`.
 
-   [!code-ruby[AddUtterances method](~/samples-luis/documentation-samples/authoring-api-samples/ruby/add-utterances.rb?range=56-61 "AddUtterances method")]
+   [!code-ruby[AddUtterances method](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=49-54 "AddUtterances method")]
 
 
 Agregue la función `Train`. 
 
-   [!code-ruby[Train](~/samples-luis/documentation-samples/authoring-api-samples/ruby/add-utterances.rb?range=63-69 "Train")]
+   [!code-ruby[Train](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=56-62 "Train")]
 
 Agregue la función `Status`.
 
-   [!code-ruby[Status](~/samples-luis/documentation-samples/authoring-api-samples/ruby/add-utterances.rb?range=71-75 "Status")]
+   [!code-ruby[Status](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=64-68 "Status")]
 
 Para administrar los argumentos, agregue el código principal.
 
-   [!code-ruby[Main code](~/samples-luis/documentation-samples/authoring-api-samples/ruby/add-utterances.rb?range=77-93 "Main code")]
+   [!code-ruby[Main code](~/samples-luis/documentation-samples/quickstarts/change-model/ruby/add-utterances.rb?range=70-72 "Main code")]
 
-## <a name="specify-utterances-to-add"></a>Especificación de las expresiones que se van a agregar
-Cree y edite el archivo `utterances.json` para especificar la **matriz de expresiones** que desea agregar a la aplicación de LUIS. Las entidades y la intención ya **deben** estar en la aplicación de LUIS.
-
-> [!NOTE]
-> La aplicación de LUIS con las intenciones y las entidades utilizadas en el archivo `utterances.json` debe existir antes de ejecutar el código en `add-utterances.rb`. El código de este artículo no crea las intenciones ni las entidades. Solo agrega las expresiones para las intenciones y entidades existentes.
-
-El campo `text` contiene el texto de la expresión. El campo `intentName` debe corresponder al nombre de una intención en la aplicación de LUIS. El campo `entityLabels` es obligatorio. Si no desea etiquetar ninguna entidad, proporcione una lista vacía como se muestra en el ejemplo siguiente:
-
-Si la lista entityLabels no está vacía, `startCharIndex` y `endCharIndex` necesitan marcar la entidad a la que se hace referencia en el campo `entityName`. Ambos índices son recuentos basados en cero, lo que significa que, en el ejemplo de arriba, 6 hace referencia a la "S" de Seattle y no al espacio antes de la S mayúscula.
-
-```json
-[
-    {
-        "text": "go to Seattle",
-        "intentName": "BookFlight",
-        "entityLabels": [
-            {
-                "entityName": "Location::LocationTo",
-                "startCharIndex": 6,
-                "endCharIndex": 12
-            }
-        ]
-    },
-    {
-        "text": "book a flight",
-        "intentName": "BookFlight",
-        "entityLabels": []
-    }
-]
-```
-
-## <a name="add-an-utterance-from-the-command-line"></a>Adición de una expresión desde la línea de comandos
+## <a name="run-code"></a>Ejecución del código
 
 Ejecute la aplicación desde una línea de comandos con Ruby.
 
-Al llamar a `add-utterances.rb` usando solo utterance.json como argumento se agregan las expresiones a la aplicación de LUIS, pero no se entrenan.
-````
-> ruby add-utterances.rb ./utterances.json
-````
+### <a name="add-an-utterance-from-the-command-line"></a>Adición de una expresión desde la línea de comandos
+
+Al llamar a `add-utterances.rb` se agregan las expresiones, se realiza el entrenamiento y se obtiene el estado de entrenamiento.
+
+```CMD
+> ruby add-utterances.rb 
+```
 
 Este resultado muestra las consecuencias de llamar a la API add utterances. El campo `response` está en este formato para las expresiones que se han agregado. `hasError` es false, lo que indica que la expresión se ha agregado.  
 
@@ -134,35 +96,7 @@ Este resultado muestra las consecuencias de llamar a la API add utterances. El c
     ]
 ```
 
-## <a name="add-an-utterance-and-train-from-the-command-line"></a>Adición y entrenamiento de una expresión desde la línea de comandos
-Llame a add-utterance con el argumento `-train` para enviar una solicitud de entrenamiento.
-
-````
-> ruby add-utterances.rb ./utterances.json -train
-````
-
-> [!NOTE]
-> Las expresiones duplicadas no se vuelven a agregar, pero no provocan un error. `response` contiene el identificador de la expresión original.
-
-A continuación se muestra el resultado de una solicitud de entrenamiento correcta:
-```json
-{
-    "request": null,
-    "response": {
-        "statusId": 9,
-        "status": "Queued"
-    }
-}
-```
-
-Después de poner en cola la solicitud de entrenamiento, este puede tardar un momento en completarse.
-
-## <a name="get-training-status-from-the-command-line"></a>Obtención del estado de entrenamiento desde la línea de comandos
-Llame al ejemplo con el argumento `-status` para comprobar el estado de entrenamiento.
-
-````
-> ruby add-utterances.rb ./utterances.json -status
-````
+La siguiente respuesta muestra el entrenamiento en cola. A continuación, la siguiente respuesta muestra el estado de cada intención. 
 
 ```
 Requested training status.
@@ -261,10 +195,8 @@ Requested training status.
 ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando haya terminado con el tutorial, quite Visual Studio y la aplicación de consola si no los necesita.
+Cuando haya terminado con la guía de inicio rápido, quite todos los archivos creados en ella. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"] 
 > [Creación de una aplicación de LUIS mediante programación](luis-tutorial-node-import-utterances-csv.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

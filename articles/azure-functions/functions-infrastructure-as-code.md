@@ -4,24 +4,20 @@ description: Obtenga información sobre cómo crear una plantilla de Azure Resou
 services: Functions
 documtationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, funciones, arquitectura sin servidor, infraestructura como código, azure resource manager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.server: functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 28b2f5aba69e5c058feb7119eb31352220922998
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d63686524c619b349a590c389e20e473b0d98641
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937068"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091482"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatización de la implementación de recursos para una aplicación de función en Azure Functions
 
@@ -31,7 +27,7 @@ Para más información sobre la creación de plantillas, consulte [Creación de 
 
 Para obtener las plantillas de ejemplo, vea:
 - [Aplicación de función en el plan de consumo]
-- [Aplicación de función en el plan de App Service]
+- [Aplicación de función en el plan Azure App Service]
 
 ## <a name="required-resources"></a>Recursos necesarios
 
@@ -173,7 +169,7 @@ Además, un plan de consumo requiere dos configuraciones adicionales en la confi
 
 En el plan de App Service, la aplicación de función se ejecuta en máquinas virtuales dedicadas en las SKU de los niveles Básico, Estándar y Premium, de un modo similar a las aplicaciones web. Para más información acerca del funcionamiento del plan de App Service, consulte [Introducción detallada sobre los planes de Azure App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-Para obtener una plantilla de Azure Resource Manager de ejemplo, vea [Aplicación de función en el plan de App Service].
+Para obtener una plantilla de Azure Resource Manager de ejemplo, vea [Aplicación de función en el plan Azure App Service].
 
 ### <a name="create-an-app-service-plan"></a>Creación de un plan de App Service
 
@@ -293,4 +289,4 @@ Aprenda a desarrollar y configurar Azure Functions.
 <!-- LINKS -->
 
 [Aplicación de función en el plan de consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
-[Aplicación de función en el plan de App Service]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[Aplicación de función en el plan Azure App Service]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2018
 ms.author: brenduns
-ms.openlocfilehash: e9e474fe4a32bb99673fba2a88f28a3161f23362
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6380936766bb0f3848811be305783c274867b0fc
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43050413"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381874"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Valores de la configuración de una puerta de enlace VPN para Azure Stack
 
@@ -27,7 +27,7 @@ ms.locfileid: "43050413"
 
 Una puerta de enlace de VPN es un tipo de puerta de enlace de red virtual que envía tráfico cifrado entre una red virtual de Azure Stack y una puerta de enlace de VPN remota. La puerta de enlace de VPN remota puede estar en Azure, un dispositivo del centro de datos o un dispositivo de otro sitio.  Si hay conectividad de red entre los dos puntos de conexión, puede establecer una conexión VPN de sitio a sitio (S2S) segura entre las dos redes.
 
-Una conexión de puerta de enlace de VPN se basa en la configuración de varios recursos, cada uno de los cuales contiene valores configurables. Las secciones de este artículo tratan los recursos y la configuración relacionados con una puerta de enlace de VPN para una red virtual creada en el modelo de implementación de Resource Manager. Puede encontrar las descripciones y los diagramas de topología de cada solución de conexión en el artículo [About VPN gateway for Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md) (Acerca VPN Gateway para Azure Stack).
+Una conexión de puerta de enlace de VPN se basa en la configuración de varios recursos, cada uno de los cuales contiene valores configurables. En este artículo se tratan los recursos y la configuración relacionados con VPN Gateway para una red virtual que se crea en el modelo de implementación de Resource Manager. Puede encontrar las descripciones y los diagramas de topología de cada solución de conexión en el artículo [About VPN gateway for Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md) (Acerca VPN Gateway para Azure Stack).
 
 ## <a name="vpn-gateway-settings"></a>Configuración de VPN Gateway
 
@@ -100,7 +100,7 @@ Al crear la puerta de enlace de red virtual para una configuración de puerta de
 >
 > Además, Azure Stack no admite el uso de selectores de tráfico basados en directivas para puertas de enlace basadas en rutas en este momento, ya que las configuraciones de directivas personalizadas de IPSec/IKE no se admiten todavía.
 
-* **PolicyBased**: las VPN basadas en directivas cifran y dirigen los paquetes a través de túneles de IPsec basados en las directivas de IPsec configuradas con las combinaciones de prefijos de dirección entre su red local y la red virtual de Azure Stack. La directiva (o el selector de tráfico) se define normalmente como una lista de acceso en la configuración del dispositivo VPN.
+* **PolicyBased**: las VPN basadas en directivas cifran y dirigen los paquetes a través de túneles de IPsec basados en las directivas de IPsec configuradas con las combinaciones de prefijos de dirección entre su red local y la red virtual de Azure Stack. La directiva (o el selector de tráfico) suele ser una lista de acceso en la configuración del dispositivo VPN.
 
   >[!NOTE]
   >PolicyBased es compatible con Azure, pero no con Azure Stack.
@@ -184,14 +184,12 @@ A diferencia de Azure, que admite varias ofertas como iniciador y respondedor, A
 |Versión de IKE |IKEv2 |
 |Cifrados y algoritmos hash (cifrado)     | GCMAES256|
 |Cifrados y algoritmos hash (autenticación) | GCMAES256|
-|Vigencia de SA (tiempo)  | 27 000 segundos<sup>Consulte la nota 1</sup> |
-|Vigencia de SA (bytes) | 33 553 408<sup>Consulte la nota 2</sup>     |
-|Confidencialidad directa perfecta (PFS) |Ninguna<sup>Consulte la nota 3</sup> |
+|Vigencia de SA (tiempo)  | 27 000 segundos  |
+|Vigencia de SA (bytes) | 33 553 408     |
+|Confidencialidad directa perfecta (PFS) |Ninguna<sup>Consulte la nota 1</sup> |
 |Detección de cuellos del mismo nivel | Compatible|  
 
-* *Nota 1:* antes de la versión 1803, Azure Stack usa un valor de 14 400 para la vigencia de SA (tiempo).
-* *Nota 2:* antes de la versión 1803, Azure Stack usa un valor de 819 200 para la vigencia de SA (bytes).
-* *Nota 3:* antes de la versión 1807, Azure Stack usa un valor de PFS2048 para la confidencialidad directa perfecta (PFS).
+* *Nota 1:* antes de la versión 1807, Azure Stack usa un valor de PFS2048 para la confidencialidad directa total (PFS).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

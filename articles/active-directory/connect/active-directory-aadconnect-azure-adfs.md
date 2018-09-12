@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2ebe6c7a70e4e574ea4953ca9ed01801190f80e
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 924269e16ab09cfd144955d3bd462cab7b37aaaf
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917142"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381761"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implementación de Active Directory Federation Services en Azure
 AD FS proporciona funcionalidades de una federación de identidades simplificada y protegida, así como de inicio de sesión único (SSO) web. La federación con Azure AD u Office 365 permite a los usuarios autenticarse con credenciales locales y acceder a todos los recursos en la nube. Por tanto, es importante disponer de una infraestructura de AD FS de alta disponibilidad para garantizar el acceso a los recursos locales y en la nube. La implementación de AD FS en Azure puede ayudar a lograr la alta disponibilidad necesaria con el mínimo esfuerzo.
@@ -187,12 +187,14 @@ Seleccione el ILB recién creado en el panel Equilibradores de carga. Se abrirá
 
 **6.3. Configuración del sondeo**
 
-En el panel de configuración del ILB, seleccione Sondeos.
+En el panel de configuración del ILB, seleccione Sondeos de estado.
 
 1. Haga clic en Agregar.
-2. Proporcione la información para el sondeo a. **Nombre**: nombre del sondeo b. **Protocolo**: TCP c. **Puerto**: 443 (HTTPS) d. **Intervalo**: 5 (valor predeterminado). Este es el intervalo en el que el ILB comprobará las máquinas en el grupo back-end e. **Umbral incorrecto**: 2 (valor predeterminado). Umbral de errores de sondeo consecutivos después del cual el ILB declara que una máquina del grupo back-end no responde y dejará de enviarle tráfico.
+2. Proporcione la información para el sondeo a. **Nombre**: nombre del sondeo b. **Protocolo**: HTTP c. **Puerto**: 80 (HTTP) d. **Ruta de acceso**: /adfs/probe e. **Intervalo**: 5 (valor predeterminado). Este es el intervalo en el que el ILB comprobará las máquinas en el grupo back-end f. **Umbral incorrecto**: 2 (valor predeterminado). Umbral de errores de sondeo consecutivos después del cual el ILB declara que una máquina del grupo back-end no responde y dejará de enviarle tráfico.
 
 ![Configuración del sondeo del ILB](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
+
+Estamos usando el punto de conexión/adfs/probe creado explícitamente para las comprobaciones de estado en un entorno de AD FS donde no se puede producir una comprobación de ruta de acceso completa de HTTPS.  Esto es mucho mejor que una comprobación básica del puerto 443, que no refleja con precisión el estado de una implementación de AD FS moderna.  Puede encontrar más información sobre esto en https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/.
 
 **6.4. Creación de reglas de equilibrio de carga**
 
@@ -321,7 +323,7 @@ La plantilla implementa una instalación de 6 equipos para controladores de domi
 
 Puede usar una red virtual existente o crear una nueva red virtual durante la implementación de esta plantilla. A continuación se enumeran los distintos parámetros disponibles para personalizar la implementación con la descripción del uso del parámetro en el proceso de implementación. 
 
-| . | DESCRIPCIÓN |
+| Parámetro | DESCRIPCIÓN |
 |:--- |:--- |
 | Ubicación |La región para implementar los recursos, por ejemplo, este de EE. UU. |
 | StorageAccountType |El tipo de la cuenta de almacenamiento creada |

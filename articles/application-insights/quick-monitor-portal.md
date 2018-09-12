@@ -5,23 +5,23 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/14/2017
+ms.date: 06/13/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 110d1a0fe52f50f057f7ea7ccbc426706473306d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: db8aa2d1bb5d79b5d2c9b04789b4ac18fbec5897
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23660553"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664597"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Inicio de la supervisión de la aplicación web ASP.NET
 
 Con Azure Application Insights puede supervisar fácilmente la disponibilidad, el rendimiento y el uso de su aplicación web.  También puede identificar y diagnosticar errores en la aplicación rápidamente sin tener que esperar a que un usuario informe de ellos.  Con la información que recopile de Application Insights sobre el rendimiento y la eficacia de la aplicación, puede tomar decisiones informadas para hacer el mantenimiento de la aplicación y mejorarla.
 
-En esta guía de inicio rápido se muestra cómo agregar Application Insights a una aplicación web ASP.NET existente y empezar a analizar las estadísticas en vivo, que es solo uno de los distintos métodos que puede usar para analizar la aplicación. Si no tiene una aplicación web ASP.NET, puede seguir la [guía de inicio rápido de aplicaciones web ASP.NET](../app-service/app-service-web-get-started-dotnet.md) para crear una.
+En esta guía de inicio rápido se muestra cómo agregar Application Insights a una aplicación web ASP.NET existente y empezar a analizar las estadísticas en vivo, que es solo uno de los distintos métodos que puede usar para analizar la aplicación. Si no tiene una aplicación web ASP.NET, puede seguir la [guía de inicio rápido de aplicaciones web ASP.NET](../app-service/app-service-web-get-started-dotnet-framework.md) para crear una.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para completar esta guía de inicio rápido:
@@ -37,17 +37,23 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 1. Abra el proyecto en Visual Studio 2017.
 2. Seleccione **Configurar Application Insights** desde el menú Proyecto. Visual Studio agregará el SDK de Application Insights a la aplicación.
-3. Haga clic en **Comenzar gratis**, seleccione el plan de facturación preferido y haga clic en **Registrarse**.
 
-    ![Adición de Application Insights a Visual Studio](./media/quick-monitor-portal/add-application-insights.png)
+    > [!IMPORTANT]
+    > El proceso para agregar Application Insights varía según el tipo de plantilla de ASP.NET. Si usa la plantilla **Vacía** o **Aplicación móvil de Azure**, seleccione **Proyecto** > **Agregar telemetría de Application Insights**. Para las demás plantillas de ASP.NET, consulte las instrucciones del paso anterior. 
 
-4. Para ejecutar la aplicación, seleccione **Iniciar depuración** desde el menú **Depurar** o presionando la tecla F5.
+3. Haga clic en **Iniciar** (en versiones anteriores de Visual Studio, haga clic en el botón **Inicio gratis**).
+
+    ![Adición de Application Insights a Visual Studio](./media/quick-monitor-portal/add-application-insights-b.png)
+
+4. Seleccione su suscripción y haga clic en **Registrarse**.
+
+5. Para ejecutar la aplicación, seleccione **Iniciar depuración** desde el menú **Depurar** o presionando la tecla F5.
 
 ## <a name="confirm-app-configuration"></a>Confirmación de la configuración de la aplicación
 
 Application Insights recopila datos de telemetría para la aplicación, independientemente de dónde se ejecute. Siga estos pasos para empezar a ver los datos.
 
-1. Para abrir Application Insights, haga clic en **Proyecto** -> **Application Insights** -> **Buscar telemetría de la sesión de depuración**.  Se mostrará la telemetría de la sesión actual.<BR><br>![Telemetría en Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
+1. Abra Application Insights haciendo clic en **Ver** -> **Otras ventanas** -> **Búsqueda de Application Insights**.  Se mostrará la telemetría de la sesión actual.<BR><br>![Telemetría en Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
 
 2. Haga clic en la primera solicitud de la lista (en el ejemplo, GET Home/Index) para ver sus detalles. Observe que, junto con otra información valiosa acerca de la solicitud, se incluye el código de estado y la hora de respuesta.<br><br>![Detalles de la respuesta en Visual Studio](media/quick-monitor-portal/request-details.png)
 
@@ -57,11 +63,11 @@ Ya puede abrir Application Insights en Azure Portal para ver distintos detalles 
 
 1. Haga clic con el botón derecho en **Servicios conectados Application Insights** en Explorador de soluciones y haga clic en **Abrir portal de Application Insights**.  Se mostrará cierta información acerca de la aplicación, así como varias opciones.
 
-    ![Mapa de aplicación](media/quick-monitor-portal/001.png)
+    ![Mapa de aplicación](media/quick-monitor-portal/overview-001.png)
 
-2. Haga clic en **Mapa de la aplicación** para mostrar un diseño visual de las relaciones de dependencia entre los componentes de la aplicación.  Cada componente muestra KPI como la carga, el rendimiento, errores y alertas.
+2. Haga clic en **Mapa de aplicación** para mostrar un diseño visual de las relaciones de dependencia entre los componentes de la aplicación.  Cada componente muestra KPI como la carga, el rendimiento, errores y alertas.
 
-    ![Mapa de aplicación](media/quick-monitor-portal/application-map.png)
+    ![Mapa de aplicación](media/quick-monitor-portal/application-map-001.png)
 
 3. Haga clic en **Análisis de aplicaciones** icono ![Mapa de aplicación](media/quick-monitor-portal/app-analytics-icon.png) en uno de los componentes de la aplicación.  Se abrirá **Application Insights Analytics**, que proporciona un lenguaje de consulta avanzado para analizar todos los datos recopilados por Application Insights.  En este caso, se genera una consulta que representa el número de solicitudes en un gráfico.  Puede escribir sus propias consultas para analizar otros datos.
 

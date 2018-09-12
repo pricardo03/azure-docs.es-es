@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4d47b5426da5d857085991767faa5fb227476408
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 77154d596eb9202c4f9d1063ba7f4e1ec4855181
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852343"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665012"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Implementación y administración de una instancia de StorSimple Cloud Appliance en Azure (Update 3 y versiones posteriores)
 
@@ -265,7 +265,7 @@ Para detener todos los cargos, debe eliminar el dispositivo de nube. Para elimin
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Solucionar errores de conexión a Internet
 Durante la creación del dispositivo de nube, si no hay conexión a Internet, el paso de creación dará error. Para solucionar problemas debidos a la conexión a Internet, realice los pasos siguientes en Azure Portal:
 
-1. [Creación de una máquina virtual con Windows Server 2012 en Azure](/articles/virtual-machines/windows/quick-create-portal.md). Esta máquina virtual debe usar la misma cuenta de almacenamiento, red virtual y subred que usa el dispositivo de nube. Si ya tiene un host de Windows Server en Azure con la misma cuenta de almacenamiento, red virtual y subred, también puede usarlo para solucionar los problemas de conexión a Internet.
+1. [Cree una máquina virtual Windows en Azure Portal](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal). Esta máquina virtual debe usar la misma cuenta de almacenamiento, red virtual y subred que usa el dispositivo de nube. Si ya tiene un host de Windows Server en Azure con la misma cuenta de almacenamiento, red virtual y subred, también puede usarlo para solucionar los problemas de conexión a Internet.
 2. Inicie sesión de forma remota en la máquina virtual creada en el paso anterior.
 3. Abra una ventana de comandos en la máquina virtual (Win + R y, después, escriba `cmd`).
 4. En el símbolo del sistema, ejecute el siguiente comando.

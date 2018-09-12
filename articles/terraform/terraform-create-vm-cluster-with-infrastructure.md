@@ -1,20 +1,20 @@
 ---
 title: Creación de un clúster de máquina virtual con Terraform y HCL
 description: Utilice Terraform y el lenguaje de configuración de HashiCorp (HCL) para crear un clúster de máquinas virtuales Linux con un equilibrador de carga en Azure
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, máquina virtual, redes, módulos
 author: tomarcher
-manager: routlaw
-ms.service: virtual-machines-linux
-ms.custom: devops
-ms.topic: article
-ms.date: 11/13/2017
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: 2435d694e6a1671a234d02f90860e5cafe98c2df
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.topic: tutorial
+ms.date: 11/13/2017
+ms.openlocfilehash: fffaf275a98791885b87ee8ffdc275e911b26341
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
-ms.locfileid: "24518807"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667607"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Creación de un clúster de máquina virtual con Terraform y HCL
 
@@ -220,7 +220,7 @@ En esta sección, creará un archivo que contiene las definiciones de recursos p
 
 ## <a name="3-initialize-terraform"></a>3. Inicialización de Terraform 
 
-El [comando terraform init](https://www.terraform.io/docs/commands/init.html) se utiliza para inicializar un directorio que contiene los archivos de configuración de Terraform: los archivos creados con las secciones anteriores. Debe ejecutar siempre el comando `terraform init` después de escribir una nueva configuración de Terraform. 
+El [comando terraform init](https://www.terraform.io/docs/commands/init.html) se utiliza para inicializar un directorio que contiene los archivos de configuración de Terraform: los archivos creados con las secciones anteriores. Es recomendable que ejecute siempre el comando `terraform init` después de escribir una nueva configuración de Terraform. 
 
 > [!TIP]
 > El comando `terraform init` es idempotente, lo que significa que se le puede llamar varias veces y genera siempre el mismo resultado. Por lo tanto, si está trabajando en un entorno de colaboración y cree que los archivos de configuración podrían haber cambiado, es siempre recomendable llamar al comando `terraform init` antes de ejecutar o aplicar un plan.

@@ -1,18 +1,20 @@
 ---
 title: Terraform con espacios de implementación del proveedor de Azure
 description: Tutorial sobre el uso de Terraform con espacios de implementación del proveedor de Azure
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, máquina virtual, Azure, ranuras de implementación
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 4/05/2018
-ms.topic: article
-ms.openlocfilehash: 3a018dbaf90801604b13efcf8bd7afb6dbc68659
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bbd06ae8927e6c21607ac1c997f1e5cf37f092bf
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416870"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667243"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Aprovisionamiento de una infraestructura con espacios de implementación de Azure con Terraform
 
@@ -20,7 +22,7 @@ Puede usar [espacios de implementación de Azure](/azure/app-service/web-sites-s
 
 Este artículo muestra un ejemplo del uso de las ranuras de implementación, en el que se le guía a través de la implementación de dos aplicaciones mediante GitHub y Azure. Una aplicación se hospeda en un espacio de producción. La segunda aplicación se hospeda en un espacio de ensayo. (los nombres "producción" y "ensayo" son arbitrarios y pueden ser cualesquiera otros que desee que representen el escenario). Una vez configurados los espacios de implementación, puede usar Terraform para cambiar de uno a otro según sea necesario.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - **Suscripción de Azure**: si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 
@@ -217,7 +219,7 @@ Ya ha implementado el espacio de producción. Para implementar la zona de ensayo
 
 En las secciones anteriores, se configuraron dos espacios (**slotAppService** y **slotAppServiceSlotOne**), con el fin de poder realizar implementaciones desde distintas bifurcaciones de GitHub. Vamos a realizar una versión preliminar de las aplicaciones web para validar que se han implementado correctamente.
 
-Lleve a cabo los siguiente pasos dos veces. En el paso 3, se selecciona **slotAppService** la primera vez, mientras que la segunda, se debe seleccionar **slotAppServiceSlotOne**.
+Realice dos veces los siguientes pasos. En el paso 3, se selecciona **slotAppService** la primera vez, mientras que la segunda, se debe seleccionar **slotAppServiceSlotOne**.
 
 1. En el menú principal de Azure Portal, seleccione **Grupos de recursos**.
 

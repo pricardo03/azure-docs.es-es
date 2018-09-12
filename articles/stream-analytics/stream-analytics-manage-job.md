@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 39b39a1d00c91e0ff114a28c13da0d4b6920ec13
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6b924e0555ea7a57f8d5e5309a266b6d2fb44f44
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186237"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702534"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Creación de un trabajo de Stream Analytics para analizar los datos de llamadas de teléfono y visualizar los resultados en un panel de Power BI
  
@@ -61,7 +61,7 @@ Para que Stream Analytics pueda analizar el flujo de datos de las llamadas fraud
    ![Creación de un espacio de nombres del centro de eventos](media/stream-analytics-manage-job/create-ehns.png)
 
 5. Cuando se haya terminado de implementar el espacio de nombres, vaya a **Todos los recursos**, busque "myEventHubNS" en la lista de recursos de Azure y selecciónelo para abrirlo.  
-6. A continuación, seleccione **+Centro de eventos** >  y asígnele el **nombre** "MyEventHub". Puede usar otro nombre. Use las opciones predeterminadas en el resto de la configuración, seleccione **Crear** y espere a que la implementación se realice correctamente.
+6. Seleccione **+Centro de eventos** > **Nombre** y asígnele el nombre "MyEventHub". Puede usar otro nombre. Use las opciones predeterminadas en el resto de la configuración, seleccione **Crear** y espere a que la implementación se realice correctamente.
 
    ![Creación de un centro de eventos](media/stream-analytics-manage-job/create-eh.png)
 
@@ -240,7 +240,7 @@ Puede probar una consulta desde el editor de consultas, pero para ello necesita 
 
 2. Seleccione **Ahora** como la hora de inicio de la salida del trabajo y seleccione **Iniciar**. El trabajo se inicia al cabo de unos minutos y puede ver el estado en la barra de notificación.  
 
-3. Una vez que el trabajo se inicia correctamente, vaya a [Powerbi.com](https://powerbi.com/) e inicie sesión con su cuenta profesional o educativa. Si la consulta del trabajo de Stream Analytics genera resultados, verá que el conjunto de datos ya se ha creado. Navegue hasta la pestaña **Conjuntos de datos**; verá un conjunto de datos denominado "ASAdataset".  
+3. Una vez que el trabajo se inicia correctamente, vaya a [Powerbi.com](https://powerbi.com/) e inicie sesión con su cuenta profesional o educativa. Si la consulta del trabajo de Stream Analytics genera resultados, verá que el conjunto de datos ya se ha creado. Vaya a la pestaña **Conjuntos de datos**; verá uno denominado "ASAdataset".  
 
 4. En el área de trabajo, seleccione **+ Crear**. Cree un nuevo panel y asígnele el nombre Llamadas fraudulentas. Agregará dos iconos a este panel: uno se usa para ver el recuento de llamadas fraudulentas en una instancia determinada y el otro icono tiene una visualización de gráfico de líneas.  
 

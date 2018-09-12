@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: a0ca0ae3ed615f6bc2774364f7a443023b911b5d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 06b5660a9428e98d2e99b5d447a05700968ec884
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937557"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381920"
 ---
 # <a name="azure-stack-validation-report"></a>Informe de validación de Azure Stack
-La herramienta Azure Stack Readiness Checker ejecuta validaciones que admiten la implementación y el mantenimiento de un entorno de Azure Stack. La herramienta escribe los resultados de la validación en un archivo de informe .json. El informe muestra los datos resumidos y detallados sobre el estado de los requisitos previos de implementación de Azure Stack y sobre la rotación de secretos en implementaciones de Azure Stack existentes.  
+Use la herramienta Azure Stack Readiness Checker para ejecutar validaciones que admitan la implementación y el mantenimiento de un entorno de Azure Stack. La herramienta escribe los resultados en un archivo de informe .json. El informe muestra los datos resumidos y detallados sobre el estado de los requisitos previos para la implementación de Azure Stack. El informe también muestra información acerca de la rotación de secretos para las implementaciones de Azure Stack existentes.  
 
  ## <a name="where-to-find-the-report"></a>Lugar donde se puede encontrar el informe
 Cuando se ejecuta la herramienta, los resultados se registran en **AzsReadinessCheckerReport.json**. La herramienta crea también un registro llamado **AzsReadinessChecker.log**. La ubicación de estos archivos se muestra con los resultados de validación de PowerShell.
@@ -34,10 +34,10 @@ Ambos archivos conservan los resultados de comprobaciones de validación posteri
 
 De forma predeterminada, los dos archivos se escriben en *C:\Users\<nombre de usuario>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json*.  
 - Use el parámetro **-OutputPath** ***&lt;ruta de acceso&gt;***  al final de la línea de comandos de ejecución para especificar otra ubicación para el informe.   
-- Use el parámetro **-CleanReport** al final del comando de ejecución para borrar la información de *AzsReadinessCheckerReport.json* sobre ejecuciones anteriores de la herramienta.
+- Use el parámetro **-CleanReport** al final del comando de ejecución para borrar la información de *AzsReadinessCheckerReport.json*. sobre ejecuciones anteriores de la herramienta.
 
 ## <a name="view-the-report"></a>Visualización del informe
-Para ver el informe en PowerShell, indique la ruta de acceso al informe como valor de **-ReportPath**. Este comando muestra el contenido del informe y también identifica las validaciones que aún no tienen resultados.
+Para ver el informe en PowerShell, indique la ruta de acceso al informe como valor de **-ReportPath**. Este comando muestra el contenido del informe e identifica las validaciones que aún no tienen resultados.
 
 Por ejemplo, para ver el informe desde un símbolo del sistema de PowerShell que está abierto en la ubicación donde se encuentra el informe, ejecute: 
    > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json` 
@@ -56,7 +56,7 @@ El resumen muestra las validaciones que no tienen resultados e indica si las val
 
 
 ## <a name="view-a-filtered-report"></a>Vista de un informe filtrado
-Para ver un informe filtrado por un solo tipo de validación, utilice el parámetro **-ReportSections** y especifique uno de los siguientes valores que se corresponda con el tipo de validación que quiere ver:
+Para ver un informe que se filtra con un único tipo de validación, use el parámetro **-ReportSections** con uno de los valores siguientes:
 - Certificate
 - AzureRegistration
 - AzureIdentity

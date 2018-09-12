@@ -12,19 +12,19 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f46a3ecb3c4ef6ace31b7010ba9068ab04a43315
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 37130e946aad00ef4eca14b7ce7942a8e435e6cd
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126548"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782335"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Tutorial: Solicitar Azure Data Box Disk (versión preliminar)
 
-Azure Data Box Disk es una solución en la nube que permite importar datos locales en Azure de una forma rápida, fácil y confiable. Transfiera los datos a discos de estado sólido (SSD) suministrados por Microsoft y envíe los discos de vuelta. Luego, dichos datos se cargan en Azure. 
+Azure Data Box Disk es una solución en la nube híbrida que permite importar datos locales en Azure de una forma rápida, fácil y confiable. Transfiera los datos a discos de estado sólido (SSD) suministrados por Microsoft y envíe los discos de vuelta. Luego, dichos datos se cargan en Azure. 
 
 En este tutorial se describe cómo se puede solicitar Azure Data Box Disk. En este tutorial, obtendrá información sobre lo siguiente:
 
@@ -38,7 +38,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 > [!IMPORTANT]
 > - Data Box Disk se encuentra en versión preliminar. Antes de solicitar e implementar esta solución revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> - Durante la versión preliminar, Data Box Disk puede enviarse tanto a los clientes de Estados Unidos como a los de la Unión Europea. Para más información, vaya a [Disponibilidad por región](data-box-disk-overview.md#region-availability).
+> - Durante la versión preliminar, Data Box Disk puede enviarse a clientes de Estados Unidos, Europa Occidental, Europa del Norte,Canadá y Australia. Para más información, vaya a [Disponibilidad por región](data-box-disk-overview.md#region-availability).
 
 ## <a name="sign-up"></a>Suscripción 
 
@@ -78,9 +78,9 @@ Para solicitar Data Box Disk, siga estos pasos en [Azure Portal](https://aka.ms/
 
     |Configuración|Valor|
     |---|---|
-    |Nombre|Especifique un nombre descriptivo para hacer un seguimiento del pedido.<br> El nombre puede tener entre 3 y 24 caracteres que pueden ser letras, números y guiones. <br> El nombre debe empezar y terminar con una letra o un número. |
+    |NOMBRE|Especifique un nombre descriptivo para hacer un seguimiento del pedido.<br> El nombre puede tener entre 3 y 24 caracteres que pueden ser letras, números y guiones. <br> El nombre debe empezar y terminar con una letra o un número. |
     |Grupos de recursos| Uso uno existente o cree uno nuevo. <br> Un grupo de recursos es un contenedor lógico para los recursos que se pueden administrar o implementar conjuntamente. |
-    |Región de Azure de destino| Seleccione la región de la cuenta de almacenamiento.<br> Actualmente, se admiten las cuentas de almacenamiento de todas las regiones de EE.UU., Europa del Norte y Europa Occidental. |
+    |Región de Azure de destino| Seleccione la región de la cuenta de almacenamiento.<br> Actualmente, se admiten cuentas de almacenamiento de todas las regiones de EE.UU., Europa Occidental, Europa del Norte, Canadá y Australia. |
     |Cuentas de almacenamiento|En función de la región de Azure especificada, seleccione en la lista filtrada una cuenta de almacenamiento existente. <br>También puede crear una nueva cuenta de uso general v1 o de uso general v2. |
     |Tamaño de datos estimado, en TB| Escriba una estimación, en TB. <br>Según el tamaño de los datos, Microsoft envía un número adecuado de SSD de 8 TB (7 TB de capacidad utilizable). <br>La capacidad máxima utilizable de cinco discos 35 TB. |
 

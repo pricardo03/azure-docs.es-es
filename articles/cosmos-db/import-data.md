@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: ea8bb1db53deaa546f4174ddc04d9a270aa96d9a
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 771c4a33603ddf262df3b35992d318d34de6c2dc
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43187790"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698118"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Use la herramienta de migración de datos para migrar los datos a Azure Cosmos DB 
 
@@ -28,7 +28,7 @@ En este tutorial, se muestra cómo usar la herramienta de migración de datos de
 * **[API de SQL ](documentdb-introduction.md)**: para importar los datos puede usar cualquiera de las opciones de origen disponibles en la herramienta de migración de datos.
 * **[Table API](table-introduction.md)**: para importar los datos, puede usar la herramienta de migración de datos o AzCopy. Consulte [Importación de datos para su uso con Table API de Azure Cosmos DB](table-import.md).
 * **[API de MongoDB](mongodb-introduction.md)**: la herramienta de migración de datos no es compatible actualmente con la API de MongoDB de Azure Cosmos DB, independientemente de si es un origen o un destino. Si quiere migrar los datos dentro o fuera de las colecciones de la API de MongoDB en Azure Cosmos DB, consulte [Azure Cosmos DB: How to migrate data for the MongoDB API](mongodb-migrate.md) (Azure Cosmos DB: importar datos en la API de MongoDB) para obtener instrucciones. De todos modos, todavía puede usar la herramienta de migración de datos para exportar datos desde MongoDB a las colecciones de API de SQL de Azure Cosmos DB, para así poder usarlos con la API de SQL. 
-* **[Graph API](graph-introduction.md)** : la herramienta de migración de datos no es una herramienta de importación admitida para las cuentas de Graph API en este momento. 
+* **[Gremlin API](graph-introduction.md)**: la herramienta de migración de datos no se admite como herramienta de importación para las cuentas de Gremlin API en este momento. 
 
 En este tutorial se describen las tareas siguientes:
 

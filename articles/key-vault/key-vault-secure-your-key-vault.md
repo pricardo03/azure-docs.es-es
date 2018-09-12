@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 08/31/2018
 ms.author: ambapat
-ms.openlocfilehash: df577222fb8f9d13bd33c5705e6234362519d351
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 9b8b0da6e1572ab79ffb369497f64aad2cd249b9
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41917740"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343469"
 ---
 # <a name="secure-your-key-vault"></a>Protección de un almacén de claves
 Azure Key Vault es un servicio en la nube que protege las claves de cifrado y los secretos (como certificados, cadenas de conexión y contraseñas) de las aplicaciones en la nube. Dado que estos datos son confidenciales y críticos para la empresa, desea proteger el acceso a los almacenes de claves, por lo que solo pueden acceder a él las aplicaciones y los usuarios autorizados. En este artículo se proporciona información general del modelo de acceso a un almacén de claves, se explican la autenticación y la autorización, y se describe cómo proteger el acceso a un almacén de claves de las aplicaciones en la nube con un ejemplo.
@@ -94,8 +94,8 @@ Las directivas de acceso de almacén de claves conceden permisos a las claves, l
 
 > [!IMPORTANT]
 > Tenga en cuenta que las directivas de acceso de un almacén de claves se aplican en el nivel de almacén. Por ejemplo, cuando se concede a un usuario permiso para crear y eliminar claves, puede realizar dichas operaciones en todas las claves de dicho almacén de claves.
-> 
-> 
+
+Además de las directivas de acceso, el acceso al plano de datos también puede restringirse mediante [puntos de conexión de servicio de Virtual Network para Azure Key Vault](key-vault-overview-vnet-service-endpoints.md) configurando los [firewalls y las reglas de red virtual](key-vault-network-security.md) para crear un nivel de seguridad adicional.
 
 ## <a name="example"></a>Ejemplo
 Supongamos que está desarrollando una aplicación que utiliza un certificado para SSL, Azure Storage para almacenar los datos y que usa una clave RSA de 2048 bits para las operaciones de firma. Supongamos que esta aplicación se ejecuta en una VM (o un conjunto de escalado de VM). Puede usar una instancia de Key Vault para almacenar todos los secretos de la aplicación y utilizar Key Vault para almacenar el certificado de arranque que usa la aplicación para realizar la autenticación con Azure Active Directory.
@@ -201,8 +201,8 @@ En este ejemplo se muestra un escenario simple. Los escenarios de la vida real p
 
 > [!NOTE]
 > Nota: En este ejemplo se muestra cómo se bloqueará el acceso a un almacén de claves en producción. Los desarrolladores deben tener su propia suscripción o grupo de recursos, en el que tengan permisos completos para administrar sus almacenes, máquinas virtuales y la cuenta de Storage donde desarrollan la aplicación.
-> 
-> 
+
+Se recomienda encarecidamente proteger el acceso al almacén de claves aún más [configurando los firewalls y las redes virtuales de Key Vault](key-vault-network-security.md).
 
 ## <a name="resources"></a>Recursos
 * [Control de acceso basado en roles de Azure Active Directory](../role-based-access-control/role-assignments-portal.md)
@@ -243,6 +243,8 @@ En este ejemplo se muestra un escenario simple. Los escenarios de la vida real p
   Vínculos a documentación de referencia de los cmdlets de PowerShell para administrar la directiva de acceso de un almacén de claves.
 
 ## <a name="next-steps"></a>Pasos siguientes
+[Configuración de firewalls y redes virtuales de Key Vault](key-vault-network-security.md)
+
 Para ver un tutorial de introducción para administradores, consulte [Introducción a Azure Key Vault](key-vault-get-started.md).
 
 Para más información acerca del registro de uso de Key Vault, consulte [Registro de Azure Key Vault](key-vault-logging.md).

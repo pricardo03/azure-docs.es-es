@@ -12,20 +12,22 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: be8b99f8cf291d2e09187344aa458420db92364e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d433eeb7d63282868b8919ee8c53283080bf8b59
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38237654"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701065"
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: introducción a la API de SQL y .NET Core
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.js para MongoDB](mongodb-samples.md)
+> * [Java](sql-api-java-get-started.md)
+> * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [Java](sql-api-java-get-started.md)  
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Le damos la bienvenida al tutorial de introducción de la API de SQL para Azure Cosmos DB con .NET Core. Después de seguir este tutorial, tendrá una aplicación de consola que crea recursos de Azure Cosmos DB y los consulta.
@@ -48,7 +50,7 @@ Esta tutorial abarca lo siguiente:
 
 Comencemos.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/). 
 
@@ -167,7 +169,7 @@ Presione el botón **DocumentDBGettingStarted** para compilar y ejecutar la apli
 Felicidades. Se ha conectado correctamente a una cuenta de Azure Cosmos DB y ahora se explicará cómo trabajar con recursos de Azure Cosmos DB.  
 
 ## <a name="step-4-create-a-database"></a>Paso 4: Creación de una base de datos
-Antes de agregar el código para crear una base de datos, agregue un método auxiliar para escribirlo en la consola.
+Antes de agregar el código para crear una base de datos, agregue un método de asistente para escribirlo en la consola.
 
 Copie y pegue el método **WriteToConsoleAndPromptToContinue** debajo del método **GetStartedDemo**.
 

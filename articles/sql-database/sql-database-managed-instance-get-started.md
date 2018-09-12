@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: quickstart
-ms.date: 08/13/2018
+ms.date: 08/31/2018
 ms.author: jovanpop-msft
-ms.openlocfilehash: cb378c2d2773096992ef688653fd77b2625f8754
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4271f0cef31b0e028ed1f9408166c37d4cbbe109
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42023026"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382005"
 ---
 # <a name="create-an-azure-sql-managed-instance"></a>Creación de una instancia administrada de Azure SQL
 
@@ -60,7 +60,7 @@ Los pasos siguientes muestran cómo crear la instancia administrada cuando se ha
 2. Busque **Instancia administrada** y seleccione **Instancia administrada Azure SQL Database (versión preliminar)**.
 3. Haga clic en **Create**(Crear).
 
-   ![Crear una instancia administrada](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![Crear una instancia administrada](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
 4. Seleccione la suscripción y compruebe que los términos de la versión preliminar muestran **Aceptado**.
 
@@ -77,26 +77,21 @@ Los pasos siguientes muestran cómo crear la instancia administrada cuando se ha
    |**Ubicación**|La ubicación que ha seleccionado anteriormente|Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).|
    |**Red virtual**|La red virtual que ha creado anteriormente| Elija el elemento **MyNewVNet/ManagedInstances** si no ha cambiado los nombres en el paso anterior. De lo contrario, elija el nombre de la red virtual y la subred de la instancia administrada que especificó en la sección anterior. **No utilice la subred predeterminada porque no está configurada para hospedar instancias administradas**. |
 
-   ![formulario de creación de instancia administrada](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
+   ![formulario de creación de instancia administrada](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
 6. Haga clic en **Plan de tarifa** para cambiar el tamaño de los recursos de almacenamiento y de proceso, así como para revisar las opciones del plan de tarifa. De forma predeterminada, la instancia obtiene 32 GB de espacio de almacenamiento de forma gratuita, **lo que puede que no sea suficiente para sus aplicaciones**.
 7. Utilice los controles deslizantes o cuadros de texto para especificar la cantidad de almacenamiento y el número de núcleos virtuales. 
-   ![plan de tarifa de instancia administrada](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+   ![plan de tarifa de instancia administrada](./media/sql-database-managed-instance-get-started/managed-instance-pricing-tier.png)
 
 8. Cuando haya terminado, haga clic en **Aplicar** para guardar la selección.  
 9. Haga clic en **Crear** para implementar la instancia administrada.
 10. Haga clic en el icono de **notificaciones** para ver el estado de la implementación.
- 
-   ![progreso de la implementación](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
-
 11. Haga clic en **Deployment in progress** (Implementación en curso) para abrir la ventana de la instancia administrada y seguir la supervisión del progreso de la implementación.
- 
-   ![progreso de la implementación 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
 Mientras se realiza la implementación, continúe con el siguiente procedimiento.
 
 > [!IMPORTANT]
-> Para la primera instancia de una subred, el tiempo de implementación es típicamente mucho mayor que en las instancias siguientes, a veces más de 24 horas en completarse. No cancele la operación de implementación porque dure más de lo previsto. La duración de este período para implementar su primera instancia es una situación temporal. Espere una reducción significativa del tiempo de implementación poco después del comienzo de la versión preliminar pública. La creación de la segunda instancia administrada en la subred llevará un par de minutos.
+> Para la primera instancia de una subred, el tiempo de implementación es típicamente mucho mayor que en las instancias siguientes. No cancele la operación de implementación porque dure más de lo previsto. La creación de la segunda instancia administrada en la subred llevará un par de minutos.
 
 ## <a name="prepare-client-machine"></a>Preparación de la máquina cliente
 

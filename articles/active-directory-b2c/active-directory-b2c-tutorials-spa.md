@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: fffffbf7ce654c263976378da01f032599145a94
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4953cb0db428de19268cdd90661f7818b06b6945
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591574"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343869"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Tutorial: Habilitación de la autenticación de una aplicación de una sola página con cuentas mediante Azure Active Directory B2C
 
@@ -24,24 +24,24 @@ En este tutorial se muestra cómo usar Azure Active Directory (Azure AD) B2C par
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Registrar una aplicación de una sola página de ejemplo en un inquilino de Azure AD B2C.
+> * Registrar una aplicación de ejemplo con una sola página en un directorio de Azure AD B2C.
 > * Crear directivas para el registro, el inicio de sesión, la edición de un perfil y el restablecimiento de contraseña.
-> * Configurar la aplicación de ejemplo para que use el inquilino de Azure AD B2C.
+> * Configurar la aplicación de ejemplo para que use el directorio de Azure AD B2C.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Crear su propio [inquilino de Azure AD B2C](active-directory-b2c-get-started.md).
+* Cree su propio [directorio de Azure AD B2C](active-directory-b2c-get-started.md)
 * Instalar [Visual Studio 2017](https://www.visualstudio.com/downloads/) con la carga de trabajo de **ASP.NET y desarrollo web**.
 * [SDK de .NET Core 2.0.0](https://www.microsoft.com/net/core) o posterior
 * Instalar [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="register-single-page-app"></a>Registro de la aplicación de una sola página
 
-Las aplicaciones se deben [registrar](../active-directory/develop/developer-glossary.md#application-registration) en el inquilino antes de que puedan recibir [tokens de acceso](../active-directory/develop/developer-glossary.md#access-token) de Azure Active Directory. El registro de una aplicación crea un [identificador de aplicación](../active-directory/develop/developer-glossary.md#application-id-client-id) para la aplicación en el inquilino. 
+Las aplicaciones deben [registrarse](../active-directory/develop/developer-glossary.md#application-registration) en el directorio para que puedan recibir [tokens de acceso](../active-directory/develop/developer-glossary.md#access-token) de Azure Active Directory. El registro de una aplicación crea un [identificador de la aplicación](../active-directory/develop/developer-glossary.md#application-id-client-id) en el directorio. 
 
-Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
+Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del directorio de Azure AD B2C.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
@@ -49,13 +49,13 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador g
 
 2. En la configuración de B2C, haga clic en **Aplicaciones** y luego en **Agregar**. 
 
-    Para registrar la aplicación web de ejemplo en el inquilino, utilice la siguiente configuración:
+    Para registrar la aplicación web de ejemplo en el directorio, utilice la siguiente configuración:
     
     ![Incorporación de una nueva aplicación](media/active-directory-b2c-tutorials-spa/spa-registration.png)
     
     | Configuración      | Valor sugerido  | Descripción                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | My sample single page app | Escriba un **Nombre** que describa la aplicación a los consumidores. | 
+    | **Nombre** | My sample single page app | Escriba un **Nombre** que describa la aplicación a los consumidores. | 
     | **Incluir aplicación web o API web** | SÍ | Seleccione **Sí** si desea una aplicación de una sola página. |
     | **Permitir flujo implícito** | SÍ | Seleccione **Sí**, ya que la aplicación utiliza el [inicio de sesión con OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL de respuesta** | `http://localhost:6420` | Las direcciones URL de respuesta son puntos de conexión en los que Azure AD B2C devolverá los tokens que su aplicación solicite. En este tutorial, el ejemplo se ejecuta localmente (localhost) y escucha en el puerto 6420. |
@@ -63,7 +63,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador g
     
 3. Haga clic en **Crear** para registrar la aplicación.
 
-Las aplicaciones registradas aparecen en la lista de aplicaciones del inquilino de Azure AD B2C. Seleccione la aplicación de una sola página en la lista. Se muestra el panel de propiedades de la aplicación de una sola página registrada.
+Las aplicaciones registradas aparecen en la lista de aplicaciones del directorio de Azure AD B2C. Seleccione la aplicación de una sola página en la lista. Se muestra el panel de propiedades de la aplicación de una sola página registrada.
 
 ![Propiedades de aplicación de una sola página](./media/active-directory-b2c-tutorials-spa/b2c-spa-properties.png)
 
@@ -85,7 +85,7 @@ Para registrar a usuarios y que estos tengan acceso a la aplicación web, cree u
 
     | Configuración      | Valor sugerido  | Descripción                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SiUpIn | Escriba un **Nombre** para la directiva. El nombre de la directiva tiene el prefijo **B2C_1_**. En el código de ejemplo, se utiliza el nombre completo de la directiva **B2C_1_SiUpIn**. | 
+    | **Nombre** | SiUpIn | Escriba un **Nombre** para la directiva. El nombre de la directiva tiene el prefijo **B2C_1_**. En el código de ejemplo, se utiliza el nombre completo de la directiva **B2C_1_SiUpIn**. | 
     | **Proveedor de identidades** | Registro por correo electrónico | El proveedor de identidades que se usa para identificar al usuario de forma exclusiva. |
     | **Atributos de registro** | Nombre para mostrar y Código postal | Seleccione los atributos que se van a recopilar del usuario durante el registro. |
     | **Notificaciones de la aplicación** | Nombre para mostrar, Código postal, El usuario es nuevo, Identificador de objeto del usuario | Seleccione las [notificaciones](../active-directory/develop/developer-glossary.md#claim) que desea incluir en el [token de acceso](../active-directory/develop/developer-glossary.md#access-token). |
@@ -102,7 +102,7 @@ Para permitir que los usuarios restablezcan la información de su perfil de usua
 
     | Configuración      | Valor sugerido  | Descripción                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SiPe | Escriba un **Nombre** para la directiva. El nombre de la directiva tiene el prefijo **B2C_1_**. En el código de ejemplo, se utiliza el nombre completo de la directiva **B2C_1_SiPe**. | 
+    | **Nombre** | SiPe | Escriba un **Nombre** para la directiva. El nombre de la directiva tiene el prefijo **B2C_1_**. En el código de ejemplo, se utiliza el nombre completo de la directiva **B2C_1_SiPe**. | 
     | **Proveedor de identidades** | Inicio de sesión en una cuenta local | El proveedor de identidades que se usa para identificar al usuario de forma exclusiva. |
     | **Atributos de perfil** | Nombre para mostrar y Código postal | Seleccione los atributos que los usuarios pueden modificar durante la edición de un perfil. |
     | **Notificaciones de la aplicación** | Nombre para mostrar, código postal, identificador de objeto del usuario | Seleccione las [notificaciones](../active-directory/develop/developer-glossary.md#claim) que desea incluir en el [token de acceso](../active-directory/develop/developer-glossary.md#access-token) después de una edición de perfil correcta. |
@@ -119,7 +119,7 @@ Para habilitar en su aplicación el restablecimiento de contraseña, deberá cre
 
     | Configuración      | Valor sugerido  | Descripción                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SSPR | Escriba un **Nombre** para la directiva. El nombre de la directiva tiene el prefijo **B2C_1_**. En el código de ejemplo, se utiliza el nombre completo de la directiva **B2C_1_SSPR**. | 
+    | **Nombre** | SSPR | Escriba un **Nombre** para la directiva. El nombre de la directiva tiene el prefijo **B2C_1_**. En el código de ejemplo, se utiliza el nombre completo de la directiva **B2C_1_SSPR**. | 
     | **Proveedor de identidades** | Restablecer la contraseña mediante la dirección de correo electrónico | Es el proveedor de identidades que se usa para identificar al usuario de forma exclusiva. |
     | **Notificaciones de la aplicación** | Identificador de objeto del usuario | Seleccione las [notificaciones](../active-directory/develop/developer-glossary.md#claim) que desea incluir en el [token de acceso](../active-directory/develop/developer-glossary.md#access-token) después de un restablecimiento de contraseña correcto. |
 
@@ -127,25 +127,25 @@ Para habilitar en su aplicación el restablecimiento de contraseña, deberá cre
 
 ## <a name="update-single-page-app-code"></a>Actualización del código de la aplicación de una sola página
 
-Ahora que tiene una aplicación registrada y las directivas creadas, debe configurarla para que use el inquilino de Azure AD B2C. En este tutorial, configurará una aplicación JavaScript SPA de ejemplo que puede descargar desde GitHub. 
+Ahora que ha registrado una aplicación y ha creado directivas, debe configurar la aplicación para que use el directorio de Azure AD B2C. En este tutorial, configurará una aplicación JavaScript SPA de ejemplo que puede descargar desde GitHub. 
 
 [Descargue un archivo zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) o clone la aplicación web de ejemplo desde GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
-La aplicación de ejemplo muestra cómo una aplicación de una sola página puede usar Azure AD B2C para el registro del usuario, el inicio de sesión y llamar a una API web protegida. Debe cambiar la aplicación para que use el registro de aplicación en el inquilino y configurar las directivas que ha creado. 
+La aplicación de ejemplo muestra cómo una aplicación de una sola página puede usar Azure AD B2C para el registro del usuario, el inicio de sesión y llamar a una API web protegida. Debe cambiar la aplicación para que use el registro de aplicaciones del directorio y configurar las directivas que ha creado. 
 
 Para cambiar la configuración de la aplicación:
 
 1. Abra el archivo `index.html` en la aplicación de una sola página de Node.js de ejemplo.
-2. Configure el ejemplo con la información de registro del inquilino de Azure AD B2C. Cambie las siguientes líneas de código:
+2. Configure el ejemplo con la información de registro del directorio de Azure AD B2C. Cambie las siguientes líneas de código (no olvide reemplazar los valores con los nombres del directorio y las API):
 
     ```javascript
-    // The current application coordinates were pre-registered in a B2C tenant.
+    // The current application coordinates were pre-registered in a B2C directory.
     var applicationConfig = {
         clientID: '<Application ID for your SPA obtained from portal app registration>',
-        authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
+        authority: "https://fabrikamb2c.b2clogin.com/tfp/fabrikamb2c.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read"],
         webApi: 'https://fabrikamb2chello.azurewebsites.net/hello',
     };
@@ -185,20 +185,20 @@ La aplicación de ejemplo es compatible con el registro, el inicio de sesión, l
 
     ![Flujo de trabajo de registro](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
 
-4. Haga clic en **Crear** para crear una cuenta local en el inquilino de Azure AD B2C.
+4. Haga clic en **Crear** para crear una cuenta local en el directorio de Azure AD B2C.
 
 Ahora el usuario puede utilizar su dirección de correo electrónico para iniciar sesión y usar la aplicación SPA.
 
 > [!NOTE]
-> Tras iniciar sesión, la aplicación muestra el error "permisos insuficientes". Dicho error aparece se intenta acceder a un recurso desde el inquilino de demostración. Puesto que su token de acceso solo es válido para su inquilino de Azure AD, la llamada de la API no tiene autorización. Pase al siguiente tutorial para crear una API web protegida para el inquilino. 
+> Tras iniciar sesión, la aplicación muestra el error "permisos insuficientes". Este error aparece porque está intentando acceder a un recurso desde el directorio de la demostración. Como el token de acceso solamente es válido para su directorio de Azure AD, la llamada API no tiene autorización. Continúe en el siguiente tutorial para crear una API web protegida para el directorio. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Puede usar el inquilino de Azure AD B2C si tiene previsto leer otros tutoriales de Azure AD B2C. Cuando ya no sea necesario, puede [eliminar el inquilino de Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+Puede usar el directorio de Azure AD B2C si tiene previsto probar otros tutoriales de Azure AD B2C. Cuando ya no sea necesario, puede [eliminar el directorio de Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a crear a un inquilino de Azure AD B2C, a crear directivas y a actualizar la aplicación de una sola página de ejemplo para usar su inquilino de Azure AD B2C. En el siguiente tutorial aprenderá a registrar, configurar y llamar a una API web protegida desde una aplicación de escritorio.
+En este tutorial, ha aprendido a crear a un directorio de Azure AD B2C, a crear directivas y a actualizar la aplicación de ejemplo de una sola página para que utilice el directorio de Azure AD B2C. En el siguiente tutorial aprenderá a registrar, configurar y llamar a una API web protegida desde una aplicación de escritorio.
 
 > [!div class="nextstepaction"]
 > 

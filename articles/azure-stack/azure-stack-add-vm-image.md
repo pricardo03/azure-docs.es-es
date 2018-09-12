@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 06/27/2018
+ms.date: 08/30/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 5c2088ab39e32c049ce867698e84efba759c9a87
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7f16f53af7d1c2f46c5c61974601833fafc8f828
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447343"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698781"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Hacer que una imagen de máquina virtual esté disponible en Azure Stack
 
@@ -37,7 +37,7 @@ Debe poderse hacer referencia a las imágenes mediante un identificador URI de B
 
 1. [Carga de una imagen de máquina virtual Windows en Azure para implementaciones de Resource Manager](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) o, para una imagen de Linux, siga las instrucciones descritas en el artículo [Implementación de máquinas virtuales Linux en Azure Stack](azure-stack-linux.md). Antes de cargar la imagen, es importante tener en cuenta los siguientes factores:
 
-   - Azure Stack admite el formato VHD de disco fijo. El formato fijo estructura el disco lógico linealmente dentro del archivo, de manera que el desplazamiento del disco X se almacena en el desplazamiento del blob X. Un pequeño pie de página al final del blob describe las propiedades del VHD. Para confirmar la fijación del disco, use el comando [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) de PowerShell.  
+   - Azure Stack solo admite máquinas virtuales de primera generación (1) en el formato de disco duro virtual de disco fijo. El formato fijo estructura el disco lógico linealmente dentro del archivo, de manera que el desplazamiento del disco X se almacena en el desplazamiento del blob X. Un pequeño pie de página al final del blob describe las propiedades del disco duro virtual. Para confirmar la fijación del disco, use el comando [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) de PowerShell.  
 
     > [!IMPORTANT]
     >  Azure Stack no admite discos duros virtuales dinámicos. Cambiar el tamaño de un disco dinámico conectado a una máquina virtual producirá un error de estado en esta. Para mitigar este problema, elimine la máquina virtual sin eliminar el disco de la máquina virtual, un blob de disco duro virtual de una cuenta de almacenamiento. A continuación, convierta el disco duro virtual dinámico a fijo y vuelva a crear la máquina virtual.
@@ -48,7 +48,7 @@ Debe poderse hacer referencia a las imágenes mediante un identificador URI de B
 
    * Anote el identificador URI donde cargará la imagen de Blob Storage. El identificador URI de Blob Storage tiene el siguiente formato: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd.
 
-   * Para que sea posible acceder al blob de manera anónima, vaya al contenedor de blobs de la cuenta de almacenamiento donde se cargó el disco duro virtual de la imagen de máquina virtual. Seleccione **Blob** y, a continuación, seleccione **Directiva de acceso**. Opcionalmente, puede generar una firma de acceso compartido para el contenedor e incluirla como parte del identificador URI del blob.
+   * Para que sea posible acceder al blob de manera anónima, vaya al contenedor de blobs de la cuenta de almacenamiento donde se cargó el disco duro virtual de la imagen de máquina virtual. Seleccione **Blob** y, a continuación, seleccione **Directiva de acceso**. Opcionalmente, puede generar una firma de acceso compartido para el contenedor e incluirla como parte del identificador URI del blob. Con este paso se garantiza la disponibilidad del blob para incorporarlo como imagen. Si no se puede acceder al blob de forma anónima, se creará la imagen de la máquina virtual con estado de error.
 
    ![Vaya a los blobs de la cuenta de almacenamiento.](./media/azure-stack-add-vm-image/image1.png)
 
