@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 7bbcaa82b1072b8cbdea015195a8da03ceb3a25f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bd456e0f881f606f36f2b4d80e704ce138f7db0f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056766"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666439"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
@@ -38,11 +38,11 @@ Los requisitos de tamaño para el servidor de configuración dependen de la tasa
 
 | **CPU** | **Memoria** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas** |
 | --- | --- | --- | --- | --- |
-| 8 vCPU (2 sockets * 4 núcleos a 2,5 GHz) |16 GB |< 300 GB |500 GB o menos |Replicar menos de 100 máquinas. |
-| 12 vCPU (2 sockets * 6 núcleos a 2,5 GHz) |18 GB |600 GB |500 GB a 1 TB |Replicar 100-150 máquinas. |
-| 16 vCPU (2 sockets * 8 núcleos a 2,5 GHz) |32 GB |1 TB |1 TB a 2 TB |Replicar 150-200 máquinas. |
+| 8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz) |16 GB |< 300 GB |500 GB o menos |Replicar menos de 100 máquinas. |
+| 12 vCPU (2 sockets * 6 núcleos \@ 2,5 GHz) |18 GB |600 GB |500 GB a 1 TB |Replicar 100-150 máquinas. |
+| 16 vCPU (2 sockets * 8 núcleos \@ 2,5 GHz) |32 GB |1 TB |1 TB a 2 TB |Replicar 150-200 máquinas. |
 
-Si replica más de una máquina virtual de VMware, consulte las [consideraciones de planeación de capacidad](/site-recovery-plan-capacity-vmware.md). Ejecute la [herramienta Deployment Planner](site-recovery-deployment-planner.md) para la replicación de VMware.
+Si replica más de una máquina virtual de VMware, consulte las [consideraciones de planeación de capacidad](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware). Ejecute la [herramienta Deployment Planner](site-recovery-deployment-planner.md) para la replicación de VMware.
 
 ## <a name="download-the-template"></a>Descarga de la plantilla
 
@@ -81,7 +81,7 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 
 1. En el inventario de cliente de vSphere, haga clic con el botón derecho en la máquina virtual y seleccione **Editar configuración**.
 2. En **Hardware**, seleccione **Agregar** > **Adaptador Ethernet**. Luego, seleccione **Siguiente**.
-3. Seleccione el tipo de adaptador y la red. 
+3. Seleccione el tipo de adaptador y la red.
 4. Para conectar la NIC virtual al encender la máquina virtual, seleccione **Connect at power on** (Conectar al encender). Después, seleccione **Siguiente** > **Finalizar** > **Aceptar**.
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Registrar el servidor de configuración con los servicios de Azure Site Recovery
@@ -102,7 +102,7 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 
     > [!NOTE]
     > Una vez registrado, no hay ninguna flexibilidad para cambiar el almacén de Recovery Services.
-    
+
 3. En **Instalar software de terceros**,
 
     |Escenario   |Pasos a seguir  |
@@ -144,6 +144,10 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 ## <a name="upgrade-the-configuration-server"></a>Actualización del servidor de configuración
 
 Para actualizar el servidor de configuración a la versión más reciente, consulte los pasos indicados [aquí](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+
+## <a name="manage-the-configuration-server"></a>Administración del servidor de configuración
+
+Para evitar interrupciones en la replicación en curso, asegúrese de que la dirección IP del servidor de configuración no cambie cuando el servidor de configuración se haya en un almacén. Puede obtener más información sobre las tareas comunes de administración de servidor de configuración [aquí](vmware-azure-manage-configuration-server.md).
 
 ## <a name="troubleshoot-deployment-issues"></a>Solución de problemas de implementación
 

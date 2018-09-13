@@ -1,5 +1,5 @@
 ---
-title: Información sobre el uso de reservas de Azure para la inscripción Enterprise | Microsoft Docs
+title: Información sobre el uso de Azure Reservations para Enterprise | Microsoft Docs
 description: Aprenda a interpretar los datos de uso para comprender cómo se aplican las reservas de Azure a las inscripciones Enterprise.
 services: billing
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: 5ce0103315f297996ed3f3bd88b5e53558e22e14
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 334271139b791ab60f2bc89ae695ba9bf06b7d12
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628239"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301027"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Información sobre el uso de reservas de Azure para la inscripción Enterprise
 
@@ -81,15 +81,15 @@ El uso de reservas de Azure también aparece en la sección de resumen de uso de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de las reservas de Azure, consulte los siguientes artículos:
+Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
 
-- [¿Qué son las reservas de Azure?](billing-save-compute-costs-reservations.md)
+- [¿Qué es Azure Reservations?](billing-save-compute-costs-reservations.md)
 - [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md) 
-- [Administración de reservas de Azure](billing-manage-reserved-vm-instance.md)
+- [Administración de Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Información sobre cómo se aplica el descuento por la reserva](billing-understand-vm-reservation-charges.md)
 - [Información sobre el uso de reservas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
-- [Costos de software de Windows no incluidos con reservas](billing-reserved-instance-windows-software-costs.md)
+- [Costos de software de Windows no incluidos con Reservations](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 

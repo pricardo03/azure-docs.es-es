@@ -1,5 +1,5 @@
 ---
-title: Información sobre el descuento en la reserva de Azure | Microsoft Docs
+title: Información sobre el descuento de Azure Reservations | Microsoft Docs
 description: Aprenda cómo se aplica un descuento en la reserva a las instancias de SQL Database en ejecución.
 services: billing
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: 3a5339200309a50eace5b48dfbd9127b7eb1dae6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 923337291d297832e03892b505f4efa8d3bb3f36
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39633765"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300721"
 ---
 # <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Aprenda cómo se aplica un descuento en la reserva de Azure a las instancias de SQL Database
 
@@ -40,16 +40,16 @@ En el resto de estos ejemplos, supongamos que la capacidad reservada de SQL Data
 - Escenario 3: ejecuta una instancia de SQL Database de 16 núcleos de las 13:00 a las 13:30. Ejecuta otra instancia de SQL Database de 16 núcleos de las 13:30 a las 14:00. Ambas están cubiertas por el descuento en la reserva.
 - Escenario 4: ejecuta una instancia de SQL Database de 16 núcleos de las 13:00 a las 13:45. Ejecuta otra instancia de SQL Database de 16 núcleos de las 13:30 a las 14:00. Se le cobra el precio de pago por uso por el solapamiento de 15 minutos. El descuento en la reserva se aplica al uso de proceso por el resto del tiempo.
 
-Para información sobre la aplicación de las reservas en informes de uso de facturación de Azure y ver cómo hacerla, consulte el artículo de [información sobre el uso de reservas de Azure](https://go.microsoft.com/fwlink/?linkid=862757).
+Para obtener información sobre la aplicación de Azure Reservations en informes de uso de facturación, consulte el artículo [Información sobre el uso de Azure Reservations](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de las reservas de Azure, consulte los siguientes artículos:
+Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
 
-- [¿Qué son las reservas de Azure?](billing-save-compute-costs-reservations.md)
+- [¿Qué es Azure Reservations?](billing-save-compute-costs-reservations.md)
 - [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
-- [Administración de reservas de Azure](billing-manage-reserved-vm-instance.md)
+- [Administración de Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Información sobre el uso de reservas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
 - [Información sobre el uso de reservas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
 - [Información sobre el uso de reservas para suscripciones de CSP](https://docs.microsoft.com/partner-center/azure-reservations)

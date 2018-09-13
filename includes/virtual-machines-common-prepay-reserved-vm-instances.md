@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-07-2018
-ms.openlocfilehash: 764470bbf47c18a2ec66dc91d433f8dd14b99a8f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6be00937a6645fbdd266ac0b1aa1ce95ecc6c3d9
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43039267"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301911"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances
 
@@ -34,7 +34,7 @@ Las instancias reservadas de máquinas virtuales están disponibles para la mayo
 - Las máquinas virtuales de núcleos suprimidas no obtienen descuentos de reserva.
 - Las siguientes series de máquinas virtuales no obtienen descuentos de reserva: serie A, serie Av2 o serie G.
 - Máquinas virtuales en versión preliminar: las series de máquinas virtuales o los tamaños que estén en versión preliminar no estarán disponibles para la compra de una reserva.
-- Nubes: la compra de reservas no está disponible en las regiones de Azure Gobierno de EE. UU., Alemania y China.
+- Nubes: Reservations no está disponible en las regiones Azure US Government, Alemania y China.
 - Cuota insuficiente: una reserva cuyo ámbito sea de una sola suscripción debe tener cuota de vCPU disponible en la suscripción para la nueva instancia reservada. Por ejemplo, si la suscripción de destino tiene un límite de cuota de 10 vCPU para la serie D, no podrá comprar una reserva para 11 instancias Standard_D1. La comprobación de cuota para las reservas incluye las máquinas virtuales ya implementadas en la suscripción. Por ejemplo, si la suscripción tiene una cuota de 10 vCPU para la serie D y tiene implementadas dos instancias standard_D1, podrá comprar una reserva para 10 instancias standard_D1 en esta suscripción. 
 - Restricciones de capacidad: en algunas circunstancias poco frecuentes, Azure limita la compra de nuevas reservas para un subconjunto de tamaños de máquina virtual debido a que la capacidad en una región es baja.
 
@@ -68,17 +68,17 @@ Las instancias reservadas de máquinas virtuales están disponibles para la mayo
 
 El descuento de la reserva se aplica automáticamente el número de máquinas virtuales en ejecución que coincidan con el ámbito y los atributos de la reserva. Puede actualizar el ámbito de la reserva a través de [Azure Portal](https://portal.azure.com), PowerShell, CLI o a través de la API.
 
-Para más información sobre cómo administrar una reserva, consulte [Administración de reservas de Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
+Para más información sobre cómo administrar una reserva, consulte [Administración de Azure Reservations](../articles/billing/billing-manage-reserved-vm-instance.md).
 
-Para más información acerca de las reservas de Azure, consulte los siguientes artículos:
+Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
 
-- [¿Qué son las reservas de Azure?](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Administración de reservas de Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
+- [¿Qué es Azure Reservations?](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Administración de reservas en Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
 - [Información sobre cómo se aplica el descuento por la reserva](../articles/billing/billing-understand-vm-reservation-charges.md)
 - [Información sobre el uso de reservas para suscripciones de pago por uso](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Información sobre el uso de reservas para la inscripción Enterprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [Costos de software de Windows no incluidos con reservas](../articles/billing/billing-reserved-instance-windows-software-costs.md)
-- [Reservas de Azure en el programa del Proveedor de soluciones en la nube (CSP) del Centro de partners](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Azure Reservations en el programa del Proveedor de soluciones en la nube (CSP) del Centro de partners](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 

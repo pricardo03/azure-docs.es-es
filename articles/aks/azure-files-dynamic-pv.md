@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: iainfou
-ms.openlocfilehash: ea77244d4b2e078c5eda716e94a97291350228f5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: dfc9171f54effe3da7a0f13695ab233d561357d4
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42142950"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43285692"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Volúmenes persistentes con archivos de Azure
 
@@ -73,7 +73,7 @@ kubectl apply -f azure-file-sc.yaml
 
 Los clústeres AKS usan el control de acceso basado en roles (RBAC) de Kubernetes para limitar las acciones que se pueden realizar. *Roles* define los permisos para conceder, y *enlaces* los aplica a los usuarios deseados. Estas asignaciones se pueden aplicar a un espacio de nombres especificado o a todo el clúster. Para más información, consulte [Uso de la autorización de RBAC][kubernetes-rbac].
 
-Para permitir que la plataforma de Azure cree los recursos de almacenamiento necesarios, cree un *clusterrole* y *clusterrolebinding*. Cree un archivo denominado `azure-pvc-roles.yaml` y cópielo en el siguiente código YAML:
+Para permitir que la plataforma de Azure cree los recursos de almacenamiento necesarios, cree los elementos *ClusterRole* y *ClusterRoleBinding*. Cree un archivo denominado `azure-pvc-roles.yaml` y cópielo en el siguiente código YAML:
 
 ```yaml
 ---

@@ -1,6 +1,6 @@
 ---
-title: ¿Qué es el panel de acceso de Azure Active Directory? | Microsoft Docs
-description: Aprenda a usar las variaciones del panel de acceso (explorador web, aplicación Android, y aplicación iPhone y iPad) para tener acceso a las aplicaciones SaaS.
+title: ¿Qué es el portal Mis aplicaciones de Azure Active Directory? | Microsoft Docs
+description: Aprenda a usar las variaciones del portal Mis aplicaciones (explorador web, aplicación para Android, y aplicación para iPhone y iPad) para tener acceso a las aplicaciones SaaS.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: f69830deb4d2c74b5fe1c85ad8c9452097dd2a1e
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e382f53678806aa3442151703277c3a57bb30830
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146836"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302284"
 ---
-# <a name="what-is-the-access-panel"></a>¿Qué es el panel de acceso?
+# <a name="what-is-the-myapps-portal"></a>¿Qué es el portal MyApps?
 
-El panel de acceso es un portal web. Si tiene una cuenta profesional o educativa en Azure Active Directory (Azure AD), puede utilizar el panel de acceso para ver e iniciar las aplicaciones basadas en la nube a las que el administrador de Azure AD le ha concedido acceso. También se pueden usar las funcionalidades de administración de grupos de autoservicio y aplicaciones a través del panel de acceso.
+Si tiene una cuenta profesional o educativa en Azure Active Directory (Azure AD), puede usar el portal web Mis aplicaciones para ver e iniciar las aplicaciones basadas en la nube a las que el administrador de Azure AD le ha concedido acceso. También se pueden usar las funcionalidades de administración de grupos de autoservicio y aplicaciones a través del portal Mis aplicaciones.
 
-El panel de acceso es independiente de Azure Portal. No es necesario tener una suscripción a Azure.
+El portal Mis aplicaciones es independiente de Azure Portal. No es necesario tener una suscripción a Azure.
 
-![Panel de acceso][1] Mediante el panel de acceso, podrá editar algunas opciones de configuración del perfil y realizar las operaciones siguientes:
+![portal Mis aplicaciones][1] Mediante el portal Mis aplicaciones, podrá editar algunas opciones de configuración del perfil y realizar las operaciones siguientes:
 
 - Cambiar la contraseña asociada a una cuenta profesional o educativa.
 
@@ -39,12 +39,9 @@ El panel de acceso es independiente de Azure Portal. No es necesario tener una s
 
 - Autoadministrar grupos. Los administradores pueden crear y administrar grupos de seguridad, además de solicitar la pertenencia a grupos de seguridad en Azure AD. Para más información, consulte [Configuración de Azure Active Directory para la administración de grupos de autoservicio](../users-groups-roles/groups-self-service-management.md) y [Administración del acceso a los recursos con grupos de Azure Active Directory](../fundamentals/active-directory-manage-groups.md).
 
+## <a name="access-the-myapps-portal"></a>Acceso al portal Mis aplicaciones
 
-
-
-## <a name="access-the-access-panel"></a>Acceso al panel de acceso
-
-Para acceder al panel de acceso, vaya a `http://myapps.microsoft.com`.
+Para acceder al portal Mis aplicaciones, vaya a `http://myapps.microsoft.com`.
 
 Si la página de inicio de sesión está configurada con su marca personalizada, puede cargar la personalización de marca agregando el dominio de la organización a la dirección URL (por ejemplo, `http://myapps.microsoft.com/<your domain>.com`).
 
@@ -54,7 +51,7 @@ Distribuya la dirección URL a todos los usuarios que inicien sesión en las apl
 
 ## <a name="authentication"></a>Autenticación
 
-Para llegar al panel de acceso, hay que autenticarse con una cuenta profesional o educativa en Azure AD. Un usuario se puede autenticar en Azure AD directamente. Además, si una organización configuró la federación mediante Servicios de federación de Active Directory (AD FS) u otras tecnologías, Windows Server Active Directory puede autenticar a los usuarios.
+Para llegar al portal Mis aplicaciones, hay que autenticarse con una cuenta profesional o educativa en Azure AD. Un usuario se puede autenticar en Azure AD directamente. Además, si una organización configuró la federación mediante Servicios de federación de Active Directory (AD FS) u otras tecnologías, Windows Server Active Directory puede autenticar a los usuarios.
 
 Si tiene una suscripción de Azure u Office 365 y ha usado Azure Portal o una aplicación de Office 365, podrá consultar la lista de aplicaciones sin necesidad de iniciar sesión de nuevo. Si no está autenticado, se le pedirá que inicie sesión con el nombre de usuario y la contraseña de la cuenta de Azure AD. Si la organización configuró la federación, bastará con escribir el nombre de usuario.
 
@@ -62,12 +59,12 @@ Después de la autenticación, los usuarios pueden interactuar con las aplicacio
 
 ## <a name="web-browser-requirements"></a>Requisitos del explorador web
 
-Como mínimo, el panel de acceso requiere un explorador que admita JavaScript y que tenga CSS habilitado. Para iniciar sesión en las aplicaciones con el inicio de sesión único (SSO) basado en contraseña, debe instalar una extensión del panel de acceso en el explorador. Esta extensión se descarga automáticamente cuando un usuario selecciona una aplicación que está configurada para SSO basado en contraseña.
+Como mínimo, el portal Mis aplicaciones requiere un explorador compatible con JavaScript y con CSS habilitado. Para iniciar sesión en las aplicaciones con el inicio de sesión único (SSO) basado en contraseña, debe instalar una extensión del portal Mis aplicaciones en el explorador. Esta extensión se descarga automáticamente cuando un usuario selecciona una aplicación que está configurada para SSO basado en contraseña.
 
 El instalador es específico para la arquitectura. Si hace clic en el vínculo de descarga, solo obtiene el instalador para la arquitectura del SO en la que se ejecuta actualmente. Si es administrador de implementación de una aplicación, asegúrese de visitar el vínculo de descarga desde un dispositivo de 64 bits y de 32 bits para obtener ambos instaladores.
 
 
-La extensión del panel de acceso está actualmente disponible para:
+La extensión del portal Mis aplicaciones está actualmente disponible para:
 - **Edge**: en Windows 10 Anniversary Edition, o cualquier versión posterior. 
 - **Chrome**: en Windows 7 o versiones posteriores y en MacOS X o versiones posteriores.
 - **Firefox 26.0 o versiones posteriores**: en Windows XP SP2 o versiones posteriores y en Mac OS X 10.6 o versiones posteriores.
@@ -77,7 +74,7 @@ La extensión del panel de acceso está actualmente disponible para:
 Para poder iniciar sesión con el inicio de sesión único basado en contraseña, debe disponer de esta extensión. Después de instalar la extensión, puede seleccionar **Iniciar sesión para comenzar**. 
 
 - Puede iniciar sesión directamente en una aplicación utilizando la **URL de inicio de sesión**. Cuando se usa la dirección URL de la aplicación, la extensión detecta la operación y permite iniciar sesión desde la propia extensión.
-- Puede iniciar cualquier aplicación desde el panel de acceso utilizando la característica *Búsqueda rápida* de la extensión. 
+- Puede iniciar cualquier aplicación desde el portal Mis aplicaciones utilizando la característica *Búsqueda rápida* de la extensión. 
 - En la extensión, en la sección **Usados recientemente**, aparecen las tres últimas aplicaciones que se han iniciado.
 - Puede usar direcciones URL internas de la empresa mientras se conecta de forma remota mediante el [proxy de la aplicación](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
@@ -111,7 +108,7 @@ Para usar direcciones URL internas de la empresa mientras se conecta de forma re
 El equipo de Azure Active Directory publica la aplicación móvil Mis aplicaciones. Cuando los usuarios instalan esta aplicación, pueden iniciar sesión en aplicaciones SSO basadas en contraseña en dispositivos iOS y Android.
 
 > [!NOTE]
-> Los usuarios pueden iniciar sesión en aplicaciones que admitan la federación con Azure AD (como Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 y otras 70 más) prácticamente en cualquier explorador web, en cualquier dispositivo, sin necesidad de instalar complementos o una aplicación móvil. Tampoco necesitará la aplicación móvil My Apps para disfrutar de las demás [funcionalidades del panel de acceso](https://myapps.microsoft.com/) en un dispositivo móvil.
+> Los usuarios pueden iniciar sesión en aplicaciones que admitan la federación con Azure AD (como Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 y otras 70 más) prácticamente en cualquier explorador web, en cualquier dispositivo, sin necesidad de instalar complementos o una aplicación móvil. Tampoco necesitará la aplicación móvil Mis aplicaciones para disfrutar de las demás [funcionalidades del portal Mis aplicaciones](https://myapps.microsoft.com/) en un dispositivo móvil.
 >
 >
 
@@ -145,22 +142,22 @@ Intune Managed Browser está disponible en el [App Store de Apple ](https://itun
 
 ## <a name="tips-for-testing-the-user-experience"></a>Sugerencias para probar la experiencia del usuario
 
-Los administradores de Azure que hayan iniciado sesión en Azure Portal con una cuenta en el directorio iniciarán la sesión automáticamente en el panel de acceso con la cuenta de administrador actual. En esta vista, se muestran todas las aplicaciones que tiene asignadas.
+Los administradores de Azure que hayan iniciado sesión en Azure Portal con una cuenta en el directorio iniciarán la sesión automáticamente en el portal Mis aplicaciones con la cuenta actual. En esta vista, se muestran todas las aplicaciones que tiene asignadas.
 
 Para probar con una cuenta de usuario *diferente*, siga estos pasos:
 
-1. En la parte superior derecha de Azure Portal o del panel de acceso, seleccione **Cerrar sesión**. 
-2. Vaya al [panel de acceso](http://myapps.microsoft.com).
+1. En la parte superior derecha de Azure Portal o del portal Mis aplicaciones, seleccione **Cerrar sesión**. 
+2. Ir al portal [Mis aplicaciones](http://myapps.microsoft.com).
 3. En la página de inicio de sesión, escriba el nombre de usuario y la contraseña de la cuenta del directorio que desea probar.
 
 
 ## <a name="starting-applications"></a>Inicio de aplicaciones
 
-En esta sección, vamos a explicar varios tipos de aplicaciones que pueden aparecer en el panel de acceso.
+En esta sección, vamos a explicar varios tipos de aplicaciones que pueden aparecer en el portal Mis aplicaciones.
 
 ### <a name="office-365-applications"></a>Aplicaciones de Office 365
 
-Si una organización usa aplicaciones de Office 365 y el usuario dispone de licencia para ellas, esas aplicaciones aparecen en el panel de acceso del usuario.
+Si una organización usa aplicaciones de Office 365 y el usuario dispone de licencia para ellas, esas aplicaciones aparecen en el portal Mis aplicaciones.
 
 Cuando seleccione el icono de una aplicación de Office 365, se le redirigirá a dicha aplicación y la sesión se iniciará automáticamente.
 
@@ -174,7 +171,7 @@ Cuando seleccione el icono de una aplicación, se le redirigirá a dicha aplicac
 
 El administrador puede agregar aplicaciones en la sección Active Directory de Azure Portal con el modo de SSO establecido en **Inicio de sesión único basado en contraseña**. Todos los usuarios del directorio ven todas las aplicaciones que se han configurado en este modo.
 
-La primera vez que seleccione el icono de una aplicación, se le pedirá que instale el complemento de inicio de sesión único con contraseña para Internet Explorer o Chrome. La instalación podría requerir que el usuario reinicie el explorador web. Cuando el usuario vuelve al panel de acceso y selecciona de nuevo el icono de la aplicación, se le pide el nombre de usuario y la contraseña de dicha aplicación. Una vez que escribe el nombre de usuario y la contraseña, estas credenciales se almacenan de forma segura y se vinculan con su cuenta en Azure AD.
+La primera vez que seleccione el icono de una aplicación, se le pedirá que instale el complemento de inicio de sesión único con contraseña para Internet Explorer o Chrome. La instalación podría requerir que el usuario reinicie el explorador web. Cuando el usuario vuelve al portal Mis aplicaciones y selecciona de nuevo el icono de la aplicación, se le pide el nombre de usuario y la contraseña de dicha aplicación. Una vez que escribe el nombre de usuario y la contraseña, estas credenciales se almacenan de forma segura y se vinculan con su cuenta en Azure AD.
 
 La próxima vez que el usuario seleccione el icono de la aplicación, iniciará sesión automáticamente en la aplicación.  
 
@@ -194,7 +191,7 @@ El administrador puede agregar aplicaciones en la sección Active Directory de A
 
 La primera vez que seleccione el icono de una aplicación, se le pedirá que instale el complemento de inicio de sesión único con contraseña para Internet Explorer o Chrome. La instalación podría requerir que el usuario reinicie el explorador web.  
 
-Cuando vuelva al panel de acceso y seleccione otra vez el icono de la aplicación, iniciará sesión automáticamente en ella.
+Cuando vuelva al portal Mis aplicaciones y seleccione otra vez el icono de la aplicación, iniciará sesión automáticamente en ella.
 
 Algunas aplicaciones pueden pedirle que cambie la contraseña al iniciar sesión por primera vez. Si las credenciales de un usuario han cambiado en la aplicación de terceros de destino, este también debe actualizar sus credenciales almacenadas en Azure AD. 
 
@@ -206,9 +203,9 @@ Para actualizar las credenciales, siga estos pasos:
 
 ### <a name="application-with-existing-sso-solutions"></a>Aplicación con soluciones SSO existentes
 
-Para configurar SSO en una aplicación, Azure Portal cuenta con una tercera opción llamada Inicio de sesión único existente. Esta opción permite que el administrador cree un vínculo a una aplicación y lo coloque en el panel de acceso de los usuarios seleccionados.
+Para configurar SSO en una aplicación, Azure Portal cuenta con una tercera opción llamada Inicio de sesión único existente. Esta opción permite que el administrador cree un vínculo a una aplicación y lo coloque en el portal Mis aplicaciones de los usuarios seleccionados.
 
-Por ejemplo, si una aplicación está configurada de modo que puede autenticar usuarios con AD FS 2.0, el administrador puede usar la opción Inicio de sesión único existente para crear un vínculo en el panel de acceso. Cuando los usuarios tienen acceso al vínculo, se autentican mediante AD FS 2.0 o cualquier solución SSO existente que brinde la aplicación.
+Por ejemplo, si una aplicación está configurada de modo que puede autenticar usuarios con AD FS 2.0, el administrador puede usar la opción Inicio de sesión único existente para crear un vínculo en el portal Mis aplicaciones. Cuando los usuarios tienen acceso al vínculo, se autentican mediante AD FS 2.0 o cualquier solución SSO existente que brinde la aplicación.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

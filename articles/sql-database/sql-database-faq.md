@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 08/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 7f784689e8437d92cf4fc4974983d3ae1455f11b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a7837ac6af82b5c67ea5779340aedc16cb78d156
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091831"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286339"
 ---
 # <a name="sql-database-faq"></a>Preguntas más frecuentes sobre la SQL Database
 
@@ -22,8 +22,10 @@ ms.locfileid: "43091831"
 La versión actual de SQL Database es V12. Se ha retirado la versión V11.
 
 ## <a name="what-is-the-sla-for-sql-database"></a>¿Qué es el Acuerdo de Nivel de Servicio para SQL Database?
-Garantizamos la conectividad en el 99,99 % de las ocasiones, como mínimo, entre su instancia de Microsoft Azure SQL Database y nuestra puerta de enlace de Internet, con independencia del nivel de servicio. Para más información, consulte [Acuerdo de Nivel de Servicio](http://azure.microsoft.com/support/legal/sla/).
+Garantizamos la conectividad en el 99,99 % de las ocasiones, como mínimo, entre su instancia de Microsoft Azure SQL Database y nuestra puerta de enlace de Internet, con independencia del nivel de servicio. El 0,01 % está reservado a las revisiones, actualizaciones y conmutaciones por error. Para más información, consulte [Acuerdo de Nivel de Servicio](http://azure.microsoft.com/support/legal/sla/). Para obtener información acerca de la arquitectura de disponibilidad de Azure SQL Database, consulte [Alta disponibilidad y Azure SQL Database](sql-database-high-availability.md). 
 
+## <a name="can-i-control-when-patching-downtime-occurs"></a>¿Puedo controlar cuando se produce el tiempo de inactividad de la aplicación de revisiones?
+No. El impacto de la aplicación de revisiones no suele ser perceptible si [usa una lógica de reintento](sql-database-develop-overview.md#resiliency) en la aplicación.
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>¿Qué es el nuevo modelo de compra basado en núcleos virtuales de Azure SQL Database?
 
 El nuevo modelo de compra se suma al modelo basado en DTU ya existente. El modelo basado en núcleos virtuales está diseñado para proporcionar a los clientes flexibilidad, control, transparencia y una manera sencilla de trasladar los requisitos de las cargas de trabajo locales a la nube. También permite a los clientes escalar sus recursos de proceso y almacenamiento en función de las necesidades de la carga de trabajo. Es posible obtener un ahorro de hasta un 30 % en las opciones de bases de datos únicas y grupos elásticos que usan el modelo de núcleos virtuales mediante la [Ventaja para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Para obtener más información, consulte los artículos sobre el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md). 

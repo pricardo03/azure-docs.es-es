@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: marsma
-ms.openlocfilehash: 92e60b4213cb80d193a7c35f68b8f9fd099481d7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 65ff60be992440c69e50a084b467a8efbb19574e
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165102"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307156"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Almacenamiento de imágenes en Azure Container Registry
 
@@ -43,7 +43,7 @@ En la tabla siguiente se describen los límites de almacenamiento y la imagen de
 | Etiquetas | Sin límite|
 | Storage | 5 TB |
 
-Unas cifras muy altas de etiquetas y repositorios pueden afectar al rendimiento del registro. Como parte de la rutina de mantenimiento del registro, elimine periódicamente los repositorios, las etiquetas y las imágenes que no se estén usando con la [CLI de Azure](/cli/azure/acr), la [API de REST](/rest/api/containerregistry/) de ACR o [Azure Portal][portal]. Los recursos de registro eliminados, como repositorios, imágenes o etiquetas *no* pueden recuperarse después de su eliminación.
+Unas cifras muy altas de etiquetas y repositorios pueden afectar al rendimiento del registro. Elimine periódicamente los repositorios, etiquetas e imágenes que no use como parte de su rutina de mantenimiento del registro. Los recursos de registro eliminados, como repositorios, imágenes o etiquetas *no* pueden recuperarse después de su eliminación. Para obtener más información acerca de cómo eliminar recursos del registro, consulte [Eliminación de imágenes de contenedor en Azure Container Registry](container-registry-delete.md).
 
 ## <a name="storage-cost"></a>Coste del almacenamiento
 

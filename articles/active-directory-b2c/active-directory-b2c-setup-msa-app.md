@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 16e4dbac4c8146b048d4d9b76544677a6111e2a5
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 338c2a197cb50091c3b272e0ce590341ffda1d7f
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900836"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341090"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta Microsoft mediante Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Para usar una cuenta Microsoft como proveedor de identidades en Azure Active Dir
 3. Especifique un **nombre** para la aplicación y haga clic en **Crear**.
 4. En la página de registro, copie el valor de **Id. de la aplicación**. Dicho valor lo usará para configurar una cuenta Microsoft como proveedor de identidades en su inquilino.
 5. Seleccione **Agregar plataforma** y elija **Web**.
-6. Escriba `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` en **Direcciones URL de redireccionamiento**. Reemplace **{tenant}** por el nombre de su inquilino (por ejemplo, contosob2c.onmicrosoft.com).
+6. Escriba `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` en **Direcciones URL de redireccionamiento**. Reemplace **{tenant}** por el nombre de su inquilino (por ejemplo, contosob2c).
 7. En **Secretos de aplicación**, haga clic en **Generar nueva contraseña**. Copie la nueva contraseña que se muestra en la pantalla. La necesitará para configurar una cuenta Microsoft como proveedor de identidades en su inquilino. Esta contraseña es una credencial de seguridad importante.
 
 ## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>Configuración de una cuenta Microsoft como proveedor de identidades

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 9b4e86e719998c5f19a70734480356bcb98b8d2f
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 46f8602583329a0516edb9af59e53754ca349555
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888107"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336811"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticación y autorización en Azure App Service
 
@@ -135,7 +135,7 @@ Con esta opción, no es necesario escribir ningún código de autenticación en 
 
 La opción es **Permitir solicitudes anónimas** . Esta opción activa la autenticación y autorización de App Service, pero traslada las decisiones de autorización al código de aplicación. Para las solicitudes autenticadas, App Service también transfiere información de autenticación en los encabezados HTTP. 
 
-Esta opción proporciona más flexibilidad a la hora de controlar las solicitudes anónimas. Por ejemplo, le permite [presenta varias opciones de inicio de sesión](app-service-authentication-how-to.md#configure-multiple-sign-in-options) a los usuarios. Sin embargo, tiene que escribir código. 
+Esta opción proporciona más flexibilidad a la hora de controlar las solicitudes anónimas. Por ejemplo, le permite [presentar varios proveedores de inicio de sesión](app-service-authentication-how-to.md#use-multiple-sign-in-providers) a los usuarios. Sin embargo, debe escribir código. 
 
 ## <a name="more-resources"></a>Más recursos
 

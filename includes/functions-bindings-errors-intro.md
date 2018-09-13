@@ -1,7 +1,13 @@
 Los [desencadenadores y enlaces](..\articles\azure-functions\functions-triggers-bindings.md) de Azure Functions se comunican con varios servicios de Azure. Cuando se integran con estos servicios, pueden surgir errores que se originan desde las API de los servicios de Azure subyacentes. También pueden producirse errores al intentar comunicarse con otros servicios con el código de función mediante bibliotecas de cliente o REST. Para evitar la pérdida de datos y garantizar el buen comportamiento de las funciones, es importante administrar los errores desde uno u otro origen.
 
-Para la mayoría de los desencadenadores, no hay ningún reintento integrado cuando se producen errores durante la ejecución de funciones. Los dos desencadenadores que admiten reintentos son Azure Queue Storage y Azure Blob Storage. De forma predeterminada, estos desencadenadores se reintentan hasta cinco veces. Después del quinto reintento, ambos desencadenadores escriben un mensaje en una [cola especial de mensajes dudosos](..\articles\azure-functions\functions-bindings-storage-queue.md#trigger---poison-messages). 
+Los siguientes desencadenadores admiten el reintento integrado:
 
-Para evitar la pérdida de información del desencadenador si se produce un error en la función, se recomienda usar bloques try-catch en el código de función para capturar los posibles errores. Cuando se produce un error, la información pasada a la función por el desencadenador se escribe en una cola especial de mensajes "dudosos". Este enfoque es el mismo que se usa el [desencadenador de Blob Storage](..\articles\azure-functions\functions-bindings-storage-blob.md#trigger---poison-blobs). 
+* [Almacenamiento de blobs de Azure](../articles/azure-functions/functions-bindings-storage-blob.md)
+* [Azure Queue Storage](../articles/azure-functions/functions-bindings-storage-queue.md)
+* [Azure Service Bus (cola/tema)](../articles/azure-functions/functions-bindings-service-bus.md)
+
+De forma predeterminada, estos desencadenadores se reintentan hasta cinco veces. Después del quinto reintento, estos desencadenadores escriben un mensaje en una [cola especial de mensajes dudosos](..\articles\azure-functions\functions-bindings-storage-queue.md#trigger---poison-messages). 
+
+Para el resto de desencadenadores de funciones, no hay ningún reintento integrado cuando se producen errores durante la ejecución de funciones. Para evitar la pérdida de información del desencadenador si se produce un error en la función, se recomienda usar bloques try-catch en el código de función para capturar los posibles errores. Cuando se produce un error, la información pasada a la función por el desencadenador se escribe en una cola especial de mensajes "dudosos". Este enfoque es el mismo que se usa el [desencadenador de Blob Storage](..\articles\azure-functions\functions-bindings-storage-blob.md#trigger---poison-blobs). 
 
 De esta manera, puede capturar eventos de desencadenador que podrían haberse perdido debido a errores y reintentarlos en otro momento mediante otra función, para procesar los mensajes de la cola de mensajes dudosos usando la información almacenada.  

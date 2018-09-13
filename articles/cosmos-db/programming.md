@@ -10,24 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 6296eb423f24762ed32a21ef40852dc1a9dd8f36
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 8377b13014e2f97518bbc779ee809aaa10d6eb45
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145949"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287451"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programación en el servidor de Azure Cosmos DB: procedimientos almacenados, desencadenadores de base de datos y funciones definidas por el usuario
 
 Conozca cómo la ejecución transaccional integrada del lenguaje de Azure Cosmos DB de JavaScript permite a los desarrolladores escribir **procedimientos almacenados**, **desencadenadores** y **funciones definidas por el usuario (UDF)** de forma nativa en un elemento de JavaScript [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/). La integración de JavaScript le permite escribir la lógica del programa que se puede enviar y ejecutar directamente en las particiones de almacenamiento de base de datos. 
 
-Se recomienda comenzar con el vídeo siguiente, en el que Andrew Liu ofrece una introducción al modelo de programación de base de datos en el servidor de Azure Cosmos DB. 
-
-> [!VIDEO https://www.youtube.com/embed/s0cXdHNlVI0]
->
-> 
-
-A continuación, vuelva a este artículo, donde conocerá las respuestas a las preguntas siguientes:  
+En este artículo, conocerá las respuestas a las preguntas siguientes:  
 
 * ¿Cómo se escribe un procedimiento almacenado, un desencadenador o una UDF con JavaScript?
 * ¿Qué garantías ACID ofrece Cosmos DB?

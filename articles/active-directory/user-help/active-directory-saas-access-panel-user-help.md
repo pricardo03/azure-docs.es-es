@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: a6ac780625f6a109797cbdab78dc555e21e18bee
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 5503681b051066f6601be97bda246128763e7bc7
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343617"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306417"
 ---
-# <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Solución de problemas de acceso y uso en el portal Mis aplicaciones
+# <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Solución de problemas de acceso y uso en el portal Mis aplicaciones
 
 Si tiene problemas de inicio de sesión o de uso en el portal Mis aplicaciones, pruebe estas sugerencias de solución de problemas antes de pedir ayuda al soporte técnico o al administrador.
 
-## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>Tengo problemas para iniciar sesión en el portal Mis aplicaciones
+## <a name="i-am-having-trouble-signing-into-the-myapps-portal"></a>Tengo problemas para iniciar sesión en el portal Mis aplicaciones
 
 Pruebe estas sugerencias generales:
 

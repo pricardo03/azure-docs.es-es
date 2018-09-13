@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 228d2d3331b510a0f07dbd3ca278715466d747af
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 619dda44b5ad74ba1dcb62cfb3318687aa6ec4d5
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988898"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340142"
 ---
 # <a name="how-to-use-the-azure-maps-map-control"></a>Cómo usar el Control de mapa de Azure Maps
 La biblioteca de Javascript del lado cliente del Control de mapa le permite representar mapas y la funcionalidad insertada de Azure Maps en su aplicación web o móvil. 
@@ -62,4 +62,4 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
 En este artículo se ha explicado cómo crear un mapa básico con su clave de Azure Maps. Para más ejemplos de código para agregar a los mapas, consulte los siguientes artículos: 
 
 * [Creación de un mapa](map-create.md)
-* [Adición de un anclaje](map-add-pin.md)
+* [Elección de un estilo de mapa](choose-map-style.md)

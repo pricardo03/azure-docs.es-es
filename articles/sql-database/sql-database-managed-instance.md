@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 08/30/2018
 ms.author: bonova
-ms.openlocfilehash: 2c6cdcd5d8d50a54a87e3dabd2aa09eccc646738
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 2e1fd7c87931f804433708b6ac30a5960e6006ae
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146049"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287670"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>¿Qué es Instancia administrada de SQL Database (versión preliminar)?
 
@@ -71,7 +71,7 @@ Instancia administrada está disponible en dos niveles de servicio:
 - **Uso general**: diseñada para aplicaciones con rendimiento y requisitos de latencia de E/S comunes.
 - **Crítico para la empresa**: diseñada para aplicaciones con requisitos de latencia baja de E/S y un impacto mínimo subyacente de operaciones de mantenimiento en la carga de trabajo.
 
-Ambos niveles de servicio garantizan una disponibilidad del 99,99 % y le permiten seleccionar el tamaño de almacenamiento y la capacidad de proceso de forma independiente. 
+Ambos niveles de servicio garantizan una disponibilidad del 99,99 % y le permiten seleccionar el tamaño de almacenamiento y la capacidad de proceso de forma independiente. Para obtener más información acerca de la arquitectura de alta disponibilidad de Azure SQL Database, consulte [Alta disponibilidad y Azure SQL Database](sql-database-high-availability.md).
 
 > [!IMPORTANT]
 > En la versión preliminar pública no se admite el cambio de nivel de servicio de uso General a Crítico para la empresa o viceversa. Si desea migrar bases de datos a una instancia en un nivel de servicio diferente, puede crear la nueva instancia, restaurar las bases de datos con la restauración a un momento dado de la instancia original y después quitar la instancia original si ya no es necesaria. 
@@ -97,7 +97,7 @@ La siguiente lista describe las principales características del nivel de servic
 | Número de archivos de datos (ROWS) por base de datos | Múltiple | 
 | Número de archivos de registro (LOG) por base de datos | 1 | 
 | Administración de copias de seguridad automatizadas | SÍ |
-| Alta disponibilidad | Según el almacenamiento remoto y [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| Alta disponibilidad | Datos almacenados en Azure Storage y [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | Supervisión y métricas integradas de instancias y bases de datos | SÍ |
 | Aplicación automática de revisiones de software | SÍ |
 | Redes virtuales: implementación de Azure Resource Manager | SÍ |
@@ -131,7 +131,7 @@ La siguiente lista describe las principales características del nivel de servic
 | Número de archivos de datos (ROWS) por base de datos | Múltiple | 
 | Número de archivos de registro (LOG) por base de datos | 1 | 
 | Administración de copias de seguridad automatizadas | SÍ |
-| Alta disponibilidad | En función de los [Grupos de disponibilidad Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) y de [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| Alta disponibilidad | Datos almacenados en SSD local y uso de [Grupos de disponibilidad Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) y de [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | Supervisión y métricas integradas de instancias y bases de datos | SÍ |
 | Aplicación automática de revisiones de software | SÍ |
 | Redes virtuales: implementación de Azure Resource Manager | SÍ |

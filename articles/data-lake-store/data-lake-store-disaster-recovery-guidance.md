@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 7401355c7920729933d0fcc3dd4cc8ce610c399e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b51f0c1e0c6ef713bf8d3ff0a124300f446a9373
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199082"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306815"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Guía de recuperación ante desastres para datos de Data Lake Store
 
-Azure Data Lake Store proporciona almacenamiento con redundancia local (LRS). Por ello, los datos de su cuenta de Azure Data Lake Store resisten a los errores transitorios de hardware dentro de una región a través de las réplicas automatizadas. Esto garantiza la durabilidad y alta disponibilidad, en cumplimiento con el Acuerdo de Nivel de Servicio de Azure Data Lake Store. En este artículo, se proporciona una guía sobre cómo proteger aún más los datos en caso de las poco frecuentes interrupciones de toda la región o de eliminaciones accidentales.
+Azure Data Lake Store proporciona almacenamiento con redundancia local (LRS). Por ello, los datos de su cuenta de Azure Data Lake Store resisten los errores transitorios de hardware dentro de un centro de datos a través de las réplicas automatizadas. Esto garantiza la durabilidad y alta disponibilidad, en cumplimiento con el Acuerdo de Nivel de Servicio de Azure Data Lake Store. En este artículo, se proporciona una guía sobre cómo proteger aún más los datos en caso de las poco frecuentes interrupciones de toda la región o de eliminaciones accidentales.
 
 ## <a name="disaster-recovery-guidance"></a>Guía de recuperación ante desastres
 Es fundamental que todos los clientes preparen su propio plan de recuperación ante desastres. Lea la información de este artículo para generar el plan de recuperación ante desastres. Aquí tiene algunos recursos que pueden ayudarle a crear su propio plan.

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: 0b84d7b0e7bbd2021ea4d3e3e804c739be59b48a
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 4d55c152bdc938d943c90a3e51af37b45f6a8eb5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186886"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301403"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Conocimiento e invocación de los métodos directos de IoT Hub
 IoT Hub ofrece la posibilidad de invocar métodos directos en dispositivos desde la nube. Los métodos directos representan una interacción solicitud-respuesta con un dispositivo similar a una llamada HTTP en la cual se completan correctamente o generan un error de inmediato (tras un tiempo de espera que especifica el usuario). Este enfoque es útil en escenarios donde el curso de una acción inmediata es distinto en función de si el dispositivo pudo responder.
@@ -105,7 +105,7 @@ La aplicación de back-end recibe una respuesta que consta de lo siguiente:
     El dispositivo proporciona tanto `status` como `body`, que se utilizan para responder con el código de estado o la descripción propios del dispositivo.
 
 ### <a name="method-invocation-for-iot-edge-modules"></a>Invocación de un método para los módulos de IoT Edge
-La invocación de métodos directos mediante un identificador de módulo en el SDK de la vista previa de C# (disponible [aquí](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.16.0-preview-004)).
+La invocación de métodos directos mediante un identificador de módulo se admite en el SDK de C# (disponible [aquí](https://www.nuget.org/packages/Microsoft.Azure.Devices/)).
 
 Para ello, use el método `ServiceClient.InvokeDeviceMethodAsync()` y pase `deviceId` y `moduleId` como parámetros.
 

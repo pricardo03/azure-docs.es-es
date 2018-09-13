@@ -1,25 +1,18 @@
 ---
-title: Flujo de trabajo para configurar un circuito ExpressRoute | Microsoft Docs
+title: Flujos de trabajo para configurar un circuito de Azure ExpressRoute | Microsoft Docs
 description: Esta página le guiará a través de los flujos de trabajo para configurar el circuito ExpressRoute y las configuraciones entre pares
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.topic: conceptual
+ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: cba1b2cfee379e7d2b079bcb3089981ef1044d66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 765050c9c21c7ba752535fc391cc9bb7d8ac4083
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23013130"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301045"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute
 Esta página le guiará a través del aprovisionamiento de servicios y de los flujos de trabajo de configuración del enrutamiento a alto nivel.
@@ -33,9 +26,9 @@ Tanto la ilustración como los pasos correspondientes siguientes muestran las ta
 3. Asegúrese de que el circuito se ha aprovisionado correctamente, para lo que debe comprobar el estado de aprovisionamiento del circuito ExpressRoute a través de PowerShell. 
 4. Configure los dominios de enrutamiento. Si el proveedor de conectividad administra el nivel 3, configurará el enrutamiento del circuito. Si el proveedor de conectividad solo ofrece servicios de nivel 2, debe configurar el enrutamiento según las instrucciones que se describen en las páginas de [requisitos de enrutamiento](expressroute-routing.md) y [configuración de enrutamiento](expressroute-howto-routing-classic.md).
    
-   * Habilitar la configuración entre pares privados de Azure: debe habilitar esta configuración entre pares para conectarse a las máquinas virtuales/servicios en la nube implementados en redes virtuales.
-   * Habilitar la configuración entre pares públicos de Azure: debe habilitar la configuración entre pares públicos de Azure si desea conectarse a los servicios de Azure hospedados en direcciones IP públicas. Se trata de un requisito para acceder a los recursos de Azure si ha elegido habilitar el enrutamiento predeterminado para la configuración entre pares privados de Azure.
-   * Habilitar el emparejamiento de Microsoft: debe habilitarlo para acceder a Office 365 y Dynamics 365. 
+   * Habilitar el emparejamiento privado en Azure: habilite este emparejamiento para conectarse a VM/servicios en la nube implementados en redes virtuales.
+
+   * Habilitar el emparejamiento de Microsoft: habilítelo para acceder a Office 365 y Dynamics 365. Además, se puede acceder a todos los servicios de PaaS de Azure a través del emparejamiento de Microsoft.
      
      > [!IMPORTANT]
      > Debe asegurarse de que usa un proxy o borde independientes para conectarse a Microsoft distinto del que usa para Internet. Si usa el mismo borde para ExpressRoute e Internet se producirá un enrutamiento asimétrico y causará interrupciones en la conectividad de la red.
@@ -49,7 +42,7 @@ Tanto la ilustración como los pasos correspondientes siguientes muestran las ta
 Cada circuito ExpressRoute tiene dos estados:
 
 * Estado de aprovisionamiento de proveedor de servicio
-* Estado
+* Status
 
 Estado representa el estado de aprovisionamiento de Microsoft. Esta propiedad se establece en Habilitado al crear un circuito Expressroute.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dd0bf50d73b70e37195e8e5e45336b68e4e883e7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 477bd6047da639dcf21592a7ec0c1b80844e031e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915646"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337741"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de Google mediante Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Para usar una cuenta de Google como proveedor de identidades en Azure Active Dir
 4. Seleccione **Configure consent screen** (Configurar pantalla de consentimiento).
 5. Seleccione o especifique una **Email address** (Dirección de correo electrónico), proporcione un **Product name shown to users** (Nombre de producto mostrado a los usuarios) y haga clic en **Save** (Guardar).
 6. En **Application type** (Tipo de aplicación), seleccione **Web application** (Aplicación web).
-7. Escriba un **Name** (nombre) para la aplicación, escriba `https://login.microsoftonline.com` en **Authorized JavaScript origins** (Orígenes de JavaScript autorizados) y `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` en **Authorized redirect URIs** (URI de redirección autorizados). Reemplace **{tenant}** por el nombre de su inquilino (por ejemplo, contosob2c.onmicrosoft.com).
+7. Escriba un **Name** (nombre) para la aplicación, escriba `https://{tenant}.b2clogin.com` en **Authorized JavaScript origins** (Orígenes de JavaScript autorizados) y `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` en **Authorized redirect URIs** (URI de redirección autorizados). Reemplace **{tenant}** por el nombre de su inquilino (por ejemplo, contosob2c).
 8. Haga clic en **Create**(Crear).
 9. Copie los valores de **Client ID** y **Client Secret**. Necesitará ambos para configurar Google como proveedor de identidades de su inquilino. **Secreto del cliente** es una credencial de seguridad importante.
 
@@ -46,7 +46,7 @@ Para usar una cuenta de Google como proveedor de identidades en Azure Active Dir
     ![Selección de directorio](./media/active-directory-b2c-setup-fb-app/select-directory.png)
 
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
-4. Seleccione **Proveedores de identidades** y, después, seleccione **Agregar**.
+4. Seleccione **Proveedores de identidades** y, después, **Agregar**.
 5. Escriba la información de **Name** (Nombre). Por ejemplo, escriba *Google*.
 6. Seleccione **Identity provider type** (Tipo de proveedor de identidades), seleccione **Google** y haga clic en **OK** (Aceptar).
 7. Seleccione **Set up this identity provider** (Configurar este proveedor de identidades) y escriba el identificador de cliente que anotó anteriormente como el valor de **Client ID** y el secreto de cliente que registró como **Client Secret** de la aplicación de Google que creó anteriormente.

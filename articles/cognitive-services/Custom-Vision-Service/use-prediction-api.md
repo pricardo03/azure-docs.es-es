@@ -9,12 +9,12 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 54f9d9fec1f40c167341dec6a8699b6a558419da
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d7f9b90db06811e16cd0cd6ad2b32a27912cfee5
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381294"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341800"
 ---
 # <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Uso del punto de conexión de predicción para probar imágenes mediante programación con un clasificación de Custom Vision Service
 
@@ -25,7 +25,7 @@ Después de entrenar el modelo, puede probar imágenes mediante programación en
 
 ## <a name="get-the-url-and-prediction-key"></a>Obtención de una clave de predicción y dirección URL
 
-En la [página web de Custom Vision](https://customvision.ai), seleccione el proyecto y luego seleccione la pestaña __Rendimiento__. Para mostrar información sobre el uso de Prediction API, seleccione __Prediction URL__. Copie la siguiente información para usarla en la aplicación:
+En la [página web de Custom Vision](https://customvision.ai), seleccione el proyecto y luego seleccione la pestaña __Rendimiento__. Para mostrar información sobre el uso de Prediction API, incluida la __clave de Prediction__, seleccione __Prediction URL__. Para proyectos vinculados a un recurso de Azure, __la clave de Prediction__ también puede encontrarse en la página de [Azure Portal](https://portal.azure.com) del recurso de Azure asociado en __Claves__. Copie la siguiente información para usarla en la aplicación:
 
 * __Dirección URL__ para usar un __archivo de imagen__.
 * Valor de la __Prediction-key__.

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: carlrab
-ms.openlocfilehash: 1d1cad4b614eb35be9235a721368db8048be050a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: fcb7f2c1bb3e1653b9f8112abc0effaddc45fa54
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39633721"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306476"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database
 
@@ -65,13 +65,14 @@ El descuento por la reserva de núcleos virtuales se aplica automáticamente al 
 
 Para saber cómo administrar la capacidad reservada de SQL Database, consulte el artículo sobre la [administración de capacidad reservada de SQL Database](../billing/billing-manage-reserved-vm-instance.md).
 
-Para más información acerca de la reserva de Azure, consulte los siguientes artículos:
+Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
 
-- [¿Qué son las reservas de Azure?](../billing/billing-save-compute-costs-reservations.md)
-- [Administración de reservas de Azure](../billing/billing-manage-reserved-vm-instance.md)
+- [¿Qué es Azure Reservations?](../billing/billing-save-compute-costs-reservations.md)
+- [Administración de Azure Reservations](../billing/billing-manage-reserved-vm-instance.md)
+- [Información sobre el descuento de Azure Reservations](../billing/billing-understand-reservation-charges.md)
 - [Información sobre el uso de reservas para suscripciones de pago por uso](../billing/billing-understand-reserved-instance-usage.md)
 - [Información sobre el uso de reservas para la inscripción Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md)
-- [Reservas de Azure en el programa del Proveedor de soluciones en la nube (CSP) del Centro de partners](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Azure Reservations en el programa del Proveedor de soluciones en la nube (CSP) del Centro de partners](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 

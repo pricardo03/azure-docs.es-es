@@ -1,25 +1,18 @@
 ---
 title: Preguntas más frecuentes acerca de Azure ExpressRoute | Microsoft Docs
 description: P+F de ExpressRoute contiene información sobre servicios de Azure compatibles, costes, datos y conexiones, SLA, proveedores y ubicaciones, ancho de banda e información técnica adicional.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: jeconnoc
-editor: ''
-ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/14/2018
+ms.topic: conceptual
+ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2e332b361a1531eb5f6a8a1d3c46c2f258035258
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5f40b4c9fff57b105b7d96de69780fea83871032
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818800"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302303"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -53,7 +46,7 @@ Sí. Los circuitos ExpressRoute están configurados para aumentar hasta dos vece
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>¿Es posible usar la misma conexión de red privada con Red virtual y otros servicios de Azure simultáneamente?
 
-Sí. Un circuito ExpressRoute, una vez configurado, le permitirá acceder a los servicios de una red virtual y a otros servicios de Azure simultáneamente. Se conectará a redes virtuales a través de la ruta de acceso de emparejamiento privado y a otros servicios a través de la ruta de acceso de emparejamiento público.
+Sí. Un circuito ExpressRoute, una vez configurado, le permitirá acceder a los servicios de una red virtual y a otros servicios de Azure simultáneamente. Se conectará a redes virtuales a través de la ruta de acceso de emparejamiento privado y a otros servicios a través de la ruta de acceso de emparejamiento de Microsoft.
 
 ### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>¿ExpressRoute ofrece un contrato de nivel de servicio (SLA)?
 
@@ -70,33 +63,18 @@ ExpressRoute admite [tres dominios de enrutamiento](expressroute-circuit-peering
 ### <a name="public-peering"></a>Emparejamiento público
 
 >[!NOTE]
->El emparejamiento de Microsoft es el mecanismo recomendado para tener acceso a todos los servicios hospedados en Azure.
+>El emparejamiento público se ha deshabilitado en los nuevos circuitos ExpressRoute. Los servicios de Azure están disponibles en el emparejamiento de Microsoft.
 >
-
-* Power BI
-* Dynamics 365 for Finance and Operations (conocido anteriormente como Dynamics AX Online)
-* Se admiten la mayoría de los servicios de Azure. Compruébelo directamente con el servicio que desea utilizar para comprobar la compatibilidad.<br>
-  Los siguientes servicios NO son compatibles:
-    * CDN
-    * Pruebas de carga de Visual Studio Team Services
-    * Multi-Factor Authentication
-    * Traffic Manager
 
 ### <a name="microsoft-peering"></a>Emparejamiento de Microsoft
 
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
-* Aplicaciones de Dynamics 365 Customer Engagement (anteriormente conocidas como CRM Online)
-  * Dynamics 365 for Sales
-  * Dynamics 365 for Customer Service
-  * Dynamics 365 for Field Service
-  * Dynamics 365 for Project Service
-* Con los [filtros de ruta](#route-filters-for-microsoft-peering), obtiene acceso a los mismos servicios públicos con el emparejamiento de Microsoft:
-  * Power BI
-  * Dynamics 365 for Financials y Operations
-  * Se admiten la mayoría de los servicios de Azure. Compruébelo directamente con el servicio que desea utilizar para comprobar la compatibilidad.<br>
-  Los siguientes servicios NO son compatibles:
+* Dynamics 365 
+* Power BI
+* Azure Active Directory
+* Pruebas de carga de Visual Studio Team Services
+* Se admiten la mayoría de los servicios de Azure. Compruébelo directamente con el servicio que desea utilizar para comprobar la compatibilidad.<br>Los siguientes servicios **no son compatibles**:
     * CDN
-    * Pruebas de carga de Visual Studio Team Services
     * Multi-Factor Authentication
     * Traffic Manager
 
@@ -132,7 +110,7 @@ No perderá conectividad si se produce un error en una de las conexiones cruzada
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>¿Cómo garantizo la alta disponibilidad en una red virtual conectada a ExpressRoute?
 
-Se puede lograr la alta disponibilidad mediante la conexión de circuitos de ExpressRoute en distintas ubicaciones de emparejamiento (por ejemplo, Singapur, Singapur2) a la red virtual. Si se bloquea un circuito ExpressRoute, la conectividad conmutará por error a otro circuito ExpressRoute. De forma predeterminada, el tráfico que sale de la red virtual se enruta en función del enrutamiento multidireccional de igual costo (ECMP). Puede usar el peso de la conexión para preferir un circuito a otro. Vea [Optimización de enrutamiento de ExpressRoute](expressroute-optimize-routing.md) para obtener más detalles sobre el peso de la conexión.
+Se puede lograr la alta disponibilidad mediante la conexión de circuitos de ExpressRoute en distintas ubicaciones de emparejamiento (por ejemplo, Singapur, Singapur2) a la red virtual. Si se bloquea un circuito ExpressRoute, la conectividad conmutará por error a otro circuito ExpressRoute. De forma predeterminada, el tráfico que sale de la red virtual se enruta en función del enrutamiento multidireccional de igual costo (ECMP). Puede usar el peso de la conexión para preferir un circuito a otro. Para obtener más información, consulte [Optimización de enrutamiento de ExpressRoute](expressroute-optimize-routing.md).
 
 ### <a name="onep2plink"></a>Si no estoy en una ubicación compartida en un intercambio en la nube y mi proveedor de servicios ofrece una conexión punto a punto, ¿necesito solicitar dos conexiones físicas entre mi red local y Microsoft?
 
@@ -152,7 +130,7 @@ Sí. Puede disponer de más de un circuito ExpressRoute en su suscripción. El l
 
 Sí. Puede tener circuitos ExpressRoute de muchos otros proveedores de servicios. Cada circuito ExpressRoute estará asociado solo a un proveedor de servicios. 
 
-### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-eg-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Veo dos ubicaciones de emparejamiento ExpressRoute en el mismo metro, por ejemplo, Singapur y Singapur2. ¿Qué ubicación de emparejamiento debo elegir para crear el circuito ExpressRoute?
+### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-for-example-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Veo dos ubicaciones de emparejamiento ExpressRoute en el mismo metro, por ejemplo, Singapur y Singapur2. ¿Qué ubicación de emparejamiento debo elegir para crear el circuito ExpressRoute?
 Si el proveedor de servicios ofrece ExpressRoute en ambos sitios, puede trabajar con el proveedor y elegir cualquier sitio para configurar ExpressRoute. 
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>¿Puedo tener varios circuitos ExpressRoute en el mismo metro? ¿Puedo vincularlos a la misma red virtual?
@@ -205,7 +183,7 @@ Sí. Si no ha anunciado rutas predeterminadas (0.0.0.0/0) o prefijos de rutas de
 
 Sí. Puede anunciar rutas predeterminadas (0.0.0.0/0) para bloquear toda la conectividad de Internet a las máquinas virtuales implementadas en una red virtual y enrutar todo el tráfico de salida a través del circuito de ExpressRoute.
 
-Si anuncia rutas predeterminadas, forzaremos el tráfico a los servicios ofrecidos a través del emparejamiento público (por ejemplo, Azure Storage y Base de datos SQL) de nuevo a sus instalaciones. Tendrá que configurar los enrutadores para devolver el tráfico a Azure a través de la ruta de acceso de emparejamiento público o Internet. Si ha habilitado un punto de conexión de servicio (versión preliminar) para el servicio, el tráfico del servicio no se fuerza a las instalaciones. El tráfico permanece dentro de la red troncal de Azure. Para más información sobre los puntos de conexión de servicio, vea [Puntos de conexión del servicio](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json).
+Si anuncia rutas predeterminadas, forzaremos el tráfico a los servicios ofrecidos a través del emparejamiento de Microsoft (por ejemplo, Azure Storage y Base de datos SQL) de nuevo a sus instalaciones. Tendrá que configurar los enrutadores para devolver el tráfico a Azure a través de la ruta de acceso de emparejamiento de Microsoft o Internet. Si ha habilitado un punto de conexión de servicio para el servicio, el tráfico del servicio no se fuerza a las instalaciones. El tráfico permanece dentro de la red troncal de Azure. Para más información sobre los puntos de conexión de servicio, vea [Puntos de conexión del servicio](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json).
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>¿Las redes virtuales vinculadas al mismo circuito ExpressRoute pueden comunicarse entre sí?
 
@@ -223,17 +201,13 @@ Sí. Tendrá que crear una puerta de enlace de ExpressRoute dentro de la red vir
 
 Esta dirección IP pública se utiliza únicamente para la administración interna y no constituye un riesgo de seguridad de la red virtual.
 
-### <a name="what-do-i-need-to-connect-to-azure-storage-over-expressroute"></a>¿Qué es necesario para conectarse a Almacenamiento de Azure a través de ExpressRoute?
-
-Debe establecer un circuito ExpressRoute y configurar rutas para el intercambio de tráfico público.
-
 ### <a name="are-there-limits-on-the-number-of-routes-i-can-advertise"></a>¿Hay límites en el número de rutas que puedo anunciar?
 
-Sí. Aceptamos hasta 4000 prefijos de enrutamientos para el intercambio privado y 200 de cada para el intercambio público y de Microsoft. Puede aumentarlo a 10.000 enrutamientos para el intercambio privado si habilita la característica Premium en ExpressRoute.
+Sí. Aceptamos hasta 4000 prefijos de enrutamientos para el intercambio privado y 200 para el emparejamiento de Microsoft. Puede aumentarlo a 10.000 enrutamientos para el intercambio privado si habilita la característica Premium en ExpressRoute.
 
 ### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>¿Existen restricciones en los intervalos IP que puedo anunciar durante la sesión BGP?
 
-No se aceptan prefijos privados (RFC1918) en la sesión BGP entre pares públicos y de Microsoft.
+No se aceptan prefijos privados (RFC1918) en la sesión BGP de emparejamiento de Microsoft.
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>¿Qué ocurre si supero los límites de BGP?
 
@@ -242,18 +216,6 @@ Se quitarán las sesiones BGP. Se restablecerán una vez que el recuento del pre
 ### <a name="what-is-the-expressroute-bgp-hold-time-can-it-be-adjusted"></a>¿Cuál es el tiempo de espera de BGP de ExpressRoute? ¿Se puede ajustar?
 
 El tiempo de espera es 180. Los mensajes de Keep-Alive se envían cada 60 segundos. Hay configuración fija en el lado de Microsoft que no se puede cambiar. Es posible configurar temporizadores diferentes y los parámetros de la sesión BGP se negociarán según corresponda.
-
-### <a name="after-i-advertise-the-default-route-00000-to-my-virtual-networks-i-cant-activate-windows-running-on-my-azure-vms-how-to-i-fix-this"></a>Después de anunciar la ruta predeterminada (0.0.0.0/0) a mis redes virtuales, no se puede activar Windows en las máquinas virtuales de Azure. ¿Cómo lo soluciono?
-
-Los pasos siguientes ayudarán a Azure a reconocer la solicitud de activación:
-
-1. Establezca el intercambio público para el circuito de ExpressRoute.
-2. Realice una búsqueda DNS y busque la dirección IP de **kms.core.windows.net**
-3. El Servicio de administración de claves debe reconocer que la solicitud de activación procede de Azure y seguir la solicitud. Realice una de las siguientes tres tareas:
-
-   * En la red local, enrute el tráfico destinado a la dirección IP (obtenida en el paso 2) a Azure mediante el intercambio de tráfico público.
-   * Haga que el proveedor NSP devuelva el tráfico a Azure a través de la interconexión pública.
-   * Cree una ruta definida por el usuario que señale a esa dirección IP que tiene Internet como un próximo salto y aplíquela a las subredes que se encuentran estas máquinas virtuales.
 
 ### <a name="can-i-change-the-bandwidth-of-an-expressroute-circuit"></a>¿Es posible cambiar el ancho de banda de un circuito ExpressRoute?
 
@@ -280,7 +242,7 @@ ExpressRoute Premium es una colección de las siguientes características:
     **Ejemplos:**
 
     *  Puede vincular una red virtual creada en Europa occidental a un circuito ExpressRoute creado en Silicon Valley. 
-    *  En el emparejamiento público, los prefijos de otras regiones geopolíticas se anuncian de forma que sea posible conectarse, por ejemplo, a SQL Azure en Europa occidental desde un circuito en Silicon Valley.
+    *  En el emparejamiento de Microsoft, los prefijos de otras regiones geopolíticas se anuncian de forma que sea posible conectarse, por ejemplo, a SQL Azure en Europa occidental desde un circuito en Silicon Valley.
 
 
 ### <a name="limits"></a>¿Cuántas redes virtuales puedo vincular a un circuito ExpressRoute si habilito ExpressRoute Premium?
@@ -309,11 +271,11 @@ Consulte [Información de precios](https://azure.microsoft.com/pricing/details/e
 
 Sí. Las tarifas de ExpressRoute Premium se aplican a las tarifas de circuito ExpressRoute y a las tarifas que precisa el proveedor de conectividad de mayor nivel.
 
-## <a name="expressroute-for-office-365-and-dynamics-365"></a>ExpressRoute para Office 365 y Dynamics 365
+## <a name="expressroute-for-office-365"></a>ExpressRoute para Office 365
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services-and-dynamics-365"></a>¿Cómo se puede crear un circuito ExpressRoute para conectarse a servicios de Office 365 y Dynamics 365?
+### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services"></a>¿Cómo se puede crear un circuito ExpressRoute para conectarse a servicios de Office 365?
 
 1. Revise la [página de requisitos previos de ExpressRoute](expressroute-prerequisites.md) para asegurarse de que se cumplen los requisitos.
 2. Revise la lista de proveedores de servicios y las ubicaciones en el artículo [Asociados y ubicaciones de ExpressRoute](expressroute-locations.md) para asegurarse de que se cumplen sus necesidades de conectividad.
@@ -321,13 +283,9 @@ Sí. Las tarifas de ExpressRoute Premium se aplican a las tarifas de circuito Ex
 4. Siga los pasos indicados en los flujos de trabajo para configurar la conectividad: [Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute](expressroute-workflows.md).
 
 > [!IMPORTANT]
-> Asegúrese de que habilitó el complemento de ExpressRoute premium al configurar la conectividad con los servicios de Office 365 y Dynamics 365.
+> Asegúrese de que habilitó el complemento de ExpressRoute premium al configurar la conectividad con los servicios de Office 365.
 > 
 > 
-
-### <a name="do-i-need-to-enable-azure-public-peering-to-connect-to-office-365-services-and-dynamics-365"></a>¿Es necesario habilitar emparejamientos públicos de Azure para conectarse a los servicios de Office 365 y Dynamics 365?
-
-No, solo necesita habilitar Emparejamiento de Microsoft. El tráfico de autenticación a Azure AD se enviará a través de Emparejamiento de Microsoft. 
 
 ### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>¿Pueden mis circuitos ExpressRoute existentes ser compatibles con la conectividad a los servicios de Office 365 y Dynamics 365?
 
@@ -337,9 +295,9 @@ Sí. El circuito ExpressRoute existente puede configurarse para admitir conectiv
 
 Consulte la página [URL de Office 365 e intervalos de direcciones IP](http://aka.ms/o365endpoints) para obtener una lista actualizada de los servicios compatibles con ExpressRoute.
 
-### <a name="how-much-does-expressroute-for-office-365-services-and-dynamics-365-cost"></a>¿Cuánto cuesta ExpressRoute para servicios de Office 365 y Dynamics 365?
+### <a name="how-much-does-expressroute-for-office-365-services-cost"></a>¿Cuánto cuesta ExpressRoute para Office 365?
 
-Servicios de Office 365 y Dynamics 365 requiere que el complemento premium esté habilitado. Consulte la [página de detalles de precios](https://azure.microsoft.com/pricing/details/expressroute/) para conocer los costos.
+Los servicios de Office 365 requieren que el complemento premium esté habilitado. Consulte la [página de detalles de precios](https://azure.microsoft.com/pricing/details/expressroute/) para conocer los costos.
 
 ### <a name="what-regions-is-expressroute-for-office-365-supported-in"></a>¿En qué regiones es compatible ExpressRoute para Office 365?
 
@@ -356,10 +314,6 @@ Consulte la recomendación que aparece en [Alta disponibilidad y conmutación po
 
 Sí. Los puntos de conexión de servicio de Office 365 GCC son accesibles a través de ExpressRoute de Azure Gobierno de EE. UU. Sin embargo, primero debe abrir una incidencia de soporte técnico en Azure Portal para proporcionar los prefijos que se van a anunciar a Microsoft. La conectividad a los servicios de Office 365 GCC se establecerá después de resolver la incidencia de soporte técnico. 
 
-### <a name="can-dynamics-365-for-operations-formerly-known-as-dynamics-ax-online-be-accessed-over-an-expressroute-connection"></a>¿Se puede acceder a Dynamics 365 for Operations (antes conocido como Dynamics AX Online) mediante una conexión ExpressRoute?
-
-Sí. [Dynamics 365 for Operations](https://www.microsoft.com/dynamics365/operations) se hospeda en Azure. Puede habilitar el emparejamiento público de Azure en su circuito de ExpressRoute para conectarse a él.
-
 ## <a name="route-filters-for-microsoft-peering"></a>Filtros de ruta para el emparejamiento de Microsoft
 
 ### <a name="i-am-turning-on-microsoft-peering-for-the-first-time-what-routes-will-i-see"></a>Estoy activando el emparejamiento de Microsoft por primera vez, ¿qué rutas veré?
@@ -374,7 +328,7 @@ Cuando se usan filtros de ruta, cualquier cliente puede activar el emparejamient
 
 No, no necesita autorización para Dynamics 365. Puede crear una regla y seleccionar la comunidad de Dynamics 365 sin autorización.
 
-### <a name="i-enabled-microsoft-peering-prior-to-august-1st-2017-how-can-i-take-advantage-of-route-filters"></a>He habilitado un emparejamiento de Microsoft antes del 1 de agosto de 2017, ¿cómo puedo aprovechar los filtros de ruta?
+### <a name="i-enabled-microsoft-peering-prior-to-august-1-2017-how-can-i-take-advantage-of-route-filters"></a>He habilitado un emparejamiento de Microsoft antes del 1 de agosto de 2017, ¿cómo puedo aprovechar los filtros de ruta?
 
 El circuito existente continuará anunciando los prefijos para Office 365 y Dynamics 365. Si desea agregar los anuncios de prefijos públicos de Azure en el mismo emparejamiento de Microsoft, puede crear un filtro de ruta, seleccionar los servicios que necesita anunciar (incluidos los servicios de Office 365 que necesita y Dynamics 365) y adjuntar el filtro al emparejamiento de Microsoft. Para consultar las instrucciones, vea [Configuración de filtros de ruta para el emparejamiento de Microsoft](how-to-routefilter-powershell.md).
 

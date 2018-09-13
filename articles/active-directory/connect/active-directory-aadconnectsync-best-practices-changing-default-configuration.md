@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/29/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2c2fc3bcba4b685fba36683f89c0b6ad877dbb1d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0668eb33fe33b062c941ec4f2bff47c5ed77fb51
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595145"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287891"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect Sync: procedimientos recomendados de cambio de la configuración predeterminada
 El propósito de este tema es describir los cambios admitidos y no admitidos en la sincronización de Azure AD Connect.
@@ -37,6 +37,9 @@ A partir de las versiones de compilación 1.1 (febrero de 2016) puede configurar
 
 ## <a name="changes-to-synchronization-rules"></a>Cambios en las reglas de sincronización
 El Asistente para la instalación proporciona una configuración que se supone que funciona en la mayoría de los casos. En caso de que tenga que realizar cambios en la configuración, debe seguir entonces estas reglas para disponer de una configuración admitida.
+
+> [!WARNING]
+> Si realiza cambios en las reglas de sincronización predeterminadas, estos cambios se sobrescribirán la próxima vez que se actualice Azure AD Connect, lo que provocará resultados de sincronización inesperados y, probablemente, no deseados.
 
 * Puede [cambiar los flujos de atributo](active-directory-aadconnectsync-change-the-configuration.md#other-common-attribute-flow-changes) si los flujos de atributo directos predeterminados no son adecuados para su organización.
 * Si no desea [pasar un atributo](active-directory-aadconnectsync-change-the-configuration.md#do-not-flow-an-attribute) ni quitar valores de atributo existentes en Azure AD, deberá crear una regla para este escenario.

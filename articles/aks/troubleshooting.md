@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 614930fb11e65404416e604c94351e2754b8e941
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 9f082c5f198ebd7123058bd250d3fef55494d553
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40191150"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287546"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 En ocasiones, se pueden producir problemas al crear o administrar clústeres de AKS. En este artículo se detallan algunos problemas comunes y los pasos para solucionarlos.
@@ -24,16 +24,16 @@ En ocasiones, se pueden producir problemas al crear o administrar clústeres de 
 
 ### <a name="i-am-getting-a-quota-exceeded-error-during-create-or-upgrade-what-should-i-do"></a>Obtengo un error de cuota excedida durante la creación o actualización. ¿Cuál debo hacer? 
 
-Deberá solicitar núcleos [aquí](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)
+Deberá solicitar núcleos [aquí](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 ### <a name="what-is-the-max-pods-per-node-setting-for-aks"></a>¿Cuál es la configuración máxima de pods por nodo de AKS?
 
 El número máximo de pods por nodo se establece en 30 de forma predeterminada si implementa un clúster de AKS en Azure Portal.
 El número máximo de pods por nodo se establece en 110 de forma predeterminada si implementa un clúster de AKS en la CLI de Azure. (Asegúrese de usar la versión más reciente de la CLI de Azure). Se puede cambiar esta configuración predeterminada con la marca –max-nodes-per-pod en el comando az aks create.
 
-### <a name="i-am-getting--insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Recibo el error "insufficientSubnetSize" al implementar un clúster de AKS con redes avanzadas. ¿Cuál debo hacer?
+### <a name="i-am-getting-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Recibo el error "insufficientSubnetSize" al implementar un clúster de AKS con redes avanzadas. ¿Cuál debo hacer?
 
-En la opción seleccionada de VNET personalizada para redes durante las creaciones de AKS, se usa CNI de Azure para IPAM. El número de nodos en un clúster de AKS puede ser cualquier valor entre 1 y 100. En función del 2) anterior, el tamaño de la subred, debe ser mayor que el producto del número de nodos y el tamaño de la subred del número máximo de pods por nodo > núm. de nodos del clúster * número máximo de pods por nodo
+En la opción seleccionada de VNET personalizada para redes durante las creaciones de AKS, se usa CNI de Azure para IPAM. El número de nodos en un clúster de AKS puede ser cualquier valor entre 1 y 100. En función del 2) anterior, el tamaño de la subred debe ser mayor que el producto del número de nodos y el tamaño de la subred del número máximo de pods por nodo > núm. de nodos del clúster * número máximo de pods por nodo.
 
 ### <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Mi pod se ha atascado en el modo "CrashLoopBackOff". ¿Cuál debo hacer?
 

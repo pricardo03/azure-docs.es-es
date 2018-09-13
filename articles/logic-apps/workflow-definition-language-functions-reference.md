@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 78e991fcac87d59ed7b84180192899ddbdf330f2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105646"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307120"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referencia de las funciones del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 
@@ -80,7 +80,7 @@ Para trabajar con cadenas, puede usar estas funciones de cadena y también algun
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Comprueba si una cadena termina con la subcadena especificada. | 
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Genera un identificador único global (GUID) como una cadena. | 
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Devuelve la posición inicial de una subcadena. | 
-| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Devuelve la posición final de una subcadena. | 
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Devuelve la posición inicial de la última repetición de una subcadena. | 
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Reemplaza una subcadena por la cadena especificada y devuelve la cadena actualizada. | 
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Devuelve una matriz que tiene todos los caracteres de una cadena y separa cada carácter con el carácter delimitador específico. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Comprueba si una cadena comienza con una subcadena especificada. | 
@@ -2123,7 +2123,7 @@ indexOf('<text>', '<searchText>')
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
 | ------------ | ---- | ----------- | 
-| <*valor-de-índice*>| Entero | Posición de inicio o valor de índice de la subcadena especificada. <p>Si no se encuentra la cadena, devuelve el número -1. </br>Si la cadena está vacía, devuelve el número 0. | 
+| <*valor-de-índice*>| Entero | Posición de inicio o valor de índice de la subcadena especificada. <p>Si no se encuentra la cadena, devuelve el número -1. | 
 |||| 
 
 *Ejemplo* 
@@ -2387,7 +2387,7 @@ Y devuelve estos resultados:
 
 ### <a name="lastindexof"></a>lastIndexOf
 
-Devuelve la posición final o valor de índice de una subcadena. Esta función no distingue entre mayúsculas y minúsculas y los índices comienzan por el número 0.
+Devuelve la posición inicial o el valor de índice de la última repetición de una subcadena. Esta función no distingue entre mayúsculas y minúsculas y los índices comienzan por el número 0.
 
 ```
 lastIndexOf('<text>', '<searchText>')
@@ -2401,18 +2401,18 @@ lastIndexOf('<text>', '<searchText>')
 
 | Valor devuelto | Escriba | DESCRIPCIÓN | 
 | ------------ | ---- | ----------- | 
-| <*valor-de-índice-final*> | Entero | Posición final o valor de índice de la subcadena especificada. <p>Si no se encuentra la cadena, devuelve el número -1. </br>Si la cadena está vacía, devuelve el número 0. | 
+| <*valor-de-índice-final*> | Entero | Posición inicial o valor de índice de la última repetición de la subcadena especificada. <p>Si no se encuentra la cadena, devuelve el número -1. | 
 |||| 
 
 *Ejemplo* 
 
-Este ejemplo busca el valor de índice final de la subcadena "world" en la cadena "hello world":
+Este ejemplo busca el valor de índice inicial de la última repetición de la subcadena "world" en la cadena "hello world":
 
 ```
 lastIndexOf('hello world', 'world')
 ```
 
-Y devuelve este resultado: `10`
+Y devuelve este resultado: `6`
 
 <a name="length"></a>
 

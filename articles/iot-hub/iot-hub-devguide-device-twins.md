@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: e94b023275f3992bea9595195688eebf42f0f229
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b5e0a0caacab2413b640c58575673e555eeb76a4
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186795"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288285"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Dispositivos gemelos en IoT Hub
 
@@ -254,7 +254,7 @@ Las etiquetas y las propiedades deseadas y notificadas son objetos JSON con las 
     }
     ```
 
-* Todos los valores de cadena pueden tener una longitud de 4 KB como máximo.
+* Todos los valores de cadena pueden tener como máximo una longitud de 512 bytes.
 
 ## <a name="device-twin-size"></a>Tamaño del dispositivo gemelo
 IoT Hub impone un límite de tamaño de 8 KB en cada uno de los valores totales respectivos `tags`, `properties/desired` y `properties/reported`, excepto los elementos de solo lectura.
@@ -354,6 +354,7 @@ Para probar algunos de los conceptos descritos en este artículo, vea los siguie
 
 * [Uso de dispositivos gemelo][lnk-twin-tutorial]
 * [Uso de propiedades de dispositivos gemelos][lnk-twin-properties]
+* [Administración de dispositivos con Azure IoT Toolkit para VS Code][lnk-twin-vscode]
 
 <!-- links and images -->
 
@@ -377,6 +378,7 @@ Para probar algunos de los conceptos descritos en este artículo, vea los siguie
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-properties]: tutorial-device-twins.md
+[lnk-twin-vscode]: iot-hub-device-management-iot-toolkit.md
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow

@@ -7,14 +7,14 @@ manager: carmonm
 keywords: copias de seguridad de máquinas virtuales, realizar copias de seguridad de máquinas virtuales
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/31/2018
+ms.date: 8/29/2018
 ms.author: markgal
-ms.openlocfilehash: 438c1130486fe1ba2ee484ae01655a2fb115de27
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9e2ef16cffb044409b6f7f8e7785010097bcda87
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390762"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286659"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure
 En este artículo se proporcionan sugerencias de recursos y rendimiento para ayudarle a planear la infraestructura de copia de seguridad de máquina virtual. También se definen los aspectos clave del servicio Backup; estos aspectos pueden ser críticos a la hora de determinar la arquitectura, el planeamiento de la capacidad y la programación. Si ha [preparado el entorno](backup-azure-arm-vms-prepare.md), este es el paso siguiente antes de comenzar a realizar la [copia de seguridad de las máquinas virtuales](backup-azure-arm-vms.md). Si necesita más información sobre Azure Virtual Machines, vea la [Documentación sobre Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). 
@@ -50,17 +50,18 @@ Azure Backup realiza copias de seguridad completas de VSS en máquinas virtuales
 ```
 
 #### <a name="linux-vms"></a>Máquinas virtuales con Linux
-Azure Backup proporciona un marco de trabajo para las secuencias de comandos. Para garantizar la coherencia de la aplicación cuando realice la copia de seguridad de las máquinas virtuales de Linux, cree secuencias de comandos personalizadas anteriores y posteriores que controlen el flujo de trabajo y el entorno de la copia de seguridad. Azure Backup invoca la secuencia de comandos anterior antes de tomar la instantánea de la máquina virtual y una vez completado el trabajo de instantáneas de la máquina virtual, invoca la secuencia de comandos posterior. Para obtener más información, consulte sobre [copias de seguridad de máquinas virtuales coherentes con la aplicación mediante las secuencias de comandos anteriores y posteriores](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+
+Azure Backup proporciona un marco de scripting para controlar el entorno y el flujo de trabajo de copia de seguridad. Para asegurarse de que las copias de seguridad de VM Linux sean coherentes con la aplicación, use el marco de scripting para crear los scripts anteriores y posteriores personalizados. Invoque el script anterior antes de tomar la instantánea de VM y, a continuación, invoque el script posterior cuando se complete el trabajo de instantánea de VM. Para obtener más información, consulte el artículo [Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux de Azure](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+
 > [!NOTE]
 > Azure Backup solo invoca las secuencias de comandos anteriores y posteriores escritas por el cliente. Azure Backup marcará el punto de recuperación como coherente con la aplicación si la ejecución de las secuencias de comandos anteriores y posteriores se realiza correctamente. Sin embargo, el cliente es el responsable final de la coherencia con la aplicación cuando se utilizan secuencias de comandos personalizadas.
 >
 
-
-En esta tabla se describen los tipos de coherencia y las condiciones en las que se producen durante los procedimientos de copia de seguridad y restauración de máquinas virtuales de Azure.
+En la tabla siguiente se explican los tipos de coherencia y las condiciones en que tienen lugar.
 
 | Coherencia | Con base en VSS | Explicación y detalles |
 | --- | --- | --- |
-| Coherencia de las aplicaciones |Sí para Windows|Se trata del tipo de coherencia ideal para las cargas de trabajo, ya que garantiza que:<ol><li> la máquina virtual *arranca*. <li>No hay *daños*. <li>No hay *pérdida de datos*.<li> Los datos son coherentes con la aplicación que usa los datos, implicando a la aplicación en el momento de realizar la copia de seguridad, mediante VSS o los script anterior y posterior.</ol> <li>*Máquinas virtuales con Windows*: la mayoría de cargas de trabajo de Microsoft tienen escritores VSS que realizan acciones específicas de carga de trabajo relacionadas con la coherencia de los datos. Por ejemplo, Microsoft SQL Server tiene un escritor VSS que garantiza que las escrituras en el archivo de registro de transacciones y en la base de datos se realizan correctamente. En las copias de seguridad de máquinas virtuales de Azure con Windows, para crear un punto de recuperación coherente con la aplicación hay que invocar el flujo de trabajo VSS y completarlo antes de completar la instantánea de la máquina virtual. Para que la instantánea de la máquina virtual de Azure sea precisa, también deben completarse los escritores de VSS de todas las aplicaciones de máquinas virtuales de Azure. (Aprenda los [conceptos básicos de VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) y profundice en los detalles de [cómo funciona](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *Máquinas virtuales de Linux*: los clientes pueden ejecutar [secuencias de comandos anteriores y posteriores personalizadas para garantizar la coherencia con la aplicación](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
+| Coherencia de las aplicaciones |Sí para Windows|Se trata del tipo de coherencia ideal para las cargas de trabajo, ya que garantiza que:<ol><li> la máquina virtual *arranca*. <li>No hay *daños*. <li>No hay *pérdida de datos*.<li> Los datos son coherentes con la aplicación que usa los datos, implicando a la aplicación en el momento de realizar la copia de seguridad, mediante VSS o los script anterior y posterior.</ol> <li>*VM Windows*: la mayoría de cargas de trabajo de Microsoft tienen escritores VSS que ejecutan acciones específicas de carga de trabajo relacionadas con la coherencia de los datos. Por ejemplo, VSS Writer para SQL Server garantiza que las escrituras en el archivo de registro de transacciones y en la base de datos se realizan correctamente. En las copias de seguridad de VM Windows de IaaS, para crear un punto de recuperación coherente con la aplicación, hay que invocar el flujo de trabajo VSS y completarlo antes de completar la instantánea de la VM. Para que la instantánea de la máquina virtual de Azure sea precisa, también deben completarse los escritores de VSS de todas las aplicaciones de máquinas virtuales de Azure. (Aprenda los [conceptos básicos de VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) y profundice en los detalles de [cómo funciona](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *Máquinas virtuales de Linux*: los clientes pueden ejecutar [secuencias de comandos anteriores y posteriores personalizadas para garantizar la coherencia con la aplicación](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
 | Coherencia del sistema de archivos |Sí, para equipos basados en Windows |Hay dos escenarios en los que el punto de recuperación puede ser *coherente con el sistema de archivos*:<ul><li>Copias de seguridad de máquinas virtuales con Linux en Azure, sin los script anterior y posterior, o en caso de que estos generen errores. <li>Error de VSS durante la copia de seguridad de máquinas virtuales Windows en Azure.</li></ul> En ambos casos, lo mejor que se puede hacer es asegurarse de que: <ol><li> la máquina virtual *arranca*. <li>No hay *daños*.<li>No hay *pérdida de datos*.</ol> Las aplicaciones deben implementar su propio mecanismo de "reparación" en los datos restaurados. |
 | Coherencia de bloqueos |Sin  |Esta situación es equivalente a aquellos casos en que una máquina experimenta un "bloqueo" (a través de un restablecimiento parcial o completo). La coherencia de bloqueos suele ocurrir cuando la máquina virtual de Azure se apaga en el momento de realizar la copia de seguridad. Un punto de recuperación coherente con el bloqueo no ofrece ninguna garantía sobre la coherencia de los datos en el medio de almacenamiento, ni desde la perspectiva del sistema operativo ni desde la de la aplicación. Solamente se capturan y se hace una copia de seguridad de los datos que ya existen en el disco en el momento de la copia de seguridad. <br/> <br/> Aunque no hay ninguna garantía, normalmente se inicia el sistema operativo, seguido de un procedimiento de comprobación de disco como chkdsk para corregir los errores por daños. Se perderán los datos o las escrituras en memoria que no se hayan transferido al disco. Normalmente, la aplicación sigue con su propio mecanismo de comprobación en caso de que se deba realizar una reversión de datos. <br><br>Por ejemplo, si el registro de transacciones tiene entradas que no están presentes en la base de datos, el software de la base de datos realiza una reversión hasta que los datos sean coherentes. Cuando los datos se reparten en varios discos virtuales (por ejemplo, volúmenes distribuidos), un punto de recuperación coherente con el bloqueo no ofrece ninguna garantía sobre la corrección de los datos. |
 
@@ -104,19 +105,22 @@ Una operación de restauración consta de dos tareas principales: copiar datos d
 * Tiempo de copia de datos: los datos se copian primero desde el almacén en la cuenta de almacenamiento del cliente. El tiempo de restauración depende del IOPS y el rendimiento que el servicio Azure Backup obtenga en la cuenta de almacenamiento del cliente seleccionado. Para reducir el tiempo de copia durante el proceso de restauración, seleccione una cuenta de almacenamiento que no esté cargada con otras lecturas y escrituras de aplicaciones.
 
 ## <a name="best-practices"></a>Procedimientos recomendados
-Se recomienda seguir estos procedimientos recomendados al configurar copias de seguridad para máquinas virtuales con discos no administrados:
 
-> [!Note]
-> Los siguientes procedimientos que recomiendan cambiar o administrar las cuentas de almacenamiento se aplican solo a máquinas virtuales con discos no administrados. Si usa discos administrados, Azure se encargará de todas las actividades de administración que implica el almacenamiento.
-> 
+Se recomienda seguir estos procedimientos recomendados al configurar copias de seguridad para todas las máquinas virtuales:
 
-* No programe la copia de seguridad de más de 10 máquinas virtuales clásicas desde el mismo servicio en la nube al mismo tiempo. Si quiere realizar la copia de seguridad de varias máquinas virtuales desde el mismo servicio en la nube, escalone las horas de inicio de cada una de ellas con una hora de diferencia.
-* No programe la copia de seguridad de más de 100 máquinas virtuales al mismo tiempo desde un único almacén. 
+* No programe copias de seguridad de más de 10 VM clásicas desde el mismo servicio en la nube al mismo tiempo. Si quiere realizar la copia de seguridad de varias VM desde el mismo servicio en la nube, escalone las horas de inicio de cada una de ellas con una hora de diferencia.
+* No programe copias de seguridad de más de 100 VM de un almacén al mismo tiempo.
 * Programe las copias de seguridad de máquinas virtuales durante horas de poca actividad. De esta forma, el servicio Backup utiliza IOPS para transferir datos desde la cuenta de almacenamiento del cliente al almacén.
-* Asegúrese de que una directiva se aplique en máquinas virtuales entre distintas cuentas de almacenamiento. Se recomienda que la misma programación de copia de seguridad proteja hasta 20 discos como máximo de una única cuenta de almacenamiento. Si tiene más de 20 discos en una cuenta de almacenamiento, distribuya esas máquinas virtuales entre varias directivas para obtener el número de IOPS necesario durante la fase de transferencia del proceso de copia de seguridad.
-* No restaure una máquina virtual que se ejecuta en almacenamiento Premium en la misma cuenta de almacenamiento. Si el proceso de la operación de restauración coincide con la operación de copia de seguridad, se reduce el número de IOPS disponible para copia de seguridad.
-* En el caso de máquinas virtuales premium de la versión 1 de la pila de copia de seguridad de máquinas virtuales, se recomienda asignar solo el 50% del espacio total de la cuenta de almacenamiento a fin de que el servicio Azure Backup pueda copiar la instantánea a la cuenta de almacenamiento y transferir datos desde la ubicación copiada en la cuenta de almacenamiento al almacén.
 * Asegúrese de que la versión de python en máquinas virtuales Linux habilitadas para la copia de seguridad sea 2.7 o superior.
+
+### <a name="best-practices-for-vms-with-unmanaged-disks"></a>Procedimientos recomendados para VM con discos no administrados
+
+Las siguientes recomendaciones solo se aplican a VM con discos no administrados. Si las VM usan discos administrados, el servicio Backup controla todas las actividades de administración de almacenamiento.
+
+* Asegúrese de aplicar una directiva de copia de seguridad para VM que se aplique a varias cuentas de almacenamiento. La misma programación de copia de seguridad debería proteger un máximo de 20 discos de una única cuenta de almacenamiento. Si tiene más de 20 discos en una cuenta de almacenamiento, distribuya esas máquinas virtuales entre varias directivas para obtener el número de IOPS necesario durante la fase de transferencia del proceso de copia de seguridad.
+* No restaure una máquina virtual que se ejecuta en almacenamiento Premium en la misma cuenta de almacenamiento. Si el proceso de la operación de restauración coincide con la operación de copia de seguridad, se reduce el número de IOPS disponible para copia de seguridad.
+* En el caso de copias de seguridad de VM premium de la versión 1 de la pila de copia de seguridad de VM, solo debería asignar el 50 % del espacio total de la cuenta de almacenamiento a fin de que el servicio Backup pueda copiar la instantánea a la cuenta de almacenamiento y transferir datos desde la cuenta de almacenamiento al almacén.
+
 
 ## <a name="data-encryption"></a>Cifrado de datos
 Azure Backup no cifra los datos como parte del proceso de copia de seguridad. Pero se pueden cifrar datos dentro de la máquina virtual y los datos protegidos de copia de seguridad sin ningún problema (vea más información sobre [copia de seguridad de datos cifrados](backup-azure-vms-encryption.md)).

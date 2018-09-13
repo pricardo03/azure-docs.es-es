@@ -1,5 +1,5 @@
 ---
-title: Costos de software de Windows de reservas de Azure | Microsoft Docs
+title: Costos de software de Windows de Azure Reservations | Microsoft Docs
 description: Descubra qué medidores de software de Windows no están incluidos en los costos de Azure Reserved VM Instances.
 services: billing
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: 8ff2d126fd491ddc40f6223b6d4ec1fc4505b8fb
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: ec4869ed5c4d823a8144ba430ebb29c65c2abc13
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630118"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302073"
 ---
-# <a name="windows-software-costs-not-included-with-azure-reservations"></a>Costos de software de Windows no incluidos con las reservas de Azure
+# <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Costos de software de Windows no incluidos con Azure Reserved VM Instances
 
 Si no dispone de la Ventaja híbrida de Azure en las instancias reservadas de máquina virtual, se le cobrará por los medidores de software de Windows que se indican en la sección siguiente.
 
@@ -53,11 +53,11 @@ Si no dispone de la Ventaja híbrida de Azure en las instancias reservadas de m�
 El costo de cada uno de estos medidores se puede consultar a través de la API RateCard de Azure. Para obtener información sobre las tasas de un medidor de Azure, consulte [Información de precios y metadatos de los recursos usados en una suscripción de Azure](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información acerca de las reservas de Azure, consulte los siguientes artículos:
+Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
 
-- [¿Qué son las reservas de Azure?](billing-save-compute-costs-reservations.md)
+- [¿Qué es Azure Reservations?](billing-save-compute-costs-reservations.md)
 - [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Administración de reservas de Azure](billing-manage-reserved-vm-instance.md)
+- [Administración de Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Información sobre cómo se aplica el descuento por la reserva](billing-understand-vm-reservation-charges.md)
 - [Información sobre el uso de reservas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
 - [Información sobre el uso de reservas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)

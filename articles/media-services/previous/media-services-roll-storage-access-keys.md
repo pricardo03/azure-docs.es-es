@@ -12,31 +12,31 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 08/30/2018
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: ebaa679c43bd577d4f37feb7f3a025086490e25f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e8d8067fcf30b16dd3dbc7f6cf50129d837aa3a5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785754"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306863"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Actualización de Media Services después de sustituir las claves de acceso de almacenamiento
 
-Cuando crea una nueva cuenta de Azure Media Services (AMS), también se le pide que seleccione una cuenta de Azure Storage que se usa para almacenar el contenido multimedia. Puede agregar más de una cuenta de almacenamiento a su cuenta de Media Services. En este tema se explica cómo rotar las claves de almacenamiento. También se explica cómo agregar cuentas de almacenamiento a una cuenta multimedia. 
+Cuando crea una nueva cuenta de Azure Media Services (AMS), también se le pide que seleccione una cuenta de Azure Storage que se usa para almacenar el contenido multimedia. Puede agregar más de una cuenta de almacenamiento a su cuenta de Media Services. En este artículo se explica cómo rotar las claves de almacenamiento. También se explica cómo agregar cuentas de almacenamiento a una cuenta multimedia. 
 
-Para realizar las acciones descritas en este tema, debe usar las [API de ARM](https://docs.microsoft.com/rest/api/media/mediaservice) y [PowerShell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media).  Para más información, vea [How to manage Azure resources with PowerShell and Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md) (Administración de recursos de Azure con PowerShell y Resource Manager).
+Para realizar las acciones descritas en este artículo, debe usar las [API de Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) y [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.media).  Para más información, vea [How to manage Azure resources with PowerShell and Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md) (Administración de recursos de Azure con PowerShell y Resource Manager).
 
 ## <a name="overview"></a>Información general
 
 Cuando se crea una nueva cuenta de almacenamiento, Azure genera dos claves de acceso de almacenamiento de 512 bits, que se usan para autenticar el acceso a su cuenta de almacenamiento. Para aumentar la seguridad de sus conexiones de almacenamiento, se recomienda regenerar y rotar periódicamente su claves de acceso de almacenamiento. Se proporcionan dos claves de acceso (principal y secundaria) con el fin de permitirle mantener conexiones con la cuenta de almacenamiento mediante el uso de una clave de acceso mientras regenera la otra. Este procedimiento se conoce también como "rotación de claves de acceso".
 
-Media Services depende de una clave de almacenamiento que se le ofrece. En concreto, los localizadores que se usan para transmitir o descargar sus activos dependen de la clave de acceso de almacenamiento. Cuando se crea una cuenta de AMS toma una dependencia en la clave de acceso de almacenamiento principal de forma predeterminada, pero como usuario puede actualizar la clave de almacenamiento que AMS tiene. Debe asegurarse de que Media Services conocen qué clave usar siguiendo los pasos descritos en este tema.  
+Media Services depende de una clave de almacenamiento que se le ofrece. En concreto, los localizadores que se usan para transmitir o descargar sus activos dependen de la clave de acceso de almacenamiento. Cuando se crea una cuenta de AMS, toma una dependencia en la clave de acceso de almacenamiento principal de forma predeterminada, pero, como usuario, puede actualizar la clave de almacenamiento que AMS tiene. Debe asegurarse de que Media Services conocen qué clave usar siguiendo los pasos descritos en este artículo.  
 
 >[!NOTE]
 > Si tiene varias cuentas de almacenamiento, realizaría este procedimiento con cada una. El orden en que se rotan las claves de almacenamiento no es fijo. Puede rotar primero la clave secundaria y después la primaria, o viceversa.
 >
-> Antes de ejecutar los pasos que se describen en este tema en una cuenta de producción, asegúrese de probarlos en una cuenta de ensayo.
+> Antes de ejecutar los pasos que se describen en este artículo en una cuenta de producción, asegúrese de probarlos en una cuenta de ensayo.
 >
 
 ## <a name="steps-to-rotate-storage-keys"></a>Pasos para rotar claves de almacenamiento 
@@ -68,7 +68,7 @@ En el ejemplo siguiente se muestra cómo obtener la cuenta de almacenamiento y s
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Pasos para agregar cuentas de almacenamiento a la cuenta de AMS
 
-En el tema siguiente se explica cómo agregar cuentas de almacenamiento a la cuenta de AMS: [Agregar varias cuentas de almacenamiento a una cuenta de Media Services](meda-services-managing-multiple-storage-accounts.md).
+En el artículo siguiente se explica cómo agregar cuentas de almacenamiento a la cuenta de AMS: [Agregar varias cuentas de almacenamiento a una cuenta de Media Services](meda-services-managing-multiple-storage-accounts.md).
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

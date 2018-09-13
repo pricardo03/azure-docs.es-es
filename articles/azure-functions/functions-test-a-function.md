@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05c88c8938580666ce99f7cae46dc69cda3c3776
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: a57d5f8d857a8cfcdc81e86650466aec740f41e3
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344705"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286816"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estrategias para probar el código en Azure Functions
 
@@ -34,9 +34,9 @@ En este tema se muestran las diversas maneras de probar las funciones, entre ell
 + Función desencadenada por un temporizador
 + Comprobación de la aplicación o del marco
 
-Todos los métodos de prueba usan una función de desencadenador de HTTP que acepta la entrada a través de un parámetro de cadena de consulta o el cuerpo de la solicitud. Esta función se crea en la primera sección.
+Todos los métodos de prueba usan una función de desencadenador de HTTP que acepta la entrada a través de un parámetro de cadena de consulta o el cuerpo de la solicitud. Esta función se crea en la primera sección de Azure Portal.
 
-## <a name="create-a-function-for-testing"></a>Creación de una función para realizar pruebas
+## <a name="create-a-simple-function-for-testing-using-the-azure-portal"></a>Crear una función sencilla para probar el uso de Azure Portal
 Durante la mayor parte de este tutorial, utilizaremos una versión ligeramente modificada de la plantilla de la función HttpTrigger JavaScript que está disponible al crear una función. Si necesita ayuda para crear una función, revise este [tutorial](functions-create-first-azure-function.md). Elija la plantilla **HttpTrigger - JavaScript** al crear la función de prueba en [Azure Portal].
 
 Básicamente, la plantilla de función predeterminada es una función de tipo "Hola a todos" que devuelve el nombre desde el cuerpo de la solicitud o el parámetro de cadena de consulta, `name=<your name>`.  Actualizaremos el código para que también pueda proporcionar el nombre y una dirección como contenido JSON en el cuerpo de la solicitud. A continuación, la función los envía de vuelta al cliente cuando estén disponibles.   
