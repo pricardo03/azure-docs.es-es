@@ -17,12 +17,12 @@ ms.date: 08/31/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: e5db7b9bed674011c2922f026c301172f347f53f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: d5c00e9df9c1bfee0c665cafc763c52a36f98052
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666315"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345852"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Aprenda a mostrar su aplicación en la galería de aplicaciones de Azure Active Directory
 
@@ -69,7 +69,7 @@ Para agregar una aplicación a la galería de Azure AD, debe implementar uno de 
 
     * Si tiene algún problema para obtener acceso, póngase en contacto con el [equipo de integración del SSO de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** o **WS-Fed**: la aplicación admite SAML 2.0, se puede integrar directamente con un inquilino de Azure AD según las [instrucciones para agregar una aplicación personalizada](../active-directory-saas-custom-apps.md).
+*   **SAML 2.0** o **WS-Fed**: la aplicación admite SAML 2.0, se puede integrar directamente con un inquilino de Azure AD según las [instrucciones para agregar una aplicación personalizada](../manage-apps/configure-single-sign-on-non-gallery-applications.md).
 
     ![Escala de tiempo para exponer la aplicación de SAML 2.0 o WS-Fed en la galería](./media/howto-app-gallery-listing/saml.png)
 

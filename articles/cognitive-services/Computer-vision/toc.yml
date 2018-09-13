@@ -98,6 +98,30 @@ items:
       href: quickstarts-sdk/csharp-thumb-sdk.md
     - name: Extraer texto manuscrito
       href: quickstarts-sdk/csharp-hand-text-sdk.md
+- name: Conceptos
+  items:
+  - name: Etiquetado de imágenes
+    href: concept-tagging-images.md
+  - name: Categorización de imágenes
+    href: concept-categorizing-images.md
+  - name: Descripción de las imágenes
+    href: concept-describing-images.md
+  - name: Detección de caras
+    href: concept-detecting-faces.md
+  - name: Detección de los tipos de imagen
+    href: concept-detecting-image-types.md
+  - name: Detección de contenido específico del dominio
+    href: concept-detecting-domain-content.md
+  - name: Detección de combinaciones de colores
+    href: concept-detecting-color-schemes.md
+  - name: Generación de miniaturas
+    href: concept-generating-thumbnails.md
+  - name: Extracción de texto con OCR
+    href: concept-extracting-text-ocr.md
+  - name: Reconocimiento de texto manuscrito e impreso
+    href: concept-recognizing-text.md
+  - name: Detección de contenido para adultos y subido de tono
+    href: concept-detecting-adult-content.md
 - name: Guías de procedimientos
   items:
   - name: Primeras aplicaciones Computer Vision
@@ -160,9 +184,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Taxonomía de categoría
     href: Category-Taxonomy.md
-ms.openlocfilehash: c784546bdba472882b6c098befc584da35bbac59
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 6bdbfc9285665c6e0f7eb678c50e19bd82238696
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337508"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714418"

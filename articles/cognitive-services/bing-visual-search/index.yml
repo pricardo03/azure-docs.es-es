@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 99ddb641cefc0f31316a8de2f363b95afff0d053
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624542"
+documentType: LandingData
+title: Documentación de Bing Video Search
+metadata:
+  document_id: 230494A6-34F9-416D-A6C0-57E69E1C2590
+  title: 'Documentación sobre Bing Visual Search: tutoriales y referencia de API'
+  description: Aprenda a usar Bing Visual Search API para obtener información sobre una imagen. Los tutoriales muestran cómo compilar aplicaciones que usan el servicio.
+  services: cognitive-services
+  author: swhite-msft
+  manager: rosh
+  ms.service: bing-visual-search
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/24/2018
+  ms.author: scottwhi
+abstract:
+  description: Bing Visual Search API proporciona una experiencia similar a Bing.com/images al devolver información sobre una imagen, como imágenes visualmente similares, orígenes de compra de productos encontrados en la imagen y búsquedas relacionadas.
+sections:
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: 'Empiece a trabajar con Bing Visual Search API al enviar una imagen a Bing y obtener información sobre ella:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_csharp.svg
+    - image:
+        src: media/index/logo_java.svg
+    - image:
+        src: media/index/logo_nodejs.svg
+    - image:
+        src: media/index/logo_python.svg
+    rows:
+    - title: Su primera consulta
+      values:
+      - href: quickstarts/csharp
+      - href: quickstarts/java
+      - href: quickstarts/nodejs
+      - href: quickstarts/python
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: 'Aprenda a desarrollar aplicaciones mediante Bing Visual Search API:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="tutorial-bing-visual-search-single-page-app">Aplicación web de una sola página</a> | <a href="tutorial-bing-visual-search-single-page-app-source">código fuente</a>
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API REST v7
+      html: <p><a href="https://aka.ms/bingvisualsearchreferencedoc">Referencia de API</a></p>

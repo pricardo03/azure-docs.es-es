@@ -1,0 +1,75 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 94663fc33c172497c0ff1b129dd557eda0f4344a
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624519"
+documentType: LandingData
+title: Documentación de Bing Image Search
+metadata:
+  document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
+  title: 'Documentación sobre Bing Image Search: tutoriales, guías de inicio rápido y referencias de API | Microsoft Docs'
+  description: Aprenda a usar Bing Image Search API para obtener resultados desde la web que están relacionados con las consultas del usuario. Los tutoriales muestran cómo compilar aplicaciones que usan el servicio.
+  services: cognitive-services
+  author: v-jerkin
+  manager: carolz
+  ms.service: bing-image-search
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/10/2017
+  ms.author: v-jerkin
+abstract:
+  description: Bing Image Search API proporciona una experiencia similar a Bing.com/images al devolver imágenes que Bing determina que están relacionadas con la consulta del usuario.
+sections:
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: 'Empiece a trabajar con Bing Image Search API al realizar una consulta y ver la respuesta JSON:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_csharp.svg
+      href: quickstarts/csharp
+      text: C&#35;
+    - image:
+        src: media/index/logo_java.svg
+      href: quickstarts/java
+      text: Java
+    - image:
+        src: media/index/logo_nodejs.svg
+      href: quickstarts/nodejs
+      text: Node.js
+    - image:
+        src: media/index/logo_php.svg
+      href: quickstarts/php
+      text: PHP
+    - image:
+        src: media/index/logo_python.svg
+      href: quickstarts/python
+      text: Python
+    - image:
+        src: media/index/logo_ruby.svg
+      href: quickstarts/ruby
+      text: Ruby
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: 'Aprenda a desarrollar aplicaciones mediante Bing Image Search API:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="tutorial-bing-image-search-single-page-app">Aplicación web de una sola página</a> &#124; <a href="tutorial-bing-image-search-single-page-app-source">código fuente</a>
+    - html: <a href="tutorial-image-post">Carga de la imagen de Bing para información</a> &#124; <a href="tutorial-image-post-source">código fuente</a>
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API existentes
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference">Bing Image Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference/">Bing Image Search API v5</p>
+    - title: SDK
+      html: <p><a href="sdk.md">SDK de Bing Search</a></p>

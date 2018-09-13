@@ -6,7 +6,7 @@
 ## [Comparación de Data Lake Storage Gen1 con Azure Storage](data-lake-store-comparison-with-blob-storage.md)
 ## [Data Lake Storage Gen1 para el procesamiento de macrodatos](data-lake-store-data-scenarios.md)
 ## [Aplicaciones de código abierto que funcionan con Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
-## [Procedimientos recomendados para usar Data Lake Storage Gen1](data-lake-store-best-practices.md)
+## [procedimientos recomendados](data-lake-store-best-practices.md)
 
 # Introducción
 ## [Uso del portal](data-lake-store-get-started-portal.md)
@@ -26,8 +26,8 @@
 
 ## Protección de datos
 ### [Introducción a la seguridad](data-lake-store-security-overview.md)
-### [Control de acceso en Data Lake Storage Gen1](data-lake-store-access-control.md)
-### [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
+### [Control de acceso](data-lake-store-access-control.md)
+### [Protección de datos almacenados](data-lake-store-secure-data.md)
 ### [Cifrado](data-lake-store-encryption.md)
 
 ## Autenticación con Data Lake Storage Gen1
@@ -55,12 +55,12 @@
 #### [Uso de Python](data-lake-store-data-operations-python.md)
 
 ## Rendimiento
-### [Guía para la optimización del rendimiento de Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-guidance.md)
-### [Guía de ajuste del rendimiento para usar PowerShell con Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-powershell.md)
-### [Guía para la optimización del rendimiento de Spark en HDInsight y Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-spark.md)
-### [Guía para la optimización del rendimiento de Hive en HDInsight y Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-hive.md)
-### [Guía para la optimización del rendimiento de MapReduce en HDInsight y Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md)
-### [Guía para la optimización del rendimiento de Storm en HDInsight y Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-storm.md)
+### [Información general](data-lake-store-performance-tuning-guidance.md)
+### [Uso de Azure PowerShell](data-lake-store-performance-tuning-powershell.md)
+### [Uso de Spark en HDInsight](data-lake-store-performance-tuning-spark.md)
+### [Uso de Hive en HDInsight](data-lake-store-performance-tuning-hive.md).
+### [Uso de HDInsight](data-lake-store-performance-tuning-mapreduce.md)
+### [Uso de Storm en HDInsight](data-lake-store-performance-tuning-storm.md)
 
 ## Integración con servicios de Azure
 ### Con HDInsight

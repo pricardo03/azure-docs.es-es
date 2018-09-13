@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: fd3b48648ca0b8f7ce1d134bc7a40a7b1f5ed348
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35759218"
 documentType: LandingData
 title: Documentación de Azure Media Services
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 04-21-2018
   ms.author: juliako
-  ms.openlocfilehash: 781cd8eb2796062b3cebb6b848ee5f1fe204f460
-  ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-  ms.translationtype: HT
-  ms.contentlocale: es-ES
-  ms.lasthandoff: 05/20/2018
-  ms.locfileid: "34361291"
 abstract:
   description: Azure Media Services es una plataforma basada en la nube que le permite compilar soluciones que consiguen un streaming de vídeo con calidad de difusión, mejoran la accesibilidad y la distribución, analizan el contenido, etc.
 sections:
@@ -32,34 +32,29 @@ sections:
     - href: /azure/media-services/latest/
       html: <p>Aprenda a codificar, a hacer streaming a petición, a realizar difusión en directo y a analizar los vídeos con Media Services v3.</p>
       image:
-        src: media/index/media-services-v3.png
+        src: media/index/AMSIcons-media_servicesV3.svg
       title: Azure Media Services v3 (versión preliminar)
     - href: /azure/media-services/previous/
       html: <p>Aprenda a codificar, a hacer streaming a petición y a realizar difusión en directo de vídeos con Media Services v2.</p>
       image:
-        src: media/index/media-services-v2.png
+        src: media/index/AMSIcons-media_servicesV2.svg
       title: Azure Media Services v2 (disponibilidad general)
 - title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
-    text: 'Aprenda a hacer streaming a petición en directo con Media Services:'
+    text: 'Aprenda a codificar y hacer streaming con Media Services:'
   - type: table
     style: dataMatrix
     columns:
     - image:
-        src: media/index/stream.png
-      title: Streaming en vivo
-    - image:
-        src: media/index/stream.png
+        src: media/index/AMSIcons-encoding.svg
       title: Streaming de archivos
     rows:
     - title: Media Services v3
       values:
-      - href: https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live
       - href: /azure/media-services/latest/stream-files-dotnet-quickstart
     - title: Media Services v2
       values:
-      - href: /azure/media-services/previous/media-services-portal-live-passthrough-get-started
       - href: /azure/media-services/previous/media-services-portal-vod-get-started
 - title: Tutoriales detallados
   items:
@@ -69,17 +64,22 @@ sections:
     style: dataMatrix
     columns:
     - image:
-        src: media/index/encode.png
+        src: media/index/AMSIcons-encoding.svg
       title: Codificación y streaming
     - image:
-        src: media/index/analyze.png
+        src: media/index/AMSIcons-live.svg
+      title: Streaming en vivo
+    - image:
+        src: media/index/AMSIcons-media_analytics.svg
       title: Análisis de vídeos
     rows:
     - title: Media Services v3
       values:
       - href: /azure/media-services/latest/stream-files-tutorial-with-api
+      - href: /azure/media-services/latest/stream-live-tutorial-with-api
       - href: /azure/media-services/latest/analyze-videos-tutorial-with-api
     - title: Media Services v2
       values:
       - href: /azure/media-services/previous/media-services-dotnet-get-started
+      - href: /azure/media-services/previous/media-services-portal-live-passthrough-get-started
       - href: 

@@ -1,0 +1,64 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 85613f24d7bfed03a94733509aa5cb91e59f4333
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624452"
+documentType: LandingData
+title: Documentación de Bing Custom Search
+metadata:
+  title: 'Documentación de Bing Custom Search: tutoriales y referencia de API en Microsoft Cognitive Services | Microsoft Docs'
+  description: Aprenda a usar el portal de Bing Custom Search para crear instancias de búsqueda personalizada
+  services: cognitive-services
+  author: v-deken
+  manager: cgronlun
+  layout: LandingPage
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/07/2018
+  ms.author: v-deken
+abstract:
+  description: Aprenda a usar Bing Custom Search para crear experiencias de búsqueda a medida de los temas que le interesan. Por ejemplo, si tiene un sitio web de bicicletas que proporciona una experiencia de búsqueda, puede especificar los dominios, subsitios y páginas web en las que busque Bing. Las guías de inicio rápido, los tutoriales y las guías de referencia de la API le muestran cómo hacerlo.
+sections:
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: 'Busque la vista personalizada de la web mediante:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/logo_Csharp.svg
+      href: call-endpoint-csharp
+      text: C&#35;
+    - image:
+        src: media/logo_java.svg
+      href: call-endpoint-java
+      text: Java
+    - image:
+        src: media/logo_nodejs.svg
+      href: call-endpoint-nodejs
+      text: Node.js
+    - image:
+        src: media/logo_python.svg
+      href: call-endpoint-python
+      text: Python
+- title: Tutorial detallado
+  items:
+  - type: paragraph
+    text: 'Aprenda a desarrollar aplicaciones con Bing Custom Search API:'
+  - type: paragraph
+    text: <a href="tutorials/custom-search-web-page">Creación de una página web de Custom Search</a>
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API existentes
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference">Bing Custom Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference">Bing Custom Autosuggest API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference">Bing Custom Image Search API v7</a></p>
+    - title: SDK
+      html: <p><a href="sdk.md">SDK de Bing Search</a></p>

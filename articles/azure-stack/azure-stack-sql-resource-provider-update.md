@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 017ac3214046b812ce003ab7a190f2f2b3f4f2e2
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 3517114d5bc267aa32cea49161d0d34156a2ed1e
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697948"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390916"
 ---
 # <a name="update-the-sql-resource-provider"></a>Actualización del proveedor de recursos de SQL
 
@@ -49,7 +49,9 @@ Después de que el script *UpdateSQLProvider.ps1* crea una nueva máquina virtua
 
 ### <a name="update-script-powershell-example"></a>Ejemplo de actualización del script de PowerShell
 
-Puede editar y ejecutar el script siguiente desde PowerShell ISE con privilegios elevados. No olvide cambiar la información de la cuenta y las contraseñas para su entorno, según corresponda.
+<a name="you-can-edit-and-run-the-following-script-from-an-elevated-powershell-ise"></a>Puede editar y ejecutar el script siguiente desde PowerShell ISE con privilegios elevados. 
+-  
+- No olvide cambiar la información de la cuenta y las contraseñas para su entorno, según corresponda.
 
 > [!NOTE]
 > Este proceso de actualización solo se aplica a sistemas integrados de Azure Stack.

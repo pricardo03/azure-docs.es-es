@@ -1,0 +1,70 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 88413db5556e20632112444e3779bb5eee0ecf8e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624429"
+documentType: LandingData
+title: Documentación de Bing Autosuggest
+metadata:
+  document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
+  title: 'Documentación sobre Bing Autosuggest: tutoriales, guías de inicio rápido y referencias de API | Microsoft Docs'
+  description: Aprenda a usar Bing Autosuggest API para obtener consultas sugeridas basadas en una consulta parcial. Los tutoriales muestran cómo compilar aplicaciones que usan el servicio.
+  services: cognitive-services
+  author: v-jaswel
+  manager: kamrani
+  ms.service: autosuggest
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/10/2017
+  ms.author: v-jaswel
+abstract:
+  description: Bing Autosuggest API le permite enviar un término de consulta de búsqueda parcial a Bing y obtener una lista de consultas sugeridas en las que otros usuarios han buscado.  Por ejemplo, a medida que el usuario escribe cada carácter de su término de búsqueda, llamará a esta API y rellenará la lista desplegable del cuadro de búsqueda con las cadenas de consulta sugeridas. Aprenda a usar Autosuggest API con nuestras guías de inicio rápido, tutoriales y ejemplos.
+sections:
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: 'Empiece a trabajar con Bing Autosuggest API al realizar una consulta y ver la respuesta JSON:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_csharp.svg
+      href: quickstarts/csharp
+      text: C&#35;
+    - image:
+        src: media/index/logo_java.svg
+      href: quickstarts/java
+      text: Java
+    - image:
+        src: media/index/logo_nodejs.svg
+      href: quickstarts/nodejs
+      text: Node.js
+    - image:
+        src: media/index/logo_php.svg
+      href: quickstarts/php
+      text: PHP
+    - image:
+        src: media/index/logo_python.svg
+      href: quickstarts/python
+      text: Python
+    - image:
+        src: media/index/logo_ruby.svg
+      href: quickstarts/ruby
+      text: Ruby
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: 'Aprenda a desarrollar aplicaciones mediante Bing Autosuggest API:'
+  - type: paragraph
+    text: <a href="tutorials/autosuggest.md">Aplicación web de una sola página</a> &#124; <a href="tutorials/autosuggest-source.md">código fuente</a>
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API existentes
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference">Bing Autosuggest API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference">Bing Autosuggest API v5</p>

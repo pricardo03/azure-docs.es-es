@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 879dd4e9b20a57257dd7b93fddb54168d6bceb33
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624396"
+documentType: LandingData
+title: Documentación de Translator Speech API
+metadata:
+  title: 'Documentación sobre Translator Speech: tutoriales y referencia de API'
+  titleSuffix: Cognitive Services
+  description: Aprenda a usar Translator Speech API para traducción de voz y de conversión de voz en texto en varios idiomas. Los tutoriales le muestran cómo escribir código que utilice el servicio Translator.
+  services: cognitive-services
+  author: Jann-Skotdal
+  manager: Chris.Wendt
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 3/5/2018
+  ms.author: v-jansko
+abstract:
+  description: Microsoft Translator Speech API, que forma parte de la colección de API de Microsoft Cognitive Services, es un servicio de traducción automática basado en la nube que proporciona conversión de voz en voz o de voz en texto. Basado en la tecnología REST estándar del sector, se puede utilizar para agregar traducción de voz en tiempo real a cualquier aplicación, herramienta o cualquier solución que requiera traducción de voz en varios idiomas, independientemente del sistema operativo de destino o de los lenguajes de desarrollo. Para obtener una lista completa de los idiomas admitidos, consulte la sección de <a href="languages.md">idiomas admitidos</a>.
+sections:
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: 'Empiece a trabajar con Translator Speech API al realizar una solicitud de traducción y ver la respuesta:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_csharp.svg
+    - image:
+        src: media/index/logo_java.svg
+    - image:
+        src: media/index/logo_nodejs.svg
+    - image:
+        src: media/index/logo_python.svg
+    rows:
+    - title: Traducción de voz mediante la API
+      values:
+      - href: quickstarts/csharp
+      - href: quickstarts/java
+      - href: quickstarts/nodejs
+      - href: quickstarts/python
+      - href: quickstarts/php
+      - href: quickstarts/ruby
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: 'Aprenda a desarrollar aplicaciones mediante Translator Speech API:'
+  - type: paragraph
+    text: <a href="tutorial-translator-speech-csharp.md">Translator Speech API</a>
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API
+      html: <p><a href="https://aka.ms/translator-speech-api">Referencia de API</a></p>

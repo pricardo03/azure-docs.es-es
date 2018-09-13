@@ -6,14 +6,14 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 09/07/2018
 ms.author: danlep
-ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e1d6f2d6181e70fde75907191664dcf6cd0b7252
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698390"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391766"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Supervisión de las soluciones de Batch realizando un recuento de las tareas y los nodos por estado
 
@@ -53,11 +53,9 @@ Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
 
 Puede usar un patrón similar para REST y otros lenguajes admitidos para obtener los recuentos de tareas de un trabajo. 
 
-### <a name="counts-for-large-numbers-of-tasks"></a>Recuentos para un gran número de tareas
-
-La operación Get Task Counts devuelve recuentos de estados de las tareas del sistema en un momento dado. Cuando el trabajo tiene un gran número de tareas, los recuentos devueltos por Get Task Counts pueden retrasar un par de segundos el estado real de las tareas. Batch garantiza la coherencia final entre los resultados de Get Task Counts y los estados reales de las tareas (que se pueden consultar a través de List Tasks API). Sin embargo, si el trabajo tiene un gran número de tareas (más de 200 000), le recomendamos que use List Tasks API y una [consulta filtrada](batch-efficient-list-queries.md) en su lugar, pues se proporciona información más actualizada. 
-
-Las versiones de la API del servicio de Batch anteriores a 2018-08-01.7.0 también devolverán una propiedad `validationStatus` en la respuesta de Get Task Counts. Esta propiedad indica si Batch comprobó la coherencia de los conteos de estados con los estados obtenidos mediante List Tasks API. Un valor de `validated` solo indica que Batch comprobó la coherencia del trabajo al menos una vez. El valor de la propiedad `validationStatus` no indica si los recuentos que devuelve Get Task Counts están actualmente actualizados.
+> [!NOTE]
+> Las versiones de la API del servicio de Batch anteriores a 2018-08-01.7.0 también devolverán una propiedad `validationStatus` en la respuesta de Get Task Counts. Esta propiedad indica si Batch comprobó la coherencia de los conteos de estados con los estados obtenidos mediante List Tasks API. Un valor de `validated` solo indica que Batch comprobó la coherencia del trabajo al menos una vez. El valor de la propiedad `validationStatus` no indica si los recuentos que devuelve Get Task Counts están actualmente actualizados.
+>
 
 ## <a name="node-state-counts"></a>Recuentos de estados de nodos
 

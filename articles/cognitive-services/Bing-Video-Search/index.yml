@@ -1,0 +1,71 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: b21d38e828888129057bc128061c8d5a8ceb06e8
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624447"
+documentType: LandingData
+title: Documentación de Bing Video Search
+metadata:
+  title: 'Documentación sobre Bing Video Search: tutoriales, guías de inicio rápido y referencias de API | Microsoft Docs'
+  description: Aprenda a usar Bing Video Search API para obtener vídeos desde la web que están relacionados con las consultas del usuario. Los tutoriales muestran cómo compilar aplicaciones que usan el servicio.
+  services: cognitive-services
+  author: mikedodaro
+  manager: rosh
+  ms.service: bing-video-search
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/02/2017
+  ms.author: v-gedod
+abstract:
+  description: Bing Video Search API proporciona una experiencia similar a Bing Videos al devolver vídeos que Bing determina que están relacionados con la consulta.
+sections:
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: 'Empiece a trabajar con Bing Video Search API al realizar una consulta y ver la respuesta JSON:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_csharp.svg
+      href: csharp
+      text: C&#35;
+    - image:
+        src: media/index/logo_java.svg
+      href: java
+      text: Java
+    - image:
+        src: media/index/logo_nodejs.svg
+      href: nodejs
+      text: Node.js
+    - image:
+        src: media/index/logo_php.svg
+      href: php
+      text: PHP
+    - image:
+        src: media/index/logo_python.svg
+      href: python
+      text: Python
+    - image:
+        src: media/index/logo_ruby.svg
+      href: ruby
+      text: Ruby
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: 'Desarrolle aplicaciones mediante Bing Video Search API:'
+  - type: paragraph
+    text: <a href="tutorial-bing-video-search-single-page-app">Aplicación web de una sola página</a> &#124; <a href="tutorial-bing-video-search-single-page-app-source">código fuente</a>
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API existentes
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference">Bing Video Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference/">Bing Video Search API v5</a></p>
+    - title: SDK
+      html: <p><a href="sdk.md">SDK de Bing Search</a></p>
