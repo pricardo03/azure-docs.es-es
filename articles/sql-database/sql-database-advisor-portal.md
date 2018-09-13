@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 7df4033a378ce3b37a99ed0335200e7f71696594
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 67432c8751cd8809649d41195957a7d68b392074
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528653"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665606"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Búsqueda y aplicación de recomendaciones de rendimiento
 
@@ -114,7 +114,7 @@ Seleccione cualquier recomendación y haga clic en **Ver script**. Ejecute este 
 *El servicio no supervisa ni valida los índices que se ejecutan de manera manual para conocer el impacto en el rendimiento* , por lo que se recomienda supervisar estos índices después de su creación para comprobar que proporcionen mejoras en el rendimiento y, en caso necesario, ajustarlos o eliminarlos. Si desea conocer detalles sobre la creación de índices, consulte [CREAR ÍNDICE (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
 
 ### <a name="canceling-recommendations"></a>Cancelación de recomendaciones
-Las recomendaciones que se encuentran en estado **Pending**, **Verifying** o **Success** pueden cancelarse. Las recomendaciones con estado **Executing** no se pueden cancelar.
+Las recomendaciones que se encuentran en estado **Pendiente**, **Validando** o **Correcto** pueden cancelarse. Las recomendaciones con estado **Executing** no se pueden cancelar.
 
 1. Seleccione una recomendación en el área **Historial de ajuste** para abrir la página de **detalles de recomendaciones**.
 2. Haga clic en **Cancelar** para anular el proceso de aplicación de la recomendación.
@@ -126,7 +126,7 @@ Puede que una recomendación no se aplique de manera inmediata. El portal propor
 |:--- |:--- |
 | Pending |El comando de aplicación de recomendaciones se ha recibido y su ejecución está programada. |
 | Executing |La recomendación está aplicándose. |
-| Comprobando |La recomendación se aplicó correctamente y el servicio está midiendo las ventajas. |
+| Validating |La recomendación se aplicó correctamente y el servicio está midiendo las ventajas. |
 | Correcto |La recomendación se aplicó correctamente y se han medido ventajas. |
 | Error |Se produjo un error durante el proceso de aplicación de recomendaciones. Puede tratarse de un problema transitorio, o posiblemente se produjo un cambio de esquema en la tabla y el script ya no es válido. |
 | En reversión |La recomendación se aplicó, pero se ha considerado que no tuvo rendimiento y se está revirtiendo automáticamente. |

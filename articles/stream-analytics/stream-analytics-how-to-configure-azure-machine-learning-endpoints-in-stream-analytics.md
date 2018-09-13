@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: bdc6041258e4a5ecf602d19c0d912918f86af313
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 024d7094a9baa90eebd57b4c76db367f81bd0400
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30911212"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700874"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Integración de Machine Learning en Análisis de transmisiones
 Stream Analytics proporciona compatibilidad con las funciones definidas por el usuario que llamen a puntos de conexión de Azure Machine Learning. La compatibilidad con la API de REST para esta característica se detalla en la [biblioteca API de REST de Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artículo proporciona información adicional necesaria para una implementación correcta de esta capacidad en Stream Analytics. También se ha publicado un tutorial, que está disponible [aquí](stream-analytics-machine-learning-integration-tutorial.md).

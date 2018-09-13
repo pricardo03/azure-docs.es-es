@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 08/22/2018
+ms.date: 09/04/2018
 ms.author: rolyon
-ms.openlocfilehash: 69313adea1719324e2b22b45c6a45535ea65097f
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: fbed0f5fb213a18f4450ee3aa96c3b8485b16e8b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125049"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781333"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Característica Azure Active Directory Terms of Use
 Azure AD Terms of Use ofrece un método sencillo que pueden usar las organizaciones para presentar información a los usuarios finales. Esta presentación garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes de los requisitos legales o de cumplimiento. En este artículo se describe cómo empezar a trabajar con Azure AD Terms of Use.
@@ -223,7 +223,7 @@ R: Actualmente no se puede actualizar un documento de términos de uso existente
 R: El archivo PDF se representa de manera predeterminada como un archivo JPEG, por lo que no se puede hacer clic en los hipervínculos. Los usuarios tiene la opción de seleccionar **¿Tiene problemas con la visualización? Haga clic aquí**, que muestra el PDF de manera nativa, donde sí se admiten los hipervínculos.
 
 **P: ¿Pueden los términos de uso admitir varios idiomas?**</br>
-R: Sí.  Actualmente, un administrador puede configurar hasta 18 idiomas diferentes para unos solos términos de uso. 
+R: Sí. Actualmente, un administrador puede configurar hasta 108 idiomas diferentes para unos solos Términos de uso.
 
 **P: ¿Cuándo se desencadenan los términos de uso?**</br>
 R: Los términos de uso se desencadenan durante la experiencia de inicio de sesión.

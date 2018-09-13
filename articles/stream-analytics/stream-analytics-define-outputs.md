@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 37edf60ed0b63b4ff97094a496a08a592cb46fc0
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 4fd85135ea16a5183b1b0d5220d1c160044e8841
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715427"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701021"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 En este artículo se describen los diferentes tipos de salidas disponibles para los trabajos de Azure Stream Analytics. Las salidas le permiten almacenar y guardar los resultados de los trabajos de Stream Analytics. Con los datos de salida, puede realizar análisis de negocio adicionales y almacenamiento de los datos. 
@@ -145,7 +145,7 @@ La salida de Power BI desde Stream Analytics no está disponible actualmente en 
 ### <a name="configure-the-power-bi-output-properties"></a>Configuración de las propiedades de salida de Power BI
 Cuando la cuenta de Power BI esté autenticada, puede configurar las propiedades de la salida de Power BI. La tabla siguiente muestra la lista de nombres de propiedad y su descripción para configurar la salida de Power BI.
 
-| Nombre de propiedad | Descripción |
+| Nombre de propiedad | description |
 | --- | --- |
 | Alias de salida |Un nombre descriptivo usado en las consultas para dirigir la salida de la consulta a esta salida de Power BI. |
 | Área de trabajo de grupo |Para habilitar el uso compartido de datos con otros usuarios de Power BI, puede seleccionar grupos dentro de su cuenta de Power BI o elegir "Mi área de trabajo" si no quiere escribir en un grupo.  Actualizar un grupo existente requiere renovar la autenticación de Power BI. |
@@ -172,7 +172,7 @@ bigint | Int64
 nvarchar(max) | string
 Datetime | DateTime
 float | Doble
-Matriz de registro | Tipo cadena, valor constante “IRecord” o “IArray”
+Matriz de registro | Tipo cadena, valor constante "IRecord" o "IArray"
 
 ### <a name="schema-update"></a>Actualización de esquema
 Stream Analytics deduce el esquema de modelo de datos basándose en el primer conjunto de eventos en la salida. Más adelante, si es necesario, el esquema de modelo de datos se actualiza para dar cabida a los eventos entrantes que pueden encajar en el esquema original.
@@ -202,7 +202,7 @@ Para resolver este problema, detenga su trabajo en ejecución y vaya a la salida
 
 En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de tabla.
 
-| Nombre de propiedad | Descripción |
+| Nombre de propiedad | description |
 | --- | --- |
 | Alias de salida |Un nombre descriptivo usado en las consultas para dirigir la salida de la consulta a este almacenamiento de tablas. |
 | Cuenta de almacenamiento |El nombre de la cuenta de almacenamiento a donde está enviando la salida |
@@ -217,7 +217,7 @@ En la tabla siguiente se enumeran los nombres de propiedad y su descripción par
 
 En la tabla siguiente se enumeran los nombres de propiedad y su descripción para crear una salida de cola.
 
-| Nombre de propiedad | Descripción |
+| Nombre de propiedad | description |
 | --- | --- |
 | Alias de salida |Un nombre descriptivo usado en las consultas para dirigir la salida de la consulta a esta cola de Service Bus. |
 | Espacio de nombres de Service Bus |Un espacio de nombres de Service Bus es un contenedor para un conjunto de entidades de mensajería. |
@@ -259,7 +259,7 @@ La salida de Azure Cosmos DB desde Stream Analytics no está disponible actualme
 > Aún no se admiten otras API de Azure Cosmos DB. Si apunta Azure Stream Analytics a las cuentas de Azure Cosmos DB creadas con otras API, puede que los datos no se almacenen correctamente. 
 
 En la tabla siguiente se describen las propiedades para crear una salida de Azure Cosmos DB.
-| Nombre de propiedad | Descripción |
+| Nombre de propiedad | description |
 | --- | --- |
 | Alias de salida | Un alias para hacer referencia a esta salida en la consulta de Stream Analytics. |
 | Receptor | Cosmos DB |
@@ -278,7 +278,7 @@ La salida de Azure Functions desde Stream Analytics no está disponible actualme
 
 Azure Stream Analytics invoca a Azure Functions a través de desencadenadores HTTP. El nuevo adaptador de salida de Azure Functions está disponible con las propiedades configurables siguientes:
 
-| Nombre de propiedad | Descripción |
+| Nombre de propiedad | description |
 | --- | --- |
 | Aplicación de función |Nombre de la instancia de Azure Functions App |
 | Función |Nombre de la función en la instancia de Azure Functions App |

@@ -4,7 +4,7 @@ description: Descubra cómo utilizar desencadenadores y enlaces de Azure Blob St
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, funciones, procesamiento de eventos, proceso dinámico, arquitectura sin servidor
@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/12/2018
+ms.date: 09/03/2018
 ms.author: glenga
-ms.openlocfilehash: 4a5a0634e371e4a762b3877b0c3e45682924a27d
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b9dcc4d7edd24d545722dde85e682a658d5ef2bc
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142735"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667952"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de Azure Blob Storage para Azure Functions
 
@@ -41,13 +41,13 @@ Los enlaces de Blob Storage se proporcionan en el paquete NuGet [Microsoft.Azure
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+
 ## <a name="packages---functions-2x"></a>Paquetes: Functions 2.x
 
-Los enlaces de Blob Storage se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs), versión 3.x. El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Blob) de GitHub.
+Los enlaces de almacenamiento de Blob se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage), versión 3.x. El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs) de GitHub.
 
-[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
-
-[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="trigger"></a>Desencadenador
 
@@ -59,7 +59,7 @@ Utilice Event Grid en lugar del desencadenador de Blob Storage en los escenarios
 
 * Cuentas de almacenamiento solo para blobs
 * Gran escala
-* Retrasos por arranques en frío
+* Minimizar el retraso por arranques en frío
 
 ### <a name="blob-only-storage-accounts"></a>Cuentas de almacenamiento solo para blobs
 
@@ -793,7 +793,7 @@ public String blobCopy(
  }
  ```
 
- En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@BlobOutput` en los parámetros de función cuyo valor se escribiría en un objeto del almacenamiento de blobs.  El tipo de parámetro debe ser `OutputBinding<T>`, donde T es cualquier tipo nativo de Java de un POJO.
+ En la [biblioteca en tiempo de ejecución de funciones de Java](/java/api/overview/azure/functions/runtime), utilice la anotación `@BlobOutput` en los parámetros de función cuyo valor se escribiría en un objeto del almacenamiento de blobs.  El parámetro type debe ser `OutputBinding<T>`, donde T es cualquier tipo nativo de Java de un POJO.
 
 
 ## <a name="output---attributes"></a>Salida: atributos

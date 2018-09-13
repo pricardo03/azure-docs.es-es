@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/25/2018
 ms.author: saurse
-ms.openlocfilehash: e7a63167285c06fdfe632e7d45d9fddd3cca7842
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 2c8978cfba8fc56d4dbc565cb3a91c75d9d54679
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248529"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700202"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent-issues"></a>Solución de problemas del agente de Microsoft Azure Recovery Services (MARS)
 ## <a name="recommended-steps"></a>Pasos recomendados
@@ -66,7 +66,10 @@ Realice estos pasos si las copias de seguridad programadas no se desencadenan au
 <li>Haga doble clic en la tarea "Microsoft-OnlineBackup" y vaya a la pestaña "Desencadenadores".
 <li>Asegúrese de que el "Estado" de la tarea se establece en "Habilitado". Si no es así, haga clic en "Editar" y seleccione la casilla "Habilitado".
 <li>Vaya a la sección *Opciones de seguridad* de la pestaña *General*.
-<li>Asegúrese de que la cuenta de usuario seleccionada para ejecutar la tarea es *SISTEMA* o el grupo de administradores locales del servidor > [!TIP]. Se recomienda reiniciar el servidor después de realizar los pasos anteriores para garantizar que los cambios realizados se aplican de forma coherente.
+<li>Asegúrese de que la cuenta de usuario que está seleccionada para la ejecución de la tarea es la de *sistema* o del grupo Administradores locales en el servidor
+
+> [!TIP]
+> Se recomienda reiniciar el servidor después de realizar los pasos anteriores para garantizar que los cambios realizados se aplican de forma coherente
 
 
 ## <a name="troubleshooting-restore-issues"></a>Solución de problemas de restauración

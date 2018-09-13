@@ -8,12 +8,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/03/2018
-ms.openlocfilehash: 32e73918b2dd98822d42d74002b705ff730145d9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 136b21f026d208c09b50dfa8601de692e518774e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30902986"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699117"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nivel de compatibilidad de los trabajos de Azure Stream Analytics
  
@@ -40,11 +40,11 @@ En el nivel de compatibilidad 1.1 se introdujeron los siguientes cambios princip
 
   * **versiones anteriores:** Azure Stream Analytics usaba DataContractSerializer, por lo que el contenido del mensaje incluía etiquetas XML. Por ejemplo: 
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ “SensorId”:”1”, “Temperature”:64\}\u0001 
+   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
 
   * **versión actual:** el contenido del mensaje contiene directamente la secuencia sin ninguna etiqueta adicional. Por ejemplo: 
   
-   { “SensorId”:”1”, “Temperature”:64} 
+   { "SensorId":"1", "Temperature":64} 
  
 * **Distinción entre mayúsculas y minúsculas persistente para nombres de campo**  
 

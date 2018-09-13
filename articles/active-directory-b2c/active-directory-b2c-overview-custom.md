@@ -7,97 +7,61 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/04/2017
+ms.date: 09/04/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0724227da425eb2faeee9ac4ae8449782e62a241
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5634c14ee2b25600d66ff0f2c7385b2aaa9f1810
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445997"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699505"
 ---
-# <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: directivas personalizadas
+# <a name="custom-policies-in-azure-active-directory-b2c"></a>Directivas personalizadas de Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-## <a name="what-are-custom-policies"></a>¿Qué son las directivas personalizadas?
-
-Las directivas personalizadas son archivos de configuración que definen el comportamiento del inquilino de Azure AD B2C. Mientras que las **directivas integradas** están predefinidas en el portal de Azure AD B2C para las tareas de identidad más comunes, un desarrollador de identidad puede editar completamente las directivas personalizadas para completar un número casi ilimitado de tareas. Siga leyendo para determinar si las directivas personalizadas son adecuadas para usted y su escenario de identidad.
+Las directivas personalizadas son archivos de configuración que definen el comportamiento del inquilino de Azure Active Directory (Azure AD) B2C. Las directivas integradas están predefinidas en el portal de Azure AD B2C para las tareas de identidad más comunes. Un desarrollador de identidades puede editar completamente las directivas personalizadas para completar muchas tareas distintas.
 
 ## <a name="comparing-built-in-policies-and-custom-policies"></a>Comparación entre directivas integradas y directivas personalizadas
 
 | | Directivas integradas | Directivas personalizadas |
 |-|-------------------|-----------------|
-|Usuarios de destino | Todos los desarrolladores de aplicaciones con o sin conocimientos sobre la identidad | Profesionales de la identidad: integradores de sistemas, consultores y equipos internos de identidad. Se sienten cómodos con los flujos de OpenIDConnect y comprenden a los proveedores de identidades y la autenticación basada en notificaciones |
-|Método de configuración | Azure Portal con una interfaz de usuario fácil de usar | Edición directa de archivos XML y posterior carga en Azure Portal |
-|Personalización de la interfaz de usuario | Personalización completa de la interfaz de usuario, incluida compatibilidad con HTML, CSS y javascript (requiere un dominio personalizado)<br><br>Compatibilidad multilingüe con cadenas personalizadas | Iguales |
-| Personalización de atributos | Atributos estándar y personalizados | Iguales |
-|Administración de tokens y sesiones | Varias opciones de sesiones y tokens personalizados | Iguales |
-|Proveedores de identidades| **Actualmente**: proveedor social local predefinido<br><br>**En el futuro**: OIDC, SAML, OAuth basado en estándares | **Actualmente**: OIDC, OAUTH, SAML basado en estándares<br><br>**En el futuro**: WsFed |
-|Tareas de identidad (ejemplos) | Registro o inicio de sesión con muchas cuentas sociales y cuentas locales<br><br>Restablecimiento de contraseña de autoservicio<br><br>Edición de perfil<br><br>Escenarios de Multi-Factor Authentication<br><br>Sesiones y tokens personalizados<br><br>Flujos de token de acceso | Completar las mismas tareas que con las directivas integradas usando proveedores de identidades personalizados o usar ámbitos personalizados<br><br>Aprovisionar el usuario en otro sistema en el momento del registro<br><br>Enviar un mensaje de bienvenida con su propio proveedor de servicios de correo electrónico<br><br>Usar un almacén de usuario externo a B2C<br><br>Validar la información proporcionada por el usuario con un sistema de confianza a través de API |
+| Usuarios de destino | Todos los desarrolladores de aplicaciones con o sin conocimientos sobre la identidad. | Profesionales de la identidad, integradores de sistemas, consultores y equipos internos de identidad. Se sienten cómodos con los flujos de OpenIDConnect y comprenden a los proveedores de identidades y la autenticación basada en notificaciones. |
+| Método de configuración | Azure Portal con una interfaz de usuario (UI) fácil de usar. | Edición directa de archivos XML y posterior carga en Azure Portal. |
+| Personalización de la interfaz de usuario | Personalización completa de la interfaz de usuario, incluido HTML y CSS.<br><br>Compatibilidad multilingüe con cadenas personalizadas. | Iguales |
+| Personalización de atributos | Atributos estándar y personalizados. | Iguales |
+| Administración de tokens y sesiones | Varias opciones de sesiones y tokens personalizados. | Iguales |
+| Proveedores de identidades | Proveedor social o local predefinido. | OIDC, OAUTH y SAML basados en estándares. |
+| Tareas de identidad | Registro o inicio de sesión con muchas cuentas locales y de redes sociales.<br><br>Restablecimiento de la contraseña de autoservicio.<br><br>Edición de perfil.<br><br>Autenticación multifactor.<br><br>Sesiones y tokens personalizados.<br><br>Flujos de token de acceso. | Completar las mismas tareas que con las directivas integradas usando proveedores de identidades personalizados o usar ámbitos personalizados.<br><br>Aprovisionar una cuenta de usuario en otro sistema en el momento del registro.<br><br>Enviar un mensaje de bienvenida con su propio proveedor de servicios de correo electrónico.<br><br>Usar un almacén de usuario externo a Azure AD B2C.<br><br>Validar la información proporcionada por el usuario con un sistema de confianza mediante el uso de una API. |
 
 ## <a name="policy-files"></a>Archivos de directivas
 
-Una directiva personalizada se representa como uno o varios archivos con formato XML que se hacen referencia entre sí en una cadena jerárquica. Los elementos XML definen: esquema de notificaciones, transformaciones de notificaciones, definiciones de contenido, proveedores de notificaciones/perfiles técnicos y pasos de orquestación del recorrido del usuario, entre otros elementos.
+Se usan estos tres tipos de archivos de directivas:
 
-Se recomienda usar tres tipos de archivos de directivas:
+- **Archivo base**: contiene la mayoría de las definiciones. Se recomienda que haga un mínimo de cambios en este archivo para facilitar la solución de problemas y el mantenimiento a largo plazo de las directivas.
+- **Archivo de extensiones**: contiene los cambios de configuración únicos para el inquilino.
+- **Un archivo de usuario de confianza (RP)**: el archivo centrado en una tarea única que la aplicación o el servicio (también conocido como usuario de confianza) invoca directamente. Cada tarea única requiere su propio usuario de confianza y, en función de los requisitos de marca, el número podría ser "total de aplicaciones x número total de casos de uso".
 
-- **Un archivo BASE**, que contiene la mayoría de las definiciones y para las cuales Azure proporciona un ejemplo completo.  Se recomienda que haga un mínimo de cambios en este archivo para facilitar la solución de problemas y el mantenimiento a largo plazo de las directivas
-- **Un archivo EXTensions** que contiene los cambios de configuración únicos para el inquilino
-- **Un archivo de usuario de confianza (RP)** que es el archivo centrado en una tarea única que la aplicación o el servicio (también conocido como usuario de confianza) invoca directamente.  Lea el artículo sobre las definiciones de archivos de directivas para más información.  Cada tarea única requiere su propio usuario de confianza y, en función de los requisitos de marca, el número podría ser "total de aplicaciones x número total de casos de uso".
+Las directivas integradas de Azure AD B2C siguen el patrón de tres archivos mencionado, pero el desarrollador solo ve el archivo de usuario de confianza mientras que Azure Portal hace cambios en el archivo de extensiones en segundo plano.
 
+## <a name="custom-policy-core-concepts"></a>Conceptos básicos de directivas personalizadas
 
-Las directivas integradas de Azure AD B2C siguen el patrón de tres archivos mencionado, pero el desarrollador solo ve el archivo de usuario de confianza (RP) mientras que el portal hace cambios en el archivo EXTensions en segundo plano.
+El servicio de administración de identidades y acceso de cliente (CIAM) de Azure incluye:
 
-## <a name="core-concepts-you-should-know-when-using-custom-policies"></a>Conceptos básicos que debe saber cuando usa las directivas personalizadas
+- Un directorio de usuarios accesible a través de Microsoft Graph y que contiene los datos de usuario tanto para cuentas locales como para cuentas federadas.
+- Acceso al **Marco de experiencia de identidad** que orquesta la confianza entre usuarios y entidades, y transmite notificaciones entre ellos para completar una tarea de administración de identidades o acceso. 
+- Un servicio de token de seguridad (STS) que emite tokens de identificación, tokens de actualización y tokens de acceso (y aserciones SAML equivalentes) y los valida con el fin de proteger los recursos.
 
-### <a name="azure-active-directory-b2c"></a>Azure Active Directory B2C
+Azure AD B2C interactúa en secuencia con proveedores de identidades, usuarios, otros sistemas y con el directorio local de usuario para completar una tarea de identidad. Por ejemplo, iniciar sesión en un cliente, registrar un nuevo usuario o restablecer una contraseña. El marco de experiencia de identidad y una directiva (que también se conoce como una directiva de marco de confianza o de recorrido del usuario) crea confianza entre varios usuarios y define explícitamente los actores, las acciones, los protocolos y la secuencia de pasos que se van a completar.
 
-Servicio de administración de identidades y acceso de cliente (CIAM) de Azure. El servicio incluye:
+El marco de experiencia de identidad es una plataforma de Azure basada en la nube, controlada por directivas y completamente configurable que orquesta la confianza entre entidades en formatos de protocolo estándar como OpenIDConnect, OAuth, SAML, WSFed y algunos no estándar (como intercambios de notificaciones sistema a sistema basados en API de REST, por ejemplo). El marco crea experiencias propias fáciles de usar que admiten HTML y CSS.
 
-1. Un directorio de usuarios como instancia de Azure Active Directory especial accesible a través de Microsoft Graph y que contiene los datos de usuario tanto para cuentas locales como cuentas federadas 
-2. Acceso al **Marco de experiencia de identidad** que orquesta la confianza entre usuarios y entidades, y transmite notificaciones entre ellos para completar una tarea de administración de identidades o acceso 
-3. Un servicio de token de seguridad (STS) que emite tokens de identificación, tokens de actualización y tokens de acceso (y aserciones SAML equivalentes) y los valida con el fin de proteger los recursos.
-
-Azure AD B2C interactúa con proveedores de identidades, usuarios, otros sistemas y con el directorio de usuarios locales en secuencia para realizar una tarea de identidad (por ejemplo, iniciar la sesión de un usuario, registrar un usuario nuevo, restablecer una contraseña). La plataforma subyacente que establece una la confianza entre varias partes y ejecuta estos pasos se llama Marco de experiencia de identidad; además, una directiva (que también se conoce como una directiva de marco de confianza o de recorrido del usuario) define explícitamente los actores, las acciones, los protocolos y la secuencia de pasos que se van a completar.
-
-### <a name="identity-experience-framework"></a>Marco de experiencia de identidad
-
-Una plataforma de Azure basada en la nube, controlada por directivas y completamente configurable que orquesta la confianza entre entidades (en general, proveedores de confianza) en formatos de protocolo estándar como OpenIDConnect, OAuth, SAML, WSFed y algunos no estándar (como intercambios de notificaciones sistema a sistema basados en API de REST, por ejemplo). I2E crea experiencias propias fáciles de usar que admiten HTML, CSS y JavaScript.  Actualmente, Identity Experience Framework solo está disponible dentro del contexto del servicio de Azure AD B2C y se destina preferentemente a las tareas relacionadas con CIAM.
-
-### <a name="built-in-policies"></a>Directivas integradas
-
-Archivos de configuración predefinidos que dirigen el comportamiento de Azure AD B2C para realizar las tareas de identidad que se usan de forma más común (a saber, registro de usuario, inicio de sesión, restablecimiento de contraseña) e interactuar con entidades de confianza cuya relación también está predefinida en Azure AD B2C (por ejemplo, proveedor de identidad de Facebook, LinkedIn, cuenta Microsoft o cuentas de Google).  En el futuro, también se pueden proporcionar directivas integradas para la personalización de los proveedores de identidades, que habitualmente están en el dominio empresarial, como Azure Active Directory Premium, Active Directory/ADFS, proveedor de identidades de Salesforce, etc.
-
-
-### <a name="custom-policies"></a>Directivas personalizadas
-
-Los archivos de configuración que definen el comportamiento de Identity Experience Framework en el inquilino de Azure AD B2C. Una directiva personalizada es accesible como uno o varios archivos XML (consulte las definiciones de archivos de directivas) que Identity Experience Framework ejecuta cuando lo invoca un usuario de confianza (por ejemplo, una aplicación). Un desarrollador de identidades puede editar directamente las directivas personalizadas para completar un número casi ilimitado de tareas. Los desarrolladores que configuran las directivas personalizadas deben definir las relaciones de confianza con mucho detalle para incluir puntos de conexión de metadatos, definiciones exactas de intercambio de notificaciones, además de configurar secretos, claves y certificados según lo necesite cada proveedor de identidades.
-
-## <a name="policy-file-definitions-for-identity-experience-framework-trust-frameworks"></a>Definiciones de archivos de directivas para marcos de confianza de Marco de experiencia de identidad
-
-### <a name="policy-files"></a>Archivos de directivas
-
-Una directiva personalizada se representa como uno o varios archivos con formato XML que se hacen referencia entre sí en una cadena jerárquica. Los elementos XML definen lo siguiente: esquema de notificaciones, transformaciones de notificaciones, definiciones de contenido, perfiles técnicos/proveedores de notificaciones y pasos de orquestación del recorrido del usuario, entre otros elementos.  Se recomienda usar tres tipos de archivos de directivas:
-
-- **Un archivo BASE** contiene la mayoría de las definiciones y para las cuales Azure proporciona un ejemplo completo.  Se recomienda que haga un mínimo de cambios en este archivo para facilitar la solución de problemas y el mantenimiento a largo plazo de las directivas
-- **Un archivo EXTensions** que contiene los cambios de configuración únicos para el inquilino
-- **Un archivo de usuario de confianza (RP)**  es el archivo centrado en una tarea única que la aplicación o el servicio (también conocido como usuario de confianza) invoca directamente.  Lea el artículo sobre las definiciones de archivos de directivas para más información.  Cada tarea única requiere su propio usuario de confianza y, dependiendo de los requisitos de marca, el número podría ser "total de aplicaciones x número total de casos de uso".
-
-![Tipos de archivos de directivas](media/active-directory-b2c-overview-custom/active-directory-b2c-overview-custom-policy-files.png)
-
-| Tipo de archivo de directiva | Ejemplos de nombre de archivo | Uso recomendado | Hereda de |
-|---------------------|--------------------|-----------------|---------------|
-| BASE |TrustFrameworkBase.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_BASE1.xml | Incluye el esquema de notificaciones central, las transformaciones de notificaciones, los proveedores de notificaciones y los recorridos de usuario que Microsoft configura<br><br>Haga un mínimo de cambios en este archivo | None |
-| Extensión (EXT) | TrustFrameworkExtensions.xml<br><br>Mytenant.onmicrosoft.com-B2C-1A_EXT.xml | Aquí consolide los cambios en el archivo BASE<br><br>Proveedores de notificaciones modificadas<br><br>Recorridos de usuario modificados<br><br>Sus propias definiciones de esquemas personalizados | Archivo BASE |
-| Usuario de confianza | B2C_1A_sign_up_sign_in.xml| Cambiar aquí la configuración de la sesión y la forma del token| Archivo Extensions(EXT) |
+Una directiva personalizada se representa como uno o varios archivos con formato XML que se hacen referencia entre sí en una cadena jerárquica. Los elementos XML definen el esquema de notificaciones, las transformaciones de notificaciones, las definiciones de contenido, los proveedores de notificaciones, los perfiles técnicos y los pasos de orquestación del recorrido del usuario, entre otros elementos. Una directiva personalizada es accesible como uno o varios archivos XML que el marco de experiencia de identidad ejecuta cuando lo invoca un usuario de confianza. Los desarrolladores que configuran las directivas personalizadas deben definir las relaciones de confianza con mucho detalle para incluir puntos de conexión de metadatos, definiciones exactas de intercambio de notificaciones, además de configurar secretos, claves y certificados según lo necesite cada proveedor de identidades.
 
 ### <a name="inheritance-model"></a>Modelo de herencia
 
-Cuando una aplicación llama al archivo de directiva de usuario de confianza, la instancia de Identity Experience Framework en B2C llamará a todos los elementos desde BASE, luego desde EXTENSIONS y, por último, desde el archivo de directiva de usuario de confianza para ensamblar la directiva actual en vigor.  Los elementos del mismo tipo y nombre en el archivo de usuario de confianza reemplazarán los existentes en EXTENSIONS y EXTENSIONS reemplazará a BASE.
-
-Las **directivas integradas** de Azure AD B2C siguen el patrón de 3 archivos ya mencionado, pero el desarrollador solo ve el archivo de usuario de confianza mientras que el portal hace cambios en el archivo EXTensions en segundo plano.  Todas las instancias de Azure AD B2C comparten un archivo de directiva BASE que el equipo de Azure B2C controla y que se actualiza con frecuencia.
+Cuando una aplicación llama al archivo de directiva de usuario de confianza, la instancia del marco de experiencia de identidad en Azure AD B2C agrega a todos los elementos desde el archivo base, el archivo de extensiones y, después, desde el archivo de directiva de usuario de confianza para ensamblar la directiva actual en vigor.  Los elementos del mismo tipo y nombre en el archivo de usuario de confianza reemplazarán los existentes en el de extensiones, y el de extensiones reemplazará al archivo base.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
-ms.openlocfilehash: 4959e4e3a0692837a7775eaf813a8fcff925312d
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 6729c87dcc9a85e2e3ccb6b4822213d38e2ba6f7
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918023"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666121"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Información general de caché local de Azure App Service
 
@@ -44,13 +44,15 @@ La característica de caché local de Azure App Service proporciona una vista de
 * Son inmunes a las actualizaciones planeadas o a los tiempos de inactividad no planeados y cualquier otra interrupción con Azure Storage que se produzca en los servidores que atienden el recurso compartido del contenido.
 * Tienen menos reinicios de aplicación debido a cambios en el recurso compartido de almacenamiento.
 
-## <a name="how-local-cache-changes-the-behavior-of-app-service"></a>Cómo la caché local cambia el comportamiento de App Service
-* La caché local es una copia de las carpetas /site y /siteextensions de la aplicación web. Se crea en la instancia de VM local en el inicio de la aplicación web. El tamaño de la caché local por aplicación web se limita a 300 MB de forma predeterminada, pero se puede aumentar hasta 2 GB.
-* La caché local es de lectura y escritura. Sin embargo, se descartará cualquier modificación cuando la aplicación web mueva máquinas virtuales o se reinicie. No use la caché local para las aplicaciones que almacenan datos críticos en el almacén de contenido.
-* Las aplicaciones web pueden continuar escribiendo archivos de registro y datos de diagnóstico como lo hacen actualmente. Sin embargo, los datos y archivos de registro se almacenan localmente en la VM. Luego, se copian periódicamente en el almacén de contenido compartido. La copia en el almacén de contenido compartido se realiza lo mejor posible y las reescrituras podrían perderse debido a un bloqueo repentino de una instancia de VM.
-* Hay un cambio en la estructura de carpetas de las carpetas LogFiles y Data para las aplicaciones web que usan la memoria caché local. Ahora hay subcarpetas en las carpetas LogFiles y Data de almacenamiento que siguen el patrón de nomenclatura de "identificador único" + marca de tiempo. Cada una de las subcarpetas corresponde a una instancia de VM en donde la aplicación web se está ejecutando o se ha ejecutado.  
-* La publicación de cambios en la aplicación web mediante cualquiera de los mecanismos de publicación se realizará en el almacén de contenido compartido duradero. Para actualizar la caché local de la aplicación web, debe reiniciarse. Para que el ciclo de vida avance sin problemas, consulte la información que aparece más adelante en este artículo.
-* D:\Home apunta a la caché local. D:\local continúa apuntando al almacenamiento específico de la máquina virtual temporal.
+## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Cómo la memoria caché local cambia el comportamiento de App Service
+* _D:\home_ apunta a la memoria caché local, que se crea en la instancia de la VM cuando se inicia la aplicación. _D:\local_ sigue apuntando al almacenamiento específico de la VM temporal.
+* La memoria caché local contiene una copia única de las carpetas _/site_ y _/siteextensions_ del almacén de contenido compartido, en _D:\home\site_ y _D:\home\siteextensions_, respectivamente. Los archivos se copian en la memoria caché local cuando se inicia la aplicación. El tamaño de la memoria caché local para cada aplicación se limita a 300 MB de forma predeterminada, pero se puede aumentar a hasta 2 GB.
+* La caché local es de lectura y escritura. Sin embargo, se descartará cualquier modificación cuando la aplicación mueva máquinas virtuales o se reinicie. No use la memoria caché local para las aplicaciones que almacenan datos críticos en el almacén de contenido.
+* _D:\home\LogFiles_ y _D:\home\Data_ contienen archivos de registro y datos de la aplicación. Las dos subcarpetas se almacenan localmente en la instancia de la VM y se copian periódicamente en el almacén de contenido compartido. Las aplicaciones pueden conservar los archivos de registro y los datos al escribirlos en estas carpetas. Sin embargo, la copia en el almacén de contenido compartido es de mejor esfuerzo, por lo que es posible que los archivos de registro y datos se pierdan debido a un bloqueo repentino de una instancia de la VM.
+* Las [secuencias de registro](web-sites-enable-diagnostic-log.md#streamlogs) se ve afectada por la copia de mejor esfuerzo. Esto podría provocar un retraso de hasta un minuto en los registros en secuencia.
+* En el almacén de contenido compartido, hay un cambio en la estructura de las carpetas _LogFiles_ y _Data_ para las aplicaciones que usan la memoria caché local. Ahora contienen subcarpetas que siguen el patrón de nomenclatura de "identificador único" + marca de tiempo. Cada una de las subcarpetas corresponde a una instancia de VM en donde la aplicación se está ejecutando o se ha ejecutado.
+* Las demás carpetas en _D:\home_ permanecen en la memoria caché local y no se copian en el almacén de contenido compartido.
+* La implementación de aplicaciones a través de cualquier método admitido publica directamente en el almacén de contenido compartido duradero. Para actualizar las carpetas _D:\home\site_ y _D:\home\siteextensions_ en la memoria caché local, se debe reiniciar la aplicación. Para que el ciclo de vida avance sin problemas, consulte la información que aparece más adelante en este artículo.
 * La vista de contenido predeterminado del sitio de SCM sigue siendo la del almacén de contenido compartido.
 
 ## <a name="enable-local-cache-in-app-service"></a>Habilitación de la caché local en App Service

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4e894eaee6bb151b480204905d0a98324f5c353b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 86e72787347cddd399fbdde4cd943b86ba48375f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049602"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697839"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Actualización del proveedor de recursos de MySQL 
 
@@ -31,6 +31,7 @@ Cuando las compilaciones de Azure Stack se actualicen, podría lanzarse un nuevo
 >Debe instalar las actualizaciones en el orden en que se lancen. No se puede saltar ninguna versión. Consulte la lista de versiones en [Requisitos previos para implementar el proveedor de recursos](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>Actualización del adaptador de proveedor de recursos de MySQL (solo sistemas integrados)
+
 Cuando las compilaciones de Azure Stack se actualicen, podría lanzarse un nuevo adaptador del proveedor de recursos de Azure SQL. Aunque el adaptador existente continúa funcionando, se recomienda actualizar a la compilación más reciente lo antes posible.  
  
 Para actualizar el proveedor de recursos, use el script **UpdateMySQLProvider.ps1**. El proceso es similar al usado para instalar un proveedor de recursos, como se describe en la sección [Implementar el proveedor de recursos](#deploy-the-resource-provider) de este artículo. El script se incluye con la descarga del proveedor de recursos. 
@@ -97,6 +98,7 @@ Puede especificar estos parámetros en la línea de comandos. Si no lo hace, o s
 | **AzCredential** | Credenciales de la cuenta de administrador de servicio de Azure Stack. Use las mismas credenciales que para la implementación de Azure Stack. | _Obligatorio_ | 
 | **VMLocalCredential** |Credenciales para la cuenta de administrador local de la VM del proveedor de recursos de SQL. | _Obligatorio_ | 
 | **PrivilegedEndpoint** | Dirección IP o nombre DNS del punto de conexión con privilegios. |  _Obligatorio_ | 
+| **AzureEnvironment** | El entorno de Azure de la cuenta de administrador de servicio que ha usado para la implementación de Azure Stack. Necesario únicamente si no es un sistema de archivos distribuido de Azure. Los nombres de entorno que se admiten son **AzureCloud**, **AzureUSGovernment** o, si usa una suscripción a Azure Active Directory de China, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | El archivo .pfx de certificados se debe colocar también en este directorio. | _Opcional_ (_obligatorio_ para varios nodos) | 
 | **DefaultSSLCertificatePassword** | Contraseña para el certificado .pfx. | _Obligatorio_ | 
 | **MaxRetryCount** | Número de veces que quiere volver a intentar cada operación si se produce un error.| 2 | 

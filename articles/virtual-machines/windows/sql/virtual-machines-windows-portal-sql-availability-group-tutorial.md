@@ -14,14 +14,14 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/09/2017
+ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: a3bba4e8fd83b160472a2dc6a9425192b4bbd301
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7dbbfb2d97b7015118edca3db3ae050ad07c51ee
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531586"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667454"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configuración manual de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure
 
@@ -33,7 +33,7 @@ El diagrama muestra lo que va a crear en el tutorial.
 
 ![Grupo de disponibilidad](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 En el tutorial se da por supuesto que tiene conocimientos básicos de grupos de disponibilidad de SQL Server AlwaysOn. Para más información, consulte [Información general de los grupos de disponibilidad AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
 
@@ -45,7 +45,7 @@ En la tabla siguiente se enumeran los requisitos previos que debe completar ante
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Recurso compartido de archivos para testigo de clúster |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Cuenta de servicio de SQL Server | Cuenta de dominio |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Cuenta de servicio Agente SQL Server | Cuenta de dominio |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Puertos de firewall abiertos | - SQL Server: **1433** para la instancia predeterminada <br/> - Punto de conexión de reflejo de la base de datos: **5022** o cualquier puerto disponible <br/> - Sondeo de Azure Load Balancer: **59999** o cualquier puerto disponible |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Puertos de firewall abiertos | - SQL Server: **1433** para la instancia predeterminada <br/> - Punto de conexión de reflejo de la base de datos: **5022** o cualquier puerto disponible <br/> - Sondeo de estado de la dirección IP del equilibrador de carga del grupo de disponibilidad: **59999** o cualquier puerto disponible <br/> - Sondeo de estado de la dirección IP del equilibrador de carga principal del clúster: **58888** o cualquier puerto disponible |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Agregar característica Clústeres de conmutación por error | Ambos servidores SQL Server necesitan esta característica |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Cuenta de dominio de la instalación | - Administrador local en cada servidor SQL Server <br/> - Miembro del rol fijo del servidor sysadmin de SQL Server para cada instancia de SQL Server  |
 
@@ -78,7 +78,7 @@ Una vez completados los requisitos previos, el primer paso es crear un clúster 
    | Punto de acceso para administrar el clúster |Escriba un nombre de clúster, por ejemplo **SQLAGCluster1** en **Nombre del clúster**.|
    | Confirmación |Use los valores predeterminados a menos que use Espacios de almacenamiento. Consulte la nota que sigue a esta tabla. |
 
-### <a name="set-the-cluster-ip-address"></a>Configuración de la dirección IP del clúster
+### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Establecer la dirección IP del clúster de conmutación por error para el servidor Windows
 
 1. En **Administrador de clústeres de conmutación por error**, desplácese hacia abajo hasta **Recursos principales de clúster** y expanda los detalles del clúster. Debería de ver los recursos **Nombre** y **Dirección IP** en el estado **Con error**. El recurso de dirección IP no se puede poner en línea porque al clúster se le asigna la misma dirección IP que la de la propia máquina, por lo que es una dirección duplicada.
 
@@ -343,22 +343,24 @@ En este punto, tiene un grupo de disponibilidad con réplicas en dos instancias 
 
 En Azure Virtual Machines, un grupo de disponibilidad de SQL Server necesita un equilibrador de carga. El equilibrador de carga almacena las direcciones IP de los agentes de escucha del grupo de disponibilidad y del Clúster de conmutación por error de Windows Server. En esta sección se resume cómo crear el equilibrador de carga en Azure Portal.
 
+Una instancia de Azure Load Balancer puede ser Standard Load Balancer o Basic Load Balancer. Standard Load Balancer tiene más características que Basic Load Balancer. Para un grupo de disponibilidad, se requiere Standard Load Balancer si usa una zona de disponibilidad (en lugar de un conjunto de disponibilidad). Para obtener más información sobre la diferencia entre los tipos de equilibrador de carga, consulte [Comparación de las SKU de equilibrador de carga](../../../load-balancer/load-balancer-overview.md#skus).
+
 1. En Azure Portal, vaya al grupo de recursos donde están los servidores SQL Server y haga clic en **+Agregar**.
-2. Busque **Load Balancer**. Elija el equilibrador de carga publicado por Microsoft.
+1. Busque **Load Balancer**. Elija el equilibrador de carga publicado por Microsoft.
 
    ![Grupo de disponibilidad en el administrador de clústeres de conmutación por error.](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
 
-1.  Haga clic en **Create**(Crear).
-3. Configure los parámetros siguientes para el equilibrador de carga.
+1. Haga clic en **Create**(Crear).
+1. Configure los parámetros siguientes para el equilibrador de carga.
 
    | Configuración | Campo |
    | --- | --- |
-   | **Name** |Use un nombre de texto para el equilibrador de carga, por ejemplo **sqlLB**. |
+   | **Nombre** |Use un nombre de texto para el equilibrador de carga, por ejemplo **sqlLB**. |
    | **Tipo** |Interno |
    | **Red virtual** |Use el nombre de la red virtual de Azure. |
    | **Subred** |Utilice el nombre de la subred en la que se encuentra la máquina virtual.  |
    | **Asignación de dirección IP** |estática |
-   | **Dirección IP** |Use una dirección disponible en la subred. Tenga en cuenta que esto es diferente de la dirección IP del clúster |
+   | **Dirección IP** |Use una dirección disponible en la subred. Use esta dirección para el agente de escucha del grupo de disponibilidad. Tenga en cuenta que esto es diferente de la dirección IP del clúster.  |
    | **Suscripción** |Utilice la misma suscripción que la de la máquina virtual. |
    | **Ubicación** |Use la misma ubicación que la de la máquina virtual. |
 
@@ -376,7 +378,9 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
 
    ![Buscar equilibrador de carga en el grupo de recursos](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Haga clic en el equilibrador de carga, en **Grupos de back-end** y en **+Agregar**. 
+1. Haga clic en el equilibrador de carga, en **Grupos de back-end** y en **+Agregar**.
+
+1. Escriba el nombre del grupo de back-end.
 
 1. Asocie el grupo de back-end con el conjunto de disponibilidad que contiene las máquinas virtuales.
 
@@ -391,11 +395,11 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
 
 1. Haga clic en el equilibrador de carga, en **Health probes** (Sondeos de estado) y en **+Agregar**.
 
-1. Configure el sondeo de estado del modo siguiente:
+1. Establezca el sondeo de estado del agente de escucha de la manera siguiente:
 
    | Configuración | DESCRIPCIÓN | Ejemplo
    | --- | --- |---
-   | **Name** | Texto | SQLAlwaysOnEndPointProbe |
+   | **Nombre** | Texto | SQLAlwaysOnEndPointProbe |
    | **Protocolo** | Elija TCP | TCP |
    | **Puerto** | Cualquier puerto no utilizado | 59999 |
    | **Intervalo**  | Cantidad de tiempo entre los intentos de sondeo, en segundos |5 |
@@ -407,14 +411,14 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
 
 1. Haga clic en el equilibrador de carga, en **Reglas de equilibrio de carga** y en **+Agregar**.
 
-1. Configure las reglas de equilibrio de carga del modo siguiente.
+1. Establezca las reglas de equilibrio de carga del agente de escucha según se indica a continuación.
    | Configuración | DESCRIPCIÓN | Ejemplo
    | --- | --- |---
-   | **Name** | Texto | SQLAlwaysOnEndPointListener |
+   | **Nombre** | Texto | SQLAlwaysOnEndPointListener |
    | **Frontend IP address** (Dirección IP de front-end) | Elija una dirección |Use la dirección que creó al crear el equilibrador de carga. |
    | **Protocolo** | Elija TCP |TCP |
-   | **Puerto** | Uso del puerto del agente de escucha de grupo de disponibilidad | 1435 |
-   | **Puerto back-end** | Este campo no se utiliza cuando la IP flotante está establecida para Direct Server Return | 1435 |
+   | **Puerto** | Uso del puerto del agente de escucha de grupo de disponibilidad | 1433 |
+   | **Puerto back-end** | Este campo no se utiliza cuando la IP flotante está establecida para Direct Server Return | 1433 |
    | **Sondeo** |Nombre especificado para el sondeo | SQLAlwaysOnEndPointProbe |
    | **Persistencia de la sesión** | Lista desplegable | **None** |
    | **Tiempo de espera de inactividad** | Minutos para mantener abierta una conexión TCP | 4 |
@@ -423,21 +427,21 @@ Para configurar el equilibrador de carga, debe crear un grupo de back-end, un so
    > [!WARNING]
    > Direct Server Return se establece durante la creación. No se puede modificar.
 
-1. Haga clic en **Aceptar** para configurar las reglas de equilibrio de carga.
+1. Haga clic en **Aceptar** para establecer las reglas de equilibrio de carga.
 
-### <a name="add-the-front-end-ip-address-for-the-wsfc"></a>Adición de la dirección IP de front-end para el WSFC
+### <a name="add-the-cluster-core-ip-address-for-the-windows-server-failover-cluster-wsfc"></a>Agregar la dirección IP principal del clúster para el clúster de conmutación por error de Windows Server (WSFC)
 
-La dirección IP de WSFC también debe estar en el equilibrador de carga. 
+La dirección IP de WSFC también debe estar en el equilibrador de carga.
 
-1. En el portal, agregue una nueva configuración de dirección IP de front-end para el WSFC. Use la dirección IP configurada para el WSFC en los recursos principales de clúster. Establezca la dirección IP como estática. 
+1. En el portal, en la misma instancia de Azure Load Balancer, haga clic en **Configuración de IP de front-end** y haga clic en **+Agregar**. Use la dirección IP configurada para el WSFC en los recursos principales de clúster. Establezca la dirección IP como estática.
 
-1. Haga clic en el equilibrador de carga, en **Health probes** (Sondeos de estado) y en **+Agregar**.
+1. Haga clic en el equilibrador de carga, en **Sondeos de estado** y luego en **+Agregar**.
 
-1. Configure el sondeo de estado del modo siguiente:
+1. Establezca el sondeo de estado de la dirección IP principal del clúster de WSFC de la manera siguiente:
 
    | Configuración | DESCRIPCIÓN | Ejemplo
    | --- | --- |---
-   | **Name** | Texto | WSFCEndPointProbe |
+   | **Nombre** | Texto | WSFCEndPointProbe |
    | **Protocolo** | Elija TCP | TCP |
    | **Puerto** | Cualquier puerto no utilizado | 58888 |
    | **Intervalo**  | Cantidad de tiempo entre los intentos de sondeo, en segundos |5 |
@@ -447,13 +451,13 @@ La dirección IP de WSFC también debe estar en el equilibrador de carga.
 
 1. Configure las reglas de equilibrio de carga. Haga clic en **Reglas de equilibrio de carga** y luego haga clic en **+Agregar**.
 
-1. Configure las reglas de equilibrio de carga del modo siguiente.
+1. Establecer las reglas de equilibrio de carga de la dirección IP principal del clúster tal como se indica a continuación.
    | Configuración | DESCRIPCIÓN | Ejemplo
    | --- | --- |---
-   | **Name** | Texto | WSFCPointListener |
-   | **Frontend IP address** (Dirección IP de front-end) | Elija una dirección |Use la dirección que creó al configurar la dirección IP de WSFC. |
+   | **Nombre** | Texto | WSFCEndPoint |
+   | **Frontend IP address** (Dirección IP de front-end) | Elija una dirección |Use la dirección que creó al configurar la dirección IP de WSFC. Esto es diferente de la dirección IP del agente de escucha |
    | **Protocolo** | Elija TCP |TCP |
-   | **Puerto** | Uso del puerto del agente de escucha de grupo de disponibilidad | 58888 |
+   | **Puerto** | Use el puerto para la dirección IP del clúster. Se trata de un puerto disponible que no se usa para el puerto de sondeo del agente de escucha. | 58888 |
    | **Puerto back-end** | Este campo no se utiliza cuando la IP flotante está establecida para Direct Server Return | 58888 |
    | **Sondeo** |Nombre especificado para el sondeo | WSFCEndPointProbe |
    | **Persistencia de la sesión** | Lista desplegable | **None** |
@@ -486,7 +490,7 @@ En SQL Server Management Studio, establezca el puerto del agente de escucha.
 
 1. Ahora tienes que ver el nombre del agente de escucha que creaste en el Administrador de clústeres de conmutación por error. Haga clic con el botón derecho en el nombre del agente de escucha y luego en **Propiedades**.
 
-1. En el cuadro **Puerto**, especifique el número de puerto del agente de escucha del grupo de disponibilidad mediante el valor $EndpointPort que ha utilizado antes (1433 era el valor predeterminado) y haga clic en **Aceptar**.
+1. En el cuadro **Puerto**, especifique el número de puerto para el agente de escucha del grupo de disponibilidad. 1433 es el valor predeterminado. Luego, haga clic en **Aceptar**.
 
 Ahora tiene un grupo de disponibilidad de SQL Server en Azure Virtual Machines que se ejecuta en el modo de Resource Manager.
 
@@ -498,38 +502,20 @@ Para probar la conexión:
 
 1. Use la utilidad **sqlcmd** para probar la conexión. Por ejemplo, el siguiente script establece una conexión **sqlcmd** con la réplica principal por medio del agente de escucha con autenticación de Windows:
 
-    ```
-    sqlcmd -S <listenerName> -E
-    ```
+  ```cmd
+  sqlcmd -S <listenerName> -E
+  ```
 
-    Si el agente de escucha usa un puerto distinto del predeterminado (1433), especifíquelo en la cadena de conexión. Por ejemplo, el siguiente comando sqlcmd se conecta a un agente de escucha en el puerto 1435:
+  Si el agente de escucha usa un puerto distinto del predeterminado (1433), especifíquelo en la cadena de conexión. Por ejemplo, el siguiente comando sqlcmd se conecta a un agente de escucha en el puerto 1435:
 
-    ```
-    sqlcmd -S <listenerName>,1435 -E
-    ```
+  ```cmd
+  sqlcmd -S <listenerName>,1435 -E
+  ```
 
 La conexión SQLCMD se establece automáticamente con la instancia de SQL Server en la que se hospede la réplica principal.
 
 > [!TIP]
 > Asegúrese de que el puerto especificado esté abierto en el firewall de los dos servidores SQL Server. En estos dos servidores, es necesario definir una regla de entrada para el puerto TCP. Consulte [Agregar o editar regla de firewall](http://technet.microsoft.com/library/cc753558.aspx) para más información.
->
->
-
-
-
-<!--**Notes**: *Notes provide just-in-time info: A Note is “by the way” info, an Important is info users need to complete a task, Tip is for shortcuts. Don’t overdo*.-->
-
-
-<!--**Procedures**: *This is the second “step." They often include substeps. Again, use a short title that tells users what they’ll do*. *("Configure a new web project.")*-->
-
-<!--**UI**: *Note the format for documenting the UI: bold for UI elements and arrow keys for sequence. (Ex. Click **File > New > Project**.)*-->
-
-<!--**Screenshot**: *Screenshots really help users. But don’t include too many since they’re difficult to maintain. Highlight areas you are referring to in red.*-->
-
-<!--**No. of steps**: *Make sure the number of steps within a procedure is 10 or fewer. Seven steps is ideal. Break up long procedure logically.*-->
-
-
-<!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
 
 ## <a name="next-steps"></a>Pasos siguientes
 

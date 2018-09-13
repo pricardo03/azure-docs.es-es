@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/13/2018
-ms.openlocfilehash: cfdfa1493857a1731da74c52a616293b482f811a
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5dc90a1334b525c02be3eae2985900ab07cf2e05
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030699"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696255"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Desarrollo de trabajos para dispositivos perimetrales de Stream Analytics mediante herramientas de Visual Studio
 
 En este tutorial, aprenderá a usar herramientas de Stream Analytics para Visual Studio con el fin de crear y depurar sus trabajos para dispositivos perimetrales de Stream Analytics. Después de crear y probar el trabajo, puede ir a Azure Portal para implementarlo en los dispositivos. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, debe cumplir estos requisitos previos:
 

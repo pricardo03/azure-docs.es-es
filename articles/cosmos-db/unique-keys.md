@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: rafats
-ms.openlocfilehash: 796971ff541b62a22a70df4022ab78817e7158e9
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 5811cb1e08ed5d02038da2a4460ae4b63580833b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003324"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696146"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Claves únicas en Azure Cosmos DB
 
 Las claves únicas proporcionan a los desarrolladores la capacidad de agregar una capa de integridad de datos a su base de datos. Al crear una directiva de clave única al crear un contenedor, se garantiza la unicidad de uno o más valores por [clave de partición](partition-data.md). Una vez creado un contenedor con una directiva de clave única, impide la creación de cualquier elemento nuevo o actualizado con valores que dupliquen los valores especificados por la restricción de clave única.   
 
 > [!NOTE]
-> Las claves únicas se admiten en las versiones más recientes de los SDK de SQL de [.NET](sql-api-sdk-dotnet.md) y [.NET Core](sql-api-sdk-dotnet-core.md) y de la [API de MongoDB](mongodb-feature-support.md#unique-indexes). Table API y Graph API no admiten claves únicas en este momento. 
+> Las claves únicas se admiten en las versiones más recientes de los SDK de SQL de [.NET](sql-api-sdk-dotnet.md) y [.NET Core](sql-api-sdk-dotnet-core.md) y de la [API de MongoDB](mongodb-feature-support.md#unique-indexes). Table API y Gremlin API no admiten claves únicas en este momento. 
 > 
 >
 

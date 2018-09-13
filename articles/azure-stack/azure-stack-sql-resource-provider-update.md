@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: ac5073d1abc32b7598a869750f9c5a801559e9e6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 017ac3214046b812ce003ab7a190f2f2b3f4f2e2
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264084"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697948"
 ---
 # <a name="update-the-sql-resource-provider"></a>Actualización del proveedor de recursos de SQL
 
@@ -105,6 +105,7 @@ Puede especificar los siguientes parámetros desde la línea de comandos al ejec
 | **AzCredential** | Las credenciales de la cuenta de administrador del servicio Azure Stack. Use las mismas credenciales que para la implementación de Azure Stack. | _Obligatorio_ |
 | **VMLocalCredential** | Credenciales para la cuenta de administrador local de la VM del proveedor de recursos de SQL. | _Obligatorio_ |
 | **PrivilegedEndpoint** | Dirección IP o nombre DNS del punto de conexión con privilegios. |  _Obligatorio_ |
+| **AzureEnvironment** | El entorno de Azure de la cuenta de administrador de servicio que ha usado para la implementación de Azure Stack. Necesario únicamente si no es un sistema de archivos distribuido de Azure. Los nombres de entorno que se admiten son **AzureCloud**, **AzureUSGovernment** o, si usa una suscripción a Azure Active Directory de China, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | También debe incluir el archivo .pfx del certificado en este directorio. | _Opcional para un único nodo, pero obligatorio para varios nodos_ |
 | **DefaultSSLCertificatePassword** | Contraseña para el certificado .pfx. | _Obligatorio_ |
 | **MaxRetryCount** | El número de veces que quiere volver a intentar cada operación si se produce un error.| 2 |

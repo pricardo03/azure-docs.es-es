@@ -14,18 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 129364c4ee5924413ed0bccb81d53b905f13d208
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b1166c34f1a0ce3f3e9be932eb6d7fb9d76389ec
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782724"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665764"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Configuración de los codificadores locales al usar Azure Media Services para crear transmisiones con velocidad de bits múltiple
 En este tema se enumeran los codificadores en directo locales que puede utilizar para capturar los eventos en directo y enviar una secuencia en directo con velocidad de bits única a canales AMS (que permiten la codificación en directo) para su posterior procesamiento. El tema también incluye vínculos a tutoriales que muestran cómo configurar los codificadores presentados.
-
-## <a name="elemental-live"></a>Elemental Live
-Para obtener información sobre cómo configurar el codificador [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live) para enviar una secuencia en directo con velocidad de bits única a un canal AMS, consulte [Configuración de Elemental Live](media-services-configure-elemental-live-encoder.md).
 
 ## <a name="flash-media-live-encoder"></a>Flash Media Live Encoder
 Para información sobre cómo configurar el codificador [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) para enviar una secuencia en directo con velocidad de bits única a un canal AMS, consulte [Configuración de FMLE](media-services-configure-fmle-live-encoder.md).
@@ -38,6 +35,9 @@ Para obtener información sobre cómo configurar el codificador [Telestream Wire
 
 ## <a name="newtek-tricaster"></a>NewTek TriCaster
 Para obtener información sobre cómo configurar el codificador [Tricaster](http://newtek.com/products/tricaster-40.html) para enviar una secuencia en directo con velocidad de bits única a un canal AMS, consulte [Configuración de Tricaster](media-services-configure-tricaster-live-encoder.md).
+
+## <a name="elemental-live"></a>Elemental Live
+Para obtener más información, consulte [Elemental Live](http://www.elementaltechnologies.com/products/elemental-live).
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

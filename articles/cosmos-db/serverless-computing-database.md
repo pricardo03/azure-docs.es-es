@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: dfca26f36287cfd856beb98edeb2b2362f36bc4b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b54a302c022a8af84c1964c13ffadc52b45c4ca4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858813"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696826"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: informática de base de datos sin servidor con Azure Functions
 
@@ -31,7 +31,7 @@ Azure Cosmos DB y Azure Functions permite integrar las aplicaciones sin servidor
 * Enlace una función a un contenedor de Azure Cosmos DB mediante un **enlace de salida**. Los enlaces de salida escriben datos en un contenedor cuando se completa una función.
 
 > [!NOTE]
-> En este momento, el desencadenador de Azure Cosmos DB y los enlaces de entrada y de salida solo funcionan con cuentas de SQL API y Graph API.
+> En este momento, el desencadenador de Azure Cosmos DB y los enlaces de entrada y de salida solo funcionan con cuentas de SQL API y Gremlin API.
 
 En el diagrama siguiente se muestran cada una de estas tres integraciones: 
 
@@ -82,7 +82,7 @@ En las imágenes siguientes se muestra el código de Azure Portal para este esce
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Caso de uso de juegos: desencadenador de Azure Cosmos DB y enlace de salida
 
-En el ámbito de los juegos, cuando se crea un usuario nuevo, puede buscar otros usuarios que tal vez lo conozcan con [Graph API de Azure Cosmos DB](graph-introduction.md). A continuación, puede escribir los resultados en una [base de datos SQL de Azure Cosmos DB] para poder recuperarlos fácilmente.
+En el ámbito de los juegos, cuando se crea un usuario nuevo, puede buscar otros usuarios que tal vez lo conozcan con [Azure Cosmos DB Gremlin API](graph-introduction.md). A continuación, puede escribir los resultados en una [base de datos SQL de Azure Cosmos DB] para poder recuperarlos fácilmente.
 
 **Implementación:** use un desencadenador de Azure Cosmos DB y un enlace de salida
 

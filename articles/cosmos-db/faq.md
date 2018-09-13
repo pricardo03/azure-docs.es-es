@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: a8d9704c48801b98800abb71769ba0954e727848
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 375990f095d3a6cbbbfa18db70466c274fd7e17b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190463"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702602"
 ---
 # <a name="azure-cosmos-db-faq"></a>Preguntas más frecuentes sobre Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Conceptos básicos de Azure Cosmos DB
@@ -28,7 +28,7 @@ Si ya tenía una cuenta de API de DocumentDB, ahora tiene una cuenta de SQL API,
 
 ### <a name="what-happened-to-azure-documentdb-as-a-service"></a>¿Qué ha ocurrido en Azure DocumentDB como servicio?
 
-El servicio Azure DocumentDB forma ahora parte del servicio Azure Cosmos DB y se manifiesta en forma de SQL API. Las aplicaciones compiladas en Azure DocumentDB se ejecutarán sin realizar ningún cambio en SQL API de Azure Cosmos DB. Además, Azure Cosmos DB es compatible con Graph API, Table API, MongoDB API y Cassandra API (versión preliminar).
+El servicio Azure DocumentDB forma ahora parte del servicio Azure Cosmos DB y se manifiesta en forma de SQL API. Las aplicaciones compiladas en Azure DocumentDB se ejecutarán sin realizar ningún cambio en SQL API de Azure Cosmos DB. Además, Azure Cosmos DB es compatible con Gremlin API, Table API, MongoDB API y Cassandra API (versión preliminar).
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>¿Cuáles son los casos de uso típicos de Azure Cosmos DB?
 Azure Cosmos DB es una buena elección para las nuevas aplicaciones web, móviles, de juegos y de IoT donde la escala automática, el rendimiento predecible, la orden rápida de tiempos de respuesta en milisegundos y la capacidad para consultar datos sin esquemas son importantes. Se presta a un desarrollo rápido y admite la iteración continua de modelos de datos de aplicaciones. Las aplicaciones que administran contenido y datos generados por el usuario son [casos de uso comunes de Azure Cosmos DB](use-cases.md). 
@@ -36,11 +36,11 @@ Azure Cosmos DB es una buena elección para las nuevas aplicaciones web, móvile
 ### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>¿Cómo ofrece Azure Cosmos DB un rendimiento predecible?
 Una [unidad de solicitud](request-units.md) (RU) es la medida de procesamiento de Azure Cosmos DB. 1 RU corresponde al rendimiento de una solicitud GET de un documento de 1 KB. Todas las operaciones de Azure Cosmos DB, incluidas las lecturas, escrituras, consultas SQL y ejecuciones de procedimiento almacenado, tienen un valor de unidad de solicitud determinista en función del rendimiento necesario para completar la operación. En lugar de pensar en la CPU, las E/S y la memoria, y en cómo cada uno de estos aspectos afecta al rendimiento de la aplicación, es mejor que se centre en una unidad única de unidad de solicitud.
 
-Cada contenedor de Azure Cosmos DB puede reservarse con rendimiento aprovisionado en términos de unidades de solicitud del rendimiento por segundo. Para las aplicaciones de cualquier escala, puede realizar pruebas comparativas de las solicitudes individuales para medir los valores de unidad de solicitud y aprovisionar un contenedor para administrar el total de unidades de solicitud en todas las solicitudes. También puede escalar o reducir verticalmente el rendimiento del contenedor a medida que evolucionen las necesidades de la aplicación. Para más información sobre las unidades de solicitud y ayuda para determinar las necesidades del contenedor, vea [Estimación de necesidades de rendimiento](request-units.md#estimating-throughput-needs) y pruebe la [calculadora de rendimiento](https://www.documentdb.com/capacityplanner). En este contexto, el término *contenedor* se refiere a una colección de SQL API, un grafo de Graph API, una colección de MongoDB API y una tabla de Table API. 
+Cada contenedor de Azure Cosmos DB puede reservarse con rendimiento aprovisionado en términos de unidades de solicitud del rendimiento por segundo. Para las aplicaciones de cualquier escala, puede realizar pruebas comparativas de las solicitudes individuales para medir los valores de unidad de solicitud y aprovisionar un contenedor para administrar el total de unidades de solicitud en todas las solicitudes. También puede escalar o reducir verticalmente el rendimiento del contenedor a medida que evolucionen las necesidades de la aplicación. Para más información sobre las unidades de solicitud y ayuda para determinar las necesidades del contenedor, vea [Estimación de necesidades de rendimiento](request-units.md#estimating-throughput-needs) y pruebe la [calculadora de rendimiento](https://www.documentdb.com/capacityplanner). En este contexto, el término *contenedor* se refiere a una colección de SQL API, un grafo de Gremlin API, una colección de MongoDB API y una tabla de Table API. 
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>¿Por qué Azure Cosmos DB admite varios modelos de datos, como pares clave-valor, columnas, documentos y gráficos?
 
-Los modelos de datos de pares clave-valor (tabla), columnas, documentos y gráficos se admiten de forma nativa porque Azure Cosmos DB se basa en el diseño de ARS (átomos, registros y secuencias). Los átomos, los registros y las secuencias se pueden asignar y proyectar con facilidad en varios modelos de datos. Ya se encuentran disponibles las API para un subconjunto de modelos (SQL API, MongoDB API, Table API y Graph API), mientras que otras que son específicas para modelos de datos adicionales estarán disponibles en el futuro.
+Los modelos de datos de pares clave-valor (tabla), columnas, documentos y gráficos se admiten de forma nativa porque Azure Cosmos DB se basa en el diseño de ARS (átomos, registros y secuencias). Los átomos, los registros y las secuencias se pueden asignar y proyectar con facilidad en varios modelos de datos. Ya se encuentran disponibles las API para un subconjunto de modelos (SQL API, MongoDB API, Table API y Gremlin API), mientras que otras que son específicas para modelos de datos adicionales estarán disponibles en el futuro.
 
 Azure Cosmos DB tiene un motor de indexación independiente del esquema capaz de indexar automáticamente todos los datos ingeridos sin necesidad de que el desarrollador proporcione índices de esquema o secundarios. El motor se basa en un conjunto de diseños de índices lógicos (invertidos, en columnas y en árbol) que desacopla el diseño de almacenamiento del índice y los subsistemas de procesamiento de consultas. Cosmos DB también tiene la capacidad de admitir un conjunto de API y protocolos de conexión de forma extensible y convertirlos de forma eficaz en el modelo de datos principal (1) y los diseños de índices lógicos (2), lo que le permite admitir con exclusividad varios modelos de datos de forma nativa.
 
@@ -57,7 +57,7 @@ No existe ningún límite en la cantidad total de rendimiento que admite un cont
 Sí, ambos modos se cifran siempre totalmente. 
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>¿Cuánto cuesta Azure Cosmos DB?
-Para más información, vea la página de [precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Los cargos por uso de Azure Cosmos DB se determinan según la cantidad de contenedores aprovisionados, el número de horas que los contenedores estuvieron conectados y el rendimiento aprovisionado de cada contenedor. En este contexto, el término *contenedor* se refiere a la colección de SQL API, grafo de Graph API, colección de MongoDB API y tablas de Table API. 
+Para más información, vea la página de [precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/). Los cargos por uso de Azure Cosmos DB se determinan según la cantidad de contenedores aprovisionados, el número de horas que los contenedores estuvieron conectados y el rendimiento aprovisionado de cada contenedor. En este contexto, el término *contenedor* se refiere a la colección de SQL API, Gremlin API (Graph), colección de MongoDB API y tablas de Table API. 
 
 ### <a name="is-a-free-account-available"></a>¿Existe una cuenta gratuita disponible?
 Sí, puede registrarse para una cuenta de tiempo limitado sin cargo, con ningún compromiso. Para registrarse, visite [Pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) o consulte la sección de [preguntas más frecuentes sobre Azure Cosmos DB](#try-cosmos-db).
@@ -87,7 +87,7 @@ Las suscripciones de prueba de Azure Cosmos DB aparecen en Azure Portal junto co
 
 Las condiciones siguientes se aplican a las suscripciones de prueba de Azure Cosmos DB:
 
-* Un contenedor por cada suscripción para las cuentas de SQL, Gremlin (Graph API) y Table.
+* Un contenedor por cada suscripción para las cuentas de SQL, la Gremlin API y Table.
 * Hasta 3 colecciones por suscripción para las cuentas de MongoDB.
 * 10 GB de capacidad de almacenamiento.
 * La replicación global está disponible en las siguientes [regiones de Azure](https://azure.microsoft.com/regions/): Centro de EE. UU., Europa del Norte y Sudeste Asiático
@@ -97,7 +97,7 @@ Las condiciones siguientes se aplican a las suscripciones de prueba de Azure Cos
 
 ## <a name="set-up-azure-cosmos-db"></a>Configuración de Azure Cosmos DB
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>¿Cómo me registro en Azure Cosmos DB?
-Azure Cosmos DB está disponible en Azure Portal. En primer lugar, regístrese para obtener una suscripción de Azure. Una vez registrado, puede agregar una cuenta de SQL API, Graph API, Table API, MongoDB API o Cassandra API a su suscripción de Azure.
+Azure Cosmos DB está disponible en Azure Portal. En primer lugar, regístrese para obtener una suscripción de Azure. Una vez registrado, puede agregar una cuenta de SQL API, Gremlin API, Table API, MongoDB API o Cassandra API a su suscripción de Azure.
 
 ### <a name="what-is-a-master-key"></a>¿Qué es una clave maestra?
 Una clave maestra es un token de seguridad para acceder a todos los recursos de una cuenta. Los usuarios con esta clave tienen acceso de lectura y escritura a todos los recursos de la cuenta de base de datos. Tenga cuidado cuando distribuya claves maestras. Las claves maestras principal y secundaria están disponibles en la hoja **Claves** de [Azure Portal][azure-portal]. Para más información sobre las claves, vea [Visualización, copia y regeneración de las claves de acceso](manage-account.md#keys).
@@ -440,15 +440,15 @@ Azure Table Storage y Table API de Azure Cosmos DB usan el mismo SDK, por lo que
 ### <a name="why-do-i-get-throttled-when-i-try-to-create-lot-of-tables-one-after-another-in-the-table-api"></a>¿Por qué me veo limitado cuando trato de crear muchas tablas seguidas en Table API?
 Azure Cosmos DB es un sistema basado en Acuerdos de Nivel de Servicio que ofrece garantías de latencia, rendimiento, disponibilidad y coherencia. Puesto que es un sistema aprovisionado, reserva recursos para garantizar estos requisitos. Se detecta y limita la frecuencia rápida de creación de tablas. Se recomienda que examine la tasa de creación de tablas y la reduzca a menos de cinco por minuto. Recuerde que Table API es un sistema aprovisionado. Se empieza a pagar por él desde el momento en que se aprovisiona. 
 
-## <a name="graph-api"></a>Graph API
-### <a name="how-can-i-apply-the-functionality-of-graph-api-to-azure-cosmos-db"></a>¿Cómo se puede aplicar la funcionalidad de Graph API a Azure Cosmos DB?
-Puede usar una biblioteca de extensiones para aplicar la funcionalidad de Graph API. Esta biblioteca se denomina Microsoft Azure Graphs y está disponible en [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
+## <a name="gremlin-api"></a>API de Gremlin
+### <a name="how-can-i-apply-the-functionality-of-gremlin-api-to-azure-cosmos-db"></a>¿Cómo se puede aplicar la funcionalidad de Gremlin API a Azure Cosmos DB?
+Puede usar una biblioteca de extensiones para aplicar la funcionalidad de Gremlin API. Esta biblioteca se denomina Microsoft Azure Graphs y está disponible en [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
 
 ### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>Parece que se admite el lenguaje de recorrido de gráficos Gremlin. ¿Tienen previsto agregar otras formas de consulta?
 Sí, tenemos previsto agregar otros mecanismos de consulta en el futuro. 
 
-### <a name="how-can-i-use-the-new-graph-api-offering"></a>¿Cómo puedo usar la nueva oferta de Graph API? 
-Para empezar a trabajar, complete el artículo sobre inicio rápido de [Graph API](../cosmos-db/create-graph-dotnet.md).
+### <a name="how-can-i-use-the-new-gremlin-api-offering"></a>¿Cómo puedo usar la nueva oferta de Gremlin API? 
+Para empezar a trabajar, complete el artículo sobre inicio rápido de [Gremlin API](../cosmos-db/create-graph-dotnet.md).
 
 
 ## <a id="cassandra"></a> Cassandra API

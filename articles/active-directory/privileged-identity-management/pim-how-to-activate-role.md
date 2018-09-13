@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7c990fc0d385af9527bf55339b2fa617e589ec0e
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 59dab4651366c3ad6579e0da660baee0c653d1a3
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190593"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666009"
 ---
 # <a name="activate-my-azure-ad-directory-roles-in-pim"></a>Activación de mis roles de directorio de Azure AD en PIM
 
@@ -26,11 +26,11 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplific
 
 Si se le ha considerado apto para un rol administrativo, significa que puede activar el rol cuando tenga la necesidad de realizar acciones que requieran ciertos privilegios. Por ejemplo, si administra de vez en cuando características de Office 365, los administradores de roles con privilegios de su organización puede que no le hayan asignado el rol de administrador global permanente, ya que ese rol afecta también a otros servicios. En su lugar, pueden asignarle roles de Azure AD como administrador de Exchange Online. Puede solicitar la activación de ese rol cuando necesite sus privilegios y tendrá control de administrador durante un período predeterminado.
 
-Este artículo es para aquellos administradores que necesiten activar su rol en PIM.
+Este artículo se dirige a los administradores que necesitan activar su rol de directorio de Azure AD en PIM.
 
 ## <a name="activate-a-role"></a>Activación de un rol
 
-Cuando necesite asumir un rol, puede solicitar su activación mediante la opción de navegación **Mis roles** de PIM.
+Cuando necesite asumir un rol de directorio de Azure AD, puede solicitar la activación mediante la opción de navegación **Mis roles** de PIM.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
@@ -134,4 +134,4 @@ Si no necesita activar un rol que requiera aprobación, puede cancelar una solic
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Activación de roles de recursos de Azure en PIM](pim-resource-roles-activate-your-roles.md)
+- [Activación de mis roles de recursos de Azure en PIM](pim-resource-roles-activate-your-roles.md)

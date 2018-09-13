@@ -13,18 +13,20 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 20a704a0d5b61134a61b5cbf02a1c71dbc7039e1
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 2d7226f18eb922eaba3c8184656560c33202ef56
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189344"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665441"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Configuración de roles de directorio de Azure AD en PIM
 
 Un administrador de roles con privilegios puede personalizar Privileged Identity Management (PIM) de Azure AD en su organización, como cambiar la experiencia de un usuario que va a activar una asignación de rol apto.
 
 ## <a name="open-role-settings"></a>Apertura de la configuración de roles
+
+Siga estos pasos para abrir la configuración de un rol de directorio de Azure AD.
 
 1. Abra **Azure AD Privileged Identity Management**.
 
@@ -44,19 +46,19 @@ Un administrador de roles con privilegios puede personalizar Privileged Identity
 
 ## <a name="activations"></a>Activaciones
 
-El control deslizante **Activaciones** es el tiempo máximo, en horas, que un rol permanece activo antes de expirar. Este valor puede oscilar entre 1 y 72 horas.
+Use control deslizante **Activaciones** para establecer el tiempo máximo, en horas, que un rol permanece activo antes de expirar. Este valor puede oscilar entre 1 y 72 horas.
 
 ## <a name="notifications"></a>Notificaciones
 
-El conmutador **Notificaciones** permite elegir si el sistema envía correos electrónicos a los administradores para confirmar que han activado un rol. Puede ser útil para detectar activaciones no autorizadas o ilegales.
+Use el modificador **Notificaciones** para especificar si el sistema envía correos electrónicos a los administradores para confirmar que han activado un rol. Puede ser útil para detectar activaciones no autorizadas o ilegales.
 
 ## <a name="incidentrequest-ticket"></a>Vale de solicitud o incidencia
 
-El conmutador **Vale de solicitud o incidencia** le permite elegir si se requiere que los administradores aptos incluyan un número de vale al activar su rol. Puede ser útil al realizar auditorías de acceso a rol.
+Use el modificador **Vale de solicitud o incidente** para especificar si se requiere que los administradores elegibles incluyan un número de vale al activar su rol. Puede ser útil al realizar auditorías de acceso a rol.
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-El conmutador **Multi-Factor Authentication** le permite elegir si se requiere que los usuarios comprueben su identidad con MFA para poder activar sus roles. Solo tiene que realizar esta acción una vez por sesión, no cada vez que activen un rol. Al habilitar MFA, es conveniente tener en cuenta dos sugerencias:
+Use el modificador **Autenticación multifactor** para especificar si se requiere que los usuarios comprueben su identidad con MFA antes de poder activar sus roles. Solo tiene que realizar esta acción una vez por sesión, no cada vez que activen un rol. Al habilitar MFA, es conveniente tener en cuenta dos sugerencias:
 
 * Los usuarios que tienen cuentas de Microsoft para sus direcciones de correo electrónico (normalmente @outlook.com, pero no siempre) no se pueden registrar en Azure MFA. Si quiere asignar roles a los usuarios con cuentas de Microsoft, debe establecerlos en administradores permanentes o deshabilitar MFA para ese rol.
 * No se puede deshabilitar MFA para roles con privilegios elevados en Azure AD y Office 365. Esta es una característica de seguridad porque estos roles deben protegerse cuidadosamente:  
@@ -80,13 +82,13 @@ El conmutador **Multi-Factor Authentication** le permite elegir si se requiere q
   * Administrador de Skype Empresarial  
   * Administrador de cuenta de usuario  
 
-Para más información acerca del uso de MFA con PIM, consulte [Exigencia de MFA en Privileged Identity Management de Azure AD](pim-how-to-require-mfa.md).
+Para obtener más información, consulte [Autenticación multifactor (MFA) y PIM](pim-how-to-require-mfa.md).
 
 ## <a name="require-approval"></a>Requerir aprobación
 
-El conmutador **Requerir aprobación** le permite elegir si desea solicitar aprobación para activar este rol.
+Si desea solicitar aprobación para activar un rol, siga estos pasos.
 
-1. Al establecer el modificador en **Habilitado**, el panel se expande con opciones para seleccionar aprobadores.
+1. Establezca el modificador **Requerir aprobación** en **Habilitado**. El panel se expande con opciones para seleccionar aprobadores.
 
     ![Roles de directorio de Azure AD - Configuración - Requerir aprobación](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
@@ -107,5 +109,5 @@ El conmutador **Requerir aprobación** le permite elegir si desea solicitar apro
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Exigencia de MFA en Privileged Identity Management de Azure AD](pim-how-to-require-mfa.md)
-- [Configuración de alertas de seguridad en Privileged Identity Management de Azure AD](pim-how-to-configure-security-alerts.md)
+- [Asignación de roles de directorio de Azure AD en PIM](pim-how-to-add-role-to-user.md)
+- [Configuración de alertas de seguridad para roles de directorio de Azure AD en PIM](pim-how-to-configure-security-alerts.md)

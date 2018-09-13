@@ -11,78 +11,112 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/02/2018
+ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 901eb5ef43ddb2840ed7a3d83fc08f2f05849461
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: a4aecd276df8e5453f0c35d6290bbe8a8d156ffa
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189742"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669370"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Configuración de roles de recurso de Azure en PIM
 
-Al configurar el rol, se define la configuración predeterminada que se aplica a las asignaciones en el entorno de Privileged Identity Management (PIM). Para definir esta configuración para el recurso, seleccione la pestaña **Configuración de roles** en el panel izquierdo. También puede seleccionar el botón de la configuración de rol en la barra de acción (en cualquier rol) para ver las opciones actuales.
+Cuando establece la configuración de roles de recursos de Azure, se define la configuración predeterminada que se aplica a las asignaciones de roles de recursos de Azure en Azure AD Privileged Identity Management (PIM). Para configurar el flujo de trabajo de aprobación y especificar quién puede aprobar o denegar solicitudes, use los siguientes procedimientos.
 
-## <a name="overview"></a>Información general
+## <a name="open-role-settings"></a>Apertura de la configuración de roles
 
-Con el flujo de trabajo de aprobación de Privileged Identity Management (PIM) para roles de recursos de Azure, los administradores pueden proteger o restringir aún más el acceso a los recursos críticos. Es decir, los administradores pueden solicitar aprobación para activar asignaciones de roles. 
+Siga estos pasos para abrir la configuración de un rol de recursos de Azure.
 
-El concepto de una jerarquía de recursos es único de los roles de recursos de Azure. Esta jerarquía permite la herencia de asignaciones de roles de un objeto de recurso primario a todos los recursos secundarios del contenedor primario. 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que sea miembro del [con Administrador de rol con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 
-Por ejemplo: Bob, un administrador de recursos, usa PIM para asignar a Alice como miembro apto para el rol de Propietario de la suscripción de Contoso. Con esta asignación, Alice es un propietario apto de todos los contenedores del grupo de recursos de la suscripción de Contoso. Alice también es un propietario apto de todos los recursos (como máquinas virtuales) de cada grupo de recursos de la suscripción. 
+1. Abra **Azure AD Privileged Identity Management**.
 
-Supongamos que hay tres grupos de recursos en la suscripción a Contoso: Fabrikam Test, Fabrikam Dev y Fabrikam Prod. Cada uno de ellos contiene una única máquina virtual.
+1. Haga clic en **Recursos de Azure**.
 
-La configuración de PIM se configura para cada rol de un recurso. A diferencia de las asignaciones, la configuración no se hereda y se aplica estrictamente al rol del recurso. [Obtenga más información sobre asignaciones aptas y visibilidad de recursos](pim-resource-roles-eligible-visibility.md).
+1. Haga clic en el recurso que quiera administrar, por ejemplo, una suscripción o un grupo de administración.
 
-Siguiendo con el ejemplo: Bob usa PIM para exigir a todos los miembros del rol Propietario de la suscripción de Contoso que soliciten aprobación para activarse. Para ayudar a proteger los recursos del grupo de recursos Fabrikam Prod, Bob además exige aprobación de los miembros del rol Propietario de este recurso. Los roles de propietario de Fabrikam Test y Fabrikam Dev no necesitan aprobación para activarse.
+    ![Lista de recursos de Azure para administrar](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
-Cuando Alice solicita la activación de su rol Propietario de la suscripción de Contoso, se debe aprobar o denegar su solicitud antes de que se active en el rol. Además, si Alice decide [limitar el ámbito de su activación](pim-resource-roles-activate-your-roles.md#apply-just-enough-administration-practices) al grupo de recursos Fabrikam Prod, un aprobador debe aprobar o denegar dicha solicitud. Pero si Alice decide limitar el ámbito de su activación a Fabrikam Test o Fabrikam Dev, o ambos, no se requiere aprobación.
+1. Haga clic en **Configuración de roles**.
 
-Es posible que el flujo de trabajo de aprobación no sea necesario para todos los miembros de un rol. Piense en un escenario en que la organización contrata a varios subcontratados para que ayuden en el desarrollo de una aplicación que se va a ejecutar en una suscripción de Azure. Como administrador de recursos, quiere que los empleados tengan acceso apto sin necesidad de aprobación, pero que los subcontratados deban solicitar aprobación. Para configurar el flujo de trabajo de aprobación solo para los subcontratados, puede crear un rol personalizado con los mismos permisos que el rol asignado a los empleados. Puede exigir aprobación para activar ese rol personalizado. [Más información acerca de los roles personalizados](pim-resource-roles-custom-role-policy.md).
+    ![Configuración de roles](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
-Para configurar el flujo de trabajo de aprobación y especificar quién puede aprobar o rechazar solicitudes, use los siguientes procedimientos.
+1. Haga clic en el rol cuya configuración desea configurar.
+
+    ![Detalles de configuración de roles](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+
+1. Haga clic en **Editar** para abrir el panel Configuración de roles.
+
+    ![Editar la configuración de roles](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+
+    En el panel Configuración de roles de cada rol, hay varias opciones que puede configurar.
+
+## <a name="assignment-duration"></a>Duración de la asignación
+
+Puede elegir entre dos opciones de duración de asignación para cada tipo de asignación (Apto y Activo) cuando se configuran las opciones para un rol. Estas opciones se convierten en la duración máxima predeterminada cuando se asigna un rol a un miembro en PIM.
+
+Puede elegir uno de estas opciones de duración de asignación tipo **Apto**:
+
+| | |
+| --- | --- |
+| **Permitir asignación elegible permanente** | Los administradores de recursos pueden asignar una pertenencia elegible permanente. |
+| **Hacer que las asignaciones elegibles expiren después de** | Los administradores de recursos pueden requerir que todas las asignaciones elegibles tengan una fecha de inicio y finalización especificada. |
+
+Además, puede elegir una de estas opciones de duración de asignación tipo **Activo**:
+
+| | |
+| --- | --- |
+| **Permitir asignaciones activas permanentes** | Los administradores de recursos pueden asignar una pertenencia activa permanente. |
+| **Hacer que las asignaciones activas expiren después de** | Los administradores de recursos pueden requerir que todas las asignaciones activas tengan una fecha de inicio y finalización especificada. |
+
+> [!NOTE] 
+> Los administradores de recursos pueden renovar todas las asignaciones que tienen una fecha de finalización específica. Asimismo, los miembros pueden iniciar solicitudes de autoservicio para [extender o renovar las asignaciones](pim-resource-roles-renew-extend.md).
+
+## <a name="require-multi-factor-authentication"></a>Requerir autenticación multifactor
+
+PIM proporciona la aplicación opcional de Azure Multi-Factor Authentication (MFA) para dos escenarios distintos.
+
+### <a name="require-multi-factor-authentication-on-active-assignment"></a>Requerir autenticación multifactor para las asignaciones activas
+
+En algunos casos, es posible que quiera asignar un miembro a un rol durante un breve período (por ejemplo, un día). En este caso, no se necesitan los miembros asignados para solicitar la activación. En este escenario, PIM no puede aplicar MFA cuando el miembro usa su asignación de roles porque ya está activo en el rol desde el momento de su asignación.
+
+Para asegurarse de que el administrador de recursos que cumple la asignación sea quien dice ser, puede aplicar MFA en la asignación activa al comprobar el cuadro **Requerir autenticación multifactor para las asignaciones activas**.
+
+### <a name="require-multi-factor-authentication-on-activation"></a>Requerir Multi-Factor Authentication durante la activación
+
+Puede requerir que los miembros elegibles de un rol ejecutan MFA antes de que se puedan activar. Este proceso garantiza que el usuario que solicita la activación sea quien dice ser con una exactitud razonable. Aplicar esta opción protege los recursos críticos en situaciones en las que es posible que la cuenta de usuario se haya puesto en peligro.
+
+Para requerir que un miembro elegible ejecute MFA antes de la activación, active la casilla **Requerir Multi-Factor Authentication durante la activación** cuadro.
+
+Para obtener más información, consulte [Autenticación multifactor (MFA) y PIM](pim-how-to-require-mfa.md).
+
+## <a name="activation-maximum-duration"></a>Duración máxima de la activación
+
+Use control deslizante **Duración máxima de la activación (horas)** para establecer el tiempo máximo, en horas, que un rol permanece activo antes de expirar. Este valor puede oscilar entre 1 y 24 horas.
+
+## <a name="require-justification"></a>Requerir justificación
+
+Puede requerir que los miembros especifiquen una justificación para las asignaciones activas o cuando se activen. Para requerir justificación, active la casilla **Requerir justificación para las asignaciones activas** o la casilla **Requerir justificación en las activaciones**.
 
 ## <a name="require-approval-to-activate"></a>Solicitud de aprobación para activar
 
-1. Vaya a PIM en Azure Portal y seleccione un recurso de la lista.
+Si desea solicitar aprobación para activar un rol, siga estos pasos.
 
-   ![Panel "Recursos de Azure" con un recurso seleccionado](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+1. Active la casilla **Se requiere aprobación para activar**.
 
-2. En el panel izquierdo, seleccione **Configuración de roles**.
+1. Haga clic en **Seleccionar aprobadores** para abrir el panel Seleccionar un miembro o grupo.
 
-3. Busque un rol, selecciónelo y luego seleccione **Editar** para modificar la configuración.
+    ![Seleccionar un miembro o grupo](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-   ![Botón "Editar" del rol de operador](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_view_settings.png)
+1. Seleccione al menos un miembro o un grupo y luego haga clic en **Seleccionar**. Puede agregar cualquier combinación de miembros y grupos. Debe seleccionar al menos un aprobador. No hay aprobadores predeterminados.
 
-4. En la sección **Activación**, active la casilla **Se requiere aprobación para activar**.
+    Su elección aparecerá en la lista de aprobadores seleccionados.
 
-   ![Sección "Activación" de Configuración de roles](media/azure-pim-resource-rbac/aadpim_rbac_settings_require_approval_checkbox.png)
-
-## <a name="specify-approvers"></a>Especificación de aprobadores
-
-Haga clic en **Seleccionar aprobadores** para abrir el panel **Seleccione un usuario o grupo**.
-
->[!NOTE]
->Debe seleccionar al menos un usuario o grupo para actualizar la configuración. No hay aprobadores predeterminados.
-
-Los administradores de recursos pueden agregar cualquier combinación de usuarios y grupos a la lista de aprobadores. 
-
-![Panel "Seleccione un usuario o grupo" con un usuario seleccionado](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_select_approvers.png)
-
-## <a name="request-approval-to-activate"></a>Solicitud de aprobación para activar
-
-La solicitud de aprobación no tiene ningún efecto sobre el procedimiento que debe seguir un miembro para realizar la activación. [Revise los pasos para activar un rol](pim-resource-roles-activate-your-roles.md).
-
-Si un miembro ha solicitado la activación de un rol que exige aprobación y el rol ha dejado de ser necesario, el miembro puede cancelar su solicitud en PIM.
-
-Para cancelar, vaya a PIM y seleccione **Mis solicitudes**. Busque la solicitud y seleccione **Cancelar**.
-
-![Panel "Mis solicitudes"](media/azure-pim-resource-rbac/aadpim_rbac_role_approval_request_pending.png)
+1. Una vez que haya especificado toda la configuración de su rol, haga clic en **Guardar** para guardar los cambios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Exigencia de autenticación multifactor para los roles de recurso de Azure en PIM](pim-resource-roles-require-mfa.md)
+- [Asignación de roles de recursos de Azure en PIM](pim-resource-roles-assign-roles.md)
 - [Configuración de alertas de seguridad para los roles de recurso de Azure en PIM](pim-resource-roles-configure-alerts.md)

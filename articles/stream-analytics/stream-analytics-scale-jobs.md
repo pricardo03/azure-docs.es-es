@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 61ee84ccfccfa49ff2e106e7036d072c1b21ca03
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4da97d708f8db2dcee406645a0eee409fa111012
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34652549"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696809"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Escalado de un trabajo de Azure Stream Analytics para incrementar el rendimiento
 En este artículo se muestra cómo ajustar una consulta de Stream Analytics para aumentar la capacidad de procesamiento de trabajos de Stream Analytics. Puede usar la guía siguiente para escalar un trabajo para administrar una carga más elevada y aprovecha más recursos del sistema, como más ancho de banda, más recursos de CPU y más memoria.
@@ -31,7 +31,7 @@ Si la consulta se puede paralelizar completamente de manera inherente en distint
     -   La marca de tiempo de salida se queda atrás con respecto al tiempo de reloj. En función de la lógica de la consulta, la marca de tiempo de salida puede tener un desplazamiento lógico del tiempo de reloj. Sin embargo, debería avanzar aproximadamente a la misma velocidad. Si la marca de tiempo de salida se queda cada vez más atrás, es un indicador de que el sistema está trabajando demasiado. Esto puede ser resultado de una limitación de receptor de salida de bajada o de un alto uso de CPU. En este momento, no proporcionamos una métrica de uso de CPU, por lo que puede resultar difícil diferenciar ambas opciones.
         - Si el problema se debe a la limitación de receptor, es posible que tenga que aumentar el número de particiones de salida (y también de las particiones de entrada para que el trabajo siga siendo posible de paralelizar completamente) o aumentar la cantidad de recursos del receptor (por ejemplo, el número de Unidades de solicitud para CosmosDB).
     - En el diagrama de trabajo, hay una métrica de evento de trabajo pendiente por partición para cada entrada. Si la métrica de evento de trabajo pendiente sigue aumentando, también es un indicador de que el recurso del sistema está restringido (ya sea debido a una limitación de receptor de salid o un alto uso de CPU).
-4.  Una vez que determine los límites del alcance de un trabajo de 6 SU, puede extrapolar de manera lineal la capacidad de procesamiento del trabajo a medida que agrega más SU, suponiendo que no tiene ninguna asimetría de datos que haga que cierta partición sea "activa".
+4.  Una vez que determine los límites del alcance de un trabajo de 6 SU, puede extrapolar de manera lineal la capacidad de procesamiento del trabajo a medida que agrega más SU, suponiendo que no haya ningún sesgo de datos que haga que una partición tenga un "nivel de acceso frecuente".
 
 > [!NOTE]
 > Elija el número correcto de unidades de streaming: como Stream Analytics crea un nodo de procesamiento para cada 6 SU que se agregan, es mejor hacer que el número de nodos sea un divisor del número de particiones de entrada, para que las particiones se puedan distribuir de manera uniforme entre los nodos.
@@ -70,7 +70,7 @@ Para ciertos casos de uso de ISV, donde resulta más rentable procesar los datos
 2.  Reduzca el número de particiones de entrada al menor valor posible de 2 si usa Event Hub.
 3.  Ejecute la consulta con 6 SU. Con la carga prevista para cada subconsulta, agregue tantas subconsultas como sea posible, hasta que el trabajo esté alcanzando los límites de recursos del sistema. Consulte el [caso 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) para conocer los síntomas que indican que esto ocurre.
 4.  Una vez que alcanza el límite de subconsulta que se midió anteriormente, comience a agregar la subconsulta a un trabajo nuevo. El número de trabajos que se deben ejecutar como función del número de consultas independientes debe ser bastante lineal, suponiendo que no tiene ninguna distorsión de carga. Entonces puede prever cuántos trabajos de 6 SU necesita para ejecutar como función del número de inquilinos que quisiera atender.
-5.  Cuando use la instrucción JOIN de los datos de referencia con estas consultas, debe unir las entradas antes de combinarlas con los mismos datos de referencia y, luego, dividir los eventos si es necesario. De lo contrario, cada instrucción JOIN de los datos de referencia conserva una copia de los datos de referencia en memoria, lo que probablemente aumente el uso de memoria de manera innecesaria.
+5.  Cuando use la combinación de los datos de referencia con estas consultas, debe unir las entradas antes de combinarlas con los mismos datos de referencia. Después, divida los eventos si es necesario. De lo contrario, cada instrucción JOIN de los datos de referencia conserva una copia de los datos de referencia en memoria, lo que probablemente aumente el uso de memoria de manera innecesaria.
 
 > [!Note] 
 > ¿Cuántos inquilinos se deben colocar en cada trabajo?

@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c62869d1ec0dca1859972e817fe1e5e2c1f4c1eb
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: b8004500df2e29ab865a8eb78adf278ef61d5ee8
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797869"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702442"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>SDK de .NET Core para la API de SQL de Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -52,6 +52,18 @@ ms.locfileid: "34797869"
 ## <a name="release-notes"></a>Notas de la versión
 
 El SDK de .NET Core para Azure Cosmos DB incluye paridad de características con la última versión del [SDK de .NET para Azure Cosmos DB](sql-api-sdk-dotnet.md).
+
+### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
+
+* Se agregó la compatibilidad con la cancelación de solicitudes.
+* Se agregó SetCurrentLocation a ConnectionPolicy, que rellena automáticamente las ubicaciones preferidas según la región.
+* Se corrigió el error en las consultas de partición cruzada con Mín./máx. y un filtro que coincide con "ningún documento" en una partición individual.
+
+### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
+
+* Los métodos de DocumentClient ahora tienen paridad con IDocumentClient.
+* Se actualizó la pila de transporte TCP directo para reducir el número de conexiones establecidas.
+* Se agregó la compatibilidad para TCP de modo directo para clientes que no sean Windows.
 
 ### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
 
@@ -174,6 +186,8 @@ Si tiene preguntas relacionadas con este SDK, publíquelas en los foros de [Stac
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.0.0-preview2](#2.0.0-preview2) |26 de julio de 2018 |--- |
+| [2.0.0-preview](#2.0.0-preview) |11 de mayo de 2018 |--- |
 | [1.9.1](#1.9.1) |9 de marzo de 2018 |--- |
 | [1.8.2](#1.8.2) |21 de febrero de 2018 |--- |
 | [1.8.1](#1.8.1) |5 de febrero de 2018 |--- |

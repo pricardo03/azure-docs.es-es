@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 358f81498d8caad7c0a67519bbb776efa153249f
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 3b26c5f9a6d75725fb102d89192e77988b295dea
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42146660"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782032"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Límites de Azure Data Box Disk (versión preliminar)
 
@@ -33,7 +33,7 @@ Tenga en cuenta estos límites cuando implemente y use su solución de Microsoft
 
 ## <a name="data-box-service-limits"></a>Límites de servicio de Data Box
 
- - El servicio Data Box está disponible solo en Estados Unidos y Europa en todas las regiones de Azure para la nube pública de Azure.
+ - El servicio Data Box está disponible solo en Estados Unidos, Europa, Canadá y Australia en todas las regiones de Azure para la nube pública de Azure.
  - Solo se admite una cuenta de almacenamiento con Data Box Disk.
 
 ## <a name="data-box-disk-performance"></a>Rendimiento de Data Box Disk

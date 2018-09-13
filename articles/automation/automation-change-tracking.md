@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0707726ec86b0a0c69d1ec752ebd6761327f3f0f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128133"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669490"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
 
@@ -27,8 +27,7 @@ Los cambios en los demonios de Linux, en el registro y los archivos de Windows, 
 
 Las siguientes versiones del sistema operativo Windows son compatibles oficialmente con el agente de Windows:
 
-* Windows Server 2008 Service Pack 1 (SP1) o versiones posteriores
-* Windows 7 SP1 y versiones posteriores.
+* Windows Server 2008 R2 o versiones posteriores
 
 ## <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux compatibles
 
@@ -47,8 +46,8 @@ Las distribuciones Linux siguientes son compatibles oficialmente. Aunque tambié
 Para iniciar el seguimiento de cambios, debe habilitar la solución Change Tracking e Inventory para la cuenta de Automation.
 
 1. En Azure Portal, vaya a la cuenta de Automation
-1. Seleccione **Change Tracking** en **Configuración**.
-1. Seleccione un área de trabajo de Log Analytics existente o **Crear un área de trabajo nueva** y haga clic en **Habilitar**.
+2. Seleccione **Change Tracking** en **Configuración**.
+3. Seleccione un área de trabajo de Log Analytics existente o **Crear un área de trabajo nueva** y haga clic en **Habilitar**.
 
 Esto habilita la solución para la cuenta de Automation. La habilitación de la solución puede tardar hasta 15 minutos. Un banner azul le avisa cuando la solución está habilitada. Vuelva a la página **Change Tracking** para administrar la solución.
 
@@ -94,7 +93,7 @@ Use los pasos siguientes para configurar los archivos de los que se realizará u
 |habilitado     | Determina si se aplica la configuración.        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar.        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos.        |
-|Escriba la ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "c:\temp\\\*.txt".<br>También puede usar variables de entorno, como "%winDir%\System32\\\*. *"       |
+|Escriba la ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "c:\temp\\\*.txt"<br>También puede usar variables de entorno, como "%winDir%\System32\\\*. *"       |
 |Recursividad     | Determina si se usa recursividad al buscar el elemento cuyo seguimiento se va a realizar.        |
 |Cargar archivo de contenido para toda la configuración| Activa o desactiva la carga de contenido de archivos en los cambios sometidos a seguimiento. Opciones disponibles: **True** o **False**.|
 

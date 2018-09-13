@@ -10,7 +10,7 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 
    ![Nombre de red del clúster](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-2. <a name="addcap"></a>Agregue el punto de acceso cliente  
+1. <a name="addcap"></a>Agregue el punto de acceso cliente  
     El punto de acceso cliente es el nombre de red que las aplicaciones utilizan para conectarse a las bases de datos en un grupo de disponibilidad. Cree el punto de acceso cliente en el Administrador de clústeres de conmutación por error.
 
     a. Amplía el nombre del clúster y haz clic en **Funciones**.
@@ -21,10 +21,12 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 
     c. En el cuadro **Nombre**, cree un nombre para este nuevo agente de escucha. 
    Las aplicaciones utilizarán el nombre del nuevo agente de escucha como nombre de red para conectarse a las bases de datos del grupo de disponibilidad de SQL Server.
-   
+
     d. Para terminar de crear el agente de escucha, haga clic en **Siguiente** dos veces y, a continuación, en **Finalizar**. No pongas el agente de escucha o el recurso en línea en este momento.
 
-3. <a name="congroup"></a>Configure el recurso IP para el grupo de disponibilidad.
+1. Desconecte el rol de clúster del grupo de disponibilidad de modo que esté sin conexión. En **Administrador de clústeres de conmutación por error** en **Roles**, haga clic con el botón derecho en el rol y seleccione **Detener el rol**.
+
+1. <a name="congroup"></a>Configure el recurso IP para el grupo de disponibilidad.
 
     a. Haga clic en la pestaña **Recursos** y expanda el punto de acceso cliente que acaba de crear.  
     El punto de acceso cliente está desconectado.
@@ -41,7 +43,7 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
-4. <a name = "dependencyGroup"></a>Haga que el recurso del grupo de disponibilidad de SQL Server dependa del punto de acceso cliente.
+1. <a name = "dependencyGroup"></a>Haga que el recurso del grupo de disponibilidad de SQL Server dependa del punto de acceso cliente.
 
     a. En el Administrador de clústeres de conmutación por error, haga clic en **Roles** y, después, en el grupo de disponibilidad.
 
@@ -53,7 +55,7 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 
     d. Haga clic en **OK**.
 
-5. <a name="listname"></a>Haga que el recurso de punto de acceso cliente dependa de la dirección IP.
+1. <a name="listname"></a>Haga que el recurso de punto de acceso cliente dependa de la dirección IP.
 
     a. En el Administrador de clústeres de conmutación por error, haga clic en **Roles** y, después, en el grupo de disponibilidad. 
 
@@ -65,30 +67,37 @@ El agente de escucha del grupo de disponibilidad es un nombre de red y una direc
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
-    d. Haga clic con el botón derecho en el nombre del agente de escucha y luego haga clic en **Poner en línea**. 
-
     >[!TIP]
     >Puede validar que las dependencias estén configuradas correctamente. En el Administrador de clústeres de conmutación por error, vaya a Roles, haga clic con el botón derecho en el grupo de disponibilidad, haga clic en **Más acciones** y, después, haga clic en **Mostrar informe de dependencias**. Cuando las dependencias estén configuradas correctamente, el grupo de disponibilidad depende en el nombre de red y el nombre de red depende de la dirección IP. 
 
 
-6. <a name="setparam"></a>Establezca los parámetros de clúster en PowerShell.
-    
-    a. Copie el siguiente script de PowerShell en una de las instancias de SQL Server. Actualice las variables para su entorno.     
-    
-    ```PowerShell
-    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-    $IPResourceName = "<IPResourceName>" # the IP Address resource name
-    $ILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-    [int]$ProbePort = <nnnnn>
-    
-    Import-Module FailoverClusters
-    
-    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-    ```
+1. <a name="setparam"></a>Establezca los parámetros de clúster en PowerShell.
 
-    b. Ejecute el script de PowerShell en uno de los nodos del clúster para establecer los parámetros del clúster.  
+  a. Copie el siguiente script de PowerShell en una de las instancias de SQL Server. Actualice las variables para su entorno.
 
-Repita los pasos anteriores para establecer los parámetros del clúster para la dirección IP del clúster de WSFC.
+  - `$ListenerILBIP` es la dirección IP que creó en Azure Load Balancer para el agente de escucha del grupo de disponibilidad.
+    
+  - `$ListenerProbePort` es el puerto que configuró en Azure Load Balancer para el agente de escucha del grupo de disponibilidad.
+
+  ```PowerShell
+  $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+  $IPResourceName = "<IPResourceName>" # the IP Address resource name
+  $ListenerILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
+  [int]$ListenerProbePort = <nnnnn>
+  
+  Import-Module FailoverClusters
+
+  Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ListenerILBIP";"ProbePort"=$ListenerProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+  ```
+
+  b. Ejecute el script de PowerShell en uno de los nodos del clúster para establecer los parámetros del clúster.  
+
+  > [!NOTE]
+  > Si las instancias de SQL Server se encuentran en distintas regiones, debe ejecutar el script de PowerShell dos veces. La primera vez, utilice `$ListenerILBIP` y `$ListenerProbePort` en la primera región. La segunda vez, `$ListenerILBIP` y `$ListenerProbePort` en la segunda región. El nombre de red del clúster y el nombre del recurso IP del clúster también son diferentes para cada región.
+
+1. Conecte el rol de clúster del grupo de disponibilidad de modo que esté en línea. En **Administrador de clústeres de conmutación por error** en **Roles**, haga clic con el botón derecho en el rol y seleccione **Iniciar rol**.
+
+Si fuera necesario, repita los pasos anteriores para establecer los parámetros del clúster para la dirección IP del clúster de WSFC.
 
 1. Obtenga el nombre de dirección IP de la dirección IP del clúster de WSFC. En **Administrador de clústeres de conmutación por error**, en **Recursos principales de clúster**, busque **Nombre del servidor**.
 
@@ -97,21 +106,25 @@ Repita los pasos anteriores para establecer los parámetros del clúster para la
 1. Anote el **Nombre** de la dirección IP. Puede ser `Cluster IP Address`. 
 
 1. <a name="setwsfcparam"></a>Establezca los parámetros de clúster en PowerShell.
-    
-    a. Copie el siguiente script de PowerShell en una de las instancias de SQL Server. Actualice las variables para su entorno.     
-    
-    ```PowerShell
-    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-    $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
-    $ILBIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
-    [int]$ProbePort = <nnnnn>
-    
-    Import-Module FailoverClusters
-    
-    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-    ```
+  
+  a. Copie el siguiente script de PowerShell en una de las instancias de SQL Server. Actualice las variables para su entorno.
 
-    b. Ejecute el script de PowerShell en uno de los nodos del clúster para establecer los parámetros del clúster.  
+  - `$ClusterCoreIP` es la dirección IP que creó en Azure Load Balancer para el recurso del clúster principal de WSFC. Es diferente de la dirección IP del agente de escucha del grupo de disponibilidad.
 
-    > [!NOTE]
-    > Si las instancias de SQL Server se encuentran en distintas regiones, debe ejecutar el script de PowerShell dos veces. La primera vez, utilice `$ILBIP` y `$ProbePort` en la primera región. La segunda vez, `$ILBIP` y `$ProbePort` en la segunda región. El nombre de red del clúster y el nombre del recurso IP del clúster son iguales. 
+  - `$ClusterProbePort` es el puerto que configuró en Azure Load Balancer para el sondeo de estado de WSFC. Es diferente del sondeo del agente de escucha del grupo de disponibilidad.
+
+  ```PowerShell
+  $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+  $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
+  $ClusterCoreIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
+  [int]$ClusterProbePort = <nnnnn> # The probe port from the WSFCEndPointprobe in the Azure portal. This port must be different from the probe port for the availability grouop listener probe port.
+  
+  Import-Module FailoverClusters
+  
+  Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ClusterCoreIP";"ProbePort"=$ClusterProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+  ```
+
+  b. Ejecute el script de PowerShell en uno de los nodos del clúster para establecer los parámetros del clúster.  
+
+>[!WARNING]
+>El puerto de sondeo de estado del agente de escucha del grupo de disponibilidad debe ser diferente del puerto de sondeo de estado de la dirección IP principal del clúster. En estos ejemplos, el puerto del agente de escucha es 59999 y la dirección IP principal del clúster es 58888. Ambos puertos requieren una regla de firewall que permita la entrada.

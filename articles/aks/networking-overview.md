@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: 051402a319e1dc26145b5a1602a4caeffa7fba19
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e78be76d68cf75cf9d59f5b5dff86c65524275a9
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445514"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697248"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuración de red en Azure Kubernetes Service (AKS)
 
@@ -47,7 +47,7 @@ Las redes avanzadas proporcionan las siguientes ventajas:
 
 ## <a name="advanced-networking-prerequisites"></a>Requisitos previos de redes avanzadas
 
-* La red virtual del clúster AKS debe permitir la conectividad saliente de internet.
+* La red virtual del clúster AKS debe permitir la conectividad saliente de Internet.
 * No cree más de un clúster AKS en la misma subred.
 * Los clústeres AKS no pueden usar `169.254.0.0/16`, `172.30.0.0/16` o `172.31.0.0/16` para el intervalo de direcciones del servicio de Kubernetes.
 * La entidad de servicio usada por el clúster de AKS debe tener al menos permisos de [colaborador de la red](../role-based-access-control/built-in-roles.md#network-contributor) en la subred de la red virtual. Si quiere definir un [rol personalizado](../role-based-access-control/custom-roles.md) en lugar de usar el rol integrado de colaborador de red, se requieren los permisos siguientes:
@@ -56,7 +56,7 @@ Las redes avanzadas proporcionan las siguientes ventajas:
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>Planeamiento de direccionamiento IP del clúster
 
-Los clústeres configurados con redes avanzadas requieren planeamiento adicional. El tamaño de la red virtual y su subred debe ajustarse al número de pods que tiene previsto ejecutar, así como al número de nodos del clúster.
+Los clústeres configurados con redes avanzadas requieren planeamiento adicional. Los tamaños de red virtual y de subred deben ajustarse al número de pods que tiene previsto ejecutar, así como al número de nodos del clúster.
 
 Se asignan direcciones IP para los pods y los nodos del clúster desde la subred especificada dentro de la red virtual. Cada nodo se configura con una dirección IP principal, que es la dirección IP del nodo, y 30 direcciones IP adicionales preconfiguradas por Azure CNI que se asignan a los pods programados para el nodo. Cuando se escala horizontalmente el clúster, cada nodo del mismo modo se configura de modo similar con direcciones IP de la subred.
 
@@ -64,13 +64,11 @@ El plan de direcciones IP de un clúster AKS consta de una red virtual, al menos
 
 | Intervalo de direcciones / recurso de Azure | Límites y tamaño |
 | --------- | ------------- |
-| Virtual network | La red virtual de Azure puede ser tan grande como /8, pero solo puede tener 16 000 direcciones IP configuradas. |
+| Virtual network | El tamaño de Azure Virtual Network puede ser de /8, pero se limita a 65 536 direcciones IP configuradas. |
 | Subred | Debe ser lo suficientemente grande como para dar cabida a los nodos, los pods y a todos los recursos de Kubernetes y de Azure que se pueden aprovisionar en el clúster. Por ejemplo, si implementa una instancia de Azure Load Balancer interna, sus direcciones IP de front-end se asignan desde la subred del clúster, no las direcciones IP públicas. <p/>Para calcular el tamaño *mínimo* de la subred: `(number of nodes) + (number of nodes * pods per node)` <p/>Ejemplo de un clúster de 50 nudos: `(50) + (50 * 30) = 1,550` (/21 o superior) |
 | Intervalo de direcciones del servicio de Kubernetes | Este intervalo no lo debe usar ningún elemento de red de esta red virtual o que esté conectado a ella. El CIDR de la dirección del servicio debe ser menor que /12. |
 | Dirección IP del servicio DNS de Kubernetes | Dirección IP del intervalo de direcciones del servicio de Kubernetes que se usará en la detección de servicios de clúster (kube-dns). |
 | Dirección de puente de Docker | Dirección IP (en notación CIDR) que se usa como la dirección IP del puente de Docker en los nodos. El valor predeterminado es 172.17.0.1/16. |
-
-Cada red virtual aprovisionada para su uso con el complemento Azure CNI está limitada a **16 000 direcciones IP configuradas**.
 
 ## <a name="maximum-pods-per-node"></a>Pods máximos por nodo
 
@@ -78,29 +76,38 @@ El número máximo predeterminado de pods por nodo en un clúster de AKS varía 
 
 ### <a name="default-maximum"></a>Valor máximo predeterminado
 
-* Redes básicas: **110 pods por nodo**
-* Redes avanzadas **30 pods por nodo**
+Estos son los máximos *predeterminados* al implementar un clúster de AKS sin especificar el número máximo de pods en tiempo de implementación:
 
-### <a name="configure-maximum"></a>Configuración del valor máximo
+| Método de implementación | Básica | Avanzado | Configurable en la implementación |
+| -- | :--: | :--: | -- |
+| Azure CLI | 110 | 30 | SÍ |
+| Plantilla de Resource Manager | 110 | 30 | SÍ |
+| Portal | 110 | 30 | Sin  |
 
-Según el método de la implementación, es posible que pueda modificar el número máximo de pods por nodo en un clúster de AKS.
+### <a name="configure-maximum---new-clusters"></a>Configurar máximo: nuevos clústeres
+
+Para especificar un número máximo de pods por nodo diferente al implementar un clúster de AKS:
 
 * **CLI de Azure**: especifique el argumento `--max-pods` cuando implemente un clúster con el comando [az aks create][az-aks-create].
 * **Plantilla de Resource Manager**: especifique la propiedad `maxPods` del objeto [ManagedClusterAgentPoolProfile] cuando implemente un clúster con una plantilla de Resource Manager.
 * **Azure Portal**: no puede modificar el número máximo de pods por nodo cuando implemente un clúster con Azure Portal. Los clústeres de redes avanzadas están limitados a 30 pods por nodo cuando se implementan en Azure Portal.
 
+### <a name="configure-maximum---existing-clusters"></a>Configurar máximo: clústeres existentes
+
+No se puede cambiar el número máximo de pods por nodo en un clúster de AKS existente. Solo puede ajustar el número cuando se implementa inicialmente el clúster.
+
 ## <a name="deployment-parameters"></a>Parámetros de implementación
 
 Cuando crea un clúster de AKS, los parámetros siguientes son configurables para redes avanzadas:
 
-**Red virtual**: la red virtual en la que desea implementar el clúster de Kubernetes. Si desea crear una red virtual nueva para el clúster, seleccione *Crear nueva* y siga los pasos descritos en la sección *Creación de red virtual*. La red virtual está limitada a 16 000 direcciones IP configuradas.
+**Red virtual**: la red virtual en la que desea implementar el clúster de Kubernetes. Si desea crear una red virtual nueva para el clúster, seleccione *Crear nueva* y siga los pasos descritos en la sección *Creación de red virtual*. Para información acerca de límites y cuotas para Azure Virtual Network, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
 **Subred**: la subred dentro de la red virtual en la que desea implementar el clúster. Si desea crear una nueva subred en la red virtual para el clúster, seleccione *Crear nueva* y siga los pasos descritos en la sección *Creación de subred*.
 
 **Intervalo de direcciones de servicio de Kubernetes**: este es el conjunto de direcciones IP virtuales que Kubernetes asigna a [servicios][services] en el clúster. Puede usar cualquier intervalo de direcciones privado que cumpla los requisitos siguientes:
 
 * No debe estar dentro del intervalo de direcciones IP de la red virtual del clúster.
-* No debe superponerse con otras redes virtuales con las que la red virtual del clúster esté emparejada.
+* No deben superponerse con ninguna otra red virtual del mismo nivel que la red virtual del clúster.
 * No debe superponerse con ninguna dirección IP local.
 * No debe estar dentro de los intervalos `169.254.0.0/16`, `172.30.0.0/16` o `172.31.0.0/16`
 
@@ -150,13 +157,15 @@ Las siguientes preguntas y respuestas se aplican a la configuración de red **Av
 
   Sí, al implementar un clúster con la CLI de Azure o una plantilla de Resource Manager. Consulte [Pods máximos por nodo](#maximum-pods-per-node).
 
+  No se puede cambiar el número máximo de pods por nodo en un clúster existente.
+
 * *¿Cómo se pueden configurar propiedades adicionales para la subred que he creado durante la creación del clúster de AKS? Por ejemplo, los puntos de conexión de servicio.*
 
   La lista completa de propiedades de la red virtual y las subredes que se crean durante la creación del clúster de AKS puede configurarse en la página de configuración de red virtual estándar en Azure Portal.
 
 * *¿Puedo usar una subred diferente dentro de mi red virtual de clúster como* **intervalo de direcciones de servicio de Kubernetes**?
 
-  Aunque no se recomienda, esta configuración es posible. El intervalo de direcciones de servicio es un conjunto de direcciones IP virtuales (VIP) que Kubernetes asigna a los servicios del clúster. Las redes de Azure no tiene ninguna visibilidad sobre el intervalo de direcciones IP de servicio del clúster de Kubernetes. Debido a ello, es posible crear posteriormente una nueva subred en la red virtual del clúster que se superponga con este intervalo. Si se produce una superposición de este tipo, Kubernetes podría asignar a un servicio una dirección IP que ya esté en uso por otro recurso de la subred, lo que provocaría un comportamiento impredecible o errores. Al tener la seguridad de usar un intervalo de direcciones que se encuentra fuera de la red virtual del clúster, puede evitar este riesgo de superposición.
+  Aunque no se recomienda, esta configuración es posible. El intervalo de direcciones de servicio es un conjunto de direcciones IP virtuales (VIP) que Kubernetes asigna a los servicios del clúster. Las redes de Azure no tiene ninguna visibilidad sobre el intervalo de direcciones IP de servicio del clúster de Kubernetes. Debido a ello, es posible crear posteriormente una nueva subred en la red virtual del clúster que se superponga con el intervalo de direcciones de servicio. Si se produce una superposición de este tipo, Kubernetes podría asignar a un servicio una dirección IP que ya esté en uso por otro recurso de la subred, lo que provocaría un comportamiento impredecible o errores. Al tener la seguridad de usar un intervalo de direcciones que se encuentra fuera de la red virtual del clúster puede evitar este riesgo de superposición.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

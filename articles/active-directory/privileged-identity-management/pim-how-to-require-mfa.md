@@ -1,6 +1,6 @@
 ---
-title: Exigencia de autenticación multifactor para los roles de directorio de Azure AD en PIM | Microsoft Docs
-description: Aprenda a requerir la autenticación multifactor (MFA) para los roles de directorio de Azure AD en Azure AD Privileged Identity Management (PIM).
+title: Autenticación multifactor (MFA) y PIM - Azure | Microsoft Docs
+description: Obtenga información sobre cómo Azure AD Privileged Identity Management (PIM) valida la autenticación multifactor (MFA).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,42 +10,34 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 06/06/2017
+ms.date: 08/31/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9777a7d2ed07ea2edf4bea661a5065c808de9f2b
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: cfa092e8aebe92192ecca8aec2721282e603cc5b
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188360"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669281"
 ---
-# <a name="require-multi-factor-authentication-for-azure-ad-directory-roles-in-pim"></a>Exigencia de autenticación multifactor para los roles de directorio de Azure AD en PIM
-Se recomienda exigir Multi-Factor Authentication (MFA) para todos los administradores. De esta forma, se reduce el riesgo de ataques debidos a que una contraseña se ha puesto en peligro.
+# <a name="multi-factor-authentication-mfa-and-pim"></a>Autenticación multifactor (MFA) y PIM
 
-Puede exigir que los usuarios completen un desafío de MFA cuando inician sesión. La entrada de blog [MFA for Office 365 and MFA for Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) (MFA para Office 365 y MFA para Azure) compara lo que se incluye en las suscripciones de Office y Azure con las características de la oferta de Multi-Factor Authentication de Microsoft Azure.
+Se recomienda exigir la autenticación multifactor (MFA) para todos los administradores. De esta forma, se reduce el riesgo de ataques debidos a que una contraseña se ha puesto en peligro.
 
-También puede exigir que los usuarios realicen un desafío de MFA cuando activan un rol en PIM de Azure AD. De este modo, si el usuario no realizó un desafío de MFA cuando inició sesión, se le pedirá que lo haga en PIM.
-
-## <a name="requiring-mfa-in-azure-ad-privileged-identity-management"></a>Exigencia de MFA en Privileged Identity Management de Azure AD
-Al administrar identidades en PIM como administrador de roles con privilegios, puede ver las alertas que recomienda MFA para las cuentas con privilegios. Haga clic en la alerta de seguridad en el panel de PIM y se abrirá una nueva hoja con una lista de las cuentas de administrador que deben exigir MFA.  Para exigir MFA, seleccione varios roles y haga clic en el botón **Corregir**; también puede hacer clic en el botón de puntos suspensivos situado junto a cada rol y luego hacer clic en el botón **Corregir**.
+Puede exigir que los usuarios completen un desafío de MFA cuando inician sesión. También puede exigir que los usuarios completen un desafío de MFA cuando activan un rol en Azure AD Privileged Identity Management (PIM). De este modo, si el usuario no realizó un desafío de MFA cuando inició sesión, se le pedirá que lo haga en PIM.
 
 > [!IMPORTANT]
-> Ahora mismo, Azure MFA solo funciona con cuentas profesionales o educativas, no con cuentas de Microsoft (por lo habitual una cuenta personal que se usa para iniciar sesión en servicios de Microsoft, como Skype, Xbox, Outlook.com, etc.). Por este motivo, todo aquel que use una cuenta de Microsoft no puede ser un administrador apto ya que no podrá usar MFA para activar su rol. Si estos usuarios tienen que seguir administrando cargas de trabajo con una cuenta de Microsoft, conviértalos en administradores permanentes por el momento.
-> 
-> 
+> Ahora mismo, Azure MFA solo funciona con cuentas profesionales o educativas, no con cuentas de Microsoft (por lo habitual una cuenta personal que se usa para iniciar sesión en servicios de Microsoft, como Skype, Xbox, Outlook.com, etc.). Por este motivo, un usuario que use una cuenta de Microsoft no puede ser un administrador apto porque no podrá usar MFA para activar sus roles. Si estos usuarios tienen que seguir administrando cargas de trabajo con una cuenta de Microsoft, conviértalos en administradores permanentes por el momento.
 
-Además, puede cambiar el requisito de MFA para un rol específico haciendo clic en él en la sección Roles del panel de PIM. Luego, haga clic en **Configuración** en la hoja de roles y seleccione **Habilitar** en Multi-Factor Authentication.
+## <a name="how-pim-validates-mfa"></a>Cómo PIM valida MFA
 
-## <a name="how-azure-ad-pim-validates-mfa"></a>Cómo PIM de Azure AD valida MFA
 Hay dos opciones para validar MFA cuando un usuario activa un rol.
 
-La opción más sencilla es depender de Azure MFA en el caso de los usuarios que activan un rol con privilegios. Para ello, primero compruebe que dichos usuarios cuentan con una licencia, si es necesario, y que se han registrado en Azure MFA. Más información en [Introducción a Azure Multi-Factor Authentication en la nube](../authentication/howto-mfa-getstarted.md). Se recomienda, aunque no es necesario, configurar Azure AD para imponer MFA en estos usuarios cuando inicien sesión. Esto se debe a que PIM de Azure AD realizará las comprobaciones de MFA.
+La opción más sencilla es depender de Azure MFA en el caso de los usuarios que activan un rol con privilegios. Para ello, primero compruebe que dichos usuarios cuentan con una licencia, si es necesario, y que se han registrado en Azure MFA. Para obtener más información sobre cómo implementar Azure MFA, consulte [Implementación de Azure Multi-factor Authentication en la nube](../authentication/howto-mfa-getstarted.md). Se recomienda, aunque no es necesario, configurar Azure AD para imponer MFA en estos usuarios cuando inicien sesión. Esto se debe a que PIM realizará las comprobaciones de MFA.
 
-Si los usuarios se autentican en el entorno local, también puede hacer que el proveedor de identidades se encargue de MFA. Por ejemplo, si ha configurado Servicios de federación de AD para exigir la autenticación basada en tarjeta inteligente antes de acceder a Azure AD, el artículo [Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS](../authentication/howto-mfa-adfs.md) incluye instrucciones para configurar AD FS para enviar notificaciones a Azure AD. Cuando un usuario intenta activar un rol, PIM de Azure AD aceptará que ya se ha validado MFA para el usuario cuando reciba las notificaciones adecuadas.
+Si los usuarios se autentican en el entorno local, también puede hacer que el proveedor de identidades se encargue de MFA. Por ejemplo, si ha configurado Servicios de federación de AD para exigir la autenticación basada en tarjeta inteligente antes de acceder a Azure AD, el artículo [Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS](../authentication/howto-mfa-adfs.md) incluye instrucciones para configurar AD FS para enviar notificaciones a Azure AD. Cuando un usuario intenta activar un rol, PIM aceptará que MFA ya se ha validado para el usuario cuando este último reciba las notificaciones adecuadas.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Configuración de roles de directorio de Azure AD en PIM](pim-how-to-change-default-settings.md)
-- [Configuración de alertas de seguridad para roles de directorio de Azure AD en PIM](pim-how-to-configure-security-alerts.md)
+- [Configuración de roles de recurso de Azure en PIM](pim-resource-roles-configure-role-settings.md)

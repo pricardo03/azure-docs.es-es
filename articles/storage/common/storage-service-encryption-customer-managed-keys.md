@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 0e1ebd8868cfe5ef69a09219ffc82092fb85a4c8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f14ffc7bfbdabdd93e7743c7932dae1af7730e60
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527093"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781571"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Cifrado del servicio Storage mediante claves administradas por el cliente en Azure Key Vault
 Microsoft Azure está comprometido a ayudarle a asegurar y proteger sus datos con el fin de satisfacer los compromisos de cumplimiento y seguridad de su organización. Una manera en que la plataforma de Azure Storage protege los datos es mediante Storage Service Encryption (SSE), que cifra los datos al escribirlos en el almacenamiento y los descifra al recuperarlos. El cifrado y descifrado son automáticos, transparentes y usan [cifrado AES](https://wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uno de los cifrados de bloques más seguros disponibles.
@@ -34,7 +34,7 @@ Para usar las claves administradas por el cliente con SSE, puede crear un almac�
 En primer lugar, cree una cuenta de almacenamiento si todavía no tiene una. Para más información, consulte [Crear una cuenta de almacenamiento](storage-quickstart-create-account.md).
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Paso 2: Habilitación de SSE para Blob y File Storage
-Para habilitar SSE con claves administradas por el cliente, también se deben habilitar dos características de protección de claves, Eliminación temporal y No purgar. Estos valores garantizan que las claves no se puedan eliminar de manera accidental ni intencional. El período de retención máximo de las claves se establece en 90 días, lo que protege a los usuarios frente a actores malintencionados o ataques de ransomware.
+Para habilitar SSE con claves administradas por el cliente, también se deben habilitar dos características de protección de claves en Azure Key Vault: Eliminación temporal y No purgar. Estos valores garantizan que las claves no se puedan eliminar de manera accidental ni intencional. El período de retención máximo de las claves se establece en 90 días, lo que protege a los usuarios frente a actores malintencionados o ataques de ransomware.
 
 Si desea habilitar las claves administradas por el cliente para SSE mediante programación, puede usar la [API de REST de proveedor de recursos de Azure Storage](https://docs.microsoft.com/rest/api/storagerp), la [biblioteca de cliente de proveedor de recursos de almacenamiento para .NET](https://docs.microsoft.com/dotnet/api), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o la [CLI de Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 

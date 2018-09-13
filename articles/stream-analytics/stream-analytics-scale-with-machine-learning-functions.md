@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 015312ab95d6dd5615a5f5bc62d270d46b795ffa
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 115273086eeb88064c4b179f67d2d400d9f84692
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30909282"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696105"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Escalado del trabajo de Análisis de transmisiones con funciones de Azure Machine Learning
 Resulta sencillo configurar un trabajo de Stream Analytics y ejecutar algunos datos de ejemplo mediante él. ¿Qué debemos hacer cuando tengamos que ejecutar el mismo trabajo con un volumen de datos más alto? Será necesario comprender cómo configurar el trabajo de Stream Analytics para escalarlo. En este documento, nos centraremos en los aspectos especiales de escalar trabajos de Stream Analytics con funciones de Machine Learning. Para más información sobre cómo escalar trabajos de Stream Analytics en general, consulte el artículo [Escalado de trabajos de Azure Stream Analytics para incrementar el rendimiento de procesamiento de flujo de datos](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>¿Qué es una función de Azure Machine Learning en Análisis de transmisiones?
-Una función de Machine Learning en Análisis de transmisiones puede utilizarse como una llamada de función normal en el lenguaje de consulta de Análisis de transmisiones. Sin embargo, en segundo plano, las llamadas de función son en realidad solicitudes de servicio web de Azure Machine Learning. Los servicios web de Machine Learning admiten el "procesamiento por lotes" de varias filas, lo que se conoce como mini lote, en la misma llamada a la API de servicio web, con el fin de mejorar el rendimiento en general. Consulte los siguientes artículos para obtener más detalles: [Funciones de Azure Machine Learning en Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) y [Servicios web Azure Machine Learning](../machine-learning/studio/consume-web-services.md).
+Una función de Machine Learning en Análisis de transmisiones puede utilizarse como una llamada de función normal en el lenguaje de consulta de Análisis de transmisiones. Sin embargo, en segundo plano, las llamadas de función son en realidad solicitudes de servicio web de Azure Machine Learning. Los servicios web de Machine Learning admiten el "procesamiento por lotes" de varias filas, lo que se conoce como mini lote, en la misma llamada a la API de servicio web, con el fin de mejorar el rendimiento en general. Para obtener más información, vea [Funciones de Azure Machine Learning en Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) y [Servicios web Azure Machine Learning](../machine-learning/studio/consume-web-services.md).
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configuración de un trabajo de Análisis de transmisiones con funciones de Machine Learning
 Al configurar una función de Machine Learning para el trabajo de Stream Analytics, hay dos parámetros a tener en cuenta: el tamaño de lote de las llamadas de función de Machine Learning y las unidades de streaming (SU) aprovisionadas para el trabajo de Stream Analytics. Para determinar los valores adecuados de estos parámetros, será necesario en primer lugar decidir entre latencia y rendimiento, es decir, entre la latencia del trabajo de Stream Analytics y el rendimiento de cada SU. Siempre se pueden agregar SU a un trabajo para aumentar el rendimiento de una consulta de Stream Analytics bien particionada, aunque las SU adicionales aumentarán el costo de ejecución del trabajo.
@@ -56,7 +56,7 @@ La consulta es una consulta sencilla completamente particionada seguida de la fu
 
 Considere el escenario siguiente: se debe crear un trabajo de Stream Analytics con un rendimiento de 10 000 tweets por segundo para realizar análisis de opiniones de los tweets (eventos). ¿Podría administrar este trabajo de Stream Analytics el tráfico con 1 SU? Con el tamaño de lote predeterminado de 1000, el trabajo debería poder mantenerse al nivel de la entrada. Es más, la función de Machine Learning agregada no debería generar más de un segundo de latencia, que es la latencia general predeterminada del servicio web de Machine Learning de análisis de opiniones (con un tamaño de lote predeterminado de 1000). La latencia **general** o total del trabajo de Stream Analytics sería normalmente de unos segundos. Examine con más detalle este trabajo de Análisis de transmisiones, *especialmente* las llamadas de función de Machine Learning. Si el tamaño de lote es 1000, un rendimiento de 10 000 eventos supondrá unas 10 solicitudes al servicio web. Incluso con 1 SU, hay suficientes conexiones simultáneas para dar cabida a este tráfico de entrada.
 
-Pero ¿qué sucede si la tasa de eventos de entrada aumenta en 100 x y ahora el trabajo de Stream Analytics necesita procesar 1 000 000 de tweets por segundo? Hay dos opciones:
+Si la tasa de eventos de entrada aumenta en 100 x, el trabajo de Stream Analytics necesita procesar 1 000 000 de tweets por segundo. Hay dos opciones para lograr una escala mayor:
 
 1. Aumentar el tamaño de lote
 2. Particionar el flujo de entrada para procesar los eventos en paralelo.
@@ -67,7 +67,7 @@ Con la segunda opción, será necesario aprovisionar más SU y, por lo tanto, ge
 
 Suponga que la latencia del servicio web Machine Learning de análisis de opiniones es de 200 ms para 1000 lotes de eventos o menos, 250 ms para 5000 lotes de eventos, 300 ms para 10 000 lotes de eventos o 500 ms para 25 000 lotes de eventos.
 
-1. Con la primera opción (**sin** aprovisionar más SU), el tamaño de lote se podría aumentar a **25 000**. Esto, a su vez, permitiría que el trabajo procesara 1 000 000 eventos con 20 conexiones simultáneas al servicio web Machine Learning (con una latencia de 500 ms por llamada). De modo que, la latencia adicional del trabajo de Stream Analytics debido a las solicitudes de la función sentiment contra las solicitudes de servicio web Machine Learning aumentaría de **200 ms** a **500 ms**. Sin embargo, el tamaño de lote **no** se puede aumentar de manera indefinida dado que el servicio web Machine Learning necesita que el tamaño de la carga de una solicitud sea de 4 MB o un tiempo de espera más pequeño de las solicitudes de servicio web tras 100 segundos de funcionamiento.
+1. Uso de la primera opción (**no** aprovisionar más SU). Se podría aumentar el tamaño de lote a **25 000**. Esto, a su vez, permitiría que el trabajo procesara 1 000 000 eventos con 20 conexiones simultáneas al servicio web Machine Learning (con una latencia de 500 ms por llamada). De modo que, la latencia adicional del trabajo de Stream Analytics debido a las solicitudes de la función sentiment contra las solicitudes de servicio web Machine Learning aumentaría de **200 ms** a **500 ms**. Sin embargo, el tamaño de lote **no** se puede aumentar de manera indefinida dado que el servicio web Machine Learning necesita que el tamaño de la carga de una solicitud sea de 4 MB o un tiempo de espera más pequeño de las solicitudes de servicio web tras 100 segundos de funcionamiento.
 2. Con la segunda opción, el tamaño de lote se deja en 1000; con una latencia del servicio web de 200 ms, con cada 20 conexiones simultáneas al servicio web se podrían procesar 1000 * 20 * 5 eventos = 100 000 por segundo. Por tanto, para procesar 1 000 000 eventos por segundo, el trabajo necesitaría 60 SU. En comparación con la primera opción, el trabajo de Stream Analytics haría más solicitudes de lote de servicio web, lo que a su vez generaría un mayor costo.
 
 A continuación se muestra una tabla del rendimiento del trabajo de Stream Analytics para diferentes SU y tamaños de lote (en número de eventos por segundo).
@@ -77,15 +77,15 @@ A continuación se muestra una tabla del rendimiento del trabajo de Stream Analy
 | **1 unidad de búsqueda** |2500 |5.000 |20.000 |30 000 |50.000 |
 | **3 unidades de búsqueda** |2500 |5.000 |20.000 |30 000 |50.000 |
 | **6 unidades de búsqueda** |2500 |5.000 |20.000 |30 000 |50.000 |
-| **12 unidades de búsqueda** |5.000 |10.000 |40.000 |60 000 |100 000 |
+| **12 unidades de búsqueda** |5.000 |10 000 |40.000 |60 000 |100 000 |
 | **18 unidades de búsqueda** |7500 |15 000 |60 000 |90 000 |150 000 |
-| **24 unidades de búsqueda** |10.000 |20.000 |80 000 |120 000 |200 000 |
+| **24 unidades de búsqueda** |10 000 |20.000 |80 000 |120 000 |200 000 |
 | **…** |… |… |… |… |… |
 | **60 unidades de búsqueda** |25 000 |50.000 |200 000 |300 000 |500.000 |
 
 En este momento, ya debe saber cómo funcionan las funciones de Machine Learning en Análisis de transmisiones. Probablemente también sepa que los trabajos de Stream Analytics "extraen" datos de los orígenes de datos y que cada "extracción" devuelve un lote de eventos que procesa el trabajo de Stream Analytics. ¿Cómo afecta este modelo de extracción a las solicitudes de servicio web de Machine Learning?
 
-Normalmente, el tamaño de lote que establecemos para las funciones de Machine Learning no será divisible exactamente por el número de eventos devueltos por cada "extracción" del trabajo de Análisis de transmisiones. Cuando esto suceda, se llamará al servicio web Machine Learning con lotes "parciales". Esto se hace para no generar sobrecarga de latencia adicional del trabajo en la fusión de eventos de una extracción a otra.
+Normalmente, el tamaño de lote que establecemos para las funciones de Machine Learning no será divisible exactamente por el número de eventos devueltos por cada "extracción" del trabajo de Stream Analytics. Cuando suceda esto, se llamará al servicio web Machine Learning con lotes "parciales". Esto se hace para no generar sobrecarga de latencia adicional del trabajo en la fusión de eventos de una extracción a otra.
 
 ## <a name="new-function-related-monitoring-metrics"></a>Nuevas métricas de supervisión relacionadas con la función
 En el área de supervisión de un trabajo de Stream Analytics, se han agregado tres métricas adicionales relacionadas con las funciones. Y son: SOLICITUDES DE FUNCIONES, EVENTOS DE FUNCIONES y SOLICITUDES DE FUNCIONES CON ERRORES, como se muestra en el siguiente gráfico.

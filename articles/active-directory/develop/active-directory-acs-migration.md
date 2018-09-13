@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 803dd69aed91f6e33c354d01d3f5419597d98de9
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 41c7de3039634f262efedc1bb3de1b39dda4593a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115891"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698067"
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migrar desde Azure Access Control Service
 
@@ -106,7 +106,7 @@ Los clientes de SharePoint 2013 y 2016 y SharePoint Online han utilizado durante
 
 | Característica | Guía |
 | ------- | -------- |
-| Autenticación de usuarios desde Azure AD | Anteriormente, Azure AD no admitía los tokens de SAML 1.1 requeridos por SharePoint para la autenticación, y ACS se utilizaba como intermediario que permitía la compatibilidad de SharePoint con formatos de token de Azure AD. Ahora, puede [conectar SharePoint directamente a Azure AD mediante directivas de emisión de tokens](https://docs.microsoft.com/Office365/Enterprise/using-azure-ad-for-sharepoint-server-authentication). |
+| Autenticación de usuarios desde Azure AD | Anteriormente, Azure AD no admitía los tokens de SAML 1.1 requeridos por SharePoint para la autenticación, y ACS se utilizaba como intermediario que permitía la compatibilidad de SharePoint con formatos de token de Azure AD. Ahora, puede [conectar SharePoint directamente a Azure AD con la aplicación SharePoint local de la galería de aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Autenticación de aplicaciones y autenticación de servidor a servidor en SharePoint local](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | No resulta afectado por la retirada de ACS; no se requieren cambios. | 
 | [Autorización de confianza baja para complementos de SharePoint (proveedor hospedado y SharePoint hospedado)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | No resulta afectado por la retirada de ACS; no se requieren cambios. |
 | [Búsqueda de SharePoint en la nube híbrida](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | No resulta afectado por la retirada de ACS; no se requieren cambios. |

@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 888a99cad68f98030d4481cc23cb82123c900ee6
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 2a6172a4e163d937f5a0a2140831b730bca23c3f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480536"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696530"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso de datos de referencia para las búsquedas en Stream Analytics
 Los datos de referencia (también denominados tabla de consulta) son un conjunto finito de datos estáticos o de cambio lento de naturaleza, que se usan para realizar una búsqueda o para relacionarlos con el flujo de datos. Azure Stream Analytics carga los datos de referencia en la memoria para lograr un procesamiento del flujo de baja latencia. Para usar los datos de referencia en un trabajo de Azure Stream Analytics, por lo general usará una [instrucción JOIN de los datos de referencia](https://msdn.microsoft.com/library/azure/dn949258.aspx) en la consulta. Stream Analytics usa Azure Blob Storage como capa de almacenamiento para los datos de referencia y con Azure Data Factory los datos de referencia se pueden transformar o copiar en Azure Blob Storage para su uso como datos de referencia, desde [cualquier número de almacenes de datos locales y en la nube](../data-factory/copy-activity-overview.md). Los datos de referencia se modelan como una secuencia de blobs (que se define en la configuración de entrada) en orden ascendente por la fecha y hora que se especifique en el nombre del blob. **Solo** se admite que se agreguen al final de la secuencia con una fecha y hora **posteriores** a las especificadas en el último blob de la secuencia.

@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: saneppal
-ms.openlocfilehash: b888846056fd60f37cdb1da85904fa14ffe79a39
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 698f96b15a9387cd30d26e684ed03ff4cc3346a7
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381826"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697907"
 ---
 # <a name="data-sources"></a>Orígenes de datos 
 QnA Maker puede extraer automáticamente pares pregunta-respuesta de formatos de contenido semiestructurado comunes, como preguntas más frecuentes y manuales de productos. El contenido también se puede agregar a la base de conocimiento de archivos estructurados.
@@ -53,7 +53,7 @@ Los archivos estructurados como .tsv o .xlsx con columnas con formato también s
 
 | Pregunta  | Respuesta  | Metadatos                |
 |-----------|---------|-------------------------|
-| Pregunta1 | Respuesta1 | `Key1:Value1\|Key2:Value2` |
+| Pregunta1 | Respuesta1 | `Key1:Value1|Key2:Value2` |
 | Pregunta2 | Respuesta2 |      `Key:Value`           |
 Se ignoran las columnas adicionales del archivo de origen.
 
@@ -62,7 +62,7 @@ Al importar una base de conocimiento, se reemplaza el contenido de la base de co
 
 | Pregunta  | Respuesta  | Origen| Metadatos                |
 |-----------|---------|----|---------------------|
-| Pregunta1 | Respuesta1 | URL1|`Key1:Value1\|Key2:Value2` |
+| Pregunta1 | Respuesta1 | URL1|`Key1:Value1|Key2:Value2` |
 | Pregunta2 | Respuesta2 | Editorial|    `Key:Value`       |
 
 ## <a name="editorial"></a>Editorial
@@ -75,4 +75,4 @@ Si no tiene contenido existente previamente para rellenar la base de conocimient
 
 ## <a name="see-also"></a>Otras referencias 
 
-[Información general de QnA Maker](../Overview/overview.md)
+[Introducción de QnA Maker](../Overview/overview.md)

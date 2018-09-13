@@ -6,18 +6,18 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: f4bad3d7058e82a246afce9502d275c7d485cb88
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011953"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698390"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Supervisión de las soluciones de Batch realizando un recuento de las tareas y los nodos por estado
 
-Para supervisar y administrar soluciones de Azure Batch a gran escala, necesita recuentos precisos de los recursos de varios estados. Azure Batch proporciona eficaces operaciones para obtener estos recuentos de las *tareas* y los *nodos de ejecución* de Batch. Use estas operaciones en lugar de llamadas API que es posible que tarden mucho para devolver información detallada sobre grandes colecciones de tareas o nodos.
+Para supervisar y administrar soluciones de Azure Batch a gran escala, necesita recuentos precisos de los recursos de varios estados. Azure Batch proporciona eficaces operaciones para obtener estos recuentos de las *tareas* y los *nodos de ejecución* de Batch. Use estas operaciones en lugar de consultas de lista que es posible que tarden mucho para devolver información detallada sobre grandes colecciones de tareas o nodos.
 
 * [Get Task Counts][rest_get_task_counts] obtiene un recuento agregado de tareas activas, en ejecución y completadas, así como de tareas que se realizaron correctamente o no. 
 
@@ -49,19 +49,15 @@ Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.Ru
 Console.WriteLine("Task count in completed state: {0}", taskCounts.Completed);
 Console.WriteLine("Succeeded task count: {0}", taskCounts.Succeeded);
 Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
-Console.WriteLine("ValidationStatus: {0}", taskCounts.ValidationStatus);
 ```
 
 Puede usar un patrón similar para REST y otros lenguajes admitidos para obtener los recuentos de tareas de un trabajo. 
- 
 
-### <a name="consistency-checking-for-task-counts"></a>Comprobación de coherencia de los recuentos de tareas
+### <a name="counts-for-large-numbers-of-tasks"></a>Recuentos para un gran número de tareas
 
-Batch proporciona una validación adicional para los recuentos de estados de tareas mediante la realización de comprobaciones de coherencia en varios componentes del sistema. En el caso poco probable de que la comprobación de coherencia detecte errores, Batch corregirá el resultado de la operación Get Tasks Counts basándose en los resultados de la comprobación de coherencia.
+La operación Get Task Counts devuelve recuentos de estados de las tareas del sistema en un momento dado. Cuando el trabajo tiene un gran número de tareas, los recuentos devueltos por Get Task Counts pueden retrasar un par de segundos el estado real de las tareas. Batch garantiza la coherencia final entre los resultados de Get Task Counts y los estados reales de las tareas (que se pueden consultar a través de List Tasks API). Sin embargo, si el trabajo tiene un gran número de tareas (más de 200 000), le recomendamos que use List Tasks API y una [consulta filtrada](batch-efficient-list-queries.md) en su lugar, pues se proporciona información más actualizada. 
 
-La propiedad `validationStatus` de la respuesta indica si Batch ha realizado la comprobación de coherencia. Si Batch no ha comprobado el recuento de estados con respecto a los estados reales conservados en el sistema, la propiedad `validationStatus` se establece en `unvalidated`. Por motivos de rendimiento, Batch no realizará la comprobación de coherencia si el trabajo incluye más de 200 000 tareas, por lo que la propiedad `validationStatus` se establecerá en `unvalidated` en este caso (el recuento de tareas no es necesariamente incorrecto en este caso, ya que incluso una pérdida de datos limitada es improbable). 
-
-Cuando el estado de una tarea cambia, la canalización de agregación procesa el cambio en cuestión de segundos. La operación Get Task Counts refleja los recuentos de tareas actualizadas dentro de ese período. Sin embargo, si la canalización de agregación omite un cambio en el estado de una tarea, ese cambio no se registrará hasta la siguiente validación. Durante este tiempo, los recuentos de tareas pueden resultar ligeramente imprecisos debido al evento que falta, pero se corrigen durante la siguiente validación.
+Las versiones de la API del servicio de Batch anteriores a 2018-08-01.7.0 también devolverán una propiedad `validationStatus` en la respuesta de Get Task Counts. Esta propiedad indica si Batch comprobó la coherencia de los conteos de estados con los estados obtenidos mediante List Tasks API. Un valor de `validated` solo indica que Batch comprobó la coherencia del trabajo al menos una vez. El valor de la propiedad `validationStatus` no indica si los recuentos que devuelve Get Task Counts están actualmente actualizados.
 
 ## <a name="node-state-counts"></a>Recuentos de estados de nodos
 

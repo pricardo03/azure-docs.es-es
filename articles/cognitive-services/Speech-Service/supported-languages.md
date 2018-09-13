@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7e2634db33d760207e9190b9955bd1f2ead179be
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: de9abac2839341e1744a694daaaa0befdff4e7fa
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123161"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668587"
 ---
 # <a name="supported-languages-for-speech-service"></a>Idiomas admitidos por el servicio Voz
 
@@ -39,7 +39,7 @@ Speech Recognition API de Microsoft admite los siguientes idiomas.
 
 ## <a name="text-to-speech"></a>Texto a voz
 
-**Text to Speech** API ofrece las voces siguientes, cada una de las cuales admite un idioma y un dialecto específicos, identificados mediante la configuración regional.
+La API de síntesis de voz ofrece las voces siguientes, cada una de las cuales admite un idioma y un dialecto específicos, identificados mediante la configuración regional.
 
 Configuración regional | Idioma | Sexo | Asignación de nombre de servicio
 -------|----------|---------|--------------------
@@ -128,13 +128,16 @@ zh-TW | Chino (Taiwán)|Mujer | "Microsoft Server Speech Text to Speech Voice (z
 
 ### <a name="customization"></a>Personalización
 
-Las fuentes de voz de **Text to Speech** admiten inglés de Estados Unidos (en-US) y chino (zh-CN).
+La personalización de la voz está disponible para inglés de Estados Unidos (en-US), chino continental (zh-CN) e italiano (it-IT).
+
+> [!NOTE]
+> El entrenamiento de voz en italiano comienza con un conjunto de datos de más de 2.000 grabaciones de voz. Los modelos bilingües chino-inglés también se admiten con un conjunto de datos inicial de más de 2.000 grabaciones de voz.
 
 ## <a name="speech-translation"></a>Speech Translation
 
 **Speech Translation** API admite varios idiomas para la traducción de voz a voz y de texto a voz. El idioma de origen debe incluirse siempre en la siguiente tabla de idiomas de voz. Los idiomas de destino admitidos dependen de si el destino de traducción es voz o texto.
 
-Puede obtener la lista de idiomas mediante programación o con el punto de conexión de idiomas de la API REST. La lista proporciona cada código de idioma, así como el nombre del idioma en inglés (o en cualquier otro idioma admitido). El servicio Microsoft Translator actualiza esta lista cuando hay nuevos idiomas disponibles.
+Puede obtener la lista de idiomas mediante programación mediante el punto de conexión de idiomas de la API REST. La lista proporciona cada código de idioma, así como el nombre del idioma en inglés (o en cualquier otro idioma admitido). El servicio Microsoft Translator actualiza esta lista cuando hay nuevos idiomas disponibles.
 
 ### <a name="speech-languages"></a>Idiomas de voz
 

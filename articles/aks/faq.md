@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: iainfou
-ms.openlocfilehash: b910b6cdf55ae7c2a220543bdb555d8e9bff59a0
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: f4bc7724c0bc288ab269d1b3ec054bd1a6ba26e3
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143084"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701201"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 
@@ -58,7 +58,7 @@ Si crea recursos para usarlos con el clúster de AKS, como cuentas de almacenami
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>¿Puedo modificar etiquetas y otras propiedades de los recursos AKS en el grupo de recursos MC_ *?
 
-Modificar y eliminar etiquetas y otras propiedades de recursos en el grupo de recursos *MC_* * puede provocar resultados inesperados, como escalado y actualización de errores. La modificación de los recursos de *MC_* * en el clúster de AKS interrumpe el cierre de sesión único.
+Modificar y eliminar las etiquetas creadas en Azure y otras propiedades de recursos en el grupo de recursos *MC_* * puede provocar resultados inesperados, como escalado y errores de actualización. Se admite para crear y modificar etiquetas personalizadas adicionales, como asignar un centro de coste o unidad de negocio. La modificación de los recursos de *MC_* * en el clúster de AKS interrumpe el cierre de sesión único.
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>¿Qué controladores de admisión de Kubernetes admite AKS? ¿Se pueden agregar o eliminar los controladores de admisión?
 

@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/20/2018
-ms.openlocfilehash: 72f8211ecc0534b15402911de8fc0ec3d541a835
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.date: 08/31/2018
+ms.openlocfilehash: 6135e4a0182f3af7db54eab974e4c307402185ab
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294911"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666083"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replicar datos en Azure Database for MySQL
 
@@ -29,16 +29,17 @@ Los escenarios principales para considerar el uso de Data-in Replication son:
 ## <a name="limitations-and-considerations"></a>Limitaciones y consideraciones
 
 ### <a name="data-not-replicated"></a>Datos no replicados
-La [*base de datos del sistema mysql* ](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) del servidor principal no se replica. No se replican los cambios en las cuentas y permisos en el servidor principal. Si crea una cuenta en el servidor principal y esta cuenta debe tener acceso al servidor Réplica, a continuación, cree manualmente la misma cuenta en el lado del servidor Réplica. Para reconocer qué tablas se encuentran en la base de datos del sistema, vea el [manual de MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-database.html).
+La [*base de datos del sistema mysql* ](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) del servidor maestro no se replica. No se replican los cambios en las cuentas y permisos en el servidor maestro. Si crea una cuenta en el servidor maestro y esta cuenta debe tener acceso al servidor de réplica, cree manualmente la misma cuenta en el servidor de réplica. Para reconocer qué tablas se encuentran en la base de datos del sistema, vea el [manual de MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-database.html).
 
 ### <a name="requirements"></a>Requisitos
-- La versión del servidor principal debe ser al menos la versión 5.6 de MySQL. 
-- La versión del servidor principal y Réplica deben ser la misma. Por ejemplo, ambas deben ser MySQL versión 5.6 o ambas deben ser MySQL versión 5.7.
+- La versión del servidor maestro debe ser al menos la versión 5.6 de MySQL. 
+- Las versiones del servidor maestro y de réplica deben ser las mismas. Por ejemplo, ambas deben ser MySQL versión 5.6 o ambas deben ser MySQL versión 5.7.
 - Cada tabla debe tener una clave principal.
-- El servidor principal debe usar el motor InnoDB de MySQL.
-- El usuario debe tener permisos para configurar el registro binario y crear nuevos usuarios en el servidor principal.
+- El servidor maestro debe usar el motor InnoDB de MySQL.
+- El usuario debe tener permisos para configurar el registro binario y crear nuevos usuarios en el servidor maestro.
 
 ### <a name="other"></a>Otros
+- Replicación de datos de entrada solo se admite en los planes de tarifa De uso general y Optimizada para memoria de los planes de tarifa
 - No se admiten identificadores de transacción global (GTID).
 
 ## <a name="next-steps"></a>Pasos siguientes

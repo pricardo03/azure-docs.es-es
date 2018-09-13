@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 16d023a2f3abf0feb1f1c0478edb3de7a157d5a4
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 1f3a24cebe5061f7e3ca3897692b068531780431
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42143860"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668128"
 ---
 # <a name="how-to-use-perfinsights"></a>Cómo usar PerfInsights
 
@@ -171,7 +171,7 @@ Pruebas de carga de trabajo de E/S de Diskspd [disco del sistema operativo (escr
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Posibles problemas al ejecutar la herramienta en máquinas virtuales de producción
 
--  Tanto en los escenarios de pruebas comparativas como en el de "Análisis avanzado del rendimiento" que está configurado para usar Xperf o Diskspd, la herramienta podría afectar de manera negativa al rendimiento de la máquina virtual. Estos escenarios no se deben ejecutar en un entorno de producción en vivo.
+-  Tanto en los escenarios de pruebas comparativas como en el de "Análisis avanzado del rendimiento" que está configurado para usar Xperf o Diskspd, la herramienta podría afectar de manera negativa al rendimiento de la VM. Estos escenarios no se deben ejecutar en un entorno de producción en vivo.
 
 -  Tanto en los escenarios de pruebas comparativas como en el de "Análisis avanzado del rendimiento" que está configurado para usar Diskspd, asegúrese de que ninguna otra actividad en segundo plano interfiera con la carga de trabajo de E/S.
 
@@ -245,11 +245,11 @@ Para ejecutar la herramienta PerfInsights, siga estos pasos:
     >
     >Si no se especifica el modificador de duración **/d**, PerfInsights le pide que reproduzca el problema mientras se ejecutan los escenarios vmslow, azurefiles y advanced. 
 
-Cuando las operaciones o los seguimientos se completan, aparece un nuevo archivo en la misma carpeta que PerfInsights. El nombre del archivo es **CollectedData\_aaaa-MM-dd\_hh-mm-ss-fff.zip.** Puede enviar este archivo al agente de soporte técnico para que lo analice o abrir el informe dentro del archivo ZIP para revisar las conclusiones y recomendaciones.
+Cuando las operaciones o los seguimientos se completan, aparece un nuevo archivo en la misma carpeta que PerfInsights. El nombre del archivo es **PerformanceDiagnostics\_aaaa-MM-dd\_hh-mm-ss-fff.zip.** Puede enviar este archivo al agente de soporte técnico para que lo analice o abrir el informe dentro del archivo ZIP para revisar las conclusiones y recomendaciones.
 
 ## <a name="review-the-diagnostics-report"></a>Revisión del informe de diagnóstico
 
-En el archivo **CollectedData\_aaaa-MM-dd\_hh-mm-ss-fff.zip.**, puede encontrar un informe HTML que detalla las conclusiones de PerfInsights. Para revisar el informe, expanda el archivo **CollectedData\_aaaa-MM-dd\_hh-mm-ss-fff.zip.** y después abra el archivo **PerfInsights Report.html**.
+En el archivo **PerformanceDiagnostics\_aaaa-MM-dd\_hh-mm-ss-fff.zip.**, puede encontrar un informe HTML en el que se detallan las conclusiones de PerfInsights. Para revisar el informe, expanda el archivo **PerformanceDiagnostics\_aaaa-MM-dd\_hh-mm-ss-fff.zip.** y después abra el archivo **PerfInsights Report.html**.
 
 Haga clic en la pestaña **Conclusiones**.
 
@@ -314,4 +314,4 @@ La siguiente captura de pantalla muestra un mensaje similar al que puede recibir
 
 Siga las instrucciones del mensaje para acceder al área de trabajo de transferencia de archivos. Para mayor seguridad, tiene que cambiar la contraseña la primera vez que la use.
 
-Después de iniciar sesión, encontrará un cuadro de diálogo para cargar el archivo **CollectedData\_aaaa-MM-dd\_hh-mm-ss-fff.zip** que recopiló PerfInsights.
+Después de iniciar sesión, encontrará un cuadro de diálogo para cargar el archivo **PerformanceDiagnostics\_aaaa-MM-dd\_hh-mm-ss-fff.zip** que recopiló PerfInsights.

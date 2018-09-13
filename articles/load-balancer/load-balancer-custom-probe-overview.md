@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: 5ceddb1bcd6ce89f7014e034b56c873f02cc2007
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: ecc33fc6078dac4affe3942f1be7e039ae9e9e70
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190740"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695432"
 ---
 # <a name="load-balancer-health-probes"></a>Sondeos de estado de Load Balancer
 
@@ -36,7 +36,7 @@ Los tipos de sondeos de estado disponibles y la manera en que se comportan depen
 > [!IMPORTANT]
 > Los sondeos de estado de Load Balancer parten de la dirección IP 168.63.129.16 y no deben bloquearse para que los sondeos marquen su instancia.  Para más información, consulte el apartado [Probe source IP address](#probesource) (Dirección IP de origen de sondeo).
 
-## <a name="types"></a>Tipos de sondeo de estado
+## <a name="types"></a>Tipos de sondeo
 
 Los sondeos de estado pueden observar cualquier puerto de una instancia de back-end, lo que incluye el puerto en el que se proporciona el servicio real. El protocolo de sondeo de estado puede configurarse para tres tipos diferentes de sondeos de estado:
 

@@ -4,14 +4,14 @@ description: Aborda las preguntas más frecuentes sobre Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 09/03/2018
 ms.author: snehaa
-ms.openlocfilehash: 3f035f38b1ad68e9e39d151ffad3fc650a0a1d80
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: ce9dc4aab26b99bbb1e9f24f018354b8c91f66f4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952756"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699971"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate: preguntas más frecuentes (P+F)
 
@@ -123,6 +123,12 @@ Si tiene un entorno que se comparte entre los inquilinos y no desea detectar las
 ### <a name="how-many-virtual-machines-can-be-discovered-in-a-single-migration-project"></a>¿Cuántas máquinas virtuales se pueden detectar en un solo proyecto de migración?
 
 Puede detectar 1500 máquinas virtuales en un solo proyecto de migración. Si tiene varias máquinas en su entorno local, [obtenga más información](how-to-scale-assessment.md) sobre cómo puede detectar un entorno de gran tamaño en Azure Migrate.
+
+### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>¿Azure Migrate es compatible con la estimación de costes basada en Contrato Enterprise (EA)?
+
+Actualmente, Azure Migrate no es compatible con la estimación de costes de la [oferta para Contrato Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support/). La solución alternativa consiste en especificar pago por uso como la oferta y especificar manualmente el porcentaje de descuento (se aplica a la suscripción) en el campo "Descuento" de las propiedades de valoración.
+
+  ![Descuento](./media/resources-faq/discount.png)
 
 ## <a name="dependency-visualization"></a>Visualización de dependencia
 

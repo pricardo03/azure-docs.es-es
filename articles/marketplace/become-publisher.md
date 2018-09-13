@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4d37aba665fd9b6de89f683ce2785a14b1b6f60b
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c6f074b84b099f6ea5023967fdae7e44d5e9d545
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412022"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666391"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Conviértase en anunciante de Cloud Marketplace
 
@@ -74,7 +74,8 @@ Se le solicitará incluir la información siguiente:
 
 ---  
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Conexión a Cloud Partner Portal
-| 1-3 días | Nuestro equipo encargado de la incorporación en Marketplace revisará y validará los detalles del registro de Marketplace que se proporcionaron en el paso 3. Una vez aprobados, recibirá un correo electrónico de bienvenida con las credenciales de la cuenta e instrucciones acerca de cómo iniciar sesión en [Cloud Partner Portal](https://cloudpartner.azure.com).
+| 1-3 días | <br>
+Nuestro equipo encargado de la incorporación en Marketplace revisará y validará los detalles del registro de Marketplace que se proporcionaron en el paso 3. Una vez aprobados, recibirá un correo electrónico de bienvenida con las credenciales de la cuenta e instrucciones acerca de cómo iniciar sesión en [Cloud Partner Portal](https://cloudpartner.azure.com).
 
 Usará [Cloud Partner Portal](https://cloudpartner.azure.com) para crear, publicar y administrar ofertas de Marketplace. Una vez que reciba el correo electrónico de bienvenida de aprobación, puede iniciar sesión inmediatamente en [Cloud Partner Portal](https://cloudpartner.azure.com) con su cuenta de Microsoft para obtener acceso a información técnica adicional acerca de cómo publicar en Marketplace y crear su oferta. 
 *   Para más información sobre cómo usar Cloud Partner Portal, [consulte el artículo Introducción de la sección de aprendizaje](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). Debe iniciar sesión en Cloud Partner Portal para tener acceso a estos detalles.
