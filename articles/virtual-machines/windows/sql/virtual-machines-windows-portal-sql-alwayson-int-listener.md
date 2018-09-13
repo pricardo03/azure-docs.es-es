@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 7ef26dc5fa7676ca590d56978c735bf4a195440b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e87b58ecd72291365f9eba70c807e3018c02ae07
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698057"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382746"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configuración de un equilibrador de carga para un grupo de disponibilidad AlwaysOn en Azure
 En este artículo se explica cómo puede crear un equilibrador de carga para un grupo de disponibilidad de SQL Server AlwaysOn en instancias de Azure Virtual Machines que se ejecutan con Azure Resource Manager. Cuando las instancias de SQL Server están implementadas en máquinas virtuales de Azure, los grupos de disponibilidad necesitan un equilibrador de carga. El equilibrador de carga almacena la dirección IP del agente de escucha del grupo de disponibilidad. Si un grupo de disponibilidad abarca varias regiones, cada región necesitará su propio equilibrador de carga.
@@ -65,7 +65,7 @@ En primer lugar, cree el equilibrador de carga.
 
    | Configuración | Valor |
    | --- | --- |
-   | **Name** |Nombre de texto que representa el equilibrador de carga; Por ejemplo, **sqlLB**. |
+   | **Nombre** |Nombre de texto que representa el equilibrador de carga; Por ejemplo, **sqlLB**. |
    | **Tipo** |**Interno**: la mayoría de las implementaciones usa un equilibrador de carga interno que permite a las aplicaciones dentro de la misma red virtual conectarse al grupo de disponibilidad.  </br> **Externo**: permite que las aplicaciones se conecten al grupo de disponibilidad a través de una conexión a Internet pública. |
    | **Red virtual** |Seleccione la red virtual en la que se encuentran las instancias de SQL Server. |
    | **Subred** |Seleccione la subred en la que se encuentran las instancias de SQL Server. |
@@ -111,7 +111,7 @@ Este sondeo establece el modo en que Azure va a comprobar cuál de las instancia
 
    | Configuración | Valor |
    | --- | --- |
-   | **Name** |Nombre de texto que representa el sondeo. Por ejemplo, **SQLAlwaysOnEndPointProbe**. |
+   | **Nombre** |Nombre de texto que representa el sondeo. Por ejemplo, **SQLAlwaysOnEndPointProbe**. |
    | **Protocolo** |**TCP** |
    | **Puerto** |Puede usar cualquier puerto que esté disponible. Por ejemplo, *59999*. |
    | **Intervalo** |*5* |
@@ -137,7 +137,7 @@ Las reglas de equilibrio de carga determinan cómo el equilibrador de carga enru
 
    | Configuración | Valor |
    | --- | --- |
-   | **Name** |Nombre de texto que representa las reglas de equilibrio de carga. Por ejemplo, **SQLAlwaysOnEndPointListener**. |
+   | **Nombre** |Nombre de texto que representa las reglas de equilibrio de carga. Por ejemplo, **SQLAlwaysOnEndPointListener**. |
    | **Protocolo** |**TCP** |
    | **Puerto** |*1433* |
    | **Puerto back-end** |*1433*. Este valor se ignorará porque la regla usa **IP flotante (Direct Server Return)**. |
@@ -223,7 +223,7 @@ Para agregar una dirección IP a un equilibrador de carga con el portal de Azure
 
    |Configuración |Valor
    |:-----|:----
-   |**Name** |Un nombre para identificar el sondeo.
+   |**Nombre** |Un nombre para identificar el sondeo.
    |**Protocolo** |TCP
    |**Puerto** |Un puerto TCP sin usar, que debe estar disponible en todas las máquinas virtuales. No se puede usar para ningún otro fin. Dos agentes de escucha no pueden usar el mismo puerto de sondeo. 
    |**Intervalo** |Cantidad de tiempo entre los intentos de sondeo. Use el valor predeterminado (5).
@@ -237,7 +237,7 @@ Para agregar una dirección IP a un equilibrador de carga con el portal de Azure
 
    |Configuración |Valor
    |:-----|:----
-   |**Name** |Un nombre para identificar la regla de equilibrio de carga. 
+   |**Nombre** |Un nombre para identificar la regla de equilibrio de carga. 
    |**Frontend IP address** (Dirección IP de front-end) |Seleccione la dirección IP que creó. 
    |**Protocolo** |TCP
    |**Puerto** |Use el puerto que usan las instancias de SQL Server. Una instancia predeterminada usa el puerto 1433, a menos que lo haya modificado. 
@@ -286,7 +286,7 @@ Si un grupo de disponibilidad forma parte de un grupo de disponibilidad distribu
 
    |Configuración |Valor
    |:-----|:----
-   |**Name** |Nombre para identificar la regla de equilibrio de carga para el grupo de disponibilidad distribuido. 
+   |**Nombre** |Nombre para identificar la regla de equilibrio de carga para el grupo de disponibilidad distribuido. 
    |**Frontend IP address** (Dirección IP de front-end) |Use la misma dirección IP de front-end que en el grupo de disponibilidad.
    |**Protocolo** |TCP
    |**Puerto** |5022: el puerto para el [escucha de punto de conexión del grupo de disponibilidad distribuido](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Puede ser cualquier puerto disponible.  
@@ -298,6 +298,8 @@ Si un grupo de disponibilidad forma parte de un grupo de disponibilidad distribu
    |**IP flotante (Direct Server Return)** | habilitado
 
 Repita estos pasos para el equilibrador de carga de los otros grupos de disponibilidad que forman parte de los grupos de disponibilidad distribuidos.
+
+Si restringe el acceso con Azure Network Security Group, asegúrese de que las reglas de permiso incluyan las direcciones IP de back-end de VM con SQL Server, y direcciones IP flotantes del equilibrador de carga para la escucha de grupo de disponibilidad y la dirección IP principal del clúster, si corresponde.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

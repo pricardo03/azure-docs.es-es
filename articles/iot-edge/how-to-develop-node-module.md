@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/26/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 78e952b5b1eedc1757cfe636eb13e411044dce54
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 6976314929ac2e0e099e8c2f07da32970bc57509
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42145908"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382514"
 ---
 # <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>Desarrollo y depuración de módulos de Node.js con Azure IoT Edge para Visual Studio Code
 
@@ -35,9 +35,7 @@ Para crear un módulo, necesita una instancia de Node.js que incluya npm para cr
 * [Node.js](https://nodejs.org)
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) o [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
-
-   >[!TIP]
-   >Puede usar un registro de Docker local para fines de prototipo y pruebas en lugar de un registro en la nube. 
+   * Puede usar un registro de Docker local para fines de prototipo y pruebas en lugar de un registro en la nube. 
 
 Para probar el módulo en un dispositivo, necesita una instancia de IoT Hub con al menos un dispositivo IoT Edge. Si desea utilizar el equipo como un dispositivo IoT Edge, puede hacerlo siguiendo los pasos descritos en los tutoriales para [Windows](quickstart.md) o [Linux](quickstart-linux.md). 
 
@@ -60,7 +58,9 @@ En los siguientes pasos puede ver cómo crear un módulo de IoT Edge basado en N
 6. Proporcione un nombre para la solución. 
 7. Elija **Node.js Module** como la plantilla del primer módulo de la solución.
 8. Especifique un nombre para el módulo. Elija un nombre que sea único dentro del registro de contenedor. 
-9. Especifique el repositorio de imágenes del módulo. VS Code rellena automáticamente el nombre del módulo, por lo que solo tiene que reemplazar **localhost:5000** por la información de su propio registro. Si usa un registro de Docker local para realizar pruebas, localhost puede valer. Si va a usar Azure Container Registry, utilice el servidor de inicio de sesión de la configuración del registro. El servidor de inicio de sesión se parece a **\<nombre del registro\>.azurecr.io**.
+9. Especifique el repositorio de imágenes del módulo. VS Code rellena automáticamente el nombre del módulo, por lo que solo tiene que reemplazar **localhost:5000** por la información de su propio registro. Si usa un registro de Docker local para realizar pruebas, localhost puede valer. Si va a usar Azure Container Registry, utilice el servidor de inicio de sesión de la configuración del registro. El servidor de inicio de sesión se parece a **\<nombre del registro\>.azurecr.io**. Reemplace solo la parte de localhost de la cadena, no elimine el nombre del módulo.
+
+   ![Especificación del repositorio de imágenes de Docker](./media/how-to-develop-node-module/repository.png)
 
 VS Code toma la información que le ha proporcionado, crea una solución IoT Edge y la carga en una nueva ventana.
 
@@ -76,7 +76,7 @@ En la solución tiene tres elementos:
 
 ## <a name="develop-your-module"></a>Desarrollo de su módulo
 
-El código de Node.js predeterminado que se incluye con la solución se encuentra en **módulos** > **\<nombre del módulo\>** > **app.js**. El módulo y el archivo deployment.template.json se configuran para que pueda compilar la solución, insertarla en el registro de contenedor e implementarla en un dispositivo para iniciar la prueba sin tocar el código. El módulo se compila para tomar simplemente la entrada de un origen (en este caso, el módulo tempSensor que simula datos) y canalizarlo a IoT Hub. 
+El código de Node.js predeterminado que se incluye con la solución se encuentra en **módulos** > [nombre del módulo] > **app.js**. El módulo y el archivo deployment.template.json se configuran para que pueda compilar la solución, insertarla en el registro de contenedor e implementarla en un dispositivo para iniciar la prueba sin tocar el código. El módulo se compila para tomar simplemente la entrada de un origen (en este caso, el módulo tempSensor que simula datos) y canalizarlo a IoT Hub. 
 
 Cuando esté listo para personalizar la plantilla de Node.js con su propio código, use los [SDK de Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md) para compilar módulos que aborden las necesidades principales de las soluciones de IoT, como seguridad, administración de dispositivos y confiabilidad. 
 
@@ -92,7 +92,7 @@ En cada carpeta del módulo, hay varios archivos de Docker para diferentes tipos
 
 2. En la paleta de comandos de VS Code, escriba y ejecute el comando **Azure IoT Edge: Build IoT Edge solution** (Azure IoT Edge: compilar solución IoT Edge).
 3. Seleccione el archivo `deployment.template.json` para la solución en la paleta de comandos. 
-4. En el Explorador de dispositivos de Azure IoT Hub, haga clic con el botón derecho en un identificador de dispositivo IoT Edge y, a continuación, seleccione **Create deployment for IoT Edge device** (Crear implementación para dispositivo IoT Edge). 
+4. En el Explorador de dispositivos de Azure IoT Hub, haga clic con el botón derecho en un identificador de dispositivo de IoT Edge y, a continuación, seleccione **Create deployment for Single device** (Crear implementación para un dispositivo individual). 
 5. Abra la carpeta **config** de la solución y, a continuación, seleccione el archivo `deployment.json`. Haga clic en **Select Edge Deployment Manifest** (Seleccionar manifiesto de implementación de Edge). 
 
 A continuación, puede ver que la implementación se ha creado correctamente con un identificador de implementación en el terminal integrado de VS Code.

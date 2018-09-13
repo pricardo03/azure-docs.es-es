@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: e4a72729cfe69a810e0eec0a0ac6ddb87a468932
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4b14fa44f484735f2a5efee4d631a6f48e6a8bf6
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42147004"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382643"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configuración y uso del emulador de almacenamiento con Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -33,7 +33,7 @@ Para información detallada sobre el emulador de almacenamiento, incluidos los r
 > 
 
 ## <a name="configuring-a-connection-string-for-the-storage-emulator"></a>Configuración de una cadena de conexión para el emulador de almacenamiento
-Para acceder al emulador de almacenamiento desde el código dentro de un rol, deberá configurar una cadena de conexión que señale al emulador de almacenamiento y que se pueda cambiar después para que señale a una cuenta de almacenamiento de Azure. Una cadena de conexión es una opción de configuración que el rol puede leer en tiempo de ejecución para conectarse a una cuenta de almacenamiento. Para obtener más información sobre cómo crear cadenas de conexión, consulte el artículo sobre cómo [configurar la aplicación de Azure](https://msdn.microsoft.com/library/azure/2da5d6ce-f74d-45a9-bf6b-b3a60c5ef74e#BK_SettingsPage).
+Para acceder al emulador de almacenamiento desde el código dentro de un rol, deberá configurar una cadena de conexión que señale al emulador de almacenamiento y que se pueda cambiar después para que señale a una cuenta de almacenamiento de Azure. Una cadena de conexión es una opción de configuración que el rol puede leer en tiempo de ejecución para conectarse a una cuenta de almacenamiento. Para obtener más información sobre cómo crear cadenas de conexión, consulte [Configuración de las cadenas de conexión de Azure Storage](/azure/storage/common/storage-configure-connection-string).
 
 > [!NOTE]
 > Puede devolver una referencia a la cuenta del emulador de almacenamiento desde el código mediante la propiedad **DevelopmentStorageAccount** . Este enfoque funciona correctamente si desea acceder al emulador de almacenamiento desde el código, pero, si piensa publicar su aplicación en Azure, necesitará crear una cadena de conexión para acceder a su cuenta de almacenamiento de Azure y modificar el código para que use esa cadena de conexión antes de publicarla. Si cambia entre la cuenta del emulador de almacenamiento y una cuenta de almacenamiento de Azure con frecuencia, una cadena de conexión simplificará el proceso.

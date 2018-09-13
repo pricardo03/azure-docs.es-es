@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 11aecd9b2bc1bc1521a0e27fc3cd06fe7426a26d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b4641c847db817df905f056847a26d003ac25fd1
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307993"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381802"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configuración de uno o varios agentes de escucha de grupo de disponibilidad AlwaysOn: Resource Manager
 En este tema se muestra cómo llevar a cabo dos tareas:
@@ -42,6 +42,8 @@ Temas relacionados:
 
 ## <a name="configure-the-windows-firewall"></a>Configuración de Firewall de Windows
 Configure Firewall de Windows para permitir el acceso de SQL Server. Las reglas de firewall permiten las conexiones TCP para el uso de puertos por la instancia de SQL Server, así como el sondeo del agente de escucha. Para instrucciones detalladas, consulte [Configurar Firewall de Windows para el acceso al motor de base de datos](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Cree una regla de entrada para el puerto de SQL Server y para el puerto de sondeo.
+
+Si restringe el acceso con Azure Network Security Group, asegúrese de que las reglas de permiso incluyan las direcciones IP de back-end de VM con SQL Server, y direcciones IP flotantes del equilibrador de carga para la escucha de grupo de disponibilidad y la dirección IP principal del clúster, si corresponde.
 
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Script de ejemplo: Crear un equilibrador de carga interno con PowerShell
 > [!NOTE]
@@ -195,6 +197,7 @@ Cuando utilice un equilibrador de carga interno, tenga en cuenta las siguientes 
 
 * Como solo hay un equilibrador de carga interno, el acceso al agente de escucha se realizará desde la misma red virtual.
 
+* Si restringe el acceso con Azure Network Security Group, asegúrese de que las reglas de permiso incluyan las direcciones IP de back-end de VM con SQL Server, y direcciones IP flotantes del equilibrador de carga para la escucha de grupo de disponibilidad y la dirección IP principal del clúster, si corresponde.
 
 ## <a name="for-more-information"></a>Para obtener más información
 Para más información, consulte [Configuración manual de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure](virtual-machines-windows-portal-sql-availability-group-tutorial.md).

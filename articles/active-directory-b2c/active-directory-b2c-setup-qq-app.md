@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 82668446f139a5a003c33178e2d415a9314c61bc
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 11bb5bf132103bed9e154a12c0e628177ca6a57a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952184"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344931"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de QQ mediante Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Para usar una cuenta de QQ como proveedor de identidades en Azure Active Directo
 1. Vaya a [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
 2. Seleccione **应用管理** (Administración de aplicaciones).
 5. Seleccione **创建应用**(Crear aplicación) y escriba la información necesaria.
-7. Escriba `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` en **授权回调域** (Dirección URL de devolución de llamada). Por ejemplo, si `tenant_name` es contoso.onmicrosoft.com, establezca la dirección URL para que sea `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+7. Escriba `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp` en **授权回调域** (Dirección URL de devolución de llamada). Por ejemplo, si `tenant_name` es Contoso, establezca la dirección URL para que sea `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
 8. Seleccione **创建应用** (Crear aplicación).
 9. En la página de confirmación, seleccione **应用管理** (Administración de aplicaciones) para volver a la página de administración de aplicaciones.
 10. Seleccione **查看** (Ver) junto a la aplicación que acaba de crear.
@@ -59,7 +59,7 @@ Para usar una cuenta de QQ como proveedor de identidades en Azure Active Directo
     ![Selección de directorio](./media/active-directory-b2c-setup-qq-app/select-directory.png)
 
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
-4. Seleccione **Proveedores de identidades** y seleccione **Agregar**.
+4. Seleccione **Proveedores de identidades** y, después, **Agregar**.
 5. Proporcione un **nombre**. Por ejemplo, escriba *QQ*.
 6. Seleccione **Identity provider type** (Tipo de proveedor de identidades), **QQ (Preview)** (Versión preliminar de QQ) y haga clic en **OK** (Aceptar).
 7. Seleccione **Set up this identity provider** (Configurar este proveedor de identidades) y escriba el identificador de aplicación que anotó anteriormente como el valor de **Client ID** (Identificador de cliente) y la clave de aplicación que registró como **Client Secret** (Secreto de cliente) de la aplicación de QQ que creó anteriormente.

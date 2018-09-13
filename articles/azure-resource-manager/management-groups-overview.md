@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/31/2018
+ms.date: 08/31/2018
 ms.author: rithorn
-ms.openlocfilehash: edc57d146ccb034ac3fd627386000a1953b0e558
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: b95dba65a7ab89306844e48641aba584e3d6b175
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480329"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371523"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure
 
@@ -38,7 +38,7 @@ Otro escenario en el que usaría grupos de administración es para proporcionar 
 
 ### <a name="important-facts-about-management-groups"></a>Hechos importantes acerca de los grupos de administración
 
-- Se admiten 10 000 grupos de administración en un único directorio.
+- Se admiten 10 000 grupos de administración en un único directorio (inquilino de Azure Active Directory).
 - Un árbol de grupo de administración puede admitir hasta seis niveles de profundidad.
   - Este límite no incluye el nivel raíz o de suscripción.
 - Cada grupo de administración y suscripción admite solo un elemento primario.

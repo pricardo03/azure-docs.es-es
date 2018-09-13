@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: jeedes
-ms.openlocfilehash: f860036f1a69b2d1ab6ac8de763a49380f8fe4bf
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 3a394c13092547991bf7f8ae98e5c69e92077701
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42144541"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344791"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Tutorial: Integración de Azure Active Directory con YouEarnedIt
 
@@ -139,7 +139,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configuración de YouEarnedIt](./media/youearnedit-tutorial/tutorial_youearnedit_configure.png) 
 
-7. Para configurar el inicio de sesión único en **YouEarnedIt**, es preciso enviar el **certificado (Base64)** descargado y la **dirección URL del servicio de inicio de sesión único de SAML** al administrador de éxito de los clientes de YouEarnedIt. Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+7. Para configurar el inicio de sesión único en **YouEarnedIt**, es preciso enviar el ***certificado (Base64)*** descargado y la ***dirección URL del servicio de inicio de sesión único de SAML*** al administrador de éxito de los clientes de **YouEarnedIt**. Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 

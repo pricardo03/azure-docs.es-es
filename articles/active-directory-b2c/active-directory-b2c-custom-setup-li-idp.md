@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 334f696d79cf801facf7c5301b2240b69f7134f7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 58a595c697b6e1a70089a6683493835e0d3a9780
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444385"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344325"
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: adición de LinkedIn como proveedor de identidades mediante directivas personalizadas
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 En este artículo se muestra cómo habilitar el inicio de sesión para los usuarios de una cuenta de LinkedIn mediante el uso de [directivas personalizadas](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Complete los pasos del artículo [Azure Active Directory B2C: introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-a-linkedin-account-application"></a>Paso 1: Creación de una aplicación de la cuenta de LinkedIn
@@ -40,7 +40,7 @@ Para usar LinkedIn como proveedor de identidades en Azure Active Directory B2C (
 
     c. Seleccione un **uso de la aplicación**.
 
-    d. En el cuadro **Website URL** (Dirección URL de sitio web), pegue **https://login.microsoftonline.com**.
+    d. En el cuadro **Dirección URL del sitio web**, pegue **https://{tenant}.b2clogin.com**.  Donde {*tenant*} es el nombre del inquilino (por ejemplo contoso.b2clogin.com).
 
     e. Escriba la dirección de **correo electrónico de la empresa** y el número de **teléfono de la empresa**.
 
@@ -50,7 +50,7 @@ Para usar LinkedIn como proveedor de identidades en Azure Active Directory B2C (
 
 3. Seleccione **Authentication** (Autenticación) y, después, anote los valores de **Client ID** (ID del cliente) y **Client Secret** (Secreto del cliente).
 
-4. En el cuadro **Authorized Redirect URLs** (Redirigir las direcciones URL autorizadas), pegue **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Reemplace {*tenant*} por el nombre de su inquilino (por ejemplo, contosob2c.onmicrosoft.com). Asegúrese de que está utilizando el esquema HTTPS. 
+4. En el cuadro **Authorized Redirect URLs** (URL de redirección autorizadas), pegue **https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**. Reemplace {*tenant*} por el nombre de su inquilino (por ejemplo, contosob2c.onmicrosoft.com). Asegúrese de que está utilizando el esquema HTTPS. 
 
     ![Cuenta de LinkedIn: Establecer la redirección de URL autorizadas](media/active-directory-b2c-custom-setup-li-idp/adb2c-ief-setup-li-idp-new-app3.png)
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 66cd3644611c1d837de717661a3515a0c0d3956f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 838717aa8f426ea54f4736453aac8c6fcf9a0099
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308038"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344504"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Creación de una aplicación web de ASP.NET con procesos de registro e inicio de sesión, edición de perfil y restablecimiento de contraseña de Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 > * Registrar la aplicación web en el directorio de Azure AD B2C
 > * Crear una directiva de registro e inicio de sesión de usuario, edición de perfil y restablecimiento de contraseña para la aplicación web
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Debe conectar el inquilino B2C a una cuenta de Azure. Puede crear una cuenta de Azure gratuita [aquí](https://azure.microsoft.com/).
 - Necesita [Microsoft Visual Studio](https://www.visualstudio.com/) o un programa similar para ver y modificar el código de ejemplo.
@@ -95,7 +95,7 @@ Nuestro ejemplo está configurado para usar las directivas y el identificador de
 * `ida:ResetPasswordPolicyId` por el nombre de la directiva "Restablecer contraseña"
 
 ## <a name="launch-the-app"></a>Inicio de la aplicación
-Desde Visual Studio, inicie la aplicación. Vaya a la pestaña Lista de tareas pendientes y tenga en cuenta que la dirección URL es: https://login.microsoftonline.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*.....
+Desde Visual Studio, inicie la aplicación. Vaya a la pestaña Lista de tareas pendientes y tenga en cuenta que la dirección URL es: https://*YourTenantName*.b2clogin.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*.....
 
 Regístrese en la aplicación con su dirección de correo electrónico o nombre de usuario. Cierre sesión, vuelva a iniciarla, edite el perfil o restablezca la contraseña. Cierre la sesión y iníciela con otro usuario diferente. 
 
