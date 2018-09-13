@@ -1,6 +1,6 @@
 ---
-title: "Supervisión de una aplicación web de ASP.NET con Azure Application Insights | Microsoft Docs"
-description: "Supervise el rendimiento de un sitio web sin volver a implementarlo. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure."
+title: Supervisión de una aplicación web de ASP.NET con Azure Application Insights | Microsoft Docs
+description: Supervise el rendimiento de un sitio web sin volver a implementarlo. Funciona con las aplicaciones web de ASP.NET hospedadas en local, en las máquinas virtuales o en Azure.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,21 +10,21 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/05/2017
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 869ea96072b1492db929c16cfb1e22b0c96bca7d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 54a335cf1386ab29c0e0214bccf1f53a076da02b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783543"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentar aplicaciones web en tiempo de ejecución con Application Insights
 
-
 Puede instrumentar una aplicación web activa con Azure Application Insights sin tener que modificar ni volver a implementar el código. Si las aplicaciones se hospedan en un servidor IIS local, instale el Monitor de estado. Si son aplicaciones web de Azure o se ejecutan en una máquina virtual de Azure, puede activar la supervisión de Application Insights en el panel de control de Azure. (También hay varios artículos sobre cómo configurar [aplicaciones web en directo de J2EE](app-insights-java-live.md) y [Azure Cloud Services](app-insights-cloudservices.md)). Necesita una suscripción a [Microsoft Azure](http://azure.com) .
 
-![gráficos de ejemplo](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
+![Captura de pantalla de gráficos de información general de App Insights con información sobre las solicitudes con error, el tiempo de respuesta del servidor y las solicitudes del servidor](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
 Puede optar entre tres vías de aplicar Application Insights a sus aplicaciones web .NET:
 
@@ -36,14 +36,14 @@ A continuación hay un resumen de lo que se obtiene por cada vía:
 
 |  | Tiempo de compilación | Tiempo de ejecución |
 | --- | --- | --- |
-| Solicitudes y excepciones |Sí |Sí |
-| [Excepciones más detalladas](app-insights-asp-net-exceptions.md) | |Sí |
+| Solicitudes y excepciones |SÍ |SÍ |
+| [Excepciones más detalladas](app-insights-asp-net-exceptions.md) | |SÍ |
 | [Diagnósticos de dependencia](app-insights-asp-net-dependencies.md) |En .NET 4.6 +, pero con menos detalle |Sí, detalles completos: códigos de resultado, texto de comandos SQL, verbo HTTP|
-| [Contadores de rendimiento del sistema](app-insights-performance-counters.md) |Sí |Sí |
-| [API para la telemetría personalizada][api] |Sí |No |
-| [Integración del registro de seguimiento](app-insights-asp-net-trace-logs.md) |Sí |No |
-| [Datos de usuario y página](app-insights-javascript.md) |Sí |No |
-| Es necesario volver a compilar el código |Sí | No |
+| [Contadores de rendimiento del sistema](app-insights-performance-counters.md) |SÍ |SÍ |
+| [API para la telemetría personalizada][api] |SÍ |Sin  |
+| [Integración del registro de seguimiento](app-insights-asp-net-trace-logs.md) |SÍ |Sin  |
+| [Datos de usuario y página](app-insights-javascript.md) |SÍ |Sin  |
+| Es necesario volver a compilar el código |SÍ | Sin  |
 
 
 ## <a name="monitor-a-live-azure-web-app"></a>Supervisión de una aplicación web de Azure activa
@@ -235,7 +235,7 @@ En el caso de las aplicaciones que instrumenta solo en tiempo de ejecución medi
 * Solicitudes HTTP
 * Llamadas a dependencias
 * Excepciones
-* Contadores de rendimiento
+* contadores de rendimiento
 
 En el caso de las aplicaciones ya instrumentadas en el momento de la compilación:
 

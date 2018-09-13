@@ -6,25 +6,25 @@ documentationcenter: ''
 keywords: WAD2AI, Azure Diagnostics
 author: mrbullwinkle
 manager: carmonm
-editor: alancameronwills
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
 ms.devlang: na
 ms.tgt_pltfrm: ibiza
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.workload: tbd
-ms.date: 05/05/2017
+ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: f36a9e21478d2629d705d90179a6db5175c78299
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 3b06ec3b10edc39d770e5a724125e70afd5e5477
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783544"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Azure Cloud Services
 La disponibilidad, el rendimiento, los errores y el uso de las [aplicaciones de servicio Microsoft Azure Cloud](https://azure.microsoft.com/services/cloud-services/) se pueden supervisar con [Application Insights][start] mediante la combinación de datos de los SDK de Application Insights y datos de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de Cloud Services. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
 
-![Ejemplo](./media/app-insights-cloudservices/sample.png)
+![Captura de pantalla del panel de información general](./media/app-insights-cloudservices/overview-graphs.png)
 
 ## <a name="before-you-start"></a>Antes de comenzar
 Necesitará:
@@ -81,9 +81,8 @@ Si ha decidido crear un recurso independiente para cada rol, y quizás otro conj
 1. En [Azure Portal][portal], cree un nuevo recurso de Application Insights. Para el tipo de aplicación, elija la aplicación ASP.NET. 
 
     ![Haga clic en Nuevo, Application Insights.](./media/app-insights-cloudservices/01-new.png)
-2. Observe que cada recurso se identifica por una clave de instrumentación. Podría necesitar esto más adelante si quisiera configurar o comprobar manualmente la configuración del SDK.
+2. Cada recurso se identifica con una clave de instrumentación. Podría necesitar esto más adelante si quisiera configurar o comprobar manualmente la configuración del SDK.
 
-    ![Haga clic en Propiedades, seleccione la clave y presione ctrl + C.](./media/app-insights-cloudservices/02-props.png) 
 
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Configuración de Diagnósticos de Azure para cada rol
 Establezca esta opción para supervisar la aplicación con Application Insights. Para roles web, proporciona supervisión del rendimiento, alertas y diagnósticos, así como análisis de uso. Para otros roles, puede buscar y supervisar diagnósticos de Azure, como reinicio, contadores de rendimiento y llamadas a System.Diagnostics.Trace. 
@@ -114,7 +113,7 @@ En Visual Studio, configure el SDK de Application Insights para cada proyecto de
 
 3. Configure el SDK para enviar datos al recurso de Application Insights.
 
-    En una función de inicio adecuado, establezca la clave de instrumentación del ajuste de configuración en el archivo .cscfg:
+    En una función de inicio adecuado, establezca la clave de instrumentación a partir del valor de configuración en ``.cscfg file``:
  
     ```csharp
    
@@ -128,7 +127,7 @@ En Visual Studio, configure el SDK de Application Insights para cada proyecto de
    * [Para páginas web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 4. Establezca el archivo ApplicationInsights.config para que se copie siempre en el directorio de salida. 
    
-    (En el archivo .config, verá mensajes pidiéndole colocar allí la clave de instrumentación. Sin embargo, para las aplicaciones de nube es mejor establecerla desde el archivo .cscfg. De esta forma se garantiza que el rol se identifica correctamente en el portal).
+    (En el archivo .config, verá mensajes pidiéndole colocar allí la clave de instrumentación. Sin embargo, para las aplicaciones de nube es mejor establecerla desde ``.cscfg file``. De esta forma se garantiza que el rol se identifica correctamente en el portal).
 
 #### <a name="run-and-publish-the-app"></a>Ejecución y publicación de la aplicación
 Ejecute la aplicación e inicie sesión en Azure. Abra los recursos de Application Insights que ha creado y verá que aparecen puntos de datos individuales en [Búsqueda](app-insights-diagnostic-search.md), y datos agregados en [Explorador de métricas](app-insights-metrics-explorer.md). 
@@ -152,7 +151,7 @@ Para ver los recuentos de eventos y contadores de rendimiento, abra [Explorador 
 
 ![Datos de Diagnósticos de Azure](./media/app-insights-cloudservices/23-wad.png)
 
-Use [Búsqueda](app-insights-diagnostic-search.md) o una [consulta de Analytics](app-insights-analytics-tour.md) para buscar en los distintos registros de seguimiento enviados por Azure Diagnostics. Por ejemplo, suponga que tiene una excepción no controlada que provocó el bloqueo y reciclaje de un rol. Esa información aparecería en el canal Aplicación del registro de eventos de Windows. Puede utilizar la funcionalidad Buscar para ver el error del registro de eventos de Windows y obtener el seguimiento de la pila completo para la excepción. Eso le permitirá encontrar la causa raíz del problema.
+Use [Búsqueda](app-insights-diagnostic-search.md) o una [consulta de Analytics](app-insights-analytics-tour.md) para buscar en los distintos registros de seguimiento enviados por Azure Diagnostics. Por ejemplo, suponga que tiene una excepción no controlada que provocó el bloqueo y reciclaje de un rol. Esa información aparecería en el canal Aplicación del registro de eventos de Windows. Puede utilizar la funcionalidad Buscar para ver el error del registro de eventos de Windows y obtener el seguimiento de la pila completo para la excepción. Eso le permitirá encontrar la causa principal del problema.
 
 ![Búsqueda de Diagnósticos de Azure](./media/app-insights-cloudservices/25-wad.png)
 
@@ -197,7 +196,7 @@ Además, también se recopilan los siguientes contadores para los roles web:
 
 Puede especificar otros contadores de rendimiento de Windows o personalizados editando ApplicationInsights.config [como en este ejemplo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
-  ![contadores de rendimiento](./media/app-insights-cloudservices/OLfMo2f.png)
+  ![contadores de rendimiento](./media/app-insights-cloudservices/002-servers.png)
 
 ## <a name="correlated-telemetry-for-worker-roles"></a>Telemetría correlacionada para roles de trabajo
 Es una sofisticada experiencia de diagnóstico, donde puede ver qué provocó una solicitud de latencia alta o con errores. Con los roles web, el SDK se establece automáticamente la correlación entre la telemetría relacionada. Para los roles de trabajo, puede utilizar un inicializador de telemetría personalizado para establecer un atributo de contexto Operation.Id común para todas la telemetrías con el fin de lograrlo. Esto permite saber de un vistazo si se produjo el problema de latencia o con errores debido a una dependencia o el código. 
@@ -206,11 +205,7 @@ Este es el procedimiento:
 
 * Establezca el identificador de la correlación en una CallContext como se muestra [aquí](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). En este caso, usamos el identificador de solicitud como identificador de correlación
 * Agregue una implementación personalizada de TelemetryInitializer para establecer el Operation.Id al correlationId indicado. Hay un ejemplo aquí: [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
-* Agregue el inicializador de telemetría personalizado. Puede hacerlo en el archivo ApplicationInsights.config o en el código, como se muestra [aquí](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233)
-
-Eso es todo. La experiencia del portal ya está dispuesta para ayudarle a ver la telemetría asociada de un vistazo:
-
-![Telemetría correlacionada](./media/app-insights-cloudservices/bHxuUhd.png)
+* Agregue el inicializador de telemetría personalizado. Puede hacerlo en el archivo ApplicationInsights.config o en el código, como se muestra [aquí](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
 
 ## <a name="client-telemetry"></a>Telemetría de cliente
 [Agregue el SDK de JavaScript a sus páginas web][client] para obtener telemetría basada en el explorador, como recuentos de vista de página, tiempos de carga de página y excepciones de script, y para poder editar telemetría personalizada en los scripts de página.

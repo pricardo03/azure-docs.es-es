@@ -3,7 +3,7 @@ title: Uso de los temas y las suscripciones de Service Bus de Azure con Node.js 
 description: Aprenda a usar los temas y las suscripciones de Service Bus en Azure desde una aplicación Node.js.
 services: service-bus-messaging
 documentationcenter: nodejs
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: sethm
-ms.openlocfilehash: d3a7ebd135f705a6a3ea91feb4e037a9ed6d0c79
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: daabf711e923e1c4ff3132c5e4765bdbff206948
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38705003"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782918"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Uso de temas y suscripciones de Service Bus con Node.js
 
@@ -95,7 +95,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 });
 ```
 
-El método `createServiceBusService` también admite opciones adicionales, lo que permite invalidar la configuración predeterminada de los temas, como el período de vida de los mensajes o el tamaño máximo de los temas. 
+El método `createTopicIfNotExists` también admite opciones adicionales, lo que permite invalidar la configuración predeterminada de los temas, como el período de vida de los mensajes o el tamaño máximo de los temas. 
 
 En el siguiente ejemplo se establece el tamaño máximo de los temas en 5 GB y el valor del período de vida en un minuto:
 
@@ -235,7 +235,7 @@ var rule={
 }
 ```
 
-Cuando ahora se envía un mensaje a `MyTopic`, se entregará a los destinatarios que tengan la suscripción al tema `AllMessages`, mientras que se entrega de forma selectiva a los que tengan suscripciones a los temas `HighMessages` y `LowMessages` (según el contenido del mensaje).
+Ahora, cuando se envíe un mensaje a `MyTopic`, se entregará a los destinatarios que tengan la suscripción al tema `AllMessages`, mientras que se entrega de forma selectiva a los que tengan suscripciones a los temas `HighMessages` y `LowMessages` (según el contenido del mensaje).
 
 ## <a name="how-to-send-messages-to-a-topic"></a>Envío de mensajes a un tema
 Para enviar un mensaje a un tema de Service Bus, la aplicación debe utilizar el método `sendTopicMessage` del objeto **ServiceBusService**.
@@ -268,7 +268,7 @@ El tamaño máximo de mensaje que admiten los temas de Service Bus es de 256 KB 
 ## <a name="receive-messages-from-a-subscription"></a>Recepción de mensajes de una suscripción
 Los mensajes se reciben de una suscripción utilizando el método `receiveSubscriptionMessage` del objeto **ServiceBusService**. De forma predeterminada, los mensajes se eliminan de la suscripción a medida que se leen. Sin embargo, puede establecer el parámetro opcional `isPeekLock` en **True** para leer y bloquear los mensajes sin eliminarlos de la suscripción.
 
-El funcionamiento predeterminado por el que los mensajes se eliminan tras leerlos como parte del proceso de recepción es el modelo más sencillo y el que mejor funciona en aquellas situaciones en las que una aplicación puede tolerar que no se procese un mensaje en caso de error. Para entender este comportamiento, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como Service Bus habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
+El funcionamiento predeterminado por el que los mensajes se eliminan tras leerlos como parte del proceso de recepción es el modelo más sencillo y el que mejor funciona en aquellas situaciones en las que una aplicación puede tolerar que no se procese un mensaje en caso de error. Para entender este comportamiento, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como Service Bus ha marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
 Si el parámetro `isPeekLock` está establecido en **true**, el proceso de recepción se convierte en una operación en dos fases que permite admitir aplicaciones que no toleran mensajes perdidos. Cuando Service Bus recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y lo devuelve a la aplicación.
 Una vez que la aplicación procesa el mensaje (o lo almacena de forma fiable para su futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método **deleteMessage** y pasa el mensaje que se va a eliminar como parámetro. El método **deleteMessage** marca el mensaje como consumido y lo quita de la suscripción.

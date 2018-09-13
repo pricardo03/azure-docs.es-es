@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f89a6bdbe906d490231725cf528396928faebe47
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 730b11fb5038e5d6c4f9b00fbc4eb07d673757f9
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092101"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840996"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escalabilidad horizontal de Azure Analysis Services
 
@@ -23,11 +23,15 @@ Con la escalabilidad horizontal, las consultas de cliente pueden distribuirse en
 
 En una implementación típica de servidor, un servidor actúa como servidor de procesamiento y servidor de consulta. Si el número de consultas de cliente en los modelos en el servidor supera la unidades de procesamiento de consultas (QPU) del plan de su servidor o el procesamiento del modelo se produce al mismo tiempo que las cargas de trabajo con un número elevado de consultas, el rendimiento podría bajar. 
 
-Con la escalabilidad horizontal, puede crear un grupo de consultas con hasta siete réplicas de consulta adicionales (ocho en total, incluido el servidor). Puede escalar el número de réplicas de consulta para satisfacer las demandas de QPU en los momentos críticos y, además, puede separar un servidor de procesamiento del grupo de consultas en cualquier momento. Todas las réplicas de la consulta se crean en la misma región que el servidor.
+Con la escalabilidad horizontal, puede crear un grupo de consultas con hasta siete recursos de réplica de consulta adicionales (ocho en total, incluido el servidor). Puede escalar el número de réplicas de consulta para satisfacer las demandas de QPU en los momentos críticos y, además, puede separar un servidor de procesamiento del grupo de consultas en cualquier momento. Todas las réplicas de la consulta se crean en la misma región que el servidor.
 
-Independientemente del número de réplicas de consultas que tenga en un grupo de consultas, las cargas de trabajo de procesamiento no se distribuyen entre las réplicas de consulta. Un único servidor actúa como el servidor de procesamiento. Las réplicas de consulta realizan solo las consultas en los modelos sincronizados entre cada réplica en el grupo de consultas. 
+Independientemente del número de réplicas de consultas que tenga en un grupo de consultas, las cargas de trabajo de procesamiento no se distribuyen entre las réplicas de consulta. Un único servidor actúa como el servidor de procesamiento. Las réplicas de consulta realizan solo las consultas en los modelos sincronizados entre cada réplica de consulta en el grupo de consultas. 
 
-Una vez completadas las operaciones de procesamiento, debe realizarse una sincronización entre el servidor de procesamiento y los servidores de réplica de consultas. Para automatizar las operaciones de procesamiento, es importante configurar una operación de sincronización tras la realización satisfactoria de tales operaciones. La sincronización puede realizarse manualmente en el portal o mediante la API de REST o PowerShell.
+Durante el escalado horizontal, se agregan nuevas réplicas de consulta al grupo de consultas de manera incremental. Los nuevos recursos de réplica de consulta pueden tardar hasta cinco minutos en incluirse en el grupo de consultas; listos para recibir las consultas y las conexiones de cliente. Cuando todas las nuevas réplicas de consulta estén en funcionamiento, se equilibrará la carga de las nuevas conexiones de cliente en todos los recursos del grupo de consultas. Las conexiones de cliente existentes no cambian del recurso al que están conectadas actualmente.  En la reducción horizontal, se terminan las conexiones de cliente existentes a un recurso de grupo de consultas que se va a quitar del grupo de consultas. Se volverán a conectar a un recurso de grupo de consultas restante cuando se haya completado la operación de reducción horizontal.
+
+Al procesar los modelos, una vez completadas las operaciones de procesamiento, debe realizarse una sincronización entre el servidor de procesamiento y las réplicas de consultas. Para automatizar las operaciones de procesamiento, es importante configurar una operación de sincronización tras la realización satisfactoria de tales operaciones. La sincronización puede realizarse manualmente en el portal o mediante la API de REST o PowerShell. 
+
+Para obtener un rendimiento máximo para las operaciones de procesamiento y consulta, puede elegir separar el servidor de procesamiento del grupo de consultas. Cuando están separados, las conexiones de cliente nuevas y existentes se asignan a réplicas de consultas en el grupo de consultas únicamente. Si las operaciones de procesamiento solo ocupan un breve período de tiempo, puede elegir separar el servidor de procesamiento del grupo de consultas solo durante el tiempo que se tarda en realizar las operaciones de procesamiento y sincronización y, a continuación, volver a incluirlo en el grupo de consultas. 
 
 > [!NOTE]
 > La escalabilidad horizontal está disponible para los servidores en el plan de tarifa Estándar. Cada réplica de consulta se factura a la misma tarifa que el servidor.

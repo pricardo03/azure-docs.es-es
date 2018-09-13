@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: cd843f1826ad65098a7c0f6d30383113ccd28f6a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 97953779f1132d89c7ad07abdb4e08c0f476f4b9
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306446"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841820"
 ---
-# <a name="security-frame-session-management--articles"></a>Marco de seguridad: Administración de sesiones | Artículos 
+# <a name="security-frame-session-management"></a>Marco de seguridad: Administración de sesiones
 | Producto o servicio | Artículo |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Implemente el cierre de sesión correcto mediante métodos ADAL cuando use Azure AD](#logout-adal)</li></ul> |
@@ -380,36 +380,42 @@ void Page_Init (object sender, EventArgs e) {
 | **Pasos** | El tiempo de espera de la sesión representa el evento que se produce cuando un usuario no realiza ninguna acción en un sitio web durante un intervalo (definido por el servidor web). El evento, en el lado servidor, cambia el estado de la sesión del usuario a "invalid" (por ejemplo, "ya no se usa") e indica al servidor web que lo destruirá (y eliminará todos los datos que contiene). En el ejemplo de código siguiente, se establece el atributo de sesión de tiempo de espera en 15 minutos en el archivo Web.config.|
 
 ### <a name="example"></a>Ejemplo
-```XML code <configuration> <system.web> <sessionState mode="InProc" cookieless="true" timeout="15" /> </system.web> </configuration>
+```XML 
+<configuration>
+  <system.web>
+    <sessionState mode="InProc" cookieless="true" timeout="15" />
+  </system.web>
+</configuration>
 ```
 
-## <a id="threat-detection"></a>Enable Threat detection on Azure SQL
-```
-
-| Título                   | Detalles      |
-| ----------------------- | ------------ |
-| **Componente**               | Aplicación web | 
-| **Fase de SDL**               | Compilación |  
-| **Tecnologías aplicables** | Formularios Web Forms |
-| **Atributos**              | N/D  |
-| **Referencias**              | [Elemento forms para authentication (Esquema de configuración de ASP.NET)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
-| **Pasos** | Establezca el tiempo de espera de la cookie para el vale de autenticación de formularios en 15 minutos.|
-
-### <a name="example"></a>Ejemplo
-```XML code <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
-</forms>
+## <a id="threat-detection"></a>Habilitamiento de la detección de amenazas en Azure SQL
 ```
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
 | **Component**               | Web Application | 
 | **SDL Phase**               | Build |  
-| **Applicable Technologies** | Web Forms, MVC5 |
-| **Attributes**              | EnvironmentType - OnPrem |
-| **References**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
-| **Steps** | When the web application is Relying Party and ADFS is the STS, the lifetime of the authentication cookies - FedAuth tokens - can be set by the following configuration in web.config:|
+| **Applicable Technologies** | Web Forms |
+| **Attributes**              | N/A  |
+| **References**              | [forms Element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
 
 ### Example
+```XML
+<forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
+</forms>
+```
+
+| Título                   | Detalles      |
+| ----------------------- | ------------ |
+| **Componente**               | Aplicación web | 
+| **Fase de SDL**               | Compilación |  
+| **Tecnologías aplicables** | Formularios Web Forms, MVC5 |
+| **Atributos**              | EnvironmentType - OnPrem |
+| **Referencias**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
+| **Pasos** | Cuando la aplicación web es Usuario de confianza y ADFS es el STS, la duración de las cookies de autenticación (tokens de FedAuth) se puede establecer mediante la siguiente configuración en web.config:|
+
+### <a name="example"></a>Ejemplo
 ```XML
   <system.identityModel.services>
     <federationConfiguration>

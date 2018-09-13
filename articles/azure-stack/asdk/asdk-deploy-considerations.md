@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: f4b55bb3287f67792b3257c3f62256437f5625ca
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f3cf1232861239069894a8e5fa60c911053f038d
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30164974"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841988"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Consideraciones de planeación de la implementación de Azure Stack
 Antes de implementar el Kit de desarrollo de Azure Stack (ASDK), asegúrese de que el equipo host del kit de desarrollo cumple los requisitos que se describen en este artículo.
@@ -66,7 +66,7 @@ Están disponibles configuraciones de OEM de ejemplo.
 ## <a name="operating-system"></a>Sistema operativo
 |  | **Requisitos** |
 | --- | --- |
-| **Versión del SO.** |Windows Server 2012 R2 o posterior. La versión del sistema operativo no es crítica antes de iniciar la implementación, ya que podrá arrancar el equipo host en el disco duro virtual que se incluye en la instalación de Azure Stack. El sistema operativo y todas las revisiones necesarias ya están integradas en la imagen. No use ninguna clave para activar las instancias de Windows Server utilizadas en el kit de desarrollo. |
+| **Versión del SO.** |Windows Server 2016 o posterior. La versión del sistema operativo no es crítica antes de iniciar la implementación, ya que podrá arrancar el equipo host en el disco duro virtual que se incluye en la instalación de Azure Stack. El sistema operativo y todas las revisiones necesarias ya están integradas en la imagen. No use ninguna clave para activar las instancias de Windows Server utilizadas en el kit de desarrollo. |
 
 > [!TIP]
 > Después de instalar el sistema operativo, puede usar el [Comprobador de implementación para Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) para confirmar que el hardware cumple todos los requisitos.
@@ -89,10 +89,10 @@ Para implementar Azure Stack mediante una cuenta de Azure AD, debe preparar una 
    
    | **Cuenta de Azure Active Directory** | **¿Admitida?** |
    | --- | --- |
-   | Cuenta profesional o educativa con una suscripción de Azure pública válida |Sí |
-   | Cuenta de Microsoft con una suscripción de Azure pública válida |Sí |
-   | Cuenta profesional o educativa con una suscripción de Azure China válida |Sí |
-   | Cuenta profesional o educativa con una suscripción de Azure Gobierno de Estados Unidos válida |Sí |
+   | Cuenta profesional o educativa con una suscripción de Azure pública válida |SÍ |
+   | Cuenta de Microsoft con una suscripción de Azure pública válida |SÍ |
+   | Cuenta profesional o educativa con una suscripción de Azure China válida |SÍ |
+   | Cuenta profesional o educativa con una suscripción de Azure Gobierno de Estados Unidos válida |SÍ |
 
 ## <a name="network"></a>Red
 ### <a name="switch"></a>Switch

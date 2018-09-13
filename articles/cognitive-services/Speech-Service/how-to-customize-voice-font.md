@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 84493ae83515c0458bf5b9e9cf44603300a8b4f7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 35572f046b3702deba56e86819b8ad0cd7ae6e9b
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284894"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842485"
 ---
 # <a name="creating-custom-voice-fonts"></a>Crear fuentes de voz personalizada
 
@@ -22,7 +22,6 @@ Para crear su fuente de voz, haga que un estudio grabe y cargue los scripts asoc
 
 Puede comenzar con una pequeña cantidad de datos para realizar una prueba de concepto. De todos modos, cuantos más datos proporcione, más natural y profesional será la voz.
 
-La personalización de la voz está disponible para inglés de Estados Unidos (en-US) y chino continental (zh-CN).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -32,19 +31,20 @@ También necesita una cuenta de Azure y una suscripción a Speech Service. [Cree
 
 1. Inicie sesión en el [portal de Voz personalizada](https://customvoice.ai) con la misma cuenta de Microsoft que usa para obtener acceso.
 
-2. Vaya a "Suscripciones", bajo su nombre de cuenta en la esquina superior derecha.
+2. Vaya a "Todas las suscripciones", bajo su nombre de cuenta en la esquina superior derecha.
 
     ![Suscripciones](media/custom-voice/subscriptions.png)
 
 3. En la página "Suscripciones", elija "Conectar suscripción existente".
-
-     ![Conectar la suscripción existente](media/custom-voice/connect-existing-sub.png)
 
 4. Pegue su clave de suscripción en la tabla, tal como se muestra a continuación. Cada suscripción tiene dos claves y puede usar cualquiera de ellas.
 
      ![Agregar suscripción](media/custom-voice/add-subscription.png)
 
 Ya tiene todo listo.
+
+> [!IMPORTANT]
+> Durante la fase de versión preliminar privada, las suscripciones deben estar en la lista de permitidos para usar la característica de voz personalizada. Siga los pasos de la página para obtener la lista de permitidos de la suscripción.
 
 ## <a name="prepare-recordings-and-transcripts"></a>Preparar las grabaciones y transcripciones
 
@@ -69,8 +69,6 @@ Los archivos de audio deben prepararse de la siguiente manera. Otros formatos no
 | Formato de archivo| Zip      |
 | Tamaño de archivo máximo|200 MB|
 
-Coloque el conjunto de archivos de audio en una única carpeta sin subdirectorios y haga un paquete con el conjunto completo como un solo archivo ZIP.
-
 > [!NOTE]
 > Se rechazarán los archivos de onda con una frecuencia de muestreo inferior a 16 000 Hz. En los casos donde un archivo ZIP contenga ondas con distintas frecuencias de muestreo, solo se importarán las que sean iguales o superiores a 16 000 Hz.
 > Actualmente el portal importa archivos ZIP de hasta 200 MB. Sin embargo, pueden cargarse varios archivos. La cantidad máxima de conjuntos de datos permitida es de 10 archivos ZIP para usuarios con una suscripción gratuita, y de 50 para usuarios con suscripciones estándar.
@@ -90,7 +88,7 @@ Por ejemplo:
 El sistema de voz personalizado normaliza las transcripciones convirtiendo el texto a minúsculas y eliminando los signos de puntuación extraños. Es importante que las transcripciones sean 100 % precisas para las grabaciones de audio correspondientes.
 
 > [!TIP]
-> Al compilar voces de producción de texto a voz, seleccione expresiones (o scripts de escritura) teniendo en cuenta tanto la cobertura fonética como la eficiencia.
+> Al compilar voces de producción de texto a voz, seleccione expresiones (o scripts de escritura) teniendo en cuenta tanto la cobertura fonética como la eficiencia. ¿Tiene problemas para obtener los resultados que desea? [Póngase en contacto con el equipo de voz personalizada](mailto:tts@microsoft.com) para averiguar más sobre nuestro asesoramiento.
 
 ## <a name="upload-your-datasets"></a>Cargar los conjuntos de datos
 
@@ -102,8 +100,6 @@ Después de preparar el archivo de audio y las transcripciones, cárguelos a tra
 1. Inicie sesión en el portal.
 
 2. Seleccione **Datos** en la página principal de la voz personalizada. 
-
-    ![Mis proyectos](media/custom-voice/my-projects.png)
 
     Aparecerá la tabla Mis datos de voz. Comprobará que está vacía si aún no ha cargado ningún conjunto de datos de voz.
 
@@ -124,7 +120,7 @@ Después de preparar el archivo de audio y las transcripciones, cárguelos a tra
 > [!NOTE]
 > Los usuarios que tengan una suscripción gratuita pueden cargar dos conjuntos de datos a la vez. En cambio, los usuarios con una suscripción estándar pueden subir cinco conjuntos de datos simultáneamente. Si alcanza el límite, espere hasta que al menos uno de los conjuntos de datos finalice la importación, e inténtelo de nuevo.
 
-Cuando se complete la carga, la tabla Mis datos de voz aparecerá de nuevo. Asimismo, verá una entrada que corresponde al conjunto de datos recién cargado. 
+Cuando se complete la carga, la tabla Mis datos de voz aparecerá de nuevo. Asimismo, verá una entrada que corresponde al conjunto de datos recién cargado.
 
 Los conjuntos de datos se validan automáticamente después de la carga. La validación de datos incluye una serie de comprobaciones en los archivos de audio para comprobar su formato de archivo, el tamaño y la frecuencia de muestreo. Las comprobaciones en los archivos de transcripción revisan el formato del archivo y realizan cierta normalización del texto. Las expresiones se transcriben mediante el reconocimiento de voz, y el texto resultante se compara con la transcripción que proporcionó.
 
@@ -191,17 +187,11 @@ El tiempo de aprendizaje varía según el volumen de datos de audio procesados. 
 
 ## <a name="test-your-voice-font"></a>Pruebe la fuente de voz
 
-Una vez que la fuente de voz se haya creado correctamente, puede probarla antes de implementarla para su uso. Haga clic en **Probar** en la columna Operaciones. La página de prueba aparece para la fuente de voz seleccionada. Tenga en cuenta que la tabla estará vacía si aún no ha enviado ninguna solicitud de prueba para la voz.
-
-![Mis fuentes de voz (2ª parte)](media/custom-voice/my-voice-fonts2.png)
+Una vez que la fuente de voz se haya creado correctamente, puede probarla antes de implementarla para su uso. Haga clic en **Probar** en la columna Operaciones de la tabla Mis fuentes de voz. La página de prueba aparece para la fuente de voz seleccionada. Tenga en cuenta que la tabla estará vacía si aún no ha enviado ninguna solicitud de prueba para la voz.
 
 Haga clic en el botón **Probar con texto** que se encuentra debajo del título de la tabla, para mostrar un menú emergente que le permitirá enviar solicitudes de texto. Puede enviar su solicitud de prueba en texto sin formato o SSML. El tamaño máximo de entrada es de 1.024 caracteres, incluidas todas las etiquetas de la solicitud SSML. Recuerde que el idioma del texto debe ser el mismo que el de la fuente de voz.
 
-![Probar la fuente de voz](media/custom-voice/voice-font-testing.png)
-
 Después de completar el cuadro de texto y confirmar el modo de entrada, haga clic en **Sí** para enviar su solicitud de prueba y regresar a la página de prueba. La tabla ahora incluye una entrada que corresponde a su nueva solicitud y la columna de estado que es ahora familiar. Es posible que se tarden unos minutos en sintetizar la voz. Cuando la columna de estado muestra el valor "Correcto", puede descargar la entrada de texto (un archivo `.txt`) y la salida de audio (un archivo `.wav`) y escuchar esta última para comprobar la calidad.
-
-![Probar la fuente de voz (2ª parte)](media/custom-voice/voice-font-testing2.png)
 
 ## <a name="create-and-use-a-custom-endpoint"></a>Crear y usar un punto de conexión personalizado
 
@@ -224,13 +214,20 @@ Cuando el estado de la implementación muestra el valor Correcto, quiere decir q
 Las pruebas en línea del punto de conexión también están disponibles a través del portal de voz personalizada. Para probar el punto de conexión, seleccione**Pruebas de puntos de conexión** en el menú desplegable de Voz personalizada. Aparecerá la página para probar los puntos de conexión. Elija una voz personalizada implementada y escriba el texto que se dirá (ya sea en texto sin formato o en formato SSML) en el cuadro de texto.
 
 > [!NOTE] 
-> Al usar SSML, la etiqueta `<voice>` debe especificar el nombre que asignó a su voz personalizada cuando la creó.
+> Al usar SSML, la etiqueta `<voice>` debe especificar el nombre que asignó a su voz personalizada cuando la creó. Si envía texto sin formato, siempre se usa la voz personalizada.
 
 Haga clic en **Reproducir** para escuchar el texto que se habla en su fuente de voz personalizada.
 
 ![Pruebas de puntos de conexión](media/custom-voice/endpoint-testing.png)
 
 El punto de conexión personalizado es técnicamente idéntico al punto de conexión estándar que se usa en las solicitudes de texto a voz. Consulte la [API REST](rest-apis.md) para obtener más información.
+
+## <a name="language-support"></a>Compatibilidad con idiomas
+
+La personalización de la voz está disponible para inglés de Estados Unidos (en-US), chino continental (zh-CN) e italiano (it-IT).
+
+> [!NOTE]
+> El entrenamiento de voz en italiano comienza con un conjunto de datos de más de 2000 expresiones. Los modelos bilingües chino-inglés también se admiten con un conjunto de datos inicial de más de 2000 expresiones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

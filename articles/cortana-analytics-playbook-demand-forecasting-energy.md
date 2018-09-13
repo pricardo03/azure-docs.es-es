@@ -1,29 +1,30 @@
 ---
 title: Cuaderno de estrategias de la plantilla de solución de Cortana Intelligence para la previsión de demanda de energía | Microsoft Docs
 description: Plantilla de solución con Microsoft Cortana Intelligence que ayuda a prever la demanda de una empresa de suministro de energía.
-services: cortana-analytics
+services: machine-learning
 documentationcenter: ''
 author: ilanr9
-manager: ilanr9
+manager: cgronlun
 editor: yijichen
 ms.assetid: 8855dbb9-8543-45b9-b4c6-aa743a04d547
-ms.service: cortana-analytics
+ms.service: machine-learning
+ms.subservice: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2016
-ms.author: ilanr9;yijichen;garye
-ms.openlocfilehash: 275e387878900154660d044b26ff5ac03a17a65a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: yijichen
+ms.openlocfilehash: 6a879faa88cc6cdf586f2c12283bcb6f0263bf57
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23004040"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842611"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Cuaderno de estrategias de la plantilla de soluciones de Cortana Intelligence para la previsión de la demanda de energía
 ## <a name="executive-summary"></a>Resumen ejecutivo
-En los últimos años, Internet de las cosas (IoT), las fuentes de energía alternativas y los macrodatos se han combinado para crear grandes oportunidades en los sectores de los servicios públicos y la energía. Al mismo tiempo, tanto el sector de los servicios públicos como el de la energía han presenciado una reducción del consumo y, al mismo tiempo, la exigencia por parte de los clientes de formas mejores de controlar su uso de la energía. De ahí que tanto las compañías de sectores públicos como las de redes de distribución eléctrica inteligentes necesitan imperiosamente innovar y renovarse. Además, muchas de las redes eléctricas y de servicios públicos se han quedado obsoletas y son muy caras de mantener y administrar. Durante el último año, el equipo ha trabajado en varios contratos con el sector energético. Durante ese tiempo, hemos encontrado muchos casos en los que los servicios públicos o los ISV (fabricantes de software independientes) han evaluado las previsiones de demanda energética en el futuro. Estas previsiones desempeñan un rol importante en su negocio actual y futuro, y se han convertido en la base de varios casos de uso. Aquí se incluye la previsión de carga energética a corto y largo plazo, su comercialización, el equilibrio de carga, la optimización de la red. Los macrodatos y los métodos de análisis avanzado (AA), como Aprendizaje automático (ML), son las principales habilitadores de la generación de previsiones precisas y confiables.  
+En los últimos años, Internet de las cosas (IoT), las fuentes de energía alternativas y los macrodatos se han combinado para crear grandes oportunidades en los sectores de los servicios públicos y la energía. Al mismo tiempo, tanto el sector de los servicios públicos como el de la energía han presenciado una reducción del consumo y, al mismo tiempo, la exigencia por parte de los clientes de formas mejores de controlar su uso de la energía. De ahí que tanto las compañías de sectores públicos como las de redes de distribución eléctrica inteligentes necesitan imperiosamente innovar y renovarse. Además, muchas de las redes eléctricas y de servicios públicos se han quedado obsoletas y son muy caras de mantener y administrar. Durante el último año, el equipo ha trabajado en varios contratos con el sector energético. Durante ese tiempo, hemos encontrado muchos casos en los que los servicios públicos o los ISV (fabricantes de software independientes) han evaluado las previsiones de demanda energética en el futuro. Estas previsiones desempeñan un rol importante en su negocio actual y futuro, y se han convertido en la base de varios casos de uso. Aquí se incluye la previsión de carga energética a corto y largo plazo, su comercialización, el equilibrio de carga, la optimización de la red. Los macrodatos y los métodos de análisis avanzado (AA), como Machine Learning (ML), son las principales habilitadores de la generación de previsiones precisas y confiables.  
 
 En este cuaderno de estrategias se combinan las directrices analíticas y empresariales necesarias para desarrollar e implementar correctamente una solución de predicción de la demanda energética. Estas directrices propuestas pueden ayudar a los servicios públicos, científicos de datos e ingenieros de datos a establecer soluciones en la nube de previsión de demanda totalmente operativas. En el caso de las compañías que acaban de empezar su andadura en el análisis avanzado y en los macrodatos, esta solución puede representar el inicio de su estrategia a largo plazo para las redes de distribución eléctrica inteligentes.
 
@@ -33,7 +34,7 @@ En este cuaderno de estrategias se combinan las directrices analíticas y empres
 > 
 
 ## <a name="overview"></a>Información general
-Este documento trata los negocios, datos y aspectos técnicos del uso de Cortana Intelligence y, en particular, Aprendizaje automático de Azure (AML) para la implementación de soluciones de previsión energética. El documento consta de tres partes principales:  
+Este documento trata los negocios, datos y aspectos técnicos del uso de Cortana Intelligence y, en particular, Azure Machine Learning (AML) para la implementación de soluciones de previsión energética. El documento consta de tres partes principales:  
 
 1. Conocimiento del negocio  
 2. Conocimiento de los datos  
@@ -50,7 +51,7 @@ Además, el documento incluye material de referencia que permite conocer aún me
 Es importante tener en cuenta que en este documento no se pretende tratar el proceso profundo de la ciencia de datos, ni sus aspectos técnicos y matemáticos. Estos detalles se pueden encontrar en la [documentación de Azure Machine Learning](http://azure.microsoft.com/services/machine-learning/) y estos [blogs](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
 ### <a name="target-audience"></a>Audiencia de destino
-Este documento va destinado a personal técnico y comercial que desee obtener conocimientos acerca de las soluciones basadas en Aprendizaje automático y de su uso en el entorno de la previsión de la demanda energética.
+Este documento va destinado a personal técnico y comercial que desee obtener conocimientos acerca de las soluciones basadas en Machine Learning y de su uso en el entorno de la previsión de la demanda energética.
 
 Los científicos de datos también pueden beneficiarse de la lectura de este documento, ya que conocerán mejor el proceso de alto nivel que controla la implementación de una solución de previsión de la demanda de energía. En este contexto también se puede usar para establecer una buena línea de base y un magnífico punto de partida para obtener información más detallada y avanzada.
 
@@ -172,7 +173,7 @@ Por último, no es preciso invertir en el mantenimiento de TI ni en el desarroll
 A las compañías que acaban de iniciar su transición hacia la nube les recomendamos encarecida que adopten un enfoque gradual, para lo que es conveniente implementar un mapa de ruta para la migración a la nube. Creemos que para los servicios y las compañías del sector de la energía, los casos de uso que se tratan en este cuaderno de estrategias representan una excelente oportunidad para realizar una fase piloto de las soluciones de análisis predictivo de la nube.
 
 #### <a name="business-case-justification-considerations"></a>Consideraciones que justifican los casos empresariales
-En muchos casos, el cliente puede estar interesado en realizar una justificación comercial en un caso de uso determinado en el que una solución basada en la nube y Aprendizaje automático son componentes importantes. A diferencia de las soluciones locales, en el caso de una solución basada en la nube, el componente de coste inicial es mínimo y la mayoría de los elementos del costo están asociados con el uso real. En lo que se refiere a la implementación de una solución para la previsión de la demanda energética en el conjunto de aplicaciones Cortana Intelligence, se pueden integrar varios servicios en una única estructura de costos comunes. Por ejemplo, las bases de datos (*por ejemplo,*, SQL Azure) pueden utilizarse para almacenar los datos sin procesar y, luego, para los pronósticos reales se utiliza Aprendizaje automático de Azure para hospedar los servicios de previsión. En este ejemplo, la estructura de costos podría incluir componentes transaccionales y de almacenamiento.
+En muchos casos, el cliente puede estar interesado en realizar una justificación comercial en un caso de uso determinado en el que una solución basada en la nube y Machine Learning son componentes importantes. A diferencia de las soluciones locales, en el caso de una solución basada en la nube, el componente de coste inicial es mínimo y la mayoría de los elementos del costo están asociados con el uso real. En lo que se refiere a la implementación de una solución para la previsión de la demanda energética en el conjunto de aplicaciones Cortana Intelligence, se pueden integrar varios servicios en una única estructura de costos comunes. Por ejemplo, las bases de datos (*por ejemplo,*, SQL Azure) pueden utilizarse para almacenar los datos sin procesar y, luego, para los pronósticos reales se utiliza Aprendizaje automático de Azure para hospedar los servicios de previsión. En este ejemplo, la estructura de costos podría incluir componentes transaccionales y de almacenamiento.
 
 Por otra parte, es preciso conocer bien el valor empresarial de la realización de una previsión de la demanda energética (a corto o largo plazo). De hecho, es importante tener en cuenta el valor empresarial de cada operación de previsión. Por ejemplo, un pronóstico preciso de la carga de energía durante las 24 horas siguientes puede evitar un exceso de producción o puede ayudar a evitar sobrecargas en la red de distribución de electricidad, lo que se puede cuantificar en términos de ahorro diario.
 
@@ -191,13 +192,13 @@ Esto se ilustra en el diagrama siguiente:
 
 A continuación se describe este proceso de cuatro pasos:
 
-1. **Recopilación de datos**: todas las soluciones basadas en el análisis avanzado confían en los datos (consulte **Conocimiento de los datos**). En concreto, en lo relativo al análisis predictivo y a la previsión, confiamos en un flujo dinámico continuo de datos. En el caso de la previsión de la demanda energética, estos datos pueden proceder directamente de los medidores inteligentes o estar ya agregados a una base de datos local. También confiamos en otros orígenes externos de datos, como el tiempo y la temperatura. Este flujo continuo de datos debe orquestarse, programarse y almacenarse. [Data Factory de Azure](http://azure.microsoft.com/services/data-factory/) (ADF) es nuestro producto estrella para llevar a cabo esta tarea.
-2. **Modelado** : para que las previsiones de la demanda de energía sean precisos y confiables, es preciso desarrollar (entrenar) y mantener un modelo excelente que haga uso de los datos históricos y extraiga los patrones significativos y predictivos en los datos. El área de Aprendizaje automático (ML) ha crecido rápidamente y ahora se desarrollan de manera habitual algoritmos más avanzados. Estudio de aprendizaje automático de Azure proporciona al usuario una excelente experiencia que le ayuda a utilizar los algoritmos de Aprendizaje automático más avanzados en un flujo de trabajo completo. Dicho flujo se trabajo se ilustra en un diagrama de flujo intuitivo e incluye la preparación de los datos, la extracción de características, el modelado y la evaluación de modelos. El usuario puede atraer cientos de modelos que se incluyen en este entorno. Al final de esta fase, los científicos de datos tendrán un modelo de trabajo totalmente evaluado y listo para su implementación.
+1. **Recopilación de datos**: todas las soluciones basadas en el análisis avanzado confían en los datos (consulte **Conocimiento de los datos**). En concreto, en lo relativo al análisis predictivo y a la previsión, confiamos en un flujo dinámico continuo de datos. En el caso de la previsión de la demanda energética, estos datos pueden proceder directamente de los medidores inteligentes o estar ya agregados a una base de datos local. También confiamos en otros orígenes externos de datos, como el tiempo y la temperatura. Este flujo continuo de datos debe orquestarse, programarse y almacenarse. [Azure Data Factory](http://azure.microsoft.com/services/data-factory/) (ADF) es nuestro producto estrella para llevar a cabo esta tarea.
+2. **Modelado** : para que las previsiones de la demanda de energía sean precisos y confiables, es preciso desarrollar (entrenar) y mantener un modelo excelente que haga uso de los datos históricos y extraiga los patrones significativos y predictivos en los datos. El área de Machine Learning (ML) ha crecido rápidamente y ahora se desarrollan de manera habitual algoritmos más avanzados. Azure ML Studio proporciona al usuario una excelente experiencia que le ayuda a utilizar los algoritmos de Machine Learning más avanzados en un flujo de trabajo completo. Dicho flujo se trabajo se ilustra en un diagrama de flujo intuitivo e incluye la preparación de los datos, la extracción de características, el modelado y la evaluación de modelos. El usuario puede atraer cientos de modelos que se incluyen en este entorno. Al final de esta fase, los científicos de datos tendrán un modelo de trabajo totalmente evaluado y listo para su implementación.
    
    El siguiente diagrama ilustra un flujo de trabajo típico:
    
    ![Flujo de trabajo de modelado](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
-3. **Implementación** : con un modelo de trabajo a mano, el paso siguiente es la implementación. Aquí, el modelo se convierte en un servicio web que expone una API de RESTful que se puede invocar simultáneamente a través de Internet de distintos clientes de consumo. Aprendizaje automático de Azure proporciona una manera sencilla de implementar un modelo directamente desde Estudio de aprendizaje automático de Azure, con un solo clic de un botón. Todo el proceso de implementación se realiza internamente. Esta solución se puede escalar automáticamente para satisfacer el consumo requerido.
+3. **Implementación** : con un modelo de trabajo a mano, el paso siguiente es la implementación. Aquí, el modelo se convierte en un servicio web que expone una API de RESTful que se puede invocar simultáneamente a través de Internet de distintos clientes de consumo. Azure Machine Learning proporciona una manera sencilla de implementar un modelo directamente desde Azure Machine Learning Studio, con un solo clic de un botón. Todo el proceso de implementación se realiza internamente. Esta solución se puede escalar automáticamente para satisfacer el consumo requerido.
 4. **Consumo** : en esta fase es en la que realmente se utiliza el modelo de previsión para generar las previsiones. El consumo se puede controlar desde una aplicación de usuario (*por ejemplo,*, el panel) o directamente desde un sistema operativo como un sistema de equilibrado de demanda/suministro o una solución de optimización de la red de distribución de electricidad. Desde un modelo individual se pueden controlar varios casos de uso.
 
 ## <a name="data-understanding"></a>Conocimiento de los datos
@@ -316,7 +317,7 @@ Esto reducirá verticalmente el valor original a un intervalo menor, normalmente
 ## <a name="modeling"></a>Modelado
 El modelado es la fase en que se realiza la conversión de los datos en un modelo. En el núcleo de este proceso hay algoritmos avanzados que examinan los datos históricos (datos de aprendizaje), extraen patrones y generación un modelo. Posteriormente, dicho modelo se puede utilizar para predecir datos nuevos que no se ha utilizado para generar el modelo.
 
-Una vez que tenemos un modelo de trabajo confiable, podemos usarlo para puntuar los nuevos datos estructurados para incluir las características necesarias (X). El proceso de puntuación usará el modelo persistente (objeto de la fase de aprendizaje) y predecirá la variable de destino que se denota mediante Ŷ.
+Una vez que tenemos un modelo de trabajo confiable, podemos usarlo para puntuar los nuevos datos estructurados para incluir las características necesarias (X). El proceso de puntuación usará el modelo persistente (objeto de la fase de aprendizaje) y predecirá la variable de destino que se indica mediante Ŷ.
 
 ### <a name="demand-forecasting-modeling-techniques"></a>Técnicas de modelado de la previsión de la demanda
 En el caso de la previsión de la demanda, hacemos uso de datos históricos, que se ordenan por hora. Por lo general, a los datos que incluyen la dimensión temporal se les denomina [serie temporal](https://en.wikipedia.org/wiki/Time_series). El objetivo del modelado de las series temporales es buscar tendencias relacionadas con el tiempo, estacionalidad, correlación automática (correlación con el paso del tiempo) y formularlas para convertirlas en un modelo.
@@ -391,7 +392,7 @@ Estos son los pasos que se tienen lugar como parte del ciclo de previsión de de
 7. Los datos de las previsiones se almacenan en una base de datos a la que puede acceder el cliente final que los consume.
 8. Dicho cliente recupera las previsiones, las vuelve a aplicar a la red de distribución de electricidad y los consume en función del caso de uso requerido.
 
-Es importante tener en cuenta que todo este ciclo está completamente automatizado y se ejecuta según una programación. Toda la orquestación de este ciclo de datos puede realizarse mediante herramientas como [Data Factory de Azure](http://azure.microsoft.com/services/data-factory/).
+Es importante tener en cuenta que todo este ciclo está completamente automatizado y se ejecuta según una programación. Toda la orquestación de este ciclo de datos puede realizarse mediante herramientas como [Azure Data Factory](http://azure.microsoft.com/services/data-factory/).
 
 ### <a name="end-to-end-deployment-architecture"></a>Arquitectura de implementación de un extremo a otro
 Para implementar de forma práctica una solución de previsión de demanda de energía en Cortana Intelligence, es preciso asegurarse de que los componentes necesarios están establecidos y configurados correctamente.

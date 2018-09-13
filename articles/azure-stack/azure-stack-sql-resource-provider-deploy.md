@@ -11,18 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: d33ca1a4ab08ab25855f8b3992157ad3d086a180
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 08ab76e587c4e2c8b8afe9cb27e9df59a5924475
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41946416"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842047"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Implementación del proveedor de recursos de SQL Server en Azure Stack
+
 Use el proveedor de recursos de SQL Server de Azure Stack para exponer las bases de datos SQL como un servicio de Azure Stack. El proveedor de recursos de SQL se ejecuta como un servicio en una máquina virtual (VM) Server Core de Windows Server 2016.
+
+> [!IMPORTANT]
+> Solo el proveedor de recursos puede crear elementos en servidores que hospedan SQL o MySQL. Los elementos creados en un servidor host que no se crean con el proveedor de recursos podrían dar lugar a un error de coincidencia de estado.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -30,13 +34,12 @@ Hay varios requisitos previos que se deben cumplir antes de implementar el prove
 
 - Si aún no lo ha hecho, [registre Azure Stack](azure-stack-registration.md) en Azure para poder descargar elementos de Azure Marketplace.
 - Debe instalar los módulos de Azure y Azure Stack PowerShell en el sistema donde se ejecutará esta instalación. Dicho sistema debe ser una imagen de Windows 10 o Windows Server 2016 con la versión más reciente del entorno de ejecución de .NET. Consulte [Instalación de PowerShell para Azure Stack](.\azure-stack-powershell-install.md).
-- Agregue la máquina virtual Windows Server Core a Marketplace de Azure Stack mediante la descarga de la imagen **Windows Server 2016 Datacenter - Server Core**. 
-- Descargue el archivo binario del proveedor de recursos SQL y ejecute el extractor automático para extraer el contenido en un directorio temporal. El proveedor de recursos tiene una compilación mínima correspondiente de Azure Stack. Asegúrese de descargar el archivo binario correcto para la versión de Azure Stack que ejecuta:
+- Agregue la máquina virtual Windows Server Core a Marketplace de Azure Stack mediante la descarga de la imagen **Windows Server 2016 Datacenter - Server Core**.
+- Descargue el archivo binario del proveedor de recursos SQL y ejecute el extractor automático para extraer el contenido en un directorio temporal. El proveedor de recursos tiene una compilación mínima correspondiente de Azure Stack.
 
-    |Versión de Azure Stack|Versión de SQL RP|
+    |Versión mínima de Azure Stack|Versión de SQL RP|
     |-----|-----|
-    |Versión 1804 (1.0.180513.1)|[SQL RP, versión 1.1.24.0](https://aka.ms/azurestacksqlrp1804)
-    |Versión 1802 (1.0.180302.1)|[SQL RP, versión 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
+    |Versión 1804 (1.0.180513.1)|[SQL RP, versión 1.1.24.0](https://aka.ms/azurestacksqlrp)
     |     |     |
 
 - Asegúrese de que se cumplen los requisitos previos de la integración del centro de datos:
@@ -45,7 +48,7 @@ Hay varios requisitos previos que se deben cumplir antes de implementar el prove
     |-----|-----|
     |El reenvío condicional de DNS se ha establecido correctamente.|[Integración del centro de datos de Azure Stack: DNS](azure-stack-integrate-dns.md)|
     |Los puertos de entrada para los proveedores de recursos están abiertos.|[Integración del centro de datos de Azure Stack: publicar puntos de conexión](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |Se han establecido correctamente el SAN y el asunto del certificado.|[Requisitos previos de PKI obligatorios de implementación de Azure Stack](azure-stack-pki-certs.md#mandatory-certificates)<br>[Requisitos previos de certificado de PaaS de implementación de Azure Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |Se han establecido correctamente el SAN y el asunto del certificado.|[Requisitos previos de PKI obligatorios para la implementación de Azure Stack](azure-stack-pki-certs.md#mandatory-certificates)[Requisitos previos de certificado de PaaS para la implementación de Azure Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>Certificados
@@ -80,6 +83,7 @@ Puede especificar los parámetros siguientes en la línea de comandos. Si no lo 
 | **AzCredential** | Credenciales de la cuenta de administrador de servicio de Azure Stack. Use las mismas credenciales que para la implementación de Azure Stack. | _Obligatorio_ |
 | **VMLocalCredential** | Credenciales para la cuenta de administrador local de la VM del proveedor de recursos de SQL. | _Obligatorio_ |
 | **PrivilegedEndpoint** | Dirección IP o nombre DNS del punto de conexión con privilegios. |  _Obligatorio_ |
+| **AzureEnvironment** | El entorno de Azure de la cuenta de administrador de servicio que ha usado para la implementación de Azure Stack. Necesario únicamente si no es un sistema de archivos distribuido de Azure. Los nombres de entorno que se admiten son **AzureCloud**, **AzureUSGovernment** o, si usa una suscripción a Azure Active Directory de China, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | El archivo .pfx de certificados se debe colocar en este directorio, pero solo en los sistemas integrados. También puede copiar un paquete de Windows Update MSU aquí. | _Opcional_ (_obligatorio_ para sistemas integrados) |
 | **DefaultSSLCertificatePassword** | Contraseña para el certificado .pfx. | _Obligatorio_ |
 | **MaxRetryCount** | El número de veces que quiere volver a intentar cada operación si se produce un error.| 2 |
@@ -143,8 +147,8 @@ Puede usar los pasos siguientes para verificar que el proveedor de recursos de S
 2. Seleccione **Grupos de recursos**.
 3. A continuación, seleccione el grupo de recursos **system.\<location\>.sqladapter**.
 4. En la página de resumen de la información general del grupo de recursos no debería haber implementaciones con errores.
-
       ![Comprobar la implementación del proveedor de recursos de SQL](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+5. Por último, seleccione **Máquinas virtuales** en el portal de administración para comprobar que la VM del proveedor de recursos de SQL se ha creado correctamente y está en ejecución.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

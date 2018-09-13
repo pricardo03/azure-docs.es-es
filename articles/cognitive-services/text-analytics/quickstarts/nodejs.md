@@ -7,14 +7,14 @@ author: ashmaka
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 08/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 44c4d7cf91983f5e5ae7021feb19c81f7edd6c61
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9c4ff79384399cb7efd70393cb65f8ff055251ed
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381858"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840429"
 ---
 # <a name="quickstart-for-text-analytics-api-with-nodejs"></a>Inicio rápido de Text Analytics API con Node.js 
 <a name="HOLTop"></a>
@@ -23,7 +23,7 @@ En este artículo se muestra cómo [detectar el idioma](#Detect), [analizar opin
 
 Consulte las [definiciones de API](//go.microsoft.com/fwlink/?LinkID=759346) para obtener la documentación técnica de las API.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Text Analytics API**. Puede usar el **nivel gratuito de 5000 transacciones al mes** para completar este inicio rápido.
 
@@ -33,10 +33,10 @@ También debe tener la [clave de acceso y punto de conexión](../How-tos/text-an
 
 ## <a name="detect-language"></a>Detectar idioma
 
-Language Detection API detecta el idioma de un documento de texto, con el [método Detectar idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+Language Detection API detecta el idioma de un documento de texto con el [método Detectar idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
 1. Cree un nuevo proyecto de Node.js en su IDE favorito.
-2. Agregue el código proporcionado a continuación.
+2. Agregue el código que se proporciona a continuación.
 3. Reemplace el valor `accessKey` por una clave de acceso válida para la suscripción.
 4. Reemplace la ubicación de `uri` (actualmente `westus`) por la región para la que se ha registrado.
 5. Ejecute el programa.
@@ -51,7 +51,7 @@ let https = require ('https');
 // **********************************************
 
 // Replace the accessKey string value with your valid access key.
-let accessKey = 'enter key here';
+let accessKey = 'ENTER KEY HERE';
 
 // Replace or verify the region.
 
@@ -62,7 +62,7 @@ let accessKey = 'enter key here';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 let uri = 'westus.api.cognitive.microsoft.com';
-let path = '/text/analytics/v2.0/languages';
+let path = '/text/analytics/v2.0/';
 
 let response_handler = function (response) {
     let body = '';
@@ -85,7 +85,7 @@ let get_language = function (documents) {
     let request_params = {
         method : 'POST',
         hostname : uri,
-        path : path,
+        path : path + 'languages',
         headers : {
             'Ocp-Apim-Subscription-Key' : accessKey,
         }
@@ -96,7 +96,7 @@ let get_language = function (documents) {
     req.end ();
 }
 
-let documents = { 'documents': [
+var documents = { 'documents': [
     { 'id': '1', 'text': 'This is a document written in English.' },
     { 'id': '2', 'text': 'Este es un document escrito en Español.' },
     { 'id': '3', 'text': '这是一个用中文写的文件' }
@@ -107,10 +107,9 @@ get_language (documents);
 
 **Respuesta de detección de idioma**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
-
 {
    "documents": [
       {
@@ -155,59 +154,18 @@ Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente 
 
 ## <a name="analyze-sentiment"></a>Análisis de opinión
 
-Sentiment Analysis API detecta el sentimiento de un conjunto de registros de texto mediante el [método de sentimiento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). En el ejemplo siguiente se puntúan dos documentos, uno en inglés y otro en español.
+La API de análisis de sentimiento detecta la opinión de un conjunto de registros de texto mediante el [método de sentimiento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). En el ejemplo siguiente se puntúan dos documentos, uno en inglés y otro en español.
 
-1. Cree un nuevo proyecto de Node.js en su IDE favorito.
-2. Agregue el código proporcionado a continuación.
-3. Reemplace el valor `accessKey` por una clave de acceso válida para la suscripción.
-4. Reemplace la ubicación de `uri` (actualmente `westus`) por la región para la que se ha registrado.
-5. Ejecute el programa.
+Agregue el código siguiente al código de la [sección anterior](#Detect).
 
 ```javascript
-'use strict';
-
-let https = require ('https');
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
-let accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-let uri = 'westus.api.cognitive.microsoft.com';
-let path = '/text/analytics/v2.0/sentiment';
-
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-        let body_ = JSON.parse (body);
-        let body__ = JSON.stringify (body_, null, '  ');
-        console.log (body__);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
-
 let get_sentiments = function (documents) {
     let body = JSON.stringify (documents);
 
     let request_params = {
         method : 'POST',
         hostname : uri,
-        path : path,
+        path : path + 'sentiment',
         headers : {
             'Ocp-Apim-Subscription-Key' : accessKey,
         }
@@ -218,7 +176,7 @@ let get_sentiments = function (documents) {
     req.end ();
 }
 
-let documents = { 'documents': [
+documents = { 'documents': [
     { 'id': '1', 'language': 'en', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
     { 'id': '2', 'language': 'es', 'text': 'Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.' },
 ]};
@@ -228,7 +186,7 @@ get_sentiments (documents);
 
 **Respuesta de análisis de sentimiento**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {
@@ -252,57 +210,16 @@ Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente 
 
 Key Phrase Extraction API extrae frases clave de un documento de texto con el [método de frases clave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). En el ejemplo siguiente se extraen frases clave de documentos tanto en inglés y como en español.
 
-1. Cree un nuevo proyecto de Node.js en su IDE favorito.
-2. Agregue el código proporcionado a continuación.
-3. Reemplace el valor `accessKey` por una clave de acceso válida para la suscripción.
-4. Reemplace la ubicación de `uri` (actualmente `westus`) por la región para la que se ha registrado.
-5. Ejecute el programa.
+Agregue el código siguiente al código de la [sección anterior](#SentimentAnalysis).
 
 ```javascript
-'use strict';
-
-let https = require ('https');
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
-let accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-let uri = 'westus.api.cognitive.microsoft.com';
-let path = '/text/analytics/v2.0/keyPhrases';
-
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-        let body_ = JSON.parse (body);
-        let body__ = JSON.stringify (body_, null, '  ');
-        console.log (body__);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
-
 let get_key_phrases = function (documents) {
     let body = JSON.stringify (documents);
 
     let request_params = {
         method : 'POST',
         hostname : uri,
-        path : path,
+        path : path + 'keyPhrases',
         headers : {
             'Ocp-Apim-Subscription-Key' : accessKey,
         }
@@ -313,7 +230,7 @@ let get_key_phrases = function (documents) {
     req.end ();
 }
 
-let documents = { 'documents': [
+documents = { 'documents': [
     { 'id': '1', 'language': 'en', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
     { 'id': '2', 'language': 'es', 'text': 'Si usted quiere comunicarse con Carlos, usted debe de llamarlo a su telefono movil. Carlos es muy responsable, pero necesita recibir una notificacion si hay algun problema.' },
     { 'id': '3', 'language': 'en', 'text': 'The Grand Hotel is a new hotel in the center of Seattle. It earned 5 stars in my review, and has the classiest decor I\'ve ever seen.' }
@@ -368,57 +285,16 @@ Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente 
 
 Entity Linking API identifica entidades conocidas en un documento de texto con el [método de vinculación de entidad](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). En el ejemplo siguiente se identifican las entidades de documentos en inglés.
 
-1. Cree un nuevo proyecto de Node.js en su IDE favorito.
-2. Agregue el código proporcionado a continuación.
-3. Reemplace el valor `accessKey` por una clave de acceso válida para la suscripción.
-4. Reemplace la ubicación de `uri` (actualmente `westus`) por la región para la que se ha registrado.
-5. Ejecute el programa.
+Agregue el código siguiente al código de la [sección anterior](#KeyPhraseExtraction).
 
 ```javascript
-'use strict';
-
-let https = require ('https');
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
-let accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-let uri = 'westus.api.cognitive.microsoft.com';
-let path = '/text/analytics/v2.0/entities';
-
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-        let body_ = JSON.parse (body);
-        let body__ = JSON.stringify (body_, null, '  ');
-        console.log (body__);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
-
 let get_entities = function (documents) {
     let body = JSON.stringify (documents);
 
     let request_params = {
         method : 'POST',
         hostname : uri,
-        path : path,
+        path : path + 'entities',
         headers : {
             'Ocp-Apim-Subscription-Key' : accessKey,
         }
@@ -429,7 +305,7 @@ let get_entities = function (documents) {
     req.end ();
 }
 
-let documents = { 'documents': [
+documents = { 'documents': [
     { 'id': '1', 'language': 'en', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
     { 'id': '2', 'language': 'en', 'text': 'The Seattle Seahawks won the Super Bowl in 2014.' }
 ]};
@@ -439,7 +315,7 @@ get_entities (documents);
 
 **Respuesta de vinculación de entidad**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {
@@ -509,4 +385,4 @@ Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente 
 ## <a name="see-also"></a>Otras referencias 
 
  [Información general de Text Analytics](../overview.md)  
- [Preguntas más frecuentes (P+F)](../text-analytics-resource-faq.md)
+ [Preguntas más frecuentes](../text-analytics-resource-faq.md)

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4710e30ad38485f47c115ac2e0e914e91c96d582
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8cab491a874094ee195f12ba6fe7f19a87f09ef2
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522188"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841960"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
@@ -42,6 +42,9 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
     >Las versiones de Azure AD Connect 1.1.557.0, 1.1.558.0, 1.1.561.0 y 1.1.614.0 tienen un problema relacionado con la sincronización de hash de contraseña. Si _no_ tiene pensado utilizar la sincronización de hash de contraseña junto con la autenticación de paso a través, consulte las [notas del historial de versiones de Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) para más información.
 
 * **Use una topología compatible con Azure AD Connect**: asegúrese de que usa una de las topologías compatibles con Azure AD Connect que se describen [aquí](active-directory-aadconnect-topologies.md).
+
+    >[!NOTE]
+    >El inicio de sesión único de conexión directa es compatible con varios bosques de AD, así haya relaciones de confianza de AD entre ellos o no.
 
 * **Configure las credenciales del administrador de dominio**: debe tener credenciales de administrador de dominio para cada bosque de Active Directory que:
     * Sincronice en Azure AD mediante Azure AD Connect.
@@ -180,7 +183,7 @@ Mozilla Firefox no realiza automáticamente la autenticación Kerberos. Cada usu
 
 #### <a name="safari-macos"></a>Safari (macOS)
 
-Asegúrese de que la máquina que ejecuta macOS se ha unido a AD. Para obtener instrucciones sobre la unión a Azure AD, consulte [Best Practices for Integrating OS X with Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf) (Procedimientos recomendados para integrar OS X con Active Directory).
+Asegúrese de que la máquina que ejecuta macOS se ha unido a AD. Las instrucciones para unir su dispositivo macOS a AD están fuera del ámbito de este artículo.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (todas las plataformas)
 

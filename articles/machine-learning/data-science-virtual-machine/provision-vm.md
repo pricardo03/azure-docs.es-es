@@ -11,14 +11,14 @@ ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: f0fe2bde039cd209514d0cbc4842b20cd4b5fb99
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 8131122f78f743d04e332bfc8dfeba87a8c34236
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444049"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782661"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Aprovisionamiento de Data Science Virtual Machine de Windows en Azure
 Microsoft Data Science Virtual Machine (DSVM) es una imagen de máquina virtual (VM) Windows Azure. Esta máquina virtual se preinstala y configura con varias herramientas que se usan para el análisis de datos y el aprendizaje automático. Se incluyen las siguientes herramientas:
@@ -66,7 +66,7 @@ Para crear una instancia de Microsoft Data Science Virtual Machine, debe tener u
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Creación de su Microsoft Data Science Virtual Machine
 Estos son los pasos para crear una instancia de Microsoft Data Science Virtual Machine:
 
-1. Navegue al listado de máquinas virtuales en el [Portal de Azure](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
+1. Navegue al listado de máquinas virtuales en el [Portal de Azure](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016). Es posible que se le pida que inicie sesión en su cuenta de Azure si todavía no lo ha hecho.
 1. Seleccione el botón **Crear**, en la parte inferior, para acceder a un asistente.
 
   ![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png) 
@@ -126,7 +126,7 @@ Para el desarrollo con Python, se han instalado las distribuciones 2.7 y 3.6 de 
 > 
 > 
 
-Se instala Anaconda Python 3.6 en **C:\Anaconda**. Se instala Anaconda Python 2.7 en **c:\Anaconda\envs\python2**. Consulte la [documentación de PTVS](/visualstudio/python/installing-python-interpreters.md) para ver los pasos detallados. 
+Se instala Anaconda Python 3.6 en **C:\Anaconda**. Se instala Anaconda Python 2.7 en **c:\Anaconda\envs\python2**. Consulte la [documentación de PTVS](https://docs.microsoft.com/visualstudio/python/installing-python-interpreters) para ver los pasos detallados. 
 
 ### <a name="the-jupyter-notebook"></a>Jupyter Notebook
 La distribución de Anaconda también incluye una instancia de Jupyter Notebook, un entorno para compartir código y análisis. Previamente se ha configurado un servidor de Jupyter Notebook con kernels de Python 2.7, Python 3.x, PySpark, Julia y R. Hay un icono del escritorio llamado **Jupyter Notebook** para iniciar el servidor de Jupyter y el explorador para acceder al servidor de Notebook. 

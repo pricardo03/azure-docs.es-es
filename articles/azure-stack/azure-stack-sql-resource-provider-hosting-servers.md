@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: de2e1defeff9ab2dd78bdf019009b62955f73b88
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4dfeff0e22a541a39a59c37c869af41a7e444fa6
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970558"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842505"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Incorporación de servidores de hospedaje para el proveedor de recursos SQL
 
@@ -78,15 +78,15 @@ Para agregar un servidor de hospedaje independiente que ya se haya configurado, 
 
 1. Inicie sesión en el portal de operador de Azure Stack como administrador de servicios.
 
-2. Seleccione **Examinar** &gt; **RECURSOS ADMINISTRATIVOS** &gt; **SQL Hosting Servers** (Servidores de hospedaje SQL).
+2. Seleccione **Todos los servicios** &gt; **RECURSOS ADMINISTRATIVOS** &gt; **SQL Hosting Servers** (Servidores de hospedaje SQL).
 
    ![Servidores de hospedaje SQL](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
-   En **SQL Hosting Servers** (Servidores de hospedaje SQL) puede conectar el proveedor de recursos de SQL a instancias de SQL Server que actúan como back-end del proveedor de recursos.
+   En **SQL Hosting Servers** (Servidores de hospedaje SQL) puede conectar el proveedor de recursos de SQL a instancias de SQL Server que actuarán como back-end del proveedor de recursos.
 
-   ![Panel del adaptador de SQL](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
+   ![Panel del adaptador de SQL](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 
-3. En **Add a SQL Hosting Server** (Agregar un servidor de hospedaje SQL), proporcione los detalles de conexión para la instancia de SQL Server.
+3. En **Agregar**, proporcione los detalles de conexión para la instancia de SQL Server en la hoja **Add a SQL Hosting Server** (Agregar un servidor de hospedaje SQL).
 
    ![Agregar un servidor de hospedaje SQL](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 

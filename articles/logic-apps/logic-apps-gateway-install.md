@@ -1,25 +1,24 @@
 ---
 title: 'Instalación de una puerta de enlace de datos local: Azure Logic Apps | Microsoft Docs'
-description: Cómo descargar e instalar la puerta de enlace de datos local antes de tener acceso a datos locales desde aplicaciones lógicas
+description: Antes de poder acceder a datos locales desde Azure Logic Apps, descargue e instale la puerta de enlace de datos local
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
-ms.openlocfilehash: 616e3d81d577fd30e65117ec15c65250d3b3e27e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503655"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842454"
 ---
-# <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de la puerta de enlace de datos local para Azure Logic Apps
+# <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
-Para poder conectar las aplicaciones lógicas a orígenes de datos locales, descargue e instale la puerta de enlace de datos local en un equipo local. La puerta de enlace funciona como un puente que permite la transferencia rápida de datos y el cifrado entre orígenes de datos en el entorno local (no en la nube) y las aplicaciones lógicas. En este artículo se muestra cómo descargar, instalar y configurar la puerta de enlace de datos local. 
+Para poder conectarse a orígenes de datos locales desde Azure Logic Apps, descargue e instale la puerta de enlace de datos local en un equipo local. La puerta de enlace funciona como un puente que permite la transferencia rápida de datos y el cifrado entre orígenes de datos en el entorno local (no en la nube) y las aplicaciones lógicas. En este artículo se muestra cómo descargar, instalar y configurar la puerta de enlace de datos local. 
 
 Puede usar la misma instalación de puerta de enlace con otros servicios, tales como Power BI, Microsoft Flow, PowerApps y Azure Analysis Services. Más información sobre [cómo funciona la puerta de enlace de datos](#gateway-cloud-service).
 
@@ -52,7 +51,11 @@ Para información sobre cómo usar la puerta de enlace con otros servicios, cons
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una [cuenta profesional o educativa](../active-directory/fundamentals/sign-up-organization.md) con una [suscripción de Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer). Durante la instalación de puerta de enlace, inicie sesión en esta cuenta para poder asociarla a su suscripción de Azure. Más adelante, usará también la misma cuenta al crear un recurso de Azure para la instalación de puerta de enlace en Azure Portal. Si aún no tiene ninguna suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
+* Una [cuenta profesional o educativa](../active-directory/fundamentals/sign-up-organization.md) con una [suscripción de Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) 
+
+  Durante la instalación de puerta de enlace, inicie sesión en esta cuenta para poder asociarla a su suscripción de Azure. 
+  Más adelante, usará también la misma cuenta al crear un recurso de Azure para la instalación de puerta de enlace en Azure Portal. 
+  Si aún no tiene ninguna suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
 
 * Estos son los requisitos para el equipo local:
 
@@ -72,8 +75,7 @@ Para información sobre cómo usar la puerta de enlace con otros servicios, cons
     > [!TIP]
     > Para minimizar la latencia, puede instalar la puerta de enlace lo más cerca posible del origen de datos o en el mismo equipo, suponiendo que tiene los permisos necesarios.
 
-  * Instale la puerta de enlace en un equipo que *no* esté desconectado, haya entrado en suspensión ni esté conectado a Internet. La puerta de enlace no se puede ejecutar en estas condiciones. 
-  Además, el rendimiento de la puerta de enlace podría verse afectado en una red inalámbrica.
+  * Instale la puerta de enlace en un equipo que esté conectado a Internet, siempre activado y *no* entre al modo de suspensión. En caso contrario, no se podrá ejecutar la puerta de enlace. Además, el rendimiento podría verse afectado en una red inalámbrica.
 
   * Durante la instalación, solo puede iniciar sesión con una [cuenta profesional o educativa](../active-directory/sign-up-organization.md) que Azure Active Directory (Azure AD) administre y no una cuenta de Microsoft. 
   Además, asegúrese de que esta cuenta no sea una cuenta B2B (de invitado) de Azure. 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: 1f7e605cbf5aa3d519e04c4fdfd737a4c0926a3e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ea8e8ae9b0f487481ac2f25d4e2b9c5733e15431
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122583"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842262"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexiones salientes en Azure
 
@@ -165,7 +165,7 @@ En la tabla siguiente se muestran las asignaciones previas de puertos SNAT para 
 | 801-1000 | 32 |
 
 >[!NOTE]
-> Al usar Load Balancer estándar con [varios servidores fron-ends](load-balancer-multivip-overview.md), [cada dirección IP de servidor front-end multiplica el número de puertos SNAT disponibles](#multivipsnat) en la tabla anterior. Por ejemplo, un grupo de servidores back-end de 50 máquinas virtuales con dos reglas de equilibrio de carga, cada uno con una dirección IP de servidor front-end independiente, usará 2048 (2 x 1024) puertos SNAT por cada configuración de IP. Consulte los detalles para [varios servidores front-end](#multife).
+> Al usar Load Balancer estándar con [varios servidores fron-ends](load-balancer-multivip-overview.md), [cada dirección IP de servidor front-end multiplica el número de puertos SNAT disponibles](#multivipsnat) en la tabla anterior. Por ejemplo, un grupo de servidores back-end de 50 VM con dos reglas de equilibrio de carga, cada uno con una dirección IP de servidor front-end independiente, usará 2048 (2 x 1024) puertos SNAT por cada configuración de IP. Consulte los detalles para [varios servidores front-end](#multife).
 
 Recuerde que el número de puertos SNAT disponibles no equivale directamente al número de flujos. Un solo puerto SNAT se puede reutilizar con varios destinos únicos. Solo se consumen puertos si es necesario que los flujos sean únicos. Para instrucciones sobre diseño y mitigación, consulte [cómo administrar este recurso agotable](#snatexhaust), así como la sección en la que se describe [PAT](#pat).
 
@@ -253,7 +253,7 @@ Cuando aplique un grupo de seguridad de red a una máquina virtual de carga equi
 Si un grupo de seguridad de red bloquea las solicitudes de sondeo de mantenimiento de la etiqueta predeterminada AZURE_LOADBALANCER, se producirá un error en el sondeo de mantenimiento de la máquina virtual y esta se marca como inactiva. Load Balancer dejará de enviar nuevos flujos a esa máquina virtual.
 
 ## <a name="limitations"></a>Limitaciones
-- DisableOutboundSnat no está disponible como una opción al configurar una regla de equilibrio de carga en el portal.  Use en su lugar herramientas de cliente, plantilla o REST.
+- DisableOutboundSnat no está disponible como opción al configurar una regla de equilibrio de carga en el portal.  Use en su lugar herramientas de cliente, plantilla o REST.
 - Solo se puede acceder a los roles de trabajo web sin una red virtual y otros servicios de plataforma de Microsoft si se usa un equilibrador de carga estándar debido a un efecto secundario del funcionamiento de los servicios previos a la red virtual y otros servicios de plataforma. No debe depender de este efecto secundario, porque el servicio mismo o la plataforma subyacente puede cambiar sin previo aviso. Siempre debe pensar que necesita crear conectividad de salida de manera explícita si lo desea al usar solo un equilibrador de carga estándar interno. El escenario 3 del [SNAT predeterminado](#defaultsnat) que se describe en este artículo no está disponible.
 
 ## <a name="next-steps"></a>Pasos siguientes

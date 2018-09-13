@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2060239b27ef05c34ea6f5b388b4c4086a44a826
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 037c2714d146bd59b30573df874794342d743e03
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42142930"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782239"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks secundarios en Azure Automation
 
@@ -72,7 +72,9 @@ Si no quiere bloquear el runbook primario durante la espera, puede invocar al ru
 
 Los parámetros de un runbook secundario iniciado con un cmdlet se proporcionan como una tabla hash, tal y como se describe en [Parámetros de runbook](automation-starting-a-runbook.md#runbook-parameters). Solo pueden usarse los tipos de datos simples. Si el runbook tiene un parámetro con un tipo de datos complejo, debe llamarse en línea.
 
-Si trabaja con varias suscripciones, se puede perder el contexto de suscripción al invocar runbooks secundarios. Para asegurarse de que el contexto de suscripción se pasa a los runbooks secundarios, agregue el parámetro `DefaultProfile` al cmdlet y pase el contexto a él.
+Es posible que se pierda el contexto de suscripción si invoca runbooks secundarios como trabajos individuales. Para que el runbook secundario invoque los cmdlet de Azure RM en la suscripción de Azure deseada, el runbook secundario debe autenticarse en esta suscripción de forma independiente al runbook primario.
+
+Si los trabajos de una misma cuenta de Automation funcionan con varias suscripciones, seleccionar una suscripción en uno de los trabajos puede cambiar también el contexto de suscripción ya seleccionado en otros trabajos, y normalmente no se quiere eso. Para evitar este problema, guarde el resultado de la invocación del cmdlet `Select-AzureRmSubscription` y pase este objeto al parámetro `DefaultProfile` de todas las invocaciones posteriores de los cmdlet de Azure RM. Este patrón debe aplicarse de forma coherente para todos los runbooks que se ejecutan en esta cuenta de Automation.
 
 ### <a name="example"></a>Ejemplo
 

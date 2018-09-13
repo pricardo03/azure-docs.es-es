@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/17/2018
 ms.author: tomsh
-ms.openlocfilehash: 933d0f60b902ae2cb0abcde2ca39a58e59457c6b
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: cc922762f84b3a0658d503c4bfa6eb0079173e4e
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146842"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841554"
 ---
 # <a name="azure-security-white-papers"></a>Notas del producto de seguridad de Azure
 | | |
@@ -30,7 +30,8 @@ ms.locfileid: "42146842"
 |[Registro y auditoría de Azure](azure-log-audit.md)|Se proporciona una introducción a la generación, recopilación y análisis de registros de seguridad provenientes de los servicios hospedados en Azure. Estos registros pueden ayudarle a obtener información detallada sobre la seguridad de las implementaciones de Azure. |
 |[Azure Network Security](abstract-azure-network-security.md)|Le introduce en la amplia variedad de controles de red que se pueden configurar para mejorar la seguridad de las soluciones que se implementan en Azure. Se centra en los controles de seguridad de red orientados al cliente.|
 |[Azure Functions y seguridad de plataforma sin servidor](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)|En este documento descargable se tratan las ventajas de la informática sin servidor, y se ofrecen las consideraciones de seguridad y mitigaciones en el contexto de Azure. |
-|[Seguridad operativa de Azure](azure-operational-security.md)|Se proporciona información completa sobre las tecnologías y los servicios de seguridad operativos orientados al cliente disponibles con Azure.|
+|[Seguridad del contenedor en Microsoft Azure](abstract-container-security-microsoft-azure.md)|Describe los contenedores, la implementación y administración de contenedores, y los servicios de plataforma nativa. También describe los problemas de seguridad en tiempo de ejecución que se producen con el uso de contenedores en la plataforma de Azure. |
+|[Seguridad operativa de Azure](abstract-azure-operational-security.md)|Se proporciona información completa sobre las tecnologías y los servicios de seguridad operativos orientados al cliente disponibles con Azure.|
 |[Funcionalidades técnicas de seguridad de Azure](azure-security-technical-capabilities.md)|Se centra en las características y la funcionalidad de seguridad que admiten Azure Storage, Azure SQL Database y el modelo de máquina virtual de Azure, y en las herramientas y la infraestructura para administrarlo todo.|
 |[Guía de seguridad de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Se ofrece una visión general de cada una de estas características de seguridad que se pueden usar con Azure Storage. Se tratan los aspectos de seguridad del plano de administración, seguridad del plano de datos, cifrado en reposo, cifrado en movimiento y análisis de almacenamiento.|
 |[Clasificación de datos para disponibilidad en la nube](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03/file/172083/1/Data%20Classification%20for%20Cloud%20Readiness%20(2017-04-11).pdf)  |Este documento descargable presenta los conceptos básicos de clasificación de datos y su valor en el contexto de la informática en la nube. Las organizaciones que evalúan la informática en la nube para uso futuro o las que actualmente ya usan servicios en la nube y buscan formas de optimizar la administración de datos son las que más se beneficiarán de la información contenida en este documento.|

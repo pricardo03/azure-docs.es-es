@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: jaredmoo
-ms.openlocfilehash: ca21355c836a58591bbbd09874d0c5d0b5c17435
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ae5dafcebd50ecd22309a7771b0edf01a97fd7a7
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126432"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842630"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Use Transact-SQL (T-SQL) para crear y administrar trabajos de Elastic Database
 
@@ -184,7 +184,13 @@ Por ejemplo, para agrupar todos los resultados de la misma ejecución del trabaj
 
 ## <a name="monitor-database-performance"></a>Supervisión del rendimiento de una base de datos
 
-En el ejemplo siguiente se crea un nuevo trabajo para recopilar datos de rendimiento de varias bases de datos.  
+En el ejemplo siguiente se crea un nuevo trabajo para recopilar datos de rendimiento de varias bases de datos.
+
+De forma predeterminada, el agente de trabajo buscará crear la tabla para almacenar los resultados devueltos. Como consecuencia, el inicio de sesión asociado con la credencial usada para la credencial de salida deberá tener permisos suficientes para realizar esta operación. Si desea crear manualmente la tabla antes de tiempo, debe tener las siguientes propiedades:
+1. Columnas con el nombre y los tipos de datos correctos para el conjunto de resultados.
+2. Columna adicional para internal_execution_id con el tipo de datos de uniqueidentifier.
+3. Un índice no agrupado denominado "IX_<TableName>_Internal_Execution_ID" en la columna internal_execution_id.
+
 Conéctese a la [*base de datos de trabajo*](elastic-jobs-overview.md#job-database) y ejecute los siguientes comandos:
 
 ```sql

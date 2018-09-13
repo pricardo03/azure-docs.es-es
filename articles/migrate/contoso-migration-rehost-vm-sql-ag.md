@@ -6,39 +6,39 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 09/05/2018
 ms.author: raynew
-ms.openlocfilehash: 18cbbef3a12816a509191795cf22b33ba93d046c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f744b9bacfb43b5cf4ba81e19d8e543561bcec61
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128561"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842760"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migración de Contoso: rehospedaje de una aplicación local en las VM de Azure y en el grupo de disponibilidad Always On de SQL Server.
 
-En este artículo se muestra cómo Contoso rehospeda su aplicación de SmartHotel en Azure. Contoso migra la máquina virtual de front-end de la aplicación a una máquina virtual de Azure, y la base de datos de la aplicación a una máquina virtual de Azure SQL Server, que se ejecuta en el clúster de conmutación por error de Windows Server con grupos de disponibilidad SQL Server Always On.
+En este artículo se muestra cómo Contoso rehospeda su aplicación SmartHotel360 en Azure. Contoso migra la máquina virtual de front-end de la aplicación a una máquina virtual de Azure, y la base de datos de la aplicación a una máquina virtual de Azure SQL Server, que se ejecuta en el clúster de conmutación por error de Windows Server con grupos de disponibilidad SQL Server Always On.
 
 Este documento es el primero de una serie de artículos que muestran cómo la compañía ficticia Contoso migra recursos locales a la nube de Microsoft Azure. En la serie se incluye información de fondo y escenarios en los que se muestra la configuración de una infraestructura de migración, la valoración de los recursos locales para la migración y la ejecución de distintos tipos de migraciones. La complejidad de los escenarios va en aumento. Se agregarán más artículos con el tiempo.
 
 **Artículo** | **Detalles** | **Estado**
 --- | --- | ---
-[Artículo 1: Introducción](contoso-migration-overview.md) | Información general de la serie de artículos, estrategia de migración de Contoso y las aplicaciones de ejemplo que se usan en esta serie. | Disponible
+[Artículo 1: Introducción](contoso-migration-overview.md) | Información general de la serie de artículos, la estrategia de migración de Contoso y las aplicaciones de ejemplo que se usan en esta serie. | Disponible
 [Artículo 2: Implementación de la infraestructura de Azure](contoso-migration-infrastructure.md) | Contoso prepara la infraestructura local y la infraestructura de Azure para la migración. Se usa la misma infraestructura en todos los artículos de la serie sobre migración. | Disponible
-[Artículo 3: Evaluación de los recursos locales para la migración a Azure](contoso-migration-assessment.md)  | Contoso ejecuta una valoración de su aplicación local SmartHotel que se ejecuta en VMware. Contoso evalúa las máquinas virtuales de la aplicación mediante el servicio Azure Migrate, y la base de datos SQL Server de la aplicación con Data Migration Assistant. | Disponible
-[Artículo 4: Rehospedaje de una aplicación en una máquina virtual de Azure e Instancia administrada de Azure SQL Database](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso ejecuta una migración "lift-and-shift" a Azure de su aplicación SmartHotel local. Contoso migra la máquina virtual front-end de la aplicación mediante [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migra la base de datos de la aplicación a una instancia administrada de Azure SQL Database mediante [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Disponible  
-[Artículo 5: Rehospedaje de una aplicación en VM de Azure](contoso-migration-rehost-vm.md) | Contoso migra sus máquinas virtuales de la aplicación SmartHotel a máquinas virtuales de Azure mediante el servicio Site Recovery. | Disponible
-Artículo 6: Rehospedaje de una aplicación en máquinas virtuales de Azure y en un grupo de disponibilidad de SQL Server Always On | Contoso migra la aplicación SmartHotel. Contoso usa Site Recovery para migrar las máquinas virtuales de la aplicación. Usa Database Migration Service para migrar la base de datos de la aplicación a un clúster de SQL Server que está protegido por un grupo de disponibilidad Always On. | Este artículo
-[Artículo 7: Rehospedaje de una aplicación Linux en VM de Azure](contoso-migration-rehost-linux-vm.md) | Contoso realiza una migración mediante lift-and-shift de la aplicación osTicket de Linux a máquinas virtuales de Azure, mediante Azure Site Recovery. | Disponible
+[Artículo 3: Evaluación de los recursos locales para la migración a Azure](contoso-migration-assessment.md)  | Contoso ejecuta una valoración de su aplicación local SmartHotel360 que se ejecuta en VMware. Contoso evalúa las máquinas virtuales de la aplicación mediante el servicio Azure Migrate, y la base de datos SQL Server de la aplicación con Data Migration Assistant. | Disponible
+[Artículo 4: Rehospedaje de una aplicación en una máquina virtual de Azure e Instancia administrada de Azure SQL Database](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso ejecuta una migración "lift-and-shift" a Azure de su aplicación SmartHotel360 local. Contoso migra la máquina virtual front-end de la aplicación mediante [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migra la base de datos de la aplicación a una instancia administrada de Azure SQL Database mediante [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Disponible   
+[Artículo 5: Rehospedaje de una aplicación en VM de Azure](contoso-migration-rehost-vm.md) | Contoso migra sus máquinas virtuales de la aplicación SmartHotel360 a máquinas virtuales de Azure mediante el servicio Site Recovery. | Disponible
+Artículo 6: Rehospedaje de una aplicación en máquinas virtuales de Azure y en un grupo de disponibilidad de SQL Server Always On | Contoso migra la aplicación SmartHotel360. Contoso usa Site Recovery para migrar las máquinas virtuales de la aplicación. Usa Database Migration Service para migrar la base de datos de la aplicación a un clúster de SQL Server que está protegido por un grupo de disponibilidad Always On. | Este artículo
+[Artículo 7: Rehospedaje de una aplicación Linux en VM de Azure](contoso-migration-rehost-linux-vm.md) | Contoso realiza una migración mediante lift-and-shift de la aplicación osTicket de Linux a máquinas virtuales de Azure, mediante Azure Site Recovery | Disponible
 [Artículo 8: Rehospedaje de una aplicación de Linux en VM de Azure y en Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migra la aplicación osTicket de Linux a máquinas virtuales de Azure mediante Azure Site Recovery y la base de datos de la aplicación a una instancia de Azure MySQL Server con MySQL Workbench. | Disponible
-[Artículo 9: Refactorizar una aplicación en Azure Web Apps y Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migra la aplicación SmartHotel a una aplicación web de Azure y la base de datos de la aplicación a una instancia de Azure SQL Server con Database Migration Assistant. | Disponible
+[Artículo 9: Refactorizar una aplicación en Azure Web Apps y Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migra la aplicación SmartHotel360 a una aplicación web de Azure y la base de datos de la aplicación a una instancia de Azure SQL Server con Database Migration Assistant | Disponible
 [Artículo 10: Refactorizar una aplicación Linux en Azure Web Apps y Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migra su aplicación osTicket de Linux a una aplicación web de Azure en varias regiones de Azure con Azure Traffic Manager, integrado con GitHub para la entrega continua. Contoso migra la base de datos de la aplicación a una instancia de Azure Database for MySQL. | Disponible 
 [Artículo 11: Refactorizar TFS en VSTS](contoso-migration-tfs-vsts.md) | Contoso migra su implementación local de Team Foundation Server a Visual Studio Team Services en Azure. | Disponible
-[Artículo 12: Rediseño de la arquitectura de una aplicación en Azure Containers y Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migra su aplicación SmartHotel a Azure. A continuación, rediseña el nivel de aplicación web como un contenedor de Windows que se ejecuta en Azure Service Fabric, y la base de datos con Azure SQL Database. | Disponible
-[Artículo 13: Volver a compilar una aplicación en Azure](contoso-migration-rebuild.md) | Contoso recompila su aplicación SmartHotel mediante una serie de funcionalidades y servicios de Azure, como Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services y Azure Cosmos DB. | Disponible
+[Artículo 12: Rediseño de la arquitectura de una aplicación en Azure Containers y Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migra su aplicación SmartHotel360 a Azure. A continuación, rediseña el nivel de aplicación web como un contenedor de Windows que se ejecuta en Azure Service Fabric, y la base de datos con Azure SQL Database. | Disponible
+[Artículo 13: Volver a compilar una aplicación en Azure](contoso-migration-rebuild.md) | Contoso recompila su aplicación SmartHotel360 mediante una serie de funcionalidades y servicios de Azure, como Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services y Azure Cosmos DB. | Disponible
 
 
-En este artículo, Contoso migra a Azure la aplicación SmartHotel de Windows .NET de dos capas que se ejecuta en máquinas virtuales de VMware. Esta aplicación está disponible en código abierto y, si quiere usarla, puede descargarla en [GitHub](https://github.com/Microsoft/SmartHotel360).
+En este artículo, Contoso migra a Azure la aplicación SmartHotel360 de Windows .NET de dos capas que se ejecuta en VM de VMware. Esta aplicación está disponible en código abierto y, si quiere usarla, puede descargarla en [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 ## <a name="business-drivers"></a>Impulsores del negocio
 
@@ -261,7 +261,7 @@ Los administradores de Contoso ahora pueden habilitar Always On:
 
 2. Reinicia el servicio para que los cambios surtan efecto.
 
-Con Always On habilitado, Contoso puede configurar el grupo de disponibilidad Always On que protegerá la base de datos de SmartHotel.
+Con Always On habilitado, Contoso puede configurar el grupo de disponibilidad Always On que protegerá la base de datos de SmartHotel360.
 
 **¿Necesita más ayuda?**
 
@@ -342,7 +342,7 @@ Los administradores de Contoso los configuran de la manera siguiente:
 
 1.  Contoso ya creó una red o una subred que puede utilizar para Site Recovery cuando [implementó la infraestructura de Azure](contoso-migration-rehost-vm-sql-ag.md).
 
-    - La aplicación de SmartHotel es una aplicación de producción y WEBVM se migrará a la red de producción de Azure (VNET-PROD-EUS2) de la región principal de Este de EE. UU. 2.
+    - La aplicación SmartHotel360 es una aplicación de producción, y WEBVM se migrará a la red de producción de Azure (VNET-PROD-EUS2) de la región principal de Este de EE. UU. 2.
     - WEBVM se colocará en el grupo de recursos de ContosoRG, que se utiliza para los recursos de producción, y en la subred de producción (PROD-FE-EUS2).
 
 2. Los administradores de Contoso crean una cuenta de Azure Storage (contosovmsacc20180528) en la región primaria.
@@ -539,7 +539,7 @@ Ahora, los administradores de Contoso pueden empezar a replicar WebVM.
 
 ## <a name="step-7-install-the-database-migration-assistant-dma"></a>Paso 7: Instalación de Database Migration Assistant (DMA)
 
-Los administradores de Contoso migrarán la base de datos de SmartHotel a la máquina virtual de Azure **SQLAOG1** mediante DMA. Para ello, configura DMA como se muestra a continuación:
+El administrador de Contoso migrará la base de datos de SmartHotel360 a la VM de Azure **SQLAOG1** mediante DMA. Para ello, configura DMA como se muestra a continuación:
 
 1. Descarga la herramienta desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=53595) en la VM local de SQL Server (**SQLVM**).
 2. Ejecuta el programa de instalación (DownloadMigrationAssistant.msi) en la VM.
@@ -577,7 +577,7 @@ Una vez que la base de datos de la aplicación se ejecuta en **SQLAOG1**, los ad
 ### <a name="create-an-alwayson-availability-group"></a>Creación de un grupo de disponibilidad Always On
 
 1. En SQL Management Studio, hace doble clic en **Alta disponibilidad de Always On** para iniciar **New Availability Group Wizard** (Asistente para nuevo grupo de disponibilidad).
-2. En **Especificar opciones**, asigna el nombre **SHAOG** al grupo de disponibilidad. En **Seleccionar bases de datos**, selecciona la base de datos de SmartHotel.
+2. En **Especificar opciones**, asigna el nombre **SHAOG** al grupo de disponibilidad. En **Seleccionar bases de datos**, selecciona la base de datos de SmartHotel360.
 
     ![Grupo de disponibilidad Always On](media/contoso-migration-rehost-vm-sql-ag/aog-1.png)
 
@@ -673,9 +673,9 @@ Como último paso del proceso de migración, los administradores de Contoso actu
 - [Más información](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) sobre cómo crear un plan de recuperación.
 - [Más información](https://docs.microsoft.com/azure/site-recovery/site-recovery-failover) sobre cómo crear una conmutación por error en Azure.
 
-## <a name="clean-up-after-migration"></a>Limpieza después de la migración
+## <a name="clean-up-after-migration"></a>Limpiar después de la migración
 
-Tras la migración, la aplicación SmartHotel se ejecuta en una VM de Azure y la base de datos de SmartHotel se ubica en el clúster de Azure SQL.
+Tras la migración, la aplicación SmartHotel360 se ejecuta en una VM de Azure, y la base de datos de SmartHotel360 se ubica en el clúster de Azure SQL.
 
 Ahora, Contoso debe completar estos pasos de limpieza:  
 
@@ -695,7 +695,7 @@ El equipo de seguridad de Contoso revisa las VM de Azure WEBVM, SQLAOG1 y SQLAOG
 
 - El equipo revisa los grupos de seguridad de red (NSG) de la máquina virtual con el fin de controlar el acceso. Los NSG se usan para garantizar que solo el tráfico permitido puede pasar a la aplicación.
 - El equipo también tiene en cuenta la protección de los datos en el disco mediante Azure Disk Encryption y KeyVault.
-- Asimismo, el equipo debe evaluar el cifrado de datos transparente (TDE) y, luego, habilitarlo en la base de datos SmartHotel que se ejecuta en el nuevo AOG de SQL. [Más información](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017).
+- Asimismo, el equipo debe evaluar el cifrado de datos transparente (TDE) y, luego, habilitarlo en la base de datos de SmartHotel360 que se ejecuta en el nuevo AOG de SQL. [Más información](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017).
 
 Obtenga [más información](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) sobre los procedimientos de seguridad recomendados de las VM.
 
@@ -706,7 +706,7 @@ Obtenga [más información](https://docs.microsoft.com/azure/security/azure-secu
  - Mantener los datos seguros: Contoso realiza una copia de seguridad de los datos en las máquinas virtuales WEBVM, SQLAOG1 y SQLAOG2 mediante el servicio Azure Backup. [Más información].
 (https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - Contoso también aprenderá a usar Azure Storage para realizar una copia de seguridad de SQL Server directamente en Blob Storage. [Más información](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-use-storage-sql-server-backup-restore).
-- Mantener las aplicaciones en funcionamiento: Contoso replica las máquinas virtuales de la aplicación de Azure a una región secundaria mediante Site Recovery. [Más información](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
+- Mantener las aplicaciones en funcionamiento: Contoso replica las máquinas virtuales de la aplicación en Azure en una región secundaria mediante Site Recovery. [Más información](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
 
 
 ### <a name="licensing-and-cost-optimization"></a>Optimización de los costos y licencias
@@ -716,7 +716,7 @@ Obtenga [más información](https://docs.microsoft.com/azure/security/azure-secu
 
 ## <a name="conclusion"></a>Conclusión
 
-En este artículo, Contoso rehospedó la aplicación SmartHotel en Azure mediante la migración de la VM de front-end de la aplicación a Azure con el servicio Site Recovery. Contoso migró la base de datos de la aplicación a un clúster de SQL Server aprovisionado en Azure y la protegió en un grupo de disponibilidad de SQL Server Always On.
+En este artículo, Contoso rehospedó la aplicación SmartHotel360 en Azure mediante la migración de la VM de front-end de la aplicación a Azure con el servicio Site Recovery. Contoso migró la base de datos de la aplicación a un clúster de SQL Server aprovisionado en Azure y la protegió en un grupo de disponibilidad de SQL Server Always On.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

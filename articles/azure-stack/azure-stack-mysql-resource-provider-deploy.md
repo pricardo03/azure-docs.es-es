@@ -11,19 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 2f5661ddac16a3024335bd633623f7ada2fc5870
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 722df244135d045e18b9f2d0dd88066ba00b7d49
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41946417"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841886"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Implementación del proveedor de recursos MySQL en Azure Stack
 
 Use el proveedor de recursos MySQL Server de Azure Stack para exponer las bases de datos MySQL como un servicio de Azure Stack. El proveedor de recursos MySQL se ejecuta como un servicio en una máquina virtual (VM) Server Core de Windows Server 2016.
+
+> [!IMPORTANT]
+> Solo el proveedor de recursos puede crear elementos en servidores que hospedan SQL o MySQL. Los elementos creados en un servidor host que no se crean con el proveedor de recursos podrían dar lugar a un error de coincidencia de estado.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -38,21 +41,20 @@ Hay varios requisitos previos que se deben cumplir antes de implementar el prove
   >[!NOTE]
   >Para implementar el proveedor MySQL en un sistema sin acceso a Internet, copie el archivo [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) en una ruta de acceso local. Proporcione el nombre de ruta de acceso mediante el parámetro **DependencyFilesLocalPath**.
 
-* El proveedor de recursos tiene una compilación mínima correspondiente de Azure Stack. Asegúrese de descargar el archivo binario correcto para la versión de Azure Stack que ejecuta:
+* El proveedor de recursos tiene una compilación mínima correspondiente de Azure Stack.
 
-    | Versión de Azure Stack | MySQL RP, versión|
+    | Versión mínima de Azure Stack | MySQL RP, versión|
     | --- | --- |
     | Versión 1804 (1.0.180513.1)|[MySQL RP, versión 1.1.24.0](https://aka.ms/azurestackmysqlrp1804) |
-    | Versión 1802 (1.0.180302.1) | [MySQL RP, versión 1.1.18.0](https://aka.ms/azurestackmysqlrp1802)|
     |     |     |
 
-- Asegúrese de que se cumplen los requisitos previos de la integración del centro de datos:
+* Asegúrese de que se cumplen los requisitos previos de la integración del centro de datos:
 
     |Requisito previo|Referencia|
     |-----|-----|
     |El reenvío condicional de DNS se ha establecido correctamente.|[Integración del centro de datos de Azure Stack: DNS](azure-stack-integrate-dns.md)|
     |Los puertos de entrada para los proveedores de recursos están abiertos.|[Integración del centro de datos de Azure Stack: publicar puntos de conexión](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |Se han establecido correctamente el SAN y el asunto del certificado.|[Requisitos previos de PKI obligatorios de implementación de Azure Stack](azure-stack-pki-certs.md#mandatory-certificates)<br>[Requisitos previos de certificado de PaaS de implementación de Azure Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |Se han establecido correctamente el SAN y el asunto del certificado.|[Requisitos previos de PKI obligatorios para la implementación de Azure Stack](azure-stack-pki-certs.md#mandatory-certificates)[Requisitos previos de certificado de PaaS para la implementación de Azure Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>Certificados
@@ -87,6 +89,7 @@ Puede especificar estos parámetros en la línea de comandos. Si no lo hace, o s
 | **AzCredential** | Credenciales de la cuenta de administrador de servicio de Azure Stack. Use las mismas credenciales que para la implementación de Azure Stack. | _Obligatorio_ |
 | **VMLocalCredential** | Las credenciales para la cuenta de administrador local de la VM del proveedor de recursos de MySQL. | _Obligatorio_ |
 | **PrivilegedEndpoint** | Dirección IP o nombre DNS del punto de conexión con privilegios. |  _Obligatorio_ |
+| **AzureEnvironment** | El entorno de Azure de la cuenta de administrador de servicio que ha usado para la implementación de Azure Stack. Necesario únicamente si no es un sistema de archivos distribuido de Azure. Los nombres de entorno que se admiten son **AzureCloud**, **AzureUSGovernment** o, si usa una suscripción a Azure Active Directory de China, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | El archivo .pfx de certificados se debe colocar en este directorio, pero solo en los sistemas integrados. Para entornos desconectados, descargue [mysql-connector-net-6.10.5](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) a este directorio. También puede copiar un paquete de Windows Update MSU aquí. | _Opcional_ (_obligatorio_ para sistemas integrados o entornos desconectados) |
 | **DefaultSSLCertificatePassword** | Contraseña para el certificado .pfx. | _Obligatorio_ |
 | **MaxRetryCount** | Número de veces que quiere volver a intentar cada operación si se produce un error.| 2 |
@@ -150,6 +153,7 @@ Cuando finalice el script de instalación del proveedor de recursos, actualice e
 2. Seleccione **Resource Groups** (Grupos de recursos).
 3. Seleccione el grupo de recursos **system.\<ubicación\>.mysqladapter**.
 4. En la página de resumen de la información general del grupo de recursos no debería haber implementaciones con errores.
+5. Por último, seleccione **Máquinas virtuales** en el portal de administración para comprobar que la VM del proveedor de recursos de MySQL se ha creado correctamente y está en ejecución.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

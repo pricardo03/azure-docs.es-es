@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: b34386a7b416d6f7d8b008a9cb5ef142948a370f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 2a9ff23e5182c8cb7c91ad93e368f61f258c84f8
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005402"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841599"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega y reintento de entrega de mensajes de Event Grid 
 
@@ -35,19 +35,20 @@ Los siguientes códigos de respuesta HTTP response indican que un evento se ha e
 
 ### <a name="failure-codes"></a>Códigos de error
 
-Los siguientes códigos de respuesta HTTP indican que el intento de entrega de un evento no se ha realizado. 
+Los siguientes códigos de respuesta HTTP indican que el intento de entrega de un evento no se ha realizado.
 
 - 400 - Solicitud incorrecta
 - 401 No autorizado
 - 404 No encontrado
 - 408 - Tiempo de espera de solicitud
+- 413 Entidad de solicitud demasiado larga
 - 414 - URI de solicitud demasiado largo
 - 429 Demasiadas solicitudes
 - Error de servidor interno 500
 - Servicio no disponible 503
 - Tiempo de espera de puerta de enlace 504
 
-Si Event Grid recibe un error que indica que el punto de conexión no está disponible temporalmente o que una futura solicitud podría realizarse correctamente, intenta enviar de nuevo el evento. Si Event Grid recibe un error que indica que la entrega nunca se realizará correctamente y que [se ha configurado el punto de conexión de elementos fallidos](manage-event-delivery.md), envía el evento al punto de conexión de elementos fallidos. 
+Si tiene [configurado un punto de conexión de mensajes fallidos](manage-event-delivery.md) y Event Grid recibe un código de respuesta 400 o 413, Event Grid envía de inmediato el evento al punto de conexión de mensajes fallidos. En caso contrario, Event Grid reintenta todos los errores.
 
 ## <a name="retry-intervals-and-duration"></a>Intervalos de reintento y duración
 

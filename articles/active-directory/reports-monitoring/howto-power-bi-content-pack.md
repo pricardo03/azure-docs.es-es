@@ -14,14 +14,19 @@ ms.component: report-monitor
 ms.date: 12/06/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 090e7419f80bc734ee2b1cb4f976911792046a9c
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 752e71f3c6b22a6d9f1e2392b58c01deef9de89c
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146571"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782173"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Uso del paquete de contenido de Power BI de Azure Active Directory
+
+|  |
+|--|
+|Actualmente, el paquete de contenido de Power BI de Azure AD usa las Graph API de Azure AD para recuperar datos del inquilino de Azure AD. Como resultado, es posible que vea alguna discrepancia entre los datos disponibles en el paquete de contenido y los datos recuperados con la [API de Microsoft Graph para crear informes](concept-reporting-api.md). |
+|  |
 
 Comprender cómo los usuarios adoptan y usan las características de Azure Active Directory es fundamental para un administrador de TI. Permite planear la infraestructura de TI y la comunicación para aumentar la utilización y sacar el máximo partido de las características de AAD. El paquete de contenido de Power BI para Azure Active Directory ofrece la capacidad de analizar con mayor profundidad los datos para comprender cómo puede usarlos para recopilar información más completa sobre qué sucede con su entorno Azure Active Directory para las diversas funcionalidades de las que depende en gran medida.  Con la integración de las API de Azure Active Directory en Power BI, puede descargar fácilmente los paquetes de contenido pregenerados y obtener información sobre todas las actividades dentro de su entorno Azure Active Directory por medio de la completa experiencia de visualización que Power BI ofrece. Puede crear su propio panel y compartirlo fácilmente con cualquier persona de su organización. 
 
