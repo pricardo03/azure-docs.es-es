@@ -232,11 +232,11 @@
 
 
 #### Registro de la aplicación
-##### [Especificar campos del objeto de aplicación](application-dev-registration-config-specific-application-property-how-to.md)
-##### [Cambio de los valores predeterminados de vigencia del token](application-dev-registration-config-change-token-lifetime-how-to.md)
+##### [Especificar campos del objeto de aplicación](develop/registration-config-specific-application-property-how-to.md)
+##### [Cambio de los valores predeterminados de vigencia del token](develop/registration-config-change-token-lifetime-how-to.md)
 
 #### Autenticación
-##### [Configuración de puntos de conexión](application-dev-registration-config-how-to.md)
+##### [Configuración de puntos de conexión](develop/registration-config-how-to.md)
 
 #### Acceso condicional
 ##### [El cliente no cumplía los requisitos previos de registro de dispositivos](active-directory-conditional-access.md)
@@ -248,7 +248,7 @@
 ##### [¿Qué aplicaciones son compatibles con el acceso condicional?](active-directory-conditional-access-supported-apps.md)
 
 #### Búsqueda de una API
-##### [Búsqueda de una API](application-dev-api-find-an-api-how-to.md)
+##### [Búsqueda de una API](develop/api-find-an-api-how-to.md)
 
 #### Administración del acceso
 ##### [Asignación de usuarios y grupos a una aplicación](manage-apps/methods-for-assigning-users-and-groups.md)
@@ -258,14 +258,14 @@
 ##### [Hay una aplicación inesperada en la lista de aplicaciones](manage-apps/application-types.md)
 
 #### Aplicaciones multiinquilino
-##### [Configuración de una nueva aplicación](application-dev-setup-multi-tenant-app.md)
-##### [Incorporación a la galería de aplicaciones](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
+##### [Configuración de una nueva aplicación](develop/setup-multi-tenant-app.md)
+##### [Incorporación a la galería de aplicaciones](develop/registration-config-multi-tenant-application-add-to-gallery-how-to.md)
 
 #### Permisos
-##### [Elección de los permisos de una API](application-dev-perms-for-given-api.md)
-##### [Concesión de permisos a mi aplicación](application-dev-registration-config-grant-permissions-how-to.md)
-##### [Permisos delegados frente a permisos de aplicaciones](application-dev-delegated-and-app-perms.md)
-##### [Consentimiento de la aplicación](application-dev-consent-framework.md)
+##### [Elección de los permisos de una API](develop/perms-for-given-api.md)
+##### [Concesión de permisos a mi aplicación](develop/registration-config-grant-permissions-how-to.md)
+##### [Permisos delegados frente a permisos de aplicaciones](develop/delegated-and-app-perms.md)
+##### [Consentimiento de la aplicación](develop/consent-framework.md)
 
 #### Aprovisionamiento
 ##### [¿Cuánto tiempo tarda?](manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md)
@@ -278,7 +278,7 @@
 
 #### Inicio de sesión único
 ##### [Elección de un método](manage-apps/single-sign-on-modes.md)
-##### [Configuración](application-dev-registration-config-sso-how-to.md)
+##### [Configuración](develop/registration-config-sso-how-to.md)
 ##### [Configuración federada: aplicaciones de la galería](manage-apps/configure-federated-single-sign-on-gallery-applications.md)
 ##### [Problemas habituales en la configuración federada: aplicaciones de la galería](manage-apps/configure-federated-single-sign-on-gallery-applications-problems.md)
 ##### [Configuración federada: aplicaciones que no son de la galería](manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
@@ -303,7 +303,7 @@
 ##### [Problema con una aplicación local: proxy de aplicación](manage-apps/application-sign-in-problem-on-premises-application-proxy.md)
 
 ### [Desarrollo de aplicaciones](active-directory-applications-guiding-developers-for-lob-applications.md)
-### [Biblioteca de documentos](active-directory-apps-index.md)
+
 
 ## Administración del directorio
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
