@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 08ab76e587c4e2c8b8afe9cb27e9df59a5924475
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: d063e4b79819a881dbf018979654d4d7d96b904a
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842047"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390934"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Implementación del proveedor de recursos de SQL Server en Azure Stack
 
@@ -93,7 +93,10 @@ Puede especificar los parámetros siguientes en la línea de comandos. Si no lo 
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Implementar el proveedor de recursos SQL con un script personalizado
 
-Para eliminar cualquier configuración manual al implementar el proveedor de recursos, puede personalizar el script siguiente. Cambie la información de cuenta predeterminada y las contraseñas según sea necesario para su implementación de Azure Stack.
+<a name="to-eliminate-any-manual-configuration-when-deploying-the-resource-provider-you-can-customize-the-following-script"></a>Para eliminar cualquier configuración manual al implementar el proveedor de recursos, puede personalizar el script siguiente.  
+-  
+- Cambie la información de cuenta predeterminada y las contraseñas según sea necesario para su implementación de Azure Stack.
+
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
