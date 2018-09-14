@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/24/2018
+ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e9b5005fad1eeb13314e1fb6a5708bb02b96cbf9
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: bdcc0510503e48caf70f4f0d91d7602d767ca9ab
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248644"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092485"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Copia de seguridad y restauración en Azure SQL Data Warehouse
 Obtenga información acerca de cómo funcionan la copia de seguridad y la restauración en Azure SQL Data Warehouse. Utilice instantáneas de almacenamiento de datos para recuperar o copiar el almacenamiento de datos en un punto de restauración en la región primaria. Utilice copias de seguridad con redundancia geográfica del almacenamiento de datos para restaurarlo en otra región geográfica. 
@@ -40,19 +40,20 @@ order by run_id desc
 ```
 
 ## <a name="user-defined-restore-points"></a>Puntos de restauración definidos por el usuario
-Esta característica permite desencadenar instantáneas manualmente para crear puntos de restauración del almacenamiento de datos antes y después de realizar grandes modificaciones. Esta funcionalidad garantiza que los puntos de restauración sean lógicamente coherentes, lo que proporciona una protección de datos adicional en caso de interrupciones de la carga de trabajo o de errores del usuario que permite un tiempo de recuperación rápido. Los puntos de restauración definidos por el usuario están disponibles durante siete días y se eliminan automáticamente. No se puede cambiar el período de retención de los puntos de restauración definidos por el usuario. Solo se admiten 42 puntos de restauración definidos por el usuario en un momento dado, por lo que deben [eliminarse](https://go.microsoft.com/fwlink/?linkid=875299) antes de crear otro punto de restauración. Puede desencadenar instantáneas para crear puntos de restauración definidos por el usuario a través de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) o Azure Portal.
+Esta característica permite desencadenar instantáneas manualmente para crear puntos de restauración del almacenamiento de datos antes y después de realizar grandes modificaciones. Esta funcionalidad garantiza que los puntos de restauración sean lógicamente coherentes, lo que proporciona una protección de datos adicional en caso de interrupciones de la carga de trabajo o de errores del usuario que permite un tiempo de recuperación rápido. Los puntos de restauración definidos por el usuario están disponibles durante siete días y se eliminan automáticamente. No se puede cambiar el período de retención de los puntos de restauración definidos por el usuario. Se garantizan **42 puntos de restauración definidos por el usuario** en un momento dado, por lo que deben [eliminarse](https://go.microsoft.com/fwlink/?linkid=875299) antes de crear otro punto de restauración. Puede desencadenar instantáneas para crear puntos de restauración definidos por el usuario mediante [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) o Azure Portal.
 
 
 > [!NOTE]
 > Si necesita más de siete días de puntos de restauración, vote por esta funcionalidad [aquí](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). También puede crear un punto de restauración definido por el usuario y restaurar desde el punto de restauración recién creado en un nuevo almacenamiento de datos. Cuando haya realizado la restauración, tendrá el almacenamiento de datos en línea y podrá pausarlo indefinidamente para ahorrar costos de proceso. La base de datos en pausa genera gastos de almacenamiento según la tarifa de Azure Premium Storage. Si necesita una copia activa del almacenamiento de datos restaurado, puede reanudarlo, lo que sólo le llevará unos minutos.
 >
 
-### <a name="snapshot-retention-when-a-data-warehouse-is-paused"></a>Retención de instantáneas cuando un almacenamiento de datos está en pausa
-SQL Data Warehouse no crea instantáneas ni caduca los puntos de restauración mientras un almacenamiento de datos está en pausa. Los puntos de restauración no cambian mientras el almacenamiento de datos está en pausa. La retención de puntos de restauración se basa en el número de días que el almacenamiento de datos está en línea, no en los días naturales.
-
-Por ejemplo, si una instantánea comienza el 1 de octubre a las 4 de la tarde y el almacenamiento de datos se pausa el 3 de octubre a las 4 de la tarde, los puntos de restauración tienen dos días de antigüedad. Cuando el almacenamiento de datos vuelve a estar en línea, el punto de restauración tiene dos días de antigüedad. Si el almacenamiento de datos vuelve a estar en línea el 5 de octubre a las 4 de la tarde, el punto de restauración tiene dos días de antigüedad y permanece cinco días más.
-
-Cuando el almacenamiento de datos vuelve a estar en línea, SQL Data Warehouse reanuda la creación de puntos de restauración y caduca los que tienen más de siete días de datos.
+### <a name="restore-point-retention"></a>Retención de punto de recuperación
+A continuación se describen los detalles sobre los períodos de retención de punto de restauración:
+1. SQL Data Warehouse elimina un punto de restauración cuando alcanza el período de retención de 7 días **y** cuando hay al menos 42 puntos de restauración totales (incluidos los definidos por el usuario y los automáticos).
+2. Las instantáneas no se toman cuando un almacenamiento de datos está en pausa.
+3. La antigüedad de un punto de restauración se mide por los días naturales absolutos a partir del momento en que se toma el punto de restauración, incluso cuando el almacenamiento de datos está en pausa.
+4. En cualquier momento, se garantiza que un almacenamiento de datos podrá almacenar hasta 42 puntos de restauración definidos por el usuario y 42 puntos de restauración automáticos siempre y cuando estos puntos de restauración no hayan alcanzado el período de retención de 7 días.
+5. Si se toma una instantánea, el almacenamiento de datos se detiene durante más de 7 días y luego se reanuda, es posible que el punto de restauración persista hasta que haya un total de 42 puntos de restauración (incluidos los definidos por el usuario y los automáticos).
 
 ### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Retención de instantáneas cuando se quita un almacenamiento de datos
 Cuando se quita un almacenamiento de datos SQL Data Warehouse crea una instantánea final y la guarda durante siete días. Puede restaurar el almacenamiento de datos en el punto de restauración final durante la eliminación. 
@@ -67,7 +68,7 @@ SQL Data Warehouse realiza una copia de seguridad geográfica una vez al día en
 Las copias de seguridad geográficas están activadas de manera predeterminada. Si el almacenamiento de datos es Gen1, puede [optar por no participar](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy), si lo desea. No se puede optar por no realizar las copias de seguridad de replicación geográfica para Gen2, ya que la protección de datos es una garantía integrada.
 
 > [!NOTE]
-> Si necesita un RPO más reducido para copias de seguridad de replicación geográfica, vote por esta funcionalidad [aquí](https://feedback.azure.com/forums/307516-sql-data-warehouse). También puede crear un punto de restauración definido por el usuario y restaurar a partir del punto de restauración recién creado en un nuevo almacenamiento de datos. Cuando haya realizado la restauración, tendrá el almacenamiento de datos en línea y podrá pausarlo indefinidamente para ahorrar costos de proceso. La base de datos en pausa genera gastos de almacenamiento según la tarifa de Azure Premium Storage. Y luego se pausa. Si necesita una copia activa del almacenamiento de datos, puede reanudarlo, lo que solo le llevará unos minutos.
+> Si necesita un objetivo de punto de recuperación más reducido para copias de seguridad de replicación geográfica, vote por esta funcionalidad [aquí](https://feedback.azure.com/forums/307516-sql-data-warehouse). También puede crear un punto de restauración definido por el usuario y restaurar a partir del punto de restauración recién creado en un nuevo almacenamiento de datos. Cuando haya realizado la restauración, tendrá el almacenamiento de datos en línea y podrá pausarlo indefinidamente para ahorrar costos de proceso. La base de datos en pausa genera gastos de almacenamiento según la tarifa de Azure Premium Storage. Y luego se pausa. Si necesita una copia activa del almacenamiento de datos, puede reanudarlo, lo que solo le llevará unos minutos.
 >
 
 

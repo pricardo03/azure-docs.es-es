@@ -510,7 +510,7 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. En Azure PowerShell, cambie a la carpeta **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\**. Ejecute el script **RegisterGateway.ps1** asociado a la variable local **$Key** tal y como se muestra en el siguiente comando. Este script registra al agente cliente instalado en la máquina con la puerta de enlace lógica que creó antes.
+1. En Azure PowerShell, cambie a la carpeta **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\.** Ejecute el script **RegisterGateway.ps1** asociado a la variable local **$Key** tal y como se muestra en el siguiente comando. Este script registra al agente cliente instalado en la máquina con la puerta de enlace lógica que creó antes.
 
     ```PowerShell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
