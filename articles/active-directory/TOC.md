@@ -323,37 +323,8 @@
 
 ### [Configuración de la vigencia de los tokens](active-directory-configurable-token-lifetimes.md)
 
-## Revisiones de acceso
-### [Introducción a las revisiones de acceso](active-directory-azure-ad-controls-access-reviews-overview.md)
-### [Finalización de una revisión de acceso](active-directory-azure-ad-controls-complete-access-review.md)
-### [Creación de una revisión de acceso](active-directory-azure-ad-controls-create-access-review.md)
-### [Revisión de acceso en Privileged Identity Management de Azure AD](active-directory-azure-ad-controls-perform-access-review.md)
-### [Revisión del acceso](active-directory-azure-ad-controls-how-to-review-your-access.md)
-### [Acceso de invitado con revisiones de acceso](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-### [Administración del acceso de usuarios con revisiones](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
-### [Administración de programas y controles](active-directory-azure-ad-controls-manage-programs-controls.md)
-### [Recuperación de los resultados de revisión de acceso](active-directory-azure-ad-controls-retrieve-access-review.md)
-
-## [Condiciones de uso](active-directory-tou.md)
-
 ## Protección de las identidades
 
-### Azure AD Identity Protection
-#### [Información general](identity-protection/overview.md)
-#### [Habilitación](identity-protection/enable.md)
-#### [Detección de vulnerabilidades](identity-protection/vulnerabilities.md)
-#### [Eventos de riesgo](active-directory-identity-protection-risk-events.md)
-#### [Notificaciones](identity-protection/notifications.md)
-#### [Experiencia de inicio de sesión](identity-protection/flows.md)
-#### [Simulación de eventos de riesgo](identity-protection/playbook.md)
-#### [Desbloqueo de usuarios](identity-protection/howto-unblock-user.md)
-#### [Configuración de la directiva de registro de la autenticación multifactor](identity-protection/howto-mfa-policy.md)
-#### [Configuración de la directiva de riesgo de inicio de sesión](identity-protection/howto-sign-in-risk-policy.md)
-#### [Configuración de la directiva de riesgo del usuario](identity-protection/howto-user-risk-policy.md)
-#### [Bloqueo del acceso si se detecta un riesgo de sesión](identity-protection/quickstart-sign-in-risk-policy.md)
-#### [Preguntas más frecuentes](identity-protection/faqs.md)
-#### [Glosario](identity-protection/glossary.md)
-#### [Microsoft Graph](identity-protection/graph-get-started.md)
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## [Implementación de AD FS en Azure](active-directory-aadconnect-azure-adfs.md)
