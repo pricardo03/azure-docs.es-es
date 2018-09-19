@@ -1,0 +1,54 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 2217adbbb9e5222e6c33bfcdce41c30396c7f231
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45740327"
+documentType: LandingData
+title: Informes y supervisión de Azure AD
+metadata:
+  document_id: 
+  title: 'Documentación sobre los informes y la supervisión de Azure Active Directory: Tutoriales, guías de inicio rápido, conceptos | Microsoft Docs'
+  description: Aprenda a configurar y probar las soluciones de informes y supervisión de Azure Active Directory.
+  services: active-directory
+  ms.component: report-monitor
+  author: priyamohanram
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/14/2018
+  ms.author: priyamo
+abstract:
+  description: Aprenda a ver los informes de seguridad y de auditoría de su entorno, o a supervisarlos durante un período de tiempo para conocer información sobre los patrones de uso. Con los informes de Azure AD, puede conocer información sobre los patrones de seguridad y de uso del entorno. Por ejemplo, puede responder a las siguientes preguntas:<ul><li>¿Cómo son las aplicaciones o servicios que utilizan los usuarios?</li><li>¿Cuáles son los posibles riesgos que afectan al estado de su entorno?</li><li>¿Cómo solucionar problemas que impiden a los usuarios finalizar su trabajo?</li>
+sections:
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: Aprenda a descargar los informes de actividad y a enrutar los registros a una cuenta de almacenamiento de Azure
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-sign-in-report">Descarga de un informe de inicio de sesión</a>
+    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-audit-report">Descarga de un informe de auditoría</a>
+    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack">Instalación del paquete de contenido de Power BI para informes</a>
+    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account">Enrutamiento de registros a la cuenta de almacenamiento</a>
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: Aprenda a acceder a los informes y a transmitir en secuencias los registros de actividad al sistema de supervisión de su elección
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates">Acceso mediante programación a la API de informes mediante certificados</a>
+    - html: <a href="/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub">Transmisión en secuencias de registros de actividad a un centro de eventos</a>
+- title: Referencia
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes">Códigos de error de inicios de sesión</a>
+    - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema">Esquema de registro de auditoría de Azure AD en Azure Monitor</a>
+    - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema">Esquema de inicios de sesión de Azure AD en Azure Monitor</a>

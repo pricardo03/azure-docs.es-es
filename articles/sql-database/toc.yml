@@ -309,44 +309,46 @@ items:
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Comparación de características SQL
     href: sql-database-features.md
-  - name: Supervisión y ajuste
+  - name: Rendimiento y optimización
     items:
-    - name: Supervisión y ajuste
-      href: sql-database-troubleshoot-performance.md
-    - name: Supervisión del rendimiento
-      href: sql-database-single-database-monitor.md
-    - name: Recomendaciones sobre rendimiento
-      href: sql-database-advisor.md
-    - name: Procesamiento de consultas inteligente
+    - name: Rendimiento inteligente
       items:
-      - name: Procesamiento de consultas inteligente
-        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-      - name: Procesamiento adaptable de consultas
-        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
-    - name: Ajuste automático
-      items:
-      - name: Ajuste automático
-        href: sql-database-automatic-tuning.md
-      - name: Habilitación del ajuste automático
-        href: sql-database-automatic-tuning-enable.md
-      - name: Habilitación de notificaciones de correo electrónico
-        href: sql-database-automatic-tuning-email-notifications.md
-    - name: Intelligent Insights
-      items:
+      - name: Consultas
+        items:
+        - name: Procesamiento de consultas inteligente
+          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+        - name: Procesamiento adaptable de consultas
+          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+      - name: Supervisión y ajuste
+        items:
+        - name: Introducción a la supervisión y ajuste
+          href: sql-database-monitor-tune-overview.md
+        - name: Recomendaciones de rendimiento de Database Advisor
+          href: sql-database-advisor.md
+        - name: Acciones y recomendaciones de ajuste
+          href: sql-database-performance.md
+        - name: Aplicación de recomendaciones de rendimiento
+          href: sql-database-advisor-portal.md
       - name: Intelligent Insights
-        href: sql-database-intelligent-insights.md
-      - name: Registro de diagnósticos
-        href: sql-database-metrics-diag-logging.md
-      - name: Uso del registro de diagnósticos
-        href: sql-database-intelligent-insights-use-diagnostics-log.md
-      - name: Solución de problemas de rendimiento
-        href: sql-database-intelligent-insights-troubleshoot-performance.md
-    - name: Recomendaciones de rendimiento
-      href: sql-database-performance.md
-    - name: Uso de Información de rendimiento de consultas
-      href: sql-database-query-performance.md
-    - name: Aplicación de recomendaciones de rendimiento
-      href: sql-database-advisor-portal.md
+        items:
+        - name: Introducción a Intelligent Insights
+          href: sql-database-intelligent-insights.md
+        - name: Registro de diagnósticos
+          href: sql-database-metrics-diag-logging.md
+        - name: Uso del registro de diagnósticos
+          href: sql-database-intelligent-insights-use-diagnostics-log.md
+        - name: Solución de problemas de rendimiento
+          href: sql-database-intelligent-insights-troubleshoot-performance.md
+      - name: Información de rendimiento de consultas
+        href: sql-database-query-performance.md
+      - name: Ajuste automático del rendimiento
+        items:
+        - name: Introducción al ajuste automático
+          href: sql-database-automatic-tuning.md
+        - name: Habilitación del ajuste automático
+          href: sql-database-automatic-tuning-enable.md
+        - name: Habilitación de notificaciones de correo electrónico
+          href: sql-database-automatic-tuning-email-notifications.md
     - name: Ajuste manual
       items:
       - name: Ajuste manual
@@ -355,16 +357,16 @@ items:
         href: sql-database-monitoring-with-dmvs.md
       - name: Funcionamiento del almacén de consultas
         href: sql-database-operate-query-store.md
-    - name: Supervisión en memoria
-      href: sql-database-in-memory-oltp-monitoring.md
-    - name: Eventos extendidos
-      items:
+      - name: En memoria
+        href: sql-database-in-memory-oltp-monitoring.md
       - name: Eventos extendidos
-        href: sql-database-xevent-db-diff-from-svr.md
-      - name: 'Eventos extendidos: Archivo de eventos'
-        href: sql-database-xevent-code-event-file.md
-      - name: 'Eventos extendidos: Búfer en anillo'
-        href: sql-database-xevent-code-ring-buffer.md
+        items:
+        - name: Eventos extendidos
+          href: sql-database-xevent-db-diff-from-svr.md
+        - name: 'Eventos extendidos: Archivo de eventos'
+          href: sql-database-xevent-code-event-file.md
+        - name: 'Eventos extendidos: Búfer en anillo'
+          href: sql-database-xevent-code-ring-buffer.md
     - name: Creación de alertas
       href: sql-database-insights-alerts-portal.md
     - name: Solución de problemas de conectividad
@@ -616,9 +618,9 @@ items:
     href: /azure/architecture/
   - name: Testimonios de clientes
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 97b7f99440510e8a4a72cb0e3b18c54839f0c0c6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: cfb52fa79f85ed1a382e0aa715d3239c84860678
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634479"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983791"

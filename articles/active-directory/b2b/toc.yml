@@ -1,0 +1,124 @@
+items:
+- name: Documentación sobre la colaboración B2B de Azure Active Directory
+  href: index.yml
+  items:
+  - name: Información general
+    items:
+    - name: ¿Qué es el acceso de usuarios invitados de B2B?
+      href: what-is-b2b.md
+    - name: Comparación de B2B con B2C
+      href: compare-with-b2c.md
+  - name: Guías de inicio rápido
+    items:
+    - name: Incorporación de usuarios invitados en el portal
+      href: b2b-quickstart-add-guest-users-portal.md
+    - name: Incorporación de usuarios invitados con PowerShell
+      href: b2b-quickstart-invite-powershell.md
+  - name: Tutoriales
+    items:
+    - name: Invitación masiva a usuarios invitados de B2B
+      href: b2b-tutorial-bulk-invite.md
+    - name: Aplicación de Multi-Factor Authentication
+      href: b2b-tutorial-require-mfa.md
+  - name: Ejemplos
+    items:
+    - name: Ejemplo de portal de registro de autoservicio
+      href: self-service-portal.md
+    - name: Ejemplos de Code y Azure PowerShell
+      href: code-samples.md
+  - name: Conceptos
+    items:
+    - name: Licencias B2B
+      href: licensing-guidance.md
+    - name: Uso compartido externo de B2B y Office 365
+      href: o365-external-user.md
+    - name: Canje de invitación
+      href: redemption-experience.md
+    - name: Correo electrónico de invitación
+      href: invitation-email-elements.md
+    - name: Descripción del usuario de B2B
+      href: user-properties.md
+    - name: Asignación de notificaciones de usuario de B2B
+      href: claims-mapping.md
+    - name: Token de usuario de B2B
+      href: user-token.md
+    - name: Acceso condicional para B2B
+      href: conditional-access.md
+    - name: B2B para organizaciones híbridas
+      href: hybrid-organizations.md
+    - name: Limitaciones actuales
+      href: current-limitations.md
+    expanded: false
+  - name: Guías de procedimientos
+    items:
+    - name: Administración de invitaciones
+      items:
+      - name: Adición de usuarios de B2B por los administradores
+        href: add-users-administrator.md
+      - name: Adición de usuarios de B2B por los trabajadores de la información
+        href: add-users-information-worker.md
+      - name: Federación de Google
+        href: google-federation.md
+      - name: Directivas de uso compartido de B2B
+        href: delegate-invitations.md
+      - name: Permiso o bloqueo de invitaciones
+        href: allow-deny-list.md
+      - name: Incorporación de usuarios B2B sin invitación
+        href: add-user-without-invite.md
+      - name: API y personalización
+        href: customize-invitation-api.md
+    - name: Administración de cuentas de invitado
+      items:
+      - name: Adición de un usuario B2B a un rol
+        href: add-guest-to-role.md
+      - name: Grupos dinámicos y usuarios de B2B
+        href: use-dynamic-groups.md
+      - name: Descripción del usuario de B2B
+        href: user-properties.md
+      - name: B2B para las aplicaciones integradas de Azure AD
+        href: configure-saas-apps.md
+    - name: Administración del acceso en una organización híbrida
+      items:
+      - name: Concesión a los usuarios locales de acceso a las aplicaciones en la nube
+        href: hybrid-on-premises-to-cloud.md
+      - name: Concesión a los usuarios B2B de acceso a las aplicaciones locales
+        href: hybrid-cloud-to-on-premises.md
+    - name: Salir de una organización
+      href: leave-the-organization.md
+    - name: Informes y auditoría
+      href: auditing-and-reporting.md
+    - name: Solución de problemas de B2B
+      href: troubleshoot.md
+    expanded: true
+  - name: Referencia
+    items:
+    - name: API del administrador de invitaciones
+      href: customize-invitation-api.md
+  - name: Recursos
+    items:
+    - name: Preguntas más frecuentes
+      href: faq.md
+    - name: Obtención de soporte técnico para B2B
+      href: get-support.md
+    - name: Foro de comentarios de Azure
+      href: https://feedback.azure.com/forums/169401-azure-active-directory
+    - name: Azure Roadmap
+      href: https://azure.microsoft.com/roadmap/?category=security-identity
+    - name: Foro de MSDN
+      href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+    - name: Precios
+      href: https://azure.microsoft.com/pricing/details/active-directory/
+    - name: Calculadora de precios
+      href: https://azure.microsoft.com/pricing/calculator/
+    - name: Actualizaciones del servicio
+      href: https://azure.microsoft.com/updates/?product=active-directory
+    - name: Stack Overflow
+      href: http://stackoverflow.com/questions/tagged/azure-active-directory
+    - name: Vídeos
+      href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+ms.openlocfilehash: e3517af7c8cf84834a7487089f426c5c5ff4a80f
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45986705"

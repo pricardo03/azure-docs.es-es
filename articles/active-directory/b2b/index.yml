@@ -1,0 +1,59 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 45ce7413a3974ec8018db3c5287aa922a76f072b
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45986688"
+documentType: LandingData
+title: Documentación sobre la colaboración B2B de Azure Active Directory
+metadata:
+  document_id: 
+  title: 'Documentación sobre la colaboración B2B de Azure Active Directory: Tutoriales, guías de inicio rápido, conceptos, referencias | Microsoft Docs'
+  description: Aprenda a usar el acceso de usuario invitado de B2B para poder compartir recursos de forma segura y colaborar con asociados externos.
+  services: active-directory
+  ms.component: authentication
+  author: msmimart
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/10/2018
+  ms.author: mimart
+abstract:
+  description: Aprenda a usar la colaboración de negocio a negocio (B2B) de Azure AD para compartir de forma segura las aplicaciones y servicios de la empresa con usuarios invitados y asociados externos de cualquier organización, mientras conserva el control sobre sus propios datos corporativos.  Estas son algunas de las principales características:<ul><li>Mediante un sencillo proceso de invitación y canje, los usuarios invitados pueden empezar a colaborar en los recursos a los que quiere que accedan.</li><li>Los usuarios invitados y los asociados externos administran sus propias identidades a través de Azure AD, cuentas de correo electrónico de redes sociales o cualquier proveedor de identidades.</li><li>Puede proteger los recursos corporativos con características de Azure AD como la autenticación multifactor.</li><li>Puede usar API para personalizar la experiencia, por ejemplo, mediante un portal de registro de autoservicio.</li></ul>Los siguientes recursos le ayudarán a empezar a trabajar rápidamente.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ./media/index/video.png
+      width: 246
+    title: Explicación sobre B2B de Azure AD
+    href: https://www.youtube.com/watch?v=AhwrweCBdsc
+    width: 246
+sections:
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: Aprenda a invitar a usuarios y empiece a trabajar con la colaboración B2B.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Incorporación de usuarios invitados en Azure Portal
+      href: b2b-quickstart-add-guest-users-portal.md
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Incorporación de un usuario invitado con PowerShell
+      href: b2b-quickstart-invite-powershell.md
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: Más información sobre la configuración de la colaboración B2B y la protección de recursos de su empresa.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/b2b/tutorial-bulk-invite">Invitación masiva a usuarios invitados de B2B con PowerShell</a>
+    - html: <a href="/azure/active-directory/b2b/b2b-tutorial-require-mfa">Aplicación de la autenticación multifactor para usuarios invitados de B2B</a>
