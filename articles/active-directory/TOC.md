@@ -26,22 +26,22 @@
 ## Planeamiento y diseño
 ### [Descripción de la arquitectura de Azure AD](fundamentals/active-directory-architecture.md)
 ### [Asignación de notificaciones en Azure Active Directory](active-directory-claims-mapping.md)
-### [Implementación de una solución de identidad híbrida](active-directory-hybrid-identity-design-considerations-overview.md)
+### [Implementación de una solución de identidad híbrida](hybrid/plan-hybrid-identity-design-considerations-overview.md)
 #### Determinación de requisitos
-##### [Identidad](active-directory-hybrid-identity-design-considerations-business-needs.md)
-##### [Sincronización de directorios](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
-##### [Multi-factor Authentication](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
-##### [Identificación de la estrategia de ciclo de vida](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
-#### [Planeamiento de la seguridad de datos](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
-##### [Protección de datos](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
-##### [Administración de contenido](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
-##### [Control de acceso](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
-##### [Respuesta a los incidentes](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
+##### [Identidad](hybrid/plan-hybrid-identity-design-considerations-business-needs.md)
+##### [Sincronización de directorios](hybrid/plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
+##### [Multi-factor Authentication](hybrid/plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+##### [Identificación de la estrategia de ciclo de vida](hybrid/plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
+#### [Planeamiento de la seguridad de datos](hybrid/plan-hybrid-identity-design-considerations-data-protection-strategy.md)
+##### [Protección de datos](hybrid/plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
+##### [Administración de contenido](hybrid/plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
+##### [Control de acceso](hybrid/plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)
+##### [Respuesta a los incidentes](hybrid/plan-hybrid-identity-design-considerations-incident-response-requirements.md)
 #### Planeamiento del ciclo de vida de identidad
-##### [Tareas](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
-##### [Estrategia de adopción](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
-#### [Pasos siguientes](active-directory-hybrid-identity-design-considerations-nextsteps.md)
-#### [Comparación de herramientas](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+##### [Tareas](hybrid/plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
+##### [Estrategia de adopción](hybrid/plan-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+#### [Pasos siguientes](hybrid/plan-hybrid-identity-design-considerations-nextsteps.md)
+#### [Comparación de herramientas](hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Administrar usuarios
 ### [Adición de nuevos usuarios a Azure AD](fundamentals/add-users-azure-active-directory.md)
@@ -309,7 +309,7 @@
 
 
 ## Administración del directorio
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 ### Nombres de dominio personalizados
 #### [Guía de inicio rápido](fundamentals/add-custom-domain.md)
 ### [Administración de directorios](fundamentals/active-directory-administer.md)
@@ -321,7 +321,7 @@
 #### [Solución de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
-### [Integración de identidades locales con Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Integración de identidades locales con Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 
 ### [Configuración de la vigencia de los tokens](active-directory-configurable-token-lifetimes.md)
 
@@ -329,7 +329,7 @@
 
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
-## [Implementación de AD FS en Azure](active-directory-aadconnect-azure-adfs.md)
+## [Implementación de AD FS en Azure](hybrid/how-to-connect-fed-azure-adfs.md)
 ### [Alta disponibilidad](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Cambio de algoritmo hash de firma](active-directory-federation-sha256-guidance.md)
 
@@ -349,8 +349,8 @@
 
 # Temas relacionados
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
-## [Azure AD Connect](./connect/active-directory-aadconnect.md)
-## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
+## [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
+## [Azure AD Connect Health](hybrid/whatis-hybrid-identity-health.md)
 ## [Azure AD para desarrolladores](./develop/active-directory-how-to-integrate.md)
 ## [Administración de identidades con privilegios de Azure AD](./privileged-identity-management/pim-configure.md)
 
