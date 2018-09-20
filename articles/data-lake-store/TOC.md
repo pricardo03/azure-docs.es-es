@@ -22,7 +22,7 @@
 ### [Uso de DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Uso de Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Carga de datos de orígenes sin conexión](data-lake-store-offline-bulk-data-upload.md)
-### [Migración de Data Lake Store entre regiones](data-lake-store-migration-cross-region.md)
+### [Migración de Data Lake Store Gen1 entre regiones](data-lake-store-migration-cross-region.md)
 
 ## Protección de datos
 ### [Introducción a la seguridad](data-lake-store-security-overview.md)

@@ -1,0 +1,68 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: ab917279244d9b15da3b246b05a94fcd55e6d733
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46300517"
+documentType: LandingData
+title: Documentación de identidad híbrida
+metadata:
+  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275e
+  title: Documentación de identidad híbrida
+  meta.description: Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD.
+  services: active-directory
+  author: billmath
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/18/2018
+  ms.author: billmath
+abstract:
+  description: Las soluciones de identidad de Microsoft abarcan funcionalidades locales y de nube, de forma que se crea una sola identidad de usuario para la autenticación y la autorización en todos los recursos, sin importar su ubicación. A esto le llamamos identidad híbrida.</br></br></br>Azure AD Connect integrará sus directorios locales con Azure Active Directory. Esto le permite proporcionar una identidad común para los usuarios de aplicaciones de Office 365, Azure y SaaS integradas con Azure AD. Este tema le guiará a través del planeamiento, implementación y pasos de la operación. Se ofrece una colección de vínculos a temas relacionados con esta área.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video2.png
+      width: 250
+    title: Ampliación de los directorios locales en la nube (1:11:12)
+    href: https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player
+    width: 250
+sections:
+- title: Tutoriales detallados
+  items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/active-directory/hybrid/tutorial-password-hash-sync
+      html: <p>Aprenda a ampliar las identidades en la nube mediante la sincronización de hash de contraseñas</p>
+      image:
+        src: media/index/azuread2.png
+      title: Integración de un único bosque de AD mediante la sincronización de hash de contraseñas (PHS)
+    - href: /azure/active-directory/hybrid/tutorial-passthrough-authentication
+      html: <p>Aprenda a ampliar las identidades en la nube mediante la autenticación de paso a través.</p>
+      image:
+        src: media/index/manage2.png
+      title: Integración de un único bosque de AD mediante la autenticación de paso a través (PTA)
+    - href: /azure/active-directory/hybrid/tutorial-federation
+      html: <p>Averigüe cómo federar Azure Active Directory (Azure AD) Connect con los Servicios de federación de Active Directory (AD FS) locales y Azure AD.</p>
+      image:
+        src: media/index/federate2.png
+      title: Integración de un único bosque de AD mediante federación
+- title: Guías de procedimientos
+  items:
+  - type: paragraph
+    text: Aprenda a realizar diversas tareas para las identidades híbridas
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/hybrid/how-to-connect-install-custom">Instalación de Azure AD Connect en su entorno de identidad híbrida</a>
+    - html: <a href="/azure/active-directory/hybrid/how-to-connect-sso">Inicio de sesión único sin interrupciones con Azure AD Connect</a>
+    - html: <a href="/azure/active-directory/hybrid/how-to-connect-install-prerequisites">Requisitos previos de Azure AD Connect</a>
+    - html: '<a href="/azure/active-directory/hybrid/reference-connect-version-history">Azure AD Connect: historial de versiones</a>'
+    - html: <a href="/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler">Administración del programador de sincronización de Azure AD Connect</a>
