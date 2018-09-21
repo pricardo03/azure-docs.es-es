@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 3daf0e214c2c10d682e908ca430f4852df105926
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c6ef868d80e628f9120acc0775179e89ccd03674
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38756199"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979428"
 ---
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
-| vCPU por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup> |20 |10.000 |
+| vCPU por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup> |20 |10 000 |
 | [Coadministradores](../articles/billing-add-change-azure-subscription-administrator.md) por suscripción |200 |200 |
-| [Cuentas de almacenamiento](../articles/storage/common/storage-create-storage-account.md) por región por suscripción<sup>2</sup> |200 |250 |
+| [Cuentas de almacenamiento](../articles/storage/common/storage-quickstart-create-account.md) por región por suscripción<sup>2</sup> |200 |250 |
 | [Servicios en la nube](../articles/cloud-services/cloud-services-choose-me.md) por suscripción |20 |200 |
 | [Redes locales](http://msdn.microsoft.com/library/jj157100.aspx) por suscripción |10 |500 |
 | Servidores de SQL Database por suscripción |6 |200 |

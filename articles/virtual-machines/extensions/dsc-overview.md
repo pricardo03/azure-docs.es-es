@@ -3,7 +3,7 @@ title: Introducción a Desired State Configuration de Azure
 description: Aprenda a usar el controlador de extensiones de Microsoft Azure para Desired State Configuration (DSC) de PowerShell. El artículo incluye los requisitos previos, la arquitectura y los cmdlets.
 services: virtual-machines-windows
 documentationcenter: ''
-author: DCtheGeek
+author: bobbytreed
 manager: carmonm
 editor: ''
 tags: azure-resource-manager
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
-ms.author: dacoulte
-ms.openlocfilehash: 60560a4a656d0ad5df15208261ab8462f4271ec5
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: robreed
+ms.openlocfilehash: 18d6478763fd6551cc8baac6ea54e8d91f1a28e6
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012451"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629975"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introducción al controlador de extensiones de configuración de estado deseado de Azure
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: d4f387d484fe895d8b6c5196c3a5527947ee3925
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: de3f23f58ef34bdd5f9769f820d64ed7e00ca7d8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702068"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715081"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferencias, bloqueos y liquidación de mensajes
 
@@ -62,7 +62,7 @@ for (int i = 0; i < 100; i++)
 {
   tasks.Add(client.SendAsync(…));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 Es importante tener en cuenta que todos los modelos de programación asincrónicos usan algún tipo de cola de trabajo oculta y basado en memoria que contiene las operaciones pendientes. Cuando se devuelve [SendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (C#) o **Send** (Java), la tarea de envío se pone en esa cola de trabajo pero el gesto de protocolo solo se inicia cuando la tarea vaya a ejecutarse. Para el código que suele insertar ráfagas de mensajes y en donde la confiabilidad es un problema, debe tener cuidado que no lanzar demasiados mensajes a la vez, porque todos los mensajes enviados consumen memoria hasta que realmente se hayan puesto en circulación.
@@ -79,7 +79,7 @@ for (int i = 0; i < 100; i++)
 
   tasks.Add(client.SendAsync(…).ContinueWith((t)=>semaphore.Release()));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 Las aplicaciones **nunca** deben iniciar una operación de envío asincrónica de forma "enviar y olvidarse" sin recuperar el resultado de la operación. Si lo hace, puede cargar la cola de tareas internas y invisibles hasta el agotamiento de la memoria y evitar que la aplicación detecte errores de envío:

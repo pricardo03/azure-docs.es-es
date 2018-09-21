@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 08/31/2018
-ms.openlocfilehash: 2df3f19759229e017ab934082cef46d18816934b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: c36a771266f595f6d8dc8575d100fa5bb9496584
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338973"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714947"
 ---
 # <a name="migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Migración de MySQL a Azure Database for MySQL en línea mediante DMS
 Puede usar Azure Database Migration Service para migrar las bases de datos de una instancia de MySQL local a [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) con un tiempo de inactividad mínimo. En otras palabras, se puede lograr la migración con un tiempo de inactividad mínimo para la aplicación. En este tutorial, va a migrar la base de datos de ejemplo **Employees** de una instancia local de MySQL 5.7 a Azure Database for MySQL mediante una actividad de migración en línea de Azure Database Migration Service.
@@ -93,7 +93,7 @@ SET group_concat_max_len = 8192;
     WHERE
       KCU.CONSTRAINT_NAME = RC.CONSTRAINT_NAME
       AND KCU.REFERENCED_TABLE_SCHEMA = RC.UNIQUE_CONSTRAINT_SCHEMA
-  AND KCU.REFERENCED_TABLE_SCHEMA = ['SchemaName') Queries
+  AND KCU.REFERENCED_TABLE_SCHEMA = 'SchemaName') Queries
   GROUP BY SchemaName;
  ```
         

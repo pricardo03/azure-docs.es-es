@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 482f0403cfd4bbd6587ba7e3e936cdac7f82b54a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b7abbd486e9c357a5bdba093214a3801f88c39ab
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39227838"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575905"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Descripción y ajuste de las unidades de streaming
 
@@ -46,7 +46,7 @@ Calcule la capacidad de procesamiento esperada de la carga de trabajo. Si la cap
 
 La elección del número de SU necesarias para un trabajo determinado depende de la configuración de particiones de las entradas y de la consulta definida dentro del trabajo. La página **Escala** le permite establecer el número correcto de SU. Es recomendable asignar más unidades de streaming de las necesarias. El motor de procesamiento de Stream Analytics se optimiza para la latencia y el rendimiento, a costa de asignar memoria adicional.
 
-En general, el procedimiento recomendado es comenzar con 6 SU para consultas que no usen **PARTITION BY**. Luego, determine el punto favorable mediante un método de prueba y error en el que modifica el número de SU después de pasar las cantidades de datos representativas y examinar la métrica de porcentaje de uso de SU. El número máximo de unidades de streaming que se puede utilizar en un trabajo de Stream Analytics depende del número de pasos de la consulta definida para el trabajo y del número de particiones en cada paso. Puede obtener más información sobre los límites [aquí](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
+En general, el procedimiento recomendado es comenzar con 6 SU para consultas que no usen **PARTITION BY**. Luego, determine el punto favorable mediante un método de prueba y error en el que modifica el número de SU después de pasar las cantidades de datos representativas y examinar la métrica de porcentaje de uso de SU. El número máximo de unidades de streaming que se puede utilizar en un trabajo de Stream Analytics depende del número de pasos de la consulta definida para el trabajo y del número de particiones en cada paso. Puede obtener más información sobre los límites [aquí](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
 
 Para más información sobre cómo elegir el número correcto de SU, consulte está página: [Escalación de trabajos de Azure Stream Analytics para incrementar el rendimiento](stream-analytics-scale-jobs.md)
 
@@ -85,7 +85,7 @@ Con el fin de mejorar los problemas causados por la cardinalidad alta en la cons
 
    ```sql
    SELECT count(*) 
-   FROM PARTITION BY PartitionId
+   FROM input PARTITION BY PartitionId
    GROUP BY PartitionId, clusterid, tumblingwindow (minutes, 5)
    ```
 

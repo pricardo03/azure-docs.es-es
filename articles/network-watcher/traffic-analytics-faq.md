@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 9f7fb5009468dccae50190ee40a53d11040d0348
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: debefb329304235818b7b441122b90ae9a2834a9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903754"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578317"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -58,7 +58,7 @@ Para comprobar los roles asignados a un usuario para una suscripción:
 
 3. Para enumerar todos los roles asignados a un usuario específico, use **Get-AzureRmRoleAssignment -SignInName [correo electrónico del usuario] -IncludeClassicAdministrators**. 
 
-Si no se muestra ninguna salida, póngase en contacto con el administrador de la suscripción correspondiente para acceder para ejecutar los comandos. Para más información, consulte [Administración del control de acceso basado en rol con Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell).
+Si no se muestra ninguna salida, póngase en contacto con el administrador de la suscripción correspondiente para acceder para ejecutar los comandos. Para más información, consulte [Administración del control de acceso basado en rol con Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>¿Qué regiones de Azure están disponibles en Análisis de tráfico?
@@ -196,7 +196,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 El análisis de tráfico se puede medir. La medición se basa en el procesamiento de los datos de registro de flujo que realiza el servicio y el almacenamiento de los registros mejorados resultantes en un área de trabajo de Log Analytics. 
 
-Por ejemplo, según el [plan de tarifa](https://azure.microsoft.com/en-us/pricing/details/network-watcher/), teniendo en cuenta la región Centro-oeste de EE. UU., si los registros de flujo de datos almacenados en una cuenta de almacenamiento procesada por Análisis de tráfico es de 10 GB y los registros mejorados ingeridos en el área de trabajo de Log Analytics es de 1 GB los cargos aplicables son: 10 x 2,3 USD + 1 x 2,76 USD = 25,76 USD
+Por ejemplo, según el [plan de tarifa](https://azure.microsoft.com/pricing/details/network-watcher/), teniendo en cuenta la región Centro-oeste de EE. UU., si los registros de flujo de datos almacenados en una cuenta de almacenamiento procesada por Análisis de tráfico es de 10 GB y los registros mejorados ingeridos en el área de trabajo de Log Analytics es de 1 GB los cargos aplicables son: 10 x 2,3 USD + 1 x 2,76 USD = 25,76 USD
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>¿Cómo puedo navegar con el teclado en la vista del mapa geográfico?
 

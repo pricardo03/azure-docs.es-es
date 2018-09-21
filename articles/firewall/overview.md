@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 7/16/2018
 ms.author: victorh
-ms.openlocfilehash: 3657b619dc57b994158c711c46d4db6924aa2930
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5e8048dc6b49a0f6c9a465e82a7278e491351034
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089828"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574137"
 ---
 # <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
@@ -61,8 +61,8 @@ La versión preliminar pública de Azure Firewall presenta los siguientes proble
 |---------|---------|---------|
 |Interoperabilidad con grupos de seguridad de red     |Si se aplica un grupo de seguridad de red (NSG) en la subred de firewall, este puede bloquear la conectividad a Internet saliente incluso si el grupo de seguridad de red está configurado para permitir este acceso. Las conexiones a Internet salientes están marcadas como procedentes de una red virtual y el destino es Internet. Un grupo de seguridad de red tiene de forma predeterminada el *permiso* VirtualNetwork to VirtualNetwork, pero no cuando el destino es Internet.|Para resolver este problema, agregue la siguiente regla de entrada al grupo de seguridad de red que se aplica en la subred de firewall:<br><br>Origen: VirtualNetwork Puertos de origen: cualquiera <br><br>Destino: cualquiera Puertos de destino: cualquiera <br><br>Protocolo: todos Acceso: permitir|
 |Conflicto con la característica Just-in-Time (JIT) de Azure Security Center (ASC)|Si se accede a una máquina virtual mediante JIT, y está en una subred con una ruta definida por el usuario que apunta a Azure Firewall como puerta de enlace predeterminada, JIT de ASC no funcionará. Este es el resultado de un enrutamiento asimétrico: un paquete entra por medio de la dirección IP pública de la máquina virtual (JIT abrió el acceso), pero la ruta de vuelta es a través del firewall, que rechaza el paquete porque no se ha establecido una sesión en el firewall.|Para solucionar este problema, coloque las máquinas virtuales JIT en una subred independiente que no tenga una ruta definida por el usuario al firewall.|
-|Concentrador y radio con emparejamiento global no funciona|No se admite el modelo de concentrador y radio, donde el concentrador y el firewall están implementados en una región de Azure y los radios en otra, conectados al concentrador mediante el emparejamiento de VNet.|Para más información, consulte [Crear, cambiar o eliminar un emparejamiento de red virtual](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints).|
-Las reglas de filtrado de red para protocolos que no son TCP/UDP (por ejemplo, ICMP) no funcionan con el tráfico enlazado a Internet|Las reglas de filtrado de red de protocolos que no son TCP/UDP no funcionan con la traducción SNAT a la dirección IP pública. Los protocolos que no son TCP/UDP no se admiten entre subredes de radio y redes virtuales.|Azure Firewall usa Standard Load Balancer, [que actualmente no admite SNAT para los protocolos IP](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-overview#limitations). Se están examinando opciones para admitir este escenario en una versión futura.
+|Concentrador y radio con emparejamiento global no funciona|No se admite el modelo de concentrador y radio, donde el concentrador y el firewall están implementados en una región de Azure y los radios en otra, conectados al concentrador mediante el emparejamiento de VNet.|Para más información, consulte [Crear, cambiar o eliminar un emparejamiento de red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints).|
+Las reglas de filtrado de red para protocolos que no son TCP/UDP (por ejemplo, ICMP) no funcionan con el tráfico enlazado a Internet|Las reglas de filtrado de red de protocolos que no son TCP/UDP no funcionan con la traducción SNAT a la dirección IP pública. Los protocolos que no son TCP/UDP no se admiten entre subredes de radio y redes virtuales.|Azure Firewall usa Standard Load Balancer, [que actualmente no admite SNAT para los protocolos IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). Se están examinando opciones para admitir este escenario en una versión futura.
 
 
 

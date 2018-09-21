@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 21ad417b9b3b8d0354333962c4e811d0eebba4e9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: efab734cc7d6facf82f622b95c12a1a27e99c5f7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159340"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575939"
 ---
 # <a name="security-management-in-azure"></a>Administración de la seguridad en Azure
 Los suscriptores de Azure pueden administrar sus entornos de nube desde diversos dispositivos, incluidas estaciones de trabajo de administración, equipos de desarrollador e incluso dispositivos de usuario final con privilegios que tengan permisos específicos para la tarea. En algunos casos, las funciones administrativas se realizan mediante consolas web tales como [Azure Portal](https://azure.microsoft.com/features/azure-portal/). En otros casos, puede haber conexiones directas a Azure desde sistemas locales a través de redes privadas virtuales (VPN), Terminal Services, protocolos de aplicación de cliente o Azure Service Management API (SMAPI). Además, los puntos de conexión de cliente pueden estar unidos a un dominio o aislados y no administrados, como tabletas o smartphones.
@@ -225,7 +225,7 @@ Los siguientes recursos proporcionan más información general acerca de los ser
 
 * [Securing Privileged Access](https://technet.microsoft.com/library/mt631194.aspx) (Protección del acceso con privilegios): consulte la información técnica para diseñar y crear una estación de trabajo administrativa segura para la administración de Azure.
 * [Centro de confianza de Microsoft](https://microsoft.com/en-us/trustcenter/cloudservices/azure): conozca las funcionalidades de la plataforma Azure que protegen el tejido de Azure y las cargas de trabajo que se ejecutan en Azure.
-* [Microsoft Security Response Center](https://technet.microsoft.com/en-us/security/dn440717.aspx): aquí podrá notificar vulnerabilidades de seguridad de Microsoft, incluidos problemas con Azure, o también mediante correo electrónico a [secure@microsoft.com](mailto:secure@microsoft.com).
+* [Microsoft Security Response Center](https://technet.microsoft.com/security/dn440717.aspx): aquí podrá notificar vulnerabilidades de seguridad de Microsoft, incluidos problemas con Azure, o también mediante correo electrónico a [secure@microsoft.com](mailto:secure@microsoft.com).
 * [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): manténgase al día sobre los últimos avances en seguridad en Azure.
 
 <!--Image references-->

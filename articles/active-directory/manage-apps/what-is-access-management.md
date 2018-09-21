@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: barbkess
-ms.openlocfilehash: d39df136c6c81e380ccbe7fa2c050d906dc4c182
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: cec1b3089403966cbf738b372a4380bdacf264b7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367052"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718302"
 ---
 # <a name="managing-access-to-apps"></a>Administración del acceso a las aplicaciones
 El acceso continuo a las aplicaciones, la evaluación del uso y la generación de informes siguen siendo un desafío después de que una aplicación se integra en el sistema de identidad de su organización. En muchos casos, el administrador de TI o el departamento de soporte técnico deben asumir un rol activo en la administración del acceso a las aplicaciones. En ocasiones, la asignación la realiza un equipo de TI general o departamental. En ocasiones, se pretende que la decisión de asignación se delegue en el responsable de la toma de decisiones, lo que requiere su aprobación antes de que TI realice la asignación.  Otras organizaciones invierten en integración con un sistema automatizado existente de administración de identidades y acceso, como Control de acceso basado en rol (RBAC) o Control de acceso basado en atributos (ABAC). Tanto la integración como el desarrollo de reglas tienden a ser procesos especializados y caros. La supervisión o la generación de informes en cualquier enfoque de administración requieren su propia inversión aparte que resulta costosa y compleja.
@@ -54,7 +54,5 @@ En este caso, todos los usuarios asignados se aprovisionarían automáticamente 
 Los administradores pueden emplear el [acceso condicional de Azure AD](../active-directory-conditional-access-azure-portal.md) para establecer directivas de acceso para roles específicos. Estas directivas pueden incluir si se permite el acceso fuera del entorno corporativo e incluso los requisitos de Multi-Factor Authentication o de los dispositivo para obtener acceso en diversos casos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](../active-directory-apps-index.md)
 * [Protección de aplicaciones con acceso condicional](../active-directory-conditional-access-azure-portal.md)
 * [Administración de grupos de autoservicio/SSAA](../users-groups-roles/groups-self-service-management.md)

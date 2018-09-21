@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 48e64f0cc65ade870425f73989209e8bef8ec8d5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4c33466af6e57264e02a7d5c298f7f1f9fbf4ed8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630293"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717308"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Introducción a los registros de escalado automático con conjuntos de escalado de máquinas virtuales de Azure
 Un conjunto de escalado de máquinas virtuales de Azure puede aumentar o reducir automáticamente el número de instancias de máquinas virtuales que ejecutan la aplicación. Este comportamiento automatizado y elástico reduce la sobrecarga de administración para supervisar y optimizar el rendimiento de la aplicación. Puede crear reglas que definan el rendimiento aceptable para una experiencia positiva del cliente. Al cumplirse esos umbrales definidos, las reglas de escalado automático actúan para ajustar la capacidad del conjunto de escalado. También puede programar eventos para aumentar o reducir automáticamente la capacidad del conjunto de escalado en determinados momentos. En este artículo se proporciona información general de las métricas de rendimiento que están disponibles y las acciones que puede realizar el escalado automático.
@@ -106,7 +106,7 @@ Al desencadenarse una regla de escalado automático, su conjunto de escalado pue
 | Aumentar recuento en   | Un número fijo de instancias de máquinas virtuales que se van a crear. Útil en conjuntos de escalado con un número menor de máquinas virtuales.                                           |
 | Aumentar porcentaje en | Un aumento basado en porcentajes de instancias de máquinas virtuales. Bueno para conjuntos de escalado mayores donde es posible que un aumento fijo no mejore el rendimiento considerablemente. |
 | Aumentar recuento en   | Cree tantas instancias de máquinas virtuales como sean necesarias para alcanzar una cantidad máxima deseada.                                                            |
-| Reducir recuento en   | Un número fijo de instancias de máquinas virtuales que se van a quitar. Útil en conjuntos de escalado con un número menor de máquinas virtuales.                                           |
+| Reducir el recuento en   | Un número fijo de instancias de máquinas virtuales que se van a quitar. Útil en conjuntos de escalado con un número menor de máquinas virtuales.                                           |
 | Reducir porcentaje en | Un descenso basado en porcentajes de instancias de máquinas virtuales. Bueno para conjuntos de escalado mayores donde es posible que un aumento fijo no reduzca los costos y el consumo de recursos considerablemente. |
 | Reducir recuento en   | Quite tantas instancias de máquinas virtuales como sean necesarias para alcanzar una cantidad mínima deseada.                                                            |
 

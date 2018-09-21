@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 84696b4135570168f8093b15f9a2deb4790eeebe
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 05959143431a2cc11d79a4012f45eb565c1c91f2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480890"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576007"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal
 
@@ -58,7 +58,7 @@ Para este tutorial, creará una sola red virtual con tres subredes:
 
 ![Infraestructura de red del tutorial](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-Este tutorial usa una configuración de red simplificada para facilitar la implementación. En el caso de las implementaciones de producción, se recomienda un [modelo tipo hub-and-spoke](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), en el que el firewall está en su propia red virtual y los servidores de las cargas de trabajo están en redes virtuales emparejadas de la misma región con una o más subredes.
+Este tutorial usa una configuración de red simplificada para facilitar la implementación. En el caso de las implementaciones de producción, se recomienda un [modelo tipo hub-and-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), en el que el firewall está en su propia red virtual y los servidores de las cargas de trabajo están en redes virtuales emparejadas de la misma región con una o más subredes.
 
 
 

@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: b784e64962569f22cba3bc52b6a4e9443a4587d5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 36d37c2d18823273b5c0f82ecae0f9420e35768c
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30311998"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35621286"
 ---
 # <a name="what-is-azure-batch"></a>¿Qué es Azure Batch?
 
@@ -61,7 +61,7 @@ Azure Batch también tiene funcionalidades disponibles de nivel más alto, espec
 * Batch admite [cargas de trabajo de representación a gran escala](batch-rendering-service.md) con herramientas de representación que incluyen Autodesk Maya, 3ds Max, Arnold, y V-Ray. 
 * Los usuarios de R pueden instalar el [paquete doAzureParallel](https://github.com/Azure/doAzureParallel) para escalar horizontalmente con facilidad la ejecución de algoritmos R en grupos de Batch.
 
-Azure Batch también se puede ejecutar como parte de un flujo de trabajo mayor de Azure para transformar datos, administrado mediante herramientas como [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md).
+Azure Batch también se puede ejecutar como parte de un flujo de trabajo mayor de Azure para transformar datos, administrado mediante herramientas como [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md).
 
 
 ## <a name="how-it-works"></a>Cómo funciona

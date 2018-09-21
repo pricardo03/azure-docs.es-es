@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: f7cf471a69395cef0aef7d5dd2e3c77218bf97a3
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 140daf4903c64d734182545cd4dc58db60274852
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715287"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576127"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Selección de un plan de tarifa de Azure Search
 
@@ -104,7 +104,7 @@ Si la muestra es representativa y es el diez por ciento del origen de datos comp
 
 Algunos clientes prefieren comenzar con recursos dedicados que pueden adaptarse a mayores tiempos de muestreo y procesamiento y, a continuación, realizan una estimación realista de volúmenes de consultas y tamaño y cantidad de índices durante el desarrollo. Inicialmente, se aprovisiona un servicio basado en un cálculo basado en suposiciones y, a continuación, a medida que el proyecto evoluciona, los equipos suelen saben si el servicio está por encima o por debajo de la capacidad necesaria para las cargas de trabajo de producción previstas. 
 
-1. [Revise los límites del servicio en cada nivel](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity#index-limits) para determinar si los niveles más bajos pueden admitir la cantidad de índices que necesita. En los niveles **Básico**-**S1**- **S2**, los límites de índices son 15-50-200, respectivamente.
+1. [Revise los límites del servicio en cada nivel](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) para determinar si los niveles más bajos pueden admitir la cantidad de índices que necesita. En los niveles **Básico**-**S1**- **S2**, los límites de índices son 15-50-200, respectivamente.
 
 1. [Cree un servicio en un nivel facturable](search-create-service-portal.md):
 

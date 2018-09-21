@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 361905b4c1e0c9e596cb7cf1cd5a730268d81bd0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 706e946e61f7d5f48ce5071e90d724af717449d9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413416"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575225"
 ---
 # <a name="azure-operational-security-overview"></a>Información general sobre la seguridad operativa de Azure
 Con [seguridad operativa de Azure](https://docs.microsoft.com/azure/security/azure-operational-security), se hace referencia a los servicios, los controles y las características disponibles para los usuarios para proteger sus datos, aplicaciones y otros recursos en Microsoft Azure. Es un marco que incorpora el conocimiento adquirido a través de una variedad de funcionalidades exclusivas de Microsoft. Estas funcionalidades incluyen el Ciclo de vida de desarrollo de seguridad (SDL) de Microsoft, el programa Microsoft Security Response Center y un conocimiento profundo del panorama de amenazas de ciberseguridad.
@@ -68,7 +68,7 @@ Azure AD también incluye un conjunto completo de [funcionalidades de administra
 Con Azure Active Directory, todas las aplicaciones que publica para sus asociados y clientes (empresa o consumidor) tendrán las mismas funcionalidades de administración de identidad y acceso. Esto permite reducir significativamente los costos operativos.
 
 ## <a name="azure-security-center"></a>Azure Security Center
-[Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro) ayuda a evitar, detectar y responder a amenazas con más visibilidad y control sobre la seguridad de sus recursos de Azure. Proporciona una supervisión de la seguridad y una administración de directivas integradas en sus suscripciones. Le ayuda a detectar amenazas que podrían pasar desapercibidas, y funciona con un amplio ecosistema de soluciones de seguridad.
+[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) ayuda a evitar, detectar y responder a amenazas con más visibilidad y control sobre la seguridad de sus recursos de Azure. Proporciona una supervisión de la seguridad y una administración de directivas integradas en sus suscripciones. Le ayuda a detectar amenazas que podrían pasar desapercibidas, y funciona con un amplio ecosistema de soluciones de seguridad.
 
 [Proteja los datos de máquinas virtuales (VM)](https://docs.microsoft.com/azure/security-center/security-center-linux-virtual-machine) en Azure proporcionando visibilidad a la configuración de seguridad de su máquina virtual y supervisando las amenazas. Security Center puede supervisar las máquinas virtuales con los siguientes fines:
 
