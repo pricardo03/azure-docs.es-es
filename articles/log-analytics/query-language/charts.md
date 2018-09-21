@@ -15,24 +15,26 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 359e5e671287c4d330deeb2d3573877d9ee5d1c5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: acf51056a084abc08bda2d7f73b561f442f57784
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40191145"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605543"
 ---
 # <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>Creación de gráficos y diagramas de las consultas de Log Analytics
 
 > [!NOTE]
 > Debe completar la lección [Agregaciones avanzadas en consultas de Log Analytics](advanced-aggregations.md) antes de completar esta lección.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+
 En este artículo se escriben las distintas visualizaciones en Azure Log Analytics para mostrar los datos de distintas maneras.
 
 ## <a name="charting-the-results"></a>Crear gráficos de los resultados
 Comience por revisar cuántos equipos hay por sistema operativo, durante la última hora:
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > ago(1h)
 | summarize count(Computer) by OSType  
@@ -50,7 +52,7 @@ Para obtener una mejor perspectiva, seleccione **Gráfico** y elija la opción *
 ## <a name="timecharts"></a>Gráficos de tiempo
 Muestran los percentiles 50 y 95 promedio del tiempo de procesador en intervalos de 1 hora. La consulta genera varias series y puede seleccionar qué series mostrar en el gráfico de tiempo:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -65,7 +67,7 @@ Seleccione la opción de visualización de gráfico de **líneas**:
 
 Una línea de referencia puede ayudarlo a identificar fácilmente si la métrica superó un umbral específico. Para agregar una línea a un gráfico, amplíe el conjunto de datos con una columna de constante:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -78,7 +80,7 @@ Perf
 ## <a name="multiple-dimensions"></a>Varias dimensiones
 Varias expresiones en la cláusula `by` de `summarize` crean varias filas en los resultados, una para cada combinación de valores.
 
-```OQL
+```KQL
 SecurityEvent
 | where TimeGenerated > ago(1d)
 | summarize count() by tostring(EventID), AccountType, bin(TimeGenerated, 1h)

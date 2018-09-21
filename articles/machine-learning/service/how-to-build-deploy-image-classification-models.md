@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: 6b7f73573cb1465b89e54e30894b3549153e4acb
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1188ff040c12fd431cfcef5eea982647df6b9a71
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888439"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576398"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Compilación e implementación de modelos de clasificación de imágenes con Azure Machine Learning
 
@@ -38,7 +38,7 @@ Al compilar e implementar este modelo con AMLPCV, realiza los pasos siguientes:
 
 Consulte la [documentación de referencia del paquete](https://aka.ms/aml-packages/vision) para ver la referencia detallada de cada módulo y clase.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 1. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -174,7 +174,7 @@ display(annotation_ui.ui)
 
 ## <a name="augment-images"></a>Aumento de imágenes
 
-El [`augmentation`módulo](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation) proporciona la funcionalidad para aumentar un objeto de conjunto de datos con todas las transformaciones que se describen en la biblioteca [imgaug](https://github.com/aleju/imgaug). Las transformaciones de imágenes se pueden agregar en una sola canalización, en cuyo caso todas las transformaciones de la canalización se aplican simultáneamente a cada imagen. 
+El [`augmentation`módulo](https://docs.microsoft.com/python/api/cvtk.augmentation) proporciona la funcionalidad para aumentar un objeto de conjunto de datos con todas las transformaciones que se describen en la biblioteca [imgaug](https://github.com/aleju/imgaug). Las transformaciones de imágenes se pueden agregar en una sola canalización, en cuyo caso todas las transformaciones de la canalización se aplican simultáneamente a cada imagen. 
 
 Si quisiera aplicar distintos pasos de aumento por separado o de una manera distinta, puede definir varias canalizaciones y pasarlas a la función *augment_dataset*. Para más información y ejemplos del aumento de imágenes, consulte la [documentación de imgaug](https://github.com/aleju/imgaug).
 

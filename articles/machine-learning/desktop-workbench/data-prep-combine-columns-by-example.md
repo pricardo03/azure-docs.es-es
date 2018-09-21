@@ -7,17 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: ecd2232dcf77715fdccd4e5518674500231f67ca
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 621601ad3576aad13f2f71062ee2351cf1a394c8
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830284"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35640076"
 ---
 # <a name="combine-columns-by-example-transformation"></a>Transformación Combinar columnas por ejemplos
 Esta transformación permite al usuario agregar una nueva columna mediante la combinación de valores de varias columnas. El usuario puede especificar un separador o proporcionar ejemplos de valores combinados para realizar esta transformación. Cuando el usuario proporciona ejemplos de combinación, la transformación se controla por medio del mismo motor **por ejemplos** que se usa en la transformación **Derivar columna por ejemplos**.

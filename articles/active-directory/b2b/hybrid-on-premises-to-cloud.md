@@ -4,18 +4,18 @@ description: Proporcione a los asociados externos administrados localmente acces
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 71d5ce8728d876740d6ef00b55ecdc9232a06f80
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 722ab51d0f591b8f16924d1d5661385267b7f0e6
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267225"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295162"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Conceder a las cuentas de asociado administradas localmente acceso a los recursos en la nube mediante la colaboración B2B de Azure AD
 
@@ -32,17 +32,17 @@ Los dos enfoques comunes para ello son los siguientes:
 - Designe un atributo de Active Directory local sin usar (por ejemplo, Atributodeextensión1) que se usará como el atributo de origen. 
 - Como alternativa, obtenga el valor del atributo UserType de otras propiedades. Por ejemplo, querrá sincronizar todos los usuarios como Invitado si su atributo UserPrincipalName de Active Directory local finaliza con el dominio *@partners.contoso.com*.
  
-Para conocer los requisitos detallados de atributos, consulte [Habilitar la sincronización de UserType](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype). 
+Para conocer los requisitos detallados de atributos, consulte [Habilitar la sincronización de UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype). 
 
 ## <a name="configure-azure-ad-connect-to-sync-users-to-the-cloud"></a>Configuración de Azure AD Connect para sincronizar los usuarios con la nube
 
 Después de identificar el atributo único, puede configurar Azure AD Connect para sincronizar estos usuarios con la nube como usuarios de Azure AD B2B (es decir, usuarios con UserType = Invitado). Desde un punto de vista de autorización, estos usuarios no se distinguen de los usuarios B2B creados mediante el proceso de invitación a la colaboración B2B de Azure AD.
 
-Para obtener instrucciones de implementación, consulte [Habilitar la sincronización de UserType](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype).
+Para obtener instrucciones de implementación, consulte [Habilitar la sincronización de UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Colaboración B2B de Azure Active Directory para organizaciones híbridas](hybrid-organizations.md)
 - [Conceder a los usuarios B2B de Azure AD acceso a las aplicaciones locales](hybrid-cloud-to-on-premises.md)
-- Para información general sobre Azure AD Connect, consulte [Integración de los directorios locales con Azure Active Directory](../connect/active-directory-aadconnect.md).
+- Para información general sobre Azure AD Connect, consulte [Integración de los directorios locales con Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 

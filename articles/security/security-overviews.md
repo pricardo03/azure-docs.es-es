@@ -9,24 +9,24 @@ editor: TomSh
 ms.assetid: ''
 ms.service: security
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/16/2018
-ms.author: ''
-ms.openlocfilehash: eb311f4443d213325ab153b45f27a49246db1286
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: tomsh
+ms.openlocfilehash: b4af979ba23e5ef4d009ce2d808dacdffca2c4ec
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181538"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498103"
 ---
 # <a name="azure-security-technical-overviews"></a>Información general técnica de Azure Security
 
 
 * [Introducción a la seguridad de base de datos de Azure](azure-database-security-overview.md)
 * [Información general del cifrado de Azure](security-azure-encryption-overview.md)
-* [Información general sobre seguridad de administración de identidades de Azure](security-azure-encryption-overview.md)
+* [Información general sobre seguridad de administración de identidades de Azure](security-identity-management-overview.md)
 * [Azure Network Security Overview (Información general sobre Azure Network Security)](security-network-overview.md)
 * [Información general sobre la seguridad operativa de Azure](azure-operational-security-overview.md)
 * [Información general sobre la administración y la supervisión de la seguridad en Azure](security-management-and-monitoring-overview.md)

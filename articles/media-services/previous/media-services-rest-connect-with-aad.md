@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/26/2017
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: ed78d6c6d4c695b841dbfbf917cd1681adc44ee7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b44c5b29f41f08ac5c1d5e6aa3c37f8c15ae7c54
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785994"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984664"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Usar autenticación de Azure AD para acceder a la API de Azure Media Services con REST
 
@@ -43,7 +43,7 @@ En este tutorial, aprenderá a:
 > [!IMPORTANT]
 > Actualmente Media Services es compatible con el modelo de autenticación de Azure Access Control Service. No obstante, la autenticación de Access Control dejará de usarse el 1 de junio de 2018. Se recomienda migrar tan pronto como sea posible al modelo de autenticación de Azure AD.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 - [Cree una cuenta de Azure Media Services mediante Azure Portal](media-services-portal-create-account.md).
@@ -97,7 +97,7 @@ Para obtener la información, siga estos pasos:
     1. Seleccione la aplicación.
     2. Obtenga el **identificador de cliente** en la ventana de la derecha. 
 
-    ![Acceso de API](./media/connect-with-rest/existing-client-id.png).
+    ![Acceso de API](./media/connect-with-rest/existing-client-id.png)
 
 7.  Obtenga la **clave** de la aplicación (secreto del cliente). 
 

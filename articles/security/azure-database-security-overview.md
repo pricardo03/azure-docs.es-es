@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 27f6ccadaa89042ebced759ac3040b5b79e1f8f8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 398594c37cb01cd337da983307a5f56753e54fd2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051532"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574766"
 ---
 # <a name="azure-database-security-overview"></a>Introducción a la seguridad de base de datos de Azure
 
@@ -69,7 +69,7 @@ Puede tomar varias precauciones para mantener la base de datos protegida. Por ej
 
 Una solución consiste en cifrar los datos confidenciales en la base de datos y proteger las claves que se usan para cifrar los datos con un certificado. Con ello se impide que cualquiera que no disponga de las claves use los datos, pero este tipo de protección debe planificarse.
 
-Para solucionar este problema, SQL Server y SQL Database admiten el [cifrado de datos transparente](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017). El cifrado de datos transparente cifra los archivos de datos de SQL Server y SQL Database, conocidos como datos de cifrado en reposo.
+Para solucionar este problema, SQL Server y SQL Database admiten el [cifrado de datos transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017). El cifrado de datos transparente cifra los archivos de datos de SQL Server y SQL Database, conocidos como datos de cifrado en reposo.
 
 Asimismo, el cifrado de datos transparente le ayuda a protegerse contra la amenaza que suponen las actividades malintencionadas. También realiza cifrado y descifrado de la base de datos en tiempo real, copias de seguridad asociadas y archivos de registro de transacciones en reposo sin necesidad de efectuar cambios en la aplicación.  
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 24dc50a6c78769877bdc07b9521a9d2e33837937
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715665"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579622"
 ---
 # <a name="create-a-microsoft-developer-account"></a>Crear una cuenta de desarrollador de Microsoft
 Este artículo le guía a través del proceso necesario de creación y registro de cuentas para convertirse en un desarrollador de Microsoft aprobado para Azure Marketplace.
@@ -38,7 +38,7 @@ La dirección que constituye el nombre de usuario debe estar en su dominio y est
 Cuando cree una cuenta de empresa, siga estas instrucciones si más de una persona necesitará acceso a la cuenta con el inicio de sesión con la cuenta de Microsoft que abrió la cuenta.
 
 > [!Important]
-> Importante Para permitir que varios usuarios tengan acceso a la cuenta del Centro de desarrollo, se recomienda usar Azure Active Directory para asignar roles a usuarios individuales, que pueden obtener acceso a la cuenta si inician sesión con sus credenciales individuales de Azure AD. Para más información, consulte [Administrar usuarios de cuentas](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users).
+> Importante Para permitir que varios usuarios tengan acceso a la cuenta del Centro de desarrollo, se recomienda usar Azure Active Directory para asignar roles a usuarios individuales, que pueden obtener acceso a la cuenta si inician sesión con sus credenciales individuales de Azure AD. Para más información, consulte [Administrar usuarios de cuentas](https://msdn.microsoft.com/windows/uwp/publish/manage-account-users).
 
 * Cree su cuenta de Microsoft con una dirección de correo electrónico que pertenezca al dominio de la empresa, pero no a un usuario individual; por ejemplo, windowsapps@fabrikam.com.
 * Limite el acceso a esta cuenta de Microsoft a la menor cantidad de desarrolladores posible.
@@ -50,7 +50,7 @@ Cuando cree una cuenta de empresa, siga estas instrucciones si más de una perso
 
 Se debe tener acceso a la cuenta de desarrollador principalmente desde equipos de confianza. Esto resulta fundamental porque la cantidad de códigos generados por cuenta a la semana es limitada. También permite lograr la experiencia de inicio de sesión más óptima.
 
-Para más información sobre seguridad e instrucciones adicionales para la cuenta de desarrollador, haga clic [aquí](https://msdn.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
+Para más información sobre seguridad e instrucciones adicionales para la cuenta de desarrollador, haga clic [aquí](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### <a name="instructions"></a>Instrucciones
 1. Abra una nueva sesión de exploración de incógnito en Chrome o de InPrivate en Internet Explorer para asegurarse de que no tiene una sesión iniciada en una cuenta existente.

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: juliako
-ms.openlocfilehash: c488060b9db0ba482d12eee2394e5149b918950e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a428f76f1239e7e67b99d05b96d26abd601e89c6
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331527"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498698"
 ---
 # <a name="media-intelligence"></a>Inteligencia multimedia
 
@@ -47,12 +47,12 @@ La saluda incluye un archivo JSON (insights.json) con toda la información que s
 
 ### <a name="transcript"></a>transcript
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |---|---|
-|id|El identificador de la línea.|
-|text|La transcripción misma.|
-|Idioma|El idioma de la transcripción. Diseñado para admitir la transcripción, donde cada línea puede tener un idioma distinto.|
-|instances|Una lista de los intervalos de tiempo donde apareció esta línea. Si la instancia es una transcripción, solo tendrá 1 instancia.|
+|id|Identificador de la línea.|
+|text|La transcripción en sí.|
+|language|Idioma de la transcripción. Diseñado para admitir la transcripción, donde cada línea puede tener un idioma distinto.|
+|instances|Lista de los intervalos de tiempo donde apareció esta línea. Si la instancia es una transcripción, solo tendrá 1 instancia.|
 
 Ejemplo:
 
@@ -85,13 +85,13 @@ Ejemplo:
 
 ### <a name="ocr"></a>ocr
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |---|---|
-|id|El identificador de la línea OCR.|
-|text|El texto OCR.|
-|confidence|La confiabilidad del reconocimiento.|
-|Idioma|El idioma de OCR.|
-|instances|Una lista de los intervalos de tiempo donde apareció este OCR (el mismo OCR puede aparecer varias veces).|
+|id|Identificador de la línea OCR.|
+|text|Texto OCR.|
+|confidence|Confiabilidad del reconocimiento.|
+|language|Idioma de OCR.|
+|instances|Lista de los intervalos de tiempo donde apareció este OCR (el mismo OCR puede aparecer varias veces).|
 
 ```json
 "ocr": [
@@ -126,69 +126,21 @@ Ejemplo:
   ],
 ```
 
-### <a name="keywords"></a>keywords
-
-|NOMBRE|DESCRIPCIÓN|
-|---|---|
-|id|El identificador de la palabra clave.|
-|text|El texto de la palabra clave.|
-|confidence|La confiabilidad del reconocimiento de la palabra clave.|
-|Idioma|El idioma de la palabra clave (cuando se traduce).|
-|instances|Una lista de los intervalos de tiempo donde apareció esta palabra clave (una palabra clave puede aparecer varias veces).|
-
-```json
-"keywords": [
-{
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    },
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
-}
-] 
-
-```
-
 ### <a name="faces"></a>faces
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |---|---|
-|id|El identificador del rostro.|
-|Nombre|El nombre del rostro. Puede ser "Unknown #0", una celebridad identificada o una persona capacitada del cliente.|
-|confidence|La confidencialidad de la identificación facial.|
-|Descripción|Si se trata de una celebridad, su descripción. |
-|thumbnalId|El identificador de la miniatura del rostro en cuestión.|
-|knownPersonId|Si se trata de alguien conocido, su identificador interno.|
-|referenceId|Si se trata de una celebridad de Bing, su identificador de Bing.|
+|id|Identificador del rostro.|
+|name|Nombre del rostro. Puede ser "Unknown #0", una celebridad identificada o una persona capacitada del cliente.|
+|confidence|Confidencialidad de la identificación facial.|
+|description|Descripción de la celebridad. |
+|thumbnalId|Identificador de la miniatura del rostro en cuestión.|
+|knownPersonId|Si es alguien conocido, su identificador interno.|
+|referenceId|Si es una celebridad de Bing, su identificador de Bing.|
 |referenceType|Actualmente, solo Bing.|
-|título|Si se trata de una celebridad, su título (por ejemplo, "CEO de Microsoft").|
-|imageUrl|Si se trata de una celebridad, la dirección URL de su imagen.|
-|instances|Las instancias de cuándo el rostro apareció en el intervalo de tiempo determinado. Cada instancia también tiene su thumbnailsId. |
+|título|Si es una celebridad, su cargo (por ejemplo, "CEO de Microsoft").|
+|imageUrl|Si es una celebridad, la dirección URL de su imagen.|
+|instances|Instancias de cuándo apareció el rostro en el intervalo de tiempo determinado. Cada instancia también tiene su thumbnailsId. |
 
 ```json
 "faces": [{
@@ -219,14 +171,119 @@ Ejemplo:
 }]
 ```
 
-### <a name="labels"></a>etiquetas
+### <a name="shots"></a>shots
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |---|---|
-|id|El identificador de la etiqueta.|
-|Nombre|El nombre de la etiqueta (por ejemplo, "Equipo", "TV").|
-|Idioma|El idioma del nombre de la etiqueta (cuando se traduce). BCP-47|
-|instances|Una lista de los intervalos de tiempo donde apareció esta etiqueta (una etiqueta puede aparecer varias veces). Cada instancia tiene un campo de confiabilidad. |
+|id|Identificador de la toma.|
+|keyFrames|Lista de los fotogramas clave dentro de la toma (cada uno con un identificador y una lista de intervalos de tiempo de instancias). Las instancias de fotogramas clave tienen un campo thumbnailId con el identificador de la miniatura del fotograma clave.|
+|instances|Lista de intervalos de tiempo de esta toma (las tomas solo tienen 1 instancia).|
+
+```json
+"Shots": [
+    {
+      "id": 0,
+      "keyFrames": [
+        {
+          "id": 0,
+          "instances": [
+            {
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",
+              "start": "00: 00: 00.1670000",
+              "end": "00: 00: 00.2000000"
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+            "thumbnailId": "00000000-0000-0000-0000-000000000000",  
+          "start": "00: 00: 00.2000000",
+          "end": "00: 00: 05.0330000"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "keyFrames": [
+        {
+          "id": 1,
+          "instances": [
+            {
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",      
+              "start": "00: 00: 05.2670000",
+              "end": "00: 00: 05.3000000"
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+      "thumbnailId": "00000000-0000-0000-0000-000000000000",
+          "start": "00: 00: 05.2670000",
+          "end": "00: 00: 10.3000000"
+        }
+      ]
+    }
+  ]
+```
+
+### <a name="statistics"></a>statistics
+
+|Nombre|Descripción|
+|---|---|
+|CorrespondenceCount|Número de correspondencias en el vídeo.|
+|WordCount|Número de palabras por orador.|
+|SpeakerNumberOfFragments|Cantidad de fragmentos que el orador tiene en un vídeo.|
+|SpeakerLongestMonolog|Monólogo más largo del orador. Si el orador tiene períodos de silencio dentro del monólogo, se incluyen. Los silencios al principio y al final del monólogo se eliminan.| 
+|SpeakerTalkToListenRatio|El cálculo se basa en el tiempo invertido en el monólogo del orador (sin los silencios intermedios) dividido por el tiempo total del vídeo. El tiempo se redondea a tres decimales.|
+
+
+### <a name="sentiments"></a>sentiments
+
+Las opiniones se agregan según su campo sentimentType (Positive/Neutral/Negative). Por ejemplo, 0-0,1, 0,1-0,2.
+
+|Nombre|Descripción|
+|---|---|
+|id|Identificador de la opinión.|
+|averageScore |Promedio de todas las puntuaciones de todas las instancias de ese tipo de opinión: Positive/Neutral/Negative.|
+|instances|Lista de los intervalos de tiempo donde apareció esta opinión.|
+|sentimentType |El tipo puede ser "Positive", "Neutral" o "Negative".|
+
+```json
+"sentiments": [
+{
+    "id": 0,
+    "averageScore": 0.87,
+    "sentimentType": "Positive",
+    "instances": [
+    {
+        "start": "00:00:23",
+        "end": "00:00:41"
+    }
+    ]
+}, {
+    "id": 1,
+    "averageScore": 0.11,
+    "sentimentType": "Positive",
+    "instances": [
+    {
+        "start": "00:00:13",
+        "end": "00:00:21"
+    }
+    ]
+}
+]
+```
+
+### <a name="labels"></a>labels
+
+|Nombre|Descripción|
+|---|---|
+|id|Identificador de la etiqueta.|
+|name|Nombre de la etiqueta (por ejemplo, "Equipo", "TV").|
+|language|Idioma del nombre de la etiqueta (cuando se traduce). BCP-47|
+|instances|Lista de los intervalos de tiempo donde apareció esta etiqueta (una etiqueta puede aparecer varias veces). Cada instancia tiene un campo de confiabilidad. |
 
 
 ```json
@@ -278,94 +335,92 @@ Ejemplo:
   ] 
 ```
 
-### <a name="shots"></a>shots
+### <a name="keywords"></a>keywords
 
-|NOMBRE|DESCRIPCIÓN|
+|Nombre|Descripción|
 |---|---|
-|id|El identificador de la toma.|
-|keyFrames|Una lista de los fotogramas clave dentro de la toma (cada uno con un identificador y una lista de intervalos de tiempo de instancias).|
-|instances|Una lista de intervalos de tiempo de esta toma (las tomas solo tienen 1 instancia).|
+|id|Identificador de la palabra clave.|
+|text|Texto de la palabra clave.|
+|confidence|Confiabilidad del reconocimiento de la palabra clave.|
+|language|Idioma de la palabra clave (cuando se traduce).|
+|instances|Lista de los intervalos de tiempo donde apareció esta palabra clave (una palabra clave puede aparecer varias veces).|
 
 ```json
-"Shots": [
-    {
-      "id": 0,
-      "keyFrames": [
-        {
-          "id": 0,
-          "instances": [
-            {
-              "start": "00: 00: 00.1670000",
-              "end": "00: 00: 00.2000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-          "start": "00: 00: 00.2000000",
-          "end": "00: 00: 05.0330000"
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "keyFrames": [
-        {
-          "id": 1,
-          "instances": [
-            {
-              "start": "00: 00: 05.2670000",
-              "end": "00: 00: 05.3000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-          "start": "00: 00: 05.2670000",
-          "end": "00: 00: 10.3000000"
-        }
-      ]
-    }
-  ]
-```
-
-
-### <a name="sentiments"></a>sentiments
-
-Las opiniones se agregan según su campo sentimentType (Positive/Neutral/Negative). Por ejemplo, 0-0,1, 0,1-0,2.
-
-|NOMBRE|DESCRIPCIÓN|
-|---|---|
-|id|El identificador de la opinión.|
-|averageScore |El promedio de todas las puntuaciones de todas las instancias de ese tipo de opinión: Positive/Neutral/Negative.|
-|instances|Una lista de los intervalos de tiempo donde apareció esta opinión.|
-
-```json
-"sentiments": [
+"keywords": [
 {
     "id": 0,
-    "averageScore": 0.87,
+    "text": "office",
+    "confidence": 1.6666666666666667,
+    "language": "en-US",
     "instances": [
     {
-        "start": "00:00:23",
-        "end": "00:00:41"
+        "start": "00:00:00.5100000",
+        "end": "00:00:02.7200000"
+    },
+    {
+        "start": "00:00:03.9600000",
+        "end": "00:00:12.2700000"
     }
     ]
-}, {
+},
+{
     "id": 1,
-    "averageScore": 0.11,
+    "text": "icons",
+    "confidence": 1.4,
+    "language": "en-US",
     "instances": [
     {
-        "start": "00:00:13",
-        "end": "00:00:21"
+        "start": "00:00:03.9600000",
+        "end": "00:00:12.2700000"
+    },
+    {
+        "start": "00:00:13.9900000",
+        "end": "00:00:15.6100000"
     }
     ]
 }
-]
+] 
 ```
 
+#### <a name="visualcontentmoderation"></a>visualContentModeration
+
+El bloque visualContentModeration contiene intervalos de tiempo en los que Video Indexer ha detectado que podría haber contenido para adultos. Si visualContentModeration está vacío, no se ha identificado ningún contenido para adultos.
+
+Los vídeos en los que se encuentre contenido para adultos o subido de tono podrían estar disponibles solo para visualización privada. Los usuarios tienen la opción de enviar una solicitud de revisión humana del contenido, en cuyo caso el atributo IsAdult contendrá el resultado de la revisión humana.
+
+|Nombre|Descripción|
+|---|---|
+|id|Identificador de la moderación del contenido visual.|
+|adultScore|Puntuación de contenido para adultos (del moderador de contenido).|
+|racyScore|Puntuación de contenido subido de tono (del moderador de contenido).|
+|instances|Lista de intervalos de tiempo donde apareció esta moderación de contenido visual.|
+
+```json
+"VisualContentModeration": [
+{
+    "id": 0,
+    "adultScore": 0.00069,
+    "racyScore": 0.91129,
+    "instances": [
+    {
+        "start": "00:00:25.4840000",
+        "end": "00:00:25.5260000"
+    }
+    ]
+},
+{
+    "id": 1,
+    "adultScore": 0.99231,
+    "racyScore": 0.99912,
+    "instances": [
+    {
+        "start": "00:00:35.5360000",
+        "end": "00:00:35.5780000"
+    }
+    ]
+}
+] 
+```
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]

@@ -7,20 +7,24 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/14/2018
 ms.author: sstein
-ms.openlocfilehash: d1869dd689ef090978c3835e0a16fec82dfb5c05
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3efee2f9a4b205b87a65eb473271b0ab5e58046d
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648693"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498426"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Creación y administración de trabajos elásticos de SQL Database mediante PowerShell (versión preliminar)
 
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
 Las API de PowerShell para **Trabajos de Elastic Database** permiten definir el grupo de bases de datos en las que se ejecutarán los scripts. Este artículo muestra cómo crear y administrar **trabajos de Elastic Database** mediante cmdlets de PowerShell. Consulte [Información general sobre trabajos elásticos](sql-database-elastic-jobs-overview.md). 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Una suscripción de Azure. Para obtener una prueba gratuita, vea [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
 * Un conjunto de bases de datos creadas con las herramientas de Elastic Database. Consulte [Introducción a las herramientas de Elastic Database](sql-database-elastic-scale-get-started.md).
 * Azure PowerShell. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
@@ -209,7 +213,7 @@ Los procedimientos recomendados de seguridad para los trabajos de Elastic Databa
 * Las credenciales deben tener los privilegios mínimos necesarios para realizar la tarea de trabajo.  Puede ver más información en este artículo de MSDN sobre SQL Server, [Autorización y permisos](https://msdn.microsoft.com/library/bb669084.aspx) .
 
 ### <a name="to-create-an-encrypted-credential-for-job-execution-across-databases"></a>Para crear una credencial cifrada para la ejecución de trabajos en bases de datos
-Para crear una nueva credencial cifrada, el cmdlet [**Get-Credential**](https://technet.microsoft.com/library/hh849815.aspx) pedirá un nombre de usuario y una contraseña que pueda pasarse al cmdlet [**New-AzureSqlJobCredential**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
+Para crear una nueva credencial cifrada, el cmdlet [**Get-Credential**](/powershell/module/microsoft.powershell.security/get-credential) pedirá un nombre de usuario y una contraseña que pueda pasarse al cmdlet [**New-AzureSqlJobCredential**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
 
     $credentialName = "{Credential Name}"
     $databaseCredential = Get-Credential

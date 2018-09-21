@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: b0fded9f5543d151091955c0b0d645bf9db16b7d
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 9ea91f70a72b812803a20244bb4445b76b133b0c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158590"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296166"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueo inteligente de Azure Active Directory
 
@@ -27,7 +27,7 @@ El bloqueo inteligente está siempre activado para todos los clientes de Azure A
 
 El bloqueo inteligente puede integrarse con implementaciones híbridas mediante la autenticación de hash de contraseña o la autenticación de paso a través, para impedir que los atacantes bloqueen las cuentas de Active Directory local. Mediante el establecimiento correcto de directivas de bloqueo inteligente en Azure AD, se pueden filtrar los atacantes antes de que lleguen al entorno local de Active Directory.
 
-Cuando se usa la [autenticación de paso a través](../connect/active-directory-aadconnect-pass-through-authentication.md), debe asegurarse de lo siguiente:
+Cuando se usa la [autenticación de paso a través](../hybrid/how-to-connect-pta.md), debe asegurarse de lo siguiente:
 
    * El umbral de bloqueo de Azure AD sea **inferior** al umbral de bloqueo de cuenta de Active Directory. Establezca los valores de modo que el umbral de bloqueo de cuenta de Active Directory sea al menos dos o tres veces mayor que el umbral de bloqueo de Azure AD. 
    * La duración del bloqueo de Azure AD **en segundos** es **mayor** que la del contador de restablecimiento de bloqueo de cuenta de Active Directory **en minutos**.

@@ -8,18 +8,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 09/19/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 026f3450535e4bed6a636fc5ae6ee9d821dbbb72
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 2f22ed862f9b45334a961f80e47ee2b4634e46fb
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247673"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498341"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Administración de esquema en una aplicación SaaS que usa bases de datos SQL multiinquilino particionadas
-
+ 
 En este tutorial se examinan los desafíos de mantenimiento de una gran cantidad de bases de datos en una aplicación de software como servicio (SaaS). Se muestran soluciones para distribuir de manera ramificada los cambios de esquema en todas las bases de datos.
 
 Como cualquier otra aplicación, la aplicación SaaS de Wingtip Tickets evolucionará con el tiempo y requerirá que se hagan cambios en la base de datos. Los cambios pueden afectar los datos de referencia o el esquema, o bien aplicar tareas de mantenimiento de la base de datos. Con una aplicación SaaS con un patrón de base de datos por inquilino, se deben coordinar los cambios en toda una cantidad potencialmente enorme de bases de datos de inquilino. Además, debe incorporar estos cambios en el proceso de aprovisionamiento de base de datos para garantizar que se incluyen en las bases de datos nuevas a medida que se crean.

@@ -1,8 +1,8 @@
 ---
 title: Uso de PowerShell para configurar alertas en Application Insights | Microsoft Docs
-description: "Automatice la configuración de Application Insights para recibir correos electrónicos sobre los cambios en las métricas."
+description: Automatice la configuración de Application Insights para recibir correos electrónicos sobre los cambios en las métricas.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: b90a540afd1c2815db8f5a99ee210ce21ea4d874
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8e317d44b7fdff1ef244e2e549fbbebf3f829740
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35639158"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Uso de PowerShell para configurar alertas en Application Insights
 Puede automatizar la configuración de [alertas](app-insights-alerts.md) en [Application Insights](app-insights-overview.md).
@@ -97,7 +98,7 @@ Tengo una aplicación en la que uso [TrackMetric()](app-insights-api-custom-even
 La misma regla puede usarse con la métrica notificada mediante el [parámetro de medida](app-insights-api-custom-events-metrics.md#properties) de otra llamada de seguimiento, como TrackEvent o trackPageView.
 
 ## <a name="metric-names"></a>Nombres de métrica
-| Nombre de métrica | Nombre de pantalla | Descripción |
+| Nombre de métrica | Nombre de pantalla | DESCRIPCIÓN |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Excepciones de explorador |Recuento de excepciones no detectadas en el explorador. |
 | `basicExceptionServer.count` |Excepciones de servidor |Número de excepciones no controladas producidas por la aplicación |
@@ -134,8 +135,8 @@ Las métricas se envían por módulos de telemetría diferentes:
 ## <a name="webhooks"></a>Webhooks
 También puede [automatizar la respuesta ante una alerta](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure llamará a una dirección web de su elección cuando se genere una alerta.
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 * [Script para configurar Application Insights](app-insights-powershell-script-create-resource.md)
 * [Crear Application Insights y recursos de pruebas web a partir de plantillas](app-insights-powershell.md)
-* [Uso de PowerShell para enviar Diagnósticos de Azure a Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Uso de PowerShell para enviar Azure Diagnostics a Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Automatización de la respuesta ante una alerta](../monitoring-and-diagnostics/insights-webhooks-alerts.md)

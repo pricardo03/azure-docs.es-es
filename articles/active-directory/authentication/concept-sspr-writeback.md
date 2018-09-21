@@ -10,22 +10,22 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 4f4c2ada08c69b6602ff5a300a15c4ca57090a8e
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 8440d8a492105365417190ad286798e0bdf47a0c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42816060"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295842"
 ---
 # <a name="what-is-password-writeback"></a>¿Qué es la escritura diferida de contraseñas?
 
-Tener una utilidad de restablecimiento de contraseña basada en la nube es genial, pero la mayoría de las empresas todavía tienen un directorio local en donde se encuentran sus usuarios. ¿Cómo mantiene Microsoft el soporte técnico tradicional de Active Directory (AD) local sincronizado con los cambios de contraseña en la nube? La escritura diferida de contraseñas es una característica que se habilita con [Azure AD Connect](./../connect/active-directory-aadconnect.md) y que permite que los cambios de contraseña en la nube se escriban en diferido en un directorio local existente en tiempo real.
+Tener una utilidad de restablecimiento de contraseña basada en la nube es genial, pero la mayoría de las empresas todavía tienen un directorio local en donde se encuentran sus usuarios. ¿Cómo mantiene Microsoft el soporte técnico tradicional de Active Directory (AD) local sincronizado con los cambios de contraseña en la nube? La escritura diferida de contraseñas es una característica que se habilita con [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) y que permite que los cambios de contraseña en la nube se escriban en diferido en un directorio local existente en tiempo real.
 
 La escritura diferida de contraseñas se admite en entornos que usan:
 
-* [Servicios de federación de Active Directory](../connect/active-directory-aadconnect-federation-management.md)
-* [Sincronización de hash de contraseñas](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
-* [Autenticación de paso a través](../connect/active-directory-aadconnect-pass-through-authentication.md)
+* [Servicios de federación de Active Directory](../hybrid/how-to-connect-fed-management.md)
+* [Sincronización de hash de contraseñas](../hybrid/how-to-connect-password-hash-synchronization.md)
+* [Autenticación de paso a través](../hybrid/how-to-connect-pta.md)
 
 La escritura diferida de contraseñas ofrece:
 

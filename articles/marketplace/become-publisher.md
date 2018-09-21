@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: c6f074b84b099f6ea5023967fdae7e44d5e9d545
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 7aadb7b89cf1b338a257846882e34ff796df74b2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666391"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580725"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Conviértase en anunciante de Cloud Marketplace
 
@@ -28,11 +28,11 @@ En este artículo se describe cómo registrarse como anunciante de Cloud Marketp
 
 |  | Paso del registro | Duration | Detalles |  
 |:--- |:--- |:--- |:--- |  
-| 1 | Registrarse en Microsoft Partner Network | 15 minutos | [Registrarse en Microsoft Partner Network](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
-| 2 | Creación de una cuenta Microsoft <ul>(requerido para ofertas de transacción de Azure Marketplace; recomendado para el resto)</ul> | 15 minutos | [Creación de un identificador de Microsoft](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
-| 3 | Envío del formulario de registro de Marketplace | 15 minutos | [Envío del formulario de nominación de Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
-| 4 |  Conexión a Cloud Partner Portal | 1-3 días | [Conexión a Cloud Partner Portal](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
-| 5 | Registro en el Centro para desarrolladores de Microsoft (para ofertas de transacción de Azure Marketplace) | 5-10 días | [Registrar en el centro de desarrollo](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
+| 1 | Registrarse en Microsoft Partner Network | 15 minutos | [Registrarse en Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
+| 2 | Creación de una cuenta Microsoft <ul>(requerido para ofertas de transacción de Azure Marketplace; recomendado para el resto)</ul> | 15 minutos | [Creación de un identificador de Microsoft](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 3 | Envío del formulario de registro de Marketplace | 15 minutos | [Envío del formulario de nominación de Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
+| 4 |  Conexión a Cloud Partner Portal | 1-3 días | [Conexión a Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
+| 5 | Registro en el Centro para desarrolladores de Microsoft (para ofertas de transacción de Azure Marketplace) | 5-10 días | [Registrar en el centro de desarrollo](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
 
 ## <a name="1-register-in-microsoft-partner-network"></a>1. Registrarse en Microsoft Partner Network  
@@ -54,9 +54,9 @@ Una cuenta de Microsoft, por ejemplo, *@outlook.com o @live.com*, se usa para te
 [! IMPORTANTE] Tenga en cuenta que no podrá acceder al portal con una cuenta de Microsoft asociada con el correo electrónico profesional.
 
 >[!Note]
->Si ya tiene una cuenta de Microsoft, revise las [directrices para crear un id. de Microsoft para administrar una cuenta de Marketplace](https://review.docs.microsoft.com/en-us/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) a fin de determinar si puede usarla para realizar publicaciones en Marketplace. 
+>Si ya tiene una cuenta de Microsoft, revise las [directrices para crear un id. de Microsoft para administrar una cuenta de Marketplace](https://review.docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) a fin de determinar si puede usarla para realizar publicaciones en Marketplace. 
 
->Los usuarios con una cuenta corporativa federada de Azure Active Directory deben leer [este artículo](https://review.docs.microsoft.com/en-us/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) antes de intentar crear o usar su cuenta de Microsoft existente.
+>Los usuarios con una cuenta corporativa federada de Azure Active Directory deben leer [este artículo](https://review.docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) antes de intentar crear o usar su cuenta de Microsoft existente.
 
 *   Para obtener ayuda para crear o administrar su cuenta de Microsoft, visite las [páginas de ayuda y soporte técnico de la cuenta de Microsoft](https://support.microsoft.com/en-us/products/microsoft-account?category=manage-account).
 
@@ -100,12 +100,12 @@ Cuando haya completado el registro del [Centro de desarrollo](https://developer.
 >Para estar exento de la cuota de registro del Centro de desarrollo de 99 USD, rellene el formulario de registro de Marketplace y recibirá un código promocional por correo electrónico. 
 
 >[!Important]
->Antes de crear una cuenta del Centro de desarrollo de Microsoft, compruebe que su organización todavía no tiene una cuenta del Centro de desarrollo para evitar las cuentas duplicadas. Para más información, visite la sección [Registro en el Centro para desarrolladores](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center).
+>Antes de crear una cuenta del Centro de desarrollo de Microsoft, compruebe que su organización todavía no tiene una cuenta del Centro de desarrollo para evitar las cuentas duplicadas. Para más información, visite la sección [Registro en el Centro para desarrolladores](https://docs.microsoft.com/azure/marketplace/register-dev-center).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información sobre los escaparates de Marketplace: [Administración de reglas de firewall mediante Azure PowerShell](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
-*   [Determinación del tipo de aplicación para la solución](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type)
+* Obtenga información sobre los escaparates de Marketplace: [Administración de reglas de firewall mediante Azure PowerShell](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
+*   [Determinación del tipo de aplicación para la solución](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
 
  
 ---  
