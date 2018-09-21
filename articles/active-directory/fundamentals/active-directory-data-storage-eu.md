@@ -2,24 +2,21 @@
 title: Dónde almacena Azure AD los datos de identidad de los clientes europeos | Microsoft Docs
 description: Obtenga información sobre dónde almacena Microsoft Azure Active Directory los datos relacionados con la identidad de los clientes europeos.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.author: lizross
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro
-ms.openlocfilehash: 0baa499f56fa6c074ac1c0f604e74f9e7adb5502
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d0015f40714b639d15245827ae0da3ca0f132df4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42023996"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733404"
 ---
 # <a name="where-does-microsoft-azure-active-directory-azure-ad-store-identity-data-for-european-customers"></a>Dónde almacena Microsoft Azure Active Directory (Azure AD) los datos de identidad de los clientes europeos
 Azure AD facilita la administración de las identidades de los usuarios y la creación de directivas de acceso basadas en inteligencia para proteger los recursos de su organización. Los datos de identidad se almacenan en una ubicación que se basa la dirección que su organización proporcionó al suscribirse al servicio. Por ejemplo, al suscribirse a Office 365 o Azure. Para obtener información específica sobre dónde se almacenan los datos de identidad, puede consultar la sección [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Dónde se encuentran sus datos) de Microsoft Trust Center.
@@ -76,7 +73,6 @@ La mayoría de los datos de identidad europeos relacionados con Azure AD, para o
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre cualquiera de las características y funcionalidades que se han descrito anteriormente, consulte estos artículos.
-- [Introducción a Azure Active Directory](get-started-azure-ad.md)
 - [¿Qué es Multi-Factor Authentication?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
 - [Autoservicio de restablecimiento de contraseña de Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
 - [¿Qué es Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)

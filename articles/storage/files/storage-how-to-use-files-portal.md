@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: b2a95eeefcba96dd6cd081b05fa3f796713f998a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b4cace3922983ed93987069ac7cf59f2cb69403b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520971"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578555"
 ---
 # <a name="managing-azure-file-shares-with-the-azure-portal"></a>Administración de recursos compartidos de archivos de Azure mediante Azure Portal 
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en Windows, Linux y macOS. En esta guía se describen los conceptos básicos sobre cómo trabajar con recursos compartidos de archivos de Azure mediante [Azure Portal](https://portal.azure.com/). Obtenga información sobre cómo:
@@ -69,7 +69,7 @@ Puede descargar una copia del archivo cargado haciendo clic con el botón derech
 
 ## <a name="create-and-modify-share-snapshots"></a>Creación y modificación de instantáneas de recurso compartido
 Una tarea útil adicional que puede hacer con un recurso compartido de archivos de Azure consiste en crear instantáneas de recurso compartido. Una instantánea conserva un punto en el tiempo para un recurso compartido de archivos de Azure. Las instantáneas de recurso compartido son similares a las tecnologías de sistemas operativos que es posible que conozca, como son:
-- [Servicio de instantáneas de volumen (VSS)](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de archivos Windows como NTFS y ReFS
+- [Servicio de instantáneas de volumen (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de archivos Windows como NTFS y ReFS
 - Instantáneas del [Administrador de volúmenes lógicos (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) para sistemas Linux
 - Instantáneas de [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) para macOS. 
 

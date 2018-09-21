@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: d89fef56a9fdab799170ed1ccd3261470d66bf95
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 104ef98aac3e34e30a86854a0d759cf11106b55b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414708"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575324"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Servicios de consultoría de Azure Marketplace
 Los servicios de consultoría de Azure Marketplace brindan a los asociados de Microsoft el objetivo de conectar a los clientes con servicios que les permitan mejorar y extender el uso que hacen de Azure. Azure Marketplace es compatible con la lista de ofertas de servicios de consultoría de los asociados de System Integrator (SI) de Microsoft. 
@@ -73,7 +73,7 @@ Para obtener más información, consulte las [competencias a través de Microsof
 El lanzamiento de los servicios de consultoría de Azure Marketplace se realizará en la región geográfica específica. El primer lanzamiento será en Estados Unidos, Canadá, Reino Unido y Australia. Los catálogos para otros países empezarán a funcionar una vez que los asociados hayan enviado un número significativo, y una atractiva selección, de ofertas de servicios, y Microsoft las haya aprobado.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Procedimientos para registrar los servicios de consultoría en Azure Marketplace
-Comience registrando los servicios de consultoría en [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup). Los anunciantes pueden hacer referencia a [Conviértase en anunciante en los escaparates de Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher) para obtener una lista de comprobación completa de los requisitos del registro. 
+Comience registrando los servicios de consultoría en [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup). Los anunciantes pueden hacer referencia a [Conviértase en anunciante en los escaparates de Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher) para obtener una lista de comprobación completa de los requisitos del registro. 
 
 **¿Qué se puede esperar después del registro?** El equipo de incorporación tardará entre uno y tres días hábiles en enviarle un correo electrónico de bienvenida que incluirá la información de inicio de sesión de Cloud Partner Portal (CPP). [Cloud Partner Portal](https://cloudpartner.azure.com) es el portal de anuncios de ofertas donde los anunciantes envían la información de las ofertas y los envíos. 
 
@@ -150,7 +150,7 @@ Al revisar las descripciones y los resúmenes de las ofertas, el equipo seguirá
 |**Prueba de concepto**    |    Explicar los cambios de ingeniería, los artefactos técnicos u otros que los clientes puedan esperar como resultado de la interacción     | Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda        |
 |**Taller**    |   Incluir una agenda detallada diaria, semanal o mensual, en función de la duración elegida para la oferta. Explicar cuáles son los objetivos de aprendizaje y de otro tipo del taller     |   Optimizar el resumen de la oferta con las palabras clave principales de optimización del motor de búsqueda      |
 
-En Cloud Partner Portal, puede aplicar formato al anuncio mediante [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Se trata de un lenguaje de diseño ligero que le ayudará a pulir los anuncios. 
+En Cloud Partner Portal, puede aplicar formato al anuncio mediante [Markdown](https://docs.microsoft.com/contribute/how-to-write-use-markdown). Se trata de un lenguaje de diseño ligero que le ayudará a pulir los anuncios. 
 
 **Notas de Markdown de ejemplo**
 *   Agregue * al principio y al final del bloque de copia, sin espacios para usar la cursiva (p. ej.: *contenido*)

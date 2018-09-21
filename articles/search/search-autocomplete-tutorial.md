@@ -9,18 +9,18 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 7120080bfdc188c150c7065e1c0639ab8c04f173
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 63f4d9f72b9bf81ea772123d65db0659fd3ffa5c
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989693"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578181"
 ---
-# <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Tutorial: Incorporación de la función Autocompletar el cuadro de búsqueda con Azure Search
+# <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Tutorial: Incorporación de la función Autocompletar al cuadro de búsqueda con Azure Search
 
-En este tutorial, obtendrá información sobre cómo usar las [sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggestions), la función [Autocompletar](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete) y las [facetas](search-faceted-navigation.md) en la [API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/) y el [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) para crear un cuadro de búsqueda eficaz. Las *sugerencias* proporcionan recomendaciones de resultados reales que se basen en lo que el usuario ha escrito hasta el momento. La función *Autocompletar*, [una característica de versión preliminar nueva](search-api-preview.md) de Azure Search, proporciona términos del índice para completar lo que el usuario está escribiendo actualmente. Compararemos varias técnicas para mejorar la productividad del usuario y encontraremos rápida y fácilmente lo que buscan mediante la incorporación de la eficacia de la búsqueda directamente al usuario mientras escribe.
+En este tutorial, obtendrá información sobre cómo usar las [sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggestions), la función [Autocompletar](https://docs.microsoft.com/rest/api/searchservice/autocomplete) y las [facetas](search-faceted-navigation.md) en la [API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/) y el [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) para crear un cuadro de búsqueda eficaz. Las *sugerencias* proporcionan recomendaciones de resultados reales basadas en lo que el usuario ha escrito hasta el momento. La función *Autocompletar*, [una nueva característica de versión preliminar](search-api-preview.md) de Azure Search, proporciona términos del índice para completar lo que el usuario está escribiendo. Compararemos varias técnicas para mejorar la productividad del usuario y encontrar rápida y fácilmente lo que buscan al trasladar la eficacia de la búsqueda directamente al usuario mientras escribe.
 
-Este tutorial lo guiará por una aplicación basada en ASP.NET MVC que usa C# para llamar a las [bibliotecas cliente de SDK de Azure Search](https://aka.ms/search-sdk) y JavaScript para llamar directamente la API de REST de Azure Search. La aplicación de este tutorial está dirigida a un índice que se rellena con los datos de ejemplo [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). Puede usar el índice ya configurado en la demostración NYCJobs o rellenar su propio índice con un cargador de datos en la solución de ejemplo NYCJobs. En el ejemplo se usan las bibliotecas [jQuery UI](https://jqueryui.com/autocomplete/) y [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) de JavaScript para crear un cuadro de búsqueda que admite la función Autocompletar. Si usa estos componentes junto con Azure Search, verá varios ejemplos de cómo admitir la función Autocompletar para anticipar la escritura en el cuadro de búsqueda.
+Este tutorial lo guiará por una aplicación basada en ASP.NET MVC que usa C# para llamar a las [bibliotecas cliente de .NET para Azure Search](https://aka.ms/search-sdk) y JavaScript para llamar directamente la API REST de Azure Search. La aplicación de este tutorial está dirigida a un índice que se rellena con los datos de ejemplo de [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). Puede usar el índice ya configurado en la demostración NYCJobs o rellenar su propio índice con un cargador de datos en la solución de ejemplo NYCJobs. En el ejemplo se usan las bibliotecas [jQuery UI](https://jqueryui.com/autocomplete/) y [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) de JavaScript para crear un cuadro de búsqueda que admite la función Autocompletar. Si usa estos componentes junto con Azure Search, verá varios ejemplos de cómo admitir la función Autocompletar para anticipar la escritura en el cuadro de búsqueda.
 
 Realizará las tareas siguientes:
 
@@ -29,7 +29,7 @@ Realizará las tareas siguientes:
 > * Agregar información del servicio de búsqueda a la configuración de la aplicación
 > * Implementar un cuadro de entrada de búsqueda
 > * Agregar compatibilidad para una lista de Autocompletar que extrae información de un origen remoto 
-> * Recuperar las sugerencias y la función Autocompletar con la API de REST y el SDK de .NET
+> * Recuperar las sugerencias y la función Autocompletar con la API REST y el SDK de .NET
 > * Admitir el almacenamiento en caché del lado cliente para mejorar el rendimiento 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -38,16 +38,16 @@ Realizará las tareas siguientes:
 
 * Descargue el [código fuente](https://github.com/azure-samples/search-dotnet-getting-started) de ejemplo para el tutorial.
 
-* (Opcional) Una cuenta activa de Azure y un servicio de Azure Search. Si no tiene una cuenta de Azure, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/free/). Para obtener ayuda con el proceso de aprovisionamiento de servicios, consulte [Creación de un servicio Azure Search en el portal](search-create-service-portal.md). La cuenta y el servicio son opcionales, porque este tutorial se puede completar con un índice de NYCJobs hospedado que ya existe para otra demostración.
+* (Opcional) Una cuenta activa de Azure y un servicio Azure Search. Si no tiene una cuenta de Azure, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/free/). Para obtener ayuda con el proceso de aprovisionamiento de servicios, consulte [Creación de un servicio Azure Search en el portal](search-create-service-portal.md). La cuenta y el servicio son opcionales, porque este tutorial se puede completar con un índice de NYCJobs hospedado que ya existe para otra demostración.
 
-* (Opcional) Descargue el código de ejemplo [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) para importar los datos NYCJobs a un índice de su propio servicio de Azure Search.
+* (Opcional) Descargue el código de ejemplo [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) para importar los datos NYCJobs a un índice de su propio servicio Azure Search.
 
 > [!Note]
-> Si va a usar el servicio gratuito de Azure Search, está limitado a tres índices. El cargador de datos de NYCJobs crea dos índices. Asegúrese de que haya espacio en el servicio para aceptar los nuevos índices.
+> Si va a usar el servicio gratuito Azure Search, está limitado a tres índices. El cargador de datos de NYCJobs crea dos índices. Asegúrese de que haya espacio en el servicio para aceptar los nuevos índices.
 
 ### <a name="set-up-azure-search-optional"></a>Configuración de Azure Search (opcional)
 
-Siga los pasos de esta sección si desea importar los datos para la aplicación de ejemplo NYCJobs a su propio índice. Este paso es opcional.  Si quiere usar el índice de ejemplo que se proporciona, vaya directamente a la sección siguiente al ejecutar el ejemplo.
+Siga los pasos de esta sección si desea importar los datos para la aplicación de ejemplo NYCJobs a su propio índice. Este paso es opcional.  Si quiere usar el índice de ejemplo que se proporciona, vaya directamente a la sección siguiente, Ejecución del ejemplo.
 
 1. En la carpeta DataLoader del código de ejemplo NYCJobs, abra el archivo de solución DataLoader.sln en Visual Studio.
 
@@ -59,7 +59,7 @@ Siga los pasos de esta sección si desea importar los datos para la aplicación 
 
 ### <a name="running-the-sample"></a>Ejecución del ejemplo
 
-Ahora está preparado para ejecutar la aplicación de ejemplo del tutorial.  Abra el archivo de solución AutocompleteTutorial.sln en Visual Studio para ejecutar el tutorial.  La solución contiene un proyecto de ASP.NET MVC.  Presione F5 para ejecutar el proyecto y cargar la página en el explorador de su preferencia.  En la parte superior, verá una opción para seleccionar C# o JavaScript.  La opción de C# llama a HomeController desde el explorador y usa el SDK de .NET de Azure Search para recuperar los resultados.  La opción de JavaScript llama a la API de REST de Azure Search directamente desde el explorador.  Por lo general, esta opción tendrá un rendimiento considerablemente mejor porque quita el controlador del flujo.  Puede elegir la opción que mejor se adapte a sus necesidades y a sus preferencias de lenguaje.  En la página aparecen varios ejemplos de la función Autocompletar con ayuda para cada uno de ellos.  En cada ejemplo hay texto de ejemplo recomendado que puede probar.  Para probar, empiece a escribir algunas letras en cada cuadro de búsqueda para ver lo que sucede.
+Ahora está preparado para ejecutar la aplicación de ejemplo del tutorial.  Abra el archivo de solución AutocompleteTutorial.sln en Visual Studio para ejecutar el tutorial.  La solución contiene un proyecto de ASP.NET MVC.  Presione F5 para ejecutar el proyecto y cargar la página en el explorador que prefiera.  En la parte superior, verá una opción para seleccionar C# o JavaScript.  La opción de C# llama a HomeController desde el explorador y usa el SDK de Azure Search para .NET para recuperar los resultados.  La opción de JavaScript llama a la API REST de Azure Search directamente desde el explorador.  Por lo general, esta opción tendrá un rendimiento considerablemente mejor porque quita el controlador del flujo.  Puede elegir la opción que mejor se adapte a sus necesidades y a sus preferencias de lenguaje.  En la página aparecen varios ejemplos de la función Autocompletar con ayuda para cada uno de ellos.  En cada ejemplo hay texto de ejemplo recomendado que puede probar.  Para probar, empiece a escribir algunas letras en cada cuadro de búsqueda para ver lo que sucede.
 
 ## <a name="how-this-works-in-code"></a>Cómo funciona esto en el código
 
@@ -92,7 +92,7 @@ $(function () {
 });
 ```
 
-Este código se ejecuta en el explorador en la carga de página para configurar la función Autocompletar para el cuadro de entrada de "example1a".  `minLength: 3` garantiza que la recomendación solo se mostrará cuando haya al menos tres caracteres en el cuadro de búsqueda.  El valor de origen es importante:
+Este código se ejecuta en el explorador al cargar la página para configurar la función Autocompletar para el cuadro de entrada de "example1a".  `minLength: 3` garantiza que la recomendación solo se mostrará cuando haya al menos tres caracteres en el cuadro de búsqueda.  El valor de origen es importante:
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",
@@ -207,14 +207,14 @@ Si lo compara con el ejemplo anterior donde se llama al controlador de inicio, v
 
 ## <a name="takeaways"></a>Puntos clave
 
-En este tutorial se muestran los pasos básicos para crear un cuadro de búsqueda que admita las sugerencias y la función Autocompletar.  Se explicó cómo compilar una aplicación ASP.NET MVC y usar la API de REST o el SDK de .NET de Azure Search para recuperar las sugerencias.
+En este tutorial se muestran los pasos básicos para crear un cuadro de búsqueda que admita las sugerencias y la función Autocompletar.  Se explicó cómo compilar una aplicación ASP.NET MVC y usar la API REST o el SDK de .NET de Azure Search para recuperar las sugerencias.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Integre las sugerencias y la función Autocompletar a la experiencia de búsqueda.  Tenga en cuenta cómo el uso directo del SDK de .NET y la API de REST puede ayudar a llevar la eficacia de Azure Search a los usuarios cuando escriben para permitirles ser más productivos.
+Integre las sugerencias y la función Autocompletar a la experiencia de búsqueda.  Tenga en cuenta cómo el uso directo del SDK de .NET y la API REST puede ayudar a llevar la eficacia de Azure Search a los usuarios cuando escriben para permitirles ser más productivos.
 
 > [!div class="nextstepaction"]
-> [Autocomplete REST API (API de REST de la función Autocompletar)](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete)
-> [Suggestions REST API (API de REST de Sugerencias)](https://docs.microsoft.com/en-us/rest/api/searchservice/suggestions)
-> [Facets index attribute on a Create Index REST API (Atributo de índice de facetas en una API de REST de creación de índice)](https://docs.microsoft.com/en-us/rest/api/searchservice/create-index)
+> [Autocomplete REST API (API de REST de la función Autocompletar)](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
+> [Suggestions REST API (API de REST de Sugerencias)](https://docs.microsoft.com/rest/api/searchservice/suggestions)
+> [Facets index attribute on a Create Index REST API (Atributo de índice de facetas en una API de REST de creación de índice)](https://docs.microsoft.com/rest/api/searchservice/create-index)
 

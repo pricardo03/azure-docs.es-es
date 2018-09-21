@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b112eee0e33654657bc6a57eec528c8a93bb077a
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 5710ebc1c52737e27aafa88eef5e9ae402f8e53f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018421"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579864"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
 ##  <a name="introduction"></a>Introducción
@@ -127,7 +127,7 @@ Si una unidad de disco utilizada para el almacenamiento sufre un error de hardwa
 Microsoft Azure proporciona diversos servicios de computación en la nube que incluyen una amplia selección de instancias y servicios de proceso que se pueden escalar vertical y horizontalmente para satisfacer las necesidades de su aplicación o de su empresa. Estos servicios e instancias de proceso ofrecen aislamiento en varios niveles para proteger los datos, sin sacrificar la flexibilidad en la configuración que los clientes demandan.
 
 ### <a name="isolated-virtual-machine-sizes"></a>Tamaños de máquinas virtuales aislados
-Azure Compute ofrece tamaños de máquinas virtuales que están aislados para un tipo concreto de hardware y dedicados a un solo cliente.  Estos tamaños de máquina virtual son más adecuados para cargas de trabajo que requieren un alto grado de aislamiento de otros clientes como, por ejemplo, las cargas de trabajo que incluyen elementos como el cumplimiento normativo y los requisitos legales.  Los clientes también puede elegir subdividir aún más los recursos de estas máquinas virtuales aisladas mediante la [compatibilidad de Azure para máquinas virtuales anidadas](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).
+Azure Compute ofrece tamaños de máquinas virtuales que están aislados para un tipo concreto de hardware y dedicados a un solo cliente.  Estos tamaños de máquina virtual son más adecuados para cargas de trabajo que requieren un alto grado de aislamiento de otros clientes como, por ejemplo, las cargas de trabajo que incluyen elementos como el cumplimiento normativo y los requisitos legales.  Los clientes también puede elegir subdividir aún más los recursos de estas máquinas virtuales aisladas mediante la [compatibilidad de Azure para máquinas virtuales anidadas](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
 Usar un tamaño aislado garantiza que la máquina virtual será la única que se ejecute en esa instancia de servidor específica.  Las ofertas de máquinas virtuales aisladas actuales incluyen:
 * Standard_E64is_v3
@@ -138,7 +138,7 @@ Usar un tamaño aislado garantiza que la máquina virtual será la única que se
 * Standard_DS15_v2
 * Standard_D15_v2
 
-Puede obtener más información sobre cada tamaño aislado [aquí](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory).
+Puede obtener más información sobre cada tamaño aislado [aquí](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Aislamiento de Hyper-V y sistema operativo raíz entre la máquina virtual raíz y las máquinas virtuales invitadas
 La plataforma de proceso de Azure se basa en la virtualización, lo que significa que todo el código del cliente se ejecuta en una máquina virtual de Hyper-V. En cada nodo de Azure (o punto de conexión de red), hay un hipervisor que se ejecuta directamente sobre el hardware y divide un nodo en un número variable de máquinas virtuales invitadas.

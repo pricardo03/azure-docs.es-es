@@ -7,18 +7,18 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: ee1379995dffd8aebbd71757c06e06ea43561794
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 07b9ac8389a2bf06e0356f65d816d75d49cc0cf5
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830452"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35642072"
 ---
 # <a name="supported-matrix-for-this-release"></a>Matriz compatible para esta versión 
 Cuando el código está carga datos con orígenes de datos de Azure Machine Learning, o mediante preparación de datos de Azure Machine Learning, obteniendo una trama de datos de Pandas o de Spark, se admiten las siguientes combinaciones de entornos de proceso experimentales y de ubicaciones de datos:

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 9ebc3a8cb01d93fc6cec5d208c5a10020413cec2
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: d825ddd75bfc829aa82bab4cede0381dda2d36da
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631102"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575315"
 ---
 # <a name="enable-automatic-tuning"></a>Habilitación del ajuste automático
 
@@ -86,7 +86,7 @@ Para configurar las opciones individuales de ajuste automático mediante T-SQL, 
    
 Si establece la opción de ajuste individual en ON, invalidará todas las configuraciones que la base de datos haya heredado y habilitará la opción de ajuste. Si la establece en OFF, también invalidará todas las configuraciones que la base de datos haya heredado y deshabilitará la opción de ajuste. Las opciones de ajuste automático para las que se especifique DEFAULT heredarán la configuración de ajuste automático del nivel de base de datos.  
 
-Para más información sobre las opciones de T-SQL para configurar el ajuste automático, consulte el artículo sobre las [opciones de ALTER DATABASE SET (Transact-SQL) para el servidor lógico de SQL Database](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1).
+Para más información sobre las opciones de T-SQL para configurar el ajuste automático, consulte el artículo sobre las [opciones de ALTER DATABASE SET (Transact-SQL) para el servidor lógico de SQL Database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1).
 
 ## <a name="disabled-by-the-system"></a>Deshabilitado por el sistema
 El ajuste automático supervisa todas las acciones que realiza en la base de datos y, en algunos casos, determina que no funciona correctamente en la base de datos. En esta situación, el sistema deshabilitará la opción de ajuste. En la mayoría de los casos, esto sucede porque el Almacén de consultas no está habilitado o se encuentra en estado de solo lectura en una base de datos específica.

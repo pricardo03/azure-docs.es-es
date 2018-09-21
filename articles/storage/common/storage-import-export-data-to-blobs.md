@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 2484d01c268757ef612ba7b397b80b8ea4c4e76a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 39287e4d90e4f6f42dd1f79d5457853e253bd736
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528146"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737063"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Uso del servicio Azure Import/Export para importar datos de Azure Blob Storage
 
@@ -25,7 +25,7 @@ Antes de crear un trabajo de importación para transferir datos a Azure Blob Sto
 
 - Tener una suscripción activa de Azure que pueda usarse para el servicio Import/Export.
 - Tener por lo menos una cuenta de Azure Storage con un contenedor de almacenamiento. Consulte la lista de [las cuenta de almacenamiento y los tipos de almacenamiento admitidos para el servicio Import/Export](storage-import-export-requirements.md). 
-    - Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account). 
+    - Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-quickstart-create-account.md). 
     - Para información sobre contenedores de almacenamiento, vaya a [Creación de un contenedor de almacenamiento](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
 - Tener un número suficiente de discos de los [tipos admitidos](storage-import-export-requirements.md#supported-disks). 
 - Tener un sistema de Windows que ejecute una [versión admitida del sistema operativo](storage-import-export-requirements.md#supported-operating-systems). 

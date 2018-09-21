@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 9d4d7633428cd174a31214db2db6b6d9928230bd
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: dde8881fc446eef0dd6ca0735e5e23a5a19328fa
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627923"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578382"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Transmisión de registros de diagnóstico de Azure a un centro de eventos
 Los **[registros de diagnóstico de Azure](monitoring-overview-of-diagnostic-logs.md)** se pueden transmitir casi en tiempo real a cualquier aplicación mediante la opción "Exportar a Event Hubs" integrada en el Portal o habilitando el identificador de regla de autorización de Event Hubs en una configuración de diagnóstico por medio de los cmdlets de Azure PowerShell o la CLI de Azure 2.0.
@@ -41,7 +41,7 @@ Estas son solo algunas formas de usar la funcionalidad de streaming para registr
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>Habilitación del streaming de registros de diagnóstico
 
-Puede habilitar el streaming de registros de diagnóstico mediante programación, a través del portal o mediante la [API de REST de Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). En cualquier caso, se crea una configuración de diagnóstico en la que se especifica un espacio de nombres de Event Hubs y las categorías de registro y métricas que se desea enviar al espacio de nombres. Se crea un centro de eventos en el espacio de nombres para cada categoría de registro que se habilita. Una **categoría de registro** de diagnóstico es un tipo de registro que un recurso puede recopilar.
+Puede habilitar el streaming de registros de diagnóstico mediante programación, a través del portal o mediante la [API de REST de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). En cualquier caso, se crea una configuración de diagnóstico en la que se especifica un espacio de nombres de Event Hubs y las categorías de registro y métricas que se desea enviar al espacio de nombres. Se crea un centro de eventos en el espacio de nombres para cada categoría de registro que se habilita. Una **categoría de registro** de diagnóstico es un tipo de registro que un recurso puede recopilar.
 
 > [!WARNING]
 > La habilitación y streaming de registros de diagnóstico desde recursos de proceso (por ejemplo, máquinas virtuales o Service Fabric) [requiere ejecutar una serie de pasos distinta](../event-hubs/event-hubs-streaming-azure-diags-data.md).
@@ -93,7 +93,7 @@ El identificador de la regla de autorización de Event Hubs es una cadena con es
 
 ### <a name="via-azure-cli-20"></a>Mediante la CLI de Azure 2.0
 
-Para habilitar el streaming a través de la [CLI de Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest), puede usar el comando [az monitor diagnostic-settings create](https://docs.microsoft.com/en-us/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
+Para habilitar el streaming a través de la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), puede usar el comando [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

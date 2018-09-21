@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: c6ae2aa46ae17c4ef995211b02112e1c05e2ec2f
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 34c041bf96ecc8ce7f4440d7afaa64de775baef7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344484"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576943"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introducción a App Service Environment #
  
@@ -73,7 +73,7 @@ Una instancia de ASE puede tener conexión a Internet con una dirección IP púb
 
 Los [grupos de seguridad de red][NSGs] restringen las comunicaciones de red entrantes a la subred donde reside una instancia de ASE. Puede usar grupos de seguridad de red para ejecutar aplicaciones tras dispositivos y servicios ascendentes, como WAF y proveedores de SaaS de red.
 
-Las aplicaciones, además, suelen requerir acceso a recursos corporativos, como bases de datos internas y servicios web. Si implementa la instancia de ASE en una red virtual que tiene una conexión VPN a la red local, las aplicaciones de la instancia de ASE podrán tener acceso a los recursos locales. La capacidad es cierta independientemente de si la red privada virtual es una VPN de [sitio a sitio](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-multi-site) o de [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/).
+Las aplicaciones, además, suelen requerir acceso a recursos corporativos, como bases de datos internas y servicios web. Si implementa la instancia de ASE en una red virtual que tiene una conexión VPN a la red local, las aplicaciones de la instancia de ASE podrán tener acceso a los recursos locales. La capacidad es cierta independientemente de si la red privada virtual es una VPN de [sitio a sitio](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site) o de [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/).
 
 Para más información sobre cómo funciona ASE con redes virtuales y redes locales, consulte [Consideraciones de red de App Service Environment][ASENetwork].
 

@@ -7,23 +7,23 @@ ms.author: serinak
 manager: hjerez
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: 14f8dd29b7d4185d01529631333de045ad23cdd0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 982a6807ccaf393c3aea42f39f7e60bb7e0d3ac3
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831471"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35640442"
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>Habilitar SSL en un clúster de Azure Machine Learning Compute (MLC) 
 
 Estas instrucciones le permitirán configurar SSL para realizar llamadas de puntuación en un clúster de Machine Learning Compute (MLC). 
 
-## <a name="prerequisites"></a>requisitos previos 
+## <a name="prerequisites"></a>Requisitos previos 
 
 1. Decida el valor CNAME (nombre DNS) que se usará al realizar llamadas de puntuación en tiempo real.
 

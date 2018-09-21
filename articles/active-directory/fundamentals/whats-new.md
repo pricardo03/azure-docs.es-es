@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0fa220822c65065538db70df8a74de2fcca51938
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: e62dd48af69dd54abd26c21d7510ec872500e274
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143686"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737437"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
->Reciba notificaciones para volver a visitar esta página y obtener actualizaciones; para ello, agregue esta [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) al lector de fuentes ![icono RSS](./media/whats-new/feed-icon-16x16.png).
+>Reciba notificaciones para volver a visitar esta página y obtener actualizaciones; para ello, agregue esta [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=docs.microsoft.com/) al lector de fuentes ![icono RSS](./media/whats-new/feed-icon-16x16.png).
 
 En Azure AD se realizan mejoras de forma continua. Para mantenerse al día con los avances más recientes, este artículo proporciona información acerca de los elementos siguientes:
 

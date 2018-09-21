@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: eda3e95c1bd8fb7eef97ee9db10c217c2885198f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 5092a677bcbeac179e26fa0591b6a1cfbc3263d4
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970890"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576704"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalación de Azure Backup Server en Azure Stack
 
-En este artículo se explica cómo instalar Azure Backup Server en Azure Stack. Con Azure Backup Server, puede proteger las cargas de trabajo de Infraestructura como servicio (IaaS) como máquinas virtuales que se ejecutan en Azure Stack. Una ventaja de usar Azure Backup Server para proteger las cargas de trabajo es que puede administrar toda la protección de las cargas de trabajo desde una sola consola.
+En este artículo se explica cómo instalar Azure Backup Server en Azure Stack. Con Azure Backup Server, puede proteger cargas de trabajo de Infraestructura como servicio (IaaS), como por ejemplo, máquinas virtuales que se ejecutan en Azure Stack. Una ventaja de usar Azure Backup Server para proteger las cargas de trabajo es que puede administrar toda la protección de las cargas de trabajo desde una sola consola.
 
 > [!NOTE]
 > Para información sobre las funcionalidades de seguridad, consulte la [documentación sobre las características de seguridad de Azure Backup](backup-azure-security-feature.md).
@@ -91,7 +91,7 @@ La máquina virtual de Azure Backup Server debe unirse a un dominio. El usuario 
 
 ## <a name="using-an-iaas-vm-in-azure-stack"></a>Uso de una máquina virtual de IaaS en Azure Stack
 
-Al elegir un servidor para Azure Backup Server, empiece con una imagen de la galería de Windows Server 2012 R2 Datacenter o Windows Server 2016 Datacenter. En el artículo [Creación de la primera máquina virtual de Windows en Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), se proporciona un tutorial de introducción a la máquina virtual recomendada. Los requisitos mínimos recomendados para la máquina virtual (VM) servidor deben ser: A2 estándar con dos núcleos y 3,5 GB de RAM.
+Al elegir un servidor para Azure Backup Server, empiece con una imagen de la galería de Windows Server 2012 R2 Datacenter o Windows Server 2016 Datacenter. En el artículo [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Creación de la primera máquina virtual de Windows en Azure Portal), se proporciona un tutorial de introducción a la máquina virtual recomendada. Los requisitos mínimos recomendados para la máquina virtual (VM) servidor deben ser A2 estándar con dos núcleos y 3,5 GB de RAM.
 
 La protección de cargas de trabajo con Azure Backup Server tiene muchos matices. El artículo [Instalación de DPM como una máquina virtual de Azure](https://technet.microsoft.com/library/jj852163.aspx)le ayudará a comprender estos matices. Lea este artículo completamente antes de implementar la máquina.
 
@@ -310,7 +310,7 @@ Azure Backup Server comparte código con Data Protection Manager. En el instalad
 
 ## <a name="add-backup-storage"></a>Incorporación de almacenamiento de copia de seguridad
 
-La primera copia de seguridad se mantiene en el almacenamiento conectado a la máquina de Azure Backup Server. Para obtener más información acerca de cómo agregar discos, consulte [Add Modern Backup storage](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801) (Agregar almacenamiento de copia de seguridad moderno).
+La primera copia de seguridad se mantiene en el almacenamiento conectado a la máquina de Azure Backup Server. Para obtener más información acerca de cómo agregar discos, consulte [Add Modern Backup storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-1801) (Agregar almacenamiento de copia de seguridad moderno).
 
 > [!NOTE]
 > Debe agregar el almacenamiento de copia de seguridad incluso si tiene pensado enviar los datos a Azure. En la arquitectura de Azure Backup Server, el almacén de Recovery Services contiene la *segunda* copia de los datos mientras que el almacenamiento local contiene la primera (y obligatoria) copia de seguridad.
@@ -344,7 +344,7 @@ Si hay un firewall o un proxy que impide el acceso a Azure, agregue las direccio
 - \*.microsoftonline.com
 - \*.windows.net
 
-Una vez restaurada la conectividad a Azure en Azure Backup Server, el estado de la suscripción de Azure determina las operaciones que se pueden realizar. Una vez que el servidor esté **conectado**, use la tabla que aparece en [Network connectivity](backup-mabs-install-azure-stack.md#network-connectivity) t(Conectividad de red) para ver las operaciones disponibles.
+Una vez restaurada la conectividad a Azure en Azure Backup Server, el estado de la suscripción de Azure determina las operaciones que se pueden realizar. Una vez que el servidor esté **conectado**, use la tabla que aparece en [Network connectivity](backup-mabs-install-azure-stack.md#network-connectivity) (Conectividad de red) para ver las operaciones disponibles.
 
 ### <a name="handling-subscription-states"></a>Control de los estados de la suscripción
 
@@ -360,10 +360,10 @@ También puede consultar [Azure Backup - Preguntas más frecuentes](backup-azure
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-El artículo sobre la [preparación del entorno para DPM](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801) contiene información sobre las configuraciones admitidas de Azure Backup Server.
+El artículo sobre la [preparación del entorno para DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801) contiene información sobre las configuraciones admitidas de Azure Backup Server.
 
 Puede usar los artículos siguientes para mejorar la comprensión sobre la protección de cargas de trabajo mediante Microsoft Azure Backup Server.
 
-- [Copia de seguridad de SQL Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
-- [Copia de seguridad de una granja de SharePoint](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Copia de seguridad de SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+- [Copia de seguridad de una granja de SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Copia de seguridad de otro servidor](backup-azure-alternate-dpm-server.md)

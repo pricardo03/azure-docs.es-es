@@ -7,17 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: cc53fc52590bc9991dcfd4730d9e4cb03e05efd5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5fe292b92557b4786d638ac21c7adb1f50566feb
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831489"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35641896"
 ---
 # <a name="split-column-by-example-transformation"></a>Transformación Dividir columna por ejemplo
 Esta transformación divide de forma predictiva el contenido de una columna en límites significativos sin que sea necesaria la intervención del usuario. El algoritmo de división selecciona los límites después de analizar el contenido de la columna. Estos límites se podrían definir por:

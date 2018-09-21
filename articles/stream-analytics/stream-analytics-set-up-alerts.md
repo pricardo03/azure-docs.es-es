@@ -9,14 +9,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/26/2017
-ms.openlocfilehash: fb69f1b52e5b17dd6794c896969c29003a929c9b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4c676ab3039a02a4fda27ab00312133e5de8077a
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412117"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35778616"
 ---
-# <a name="tutorial-set-up-alerts-for-azure-stream-analytics-jobs"></a>Tutorial: configuración de alertas para los trabajos de Azure Stream Analytics
+# <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configuración de alertas en Azure Stream Analytics
 Puede configurar alertas para desencadenar una alerta cuando una métrica alcance una condición que especifique. Por ejemplo, puede configurar una alerta para una condición similar a la siguiente:
 
 `If there are zero input events in the last 5 minutes, send email notification to sa-admin@example.com`

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: ebe8745db06113d0508d86554bf031a4235c8e44
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 73bc8b6954470d11d6369bc733bb7c6f794ce892
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045956"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577139"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 Este artículo ofrece respuestas a las preguntas más frecuentes sobre Azure Data Factory.  
@@ -82,7 +82,7 @@ Desde el lanzamiento inicial de la versión preliminar pública en 2017, Data Fa
 -   Azure SQL Database con puntos de conexión de servicio de red virtual
 -   Instancia administrada (MI)
 -   Grupo elástico
--   Compatibilidad con la red virtual de Azure Resource Manager en lugar de la red virtual clásica que caerá en desuso en el futuro. Esto le permite insertar o unir su instancia de Integration Runtime para la integración de SSIS en Azure en una red virtual que está configurada para Azure SQL Database con acceso a puntos de conexión de servicio de red virtual, Instancias administradas o datos locales. Para ello, consulte: https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network. 
+-   Compatibilidad con la red virtual de Azure Resource Manager en lugar de la red virtual clásica que caerá en desuso en el futuro. Esto le permite insertar o unir su instancia de Integration Runtime para la integración de SSIS en Azure en una red virtual que está configurada para Azure SQL Database con acceso a puntos de conexión de servicio de red virtual, Instancias administradas o datos locales. Para ello, consulte: https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network. 
 -   Compatibilidad con la autenticación de Azure Active Directory (AAD) en lugar de la autenticación de SQL para conectarse a SSISDB. Esto le permite usar la autenticación de AAD con Managed Service Identity (MSI) de ADF.
 -   Compatibilidad para usar su propia licencia de SQL Server local para conseguir ahorros sustanciales de costos con la opción Ventaja híbrida de Azure (AHB).
 -   Compatibilidad con la versión empresarial de Integration Runtime para la integración de SSIS en Azure que le permite usar características avanzadas o premium, configuraciones personalizadas para instalar componentes o extensiones adicionales y ecosistemas de terceros. Para más información, consulte: https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/. 

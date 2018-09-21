@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eb6516400d362fe60adc05590353ec003c70e059
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6e449c1216fabf64da2b2abb59a7066fa30e332d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42146653"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982987"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 
@@ -59,7 +59,7 @@ Puede ver un resumen del estado de todos los trabajos de runbook o profundizar e
 
 A la derecha de la cuenta de Automation, puede ver un resumen de todos los trabajos de runbook de una cuenta de Automation seleccionada en el icono **Estadísticas de trabajo**.
 
-![Icono Estadísticas de trabajo](./media/automation-runbook-execution/automation-account-job-status-summary.png).
+![Icono Estadísticas de trabajo](./media/automation-runbook-execution/automation-account-job-status-summary.png)
 
 Este icono muestra un contador y una representación gráfica del estado de trabajo de todos los trabajos ejecutados.
 

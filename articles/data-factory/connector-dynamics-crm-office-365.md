@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: e4ebddc35b402d7a8997d899ce97577e93a27b84
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e8e106bc71b87af8cd36f7edb0fe64fcddd6133e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444867"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574681"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Common Data Service) o Dynamics CRM mediante Azure Data Factory
 
@@ -279,7 +279,7 @@ Para copiar datos en Dynamics, establezca el tipo de receptor de la actividad de
 >[!NOTE]
 >El valor predeterminado del receptor "**writeBatchSize**" y el de la actividad de copia "**[parallelCopies](copy-activity-performance.md#parallel-copy)" del receptor de Dynamics es 10 en ambos casos. Por lo tanto, se enviarán 100 registros a Dynamics simultáneamente.
 
-Para Dynamics 365 en línea, hay un límite de [2 llamadas simultáneas por lotes por organización](https://msdn.microsoft.com/en-us/library/jj863631.aspx#Run-time%20limitations). Si se supera dicho límite, se produce un error de "Servidor ocupado" antes de que la primera solicitud se haya ejecutado siquiera. Mantener el valor "writeBatchSize" menor o igual a 10 evitará tal limitación de las llamadas simultáneas.
+Para Dynamics 365 en línea, hay un límite de [2 llamadas simultáneas por lotes por organización](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Si se supera dicho límite, se produce un error de "Servidor ocupado" antes de que la primera solicitud se haya ejecutado siquiera. Mantener el valor "writeBatchSize" menor o igual a 10 evitará tal limitación de las llamadas simultáneas.
 
 La combinación óptima de "**writeBatchSize**" y "**parallelCopies**" depende del esquema de la entidad; por ejemplo, el número de columnas, el tamaño de fila o el número de complementos, flujos de trabajo o actividades de flujo de trabajo enlazados a esas llamadas, etc. El valor predeterminado de 10 writeBatchSize * 10 parallelCopies es el recomendado de acuerdo con el servicio Dynamics, y funcionará con la mayoría de entidades de Dynamics, si bien podría no proporcionar el mejor rendimiento. Para optimizar el rendimiento, ajuste la combinación en su configuración de la actividad de copia.
 

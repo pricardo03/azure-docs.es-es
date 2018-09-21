@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 4fd85135ea16a5183b1b0d5220d1c160044e8841
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: d717737bc2b15e57ae32faffaece96f78a7cc013
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701021"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577827"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Información sobre las salidas desde Azure Stream Analytics
 En este artículo se describen los diferentes tipos de salidas disponibles para los trabajos de Azure Stream Analytics. Las salidas le permiten almacenar y guardar los resultados de los trabajos de Stream Analytics. Con los datos de salida, puede realizar análisis de negocio adicionales y almacenamiento de los datos. 
@@ -299,7 +299,7 @@ En la tabla siguiente se resume la asistencia de la partición y el número de r
 | Azure Data Lake Store | SÍ | Use los tokens {date} y {time} en el patrón de prefijo de ruta de acceso. Elija el formato de fecha, como AAAA/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH se usa para el formato de hora. | Sigue las particiones de entrada para [consultas que se pueden paralelizar totalmente](stream-analytics-scale-jobs.md). | 
 | Azure SQL Database | Sin  | None | No aplicable. | 
 | Azure Blob Storage | SÍ | Use los tokens de {date} y {time} de los campos de evento del patrón de la ruta de acceso. Elija el formato de fecha, como AAAA/MM/DD, DD/MM/AAAA, MM-DD-AAAA. HH se usa para el formato de hora. Como parte de la [versión preliminar](https://aka.ms/ASAPreview), la salida de blobs puede particionarse con un solo atributo de evento personalizado {fieldname} o {datetime:\<especificador>}. | Sigue las particiones de entrada para [consultas que se pueden paralelizar totalmente](stream-analytics-scale-jobs.md). | 
-| Centro de eventos de Azure | SÍ | SÍ | Varía según alineación de particiones.</br> Cuando la clave de partición del Centro de eventos de salida está igualmente alineada con el paso de consulta ascendente (anterior), el número de sistemas de escritura es el mismo que el número de particiones del Centro de eventos de salida. Cada sistema de escritura usa la [clase EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) de EventHub para enviar eventos a la partición específica. </br> Cuando la clave de partición del Centro de eventos de salida no está alineada con el paso de consulta ascendente (anterior), el número de sistemas de escritura es el mismo que el número de particiones del paso anterior. Cada sistema de escritura usa [la clase SendBatchAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) de EventHubClient para enviar eventos a todas las particiones de salida. |
+| Centro de eventos de Azure | SÍ | SÍ | Varía según alineación de particiones.</br> Cuando la clave de partición del Centro de eventos de salida está igualmente alineada con el paso de consulta ascendente (anterior), el número de sistemas de escritura es el mismo que el número de particiones del Centro de eventos de salida. Cada sistema de escritura usa la [clase EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) de EventHub para enviar eventos a la partición específica. </br> Cuando la clave de partición del Centro de eventos de salida no está alineada con el paso de consulta ascendente (anterior), el número de sistemas de escritura es el mismo que el número de particiones del paso anterior. Cada sistema de escritura usa [la clase SendBatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) de EventHubClient para enviar eventos a todas las particiones de salida. |
 | Power BI | Sin  | None | No aplicable. | 
 | Almacenamiento de tablas de Azure | SÍ | Cualquier columna de resultados.  | Sigue las particiones de entrada para [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). | 
 | Tema de Azure Service Bus | SÍ | Se elige automáticamente. El número de particiones se basa en [la SKU y el tamaño de Service Bus](../service-bus-messaging/service-bus-partitioning.md). La clave de partición es un valor entero único para cada partición.| Igual que el número de particiones en el tema de salida.  |

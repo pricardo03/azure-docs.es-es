@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b32e9628b80705a99a2a8cf77534ed37a47515c8
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8383d6afa4b6029aca3978c53eec1865d1d8c8ea
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669103"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721847"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Protección de un clúster independiente en Windows mediante certificados X.509
 En este artículo se describe cómo proteger la comunicación entre los diversos nodos de un clúster de Windows independiente. También se describe cómo autenticar a los clientes que se conectan a este clúster mediante certificados X.509. Esta autenticación garantiza que solo los usuarios autorizados pueden tener acceso al clúster y a las aplicaciones implementadas, así como realizar tareas de administración. La seguridad basada en certificados se debe haber habilitado en el clúster al crearlo.  
@@ -88,7 +88,7 @@ Para empezar, [descargue Service Fabric para el paquete de clúster independient
         "ClientCertificateCommonNames": [
             {
                 "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint": "[Thumbprint]",
+                "CertificateIssuerThumbprint": "[Thumbprint1,Thumbprint2,Thumbprint3,...]",
                 "IsAdmin": true
             }
         ],

@@ -3,7 +3,7 @@ title: Actualización de Azure Stack 1805 | Microsoft Docs
 description: Conozca las novedades de la actualización 1805 de los sistemas integrados de Azure Stack, incluidos los problemas conocidos y la ubicación donde debe descargarse la actualización.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/27/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 4db0ce5e877f3054cc41e8940e8d9e672f7632c6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 60b4658d18d39797d30055e86cb21689cfb661fa
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110355"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631674"
 ---
 # <a name="azure-stack-1805-update"></a>Actualización de Azure Stack 1805
 
@@ -91,7 +91,7 @@ Después de la instalación de 1805, instale todas las revisiones aplicables. Pa
 Los siguientes son problemas conocidos posteriores a la instalación de esta compilación.
 
 ### <a name="portal"></a>Portal  
-- <!-- 2931230 – IS  ASDK --> No se pueden eliminar los planes que se agregan a una suscripción de usuario como plan complementario, aunque se quite el plan de la suscripción. Este permanecerá hasta que también se eliminen las suscripciones a las que haga referencia el plan complementario. 
+- <!-- 2931230 – IS  ASDK --> No se pueden eliminar los planes que se agregan a una suscripción de usuario como planes complementarios, aunque se quite el plan de la suscripción de usuario. El plan permanecerá hasta que también se eliminen las suscripciones a las que haga referencia el plan complementario. 
 
 - <!-- TBD - IS ASDK --> Con esta versión de Azure Stack, no se pueden aplicar actualizaciones de controladores mediante un paquete de extensiones OEM.  No hay ninguna solución alternativa para este problema.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 5c05c7c4c0f8f0b3619b36390c8a0224a03c900a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: db79ee85c19e5f3cdced9b894aca48de4d7d1c42
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063549"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576477"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notas de la versión de Azure BizTalk Services
 
@@ -66,11 +66,11 @@ Compila la solución en Visual Studio correctamente. A continuación, recompila 
   No se puede copiar el archivo <Path to DLL> en “bin\Debug\FileName.dll”. El proceso no puede obtener acceso al archivo "bin\Debug\FileName.dll" porque está siendo usado en otro proceso.  
 
 #### <a name="workaround"></a>Solución alternativa
-* Si [Visual Studio 2012 Update 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) está instalado, tiene las dos opciones siguientes:
+* Si [Visual Studio 2012 Update 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) está instalado, tiene las dos opciones siguientes:
   
   * Reiniciar Visual Studio, o
   * Reiniciar la solución. A continuación, realice una sola compilación en la solución.  
-* Si [Visual Studio 2012 Update 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) no está instalado, abra el Administrador de tareas, haga clic en la pestaña Procesos, haga clic en el proceso MSBuild.exe y, luego, haga clic en el botón Finalizar proceso.  
+* Si [Visual Studio 2012 Update 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) no está instalado, abra el Administrador de tareas, haga clic en la pestaña Procesos, haga clic en el proceso MSBuild.exe y, luego, haga clic en el botón Finalizar proceso.  
 
 ### <a name="routing-to-basichttprelay-endpoints-is-not-supported-from-bridges-and-biztalk-services-portal-if-non-printable-characters-are-promoted-as-http-headers"></a>No se admite el enrutamiento a los puntos de conexión de BasicHttpRelay desde los puentes y el Portal de BizTalk Services si los caracteres no imprimibles se promueven como encabezados HTTP
 Si usa caracteres no imprimibles como parte de las propiedades promocionadas en los mensajes, dichos mensajes no se podrán enrutar a destinos de retransmisión que utilicen el enlace BasicHttpRelay. Además, las propiedades promocionadas que están disponibles como parte del seguimiento están codificadas en URL para blobs y no codificadas para destinos.  

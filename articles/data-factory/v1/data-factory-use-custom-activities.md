@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 044d47a294df4e218c84a928a63426dde4f8373b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 580dd5bf6a7e905927189f4b1ae42ab49a1cbc80
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053140"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730722"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,7 @@ En el siguiente tutorial se proporcionan instrucciones paso a paso para crear un
 > - No es posible usar una puerta de enlace de administración de datos procedente de una actividad personalizada para acceder a orígenes de datos locales. Actualmente, la [puerta de enlace de administración de datos](data-factory-data-management-gateway.md) solo admite las actividades de copia y de procedimiento almacenado en Data Factory.   
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Tutorial: creación de una actividad personalizada
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 * Visual Studio 2012/2013/2015
 * Descargue e instale el [SDK de .NET de Azure](https://azure.microsoft.com/downloads/)
 
@@ -426,7 +426,7 @@ Estos son los pasos que se realizan en esta sección:
    3. Haga clic en **Factoría de datos** en la hoja **Análisis de datos**.
    
     ![Nuevo menú de Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
-2. En la hoja **Nueva factoría de datos**, escriba **CustomActivityFactory** en el campo Nombre. El nombre del generador de datos de Azure debe ser único global. Si recibe el error: **El nombre "CustomActivityFactory" de factoría de datos no está disponible**, cambie el nombre de la factoría de datos (por ejemplo, **suNombreCustomActivityFactory**) e intente crearla de nuevo.
+2. En la hoja **Nueva factoría de datos**, escriba **CustomActivityFactory** en el campo Nombre. El nombre de la instancia de Azure Data Factory debe ser único de forma global. Si recibe el error: **El nombre "CustomActivityFactory" de factoría de datos no está disponible**, cambie el nombre de la factoría de datos (por ejemplo, **suNombreCustomActivityFactory**) e intente crearla de nuevo.
 
     ![Nueva hoja de Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
 3. Haga clic en **NOMBRE DEL GRUPO DE RECURSOS**y seleccione un grupo de recursos existente o cree uno.
@@ -445,7 +445,7 @@ Los servicios vinculados vinculan almacenes de datos o servicios de proceso con 
 2. Haga clic en **Nuevo almacén de datos** en la barra de comandos y elija **Almacenamiento de Azure**. Debería ver el script JSON para crear un servicio vinculado de Azure Storage en el editor.
     
     ![Nuevo almacén de datos: Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Reemplace `<accountname>` por el nombre de la cuenta de Azure Storage y `<accountkey>` por la clave de acceso de la cuenta de Azure Storage. Para aprender a obtener una clave de acceso de almacenamiento, consulte [Acerca de las cuentas de almacenamiento de Azure](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+3. Reemplace `<accountname>` por el nombre de la cuenta de Azure Storage y `<accountkey>` por la clave de acceso de la cuenta de Azure Storage. Para aprender a obtener una clave de acceso de almacenamiento, consulte [Acerca de las cuentas de almacenamiento de Azure](../../storage/common/storage-account-manage.md#access-keys).
 
     ![Servicio vinculado de Azure Storage](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.

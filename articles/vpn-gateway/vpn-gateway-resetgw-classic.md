@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: e61e41c41888d8d2ca65961dd5bea73fd9b6bd21
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: d23ed383bee3346cfbb20c6935dd3630e137c179
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927696"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573915"
 ---
 # <a name="reset-a-vpn-gateway"></a>Restablecimiento de una instancia de VPN Gateway
 
@@ -75,7 +75,7 @@ Cuando reciba un resultado devuelto, se puede suponer que la puerta de enlace se
 
 ### <a name="resetclassic"></a>Modelo de implementación clásica
 
-El cmdlet para restablecer una puerta de enlace es **Reset-AzureVNetGateway**. Antes de realizar el restablecimiento, asegúrese de disponer de la versión más reciente de los [cmdlets de PowerShell de Service Management (SM)](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). En el ejemplo siguiente, se restablece la puerta de enlace para una red virtual denominada "ContosoVNet":
+El cmdlet para restablecer una puerta de enlace es **Reset-AzureVNetGateway**. Antes de realizar el restablecimiento, asegúrese de disponer de la versión más reciente de los [cmdlets de PowerShell de Service Management (SM)](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). En el ejemplo siguiente, se restablece la puerta de enlace para una red virtual denominada "ContosoVNet":
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”

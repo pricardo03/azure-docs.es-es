@@ -1,8 +1,8 @@
 ---
-title: "Exploración de métricas en Azure Application Insights | Microsoft Docs"
-description: "Interpretación de los gráficos en el Explorador de métricas y personalización de las hojas del Explorador de métricas."
+title: Exploración de métricas en Azure Application Insights | Microsoft Docs
+description: Interpretación de los gráficos en el Explorador de métricas y personalización de las hojas del Explorador de métricas.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 01b45323b74b54da157f4e9f1af783759c121be1
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 66ef3330a435574405dbfb8b8c82d984bb877efe
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35641056"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Exploración de métricas en Application Insights
 Las métricas de [Application Insights][start] son valores medidos y recuentos de eventos que se envían en telemetría desde la aplicación. Ayudar a detectar problemas de rendimiento y a observar las tendencias sobre cómo se utiliza la aplicación. Hay una amplia gama de métricas estándar y también se pueden crear los propios eventos y métricas personalizados.
@@ -186,14 +187,14 @@ Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportar
 
 En el gráfico de una métrica, puede hacer clic en el icono Análisis para ir directamente a la consulta de análisis equivalente.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 *No veo ningún dato en el gráfico.*
 
 * Los filtros se aplican a todos los gráficos de la hoja. Asegúrese de que, al centrarse en un gráfico, no ha establecido un filtro que excluya todos los datos en otro.
 
     Si desea establecer filtros diferentes en gráficos diferentes, créelos en hojas diferentes y guárdelos como elementos favoritos independientes. Si lo desea, puede anclarlos al panel para verlos en paralelo.
 * Si agrupa un gráfico por una propiedad que no está definida en la métrica, no habrá nada en el gráfico. Intente borrar "Agrupar por" o elija una propiedad de agrupación diferente.
-* Los datos de rendimiento (CPU, velocidad de E/S, etc.) están disponibles para servicios web de Java, aplicaciones de escritorio de Windows, [servicios y aplicaciones web IIS si instala el Monitor de estado](app-insights-monitor-performance-live-website-now.md) y [Azure Cloud Services](app-insights-azure.md). No están disponible para los sitios web de Azure.
+* Los datos de rendimiento (CPU, velocidad de E/S, etc.) están disponibles para servicios web de Java, aplicaciones de escritorio de Windows, [servicios y aplicaciones web IIS si instala el Monitor de estado](app-insights-monitor-performance-live-website-now.md) y [Azure Cloud Services](app-insights-azure.md). No están disponibles para los sitios web de Azure.
 
 ## <a name="video"></a>Vídeo
 

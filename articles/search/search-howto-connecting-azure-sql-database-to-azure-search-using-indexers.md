@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 5545b2e40777496ab8c808a8c2692b346d3509c5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5897740a1b5a183738c08b4dfde571be652aff3e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778348"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35642000"
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Conexión de Azure SQL Database a Azure Search con indexadores
 
@@ -109,7 +109,7 @@ Para supervisar el estado del indizador y el historial de ejecución (número de
 La respuesta debe ser similar a la siguiente:
 
     {
-        "@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
+        "\@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
         "status":"running",
         "lastResult": {
             "status":"success",
@@ -324,7 +324,7 @@ No directamente. No se recomienda ni se admite una conexión directa, ya que req
 
 **P: ¿Puedo usar un indexador de Azure SQL con bases de datos que no son de SQL Server que se ejecutan en IaaS en Azure?**
 
-Nº No admitimos esta posibilidad, ya que no hemos probado el indexador con bases de datos que no son de SQL Server.  
+No. No admitimos esta posibilidad, ya que no hemos probado el indexador con bases de datos que no son de SQL Server.  
 
 **P: ¿Puedo crear varios indexadores que se ejecuten según una programación?**
 

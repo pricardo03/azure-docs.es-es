@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2017
 ms.author: cherylmc
-ms.openlocfilehash: 037c1c7dd73f668bd8ad95568743b223b1e11c79
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9dfea33b558b4b568da1fd9ed90402e6c5ce54bf
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38706004"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573202"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Verificación de una conexión de VPN Gateway
 
@@ -49,7 +49,7 @@ Para comprobar el modelo de implementación de Resource Manager usado en una con
 
 ## <a name="powershell-classic"></a>PowerShell (clásico)
 
-Para comprobar el modelo de implementación clásico usado en la conexión de puerta de enlace de VPN con PowerShell, instale las versiones más reciente de los cmdlets de Azure PowerShell. Asegúrese de descargar e instalar el módulo de [Service Management](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). Use "Add-AzureAccount" para iniciar sesión en el modelo de implementación clásica.
+Para comprobar el modelo de implementación clásico usado en la conexión de puerta de enlace de VPN con PowerShell, instale las versiones más reciente de los cmdlets de Azure PowerShell. Asegúrese de descargar e instalar el módulo de [Service Management](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). Use "Add-AzureAccount" para iniciar sesión en el modelo de implementación clásica.
 
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 4c8f2966df9c33ec227b14c00996f84f39043cdb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c8517114f51b5aed8f8e31a19b672721b109775e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349235"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298309"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guía de prueba de concepto de Azure Active Directory: bloques de creación
 
@@ -46,7 +46,7 @@ A continuación se proporcionan algunos requisitos previos necesarios para cualq
 | Prueba de Azure AD Premium o EMS habilitada | [Azure Active Directory Premium gratis durante un mes](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Tener asignadas licencias de Azure AD Premium o EMS para usuarios de prueba de concepto | [Obtención de una licencia para usted y sus usuarios en Azure Active Directory.](active-directory-licensing-get-started-azure-portal.md) |
 | Credenciales de administrador global de Azure AD | [Asignación de roles de administrador en Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md) |
-| Opcional pero muy recomendado: entorno de laboratorio paralelo como reserva | [Requisitos previos de Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
+| Opcional pero muy recomendado: entorno de laboratorio paralelo como reserva | [Requisitos previos de Azure AD Connect](hybrid/how-to-connect-install-prerequisites.md) |
 
 ## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>Sincronización de directorios: Sincronización de hash de contraseñas (PHS) y nueva instalación
 
@@ -56,23 +56,23 @@ Tiempo aproximado para completarlo: una hora para menos de 1000 usuarios de prue
 
 | Requisito previo | Recursos |
 | --- | --- |
-| Servidor para ejecutar Azure AD Connect | [Requisitos previos de Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
-| Usuarios de prueba de concepto de destino, en el mismo dominio y parte de un grupo de seguridad, y unidad organizativa | [Instalación personalizada de Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) |
-| Identificar las características de Azure AD Connect necesarias para la prueba de concepto | [Conexión de Active Directory con Azure Active Directory: Configuración de características de sincronización](./connect/active-directory-aadconnect.md#configure-sync-features) |
-| Tener las credenciales necesarias para entornos locales y en la nube  | [Azure AD Connect: cuentas y permisos](./connect/active-directory-aadconnect-accounts-permissions.md) |
+| Servidor para ejecutar Azure AD Connect | [Requisitos previos de Azure AD Connect](hybrid/how-to-connect-install-prerequisites.md) |
+| Usuarios de prueba de concepto de destino, en el mismo dominio y parte de un grupo de seguridad, y unidad organizativa | [Instalación personalizada de Azure AD Connect](hybrid/how-to-connect-install-custom.md#domain-and-ou-filtering) |
+| Identificar las características de Azure AD Connect necesarias para la prueba de concepto | [Conexión de Active Directory con Azure Active Directory: Configuración de características de sincronización](hybrid/how-to-connect-install-roadmap.md#configure-sync-features) |
+| Tener las credenciales necesarias para entornos locales y en la nube  | [Azure AD Connect: cuentas y permisos](hybrid/reference-connect-accounts-permissions.md) |
 
 ### <a name="steps"></a>Pasos
 
 | Paso | Recursos |
 | --- | --- |
 | Descargue la versión más reciente de Azure AD Connect. | [Descarga de Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) |
-| Instale Azure AD Connect con la ruta de acceso más sencilla: rápido. <br/>1. Filtre a la unidad organizativa de destino para minimizar el tiempo del ciclo de sincronización.<br/>2. Elija el conjunto de usuarios de destino en el grupo local.<br/>3. Implemente las características necesarias por los demás temas de la prueba de concepto. | [Azure AD Connect: Instalación personalizada: Filtrado por dominio y unidad organizativa](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Instalación personalizada: Filtrado de sincronización basado en grupos](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Integración de las identidades locales con Azure Active Directory: Configuración de características de sincronización](./connect/active-directory-aadconnect.md#configure-sync-features) |
-| Apertura de la UI de Azure AD Connect y visualización de los perfiles en ejecución completados (importación, sincronización y exportación) | [Azure AD Connect Sync: Scheduler](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
+| Instale Azure AD Connect con la ruta de acceso más sencilla: rápido. <br/>1. Filtre a la unidad organizativa de destino para minimizar el tiempo del ciclo de sincronización.<br/>2. Elija el conjunto de usuarios de destino en el grupo local.<br/>3. Implemente las características necesarias por los demás temas de la prueba de concepto. | [Azure AD Connect: Instalación personalizada: Filtrado por dominio y unidad organizativa](hybrid/how-to-connect-install-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Instalación personalizada: Filtrado de sincronización basado en grupos](hybrid/how-to-connect-install-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Integración de las identidades locales con Azure Active Directory: Configuración de características de sincronización](hybrid/how-to-connect-install-roadmap.md#configure-sync-features) |
+| Apertura de la UI de Azure AD Connect y visualización de los perfiles en ejecución completados (importación, sincronización y exportación) | [Azure AD Connect Sync: Scheduler](hybrid/how-to-connect-sync-feature-scheduler.md) |
 | Abra el [Portal de administración de Azure AD](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/), vaya a la hoja "Todos los usuarios", agregue la columna "Origen de autoridad" y vea los usuarios que aparecen, marcados correctamente como procedentes de "Windows Server AD". | [Portal de administración de Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) |
 
 ### <a name="considerations"></a>Consideraciones
 
-1. Examine las consideraciones de seguridad de la sincronización de hash de contraseñas [aquí](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).  Si la sincronización de hash de contraseñas para los usuarios de producción piloto no es una opción, tenga en cuenta las alternativas siguientes:
+1. Examine las consideraciones de seguridad de la sincronización de hash de contraseñas [aquí](hybrid/how-to-connect-password-hash-synchronization.md).  Si la sincronización de hash de contraseñas para los usuarios de producción piloto no es una opción, tenga en cuenta las alternativas siguientes:
    * Crear usuarios de prueba en el dominio de producción. Asegúrese de que no sincronizar ninguna otra cuenta.
    * Trasladarse a un entorno UAT.
 2.  Si desea lograr la federación, merece la pena entender los costos asociados a una solución federada con el proveedor de identidades local más allá de la prueba de concepto y medirlo en relación a las ventajas que busca:
@@ -277,7 +277,7 @@ Tiempo aproximado para completarlo: 60 minutos
 | --- | --- |
 | Azure AD Connect instalado y configurado | Bloque de creación: [Sincronización de directorios: sincronización de hash de contraseñas](#directory-synchronization--password-hash-sync-phs--new-installation) |
 | Cumplir los requisitos de la instancia de ADLDS | [Referencia técnica del conector de LDAP genérico: Información general sobre el conector de LDAP genérico](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#overview-of-the-generic-ldap-connector) |
-| Lista de las cargas de trabajo que los usuarios usan y atributos asociados a ellas. | [Azure AD Connect Sync: atributos sincronizados con Azure Active Directory](./connect/active-directory-aadconnectsync-attributes-synchronized.md) |
+| Lista de las cargas de trabajo que los usuarios usan y atributos asociados a ellas. | [Azure AD Connect Sync: atributos sincronizados con Azure Active Directory](hybrid/reference-connect-sync-attributes-synchronized.md) |
 
 
 ### <a name="steps"></a>Pasos
@@ -285,11 +285,11 @@ Tiempo aproximado para completarlo: 60 minutos
 | Paso | Recursos |
 | --- | --- |
 | Incorporación del conector LDAP genérico | [Referencia técnica del conector de LDAP genérico: Creación de un nuevo conector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#create-a-new-connector) |
-| Cree perfiles de ejecución para el conector creado (importación completa, importación diferencial, sincronización completa, sincronización diferencial y exportación). | [Create a Management Agent Run Profile](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx) (Creación de un perfil de ejecución del agente de administración)<br/> [Uso de conectores con el administrador de servicios de Azure AD Connect Sync](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
-| Ejecute el perfil de importación completa y verifique que hay objetos en el espacio del conector. | [Search for a Connector Space Object](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx) (Búsqueda de un objeto en el espacio del conector)<br/>[Uso de conectores con el administrador de servicios de Azure AD Connect Sync: Espacio del conector de búsqueda](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
-| Cree reglas de sincronización para que los objetos del metaverso tengan los atributos necesarios para las cargas de trabajo. | [Azure AD Connect Sync: procedimientos recomendados para cambiar la configuración predeterminada: Cambios en las reglas de sincronización](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect Sync: conocimiento del aprovisionamiento declarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect Sync: conocimiento de expresiones de aprovisionamiento declarativo](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
-| Inicie el ciclo de sincronización completa. | [Programador de sincronización de Azure AD Connect: Inicio del programador](./connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler) |
-| En caso de problemas, soluciónelos. | [Solución de problemas de un objeto que no se sincroniza con Azure AD](./connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md) |
+| Cree perfiles de ejecución para el conector creado (importación completa, importación diferencial, sincronización completa, sincronización diferencial y exportación). | [Create a Management Agent Run Profile](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx) (Creación de un perfil de ejecución del agente de administración)<br/> [Uso de conectores con el administrador de servicios de Azure AD Connect Sync](hybrid/how-to-connect-sync-service-manager-ui-connectors.md)|
+| Ejecute el perfil de importación completa y verifique que hay objetos en el espacio del conector. | [Search for a Connector Space Object](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx) (Búsqueda de un objeto en el espacio del conector)<br/>[Uso de conectores con el administrador de servicios de Azure AD Connect Sync: Espacio del conector de búsqueda](hybrid/how-to-connect-sync-service-manager-ui-connectors.md#search-connector-space) |
+| Cree reglas de sincronización para que los objetos del metaverso tengan los atributos necesarios para las cargas de trabajo. | [Azure AD Connect Sync: procedimientos recomendados para cambiar la configuración predeterminada: Cambios en las reglas de sincronización](hybrid/how-to-connect-sync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect Sync: conocimiento del aprovisionamiento declarativo](hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)<br/>[Azure AD Connect Sync: conocimiento de expresiones de aprovisionamiento declarativo](hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) |
+| Inicie el ciclo de sincronización completa. | [Programador de sincronización de Azure AD Connect: Inicio del programador](hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler) |
+| En caso de problemas, soluciónelos. | [Solución de problemas de un objeto que no se sincroniza con Azure AD](hybrid/tshoot-connect-object-not-syncing.md) |
 | Compruebe que el usuario de LDAP puede iniciar sesión y acceda a la aplicación. | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Consideraciones
@@ -552,7 +552,7 @@ Tiempo aproximado para completarlo: 20 minutos
 | Requisito previo | Recursos |
 | --- | --- |
 | Dispositivos con certificado de usuario aprovisionado (Windows, iOS o Android) de Enterprise PKI | [Implementar certificados de usuario](https://msdn.microsoft.com/library/cc770857.aspx) |
-| Dominio de Azure AD federado con ADFS | [Azure AD Connect y la federación](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Información general de Servicios de certificados de Active Directory](https://technet.microsoft.com/library/hh831740.aspx)|
+| Dominio de Azure AD federado con ADFS | [Azure AD Connect y la federación](hybrid/how-to-connect-fed-whatis.md)<br/>[Información general de Servicios de certificados de Active Directory](https://technet.microsoft.com/library/hh831740.aspx)|
 | Para dispositivos iOS, tener instalada la aplicación Microsoft Authenticator | [Introducción a la aplicación Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Pasos

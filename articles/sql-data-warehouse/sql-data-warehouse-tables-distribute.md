@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 6b6d6dd5f000c4295ffdf64f7d2f1ece4f625678
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 36db91cd7c4dad3c28c0c110ee837ca6d1284959
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307524"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575396"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Instrucciones para diseñar tablas distribuidas en Azure SQL Data Warehouse
 Recomendaciones para diseñar tablas distribuidas por hash y tablas distribuidas por round robin en Azure SQL Data Warehouse.
@@ -174,7 +174,7 @@ Para decidir si merece la pena resolver la asimetría de datos en una tabla, con
 Como no se puede cambiar la columna de distribución de una tabla existente, la forma habitual de resolver la asimetría de datos es volver a crear la tabla con una columna de distribución diferente.  
 
 ### <a name="re-create-the-table-with-a-new-distribution-column"></a>Volver a crear la tabla con una columna de distribución nueva
-En este ejemplo se usa [CREATE TABLE AS SELECT](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) para volver a crear una tabla con una columna de distribución por hash diferente.
+En este ejemplo se usa [CREATE TABLE AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) para volver a crear una tabla con una columna de distribución por hash diferente.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]

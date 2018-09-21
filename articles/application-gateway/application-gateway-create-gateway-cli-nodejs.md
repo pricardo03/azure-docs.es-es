@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 3d67e896da5e616e443fc4e1edd9aaafb0f0e2f9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 29eec4ad1883db9d824b416bdfc7e984a5af4fbe
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33201878"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35640274"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones mediante la CLI de Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "33201878"
 > * [Azure Portal](application-gateway-create-gateway-portal.md)
 > * [PowerShell del Administrador de recursos de Azure](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Plantilla del Administrador de recursos de Azure](application-gateway-create-gateway-arm-template.md)
+> * [Plantilla de Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [CLI de Azure 1.0](application-gateway-create-gateway-cli.md)
 > * [CLI de Azure 2.0](application-gateway-create-gateway-cli.md)
 > 
@@ -41,7 +41,7 @@ Azure Application Gateway es un equilibrador de carga de nivel 7. Proporciona co
 Para seguir los pasos de este artículo, es preciso [instalar la interfaz de la línea de comandos de Azure para Mac, Linux y Windows (CLI de Azure)](../xplat-cli-install.md) e [iniciar sesión en Azure](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]
-> Si no tiene una cuenta de Azure, necesitará una. Regístrese para [obtener una prueba gratuita aquí](../active-directory/sign-up-organization.md).
+> Si no tiene una cuenta de Azure, necesitará una. Regístrese para [obtener una prueba gratuita aquí](../active-directory/fundamentals/sign-up-organization.md).
 
 ## <a name="scenario"></a>Escenario
 
@@ -96,7 +96,7 @@ azure group create \
 --location eastus
 ```
 
-## <a name="create-a-virtual-network"></a>Crear una red virtual
+## <a name="create-a-virtual-network"></a>Creación de una red virtual
 
 Una vez creado el grupo de recursos, se crea una red virtual para la puerta de enlace de aplicaciones.  En el ejemplo siguiente, el espacio de direcciones era 10.0.0.0/16 tal como se definió en las notas del escenario anterior.
 

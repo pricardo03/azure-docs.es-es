@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: feefe68fbe6681ee4b450503606ac8c4f25d5a39
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: c908e73a225f90227f09a8bb806a62c690de7632
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130267"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718855"
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configuración y restauración de retención de copias de seguridad a largo plazo de Azure SQL Database mediante el almacén de Azure Recovery Services
 
@@ -181,7 +181,7 @@ Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGro
 
 ### <a name="create-a-retention-policy"></a>Creación de una directiva de retención
 
-Una directiva de retención permite establecer cuánto tiempo desea conservar una copia de seguridad de una base de datos. Use el cmdlet [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupretentionpolicyobject) para obtener la directiva de retención predeterminada que se utiliza como plantilla para crear directivas. En esta plantilla, el período de retención se establece en 2 años. A continuación, ejecute el cmdlet [AzureRmRecoveryServicesBackupProtectionPolicy New](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) para crear la directiva. 
+Una directiva de retención permite establecer cuánto tiempo desea conservar una copia de seguridad de una base de datos. Use el cmdlet [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject) para obtener la directiva de retención predeterminada que se utiliza como plantilla para crear directivas. En esta plantilla, el período de retención se establece en 2 años. A continuación, ejecute el cmdlet [AzureRmRecoveryServicesBackupProtectionPolicy New](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) para crear la directiva. 
 
 > [!NOTE]
 > Algunos cmdlets requieren que defina el contexto del almacén antes de ejecutarlos ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)) por lo que verá este cmdlet en algunos fragmentos de código relacionados. El contexto se establece porque la directiva forma parte del almacén. Puede crear varias directivas de retención para cada almacén y, a continuación, aplicar la directiva que desee a bases de datos específicas. 

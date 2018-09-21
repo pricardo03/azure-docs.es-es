@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 04afd71183bcb8001d017b0027f29338b8d67ddb
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 50de43fd6f9ca579b501c47514c9f8fca4f53ae8
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442374"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540975"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Habilitación y revisión de los registros del nodo maestro de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -75,8 +75,7 @@ Los registros de diagnóstico pueden tardar unos minutos en habilitarse y aparec
 En el lado izquierdo, elija **Búsqueda de registros**. Para ver *kube-apiserver*, escriba la siguiente consulta en el cuadro de texto:
 
 ```
-search *
-| where Type == "AzureDiagnostics"
+AzureDiagnostics
 | where Category == "kube-apiserver"
 | project log_s
 ```
@@ -84,8 +83,7 @@ search *
 Es probable que se devuelvan muchos registros para el servidor de API. Para reducir el ámbito de la consulta y ver los registros sobre el pod de NGINX creado en el paso anterior, agregue una instrucción *where* adicional para buscar *pods/nginx*, como se muestra en la consulta de ejemplo siguiente:
 
 ```
-search *
-| where Type == "AzureDiagnostics"
+AzureDiagnostics
 | where Category == "kube-apiserver"
 | where log_s contains "pods/nginx"
 | project log_s

@@ -10,15 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2017
-ms.author: mbullwin; antonfr
-ms.openlocfilehash: 59b88a940e83ed89e8638b62680a57ca1514f8b0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: antonfr
+ms.author: mbullwin
+ms.openlocfilehash: eef597bf0c9f28cdec5af56c6dfe8bcaaa2415bd
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868941"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35641184"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detección inteligente: anomalías de rendimiento
 
@@ -69,7 +70,7 @@ Los mensajes de correo electrónico de las anomalías de rendimiento de Detecci�
 ## <a name="faq"></a>Preguntas más frecuentes
 
 * *¿El personal de Microsoft mira mis datos?*
-  * Nº El servicio es completamente automático. Solo obtendrá las notificaciones. Sus datos son [privados](app-insights-data-retention-privacy.md).
+  * No. El servicio es completamente automático. Solo obtendrá las notificaciones. Sus datos son [privados](app-insights-data-retention-privacy.md).
 * *¿Analiza todos los datos recopilados por Application Insights?*
   * No en este momento. Actualmente, analizamos el tiempo de respuesta de la solicitud, el tiempo de respuesta de dependencia y el tiempo de carga de la página. En un futuro analizaremos más métricas.
 
@@ -85,7 +86,7 @@ Los mensajes de correo electrónico de las anomalías de rendimiento de Detecci�
 
   * Ejecutamos el análisis diariamente en la telemetría del día anterior (día completo en la zona horaria UTC).
 * *¿Sustituye esto a las [alertas de métricas](app-insights-alerts.md)?*
-  * Nº  No nos comprometemos a detectar cada comportamiento que el usuario podría anómalo.
+  * No.  No nos comprometemos a detectar cada comportamiento que el usuario podría anómalo.
 
 
 * *Si no tomo ninguna medida como respuesta a una notificación, ¿recibiré un aviso?*

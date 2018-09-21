@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/29/2018
 ms.author: vturecek
-ms.openlocfilehash: afd682625d7bb74f9a4b726a534508b805562e7f
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 384d0fa32b64706c9d9d9baa0e2e0bbb2ac3c522
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701541"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719603"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core en Reliable Services de Service Fabric
 
@@ -54,12 +54,12 @@ Por lo general, las aplicaciones ASP.NET Core autohospedadas crean un elemento W
 
 Sin embargo, el punto de entrada de la aplicación no es el lugar adecuado para crear un elemento WebHost en una instancia de Reliable Services, porque el punto de entrada de la aplicación solo se usa para registrar un tipo de servicio con el sistema en tiempo de ejecución de Service Fabric, para que pueda crear instancias de ese tipo de servicio. El elemento WebHost debe crearse en una instancia de Reliable Services. Dentro del proceso de host de servicio, las instancias o réplicas de servicio pueden pasar por varios ciclos de vida. 
 
-Una instancia de Reliable Services se representa mediante la clase de servicio derivada de `StatelessService` o `StatefulService`. La pila de comunicación de un servicio se encuentra en una implementación `ICommunicationListener` en la clase de servicio. Los paquetes NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` contienen implementaciones de `ICommunicationListener` que inician y administran el elemento WebHost de ASP.NET Core para Kestrel o HttpSys en una instancia de Reliable Services.
+Una instancia de Reliable Services se representa mediante la clase de servicio derivada de `StatelessService` o `StatefulService`. La pila de comunicación de un servicio se encuentra en una implementación `ICommunicationListener` en la clase de servicio. Los paquetes NuGet `Microsoft.ServiceFabric.AspNetCore.*` contienen implementaciones de `ICommunicationListener` que inician y administran el elemento WebHost de ASP.NET Core para Kestrel o HttpSys en una instancia de Reliable Services.
 
 ![Hospedaje de ASP.NET Core en una instancia de Reliable Services][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>ICommunicationListeners en ASP.NET Core
-Las implementaciones de `ICommunicationListener` para Kestrel y HttpSys en los paquetes NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` tienen patrones de uso parecidos pero realizan acciones ligeramente diferentes, específicas de cada servidor web. 
+Las implementaciones de `ICommunicationListener` para Kestrel y HttpSys en los paquetes NuGet `Microsoft.ServiceFabric.AspNetCore.*` tienen patrones de uso parecidos pero realizan acciones ligeramente diferentes, específicas de cada servidor web. 
 
 Ambos agentes de escucha de comunicación proporcionan un constructor que acepta los argumentos siguientes:
  - **`ServiceContext serviceContext`**: el objeto `ServiceContext` que contiene información sobre el servicio en ejecución.
@@ -67,7 +67,7 @@ Ambos agentes de escucha de comunicación proporcionan un constructor que acepta
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: expresión lambda que se implementa para crear y devolver `IWebHost`. Esto permite configurar `IWebHost` tal como lo haría normalmente en una aplicación de ASP.NET Core. La lambda proporciona una dirección URL que se genera automáticamente en función de las opciones de integración de Service Fabric que use y la configuración `Endpoint` que proporcione. Esa dirección URL se puede modificar o utilizar tal cual para iniciar el servidor web.
 
 ## <a name="service-fabric-integration-middleware"></a>Middleware de integración de Service Fabric
-El paquete NuGet `Microsoft.ServiceFabric.Services.AspNetCore` incluye el método de extensión `UseServiceFabricIntegration` en `IWebHostBuilder` que agrega middleware compatible con Service Fabric. Este middleware configura la implementación `ICommunicationListener` de Kestrel o HttpSys para que registre una dirección URL de servicio única con el servicio de nomenclatura de Service Fabric y después valida las solicitudes de cliente para asegurarse de que los clientes se conecten al servicio adecuado. Esto es necesario en un entorno de host compartido como Service Fabric, donde varias aplicaciones web se pueden ejecutar en la misma máquina física o virtual pero no utilizan nombres de host únicos, para evitar que los clientes se conecten por error al servicio incorrecto. Este escenario se describe con más detalle en la sección siguiente.
+El paquete NuGet `Microsoft.ServiceFabric.AspNetCore` incluye el método de extensión `UseServiceFabricIntegration` en `IWebHostBuilder` que agrega middleware compatible con Service Fabric. Este middleware configura la implementación `ICommunicationListener` de Kestrel o HttpSys para que registre una dirección URL de servicio única con el servicio de nomenclatura de Service Fabric y después valida las solicitudes de cliente para asegurarse de que los clientes se conecten al servicio adecuado. Esto es necesario en un entorno de host compartido como Service Fabric, donde varias aplicaciones web se pueden ejecutar en la misma máquina física o virtual pero no utilizan nombres de host únicos, para evitar que los clientes se conecten por error al servicio incorrecto. Este escenario se describe con más detalle en la sección siguiente.
 
 ### <a name="a-case-of-mistaken-identity"></a>Un caso de identidad equivocada
 Las réplicas de servicio, con independencia del protocolo, escuchan en una combinación IP:puerto única. Una vez que una réplica de servicio ha comenzado a escuchar en un punto de conexión IP:puerto, notifica esa dirección de punto de conexión al servicio de nomenclatura de Service Fabric, donde los clientes u otros servicios pueden detectarla. Si los servicios utilizan puertos de aplicación asignados de forma dinámica, una réplica de servicio podría casualmente utilizar el mismo punto de conexión IP:puerto que otro servicio que se encontraba antes en la misma máquina física o virtual. Esto puede hacer que un cliente se conecte por error al servicio incorrecto. Esto puede ocurrir si se produce la siguiente secuencia de eventos:

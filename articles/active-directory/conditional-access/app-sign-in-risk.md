@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2bd52486a78ca103e0070d94ea423c069f845587
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 65f740e23b68727bdffa4a966518b1581fb5b0a6
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627515"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604372"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Inicio rápido: bloquear el acceso cuando se detecta riesgo en una sesión con el acceso condicional de Azure Active Directory  
 
@@ -46,7 +46,7 @@ Para completar el escenario de este tutorial, necesita:
 
 - **Tor Browser**: [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) está diseñado para ayudarle a mantener su privacidad en Internet. Identity Protection detecta un inicio de sesión desde Tor Browser como **inicios de sesión desde direcciones IP anónimas**, lo que tiene un nivel de riesgo medio. Para más información, consulte [Eventos de riesgo de Azure Active Directory](../reports-monitoring/concept-risk-events.md).  
 
-- **Una cuenta de prueba denominada Alain Charon**: si no sabe cómo crear una cuenta de prueba, consulte [Agregar usuarios basados en la nube](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
+- **Una cuenta de prueba denominada Alain Charon**: si no sabe cómo crear una cuenta de prueba, consulte [Agregar usuarios basados en la nube](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 
 ## <a name="test-your-sign-in"></a>Prueba del inicio de sesión 
@@ -206,7 +206,7 @@ Para probar la directiva, pruebe a iniciar sesión en [Azure Portal](https://por
 
 Cuando no sea necesario, elimine el usuario de prueba, Tor Browser y la directiva de acceso condicional:
 
-- Si no sabe cómo eliminar un usuario de Azure AD, consulte [Eliminación de usuarios desde Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- Si no sabe cómo eliminar un usuario de Azure AD, consulte [Eliminación de usuarios desde Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
 - Para eliminar la directiva, selecciónela y, a continuación, haga clic en **Eliminar** en la barra de herramientas de acceso rápido.
 

@@ -4,22 +4,21 @@ description: En este tema se muestra cómo implementar un escenario de streaming
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 09/17/2018
 ms.author: juliako
-ms.openlocfilehash: 9ea18d4131705ac1e7ba12ed6af6d8202e766abd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 618316b6b5979c65bc8906ea7d07c4f4fdf0930d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783704"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124617"
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>Implementación de streaming de conmutación por error con Azure Media Services
 
@@ -51,12 +50,7 @@ Se aplican las siguientes consideraciones:
 * Los recursos cifrados de almacenamiento (AssetCreationOptions.StorageEncrypted) no se admiten para la replicación (ya que la clave de cifrado es diferente en ambas cuentas de Media Services). 
 * Si desea aprovechar el empaquetado dinámico, asegúrese de que el punto de conexión de streaming desde el que va a transmitir el contenido esté en estado **Running** (En ejecución).
 
-> [!NOTE]
-> Considere el uso de la [herramienta de duplicación](http://replicator.codeplex.com/) de Media Services como alternativa a la implementación manual de un escenario de streaming de conmutación por error. Esta herramienta permite replicar los recursos entre dos cuentas de Media Services.
-> 
-> 
-
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Dos cuentas de Media Services en una suscripción de Azure nueva o existente. Consulte [Creación de una cuenta de Azure Media Services](media-services-portal-create-account.md).
 * Sistema operativo: Windows 7, Windows 2008 R2 o Windows 8.
 * .NET Framework 4.5 o .NET Framework 4.

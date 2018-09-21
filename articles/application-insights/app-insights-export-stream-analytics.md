@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 874a338c27262de29b1806352ec3ade068c188e0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 86e37a186536a2037d3cc46cb1cc69c1a7a651f6
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294241"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719435"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Uso de Stream Analytics para procesar datos exportados de Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) es la herramienta ideal para procesar los datos [exportados desde Application Insights](app-insights-export-telemetry.md). Stream Analytics puede extraer datos de una variedad de orígenes. Puede transformar y filtrar los datos y, después, enrutarlos a una variedad de receptores.
@@ -93,7 +93,7 @@ Cuando se cree el nuevo trabajo, seleccione **Ir al recurso**.
 
 Configúrelo de manera que tome los datos del blob de Exportación continua:
 
-![](./media/app-insights-export-stream-analytics/SA005.png)
+![](./media/app-insights-export-stream-analytics/SA0005.png)
 
 Ahora, necesitará la clave de acceso principal de la cuenta de almacenamiento, que anotó anteriormente. Establézcala como la clave de cuenta de almacenamiento.
 

@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2017
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: c7f2892586dd78f3e4b102deb8c51b9979ed07e2
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e7488abb3e82f90f63fa338b84a6516202e504ec
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348181"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714537"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Opciones avanzadas de firma de certificados en el token SAML para aplicaciones previamente integradas en Azure Active Directory
 En la actualidad Azure Active Directory (Azure AD) es compatible con miles de aplicaciones previamente integradas de la galería de aplicaciones de Azure Active Directory. Entre ellas se incluyen más de 500 aplicaciones que admiten el inicio de sesión único mediante el protocolo SAML 2.0. Cuando un usuario se autentica en una aplicación a través de Azure AD con SAML, Azure AD envía un token a la aplicación (mediante HTTP POST). Después, la aplicación valida y usa el token para que el usuario inicie sesión en lugar de solicitar un nombre de usuario y una contraseña. Estos tokens SAML se firman con el certificado único que se genera en Azure AD y mediante algoritmos estándar específicos.
@@ -60,7 +60,6 @@ Azure AD admite dos algoritmos de firmas para firmar la respuesta SAML:
     ![Algoritmo de firma de certificado SHA-1](./media/certificate-signing-options/saml-signing-algo-sha1.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](../active-directory-apps-index.md)
 * [Configuración del inicio de sesión único en aplicaciones que no están en la galería de aplicaciones de Azure Active Directory](configure-federated-single-sign-on-non-gallery-applications.md)
 * [Solución de problemas del inicio de sesión único basado en SAML](../develop/howto-v1-debug-saml-sso-issues.md)
 

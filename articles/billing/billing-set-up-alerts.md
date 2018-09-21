@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/9/2017
+ms.date: 06/15/2018
 ms.author: adpick
-ms.openlocfilehash: 981cb1153e0268e6572207f8d2401edb23485863
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 094bfe041ae04e52b6d998ccfd1d964abf192d6a
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607810"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35778686"
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Configuración de alertas de crédito o facturación para las suscripciones de Microsoft Azure
 Si es el administrador de cuenta de una suscripción a Azure, puede utilizar el servicio de alertas de facturación de Azure para crear alertas de facturación personalizadas que le ayudarán a supervisar y administrar la actividad de facturación de las cuentas de Azure.

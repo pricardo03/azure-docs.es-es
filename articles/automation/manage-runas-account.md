@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/16/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d6b58c95b918d820e207e801e62e7897c2ee366
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 32a7b7026df1522abe2ca3dc7b212b06e08ff905
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246273"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544284"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Administración de cuentas de ejecución de Azure Automation
 
@@ -349,9 +349,8 @@ Para renovar el certificado, realice estos pasos:
 
     ![Renovación del certificado para una cuenta de ejecución](media/manage-runas-account/automation-account-renew-runas-certificate.png)
 
-1. Mientras se está renovando el certificado, puede seguir el progreso desde el menú, en **Notificaciones**.
+1. Mientras se está renovando el certificado, puede seguir el progreso desde el menú, en **Notificaciones**. 
 
-Si no puede renovar el certificado de ejecución
 ## <a name="limiting-run-as-account-permissions"></a>Limitación de los permisos de las cuentas de ejecución
 
 Para controlar el destino de la automatización en los recursos de Azure Automation, a la cuenta de ejecución se le concede de forma predeterminada derechos de colaborador en la suscripción. Si tiene que restringir lo que puede hacer la entidad de servicio de ejecución, puede quitar la cuenta del rol de colaborador de la suscripción y agregarla como colaborador a los grupos de recursos que quiere especificar.

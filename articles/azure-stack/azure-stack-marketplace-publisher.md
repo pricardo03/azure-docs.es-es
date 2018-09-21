@@ -3,7 +3,7 @@ title: Usar el kit de herramientas de Marketplace para crear y publicar elemento
 description: Aprenda a crear rápidamente elementos de Marketplace con el kit de herramientas de publicación
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/14/2017
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 61ee3296429f9641643f1c9268ae89e3691fcfa1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0ade78dd992e8d1d2eda2cf27d44e52c4030563f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386884"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630943"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Agregar elementos de Marketplace con la herramienta de publicación
 Agregar el contenido a [Azure Stack Marketplace](azure-stack-marketplace.md) hace que sus soluciones estén disponibles para implementación por su parte y la de sus inquilinos.  El kit de herramientas de Marketplace crea archivos de paquetes de Azure Marketplace (.azpkg) basados en extensiones de VM o plantillas de Azure Resource Manager de IaaS.  También puede usar el kit de herramientas de Marketplace para publicar archivos .azpkg creados con la herramienta o mediante pasos [manuales](azure-stack-create-and-publish-marketplace-item.md).  En este tema, conocerá los pasos para descargar la herramienta, crear un elemento de Marketplace basado en una plantilla de VM y, a continuación, publicar ese elemento en Azure Stack Marketplace.     
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
  - Debe ejecutar el kit de herramientas en el host de Azure Stack o tener conectividad [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) desde el equipo en que se ejecuta la herramienta.
 
  - Descargue las [plantillas de inicio rápidos de Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) y extráigalas.
@@ -75,7 +75,7 @@ En esta sección, debe publicar el elemento de Marketplace en Azure Stack Market
     |Campo|DESCRIPCIÓN|
     |-----|-----|
     | Service Admin Name (Nombre del administrador de servicios) | Cuenta del administrador del servicio  Ejemplo: ServiceAdmin@mydomain.onmicrosoft.com |
-    | Password | Contraseña de cuenta del administrador de servicios. |
+    | Contraseña | Contraseña de cuenta del administrador de servicios. |
     | Punto de conexión de API | Punto de conexión de Azure Resource Manager de Azure Stack.  Ejemplo: management.local.azurestack.external |
 2.  Cuando haga clic en **Publicar**, aparecerá el registro de publicación.
 3.  Ahora es posible implementar el elemento publicado a través del portal de Azure Stack.

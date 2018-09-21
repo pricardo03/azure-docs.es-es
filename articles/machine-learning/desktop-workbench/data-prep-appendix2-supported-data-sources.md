@@ -7,18 +7,18 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 1a6ef0b928bd9a2d21db68a0d5476357b1d32dd1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 88ed4fa43e5724cfe1d6f1555db947d77045cd2e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831554"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35642147"
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Orígenes de datos admitidos para la preparación de datos de Azure Machine Learning 
 En este artículo se describen los orígenes de datos admitidos actualmente en la preparación de datos de Azure Machine Learning.
@@ -35,7 +35,7 @@ Lectura desde el servidor SQL local o la base de datos SQL de Azure.
 - Confíe en el servidor (incluso cuando el certificado en el servidor no sea válido. Úselo con precaución)
 - Tipo de autenticación (Windows, Server)
 - User Name
-- Password
+- Contraseña
 - Base de datos a la que conectarse
 - Consulta SQL
 

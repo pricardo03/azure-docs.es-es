@@ -7,20 +7,25 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/14/2018
 ms.author: sstein
-ms.openlocfilehash: e1089db848b30945e5e61765c762262f5478450e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 395bbf50373d3a6e3848fba9fd3db0d6989023f4
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645895"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35640883"
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>Desinstalación de componentes de trabajos de Elastic Database.
+
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
 Los componentes de **Trabajos de Elastic Database** se pueden desinstalar mediante Azure Portal o PowerShell.
 
 ## <a name="uninstall-elastic-database-jobs-components-using-the-azure-portal"></a>Desinstalación de componentes de Trabajos de base de datos elástica mediante Azure Portal
-1. Abra el [Azure Portal](https://portal.azure.com/).
+1. Abra [Azure Portal](https://portal.azure.com/).
 2. Navegue hasta la suscripción que contiene componentes de **trabajos de Elastic Database** , es decir, la suscripción en la que se instalaron los componentes de trabajos de Elastic Database.
 3. Haga clic en **Examinar** y luego en **Grupos de recursos**.
 4. Seleccione el grupo de recursos denominado "__ElasticDatabaseJob".

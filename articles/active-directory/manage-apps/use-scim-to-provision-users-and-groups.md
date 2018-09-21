@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 4247ef1ffd1b8d5c5ec393e3ebff20c3e04e32b3
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d99996bb4177a11342f0897d2cf69f82a5b81bf7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347705"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721235"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso de System for Cross-Domain Identity Management (SCIM) para aprovisionar automáticamente a los usuarios y grupos de Azure Active Directory para aplicaciones
 
@@ -691,7 +691,6 @@ La siguiente ilustración muestra los mensajes que Azure AD envía a un servicio
 *Figura 6: secuencia de aprovisionamiento y cancelación del aprovisionamiento de grupos*
 
 ## <a name="related-articles"></a>Artículos relacionados
-* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](../active-directory-apps-index.md)
 * [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](user-provisioning.md)
 * [Personalización de asignaciones de atributos para el aprovisionamiento de usuarios](customize-application-attributes.md)
 * [Escritura de expresiones para asignaciones de atributos](functions-for-customizing-application-data.md)

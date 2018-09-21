@@ -9,14 +9,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5596c4efeba14e9d2bfdadd7ce92bb6b2c9fcbf0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6fcc11b0120c9d19cfc1482100ac68d04c9d625d
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35639356"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Generación de perfiles de aplicaciones web de Azure en Linux de ASP.NET Core con Application Insights Profiler
 
@@ -28,7 +29,7 @@ Después de completar este tutorial, la aplicación puede recopilar los seguimie
 
 ![Seguimientos del generador de perfiles](./media/app-insights-profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Las instrucciones siguientes se aplican a todos los entornos de desarrollo Windows, Linux y Mac:
 
 * Instale [SDK 2.1.2 de .NET Core o posterior](https://www.microsoft.com/net/download/windows/build).

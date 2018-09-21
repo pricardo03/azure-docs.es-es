@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 06/15/2018
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: a2e2075a735b63588352f3bcdc97e2d6410660fe
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bede78782154e014d4ffad949f9ebd1a44eb2c4c
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365430"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35775166"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Creación de una red virtual (clásica) con varias subredes
 
@@ -67,7 +67,7 @@ Puede crear una red virtual (clásica) mediante [Azure Portal](#portal), la [int
 
 ## <a name="azure-cli"></a>Azure CLI
 
-1. Puede [instalar y configurar la CLI de Azure](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o usar la CLI dentro de Azure Cloud Shell. Azure Cloud Shell es un shell de Bash gratuito que se puede ejecutar directamente en Azure Portal. Tiene la CLI de Azure preinstalada y configurada para utilizar con su cuenta. Para obtener ayuda con los comandos de la CLI, escriba `azure <command> --help`. 
+1. Puede [instalar y configurar la CLI de Azure](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o usar la CLI dentro de Azure Cloud Shell. Azure Cloud Shell es un shell de Bash gratuito que se puede ejecutar directamente en Azure Portal. Tiene la CLI de Azure preinstalada y configurada para utilizarla con la cuenta. Para obtener ayuda con los comandos de la CLI, escriba `azure <command> --help`. 
 2. En una sesión de la CLI, inicie sesión en Azure con el comando siguiente. Si hace clic en **Pruébelo** en el cuadro siguiente, se abre Cloud Shell. Puede iniciar sesión en la suscripción de Azure sin especificar el siguiente comando:
 
     ```azurecli-interactive

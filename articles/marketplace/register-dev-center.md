@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3eca9e416a18e7389a6ce45cccd3cc99707e9806
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: ffc2a9fb7b0ed516645c833f87c9ef5c95ca20ff
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070441"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580759"
 ---
 # <a name="register-in-dev-center"></a>Registro en el Centro para desarrolladores  
 Para ayudar a asegurarse de que no está registrado en una cuenta de explorador personal, abra una nueva sesión de exploración de incógnito de Chrome o de InPrivate en Internet Explorer.  
@@ -108,11 +108,11 @@ Si tiene problemas con el registro en el Centro para desarrolladores, siga estos
 > Los publicadores que publican en el tipo de aplicación Transact: máquina virtual, aplicaciones de Azure: plantillas de solución y aplicaciones administradas.  
 
 *   **¿Por qué se necesita la cuenta del Centro de desarrollo?**
-> La cuenta del Centro de desarrollo es obligatoria para que Microsoft pueda facturar al cliente en nombre del publicador por el tipo de aplicación Transact. El registro de la cuenta del Centro de desarrollo permite a Microsoft validar la información legal, fiscal y bancaria de su compañía. Para obtener más información, haga clic [aquí](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#register-in-dev-center).
+> La cuenta del Centro de desarrollo es obligatoria para que Microsoft pueda facturar al cliente en nombre del publicador por el tipo de aplicación Transact. El registro de la cuenta del Centro de desarrollo permite a Microsoft validar la información legal, fiscal y bancaria de su compañía. Para obtener más información, haga clic [aquí](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center).
 
 *   **¿Cómo empiezo con el registro en el Centro de desarrollo?**
 > Para evitar la duplicación, compruebe que su compañía no disponga ya de una cuenta registrada del Centro de desarrollo. Debe haber iniciado sesión con la cuenta de Microsoft que desea asociar a la cuenta de desarrollador. Si aún no tiene una cuenta de Microsoft, puede crear una nueva [aquí.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (Por ejemplo: contoso_marketplace@live.com). Para iniciar sesión y registrarse, vaya a https://dev.windows.com/en-us/registration?accountProgram=Azure
-<br>Para obtener más información sobre el proceso de registro, haga clic [aquí.](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center)</br>
+<br>Para obtener más información sobre el proceso de registro, haga clic [aquí.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
 
 *   **¿Debo elegir un tipo de cuenta "Individual" o de "Compañía"?**
 > Para publicar una oferta Transact en Marketplace, deberá seleccionar la cuenta de Compañía cuando se registre para la cuenta del Centro de desarrollo.
@@ -143,7 +143,7 @@ Si tiene problemas con el registro en el Centro para desarrolladores, siga estos
 > Asigne un nombre de compañía temporal, póngase en contacto con soporte técnico en [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) y proporcióneles los documentos de registro del negocio.
 
 *   **¿Cómo agrego mi información de pago y fiscal?**
-> No podrá publicar ofertas Transact sin completar la información fiscal y bancaria de su cuenta del Centro de desarrollo.  Para más información sobre la adición de información de la cuenta, visite la sección [Adición de información bancaria y fiscal](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information).
+> No podrá publicar ofertas Transact sin completar la información fiscal y bancaria de su cuenta del Centro de desarrollo.  Para más información sobre la adición de información de la cuenta, visite la sección [Adición de información bancaria y fiscal](https://docs.microsoft.com/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information).
 
 *   **¿Puedo cambiar la cuenta de inicio de sesión de Microsoft del Centro de desarrollo?**
 > No. Una vez creado un Centro de desarrollo, no se puede cambiar la cuenta de propietario. Tiene que empezar de nuevo con una cuenta del Centro de desarrollo totalmente nueva con la cuenta de Microsoft que desee.

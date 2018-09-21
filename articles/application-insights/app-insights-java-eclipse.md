@@ -10,20 +10,20 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 8e8e63b053cb5bd504a41da9b537354a1dd42968
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ebcfe02eb8d969af26f5121bda85e4610302e838
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795567"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35639164"
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Introducción a Application Insights con Java en Eclipse
 El SDK de Application Insights envía telemetría desde la aplicación web de Java para que se pueda analizar el uso y el rendimiento. El complemento Eclipse de Application Insights instala automáticamente el SDK en el proyecto para que obtenga la telemetría de serie, además de una API que puede usar para escribir la telemetría personalizada.   
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Actualmente el complemento funciona para proyectos Maven y proyectos web dinámicos en Eclipse.
 ([Agregue Application Insights a otros tipos de proyectos de Java][java]).
 

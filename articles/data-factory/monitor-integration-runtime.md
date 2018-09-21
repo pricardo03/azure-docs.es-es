@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 8ca7ce2586513373c58552bb1f56b94715f15076
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 59c2f865ae5e056b0fabb360712f6eb622943145
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128456"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574630"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Supervisión de Integration Runtime en Azure Data Factory  
 **Integration Runtime** es la infraestructura de proceso que usa Azure Data Factory para proporcionar varias funcionalidades de integración de datos en distintos entornos de red. Data Factory ofrece tres tipos de instancia de Integration Runtime:
@@ -87,7 +87,7 @@ El valor predeterminado del límite de trabajos simultáneos se establece en fun
 
 Realice un escalado horizontal aumentando el número de nodos. Al aumentar el número de nodos, el límite de trabajos simultáneos es la suma de los valores límite de trabajos simultáneos de todos los nodos disponibles.  Por ejemplo, si un nodo le permite ejecutar un máximo de doce trabajos simultáneos, la incorporación de tres nodos más similares le permite ejecutar un máximo de 48 trabajos simultáneos (es decir, 4 x 12). Se recomienda aumentar el límite de trabajos simultáneos solo cuando vea un uso escaso de los recursos con los valores predeterminados en cada nodo.
 
-El valor predeterminado calculado se puede invalidar en Azure Portal. Seleccione Autor > Conexiones > Runtimes de integración > Editar > Nodos > Modificar valor de trabajos simultáneos por nodo. También puede usar el comando [update-azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/en-us/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) de PowerShell.
+El valor predeterminado calculado se puede invalidar en Azure Portal. Seleccione Autor > Conexiones > Runtimes de integración > Editar > Nodos > Modificar valor de trabajos simultáneos por nodo. También puede usar el comando [update-azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) de PowerShell.
   
 ### <a name="status-per-node"></a>Estado (por nodo)
 En la tabla siguiente se proporcionan los estados posibles de los nodos de una instancia de Integration Runtime autohospedada:

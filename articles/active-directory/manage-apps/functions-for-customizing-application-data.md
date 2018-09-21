@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: fd42d2d7f3a277f9ea568e255ab5ba5eb76476ae
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: cf0e94b859b49eddb8e2471d5319b3cc4a2c17ba
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356331"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720300"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
@@ -264,7 +264,6 @@ Si el código de estado no coincide con ninguna de las opciones predefinidas, us
 * **SALIDA**: "Australia/Brisbane"
 
 ## <a name="related-articles"></a>Artículos relacionados
-* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](../active-directory-apps-index.md)
 * [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](user-provisioning.md)
 * [Personalización de asignaciones de atributos para el aprovisionamiento de usuarios](customize-application-attributes.md)
 * [Filtros de ámbito para el aprovisionamiento de usuario](define-conditional-rules-for-provisioning-user-accounts.md)

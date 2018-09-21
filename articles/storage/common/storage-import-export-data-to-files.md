@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 6cbaaeed75f160a2281fdce0949397b9a14bf981
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1be7dd9ce537d0999ace01eafa46318e42df9f20
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347926"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732456"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Uso del servicio Azure Import/Export para importar datos a Azure Files
 
@@ -26,7 +26,7 @@ El servicio Import/Export admite solo la importación de Azure Files en Azure St
 Antes de crear un trabajo de importación para transferir datos en Azure Files, revise con cuidado y complete la siguiente lista de requisitos previos. Debe:
 
 - Tener una suscripción activa de Azure para usar con el servicio Import/Export.
-- Tener al menos una cuenta de Azure Storage. Consulte la lista de [las cuenta de almacenamiento y los tipos de almacenamiento admitidos para el servicio Import/Export](storage-import-export-requirements.md). Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-create-storage-account.md#create-a-storage-account).
+- Tener al menos una cuenta de Azure Storage. Consulte la lista de [las cuenta de almacenamiento y los tipos de almacenamiento admitidos para el servicio Import/Export](storage-import-export-requirements.md). Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-quickstart-create-account.md).
 - Tener un número suficiente de discos de los [tipos admitidos](storage-import-export-requirements.md#supported-disks). 
 - Tener un sistema de Windows que ejecute una [versión admitida del sistema operativo](storage-import-export-requirements.md#supported-operating-systems).
 - [Descargar la versión 2 de WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) en el sistema de Windows. Descomprima en la carpeta predeterminada `waimportexport`. Por ejemplo, `C:\WaImportExport`.

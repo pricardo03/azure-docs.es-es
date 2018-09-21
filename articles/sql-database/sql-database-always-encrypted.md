@@ -3,19 +3,19 @@ title: 'Always Encrypted: Azure SQL Database: almacén de certificados de Window
 description: En este artículo se muestra cómo proteger los datos confidenciales de una base de datos SQL con cifrado de base de datos mediante el asistente de Always Encrypted en SQL Server Management Studio (SSMS). También muestra cómo almacenar las claves de cifrado en el almacén de certificados de Windows.
 keywords: cifrar datos, cifrado sql, cifrado de base de datos, datos confidenciales, Always Encrypted
 services: sql-database
-author: stevestein
+author: VanMSFT
 manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: sstein
-ms.openlocfilehash: 25565f2369bc684525a53889b6cd069af5ce32f0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: vanto
+ms.openlocfilehash: c6656a1ef5e52782461d9b9e7106ff81eb3983ee
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647041"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544054"
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: protección de los datos confidenciales en SQL Database y almacenamiento de las claves de cifrado en el almacén de certificados de Windows
 
@@ -33,7 +33,7 @@ Siga los pasos de este artículo y aprenda a configurar Always Encrypted para un
 * Crear una tabla de base de datos y cifrar columnas.
 * Crear una aplicación que inserta, selecciona y muestra los datos de las columnas cifradas.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para este tutorial, necesitará:
 
 * Una cuenta y una suscripción de Azure. Si no tiene una, suscríbase para [una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).

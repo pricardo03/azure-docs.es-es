@@ -1,6 +1,7 @@
 ---
 title: 'Inicio rápido: Uso del SDK de Bing Web Search para Java'
-description: Aprenda a utilizar el SDK de Bing Web Search para Java.
+titleSuffix: Azure Cognitive Services
+description: El SDK de Bing Web Search facilita la integración de Bing Web Search en la aplicación de Java. En esta guía de inicio rápido, aprenderá a enviar una solicitud, recibir una respuesta JSON, y filtrar y analizar los resultados.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -9,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/22/2018
 ms.author: erhopf
-ms.openlocfilehash: cc7335b9f8b5596edef895ff5a42a1018b06a381
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8db2f6a67f64216276ccdb0b16bbeb48565f6bc6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186734"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127608"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>Inicio rápido: Uso del SDK de Bing Web Search para Java
 

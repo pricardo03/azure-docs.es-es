@@ -1,5 +1,5 @@
 ---
-title: "Supervisión de servicios de Node.js con Azure Application Insights | Microsoft Docs"
+title: Supervisión de servicios de Node.js con Azure Application Insights | Microsoft Docs
 description: Supervise el rendimiento y diagnostique problemas en servicios de Node.js con Application Insights.
 services: application-insights
 documentationcenter: nodejs
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5b8e35a953c936949af0d496345f537ad85fc359
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 28be3a1734639ac175e4d18d9e9f21b83b9a7e7c
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35638763"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Supervisión de servicios y aplicaciones de Node.js con Application Insights
 
@@ -35,7 +36,7 @@ Puede usar TelemetryClient API para instrumentar y supervisar manualmente aspect
 
 Realice las tareas siguientes para configurar la supervisión para una aplicación o servicio.
 
-### <a name="prerequisites"></a>requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar, asegúrese de que tiene una suscripción de Azure o bien [obtenga una nueva de forma gratuita][azure-free-offer]. Si su organización ya tiene una suscripción de Azure, un administrador puede seguir [estas instrucciones][add-aad-user] y agregarle a ella.
 

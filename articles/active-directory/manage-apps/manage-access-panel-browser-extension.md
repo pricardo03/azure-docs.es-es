@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b13b5a7d5366a0bce97d8e735dbf3822186d21cb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 9ebd949460f826c9529b9f392bc4a7f4918ee170
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355804"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715047"
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Solución de problemas de la extensión del Panel de acceso para Internet Explorer
 Este artículo le ayudará a solucionar los siguientes problemas:
@@ -91,7 +91,6 @@ Para desinstalar la extensión del Panel de acceso desde el equipo:
 Si encuentra problemas al desinstalar la extensión, también puede quitarla usando la herramienta [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) .
 
 ## <a name="related-articles"></a>Artículos relacionados
-* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](../active-directory-apps-index.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](what-is-single-sign-on.md)
 * [Implementación de la extensión del Panel de acceso para Internet Explorer mediante la directiva de grupo](deploy-access-panel-browser-extension.md)
 

@@ -3,7 +3,7 @@ title: Infraestructura de informes de uso para proveedores de servicios en la nu
 description: Azure Stack incluye la infraestructura necesaria para realizar el seguimiento del uso para inquilinos a los que proporciona servicio un proveedor de servicios en la nube (CSP) cuando se produce y lo desvía a Azure.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,14 +12,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 5a38f504a881662c19fe881058622392cf1bced0
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9526385eaea8a88f0c22e6420ba39a33f7166f96
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576362"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633731"
 ---
 ## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>Infraestructura de informes de uso para proveedores de servicios en la nube
 
