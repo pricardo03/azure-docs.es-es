@@ -1,19 +1,21 @@
 ---
-title: ¿Qué es Bing Web Search? | Microsoft Docs
-description: Bing Web Search API es un servicio RESTful que permite que la aplicación use las funcionalidades de búsqueda web de Bing, como páginas web, imágenes, vídeos, noticias, entidades, consultas de búsqueda relacionadas, correcciones ortográficas, conversiones de unidades, traducciones y cálculos.
+title: ¿Qué es Bing Web Search?
+titleSuffix: Azure Cognitive Services
+description: Bing Web Search API es un servicio RESTful que proporciona respuestas instantáneas a las consultas de los usuarios. Los resultados de búsqueda se configuran fácilmente para incluir páginas web, imágenes, vídeos, noticias, traducciones y mucho más. Los resultados se proporcionan como JSON y según la pertinencia de la búsqueda y las suscripciones de Bing Web Search.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: overview
 ms.date: 08/14/2018
 ms.author: erhopf
-ms.openlocfilehash: ad1069a836a3ff9291ca8094fe86e19979bf7e32
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 8482afae2889ccf2153e1864e4a65b635b6ab4c7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889316"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125245"
 ---
 # <a name="what-is-bing-web-search"></a>¿Qué es Bing Web Search?
 

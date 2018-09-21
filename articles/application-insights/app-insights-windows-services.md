@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights para Windows Server y roles de trabajo | Microsoft Docs
-description: "Agregue manualmente el SDK de Application Insights a su aplicación de ASP.NET para analizar el uso, la disponibilidad y el rendimiento."
+description: Agregue manualmente el SDK de Application Insights a su aplicación de ASP.NET para analizar el uso, la disponibilidad y el rendimiento.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: bf7921926c69fff214e94a2d0edc22b28fb8eac0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3f2f0925cf6ec612b84765e42217723d8c8729c6
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35638438"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Configuración manual de Application Insights para aplicaciones .NET
 
@@ -111,7 +112,7 @@ En Visual Studio, aparecerá un recuento de los eventos que se han enviado.
 ## <a name="monitor"></a> Visualización de los datos de telemetría
 Vuelva al [Portal de Azure](https://portal.azure.com/) y busque el recurso de Application Insights.
 
-Busque los datos en los gráficos de Información general. Al principio, solo aparecerán uno o dos puntos. Por ejemplo:
+Busque los datos en los gráficos de Información general. Al principio, solo aparecerán uno o dos puntos. Por ejemplo: 
 
 ![Haga clic en las distintas opciones para obtener más datos](./media/app-insights-windows-services/12-first-perf.png)
 
@@ -119,7 +120,7 @@ Haga clic en cualquier gráfico para ver métricas más detalladas. [Más inform
 
 ### <a name="no-data"></a>¿No hay datos?
 * Use la aplicación y abra varias páginas para generar telemetría.
-* Abra el icono [Buscar](app-insights-diagnostic-search.md) para ver los eventos individuales. A veces, los eventos tardan un poco en llegar a través de la canalización de métricas.
+* Abra el icono [Búsqueda](app-insights-diagnostic-search.md) para ver los eventos individuales. A veces, los eventos tardan un poco en llegar a través de la canalización de métricas.
 * Espere unos segundos y haga clic en **Actualizar**. Los gráficos se actualizan automáticamente de forma periódica, pero puede actualizarlos manualmente si espera que aparezcan algunos datos.
 * Vea [Solución de problemas](app-insights-troubleshoot-faq.md).
 

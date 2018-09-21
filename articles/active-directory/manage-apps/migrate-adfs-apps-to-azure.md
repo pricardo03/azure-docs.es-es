@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: cdce0ae223a637ac30ed472d2bf711aa36958414
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8d5f31f09d51794f9ad3c126edf2fd935f379221
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346770"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296485"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migración de aplicaciones locales de AD FS a Azure 
 
@@ -238,4 +238,4 @@ Si desea que Azure AD controle directamente el aprovisionamiento de usuarios par
 
 - [Administración de aplicaciones con Azure Active Directory](what-is-application-management.md)
 - [Administración del acceso a aplicaciones](what-is-access-management.md)
-- [Federación de Azure AD Connect](../active-directory-aadconnectfed-whatis.md)
+- [Federación de Azure AD Connect](../hybrid/how-to-connect-fed-whatis.md)

@@ -7,18 +7,18 @@ ms.author: jehrling
 manager: ireiter
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.devlang: ''
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 26b061c6bd6ff3ec9d1edbb7d99053d17db9b773
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 83e1f14db317f59ab2063a9d020adbdb6fe78e5f
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832608"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35642152"
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>Aprendizaje profundo para escenarios reales de mantenimiento predictivo
 
@@ -46,7 +46,7 @@ La principal suposición en esta configuración es el motor degradado de forma p
 
 Este escenario crea una red LSTM para predecir la vida útil restante (RUL) de los motores de aviones mediante valores del sensor históricos. El escenario usa la biblioteca de [Keras](https://keras.io/) con el marco de aprendizaje profundo [Tensorflow](https://www.tensorflow.org/) como motor de proceso. El escenario entrena a LSTM con un conjunto de motores y prueba la red en un conjunto de motores no visto.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 - Una [cuenta de Azure](https://azure.microsoft.com/free/) (hay disponibles versiones gratuitas de prueba).
 - Azure Machine Learning Workbench con un área de trabajo creada.
 - Para la operacionalización del modelo: la operacionalización de Azure Machine Learning con una configuración de entorno de implementación local y una cuenta de [Administración de modelos de Azure Machine Learning](model-management-overview.md).

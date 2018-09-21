@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 09/11/2018
 ms.author: kgremban
 ms.custom: seohack1
-ms.openlocfilehash: e3b22c0c602e8f3d47fbfc179fb8d0fb985d55d6
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 57f4fa0179668bccc39098a1eb9816403d00db57
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619328"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716577"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Desarrollo de aplicaciones de línea de negocio para Azure Active Directory
 Esta guía proporciona información general sobre el desarrollo de aplicaciones de línea de negocio (LoB) para Azure Active Directory (AD) y se ha diseñado expresamente para administradores globales de Active Directory y Office 365.
@@ -80,4 +80,4 @@ Para obtener más información sobre el consentimiento de usuarios y cómo se ut
 ## <a name="related-articles"></a>Artículos relacionados
 * [Provisión de acceso remoto seguro a aplicaciones locales](manage-apps/application-proxy.md)
 * [Administración del acceso a las aplicaciones con Azure AD](manage-apps/what-is-access-management.md)
-* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+

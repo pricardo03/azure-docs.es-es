@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7805b238d42201b791e038964985f784fcf8d4ce
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4bb1542df9001463b245405c40293b6867d4b401
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146838"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365084"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migración de usuarios
 Si migra su proveedor de identidades a Azure Active Directory B2C (Azure AD B2C), también debe migrar la cuenta de usuario. En este artículo se explica cómo migrar las cuentas de usuario existentes desde cualquier proveedor de identidades a Azure AD B2C. El artículo no pretende ser preceptivo, sino describir varios enfoques. El desarrollador es responsable de la idoneidad de cada enfoque.
@@ -23,11 +23,11 @@ Si migra su proveedor de identidades a Azure Active Directory B2C (Azure AD B2C)
 ## <a name="user-migration-flows"></a>Flujos de migración de usuarios
 Con Azure AD B2C, puede migrar los usuarios mediante [Azure AD Graph API][B2C-GraphQuickStart]. El proceso de migración de usuarios se divide en dos flujos:
 
-* **Antes de la migración**: este flujo se aplica cuando tiene acceso libre a las credenciales de un usuario (nombre de usuario y contraseña) o las credenciales se cifran, pero puede descifrarlas. El proceso de pre-migración implica leer los usuarios del anterior proveedor de identidades y crear nuevas cuentas en el directorio de Azure AD B2C.
+- **Antes de la migración**: este flujo se aplica cuando tiene acceso libre a las credenciales de un usuario (nombre de usuario y contraseña) o las credenciales se cifran, pero puede descifrarlas. El proceso de pre-migración implica leer los usuarios del anterior proveedor de identidades y crear nuevas cuentas en el directorio de Azure AD B2C.
 
-* **Pre-migración y restablecimiento de contraseña**: este flujo se aplica cuando la contraseña de un usuario no es accesible. Por ejemplo: 
-    * La contraseña se almacena en formato HASH.
-    * La contraseña se almacena en un proveedor de identidades al que no tiene acceso. El proveedor de identidades anterior valida las credenciales de usuario mediante una llamada a un servicio web.
+- **Pre-migración y restablecimiento de contraseña**: este flujo se aplica cuando la contraseña de un usuario no es accesible. Por ejemplo: 
+   - La contraseña se almacena en formato HASH.
+   - La contraseña se almacena en un proveedor de identidades al que no tiene acceso. El proveedor de identidades anterior valida las credenciales de usuario mediante una llamada a un servicio web.
 
 En ambos flujos, primero debe ejecutar el proceso de pre-migración, leer los usuarios del proveedor de identidades anterior y crear nuevas cuentas en el directorio de Azure AD B2C. Si no tiene la contraseña, debe crear la cuenta con una contraseña generada de forma aleatoria. A continuación, pida al usuario que cambie la contraseña, o bien, cuando el usuario inicie sesión por primera vez, Azure AD B2C pedirá al usuario que la restablezca.
 
@@ -49,45 +49,45 @@ Para comunicarse con Graph API, debe tener una cuenta de servicio con privilegio
 En primer lugar, registre la aplicación de migración en Azure AD. A continuación, cree una clave de aplicación (secreto de aplicación) y establezca la aplicación con los privilegios de escritura.
 
 1. Inicie sesión en [Azure Portal][Portal].
-
-2. Para elegir el inquilino de Azure AD **B2C**, seleccione la cuenta en la esquina superior derecha de la ventana.
-
-3. En el panel izquierdo, seleccione **Azure Active Directory** (no Azure AD B2C). Es posible que tenga que seleccionar **Más servicios** para encontrarla.
-
-4. Seleccione **App registrations** (Registros de aplicaciones).
-
-5. Seleccione **Nuevo registro de aplicaciones**.
-
-    ![Nuevo registro de aplicaciones](media/active-directory-b2c-user-migration/pre-migration-app-registration.png)
-
-6. Para crear una nueva aplicación, haga lo siguiente:
-    * Para **Nombre**, use **B2CUserMigration** o cualquier otro nombre que quiera.
-    * En **Tipo de aplicación**, use **Aplicación web o API**.
-    * En **Dirección URL de inicio de sesión**, use **https://localhost** (ya que no es pertinente para esta aplicación).
-    * Seleccione **Crear**.
-
-7. Una vez creada la aplicación, en la lista **Aplicaciones**, seleccione la aplicación recién creada **B2CUserMigration**.
-
-8. Seleccione **Propiedades**, copie el **Identificador de aplicación** y guárdelo para más adelante.
+   
+1. Para elegir el inquilino de Azure AD **B2C**, seleccione la cuenta en la esquina superior derecha de la ventana.
+   
+1. En el panel izquierdo, seleccione **Azure Active Directory** (no Azure AD B2C). Es posible que tenga que seleccionar **Más servicios** para encontrarla.
+   
+1. Seleccione **App registrations** (Registros de aplicaciones).
+   
+1. Seleccione **Nuevo registro de aplicaciones**.
+   
+   ![Nuevo registro de aplicaciones](media/active-directory-b2c-user-migration/pre-migration-app-registration.png)
+   
+1. Para crear una nueva aplicación, haga lo siguiente:
+   - Para **Nombre**, use **B2CUserMigration** o cualquier otro nombre que quiera.
+   - En **Tipo de aplicación**, use **Aplicación web o API**.
+   - En **Dirección URL de inicio de sesión**, use **https://localhost** (ya que no es pertinente para esta aplicación).
+   - Seleccione **Crear**.
+   
+1. Una vez creada la aplicación, en la lista **Aplicaciones**, seleccione la aplicación recién creada **B2CUserMigration**.
+   
+1. Seleccione **Propiedades**, copie el **Identificador de aplicación** y guárdelo para más adelante.
 
 ### <a name="step-12-create-the-application-secret"></a>Paso 1.2: Creación del secreto de aplicación
 1. En la ventana **Aplicación registrada** de Azure Portal, seleccione **Claves**.
-
-2. Agregue una nueva clave (también conocida como secreto de cliente) y, a continuación, cópiela para su uso posterior.
-
-    ![Identificador de la aplicación y claves](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
-
+   
+1. Agregue una nueva clave (también conocida como secreto de cliente) y, a continuación, cópiela para su uso posterior.
+   
+   ![Identificador de la aplicación y claves](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
+   
 ### <a name="step-13-grant-administrative-permission-to-your-application"></a>Paso 1.3: Concesión de permisos administrativos a la aplicación
 1. En la ventana **Aplicación registrada** de Azure Portal, seleccione **Permisos necesarios**.
 
-2. Seleccione **Microsoft Azure Active Directory**.
-
-3. En el panel **Habilitar acceso**, en **Permisos de la aplicación**, seleccione **Leer y escribir en datos de directorio** y haga clic en **Guardar**.
-
-4. En el panel **Permisos necesarios**, seleccione **Conceder permisos**.
-
-    ![Permisos de aplicación](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
-
+1. Seleccione **Microsoft Azure Active Directory**.
+   
+1. En el panel **Habilitar acceso**, en **Permisos de la aplicación**, seleccione **Leer y escribir en datos de directorio** y haga clic en **Guardar**.
+   
+1. En el panel **Permisos necesarios**, seleccione **Conceder permisos**.
+   
+   ![Permisos de aplicación](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
+   
 Ahora tiene una aplicación con permisos para crear, leer y actualizar usuarios desde el inquilino de Azure AD B2C.
 
 ### <a name="step-14-optional-environment-cleanup"></a>Paso 1.4: (Opcional) Limpieza del entorno
@@ -101,9 +101,9 @@ Los permisos de lectura y escritura de los datos del directorio *no* incluyen el
 
 En este script de PowerShell, haga lo siguiente:
 1. Se conecta a su servicio en línea. Para ello, ejecute el cmdlet `Connect-AzureAD` en el símbolo del sistema de Windows PowerShell y proporcione las credenciales.
-
-2. Se utiliza el **Identificador de aplicación** para asignar el rol de administrador de cuenta de usuario a la aplicación. Estos roles tienen identificadores conocidos, por lo que lo único que debe hacer es escribir el **identificador de aplicación** en el script.
-
+   
+1. Se utiliza el **Identificador de aplicación** para asignar el rol de administrador de cuenta de usuario a la aplicación. Estos roles tienen identificadores conocidos, por lo que lo único que debe hacer es escribir el **identificador de aplicación** en el script.
+   
 ```PowerShell
 Connect-AzureAD
 
@@ -145,11 +145,11 @@ Para editar el archivo JSON, abra la solución `AADB2C.UserMigration.sln` de Vis
 ![Archivo de datos de usuario](media/active-directory-b2c-user-migration/pre-migration-data-file.png)
 
 Como puede ver, el archivo contiene una lista de entidades de usuario. Cada entidad de usuario tiene las siguientes propiedades:
-* email
-* DisplayName
-* firstName
-* lastName
-* password (puede estar vacío)
+- email
+- DisplayName
+- firstName
+- lastName
+- password (puede estar vacío)
 
 > [!NOTE]
 > En tiempo de compilación, Visual Studio copia el archivo al directorio `bin`.
@@ -168,43 +168,42 @@ En el proyecto `AADB2C.UserMigration`, abra el archivo *App.config*. Reemplace l
 ```
 
 > [!NOTE]
-> * El uso de una cadena de conexión de la tabla de Azure se describe en las secciones siguientes.
-> * El nombre del inquilino B2C es el dominio que escribió durante la creación del inquilino y se muestra en Azure Portal. El nombre del inquilino normalmente termina con el sufijo *.onmicrosoft.com* (por ejemplo, *contosob2c.onmicrosoft.com*).
->
+> - El uso de una cadena de conexión de la tabla de Azure se describe en las secciones siguientes.
+> - El nombre del inquilino B2C es el dominio que escribió durante la creación del inquilino y se muestra en Azure Portal. El nombre del inquilino normalmente termina con el sufijo *.onmicrosoft.com* (por ejemplo, *contosob2c.onmicrosoft.com*).
 
 ### <a name="step-23-run-the-pre-migration-process"></a>Paso 2.3: Ejecución del proceso de pre-migración
 Haga clic con el botón derecho en la solución `AADB2C.UserMigration` y vuelva a compilar el ejemplo. Si todo es correcto, ahora debería tener un archivo ejecutable `UserMigration.exe` que se encuentra en `AADB2C.UserMigration\bin\Debug\net461`. Para ejecutar el proceso de migración, use uno de los parámetros de la línea de comandos siguientes:
 
-* Para **migrar usuarios con contraseña**, use el comando `UserMigration.exe 1`.
+- Para **migrar usuarios con contraseña**, use el comando `UserMigration.exe 1`.
 
-* Para **migrar usuarios con contraseña aleatoria**, use el comando `UserMigration.exe 2`. Esta operación también crea una entidad de tabla de Azure. Más adelante, se configura la directiva para llamar al servicio de la API de REST. El servicio usa una tabla de Azure para realizar un seguimiento del proceso de migración y administrarlo.
+- Para **migrar usuarios con contraseña aleatoria**, use el comando `UserMigration.exe 2`. Esta operación también crea una entidad de tabla de Azure. Más adelante, se configura la directiva para llamar al servicio de la API de REST. El servicio usa una tabla de Azure para realizar un seguimiento del proceso de migración y administrarlo.
 
 ![Demostración del proceso de migración](media/active-directory-b2c-user-migration/pre-migration-demo.png)
 
 ### <a name="step-24-check-the-pre-migration-process"></a>Paso 2.4: Comprobación del proceso de pre-migración
 Para validar la migración, use uno de los dos métodos siguientes:
 
-* Para buscar un usuario por nombre para mostrar, use Azure Portal:
-
-    a. Abra **Azure AD B2C** y seleccione **Usuarios y grupos**.
-
-    b. En el cuadro de búsqueda, escriba el nombre para mostrar del usuario y vea su perfil.
-
-* Para recuperar un usuario por dirección de correo electrónico de inicio de sesión, use esta aplicación de ejemplo:
-
-    a. Ejecute el siguiente comando:
-
-    ```Console
-        UserMigration.exe 3 {email address}
-    ```
-
-    > [!TIP]
-    > También puede recuperar un usuario mediante el nombre para mostrar con el comando siguiente: `UserMigration.exe 4 "<Display name>"`.
-
-    b. Abra el archivo UserProfile.json en un editor de JSON para ver la información de usuario.
-
-    ![Archivo UserProfile.json](media/active-directory-b2c-user-migration/pre-migration-get-by-email2.png)
-
+- Para buscar un usuario por nombre para mostrar, use Azure Portal:
+   
+   1. Abra **Azure AD B2C** y seleccione **Usuarios y grupos**.
+   
+   1. En el cuadro de búsqueda, escriba el nombre para mostrar del usuario y vea su perfil.
+   
+- Para recuperar un usuario por dirección de correo electrónico de inicio de sesión, use esta aplicación de ejemplo:
+   
+   1. Ejecute el siguiente comando:
+   
+      ```Console
+          UserMigration.exe 3 {email address}
+      ```
+      
+      > [!TIP]
+      > También puede recuperar un usuario mediante el nombre para mostrar con el comando siguiente: `UserMigration.exe 4 "<Display name>"`.
+      
+   1. Abra el archivo UserProfile.json en un editor de JSON para ver la información de usuario.
+   
+      ![Archivo UserProfile.json](media/active-directory-b2c-user-migration/pre-migration-get-by-email2.png)
+      
 ### <a name="step-25-optional-environment-cleanup"></a>Paso 2.5: (Opcional) Limpieza del entorno
 Si quiere limpiar el inquilino de Azure AD y eliminar los usuarios del directorio de Azure AD, ejecute el comando `UserMigration.exe 5`.
 
@@ -222,14 +221,14 @@ Para obtener el vínculo a la directiva de restablecimiento de contraseña, haga
 
 1. Seleccione **Configuración de Azure AD B2C** y, a continuación, las propiedades de la directiva **Restablecimiento de contraseña**.
 
-2. Seleccione la aplicación.
+1. Seleccione la aplicación.
 
     > [!NOTE]
     > La función Ejecutar ahora requiere al menos que una aplicación esté registrada previamente en el inquilino. Para obtener información sobre cómo registrar aplicaciones, consulte el artículo de [introducción][B2C-GetStarted] a Azure AD B2C o el artículo [Registro de la aplicación][B2C-AppRegister] de Azure AD B2C.
 
-3. Seleccione **Ejecutar ahora** y compruebe la directiva.
+1. Seleccione **Ejecutar ahora** y compruebe la directiva.
 
-4. En el cuadro **Ejecutar punto de conexión ahora**, copie la dirección URL y, a continuación, envíela a los usuarios.
+1. En el cuadro **Ejecutar punto de conexión ahora**, copie la dirección URL y, a continuación, envíela a los usuarios.
 
     ![Establecer registros de diagnóstico](media/active-directory-b2c-user-migration/pre-migration-policy-uri.png)
 
@@ -248,9 +247,9 @@ En esta sección, se cambia la directiva para comprobar el estado de migración 
 
 Para realizar un seguimiento del cambio de contraseña, se usa una tabla de Azure. Cuando ejecuta el proceso de pre-migración con el parámetro de la línea de comandos `2`, crea la entidad de usuario en una tabla de Azure. Su servicio realiza lo siguiente:
 
-* En el inicio de sesión, la directiva de Azure AD B2C invoca el servicio RESTful de migración y envía un correo electrónico como notificación de entrada. El servicio busca la dirección de correo electrónico en la tabla de Azure. Si existe la dirección, el servicio genera el mensaje de error: *Debe cambiar la contraseña*.
+- En el inicio de sesión, la directiva de Azure AD B2C invoca el servicio RESTful de migración y envía un correo electrónico como notificación de entrada. El servicio busca la dirección de correo electrónico en la tabla de Azure. Si existe la dirección, el servicio genera el mensaje de error: *Debe cambiar la contraseña*.
 
-* Después de que el usuario cambie correctamente la contraseña, elimine la entidad de la tabla de Azure.
+- Después de que el usuario cambie correctamente la contraseña, elimine la entidad de la tabla de Azure.
 
 >[!NOTE]
 >Usamos una tabla de Azure para simplificar el ejemplo. Puede almacenar el estado de migración en cualquier base de datos o como una propiedad personalizada en la cuenta de Azure AD B2C.
@@ -258,7 +257,7 @@ Para realizar un seguimiento del cambio de contraseña, se usa una tabla de Azur
 ### <a name="41-update-your-application-setting"></a>4.1: Actualización de la configuración de la aplicación
 1. Para probar la demostración de API RESTful, abra `AADB2C.UserMigration.sln` en Visual Studio.
 
-2. En el proyecto `AADB2C.UserMigration.API`, abra el archivo *appsettings.json*. Reemplace la configuración con las opciones que se configuraron en el [paso 2.2](#step-22-configure-the-application-settings):
+1. En el proyecto `AADB2C.UserMigration.API`, abra el archivo *appsettings.json*. Reemplace la configuración con las opciones que se configuraron en el [paso 2.2](#step-22-configure-the-application-settings):
 
     ```json
     {
@@ -272,9 +271,9 @@ En el Explorador de soluciones, haga clic con el botón derecho en `AADB2C.UserM
 
 ### <a name="step-43-add-a-technical-profile-and-technical-profile-validation-to-your-policy"></a>Paso 4.3: Adición del perfil técnico y validación del perfil técnico a la directiva
 1. En el Explorador de soluciones, expanda "Elementos de la solución" y abra el archivo de directiva *TrustFrameworkExtensions.xml*.
-2. Cambie los campos `TenantId`, `PublicPolicyUri` y `<TenantId>` de `yourtenant.onmicrosoft.com` al nombre del inquilino.
-3. En el elemento `<TechnicalProfile Id="login-NonInteractive">`, reemplace todas las instancias de `ProxyIdentityExperienceFrameworkAppId` y `IdentityExperienceFrameworkAppId` con los identificadores de aplicación configurados en [Getting started with custom policies][B2C-GetStartedCustom] (Comenzar a trabajar con directivas personalizadas).
-4. En el nodo `<ClaimsProviders>`, agregue el siguiente fragmento de código XML. Cambie el valor de `ServiceUrl` para que apunte a la dirección URL de Azure App Service.
+1. Cambie los campos `TenantId`, `PublicPolicyUri` y `<TenantId>` de `yourtenant.onmicrosoft.com` al nombre del inquilino.
+1. En el elemento `<TechnicalProfile Id="login-NonInteractive">`, reemplace todas las instancias de `ProxyIdentityExperienceFrameworkAppId` y `IdentityExperienceFrameworkAppId` con los identificadores de aplicación configurados en [Getting started with custom policies][B2C-GetStartedCustom] (Comenzar a trabajar con directivas personalizadas).
+1. En el nodo `<ClaimsProviders>`, agregue el siguiente fragmento de código XML. Cambie el valor de `ServiceUrl` para que apunte a la dirección URL de Azure App Service.
 
     ```XML
     <ClaimsProvider>
@@ -319,22 +318,22 @@ Después de definir el perfil técnico para la API de RESTful, indique a la dire
 ### <a name="step-44-upload-the-policy-to-your-tenant"></a>Paso 4.4: Carga de la directiva en el inquilino
 1. En [Azure Portal][Portal], cambie al [contexto del inquilino de Azure AD B2C][B2C-NavContext] y seleccione **Azure AD B2C**.
 
-2. Seleccione **Marco de experiencia de identidad**.
+1. Seleccione **Marco de experiencia de identidad**.
 
-3. Seleccione **Todas las directivas**.
+1. Seleccione **Todas las directivas**.
 
-4. Seleccione **Cargar directiva**.
+1. Seleccione **Cargar directiva**.
 
-5. Active la casilla **Sobrescribir la directiva si existe**.
+1. Active la casilla **Sobrescribir la directiva si existe**.
 
-6. Cargue el archivo *TrustFrameworkExtensions.xml* y asegúrese de que pasa la validación.
+1. Cargue el archivo *TrustFrameworkExtensions.xml* y asegúrese de que pasa la validación.
 
 ### <a name="step-45-test-the-custom-policy-by-using-run-now"></a>Paso 4.5: Prueba de la directiva personalizada con Ejecutar ahora
 1. Seleccione **Configuración de Azure AD B2C** y vaya a **Marco de experiencia de identidad**.
 
-2. Abra **B2C_1A_signup_signin**, que es la directiva personalizada del usuario de confianza (RP) que ha cargado, y seleccione **Ejecutar ahora**.
+1. Abra **B2C_1A_signup_signin**, que es la directiva personalizada del usuario de confianza (RP) que ha cargado, y seleccione **Ejecutar ahora**.
 
-3. Intente iniciar sesión con una de las credenciales de los usuarios migrados y, luego, seleccione **Iniciar de sesión**. La API de REST ahora debería generar el mensaje de error siguiente:
+1. Intente iniciar sesión con una de las credenciales de los usuarios migrados y, luego, seleccione **Iniciar de sesión**. La API de REST ahora debería generar el mensaje de error siguiente:
 
     ![Establecer registros de diagnóstico](media/active-directory-b2c-user-migration/pre-migration-error-message.png)
 
@@ -343,17 +342,17 @@ Puede ver y supervisar la información de registro prácticamente en tiempo real
 
 1. En el menú de configuración de la aplicación RESTful, en **Supervisión**, seleccione **Registros de diagnóstico**.
 
-2. Establezca la opción **Registro de la aplicación (sistema de archivos)** en **Activada**.
+1. Establezca la opción **Registro de la aplicación (sistema de archivos)** en **Activada**.
 
-3. Establezca el **Nivel** en **Detallado**.
+1. Establezca el **Nivel** en **Detallado**.
 
-4. Seleccione **Guardar**.
+1. Seleccione **Guardar**.
 
     ![Establecer registros de diagnóstico](media/active-directory-b2c-user-migration/pre-migration-diagnostic-logs.png)
 
-5. En el menú **Configuración**, seleccione **Secuencia de registro**.
+1. En el menú **Configuración**, seleccione **Secuencia de registro**.
 
-6. Compruebe la salida de la API de RESTful.
+1. Compruebe la salida de la API de RESTful.
 
 > [!IMPORTANT]
 > Use los registros de diagnóstico solo durante el desarrollo y pruebas. La salida de la API de RESTful puede contener información confidencial que no debe exponerse en producción.

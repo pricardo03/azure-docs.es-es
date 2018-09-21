@@ -14,16 +14,16 @@ ms.component: report-monitor
 ms.date: 05/23/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 385106065322cae9b8e29f66bfd6920d4ebb52f8
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 5fe16ecb2725cf306b5b57c9d45d8601581a3ece
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42143264"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578910"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Remedie los usuarios marcados como en riesgo en el portal de Azure Active Directory
 
-Con los informes de seguridad de Azure Active Directory (Azure AD), puede obtener información acerca de la probabilidad de que haya cuentas de usuario en peligro en su entorno. Un [usuario marcado como en riesgo](../identity-protection/overview.md#users-flagged-for-risk) es un indicador de que una cuenta de usuario puede estar en peligro.
+Con los informes de seguridad de Azure Active Directory (Azure AD), puede obtener información acerca de la probabilidad de que haya cuentas de usuario en peligro en su entorno. Un usuario marcado como en peligro es un indicador de una cuenta de usuario que puede haber estado en peligro.
 
 Microsoft se compromete a ayudar a mantener los entornos seguros. Como parte de este compromiso, Microsoft supervisa continuamente aquellas actividades que son inusuales o que coinciden con patrones de ataque conocidos. 
 

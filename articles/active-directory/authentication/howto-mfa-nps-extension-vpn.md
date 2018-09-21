@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c1247dfca6dea638da2113fef940b97ad3348b9a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 0754b13704810816b1650010a00185031ca41f5d
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160287"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297578"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integración de la infraestructura de VPN con Azure MFA utilizando la extensión Servidor de directivas de redes para Azure
 
@@ -122,7 +122,7 @@ El módulo Microsoft Azure Active Directory para PowerShell todavía no está pr
 
 Para usar la extensión NPS, los usuarios locales deben estar sincronizados con Azure Active Directory y habilitados para MFA. En esta guía se da por supuesto que los usuarios locales están sincronizados con Azure Active Directory mediante Azure AD Connect. A continuación, se proporcionan instrucciones para habilitar a los usuarios para usar MFA.
 
-Para obtener información sobre Azure AD Connect, vea [Integración de los directorios locales con Azure Active Directory](../connect/active-directory-aadconnect.md). 
+Para obtener información sobre Azure AD Connect, vea [Integración de los directorios locales con Azure Active Directory](../hybrid/whatis-hybrid-identity.md). 
 
 ### <a name="azure-active-directory-guid-id"></a>Identificador de GUID de Azure Active Directory 
 
@@ -453,5 +453,5 @@ Para más información, consulte [Integración de la infraestructura NPS existen
 
 [Puerta de enlace de Escritorio remoto y Servidor Azure Multi-Factor Authentication con RADIUS](howto-mfaserver-nps-rdg.md)
 
-[Integración de los directorios locales con Azure Active Directory](../connect/active-directory-aadconnect.md)
+[Integración de los directorios locales con Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 

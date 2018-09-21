@@ -9,17 +9,18 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 275e71ce054b83c16b9f9cbfe621c6a7e31f79c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bbf59a35f420b5bbf292fbdaa5a8bbc173e4ee24
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35640787"
 ---
 # <a name="monitor-an-azure-container-service-kubernetes-cluster-using-sysdig"></a>Supervisión de un clúster de Kubernetes de Azure Container Service con Sysdig
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este tutorial se da por supuesto que ha [creado un clúster de Kubernetes con Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 También se da por supuesto que tiene herramientas de kubectl y de la CLI de Azure instaladas.
@@ -57,7 +58,7 @@ Para supervisar los contenedores, Sysdig ejecuta un proceso en cada equipo con u
 DaemonSets son objetos de la API de Kubernetes que ejecutan una instancia única de un contenedor por máquina.
 Son perfectos para instalar herramientas como el agente de supervisión de Sysdig.
 
-Para instalar el daemonset Sysdig, primero debe descargar [la plantilla](https://raw.githubusercontent.com/draios/sysdig-cloud-scripts/master/agent_deploy/kubernetes/sysdig-daemonset.yaml) desde sysdig. Guarde el archivo como `sysdig-daemonset.yaml`.
+Para instalar el daemonset Sysdig, primero debe descargar [la plantilla](https://github.com/draios/sysdig-cloud-scripts/tree/master/agent_deploy/kubernetes) desde sysdig. Guarde el archivo como `sysdig-daemonset.yaml`.
 
 En Linux y OS X, puede ejecutar:
 

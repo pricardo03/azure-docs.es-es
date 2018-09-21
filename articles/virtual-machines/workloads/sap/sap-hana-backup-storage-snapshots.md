@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: c5066d23705ca84febaa0ba527a01259134146c0
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 031cb10e476ba068f7e3d7baf3b19f7703caf170
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358988"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580060"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Copia de seguridad de SAP HANA basada en instantáneas de almacenamiento
 
@@ -88,8 +88,8 @@ Azure Backup tiene cuatro fases principales:
 
 Para más información sobre dónde copiar estos scripts y detalles sobre cómo funciona exactamente Azure Backup, consulte los siguientes artículos:
 
-- [Planeación de la infraestructura de copia de seguridad de VM en Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)
-- [Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux de Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-linux-app-consistent)
+- [Planeación de la infraestructura de copia de seguridad de VM en Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
+- [Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux de Azure](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2018
 ms.author: barclayn
-ms.openlocfilehash: e52cee2cb642de6e54270c597e6ed99f7162d0ed
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0addad1db4d9f897736a7793c5489897bca2cd38
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641465"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35639194"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Servicios y tecnologías de seguridad disponibles en Azure
 
@@ -67,7 +67,7 @@ Con el tiempo, esta lista cambiará y aumentará, igual que lo hace Azure. Aseg�
 |Servicio|DESCRIPCIÓN|
 |------|--------|
 | [Control de acceso&nbsp;basado en&nbsp;rol de&nbsp;Azure](../active-directory/role-based-access-control-configure.md)|Característica de control de acceso diseñada para que los usuarios accedan únicamente a los recursos necesarios en función de sus roles dentro de la organización.  |
-| [Azure Active Directory](../active-directory/active-directory-whatis.md)|Repositorio de autenticación basado en la nube que admite un directorio en la nube de varios inquilinos y varios servicios de administración de identidades en Azure.  |
+| [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)|Repositorio de autenticación basado en la nube que admite un directorio en la nube de varios inquilinos y varios servicios de administración de identidades en Azure.  |
 | [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)|Servicio de administración de identidades que permite controlar la manera en que los clientes se registran, inician sesión y administran sus perfiles al usar las aplicaciones de Azure.   |
 | [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-overview.md)| Una versión en la nube y administrada de Active Directory Domain Services. |
 | [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)| Aprovisionamiento de seguridad que utiliza diferentes formas de autenticación y comprobación antes de permitir el acceso a información protegida. |

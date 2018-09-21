@@ -8,17 +8,17 @@ manager: hjerez
 editor: jasonwhowell
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 233ae50246619c3e503e42081c3b4de88090f411
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c0f51e47038737d6aa743be718ad6b28c161c766
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835039"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35640752"
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Referencia sobre la API de la cuenta de Administración de modelos de Azure Machine Learning
 
@@ -33,7 +33,7 @@ La API de la cuenta de Administración de modelos de Azure Machine Learning perm
 
 Puede usar esta imagen para crear un servicio web, ya sea de forma local o en un clúster remoto de Azure Container Service, o en cualquier otro entorno compatible de Docker de su elección.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Asegúrese de que ha realizado todos los pasos de instalación descritos en el documento de la [guía de inicio rápido de instalación y creación](../service/quickstart-installation.md).
 
 Antes de continuar necesitará lo siguiente:
@@ -81,12 +81,12 @@ Registra un modelo.
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
-| model | Cuerpo | Carga que se usa para registrar un modelo. | Sí | [Model](#model) |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
+| model | Cuerpo | Carga que se usa para registrar un modelo. | SÍ | [Model](#model) |
 
 
 ### <a name="responses"></a>Respuestas
@@ -107,11 +107,11 @@ Permite consultar la lista de modelos de una cuenta. Puede filtrar la lista de r
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
 | Nombre | query | Nombre de objeto. | Sin  | string |
 | etiqueta | query | Etiqueta del modelo. | Sin  | string |
 | count | query | Número de elementos que se van a recuperar en una página. | Sin  | string |
@@ -136,12 +136,12 @@ Obtiene un modelo por identificador.
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| id | path | Identificador de objeto. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| id | path | Identificador de objeto. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
 
 ### <a name="responses"></a>Respuestas
 | Código | DESCRIPCIÓN | Esquema |
@@ -162,12 +162,12 @@ Registro de un manifiesto con el modelo registrado y todas las dependencias.
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
-| manifestRequest | Cuerpo | Carga que se usa para registrar un manifiesto. | Sí | [Manifest](#manifest) |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
+| manifestRequest | Cuerpo | Carga que se usa para registrar un manifiesto. | SÍ | [Manifest](#manifest) |
 
 ### <a name="responses"></a>Respuestas
 | Código | DESCRIPCIÓN | Esquema |
@@ -188,11 +188,11 @@ Permite consultar la lista de manifiestos de una cuenta. Puede filtrar la lista 
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
 | modelId | query | Identificador del modelo. | Sin  | string |
 | manifestName | query | Nombre del manifiesto. | Sin  | string |
 | count | query | Número de elementos que se van a recuperar en una página. | Sin  | string |
@@ -217,12 +217,12 @@ Permite obtener el manifiesto por el identificador.
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| id | path | Identificador de objeto. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| id | path | Identificador de objeto. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
 
 ### <a name="responses"></a>Respuestas
 | Código | DESCRIPCIÓN | Esquema |
@@ -243,12 +243,12 @@ Crea una imagen como una imagen de Docker en Azure Container Registry.
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
-| imageRequest | Cuerpo | Carga que se usa para crear una imagen. | Sí | [ImageRequest](#imagerequest) |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
+| imageRequest | Cuerpo | Carga que se usa para crear una imagen. | SÍ | [ImageRequest](#imagerequest) |
 
 ### <a name="responses"></a>Respuestas
 | Código | DESCRIPCIÓN | encabezados | Esquema |
@@ -269,11 +269,11 @@ Permite consultar la lista de imágenes de una cuenta. Puede filtrar la lista de
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
 | manifestId | query | Identificador del manifiesto. | Sin  | string |
 | manifestName | query | Nombre del manifiesto. | Sin  | string |
 | count | query | Número de elementos que se van a recuperar en una página. | Sin  | string |
@@ -298,12 +298,12 @@ Obtiene una imagen por el identificador.
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| id | path | Identificador de la imagen. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| id | path | Identificador de la imagen. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
 
 ### <a name="responses"></a>Respuestas
 | Código | DESCRIPCIÓN | Esquema |
@@ -325,12 +325,12 @@ Crea un servicio a partir de una imagen.
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
-| serviceRequest | Cuerpo | Carga que se usa para crear un servicio. | Sí | [ServiceCreateRequest](#servicecreaterequest) |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
+| serviceRequest | Cuerpo | Carga que se usa para crear un servicio. | SÍ | [ServiceCreateRequest](#servicecreaterequest) |
 
 ### <a name="responses"></a>Respuestas
 | Código | DESCRIPCIÓN | encabezados | Esquema |
@@ -352,11 +352,11 @@ Consulta de la lista de imágenes de una cuenta. Puede filtrar la lista de resul
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
 | serviceName | query | Nombre del servicio. | Sin  | string |
 | modelId | query | Nombre del modelo. | Sin  | string |
 | modelName | query | Identificador del modelo. | Sin  | string |
@@ -386,12 +386,12 @@ Obtiene un servicio por el identificador.
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| id | path | Identificador de objeto. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| id | path | Identificador de objeto. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
 
 ### <a name="responses"></a>Respuestas
 | Código | DESCRIPCIÓN | Esquema |
@@ -412,13 +412,13 @@ Actualiza un servicio existente.
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| id | path | Identificador de objeto. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
-| serviceUpdateRequest | Cuerpo | Carga que se usa para actualizar un servicio existente. | Sí |  [ServiceUpdateRequest](#serviceupdaterequest) |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| id | path | Identificador de objeto. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
+| serviceUpdateRequest | Cuerpo | Carga que se usa para actualizar un servicio existente. | SÍ |  [ServiceUpdateRequest](#serviceupdaterequest) |
 
 ### <a name="responses"></a>Respuestas
 | Código | DESCRIPCIÓN | encabezados | Esquema |
@@ -440,12 +440,12 @@ Elimina un servicio.
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| id | path | Identificador de objeto. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| id | path | Identificador de objeto. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
 
 ### <a name="responses"></a>Respuestas
 | Código | DESCRIPCIÓN | Esquema |
@@ -467,12 +467,12 @@ Permite obtener las claves del servicio.
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| id | path | Identificador del servicio. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| id | path | Identificador del servicio. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
 
 ### <a name="responses"></a>Respuestas
 | Código | DESCRIPCIÓN | Esquema |
@@ -493,13 +493,13 @@ Regenera las claves del servicio y las devuelve.
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| id | path | Identificador del servicio. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
-| regenerateKeyRequest | Cuerpo | Carga que se usa para actualizar un servicio existente. | Sí | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| id | path | Identificador del servicio. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
+| regenerateKeyRequest | Cuerpo | Carga que se usa para actualizar un servicio existente. | SÍ | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
 
 ### <a name="responses"></a>Respuestas
 | Código | DESCRIPCIÓN | Esquema |
@@ -520,11 +520,11 @@ Consulta de la lista de implementaciones de una cuenta. Puede filtrar la lista d
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
 | serviceId | query | Identificador del servicio. | Sin  | string |
 
 ### <a name="responses"></a>Respuestas
@@ -546,12 +546,12 @@ Obtiene la implementación por el identificador.
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| id | path | Identificador de la implementación. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| id | path | Identificador de la implementación. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
 
 ### <a name="responses"></a>Respuestas
 | Código | DESCRIPCIÓN | Esquema |
@@ -572,12 +572,12 @@ Obtiene el estado de la operación asincrónica por el identificador de la opera
 ### <a name="parameters"></a>Parámetros
 | NOMBRE | Ubicado en | DESCRIPCIÓN | Obligatorio | Esquema
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | path | Identificador de suscripción de Azure | Sí | string |
-| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | Sí | string |
-| accountName | path | Nombre de la cuenta de Administración de modelos. | Sí | string |
-| id | path | Identificador de la operación. | Sí | string |
-| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | Sí | string |
-| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | Sí | string |
+| subscriptionId | path | Identificador de suscripción de Azure | SÍ | string |
+| resourceGroupName | path | Nombre del grupo de recursos en el que se encuentra la cuenta de Administración de modelos. | SÍ | string |
+| accountName | path | Nombre de la cuenta de Administración de modelos. | SÍ | string |
+| id | path | Identificador de la operación. | SÍ | string |
+| api-version | query | Versión de la API del proveedor de recursos Microsoft.Machine.Learning que se utilizará. | SÍ | string |
+| Autorización | encabezado | Token de autorización. Debe ser similar a "Portador XXXXXX". | SÍ | string |
 
 ### <a name="responses"></a>Respuestas
 | Código | DESCRIPCIÓN | Esquema |

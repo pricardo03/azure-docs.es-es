@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: andrl
-ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2da00f700f5cc234455cc686377e5863f1c35bdd
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038456"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734478"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Configuración y obtención del rendimiento para contenedores y la base de datos de Azure Cosmos DB
 
@@ -61,7 +61,7 @@ En las siguientes secciones, se le guiará por los pasos necesarios para configu
 2. En la barra de navegación izquierda, seleccione **Todos los recursos** y busque su cuenta de Azure Cosmos DB.  
 3. Puede configurar el rendimiento durante la creación de una base de datos o actualizar el rendimiento de una base de datos existente.  
 4. Para asignar el rendimiento durante la creación de una base de datos, abra la hoja **Explorador de datos** y seleccione **Nueva base de datos**  
-5. Rellene el valor **Id. de base de datos**, marque la opción **Provision throughput** (Aprovisionar rendimiento) y configura el valor de rendimiento. Una base de datos se puede aprovisionar con un valor de rendimiento mínimo de 50 000 RU/s.  
+5. Rellene el valor **Id. de base de datos**, marque la opción **Provision throughput** (Aprovisionar rendimiento) y configura el valor de rendimiento.  
 
    ![Establecer el aprovisionamiento con la opción de base de datos nueva](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -74,7 +74,7 @@ En las siguientes secciones, se le guiará por los pasos necesarios para configu
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).  
 2. En la barra de navegación izquierda, seleccione **Todos los recursos** y busque su cuenta de Azure Cosmos DB.  
 3. Cree una base de datos y asígnele el rendimiento. Abra la hoja **Explorador de datos** y seleccione **Nueva base de datos**  
-4. Rellene el valor **Id. de base de datos**, marque la opción **Provision throughput** (Aprovisionar rendimiento) y configura el valor de rendimiento. Una base de datos se puede aprovisionar con un valor de rendimiento mínimo de 50 000 RU/s.  
+4. Rellene el valor **Id. de base de datos**, marque la opción **Provision throughput** (Aprovisionar rendimiento) y configura el valor de rendimiento.  
 
    ![Establecer el aprovisionamiento con la opción de base de datos nueva](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -107,33 +107,6 @@ Considere la posibilidad de aprovisionar el rendimiento en un contenedor individ
 * Si tiene pocos contenedores de Azure Cosmos DB.  
 
 * Si desea obtener el rendimiento garantizado en un contenedor determinado con el respaldo de SLA.
-
-## <a name="throughput-ranges"></a>Rangos de rendimiento
-
-En la tabla siguiente se enumeran los rendimientos disponibles para los contenedores:
-
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top"><p></p></td>
-            <td valign="top"><p><strong>Contenedor de una única partición</strong></p></td>
-            <td valign="top"><p><strong>Contenedor con particiones</strong></p></td>
-            <td valign="top"><p><strong>Conjunto de contenedores</strong></p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>Procesamiento mínimo</p></td>
-            <td valign="top"><p>400 unidades de solicitud por segundo</p></td>
-            <td valign="top"><p>1000 unidades de solicitud por segundo</p></td>
-            <td valign="top"><p>50000 unidades de solicitud por segundo</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>Procesamiento máximo</p></td>
-            <td valign="top"><p>10 000 unidades de solicitud por segundo</p></td>
-            <td valign="top"><p>Ilimitado</p></td>
-            <td valign="top"><p>Ilimitado</p></td>
-        </tr>
-    </tbody>
-</table>
 
 <a id="set-throughput-sdk"></a>
 

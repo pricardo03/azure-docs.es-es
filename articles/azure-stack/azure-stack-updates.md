@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4d8a79862dac53429acda14f81818f92a96df529
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 5b0dbf5ad78ff345d386024ff873618a781917ac
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44376857"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579044"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Introducción a la administración de actualizaciones en Azure Stack
 
@@ -34,7 +34,7 @@ El proveedor de hardware OEM (fabricante de equipo original) también lanzará a
 Para que el sistema esté cubierto por el soporte técnico, Azure Stack debe mantenerse actualizado hasta un nivel de versión específico. Asegúrese de revisar la [directiva de servicio de Azure Stack](azure-stack-servicing-policy.md).
 
 > [!NOTE]
-> No es posible aplicar actualizaciones de Azure Stack al Kit de desarrollo de Azure Stack. Las actualizaciones están diseñadas para sistemas integrados. Para obtener información, consulte [Volver a implementar el ASDK](https://docs.microsoft.com/en-us/azure/azure-stack/asdk).
+> No es posible aplicar actualizaciones de Azure Stack al Kit de desarrollo de Azure Stack. Las actualizaciones están diseñadas para sistemas integrados. Para obtener información, consulte [Volver a implementar el ASDK](https://docs.microsoft.com/azure/azure-stack/asdk).
 
 ## <a name="the-update-resource-provider"></a>El proveedor de recursos de actualización
 

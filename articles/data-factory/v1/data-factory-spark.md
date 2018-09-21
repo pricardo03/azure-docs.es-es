@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4c7dddcb5e39eb1f72fb59af753ab167bc44d3e3
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 2c00e42284783439b0a01f6ba6bab31be053b1c9
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246763"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736417"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocación de programas Spark desde canalizaciones de Azure Data Factory
 
@@ -109,7 +109,7 @@ En este paso, vinculará su cuenta de almacenamiento con su factoría de datos. 
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Reemplace **nombre de cuenta** y **clave de cuenta** por el nombre y la clave de acceso de su cuenta de almacenamiento. Para aprender a obtener la clave de acceso de almacenamiento, consulte cómo ver, copiar y regenerar las claves de acceso de almacenamiento en [Administración de la cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Reemplace **nombre de cuenta** y **clave de cuenta** por el nombre y la clave de acceso de su cuenta de almacenamiento. Para aprender a obtener la clave de acceso de almacenamiento, consulte cómo ver, copiar y regenerar las claves de acceso de almacenamiento en [Administración de la cuenta de almacenamiento](../../storage/common/storage-account-manage.md#access-keys).
 
 1. Para implementar el servicio vinculado, seleccione **Implementar** en la barra de comandos. Después de que el servicio vinculado se haya implementado correctamente, la ventana Borrador-1 desaparece. **AzureStorageLinkedService** aparece en la vista de árbol de la izquierda.
 

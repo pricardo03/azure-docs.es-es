@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 54e6b4f5804e7390b7574aa60b4d3a76df15da11
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 5416c8ada8fcc7f630d68f223b88c50209d14438
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42143685"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296403"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Cómo funciona el autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -161,8 +161,8 @@ Si instala, configura y habilita Azure AD Connect, tiene las opciones adicionale
 Esta página proporciona un estado rápido del cliente de escritura diferida con los siguientes mensajes que se muestran según la configuración actual:
 
 * El cliente de escritura diferida local está en funcionamiento.
-* Azure AD está en línea y conectado al cliente de escritura diferida local. Sin embargo, parece que la versión instalada de Azure AD Connect no está actualizada. Considere la posibilidad de [actualizar Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) para asegurarse de que tiene las características de conectividad más recientes y las correcciones de errores importantes.
-* Desafortunadamente, de momento no podemos comprobar el estado del cliente de escritura diferida local porque la versión instalada de Azure AD Connect no está actualizada. [Actualice Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) para poder comprobar su estado de conexión.
+* Azure AD está en línea y conectado al cliente de escritura diferida local. Sin embargo, parece que la versión instalada de Azure AD Connect no está actualizada. Considere la posibilidad de [actualizar Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) para asegurarse de que tiene las características de conectividad más recientes y las correcciones de errores importantes.
+* Desafortunadamente, de momento no podemos comprobar el estado del cliente de escritura diferida local porque la versión instalada de Azure AD Connect no está actualizada. [Actualice Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) para poder comprobar su estado de conexión.
 * Desafortunadamente, parece que no podemos conectarnos a su cliente de escritura diferida local ahora mismo. [Solucione problemas de Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar la conexión.
 * Desafortunadamente, no podemos conectarnos a su cliente de escritura diferida local porque la escritura diferida de contraseñas no se ha configurado correctamente. [Configure la escritura diferida de contraseñas](howto-sspr-writeback.md) para restaurar la conexión.
 * Desafortunadamente, parece que no podemos conectarnos a su cliente de escritura diferida local ahora mismo. Esto puede deberse a problemas temporales por nuestra parte. Si el problema persiste, [solucione los problemas de Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar la conexión.

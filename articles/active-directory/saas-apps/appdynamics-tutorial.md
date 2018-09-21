@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 09/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 3600e83d18f8cabd03c46af2ef47445c588cbdb5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7f24dad3cfefd5ecb0b1c78f4a2b242c99a01239
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38548292"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605834"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Tutorial: Integración de Azure Active Directory con AppDynamics
 
@@ -32,7 +32,7 @@ La integración de AppDynamics con Azure AD proporciona las siguientes ventajas:
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con AppDynamics, necesita los siguientes elementos:
 
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/appdynamics-tutorial/tutorial_appdynamics_url.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.saas.appdynamics.com`.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.saas.appdynamics.com?accountName=<companyname>`.
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.saas.appdynamics.com/controller`
 
@@ -189,6 +189,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 ### <a name="creating-an-appdynamics-test-user"></a>Creación de un usuario de prueba de AppDynamics
 
 El objetivo de esta sección es crear una usuaria de prueba llamada Britta Simon en CS AppDynamics. AppDynamics admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a AppDynamics se crea un nuevo usuario, en caso de que no exista.
+
 >[!Note]
 >Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el [equipo de soporte técnico de AppDynamics](https://www.appdynamics.com/support/).
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: a9eca3c3aeaa8d9d0d3d7728f8aebd63543cb604
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: acbd1bb98fd9a3eb24b7b3262c3fe9fe47200385
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617122"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579224"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Copia de seguridad de archivos en Azure Stack
 Puede usar Azure Backup para proteger o realizar copias de seguridad de archivos y aplicaciones en Azure Stack. Para hacer copias de seguridad de archivos y aplicaciones, instale Microsoft Azure Backup Server como una máquina virtual que se ejecuta en Azure Stack. Puede proteger los archivos de cualquier servidor de Azure Stack en la misma red virtual. Una vez que haya instalado Azure Backup Server, agregue discos de Azure para aumentar el almacenamiento local disponible para los datos de copia de seguridad a corto plazo. Azure Backup Server usa almacenamiento de Azure para la retención a largo plazo.
@@ -49,7 +49,7 @@ Para configurar Azure Backup Server a fin de proteger los archivos de las máqui
 
     ![Se abre el asistente para crear nuevo grupo de protección](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Microsoft recomienda poner todos los datos que compartirán una directiva de protección en un mismo grupo de protección. Para información competa sobre cómo planificar e implementar los grupos de protección, consulte el artículo [Implementar grupos de protección](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801) de System Center DPM.
+    Microsoft recomienda poner todos los datos que compartirán una directiva de protección en un mismo grupo de protección. Para información competa sobre cómo planificar e implementar los grupos de protección, consulte el artículo [Implementar grupos de protección](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801) de System Center DPM.
 
 4. En la pantalla **Seleccionar método de protección de datos**, escriba un nombre para el grupo de protección. Active la casilla de verificación para **Deseo protección a corto plazo mediante:** y **Deseo protección en línea**. Haga clic en **Next**.
 
@@ -135,5 +135,5 @@ Para ver entidades de Azure Backup Server en Azure Portal, se pueden seguir esto
 
 ## <a name="see-also"></a>Otras referencias
 Para obtener información sobre cómo usar Azure Backup Server para proteger otras cargas de trabajo, consulte uno de los siguientes artículos:
-- [Hacer una copia de seguridad de la granja de SharePoint](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
-- [Hacer una copia de seguridad de SQL Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [Hacer una copia de seguridad de la granja de SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Hacer una copia de seguridad de SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)

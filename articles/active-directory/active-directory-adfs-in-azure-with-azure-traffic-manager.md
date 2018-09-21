@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
-ms.openlocfilehash: e984d3d590021e3dd9e46d0f12493889b2acc229
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2ed0b551faba68c0956be89277348eeee60d759c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26604786"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298224"
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Implementación entre regiones geográficas de AD FS de alta disponibilidad en Azure con Azure Traffic Manager
-[Implementación de AD FS en Azure](active-directory-aadconnect-azure-adfs.md) proporciona instrucciones paso a paso sobre cómo implementar una infraestructura de AD FS sencilla para su organización en Azure. En este artículo se proporcionan los pasos para crear una implementación entre regiones geográficas de AD FS en Azure mediante [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager ayuda a crear una infraestructura de AD FS de alta disponibilidad y rendimiento, extendida geográficamente, para su organización mediante una serie de métodos de enrutamiento disponibles que satisfacen las distintas necesidades de la infraestructura.
+[Implementación de AD FS en Azure](hybrid/how-to-connect-fed-azure-adfs.md) proporciona instrucciones paso a paso sobre cómo implementar una infraestructura de AD FS sencilla para su organización en Azure. En este artículo se proporcionan los pasos para crear una implementación entre regiones geográficas de AD FS en Azure mediante [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager ayuda a crear una infraestructura de AD FS de alta disponibilidad y rendimiento, extendida geográficamente, para su organización mediante una serie de métodos de enrutamiento disponibles que satisfacen las distintas necesidades de la infraestructura.
 
 Una infraestructura entre regiones geográficas de AD FS de alta disponibilidad permite:
 
@@ -45,7 +45,7 @@ Los principios de diseño básicos serán los mismos que se muestran en los prin
 
 ## <a name="steps-to-integrate-azure-traffic-manager"></a>Pasos para integrar Azure Traffic Manager
 ### <a name="deploy-ad-fs-in-the-new-geographical-region"></a>Implementación de AD FS en la nueva región geográfica
-Siga los pasos y las directrices de [Implementación de AD FS en Azure](active-directory-aadconnect-azure-adfs.md) para implementar la misma topología en la nueva región geográfica.
+Siga los pasos y las directrices de [Implementación de AD FS en Azure](hybrid/how-to-connect-fed-azure-adfs.md) para implementar la misma topología en la nueva región geográfica.
 
 ### <a name="dns-labels-for-public-ip-addresses-of-the-internet-facing-public-load-balancers"></a>Etiquetas DNS para direcciones IP públicas de los equilibradores de carga (públicos) accesibles desde Internet
 Como se mencionó anteriormente, Azure Traffic Manager solo puede hacer referencia a etiquetas DNS como puntos de conexión y, por lo tanto, es importante crear etiquetas DNS para direcciones IP públicas de los equilibradores de carga externos. La captura de pantalla muestra cómo puede configurar la etiqueta DNS para la dirección IP pública. 
@@ -116,7 +116,7 @@ La forma más sencilla de probar AD FS es mediante la página IdpInitiatedSignon
     ![Prueba de ADFS - autenticación correcta](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)
 
 ## <a name="related-links"></a>Vínculos relacionados
-* [Implementación básica de AD FS en Azure](active-directory-aadconnect-azure-adfs.md)
+* [Implementación básica de AD FS en Azure](hybrid/how-to-connect-fed-azure-adfs.md)
 * [Microsoft Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
 * [Métodos de enrutamiento del tráfico del Administrador de tráfico](../traffic-manager/traffic-manager-routing-methods.md)
 
