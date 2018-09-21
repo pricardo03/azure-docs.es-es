@@ -4,7 +4,7 @@ description: En este artículo se describe cómo puede utilizar Azure Media Serv
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
 ms.service: media-services
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2017
+ms.date: 09/18/2018
 ms.author: juliako
-ms.openlocfilehash: 84dd4db84fffd5ffc79e55b6ceb1182dcfbc3c55
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 300673ffd62324de1207a29551694f12dd84ea93
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783304"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366376"
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Uso de Azure Media Services para entregar licencias de DRM a claves de AES
+
 Azure Media Services permite ingerir, codificar, agregar protección de contenido y transmitir el contenido. Para obtener más información, consulte [Usar el cifrado dinámico común de PlayReady o Widevine](media-services-protect-with-playready-widevine.md). Algunos clientes quieren utilizar Media Services únicamente para entregar licencias y/o claves, así como para codificar, cifrar y hacer streaming con sus servidores locales. Este artículo describe cómo puede usar Media Services para entregar licencias de PlayReady y/o Widevine, pero realizar el resto con los servidores locales. 
 
 ## <a name="overview"></a>Información general
@@ -42,10 +43,11 @@ Para descargar el ejemplo que se describe en este artículo, consulte [Use Azure
 
 2. Agregue los siguientes elementos al elemento **appSettings** definido en el archivo app.config:
 
-    add key="Issuer" value="http://testacs.com"/
-    
-    add key="Audience" value="urn:test"/
-
+    ```xml
+    <add key="Issuer" value="http://testissuer.com"/>
+    <add key="Audience" value="urn:test"/>
+    ```
+ 
 ## <a name="net-code-example"></a>Ejemplo de código .NET
 El ejemplo de código siguiente muestra cómo crear una clave de contenido común y obtener direcciones URL de adquisición de licencias de PlayReady o Widevine. Para configurar el servidor local, necesita una clave de contenido, el identificador de la clave y la dirección URL de adquisición de licencias. Después de configurar el servidor local, puede hacer streaming desde su propio servidor de streaming. Dado que el streaming cifrado apunta a un servidor de licencias de Media Services, el reproductor solicita una licencia a Media Services. Si elige la autenticación por tokens, el servidor de licencias de Media Services valida el token que envía a través de HTTPS. Si el token es válido, el servidor de licencias devuelve la licencia al reproductor. El ejemplo de código siguiente solo muestra cómo crear una clave de contenido común y obtener direcciones URL de adquisición de licencias de PlayReady o Widevine. Si quiere proporcionar las claves de AES-128, debe crear una clave de contenido del sobre y obtener una dirección URL de adquisición de claves. Para más información, consulte [Uso del cifrado dinámico AES-128 y el servicio de entrega de claves](media-services-protect-with-aes128.md).
 

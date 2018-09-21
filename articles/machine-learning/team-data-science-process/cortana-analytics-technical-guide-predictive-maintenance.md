@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 3715dcceb4330f6eaab01f49aee9d4d19663b62e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 985010457413c15622f85e8ce8c6955a64ae40e9
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099675"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985905"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guía técnica sobre la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y de otros tipos
 
@@ -154,7 +154,7 @@ Una vez iniciado el generador de datos, la canalización comienza a deshidratars
 1. Uno de los trabajos de Stream Analytics escribe los datos entrantes sin procesar en Blob Storage. Si hace clic en el componente Blob Storage de su solución desde la pantalla donde implementó correctamente la solución y después hace clic en Abrir en el panel derecho, irá a [Azure Portal](https://portal.azure.com/). Una vez allí, haga clic en Blobs. En el siguiente panel, verá una lista de Containers. Haga clic en **maintenancesadata**. En el siguiente panel, verá la carpeta **rawdata**. Dentro de la carpeta rawdata, verá carpetas con nombres como date=17 y hour=18. La presencia de estas carpetas significa que los datos sin procesar se generan en el equipo y se almacenan en un almacenamiento de blobs. Debería ver archivos csv con tamaños finitos en MB en esas carpetas.
 2. El último paso de la canalización consiste en escribir los datos (por ejemplo, predicciones del aprendizaje automático) en SQL Database. Es posible que deba esperar un máximo de tres horas para los datos aparezcan en SQL Database. Puede supervisar la cantidad de datos disponibles en SQL Database a través de [Azure Portal](https://portal.azure.com/). En el panel izquierdo, busque y haga clic en el ![icono SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) de BASES DE DATOS SQL. Después, busque la base de datos **pmaintenancedb** y haga clic en ella. En la parte inferior de la página siguiente, haga clic en ADMINISTRAR.
    
-    ![Icono de Administrar](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png).
+    ![Icono de Administrar](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png)
    
     Aquí, puede hacer clic en Nueva consulta y consultar el número de filas (por ejemplo, select count(*) from PMResult). A medida que la base de datos aumente de tamaño, debe incrementar el número de filas de la tabla.
 

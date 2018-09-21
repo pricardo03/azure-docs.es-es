@@ -11,12 +11,12 @@ ms.topic: article
 description: Use una fuente NuGet personalizada para acceder a paquetes NuGet y utilizarlos en Azure Dev Spaces.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contenedores
 manager: ghogen
-ms.openlocfilehash: 3badd15bcfd09c97b43744a20c5df05f4ff57e84
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04b89f6d12c58e2f4915a84d3e0a7988d0e3192f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199116"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579229"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Uso de una fuente NuGet personalizada en Azure Dev Spaces
 
@@ -25,7 +25,7 @@ Una fuente NuGet proporciona una manera cómoda de incluir orígenes de paquetes
 ## <a name="set-up-a-nuget-feed"></a>Configuración de una fuente NuGet
 
 Para configurar una fuente NuGet:
-1. Agregue una [referencia de paquete](https://docs.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files) en el archivo `*.csproj` bajo en nodo `PackageReference`.
+1. Agregue una [referencia de paquete](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) en el archivo `*.csproj` bajo en nodo `PackageReference`.
 
    ```xml
    <ItemGroup>
@@ -35,7 +35,7 @@ Para configurar una fuente NuGet:
    </ItemGroup>
    ```
 
-2. Crear un archivo [NuGet.Config](https://docs.microsoft.com/en-us/nuget/reference/nuget-config-file) en la carpeta del proyecto.
+2. Crear un archivo [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) en la carpeta del proyecto.
      * Use la sección `packageSources` para hacer referencia a la ubicación de la fuente NuGet. Importante: La fuente NuGet debe ser de acceso público.
      * Use la sección `packageSourceCredentials` para configurar las credenciales de nombre de usuario y contraseña. 
 

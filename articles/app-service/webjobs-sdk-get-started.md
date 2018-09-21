@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 72f7090c285e629149519920ac82f0fe962abc48
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e2f9bee2adcebfd47ca088a1bbe76b870e285044
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577312"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580450"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introducción al SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -102,7 +102,7 @@ El objeto `JobHost` es el contenedor en tiempo de ejecución de las funciones: e
 
 ## <a name="enable-console-logging"></a>Habilitación del registro de consola
 
-Existen varias opciones para el registro en el proyecto de SDK de WebJobs. El que se recomienda es la [plataforma de registro desarrollada para ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging). Esta plataforma ofrece un mejor rendimiento y una mayor flexibilidad en medios de almacenamiento y en filtrado. 
+Existen varias opciones para el registro en el proyecto de SDK de WebJobs. El que se recomienda es la [plataforma de registro desarrollada para ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging). Esta plataforma ofrece un mejor rendimiento y una mayor flexibilidad en medios de almacenamiento y en filtrado. 
 
 En esta sección, configurará el registro de consola que utiliza la nueva plataforma.
 

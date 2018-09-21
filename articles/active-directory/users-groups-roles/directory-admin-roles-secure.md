@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: ead6202b0365df770382077618795cd6b6e57cd2
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 55ce6398d89e56f92874d0ec135377d2a08cf075
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346736"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297816"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -159,7 +159,7 @@ Asegúrese de que todos los usuarios han iniciado sesión en sus cuentas adminis
 
 #### <a name="turn-on-password-hash-synchronization"></a>Activación de la sincronización de hashes de contraseñas
 
-La sincronización de hashes de contraseñas es una característica que se utiliza para sincronizar los hashes de los hashes de las contraseñas de los usuarios desde una instancia de Active Directory local con una instancia de Azure AD en la nube. Aunque decida usar la federación con Active Directory Federation Services (AD FS) u otros proveedores de identidades, opcionalmente puede configurar la sincronización de hashes de contraseñas de respaldo, por si su infraestructura local, como los servidores de AD o ADFS, sufre un error o deja de estar disponible temporalmente. Esto permite que los usuarios inicien sesión en el servicio con la misma contraseña que usan para iniciar sesión en su instancia local de Active Directory. Además, permite que Identity Protection detecte las credenciales que están en peligro mediante la comparación de los algoritmos hash de dichas contraseñas con contraseñas que se sepa que están en peligro, si un usuario ha usado su misma dirección de correo electrónico y contraseña en otros servicios que no estén conectados a Azure AD.  Para más información, consulte [Implement password hash synchronization with Azure AD Connect sync](./../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) (Implementación de la sincronización de hash de contraseñas mediante la sincronización de Azure AD Connect).
+La sincronización de hashes de contraseñas es una característica que se utiliza para sincronizar los hashes de los hashes de las contraseñas de los usuarios desde una instancia de Active Directory local con una instancia de Azure AD en la nube. Aunque decida usar la federación con Active Directory Federation Services (AD FS) u otros proveedores de identidades, opcionalmente puede configurar la sincronización de hashes de contraseñas de respaldo, por si su infraestructura local, como los servidores de AD o ADFS, sufre un error o deja de estar disponible temporalmente. Esto permite que los usuarios inicien sesión en el servicio con la misma contraseña que usan para iniciar sesión en su instancia local de Active Directory. Además, permite que Identity Protection detecte las credenciales que están en peligro mediante la comparación de los algoritmos hash de dichas contraseñas con contraseñas que se sepa que están en peligro, si un usuario ha usado su misma dirección de correo electrónico y contraseña en otros servicios que no estén conectados a Azure AD.  Para más información, consulte [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md) (Implementación de la sincronización de hash de contraseñas mediante la sincronización de Azure AD Connect).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Requiera la autenticación multifactor (MFA) a los usuarios de todos los roles con privilegios, así como a los usuarios expuestos
 

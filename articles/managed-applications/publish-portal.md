@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 69d31a7199347574e8866b275ec17ba3997d80c2
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: e52acd8587203c4729ac2bcd6e4bbc09620ead86
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305130"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35773633"
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Publicación de una aplicación de catálogo de servicios mediante Azure Portal
 
 Puede usar Azure Portal para publicar [aplicaciones administradas](overview.md) que están diseñadas para los miembros de su organización. Por ejemplo, un departamento de TI puede publicar aplicaciones administradas que garantizan el cumplimiento de los estándares de la organización. Estas aplicaciones administradas están disponibles a través del catálogo de servicios y no en Azure Marketplace.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-A la hora de publicar una aplicación administrada, debe especificar una identidad para administrar los recursos. Es recomendable que especifique un grupo de usuarios de Azure Active Directory. Para crear un grupo de usuarios de Azure Active Directory, consulte [Creación de un grupo y adición de miembros en Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md). 
+A la hora de publicar una aplicación administrada, debe especificar una identidad para administrar los recursos. Es recomendable que especifique un grupo de usuarios de Azure Active Directory. Para crear un grupo de usuarios de Azure Active Directory, consulte [Creación de un grupo y adición de miembros en Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). 
 
 El archivo .zip que contiene la definición de la aplicación administrada debe estar disponible mediante un identificador URI. Se recomienda que cargue el archivo .zip en un blob de almacenamiento. 
 

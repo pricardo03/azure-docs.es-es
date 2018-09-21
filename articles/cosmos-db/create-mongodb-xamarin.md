@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: 255f23906bc93ce78b28f4f0806d7076a97b0ef2
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e002f99cc16721b78d85284105ce22ee7d1eb9a3
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698696"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574834"
 ---
 # <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Inicio rápido: Compilación de una aplicación Xamarin.Forms de API MongoDB con .NET y Azure Portal
 
@@ -173,7 +173,7 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
 2. Haga clic en **Restore all NuGet packages** (Restaurar todos los paquetes NuGet).
 3. Haga clic con el botón derecho en **TaskList.Android** y seleccione **Establecer como proyecto de inicio**.
 4. Presione F5 para iniciar la depuración de la aplicación.
-5. Si quiere ejecutar en iOS, primero asegúrese de que la máquina esté conectada a un equipo Mac (aquí hay algunas [instrucciones](https://docs.microsoft.com/en-us/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) sobre cómo hacerlo).
+5. Si quiere ejecutar en iOS, primero asegúrese de que la máquina esté conectada a un equipo Mac (aquí hay algunas [instrucciones](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) sobre cómo hacerlo).
 6. Haga clic con el botón derecho en el proyecto **TaskList.iOS** y seleccione **Establecer como proyecto de inicio**.
 7. Haga clic en F5 para iniciar la depuración de la aplicación.
 

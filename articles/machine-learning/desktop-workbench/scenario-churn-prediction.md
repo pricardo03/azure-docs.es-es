@@ -9,19 +9,19 @@ editor: miprasad
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: a4e3441e4b7512d60be8ce5433822a95732cd802
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7c7b50098cfd1bcac534156dd905b37affab80bd
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832397"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35639614"
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Predicción del abandono de clientes con Azure Machine Learning
 
@@ -57,7 +57,7 @@ Algunos de los factores que contribuyen al abandono de clientes de telecomunicac
 
 En esta solución, se usará un ejemplo concreto de creación de un modelo predictivo de abandono de clientes para compañías de telecomunicaciones.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una [cuenta de Azure](https://azure.microsoft.com/free/) (hay disponibles versiones gratuitas de prueba)
 

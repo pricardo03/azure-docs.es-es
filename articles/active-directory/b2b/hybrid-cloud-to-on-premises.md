@@ -4,18 +4,18 @@ description: Se muestra cómo proporcionar a los usuarios B2B de la nube acceso 
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: b7b1279dbb1256269705da3f8be6f6d2c1151368
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 65f43eb28ef2ef51409469934d59e1add7e83666
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346345"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297221"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Conceder a los usuarios B2B de Azure AD acceso a las aplicaciones locales
 
@@ -63,7 +63,7 @@ En el siguiente diagrama se proporciona información general de alto nivel de c�
 Puede administrar los objetos de usuario B2B locales mediante directivas de administración del ciclo de vida. Por ejemplo: 
 
 - Puede configurar directivas de autenticación multifactor (MFA) para el usuario invitado para usar MFA durante la autenticación de Application Proxy. Puede encontrar información en [Acceso condicional para usuarios de colaboración B2B](conditional-access.md).
-- Cualquier patrocinio, revisión de acceso, verificación de cuenta, etc. que se realice sobre el usuario B2B en la nube se aplica a los usuarios locales. Por ejemplo, si se elimina el usuario en la nube mediante las directivas de administración del ciclo de vida, también se elimina el usuario local mediante la sincronización MIM o la sincronización de Azure AD Connect. Para más información, consulte [Administración del acceso de los invitados con las revisiones de acceso de Azure AD](../active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md).
+- Cualquier patrocinio, revisión de acceso, verificación de cuenta, etc. que se realice sobre el usuario B2B en la nube se aplica a los usuarios locales. Por ejemplo, si se elimina el usuario en la nube mediante las directivas de administración del ciclo de vida, también se elimina el usuario local mediante la sincronización MIM o la sincronización de Azure AD Connect. Para más información, consulte [Administración del acceso de los invitados con las revisiones de acceso de Azure AD](../governance/manage-guest-access-with-access-reviews.md).
 
 ### <a name="create-b2b-guest-user-objects-through-mim-preview"></a>Creación de objetos de usuario invitado B2B mediante MIM (versión preliminar)
 
@@ -85,5 +85,5 @@ Asegúrese de que dispone de las licencias de acceso cliente (CAL) correctas par
 
 - [Colaboración B2B de Azure Active Directory para organizaciones híbridas](hybrid-organizations.md)
 
-- Para información general sobre Azure AD Connect, consulte [Integración de los directorios locales con Azure Active Directory](../connect/active-directory-aadconnect.md).
+- Para información general sobre Azure AD Connect, consulte [Integración de los directorios locales con Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 

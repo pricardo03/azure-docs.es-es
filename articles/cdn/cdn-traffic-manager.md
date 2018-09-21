@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: v-deasim
 ms.custom: ''
-ms.openlocfilehash: b52cad1f32cc3d16cf70bb81640dcb1d9f8614bf
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 88739cb299e453e32c69f5d0d0189da849b345a7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133516"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573882"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar la conmutación por error entre varios puntos de conexión de Azure CDN con Azure Traffic Manager
 
@@ -46,7 +46,7 @@ Cree un perfil de Traffic Manager de Azure y configure el equilibrio de carga en
 
     Para **Método de enrutamiento**, seleccione **Prioridad**.
 
-2. Agregue los puntos de conexión de CDN a su perfil de Traffic Manager siguiendo los pasos descritos en [Incorporación de puntos de conexión de Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints).
+2. Agregue los puntos de conexión de CDN a su perfil de Traffic Manager siguiendo los pasos descritos en [Incorporación de puntos de conexión de Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints).
 
     Para **Tipo**, seleccione **Puntos de conexión externos**. Para **Prioridad**, escriba un número.
 
@@ -92,7 +92,7 @@ Después de configurar los perfiles de CDN y Traffic Manager, siga estos pasos p
 Después de completar estos pasos, el servicio de varias CDN con capacidades de conmutación por error está configurado con Azure Traffic Manager. Podrá obtener acceso a las direcciones URL de prueba desde el dominio personalizado. Para probar la funcionalidad, deshabilite el punto de conexión de CDN principal y compruebe que la solicitud se mueve correctamente al punto de conexión de CDN secundario. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-También puede configurar otros métodos de enrutamiento, como el geográfico, para equilibrar la carga entre distintos puntos de conexión de CDN. Para obtener más información, consulte [Configuración del método de enrutamiento de tráfico geográfico con Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
+También puede configurar otros métodos de enrutamiento, como el geográfico, para equilibrar la carga entre distintos puntos de conexión de CDN. Para obtener más información, consulte [Configuración del método de enrutamiento de tráfico geográfico con Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
 
 
 

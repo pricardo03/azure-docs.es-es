@@ -4,7 +4,7 @@ description: Este tutorial le guiará por los pasos necesarios para implementar 
 services: media-services
 documentationcenter: java
 author: juliako
-manager: cfowler
+manager: femila
 editor: johndeu
 ms.assetid: b884bd61-dbdb-42ea-b170-8fb02e7fded7
 ms.service: media-services
@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 10/26/2017
+ms.date: 09/18/2018
 ms.author: juliako
-ms.openlocfilehash: 92cfdcd08d93c85fc2cb2bc14a26e6f2fcc70d01
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f53efde38c4f37a6f92aa71d9ab7eb4976c048f4
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780184"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365424"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Introducción al SDK de cliente de Java para Azure Media Services
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 Este tutorial le guía por los pasos necesarios para implementar un servicio básico de entrega de contenido de vídeo con la aplicación Azure Media Services mediante el SDK de cliente de Java.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Los siguientes requisitos son necesarios para completar este tutorial.
 
@@ -43,7 +43,7 @@ Por ejemplo, si la herramienta de compilación es `gradle`, agregue la siguiente
     compile group: 'com.microsoft.azure', name: 'azure-media', version: '0.9.8'
 
 >[!IMPORTANT]
->A partir de la versión `0.9.8` del paquete `azure-media`, el SDK agregó compatibilidad con la autenticación de Azure Active Directory (AAD) y quitó la compatibilidad con la de Azure Access Control Service (ACS). Los servicios de ACS dejarán de usarse el 22 de junio de 2018. Se recomienda migrar tan pronto como sea posible al modelo de autenticación de Azure AD. Para más información sobre la migración, lea el artículo [Acceso a Azure Media Services API con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
+>A partir de la versión `0.9.8` del paquete `azure-media`, el SDK agregó compatibilidad con la autenticación de Azure Active Directory (AAD) y quitó la compatibilidad con la de Azure Access Control Service (ACS). Se recomienda migrar tan pronto como sea posible al modelo de autenticación de Azure AD. Para más información sobre la migración, lea el artículo [Acceso a Azure Media Services API con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 
 >[!NOTE]
 >Puede encontrar el código fuente del SDK de Java de Azure Media Services en nuestro [repositorio de GitHub](https://github.com/Azure/azure-sdk-for-java/tree/0.9/services/azure-media). Asegúrese de cambiar a la rama 0.9 y no a la rama principal. 

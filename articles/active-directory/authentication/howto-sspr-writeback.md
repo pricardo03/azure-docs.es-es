@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e613ff742096077fe1765d4b855b6c7d409cc228
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 1ae74f7c43e763962224683954b28e5941136c08
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158954"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295825"
 ---
 # <a name="how-to-configure-password-writeback"></a>Cómo configurar la escritura diferida de contraseñas
 
-Se recomienda que use la característica de actualización automática de [Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md) si quiere utilizar la escritura diferida de contraseñas.
+Se recomienda que use la característica de actualización automática de [Azure AD Connect](../hybrid/how-to-connect-install-express.md) si quiere utilizar la escritura diferida de contraseñas.
 
-En los pasos siguientes se da por supuesto que ya ha configurado Azure AD Connect en su entorno mediante la configuración [Rápida](./../connect/active-directory-aadconnect-get-started-express.md) o [Personalizada](./../connect/active-directory-aadconnect-get-started-custom.md).
+En los pasos siguientes se da por supuesto que ya ha configurado Azure AD Connect en su entorno mediante la configuración [Rápida](../hybrid/how-to-connect-install-express.md) o [Personalizada](../hybrid/how-to-connect-install-custom.md).
 
 1. Para configurar y habilitar la escritura diferida de contraseñas, inicie sesión en su servidor de Azure AD Connect e inicie el asistente de configuración de **Azure AD Connect**.
 2. En la página **principal**, seleccione **Configurar**.

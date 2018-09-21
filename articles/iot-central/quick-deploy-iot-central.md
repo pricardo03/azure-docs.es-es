@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 51c6753b1e4f2b08e93214abfcd7e18cb2e66613
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: af06766d89804b2f3d0aaf061494fb836f6ec262
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318320"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465612"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Creación de una aplicación de Azure IoT Central
 
@@ -52,78 +52,6 @@ Para crear una nueva aplicación de Azure IoT Central:
 1. Luego elija **Crear**.
 
 ![Página de creación de una aplicación de Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate.png)
-
-## <a name="navigate-to-the-application"></a>Dirección a la aplicación
-
-Cuando la aplicación esté preparada, aparecerá la **página principal** de esta. Se puede activar _Design Mode_ (Modo de diseño) de la esquina superior derecha para editar la página principal. La dirección URL de la aplicación es la que se especificó en el paso anterior:
-
-![Página Application Builder](media/quick-deploy-iot-central/apphome.png)
-
-Use el _menú de navegación izquierdo_ para acceder a las diferentes áreas de la nueva aplicación de Azure IoT Central:
-
-![Menú de navegación izquierdo](media/quick-deploy-iot-central/navbar.png)
-
-Para ver las plantillas de dispositivo y los dispositivos en la aplicación, elija **Device Explorer** (Explorador de dispositivos) en el menú de navegación izquierdo. La aplicación de ejemplo incluye la plantilla de dispositivo **Refrigerated Vending Machine**. Hay tres dispositivos simulados ya creados a partir de esta plantilla de dispositivo:
-
-![Explorador de dispositivos](media/quick-deploy-iot-central/deviceexplorer.png)
-
-## <a name="view-the-device-template-and-devices"></a>Visualización de la plantilla de dispositivo y los dispositivos
-
-Utilice los pasos siguientes para ver un refrigerador creado a partir de la plantilla de dispositivo **Refrigerated Vending Machine**. Una plantilla de dispositivo define:
-
-* Las _medidas_, como la telemetría de temperatura, que se envía desde un dispositivo.
-* La _configuración_, como la velocidad del ventilador, que permite controlar el dispositivo.
-* Las _propiedades_, como el número de serie, que almacena información sobre el dispositivo.
-* Las [reglas](howto-create-telemetry-rules.md), que permiten automatizar acciones en función del comportamiento del dispositivo.
-* Un _panel_ personalizable, que muestra información sobre el dispositivo.
-
-A partir de una plantilla de dispositivo, puede crear dispositivos tanto simulados como reales.
-
-### <a name="measurements"></a>Medidas
-
-Se muestra la página **Measurements** (Medidas) del dispositivo **Refrigerator 1**. Puede ver la lista de medidas enviadas desde el dispositivo simulado. La página también muestra un gráfico personalizable de las medidas visibles:
-
-![Página Measurements (Medidas)](media/quick-deploy-iot-central/measurements.png)
-
-Puede alternar la visibilidad de los distintos elementos y personalizar el gráfico. El gráfico actual muestra la telemetría de un dispositivo simulado. Con los permisos adecuados, puede agregar nuevas medidas a la plantilla de dispositivo.
-
-> [!NOTE]
-> Debe esperar unos instantes para que los datos simulados aparezcan en el gráfico.
-
-### <a name="settings"></a>Settings
-
-Elija **Settings** (Configuración). El dispositivo se controla desde la página **Settings** (Configuración). Por ejemplo, puede actualizar la velocidad del ventilador del frigorífico:
-
-![Settings](media/quick-deploy-iot-central/settings.png)
-
-Los valores de configuración se muestran **sincronizados** cuando un dispositivo confirma el cambio.
-
-### <a name="properties"></a>Properties (Propiedades)
-
-Elija **Properties** (Propiedades). En la página **Properties** (Propiedades), puede:
-
-* Mantener la información sobre el dispositivo, como el nombre del cliente.
-* Ver los valores de propiedad notificados por el dispositivo, por ejemplo, una alerta de movimiento.
-
-![Properties (Propiedades)](media/quick-deploy-iot-central/properties.png)
-
-### <a name="dashboard"></a>panel
-
-Elija **Dashboard** (Panel). El panel es una vista personalizable de información sobre el dispositivo, como las medidas, las propiedades y los indicadores clave de rendimiento:
-
-![panel](media/quick-deploy-iot-central/dashboard.png)
-
-## <a name="view-analytics"></a>Visualización de análisis
-
-La sección anterior mostraba cómo ver información de un dispositivo individual. Puede usar [conjuntos de dispositivos](howto-use-device-sets.md) y [análisis](howto-create-analytics.md) para ver información consolidada de varios dispositivos.
-
-Un conjunto de dispositivos usa una consulta para seleccionar dinámicamente un conjunto de dispositivos que coinciden con determinados criterios. Por ejemplo, el conjunto de dispositivos **Machines in Seattle** selecciona los frigoríficos cuya ubicación es Seattle. Para ver el conjunto de dispositivos **Machines in Seattle**, elija **Device Sets** (Conjuntos de dispositivos) en el menú de navegación izquierdo y **Machines in Seattle**:
-
-![Conjunto de dispositivos Machines in Seattle](media/quick-deploy-iot-central/deviceset.png)
-
-Puede ver los datos de análisis de los dispositivos del conjunto en la página **Analytics** (Análisis):
-
-![Análisis de las máquinas de Seattle](media/quick-deploy-iot-central/analytics.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

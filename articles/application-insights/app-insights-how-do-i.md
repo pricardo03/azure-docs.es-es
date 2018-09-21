@@ -2,7 +2,7 @@
 title: Procedimientos en Azure Application Insights | Microsoft Docs
 description: P+F en Application Insights.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: a32127f14c93012b5ace11ff982824f9ecba7d94
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 235089cc0f0c8f84fe27edbbb97f65b8310fccba
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35639267"
 ---
 # <a name="how-do-i--in-application-insights"></a>¿Cómo ... en Application Insights?
 ## <a name="get-an-email-when-"></a>Recibir un correo electrónico cuando...
@@ -96,9 +97,9 @@ Algunos puntos que se deben tener en cuenta:
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Panel con datos de otros orígenes y Application Insights
 * [Exporte la telemetría a Power BI](app-insights-export-power-bi.md).
 
-O
+o
 
-* Use SharePoint como panel, mostrando los datos en elementos web de SharePoint. [Use la exportación continua y Análisis de transmisiones para exportar a SQL](app-insights-code-sample-export-sql-stream-analytics.md).  Use PowerView para examinar la base de datos y crear un elemento web de SharePoint para PowerView.
+* Use SharePoint como panel, mostrando los datos en elementos web de SharePoint. [Use la exportación continua y Stream Analytics para exportar a SQL](app-insights-code-sample-export-sql-stream-analytics.md).  Use PowerView para examinar la base de datos y crear un elemento web de SharePoint para PowerView.
 
 <a name="search-specific-users"></a>
 

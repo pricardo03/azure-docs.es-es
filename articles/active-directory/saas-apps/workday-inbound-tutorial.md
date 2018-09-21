@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 930ca49a63e34214ec197d8dd37f38361b34fe90
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 917baa4b0d983df858c64cd0fa5b697b0fbb316c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347042"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298275"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios (versión preliminar)
 
@@ -75,7 +75,7 @@ En la situación descrita en este tutorial se supone que ya cuenta con los eleme
 * Un inquilino de implementación de Workday para fines de pruebas y de integración
 * Permisos de administrador en Workday para crear un usuario de integración del sistema y efectuar cambios para probar los datos de los empleados con fines de pruebas
 * Para el aprovisionamiento de usuarios en Active Directory se necesita un servidor unido a un dominio que ejecute Windows Service 2012 o una versión posterior para poder hospedar el [agente de sincronización local](https://go.microsoft.com/fwlink/?linkid=847801)
-* [Azure AD Connect](../connect/active-directory-aadconnect.md) para la sincronización entre Active Directory y Azure AD.
+* [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) para la sincronización entre Active Directory y Azure AD.
 
 ### <a name="solution-architecture"></a>Arquitectura de la solución
 
@@ -504,11 +504,11 @@ El modo de configuración del aprovisionamiento en Azure Active Directory depend
 
 | Escenario | Solución |
 | -------- | -------- |
-| **Los usuarios se deben aprovisionar en Active Directory y en Azure AD** | Use **[AAD Connect](../connect/active-directory-aadconnect.md)** |
-| **Los usuarios solo se deben aprovisionar en Active Directory** | Use **[AAD Connect](../connect/active-directory-aadconnect.md)** |
+| **Los usuarios se deben aprovisionar en Active Directory y en Azure AD** | Use **[AAD Connect](../hybrid/whatis-hybrid-identity.md)** |
+| **Los usuarios solo se deben aprovisionar en Active Directory** | Use **[AAD Connect](../hybrid/whatis-hybrid-identity.md)** |
 | **Los usuarios solo se deben aprovisionar en Azure AD (solo los usuarios que están en la nube)** | Use la aplicación de **aprovisionamiento de Workday en Azure Active Directory** en la galería de aplicaciones |
 
-Para obtener instrucciones sobre cómo configurar Azure AD Connect, consulte la [documentación de Azure AD Connect](../connect/active-directory-aadconnect.md).
+Para obtener instrucciones sobre cómo configurar Azure AD Connect, consulte la [documentación de Azure AD Connect](../hybrid/whatis-hybrid-identity.md).
 
 En las siguientes secciones se describe cómo configurar una conexión entre Workday y Azure AD para aprovisionar usuarios que solo están en la nube.
 

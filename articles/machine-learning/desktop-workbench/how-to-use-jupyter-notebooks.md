@@ -7,22 +7,22 @@ ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/09/2017
-ms.openlocfilehash: 07076a1d551d4dfb513deabaedb650a3262bbeab
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 712cdaa65487620b2f8af4a0ad57c01c24b9a965
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830996"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35641499"
 ---
 # <a name="use-jupyter-notebooks-in-azure-machine-learning-workbench"></a>Uso de Jupyter Notebooks de Azure Machine Learning Workbench
 
 Azure Machine Learning Workbench admite la experimentación de ciencia de datos interactiva a través de su integración con Jupyter Notebooks. En este artículo se describe cómo hacer un uso eficaz de esta característica para aumentar la velocidad y la calidad de la experimentación de ciencia de datos interactiva.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 - [Crear cuentas de Azure Machine Learning e instalar Azure Machine Learning Workbench](../service/quickstart-installation.md).
 - Estar familiarizado con [Jupyter Notebook](http://jupyter.org/). Este artículo no trata sobre aprender a usar Jupyter.
 
