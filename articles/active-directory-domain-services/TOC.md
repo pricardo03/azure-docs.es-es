@@ -44,6 +44,7 @@
 ### [Creación de una cuenta de servicio administrada de grupos en un dominio administrado](active-directory-ds-create-gmsa.md)
 ### [Administración de directivas de grupo en un dominio administrado](active-directory-ds-admin-guide-administer-group-policy.md)
 ### [Configuración de directivas de contraseña en un dominio administrado](active-directory-ds-password-policy.md)
+### [Configuración de la sincronización con ámbito desde Azure AD a un dominio administrado](active-directory-ds-scoped-synchronization.md)
 ## [Seleccionar una red virtual](active-directory-ds-networking.md)
 ## Implementación de aplicaciones
 ### [Configuración de la compatibilidad con la sincronización de perfiles de SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
