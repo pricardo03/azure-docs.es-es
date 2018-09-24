@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 4614eedd08eabf5c1c2eec6f26e542e20b0875bf
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 53ad780ff0b199764c354327439fa69c360e7cb5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040510"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996815"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implementación de una aplicación para Java en un clúster de Service Fabric en Azure
 
@@ -46,7 +46,7 @@ En esta serie de tutoriales, se aprende a:
 Antes de empezar este tutorial:
 
 * Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Instalación del paquete del SDK de Service Fabric para [Mac](service-fabric-get-started-mac.md) o [Linux](service-fabric-get-started-linux.md)
 * [Instalación de Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
 
@@ -54,7 +54,7 @@ Antes de empezar este tutorial:
 
 Con los pasos siguientes se crean los recursos necesarios para implementar la aplicación en un clúster de Service Fabric. Además, se configuran los recursos necesarios para supervisar el estado de la solución con la pila ELK (Elasticsearch, Logstash, Kibana). En concreto, se utiliza [Event Hubs](https://azure.microsoft.com/services/event-hubs/) como receptor para los registros de Service Fabric. Se configura para enviar registros desde el clúster de Service Fabric hasta la instancia de Logstash.
 
-1. Abra un terminal y descargue el siguiente paquete con los scripts auxiliares y las plantillas necesarias para crear los recursos en Azure
+1. Abra un terminal y descargue el siguiente paquete con los scripts auxiliares y las plantillas necesarias para crear los recursos en Azure.
 
     ```bash
     git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git

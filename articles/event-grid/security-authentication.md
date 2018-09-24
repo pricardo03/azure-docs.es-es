@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: babanisa
-ms.openlocfilehash: ce0e766a07fd19f523f1f35b9a3cbc865cfb8c71
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 257f7cbd20d21903f4cf7daf68b5f185d0af10bc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42144394"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965470"
 ---
 # <a name="event-grid-security-and-authentication"></a>Seguridad y autenticación de Event Grid 
 
@@ -39,7 +39,7 @@ Si utiliza cualquier otro tipo de punto de conexión, como una función de Azure
 
 2. **Protocolo de enlace ValidationURL (protocolo de enlace manual)**: en algunos casos, puede que no tenga el control del código fuente del punto de conexión para poder implementar el protocolo de enlace ValidationCode. Por ejemplo, si usa un servicio de terceros (como [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/)), puede que no sea capaz de responder con el código de validación mediante programación. Por lo tanto, a partir de la versión 2018-05-01-preview, EventGrid ahora admite un protocolo de enlace de validación manual. Si va a crear una suscripción de eventos mediante SDK o herramientas que usan esta nueva versión de API (2018-05-01-preview), EventGrid envía una propiedad `validationUrl` (además de la propiedad `validationCode`) como parte de los datos del evento de validación de suscripción. Para completar el protocolo de enlace, simplemente haga una solicitud GET en esa dirección URL, ya sea a través de un cliente de REST o mediante el explorador web. La dirección URL de validación proporcionada es válida solo durante unos 10 minutos. Durante ese tiempo, el estado de aprovisionamiento de la suscripción al eventos es `AwaitingManualAction`. Si no ha completado la validación manual en 10 minutos, el estado de aprovisionamiento se establece en `Failed`. Tendrá que volver a intentar la creación de la suscripción al evento antes de intentar realizar la validación manual de nuevo.
 
-Este mecanismo de validación manual se encuentra disponible en versión preliminar. Para usarla, debe instalar la [extensión de Event Grid](/cli/azure/azure-cli-extensions-list) para [AZ CLI 2.0](/cli/azure/install-azure-cli). Puede instalarla con `az extension add --name eventgrid`. Si usa la API de REST, asegúrese de utilizar `api-version=2018-05-01-preview`.
+Este mecanismo de validación manual se encuentra disponible en versión preliminar. Para usarla, debe instalar la [extensión de Event Grid](/cli/azure/azure-cli-extensions-list) para [CLI de Azure](/cli/azure/install-azure-cli). Puede instalarla con `az extension add --name eventgrid`. Si usa la API de REST, asegúrese de utilizar `api-version=2018-05-01-preview`.
 
 ### <a name="validation-details"></a>Detalles de la validación
 

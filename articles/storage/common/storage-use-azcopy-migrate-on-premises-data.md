@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: f5b678f9936a6d405c06ff085a802fcd76328ebe
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: bb3df82e66024b49e399ab2f7795a27932f7559e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525661"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953980"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Migración de datos locales al almacenamiento en la nube mediante AzCopy
 
@@ -37,7 +37,7 @@ En este tutorial, aprenderá a:
 
 Para completar este tutorial, descargue la versión más reciente de AzCopy en [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) o [Windows](http://aka.ms/downloadazcopy). 
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 >[!NOTE]
 >Si desea poder descargar blobs desde una región secundaria al almacenamiento local y viceversa, establezca **Replicación** en **Almacenamiento con redundancia geográfica con acceso de lectura**. Al seleccionar esta opción se crea una cuenta de [almacenamiento con redundancia geográfica](https://docs.microsoft.com/azure/storage/common/storage-redundancy#geo-redundant-storage). 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 5fd823e9105157f8292d5a9554850b0f4338a392
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: beacb39752b2af51aba4ddeb41c9bff68803df1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398859"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954779"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configuración de un nombre de dominio personalizado para una cuenta de Azure Storage
 
@@ -118,7 +118,7 @@ Para quitar la configuración de dominio personalizado en Azure Portal, haga lo 
 
 Cuando se haya quitado correctamente el dominio personalizado, verá una notificación del portal que indica que la cuenta de almacenamiento se actualizó correctamente.
 
-### <a name="azure-cli-20"></a>CLI de Azure 2.0
+### <a name="azure-cli"></a>Azure CLI
 
 Use el comando de CLI [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_update) y especifique una cadena vacía (`""`) para el valor del argumento `--custom-domain` para quitar un registro de dominio personalizado.
 
@@ -164,6 +164,5 @@ Use el cmdlet de PowerShell [Set-AzureRmStorageAccount](/powershell/module/azure
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Asignación de un dominio personalizado a un punto de conexión de Azure Content Delivery Network (CDN)](../../cdn/cdn-map-content-to-custom-domain.md)
-* 
-  [Uso de Azure CDN para obtener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md)
+* [Uso de Azure CDN para obtener acceso a blobs con dominios personalizados a través de HTTPS](storage-https-custom-domain-cdn.md)
 * [Hospedaje de sitios web estáticos en Azure Blob Storage (versión preliminar)](storage-blob-static-website.md)

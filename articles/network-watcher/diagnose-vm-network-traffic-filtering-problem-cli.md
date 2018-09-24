@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2f6011103c86895c455b284a0982636a0d31fbe7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4be1fac519ee0a7bcd61bd4cced4d829c275679d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180477"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990117"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Guía de inicio rápido: Diagnóstico de problemas al filtrar el tráfico de las máquinas virtuales con la CLI de Azure
 
@@ -32,7 +32,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI en un entorno local, para esta guía de inicio rápido es preciso que ejecute la versión 2.0.28 de la CLI de Azure o una versión posterior. Ejecute `az --version` para ver cuál es la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Después de verificar la versión de CLI, ejecute `az login` para crear una conexión con Azure. Los comandos de la CLI que aparecen en esta guía de inicio rápido tienen un formato que permite ejecutarlos en un shell de Bash.
+Si decide instalar y usar la CLI en un entorno local, para esta guía de inicio rápido es preciso que ejecute la versión 2.0.28 de la CLI de Azure o una versión posterior. Ejecute `az --version` para ver cuál es la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Después de verificar la versión de CLI, ejecute `az login` para crear una conexión con Azure. Los comandos de la CLI que aparecen en esta guía de inicio rápido tienen un formato que permite ejecutarlos en un shell de Bash.
 
 ## <a name="create-a-vm"></a>Crear una VM
 

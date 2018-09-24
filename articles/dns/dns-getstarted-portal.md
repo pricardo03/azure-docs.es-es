@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 421c4e0464eac22a7feba01e2e84660b02a32455
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 3ec2c44c168b47fd66d1ffa9a0c8d0069600ecb0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174656"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958108"
 ---
 # <a name="quickstart-configure-azure-dns-for-name-resolution-using-the-azure-portal"></a>Guía de inicio rápido: Configuración de Azure DNS para la resolución de nombres mediante Azure Portal
 
@@ -24,7 +24,7 @@ En este tutorial, va a crear un dominio de prueba y, a continuación, creará un
 Es importante saber que todos los nombres y direcciones IP usados en esta guía son solo ejemplos y no están diseñados para representar un escenario del mundo real. Sin embargo, si procede, también se describen escenarios del mundo real.
 
 <!---
-You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI 2.0](dns-getstarted-cli.md).
+You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI](dns-getstarted-cli.md).
 --->
 
 Una zona DNS se usa para contener las entradas DNS de un dominio concreto. Para iniciar el hospedaje de su dominio en DNS de Azure, debe crear una zona DNS para ese nombre de dominio. Cada entrada DNS (o registro) del dominio se crea luego en esta zona DNS. Se muestra cómo hacerlo en los pasos siguientes.
@@ -43,7 +43,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
    | **Configuración** | **Valor** | **Detalles** |
    |---|---|---|
-   |**Name**|contoso.xyz|El nombre de la zona DNS de este ejemplo. Puede usar cualquier valor que quiera para este inicio rápido, siempre que no esté ya configurado en los servidores de Azure DNS. Un valor del mundo real sería un dominio que haya comprado a un registrador de nombres de dominio.|
+   |**Nombre**|contoso.xyz|El nombre de la zona DNS de este ejemplo. Puede usar cualquier valor que quiera para este inicio rápido, siempre que no esté ya configurado en los servidores de Azure DNS. Un valor del mundo real sería un dominio que haya comprado a un registrador de nombres de dominio.|
    |**Suscripción**|[Su suscripción]|Seleccione la suscripción en la que se creará la zona DNS.|
    |**Grupos de recursos**|**Crear nuevo:** dns-test|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción seleccionada. |
    |**Ubicación**|Este de EE. UU||
@@ -62,7 +62,7 @@ Ahora cree un nuevo registro de dirección (registro "D"). Los registros "D" se 
 
    |**Configuración** | **Valor** | **Detalles** |
    |---|---|---|
-   |**Name**|www|Nombre del registro. Éste es el nombre que desea usar para el host que desea resolver en una dirección IP.|
+   |**Nombre**|www|Nombre del registro. Éste es el nombre que desea usar para el host que desea resolver en una dirección IP.|
    |**Tipo**|Una | Tipo de registro DNS que se va a crear. Los registros "D" son las más comunes, pero hay otros tipos de registros para los servidores de correo (MX), las direcciones IP v6 (AAAA), etc. |
    |**TTL**|1|Período de vida de la solicitud DNS. Especifica cuánto tiempo pueden los clientes y servidores DNS almacenar en caché una respuesta.|
    |**Unidad de TTL**|hours|Medición de tiempo para el valor de TTL.|

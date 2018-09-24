@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: 5c0726ea0da288d5306e28b101e4d3b59605b443
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c0b4e3e0a924c1353f7732737670dee7ed45a62a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894914"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953881"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Máquinas virtuales de prioridad baja en conjuntos de escalado (versión preliminar)
 
@@ -43,7 +43,7 @@ Si quiere que las máquinas virtuales del conjunto de escalado de prioridad baja
 
 Para implementar máquinas virtuales de prioridad baja en conjuntos de escalado, puede establecer la nueva marca *Prioridad* en *Baja*. Todas las máquinas virtuales del conjunto de escalado se establecerán en prioridad baja. Para crear un conjunto de escalado con máquinas virtuales de prioridad baja, use uno de los métodos siguientes:
 - [Azure Portal](#use-the-azure-portal)
-- [CLI de Azure 2.0](#use-the-azure-cli-20)
+- [CLI de Azure](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Plantillas del Administrador de recursos de Azure](#use-azure-resource-manager-templates)
 
@@ -51,7 +51,7 @@ Para implementar máquinas virtuales de prioridad baja en conjuntos de escalado,
 
 El proceso para crear un conjunto de escalado que use VM de prioridad baja es igual al que se detalla en el [artículo de introducción](quick-create-portal.md). Cuando va a implementar un conjunto de escalado, se puede establecer la marca de prioridad baja y la directiva de expulsión: ![Crear un conjunto de escalado con máquinas virtuales de prioridad baja](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
 
-## <a name="use-the-azure-cli-20"></a>Uso de la CLI de Azure 2.0
+## <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
 
 El proceso para crear un conjunto de escalado con máquinas virtuales de prioridad baja es igual al que se detalla en el [artículo de introducción](quick-create-cli.md). Basta con que agregue el parámetro "--Priority" a la llamada a la CLI y lo establezca en *Baja*, como se muestra en el ejemplo siguiente:
 

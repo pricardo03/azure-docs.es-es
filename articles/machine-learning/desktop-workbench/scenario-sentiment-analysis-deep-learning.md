@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 97e3a621e291935db2e0c70eb2b596e77c7bffb7
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: e2fbb0b7b0dede198be0e57ffcd2b58a7da7fce7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35641928"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947778"
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Análisis de sentimiento mediante aprendizaje profundo con Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 El análisis de sentimiento es una tarea bien conocida perteneciente al procesamiento de lenguaje natural. Dado un conjunto de textos, el objetivo es determinar el sentimiento que produce ese texto. El objetivo de esta solución es usar el aprendizaje profundo para predecir el sentimiento a partir de críticas de películas.
 
@@ -45,7 +50,7 @@ Para obtener valor del análisis de sentimiento, las empresas deben tener la cap
 
 * Una [cuenta de Azure](https://azure.microsoft.com/free/) (hay disponibles versiones gratuitas de prueba).
 
-* Una copia instalada de [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) siguiendo la [Guía de instalación de inicio rápido](../service/quickstart-installation.md) para instalar el programa y crear un área de trabajo.
+* Una copia instalada de [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) siguiendo la [Guía de instalación de inicio rápido](quickstart-installation.md) para instalar el programa y crear un área de trabajo.
 
 * Para la operacionalización, es mejor si dispone del motor de Docker instalado y en ejecución local. Si no es así, puede utilizar la opción de un clúster. Sin embargo, la ejecución de un servicio Azure Container Service (ACS) puede resultar costosa.
 

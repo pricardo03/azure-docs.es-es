@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: panosper
-ms.openlocfilehash: a74b69b84cc80809a25f18b580a18abb5721b8b1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: c51ef6b25b454d0b8bf450b791f5c0fa9c6dfdee
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380214"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999382"
 ---
 # <a name="enable-custom-pronunciation"></a>Habilitar la pronunciación personalizada
 La pronunciación personalizada permite que los usuarios definan los formatos fonético y mostrado de una palabra o término. Es útil para controlar términos personalizados, como nombres de producto o acrónimos. Basta con un archivo de pronunciación (un archivo .txt simple).

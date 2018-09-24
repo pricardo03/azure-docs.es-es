@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: d2f7769469c9f3ebdbef5fc6ee1f09b1acd573ef
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: c9ade4d61a1b95d5041a13f9436f0d02a7951758
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715836"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981692"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticación con Azure Container Registry desde Azure Kubernetes Service
 
@@ -21,7 +21,7 @@ Cuando se usa Azure Container Registry (ACR) con Azure Kubernetes Service (AKS),
 
 ## <a name="grant-aks-access-to-acr"></a>Concesión de acceso de AKS a ACR
 
-Cuando se crea un clúster de AKS, Azure también crea una entidad de servicio para posibilitar la operatividad de los clústeres con otros recursos de Azure. Puede utilizar esta entidad de servicio generada automáticamente para la autenticación con un registro de control de acceso. Para ello, deberá crear una instancia de [asignación de roles](../role-based-access-control/overview.md#role-assignment) de Azure AD que conceda a la entidad de servicio del clúster acceso al registro de contenedor.
+Cuando se crea un clúster de AKS, Azure también crea una entidad de servicio para posibilitar la operatividad de los clústeres con otros recursos de Azure. Puede utilizar esta entidad de servicio generada automáticamente para la autenticación con un registro de control de acceso. Para ello, deberá crear una instancia de [asignación de roles](../role-based-access-control/overview.md#role-assignments) de Azure AD que conceda a la entidad de servicio del clúster acceso al registro de contenedor.
 
 Use el siguiente script para conceder a la entidad de servicio generada con AKS acceso al registro de contenedor de Azure. Modifique las variables `AKS_*` y `ACR_*` para su entorno antes de ejecutar el script.
 

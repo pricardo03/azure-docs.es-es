@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5ffb1b5c9889e2325eab32306b61899b37d22488
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: e9de037f886db7a48411959ef62e1e6687e54beb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187475"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984303"
 ---
 # <a name="create-a-windows-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Creación de un dispositivo IoT Edge de Windows que actúa como una puerta de enlace transparente
 
@@ -206,6 +206,8 @@ El entorno de ejecución de Azure IoT Edge puede enrutar los mensajes enviados d
    ```
 
 Para más información sobre el enrutamiento de mensajes, consulte el [artículo de composición de los módulos][lnk-module-composition].
+
+[!INCLUDE [](../../includes/iot-edge-extended-offline-preview.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Descripción de los requisitos y las herramientas para desarrollar módulos de IoT Edge][lnk-module-dev].

@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 7081c9e4f6e6deee196255f04180a8f2cc792876
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 5ed6fa9f514bae3ea651edba6702714e2680091f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122502"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955952"
 ---
 # <a name="simple-enterprise-integration-architecture"></a>Arquitectura de integración empresarial sencilla
 
@@ -70,7 +70,7 @@ Logic Apps usa un modelo [sin servidor](../logic-apps/logic-apps-serverless-over
 
 ### <a name="logic-apps-for-asynchronous-api-calls"></a>Logic Apps para llamadas API asincrónicas
 
-Logic Apps funciona mejor en escenarios que no requieren una baja latencia. Por ejemplo, Logic Apps funciona mejor para las llamada API asincrónicas o de ejecución semiprolongada. Si se requiere una latencia baja (por ejemplo, una llamada que bloquea una interfaz de usuario), implemente esa API o esa operación mediante una tecnología distinta. Por ejemplo, use Azure Functions o una API Web que se implementa mediante el uso de Azure App Service. Use API Management para enfrentar la API a los consumidores de API.
+Logic Apps funciona mejor en escenarios que no requieren una baja latencia. Por ejemplo, Logic Apps funciona mejor para las llamada API asincrónicas o de ejecución semiprolongada. Si se requiere una latencia baja (por ejemplo, una llamada que bloquea una interfaz de usuario), implemente esa API o esa operación mediante una tecnología distinta. Por ejemplo, use Azure Functions o una API web que se implementa mediante el uso de Azure App Service. Use API Management para enfrentar la API a los consumidores de API.
 
 ### <a name="region"></a>Region
 
@@ -162,7 +162,7 @@ API Management administra los secretos con objetos denominados *valores con nomb
 
 ## <a name="diagnostics-and-monitoring"></a>Diagnóstico y supervisión
 
-Puede usar [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) para la supervisión operativa tanto en [API Management](../api-management/api-management-howto-use-azure-monitor.md) como en [Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md). Azure Monitor proporciona información según las métricas que se configuran para cada servicio y está habilitado de manera predeterminada.
+Puede usar [Azure Monitor](../azure-monitor/overview.md) para la supervisión operativa tanto en [API Management](../api-management/api-management-howto-use-azure-monitor.md) como en [Logic Apps](../logic-apps/logic-apps-monitor-your-logic-apps.md). Azure Monitor proporciona información según las métricas que se configuran para cada servicio y está habilitado de manera predeterminada.
 
 Cada servicio también tiene estas opciones:
 

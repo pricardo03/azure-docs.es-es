@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c33466af6e57264e02a7d5c298f7f1f9fbf4ed8
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7e6a897ed0606d8844f66e318b93449d7790e2be
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717308"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963444"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Introducción a los registros de escalado automático con conjuntos de escalado de máquinas virtuales de Azure
 Un conjunto de escalado de máquinas virtuales de Azure puede aumentar o reducir automáticamente el número de instancias de máquinas virtuales que ejecutan la aplicación. Este comportamiento automatizado y elástico reduce la sobrecarga de administración para supervisar y optimizar el rendimiento de la aplicación. Puede crear reglas que definan el rendimiento aceptable para una experiencia positiva del cliente. Al cumplirse esos umbrales definidos, las reglas de escalado automático actúan para ajustar la capacidad del conjunto de escalado. También puede programar eventos para aumentar o reducir automáticamente la capacidad del conjunto de escalado en determinados momentos. En este artículo se proporciona información general de las métricas de rendimiento que están disponibles y las acciones que puede realizar el escalado automático.
@@ -42,7 +42,7 @@ Las reglas de escalado automático que usan métricas basadas en el host se crea
 
 - [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](tutorial-autoscale-powershell.md)
-- [CLI de Azure 2.0](tutorial-autoscale-cli.md)
+- [CLI de Azure](tutorial-autoscale-cli.md)
 - [Plantilla de Azure](tutorial-autoscale-template.md)
 
 Para crear reglas de escalado automático que usen métricas de rendimiento más detalladas, puede [instalar y configurar la extensión de Azure Diagnostics](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) en instancias de máquinas virtuales o [configurar la aplicación para usar App Insights](#application-level-metrics-with-app-insights).
@@ -139,7 +139,7 @@ Los siguientes ejemplos son escenarios que pueden beneficiar el uso de reglas de
 Puede crear reglas de escalado automático que usen métricas basadas en host con una de las herramientas siguientes:
 
 - [Azure PowerShell](tutorial-autoscale-powershell.md)
-- [CLI de Azure 2.0](tutorial-autoscale-cli.md)
+- [CLI de Azure](tutorial-autoscale-cli.md)
 - [Plantilla de Azure](tutorial-autoscale-template.md)
 
 En esta introducción se detallaba cómo utilizar reglas de escalado automático para escalar horizontalmente y aumentar o reducir el *número* de instancias de máquinas virtuales del conjunto de escalado. También puede escalar verticalmente para aumentar o reducir el *tamaño* de la instancia de máquinas virtuales. Para más información, consulte [Escalado automático vertical con conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-vertical-scale-reprovision.md).
