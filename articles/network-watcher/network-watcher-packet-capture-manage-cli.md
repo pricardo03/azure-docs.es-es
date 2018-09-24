@@ -14,26 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 9b40a85cf3c4edd26f2fc15045f3d6862d4ac1ff
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 70ec0f1acc54aae7de5f815d62a876ce3d033193
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090493"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966928"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Administrar capturas de paquetes con Azure Network Watcher mediante la CLI de Azure
 
 > [!div class="op_single_selector"]
-> - [Portal de Azure](network-watcher-packet-capture-manage-portal.md)
+> - [Azure Portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [CLI de Azure](network-watcher-packet-capture-manage-cli.md)
 > - [API de REST de Azure](network-watcher-packet-capture-manage-rest.md)
 
 La captura de paquetes de Network Watcher permite crear sesiones de captura para realizar el seguimiento del tráfico hacia y desde una máquina virtual. La sesión de captura cuenta con filtros para asegurarse de capturar solo el tráfico que se desea. La captura de paquetes ayuda a diagnosticar anomalías de la red, tanto de forma activa como reactiva. Otros usos son la recopilación de estadísticas de red, la obtención de información sobre las intrusiones de red y la depuración de las comunicaciones cliente-servidor, entre otros. Esta funcionalidad permite desencadenar capturas de paquetes de forma remota, lo que reduce la carga de tener que ejecutar una captura de paquetes manualmente y en el equipo deseado, y permite ahorrar tiempo.
 
-En este artículo se usa la CLI de próxima generación para el modelo de implementación de administración de recursos, la CLI de Azure 2.0, que está disponible para Windows, Mac y Linux.
-
-Para seguir los pasos de este artículo, es preciso [instalar la interfaz de la línea de comandos de Azure para Mac, Linux y Windows (CLI de Azure)](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Para seguir los pasos de este artículo, es preciso [instalar la interfaz de la línea de comandos de Azure para Mac, Linux y Windows (CLI de Azure)](/cli/azure/install-azure-cli).
 
 Este artículo le guiará por las diferentes tareas de administración que están actualmente disponibles para la captura de paquetes.
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/24/2017
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: b1dd37c07f3c887005d87e3231f62a4bca2f4a3d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 893495a5c37495438d9620595719ca6e733df012
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093122"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958125"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -35,7 +35,7 @@ El muestreo reduce los costos de tráfico y datos y le ayuda a evitar la limitac
 * También puede establecer el muestreo manualmente, bien en el portal en la página Uso y costos estimados, bien en el SDK de ASP.NET en el archivo .config o en el SDK de Java en el archivo ApplicationInsights.xml, para reducir también el tráfico de red.
 * Si registra eventos personalizados y desea asegurarse de que un conjunto de eventos se retienen o se descartan juntos, asegúrese de que tengan el mismo valor para OperationId.
 * El divisor de muestreo *n* se notifica en cada registro de la propiedad `itemCount`, que en la búsqueda aparece bajo el nombre descriptivo "recuento de solicitudes" o "recuento de eventos". Cuando el muestreo no está en funcionamiento, `itemCount==1`.
-* Si escribe consultas de Analytics, debería [tener en cuenta el muestreo](app-insights-analytics-tour.md#counting-sampled-data). En concreto, en lugar de simplemente contar registros, debería usar `summarize sum(itemCount)`.
+* Si escribe consultas de Analytics, debería [tener en cuenta el muestreo](../log-analytics/query-language/aggregations.md). En concreto, en lugar de simplemente contar registros, debería usar `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Tipos de muestreo
 Existen tres métodos de muestreo alternativos:

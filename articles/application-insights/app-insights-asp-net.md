@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 73bb1e3d06066c422614bc9d6d3431b49be9c6de
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 86c0343a3492bf91eedda9303e3c6ac9cf86c4c3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992542"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947326"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configuración de Application Insights para un sitio web de ASP.NET
 
@@ -105,7 +105,7 @@ En el portal, haga clic en cualquier icono para ver su contenido con mayor detal
 ## <a name="step-4-publish-your-app"></a>Paso 4: Publique la aplicación
 Publique su aplicación en el servidor IIS o en Azure. Consulte [Secuencia de métricas en directo](app-insights-metrics-explorer.md#live-metrics-stream) para asegurarse de que todo está ejecutándose sin problemas.
 
-La telemetría se crea en el portal de Application Insights, donde puede supervisar las métricas, buscar en la telemetría y configurar los [paneles](app-insights-dashboards.md). También puede usar el eficaz [lenguaje de consulta de Log Analytics](https://docs.loganalytics.io/) para analizar el uso y el rendimiento o para buscar eventos concretos.
+La telemetría se crea en el portal de Application Insights, donde puede supervisar las métricas, buscar en la telemetría y configurar los [paneles](app-insights-dashboards.md). También puede usar el eficaz [lenguaje de consulta de Log Analytics](https://aka.ms/LogAnalyticsLanguage) para analizar el uso y el rendimiento o para buscar eventos concretos.
 
 También puede seguir analizando la telemetría en [Visual Studio](app-insights-visual-studio.md) con herramientas como búsqueda de diagnóstico y las [tendencias](app-insights-visual-studio-trends.md).
 

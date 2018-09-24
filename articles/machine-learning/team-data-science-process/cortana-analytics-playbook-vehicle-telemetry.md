@@ -4,6 +4,7 @@ description: Aproveche las posibilidades de Cortana Intelligence para obtener in
 services: machine-learning
 documentationcenter: ''
 author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 09fad60b-2f48-488b-8a7e-47d1f969ec6f
@@ -14,13 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: deguhath
-ms.openlocfilehash: fc8dfbbfc40db33f19d2b183546ed9c6df0159fa
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 02a12e917ed36367ffac1ac2e7a1fef1c6098ea7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836409"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985374"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>Cuaderno de estrategias de la solución Vehicle Telemetry Analytics
 Este menú está relacionado con los capítulos de este playbook: 
@@ -34,7 +34,7 @@ Cortana Intelligence es un conjunto de análisis avanzados y macrodatos totalmen
 
 La solución se implementa como [patrón de arquitectura lambda](https://en.wikipedia.org/wiki/Lambda_architecture) en el que se muestran todas las posibilidades de la plataforma Cortana Intelligence para procesar datos por lotes y en tiempo real.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Arquitectura
 La arquitectura de la solución Vehicle Telemetry Analytics se muestra en este diagrama:
 
 ![Diagrama de la arquitectura de la solución](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)

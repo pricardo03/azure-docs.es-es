@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: d04625fe78c423c995460afa29a81d96c6ce9cfb
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 24add63639f5fffe18e4b4468bfd78600a38c5f3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337980"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969298"
 ---
 # <a name="azure-resource-manager-overview"></a>Información general del Administrador de recursos de Azure
 La infraestructura de la aplicación está constituida normalmente por varios componentes: quizás una máquina virtual, una cuenta de almacenamiento y una red virtual, o una aplicación web, una base de datos, un servidor de bases de datos y servicios de terceros. Estos componentes no se ven como entidades independientes, sino como partes de una sola entidad relacionadas e interdependientes. Desea implementarlos, administrarlos y supervisarlos como grupo. Azure Resource Manager permite trabajar con los recursos de la solución como un grupo. Todos los recursos de la solución se pueden implementar, actualizar o eliminar en una sola operación coordinada. Para realizar la implementación se usa una plantilla, que puede funcionar en distintos entornos, como producción, pruebas y ensayo. Administrador de recursos proporciona funciones de seguridad, auditoría y etiquetado que le ayudan a administrar los recursos después de la implementación. 
@@ -183,7 +183,7 @@ Para recuperar todos los recursos con un valor de etiqueta, utilice el siguiente
 Find-AzureRmResource -TagName costCenter -TagValue Finance
 ```
 
-O bien, el siguiente comando de la CLI de Azure 2.0:
+O bien, el siguiente comando de la CLI de Azure:
 
 ```azurecli
 az resource list --tag costCenter=Finance

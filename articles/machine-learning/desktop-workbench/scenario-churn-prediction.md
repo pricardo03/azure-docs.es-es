@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: 7c7b50098cfd1bcac534156dd905b37affab80bd
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0210e65c0859b00caac0fe66baa1c73063f644c8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35639614"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947948"
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Predicción del abandono de clientes con Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 En promedio, mantener los clientes existentes es cinco veces más económico que el costo de incorporar nuevos. Como resultado, los ejecutivos de marketing a menudo intentar calcular la probabilidad de abandono de clientes y buscan las acciones necesarias para minimizar la tasa de abandono.
 
@@ -61,7 +66,7 @@ En esta solución, se usará un ejemplo concreto de creación de un modelo predi
 
 * Una [cuenta de Azure](https://azure.microsoft.com/free/) (hay disponibles versiones gratuitas de prueba)
 
-* Una copia instalada de [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) siguiendo la [Guía de instalación de inicio rápido](../service/quickstart-installation.md) para instalar el programa y crear un área de trabajo
+* Una copia instalada de [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) siguiendo la [Guía de instalación de inicio rápido](quickstart-installation.md) para instalar el programa y crear un área de trabajo
 
 * Para la operacionalización, es mejor si dispone del motor de Docker instalado y en ejecución local. De lo contrario, puede utilizar la opción de un clúster, pero tenga en cuenta que la ejecución en Azure Container Service (ACS) puede resultar costosa.
 

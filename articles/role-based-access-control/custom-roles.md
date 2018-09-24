@@ -15,12 +15,12 @@ ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 002eb9b70c2f3f9d0f6633b2d81425c688495d19
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: d3856a50be0c3f7bdfb947d55b09a3de2512698e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714060"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968140"
 ---
 # <a name="custom-roles-in-azure"></a>Roles personalizados en Azure
 
@@ -100,7 +100,7 @@ Un rol personalizado tiene las siguientes propiedades.
 | `NotActions` | Sin  | String[] | Matriz de cadenas que especifica las operaciones de administración que se excluyen de las `Actions` permitidas. Para obtener más información, consulte [notActions](role-definitions.md#notactions). |
 | `DataActions` | Sin  | String[] | Matriz de cadenas que especifica las operaciones de datos que el rol permite realizar en los datos dentro de ese objeto. Para obtener más información, consulte [dataActions (versión preliminar)](role-definitions.md#dataactions-preview). |
 | `NotDataActions` | Sin  | String[] | Matriz de cadenas que especifica las operaciones de datos que se excluyen de las `DataActions` permitidas. Para obtener más información, consulte [notDataActions (versión preliminar)](role-definitions.md#notdataactions-preview). |
-| `AssignableScopes` | SÍ | String[] | Matriz de cadenas que especifica los ámbitos en los que el rol personalizado está disponible para la asignación. Actualmente, no puede establecerse en el ámbito raíz (`"/"`) o un ámbito de grupo de administración. Para más información, consulte [AssignableScopes](role-definitions.md#assignablescopes) y [Organización de los recursos con grupos de administración de Azure](../azure-resource-manager/management-groups-overview.md#custom-rbac-role-definition-and-assignment). |
+| `AssignableScopes` | SÍ | String[] | Matriz de cadenas que especifica los ámbitos en los que el rol personalizado está disponible para la asignación. Actualmente, no puede establecerse en el ámbito raíz (`"/"`) o un ámbito de grupo de administración. Para más información, consulte [AssignableScopes](role-definitions.md#assignablescopes) y [Organización de los recursos con grupos de administración de Azure](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment). |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Quién puede crear, eliminar, actualizar o ver un rol personalizado
 

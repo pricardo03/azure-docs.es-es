@@ -16,14 +16,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: f6ce43c2d290bacee10e102cc6c382981db9917f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 775d0701f9eeaf7d26a83b814711bea630efb2a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144599"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973769"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Reconocimiento de entidades biomédicas mediante la plantilla del proceso de ciencia de los datos en equipos (TDSP)
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 La extracción de la entidad es una subtarea de extracción de información, también conocida como [reconocimiento de entidades con nombre (NER)](https://en.wikipedia.org/wiki/Named-entity_recognition), identificación de la entidad y fragmentación de entidad. El objetivo de este escenario real es explicar cómo se usa Azure Machine Learning Workbench para resolver una tarea complicada de procesamiento de lenguaje natural (NLP), como la extracción de entidades contenidas en texto no estructurado:
 
@@ -95,7 +100,7 @@ A continuación se muestra el vínculo al repositorio público de GitHub del esc
 ## <a name="prerequisites"></a>Requisitos previos 
 
 * Una suscripción de [Azure](https://azure.microsoft.com/free/).
-* Azure Machine Learning Workbench. Vea la [guía de instalación](../service/quickstart-installation.md). Actualmente, Azure Machine Learning Workbench solo se puede instalar en los siguientes sistemas operativos: 
+* Azure Machine Learning Workbench. Vea la [guía de instalación](quickstart-installation.md). Actualmente, Azure Machine Learning Workbench solo se puede instalar en los siguientes sistemas operativos: 
     * Windows 10 o Windows Server 2016
     * macOS Sierra (o una versión posterior)
 
@@ -118,7 +123,7 @@ Todas las dependencias necesarias están definidas en el archivo aml_config/cond
 
 ### <a name="basic-instructions-for-azure-machine-learning-aml-workbench"></a>Instrucciones básicas para Azure Machine Learning (AML) Workbench
 * [Información general](../service/overview-what-is-azure-ml.md)
-* [Instalación](../service/quickstart-installation.md)
+* [Instalación](quickstart-installation.md)
 * [Uso de TDSP](how-to-use-tdsp-in-azure-ml.md)
 * [Cómo leer y escribir archivos](how-to-read-write-files.md)
 * [Cómo usar Jupyter Notebook](how-to-use-jupyter-notebooks.md)

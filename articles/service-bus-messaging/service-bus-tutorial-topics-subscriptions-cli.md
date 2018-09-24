@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: b68b3f311312a952ab55c15083ff5ed562443be2
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 07ad8fc873a483b5d71d7ddd21f8f2a820bbfadc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702010"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982382"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: Actualización del inventario mediante la CLI y temas/suscripciones
 
@@ -44,7 +44,7 @@ Para desarrollar una aplicación de Service Bus con Java, debe tener instalado l
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="service-bus-topics-and-subscriptions"></a>Temas y suscripciones de Service Bus
 
@@ -345,5 +345,5 @@ Avance hasta el siguiente tutorial para aprender más acerca del uso de las func
 
 [cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
-[Install Azure CLI 2.0]: /cli/azure/install-azure-cli
+[Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

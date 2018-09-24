@@ -15,18 +15,18 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 79125beac6ab34b88c951a2fb9c601b93ae36e20
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9c2f094104172407992371b6738dd2fdf101a506
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642213"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985121"
 ---
 # <a name="create-a-secure-service-fabric-linux-cluster-in-azure"></a>Creación de un clúster seguro de Linux de Service Fabric en Azure
 
 Con este comando se crea un certificado autofirmado, se agrega a un almacén de claves y se descarga el certificado al sitio local.  El nuevo certificado se usa para proteger el clúster al implementarlo.  También puede utilizar un certificado existente en lugar de crear uno.  En cualquier caso, el nombre del firmante del certificado debe coincidir con el dominio de acceso al clúster de Service Fabric. Esta coincidencia es necesaria para proporcionar SSL a los puntos de conexión de administración HTTPS y de Service Fabric Explorer del clúster. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio `.cloudapp.azure.com`. Debe adquirir un nombre de dominio personalizado para el clúster. Cuando solicite un certificado de una CA, el nombre de sujeto del certificado debe coincidir con el nombre del dominio personalizado del clúster.
 
-Si es necesario, instale la [CLI de Azure 2.0](/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si es necesario, instale la [CLI de Azure](/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="sample-script"></a>Script de ejemplo
 

@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: aa25c0e636c36422cb6b576d0ca8ebc899b2a2dc
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: deddfe16e4ad3eeee099ce1d7b53b9f15cbf85d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163080"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956700"
 ---
 # <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>Creación de una aplicación de función que se conecta a una cuenta de Azure Storage
 
@@ -29,7 +29,7 @@ Este script de ejemplo de Azure Functions crea una aplicación de función y con
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si usa la CLI localmente, asegúrese de que ejecuta la versión 2.0 de la CLI de Azure o posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). 
+Si usa la CLI localmente, asegúrese de que ejecuta la versión 2.0 de la CLI de Azure o posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de ejemplo
 

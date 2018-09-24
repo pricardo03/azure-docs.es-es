@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: victorh
-ms.openlocfilehash: e620730b86d648c1ac9db7a9e6faa7a2d206b46e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 782e5c4b33cc62ab5af80e823dc63b3e79a707b3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33205387"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980532"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica
 
@@ -27,7 +27,7 @@ ms.locfileid: "33205387"
 > * [Azure Portal](application-gateway-ssl-portal.md)
 > * [PowerShell del Administrador de recursos de Azure](application-gateway-ssl-arm.md)
 > * [PowerShell clásico de Azure](application-gateway-ssl.md)
-> * [CLI de Azure 2.0](application-gateway-ssl-cli.md)
+> * [CLI de Azure](application-gateway-ssl-cli.md)
 
 Azure Application Gateway puede configurarse para terminar la sesión Capa de sockets seguros (SSL) en la puerta de enlace para evitar las costosas tareas de descifrado SSL que tienen lugar en la granja de servidores web. La descarga SSL también simplifica la configuración del servidor front-end y la administración de la aplicación web.
 

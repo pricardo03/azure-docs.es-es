@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: d28065d7962ee660cafd4b3321abdd6a8f94abcb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 55583952df3b83331f1f622a4fce269713ecf2a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380299"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966527"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>Uso de un punto de conexión personalizado de voz a texto
 Puede enviar solicitudes a un punto de conexión de voz a texto de Azure Custom Speech Service de forma similar a la que se envían al punto de conexión de voz predeterminado de Cognitive Services. Estos puntos de conexión son funcionalmente idénticos a los puntos de conexión predeterminados de Speech API. Por lo tanto, la misma funcionalidad disponible a través de la biblioteca cliente o la API REST para Speech API también está disponible para el punto de conexión personalizado.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: anzaman,cherylmc
-ms.openlocfilehash: 5e8d1739aa3d7f5be6c6450edcad43bc83db71fb
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8e896b70d0da143151d57b45e62a5c14d4d4e3b0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29875409"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969610"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Conexión de una red virtual a un circuito ExpressRoute mediante la CLI
 
@@ -36,7 +36,7 @@ Este artículo lo ayudará a vincular redes virtuales a circuitos ExpressRoute d
 
 ## <a name="configuration-prerequisites"></a>Requisitos previos de configuración
 
-* Necesitará la versión más reciente de la interfaz de la línea de comandos (CLI). Para más información, consulte [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Necesitará la versión más reciente de la interfaz de la línea de comandos (CLI). Para más información, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 * Debe revisar los [requisitos previos](expressroute-prerequisites.md), los [requisitos de enrutamiento](expressroute-routing.md) y los [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
 
@@ -48,7 +48,7 @@ Este artículo lo ayudará a vincular redes virtuales a circuitos ExpressRoute d
 
 * Es posible vincular hasta 10 redes virtuales a un circuito ExpressRoute estándar. Todas las redes virtuales deben pertenecer a la misma región geopolítica al utilizar un circuito de ExpressRoute estándar. 
 
-* Una red virtual solo se puede vincular a cuatro circuitos ExpressRoute como máximo. Use el proceso siguiente para crear un objeto de conexión para cada circuito de ExpressRoute al que quiere conectarse. Los circuitos ExpressRoute pueden estar en la misma suscripción, en suscripciones diferentes o en una combinación de ambas.
+* Una red virtual solo se puede vincular a cuatro circuitos ExpressRoute como máximo. Use el procedimiento siguiente para crear un nuevo objeto de conexión para cada circuito ExpressRoute al que quiere conectarse. Los circuitos ExpressRoute pueden estar en la misma suscripción, en suscripciones diferentes o en una combinación de ambas.
 
 * Si habilita el complemento premium de ExpressRoute, puede vincular una red virtual fuera de la región geopolítica del circuito ExpressRoute, o bien conectar un mayor número de redes virtuales a este. Para más información acerca del complemento premium, consulte las [preguntas más frecuentes](expressroute-faqs.md).
 
