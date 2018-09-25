@@ -13,14 +13,17 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: c47d9bc72ad1d197b5030076456f9dc9efc422bc
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 26674648217e01b66fbe722cd013d51d867e9ba9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35638834"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984400"
 ---
 # <a name="use-data-transforms-for-data-preparation-in-azure-machine-learning"></a>Uso de transformaciones de datos para la preparación de datos en Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 En Azure Machine Learning, una *transformación* consume datos con un formato dado, realiza una operación en los datos (por ejemplo, cambiar el tipo de datos) y, luego, genera datos con el nuevo formato. Cada transformación tiene su propia interfaz y su propio comportamiento. Al encadenar varias transformaciones entre sí a través de los pasos del flujo de datos, puede realizar transformaciones complejas y repetibles de los datos. Este es el núcleo de la funcionalidad de preparación de datos.
 

@@ -8,18 +8,14 @@ ms.service: firewall
 ms.topic: article
 ms.date: 7/11/2018
 ms.author: victorh
-ms.openlocfilehash: 1a732e22d72c36afe11030e42bae529baa35df1a
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d32e6e29c287d140c28206743e36dc025b26158b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992604"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991341"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Implementación de Azure Firewall mediante una plantilla
-
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-En los ejemplos de los artículos de Azure Firewall se supone que ya tiene habilitada la versión preliminar pública de Azure Firewall. Para más información, consulte [Enable the Azure Firewall public preview](public-preview.md) (Habilitar la versión preliminar pública de Azure Firewall).
 
 Esta plantilla crea un firewall y un entorno de red de prueba. La red tiene una red virtual, con tres subredes: *AzureFirewallSubnet*, *ServersSubnet* y *JumpboxSubnet*. Las subredes ServersSubnet y JumpboxSubnet tienen un servidor de Windows Server de dos núcleos en ellas.
 

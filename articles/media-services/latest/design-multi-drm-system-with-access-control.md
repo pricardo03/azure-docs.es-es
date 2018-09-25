@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/05/2018
 ms.author: willzhan;juliako
-ms.openlocfilehash: 3a33c4b157ded3162919494d27488285e52fdd3b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 724d9779293a520cf843013d096f8a99f6b06c0f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530444"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952141"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Diseño del sistema de protección de contenido con DRM múltiple con control de acceso 
 
@@ -303,9 +303,9 @@ Los servicios de entrega de licencias de DRM siempre estarán buscando la clave 
 Dado que una clave se puede sustituir en cualquier momento, siempre hay más de una clave pública válida disponible en el documento de metadatos de federación. La entrega de licencias de Media Services puede utilizar cualquiera de las claves especificadas en el documento. Como una clave se puede sustituir pronto, otra podría ser su sustituta, y así sucesivamente.
 
 ### <a name="where-is-the-access-token"></a>¿Dónde está el token de acceso?
-Si observa cómo una aplicación web llama a una aplicación de API en la sección [Identidad de aplicación con concesión de credenciales de cliente OAuth 2.0 ](../../active-directory/develop/authentication-scenarios.md#web-application-to-web-api), el flujo de autenticación tiene lugar como se indica a continuación:
+Si observa cómo una aplicación web llama a una aplicación de API en la sección [Identidad de aplicación con concesión de credenciales de cliente OAuth 2.0 ](../../active-directory/develop/web-api.md), el flujo de autenticación tiene lugar como se indica a continuación:
 
-* Un usuario inicia sesión en Azure AD en la aplicación web. Para más información, consulte la sección [Aplicación web a API web](../../active-directory/develop/authentication-scenarios.md#web-browser-to-web-application).
+* Un usuario inicia sesión en Azure AD en la aplicación web. Para más información, consulte la sección [Aplicación web a API web](../../active-directory/develop/web-app.md).
 * El punto de conexión de autorización de Azure AD redirige al agente de usuario a la aplicación cliente con un código de autorización. El agente de usuario devuelve el código de autorización al URI de redireccionamiento de la aplicación cliente.
 * La aplicación web necesita adquirir un token de acceso para poder autenticarse ante la API web y recuperar el recurso deseado. Realiza una solicitud al punto de conexión de token de Azure AD y proporciona las credenciales, el identificador del cliente y el URI del identificador de aplicación de la API web. Presenta el código de autorización para demostrar que el usuario ha dado su consentimiento.
 * Azure AD autentica la aplicación y devuelve un token de acceso de JWT que se usa para llamar a la API web.

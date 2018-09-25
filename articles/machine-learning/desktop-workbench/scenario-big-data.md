@@ -16,14 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 7a13cafd3dcfb4637a5deae2c678c518019ad168
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8f3bd4e62aa85c69a0bfafeacf13bc3e472136d5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450675"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964708"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsión de carga de trabajo del servidor en terabytes de datos
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 En este artículo se explica de qué forma los científicos de datos pueden usar Azure Machine Learning Workbench para desarrollar soluciones que requieren el uso de macrodatos. Puede empezar a partir de una muestra de un conjunto de datos grande, repetir mediante la preparación de datos, la ingeniería de características y el aprendizaje automático, y luego extender el proceso a todo el conjunto de datos grande. 
 
@@ -49,11 +52,11 @@ En este escenario, se centra en la predicción de carga de trabajo para cada má
 Los requisitos previos para ejecutar este ejemplo son los siguientes:
 
 * Una [cuenta de Azure](https://azure.microsoft.com/free/) (hay disponibles versiones gratuitas de prueba).
-* Una copia instalada de [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Para instalar el programa y crear un área de trabajo, consulte la [Guía de instalación rápida](../service/quickstart-installation.md). Si tiene varias suscripciones, puede [establecer la suscripción deseada para que sea la suscripción activa actual](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
+* Una copia instalada de [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Para instalar el programa y crear un área de trabajo, consulte la [Guía de instalación rápida](quickstart-installation.md). Si tiene varias suscripciones, puede [establecer la suscripción deseada para que sea la suscripción activa actual](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (las instrucciones que aparecen en este ejemplo suelen ser las mismas para los sistemas macOS).
 * Una instancia de Data Science Virtual Machine (DSVM) para Linux (Ubuntu), preferiblemente en la región Este de EE. UU. donde se ubican los datos. Puede aprovisionar una DSVM Ubuntu siguiendo [estas instrucciones](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). También puede ver [este tutorial de inicio rápido](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Se recomienda usar una máquina virtual con al menos 8 núcleos y 32 GB de memoria. 
 
-Siga la [instrucción](../service/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) para habilitar el acceso de sudoer sin contraseña en la máquina virtual para AML Workbench.  Puede elegir utilizar la [autenticación basada en claves SSH para crear y utilizar la máquina virtual en AML Workbench](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). En este ejemplo, vamos a utilizar la contraseña para acceder a la máquina virtual.  Guarde la tabla siguiente con información de la DSVM para pasos posteriores:
+Siga la [instrucción](../desktop-workbench/known-issues-and-troubleshooting-guide.md#remove-vm-execution-error-no-tty-present) para habilitar el acceso de sudoer sin contraseña en la máquina virtual para AML Workbench.  Puede elegir utilizar la [autenticación basada en claves SSH para crear y utilizar la máquina virtual en AML Workbench](experimentation-service-configuration.md#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). En este ejemplo, vamos a utilizar la contraseña para acceder a la máquina virtual.  Guarde la tabla siguiente con información de la DSVM para pasos posteriores:
 
  Nombre del campo| Valor |  
  |------------|------|

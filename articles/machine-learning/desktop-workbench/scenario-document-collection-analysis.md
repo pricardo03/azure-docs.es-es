@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 29f493449d48df26919a98452fa7f832d653d45e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ROBOTS: NOINDEX
+ms.openlocfilehash: 762955103aeb48eb8a9b62f4e3ffe193bba71a38
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861489"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947224"
 ---
 # <a name="document-collection-analysis"></a>Análisis de una colección de documentos
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Este escenario muestra cómo resumir y analizar una extensa colección de documentos, incluidas técnicas como el aprendizaje de frase, el modelado de tema y el análisis de modelo de tema con Azure ML Workbench. Azure Machine Learning Workbench proporciona un escalado vertical para una colección de documentos muy extensa y proporciona mecanismos para entrenar y ajustar modelos en una variedad de contextos de proceso, que abarcan desde el proceso local hasta instancias de Data Science Virtual Machines o un clúster de Spark. Se proporciona un desarrollo sencillo con Jupyter Notebook de Azure Machine Learning Workbench.
 
@@ -56,11 +61,11 @@ Las técnicas de aprendizaje automático y los algoritmos usados en este escenar
 
 1. Detección de tendencias de tema y anomalías
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Los requisitos previos para ejecutar este ejemplo son los siguientes:
 
-* Asegúrese de que ha instalado correctamente [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) siguiendo la [Guía de instalación de inicio rápido](../service/quickstart-installation.md).
+* Asegúrese de que ha instalado correctamente [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) siguiendo la [Guía de instalación de inicio rápido](quickstart-installation.md).
 
 * Este ejemplo se podría ejecutar en cualquier contexto de proceso. Sin embargo, se recomienda que se ejecute en una máquina de varios núcleos con al menos 16 GB de memoria y 5 GB de espacio en disco.
 
@@ -85,17 +90,17 @@ En este escenario, los datos sin procesar recopilados son una serie de acciones 
 
 Hay nueve campos de datos en el archivo de datos. Los nombres y descripciones de los campos de datos se enumeran a continuación.
 
-| Nombre del campo | type | DESCRIPCIÓN | Faltan valores en el contenido |
+| Nombre del campo | Escriba | DESCRIPCIÓN | Faltan valores en el contenido |
 |------------|------|-------------|---------------|
 | `ID` | string | El identificador de la propuesta o resolución. El formato de este campo es [tipo_de_propuesta][número]-[congreso]. Por ejemplo, "hconres1-93" significa que el tipo de propuesta es "hconres" (abreviatura de House Concurrent Resolution, puede consultar [este documento](https://github.com/unitedstates/congress/wiki/bills#basic-information)), el número de propuesta es '1' y el número de congreso es ' 93'. | Sin  |
 | `Text` | string | El contenido de la propuesta o resolución. | Sin  |
 | `Date` | string | La fecha de la propuesta o resolución propuesta inicialmente. En un formato de "aaaa-mm-dd". | Sin  |
-| `SponsorName` | string | El nombre del patrocinador principal que presenta la propuesta o resolución. | Sí |
-| `Type` | string | El tipo de título del patrocinador principal, puede ser 'rep' (representante) o 'sen' (senador). | Sí |
-| `State` | string | El Estado del patrocinador principal. | Sí |
-| `District` | Entero | El número de distrito del patrocinador principal si el título del patrocinador es representante. | Sí |
-| `Party` | string | El partido del patrocinador principal. | Sí |
-| `Subjects` | string | Los términos del asunto agregados de manera acumulativa por la biblioteca del Congreso a la propuesta. Los términos se concatenan con comas. Estos términos han sido escritos por una persona de la biblioteca del Congreso y normalmente no están presentes cuando se publica la información de la propuesta por primera vez. Se pueden agregar en cualquier momento. Por lo tanto, al final del ciclo de vida de una propuesta, algunos asuntos pueden no resultar relevantes. | Sí |
+| `SponsorName` | string | El nombre del patrocinador principal que presenta la propuesta o resolución. | SÍ |
+| `Type` | string | El tipo de título del patrocinador principal, puede ser 'rep' (representante) o 'sen' (senador). | SÍ |
+| `State` | string | El Estado del patrocinador principal. | SÍ |
+| `District` | Entero | El número de distrito del patrocinador principal si el título del patrocinador es representante. | SÍ |
+| `Party` | string | El partido del patrocinador principal. | SÍ |
+| `Subjects` | string | Los términos del asunto agregados de manera acumulativa por la biblioteca del Congreso a la propuesta. Los términos se concatenan con comas. Estos términos han sido escritos por una persona de la biblioteca del Congreso y normalmente no están presentes cuando se publica la información de la propuesta por primera vez. Se pueden agregar en cualquier momento. Por lo tanto, al final del ciclo de vida de una propuesta, algunos asuntos pueden no resultar relevantes. | SÍ |
 
 ## <a name="scenario-structure"></a>Estructura del escenario
 
@@ -103,7 +108,7 @@ El ejemplo de análisis de una colección de documentos se divide en dos tipos d
 
 Los archivos de este ejemplo se organizan del siguiente modo.
 
-| Nombre de archivo | type | DESCRIPCIÓN |
+| Nombre de archivo | Escriba | DESCRIPCIÓN |
 |-----------|------|-------------|
 | `aml_config` | Carpeta | Carpeta de configuración de Azure Machine Learning Workbench, consulte [esta documentación](./experimentation-service-configuration-reference.md) para la configuración de la ejecución del experimento detallada |
 | `Code` | Carpeta | La carpeta de código usada para guardar el paquete de Python y los scripts de Python |

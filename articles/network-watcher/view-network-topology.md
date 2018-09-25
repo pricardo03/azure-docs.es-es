@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 1725a3d6a4eb82ca57078f648efa14866d2fe390
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e5e9901d6265b48a7b57cdf2c146ebb623ad5c3d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "35777326"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992209"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visualización de la topología de una red virtual de Azure
 
@@ -52,7 +52,7 @@ Los recursos mostrados en el diagrama son un subconjunto de los componentes de r
 
 Puede ejecutar los comandos en los pasos siguientes:
 - En Azure Cloud Shell, mediante la selección **Pruébelo** en la parte superior derecha de cualquier comando. Azure Cloud Shell es un shell interactivo gratis que tiene herramientas comunes de Azure preinstaladas y configuradas para usar con la cuenta.
-- Mediante la ejecución de la CLI desde el equipo. Si ejecuta la CLI desde su equipo, los pasos de este artículo requieren la versión 2.0.31 o posterior de la CLI de Azure. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si ejecuta de forma local la CLI de Azure, también debe ejecutar `az login` para crear una conexión con Azure.
+- Mediante la ejecución de la CLI desde el equipo. Si ejecuta la CLI desde su equipo, los pasos de este artículo requieren la versión 2.0.31 o posterior de la CLI de Azure. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Si ejecuta de forma local la CLI de Azure, también debe ejecutar `az login` para crear una conexión con Azure.
 
 La cuenta que utilice debe tener los [permisos](required-rbac-permissions.md) necesarios.
 

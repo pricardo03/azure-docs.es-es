@@ -12,14 +12,17 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 5c1a884ebe6216c4e8099f2ada2182ccff68b63e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 435ef29192682f1bf19a9a53923dd043676256ab
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450335"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954949"
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Recopilar datos del modelo mediante la recopilación de datos
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 Puede usar la función de recopilación de datos del modelo en Azure Machine Learning para archivar predicciones y entradas del modelo desde un servicio web.
 
@@ -105,7 +108,7 @@ Para ver los datos recopilados en el almacenamiento de blobs:
 Los datos pueden consumirse desde los blobs de Azure de diferentes maneras y tanto con software de Microsoft como con herramientas de código abierto. Estos son algunos ejemplos:
 - Azure Machine Learning Workbench: abra el archivo .csv en Azure Machine Learning Workbench mediante la adición del archivo .csv como origen de datos.
 - Excel: abra los archivos .csv diariamente como una hoja de cálculo.
-- [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/): cree gráficos con datos extraídos de los datos .csv en blobs.
+- [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/): cree gráficos con datos extraídos de los datos .csv en blobs.
 - [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): cree una trama de datos con una gran parte de datos .csv.
     ```python
     var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")

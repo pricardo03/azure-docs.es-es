@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 5a321ef7dca86993a913a283fe7b9b076c127d94
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 885deca5efbd72b3d641c8c94837851340d752b9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171262"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957836"
 ---
 # <a name="monitor-batch-solutions"></a>Supervisión de soluciones de Batch
 
@@ -34,7 +34,7 @@ Una manera de recuperar eventos del registro de actividad es usar Azure Portal. 
 
 ## <a name="batch-account-level-monitoring"></a>Supervisión a nivel de la cuenta de Batch
 
-Supervise las cuentas de Batch con características de [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor recopila [métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md) y, opcionalmente, [registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) para los recursos del nivel de cuenta de Batch, como grupos, trabajos y tareas. Recopile y consuma estos datos manualmente o mediante programación para supervisar las actividades de la cuenta de Batch y para diagnosticar problemas. Para detalles, consulte [Métricas, alertas y registros de Batch para la evaluación diagnóstica y la supervisión](batch-diagnostics.md).
+Supervise las cuentas de Batch con características de [Azure Monitor](../azure-monitor/overview.md). Azure Monitor recopila [métricas](../monitoring/monitoring-data-collection.md#metrics) y, opcionalmente, [registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) para los recursos del nivel de cuenta de Batch, como grupos, trabajos y tareas. Recopile y consuma estos datos manualmente o mediante programación para supervisar las actividades de la cuenta de Batch y para diagnosticar problemas. Para detalles, consulte [Métricas, alertas y registros de Batch para la evaluación diagnóstica y la supervisión](batch-diagnostics.md).
  
 > [!NOTE]
 > Las métricas están disponibles de manera predeterminada en la cuenta de Batch sin configuración adicional y su historial se acumula durante 30 días. Debe habilitar el registro de diagnóstico para una cuenta de Batch; puede incurrir en costos adicionales por almacenar o procesar datos del registro de diagnóstico. 

@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ms.openlocfilehash: d2225dec818c600febfad2f9ebc42594f6ac09ac
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0ddd6274051fed5de86a88270a0dcc2e8288d885
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380071"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974534"
 ---
 # <a name="custom-speech-service-meters-and-quotas"></a>Medidores y cuotas de Custom Speech Service
 
@@ -48,7 +49,7 @@ Puede optar por desactivar las trazas de audio para un modelo recién implementa
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre cómo usar Custom Speech Service, vaya al [portal de Custom Speech Service](https://cris.ai).
 
-* [Introducción](cognitive-services-custom-speech-get-started.md)
+* [Primeros pasos](cognitive-services-custom-speech-get-started.md)
 * [P+F](cognitive-services-custom-speech-faq.md)
 * [Glosario](cognitive-services-custom-speech-glossary.md)
  

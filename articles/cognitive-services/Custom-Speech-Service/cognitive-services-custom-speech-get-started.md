@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: fe7a140f5ba2d712014f03663a88d516958d188e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: bf674261a58aab4fee37920d12ce6a2ac54b58b8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380254"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975790"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Introducción a Custom Speech Service
 
@@ -23,7 +24,7 @@ Explore las características principales de Custom Speech Service y obtenga info
 ## <a name="samples"></a>Ejemplos  
 Se proporciona un ejemplo para comenzar, que encontrará [aquí](https://github.com/Microsoft/Cognitive-Custom-Speech-Service).
 
-## <a name="prerequisites"></a>requisitos previos  
+## <a name="prerequisites"></a>Requisitos previos  
 
 ### <a name="subscribe-to-custom-speech-service-and-get-a-subscription-key"></a>Suscribirse a Custom Speech Service y obtener una clave de suscripción
 Antes de divertirse con el ejemplo anterior, debe suscribirse a Custom Speech Service y obtener una clave, consulte [Suscripciones](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) o siga las explicaciones que encontrará [aquí](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-subscribe.md). En este tutorial, puede usarse tanto la clave principal como la secundaria. Asegúrese de seguir los procedimientos recomendados para mantener en secreto y protegida la clave de API.

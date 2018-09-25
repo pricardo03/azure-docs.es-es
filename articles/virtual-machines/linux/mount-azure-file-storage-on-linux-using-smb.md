@@ -14,15 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 2019324030b2e4c469d0b9ba937fb40a9d0675f1
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7cd7f0f37f0d351d1d50d4c15e7132f072b5125d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099718"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982212"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montaje de Azure File Storage en máquinas virtuales Linux con SMB
-
 
 En este artículo se muestra cómo usar el servicio Azure File Storage en una VM Linux mediante un montaje de SMB con la CLI de Azure. El almacenamiento de archivos de Azure ofrece recursos compartidos de archivos en la nube mediante el protocolo SMB estándar. 
 
@@ -30,7 +29,7 @@ El almacenamiento de archivos ofrece recursos compartidos de archivos en la nube
 
 El movimiento de archivos de una VM a un montaje de SMB que se hospeda en File Storage es una excelente manera de depurar registros. El mismo recurso compartido de SMB se puede montar localmente en la estación de trabajo de Windows, Linux o Mac. SMB no es la mejor solución para transmitir registros de aplicación o Linux en tiempo real porque el protocolo SMB no está creado para controlar tareas de registro tan pesadas. Una herramienta de nivel de registro unificado dedicada como Fluentd sería una opción mejor que SMB para recopilar la salida de registro de la aplicación y Linux.
 
-Para esta guía es necesario que ejecute la versión 2.0.4 o superior de la CLI de Azure. Para saber qué versión tiene, ejecute el comando **az --version**. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). 
+Para esta guía es necesario que ejecute la versión 2.0.4 o superior de la CLI de Azure. Para saber qué versión tiene, ejecute el comando **az --version**. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos

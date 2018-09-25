@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2acdc2cc7397e169a32a0257c0fc6020338c944f
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 6ac697fa12b56840e5dc361500f81e2b7e2ce11a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604491"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950257"
 ---
 # <a name="working-with-strings-in-log-analytics-queries"></a>Trabajar con cadenas en las consultas de Log Analytics
 
@@ -38,13 +38,13 @@ Cada carácter de una cadena contiene un número de índice, según su ubicació
 ## <a name="strings-and-escaping-them"></a>Cadenas y caracteres de escape
 Los valores de cadena se encapsulan con los caracteres de comillas simples o dobles. La barra diagonal inversa (\) se usa como carácter de escape para el carácter que le sigue, por ejemplo, \t para tabulación, \n para nueva línea y \" para el propio carácter de comillas.
 
-```KQL
+```Kusto
 print "this is a 'string' literal in double \" quotes"
 ```
 
 Para evitar que "\\" actúe como carácter de escape, agregue \"\@\" como prefijo a la cadena:
 
-```KQL
+```Kusto
 print @"C:\backslash\not\escaped\with @ prefix"
 ```
 
@@ -108,7 +108,7 @@ El número de veces que la cadena de búsqueda puede coincidir en el contenedor.
 
 #### <a name="plain-string-matches"></a>Coincidencias de cadena sin formato
 
-```KQL
+```Kusto
 print countof("The cat sat on the mat", "at");  //result: 3
 print countof("aaa", "a");  //result: 3
 print countof("aaaa", "aa");  //result: 3 (not 2!)
@@ -118,7 +118,7 @@ print countof("ababa", "aba");  //result: 2
 
 #### <a name="regex-matches"></a>Coincidencias de expresiones regulares
 
-```KQL
+```Kusto
 print countof("The cat sat on the mat", @"\b.at\b", "regex");  //result: 3
 print countof("ababa", "aba", "regex");  //result: 1
 print countof("abcabc", "a.c", "regex");  // result: 2
@@ -131,7 +131,7 @@ Obtiene una coincidencia para una expresión regular a partir de una cadena dete
 
 ### <a name="syntax"></a>Sintaxis
 
-```KQL
+```Kusto
 extract(regex, captureGroup, text [, typeLiteral])
 ```
 
@@ -149,7 +149,7 @@ Si no hay ninguna coincidencia, o se produce un error en la conversión del tipo
 ### <a name="examples"></a>Ejemplos
 
 En el ejemplo siguiente se extrae el último octeto de *ComputerIP* de un registro de latido:
-```KQL
+```Kusto
 Heartbeat
 | where ComputerIP != "" 
 | take 1
@@ -157,7 +157,7 @@ Heartbeat
 ```
 
 En el ejemplo siguiente se extrae el último octeto, se convierte a un tipo *real* (número) y se calcula el siguiente valor de IP
-```KQL
+```Kusto
 Heartbeat
 | where ComputerIP != "" 
 | take 1
@@ -167,7 +167,7 @@ Heartbeat
 ```
 
 En el ejemplo siguiente, se busca la cadena *Trace* para una definición de "Duration". La coincidencia se convierte en *real* y se multiplica por una constante de tiempo (1 s) *que convierte la duración al tipo timespan*.
-```KQL
+```Kusto
 let Trace="A=12, B=34, Duration=567, ...";
 print Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real));  //result: 567
 print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s);  //result: 00:09:27
@@ -181,14 +181,14 @@ print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) 
 
 ### <a name="syntax"></a>Sintaxis
 
-```
+```Kusto
 isempty(value)
 isnotempty(value)
 ```
 
 ### <a name="examples"></a>Ejemplos
 
-```KQL
+```Kusto
 print isempty("");  // result: true
 
 print isempty("0");  // result: false
@@ -213,7 +213,7 @@ parseurl(urlstring)
 
 ### <a name="examples"></a>Ejemplos
 
-```KQL
+```Kusto
 print parseurl("http://user:pass@contoso.com/icecream/buy.aspx?a=1&b=2#tag")
 ```
 
@@ -253,7 +253,7 @@ El texto después de reemplazar todas las coincidencias de la expresión regular
 
 ### <a name="examples"></a>Ejemplos
 
-```KQL
+```Kusto
 SecurityEvent
 | take 1
 | project Activity 
@@ -284,7 +284,7 @@ split(source, delimiter [, requestedIndex])
 
 ### <a name="examples"></a>Ejemplos
 
-```KQL
+```Kusto
 print split("aaa_bbb_ccc", "_");    // result: ["aaa","bbb","ccc"]
 print split("aa_bb", "_");          // result: ["aa","bb"]
 print split("aaa_bbb_ccc", "_", 1); // result: ["bbb"]
@@ -303,7 +303,7 @@ strcat("string1", "string2", "string3")
 ```
 
 ### <a name="examples"></a>Ejemplos
-```KQL
+```Kusto
 print strcat("hello", " ", "world") // result: "hello world"
 ```
 
@@ -318,7 +318,7 @@ strlen("text_to_evaluate")
 ```
 
 ### <a name="examples"></a>Ejemplos
-```KQL
+```Kusto
 print strlen("hello")   // result: 5
 ```
 
@@ -339,7 +339,7 @@ substring(source, startingIndex [, length])
 - `length`: un parámetro opcional que puede usarse para especificar la longitud solicitada de la subcadena devuelta.
 
 ### <a name="examples"></a>Ejemplos
-```KQL
+```Kusto
 print substring("abcdefg", 1, 2);   // result: "bc"
 print substring("123456", 1);       // result: "23456"
 print substring("123456", 2, 2);    // result: "34"
@@ -358,7 +358,7 @@ toupper("value")
 ```
 
 ### <a name="examples"></a>Ejemplos
-```KQL
+```Kusto
 print tolower("HELLO"); // result: "hello"
 print toupper("hello"); // result: "HELLO"
 ```

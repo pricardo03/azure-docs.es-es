@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 07/27/2018
-ms.openlocfilehash: 2ce7e083444eb6c4e02f04f36eb0810ea37d8ae7
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: dcd2854585e2c776f361aa4718af6b99d8cbb593
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39513981"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47002077"
 ---
 >[!IMPORTANT]
 >Los recursos que creó pueden usarse como requisitos previos para otros tutoriales y artículos de procedimientos de Azure Machine Learning. 
@@ -32,4 +32,4 @@ Si no va a usar lo que ha creado aquí, elimine los recursos que acaba de crear 
 
 1. Escriba el nombre del grupo de recursos y, a continuación, seleccione **Eliminar**.
 
-   Si recibe el error "Can not delete resource before nested resources are deleted" (No se puede eliminar el recurso hasta que se eliminen los recursos anidados), debe eliminar primero todos los recursos anidados. Para más información, [consulte esta sección de solución de problemas](../articles/machine-learning/service/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account). 
+   Si recibe el error "Can not delete resource before nested resources are deleted" (No se puede eliminar el recurso hasta que se eliminen los recursos anidados), debe eliminar primero todos los recursos anidados. Para más información, [consulte esta sección de solución de problemas](../articles/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account). 

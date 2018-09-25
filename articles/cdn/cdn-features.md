@@ -3,8 +3,8 @@ title: Comparación de las características de los productos de Azure Content De
 description: Conozca las características que admite cada producto de Azure Content Delivery Network (CDN).
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,25 +12,25 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 05/09/2018
-ms.author: v-deasim
+ms.date: 09/13/2018
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 7ec4961a78b2207c9990b787c4a0f9cc9c2e7931
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 8152add4fb28f7f2536859ea7dcdae379a014f90
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237121"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951770"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Comparación de las características de los productos de Azure CDN
 
-Azure Content Delivery Network (CDN) incluye cuatro productos: **Azure CDN de Microsoft estándar** (en versión preliminar), **Azure CDN de Akamai estándar**, **Azure CDN de Verizon estándar** y **Azure CDN de Verizon premium**. 
+Azure Content Delivery Network (CDN) incluye cuatro productos: **Azure CDN de Microsoft estándar**, **Azure CDN de Akamai estándar**, **Azure CDN de Verizon estándar** y **Azure CDN de Verizon premium**. 
 
 Para obtener información sobre cómo migrar un perfil de **Azure CDN Estándar de Verizon** a **Azure CDN Premium de Verizon**, consulte [Migración de un perfil de Azure CDN Estándar de Verizon a Premium de Verizon](cdn-migrate.md).
 
 En la tabla siguiente se comparan las características disponibles con cada producto.
 
-| **Características y optimizaciones de rendimiento** | **Microsoft estándar (versión preliminar)** | **Akamai estándar** | **Verizon estándar** | **Verizon premium** |
+| **Características y optimizaciones de rendimiento** | **Microsoft estándar** | **Akamai estándar** | **Verizon estándar** | **Verizon premium** |
 | --- | --- | --- | --- | --- |
 | [Aceleración de sitios dinámicos](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Aceleración de sitios dinámicos: compresión de imagen adaptable](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-akamai-only)  |  | **&#x2713;**  |  |  |
@@ -46,7 +46,7 @@ En la tabla siguiente se comparan las características disponibles con cada prod
 | Pila dual IPv4/IPv6 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Compatibilidad con HTTP/2](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 ||||
- **Seguridad** | **Microsoft estándar (versión preliminar)** | **Akamai estándar** | **Verizon estándar** | **Verizon premium** | 
+ **Seguridad** | **Microsoft estándar** | **Akamai estándar** | **Verizon estándar** | **Verizon premium** | 
 | Compatibilidad con HTTPS con el punto de conexión de red CDN | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Dominio personalizado HTTPS](cdn-custom-ssl.md)  | **&#x2713;** | |**&#x2713;** |**&#x2713;** |
 | [Compatibilidad con nombre de dominio personalizado](cdn-map-content-to-custom-domain.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -55,7 +55,7 @@ En la tabla siguiente se comparan las características disponibles con cada prod
 | [Protección contra DDOS](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Traiga su propio certificado](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates) |**&#x2713;** |  |  |  |
 ||||
-| **Análisis e informes** | **Microsoft estándar (versión preliminar)** | **Akamai estándar** | **Verizon estándar** | **Verizon premium** | 
+| **Análisis e informes** | **Microsoft estándar** | **Akamai estándar** | **Verizon estándar** | **Verizon premium** | 
 | [Registros de diagnóstico de Azure](cdn-azure-diagnostic-logs.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Informes principales de Verizon](cdn-analyze-usage-patterns.md)  |  | |**&#x2713;** |**&#x2713;** |
 | [Informes personalizados de Verizon](cdn-verizon-custom-reports.md)  |  | |**&#x2713;** |**&#x2713;** |
@@ -64,7 +64,7 @@ En la tabla siguiente se comparan las características disponibles con cada prod
 | [Rendimiento del nodo perimetral](cdn-edge-performance.md)  |  | | |**&#x2713;** |
 | [Alertas en tiempo real](cdn-real-time-alerts.md)  |  | | |**&#x2713;** |
 ||||
-| **Facilidad de uso** | **Microsoft estándar (versión preliminar)** | **Akamai estándar** | **Verizon estándar** | **Verizon premium** | 
+| **Facilidad de uso** | **Microsoft estándar** | **Akamai estándar** | **Verizon estándar** | **Verizon premium** | 
 | Fácil integración con los servicios de Azure, como [Storage](cdn-create-a-storage-account-with-cdn.md), [Web Apps](cdn-add-to-web-app.md) y [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Se puede administrar mediante la [API REST](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md) o [PowerShell](cdn-manage-powershell.md).  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Motor de entrega de contenido personalizable, basado en reglas](cdn-rules-engine.md)  |  | | |**&#x2713;** |

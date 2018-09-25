@@ -12,14 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
-ms.openlocfilehash: 33d95e0c17e8b9b18313cb0854532337ec76cfd1
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: e0f6148e1fb28838bf99c63fbfbfbfe8cd127c8c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144450"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973215"
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Correspondencia entre preguntas y respuestas mediante Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Responder a preguntas abiertas es difícil y a menudo requiere un esfuerzo manual por parte de expertos en la materia (SME). Para ayudar a reducir la demanda de expertos en la materia internos, las empresas a menudo crean listas con las preguntas más frecuentes (P+F) como forma de ayudar a los usuarios. Este ejemplo muestra varios métodos eficaces de aprendizaje automático para hacer corresponder consultas abiertas con pares de preguntas/respuestas de P+F ya existentes. Este ejemplo muestra un sencillo proceso de desarrollo para compilar una solución de este tipo mediante Azure Machine Learning Workbench. 
 
 ## <a name="link-to-the-gallery-github-repository"></a>Vínculo al repositorio de GitHub de la galería
@@ -42,7 +47,7 @@ Los principales pasos necesarios para ofrecer esta solución son los siguientes:
 Los requisitos previos para ejecutar este ejemplo son los siguientes:
 
 1. Una [cuenta de Azure](https://azure.microsoft.com/free/) (hay disponibles versiones gratuitas de prueba).
-2. Una copia instalada de [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) siguiendo la [Guía de instalación de inicio rápido](../service/quickstart-installation.md) para instalar el programa y crear un área de trabajo.
+2. Una copia instalada de [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) siguiendo la [Guía de instalación de inicio rápido](quickstart-installation.md) para instalar el programa y crear un área de trabajo.
 3. En este ejemplo se podría ejecutar en cualquier contexto de proceso. Sin embargo, se recomienda que se ejecute en una máquina de varios núcleos con al menos 16 GB de memoria y 5 GB de espacio en disco.
 
 ## <a name="create-a-new-workbench-project"></a>Creación de un nuevo proyecto de Workbench

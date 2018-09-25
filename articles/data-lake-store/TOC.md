@@ -11,8 +11,7 @@
 # Introducción
 ## [Uso de Azure Portal](data-lake-store-get-started-portal.md)
 ## [Uso de Azure PowerShell](data-lake-store-get-started-powershell.md)
-## [Uso de la CLI de Azure 2.0](data-lake-store-get-started-cli-2.0.md)
-
+## [Uso de la CLI de Azure](data-lake-store-get-started-cli-2.0.md)
 
 # Procedimientos
 ## Carga y movimiento de datos
