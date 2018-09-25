@@ -3,22 +3,26 @@ title: Artículo de inicio rápido para herramientas de Visual Studio Code para 
 description: En este artículo se describe cómo empezar a usar las herramientas de Visual Studio Code para Machine Learning, desde la creación de un experimento y el entrenamiento de un modelo, hasta la operacionalización de un servicio web.
 services: machine-learning
 author: chris-lauren
-ms.author: chris.lauren
+ms.author: clauren
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.openlocfilehash: a215c562ad15b69dcec20c1951fe8bc3fe80c6ff
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: a2c4455735523b6b726dedb13151627d8ce70f22
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42022642"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991766"
 ---
 # <a name="visual-studio-code-tools-for-ai"></a>Herramientas de Visual Studio Code para AI
-Herramientas de Visual Studio Code para AI es una extensión de desarrollo para compilar, probar e implementar soluciones de aprendizaje profundo/AI. Ofrece una integración sin problemas con Azure Machine Learning, principalmente, una vista del historial de ejecución que detalla el rendimiento de aprendizajes anteriores y métricas personalizadas. Ofrece una vista de explorador de ejemplos que permite examinar y arrancar un proyecto nuevo con [Microsoft Cognitive Toolkit (anteriormente, CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) y otro marco de aprendizaje profundo. Por último, proporciona un explorador para destinos de proceso que permite enviar trabajos para entrenar modelos en entornos remotos, como máquinas virtuales de Azure o servidores Linux con GPU. 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+Herramientas de Visual Studio Code para AI es una extensión de desarrollo para compilar, probar e implementar soluciones de aprendizaje profundo/AI. Ofrece una integración sin problemas con Azure Machine Learning, principalmente, una vista del historial de ejecución que detalla el rendimiento de aprendizajes anteriores y métricas personalizadas. Ofrece una vista de explorador de ejemplos que permite examinar y arrancar un proyecto nuevo con [Microsoft Cognitive Toolkit (anteriormente, CNTK)](http://www.microsoft.com/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) y otro marco de aprendizaje profundo. Por último, proporciona un explorador para destinos de proceso que permite enviar trabajos para entrenar modelos en entornos remotos, como máquinas virtuales de Azure o servidores Linux con GPU. 
  
 ## <a name="getting-started"></a>Introducción 
 Para empezar, descargue e instale [Visual Studio Code](https://code.visualstudio.com/Download). Una vez abierto Visual Studio Code, siga los pasos que se describen a continuación:

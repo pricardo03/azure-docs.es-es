@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 026ffed925606e2fdf31461035c9a0d73ad609e9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ROBOTS: NOINDEX
+ms.openlocfilehash: 311fd39792274ef01b1b03fdf8252eb7ac93c922
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059227"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978869"
 ---
 # <a name="derive-column-by-example-transformation"></a>Transformación Derivar columna por ejemplos
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 La transformación **Derivar columna por ejemplos** permite que los usuarios creen un derivado de una o varias columnas existentes usando ejemplos proporcionados por el usuario del resultado derivado. El derivado puede ser cualquier combinación de las transformaciones de cadena, fecha y número admitidas. 
 

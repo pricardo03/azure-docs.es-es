@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: f14ffc7bfbdabdd93e7743c7932dae1af7730e60
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 6b73a802b186e5fcf2380f5f4c80c1bb67d253fa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781571"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981872"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Cifrado del servicio Storage mediante claves administradas por el cliente en Azure Key Vault
 Microsoft Azure está comprometido a ayudarle a asegurar y proteger sus datos con el fin de satisfacer los compromisos de cumplimiento y seguridad de su organización. Una manera en que la plataforma de Azure Storage protege los datos es mediante Storage Service Encryption (SSE), que cifra los datos al escribirlos en el almacenamiento y los descifra al recuperarlos. El cifrado y descifrado son automáticos, transparentes y usan [cifrado AES](https://wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uno de los cifrados de bloques más seguros disponibles.
@@ -31,7 +31,7 @@ SSE para Azure Blob Storage y Azure Files se integra con Azure Key Vault, de mod
 Para usar las claves administradas por el cliente con SSE, puede crear un almacén de claves y una clave nuevos, o bien puede usar un almacén de claves y una clave existentes. La cuenta de almacenamiento y el almacén de claves deben estar en la misma región, pero pueden estar en distintas suscripciones. 
 
 ### <a name="step-1-create-a-storage-account"></a>Paso 1: Creación de una cuenta de almacenamiento
-En primer lugar, cree una cuenta de almacenamiento si todavía no tiene una. Para más información, consulte [Crear una cuenta de almacenamiento](storage-quickstart-create-account.md).
+En primer lugar, cree una cuenta de almacenamiento si todavía no tiene una. Para obtener más información, consulte [Creación de una cuenta de almacenamiento](storage-quickstart-create-account.md).
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Paso 2: Habilitación de SSE para Blob y File Storage
 Para habilitar SSE con claves administradas por el cliente, también se deben habilitar dos características de protección de claves en Azure Key Vault: Eliminación temporal y No purgar. Estos valores garantizan que las claves no se puedan eliminar de manera accidental ni intencional. El período de retención máximo de las claves se establece en 90 días, lo que protege a los usuarios frente a actores malintencionados o ataques de ransomware.

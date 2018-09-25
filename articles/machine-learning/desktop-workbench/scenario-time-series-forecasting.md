@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.openlocfilehash: 3f32c9048c4b2002e7672b46a4f39e86ffa7b98e
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 934d37783165c2e57dcabd0ff764747e1ab4b65e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35639177"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946874"
 ---
 # <a name="energy-demand-time-series-forecasting"></a>Previsión de las series temporales de demanda de energía
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 
 La previsión de las series temporales es una tarea que consiste en predecir valores futuros mediante una secuencia temporal ordenada de observaciones. Es un problema habitual y tiene aplicaciones en numerosos sectores. Por ejemplo, las empresas minoristas necesitan realizar una previsión de las ventas de productos futuras de forma que puedan organizar eficazmente sus cadenas de suministro para satisfacer la demanda. De forma similar, las empresas de transporte deben realizar una estimación de la demanda de sus servicios para planear los requisitos de personal y las rutas de entrega antes de tiempo. En muchos casos, los riesgos financieros de unas previsiones incorrectas pueden resultar significativos. Por ello, la previsión es una actividad empresarial muy importante.
@@ -57,7 +62,7 @@ En este escenario se detalla la construcción de una solución de previsión de 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una [cuenta de Azure](https://azure.microsoft.com/free/) (hay disponibles versiones gratuitas de prueba).
-- Una copia instalada de [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) siguiendo la [Guía de instalación de inicio rápido](../service/quickstart-installation.md) para instalar el programa y crear un área de trabajo.
+- Una copia instalada de [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) siguiendo la [Guía de instalación de inicio rápido](quickstart-installation.md) para instalar el programa y crear un área de trabajo.
 - En este ejemplo se da por supuesto que está ejecutando Azure Machine Learning Workbench en Windows 10 con el [motor de Docker](https://www.docker.com/) instalado localmente. Si usa macOS, las instrucciones son en gran medida las mismas.
 - Azure Machine Learning Operationalization instalado con una configuración de entorno de implementación local y una cuenta de administración de modelos creada tal y como se indica en esta [guía](./model-management-configuration.md).
 - Este ejemplo requiere la actualización de la instalación de Pandas a la versión 0.20.3 o posterior, y la instalación de matplotlib. Haga clic en *Abrir símbolo del sistema* en el menú *Archivo* de Workbench y ejecute los siguientes comandos para instalar estas dependencias:

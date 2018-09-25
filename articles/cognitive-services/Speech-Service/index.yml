@@ -1,36 +1,63 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: bec19b959aa2ce99a7237894a50c49666341827b
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 460c0708bf51966bd1b6862445a6541436723688
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42440236"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952297"
 documentType: LandingData
-title: Speech Service y SDK (versión preliminar)
+title: Documentación del SDK del servicio Voz
 metadata:
-  title: 'Documentación de Speech Service: Guías de inicio rápido, tutoriales, referencia de API: Azure Cognitive Services | Microsoft Docs'
+  title: 'Documentación sobre el SDK del servicio Voz: Guías de inicio rápido, tutoriales, referencia de API: Cognitive Services | Microsoft Docs'
   meta.description: >
     The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications.
 
     Examples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
   services: cognitive-services
-  author: noellelacharite
-  manager: nolachar
+  author: nitinme
+  manager: cgronlun
   layout: LandingPage
   ms.service: cognitive-services
   ms.component: speech-service
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/16/2018
-  ms.author: nolachar
+  ms.date: 09/24/2018
+  ms.author: nitinme
 abstract:
-  description: >
-    Mediante nuestro SDK de voz, <a href="overview">Speech Service</a> ayuda a los desarrolladores a agregar características habilitadas para voz a sus aplicaciones.
-
-    Entre las características se incluyen&#58; <i>voz a texto</i> (reconocimiento de voz o SR), <i>intención</i>, <i>traducción</i> y <i>texto a voz</i> (TTS).
+  description: Aprenda a usar el servicio Voz y el SDK de Voz para agregar características habilitadas para voz a sus aplicaciones. Puede usar el SDK de Voz para agregar funcionalidades de <i>voz a texto</i> (reconocimiento de voz o SR), <i>intención</i>, <i>traducción</i> y <i>texto a voz</i> (TTS) a las aplicaciones. El servicio Voz también tiene una API REST que funciona con cualquier lenguaje de programación que pueda realizar solicitudes HTTP.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ../media/index/speech-landing-page-video.png
+      width: 250
+    title: Introducción al servicio Voz (10:34)
+    href: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-overview-of-advanced-speech-capabilities/
+    width: 250
 sections:
-- title: Descarga y guía de inicio rápido en 5 minutos del SDK
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/speech-service/overview
+      html: <p>Más información acerca del servicio Voz de Azure</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: ¿Qué es el servicio Voz?
+    - href: /azure/cognitive-services/speech-service/get-started
+      html: <p>Aprenda a registrarse gratuitamente al servicio Voz.</p>
+      image:
+        src: ../media/index/i_get-started.svg
+      title: Registro en el servicio Voz
+    - href: /azure/cognitive-services/speech-service/speech-devices-sdk
+      html: <p>Más información acerca de la referencia sobre el hardware habilitado para voz.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: SDK de dispositivos de voz
+- title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
     text: Aprenda a descargar, instalar y usar haciendo clic en el vínculo de flecha deseado <img src="media/index/link.jpg" height="15" width="15"></img> a continuación.
@@ -48,6 +75,10 @@ sections:
     - image:
         src: media/index/logo_java.jpg
     - image:
+        src: media/index/logo_objc.jpg
+    - image:
+        src: media/index/logo_js.svg
+    - image:
         src: media/index/logo_rest_sr.svg
     - image:
         src: media/index/logo_rest_tts.svg
@@ -61,12 +92,16 @@ sections:
       - href: quickstart-java-jre
       - href: 
       - href: 
+      - href: 
+      - href: 
     - title: Windows 10 (x86)
       values:
       - href: quickstart-csharp-uwp
       - href: quickstart-csharp-windows
       - href: quickstart-cpp-windows
       - href: quickstart-csharp-dotnetcore-windows
+      - href: 
+      - href: 
       - href: 
       - href: 
       - href: 
@@ -79,11 +114,15 @@ sections:
       - href: quickstart-java-jre
       - href: 
       - href: 
+      - href: 
+      - href: 
     - title: Linux (x86)
       values:
       - href: 
       - href: 
       - href: quickstart-cpp-linux
+      - href: 
+      - href: 
       - href: 
       - href: 
       - href: 
@@ -97,6 +136,8 @@ sections:
       - href: quickstart-java-android
       - href: 
       - href: 
+      - href: 
+      - href: 
     - title: SDK de dispositivos (ARM64)
       values:
       - href: 
@@ -106,6 +147,19 @@ sections:
       - href: speech-devices-sdk
       - href: 
       - href: 
+      - href: 
+      - href: 
+    - title: iOS (ARM64)
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: quickstart-objectivec-ios
+      - href: 
+      - href: 
+      - href: 
     - title: Web
       values:
       - href: 
@@ -113,49 +167,51 @@ sections:
       - href: 
       - href: 
       - href: 
+      - href: 
+      - href: quickstart-js-browser
       - href: rest-apis
       - href: rest-apis
-- title: Ejemplos y referencia del SDK de voz
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: 'Aprenda a desarrollar aplicaciones mediante el servicio Voz:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="speech-to-text-sample.md">Voz a texto (SR)</a><br/>
+    - html: <a href="intent.md">Reconocimiento de la intención</a><br/>
+    - html: <a href="translation.md">Traducción</a>
+- title: Ejemplos
+  items:
+  - type: paragraph
+    text: 'Búsqueda de ejemplos en Github para el servicio Voz:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">Ejemplos de SDK de servicio</a><br/>
+    - html: <a href="https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK">Ejemplos de SDK de dispositivos</a><br/>
+- title: Referencia
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: Ejemplos
+    - title: Referencia del SDK
       html: >
-        &nbsp;&#8226; <a href="speech-to-text-sample.md">Voz a texto (SR)</a><br/>
+        <p><a href="https://aka.ms/csspeech/csharpref">API de C# (UWP y. NET)</a></p>
 
-        &nbsp;&#8226; <a href="intent.md">Reconocimiento de la intención</a><br/>
+        <p><a href="https://aka.ms/csspeech/cppref">API de C++</a></p>
 
-        &nbsp;&#8226; <a href="translation.md">Traducción</a>
-    - title: Referencia de API
+        <p><a href="https://aka.ms/csspeech/javaref">API de Java</a></p>
+
+        <p><a href="https://aka.ms/csspeech/objectivecref">API de Objective-C</a></p>
+
+        <p><a href="https://aka.ms/csspeech/javascript">API de JavaScript</a></p>
+    - title: API DE REST
       html: >
-        &nbsp;&#8226;<a href="https://aka.ms/csspeech/csharpref">API de C# (UWP y. NET)</a><br/>
-
-        &nbsp;&#8226; <a href="https://aka.ms/csspeech/cppref">API de C++</a><br/>
-
-        &nbsp;&#8226; <a href="https://aka.ms/csspeech/javaref">API de Java</a>
-    - title: Preguntas más frecuentes
+        <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis">API de REST</a></p>
+    - title: PowerShell
       html: >
-        &nbsp;&#8226; <a href="faq-stt">Voz a texto</a><br/>
-
-        &nbsp;&#8226; <a href="faq-text-to-speech">Texto a voz</a><br/>
-
-        &nbsp;&#8226; <a href="https://www.microsoft.com/translator/faq.aspx">Traducción</a>
-  - type: paragraph
-    text: Utilice los ejemplos y la API anteriores con su clave de suscripción (consulte <a href="get-started.md">Prueba gratuita del servicio de voz</a>).
-- title: Personalización de la voz con sus propios datos
-  items:
-  - type: paragraph
-    text: >
-      Microsoft Speech Service le permite personalizar modelos para adaptarse a vocabulario especializado, entornos ruidosos y diferentes formas de hablar.<br/>
-
-      &nbsp;&#8226;<a href="how-to-customize-speech-models">Voz a texto personalizado</a><br/>
-
-      &nbsp;&#8226;<a href="https://www.microsoft.com/translator/customization.aspx">Traducción de voz personalizada</a><br/>
-
-      &nbsp;&#8226;<a href="https://cris.ai/Home/customvoice">Texto a voz personalizado</a>
-- title: Diseño de la referencia sobre hardware habilitado para voz
-  items:
-  - type: paragraph
-    text: Para aquellos que quieran crear nuevo hardware de dispositivo habilitado para voz, consulte nuestro dispositivo de referencia en <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>SDK de dispositivos de voz</a>.
+        <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">CLI de Azure</a></p>
