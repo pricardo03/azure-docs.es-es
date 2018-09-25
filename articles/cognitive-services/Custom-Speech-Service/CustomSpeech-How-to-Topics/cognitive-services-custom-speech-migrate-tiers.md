@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panosper
-ms.openlocfilehash: 6d92459deb3464cd97c215cbf9a8320628b6da80
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 44411e0c92f4e24e274761821dd99efbe60c5f5d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380710"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964980"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>Migración de implementaciones al nuevo modelo de precios
 A partir de julio de 2017, Custom Speech Service ofrece un [nuevo modelo de precios](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/). El nuevo modelo es *más fácil de entender*, *más sencillo para calcular los costos* y *más flexible* en cuanto al escalado. Para ajustar la escala, Microsoft ha introducido el concepto de unidad de escalado. Cada unidad de escalado puede controlar cinco solicitudes simultáneas. El escalado de solicitudes simultáneas en el modelo anterior estaba establecido en 5 solicitudes simultáneas para el plan S0, y estaba establecido en 12 solicitudes simultáneas para el plan S1. Hemos ampliado estos límites para ofrecer una mayor flexibilidad a sus requisitos de casos de uso.
@@ -27,7 +28,7 @@ Microsoft controla la migración de una manera parcialmente automatizada. En pri
 
 En la tabla siguiente se muestra la asignación de los planes antiguos para unidades de escalado:
 
-| Nivel: | Solicitudes simultáneas (modelo anterior) | Migración | Solicitudes simultáneas |
+| Nivel | Solicitudes simultáneas (modelo anterior) | Migración | Solicitudes simultáneas |
 |----- | ----- | ---- | ---- |
 | S0 |  5   |   => **S2** con 1 unidad de escalado |   5 |
 | S1 |  12  |   => **S2** con 3 unidades de escalado |  15 |

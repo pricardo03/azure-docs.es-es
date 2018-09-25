@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: f72fb6f654b4699214a22a7f96431c605af52f2d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 764c43a382442096a5d130334e54afdc135ba419
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603680"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966692"
 ---
 # <a name="aggregations-in-log-analytics-queries"></a>Agregaciones en consultas de Log Analytics
 
@@ -37,13 +37,13 @@ En este artículo se describen las funciones de agregación en consultas de Log 
 Cuente el número de filas del conjunto de resultados después de aplicar filtros. En el ejemplo siguiente se devuelve el número total de filas de la tabla _Perf_ de los últimos 30 minutos. El resultado se devuelve en una columna denominada *count_* a menos que se le asigne un nombre específico:
 
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize count()
 ```
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize num_of_records=count() 
@@ -51,7 +51,7 @@ Perf
 
 La visualización de un gráfico de tiempo puede ser útil para ver la tendencia a lo largo del tiempo:
 
-```KQL
+```Kusto
 Perf 
 | where TimeGenerated > ago(30m) 
 | summarize count() by bin(TimeGenerated, 5m)
@@ -66,7 +66,7 @@ La salida de este ejemplo muestra la línea de tendencia del recuento de registr
 ### <a name="dcount-dcountif"></a>dcount, dcountif
 Use `dcount` y `dcountif` para contar valores distintos en una columna específica. En la siguiente consulta se evalúa cuántos equipos distintos enviaron latidos en la última hora:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcount(Computer)
@@ -74,7 +74,7 @@ Heartbeat
 
 Para contar solo los equipos Linux que enviaron latidos, use `dcountif`:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcountif(Computer, OSType=="Linux")
@@ -83,7 +83,7 @@ Heartbeat
 ### <a name="evaluating-subgroups"></a>Evaluación de subgrupos
 Para realizar un recuento u otras agregaciones en subgrupos de los datos, use la palabra clave `by`. Por ejemplo, para contar el número de equipos Linux distintos que enviaron latidos en cada país:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry
@@ -100,7 +100,7 @@ Heartbeat
 
 Para analizar subgrupos incluso más pequeños de los datos, agregue nombres de columna adicionales a la sección `by`. Por ejemplo, si desea contar los distintos equipos de cada país por OSType:
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry, OSType
@@ -112,7 +112,7 @@ Al evaluar valores numéricos, una práctica común es que calcular la media con
 ### <a name="percentile"></a>Percentil
 Para buscar el valor medio, utilice la función `percentile` con un valor para especificar el percentil:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -121,7 +121,7 @@ Perf
 
 También puede especificar percentiles diferentes para obtener un resultado agregado para cada uno:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -133,7 +133,7 @@ Esto podría mostrar que algunas CPU de equipos tienen valores medios similares,
 ### <a name="variance"></a>Variance
 Para evaluar directamente la varianza de un valor, use los métodos estándar de desviación y varianza:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -142,7 +142,7 @@ Perf
 
 Una buena forma de analizar la estabilidad del uso de CPU consiste en combinar stdev con el cálculo del valor medio:
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(130m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 

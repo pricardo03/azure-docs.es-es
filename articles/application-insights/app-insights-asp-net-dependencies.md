@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: f2ebd2a021d3803b6e3f7d805b9253d181cb16c3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f1a1c0bd759a88b2e84584f1d52458ac6f56d97f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293646"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999719"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar Application Insights: seguimiento de dependencias
 Una *dependencia* es un componente externo al que llama la aplicación. Suele ser un servicio al que se llama mediante HTTP, una base de datos o un sistema de archivos. [Application Insights](app-insights-overview.md) mide cuánto tiempo espera su aplicación a las dependencias y la frecuencia con que se produce un error en una llamada de dependencia. Puede investigar llamadas específicas y relacionarlas a solicitudes y excepciones.
@@ -133,7 +133,7 @@ Desplazarse hasta una repetición de una solicitud con error y examine los event
 ![Haga clic en un tipo de solicitud, haga clic en la instancia para obtener acceso a una vista diferente de la misma instancia, haga clic en ella para obtener detalles de la excepción.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Análisis
-Puede realizar un seguimiento de las dependencias en el [lenguaje de consulta de Log Analytics](https://docs.loganalytics.io/). Estos son algunos ejemplos.
+Puede realizar un seguimiento de las dependencias en el [lenguaje de consulta de Log Analytics](https://aka.ms/LogAnalyticsLanguage). Estos son algunos ejemplos.
 
 * Búsqueda de llamadas de dependencia con errores:
 

@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: cb05139241f92eb930a99c387e2f06cabac35caf
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 21cd4990e2117cef2d36fa2607a601afd1a4c4e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580896"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990508"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Condiciones del servicio y declaración de privacidad de las aplicaciones registradas de Azure Active Directory
 
@@ -54,12 +54,14 @@ Ejemplos: `https://myapp.com/terms-of-service` y `https://myapp.com/privacy-stat
 ## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>Incorporación de vínculos a las condiciones del servicio y a la declaración de privacidad
 
 Cuando las condiciones del servicio y la declaración de privacidad estén preparados, puede agregar vínculos a estos documentos en la aplicación mediante uno de estos métodos:
+
 * [Mediante Azure Portal](#registered-in-azure-portal)
 * [En el Portal de registro de aplicaciones o el Centro de desarrollo](#registered-in-app-reg-portal)
 * [Con JSON del objeto de aplicación](#app-object-json)
 * [Con la versión beta de la API REST MSGraph](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>Si ha registrado su aplicación en Azure Portal
+
 Siga estos pasos si ha registrado su aplicación en Azure Portal.
 
 1. Inicie sesión en  [Azure Portal](https://portal.azure.com/).
@@ -68,9 +70,10 @@ Siga estos pasos si ha registrado su aplicación en Azure Portal.
 4. Rellene los campos  **Dirección URL de Condiciones del servicio**  y  **URL de la declaración de privacidad** .
 5. Guarde los cambios.
 
-![Sección de propiedades de aplicación con URL de las condiciones del servicio y de la declaración de privacidad](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![Sección de propiedades de aplicación con URL de las condiciones del servicio y de la declaración de privacidad](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="registered-in-app-reg-portal"></a>Si ha registrado su aplicación en el Portal de registro de aplicaciones
+
 Siga estos pasos si ha registrado su aplicación en el Portal de registro de aplicaciones o el Centro de desarrollo.
 
 1. Inicie sesión en el  [Portal de registro de aplicaciones](https://apps.dev.microsoft.com/).
@@ -78,9 +81,10 @@ Siga estos pasos si ha registrado su aplicación en el Portal de registro de apl
 3. Rellene los campos  **Dirección URL de Condiciones del servicio**  y  **URL de la declaración de privacidad** .
 4. Guarde los cambios.
 
-![Sección de perfil de aplicación con URL de las condiciones del servicio y de la declaración de privacidad](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
+    ![Sección de perfil de aplicación con URL de las condiciones del servicio y de la declaración de privacidad](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Con JSON del objeto de aplicación
+
 Si desea modificar directamente JSON del objeto de aplicación, puede usar el editor de manifiestos en Azure Portal o el Portal de registro de aplicaciones para incluir vínculos en las condiciones del servicio y la declaración de privacidad de la aplicación.
 
 ```json
@@ -91,6 +95,7 @@ Si desea modificar directamente JSON del objeto de aplicación, puede usar el ed
 ```
 
 ### <a name="msgraph-beta-rest-api"></a>Con API REST de la versión beta de MSGraph
+
 Para actualizar mediante programación todas las aplicaciones, puede usar API REST de la versión beta de MSGraph para actualizar todas las aplicaciones y que incluyan vínculos en los documentos de las condiciones del servicio y de la declaración de privacidad.
 
 ```

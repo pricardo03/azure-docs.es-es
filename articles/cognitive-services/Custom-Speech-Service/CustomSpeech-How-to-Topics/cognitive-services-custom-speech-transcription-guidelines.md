@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 2785a35ac7583ac3d9503cb721d10078d86aa365
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2772665107f94a273731d2147154e546225b22dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380311"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999740"
 ---
 # <a name="transcription-guidelines"></a>Directrices de transcripción
 Para garantizar el mejor uso de los datos de texto para la personalización de los modelos acústico y de lenguaje, deben seguirse las siguientes directrices de transcripción. Estas directrices son específicas del idioma.
@@ -44,7 +45,7 @@ Este servicio llevará a cabo la normalización de texto siguiente en los datos 
 
 *   Aplicar minúsculas a todo el texto.
 *   Quitar toda la puntuación menos los apóstrofos dentro de las palabras.
-*   Expandir los números a formato hablado, incluidas las cantidades en dólares.
+*   Expansión de los números a forma hablada, incluidas las cantidades en dólares.
 
 Estos son algunos ejemplos
 
