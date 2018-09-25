@@ -14,12 +14,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.author: carlrab
 ms.date: 09/07/2018
-ms.openlocfilehash: 8529791355e93a3a5001a5e41037ee6daeb31381
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a7537b59a73c00a5364bfa4a758a6584a9ef6003
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049718"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964282"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Uso de la CLI para crear una instancia única de Azure SQL Database y configurar una regla de firewall
 
@@ -29,7 +29,7 @@ Este script de ejemplo de la CLI de Azure crea una instancia de Azure SQL Databa
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script de ejemplo
 

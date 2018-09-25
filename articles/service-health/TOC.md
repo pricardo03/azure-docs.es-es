@@ -7,11 +7,12 @@
 # Procedimientos
 ## [Configuración de alertas para eventos de Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 ### [Visualización de notificaciones de mantenimiento del servicio mediante Azure Portal](../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
-## [Configuración de notificaciones mediante un webhook](service-health-alert-webhook-guide.md)
+## [Configuración de notificaciones de mantenimiento del servicio mediante un webhook](service-health-alert-webhook-guide.md)
 ### [Configuración con ServiceNow](service-health-alert-webhook-servicenow.md)
 ### [Configuración con PagerDuty](service-health-alert-webhook-pagerduty.md)
 ### [Configuración con OpsGenie](service-health-alert-webhook-opsgenie.md)
 ### [Recuperación de eventos de mantenimiento con REST](service-health-rest.md)
+## [Configuración de alertas para eventos de mantenimiento del servicio](resource-health-alert-arm-template-guide.md) 
 # Recursos
 ## [Preguntas más frecuentes](resource-health-faq.md)
 ## [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)

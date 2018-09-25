@@ -13,14 +13,19 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: ca780b51973a960caec3b9b7a80c8ba5621b5a0b
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 82295e412c70065ff8ce3a686aec790614f39f2e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35641336"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947207"
 ---
 # <a name="sample-of-custom-data-flow-transforms-python"></a>Ejemplo de transformaciones de flujo de datos personalizados (Python) 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 El nombre de la transformación en el menú es **Transform Dataflow (Script)** (Transformar flujo de datos [script]). Antes de leer este apéndice, vea la [Introducción a la extensibilidad de Python](data-prep-python-extensibility-overview.md).
 
 ## <a name="transform-frame"></a>Transformación de marco

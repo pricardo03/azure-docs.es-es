@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 67b2babcd19268a61794d123f5aa9780af16976b
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 366ff0b59835ca3a28cafd5de77c0bd645ff58c5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364019"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984235"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnóstico de un problema de filtro del tráfico de red de una máquina virtual
 
@@ -111,7 +111,7 @@ En la salida anterior, el nombre de la interfaz de red es *myVMVMNic*.
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnóstico mediante la CLI de Azure
 
-Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. En este artículo se requiere la CLI de Azure versión 2.0.32 o posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si ejecuta la CLI de Azure localmente, también debe ejecutar `az login` e iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions).
+Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. En este artículo se requiere la CLI de Azure versión 2.0.32 o posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). Si ejecuta la CLI de Azure localmente, también debe ejecutar `az login` e iniciar sesión en Azure con una cuenta que tenga los [permisos necesarios](virtual-network-network-interface.md#permissions).
 
 Obtenga las reglas de seguridad vigentes de una interfaz de red con [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg). En el ejemplo siguiente se obtienen las reglas vigentes de una interfaz de red denominada *myVMVMNic*, que se encuentra en un grupo de recursos llamado *myResourceGroup*:
 

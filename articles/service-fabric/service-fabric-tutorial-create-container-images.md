@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 15fcea6ca8f9c66ee4907018a11481b6c714b81a
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 0dc92524843f47b1327af5e9d3f237656cad2a37
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616290"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947542"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Creación de imágenes de contenedor en un clúster de Service Fabric de Linux
 
@@ -44,7 +44,7 @@ En esta serie de tutoriales, se aprende a:
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Configuración del entorno de desarrollo de Linux para Service Fabric. Siga las instrucciones que se indican [aquí](service-fabric-get-started-linux.md) para configurar el entorno de Linux.
-* Para realizar este tutorial es necesario que ejecute la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+* Para realizar este tutorial es necesario que ejecute la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 * Además, requiere que tenga una suscripción de Azure disponible. Para obtener más información sobre una versión de evaluación gratuita, vaya [aquí](https://azure.microsoft.com/free/).
 
 ## <a name="get-application-code"></a>Obtención del código de la aplicación

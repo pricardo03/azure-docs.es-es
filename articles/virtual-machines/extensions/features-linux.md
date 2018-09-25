@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: e172b9d6a59f14f741a09450d31602b0d2d9ee5a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 66c3da4f14141bdb5c357dbabfaec5dabf0ab521
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412634"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971389"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Características y extensiones de las máquinas virtuales para Linux
 
@@ -83,7 +83,7 @@ Las extensiones de máquinas virtuales de Azure se ejecutan en máquinas virtual
 
 Los métodos siguientes pueden usarse para ejecutar una extensión en una máquina virtual existente.
 
-### <a name="azure-cli-20"></a>CLI de Azure 2.0
+### <a name="azure-cli"></a>Azure CLI
 
 Las extensiones de máquina virtual de Azure se pueden ejecutar en una máquina virtual existente con el comando [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set). En el ejemplo siguiente se ejecuta la extensión de script personalizado en una máquina virtual denominada *myVM* en un grupo de recursos con el nombre *myResourceGroup*:
 

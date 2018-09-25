@@ -1,47 +1,57 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: cad92cb36f3e5e038186e9b97f30bed9525e2fea
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978750"
 documentType: LandingData
 title: Documentación sobre Azure Cost Management
 metadata:
   title: 'Documentación sobre Cost Management: tutoriales y referencia de API | Microsoft Docs'
-  description: Azure Cost Management es una solución de administración de costos en varias nubes que le permitirá usar Azure y otros recursos en la nube. Aprenda a revisar el uso y los costos, administrar activamente los costos, pronosticar gastos y optimizar los costos con nuestros inicios rápidos y tutoriales.
+  description: Azure Cost Management es una solución de administración de costos que le ayuda a supervisar y controlar el gasto de Azure y a optimizar el uso de los recursos. Aprenda a analizar costos, crear y administrar presupuestos, exportar datos, y revisar y actuar sobre recomendaciones con nuestras guías de inicio rápido y tutoriales.
   services: cost-management
   author: bandersmsft
-  manager: carmonm
+  manager: dougeby
   ms.service: cost-management
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/27/2018
+  ms.date: 09/14/2019
   ms.author: banders
-  ms.openlocfilehash: d6fa2486944fdecab67996bd7a8c7f656ffb2e72
-  ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-  ms.translationtype: HT
-  ms.contentlocale: es-ES
-  ms.lasthandoff: 03/16/2018
-  ms.locfileid: "29935339"
 abstract:
-  description: Azure Cost Management se concede bajo licencia de Cloudyn y es una solución de administración de costos en varias nubes que le ayuda a usar y administrar mejor Azure y otros recursos en la nube. Aprenda a revisar el uso y los costos, administrar activamente los costos, pronosticar gastos y optimizar los costos con nuestros inicios rápidos y tutoriales.
+  description: Azure Cost Management es una solución de administración de costos que le ayuda a supervisar y controlar el gasto de Azure y a optimizar el uso de los recursos. Aprenda a analizar costos, crear y administrar presupuestos, exportar datos, y revisar y actuar sobre recomendaciones con nuestras guías de inicio rápido y tutoriales.
 sections:
 - title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
-    text: Aprenda a registrar la información sobre su contrato o suscripción de Azure con Cost Management y empiece a ver los datos de costos.
+    text: Introducción a Azure Cost Management para analizar los costos de su organización.
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Ver datos de costos
-      href: quick-register-azure-sub
+      text: Análisis de costos
+      href: quick-acm-cost-analysis
 - title: Tutoriales detallados
   items:
   - type: paragraph
-    text: Aprenda a revisar el uso y los costos, administrar activamente los costos, pronosticar gastos y optimizar los costos con Cost Management.
+    text: Aprenda a crear presupuestos, exportar datos, y revisar y actuar sobre las recomendaciones con Cost Management.
   - type: list
     style: ordered
     items:
-    - html: <a href="tutorial-review-usage">Revisión del uso y los costos para detectar anomalías y eficiencias</a>
-    - html: <a href="tutorial-forecast-spending">Previsión de gastos futuros</a>
-    - html: <a href="tutorial-manage-costs">Administración de costos con informes de asignación, visualización y anulación de costos</a>
-    - html: <a href="tutorial-optimize-reserved-instances">Optimización de instancias reservadas</a>
-    - html: <a href="tutorial-user-access">Asignación del acceso a los datos de Cost Management</a>
+    - html: <a href="tutorial-acm-create-budgets">Creación y administración de presupuestos</a>
+    - html: <a href="tutorial-export-acm-data">Exportación de datos</a>
+    - html: <a href="tutorial-acm-opt-recommendations">Revisión y actuación sobre las recomendaciones de optimización</a>
+- title: Desarrollo de aptitudes con Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Predicción de costos y optimización del gasto de Azure
+      href: /learn/modules/predict-costs-and-optimize-spending/
+      image:
+        src: /learn/achievements/predict-costs-and-optimize-spending.svg
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-cost-management">Más aprendizaje interactivo...</a>

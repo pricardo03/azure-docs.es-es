@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: c5ae5ef52d60fd96a9398835b109475c08549f52
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 5299675656ea23b85f78b3dbfdc02814ab332a8b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157251"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979056"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Asignación de un dominio personalizado a una aplicación de función
 
@@ -29,7 +29,7 @@ Para ejecutar este script de ejemplo, debe haber configurado un registro A en el
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, debe usar la versión 2.0 de la CLI de Azure o una posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, debe usar la versión 2.0 de la CLI de Azure o una posterior. Para encontrar la versión, ejecute `az --version`. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="sample-script"></a>Script de ejemplo

@@ -1,10 +1,10 @@
 ---
-title: Administración de la red CDN de Azure con PowerShell | Microsoft Docs
-description: Aprenda a usar los cmdlets de Azure PowerShell para administrar la red CDN de Azure.
+title: Administración de Azure CDN con PowerShell | Microsoft Docs
+description: Aprenda a usar los cmdlets de Azure PowerShell para administrar Azure CDN.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: fb6f57a5-6e26-4847-8fd9-b51fb05a79eb
 ms.service: cdn
@@ -12,28 +12,28 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2018
-ms.author: mazha
-ms.openlocfilehash: 15feb7b1d2873bc3f088eaad78079df2e063d73b
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.date: 09/13/2018
+ms.author: magattus
+ms.openlocfilehash: d6a67bef831028426dec660a1c79feb4ab9340d1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114079"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957717"
 ---
-# <a name="manage-azure-cdn-with-powershell"></a>Administración de la red CDN de Azure con PowerShell
-PowerShell proporciona uno de los métodos más flexibles para administrar los perfiles y puntos de conexión de la red CDN de Azure.  Puede usar PowerShell interactivamente o mediante la escritura de scripts para automatizar tareas de administración.  Este tutorial muestra algunas de las tareas más comunes que puede realizar con PowerShell para administrar los perfiles y puntos de conexión de la red CDN de Azure.
+# <a name="manage-azure-cdn-with-powershell"></a>Administración de Azure CDN con PowerShell
+PowerShell proporciona uno de los métodos más flexibles para administrar los perfiles y puntos de conexión de Azure CDN.  Puede usar PowerShell interactivamente o mediante la escritura de scripts para automatizar tareas de administración.  Este tutorial muestra algunas de las tareas más comunes que puede realizar con PowerShell para administrar los perfiles y puntos de conexión de Azure CDN.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Para usar PowerShell para administrar los perfiles y puntos de conexión de la red CDN de Azure debe tener instalado el módulo de Azure PowerShell.  Para obtener información sobre cómo instalar Azure PowerShell y conectarlo a Azure mediante el cmdlet `Connect-AzureRmAccount` consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview).
+Para usar PowerShell para administrar los perfiles y puntos de conexión de Azure CDN debe tener instalado el módulo de Azure PowerShell.  Para obtener información sobre cómo instalar Azure PowerShell y conectarlo a Azure mediante el cmdlet `Connect-AzureRmAccount` consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview).
 
 > [!IMPORTANT]
 > Debe iniciar sesión con `Connect-AzureRmAccount` para poder ejecutar los cmdlets de Azure PowerShell.
 > 
 > 
 
-## <a name="listing-the-azure-cdn-cmdlets"></a>Lista de los cmdlets de la red CDN de Azure
-Puede enumerar todos los cmdlets de la red CDN de Azure mediante el cmdlet `Get-Command` .
+## <a name="listing-the-azure-cdn-cmdlets"></a>Lista de los cmdlets de Azure CDN
+Puede enumerar todos los cmdlets de Azure CDN mediante el cmdlet `Get-Command` .
 
 ```text
 PS C:\> Get-Command -Module AzureRM.Cdn
@@ -93,7 +93,7 @@ REMARKS
 
 ```
 
-## <a name="listing-existing-azure-cdn-profiles"></a>Listado de perfiles existentes de la red CDN de Azure
+## <a name="listing-existing-azure-cdn-profiles"></a>Listado de perfiles existentes de Azure CDN
 El cmdlet `Get-AzureRmCdnProfile` sin parámetros permite recuperar todos los perfiles de red CDN existentes.
 
 ```powershell
@@ -144,10 +144,8 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Where-Object { $_.ResourceState
 - Premium_Verizon
 - Custom_Verizon
 - Standard_Akamai
+- Standard_Microsoft
 - Standard_ChinaCdn
-
-> [!NOTE]
-> No se admite la SKU Standard_Microsoft mientras está en versión preliminar.
 
 ```powershell
 # Create a new profile
