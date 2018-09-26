@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e8005da056c08b21bf0b91dc71b3dafac281de1f
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: c0c215c4c599bbd5551891cdf6f999719983d31e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40237019"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060557"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -101,7 +101,7 @@ Los clientes pueden crear una instantánea de sus discos administrados y usarla 
 
 Sí, se admiten discos administrados y no administrados. Recomendamos que empiece a usar discos administrados para las cargas de trabajo nuevas y migre las cargas de trabajo actuales a discos administrados.
 
-**Si creo un disco de 128 GB y después lo aumento a 130 GB, ¿se me cobrará por el siguiente tamaño de disco (256 GB)?**
+**Si creo un disco de 128 GB y después lo aumento a 130 GiB, ¿se me cobrará por el siguiente tamaño de disco (256 GiB)?**
 
 Sí.
 
@@ -137,10 +137,10 @@ No, cuando se crea el nuevo disco es una copia completa independiente de ese blo
 
 No se puede cambiar el nombre de los discos administrados. Sin embargo, es posible cambiar el nombre de un disco no administrado; siempre y cuando no esté asociado a una VM o a un disco duro virtual.
 
-## <a name="standard-ssd-disks-preview"></a>Discos SSD estándar (versión preliminar)
+## <a name="standard-ssd-disks"></a>Discos SSD estándar
 
 **¿Qué son los discos SSD estándar de Azure?**
-Los discos SSD estándar son discos estándar respaldados por soportes físicos, optimizados como solución de almacenamiento rentable para cargas de trabajo que necesitan un rendimiento constante en niveles inferiores de IOPS. En la versión preliminar, están disponibles en un número limitado de regiones, con capacidad de administración limitada (disponible a través de plantillas de Resource Manager).
+Los discos SSD estándar son discos estándar respaldados por soportes físicos, optimizados como solución de almacenamiento rentable para cargas de trabajo que necesitan un rendimiento constante en niveles inferiores de IOPS.
 
 <a id="standard-ssds-azure-regions"></a>**¿Cuáles son las regiones que se admiten actualmente para los discos SSD estándar?**
 Todas las regiones de Azure ahora admiten discos SSD estándar.
@@ -275,7 +275,7 @@ Existe un costo fijo para cada tamaño de disco que esté aprovisionado con lím
 
 **¿Cuáles son los límites de IOPS y rendimiento que puedo obtener de la caché de disco?**
 
-Los límites combinados de memoria caché y SSD local para la serie DS son 4,000 IOPS por núcleo y 33 MB por segundo y núcleo. La serie GS ofrece 5000 IOPS por núcleo y 50 MB por segundo y núcleo.
+Los límites combinados de memoria caché y SSD local para la serie DS son 4000 IOPS por núcleo y 33 MiB por segundo y núcleo. La serie GS ofrece 5000 IOPS por núcleo y 50 MiB por segundo y núcleo.
 
 **¿Es el SSD local compatible con máquinas virtuales de Managed Disks?**
 
@@ -287,38 +287,60 @@ No hay ningún inconveniente a la hora de usar TRIM en discos de Azure, ya sea e
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nuevos tamaños de discos: tanto administrados como no administrados
 
-**¿Cuál es el mayor tamaño de disco compatible con discos de datos y sistema operativo?**
+**¿Cuál es el mayor tamaño de disco administrado compatible con discos de datos y sistema operativo?**
 
-El tipo de partición compatible con Azure para un disco del sistema operativo es el registro de arranque maestro (MBR). El formato MBR admite un disco de hasta 2 TB. El tamaño máximo admitido por Azure para un disco del sistema operativo es de 2 TB. Azure admite hasta 4 TB para discos de datos. 
+El tipo de partición compatible con Azure para un disco del sistema operativo es el registro de arranque maestro (MBR). El formato MBR admite un tamaño de disco de hasta 2 TiB. El tamaño máximo que admite Azure para un disco del sistema operativo es de 2 TiB. Azure admite hasta 32 TiB para discos de datos administrados. Los tamaños de discos administrados superiores a 4 TiB están en versión preliminar. Para obtener más información sobre estos, consulte nuestra [publicación del blog](http://aka.ms/azure-large-disk-32TB-preview-blog).
+
+**¿Cuál es el mayor tamaño de disco administrado compatible con discos de datos y sistema operativo?**
+
+El tipo de partición compatible con Azure para un disco del sistema operativo es el registro de arranque maestro (MBR). El formato MBR admite un tamaño de disco de hasta 2 TiB. El tamaño máximo que admite Azure para un disco no administrado del sistema operativo es de 2 TiB. Azure admite hasta 4 TiB para discos de datos no administrados.
 
 **¿Cuál es el mayor tamaño de blob en páginas admitido?**
 
-El mayor tamaño blob en páginas que admite Azure es 8 TB (8191 GB). El tamaño máximo del blob en páginas cuando se conecta a una máquina virtual como discos de datos o de sistema operativo es de 4 TB (4 095 GB).
+El mayor tamaño de blob en páginas que admite Azure es 8 TiB (8191 GiB). El tamaño máximo del blob en páginas cuando se conecta a una máquina virtual como discos de datos o de sistema operativo es de 4 TiB (4095 GiB).
 
-**¿Es necesario usar una nueva versión de las herramientas de Azure para crear, conectar, cambiar el tamaño y cargar discos de más de 1 TB?**
+**¿Es necesario usar una nueva versión de las herramientas de Azure para crear, conectar, cambiar de tamaño y cargar discos de más de 1 TiB?**
 
-No es necesario actualizar las herramientas de Azure existentes para crear, conectar o cambiar el tamaño de los discos de más de 1 TB. Para cargar el archivo de disco duro virtual del entorno local directamente en Azure como un blob en páginas o un disco no administrado, debe usar los conjuntos de herramientas más recientes:
+No es necesario actualizar las herramientas de Azure existentes para crear, conectar o cambiar el tamaño de los discos de más de 1 TiB. Para cargar el archivo de disco duro virtual del entorno local directamente en Azure como un blob en páginas o un disco no administrado, debe usar los conjuntos de herramientas más recientes que se indican a continuación. Solo se admiten cargas de disco duro virtual de hasta 8 TiB.
 
 |Herramientas de Azure      | Versiones compatibles                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Número de versión 4.1.0: versión de junio de 2017 o posterior|
 |CLI de Azure v1     | Número de versión 0.10.13: versión de mayo de 2017 o posterior|
+|CLI de Azure v2     | Número de versión 2.0.12: versión de julio de 2017 o posterior|
 |AzCopy           | Número de versión 6.1.0: versión de junio de 2017 o posterior|
-
-La compatibilidad con CLI de Azure v2 y Azure Storage Explorer estará disponible próximamente. 
 
 **¿Se admiten los tamaños de disco P4 y P6 para blobs en páginas o discos no administrados?**
 
-No. Los tamaños de disco P4 (32 GB) y P6 (64 GB) solo son compatibles con discos administrados. La compatibilidad para blobs en páginas y discos no administrados estará disponible próximamente.
+Los tamaños de disco P4 (32 GiB) y P6 (64 GiB) no se admiten como niveles de disco predeterminados para discos no administrados y blobs en páginas. Deberá [establecer el nivel de blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) explícitamente en P4 y P6 para que el disco se asigne a estos niveles. Si implementa un disco no administrado o un blob en páginas con el tamaño de disco o la longitud de contenido inferior a 32 GiB o entre 32 y 64 GiB sin establecer el nivel de blob, continuará en el nivel P10 con 500 IOPS y 100 MiB/s y el plan de tarifa asignado.
 
-**Si mi disco administrado premium existente de menos de 64 GB se creó antes de habilitar el disco pequeño (alrededor del 15 de junio de 2017), ¿cómo se factura?**
+**Si mi disco administrado premium existente de menos de 64 GiB se creó antes de habilitar el disco pequeño (alrededor del 15 de junio de 2017), ¿cómo se factura?**
 
-Los discos pequeños premium de menos de 64 GB se siguen facturando según el plan de tarifa P10. 
+Los discos pequeños premium de menos de 64 GiB se siguen facturando según el plan de tarifa P10.
 
-**¿Cómo puedo cambiar el nivel de disco de los discos pequeños premium menores de 64 GB de P10 a P4 o P6?**
+**¿Cómo puedo cambiar el nivel de disco de los discos pequeños premium menores de 64 GiB de P10 a P4 o P6?**
 
-Puede crear una instantánea de los discos pequeños y, después, crear un disco para cambiar automáticamente el plan de tarifa a P4 o P6, en función del tamaño aprovisionado. 
+Puede crear una instantánea de los discos pequeños y, después, crear un disco para cambiar automáticamente el plan de tarifa a P4 o P6, en función del tamaño aprovisionado.
 
+**¿Puede cambiar el tamaño de los discos administrados existentes de menos de 4 TiB a los nuevos tamaños de disco recién introducidos de hasta 32 TiB?**
+
+Los nuevos tamaños de disco administrado de 8 TiB, 16 TiB y 32 TiB están actualmente en versión preliminar. Aún no se admite el cambio de los tamaños de disco existentes a los nuevos tamaños de disco.
+
+**¿Cuales son los tamaños de disco más grandes que admite Azure Backup y el servicio Azure Site Recovery?**
+
+El tamaño de disco más grande que admiten Azure Backup y el servicio Azure Site Recovery es de 4 TiB.
+
+**¿Cuáles son los tamaños de VM recomendados para los tamaños de disco grandes (> 4TiB) para discos SSD estándar y discos HDD estándar con la finalidad de lograr niveles optimizados de ancho de banda e IOPS del disco?**
+
+Para lograr un rendimiento de los discos SSD y HDD estándar de gran tamaño (> 4 TB) por encima de 500 IOPS y 60 MiB/s, debe usar uno de los siguientes tamaños de VM para optimizar su rendimiento: máquinas virtuales serie B, serie DSv2, serie Dsv3, serie ESv3, serie Fs, serie Fsv2, serie M, serie GS, serie NCv2, serie NCv3 o serie Ls.
+
+**¿En qué regiones se admiten los tamaños de disco administrado mayores de 4 TiB?**
+
+En este momento en versión preliminar, los tamaños de disco administrado solo se admiten en la región Oeste de EE. UU.
+
+**¿Se admite la habilitación del almacenamiento en caché del host en los tamaños de disco más recientes?**
+
+Se admite el almacenamiento en caché del host solo de lectura y de lectura/escritura en tamaños de disco inferiores a 4 TiB. Para los tamaños de disco de más de 4 TiB, no se puede establecer la opción de almacenamiento en caché en un valor distinto de Ninguno. Se recomienda aprovechar el almacenamiento en caché para tamaños de disco más pequeños, donde se puede esperar un mayor aumento del rendimiento con datos almacenados en caché en la máquina virtual.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Mi pregunta no está respondida aquí. ¿Qué debo hacer?
 

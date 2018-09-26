@@ -5,26 +5,26 @@ services: storage
 author: ramankumarlive
 ms.service: storage
 ms.topic: include
-ms.date: 06/05/2018
+ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: e6a2493b0bc9e2b4c9695e29ae0c175dac9814fe
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: ea312002a9a1a39505cd4748864ca9dfc1da43dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40237982"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060387"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Discos administrados y Premium Storage de alto rendimiento para VM
+
 Azure Premium Storage le ofrece soporte de disco de alto rendimiento y latencia baja para máquinas virtuales (VM) con cargas de trabajo intensivas de entrada/salida (E/S). Los discos de VM que usan Premium Storage almacenan los datos en unidades de estado sólido (SSD). Para aprovechar la ventaja de la velocidad y el rendimiento de discos de Premium Storage, puede migrar los discos de VM existentes a Premium Storage.
 
-En Azure, puede conectar varios discos de Premium Storage a una VM. Usar varios discos proporciona a las aplicaciones hasta 256 TB de almacenamiento por máquina virtual. Con Premium Storage, las aplicaciones pueden lograr 80 000 operaciones de E/S por segundo (IOPS) por VM, y un rendimiento de disco de hasta 2000 megabytes por segundo (MB/s) por VM. Las operaciones de lectura proporcionan latencias muy bajas.
+En Azure, puede conectar varios discos de Premium Storage a una VM. El uso de varios discos proporciona a las aplicaciones hasta 256 TB de almacenamiento por máquina virtual y, si usa los tamaños de versión preliminar, la aplicación puede tener hasta aproximadamente 2 PiB de almacenamiento por máquina virtual. Con Premium Storage, las aplicaciones pueden lograr 80 000 operaciones de E/S por segundo (IOPS) por VM, y un rendimiento de disco de hasta 2000 megabytes por segundo (MB/s) por VM. Las operaciones de lectura proporcionan latencias muy bajas.
 
 Con Premium Storage, Azure ofrece la capacidad de levantar y mover realmente sus exigentes aplicaciones empresariales como Dynamics AX, Dynamics CRM, Exchange Server, SAP Business Suite y granjas de SharePoint en la nube. Puede ejecutar cargas de trabajo de bases de datos de rendimiento intensivo como SQL Server, Oracle, MongoDB, MySQL y Redis, que requieren una baja latencia y un alto rendimiento de forma coherente.
 
 > [!NOTE]
 > Para lograr el mejor rendimiento de la aplicación, se recomienda migrar todos los discos de VM que requieran E/S por segundo elevadas a Premium Storage. Si el disco no requiere E/S por segundo elevadas, puede limitar los costos conservando Azure Storage estándar. En Standard Storage, los datos de disco de VM se almacenan en unidades de disco duro (HDD) en lugar de en SSD.
-> 
 
 Azure ofrece dos maneras de crear discos de Premium Storage para las VM:
 
@@ -44,7 +44,6 @@ Para más información sobre la migración de VM existentes en Premium Storage, 
 
 > [!NOTE]
 > Premium Storage está disponible en la mayoría de las regiones. Para obtener la lista de regiones disponibles, consulte la fila de **Almacenamiento en disco** en [productos de Azure disponibles por región](https://azure.microsoft.com/regions/#services).
-> 
 
 ## <a name="features"></a>Características
 
@@ -52,7 +51,7 @@ Aquí se muestran algunas de las características de Premium Storage:
 
 * **Discos de Premium Storage**
 
-    Premium Storage es compatible con discos de VM que se pueden adjuntar a VM de series de tamaño específico. Premium Storage admite una amplia variedad de máquinas virtuales de Azure. Puede elegir entre siete tamaños de disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P15 (256 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). Los tamaños de disco P4 y P6 siguen admitiéndose solo para Managed Disks. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM. En [Objetivos de rendimiento y escalabilidad de Premium Storage](#scalability-and-performance-targets) se describen las especificaciones más detalladamente.
+    Premium Storage es compatible con discos de VM que se pueden adjuntar a VM de series de tamaño específico. Premium Storage admite una amplia variedad de máquinas virtuales de Azure. Puede seleccionar entre ocho tamaños de disco de GA: P4 (32 GiB), P6 (64 GiB), P10 (128 GiB), P15 (256 GiB), P20 (512 GiB), P30 (1024 GiB), P40 (2048 GiB) y P50 (4095 GiB). También cuenta con tres tamaños de disco de versión preliminar: P60 de 8192 GiB (8 TiB), P70 de 16 348 GiB (16 TiB) y P80 de 32 767 GiB (32 TiB). Los tamaños de disco P4, P6, P60, P70 y P80 solo se admiten actualmente para Managed Disks. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM. En [Objetivos de rendimiento y escalabilidad de Premium Storage](#scalability-and-performance-targets) se describen las especificaciones más detalladamente.
 
 * **Blobs en páginas Premium**
 
@@ -152,16 +151,11 @@ Si usa cuentas de Premium Storage para los discos no administrados y la aplicaci
 ### <a name="premium-storage-disk-limits"></a>Límites de discos de Premium Storage
 Cuando se aprovisiona un disco de Premium Storage, el tamaño del disco determina los valores máximos de IOPS y rendimiento (ancho de banda). Azure ofrece ocho tipos de discos de Premium Storage: P4 (solo Managed Disks), P6 (solo Managed Disks), P10, P15, P20, P30, P40 y P50. Cada tipo de disco de Premium Storage tiene límites específicos de E/S por segundo y rendimiento. Los límites de los tipos de disco se describen en la siguiente tabla.
 
-| Tipo de discos Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Tamaño del disco           | 32 GB| 64 GB| 128 GB| 256 GB| 512 GB            | 1.024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPS por disco       | 120   | 240   | 500   | 1100   | 2300              | 5000              | 7500              | 7500              | 
-| Rendimiento de disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 
+| Tipo de discos Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | P60   | P70   | P80   | |---------------------|-------|-------|-------|-------|-------|-------|-------|-------||-------||-------||-------| | Tamaño de disco           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB            | 1024 GiB (1 TiB)    | 2048 GiB (2 TiB)    | 4095 GiB (4 TiB)    | 8192 GiB (8 TiB)    | 16 384 GiB (16 TiB)    | 32 767 GiB (32 TiB)    | | IOPS por disco       | 120   | 240   | 500   | 1100   | 2300              | 5000              | 7500              | 7500              | 12 500              | 15 000              | 20 000              | | Rendimiento por disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 480 MB por segundo | 750 MB por segundo | 750 MB por segundo |
 
 > [!NOTE]
 > Asegúrese de que haya ancho de banda suficiente disponible en la VM para el tráfico de disco de unidad, como se describe en [Máquinas virtuales compatibles con Premium Storage](#premium-storage-supported-vms). En caso contrario, el rendimiento del disco y la E/S por segundo estarán restringidos a valores inferiores. El rendimiento y la E/S por segundo máximos se basan en los límites de la VM, no en los límites de disco descritos en la tabla anterior.  
-> 
-> 
+> Azure ha diseñado la plataforma Premium Storage para ser enormemente paralela. Diseñar la aplicación para que sea multiproceso le ayudará a alcanzar el objetivo de alto rendimiento que ofrecen los tamaños de disco más grandes.
 
 Estos son algunos aspectos importantes que debe conocer sobre los objetivos de escalabilidad y rendimiento de Premium Storage:
 
@@ -172,11 +166,10 @@ Estos son algunos aspectos importantes que debe conocer sobre los objetivos de e
 * **Tamaño del disco**
 
     Azure asigna el tamaño del disco (redondeado al alza) a la opción de disco de Premium Storage más cercana según se especifica en la tabla en la sección anterior. Por ejemplo, un tamaño de disco de 100 GB se clasifica como una opción P10. Puede realizar hasta 500 E/S por segundo, con un rendimiento de hasta 100 MB/s. De forma similar, un disco con un tamaño de 400 GB se clasifica como P20. Puede realizar hasta 2300 E/S por segundo, con un rendimiento de 150 MB/s.
-    
+
     > [!NOTE]
     > Puede aumentar fácilmente el tamaño de los discos existentes. Por ejemplo, puede aumentar el tamaño de un disco de 30 GB a 128 GB o, incluso, a 1 TB. O bien, puede convertir un disco P20 en un disco P30 porque necesita más capacidad o más E/S por segundo y rendimiento. 
-    > 
- 
+
 * **Tamaño de E/S**
 
     El tamaño de una E/S es de 256 KB. Si el tamaño de los datos transferidos es inferior a 256 KB, se considera una unidad de E/S. Los tamaños de E/S más grandes se cuentan como varias operaciones de E/S con un tamaño de 256 KB. Por ejemplo, una E/S de 1,100 KB se cuenta como cinco unidades de E/S.
@@ -193,9 +186,10 @@ Estos son algunos aspectos importantes que debe conocer sobre los objetivos de e
 
 * **Aciertos de caché**
 
-    Los aciertos de caché no están limitados por las E/S por segundo ni el rendimiento asignados del disco. Por ejemplo, cuando se utiliza un disco de datos con la configuración de caché **ReadOnly** en una VM compatible con Premium Storage, las lecturas que se sirven desde la memoria caché no están sujetas a los límites de E/S por segundo y rendimiento del disco. Si la carga de trabajo de un disco es predominantemente lecturas, puede que obtenga un rendimiento muy alto. La caché está sujeta a límites de E/S por segundo y rendimiento independientes en el nivel de la VM que se basan en el tamaño de esta. Las VM de la serie DS tienen aproximadamente 4000 E/S por segundo y un rendimiento de 33 MB/s por núcleo de caché y E/S de SSD locales. Las VM de la serie GS tienen aproximadamente un límite de 5000 E/S por segundo y un rendimiento de 50 MB/s por núcleo de caché y E/S de SSD locales. 
+    Los aciertos de caché no están limitados por las E/S por segundo ni el rendimiento asignados del disco. Por ejemplo, cuando se utiliza un disco de datos con la configuración de caché **ReadOnly** en una VM compatible con Premium Storage, las lecturas que se sirven desde la memoria caché no están sujetas a los límites de E/S por segundo y rendimiento del disco. Si la carga de trabajo de un disco es predominantemente lecturas, puede que obtenga un rendimiento muy alto. La caché está sujeta a límites de E/S por segundo y rendimiento independientes en el nivel de la VM que se basan en el tamaño de esta. Las VM de la serie DS tienen aproximadamente 4000 E/S por segundo y un rendimiento de 33 MB/s por núcleo de caché y E/S de SSD locales. Las VM de la serie GS tienen aproximadamente un límite de 5000 E/S por segundo y un rendimiento de 50 MB/s por núcleo de caché y E/S de SSD locales.
 
 ## <a name="throttling"></a>Limitaciones
+
 La limitación puede ocurrir si la E/S por segundo o el rendimiento de la aplicación supera los límites asignados para un disco de Premium Storage. Limitación también se podría producir si el tráfico total en disco en todos los discos en la VM supera el límite de ancho de banda de disco disponible para la VM. Para evitar la limitación, se recomienda que limite el número de solicitudes de E/S pendientes del disco. Utilice un límite basado en objetivos de escalabilidad y rendimiento para el disco que se ha aprovisionado y en el ancho de banda de disco disponible para la VM.  
 
 La aplicación puede lograr la menor latencia cuando se ha diseñado para evitar la limitación. Sin embargo, si el número de solicitudes de E/S pendientes del disco es demasiado pequeño, la aplicación no puede aprovechar al máximo los niveles de rendimiento y E/S por segundo que están disponibles en el disco.
@@ -203,17 +197,19 @@ La aplicación puede lograr la menor latencia cuando se ha diseñado para evitar
 En los ejemplos siguientes se muestra cómo calcular los niveles de limitación. Todos los cálculos se basan en un tamaño de unidad de E/S de 256 KB.
 
 ### <a name="example-1"></a>Ejemplo 1
+
 La aplicación procesó 495 unidades de E/S de 16 KB de tamaño en un segundo en un disco P10. Las unidades de E/S se cuentan como 495 E/S por segundo. Si intenta una E/S de 2 MB en el mismo segundo, el total de unidades de E/S es igual a 495 + 8 E/S por segundo. Esto es porque una E/S de 2 MB = 2048 KB/256 KB = 8 unidades de E/S cuando el tamaño de la unidad de E/S es de 256 KB. Puesto que la suma de 495 + 8 supera el límite de E/S por segundo de 500 para el disco, se produce la limitación.
 
 ### <a name="example-2"></a>Ejemplo 2
+
 La aplicación procesó 400 unidades de E/S de 256 KB de tamaño en un disco P10. El ancho de banda total consumido es (400 × 215)/256 = 1,024 MB/s. El rendimiento de un disco P10 es de 100 MB/s. Si la aplicación intenta realizar más operaciones de E/S en ese segundo, se limita porque supera el límite asignado.
 
 ### <a name="example-3"></a>Ejemplo 3
+
 Tiene una máquina virtual DS4 con dos discos P30 conectados. Cada disco P30 es capaz de tener un rendimiento de 200 MB/s. Sin embargo, una VM DS4 tiene una capacidad de ancho de banda de disco total de 256 MB/s. No puede dirigir los discos conectados al máximo rendimiento en esta VM DS4 al mismo tiempo. Para resolver este problema, puede mantener el tráfico de 200 MB/s en un disco y 56 MB/s en el otro disco. Si la suma del disco tráfico supera los 256 MB/s, el tráfico de disco queda limitado.
 
 > [!NOTE]
 > Si el tráfico de disco consta principalmente de tamaños de E/S pequeños, es probable que la aplicación alcance el límite de E/S por segundo antes que el límite de rendimiento. Sin embargo, si el tráfico de disco consiste principalmente en tamaños grandes de E/S, es probable que la aplicación alcance primero el límite de rendimiento en lugar del límite de E/S por segundo. Puede maximizar la E/S por segundo y el rendimiento de su aplicación mediante el uso de tamaños de E/S óptimos. Además, puede limitar el número de solicitudes de E/S pendientes para un disco.
-> 
 
 Para más información sobre el diseño de alto rendimiento con Premium Storage, consulte [Diseño para rendimiento con Premium Storage](../articles/virtual-machines/windows/premium-storage-performance.md).
 
@@ -312,11 +308,12 @@ Para información detallada sobre los precios de Premium Storage, de las máquin
 * [Precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/)
 
-## <a name="azure-backup-support"></a>Soporte técnico de Azure Backup 
+## <a name="azure-backup-support"></a>Soporte técnico de Azure Backup
 
 Para recuperación ante desastres regionales, debe realizar una copia de los discos de máquina virtual en una región distinta con [Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md) y una cuenta de almacenamiento GRS como almacén de Backup.
 
 Para crear un trabajo de copia de seguridad con copias de seguridad basadas en tiempo, fácil restauración de la VM y directivas de retención de copia de seguridad, use Azure Backup. Puede utilizar Backup con discos administrados y no administrados. Para más información, vea [Azure Backup para VM con Unmanaged Disks ](../articles/backup/backup-azure-vms-first-look-arm.md) y [Azure Backup para VM con Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para más información sobre el Premium Storage, consulte los siguientes artículos.
