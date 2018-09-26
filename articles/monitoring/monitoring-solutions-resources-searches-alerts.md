@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c29d6cb0da2e394912a2584b0d3c3cedf13f054c
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: f03e124aab27292ee86fcd8c28ecebb0ba9cbdcf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304076"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999518"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adición de búsquedas y alertas guardadas de Log Analytics en la solución de administración (versión preliminar)
 
@@ -32,7 +32,7 @@ Las [soluciones de administración](monitoring-solutions.md) suelen incluir [bú
 > [!NOTE]
 > En los ejemplos de este artículo se usan parámetros y variables que son necesarios o comunes para las soluciones de administración, y se describen en [Diseño y compilación de una solución de administración en Azure](monitoring-solutions-creating.md).  
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que ya está familiarizado con la manera de [crear una solución de administración](monitoring-solutions-creating.md) y la estructura de una [plantilla de Resource Manager](../resource-group-authoring-templates.md) y un archivo de solución.
 
 
@@ -90,7 +90,7 @@ En la tabla siguiente se describe cada propiedad de una búsqueda guardada.
 Las [alertas de registro de Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) se crean mediante reglas de alerta de Azure que ejecutan consultas de registro especificadas a intervalos regulares.  Si los resultados de la consulta coinciden con los criterios especificados, se crea un registro de alertas y se ejecutan una o varias acciones mediante [grupos de acciones](../monitoring-and-diagnostics/monitoring-action-groups.md).  
 
 > [!NOTE]
-> A partir del 14 de mayo de 2018, todas las alertas de un área de trabajo comenzarán a extenderse automáticamente a Azure. Los usuarios pueden decidir si desean iniciar la extensión de alertas a Azure antes del 14 de mayo de 2018. Para más información, consulte [Extensión de alertas de OMS a Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante el [grupo de acciones: plantilla de Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure de un área de trabajo de Log Analytics se comenzarán a extender automáticamente a Azure. Los usuarios pueden decidir si desean iniciar la extensión de alertas a Azure antes del 14 de mayo de 2018. Para más información, consulte [Extensión de alertas de OMS a Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante el [grupo de acciones: plantilla de Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 Las reglas de alerta en una solución de administración se componen de los tres siguientes recursos.
 
@@ -130,9 +130,9 @@ En la tabla siguiente se describen las propiedades para los recursos de programa
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| Enabled       | Sí | Especifica si la alerta está habilitada cuando se crea. |
-| interval      | Sí | Frecuencia con la que se ejecuta la consulta en minutos. |
-| queryTimeSpan | Sí | Período de tiempo en minutos en el que se evalúan los resultados. |
+| Enabled       | SÍ | Especifica si la alerta está habilitada cuando se crea. |
+| interval      | SÍ | Frecuencia con la que se ejecuta la consulta en minutos. |
+| queryTimeSpan | SÍ | Período de tiempo en minutos en el que se evalúan los resultados. |
 
 El recurso de programación debe depender de la búsqueda guardada para que se cree antes de la programación.
 
@@ -146,7 +146,7 @@ Una programación puede tener varias acciones. Una acción puede definir uno o v
 Las acciones pueden definirse mediante el recurso [grupo de acciones] o un recurso de acción.
 
 > [!NOTE]
-> A partir del 14 de mayo de 2018, todas las alertas de un área de trabajo comenzarán a extenderse automáticamente a Azure. Los usuarios pueden decidir si desean iniciar la extensión de alertas a Azure antes del 14 de mayo de 2018. Para más información, consulte [Extensión de alertas de OMS a Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante el [grupo de acciones: plantilla de Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure de un área de trabajo de Log Analytics se comenzarán a extender automáticamente a Azure. Los usuarios pueden decidir si desean iniciar la extensión de alertas a Azure antes del 14 de mayo de 2018. Para más información, consulte [Extensión de alertas de OMS a Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante el [grupo de acciones: plantilla de Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 
 Hay dos tipos de recursos de acción especificados por la propiedad **Type**.  Una programación requiere una acción **Alert** que define los detalles de la regla de alerta y las acciones que se realizan cuando se crea una alerta. Los recursos de acción tienen un tipo de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
@@ -190,10 +190,10 @@ En las tablas siguientes se describen las propiedades para los recursos de acci�
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| Escriba | Sí | Tipo de la acción.  Es **Alert** para las acciones de alerta. |
-| NOMBRE | Sí | Nombre para mostrar de la alerta.  Es el nombre que se muestra en la consola para la regla de alerta. |
+| Escriba | SÍ | Tipo de la acción.  Es **Alert** para las acciones de alerta. |
+| NOMBRE | SÍ | Nombre para mostrar de la alerta.  Es el nombre que se muestra en la consola para la regla de alerta. |
 | DESCRIPCIÓN | Sin  | Descripción opcional de la alerta. |
-| Gravedad | Sí | Gravedad del registro de alertas según los siguientes valores:<br><br> **crítica**<br>**advertencia**<br>**informativa**
+| Gravedad | SÍ | Gravedad del registro de alertas según los siguientes valores:<br><br> **crítica**<br>**advertencia**<br>**informativa**
 
 
 #### <a name="threshold"></a>Umbral
@@ -201,8 +201,8 @@ Esta sección es obligatoria.  Define las propiedades para el umbral de alerta.
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| Operador | Sí | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
-| Valor | Sí | Valor para comparar los resultados. |
+| Operador | SÍ | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
+| Valor | SÍ | Valor para comparar los resultados. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Esta sección es opcional.  Inclúyala para una alerta de unidades métricas.
@@ -212,9 +212,9 @@ Esta sección es opcional.  Inclúyala para una alerta de unidades métricas.
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| TriggerCondition | Sí | Especifica si el umbral es para el número total de infracciones o para infracciones consecutivas con los siguientes valores:<br><br>**Total<br>Consecutive** (Total, Consecutivos) |
-| Operador | Sí | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
-| Valor | Sí | Número de veces que se deben cumplir los criterios para desencadenar la alerta. |
+| TriggerCondition | SÍ | Especifica si el umbral es para el número total de infracciones o para infracciones consecutivas con los siguientes valores:<br><br>**Total<br>Consecutive** (Total, Consecutivos) |
+| Operador | SÍ | Operador para la comparación según los valores siguientes:<br><br>**gt = mayor que<br>lt = menor que** |
+| Valor | SÍ | Número de veces que se deben cumplir los criterios para desencadenar la alerta. |
 
 
 #### <a name="throttling"></a>Limitaciones
@@ -232,7 +232,7 @@ Para los usuarios que han extendido sus alertas a Azure, ahora una programación
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| AzNsNotification | Sí | El identificador de recurso del grupo de acciones de Azure que se asociará con la alerta para realizar las acciones necesarias cuando se cumplan los criterios de alerta. |
+| AzNsNotification | SÍ | El identificador de recurso del grupo de acciones de Azure que se asociará con la alerta para realizar las acciones necesarias cuando se cumplan los criterios de alerta. |
 | CustomEmailSubject | Sin  | Línea de asunto personalizada del correo enviado a todas las direcciones especificadas en el grupo de acciones asociado. |
 | CustomWebhookPayload | Sin  | Carga personalizada para enviarse a todos los puntos de conexión de webhook definidos en el grupo de acciones asociadas. El formato depende de lo que espera el webhook y debe ser un valor JSON serializado válido. |
 
@@ -242,15 +242,15 @@ Para los usuarios que han extendido sus alertas a Azure, ahora una programación
 Cada programación tiene una acción **Alert**.  Esto define los detalles de la alerta y, opcionalmente, las acciones de notificación y corrección.  Una notificación envía un mensaje de correo electrónico a una o varias direcciones.  Una corrección inicia un runbook en Azure Automation para intentar corregir el problema detectado.
 
 > [!NOTE]
-> A partir del 14 de mayo de 2018, todas las alertas de un área de trabajo comenzarán a extenderse automáticamente a Azure. Los usuarios pueden decidir si desean iniciar la extensión de alertas a Azure antes del 14 de mayo de 2018. Para más información, consulte [Extensión de alertas de OMS a Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante el [grupo de acciones: plantilla de Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partir del 14 de mayo de 2018, todas las alertas en una instancia de nube pública de Azure de un área de trabajo de Log Analytics se comenzarán a extender automáticamente a Azure. Los usuarios pueden decidir si desean iniciar la extensión de alertas a Azure antes del 14 de mayo de 2018. Para más información, consulte [Extensión de alertas de OMS a Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). En el caso de los usuarios que extienden las alertas a Azure, ahora las acciones se controlan en los grupos de acciones de Azure. Cuando un área de trabajo y sus alertas se extienden a Azure, es posible recuperar o agregar acciones mediante el [grupo de acciones: plantilla de Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 ##### <a name="emailnotification"></a>EmailNotification
  Esta sección es opcional. Inclúyala si desea que la alerta envíe un mensaje de correo electrónico a uno o varios destinatarios.
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| Recipients | Sí | Lista delimitada por comas de direcciones de correo electrónico para envío de notificación cuando se crea una alerta, como en el ejemplo siguiente.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Asunto | Sí | Línea del asunto del mensaje de correo electrónico. |
+| Recipients | SÍ | Lista delimitada por comas de direcciones de correo electrónico para envío de notificación cuando se crea una alerta, como en el ejemplo siguiente.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| Asunto | SÍ | Línea del asunto del mensaje de correo electrónico. |
 | Datos adjuntos | Sin  | Los datos adjuntos no son compatibles actualmente.  Si este elemento está incluido, debe ser **None** (Ninguno). |
 
 
@@ -259,8 +259,8 @@ Esta sección es opcional. Inclúyala si desea que se inicie un runbook en respu
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| RunbookName | Sí | Nombre del runbook que se va a iniciar. |
-| WebhookUri | Sí | URI del webhook para el runbook. |
+| RunbookName | SÍ | Nombre del runbook que se va a iniciar. |
+| WebhookUri | SÍ | URI del webhook para el runbook. |
 | Expiry | Sin  | Fecha y hora a la que expira la corrección. |
 
 ##### <a name="webhook-actions"></a>Acciones de webhook
@@ -289,9 +289,9 @@ En las tablas siguientes se describen las propiedades para los recursos de acci�
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--|:--|:--|
-| Tipo | Sí | Tipo de la acción.  Es **Webhook** para las acciones de webhook. |
-| Nombre | Sí | Nombre para mostrar de la acción.  Esto no se muestra en la consola. |
-| wehookUri | Sí | URI del webhook. |
+| Tipo | SÍ | Tipo de la acción.  Es **Webhook** para las acciones de webhook. |
+| Nombre | SÍ | Nombre para mostrar de la acción.  Esto no se muestra en la consola. |
+| wehookUri | SÍ | URI del webhook. |
 | customPayload | Sin  | Carga personalizada que se va a enviar al webhook. El formato depende de lo que el webhook espere. |
 
 

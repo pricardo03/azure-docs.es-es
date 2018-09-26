@@ -5,31 +5,31 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 07/18/2018
+ms.date: 09/10/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d059cab5668eef8d4dafc1442ca9749a7dcf8c9d
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: de744a4a23b246223ed0f42f3d079b1ac2e5521a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162521"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47008841"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>¿Cuál es la diferencia entre una puerta de enlace de red virtual de Azure (VPN Gateway) y un elemento vpngateway de Azure Virtual WAN?
 
-Virtual WAN proporciona conectividad de sitio a sitio y a gran escala, y se ha creado para mejorar el rendimiento, la escalabilidad y la facilidad de uso. Los dispositivos de rama CPE realizan un aprovisionamiento automático y se conectan en Azure Virtual WAN. Estos dispositivos están disponibles en un creciente ecosistema de asociados de VPN y SD-WAN.
+Virtual WAN proporciona conectividad de sitio a sitio y a gran escala, y se ha creado para mejorar el rendimiento, la escalabilidad y la facilidad de uso. ExpressRoute y la funcionalidad de conectividad de punto a sitio están actualmente en versión preliminar. Los dispositivos de rama CPE realizan un aprovisionamiento automático y se conectan en Azure Virtual WAN. Estos dispositivos están disponibles en un creciente ecosistema de asociados de VPN y SD-WAN. Consulte la [lista de asociados preferidos](https://go.microsoft.com/fwlink/p/?linkid=2019615).
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>¿Qué proveedores de dispositivos (asociados de Virtual WAN) se admiten desde el primer momento? 
 
-En este momento, Citrix y Riverbed admiten la experiencia de Virtual WAN totalmente automatizada. Para más información, consulte [Asociados de Virtual WAN](https://aka.ms/virtualwan).
+En este momento, Citrix y Riverbed admiten la experiencia de Virtual WAN totalmente automatizada. Para más información, consulte [Asociados de Virtual WAN](https://go.microsoft.com/fwlink/p/?linkid=2019615).
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>¿Debo usar un dispositivo de asociado preferido?
 
-No. Puede usar cualquier dispositivo compatible con VPN que cumpla los requisitos de la versión preliminar para la compatibilidad con IKEv2 IPsec.
+No. Puede usar cualquier dispositivo compatible con VPN que cumpla los requisitos de Azure para la compatibilidad con IPsec de IKEv1 o IKEv2.
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>¿Cómo automatizan la conectividad con Azure Virtual WAN los asociados de Virtual WAN?
 
-Las soluciones de conectividad definidas por software suelen administrar sus dispositivos de rama con un controlador o un centro de aprovisionamiento de dispositivos. El controlador puede usar las API de Azure para automatizar la conectividad a Azure Virtual WAN. Para más información, consulte [Automatización de asociados de Virtual WAN](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
+Las soluciones de conectividad definidas por software suelen administrar sus dispositivos de rama con un controlador o un centro de aprovisionamiento de dispositivos. El controlador puede usar las API de Azure para automatizar la conectividad a Azure Virtual WAN. Para más información, consulte Automatización de asociados de Virtual WAN.
 
 ### <a name="does-virtual-wan-change-any-existing-connectivity-features"></a>¿Cambia Virtual WAN alguna de las características de conectividad existentes?   
 
@@ -39,18 +39,13 @@ No hay ningún cambio en las características de conectividad de Azure.
   
 Sí, Virtual WAN introduce nuevos recursos de Resource Manager. Para más información, consulte la [Información general](https://go.microsoft.com/fwlink/p/?LinkId=2004389).
 
-### <a name="are-there-any-special-requirements-to-join-the-preview"></a>¿Hay algún requisito especial para unirse a la versión preliminar? 
+### <a name="how-many-vpn-devices-can-connect-to-a-single-hub"></a>¿Cuántos dispositivos VPN pueden conectarse a un único concentrador?
 
-Para poder configurar una instancia de Azure Virtual WAN, primero debe inscribir su suscripción en la versión preliminar. Puede hacerlo enviando un correo electrónico a <azurevirtualwan@microsoft.com> con su identificador de suscripción. Recibirá un correo electrónico una vez inscrita la suscripción. Hasta que reciba la confirmación de que su suscripción se ha inscrito, no podrá trabajar con Virtual WAN en el portal.
+Se admiten hasta 100 conexiones por concentrador virtual. Cada conexión consta de dos túneles que están en una configuración activo-activo. Los túneles terminan en un elemento vpngateway del concentrador virtual de Azure.
 
-Consideraciones:
+### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>¿El dispositivo VPN local puede conectarse a varios concentradores?
 
-* La vista preliminar está limitada solo a las regiones de Azure.
-* Se admiten hasta 100 conexiones por concentrador virtual. Cada conexión consta de dos túneles que están en una configuración activo-activo. Los túneles terminan en un elemento vpngateway del concentrador virtual de Azure.
-* Considere el uso de esta versión preliminar si:
-  * Desea implementar ancho de banda agregado menor de 1 Gbps por concentrador virtual.
-  * Tiene un dispositivo VPN que admite la configuración basada en enrutamiento y la conectividad IKEv2 IPsec.
-  * Desea explorar el uso de dispositivos de rama operativa y SD-WAN en los asociados iniciales (Riverbed y Citrix).<br>o<br>Desea configurar la conectividad de rama a rama y de rama a Azure que incluya la administración de la configuración del dispositivo de forma local. (Configuración automática)
+Sí. Al principio, el flujo de tráfico sería del dispositivo local a la instancia de Microsoft Edge más cercana y, luego, al concentrador virtual.
 
 ### <a name="is-global-vnet-peering-supported-with-azure-virtual-wan"></a>¿Se admite el emparejamiento de VNet global con Azure Virtual WAN? 
 
@@ -62,7 +57,7 @@ Sí. Para hacer directamente el emparejamiento de las redes virtuales entre los 
 
 ### <a name="can-i-deploy-and-use-my-favorite-network-virtual-appliance-in-an-nva-vnet-with-azure-virtual-wan"></a>¿Puedo implementar y usar mi dispositivo virtual de red favorito (en una red virtual de NVA) con Azure Virtual WAN?
 
-Sí, puede conectar su VNet de aplicación virtual de red (NVA) favorita a Azure Virtual WAN, pero requerirá funcionalidades de enrutamiento en el concentrador, cuyo desarrollo está previsto. Además, todos los radios conectados a la red virtual de NVA deben estar conectados al concentrador virtual. 
+Sí, puede conectar su aplicación virtual de red (NVA) favorita a Azure Virtual WAN. En primer lugar, conecte la red virtual de la aplicación virtual de red virtual al concentrador con una conexión de red virtual de concentrador. A continuación, cree una ruta de concentrador virtual con un próximo salto que apunte a la aplicación virtual. Puede aplicar varias rutas a la tabla de rutas del concentrador virtual. Además, los radios conectados a la red virtual del dispositivo virtual deben estar conectados al concentrador virtual para garantizar que las rutas de la red virtual del radio se propagan a los sistemas locales.
 
 ### <a name="can-an-nva-vnet-have-a-virtual-network-gateway"></a>¿Puede una red virtual de NVA tener una puerta de enlace de red virtual?
 
@@ -70,27 +65,28 @@ No. La red virtual de NVA no puede tener una puerta de enlace de red virtual si 
 
 ### <a name="is-there-support-for-bgp"></a>¿Hay compatibilidad con BGP?
 
-Sí, BGP se admite. Para asegurarse de que las rutas de una red virtual de NVA se anuncian correctamente, los radios deben deshabilitar BGP si están conectados a una red virtual de NVA que, a su vez, está conectada a un concentrador virtual. Además, puede conectar las redes virtuales de radios al concentrador virtual.
+Sí, BGP se admite. Para asegurarse de que las rutas de una red virtual de NVA se anuncian correctamente, los radios deben deshabilitar BGP si están conectados a una red virtual de NVA que, a su vez, está conectada a un concentrador virtual. Además, debe conectar las redes virtuales del radio al concentrador virtual para garantizar que las rutas de dichas redes se propagan a los sistemas locales.
+¿Se puede dirigir el tráfico mediante UDR en el concentrador virtual?
 
 ### <a name="can-i-direct-traffic-using-udr-in-the-virtual-hub"></a>¿Se puede dirigir el tráfico mediante UDR en el concentrador virtual?
 
-Esto está previsto. Permanezca atento.
+Sí, puede dirigir el tráfico a una red virtual mediante la tabla de rutas del concentrador virtual.
 
 ### <a name="is-there-any-licensing-or-pricing-information-for-virtual-wan"></a>¿Hay información de precios o licencias para Virtual WAN?
  
-No hay ningún cargo adicional durante la versión preliminar. El [precio de salida y de Azure VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) permanece vigente durante la versión preliminar.
+Sí. Consulte la página [Precios](https://azure.microsoft.com/pricing/details/virtual-wan/).
 
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>¿Cómo consiguen los nuevos asociados que no aparecen en la lista de asociados de partida ser incluidos en ella?
 
-Envíe un correo electrónico a azurevirtualwan@microsoft.com. Un asociado ideal es aquel que tiene un dispositivo que se puede aprovisionar para la conectividad IPSec de IKEv2.
+Envíe un correo electrónico a azurevirtualwan@microsoft.com. Un asociado ideal es aquel que tiene un dispositivo que se puede aprovisionar para la conectividad IPsec de IKEv1 o IKEv2.
 
 ### <a name="is-it-possible-to-construct-azure-virtual-wan-with-a-resource-manager-template"></a>¿Es posible construir Azure Virtual WAN con una plantilla de Resource Manager?
 
-Estamos trabajando en ello. Por el momento, el servicio está controlado por el Portal y REST.
+Se puede crear una configuración simple para una instancia de Virtual WAN con un concentrador y un sitio VPN mediante una [plantilla de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network). Virtual WAN es principalmente un servicio REST o basado en el portal.
 
 ### <a name="is-branch-to-branch-connectivity-allowed-in-virtual-wan"></a>¿Se permite la conectividad de rama a rama en Virtual WAN?
 
-Sí, este tipo de conectividad está disponible en Virtual WAN.
+Sí, este tipo de conectividad está disponible en Virtual WAN para conexiones VPN y VPN a ExpressRoute. Aunque las de VPN de sitio a sitio están disponibles, las de ExpressRoute o de punto a sitio están actualmente en versión preliminar.
 
 ### <a name="does-branch-to-branch-traffic-traverse-through-the-azure-virtual-wan"></a>¿Atraviesa el tráfico de rama a rama Azure Virtual WAN?
 
@@ -98,24 +94,24 @@ Sí.
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>¿En qué difiere Virtual WAN del actual Azure Virtual Network Gateway?
 
-La VPN de Virtual Network Gateway se limita a 30 túneles. En las conexiones, debe usar Virtual WAN para VPN a gran escala. En la versión preliminar pública, esto se limita a 100 conexiones de rama con 1 Gbps en el concentrador.
+La VPN de Virtual Network Gateway se limita a 30 túneles. En las conexiones, debe usar Virtual WAN para VPN a gran escala. Puede conectar hasta 100 conexiones de rama con 2 Gbps en el concentrador. Una conexión es un túnel de activo a activo del dispositivo VPN local al concentrador virtual. Puede tener un único concentrador por región, lo que significa que puede conectar más de 100 ramas en total con todos los concentradores.
 
 ### <a name="does-this-virtual-wan-require-expressroute-from-each-site"></a>¿Esta Virtual WAN requiere ExpressRoute desde cada sitio?
 
-No. Usa la conectividad de sitio a sitio IPsec estándar a través de vínculos de Internet desde el dispositivo a un concentrador de Azure Virtual WAN.
+No. Usa la conectividad de sitio a sitio IPsec estándar a través de vínculos de Internet desde el dispositivo a un concentrador de Azure Virtual WAN. Los sitios pueden estar conectados a una red de proveedor mediante un circuito ExpressRoute. Los sitios conectados mediante ExpressRoute en el concentrador virtual (en versión preliminar) pueden tener un flujo de tráfico de rama a rama entre ExpressRoute y VPN. 
 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>¿Hay un límite en el rendimiento de la red al utilizar Azure Virtual WAN?
 
-En la versión preliminar pública, el número de ramas se limita a 100 conexiones por cada región o concentrador, y a un total de 1 GB en el concentrador.
+El número de ramas se limita a 100 conexiones por cada región o concentrador y a un total de 2 GB en el concentrador.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>¿Azure Virtual WAN permite al dispositivo local usar varias ISP en paralelo o es siempre un solo túnel VPN?
 
 Sí, puede tener túneles activo-activo (2 túneles = 1 conexión de Azure Virtual WAN) desde una única rama en función del dispositivo de ramificación.
 
-### <a name="how-is-traffic-is-routed-on-the-azure-backbone"></a>¿Cómo se enruta el tráfico en la red troncal de Azure?
+### <a name="how-is-traffic-routed-on-the-azure-backbone"></a>¿Cómo se enruta el tráfico en la red troncal de Azure?
 
 El tráfico sigue el patrón: dispositivo de rama -> ISP -> Microsoft Edge -> controlador de dominio de Microsoft -> Microsoft Edge -> ISP -> dispositivo de ramificación.
 
 ### <a name="in-this-model-what-do-you-need-at-each-site-just-an-internet-connection"></a>En este modelo, ¿qué es necesario en cada sitio? ¿Solo una conexión a Internet?
 
-Sí. Una conexión a Internet y el dispositivo físico, preferiblemente de nuestros asociados integrados. A menos que desee administrar manualmente la configuración y la conectividad a Azure desde su dispositivo preferido.
+Sí. Una conexión a Internet y el dispositivo físico, preferiblemente de nuestros [asociados](https://go.microsoft.com/fwlink/p/?linkid=2019615) integrados. De forma opcional, puede administrar manualmente la configuración y la conectividad a Azure desde su dispositivo preferido.

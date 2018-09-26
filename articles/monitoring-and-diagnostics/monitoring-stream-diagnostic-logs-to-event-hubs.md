@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: dde8881fc446eef0dd6ca0735e5e23a5a19328fa
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 19f066bea9de580cf1245aec74fbe563bf8ba449
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578382"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996560"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Transmisión de registros de diagnóstico de Azure a un centro de eventos
-Los **[registros de diagnóstico de Azure](monitoring-overview-of-diagnostic-logs.md)** se pueden transmitir casi en tiempo real a cualquier aplicación mediante la opción "Exportar a Event Hubs" integrada en el Portal o habilitando el identificador de regla de autorización de Event Hubs en una configuración de diagnóstico por medio de los cmdlets de Azure PowerShell o la CLI de Azure 2.0.
+Los **[registros de diagnóstico de Azure](monitoring-overview-of-diagnostic-logs.md)** se pueden transmitir casi en tiempo real a cualquier aplicación mediante la opción "Exportar a Event Hubs" integrada en el Portal o habilitando el identificador de regla de autorización de Event Hubs en una configuración de diagnóstico por medio de los cmdlets de Azure PowerShell o la CLI de Azure.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>Qué se puede hacer con registros de diagnóstico y Event Hubs
 Estas son solo algunas formas de usar la funcionalidad de streaming para registros de diagnóstico:
@@ -91,9 +91,9 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizati
 
 El identificador de la regla de autorización de Event Hubs es una cadena con este formato: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, por ejemplo, `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Actualmente no puede seleccionar un nombre de centro de eventos determinado con PowerShell.
 
-### <a name="via-azure-cli-20"></a>Mediante la CLI de Azure 2.0
+### <a name="via-azure-cli"></a>Mediante la CLI de Azure
 
-Para habilitar el streaming a través de la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), puede usar el comando [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
+Para habilitar el streaming a través de la [CLI de Azure](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), puede usar el comando [az monitor diagnostic-settings create](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: 9c1f4699f067ece3108813d28ff834c68f44316d
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: d267ffd5085c27c60e9eb229e2d9026fa83ef848
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003838"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998254"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos del registro de actividad de Azure
 El **registro de actividad de Azure** es un registro que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. En este artículo se describe el esquema de eventos por categoría de datos. El esquema de los datos es diferente en función de si va a leer los datos en el portal, PowerShell, la CLI o directamente mediante la API REST en comparación con la [transmisión de datos a Storage o Event Hubs mediante un perfil de registro](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Los ejemplos siguientes muestran el esquema puesto a disposición por el portal, PowerShell, la CLI y la API REST. Al final del artículo se proporciona una asignación de estas propiedades al [esquema de registros de diagnóstico de Azure](./monitoring-diagnostic-logs-schema.md).
@@ -117,7 +117,7 @@ Esta categoría contiene el registro de todas las operaciones de creación, actu
 | canales nueva |Uno de los siguientes valores: "Admin", "Operation" |
 | claims |Token de JWT que se usa en Active Directory para autenticar el usuario o la aplicación para llevar a cabo esta operación en Resource Manager. |
 | correlationId |Normalmente, un GUID en formato de cadena. Los eventos que comparten correlationId pertenecen a la misma acción general. |
-| Descripción |Descripción de texto estático de un evento. |
+| description |Descripción de texto estático de un evento. |
 | eventDataId |Identificador único de un evento. |
 | httpRequest |Blob que describe la solicitud HTTP. Normalmente incluye "clientRequestId", "clientIpAddress" y "method" (método HTTP). Por ejemplo, PUT). |
 | level |Nivel del evento. Uno de los siguientes valores: "Critical", "Error", "Warning" e "Informational". |
@@ -193,6 +193,95 @@ Esta categoría contiene el registro de los incidentes de estado del servicio qu
 ```
 Consulte el artículo sobre las [notificaciones de estado de servicio](./monitoring-service-notifications.md) para la documentación sobre los valores de las propiedades.
 
+## <a name="resource-health"></a>Estado de los recursos
+Esta categoría contiene el registro de los eventos de estado del servicio que se han producido en los recursos de Azure. Un ejemplo del tipo de evento que aparece en esta categoría es "El estado de mantenimiento de la máquina virtual se cambió a No disponible". Los eventos de estado del recurso se pueden representar en uno de cuatro estados de mantenimiento: Disponible, No disponible, Degradado y Desconocido. Además, los eventos de mantenimiento de recursos se pueden clasificar como iniciados por la plataforma o por el usuario.
+
+### <a name="sample-event"></a>Evento de ejemplo
+
+```json
+{
+    "channels": "Admin, Operation",
+    "correlationId": "28f1bfae-56d3-7urb-bff4-194d261248e9",
+    "description": "",
+    "eventDataId": "a80024e1-883d-37ur-8b01-7591a1befccb",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "ResourceHealth",
+        "localizedValue": "Resource Health"
+    },
+    "eventTimestamp": "2018-09-04T15:33:43.65Z",
+    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "level": "Critical",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Resourcehealth/healthevent/Activated/action",
+        "localizedValue": "Health Event Activated"
+    },
+    "resourceGroupName": "<resource group>",
+    "resourceProviderName": {
+        "value": "Microsoft.Resourcehealth/healthevent/action",
+        "localizedValue": "Microsoft.Resourcehealth/healthevent/action"
+    },
+    "resourceType": {
+        "value": "Microsoft.Compute/virtualMachines",
+        "localizedValue": "Microsoft.Compute/virtualMachines"
+    },
+    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
+    "subscriptionId": "<subscription Id>",
+    "properties": {
+        "stage": "Active",
+        "title": "Virtual Machine health status changed to unavailable",
+        "details": "Virtual machine has experienced an unexpected event",
+        "healthStatus": "Unavailable",
+        "healthEventType": "Downtime",
+        "healthEventCause": "PlatformInitiated",
+        "healthEventCategory": "Unplanned"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="property-descriptions"></a>Descripciones de propiedades
+| Nombre del elemento | DESCRIPCIÓN |
+| --- | --- |
+| canales nueva | Siempre es "Admin, Operation". |
+| correlationId | GUID en formato de cadena. |
+| description |Descripción de texto estático del evento de alerta. |
+| eventDataId |Identificador único del evento de alerta. |
+| categoría | Siempre "Resource Health". |
+| eventTimestamp |Marca de tiempo de cuándo el servicio de Azure generó el evento que procesó la solicitud correspondiente al evento. |
+| level |Nivel del evento. Uno de los siguientes valores: "Critical", "Error", "Warning", "Informational" y "Verbose". |
+| operationId |GUID compartido entre los eventos correspondientes a una sola operación. |
+| operationName |Nombre de la operación. |
+| resourceGroupName |Nombre del grupo de recursos que contiene el recurso. |
+| resourceProviderName |Siempre "Microsoft.Resourcehealth/healthevent/action". |
+| resourceType | Tipo de recurso que se vio afectado por un evento de Resource Health. |
+| ResourceId | Id. del recurso afectado. |
+| status |Cadena que describe el estado del evento de estado. Los valores pueden ser: Active, Resolved, InProgress y Updated. |
+| subStatus | Normalmente es null para las alertas. |
+| submissionTimestamp |Marca de tiempo de cuándo el evento empezó a estar disponible para las consultas. |
+| subscriptionId |Identificador de la suscripción de Azure. |
+| propiedades |Conjunto de pares `<Key, Value>` (es decir, diccionario) que describen los detalles del evento.|
+| properties.title | Cadena descriptiva que incluye el estado de mantenimiento del recurso. |
+| properties.details | Cadena descriptiva que incluye detalles adicionales sobre el evento. |
+| properties.currentHealthStatus | Estado de mantenimiento actual del recurso. Uno de los siguientes valores: "Available", "Unavailable", "Degraded" y "Unknown". |
+| properties.previousHealthStatus | Estado de mantenimiento anterior del recurso. Uno de los siguientes valores: "Available", "Unavailable", "Degraded" y "Unknown". |
+| properties.type | Descripción del tipo de evento de estado del recurso. |
+| properties.cause | Descripción de la causa del evento de estado del recurso. Ya sea "UserInitiated" o "PlatformInitiated". |
+
+
 ## <a name="alert"></a>Alerta
 Esta categoría contiene el registro de todas las activaciones de alertas de Azure. Un ejemplo del tipo de evento que aparece en esta categoría es "El % de CPU en myVM ha estado por encima de 80 durante los últimos 5 minutos". Varios sistemas de Azure tienen un concepto de alerta: puede definir una regla de algún tipo y recibir una notificación cuando las condiciones coincidan con esa regla. Cada vez que un tipo de alerta de Azure compatible "se activa" o se cumplen las condiciones para generar una notificación, también se inserta un registro de la activación en esta categoría del Registro de actividad.
 
@@ -264,7 +353,7 @@ Esta categoría contiene el registro de todas las activaciones de alertas de Azu
 | canales nueva | Siempre es "Admin, Operation". |
 | claims | Blob JSON con el SPN (nombre de entidad de seguridad de servicio), o tipo de recurso, del motor de alertas. |
 | correlationId | GUID en formato de cadena. |
-| Descripción |Descripción de texto estático del evento de alerta. |
+| description |Descripción de texto estático del evento de alerta. |
 | eventDataId |Identificador único del evento de alerta. |
 | level |Nivel del evento. Uno de los siguientes valores: "Critical", "Error", "Warning" e "Informational". |
 | resourceGroupName |Nombre del grupo de recursos del recurso afectado si se trata de una alerta de métrica. Para otros tipos de alerta, es el nombre del grupo de recursos que contiene la propia alerta. |
@@ -373,7 +462,7 @@ Esta categoría contiene el registro de los eventos relacionados con el funciona
 | canales nueva | Siempre es "Admin, Operation". |
 | claims | Blob JSON con el SPN (nombre de entidad de seguridad de servicio), o tipo de recurso, del motor de escalado automático. |
 | correlationId | GUID en formato de cadena. |
-| Descripción |Descripción de texto estático del evento de escalado automático. |
+| description |Descripción de texto estático del evento de escalado automático. |
 | eventDataId |Identificador único del evento de escalado automático. |
 | level |Nivel del evento. Uno de los siguientes valores: "Critical", "Error", "Warning" e "Informational". |
 | resourceGroupName |Nombre del grupo de recursos para la configuración del escalado automático. |
@@ -461,7 +550,7 @@ Esta categoría contiene el registro de todas las alertas generado por Azure Sec
 | --- | --- |
 | canales nueva | Siempre "Operation" |
 | correlationId | GUID en formato de cadena. |
-| Descripción |Descripción de texto estático del evento de seguridad. |
+| description |Descripción de texto estático del evento de seguridad. |
 | eventDataId |Identificador único del evento de seguridad. |
 | eventName |Nombre descriptivo del evento de seguridad. |
 | id |Identificador único del recurso del evento de seguridad. |
@@ -541,7 +630,7 @@ Esta categoría contiene el registro de cualquier recomendación nueva que se ge
 | --- | --- |
 | canales nueva | Siempre "Operation" |
 | correlationId | GUID en formato de cadena. |
-| Descripción |Descripción de texto estático del evento de recomendación |
+| description |Descripción de texto estático del evento de recomendación |
 | eventDataId | Identificador único del evento de recomendación. |
 | categoría | Siempre "Recomendación" |
 | id |Identificador único del recurso del evento de recomendación. |
@@ -572,7 +661,7 @@ Al realizar la transmisión del registro de actividad de Azure a una cuenta de a
 | categoría | Parte del nombre de la operación | Desglose del tipo de operación: "Write"/"Delete"/"Action" |
 | resultType | status.value | |
 | resultSignature | substatus.value | |
-| resultDescription | Descripción |  |
+| resultDescription | description |  |
 | durationMs | N/D | Siempre 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |

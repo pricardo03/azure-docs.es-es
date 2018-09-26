@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 9173dfcbb5f73c2292bce7d28c2dae5dbece79cd
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 69b025a06abb24bfa3b8ff6b692a2559b3947681
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41946465"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995285"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Incorporación de un proveedor de recursos de App Service a Azure Stack
 
@@ -27,8 +27,8 @@ ms.locfileid: "41946465"
 
 Use las instrucciones de este artículo para implementar App Service en Azure Stack.
 
->[!IMPORTANT]  
->Aplique la actualización 1807 al sistema integrado de Azure Stack o implemente el Kit de desarrollo de Azure Stack (ASDK) más reciente antes de implementar Azure App Service 1.3.
+> [!IMPORTANT]  
+> Aplique la actualización 1807 al sistema integrado de Azure Stack o implemente el Kit de desarrollo de Azure Stack (ASDK) más reciente antes de implementar Azure App Service 1.3.
 
 Puede ofrecer a los usuarios la capacidad de crear aplicaciones web y API. Para permitir que los usuarios creen estas aplicaciones, deberá:
 
@@ -228,7 +228,7 @@ Después de implementar y registrar el proveedor de recursos de App Service, pru
 
 Para crear una aplicación web de prueba, siga estos pasos:
 
-1. En el portal de inquilino de Azure Stack, seleccione **Nuevo** > **Web y móvil** > **Aplicación web**.
+1. En el portal de usuario de Azure Stack, seleccione **+ Crear un recurso** > **Web y móvil** > **Aplicación web**.
 
 2. En **Aplicación web**, escriba un nombre en **Aplicación web**.
 

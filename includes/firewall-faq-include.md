@@ -5,37 +5,35 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 8/13/2018
+ms.date: 9/14/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: a63a12658bd0a4b4d018d51824af9814691a3cbf
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 4c6aaea836302732b1af3d22923c965575cfc9d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40183976"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47020479"
 ---
 ### <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
-Azure Firewall es un servicio de seguridad de red administrado y basado en la nube que protege los recursos de Azure Virtual Network. Se trata de un firewall como servicio con estado completo que incorpora alta disponibilidad y escalabilidad a la nube sin restricciones. Puede crear, aplicar y registrar directivas de aplicaciones y de conectividad de red a nivel central en suscripciones y redes virtuales. Azure Firewall actualmente está en su versión preliminar pública.
+Azure Firewall es un servicio de seguridad de red administrado y basado en la nube que protege los recursos de Azure Virtual Network. Se trata de un firewall como servicio con estado completo que incorpora alta disponibilidad y escalabilidad a la nube sin restricciones. Puede crear, aplicar y registrar directivas de aplicaciones y de conectividad de red a nivel central en suscripciones y redes virtuales.
 
-### <a name="which-capabilities-are-supported-in-the-azure-firewall-public-preview-release"></a>¿Qué funcionalidades admite la versión preliminar pública de Azure Firewall?  
+### <a name="what-capabilities-are-supported-in-azure-firewall"></a>¿Qué funcionalidades son compatibles con Azure Firewall?  
 
 * Firewall con estado como servicio
 * Alta disponibilidad integrada con escalabilidad en la nube sin restricciones
-* Filtrado de FQDN 
+* Filtrado de FQDN
+* Etiquetas FQDN
 * Reglas de filtrado de tráfico de red
 * Compatibilidad con SNAT saliente
-* La capacidad de crear, aplicar y registrar directivas de aplicaciones y de conectividad de red a nivel central en redes virtuales y suscripciones de Azure.
-* Integración total con Azure Monitor para registros y análisis 
-
-### <a name="how-can-i-join-the-azure-firewall-public-preview"></a>¿Cómo me puedo unir a la versión preliminar pública de Azure Firewall?
-
-Actualmente, Azure Firewall es una versión preliminar pública administrada a la que se puede unir con el comando Register-AzureRmProviderFeature de PowerShell. Este comando se explica en la documentación de la versión preliminar pública de Azure Firewall.
+* Compatibilidad con DNAT entrante
+* Creación, aplicación y registro de directivas de aplicación y de conectividad de red en las suscripciones y redes virtuales de Azure
+* Totalmente integrado con Azure Monitor para registros y análisis 
 
 ### <a name="what-is-the-pricing-for-azure-firewall"></a>¿Cuál es el precio de Azure Firewall?
 
-Azure Firewall tiene un costo fijo y otro variable. Los precios son los siguientes y se les aplica a un descuento del 50 % durante la versión preliminar pública.
+Azure Firewall tiene un costo fijo y otro variable:
 
 * Precio fijo: 1,25 USD/firewall/hora
 * Tarifa variable: USD 0,03/GB procesado por el firewall (entrada o salida)
@@ -59,7 +57,7 @@ Existen dos tipos de colecciones de reglas:
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>¿Admite Azure Firewall el filtrado del tráfico de entrada?
 
-La versión preliminar pública de Azure Firewall admite solo el filtrado del tráfico de salida. La protección de entrada para los protocolos no HTTP/S (por ejemplo: RDP, SSH o FTP) está prevista provisionalmente para proporcionarse con la disponibilidad general de Azure Firewall.  
+Azure Firewall es compatible con el filtrado entrante y saliente. La protección entrante es para los protocolos que no son HTTP/S. Por ejemplo, los protocolos RDP, SSH y FTP.
  
 ### <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>¿Qué servicios de registro y análisis son compatibles con Azure Firewall?
 
@@ -110,3 +108,11 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 * Una instancia de Azure Firewall que se está ejecutando en una red virtual central tiene limitaciones de emparejamiento de red virtual, con un máximo de 50 redes virtuales de radio.  
 * Azure Firewall no funciona con el emparejamiento global, por lo que debe tener al menos una implementación de firewall por región.
 * Azure Firewall admite 10 000 reglas de aplicación y 10 000 reglas de red.
+
+### <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>¿Azure Firewall en la red virtual de un concentrador puede reenviar y filtrar el tráfico de red entre dos redes virtuales de radio?
+
+Sí, puede usar Azure Firewall en la red virtual de un concentrador para enrutar y filtrar el tráfico de red entre dos redes virtuales de radio. Las subredes de cada una de las redes virtuales de radio deben tener una ruta definida por el usuario (UDR) que apunte a la instancia de Azure Firewall como puerta de enlace predeterminada para que este escenario funcione correctamente.
+
+### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network"></a>¿Azure Firewall puede reenviar y filtrar el tráfico de red entre subredes de la misma red virtual?
+
+El tráfico entre subredes de la misma red virtual o de una red virtual emparejada directamente se enruta de forma directa, incluso si la UDR apunta a la instancia de Azure Firewall como puerta de enlace predeterminada. El método recomendado para la segmentación de redes internas es utilizar grupos de seguridad de red. Para enviar tráfico de subred a subred al firewall en este escenario, el UDR debe contener el prefijo de red de la subred de destino de forma explícita en ambas subredes.
