@@ -1,20 +1,21 @@
 ---
-title: Examen detallado de la salida de Azure Video Indexer producida por la API v2 | Microsoft Docs
+title: Examen de la salida de Video Indexer producida por la API v2
+titlesuffix: Azure Cognitive Services
 description: En este tema se examina la salida de Video Indexer producida por la API v2.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 07/25/2018
+ms.component: video-indexer
+ms.topic: conceptual
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 43cc02417fad8a2fa46bd309235951393cd55b8a
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 76f83e7ad70e3e1906bc1aa90c74d600053aeb6f
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40187381"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985650"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examen de la salida de Video Indexer producida por la API v2
 
@@ -23,7 +24,7 @@ ms.locfileid: "40187381"
 
 Cuando se llama a **Get Video Index** API y el estado de la respuesta es correcto, obtendrá una salida JSON detallada como contenido de la respuesta. El contenido JSON incluye información detallada del vídeo especificado. La información detallada incluye dimensiones como: transcripciones, OCR, rostros, temas o bloques, entre otras. Las dimensiones tienen instancias de intervalos de tiempo que muestran cuándo apareció cada dimensión en el vídeo.  
 
-Para examinar visualmente la información detallada del vídeo, presione el **Reproducir** que hay sobre el vídeo, en el portal de Video Indexer. Para más información, consulte [Visualización y edición de la información detallada de un vídeo](video-indexer-view-edit.md).
+También puede examinar visualmente la información detallada del vídeo. Para ello, presione el botón **Reproducir** que hay encima del vídeo en el sitio web de [Video Indexer](https://www.videoindexer.ai/). Para más información, consulte [Visualización y edición de la información detallada de un vídeo](video-indexer-view-edit.md).
 
 ![Información detallada](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
@@ -90,6 +91,8 @@ En esta sección se muestra el resumen de la información detallada.
 |labels| Puede contener cero o más etiquetas. Para más información, consulte [labels](#labels).|
 |brands| Puede contener cero o más marcas. Para más información, consulte [brands](#brands).|
 |statistics | Para más información, consulte [statistics](#statistics).|
+|emotions| Puede contener cero o más emociones. Para más información, consulte [emotions](#emotions).|
+|topics|Puede contener cero o más temas. Dimensión [topics](#topics).|
 
 ## <a name="videos"></a>videos
 
@@ -165,6 +168,8 @@ Un rostro podría tener un identificador, un nombre, una miniatura, otros metada
 |sentiments|Dimension [sentiments](#sentiments).|
 |visualContentModeration|Dimensión [visualContentModeration](#visualcontentmoderation).|
 |textualConentModeration|Dimensión [textualConentModeration](#textualconentmoderation).|
+|emotions| Dimensión [emotions](#emotions).|
+|topics|Dimensión [topics](#topics).|
 
 Ejemplo:
 
@@ -320,7 +325,6 @@ Ejemplo:
     ]
 }
 ] 
-
 ```
 
 #### <a name="faces"></a>faces
@@ -444,7 +448,7 @@ Ejemplo:
           "id": 0,
           "instances": [
             {
-          "thumbnailId": "00000000-0000-0000-0000-000000000000",
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",
               "start": "00: 00: 00.1670000",
               "end": "00: 00: 00.2000000"
             }
@@ -453,7 +457,7 @@ Ejemplo:
       ],
       "instances": [
         {
-       "thumbnailId": "00000000-0000-0000-0000-000000000000",   
+            "thumbnailId": "00000000-0000-0000-0000-000000000000",  
           "start": "00: 00: 00.2000000",
           "end": "00: 00: 05.0330000"
         }
@@ -466,7 +470,7 @@ Ejemplo:
           "id": 1,
           "instances": [
             {
-          "thumbnailId": "00000000-0000-0000-0000-000000000000",        
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",      
               "start": "00: 00: 05.2670000",
               "end": "00: 00: 05.3000000"
             }
@@ -667,10 +671,144 @@ Los vídeos en los que se encuentre contenido para adultos o subido de tono podr
 |bannedWordsCount |Número de palabras no permitidas.|
 |bannedWordsRatio |Proporción respecto al número total de palabras.|
 
+#### <a name="emotions"></a>emotions
+
+Video Indexer identifica emociones en función de las indicaciones para voz y audio. La emoción identificada podría ser: felicidad, tristeza, ira o miedo.
+
+|NOMBRE|Descripción|
+|---|---|
+|id|Identificador de la emoción.|
+|Tipo|Momento de la emoción que se identificó en función de las indicaciones para voz y audio. La emoción podría ser: felicidad, tristeza, ira o miedo.|
+|instances|Lista de los intervalos de tiempo donde apareció esta emoción.|
+
+```json
+"emotions": [{
+    "id": 0,
+    "type": "Fear",
+    "instances": [{
+      "adjustedStart": "0:00:39.47",
+      "adjustedEnd": "0:00:45.56",
+      "start": "0:00:39.47",
+      "end": "0:00:45.56"
+    },
+    {
+      "adjustedStart": "0:07:19.57",
+      "adjustedEnd": "0:07:23.25",
+      "start": "0:07:19.57",
+      "end": "0:07:23.25"
+    }]
+  },
+  {
+    "id": 1,
+    "type": "Anger",
+    "instances": [{
+      "adjustedStart": "0:03:55.99",
+      "adjustedEnd": "0:04:05.06",
+      "start": "0:03:55.99",
+      "end": "0:04:05.06"
+    },
+    {
+      "adjustedStart": "0:04:56.5",
+      "adjustedEnd": "0:05:04.35",
+      "start": "0:04:56.5",
+      "end": "0:05:04.35"
+    }]
+  },
+  {
+    "id": 2,
+    "type": "Joy",
+    "instances": [{
+      "adjustedStart": "0:12:23.68",
+      "adjustedEnd": "0:12:34.76",
+      "start": "0:12:23.68",
+      "end": "0:12:34.76"
+    },
+    {
+      "adjustedStart": "0:12:46.73",
+      "adjustedEnd": "0:12:52.8",
+      "start": "0:12:46.73",
+      "end": "0:12:52.8"
+    },
+    {
+      "adjustedStart": "0:30:11.29",
+      "adjustedEnd": "0:30:16.43",
+      "start": "0:30:11.29",
+      "end": "0:30:16.43"
+    },
+    {
+      "adjustedStart": "0:41:37.23",
+      "adjustedEnd": "0:41:39.85",
+      "start": "0:41:37.23",
+      "end": "0:41:39.85"
+    }]
+  },
+  {
+    "id": 3,
+    "type": "Sad",
+    "instances": [{
+      "adjustedStart": "0:13:38.67",
+      "adjustedEnd": "0:13:41.3",
+      "start": "0:13:38.67",
+      "end": "0:13:41.3"
+    },
+    {
+      "adjustedStart": "0:28:08.88",
+      "adjustedEnd": "0:28:18.16",
+      "start": "0:28:08.88",
+      "end": "0:28:18.16"
+    }]
+  }
+],
+```
+
+#### <a name="topics"></a>topics
+
+Video Indexer saca conclusiones de los temas principales a partir de las transcripciones. Cuando es posible, se incluye la taxonomía [IPTC](https://iptc.org/standards/media-topics/) de primer nivel. 
+
+|NOMBRE|Descripción|
+|---|---|
+|id|Identificador del tema.|
+|Nombre|Nombre del tema (por ejemplo, "Productos farmacéuticos").|
+|referenceId|Rutas de navegación que reflejan la jerarquía de temas. Por ejemplo: "Salud y bienestar / Medicina y salud / Productos farmacéuticos".|
+|confidence|Puntuación de confianza en el intervalo [0,1]. Cuanto mayor es, más segura es.|
+|language|Idioma que se usa en el tema.|
+|iptcName|Nombre del código multimedia IPTC, si se detecta.|
+|instances |Actualmente, Video Indexer no indexa ningún tema en intervalos de tiempo, por lo que se usa el vídeo completo como intervalo.|
+
+```json
+"topics": [{
+    "id": 0,
+    "name": "INTERNATIONAL RELATIONS",
+    "referenceId": "POLITICS AND GOVERNMENT/FOREIGN POLICY/INTERNATIONAL RELATIONS",
+    "referenceType": "VideoIndexer",
+    "confidence": 1,
+    "language": "en-US",
+    "instances": [{
+        "adjustedStart": "0:00:00",
+        "adjustedEnd": "0:03:36.25",
+        "start": "0:00:00",
+        "end": "0:03:36.25"
+    }]
+}, {
+    "id": 1,
+    "name": "Politics and Government",
+    "referenceType": "VideoIndexer",
+    "iptcName": "Politics",
+    "confidence": 0.9041,
+    "language": "en-US",
+    "instances": [{
+        "adjustedStart": "0:00:00",
+        "adjustedEnd": "0:03:36.25",
+        "start": "0:00:00",
+        "end": "0:03:36.25"
+    }]
+}]
+. . .
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Video Indexer API](https://api-portal.videoindexer.ai)
+[Portal para desarrolladores de Video Indexer](https://api-portal.videoindexer.ai)
 
 Para más información acerca de cómo insertar widgets en su aplicación, consulte [Embed Video Indexer widgets into your applications](video-indexer-embed-widgets.md) (Inserción de widgets de Video Indexer en sus aplicaciones). 
 

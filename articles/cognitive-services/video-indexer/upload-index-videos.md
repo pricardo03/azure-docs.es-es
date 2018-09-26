@@ -1,22 +1,23 @@
 ---
-title: Carga e indexación de vídeos con Azure Video Indexer | Microsoft Docs
-description: En este tema se muestra cómo usar las API para cargar e indexar los vídeos con Azure Video Indexer.
+title: 'Ejemplo: carga e indexación de vídeos con Video Indexer'
+titlesuffix: Azure Cognitive Services
+description: En este tema se muestra cómo usar las API para cargar e indexar los vídeos con Video Indexer.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 08/17/2018
+ms.component: video-indexer
+ms.topic: sample
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: ac9d3f8fd10a3b65a2af2999b8c7ade7965de912
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e84411535b82b3e4861b529f490bdde0eb25fd42
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664451"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983891"
 ---
-# <a name="upload-and-index-your-videos"></a>Carga e indexación de los vídeos  
+# <a name="example-upload-and-index-your-videos"></a>Ejemplo: carga e indexación de los vídeos  
 
 En este artículo se muestra cómo cargar un vídeo con Azure Video Indexer. La API de Video Indexer proporciona dos opciones de carga: 
 
@@ -33,7 +34,7 @@ En el artículo también se explican algunos de los parámetros que puede establ
 ## <a name="uploading-considerations"></a>Consideraciones de la carga
     
 - Al cargar el vídeo según la dirección URL (opción preferida) el punto de conexión debe estar protegido con TLS 1.2 (o una versión posterior).
-- La opción de matriz de bytes está limitada a 4 GB y el tiempo de espera se agota después de 30 minutos.
+- La opción de matriz de bytes está limitada a 2 GB y el tiempo de espera se agota después de 30 minutos.
 - La dirección URL que se proporciona en el parámetro `videoURL` debe estar codificada.
 
 ## <a name="configurations-and-params"></a>Configuración y parámetros

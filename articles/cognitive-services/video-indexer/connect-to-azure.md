@@ -1,20 +1,21 @@
 ---
-title: Creación de una cuenta de Video Indexer conectada a Azure | Microsoft Docs
-description: En este artículo se muestra cómo crear una cuenta de Video Indexer conectada a Azure.
+title: Creación de una cuenta de Video Indexer en Azure Portal
+titlesuffix: Azure Cognitive Services
+description: En este artículo se muestra cómo crear una cuenta de Video Indexer en Azure Portal.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: video-indexer
+ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: juliako
-ms.openlocfilehash: c598fdae40b4552e1d4dc29b8558d82d0830160a
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 8b8aa3e2f7a461c13cc73270863498283f02f740
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841851"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983161"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Creación de una cuenta de Video Indexer conectada a Azure
 
@@ -52,16 +53,18 @@ En este artículo se muestra cómo crear una cuenta de Video Indexer que está v
 
 ## <a name="connect-to-azure"></a>Conexión a Azure
 
-1. Inicie sesión en [https://www.videoindexer.ai/](https://www.videoindexer.ai/) y haga clic en el botón **Conectarse a Azure**:
+1. Vaya al sitio web de [Video Indexer](https://www.videoindexer.ai/) e inicie sesión.
+
+2. Haga clic en el botón **Conectarse a Azure**:
 
     ![conectarse a Azure](./media/create-account/connect-to-azure.png)
 
-2. Cuando aparezca la lista de suscripciones, seleccione la suscripción que desea usar. 
+3. Cuando aparezca la lista de suscripciones, seleccione la suscripción que desea usar. 
 
     ![conectar Video Indexer a Azure](./media/create-account/connect-vi-to-azure-subscription.png)
 
-3. Seleccione una región de Azure en las ubicaciones admitidas: Oeste de EE. UU. 2, Europa del Norte o Asia Oriental.
-4. En **Cuenta de Azure Media Services**, elija una de estas opciones:
+4. Seleccione una región de Azure en las ubicaciones admitidas: Oeste de EE. UU. 2, Europa del Norte o Asia Oriental.
+5. En **Cuenta de Azure Media Services**, elija una de estas opciones:
 
     * Para crear una cuenta de Media Services nueva, seleccione **Crear nuevo grupo de recursos**. Escriba un nombre para el grupo de recursos.
 
@@ -85,13 +88,13 @@ En este artículo se muestra cómo crear una cuenta de Video Indexer que está v
         |Identificador de aplicación|El identificador de aplicación de Azure AD con permisos para la cuenta de Media Services especificada. Para más información, consulte [Autenticación de entidad de servicio](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
         |Clave de aplicación|Para más información, consulte [Autenticación de entidad de servicio](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 
-5. Cuando termine, elija **Conectar**. Esta operación puede tardar unos minutos. 
+6. Cuando termine, elija **Conectar**. Esta operación puede tardar unos minutos. 
 
     Después de conectarse a Azure, la nueva cuenta de Video Indexer aparece en la lista de cuentas:
 
     ![nueva cuenta](./media/create-account/new-account.png)
 
-6. Vaya a la nueva cuenta: 
+7. Vaya a la nueva cuenta: 
 
     ![Cuenta de Video Indexer](./media/create-account/vi-account.png)
 

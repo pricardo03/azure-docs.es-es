@@ -1,47 +1,52 @@
 ---
-title: Inserción de widgets de Azure Video Indexer en las aplicaciones | Microsoft Docs
-description: ''
+title: 'Ejemplo: inserción de widgets de Video Indexer en las aplicaciones'
+titlesuffix: Azure Cognitive Services
+description: Obtenga más información acerca de cómo insertar widgets de Video Indexer en su aplicación.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 08/25/2018
+ms.component: video-indexer
+ms.topic: sample
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: b8de9e8d73ba899fb7f3036d871c5d30daf101de
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 0d75a58ddf0607286d41867828119fdd05e07d22
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049362"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985586"
 ---
-# <a name="embed-video-indexer-widgets-into-your-applications"></a>Inserción de widgets de Video Indexer en las aplicaciones
+# <a name="example-embed-video-indexer-widgets-into-your-applications"></a>Ejemplo: inserción de widgets de Video Indexer en las aplicaciones
 
-Video Indexer admite la inserción de dos tipos de widgets en la aplicación: **Cognitive Insights** y **Player**. 
+En este vídeo se muestra cómo insertar widgets de Video Indexer en sus aplicaciones. Video Indexer admite la inserción de dos tipos de widgets en la aplicación: **Cognitive Insights** y **Player**. 
+## <a name="widget-types"></a>Tipos de widget
 
-* El widget **Cognitive Insights** incluye toda la información detallada visual que se extrajo del proceso de indexación de vídeo. 
-    El widget de información detallada admite los siguientes parámetros de URL opcionales:
+### <a name="cognitive-insights-widget"></a>Widget Cognitive Insights
 
-    |NOMBRE|Definición|DESCRIPCIÓN|
-    |---|---|---|
-    |widgets|Cadenas separadas por coma|Le permite controlar la información detallada que desea representar. <br/>Ejemplo: **widgets=people,brands** representará solo la información detallada de la interfaz de usuario de personas y marcas<br/>Opciones disponibles: personas, palabras clave, anotaciones, marcas, opiniones, transcripción, búsqueda | 
-* El widget **Player** le permite transmitir el vídeo con velocidad de bits adaptable.
+El widget **Cognitive Insights** incluye toda la información detallada visual que se extrajo del proceso de indexación de vídeo. El widget de información detallada admite los siguientes parámetros de URL opcionales:
 
-    El widget Player admite los siguientes parámetros de URL opcionales:
+|NOMBRE|Definición|DESCRIPCIÓN|
+|---|---|---|
+|widgets|Cadenas separadas por coma|Le permite controlar la información detallada que desea representar. <br/>Ejemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` representará solo la información detallada de la interfaz de usuario de personas y marcas<br/>Opciones disponibles: personas, palabras clave, anotaciones, marcas, opiniones, transcripción y búsqueda.<br/>No se admite a través de la dirección URL en la versión=2<br/><br/>**Nota:** El parámetro de dirección URL de **widgets** no se admite si se utiliza la **versión=2**. |
+|version|Versiones del widget **Cognitive Insights**|Para obtener las actualizaciones de widget de información más recientes, agregue el parámetro de consulta `?version=2` a la dirección URL insertada. Por ejemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Para obtener la versión más antigua, simplemente quite `version=2` de la dirección URL.
 
-    |NOMBRE|Definición|DESCRIPCIÓN|
-    |---|---|---|
-    |t|Segundos desde el inicio|Hace que el reproductor comience a reproducir desde un momento de tiempo determinado.<br/>Ejemplo: t=60|
-    |captions|Código de idioma|Recupera el título en el idioma dado durante la carga del widget para que esté disponible en el menú de títulos.<br/>Ejemplo: captions=en-Us|
-    |showCaptions|Un valor booleano|Hace que el reproductor se cargue con los títulos ya habilitados.<br/>Ejemplo: showCaptions=true|
-    |Tipo||Activa una máscara del reproductor de audio (se quita la parte de vídeo).<br/>Ejemplo: type=audio|
-    |autoplay|Un valor booleano|Decida si el reproductor debe comenzar a reproducir el vídeo cuando esté cargado (de manera predeterminada es true).<br/>Ejemplo: autoplay=false|
-    |language|Código de idioma|Controlar el reproductor controla la localización (el valor predeterminado es en-US).<br/>Ejemplo: language=de-DE|
+### <a name="player-widget"></a>Widget Player
+
+El widget **Player** le permite transmitir el vídeo con velocidad de bits adaptable. El widget Player admite los siguientes parámetros de URL opcionales:
+
+|NOMBRE|Definición|DESCRIPCIÓN|
+|---|---|---|
+|t|Segundos desde el inicio|Hace que el reproductor comience a reproducir desde un momento de tiempo determinado.<br/>Ejemplo: t=60|
+|captions|Código de idioma|Recupera el título en el idioma dado durante la carga del widget para que esté disponible en el menú de títulos.<br/>Ejemplo: captions=en-US|
+|showCaptions|Un valor booleano|Hace que el reproductor se cargue con los títulos ya habilitados.<br/>Ejemplo: showCaptions=true|
+|Tipo||Activa una máscara del reproductor de audio (se quita la parte de vídeo).<br/>Ejemplo: type=audio|
+|autoplay|Un valor booleano|Indica si el reproductor debe comenzar a reproducir el vídeo cuando esté cargado (el valor predeterminado es true).<br/>Ejemplo: autoplay=false|
+|language|Código de idioma|Controla el idioma del reproductor (el valor predeterminado es en-US)<br/>Ejemplo: language=de-DE|
 
 ## <a name="embedding-public-content"></a>Inserción de contenido público
 
-1. Inicie sesión en la cuenta de [Video Indexer](https://api-portal.videoindexer.ai/). 
+1. Vaya al sitio web de [Video Indexer](https://www.videoindexer.ai/) e inicie sesión.
 2. Haga clic en el botón "insertar" que aparece debajo del vídeo.
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
@@ -60,7 +65,7 @@ Puede obtener códigos para insertar de elementos emergentes insertados (como se
 
 Si desea insertar un vídeo **privado**, tiene que pasar un token de acceso en el atributo **src** de **iframe**:
 
-     https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<VideoId>/?accessToken=<accessToken>
+     https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>
     
 Utilice [**Get Insights Widget**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) API para obtener el contenido del widget Cognitive Insights, o use [**Get Video Access Token**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) y agréguelo como un parámetro de consulta a la dirección URL, tal como se indicó anteriormente. Especifique esta dirección URL como el valor **src** de **iframe**.
 
@@ -216,24 +221,24 @@ Puede elegir los tipos de información detallada que desee especificándolos com
 
 Los valores posibles son: personas, palabras clave, opiniones, transcripción, búsqueda.
 
-Por ejemplo, si desea insertar un widget que contiene solo personas y buscar información detallada, dirección URL para insertar de iframe tendrá este aspecto: https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?widgets=people,search
+Por ejemplo, si quiere insertar un widget que contiene solo personas y buscar información detallada, la dirección URL incrustada de IFrame tendrá este aspecto: https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search
 
-También se puede personalizar el título de la ventana de iframe proporcionando **& title=**<YourTitle> a la dirección url de iframe. (Personalizará el html \<title > valor).
-Por ejemplo, si desea asignar a la ventana de iframe el título "MyInsights", la dirección URL tendrá este aspecto: https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?title=MyInsights. Tenga en cuenta que esta opción solo es relevante en aquellos casos en los que necesite abrir la información detallada en una nueva ventana.
+También se puede personalizar el título de la ventana de IFrame proporcionando **& title=**<YourTitle> a la dirección URL de IFrame. (Personalizará el html \<title > valor).
+Por ejemplo, si quiere asignar a la ventana de IFrame el título "MyInsights", la dirección URL tendrá este aspecto: https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights. Tenga en cuenta que esta opción solo es relevante en aquellos casos en los que necesite abrir la información detallada en una nueva ventana.
 
 ### <a name="player-widget"></a>Widget Player
-Si inserta el reproductor de Video Indexer, puede elegir el tamaño del reproductor al especificar el tamaño de iframe.
+Si inserta el reproductor de Video Indexer, puede elegir el tamaño del reproductor al especificar el tamaño de IFrame.
 
-Por ejemplo:
+Por ejemplo: 
 
-    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/{id}” frameborder="0" allowfullscreen />
+    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />
 
 De forma predeterminada, el reproductor de Video Indexer tendrá subtítulos generados automáticamente basados en la transcripción del vídeo que se extrajo del vídeo con el idioma de origen que se seleccionó cuando se cargó el vídeo.
 
-Si desea insertar con un idioma diferente, puede agregar **&captions=< Language | ”all” | “false” >** a la URL del reproductor para insertar o poner "all" como valor si desea tener todos los subtítulos de idiomas disponibles.
-Si desea que los subtítulos se muestran de forma predeterminada, se puede pasar **&showCaptions=true**
+Si quiere hacer una inserción con un idioma diferente, puede agregar **&captions=< Language | ”all” | “false” >** a la dirección URL incrustada del reproductor o poner "all" como valor si quiere tener todos los subtítulos de idiomas disponibles.
+Si quiere que los subtítulos se muestren de forma predeterminada, puede pasar **&showCaptions=true**.
 
-La dirección URL para insertar tendrá un aspecto similar al siguiente: https://www.videoindexer.ai/embed/player/9a296c6ec3/?captions=italian. Si desea deshabilitar los subtítulos, puede pasar "false" como valor en el parámetro captions.
+La dirección URL incrustada tendrá un aspecto similar al siguiente: https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian. Si quiere deshabilitar los subtítulos, puede pasar "false" como valor en el parámetro de subtítulos.
 
 Reproducción automática: de forma predeterminada, el reproductor iniciará la reproducción del vídeo. Puede elegir no pasar &autoplay=false para la dirección URL para insertar anterior.
 

@@ -1,26 +1,27 @@
 ---
-title: Uso de Azure Video Indexer para la búsqueda de momentos exactos dentro de vídeos | Microsoft Docs
-description: En este tema se muestra cómo buscar momentos exactos dentro de vídeos.
+title: 'Búsqueda de momentos exactos en los vídeos: Video Indexer'
+titlesuffix: Azure Cognitive Services
+description: En este tema se muestra cómo buscar momentos exactos en los vídeos mediante Video Indexer.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 07/31/2018
+ms.component: video-indexer
+ms.topic: conceptual
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 1cffa067d8028adab4dbcc82c529f77d980ce6be
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 9806f9c3f22429d61ac765773e4b6971d683a6b1
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397550"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984514"
 ---
 # <a name="find-exact-moments-within-videos"></a>Búsqueda de momentos exactos dentro de vídeos
 
 En este tema se muestran las opciones de búsqueda que le permiten encontrar momentos exactos dentro de vídeos.
 
-1. Inicie sesión en la cuenta de [Video Indexer](https://api-portal.videoindexer.ai/).
+1. Vaya al sitio web de [Video Indexer](https://www.videoindexer.ai/) e inicie sesión.
 2. Busque en todos los vídeos de la cuenta.
 
     En el ejemplo siguiente, hemos buscado todos los vídeos creados por Channel 9 con Scott Hanselman.
