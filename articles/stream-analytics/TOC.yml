@@ -23,6 +23,8 @@ items:
     href: stream-analytics-javascript-user-defined-functions.md
   - name: 4 - Implementación con CI/CD en Azure Pipelines
     href: stream-analytics-tools-visual-studio-cicd-vsts.md
+  - name: 5 - Ejecución de UDF de C# en Edge
+    href: stream-analytics-edge-csharp-udf.md
 - name: Ejemplos
   items:
   - name: Ejemplos de código
@@ -41,6 +43,8 @@ items:
     items:
     - name: Salida a Cosmos DB
       href: stream-analytics-documentdb-output.md
+    - name: Salida a Azure SQL DB
+      href: stream-analytics-sql-output-perf.md
   - name: Funciones de ventana
     href: stream-analytics-window-functions.md
   - name: Funciones geoespaciales
@@ -122,14 +126,18 @@ items:
     items:
     - name: Instalación de herramientas
       href: stream-analytics-tools-for-visual-studio-install.md
-    - name: Probar un trabajo localmente
+    - name: Prueba con datos de ejemplo
       href: stream-analytics-vs-tools-local-run.md
+    - name: Prueba con datos activos
+      href: stream-analytics-live-data-local-testing.md
     - name: Visualización de trabajos en Visual Studio
       href: stream-analytics-vs-tools.md
     - name: Desarrollo de un trabajo con Edge
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Configuración de canalizaciones de integración y entrega continuas
       href: stream-analytics-tools-for-visual-studio-cicd.md
+    - name: Escritura de UDF de .NET para Edge
+      href: stream-analytics-edge-csharp-udf-methods.md
   - name: Solución de problemas
     items:
     - name: Pasos para solucionar problemas
@@ -186,9 +194,9 @@ items:
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: 'Notas del producto: Procesamiento de eventos en tiempo real'
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: b74d5aafe289ede8478d3e9ddb74e244030d948d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9974539b9c787d322bca131c8fec74b4e67c2326
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296047"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054870"

@@ -1,446 +1,462 @@
+items:
 - name: Documentación de Azure HDInsight
   href: /azure/hdinsight
 - name: Información general
   items:
-    - name: Acerca de Spark en HDInsight
-      href: apache-spark-overview.md
-    - name: Componentes de Hadoop en HDInsight
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
+  - name: Acerca de Spark en HDInsight
+    href: apache-spark-overview.md
+  - name: Componentes de Hadoop en HDInsight
+    href: ../hdinsight-component-versioning.md
+    maintainContext: true
+  - name: HDInsight 4.0
+    href: ../hdinsight-version-release.md
+    maintainContext: true
 - name: Guías de inicio rápido
   items:
-    - name: 'Creación de un clúster de Spark: Portal'
-      href: apache-spark-jupyter-spark-sql-use-portal.md
-    - name: 'Creación de un clúster de Spark: PowerShell'
-      href: apache-spark-jupyter-spark-sql-use-powershell.md
-    - name: 'Creación de un clúster de Spark: plantilla'
-      href: apache-spark-jupyter-spark-sql.md
+  - name: 'Creación de un clúster de Spark: Portal'
+    href: apache-spark-jupyter-spark-sql-use-portal.md
+  - name: 'Creación de un clúster de Spark: PowerShell'
+    href: apache-spark-jupyter-spark-sql-use-powershell.md
+  - name: 'Creación de un clúster de Spark: plantilla'
+    href: apache-spark-jupyter-spark-sql.md
 - name: Tutoriales
   items:
-    - name: Ejecución de consultas en un clúster de Spark
-      href: apache-spark-load-data-run-query.md
-    - name: Uso de VSCode para ejecutar consultas de Spark
-      href: ../hdinsight-for-vscode.md
-    - name: Uso de IntelliJ para ejecutar consultas de Spark
-      href: apache-spark-intellij-tool-plugin.md
-    - name: Análisis de datos mediante herramientas de inteligencia empresarial
-      href: apache-spark-use-bi-tools.md
-    - name: Ejecución de un trabajo de streaming
-      href: apache-spark-eventhub-streaming.md
-    - name: Creación de una aplicación de Machine Learning
-      href: apache-spark-ipython-notebook-machine-learning.md
-    - name: Creación de una aplicación de Spark en IntelliJ
-      href: apache-spark-create-standalone-application.md
+  - name: Ejecución de consultas en un clúster de Spark
+    href: apache-spark-load-data-run-query.md
+  - name: Uso de VSCode para ejecutar consultas de Spark
+    href: ../hdinsight-for-vscode.md
+  - name: Uso de IntelliJ para ejecutar consultas de Spark
+    href: apache-spark-intellij-tool-plugin.md
+  - name: Análisis de datos mediante herramientas de inteligencia empresarial
+    href: apache-spark-use-bi-tools.md
+  - name: Ejecución de un trabajo de streaming
+    href: apache-spark-eventhub-streaming.md
+  - name: Creación de una aplicación de Machine Learning
+    href: apache-spark-ipython-notebook-machine-learning.md
+  - name: Creación de una aplicación de Spark en IntelliJ
+    href: apache-spark-create-standalone-application.md
 - name: Procedimientos
   items:
-    - name: Uso del almacenamiento de clúster
+  - name: Uso del almacenamiento de clúster
+    items:
+    - name: Uso de Azure Storage
+      href: ../hdinsight-hadoop-use-blob-storage.md
+      maintainContext: true
+    - name: Uso de Azure Data Lake Store
+      href: ../hdinsight-hadoop-use-data-lake-store.md
+      maintainContext: true
+  - name: Desarrollo
+    items:
+    - name: Uso de un shell de Spark interactivo
+      href: apache-spark-shell.md
+    - name: Trabajos remotos con Livy
+      href: apache-spark-livy-rest-interface.md
+    - name: Creación de aplicaciones mediante Eclipse
+      href: apache-spark-eclipse-tool-plugin.md
+    - name: Creación de aplicaciones con IntelliJ
+      href: apache-spark-intellij-tool-plugin.md
+    - name: Depuración remota de trabajos con Spark a través de SSH
+      href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+    - name: Depuración remota de trabajos con Spark a través de VPN
+      href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
+    - name: Crear aplicaciones .NET para HDInsight de autenticación no interactiva
+      href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
+      maintainContext: true
+  - name: Uso de herramientas de HDInsight
+    items:
+    - name: Herramientas para Visual Studio
+      href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
+      maintainContext: true
+    - name: Herramientas de VSCode
+      href: ../hdinsight-for-vscode.md
+      maintainContext: true
+    - name: Herramientas para IntelliJ
+      href: apache-spark-intellij-tool-plugin.md
+    - name: Herramientas para Eclipse
+      href: apache-spark-eclipse-tool-plugin.md
+    - name: PySpark para VSCode
+      href: ../set-up-pyspark-interactive-environment.md
+      maintainContext: true
+    - name: Depuración de Spark en IntelliJ
+      href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+  - name: Uso de cuadernos con Spark
+    items:
+    - name: Uso de Jupyter Notebook local
+      href: apache-spark-jupyter-notebook-install-locally.md
+    - name: Kernels de Jupyter Notebook
+      href: apache-spark-jupyter-notebook-kernels.md
+    - name: Uso de paquetes externos con Jupyter mediante instrucciones mágicas
+      href: apache-spark-jupyter-notebook-use-external-packages.md
+    - name: Uso de paquetes externos con Jupyter mediante una acción de script
+      href: apache-spark-python-package-installation.md
+    - name: Uso de Zeppelin Notebooks
+      href: apache-spark-zeppelin-notebook.md
+  - name: Uso con otros servicios de Azure
+    items:
+    - name: Uso con Data Lake Store
+      href: apache-spark-use-with-data-lake-store.md
+    - name: Conexión a una instancia de Azure SQL Database
+      href: apache-spark-connect-to-sql-database.md
+    - name: Implementación de una arquitectura lambda mediante Spark y Cosmos DB
+      href: ../../cosmos-db/lambda-architecture.md
+      maintainContext: true
+  - name: Streaming de Spark
+    items:
+    - name: Introducción al streaming
+      href: apache-spark-streaming-overview.md
+    - name: Introducción a Structured Streaming
+      href: apache-spark-structured-streaming-overview.md
+    - name: Creación de trabajos de streaming de Spark con alta disponibilidad en YARN
+      href: apache-spark-streaming-high-availability.md
+    - name: Flujo estructurado con Kafka
+      href: ../hdinsight-apache-kafka-spark-structured-streaming.md
+      maintainContext: true
+    - name: Flujo estructurado de Kafka a CosmosDB
+      href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
+      maintainContext: true
+    - name: Flujo estructurado de Spark (DStream) con Kafka
+      href: ../hdinsight-apache-spark-with-kafka.md
+      maintainContext: true
+    - name: Creación de trabajos de streaming de Spark con el procesamiento de eventos del tipo "exactly-once"
+      href: apache-spark-streaming-exactly-once.md
+  - name: Spark y Machine Learning
+    items:
+    - name: Predicción del resultado de la inspección de un alimento
+      href: apache-spark-machine-learning-mllib-ipython.md
+    - name: Análisis de registros de sitios web
+      href: apache-spark-custom-library-website-log-analysis.md
+    - name: Uso de Caffe para aprendizaje profundo
+      href: apache-spark-deep-learning-caffe.md
+    - name: Uso con Microsoft Cognitive Toolkit
+      href: apache-spark-microsoft-cognitive-toolkit.md
+    - name: Creación de una canalización de aprendizaje automático de Spark
+      href: apache-spark-creating-ml-pipelines.md
+  - name: Análisis de macrodatos
+    items:
+    - name: Uso de Spark para leer y escribir datos de HBase
+      href: ../hdinsight-using-spark-query-hbase.md
+      maintainContext: true
+    - name: Análisis de registros de telemetría de Application Insights
+      href: apache-spark-analyze-application-insight-logs.md
+  - name: Extensión de los clústeres
+    items:
+    - name: Personalización de clústeres con Bootstrap
+      href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
+      maintainContext: true
+    - name: Personalización de clústeres mediante la acción de script
+      href: ../hdinsight-hadoop-customize-cluster-linux.md
+      maintainContext: true
+    - name: Desarrollo acciones de script
+      href: ../hdinsight-hadoop-script-actions-linux.md
+      maintainContext: true
+    - name: Instalación y uso de Presto
+      href: ../hdinsight-hadoop-install-presto.md
+      maintainContext: true
+    - name: Instalación o actualización de Mono
+      href: ../hdinsight-hadoop-install-mono.md
+      maintainContext: true
+    - name: Adición de bibliotecas de Hive
+      href: ../hdinsight-hadoop-add-hive-libraries.md
+      maintainContext: true
+    - name: Uso de Giraph
+      href: ../hdinsight-hadoop-giraph-install-linux.md
+      maintainContext: true
+    - name: Uso de Hue
+      href: ../hdinsight-hadoop-hue-linux.md
+      maintainContext: true
+    - name: Uso de Solr
+      href: ../hdinsight-hadoop-solr-install-linux.md
+      maintainContext: true
+    - name: Uso de nodos perimetrales vacíos
+      href: ../hdinsight-apps-use-edge-node.md
+      maintainContext: true
+    - name: Compilación de aplicaciones de HDInsight
       items:
-        - name: Uso de Azure Storage
-          href: ../hdinsight-hadoop-use-blob-storage.md
-          maintainContext: true
-        - name: Uso de Azure Data Lake Store
-          href: ../hdinsight-hadoop-use-data-lake-store.md
-          maintainContext: true
-    - name: Desarrollo
+      - name: Instalación de aplicaciones personalizadas
+        href: ../hdinsight-apps-install-custom-applications.md
+        maintainContext: true
+      - name: Uso de REST para instalar aplicaciones
+        href: https://msdn.microsoft.com/library/mt706515.aspx
+      - name: Publicar aplicaciones de HDInsight en Azure Marketplace
+        href: ../hdinsight-apps-publish-applications.md
+        maintainContext: true
+      - name: 'Instalación de la aplicación publicada: Cask Data Application Platform (CDAP)'
+        href: ../hdinsight-apps-install-cask.md
+        maintainContext: true
+      - name: 'Instalación de la aplicación publicada: Dataiku'
+        href: ../hdinsight-apps-install-dataiku.md
+        maintainContext: true
+      - name: 'Instalación de la aplicación publicada: Datameer'
+        href: ../hdinsight-apps-install-datameer.md
+        maintainContext: true
+      - name: 'Instalación de la aplicación publicada: H2O'
+        href: ../hdinsight-apps-install-h2o.md
+        maintainContext: true
+      - name: 'Instalación de la aplicación publicada: Streamsets'
+        href: ../hdinsight-apps-install-streamsets.md
+        maintainContext: true
+  - name: Protección
+    items:
+    - name: Uso de SSH con HDInsight
+      href: ../hdinsight-hadoop-linux-use-ssh-unix.md
+      maintainContext: true
+    - name: Uso de la tunelización de SSH
+      href: ../hdinsight-linux-ambari-ssh-tunnel.md
+      maintainContext: true
+    - name: Restricción del acceso a los datos
+      href: ../hdinsight-storage-sharedaccesssignature-permissions.md
+      maintainContext: true
+    - name: Autorización de usuarios para vistas de Ambari
+      href: ../hdinsight-authorize-users-to-ambari.md
+      maintainContext: true
+  - name: administración
+    items:
+    - name: Administración de recursos de clúster
+      href: apache-spark-resource-manager.md
+    - name: Administración de aplicaciones de Spark mediante el servidor de historial
+      href: apache-azure-spark-history-server.md
+    - name: Configuración de opciones de Spark
+      href: apache-spark-settings.md
+    - name: Optimización de trabajos de Spark
+      href: apache-spark-perf.md
+    - name: Planeamiento de la capacidad de clúster
+      href: ../hdinsight-capacity-planning.md
+      maintainContext: true
+    - name: Creación de clústeres de Linux
+      href: ../hdinsight-hadoop-provision-linux-clusters.md
       items:
-        - name: Uso de un shell de Spark interactivo
-          href: apache-spark-shell.md
-        - name: Trabajos remotos con Livy
-          href: apache-spark-livy-rest-interface.md
-        - name: Creación de aplicaciones mediante Eclipse
-          href: apache-spark-eclipse-tool-plugin.md
-        - name: Creación de aplicaciones con IntelliJ
-          href: apache-spark-intellij-tool-plugin.md
-        - name: Depuración remota de trabajos con Spark a través de SSH
-          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
-        - name: Depuración remota de trabajos con Spark a través de VPN
-          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
-        - name: Crear aplicaciones .NET para HDInsight de autenticación no interactiva
-          href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
-          maintainContext: true
-    - name: Uso de herramientas de HDInsight
+      - name: Uso de Azure PowerShell
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+        maintainContext: true
+      - name: Uso de cURL y la API de REST de Azure
+        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
+        maintainContext: true
+      - name: Uso del SDK de .NET
+        href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
+        maintainContext: true
+      - name: Uso de la CLI de Azure clásico
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
+        maintainContext: true
+      - name: Uso de Azure Portal
+        href: ../hdinsight-hadoop-create-linux-clusters-portal.md
+        maintainContext: true
+      - name: Utilización de plantillas del Administrador de recursos de Azure
+        href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
+      maintainContext: true
+    - name: Creación de clústeres a petición
+      href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+      maintainContext: true
+    - name: Administración de clústeres de HDInsight
       items:
-        - name: Herramientas para Visual Studio
-          href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
-          maintainContext: true
-        - name: Herramientas de VSCode
-          href: ../hdinsight-for-vscode.md
-          maintainContext: true
-        - name: Herramientas para IntelliJ
-          href: apache-spark-intellij-tool-plugin.md
-        - name: Herramientas para Eclipse
-          href: apache-spark-eclipse-tool-plugin.md
-        - name: PySpark para VSCode
-          href: ../set-up-pyspark-interactive-environment.md
-          maintainContext: true
-        - name: Depuración de Spark en IntelliJ
-          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
-    - name: Uso de cuadernos con Spark
+      - name: Uso del portal
+        href: ../hdinsight-administer-use-portal-linux.md
+        maintainContext: true
+      - name: Uso del SDK de .NET
+        href: ../hdinsight-administer-use-dotnet-sdk.md
+        maintainContext: true
+      - name: Uso de Azure PowerShell
+        href: ../hdinsight-administer-use-powershell.md
+        maintainContext: true
+      - name: Uso de la CLI de Azure clásico
+        href: ../hdinsight-administer-use-command-line.md
+        maintainContext: true
+    - name: Administración de clústeres con la interfaz de usuario web de Ambari
+      href: ../hdinsight-hadoop-manage-ambari.md
       items:
-        - name: Uso de Jupyter Notebook local
-          href: apache-spark-jupyter-notebook-install-locally.md
-        - name: Kernels de Jupyter Notebook
-          href: apache-spark-jupyter-notebook-kernels.md
-        - name: Uso de paquetes externos con Jupyter mediante instrucciones mágicas
-          href: apache-spark-jupyter-notebook-use-external-packages.md
-        - name: Uso de paquetes externos con Jupyter mediante una acción de script
-          href: apache-spark-python-package-installation.md
-        - name: Uso de Zeppelin Notebooks
-          href: apache-spark-zeppelin-notebook.md
-    - name: Uso con otros servicios de Azure
+      - name: Optimización de clústeres con la interfaz de usuario web de Ambari
+        href: ../hdinsight-changing-configs-via-ambari.md
+        maintainContext: true
+      - name: Uso de la API de REST de Ambari
+        href: ../hdinsight-hadoop-manage-ambari-rest-api.md
+        maintainContext: true
+      maintainContext: true
+    - name: Administración de registros de un clúster de HDInsight
+      href: ../hdinsight-log-management.md
+      maintainContext: true
+    - name: Adición de cuentas de almacenamiento
+      href: ../hdinsight-hadoop-add-storage.md
+      maintainContext: true
+    - name: Carga de datos para trabajos Hadoop
+      href: ../hdinsight-upload-data.md
+      maintainContext: true
+    - name: Varios clústeres de HDInsight con Data Lake Store
+      href: ../hdinsight-multiple-clusters-data-lake-store.md
+      maintainContext: true
+    - name: Importación y exportación de datos con Sqoop
+      href: ../hadoop/hdinsight-use-sqoop.md
       items:
-        - name: Uso con Data Lake Store
-          href: apache-spark-use-with-data-lake-store.md
-        - name: Conexión a una instancia de Azure SQL Database
-          href: apache-spark-connect-to-sql-database.md
-        - name: Implementación de una arquitectura lambda mediante Spark y Cosmos DB
-          href: ../../cosmos-db/lambda-architecture.md
-          maintainContext: true
-    - name: Streaming de Spark
+      - name: Conexión con SSH
+        href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md
+        maintainContext: true
+      - name: Ejecución con cURL
+        href: ../hadoop/apache-hadoop-use-sqoop-curl.md
+        maintainContext: true
+      - name: Ejecución con SDK de .NET
+        href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
+        maintainContext: true
+      - name: Ejecución mediante Azure PowerShell
+        href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
+        maintainContext: true
+      maintainContext: true
+    - name: Uso de Oozie para flujos de trabajo
+      href: ../hdinsight-use-oozie-linux-mac.md
+      maintainContext: true
+    - name: Uso de coordinadores de Oozie basados en de tiempo
+      href: ../hdinsight-use-oozie-coordinator-time.md
+      maintainContext: true
+    - name: Puertos y URI de servicio y clúster
+      href: ../hdinsight-hadoop-port-settings-for-services.md
+      maintainContext: true
+    - name: Migración a las herramientas de desarrollo de Resource Manager
+      href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
+      maintainContext: true
+    - name: Disponibilidad y confiabilidad
+      href: ../hdinsight-high-availability-linux.md
+      maintainContext: true
+    - name: Actualización de un clúster de HDInsight a una versión más reciente
+      href: ../hdinsight-upgrade-cluster.md
+      maintainContext: true
+    - name: Aplicación de revisión del SO para un clúster de HDInsight
+      href: ../hdinsight-os-patching.md
+      maintainContext: true
+  - name: Solución de problemas
+    items:
+    - name: Depuración de trabajos de Spark
+      href: apache-spark-job-debugging.md
+    - name: Depuración de trabajos de Spark a través del gráfico Trabajo
+      href: apache-azure-spark-history-server.md
+    - name: Uso de IntelliJ para depurar trabajos de Spark
+      href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+    - name: Solución de problemas de un clúster de HDInsight lento o con errores
+      href: ../hdinsight-troubleshoot-failed-cluster.md
+      maintainContext: true
+    - name: Solución de problemas de Spark
+      href: apache-troubleshoot-spark.md
+    - name: Solución de problemas de HDFS
+      href: ../hdinsight-troubleshoot-hdfs.md
+      maintainContext: true
+    - name: Solución de problemas de YARN
+      href: ../hdinsight-troubleshoot-yarn.md
+      maintainContext: true
+    - name: Problemas conocidos
+      href: apache-spark-known-issues.md
+    - name: Recursos
       items:
-        - name: Introducción al streaming
-          href: apache-spark-streaming-overview.md
-        - name: Introducción a Structured Streaming
-          href: apache-spark-structured-streaming-overview.md
-        - name: Creación de trabajos de streaming de Spark con alta disponibilidad en YARN
-          href: apache-spark-streaming-high-availability.md
-        - name: Flujo estructurado con Kafka
-          href: ../hdinsight-apache-kafka-spark-structured-streaming.md
-          maintainContext: true
-        - name: Flujo estructurado de Kafka a CosmosDB
-          href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
-          maintainContext: true
-        - name: Flujo estructurado de Spark (DStream) con Kafka
-          href: ../hdinsight-apache-spark-with-kafka.md
-          maintainContext: true
-        - name: Creación de trabajos de streaming de Spark con el procesamiento de eventos del tipo "exactly-once"
-          href: apache-spark-streaming-exactly-once.md
-    - name: Spark y Machine Learning
-      items:
-        - name: Predicción del resultado de la inspección de un alimento
-          href: apache-spark-machine-learning-mllib-ipython.md
-        - name: Análisis de registros de sitios web
-          href: apache-spark-custom-library-website-log-analysis.md
-        - name: Uso de Caffe para aprendizaje profundo
-          href: apache-spark-deep-learning-caffe.md
-        - name: Uso con Microsoft Cognitive Toolkit
-          href: apache-spark-microsoft-cognitive-toolkit.md
-        - name: Creación de una canalización de aprendizaje automático de Spark
-          href: apache-spark-creating-ml-pipelines.md
-    - name: Análisis de macrodatos
-      items:
-        - name: Uso de Spark para leer y escribir datos de HBase
-          href: ../hdinsight-using-spark-query-hbase.md
-          maintainContext: true
-        - name: Análisis de registros de telemetría de Application Insights
-          href: apache-spark-analyze-application-insight-logs.md
-    - name: Extensión de los clústeres
-      items:
-        - name: Personalización de clústeres con Bootstrap
-          href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
-          maintainContext: true
-        - name: Personalización de clústeres mediante la acción de script
-          href: ../hdinsight-hadoop-customize-cluster-linux.md
-          maintainContext: true
-        - name: Desarrollo acciones de script
-          href: ../hdinsight-hadoop-script-actions-linux.md
-          maintainContext: true
-        - name: Instalación y uso de Presto
-          href: ../hdinsight-hadoop-install-presto.md
-          maintainContext: true
-        - name: Instalación o actualización de Mono
-          href: ../hdinsight-hadoop-install-mono.md
-          maintainContext: true
-        - name: Adición de bibliotecas de Hive
-          href: ../hdinsight-hadoop-add-hive-libraries.md
-          maintainContext: true
-        - name: Uso de Giraph
-          href: ../hdinsight-hadoop-giraph-install-linux.md
-          maintainContext: true
-        - name: Uso de Hue
-          href: ../hdinsight-hadoop-hue-linux.md
-          maintainContext: true
-        - name: Uso de Solr
-          href: ../hdinsight-hadoop-solr-install-linux.md
-          maintainContext: true
-        - name: Uso de nodos perimetrales vacíos
-          href: ../hdinsight-apps-use-edge-node.md
-          maintainContext: true
-        - name: Compilación de aplicaciones de HDInsight
-          items:
-            - name: Instalación de aplicaciones personalizadas
-              href: ../hdinsight-apps-install-custom-applications.md
-              maintainContext: true
-            - name: Uso de REST para instalar aplicaciones
-              href: 'https://msdn.microsoft.com/library/mt706515.aspx'
-            - name: Publicar aplicaciones de HDInsight en Azure Marketplace
-              href: ../hdinsight-apps-publish-applications.md
-              maintainContext: true
-            - name: 'Instalación de la aplicación publicada: Cask Data Application Platform (CDAP)'
-              href: ../hdinsight-apps-install-cask.md
-              maintainContext: true
-            - name: 'Instalación de la aplicación publicada: Dataiku'
-              href: ../hdinsight-apps-install-dataiku.md
-              maintainContext: true
-            - name: 'Instalación de la aplicación publicada: Datameer'
-              href: ../hdinsight-apps-install-datameer.md
-              maintainContext: true
-            - name: 'Instalación de la aplicación publicada: H2O'
-              href: ../hdinsight-apps-install-h2o.md
-              maintainContext: true
-            - name: 'Instalación de la aplicación publicada: Streamsets'
-              href: ../hdinsight-apps-install-streamsets.md
-              maintainContext: true
-    - name: Protección
-      items:
-        - name: Uso de SSH con HDInsight
-          href: ../hdinsight-hadoop-linux-use-ssh-unix.md
-          maintainContext: true
-        - name: Uso de la tunelización de SSH
-          href: ../hdinsight-linux-ambari-ssh-tunnel.md
-          maintainContext: true
-        - name: Restricción del acceso a los datos
-          href: ../hdinsight-storage-sharedaccesssignature-permissions.md
-          maintainContext: true
-        - name: Autorización de usuarios para vistas de Ambari
-          href: ../hdinsight-authorize-users-to-ambari.md
-          maintainContext: true
-    - name: administración
-      items:
-        - name: Administración de recursos de clúster
-          href: apache-spark-resource-manager.md
-        - name: Administración de aplicaciones de Spark mediante el servidor de historial
-          href: apache-azure-spark-history-server.md
-        - name: Configuración de opciones de Spark
-          href: apache-spark-settings.md
-        - name: Optimización de trabajos de Spark
-          href: apache-spark-perf.md
-        - name: Planeamiento de la capacidad de clúster
-          href: ../hdinsight-capacity-planning.md
-          maintainContext: true
-        - name: Creación de clústeres de Linux
-          href: ../hdinsight-hadoop-provision-linux-clusters.md
-          maintainContext: true
-          items:
-            - name: Uso de Azure PowerShell
-              href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-              maintainContext: true
-            - name: Uso de cURL y la API de REST de Azure
-              href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-              maintainContext: true
-            - name: Uso del SDK de .NET
-              href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
-              maintainContext: true
-            - name: Uso de la CLI de Azure
-              href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-              maintainContext: true
-            - name: Uso de Azure Portal
-              href: ../hdinsight-hadoop-create-linux-clusters-portal.md
-              maintainContext: true
-            - name: Utilización de plantillas del Administrador de recursos de Azure
-              href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
-        - name: Creación de clústeres a petición
-          href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-          maintainContext: true
-        - name: Administración de clústeres de HDInsight
-          items:
-            - name: Uso del portal
-              href: ../hdinsight-administer-use-portal-linux.md
-              maintainContext: true
-            - name: Uso del SDK de .NET
-              href: ../hdinsight-administer-use-dotnet-sdk.md
-              maintainContext: true
-            - name: Uso de Azure PowerShell
-              href: ../hdinsight-administer-use-powershell.md
-              maintainContext: true
-            - name: Uso de la CLI de Azure
-              href: ../hdinsight-administer-use-command-line.md
-              maintainContext: true
-        - name: Administración de clústeres con la interfaz de usuario web de Ambari
-          href: ../hdinsight-hadoop-manage-ambari.md
-          maintainContext: true
-          items:
-            - name: Optimización de clústeres con la interfaz de usuario web de Ambari
-              href: ../hdinsight-changing-configs-via-ambari.md
-              maintainContext: true
-            - name: Uso de la API de REST de Ambari
-              href: ../hdinsight-hadoop-manage-ambari-rest-api.md
-              maintainContext: true
-        - name: Administración de registros de un clúster de HDInsight
-          href: ../hdinsight-log-management.md
-          maintainContext: true
-        - name: Adición de cuentas de almacenamiento
-          href: ../hdinsight-hadoop-add-storage.md
-          maintainContext: true
-        - name: Carga de datos para trabajos Hadoop
-          href: ../hdinsight-upload-data.md
-          maintainContext: true
-        - name: Varios clústeres de HDInsight con Data Lake Store
-          href: ../hdinsight-multiple-clusters-data-lake-store.md
-          maintainContext: true
-        - name: Importación y exportación de datos con Sqoop
-          href: ../hadoop/hdinsight-use-sqoop.md
-          maintainContext: true
-          items:
-            - name: Conexión con SSH
-              href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md
-              maintainContext: true
-            - name: Ejecución con cURL
-              href: ../hadoop/apache-hadoop-use-sqoop-curl.md
-              maintainContext: true
-            - name: Ejecución con SDK de .NET
-              href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
-              maintainContext: true
-            - name: Ejecución mediante Azure PowerShell
-              href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
-              maintainContext: true
-        - name: Uso de Oozie para flujos de trabajo
-          href: ../hdinsight-use-oozie-linux-mac.md
-          maintainContext: true
-        - name: Uso de coordinadores de Oozie basados en de tiempo
-          href: ../hdinsight-use-oozie-coordinator-time.md
-          maintainContext: true
-        - name: Puertos y URI de servicio y clúster
-          href: ../hdinsight-hadoop-port-settings-for-services.md
-          maintainContext: true
-        - name: Migración a las herramientas de desarrollo de Resource Manager
-          href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
-          maintainContext: true
-        - name: Disponibilidad y confiabilidad
-          href: ../hdinsight-high-availability-linux.md
-          maintainContext: true
-        - name: Actualización de un clúster de HDInsight a una versión más reciente
-          href: ../hdinsight-upgrade-cluster.md
-          maintainContext: true
-        - name: Aplicación de revisión del SO para un clúster de HDInsight
-          href: ../hdinsight-os-patching.md
-          maintainContext: true
-    - name: Solución de problemas
-      items:
-        - name: Depuración de trabajos de Spark
-          href: apache-spark-job-debugging.md
-        - name: Depuración de trabajos de Spark a través del gráfico Trabajo
-          href: apache-azure-spark-history-server.md
-        - name: Uso de IntelliJ para depurar trabajos de Spark
-          href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
-        - name: Solución de problemas de un clúster de HDInsight lento o con errores
-          href: ../hdinsight-troubleshoot-failed-cluster.md
-          maintainContext: true
-        - name: Solución de problemas de Spark
-          href: apache-troubleshoot-spark.md
-        - name: Solución de problemas de HDFS
-          href: ../hdinsight-troubleshoot-hdfs.md
-          maintainContext: true
-        - name: Solución de problemas de YARN
-          href: ../hdinsight-troubleshoot-yarn.md
-          maintainContext: true
-        - name: Problemas conocidos
-          href: apache-spark-known-issues.md
-        - name: Recursos
-          items:
-            - name: Información sobre el uso de HDInsight en Linux
-              href: ../hdinsight-hadoop-linux-information.md
-              maintainContext: true
-            - name: Rendimiento y memoria de Hadoop
-              href: ../hdinsight-hadoop-stack-trace-error-messages.md
-              maintainContext: true
-            - name: Acceso a registros de aplicaciones de YARN en Linux
-              href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
-              maintainContext: true
-            - name: Habilitación de volcados del montón para servicios de Hadoop
-              href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
-              maintainContext: true
-            - name: Descripción y resolución de errores recibidos de WebHCat
-              href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
-              maintainContext: true
-            - name: La configuración de Hive corrige un error de memoria insuficiente
-              href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
-              maintainContext: true
-            - name: Uso de vistas de Ambari para depurar trabajos de Tez
-              href: ../hdinsight-debug-ambari-tez-view.md
-              maintainContext: true
-            - name: Optimización de consultas de Hive
-              href: ../hdinsight-hadoop-optimize-hive-query.md
-              maintainContext: true
+      - name: Información sobre el uso de HDInsight en Linux
+        href: ../hdinsight-hadoop-linux-information.md
+        maintainContext: true
+      - name: Rendimiento y memoria de Hadoop
+        href: ../hdinsight-hadoop-stack-trace-error-messages.md
+        maintainContext: true
+      - name: Acceso a registros de aplicaciones de YARN en Linux
+        href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
+        maintainContext: true
+      - name: Habilitación de volcados del montón para servicios de Hadoop
+        href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
+        maintainContext: true
+      - name: Descripción y resolución de errores recibidos de WebHCat
+        href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
+        maintainContext: true
+      - name: La configuración de Hive corrige un error de memoria insuficiente
+        href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
+        maintainContext: true
+      - name: Uso de vistas de Ambari para depurar trabajos de Tez
+        href: ../hdinsight-debug-ambari-tez-view.md
+        maintainContext: true
+      - name: Optimización de consultas de Hive
+        href: ../hdinsight-hadoop-optimize-hive-query.md
+        maintainContext: true
 - name: Adecuado para empresas
   items:
-    - name: Seguridad de la empresa
-      items:
-        - name: Información general
-          href: ../domain-joined/apache-domain-joined-introduction.md
-          maintainContext: true
-        - name: Plan de seguridad de la empresa
-          href: ../domain-joined/apache-domain-joined-architecture.md
-          maintainContext: true
-        - name: Configuración de la seguridad de la empresa en HDInsight
-          href: ../domain-joined/apache-domain-joined-configure.md
-          maintainContext: true
-        - name: Configuración de la seguridad de la empresa en HDInsight con Azure AD DS
-          href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
-          maintainContext: true
-        - name: Configuración de directivas Hive
-          href: ../domain-joined/apache-domain-joined-run-hive.md
-          maintainContext: true
-        - name: Administración de clústeres con seguridad de la empresa
-          href: ../domain-joined/apache-domain-joined-manage.md
-          maintainContext: true
-    - name: Protección de datos
-      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+  - name: Seguridad de la empresa
+    items:
+    - name: Información general
+      href: ../domain-joined/apache-domain-joined-introduction.md
       maintainContext: true
-    - name: Acceso de red
-      items:
-        - name: HDInsight en redes virtuales de Azure
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
-        - name: Conexión de HDInsight con la red local
-          href: ../connect-on-premises-network.md
-          maintainContext: true
-    - name: Supervisión del uso de Log Analytics
-      items:
-        - name: Uso de Azure Log Analytics
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Uso de consultas con Log Analytics
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-          maintainContext: true
-        - name: Supervisión del rendimiento de un clúster
-          href: ../hdinsight-key-scenarios-to-monitor.md
-          maintainContext: true
+    - name: Plan de seguridad de la empresa
+      href: ../domain-joined/apache-domain-joined-architecture.md
+      maintainContext: true
+    - name: Configuración de la seguridad de la empresa en HDInsight
+      href: ../domain-joined/apache-domain-joined-configure.md
+      maintainContext: true
+    - name: Configuración de la seguridad de la empresa en HDInsight con Azure AD DS
+      href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
+      maintainContext: true
+    - name: Configuración de directivas Hive
+      href: ../domain-joined/apache-domain-joined-run-hive.md
+      maintainContext: true
+    - name: Administración de clústeres con seguridad de la empresa
+      href: ../domain-joined/apache-domain-joined-manage.md
+      maintainContext: true
+  - name: Protección de datos
+    href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+    maintainContext: true
+  - name: Acceso de red
+    items:
+    - name: HDInsight en redes virtuales de Azure
+      href: ../hdinsight-extend-hadoop-virtual-network.md
+      maintainContext: true
+    - name: Conexión de HDInsight con la red local
+      href: ../connect-on-premises-network.md
+      maintainContext: true
+  - name: Supervisión del uso de Log Analytics
+    items:
+    - name: Uso de Azure Log Analytics
+      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+      maintainContext: true
+    - name: Uso de consultas con Log Analytics
+      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+      maintainContext: true
+    - name: Supervisión del rendimiento de un clúster
+      href: ../hdinsight-key-scenarios-to-monitor.md
+      maintainContext: true
 - name: Referencia
   items:
-    - name: Ejemplos de código
-      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.hdinsight
-    - name: .NET (Hadoop)
-      href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet'
-    - name: .NET (HBase)
-      href: 'https://www.nuget.org/packages/Microsoft.HBase.Client/'
-    - name: .NET (Avro)
-      href: 'https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library'
-    - name: API DE REST
-      href: /rest/api/hdinsight/
-    - name: API de REST (Spark)
-      href: /rest/api/hdinsightspark/
+  - name: Ejemplos de código
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.hdinsight
+  - name: .NET SDK
+    href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
+  - name: SDK de Python
+    href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+  - name: SDK de Java
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
+  - name: Go SDK
+    href: ../hdinsight-go-sdk-overview.md
+  - name: .NET (HBase)
+    href: https://www.nuget.org/packages/Microsoft.HBase.Client/
+  - name: .NET (Avro)
+    href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
+  - name: API DE REST
+    href: /rest/api/hdinsight/
+  - name: API de REST (Spark)
+    href: /rest/api/hdinsightspark/
 - name: Recursos
   items:
-    - name: Notas de la versión
-      href: ../hdinsight-release-notes.md
+  - name: Notas de la versión
+    href: ../hdinsight-release-notes.md
+    items:
+    - name: Archivado de notas de la versión
+      href: ../hdinsight-release-notes-archive.md
       maintainContext: true
-      items:
-        - name: Archivado de notas de la versión
-          href: ../hdinsight-release-notes-archive.md
-          maintainContext: true
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
-    - name: Obtención de ayuda en el foro
-      href: 'https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight'
-    - name: Ruta de aprendizaje
-      href: 'https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/'
-    - name: Programa profesional de Microsoft para macrodatos
-      href: 'https://academy.microsoft.com/en-us/professional-program/big-data/'
-    - name: Calculadora de precios
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Herramientas de Windows para HDInsight
-      href: ../hdinsight-hadoop-windows-tools.md
-      maintainContext: true
+    maintainContext: true
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
+  - name: Obtención de ayuda en el foro
+    href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight
+  - name: Ruta de aprendizaje
+    href: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
+  - name: Programa profesional de Microsoft para macrodatos
+    href: https://academy.microsoft.com/en-us/professional-program/big-data/
+  - name: Calculadora de precios
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Herramientas de Windows para HDInsight
+    href: ../hdinsight-hadoop-windows-tools.md
+    maintainContext: true
+ms.openlocfilehash: 911fdde576e931053b6558a41cc365e1292c0e21
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033318"
