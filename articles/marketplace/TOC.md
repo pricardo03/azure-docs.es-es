@@ -7,6 +7,7 @@
 #### [Registrar en el centro de desarrollo](./register-dev-center.md) 
 #### [Opciones de facturación de Azure Marketplace](./billing-options-azure-marketplace.md)  
 #### [Atribución de uso del cliente para asociados de Azure](./azure-partner-customer-usage-attribution.md)
+#### [Administración de clientes potenciales de Marketplace en la nube](./lead-management-for-cloud-marketplace.md)
 
 ### [Escaparates](./comparing-appsource-azure-marketplace.md)  
 

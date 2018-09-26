@@ -1,73 +1,81 @@
+items:
 - name: Documentación de la máquina virtual de ciencia de datos
   href: index.yml
-  items: null
 - name: Información general
-  expanded: true
   items:
-    - name: ¿Qué es la máquina virtual de ciencia de datos?
-      href: overview.md
-    - name: ¿Qué es la máquina virtual de aprendizaje profundo?
-      href: deep-learning-dsvm-overview.md
-    - name: ¿Qué es la máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial?
-      href: geo-ai-dsvm-overview.md
+  - name: ¿Qué es la máquina virtual de ciencia de datos?
+    href: overview.md
+  - name: ¿Qué es la máquina virtual de aprendizaje profundo?
+    href: deep-learning-dsvm-overview.md
+  - name: ¿Qué es la máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial?
+    href: geo-ai-dsvm-overview.md
+  expanded: true
 - name: Introducción
   items:
-    - name: Creación de una máquina virtual de ciencia de datos de Windows
-      href: provision-vm.md
-    - name: Creación de una máquina virtual de ciencia de datos de Ubuntu
-      href: dsvm-ubuntu-intro.md
-    - name: Creación de una máquina virtual de ciencia de datos de CentOS
-      href: linux-dsvm-intro.md
-    - name: Creación de una máquina virtual de aprendizaje profundo
-      href: provision-deep-learning-dsvm.md
-    - name: Creación de una máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial
-      href: provision-geo-ai-dsvm.md
+  - name: Creación de una máquina virtual de ciencia de datos de Windows
+    href: provision-vm.md
+  - name: Creación de una máquina virtual de ciencia de datos de Ubuntu
+    href: dsvm-ubuntu-intro.md
+  - name: Creación de una máquina virtual de ciencia de datos de CentOS
+    href: linux-dsvm-intro.md
+  - name: Creación de una máquina virtual de aprendizaje profundo
+    href: provision-deep-learning-dsvm.md
+  - name: Creación de una máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial
+    href: provision-geo-ai-dsvm.md
 - name: Procedimientos
   items:
-    - name: Uso de una máquina virtual de ciencia de datos de Windows
-      href: vm-do-ten-things.md
-    - name: Uso de una máquina virtual de ciencia de datos de Linux
-      href: linux-dsvm-walkthrough.md
-    - name: Uso de una máquina virtual de aprendizaje profundo
-      href: use-deep-learning-dsvm.md
-    - name: Uso de una máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial
-      href: use-geo-ai-dsvm.md
+  - name: Uso de una máquina virtual de ciencia de datos de Windows
+    href: vm-do-ten-things.md
+  - name: Uso de una máquina virtual de ciencia de datos de Linux
+    href: linux-dsvm-walkthrough.md
+  - name: Uso de una máquina virtual de aprendizaje profundo
+    href: use-deep-learning-dsvm.md
+  - name: Uso de una máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial
+    href: use-geo-ai-dsvm.md
 - name: Guía de Enterprise
   items:
-    - name: Información general
-      href: dsvm-enterprise-overview.md
-    - name: Escalado
-      href: dsvm-pools.md
-    - name: Integración de Active Directory
-      href: dsvm-common-identity.md
-    - name: Protección de las credenciales de acceso a los recursos
-      href: dsvm-secure-access-keys.md
+  - name: Información general
+    href: dsvm-enterprise-overview.md
+  - name: Escalado
+    href: dsvm-pools.md
+  - name: Integración de Active Directory
+    href: dsvm-common-identity.md
+  - name: Protección de las credenciales de acceso a los recursos
+    href: dsvm-secure-access-keys.md
 - name: Referencia
-  expanded: true
   items:
-    - name: Detección de DSVM
-      href: dsvm-tools-overview.md
-    - name: Marcos de aprendizaje profundo y de AI
-      href: dsvm-deep-learning-ai-frameworks.md
-    - name: Herramientas de ciencia de datos y ML
-      href: dsvm-ml-data-science-tools.md
-    - name: Idiomas
-      href: dsvm-languages.md
-    - name: Herramientas de desarrollo
-      href: dsvm-tools-development.md
-    - name: Herramientas de ingesta de datos
-      href: dsvm-tools-ingestion.md
-    - name: Herramientas de visualización y exploración de datos
-      href: dsvm-tools-explore-and-visualize.md
-    - name: Plataformas de datos
-      href: dsvm-data-platforms.md
-    - name: Ejemplos y tutoriales
-      href: dsvm-samples-and-walkthroughs.md
+  - name: Detección de DSVM
+    href: dsvm-tools-overview.md
+  - name: Marcos de aprendizaje profundo y de AI
+    href: dsvm-deep-learning-ai-frameworks.md
+  - name: Herramientas de ciencia de datos y ML
+    href: dsvm-ml-data-science-tools.md
+  - name: Lenguajes
+    href: dsvm-languages.md
+  - name: Herramientas de desarrollo
+    href: dsvm-tools-development.md
+  - name: Herramientas de ingesta de datos
+    href: dsvm-tools-ingestion.md
+  - name: Herramientas de visualización y exploración de datos
+    href: dsvm-tools-explore-and-visualize.md
+  - name: Plataformas de datos
+    href: dsvm-data-platforms.md
+  - name: Ejemplos y tutoriales
+    href: dsvm-samples-and-walkthroughs.md
+  expanded: true
 - name: Recursos
   items:
-    - name: Blog
-      href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
-    - name: Foro de MSDN
-      href: 'https://social.microsoft.com/Forums/en-US/home?forum=dsvm'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/search?q=dsvm'
+  - name: Guía del desarrollador de R
+    href: ../r-developers-guide.md
+  - name: Blog
+    href: https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/
+  - name: Foro de MSDN
+    href: https://social.microsoft.com/Forums/en-US/home?forum=dsvm
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=dsvm
+ms.openlocfilehash: e1617f3f5c36a5b006003e2f375dfac4143af7cd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032571"
