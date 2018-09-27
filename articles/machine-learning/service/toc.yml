@@ -7,30 +7,28 @@ items:
     href: overview-what-is-azure-ml.md
   - name: ¿Qué le ha ocurrido a Workbench?
     href: overview-what-happened-to-workbench.md
-  - name: Cómo migrar
-    href: how-to-migrate.md
   - name: Comparación de productos de Machine Learning en Microsoft
     href: overview-more-machine-learning.md
   expanded: true
 - name: Guías de inicio rápido
   items:
-  - name: 'Introducción: Portal'
+  - name: Introducción
     href: quickstart-get-started.md
 - name: Tutoriales
   items:
-  - name: 1. Entrenamiento de modelos
+  - name: 'Entrenamiento de modelos: Parte 1'
     href: tutorial-train-models-with-aml.md
-  - name: 2. Implementación de modelos
+  - name: 'Implementación de modelos: Parte 2'
     href: tutorial-deploy-models-with-aml.md
   - name: Entrenamiento de modelos de Machine Learning automatizados
     href: tutorial-auto-train-models.md
 - name: Conceptos
   items:
-  - name: Arquitectura y términos
+  - name: Funcionamiento del servicio
     href: concept-azure-machine-learning-architecture.md
   - name: Administración de modelos
     href: concept-model-management-and-deployment.md
-  - name: Aceleraciones de FPGA
+  - name: Aceleración con FPGA
     href: concept-accelerate-with-fpgas.md
   - name: Canalizaciones de Machine Learning
     href: concept-ml-pipelines.md
@@ -122,6 +120,8 @@ items:
     href: support-for-aml-services.md
   - name: Documentos en desuso
     items:
+    - name: Cómo migrar
+      href: how-to-migrate.md
     - name: Inicio rápido de Workbench
       href: ../desktop-workbench/quickstart-installation.md
     - name: 'Tutorial 1: Preparación de datos'
@@ -322,9 +322,9 @@ items:
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
     - name: Soporte técnico
       href: support-for-aml-services.md
-ms.openlocfilehash: 963961d43bf455d735bc46e01c919a932a06a6ca
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0e069ce7bb04a4aef2e631488ec807a1539c32e5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036667"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162158"

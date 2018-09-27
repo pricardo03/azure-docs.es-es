@@ -514,8 +514,6 @@ items:
           href: ../monitoring/monitoring-container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: solución de problemas
           href: ../monitoring/monitoring-container-insights-troubleshoot.md
-      - name: Estado de los contenedores de AKS
-        href: ../monitoring/monitoring-container-health.md?toc=/azure/azure-monitor/toc.json
       - name: Supervisión de contenedores de Docker y Windows
         href: ../log-analytics/log-analytics-containers.md?toc=/azure/azure-monitor/toc.json
       - name: Supervisión de aplicaciones de Docker
@@ -639,8 +637,6 @@ items:
       href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
     - name: Consulta de datos de registro
       items:
-      - name: Referencia de lenguaje
-        href: https://docs.loganalytics.io
       - name: Introducción
         items:
         - name: Introducción al portal de Analytics
@@ -678,7 +674,9 @@ items:
       - name: Referencia de lenguaje
         items:
         - name: Referencia de lenguaje
-          href: https://aka.ms/LogAnalyticsLanguageReference
+          href: /azure/kusto/query
+        - name: Diferencias respecto a Kusto
+          href: ../log-analytics/query-language/kusto.md
         - name: expresión de aplicación
           href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
         - name: expresión de área de trabajo
@@ -980,9 +978,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Ejemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: c0706842080ab163e74e0eb085c8e80bd01800e7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: ef2057d55903d3fdc4d2fc7f914f29e84cffc638
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056733"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181972"

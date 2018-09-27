@@ -1,25 +1,18 @@
 ---
 title: 'Introducción a ExpressRoute: Ampliación de la red local a Azure mediante una conexión privada | Microsoft Docs'
-description: Esta introducción técnica sobre ExpressRoute explica cómo funciona una conexión de ExpressRoute a la hora de ampliar su red local a Azure mediante una conexión privada.
-documentationcenter: na
+description: La introducción técnica sobre ExpressRoute explica cómo funciona una conexión de ExpressRoute a la hora de ampliar la red local a Azure mediante una conexión privada.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.topic: overview
+ms.date: 09/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 75d69669945d31fbc9876d0c1e709b37f96aee6d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f1bc447f73912ccf04f0c0cf7d6460d472bace4c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29940174"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961916"
 ---
 # <a name="expressroute-overview"></a>Información general sobre ExpressRoute
 Microsoft Azure ExpressRoute le permite ampliar sus redes locales en la nube de Microsoft a través de una conexión privada que facilita un proveedor de conectividad. Con ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, como Microsoft Azure, Office 365 y Dynamics 365.
@@ -43,7 +36,7 @@ Para más información, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 ## <a name="features"></a>Características
 
 ### <a name="layer-3-connectivity"></a>Conectividad de nivel 3
-Microsoft usa el protocolo de enrutamiento dinámico estándar del sector (BGP) para intercambiar las rutas entre su red local, las instancias de Azure y las direcciones públicas de Microsoft.  Establecemos varias sesiones BGP con su red para perfiles de tráfico diferentes. Puede encontrar más información en el artículo [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md).
+Microsoft usa el protocolo de enrutamiento dinámico estándar del sector (BGP) para intercambiar las rutas entre su red local, las instancias de Azure y las direcciones públicas de Microsoft.  Establecemos varias sesiones BGP con su red para perfiles de tráfico diferentes. Puede encontrar más información en el artículo [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md) .
 
 ### <a name="redundancy"></a>Redundancia
 Cada circuito ExpressRoute consta de dos conexiones a dos enrutadores perimetrales de Microsoft Enterprise (MSEE) desde el proveedor de conectividad o el perímetro de la red. Microsoft requiere una conexión BGP dual desde el proveedor de conectividad o su sitio, uno a cada MSEE. Si lo desea, tiene la opción de no implementar dispositivos redundantes o circuitos Ethernet en el extremo. Sin embargo, los proveedores de conectividad usan dispositivos redundantes para garantizar que las conexiones se entregan a Microsoft de forma redundante. Una configuración de conectividad redundante de nivel 3 es un requisito para nuestro [SLA](https://azure.microsoft.com/support/legal/sla/) sea válido.
@@ -70,11 +63,29 @@ Por ejemplo, si se conectó a Microsoft en Ámsterdam a través de ExpressRoute,
 ### <a name="global-connectivity-with-expressroute-premium-add-on"></a>Conectividad global con el complemento ExpressRoute Premium
 Puede habilitar la característica de complemento ExpressRoute Premium para ampliar la conectividad a través de límites geopolíticos. Por ejemplo, si se conectó a Microsoft en Ámsterdam a través de ExpressRoute, tendrá acceso a todos los servicios en la nube de Microsoft hospedados en todas las regiones del mundo (excluidas las nubes nacionales). Puede tener acceso a los servicios implementados en Sudamérica o Australia del mismo modo que accede a las regiones de Europa septentrional y occidental.
 
+### <a name="across-on-premises-connectivity-with-expressroute-global-reach"></a>Conectividad local con Global Reach de ExpressRoute
+
+Puede permitir que Global Reach de ExpressRoute intercambie datos entre los sitios remotos mediante la conexión de los diferentes circuitos de ExpressRoute. Por ejemplo, si tiene un centro de datos privado en California conectado a ExpressRoute en Silicon Valley, y otro centro de datos privado en Texas conectado a ExpressRoute en Dallas, con Global Reach de ExpressRoute, puede conectar los centros de datos privados entre sí a través de dos circuitos de ExpressRoute. El tráfico del centro de datos pasará a través de la red de Microsoft.
+
+Para obtener más información, consulte [Global Reach de ExpressRoute](expressroute-global-reach.md).
+
 ### <a name="rich-connectivity-partner-ecosystem"></a>Ecosistema de socios de conectividad enriquecida
 ExpressRoute tiene un ecosistema de proveedores de conectividad y asociados integradores de sistema en constante crecimiento. Para obtener la información más reciente, consulte el artículo [Ubicaciones y proveedores de servicios de ExpressRoute](expressroute-locations.md).
 
 ### <a name="connectivity-to-national-clouds"></a>Conectividad con nubes nacionales
 Microsoft administra entornos de nube aislados para regiones geopolíticas y segmentos de clientes especiales. Acuda a la página [Ubicaciones y proveedores de servicios de ExpressRoute](expressroute-locations.md) para obtener una lista de nubes y proveedores nacionales.
+
+### <a name="expressroute-direct"></a>ExpressRoute Direct
+
+ExpressRoute Direct ofrece a los clientes la capacidad para conectarse directamente a la red global de Microsoft en ubicaciones de emparejamiento distribuidas estratégicamente por todo el mundo. ExpressRoute Direct proporciona conectividad dual de 100 Gbps, que es compatible con la conectividad activa/activa a escala. 
+
+Algunas de las características clave que ofrece ExpressRoute Direct incluyen:
+
+* Ingesta de datos masivos en servicios como Storage y Cosmos DB 
+* Aislamiento físico para sectores regulados y que necesitaron conectividades dedicadas y aisladas, como gubernamentales, con la banca y de venta directa 
+* Control granular del circuito de distribución en función de la unidad de negocio
+
+Para obtener más información, consulte [Acerca de ExpressRoute Direct](https://go.microsoft.com/fwlink/?linkid=2022973).
 
 ### <a name="bandwidth-options"></a>Opciones de ancho de banda
 Puede comprar los circuitos ExpressRoute para una amplia gama de anchos de banda. A continuación se enumera la lista de anchos de banda admitidos. Asegúrese de consultar con su proveedor de conectividad para determinar la lista de anchos de banda admitidos que proporcionan.
@@ -98,7 +109,7 @@ Puede elegir el modelo de facturación que mejor le convenga. Elija entre los mo
 * **Datos medidos**. El circuito ExpressRoute se cobra según un precio mensual. Todas las transferencias de datos de entrada son gratuitas. Las transferencias de datos de salida se cobran de acuerdo a un precio por GB de transferencia de datos. Las tasas de transferencia de datos varían según la región.
 * **Complemento ExpressRoute Premium**. ExpressRoute Premium es un complemento que se agrega a un circuito ExpressRoute. El complemento ExpressRoute Premium ofrece las siguientes capacidades: 
   * Límites de ruta ampliados para las configuraciones entre pares públicos y privados de Azure, de 4.000 rutas a 10.000 rutas.
-  * Conectividad global para los servicios. Un circuito ExpressRoute creado en cualquier región (excepto las nubes nacionales) tendrá acceso a los recurso de cualquier otra región del mundo. Por ejemplo, un circuito ExpressRoute aprovisionado en Silicon Valley puede acceder a una red virtual creada en Europa occidental.
+  * Conectividad global para los servicios. Un circuito ExpressRoute creado en cualquier región (excepto las nubes nacionales) tendrá acceso a los recurso de cualquier otra región del mundo. Por ejemplo, un circuito ExpressRoute aprovisionado en Silicon Valley puede acceder a una red virtual creada en Europa occidental .
   * Número de vínculos de red virtual por circuito ExpressRoute ampliado de 10 a un límite superior, que depende del ancho de banda del circuito.
 
 ## <a name="faq"></a>Preguntas más frecuentes

@@ -40,7 +40,7 @@ Si desea más información, habilite los registros de diagnóstico para ver los 
 
 4. Una vez leídos los datos, puede analizar y corregir el formato de serialización.
 
-5. También puede [leer eventos de una instancia de IoT Hub con Service Bus Explorer](https://code.msdn.microsoft.com/How-to-read-events-from-an-1641eb1b).
+5. También puede consultar [How to read events from an IoT Hub with the Service Bus Explorer](https://code.msdn.microsoft.com/How-to-read-events-from-an-1641eb1b) (Cómo leer eventos de una instancia de IoT Hub con Service Bus Explorer).
 
 ## <a name="delayed-output"></a>Retraso en la salida
 

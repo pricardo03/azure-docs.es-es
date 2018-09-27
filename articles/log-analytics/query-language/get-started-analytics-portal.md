@@ -1,6 +1,6 @@
 ---
-title: Introducción a la página de Log Analytics en Azure Portal | Microsoft Docs
-description: En este artículo se proporciona un tutorial sobre el uso de la página de Log Analytics para escribir consultas.
+title: Introducción a Log Analytics en Azure Portal | Microsoft Docs
+description: En este artículo se proporciona un tutorial de uso de Log Analytics en Azure Portal para escribir consultas.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,14 +15,16 @@ ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 493497476fdfe7d96d6f2dde735bab0147e547a7
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3bcc5368a99dc7c7c32381ca0226119d81fc2c0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42147022"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978206"
 ---
-# <a name="get-started-with-the-log-analytics-page-in-the-azure-portal"></a>Introducción a la página de Log Analytics en Azure Portal
+# <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Introducción a Log Analytics en Azure Portal
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 En este tutorial aprenderá a usar la página de Log Analytics en Azure Portal (actualmente en versión preliminar) para escribir consultas de Log Analytics. Le mostrará cómo:
 
@@ -45,7 +47,7 @@ La página de Log Analytics es una herramienta web que se utiliza para escribir 
 ## <a name="basic-queries"></a>Consultas básicas
 Las consultas se pueden usar para buscar términos, identificar tendencias o analizar patrones y proporcionan muchas otras conclusiones basadas en los datos. Comencemos con una consulta básica:
 
-```OQL
+```Kusto
 Event | search "error"
 ```
 
@@ -55,7 +57,7 @@ Las consultas pueden comenzar por un nombre de tabla o un comando **search**. En
 
 Otra forma de escribir la misma consulta sería:
 
-```OQL
+```Kusto
 search in (Event) "error"
 ```
 
@@ -79,7 +81,7 @@ En cada tabla, los datos se organizan en columnas con tipos de datos diferentes,
 ## <a name="filter-the-results"></a>Filtrado de los resultados
 Comencemos por obtener todo el contenido de la tabla _Event_.
 
-```OQL
+```Kusto
 Event
 ```
 
@@ -133,7 +135,7 @@ Si la consulta contiene explícitamente un filtro para _TimeGenerated_, en el t�
 ## <a name="charts"></a>Gráficos
 Además de devolver los resultados de consulta en una tabla, se pueden presentar en formatos visuales. Use la siguiente consulta como ejemplo:
 
-```OQL
+```Kusto
 Event 
 | where EventLevelName == "Error" 
 | where TimeGenerated > ago(1d) 

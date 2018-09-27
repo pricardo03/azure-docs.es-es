@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e7347b521bf490f1148fb1c7ca7e94d502be9019
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 14938e25cc41ea11baef94b6a9e01e070ffac654
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281738"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158197"
 documentType: LandingData
 title: Documentación sobre Azure Service Fabric Mesh
 metadata:
@@ -40,11 +40,12 @@ sections:
 - title: Tutoriales detallados
   items:
   - type: paragraph
-    text: Aprenda a crear, depurar e implementar una aplicación multiservicio de Azure Service Fabric Mesh.
+    text: Aprenda a crear e implementar una aplicación de Mesh con Visual Studio o la CLI de Azure.
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Creación, depuración e implementación de una aplicación web multiservicio en Service Fabric mesh</a>
+    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Creación, depuración, implementación y actualización de una aplicación multiservicio en Service Fabric Mesh mediante Visual Studio.</a>
+    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-deploy-app">Implementación, escalado y actualización de una aplicación de Service Fabric Mesh mediante una plantilla.</a>
 - title: Referencia
   items:
   - type: list

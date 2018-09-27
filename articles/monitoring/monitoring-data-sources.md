@@ -1,5 +1,5 @@
 ---
-title: Orígenes de datos de supervisión en Azure | Microsoft Docs
+title: Orígenes de datos en Azure Monitor | Microsoft Docs
 description: Describe los datos disponibles para supervisar el estado y rendimiento de los recursos de Azure y las aplicaciones que se ejecutan en ellos.
 documentationcenter: ''
 author: bwren
@@ -10,27 +10,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/05/2018
+ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: 48cbfac78b41b47419799584837e094d45757628
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: b10236a1e0307c9464d58e50eb0c7b4e6a60b5e5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627464"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987802"
 ---
-# <a name="sources-of-monitoring-data-in-azure"></a>Orígenes de datos de supervisión en Azure
-En este artículo se describen los datos disponibles para supervisar el estado y rendimiento de los recursos de Azure y las aplicaciones que se ejecutan en ellos.  Recopilar y analizar estos datos con las herramientas descritas en [Collecting monitoring data in Azure](monitoring-data-collection.md) (Recopilar datos de supervisión en Azure)
+# <a name="sources-of-data-in-azure-monitor"></a>Orígenes de datos en Azure Monitor
+En este artículo se describen los orígenes de datos que recopila Azure Monitor para supervisar el mantenimiento y el rendimiento de los recursos y las aplicaciones que se ejecutan en ellos. Estos recursos pueden estar en Azure, en otra nube o en el entorno local.  Consulte [Datos recopilados por Azure Monitor](monitoring-data-collection.md) para obtener más información sobre cómo se almacenan estos datos y cómo puede verlos.
 
-La supervisión de datos en Azure procede de distintos orígenes que se pueden organizar en niveles, donde el nivel superior representa la aplicación y el inferior, la plataforma de Azure. Esto se muestra en el diagrama siguiente, con cada nivel descrito en detalle en las secciones siguientes.
+La supervisión de datos en Azure procede de distintos orígenes que pueden organizarse en niveles, donde el nivel superior representa la aplicación y los sistemas operativos, y los niveles inferiores son componentes de la plataforma de Azure. Esto se muestra en el diagrama siguiente, con cada nivel descrito en detalle en las secciones siguientes.
 
 ![Niveles de datos de supervisión](media/monitoring-data-sources/monitoring-tiers.png)
 
+## <a name="azure-tenant"></a>Inquilino de Azure
+Los datos de telemetría relacionados con el inquilino de Azure se recopilan desde los servicios de todos los inquilinos, como Azure Active Directory.
+
+![Recopilación del inquilino de Azure](media/monitoring-data-sources/tenant-collection.png)
+
+### <a name="azure-active-directory-audit-logs"></a>Registros de auditoría de Azure Active Directory
+Los [informes de Azure Active Directory](../active-directory/reports-monitoring/overview-reports.md), contienen el historial de actividad de inicio de sesión y la traza de auditoría de los cambios realizados en un inquilino determinado. Estos registros de auditoría pueden escribirse en Log Analytics para analizarlos junto con otros datos de registro.
+
 
 ## <a name="azure-platform"></a>Plataforma Azure
-La telemetría relacionada con el estado y el funcionamiento de Azure incluye datos sobre el funcionamiento y la administración del inquilino o la suscripción de Azure. Incluye datos de Service Health almacenados en el registro de actividad de Azure y registros de auditoría de Azure Active Directory.
+La telemetría relacionada con el estado y el funcionamiento de Azure incluye datos sobre el funcionamiento y la administración de la suscripción a Azure. Incluye datos de Service Health almacenados en el registro de actividad de Azure y registros de auditoría de Azure Active Directory.
 
-![Colección de Azure](media/monitoring-data-sources/azure-collection.png)
+![Recopilación de la suscripción a Azure](media/monitoring-data-sources/azure-collection.png)
 
 ### <a name="azure-service-health"></a>Azure Service Health
 [Azure Service Health](../monitoring-and-diagnostics/monitoring-service-notifications.md) proporciona información sobre el estado de los servicios de Azure de la suscripción de los que dependen la aplicación y los recursos. Puede crear alertas para que se le notifiquen los problemas críticos actuales y previstos que pueden afectar a la aplicación. Los registros de Service Health se almacenan en el [registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), de modo que puede verlos en el explorador de registro de actividad y copiarlos en Log Analytics.
@@ -41,9 +49,6 @@ El [registro de actividad de Azure](../monitoring-and-diagnostics/monitoring-ove
 Puede ver el registro de actividad de un recurso determinado en su página de Azure Portal o ver registros de varios recursos en el [explorador de registro de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Resulta especialmente útil copiar las entradas del registro en Log Analytics para combinarlas con otros datos de supervisión. También puede enviarlas a otras ubicaciones mediante [Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md).
 
 
-### <a name="azure-active-directory-audit-logs"></a>Registros de auditoría de Azure Active Directory
-Los [informes de Azure Active Directory](../active-directory/reports-monitoring/overview-reports.md), contienen el historial de actividad de inicio de sesión y la traza de auditoría de los cambios realizados en un inquilino determinado. Actualmente, no se pueden combinar datos de auditoría de Azure Active Directory con otros datos de supervisión, ya que solo está accesible a través de Azure Active Directory y la [API de informes de Azure Active Directory](../active-directory/reports-monitoring/concept-reporting-api.md).
-
 
 ## <a name="azure-services"></a>Servicios de Azure
 Los registros de diagnóstico de nivel de recursos y las métricas proporcionan información sobre el funcionamiento _interno_ de recursos de Azure. Están disponibles para la mayoría de servicios de Azure, y las soluciones de administración proporcionan información adicional sobre determinados servicios.
@@ -52,7 +57,7 @@ Los registros de diagnóstico de nivel de recursos y las métricas proporcionan 
 
 
 ### <a name="metrics"></a>Métricas
-La mayoría de servicios de Azure generan métricas que reflejan su rendimiento y funcionamiento. Las [métricas específicas varían en función del tipo de recurso](../monitoring-and-diagnostics/monitoring-supported-metrics.md).  Son accesibles desde el Explorador de métricas y se pueden copiar en Log Analytics para realizar análisis de tendencias y de otro tipo.
+La mayoría de los servicios de Azure generarán [métricas de plataforma](monitoring-data-collection.md#metrics) que reflejan su rendimiento y funcionamiento. Las [métricas específicas varían en función del tipo de recurso](../monitoring-and-diagnostics/monitoring-supported-metrics.md).  Son accesibles desde el Explorador de métricas y se pueden copiar en Log Analytics para realizar análisis de tendencias y de otro tipo.
 
 
 ### <a name="resource-diagnostic-logs"></a>Registros de diagnóstico de recursos
@@ -60,11 +65,11 @@ El registro de actividad proporciona información sobre las operaciones realizad
 
 No se pueden ver directamente los registros de diagnóstico en Azure Portal, pero puede [enviarlos al almacenamiento de Azure para archivarlos](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) y exportarlos al [centro de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) para redirigirlos a otros servicios, o [a Log Analytics](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) para analizarlos. Algunos recursos pueden escribir directamente en Log Analytics, mientras que otros escriben en una cuenta de almacenamiento antes de [importarse a Log Analytics](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
-### <a name="management-solutions"></a>Soluciones de administración
- Las [soluciones de administración](../monitoring/monitoring-solutions.md) recopilan datos para proporcionar conclusiones adicionales sobre el funcionamiento de un servicio determinado. Recopilan datos en Log Analytics, donde se pueden analizar mediante un [lenguaje de consulta](../log-analytics/log-analytics-log-search.md) o vistas que se suelen incluir en la solución.
+### <a name="monitoring-solutions"></a>Soluciones de supervisión
+ Las [soluciones de supervisión](../monitoring/monitoring-solutions.md) recopilan datos para proporcionar conclusiones adicionales sobre el funcionamiento de un servicio o aplicación en particular. Recopilan datos en Log Analytics, donde se pueden analizar mediante un [lenguaje de consulta](../log-analytics/log-analytics-log-search.md) o [vistas](../log-analytics/log-analytics-view-designer.md) que se suelen incluir en la solución.
 
 ## <a name="guest-operating-system"></a>Sistema operativo invitado
-Además de la telemetría que generan todos los servicios de Azure, los recursos de proceso tienen un sistema operativo invitado para supervisar. Con la instalación de uno o más agentes, puede recopilar datos de telemetría del invitado en las mismas herramientas de supervisión que los propios servicios de Azure.
+Los recursos de proceso en Azure, en otras nubes y en el entorno local tienen un sistema operativo invitado para supervisar. Con la instalación de uno o más agentes, puede recopilar datos de telemetría del invitado en las mismas herramientas de supervisión que los propios servicios de Azure.
 
 ![Colección de recursos de proceso de Azure](media/monitoring-data-sources/compute-resource-collection.png)
 
@@ -73,7 +78,7 @@ Con la [extensión de Azure Diagnostics](../monitoring-and-diagnostics/azure-dia
 
 
 ### <a name="log-analytics-agent"></a>Agente de Log Analytics
-Puede instalar al agente de Log Analytics en cualquier máquina virtual o equipo físico Windows o Linux. La máquina virtual se puede ejecutar en Azure, en otra nube o en el entorno local.  El agente se conecta a Log Analytics directamente o mediante un [grupo de administración de System Center Operations Manager conectado](../log-analytics/log-analytics-om-agents.md) y le permite recopilar datos de [orígenes de datos](../log-analytics/log-analytics-data-sources.md) que configura o de [soluciones de administración](../monitoring/monitoring-solutions.md) que proporcionan conclusiones adicionales sobre las aplicaciones que se ejecutan en la máquina virtual.
+Puede instalar el agente de Log Analytics en cualquier máquina virtual o equipo físico [Windows](../log-analytics/log-analytics-agent-windows.md) o [Linux](). La máquina virtual se puede ejecutar en Azure, en otra nube o en el entorno local.  El agente se conecta a Log Analytics directamente o mediante un [grupo de administración de System Center Operations Manager conectado](../log-analytics/log-analytics-om-agents.md) y le permite recopilar datos de [orígenes de datos](../log-analytics/log-analytics-data-sources.md) que configura o de [soluciones de administración](../monitoring/monitoring-solutions.md) que proporcionan conclusiones adicionales sobre las aplicaciones que se ejecutan en la máquina virtual.
 
 ### <a name="service-map"></a>Mapa de servicio
 [Service Map](../operations-management-suite/operations-management-suite-service-map.md) requiere una instancia de Dependency Agent en máquinas virtuales Windows y Linux. Esto funciona con el agente de Log Analytics para recopilar datos acerca de los procesos que se ejecutan en la máquina virtual y las dependencias de los procesos externos. Almacena estos datos en Log Analytics e incluye una consola que muestra visualmente los datos que recopila, además de otros datos almacenados en Log Analytics.
@@ -84,17 +89,25 @@ Además de la telemetría que la aplicación puede escribir en el sistema operat
 ![Recopilación de datos de aplicación](media/monitoring-data-sources/application-collection.png)
 
 
-#### <a name="application-data"></a>Datos de aplicación
+### <a name="application-data"></a>Datos de aplicación
 Cuando se habilita Application Insights para una aplicación mediante la instalación de un paquete de instrumentación, recopila métricas y registros relacionados con el rendimiento y el funcionamiento de la aplicación. Esto incluye información detallada acerca de las vistas de página, las solicitudes de la aplicación y las excepciones. Application Insights almacena los datos que recopila en las métricas de Azure y en Log Analytics. Incluye completas herramientas para analizar estos datos, pero también puede analizarlos con datos de otros orígenes mediante herramientas como el Explorador de métricas y las búsquedas de registros.
 
 También puede usar Application Insights para [crear una métrica personalizada](../application-insights/app-insights-api-custom-events-metrics.md).  Esto le permite definir su propia lógica para calcular un valor numérico y, a continuación, almacenarlo con otras métricas a las que se puede acceder desde el Explorador de métricas y que se pueden usar para el [Escalado automático](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md) y las alertas de métricas.
 
-#### <a name="dependencies"></a>Dependencias
+### <a name="dependencies"></a>Dependencias
 Para supervisar las distintas operaciones lógicas de una aplicación, debe [recopilar datos de telemetría de varios componentes](../application-insights/app-insights-transaction-diagnostics.md). Application Insights admite la [correlación de telemetría distribuida](../application-insights/application-insights-correlation.md) que identifica las dependencias entre componentes y le permite analizarlas juntos.
 
-#### <a name="availability-tests"></a>Pruebas de disponibilidad
+### <a name="availability-tests"></a>Pruebas de disponibilidad
 Las [pruebas de disponibilidad](../application-insights/app-insights-monitor-web-app-availability.md) de Application Insights le permiten probar la disponibilidad y capacidad de respuesta de la aplicación desde diferentes ubicaciones de la red Internet pública. Puede realizar una prueba sencilla de ping para comprobar que la aplicación está activa o usar Visual Studio para crear una prueba web que simule un escenario de usuario.  Las pruebas de disponibilidad no requieren ninguna instrumentación en la aplicación.
+
+## <a name="custom-sources"></a>Orígenes personalizados
+Además de los niveles estándar de una aplicación, puede que necesite supervisar otros recursos que tengan datos de telemetría y que no puedan recopilarse con los otros orígenes de datos. Para estos recursos, deberá escribir estos datos mediante una API de Azure Monitor.
+
+![Recopilación de datos personalizados](media/monitoring-data-sources/custom-collection.png)
+
+### <a name="data-collector-api"></a>API de recopilador de datos
+Azure Monitor puede recopilar datos de registro de cualquier cliente de REST con la [API del recopilador de datos](../log-analytics/log-analytics-data-collector-api.md). Esto permite crear escenarios de supervisión personalizados y ampliar la supervisión a los recursos que no exponen datos de telemetría en otros orígenes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga más información sobre los [tipos de datos de supervisión y las herramientas de Azure](monitoring-data-collection.md) que se usan para recopilarlos y analizarlos.
+- Más información sobre la [tipos de datos de supervisión recopilados por Azure Monitor](monitoring-data-collection.md) y cómo ver y analizar estos datos.

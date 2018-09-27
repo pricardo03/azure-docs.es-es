@@ -1,6 +1,6 @@
 ---
 title: Ejemplos de inicio rápido de la CLI de Azure Monitor
-description: Comandos de ejemplo de la CLI 2.0 para las características de Azure Monitor. Azure Monitor es un servicio de Microsoft Azure que permite enviar notificaciones de alerta, llamar a direcciones URL web en función de los valores de datos de telemetría configurados y escalar automáticamente Cloud Services, Virtual Machines y Web Apps.
+description: Comandos de CLI de ejemplo para características de Azure Monitor. Azure Monitor es un servicio de Microsoft Azure que permite enviar notificaciones de alerta, llamar a direcciones URL web en función de los valores de datos de telemetría configurados y escalar automáticamente Cloud Services, Virtual Machines y Web Apps.
 author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: robb
 ms.component: ''
-ms.openlocfilehash: dfc9a65325d25889c9d8d3c10aa0dcda2b5a9980
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 1728511402d48904fa968790f790314fdf57767c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213221"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961525"
 ---
-# <a name="azure-monitor-cli-20-quick-start-samples"></a>Ejemplos de inicio rápido de CLI de Azure Monitor 2.0
+# <a name="azure-monitor-cli-quick-start-samples"></a>Ejemplos de inicio rápido de la CLI de Azure Monitor
 En este artículo se muestran comandos de la interfaz de la línea de comandos (CLI) de ejemplo que lo ayudarán a acceder a las características de supervisión de Azure Monitor. Azure Monitor permite escalar automáticamente Cloud Services, Virtual Machines y Web Apps para enviar notificaciones de alerta o llamar a direcciones URL web en función de los valores de datos de telemetría configurados.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Si aún no ha instalado la CLI de Azure, siga las instrucciones para [instalar la CLI de Azure 2.0](/cli/azure/install-azure-cli). También puede usar [Azure Cloud Shell](/azure/cloud-shell) para ejecutar la CLI como una experiencia interactiva en el explorador. Consulte una referencia completa de todos los comandos disponibles en la [referencia de la CLI de Azure Monitor](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
+Si aún no ha instalado la CLI de Azure, siga las instrucciones para [instalar la CLI de Azure](/cli/azure/install-azure-cli). También puede usar [Azure Cloud Shell](/azure/cloud-shell) para ejecutar la CLI como una experiencia interactiva en el explorador. Consulte una referencia completa de todos los comandos disponibles en la [referencia de la CLI de Azure Monitor](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 El primer paso consiste en iniciar sesión en su cuenta de Azure.

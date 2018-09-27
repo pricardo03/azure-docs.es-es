@@ -5,20 +5,20 @@ author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/02/2016
+ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: 4eeca81e08a0ecae9ba41ccdd2bf8a2f395f579c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fe63ce931da9fbe94b47d00805820affddfb1bc1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264677"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946993"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Información general de la funcionalidad de escalado automático de Microsoft Azure Virtual Machines, Cloud Services y Web Apps
 En este artículo se explican el concepto del escalado automático de Microsoft Azure y las ventajas que aporta, y se realiza una introducción para empezar a usarlo.  
 
-El escalado automático de Azure Monitor solo se aplica a los [conjuntos de escalado de máquinas virtuales](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/) y [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/).
+El escalado automático de Azure Monitor solo se aplica a los [conjuntos de escalado de máquinas virtuales](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) y los [servicios de API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 > [!NOTE]
 > Azure tiene dos métodos de escalado automático. Una versión anterior del escalado automático se aplica a Virtual Machines (conjuntos de disponibilidad). Esta característica tiene una compatibilidad limitada, por lo que, para poder usar el escalado automático de manera más rápida y fiable, recomendamos la migración a los conjuntos de escalado de máquinas virtuales. En este artículo, se incluye un vínculo sobre cómo utilizar la tecnología antigua.  
@@ -41,7 +41,7 @@ Los recursos generan métricas, que procesan posteriormente las reglas. Las mét
 Los conjuntos de escalado de máquinas virtuales usan datos de telemetría de los agentes de Diagnósticos de Azure, mientras que la telemetría de Web Apps y Cloud Services proviene directamente de la infraestructura de Azure. Algunas de las estadísticas que se utilizan frecuentemente son el uso de CPU, el uso de memoria, el número de subprocesos, la longitud de la cola y el uso del disco. Para ver una lista de los datos de telemetría que se pueden utilizar, consulte [Métricas comunes de escalado automático de Azure Insights](insights-autoscale-common-metrics.md).
 
 ## <a name="custom-metrics"></a>Métricas personalizadas
-También puede usar métricas personalizadas que las aplicaciones pueden generar. Si ha configurado las aplicaciones para que envíen métricas a Application Insights, puede usarlas para tomar decisiones sobre si necesita escalar o no. 
+También puede usar métricas personalizadas que las aplicaciones pueden generar. Si ha configurado las aplicaciones para que envíen métricas a Application Insights, puede usarlas para tomar decisiones sobre si necesita escalar o no.
 
 ## <a name="time"></a>Hora
 Las reglas basadas en programaciones emplean el huso horario UTC. Debe establecer la zona horaria correctamente al configurar las reglas.  
@@ -110,6 +110,7 @@ Puede configurar el escalado automático en los siguientes lugares:
 | Virtual Machines: conjuntos de escalado de Windows |[Escalado de conjuntos de escalado de máquinas virtuales en Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
 | Virtual Machines : conjuntos de escalado de Linux |[Escalado de conjuntos de escalado de máquinas virtuales en Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
 | Virtual Machines: ejemplo de Windows |[Configuración avanzada de escalado automático con plantillas de Resource Manager para VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
+| Servicio API Management|[Escalado automático de una instancia de Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre el escalado automático, consulte los tutoriales de escalado automático anteriores o los siguientes recursos:

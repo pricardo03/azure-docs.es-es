@@ -1,81 +1,23 @@
 ---
-title: Creación de una puerta de enlace de red virtual con redundancia de zona en Azure Availability Zones (versión preliminar) | Microsoft Docs
-description: Implementación de puertas de enlace de VPN Gateway y ExpressRoute en Availability Zones (versión preliminar).
+title: Crear una puerta de enlace de red virtual con redundancia de zona en Azure Availability Zones | Microsoft Docs
+description: Implementar puertas de enlace de VPN Gateway y ExpressRoute en Availability Zones
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand how to create zone-redundant gateways.
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 07/09/2018
+ms.topic: conceptual
+ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: fa349555a5effd41ca519cbd5a29005203d79543
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: f531be5a814ed1805a2938daec1d210f9daccfa5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952562"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949781"
 ---
-# <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones---preview"></a>Creación de una puerta de enlace de red virtual con redundancia de zona en Azure Availability Zones (versión preliminar)
+# <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Crear una puerta de enlace de red virtual con redundancia de zona en Azure Availability Zones
 
-Puede implementar puertas de enlace de VPN Gateway y ExpressRoute en [Azure Availability Zones](../availability-zones/az-overview.md). Esto aporta una mayor disponibilidad, escalabilidad y resistencia a las puertas de enlace de red virtual. Implementar puertas de enlace en Azure Availability Zones separa de forma física y lógica las puertas de enlace dentro de una región, y protege la conectividad de red local en Azure de errores de nivel de zona.
-
-Las puertas de enlace zonales y con redundancia de zona ofrecen mejoras de rendimiento sustanciales frente a las puertas de enlace de red virtual normales. Además, crear una puerta de enlace de red virtual zonal o con redundancia de zona es más rápido que crear otras puertas de enlace. En lugar de 45 minutos, se tarda aproximadamente 15 minutos para una puerta de enlace de ExpressRoute y 19 minutos para una puerta de enlace de VPN Gateway.
-
-### <a name="zrgw"></a>Puertas de enlace con redundancia de zona
-
-Para implementar automáticamente las puertas de enlace de red virtual en distintas zonas de disponibilidad, puede usar puertas de enlace de red virtual con redundancia de zona. Las puertas de enlace con redundancia de zona permiten aprovechar el SLA del 99,99 % de tiempo de actividad en las versiones de disponibilidad general para tener acceso a los servicios de Azure críticos para la misión y escalables.
-
-<br>
-<br>
-
-![gráfico de puertas de enlace con redundancia de zona](./media/create-zone-redundant-vnet-gateway/zonered.png)
-
-### <a name="zgw"></a>Puertas de enlace zonales
-
-Para implementar puertas de enlace en una zona específica, use puertas de enlace zonales. Al implementar una puerta de enlace zonal, ambas instancias de la puerta de enlace se implementan en la misma zona de disponibilidad.
-
-<br>
-<br>
-
-![gráfico de puertas de enlace zonales](./media/create-zone-redundant-vnet-gateway/zonal.png)
-
-## <a name="gwskus"></a>SKU de puerta de enlace
-
-Las puertas de enlace zonales y con redundancia de zona deben usar las nuevas SKU de puerta de enlace. Después de [inscribirse automáticamente en la versión preliminar](#enroll), verá las nuevas SKU de puerta de enlace de red virtual en todas las regiones de Azure AZ. Estas SKU son similares a las SKU correspondientes para ExpressRoute y VPN Gateway, salvo que son específicas para puertas de enlace zonales y con redundancia de zona.
-
-Las nuevas SKU de puerta de enlace son:
-
-### <a name="vpn-gateway"></a>VPN Gateway
-
-* VpnGw1AZ
-* VpnGw2AZ
-* VpnGw3AZ
-
-### <a name="expressroute"></a>ExpressRoute
-
-* ErGw1AZ
-* ErGw2AZ
-* ErGw3AZ
-
-## <a name="pipskus"></a>SKU de IP pública
-
-Las puertas de enlace con redundancia de zona y las puertas de enlace zonales se basan en el recurso de IP pública de Azure SKU *Estándar*. La configuración del recurso de IP pública de Azure determina si la puerta de enlace que se implementa tiene redundancia de zona o es zonal. Si crea un recurso de IP pública con una SKU *Básica*, la puerta de enlace no tendrá redundancia de zona y los recursos de puerta de enlace serán regionales.
-
-### <a name="pipzrg"></a>Puertas de enlace con redundancia de zona
-
-Cuando se crea una dirección IP pública con la SKU de IP pública **Estándar** sin especificar una zona, el comportamiento es diferente según si la puerta de enlace es una puerta de enlace de VPN o una puerta de enlace de ExpressRoute. 
-
-* En el caso de las puertas de enlace de VPN, las dos instancias de la puerta de enlace se implementarán en dos de estas tres zonas para proporcionar redundancia de zona. 
-* En el caso de las puertas de enlace de ExpressRoute, como puede haber más de dos instancias, la puerta de enlace puede abarcar las tres zonas.
-
-### <a name="pipzg"></a>Puertas de enlace zonales
-
-Cuando se crea una dirección IP pública con la SKU de IP pública **Estándar** y se especifica la zona (1, 2 o 3), todas las instancias de la puerta de enlace se implementarán en la misma zona.
-
-### <a name="piprg"></a>Puertas de enlace regionales
-
-Cuando se crea una dirección IP pública con la SKU de IP pública **Básica**, la puerta de enlace se implementa como una puerta de enlace regional y no se agrega redundancia de zona a la puerta de enlace.
+Puede implementar puertas de enlace de VPN Gateway y ExpressRoute en Azure Availability Zones. Esto aporta una mayor disponibilidad, escalabilidad y resistencia a las puertas de enlace de red virtual. Implementar puertas de enlace en Azure Availability Zones separa de forma física y lógica las puertas de enlace dentro de una región, y protege la conectividad de red local en Azure de errores de nivel de zona. Para obtener más información, consulte [About zone-redundant virtual network gateways](about-zone-redundant-vnet-gateways.md) (Acerca de las puertas de enlace de red virtual con redundancia de zona) y [About Azure Availability Zones](../availability-zones/az-overview.md) (Acerca de Azure Availability Zones).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -95,28 +37,7 @@ Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell
 
 [!INCLUDE [PowerShell login](../../includes/vpn-gateway-ps-login-include.md)]
 
-## <a name="enroll"></a>1. Inscripción en la versión preliminar
-
-Para poder configurar una puerta de enlace zonal o con redundancia de zona, primero debe inscribir su suscripción en la versión preliminar. Después de aprovisionar la suscripción, empezará a ver las nuevas SKU de puerta de enlace en todas las regiones de Azure AZ. 
-
-Asegúrese de iniciar sesión con su cuenta de Azure y de utilizar la suscripción que desea a agregar a la lista de permitidos para esta versión preliminar. Para inscribirse, utilice el ejemplo siguiente:
-
-```azurepowershell-interactive
-Register-AzureRmProviderFeature -FeatureName AllowVMSSVirtualNetworkGateway -ProviderNamespace Microsoft.Network
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-Use el siguiente comando para comprobar que la característica "AllowVMSSVirtualNetworkGateway" está registrada en su suscripción:
-
-```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network
-```
-
-El resultado será similar al siguiente ejemplo:
-
-![aprovisionado](./media/create-zone-redundant-vnet-gateway/verifypreview.png)
-
-## <a name="variables"></a>2. Declaración de las variables
+## <a name="variables"></a>1. Declaración de las variables
 
 A continuación se muestran los valores utilizados en los pasos del ejemplo. Además, algunos de los ejemplos utilizan variables declaradas en sus pasos. Si está siguiendo estos pasos en su propio entorno, asegúrese de reemplazar estos valores por los suyos. Cuando especifique la ubicación, compruebe que se admite la región que especifique. Para más información, consulte las [preguntas más frecuentes](#faq).
 
@@ -136,7 +57,7 @@ $GwIP1       = "VNet1GWIP"
 $GwIPConf1   = "gwipconf1"
 ```
 
-## <a name="configure"></a>3. Crear la red virtual
+## <a name="configure"></a>2. Crear la red virtual
 
 Cree un grupo de recursos.
 
@@ -152,7 +73,7 @@ $besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix 
 $vnet = New-AzureRmVirtualNetwork -Name $VNet1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNet1Prefix -Subnet $fesub1,$besub1
 ```
 
-## <a name="gwsub"></a>4. Adición de la subred de puerta de enlace
+## <a name="gwsub"></a>3. Adición de la subred de puerta de enlace
 
 La subred de puerta de enlace contiene las direcciones IP reservadas que usan los servicios de puerta de enlace de la red virtual. Utilice los siguientes ejemplos para agregar y establecer una subred de puerta de enlace:
 
@@ -168,7 +89,7 @@ Establezca la configuración de subred de puerta de enlace para la red virtual.
 ```azurepowershell-interactive
 $getvnet | Set-AzureRmVirtualNetwork
 ```
-## <a name="publicip"></a>5. Solicitar una dirección IP pública
+## <a name="publicip"></a>4. Solicitar una dirección IP pública
  
 En este paso, seleccione las instrucciones que se aplican a la puerta de enlace que desea crear. La selección de las zonas para la implementación de las puertas de enlace depende de las zonas especificadas para la dirección IP pública.
 
@@ -195,7 +116,7 @@ Solicite una dirección IP pública con una SKU de IP pública **Básica**. En e
 ```azurepowershell-interactive
 $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Basic
 ```
-## <a name="gwipconfig"></a>6. Creación de la configuración de IP
+## <a name="gwipconfig"></a>5. Creación de la configuración de IP
 
 ```azurepowershell-interactive
 $getvnet = Get-AzureRmVirtualNetwork -ResourceGroupName $RG1 -Name $VNet1
@@ -203,7 +124,7 @@ $subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $GwSubnet1 -VirtualNetwork
 $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $subnet -PublicIpAddress $pip1
 ```
 
-## <a name="gwconfig"></a>7. Creación de la puerta de enlace
+## <a name="gwconfig"></a>6. Creación de la puerta de enlace
 
 Cree la puerta de enlace de red virtual.
 
@@ -219,52 +140,24 @@ New-AzureRmVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name 
 New-AzureRmVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType Vpn -VpnType RouteBased
 ```
 
-## <a name="feedback"></a>Cómo enviar sus comentarios
-
-Agradeceríamos su participación. Envíe un correo electrónico a aznetworkgateways@microsoft.com para notificar posibles problemas o proporcionar comentarios (positivos o negativos) acerca de las puertas de enlace zonales y con redundancia de zona de VPN Gateway y ExpressRoute. Incluya el nombre de su compañía en la línea de asunto "[ ]". Incluya también su identificador de suscripción si está notificando un problema.
-
 ## <a name="faq"></a>P+F
 
-### <a name="how-do-i-sign-up-for-the-preview"></a>¿Cómo me puedo suscribir a la versión preliminar?
+### <a name="what-will-change-when-i-deploy-these-new-skus"></a>¿Qué cambiará cuando proceda a implementar estas SKU nuevas?
 
-También puede [inscribirse automáticamente](#enroll) con los comandos de PowerShell indicados en este artículo.
-
-### <a name="what-will-change-when-i-enroll"></a>¿Qué cambiará cuando me inscriba?
-
-Desde su perspectiva, durante la versión preliminar, puede implementar puertas de enlace con redundancia de zona. Esto significa que todas las instancias de las puertas de enlace se implementarán en distintas zonas de disponibilidad de Azure, y cada zona de disponibilidad es un dominio de error y actualización diferente. Por ello, las puertas de enlace son más confiables, disponibles y resistentes a los errores de la zona.
+Desde su perspectiva, puede implementar puertas de enlace con redundancia de zona. Esto significa que todas las instancias de las puertas de enlace se implementarán en distintas zonas de disponibilidad de Azure, y cada zona de disponibilidad es un dominio de error y actualización diferente. Por ello, las puertas de enlace son más confiables, disponibles y resistentes a los errores de la zona.
 
 ### <a name="can-i-use-the-azure-portal"></a>¿Puedo usar Azure Portal?
 
-Sí, puede usar Azure Portal para la versión preliminar. Sin embargo, aun así deberá inscribirse mediante PowerShell o no podrá usar el portal en la versión preliminar.
+Sí, puede usar Azure Portal para implementar las nuevas SKU. Sin embargo, verá estas nuevas SKU solo en las regiones de Azure que tengan Azure Availability Zones.
 
-### <a name="what-regions-are-available-for-the-preview"></a>¿Qué regiones están disponibles para la versión preliminar?
+### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>¿Qué regiones están disponibles para usar las nuevas SKU?
 
-Las puertas de enlace zonales y con redundancia de zona están disponibles en las regiones de producción o pública de Azure.
+Las nuevas SKU están disponibles en las regiones de Azure que tienen Azure Availability Zones; esto es, las regiones Centro de EE. UU., Centro de Francia y Europa Occidental. En el futuro, las puertas de enlace con redundancia de zona estarán disponibles en otras regiones públicas de Azure.
 
-### <a name="will-i-be-billed-for-participating-in-this-preview"></a>¿Se me cobrarán cargos por participar en esta versión preliminar?
-
-No se le facturarán las puertas de enlace durante la versión preliminar. Sin embargo, no hay ningún SLA asociado con su implementación. Estamos muy interesados en recibir sus comentarios.
-
-> [!NOTE]
-> En el caso de las puertas de enlace de ExpressRoute, no se facturará la puerta de enlace ni realizarán cargos por ella. Sin embargo, se facturará el circuito en sí (no la puerta de enlace).
-
-### <a name="what-regions-are-available-for-me-to-try-this-in"></a>¿Qué regiones están disponibles para probar esto?
-
-La versión preliminar pública está disponible en las regiones Centro de EE. UU. y Centro de Francia (regiones de Azure con zonas de disponibilidad disponibles con carácter general). En el futuro, las puertas de enlace con redundancia de zona estarán disponibles en otras regiones públicas de Azure.
-
-### <a name="can-i-change-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>¿Puedo convertir mis puertas de enlace de red virtual existentes en puertas de enlace zonales o con redundancia de zona?
+### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>¿Puedo convertir/migrar/actualizar mis puertas de enlace de red virtual existentes en puertas de enlace zonales o con redundancia de zona?
 
 Actualmente no se permite migrar las puertas de enlace de red virtual existentes a puertas de enlace zonales o con redundancia de zona. Sin embargo, puede eliminar la puerta de enlace existente y volver a crear una puerta de enlace zonal o con redundancia de zona.
 
 ### <a name="can-i-deploy-both-vpn-and-express-route-gateways-in-same-virtual-network"></a>¿Puedo implementar puertas de enlace de VPN y ExpressRoute en la misma red virtual?
 
-Se admite la coexistencia de puertas de enlace de VPN y ExpressRoute en la misma red virtual durante la versión preliminar pública. Sin embargo, tenga en cuenta los siguientes requisitos y limitaciones:
-
-* Reserve un intervalo de direcciones IP /27 para la subred de puerta de enlace.
-* Las puertas de enlace de ExpressRoute zonales o con redundancia de zona solo pueden coexistir con puertas de enlace de VPN zonales o con redundancia de zona.
-* Implemente las puertas de enlace de ExpressRoute zonales o con redundancia de zona antes de implementar las puertas de enlace de VPN zonales o con redundancia de zona.
-* Una puerta de enlace de ExpressRoute zonal o con redundancia de zona se puede conectar a un máximo de 4 circuitos.
-
-## <a name="next-steps"></a>Pasos siguientes
-
-Agradeceríamos su participación. Envíe un correo electrónico a aznetworkgateways@microsoft.com para notificar posibles problemas o proporcionar comentarios (positivos o negativos) acerca de las puertas de enlace zonales y con redundancia de zona de VPN Gateway y ExpressRoute. Incluya el nombre de su compañía en la línea de asunto "[ ]". Incluya también su identificador de suscripción si está notificando un problema.
+Se admite la coexistencia de puertas de enlace de VPN y ExpressRoute en la misma red virtual. Sin embargo, le recomendamos que reserve un intervalo de direcciones IP /27 para la subred de puerta de enlace.

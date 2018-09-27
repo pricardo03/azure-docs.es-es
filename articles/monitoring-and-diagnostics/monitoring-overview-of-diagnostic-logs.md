@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 9d2a20ce681ea7e7c4ff2f9b492653e9d9a57b2b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 630c8e5f48ba475755c3c9ffe632fcba086437e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248173"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983128"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recopile y use los datos de registro provenientes de los recursos de Azure
 
@@ -45,7 +45,7 @@ Estas son algunas de las cosas que puede hacer con los registros de diagnóstico
 Puede usar una cuenta de almacenamiento o un espacio de nombres de Event Hubs que no esté en la misma suscripción que el que emite los registros. El usuario que configura los ajustes debe tener el acceso de RBAC adecuado a ambas suscripciones.
 
 > [!NOTE]
->  Actualmente no puede archivar datos en una cuenta de almacenamiento que está detrás de una red virtual protegida.
+>  Actualmente no puede archivar registros de flujo de red en una cuenta de almacenamiento que está detrás de una red virtual protegida.
 
 > [!WARNING]
 > El formato de los datos de registro de la cuenta de almacenamiento cambiará a JSON Lines el 1 de noviembre de 2018. [Consulte este artículo para obtener una descripción de la repercusión y del modo de actualizar las herramientas para administrar el nuevo formato.](./monitor-diagnostic-logs-append-blobs.md) 
@@ -145,9 +145,9 @@ Puede combinar estos parámetros para habilitar varias opciones de salida.
 
 Actualmente, no puede configurar opciones de diagnóstico de inquilino mediante Azure PowerShell.
 
-### <a name="enable-collection-of-resource-diagnostic-logs-via-azure-cli-20"></a>Habilitación de la recopilación de registros de diagnóstico de recursos mediante la CLI de Azure 2.0
+### <a name="enable-collection-of-resource-diagnostic-logs-via-the-azure-cli"></a>Habilitación de la recopilación de registros de diagnóstico de recursos mediante la CLI de Azure
 
-Para habilitar la recopilación de registros de diagnóstico de recursos a través de la CLI de Azure 2.0, utilice el comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Para habilitar la recopilación de registros de diagnóstico de recursos a través de la CLI de Azure, utilice el comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 Para habilitar el almacenamiento de registros de diagnóstico en una cuenta de almacenamiento:
 

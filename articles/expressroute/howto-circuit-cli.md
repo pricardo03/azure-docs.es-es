@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2017
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: cd4e31336fd0e90b13f1c3984de89f24e65b052b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 21cd06692fe1c26cfa276d1f8ec7ace77b11d3c2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23479614"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979990"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Creación y modificación de un circuito ExpressRoute mediante la CLI
 
@@ -28,7 +28,7 @@ ms.locfileid: "23479614"
 En este artículo se describe cómo crear un circuito Azure ExpressRoute con la Interfaz de la línea de comandos (CLI). También se muestra cómo comprobar el estado, actualizar, o eliminar y desaprovisionar un circuito. Si quiere usar otro método para trabajar con los circuitos ExpressRoute, puede seleccionar el artículo en la lista siguiente:
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [CLI de Azure](howto-circuit-cli.md)
 > * [Vídeo: Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
@@ -37,7 +37,7 @@ En este artículo se describe cómo crear un circuito Azure ExpressRoute con la 
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-* Antes de empezar, instale la versión más reciente de los comandos de la CLI (2.0 o posteriores). Para más información acerca de la instalación de los comandos de la CLI, consulte [Install Azure CLI 2.0](/cli/azure/install-azure-cli) (Instalación de la CLI de Azure 2.0) y [Get Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli) (Introducción a la CLI de Azure 2.0).
+* Antes de empezar, instale la versión más reciente de los comandos de la CLI (2.0 o posteriores). Para más información acerca de la instalación de los comandos de la CLI, consulte [Install Azure CLI](/cli/azure/install-azure-cli) (Instalación de la CLI de Azure) y [Get Started with Azure CLI](/cli/azure/get-started-with-azure-cli) (Introducción a la CLI de Azure).
 * Revise los [Requisitos previos y lista de comprobación de ExpressRoute](expressroute-prerequisites.md) y los [Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute](expressroute-workflows.md) antes de comenzar la configuración.
 
 ## <a name="create"></a>Crear y aprovisionar un circuito ExpressRoute
@@ -125,7 +125,7 @@ La respuesta es similar al siguiente ejemplo:
 
 Revise la respuesta para ver si aparece su proveedor de conectividad. Tome nota de la información siguiente, la que necesitará cuando cree un circuito:
 
-* Nombre
+* NOMBRE
 * PeeringLocations
 * BandwidthsOffered
 

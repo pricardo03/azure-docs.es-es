@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: f4ad959de1425e828ce11fb658f8b5304e9d8775
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: cd7a6c43cb791ed607a763f10e781794ef513500
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316433"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950410"
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>Creación y modificación del enrutamiento de un circuito ExpressRoute mediante la CLI
 
@@ -38,7 +38,7 @@ Este artículo le ayuda a crear y administrar la configuración de enrutamiento 
 
 ## <a name="configuration-prerequisites"></a>Requisitos previos de configuración
 
-* Antes de empezar, instale la versión más reciente de los comandos de la CLI (2.0 o posteriores). Para más información sobre la instalación de los comandos de la CLI, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli).
+* Antes de empezar, instale la versión más reciente de los comandos de la CLI (2.0 o posteriores). Para obtener más información sobre la instalación de los comandos de la CLI, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 * Asegúrese de haber revisado los [requisitos previos](expressroute-prerequisites.md), los [requisitos de enrutamiento](expressroute-routing.md) y las páginas del [flujo de trabajo](expressroute-workflows.md) antes de comenzar la configuración.
 * Tiene que tener un circuito ExpressRoute activo. Antes de continuar, siga las instrucciones para [crear un circuito ExpressRoute](howto-circuit-cli.md) y para que el proveedor de conectividad habilite el circuito. El circuito ExpressRoute debe estar en un estado habilitado y aprovisionado para poder ejecutar los comandos que se describen en este artículo.
 

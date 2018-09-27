@@ -12,19 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/14/2017
+ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: fe6be773988d1889336cdddb54f7886aeb8d4f5f
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: aa9c02e069700ab236c4b9fc78482450b5911e93
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051831"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983880"
 ---
 # <a name="what-is-application-insights"></a>¿Qué es Application Insights?
-Application Insights es un servicio de Application Performance Management (APM) extensible para desarrolladores web en varias plataformas. Úselo para supervisar la aplicación web en directo. Se detectarán automáticamente las anomalías de rendimiento. Incluye herramientas de análisis eficaces que le ayudan a diagnosticar problemas y comprender lo que hacen realmente los usuarios con la aplicación.  Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso. Funciona con diversas aplicaciones y en una amplia variedad de plataformas, como .NET, Node.js o J2EE, tanto hospedadas localmente como en la nube. Se integra con el proceso de DevOps y tiene puntos de conexión a numerosas herramientas de desarrollo. Puede supervisar y analizar la telemetría de aplicaciones móviles mediante la integración con Visual Studio App Center y HockeyApp.
-
-![Cree un gráfico de estadísticas de la actividad del usuario o explore en profundidad eventos específicos.](./media/app-insights-overview/00-sample.png)
+Application Insights es un servicio de Application Performance Management (APM) extensible para desarrolladores web en varias plataformas. Úselo para supervisar la aplicación web en directo. Se detectarán automáticamente las anomalías de rendimiento. Incluye herramientas de análisis eficaces que le ayudan a diagnosticar problemas y comprender lo que hacen realmente los usuarios con la aplicación.  Está diseñado para ayudarle a mejorar continuamente el rendimiento y la facilidad de uso. Funciona con diversas aplicaciones y en una amplia variedad de plataformas, como .NET, Node.js o J2EE, tanto hospedadas localmente como en la nube. Se integra con el proceso de DevOps y tiene puntos de conexión a numerosas herramientas de desarrollo. Puede supervisar y analizar la telemetría de aplicaciones móviles mediante la integración con Visual Studio App Center.
 
 [Eche un vistazo a la animación de introducción](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
@@ -34,7 +32,6 @@ Hay que instalar un pequeño paquete de instrumentación en la aplicación y con
 No solo puede instrumentar la aplicación de servicio web, sino también todos los componentes en segundo plano y JavaScript en las propias páginas web. 
 
 ![La instrumentación de Application Insights de la aplicación envía datos de telemetría al recurso de Application Insights.](./media/app-insights-overview/01-scheme.png)
-
 
 Además, puede obtener la telemetría de los entornos del host, como pueden ser contadores de rendimiento, diagnósticos de Azure o registros de Docker. También puede configurar pruebas web que envíen periódicamente solicitudes sintéticas al servicio web.
 
@@ -114,7 +111,7 @@ Hay varias formas de empezar. Comience con la que más se ajuste a sus necesidad
   * [**J2EE**](app-insights-java-live.md)
 * **En tiempo de desarrollo: agregue Application Insights al código.** Le permite escribir datos de telemetría personalizados e instrumentalizar las aplicaciones de back-end y de escritorio.
   * [Visual Studio](app-insights-asp-net.md) 2013, actualización 2 o superior.
-  * Java en [Eclipse](app-insights-java-eclipse.md) u [otras herramientas](app-insights-java-get-started.md)
+  * [Java](app-insights-java-get-started.md)
   * [Node.js](app-insights-nodejs.md)
   * [Otras plataformas](app-insights-platforms.md)
 * **[Instrumente sus páginas web](app-insights-javascript.md)** para la vista de la página, AJAX y otros datos de telemetría del lado cliente.

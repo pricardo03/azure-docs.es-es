@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 84727ec3694f64d40ad002a248a255df9074d7f4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c7084a10aceafcdd1039893b810fcbd8b74b874b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263270"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967411"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Información general sobre los patrones comunes de escalado automático
 En este artículo se describen algunos de los patrones comunes para escalar recursos en Azure.
 
-El escalado automático de Azure Monitor solo se aplica a Conjuntos de escalado de máquinas virtuales, Cloud Services, planes de App Service y App Service Environment. 
+La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) y los [servicios de API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 # <a name="lets-get-started"></a>Introducción
 
@@ -26,10 +26,10 @@ En este artículo se asume que está familiarizado con el escalado automático. 
 
 ## <a name="scale-based-on-cpu"></a>Escala en función de la CPU
 
-Tiene una aplicación web (rol de VMSS o de servicio en la nube) y: 
+Tiene una aplicación web (rol de VMSS o de servicio en la nube) y:
 
 - Desea escalar o reducir horizontalmente en función de la CPU.
-- Además, desea asegurarse de que hay un número mínimo de instancias. 
+- Además, desea asegurarse de que hay un número mínimo de instancias.
 - También quiere asegurarse de que establece un límite máximo del número de instancias al que puede escalar.
 
 ![Escala en función de la CPU][2]
@@ -45,7 +45,7 @@ Tiene una aplicación web (rol de VMSS o de servicio en la nube) y:
 
 ## <a name="scale-differently-during-holidays"></a>Escalado distinto durante festividades
 
-Tiene una aplicación web (rol de VMSS o de servicio en la nube) y: 
+Tiene una aplicación web (rol de VMSS o de servicio en la nube) y:
 
 - Desea escalar o reducir verticalmente en función del uso de CPU de forma predeterminada.
 - Sin embargo, durante Navidad u otros días específicos importantes para su negocio, desea reemplazar los valores predeterminados y disponer de más capacidad.
@@ -54,7 +54,7 @@ Tiene una aplicación web (rol de VMSS o de servicio en la nube) y:
 
 ## <a name="scale-based-on-custom-metric"></a>Escalado en función de métricas personalizadas
 
-Tiene un front-end web y un nivel de API que se comunica con el back-end. 
+Tiene un front-end web y un nivel de API que se comunica con el back-end.
 
 - Desea escalar el nivel de API en función de eventos personalizados en el front-end; por ejemplo, desea escalar el proceso de compra en función del número de artículos que hay en el carro de la compra.
 

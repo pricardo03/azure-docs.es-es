@@ -1,0 +1,291 @@
+---
+title: Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Resource Manager para un conjunto de escalado de máquinas virtuales de Windows
+description: Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Resource Manager para un conjunto de escalado de máquinas virtuales de Windows
+author: anirudhcavale
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: howto
+ms.date: 09/24/2018
+ms.author: ancav
+ms.component: metrics
+ms.openlocfilehash: d896cb01c7dc2cd4ed028db418f838809c7ce25c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987006"
+---
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Resource Manager para un conjunto de escalado de máquinas virtuales de Windows
+
+La [extensión Microsoft Azure Diagnostics](azure-diagnostics.md) (WAD) de Azure Monitor le permite recopilar métricas y registros del sistema operativo invitado (SO invitado) que se ejecuta como parte de un clúster de Service Fabric, un servicio en la nube o una máquina virtual.  La extensión puede enviar datos de telemetría a muchas ubicaciones diferentes que aparecen en el artículo vinculado anteriormente.  
+
+En este artículo se describe el proceso de envío de métricas de rendimiento del SO invitado para un conjunto de escalado de máquinas virtuales de Windows al almacén de datos de Azure Monitor. A partir de Microsoft Azure Diagnostics versión 1.11, puede escribir las métricas directamente en el almacén de métricas de Azure Monitor, donde ya se recopilan métricas de la plataforma estándar. Almacenarlas en esta ubicación permite tener acceso a las mismas acciones disponibles para las métricas de la plataforma.  Las acciones incluyen la generación de alertas casi en tiempo real, la creación de gráficos, el enrutamiento, el acceso desde la API REST y mucho más.  Anteriormente, la extensión Microsoft Azure Diagnostics se escribía en Azure Storage, pero no el almacén de datos de Azure Monitor.  
+
+Si no está familiarizado con las plantillas de Resource Manager, obtenga información sobre las [implementaciones de plantilla](../azure-resource-manager/resource-group-overview.md) y su estructura y sintaxis.  
+
+## <a name="pre-requisites"></a>Requisitos previos
+
+- La suscripción debe estar registrada en [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1). 
+
+- Debe tener instalado [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1), o bien puede usar [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview.md). 
+
+
+## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configuración de Azure Monitor como receptor de datos 
+La extensión Azure Diagnostics usa una característica denominada "receptores de datos" para enrutar las métricas y los registros a distintas ubicaciones.  En los pasos siguientes se muestra cómo usar una plantilla de Resource Manager y PowerShell para implementar una VM con el nuevo receptor de datos "Azure Monitor". 
+
+## <a name="author-resource-manager-template"></a>Creación de una plantilla de Resource Manager 
+En este ejemplo, puede usar una plantilla de ejemplo disponible públicamente. Las plantillas iniciales se encuentran en https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale.  
+
+- **Azuredeploy.json** es una plantilla de Resource Manager configurada previamente para la implementación de un conjunto de escalado de máquinas virtuales.
+
+- **Azuredeploy.Parameters.json** es un archivo de parámetros que almacena información como el nombre de usuario y la contraseña que le gustaría establecer para la VM. Durante la implementación, la plantilla de Resource Manager usa los parámetros establecidos en este archivo. 
+
+Descargue y guarde ambos archivos localmente. 
+
+###  <a name="modify-azuredeployparametersjson"></a>Modificación de azuredeploy.parameters.json
+Abra el archivo *azuredeploy.parameters.json*. 
+
+- Proporcione un elemento **vmSKU** que le gustaría implementar (se recomienda Standard_D2_v3). 
+- Especifique un valor de **windowsOSVersion** que le gustaría para el conjunto de escalado de máquinas virtuales (se recomienda 2016-Datacenter). 
+- Asigne un nombre al recurso del conjunto de escalado de máquinas virtuales que se va a implementar con la propiedad **vmssName**. Por ejemplo, *VMSS-WAD-TEST*.    
+- Especifique el número de VM que le gustaría que se ejecuten en el conjunto de escalado de máquinas virtuales con la propiedad **instanceCount**.
+- Especifique los valores de **adminUsername** y **adminPassword** para el conjunto de escalado de máquinas virtuales. Estos parámetros se utilizan para el acceso remoto a las VM del conjunto de escalado. Estos parámetros se utilizan para el acceso remoto a la VM. Para evitar el secuestro de la VM, NO use los valores de esta plantilla. Los bots buscan por Internet los nombres de usuario y las contraseñas en repositorios públicos de GitHub. Es probable que sean VM de prueba con estos valores predeterminados. 
+
+
+###  <a name="modify-azuredeployjson"></a>Modificación de azuredeploy.json
+Abra el archivo *azuredeploy.json*. 
+
+Agregue una variable para retener la información de la cuenta de almacenamiento en la plantilla de Resource Manager. Todavía debe proporcionar una cuenta de almacenamiento como parte de la instalación de la extensión de diagnóstico. Todos los registros y contadores de rendimiento especificados en el archivo de configuración de diagnóstico se escriben en la cuenta de almacenamiento especificada, además de que enviarse al almacén de métricas de Azure Monitor. 
+
+```json
+"variables": { 
+//add this line       
+"storageAccountName": "[concat('storage', uniqueString(resourceGroup().id))]", 
+ ```
+ 
+Busque la definición de·conjunto de escalado de máquinas virtuales en la sección de recursos y agregue la sección "identidad" a la configuración. Esto garantiza que Azure le asigne una identidad del sistema. Este paso garantiza que las VM del conjunto de escalado puedan emitir métricas de invitado sobre sí mismas a Azure Monitor.  
+
+```json
+  { 
+      "type": "Microsoft.Compute/virtualMachineScaleSets", 
+      "name": "[variables('namingInfix')]", 
+      "location": "[resourceGroup().location]", 
+      "apiVersion": "2017-03-30", 
+      //add these lines below
+      "identity": { 
+           "type": "systemAssigned" 
+       }, 
+       //end of lines to add
+ ```
+
+En el recurso del conjunto de escalado de máquinas virtuales, busque la sección **virtualMachineProfile**. Agregue un nuevo perfil llamado **extensionsProfile** para administrar las extensiones.  
+
+
+En **extensionProfile**, agregue una nueva extensión a la plantilla, como se muestra en la **sección VMSS-WAD-extension**.  Esta sección es la extensión de Managed Service Identity (MSI) que garantiza que Azure Monitor acepte las métricas que se emiten. El campo **name** puede contener cualquier nombre. 
+
+El código siguiente debajo de la extensión MSI también agrega la extensión de diagnóstico y la configuración como recurso de extensión al recurso del conjunto de escalado de máquinas virtuales. No dude en agregar o quitar contadores de rendimiento según sea necesario. 
+
+```json
+          "extensionProfile": { 
+            "extensions": [ 
+            // BEGINNING of added code  
+            // Managed service identity   
+                { 
+                 "name": "VMSS-WAD-extension", 
+                 "properties": { 
+                       "publisher": "Microsoft.ManagedIdentity", 
+                       "type": "ManagedIdentityExtensionForWindows", 
+                       "typeHandlerVersion": "1.0", 
+                       "autoUpgradeMinorVersion": true, 
+                       "settings": { 
+                             "port": 50342 
+                           }, 
+                       "protectedSettings": {} 
+                     } 
+                                
+            }, 
+            // add diagnostic extension. (Remove this comment after pasting.)
+            { 
+              "name": "[concat('VMDiagnosticsVmExt','_vmNodeType0Name')]", 
+              "properties": { 
+                   "type": "IaaSDiagnostics", 
+                   "autoUpgradeMinorVersion": true, 
+                   "protectedSettings": { 
+                        "storageAccountName": "[variables('storageAccountName')]", 
+                        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')),'2015-05-01-preview').key1]", 
+                        "storageAccountEndPoint": "https://core.windows.net/" 
+                   }, 
+                   "publisher": "Microsoft.Azure.Diagnostics", 
+                   "settings": { 
+                        "WadCfg": { 
+                              "DiagnosticMonitorConfiguration": { 
+                                   "overallQuotaInMB": "50000", 
+                                   "PerformanceCounters": { 
+                                       "scheduledTransferPeriod": "PT1M", 
+                                       "sinks": "AzMonSink", 
+                                       "PerformanceCounterConfiguration": [ 
+                                          { 
+              "counterSpecifier": "\\Memory\\% Committed Bytes In Use", 
+                                              "sampleRate": "PT15S" 
+           }, 
+           { 
+              "counterSpecifier": "\\Memory\\Available Bytes", 
+              "sampleRate": "PT15S" 
+           }, 
+           { 
+              "counterSpecifier": "\\Memory\\Committed Bytes", 
+              "sampleRate": "PT15S" 
+           } 
+                                       ] 
+                                 }, 
+                                 "EtwProviders": { 
+                                       "EtwEventSourceProviderConfiguration": [ 
+                                           { 
+                                              "provider": "Microsoft-ServiceFabric-Actors", 
+                                              "scheduledTransferKeywordFilter": "1", 
+                                              "scheduledTransferPeriod": "PT5M", 
+                                              "DefaultEvents": { 
+                                              "eventDestination": "ServiceFabricReliableActorEventTable" 
+                                           } 
+                                           }, 
+                                           { 
+                                              "provider": "Microsoft-ServiceFabric-Services", 
+                                              "scheduledTransferPeriod": "PT5M", 
+                                              "DefaultEvents": { 
+                                                   "eventDestination": "ServiceFabricReliableServiceEventTable" 
+                                              } 
+                                           } 
+                                     ], 
+                                     "EtwManifestProviderConfiguration": [ 
+                                           { 
+                                              "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8", 
+                                              "scheduledTransferLogLevelFilter": "Information", 
+                                              "scheduledTransferKeywordFilter": "4611686018427387904", 
+                                              "scheduledTransferPeriod": "PT5M", 
+                                              "DefaultEvents": { 
+                                                   "eventDestination": "ServiceFabricSystemEventTable" 
+                                              } 
+                                          } 
+                                     ] 
+                               } 
+                               }, 
+                               "SinksConfig": { 
+                                     "Sink": [ 
+                                          { 
+                                              "name": "AzMonSink", 
+                                              "AzureMonitor": {} 
+                                          } 
+                                      ] 
+                               } 
+                         }, 
+                         "StorageAccount": "[variables('storageAccountName')]" 
+                         }, 
+                        "typeHandlerVersion": "1.11" 
+                  } 
+           } 
+            ] 
+          }
+          }
+      }
+    },
+    //end of added code plus a few brackets. Be sure that the number and type of brackets match properly when done. 
+    {
+      "type": "Microsoft.Insights/autoscaleSettings",
+...
+```
+
+
+Agregue dependsOn para la cuenta de almacenamiento a fin de asegurarse de que se cree en el orden correcto. 
+```json
+"dependsOn": [ 
+"[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]", 
+"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]" 
+//add this line below
+"[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]" 
+ ```
+
+Cree una cuenta de almacenamiento si aún no se ha creado ninguna en la plantilla.  
+```json
+"resources": [
+  // add this code    
+  {
+     "type": "Microsoft.Storage/storageAccounts",
+     "name": "[variables('storageAccountName')]",
+     "apiVersion": "2015-05-01-preview",
+     "location": "[resourceGroup().location]",
+     "properties": {
+       "accountType": "Standard_LRS"
+      }
+  },
+  // end added code
+  { 
+    "type": "Microsoft.Network/virtualNetworks",
+    "name": "[variables('virtualNetworkName')]",
+```
+
+Guarde y cierre ambos archivos. 
+
+## <a name="deploy-the-resource-manager-template"></a>Implementación de la plantilla de Resource Manager 
+
+> [!NOTE]
+> Debe estar ejecutando la versión de la extensión 1.5 o superior de Azure Diagnostics y, A LA VEZ, tener la propiedad "autoUpgradeMinorVersion": establecida en *true* en la plantilla de Resource Manager.  A continuación, Azure carga la extensión adecuada cuando se inicia la VM. Si no tiene estas opciones en la plantilla, modifíquelas y vuelva a implementar la plantilla. 
+
+
+Para implementar la plantilla de Resource Manager, se usará Azure PowerShell.  
+
+1. Inicie PowerShell 
+1. Inicie sesión en Azure con `Login-AzureRmAccount`.
+1. Obtenga una lista de suscripciones con `Get-AzureRmSubscription`.
+1. Establezca la suscripción en la que va a crear o actualizar la máquina virtual. 
+
+   ```PowerShell
+   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
+   ```
+1. Cree un nuevo grupo de recursos para la VM que se va a implementar mediante el comando siguiente. 
+
+   ```PowerShell
+    New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
+   ```
+
+   > [!NOTE]  
+   > Recuerde usar una región de Azure que esté habilitada para las métricas personalizadas. Consulte lo siguiente: 
+ 
+1. Ejecute los siguientes comandos para implementar la VM con  
+   > [!NOTE] 
+   > Si quiere actualizar un conjunto de escalado existente, simplemente agregue *-Mode Incremental* al final del comando siguiente. 
+ 
+   ```PowerShell
+   New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
+   ```
+
+1. Cuando se complete correctamente la implementación, usted debe ser capaz de encontrar el conjunto de escalado de máquinas virtuales en Azure Portal, y este debería emitir métricas a Azure Monitor. 
+
+   > [!NOTE] 
+   > Puede que surjan errores en torno al parámetro vmSkuSize seleccionado. Si ocurre, vuelva al archivo azuredeploy.json y actualice el valor predeterminado del parámetro vmSkuSize. En este caso, se recomienda probar "Standard_DS1_v2". 
+
+
+## <a name="chart-your-metrics"></a>Gráfico de las métricas 
+
+1. Inicio de sesión en Azure Portal 
+
+1. En el menú de la izquierda, haga clic en **Monitor**. 
+
+1. En la página Supervisión, haga clic en **Métricas**. 
+
+   ![Página Métricas](./media/metrics-store-custom-rest-api/metrics.png) 
+
+1. Cambie el período de agregación a **Últimos 30 minutos**.  
+
+1. En la lista desplegable del recurso, seleccione el conjunto de escalado de máquinas virtuales que acaba de crear.  
+
+1. En la lista desplegable de espacios de nombres, seleccione **azure.vm.windows.guest**. 
+
+1. En la lista desplegable de métricas, seleccione **Memory\%Committed Bytes in Use** (Memoria%Bytes confirmados en uso).  
+
+A continuación, también puede elegir usar las dimensiones en esta métrica para graficar esta métrica para una VM en particular en el conjunto de escalado, o para trazar cada VM del conjunto de escalado. 
+
+
+
+## <a name="next-steps"></a>Pasos siguientes
+- Más información acerca de las [métricas personalizadas](metrics-custom-overview.md).
+

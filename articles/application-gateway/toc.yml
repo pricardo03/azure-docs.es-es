@@ -1,177 +1,188 @@
+items:
 - name: Documentación de Application Gateway
   href: index.yml
 - name: Información general
   items:
-    - name: Acerca de las puertas de enlace de aplicaciones
-      href: overview.md
+  - name: Acerca de las puertas de enlace de aplicaciones
+    href: overview.md
 - name: Guías de inicio rápido
-  expanded: true
   items:
-    - name: 'Administración del tráfico web: Azure Portal'
-      href: quick-create-portal.md
-    - name: 'Administración del tráfico web: PowerShell'
-      href: quick-create-powershell.md
-    - name: 'Administración del tráfico web: CLI de Azure'
-      href: quick-create-cli.md
+  - name: 'Administración del tráfico web: Azure Portal'
+    href: quick-create-portal.md
+  - name: 'Administración del tráfico web: PowerShell'
+    href: quick-create-powershell.md
+  - name: 'Administración del tráfico web: CLI de Azure'
+    href: quick-create-cli.md
+  expanded: true
 - name: Tutoriales
   items:
-    - name: Administración del tráfico web
-      href: tutorial-manage-web-traffic-cli.md
-    - name: Habilitar firewall de aplicaciones web
-      href: tutorial-restrict-web-traffic-cli.md
-    - name: Protección con SSL
-      href: tutorial-ssl-cli.md
-    - name: Hospedar varios sitios
-      href: tutorial-multiple-sites-cli.md
-    - name: Enrutamiento por dirección URL
-      href: tutorial-url-route-cli.md
-    - name: Redireccionamiento del tráfico web
-      href: tutorial-url-redirect-cli.md
+  - name: Administración del tráfico web
+    href: tutorial-manage-web-traffic-cli.md
+  - name: Habilitar firewall de aplicaciones web
+    href: tutorial-restrict-web-traffic-cli.md
+  - name: Protección con SSL
+    href: tutorial-ssl-cli.md
+  - name: Hospedar varios sitios
+    href: tutorial-multiple-sites-cli.md
+  - name: Enrutamiento por dirección URL
+    href: tutorial-url-route-cli.md
+  - name: Redireccionamiento del tráfico web
+    href: tutorial-url-redirect-cli.md
+  - name: Escalado automático y redundancia de zona
+    href: tutorial-autoscale-ps.md
 - name: Ejemplos
   items:
-    - name: Azure PowerShell
-      href: powershell-samples.md
-    - name: Azure CLI
-      href: cli-samples.md
+  - name: Azure PowerShell
+    href: powershell-samples.md
+  - name: Azure CLI
+    href: cli-samples.md
 - name: Conceptos
   items:
-    - name: Terminación de SSL
-      href: ssl-overview.md
-    - name: Introducción a la directiva SSL
-      href: application-gateway-ssl-policy-overview.md
-    - name: Firewall de aplicaciones web
-      href: waf-overview.md
-    - name: Enrutamiento de direcciones URL
-      href: url-route-overview.md
-    - name: Hospedaje de varios sitios
-      href: multiple-site-overview.md
-    - name: Compatibilidad con la redirección
-      href: redirect-overview.md
-    - name: Compatibilidad multiinquilino
-      href: application-gateway-web-app-overview.md
-    - name: Supervisión del estado
-      href: application-gateway-probe-overview.md
-    - name: Compatibilidad con WebSocket
-      href: application-gateway-websocket.md
+  - name: Terminación de SSL
+    href: ssl-overview.md
+  - name: Introducción a la directiva SSL
+    href: application-gateway-ssl-policy-overview.md
+  - name: Firewall de aplicaciones web
+    href: waf-overview.md
+  - name: Configuración de WAF
+    href: application-gateway-waf-configuration.md
+  - name: Enrutamiento de direcciones URL
+    href: url-route-overview.md
+  - name: Hospedaje de varios sitios
+    href: multiple-site-overview.md
+  - name: Escalado automático y redundancia de zona
+    href: application-gateway-autoscaling-zone-redundant.md
+  - name: Compatibilidad con la redirección
+    href: redirect-overview.md
+  - name: Compatibilidad multiinquilino
+    href: application-gateway-web-app-overview.md
+  - name: Supervisión del estado
+    href: application-gateway-probe-overview.md
+  - name: Compatibilidad con WebSocket
+    href: application-gateway-websocket.md
 - name: Guías de procedimientos
   items:
-    - name: Administración del tráfico web
+  - name: Administración del tráfico web
+    items:
+    - name: Azure PowerShell
+      href: tutorial-manage-web-traffic-powershell.md
+    - name: Plantilla
+      href: create-vmss-template.md
+  - name: Configuración del equilibrador de carga interno
+    items:
+    - name: Azure PowerShell
+      href: application-gateway-ilb-arm.md
+  - name: Configuración de la terminación de SSL
+    items:
+    - name: Terminación de SSL con Azure Portal
+      href: create-ssl-portal.md
+    - name: Terminación de SSL con Azure PowerShell
+      href: tutorial-ssl-powershell.md
+    - name: Terminación de SSL de un extremo a otro con Azure PowerShell
+      href: application-gateway-end-to-end-ssl-powershell.md
+    - name: Renovar certificados
+      href: renew-certificates.md
+    - name: Configuración de la directiva SSL
+      href: application-gateway-configure-ssl-policy-powershell.md
+  - name: Configuración del firewall de aplicaciones web
+    items:
+    - name: Azure Portal
+      href: application-gateway-web-application-firewall-portal.md
+    - name: Azure PowerShell
+      href: tutorial-restrict-web-traffic-powershell.md
+  - name: Personalización de las reglas de WAF
+    items:
+    - name: Azure Portal
+      href: application-gateway-customize-waf-rules-portal.md
+    - name: Azure PowerShell
+      href: application-gateway-customize-waf-rules-powershell.md
+    - name: Azure CLI
+      href: application-gateway-customize-waf-rules-cli.md
+  - name: Enrutamiento por dirección URL
+    items:
+    - name: Azure Portal
+      href: create-url-route-portal.md
+    - name: Azure PowerShell
+      href: tutorial-url-route-powershell.md
+  - name: Hospedar varios sitios
+    items:
+    - name: Azure Portal
+      href: create-multiple-sites-portal.md
+    - name: Azure PowerShell
+      href: tutorial-multiple-sites-powershell.md
+  - name: Redirección del tráfico
+    items:
+    - name: HTTP a HTTPS
       items:
-        - name: Azure PowerShell
-          href: tutorial-manage-web-traffic-powershell.md
-        - name: Plantilla
-          href: create-vmss-template.md
-    - name: Configuración del equilibrador de carga interno
+      - name: Azure PowerShell
+        href: redirect-http-to-https-powershell.md
+      - name: Azure CLI
+        href: redirect-http-to-https-cli.md
+    - name: Redireccionamiento del tráfico interno
       items:
-        - name: Azure PowerShell
-          href: application-gateway-ilb-arm.md
-    - name: Configuración de la terminación de SSL
-      items:
-        - name: Terminación de SSL con Azure Portal
-          href: create-ssl-portal.md
-        - name: Terminación de SSL con Azure PowerShell
-          href: tutorial-ssl-powershell.md
-        - name: Terminación de SSL de un extremo a otro con Azure PowerShell
-          href: application-gateway-end-to-end-ssl-powershell.md
-        - name: Renovar certificados
-          href: renew-certificates.md
-        - name: Configuración de la directiva SSL
-          href: application-gateway-configure-ssl-policy-powershell.md
-    - name: Configuración del firewall de aplicaciones web
-      items:
-        - name: Azure Portal
-          href: application-gateway-web-application-firewall-portal.md
-        - name: Azure PowerShell
-          href: tutorial-restrict-web-traffic-powershell.md
-    - name: Personalización de las reglas de WAF
-      items:
-        - name: Azure Portal
-          href: application-gateway-customize-waf-rules-portal.md
-        - name: Azure PowerShell
-          href: application-gateway-customize-waf-rules-powershell.md
-        - name: Azure CLI
-          href: application-gateway-customize-waf-rules-cli.md
-    - name: Enrutamiento por dirección URL
-      items:
-        - name: Azure Portal
-          href: create-url-route-portal.md
-        - name: Azure PowerShell
-          href: tutorial-url-route-powershell.md
-    - name: Hospedar varios sitios
-      items:
-        - name: Azure Portal
-          href: create-multiple-sites-portal.md
-        - name: Azure PowerShell
-          href: tutorial-multiple-sites-powershell.md
-    - name: Redirección del tráfico
-      items:
-        - name: HTTP a HTTPS
-          items:
-            - name: Azure PowerShell
-              href: redirect-http-to-https-powershell.md
-            - name: Azure CLI
-              href: redirect-http-to-https-cli.md
-        - name: Redireccionamiento del tráfico interno
-          items:
-            - name: Azure PowerShell
-              href: redirect-internal-site-powershell.md
-            - name: Azure CLI
-              href: redirect-internal-site-cli.md
-    - name: Compatibilidad multiinquilino
-      items:
-        - name: Configuración de la compatibilidad multiinquilino
-          href: create-web-app.md
-    - name: Redireccionamiento del tráfico web con Azure PowerShell
-      href: tutorial-url-redirect-powershell.md
-    - name: Creación de una puerta de enlace de aplicaciones con redundancia de zona
-      href: create-zone-redundant.md
-    - name: Personalización de sondeos
-      items:
-        - name: Portal
-          href: application-gateway-create-probe-portal.md
-        - name: PowerShell clásico
-          href: application-gateway-create-probe-classic-ps.md
-        - name: PowerShell con Resource Manager
-          href: application-gateway-create-probe-ps.md
-    - name: Solución de problemas
-      items:
-        - name: Solución de problemas de puerta de enlace incorrecta (502)
-          href: application-gateway-troubleshooting-502.md
-        - name: Diagnóstico
-          href: application-gateway-diagnostics.md
+      - name: Azure PowerShell
+        href: redirect-internal-site-powershell.md
+      - name: Azure CLI
+        href: redirect-internal-site-cli.md
+  - name: Compatibilidad multiinquilino
+    items:
+    - name: Configuración de la compatibilidad multiinquilino
+      href: create-web-app.md
+  - name: Redireccionamiento del tráfico web con Azure PowerShell
+    href: tutorial-url-redirect-powershell.md
+  - name: Personalización de sondeos
+    items:
+    - name: Portal
+      href: application-gateway-create-probe-portal.md
+    - name: PowerShell clásico
+      href: application-gateway-create-probe-classic-ps.md
+    - name: PowerShell con Resource Manager
+      href: application-gateway-create-probe-ps.md
+  - name: Solución de problemas
+    items:
+    - name: Solución de problemas de puerta de enlace incorrecta (502)
+      href: application-gateway-troubleshooting-502.md
+    - name: Diagnóstico
+      href: application-gateway-diagnostics.md
 - name: Referencia
   items:
-    - name: Reglas CRS
-      href: application-gateway-crs-rulegroups-rules.md
-    - name: Azure CLI
-      href: /cli/azure/network/application-gateway
-    - name: Azure PowerShell
-      href: /powershell/azure/overview
-    - name: .NET
-      href: /dotnet/api
-    - name: Java
-      href: /java/api
-    - name: Node.js
-      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
-    - name: Python
-      href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
-      href: /rest/api/applicationgateway
-    - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+  - name: Reglas CRS
+    href: application-gateway-crs-rulegroups-rules.md
+  - name: Azure CLI
+    href: /cli/azure/network/application-gateway
+  - name: Azure PowerShell
+    href: /powershell/azure/overview
+  - name: .NET
+    href: /dotnet/api
+  - name: Java
+    href: /java/api
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/applicationgateway
+  - name: Azure Resource Manager
+    href: ../azure-resource-manager/resource-group-overview.md
 - name: Recursos
   items:
-    - name: Creación de plantillas
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Plantillas de la comunidad
-      href: 'https://azure.microsoft.com/documentation/templates'
-    - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/#Linux'
-    - name: Disponibilidad regional
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-application-gateway'
-    - name: Preguntas más frecuentes
-      href: application-gateway-faq.md
+  - name: Creación de plantillas
+    href: ../azure-resource-manager/resource-group-authoring-templates.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Plantillas de la comunidad
+    href: https://azure.microsoft.com/documentation/templates
+  - name: Precios
+    href: https://azure.microsoft.com/pricing/details/#Linux
+  - name: Disponibilidad regional
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-application-gateway
+  - name: Preguntas más frecuentes
+    href: application-gateway-faq.md
+ms.openlocfilehash: 2ba24e8ae2a83175a8099ed3739831a66cedf1f9
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393165"

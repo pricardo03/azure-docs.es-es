@@ -45,8 +45,9 @@
 ### [Introducción a la disponibilidad de SAP HANA en Azure](sap-hana-availability-overview.md)
 ### [Disponibilidad de SAP HANA en Azure dentro de una región de Azure](sap-hana-availability-one-region.md)
 ### [Disponibilidad de SAP HANA en Azure entre regiones de Azure](sap-hana-availability-across-regions.md)
-## [Configuración de la replicación del sistema de SAP HANA en SUSE Linux Enterprise Server](sap-hana-high-availability.md)
-## [Configuración de la replicación del sistema de SAP HANA en RHEL](sap-hana-high-availability-rhel.md)
+### [Configuración de la replicación del sistema de SAP HANA en SUSE Linux Enterprise Server](sap-hana-high-availability.md)
+### [Configuración de la replicación del sistema de SAP HANA en RHEL](sap-hana-high-availability-rhel.md)
+### [Solución de problemas de escalabilidad horizontal de SAP HANA y Pacemaker en SLES](hana-vm-troubleshoot-scale-out-ha-on-sles.md)
 ## [SAP HANA: información general sobre copias de seguridad](sap-hana-backup-guide.md)
 ## [SAP HANA: copia de seguridad en el nivel de archivo](sap-hana-backup-file-level.md)
 ## [SAP HANA: copias de seguridad de instantáneas de almacenamiento](sap-hana-backup-storage-snapshots.md)
@@ -107,3 +108,4 @@
 ## [Azure Data Factory ofrece integración de datos de SAP HANA y Business Warehouse](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 # Recursos
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
+

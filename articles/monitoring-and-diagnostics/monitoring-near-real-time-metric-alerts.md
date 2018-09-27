@@ -1,6 +1,6 @@
 ---
-title: Recursos compatibles para las alertas de métrica de Azure Monitor más recientes
-description: Referencia sobre métricas y registro de soporte técnico para las nuevas alertas de métricas casi en tiempo real de Azure.
+title: Recursos compatibles para las alertas de métricas de Azure Monitor
+description: Referencia sobre métricas y registros de soporte técnico para las alertas de métricas en Azure Monitor
 author: snehithm
 services: monitoring
 ms.service: azure-monitor
@@ -8,17 +8,18 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 019f245a7cc1feedcbd520c336f53a60ed1e9ddc
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 102f087f31aa304aaaee49e0e39ff8c6874127b4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579096"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966807"
 ---
-# <a name="supported-resources-for-newer-azure-monitor-metric-alerts"></a>Recursos compatibles para las alertas de métrica de Azure Monitor más recientes
-Azure Monitor ahora admite un [nuevo tipo de alerta de métrica](monitoring-overview-unified-alerts.md) que tiene ventajas considerables sobre las anteriores [alertas de métrica clásicas](insights-alerts-portal.md). Las métricas están disponibles para una [amplia lista de servicios de Azure](monitoring-supported-metrics.md). Las nuevas alertas admiten un subconjunto (creciente) de los tipos de recurso. En este artículo se muestra ese subconjunto. 
+# <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos compatibles para las alertas de métricas de Azure Monitor
 
-También puede utilizar las nuevas alertas de métricas en los registros populares de Log Analytics extraídos como métricas como parte de las métricas de los registros (versión preliminar)  
+Azure Monitor ahora admite un [nuevo tipo de alerta de métrica](monitoring-overview-unified-alerts.md) que tiene ventajas considerables sobre las anteriores [alertas de métrica clásicas](insights-alerts-portal.md). Las métricas están disponibles para una [amplia lista de servicios de Azure](monitoring-supported-metrics.md). Las nuevas alertas admiten un subconjunto (creciente) de los tipos de recurso. En este artículo se muestra ese subconjunto.
+
+También puede utilizar las nuevas alertas de métricas en los registros populares de Log Analytics extraídos como métricas como parte de las métricas de los registros. 
 - [Contadores de rendimiento](../log-analytics/log-analytics-data-sources-performance-counters.md) para equipos con Windows y Linux
 - [Registros de latidos para Agent Health](../operations-management-suite/oms-solution-agenthealth.md)
 - Registros de [administración de actualizaciones](../operations-management-suite/oms-solution-update-management.md)
@@ -28,7 +29,7 @@ También puede utilizar las nuevas alertas de métricas en los registros popular
 > La métrica o dimensión específicas solo se mostrarán si los datos de ellas existen durante el período elegido. Estas métricas están disponibles para los clientes con áreas de trabajo de Azure Log Analytics en Este de EE. UU., Centro-oeste de EE. UU. y Europa Occidental. Las métricas de Log Analytics está actualmente en versión preliminar pública y está sujeta a cambios.
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, PowerShell, CLI, REST support
-Actualmente, solo puede crear alertas de métricas nuevas en Azure Portal, la [API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) o [plantillas de Resource Manager](monitoring-create-metric-alerts-with-templates.md). La compatibilidad con la configuración de nuevas alertas mediante PowerShell, la interfaz de la línea de comandos de Azure (CLI de Azure 2.0) estará disponible próximamente.
+Actualmente, solo puede crear alertas de métricas nuevas en Azure Portal, la [API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) o [plantillas de Resource Manager](monitoring-create-metric-alerts-with-templates.md). La compatibilidad con la configuración de nuevas alertas mediante las versiones 2.0 de PowerShell y la CLI de Azure estará disponible próximamente.
 
 ## <a name="metrics-and-dimensions-supported"></a>Métricas y dimensiones compatibles
 Las nuevas alertas de métricas admiten alertas de métricas que utilizan dimensiones. Puede usar dimensiones para filtrar las métricas al nivel adecuado. Todas las métricas compatibles junto con las dimensiones aplicables se pueden explorar y visualizar en el [Explorador de métricas de Azure Monitor (versión preliminar)](monitoring-metric-charts.md).
@@ -66,7 +67,9 @@ Esta es la lista completa de los orígenes de métricas de Azure Monitor que se 
 |Microsoft.Storage/storageAccounts/services     |     SÍ    | [Servicios de blob](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [servicios de archivo](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [servicios de cola](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) y [servicios de tabla](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  N/D       | [Stream Analytics](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
 | Microsoft.Web/serverfarms | SÍ | [Planes de App Service](monitoring-supported-metrics.md#microsoftwebserverfarms)  |
-|Microsoft.OperationalInsights/workspaces (versión preliminar) | SÍ|[Áreas de trabajo de Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
+| Microsoft.Web/sites | SÍ | [App Services](monitoring-supported-metrics.md#microsoftwebsites-excluding-functions) y [Functions](monitoring-supported-metrics.md#microsoftwebsites-functions)|
+| Microsoft.Web/sites/slots | SÍ | [Ranuras de App Service](monitoring-supported-metrics.md#microsoftwebsitesslots)|
+|Microsoft.OperationalInsights/workspaces| SÍ|[Áreas de trabajo de Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces)|
 
 
 

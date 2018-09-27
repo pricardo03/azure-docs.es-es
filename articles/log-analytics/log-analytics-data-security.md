@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 4cf04ceeb8650b2978389cefb561ae31e88bc853
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b91b906db1307343a50ffc3be07d562091f2e335
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282444"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978812"
 ---
 # <a name="log-analytics-data-security"></a>Seguridad de datos de Log Analytics
-Este documento está diseñado para proporcionar información específica sobre Azure Log Analytics que complemente la información que se halla en el [Centro de confianza de Azure](../security/security-microsoft-trust-center.md).  
+Este documento está diseñado para proporcionar información específica sobre Log Analytics, que es una característica de Azure Monitor, para complementar la información que se halla en el [Centro de confianza de Azure](../security/security-microsoft-trust-center.md).  
 
 En este artículo, se explica cómo Log Analytics recopila, procesa y protege los datos. Puede usar a agentes para conectarse al servicio web, utilizar System Center Operations Manager con el fin de recopilar datos operativos o recuperar datos de Diagnósticos de Azure para que Log Analytics los utilice. 
 
@@ -46,14 +46,14 @@ Para garantizar la seguridad de los datos en tránsito a Log Analytics, se recom
 
 No se recomienda establecer explícitamente el agente para que solo use TLS 1.2, a menos que sea absolutamente necesario, ya que esto puede interrumpir las características de seguridad a nivel de la plataforma que le permiten detectar y aprovechar automáticamente las ventajas de los protocolos más seguros más recientes a medida que estén disponibles, como TLS 1.3. 
 
-### <a name="platform-specific-guidance"></a>Orientación específica de la plataforma
+### <a name="platform-specific-guidance"></a>Guía específica para la plataforma
 
 |Plataforma/lenguaje | Soporte técnico | Más información |
 | --- | --- | --- |
 |Linux | Las distribuciones de Linux tienden a basarse en [OpenSSL](https://www.openssl.org) para la compatibilidad con TLS 1.2.  | Compruebe el [registro de cambios de OpenSSL](https://www.openssl.org/news/changelog.html) para confirmar si su versión de OpenSSL es compatible.|
-| Windows 8.0 a 10 | Compatible y habilitado de manera predeterminada. | Para confirmar que aún usa la [configuración predeterminada](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012 a 2016 | Compatible y habilitado de manera predeterminada. | Para confirmar que aún usa la [configuración predeterminada](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 y Windows Server 2008 R2 SP1 | Compatible, pero no habilitado de manera predeterminada. | Consulte la página [Configuración del registro de TLS](https://docs.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings) para obtener más información sobre cómo se habilita.  |
+| Windows 8.0 a 10 | Compatible y habilitado de manera predeterminada. | Para confirmar que aún usa la [configuración predeterminada](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 a 2016 | Compatible y habilitado de manera predeterminada. | Para confirmar que aún usa la [configuración predeterminada](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 y Windows Server 2008 R2 SP1 | Compatible, pero no habilitado de manera predeterminada. | Consulte la página [Configuración del registro de TLS](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) para obtener más información sobre cómo se habilita.  |
 | Windows Server 2008 SP2 | La compatibilidad con TLS 1.2 requiere una actualización. | Consulte [Actualización para agregar compatibilidad con TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) en Windows Server 2008 SP2. |
 
 ## <a name="data-segregation"></a>Segregación de datos
@@ -86,7 +86,7 @@ La tabla siguiente muestra ejemplos de los tipos de datos:
 | Estado |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Seguridad física
-El servicio Log Analytics está a cargo de personal de Microsoft y todas las actividades se registran y se pueden auditar. Log Analytics funciona como un servicio de Azure y cumple con todos los requisitos de cumplimiento y seguridad de Azure. Puede ver detalles acerca de la seguridad física de los recursos de Azure en la página 18 de la [Información general de la seguridad de Microsoft Azure](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Los derechos de acceso físico para proteger áreas de las personas que ya no tienen ninguna responsabilidad en el servicio de Log Analytics se cambian en un plazo de un día hábil, incluidas la transferencia y la finalización. Puede consultar información sobre la infraestructura física global que se utiliza en los [centros de datos de Microsoft](https://azure.microsoft.com/en-us/global-infrastructure/).
+El servicio Log Analytics está a cargo de personal de Microsoft y todas las actividades se registran y se pueden auditar. Log Analytics funciona como un servicio de Azure y cumple con todos los requisitos de cumplimiento y seguridad de Azure. Puede ver detalles acerca de la seguridad física de los recursos de Azure en la página 18 de la [Información general de la seguridad de Microsoft Azure](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Los derechos de acceso físico para proteger áreas de las personas que ya no tienen ninguna responsabilidad en el servicio de Log Analytics se cambian en un plazo de un día hábil, incluidas la transferencia y la finalización. Puede consultar información sobre la infraestructura física global que se utiliza en los [centros de datos de Microsoft](https://azure.microsoft.com/global-infrastructure/).
 
 ## <a name="incident-management"></a>Administración de incidentes
 Log Analytics incluye un proceso de administración de incidentes que cumplen todos los servicios de Microsoft. Resumiendo:
@@ -117,11 +117,11 @@ El programa de gobierno y seguridad de la información del equipo de servicio y 
 
 Cada miembro del equipo de desarrollo recibe cursos formales sobre seguridad de aplicaciones. Internamente, utilizamos un sistema de control de versiones para el desarrollo de software. Cada proyecto de software se protege mediante el sistema de control de versiones.
 
-Microsoft cuenta con un equipo de seguridad y cumplimiento normativo que supervisa y evalúa todos los servicios de Microsoft. Los responsables de seguridad de la información conforman el equipo y no están vinculados con los departamentos de ingeniería que desarrollan Log Analytics. Los responsables de seguridad tienen su propia cadena de administración y llevan a cabo evaluaciones independientes de los productos y servicios para garantizar la seguridad y el cumplimiento normativo.
+Microsoft cuenta con un equipo de seguridad y cumplimiento normativo que supervisa y evalúa todos los servicios de Microsoft. Los responsables de seguridad de la información conforman el equipo y no están vinculados con los equipos de ingeniería que desarrollan Log Analytics. Los responsables de seguridad tienen su propia cadena de administración y llevan a cabo evaluaciones independientes de los productos y servicios para garantizar la seguridad y el cumplimiento normativo.
 
 Al comité de dirección de Microsoft se le notifica mediante informes anuales sobre todos los programas de información de seguridad de Microsoft.
 
-El equipo de servicio y desarrollo de software de Log Analytics trabaja de manera activa con los equipos de cumplimiento y asuntos jurídicos de Microsoft, así como con otros asociados del sector, para adquirir diversas certificaciones.
+Los equipos de servicio y desarrollo de software de Log Analytics trabajan de manera activa con los equipos de cumplimiento y asuntos jurídicos de Microsoft, así como con otros asociados del sector, para adquirir diversas certificaciones.
 
 ## <a name="certifications-and-attestations"></a>Certificaciones y atestaciones
 Azure Log Analytics cumple los requisitos siguientes:
@@ -176,7 +176,7 @@ Como se describió anteriormente, los datos del servidor de administración o de
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Recepción y procesamiento de los datos por parte del servicio Log Analytics
 El servicio Log Analytics asegura que los datos entrantes provienen de una fuente de confianza mediante la validación de certificados y la integridad de los datos con la autenticación de Azure. Los datos sin procesar se almacenarán posteriormente en una instancia de Azure Event Hubs en la región en que finalmente se almacenarán los datos en reposo. El tipo de datos que se almacena depende de los tipos de soluciones que se importaron y se usaron para recopilar datos. Después, el servicio Log Analytics procesa los datos sin procesar y los ingiere en la base de datos.
 
-El período de retención de los datos recopilados que se almacenan en la base de datos depende del plan de precios seleccionado. Para el nivel *Gratis*, los datos recopilados están disponibles durante 7 días. Para el nivel de *pago*, los datos recopilados están disponibles durante 31 días de forma predeterminada, pero se puede ampliar a 730 días. Los datos se almacenan cifrados en el almacenamiento de Azure, para garantizar la confidencialidad de los datos. Las dos últimas semanas de datos también se almacenan en caché basada en SSD y actualmente esta caché no está cifrada.  Tenemos previsto admitir este tipo de cifrado el último semestre de 2018.  
+El período de retención de los datos recopilados que se almacenan en la base de datos depende del plan de precios seleccionado. Para el nivel *Gratis*, los datos recopilados están disponibles durante siete días. Para el nivel de *pago*, los datos recopilados están disponibles durante 31 días de forma predeterminada, pero se puede ampliar a 730 días. Los datos se almacenan cifrados en reposo en Azure Storage, para garantizar la confidencialidad de los datos, y los datos se replican dentro de la región local con almacenamiento con redundancia local (LRS). Las dos últimas semanas de datos también se almacenan en caché basada en SSD y actualmente esta caché no está cifrada.  Actualmente estamos trabajando para admitir el cifrado de la caché basada en SSD.      
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Uso de Log Analytics para acceder a los datos
 Para acceder al área de trabajo de Log Analytics puede iniciar sesión en Azure Portal mediante la cuenta de la organización o la cuenta Microsoft configurada anteriormente. Todo el tráfico que circula entre el portal y el servicio Log Analytics se envía por un canal seguro HTTPS. Al usar el portal, se genera un identificador de sesión en el cliente del usuario (explorador web) y los datos se almacenan en una caché local hasta que finalice la sesión. Cuando termina, se elimina la memoria caché. Las cookies del cliente, que no contienen información de identificación personal, no se quitan automáticamente. Las de sesión se marcan con HTTPOnly y se protegen. Después de un periodo de inactividad predeterminado, se termina la sesión de Azure Portal.

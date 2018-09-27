@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5f40b4c9fff57b105b7d96de69780fea83871032
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2a7842a50690049507e00b85c8736e63da002503
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302303"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950172"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -66,15 +66,25 @@ ExpressRoute admite [tres dominios de enrutamiento](expressroute-circuit-peering
 >El emparejamiento público se ha deshabilitado en los nuevos circuitos ExpressRoute. Los servicios de Azure están disponibles en el emparejamiento de Microsoft.
 >
 
+* Power BI
+* Dynamics 365 for Finance and Operations (conocido anteriormente como Dynamics AX Online)
+* Se admiten la mayoría de los servicios de Azure. Compruébelo directamente con el servicio que desea utilizar para comprobar la compatibilidad.<br>
+  Los siguientes servicios NO son compatibles:
+    * CDN
+    * Prueba de carga de Azure DevOps Services
+    * Multi-Factor Authentication
+    * Traffic Manager
+
 ### <a name="microsoft-peering"></a>Emparejamiento de Microsoft
 
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
-* Pruebas de carga de Visual Studio Team Services
+* Prueba de carga de Azure DevOps Services
 * Se admiten la mayoría de los servicios de Azure. Compruébelo directamente con el servicio que desea utilizar para comprobar la compatibilidad.<br>Los siguientes servicios **no son compatibles**:
     * CDN
+    * Prueba de carga de Azure DevOps Services
     * Multi-Factor Authentication
     * Traffic Manager
 
@@ -337,3 +347,11 @@ El circuito existente continuará anunciando los prefijos para Office 365 y Dyna
 * Se anunciarán todos los prefijos de servicio para el emparejamiento de Microsoft de los circuitos ExpressRoute que se configuraron antes del 1 de agosto de 2017, incluso si no se definen filtros de ruta.
 
 * No se anunciará ningún prefijo para el emparejamiento de Microsoft de los circuitos ExpressRoute que se configuraron el 1 de agosto de 2017 o con posterioridad, hasta que se asocie un filtro de ruta al circuito. No verá los prefijos de forma predeterminada.
+
+## <a name="globalreach"></a>ExpressRoute Direct (versión preliminar)
+
+[!INCLUDE [Global Reach](../../includes/expressroute-direct-faq-include.md)]
+
+## <a name="globalreach"></a>Global Reach (versión preliminar)
+
+[!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]

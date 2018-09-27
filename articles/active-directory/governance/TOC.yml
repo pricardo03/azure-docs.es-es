@@ -1,33 +1,41 @@
 items:
-- name: Documentación sobre revisiones de acceso de Azure AD
+- name: Documentación sobre Azure AD Identity Governance
+  href: index.yml
 - name: Información general
   items:
-  - name: ¿Qué es una revisión de acceso?
-    href: access-reviews-overview.md
+  - name: ¿Qué es Identity Governance?
+    href: identity-governance-overview.md
+  expanded: true
 - name: Guías de procedimientos
   items:
-  - name: Creación de una revisión de acceso
-    href: create-access-review.md
-  - name: Finalización de una revisión de acceso
-    href: complete-access-review.md
-  - name: Realización de una revisión de acceso
-    href: perform-access-review.md
-  - name: Revisión del acceso
-    href: review-your-access.md
-  - name: Acceso de invitado con revisiones de acceso
-    href: manage-guest-access-with-access-reviews.md
-  - name: Administración del acceso de usuarios con revisiones
-    href: manage-user-access-with-access-reviews.md
-  - name: Administración de programas y de sus controles
-    href: manage-programs-controls.md
-  - name: Recuperación de los resultados de la revisión de acceso
-    href: retrieve-access-review.md
+  - name: Revisiones de acceso
+    items:
+    - name: ¿Qué es una revisión de acceso?
+      href: access-reviews-overview.md
+    - name: Creación de una revisión de acceso
+      href: create-access-review.md
+    - name: Finalización de una revisión de acceso
+      href: complete-access-review.md
+    - name: Realización de una revisión de acceso
+      href: perform-access-review.md
+    - name: Revisión del acceso
+      href: review-your-access.md
+    - name: Acceso de invitado con revisiones de acceso
+      href: manage-guest-access-with-access-reviews.md
+    - name: Administración del acceso de usuarios con revisiones
+      href: manage-user-access-with-access-reviews.md
+    - name: Administración de programas y de sus controles
+      href: manage-programs-controls.md
+    - name: Recuperación de los resultados de la revisión de acceso
+      href: retrieve-access-review.md
+    - name: Administración de usuarios excluidos
+      href: conditional-access-exclusion.md
   - name: Términos de uso
     href: active-directory-tou.md
   expanded: true
-ms.openlocfilehash: 302273bc1fe1ed73fff4cb4f5a8bc90f08636340
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b6280e42839344169ab651cd5d882bb6abfbf388
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45606752"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163144"

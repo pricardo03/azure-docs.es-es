@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 51cc4c37ba661feb63880c138e98200c981f6054
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 5288dc508c35c72f3c1996ce665ccf83a84a4ea3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918488"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948975"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Supervise la actividad de suscripción con Azure Activity Log
 
@@ -43,11 +43,12 @@ Vea el vídeo siguiente sobre la introducción del registro de actividad.
 El Registro de actividad contiene varias categorías de datos. Para obtener todos los detalles sobre el esquema de datos de estas categorías, [vea este artículo](monitoring-activity-log-schema.md). Entre ellas se incluyen las siguientes:
 * **Administrativo**: esta categoría contiene el registro de todas las operaciones de creación, actualización, eliminación y acción realizadas a través de Resource Manager. Los ejemplos de los tipos de eventos que aparecen en esta categoría incluyen "crear máquina virtual" y "eliminar grupo de seguridad de red". Cada acción realizada por un usuario o una aplicación mediante Resource Manager se modela como una operación en un tipo de recurso determinado. Si el tipo de operación es Write, Delete o Action, los registros de inicio y corrección o error de esa operación se registran en la categoría Administrativo. La categoría Administrativo también incluye los cambios realizados en el control de acceso basado en roles de una suscripción.
 * **Estado del servicio**: esta categoría contiene el registro de los incidentes de estado del servicio que se han producido en Azure. Un ejemplo del tipo de evento que aparece en esta categoría es "SQL Azure en el este de EE. UU. está experimentando un tiempo de inactividad". Los eventos de estado del servicio son de cinco variedades: Acción requerida, Recuperación asistida, Incidente, Mantenimiento, Información o Seguridad, y solo aparecen si tiene un recurso en la suscripción que se vaya a ver afectado por el evento.
+* **Resource Health**: esta categoría contiene el registro de los eventos de estado del servicio que se han producido en los recursos de Azure. Un ejemplo del tipo de evento que aparece en esta categoría es "El estado de mantenimiento de la máquina virtual se cambió a No disponible". Los eventos de estado del recurso se pueden representar en uno de cuatro estados de mantenimiento: Disponible, No disponible, Degradado y Desconocido. Además, los eventos de mantenimiento de recursos se pueden clasificar como iniciados por la plataforma o por el usuario.
 * **Alerta**: esta categoría contiene el registro de todas las activaciones de alertas de Azure. Un ejemplo del tipo de evento que aparece en esta categoría es "el % de CPU en myVM ha estado por encima de 80 durante los últimos 5 minutos". Varios sistemas de Azure tienen un concepto de alerta: puede definir una regla de algún tipo y recibir una notificación cuando las condiciones coincidan con esa regla. Cada vez que un tipo de alerta de Azure compatible "se activa" o se cumplen las condiciones para generar una notificación, también se inserta un registro de la activación en esta categoría del Registro de actividad.
 * **Escalado automático**: esta categoría contiene el registro de los eventos relacionados con el funcionamiento del motor de escalado automático en función de cualquier configuración de escalado automático que haya definido en la suscripción. Un ejemplo del tipo de evento que aparece en esta categoría es "Error de acción de escalado automático". Con el escalado automático puede escalar horizontalmente o reducir horizontalmente de forma automática el número de instancias de un tipo de recurso compatible en función de la hora del día o cargar datos (métricas) mediante una configuración de escalado automático. Cuando se cumplen las condiciones para escalar o reducir verticalmente, se registran los eventos de inicio y corrección o error en esta categoría.
 * **Recomendación**: esta categoría contiene eventos de recomendación de Azure Advisor.
 * **Seguridad**: esta categoría contiene el registro de todas las alertas que generó Azure Security Center. Un ejemplo del tipo de evento que vería en esta categoría es "Se ejecutó un archivo de extensión doble sospechoso".
-* **Directiva y Estado de los recursos**: estas categorías no contienen ningún evento; están reservadas para un uso futuro.
+* **Directiva**: esta categoría no contiene ningún evento; está reservada para uso futuro. 
 
 ## <a name="event-schema-per-category"></a>Esquema de eventos por categoría
 [Vea este artículo para comprender el esquema de eventos de Activity Log por categoría.](monitoring-activity-log-schema.md)
@@ -106,7 +107,7 @@ Puede usar una cuenta de almacenamiento o un espacio de nombres de centro de eve
 >  Actualmente no puede archivar datos en una cuenta de almacenamiento que está detrás de una red virtual protegida.
 
 > [!WARNING]
-> El formato de los datos de registro de la cuenta de almacenamiento cambiará a JSON Lines el 1 de noviembre de 2018. [Vea este artículo para obtener una descripción de la repercusión y del modo de actualizar las herramientas para administrar el nuevo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+> El formato de los datos de registro de la cuenta de almacenamiento cambiará a JSON Lines el 1 de noviembre de 2018. [Consulte este artículo para obtener una descripción de la repercusión y del modo de actualizar las herramientas para administrar el nuevo formato.](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 
@@ -146,11 +147,11 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 | Propiedad | Obligatorio | DESCRIPCIÓN |
 | --- | --- | --- |
-| NOMBRE |Sí |Nombre de su perfil de registro. |
+| NOMBRE |SÍ |Nombre de su perfil de registro. |
 | StorageAccountId |Sin  |Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
 | serviceBusRuleId |Sin  |Identificador de regla de Service Bus para el espacio de nombres de Service Bus donde desea que se creen los centros de eventos. Es una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Ubicación |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
-| RetentionInDays |Sí |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
+| Ubicación |SÍ |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
+| RetentionInDays |SÍ |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
 | Categoría |Sin  |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 
 #### <a name="remove-a-log-profile"></a>Eliminación de un perfil de registro
@@ -158,7 +159,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 Remove-AzureRmLogProfile -name my_log_profile
 ```
 
-### <a name="configure-log-profiles-using-the-azure-cli-20"></a>Configuración de perfiles de registro mediante CLI de Azure 2.0
+### <a name="configure-log-profiles-using-the-azure-cli"></a>Configuración de perfiles de registro mediante la CLI de Azure
 
 #### <a name="get-existing-log-profile"></a>Obtención del perfil de registro existente
 
