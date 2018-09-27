@@ -1,15 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a2a5b1bfa40adfee9106e111deaf045737221937
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 608ba8a5bb6fe4376a569eb3ee5d630b1517061a
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983861"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391945"
 documentType: LandingData
 metadata:
   author: cjgronlund
-  description: Aprenda a usar el proceso de ciencia de datos en equipo.
-  manager: cgronlun
+  description: Aprenda a usar el proceso de ciencia de datos en equipo, una metodología de ciencia de datos ágil e iterativa que proporciona soluciones de análisis predictivo y aplicaciones inteligentes de manera eficiente. TDSP ayuda a mejorar la colaboración en equipo y el aprendizaje. Contiene una extracción de los mejores procedimientos y estructuras de Microsoft y otros fabricantes del sector que facilitan la correcta implementación de iniciativas de ciencia de datos. El objetivo es ayudar a las empresas a que conozcan plenamente las ventajas de su programa de análisis.
   ms.author: cgronlun
   ms.component: team-data-science-process
   ms.date: 01/18/2018
