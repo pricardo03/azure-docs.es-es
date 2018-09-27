@@ -5,7 +5,7 @@
 # Conceptos
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Métodos abreviados de teclado](azure-portal-keyboard-shortcuts.md)
-## [Exploradores y dispositivos compatibles](../azure-preview-portal-supported-browsers-devices.md)
+## [Exploradores y dispositivos compatibles](azure-portal-supported-browsers-devices.md)
 ## [La estructura de los paneles de Azure](azure-portal-dashboards-structure.md)
 # Guías de procedimientos
 ## Implementación
