@@ -1,29 +1,31 @@
 ---
-title: Uso de los informes de Cost Management en Azure Cost Management | Microsoft Docs
-description: En este artículo se describe cómo usar diversos informes de Cost Management en el portal de Cloudyn.
+title: Uso de los informes de Cloudyn en Azure | Microsoft Docs
+description: En este artículo se describe cómo usar diversos informes en el portal de Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/06/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 055584bd27c978fb71e6c09995c28be7348acda8
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 8267401a0dade0ca7cfb1dbf69d2fdfd6786f1df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906381"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976795"
 ---
-# <a name="use-cost-management-reports"></a>Uso de los informes de Cost Management
+# <a name="use-cloudyn-reports"></a>Uso de los informes de Cloudyn
 
-En este artículo se describe el propósito de los informes de Cost Management que se incluyen en el portal de Cloudyn. También se describe cómo puede usar eficazmente los informes. La mayoría de los informes son intuitivos y tienen un aspecto uniforme. La mayor parte de las acciones que puede realizar en un informe también puede hacerlas en otros informes. Para información general sobre cómo usar los informes de Cost Management, lo que incluye cómo personalizarlos, guardarlos o programarlos, consulte [Informes de costos](understanding-cost-reports.md).
+En este artículo se describe el propósito de los informes de Cloudyn que se incluyen en el portal de Cloudyn. También se describe cómo puede usar eficazmente los informes. La mayoría de los informes son intuitivos y tienen un aspecto uniforme. La mayor parte de las acciones que puede realizar en un informe también puede hacerlas en otros informes. Para información general sobre cómo usar los informes de Cloudyn, lo que incluye cómo personalizarlos, guardarlos o programarlos, consulte [Informes de costos](understanding-cost-reports.md).
+
+Azure Cost Management ofrece una funcionalidad similar a Cloudyn. Azure Cost Management es una solución de administración de costos de Azure nativa. Le ayuda a analizar costos, crear y administrar presupuestos, exportar datos, y revisar y actuar sobre recomendaciones de optimización para ahorrar dinero. Para más información, consulte [Azure Cost Management](overview-cost-mgt.md).
 
 ## <a name="report-types"></a>Tipos de informes
 
-Hay tres tipos de informes de Cost Management:
+Existen tres tipos de informes de Cloudyn:
 
 - Informes a lo largo del tiempo. Por ejemplo, el informe de costo a lo largo del tiempo. Los informes a lo largo del tiempo muestran una serie temporal de datos a lo largo de un intervalo seleccionado con una resolución predefinida, y muestran una resolución semanal correspondiente a los dos últimos meses. Puede usar agrupación y filtrado para acercar varios puntos de datos.
   - Los informes a lo largo del tiempo pueden ayudarle a ver las tendencias y a detectar picos o anomalías.
@@ -49,7 +51,7 @@ En los informes de _análisis de costos_ se muestran datos de facturación de lo
 
 Algunos informes de _análisis de costos_ no agrupan los costos por etiquetas de recursos. Y, la información de facturación basada en etiquetas solo aparece en los informes después de asignar los costos mediante la creación de un modelo de costos con la [asignación de costos 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
 
-Los informes de _asignación de costos_ están disponibles tras crear un modelo de costos mediante la [asignación de costos 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Cost Management procesa datos de costos y facturación y _hace coincidir_ los datos con los datos de uso y etiqueta de las cuentas en la nube. Para hacer coincidir los datos, Cost Management requiere acceso a sus datos de uso. Si tiene cuentas que carecen de credenciales, se etiquetan como _recursos no clasificados_.
+Los informes de _asignación de costos_ están disponibles tras crear un modelo de costos mediante la [asignación de costos 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Cloudyn procesa datos de costos o facturación y hace _coincidir_ los datos con los datos de uso y etiqueta datos de sus cuentas en la nube. Para hacer coincidir los datos, Cloudyn requiere acceso a sus datos de uso. Si tiene cuentas que carecen de credenciales, se etiquetan como _recursos no clasificados_.
 
 ## <a name="dashboards"></a>Paneles
 
@@ -57,7 +59,7 @@ Los paneles de Cloudyn proporcionan una visión general de los informes. Los pan
 
 ## <a name="budget-information-in-reports"></a>Información del presupuesto en informes
 
-Muchos informes de Cost Management muestran información de presupuesto después de que se ha creado manualmente uno. Así que, hasta que no cree un presupuesto, los informes no mostrarán información al respecto. Para más información, consulte [Configuración del presupuesto](#budget-settings).
+Muchos informes de Cloudyn muestran información de presupuesto después de que se ha creado manualmente uno. Así que, hasta que no cree un presupuesto, los informes no mostrarán información al respecto. Para más información, consulte [Configuración del presupuesto](#budget-settings).
 
 ## <a name="reports-and-reporting-features"></a>Informes y características de informes
 
@@ -81,7 +83,7 @@ El informe de análisis de costos es un cálculo de visualización y contracargo
 
 Las directivas establecidas en la [asignación de costos 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) se usan en el informe de análisis de costos y los resultados se combinan entonces con información de los datos sin procesar del proveedor de nube.
 
-¿Cómo se calcula este informe? El servicio Cost Management garantiza que la asignación conserva la integridad de cada cuenta vinculada mediante la aplicación de la _afinidad de cuenta_. La afinidad garantiza que una cuenta que no usa un servicio específico no tenga asignado ningún costo de este servicio. Los costos acumulados en esa cuenta permanecen allí y las directivas de asignación no los calculan. Por ejemplo, podría tener cinco cuentas vinculadas. Si solo tres de ellas usan servicios de almacenamiento, el costo de los servicios de almacenamiento solo se asigna entre etiquetas en las tres cuentas.
+¿Cómo se calcula este informe? El servicio Cloudyn garantiza que la asignación retenga la integridad de cada cuenta vinculada mediante la aplicación de la _afinidad de la cuenta_. La afinidad garantiza que una cuenta que no usa un servicio específico no tenga asignado ningún costo de este servicio. Los costos acumulados en esa cuenta permanecen allí y las directivas de asignación no los calculan. Por ejemplo, podría tener cinco cuentas vinculadas. Si solo tres de ellas usan servicios de almacenamiento, el costo de los servicios de almacenamiento solo se asigna entre etiquetas en las tres cuentas.
 
 Use el informe de análisis de costos para:
 
@@ -147,7 +149,7 @@ En este conjunto de informes de costo amortizado se muestran los cargos por serv
 - Cargos de compra de instancias reservadas
 - Algunos elementos de Azure Marketplace
 
-En el archivo de facturación, los cargos únicos se aplican en los casos en que las fechas de inicio y finalización (marca de tiempo) del consumo de servicios tienen los mismos valores. El servicio Cost Management los reconoce entonces como cargos únicos que se amortizan. Otros servicios basados en el consumo con costos de uso a petición no se amortizan.
+En el archivo de facturación, los cargos únicos se aplican en los casos en que las fechas de inicio y finalización (marca de tiempo) del consumo de servicios tienen los mismos valores. El servicio Cloudyn los reconoce entonces como cargos únicos que se amortizan. Otros servicios basados en el consumo con costos de uso a petición no se amortizan.
 
 Los informes de costo amortizado incluyen:
 
@@ -158,9 +160,9 @@ Los informes de costo amortizado incluyen:
 
 En el informe de análisis de costos se proporciona información sobre el consumo y el gasto en la nube durante un período de tiempo seleccionado. Las directivas establecidas en la [asignación de costos 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) se usan en el informe de análisis de costos.
 
-¿Cómo calcula Cost Management este informe?
+¿Cómo calcula Cloudyn este informe?
 
-Cost Management garantiza que la asignación conserve la integridad de cada cuenta vinculada mediante la aplicación de la _afinidad de cuenta_. La afinidad garantiza que una cuenta que no usa un servicio específico no tenga asignado ningún costo de este servicio. Los costos acumulados en esa cuenta permanecen allí y las directivas de asignación no los calculan. Por ejemplo, podría tener cinco cuentas vinculadas. Si solo tres de ellas usan servicios de almacenamiento, el costo de los servicios de almacenamiento solo se asigna entre etiquetas en las tres cuentas.
+Cloudyn garantiza que la asignación retenga la integridad de cada cuenta vinculada aplicando _afinidad de la cuenta_. La afinidad garantiza que una cuenta que no usa un servicio específico no tenga asignado ningún costo de este servicio. Los costos acumulados en esa cuenta permanecen allí y las directivas de asignación no los calculan. Por ejemplo, podría tener cinco cuentas vinculadas. Si solo tres de ellas usan servicios de almacenamiento, el costo de los servicios de almacenamiento solo se asigna entre etiquetas en las tres cuentas.
 
 Use el informe de análisis de costos para:
 
@@ -206,7 +208,7 @@ Los cargos personalizados se muestran en los informes de costos. Por ejemplo, ab
 
 Use la asignación de costos 360 para crear modelos de asignación de costos personalizados para asignar costos a los recursos en la nube consumidos. Muchos informes muestran información de modelos de costos personalizado que ha creado con modelos de costos personalizados. Y algunos informes solo muestran información después de haber creado un modelo de costos personalizados con asignación de costos.
 
-Para más información sobre la creación de modelos de costos personalizados, consulte [Tutorial: Administración de costos con Azure Cost Management](tutorial-manage-costs.md).
+Para más información sobre la creación de modelos de costos personalizados, consulte [Tutorial: Administración de costos con Cloudyn](tutorial-manage-costs.md).
 
 ### <a name="cost-vs-budget-over-time-report"></a>Informe de costo frente a presupuesto a lo largo del tiempo
 
@@ -248,11 +250,11 @@ Al finalizar, el presupuesto se muestra en los informes de análisis de costos y
 
 ### <a name="azure-resource-explorer-report"></a>Informe de Azure Resource Explorer
 
-El informe de Azure Resource Explorer muestra una lista de todos los recursos de Azure disponibles en Cost Management. Para usar eficazmente el informe, las cuentas de Azure deben tener habilitadas las métricas extendidas. Las métricas extendidas proporcionan a Cost Management acceso a las máquinas virtuales de Azure. Para más información, consulte [Adición de métricas extendidas a máquinas virtuales de Azure](azure-vm-extended-metrics.md).
+El informe de Azure Resource Explorer muestra una lista de todos los recursos de Azure disponibles en Cloudyn. Para usar eficazmente el informe, las cuentas de Azure deben tener habilitadas las métricas extendidas. Las métricas extendidas proporcionan a Cloudyn acceso a las máquinas virtuales de Azure. Para más información, consulte [Adición de métricas extendidas a máquinas virtuales de Azure](azure-vm-extended-metrics.md).
 
 ### <a name="azure-resources-over-time-report"></a>Informe de recursos de Azure a lo largo del tiempo
 
-El informe de recursos de Azure a lo largo del tiempo muestra un desglose de todos los recursos que se ejecutan durante un período determinado. Para usar eficazmente el informe, las cuentas de Azure deben tener habilitadas las métricas extendidas. Las métricas extendidas proporcionan a Cost Management acceso a las máquinas virtuales de Azure. Para más información, consulte [Adición de métricas extendidas a máquinas virtuales de Azure](azure-vm-extended-metrics.md).
+El informe de recursos de Azure a lo largo del tiempo muestra un desglose de todos los recursos que se ejecutan durante un período determinado. Para usar eficazmente el informe, las cuentas de Azure deben tener habilitadas las métricas extendidas. Las métricas extendidas proporcionan a Cloudyn acceso a las máquinas virtuales de Azure. Para más información, consulte [Adición de métricas extendidas a máquinas virtuales de Azure](azure-vm-extended-metrics.md).
 
 ### <a name="instance-explorer-report"></a>Informe de Explorador de instancias
 
@@ -355,7 +357,7 @@ Tres opciones de pago para instancias reservadas, que son:
 - No por adelantado: donde el costo de la instancia reservada se paga en plazos mensuales lo que dura la instancia reservada. Esta opción ofrece el descuento más bajo.
 - Parte por adelantado: donde la mitad o la cuarta parte del precio se paga por adelantado, y el resto en plazos mensuales, con una tasa de descuento inferior, pero cercana, a la tasa de todo por adelantado.
 
-Cost Management evalúa el tiempo de actividad de cada máquina durante los últimos 30 días. Cost Management recomienda comprar instancias administradas cuando resulte más rentable ejecutar la máquina con una instancia administrada en el nivel de tiempo de actividad actual.
+Cloudyn evalúa el tiempo de actividad de cada máquina durante los últimos 30 días. Cloudyn recomienda comprar instancias administradas cuando resulte más rentable ejecutar la máquina con una instancia administrada en el nivel de tiempo de actividad actual.
 
 El informe muestra la justificación de sus recomendaciones para ahorrar la mayor cantidad de dinero posible durante el año. Las recomendaciones sugieren reemplazar las instancias a petición por instancias reservadas. Puede comprar instancias reservadas directamente desde el informe.
 
@@ -363,9 +365,9 @@ Cada pestaña se abre como un informe completo. Las secciones importantes de las
 
 - **EC2 RI Purchase Impact** (Impacto de compra de instancia reservada para EC2): esta sección proporciona una simulación de la diferencia entre instancias a petición y reservadas. Haga clic en **Zoom in** (Acercar) para ver el informe completo de impacto de compra de instancia reservada para EC2 con los filtros ya definidos para su recomendación. Este informe muestra el impacto de compra de todas las posibles compras de instancia reservada. Puede ajustar el tiempo de actividad medio esperado para ver la posibilidad de ahorrar al comprar instancias reservadas de EC2.
 
-- **Saving Analysis** (Análisis de ahorros): esta sección proporciona los posibles ahorros conseguidos y el mes en que se actualizan los ahorros cuando se siguen las recomendaciones de Cost Management. Los ahorros reales y el porcentaje ahorrado se resaltan en rojo.
+- **Saving Analysis** (Análisis de ahorros): esta sección proporciona los posibles ahorros conseguidos y el mes en que se actualizan los ahorros cuando se siguen las recomendaciones de Cloudyn. Los ahorros reales y el porcentaje ahorrado se resaltan en rojo.
 
-- **EC2 RI Type Comparison** (Comparación de tipo de instancia reservada para EC2): esta sección enfatiza los puntos destacables del ROI de la implementación recomendada de Cost Management, incluidas todas las opciones pertinentes. Los resultados de este informe dan por hecho que la máquina se ejecuta con un tiempo de actividad del 100 %. Haga clic en **Zoom In** (Acercar) para abrir el informe detallado.
+- **EC2 RI Type Comparison** (Comparación de tipo de instancia reservada para EC2): esta sección enfatiza los puntos destacables del ROI de la implementación recomendada de Cloudyn, incluidas todas las opciones pertinentes. Los resultados de este informe dan por hecho que la máquina se ejecuta con un tiempo de actividad del 100 %. Haga clic en **Zoom In** (Acercar) para abrir el informe detallado.
 
 - **Instances Over Time** (Instancias a lo largo del tiempo): esta sección muestra un desglose de todas las instancias asociadas con la recomendación: a petición, instancias reservadas y de prioridad baja. Haga clic en **Zoom In** (Acercar) para abrir el informe detallado.
 - **Breakeven Points** (Puntos de equilibrio): esta sección muestra una tabla de todas las posibles implementaciones recomendadas, junto con el ROI y el mes en que este se produce. Haga clic en **Zoom In** (Acercar) para abrir el informe detallado.
@@ -394,7 +396,7 @@ El informe de recomendaciones de compra de instancias reservadas para RDS recomi
 Cada pestaña se abre como un informe completo. Las secciones importantes de las pestañas son:
 
 - **RDS RI Purchase Impact** (Impacto de compra de instancia reservada para RDS): esta sección proporciona una simulación de la diferencia entre las instancias a petición y reservadas. Haga clic en **Zoom in** (Acercar) para ver el informe completo de impacto de compra de instancia reservada para RDS con los filtros ya definidos para su recomendación. Este informe permite ver el impacto de compra de todas las posibles compras de instancias reservadas.  Puede ajustar el tiempo de actividad medio esperado y ver los posibles ahorros con la compra de instancias reservadas.
-- **Saving Analysis** (Análisis de ahorros): esta sección proporciona los posibles ahorros conseguidos y el mes en que se actualizan los ahorros cuando se siguen las recomendaciones de Cost Management. Los ahorros reales y el porcentaje ahorrado se resaltan en rojo.
+- **Saving Analysis** (Análisis de ahorros): esta sección proporciona los posibles ahorros conseguidos y el mes en que se actualizan los ahorros cuando se siguen las recomendaciones de Cloudyn. Los ahorros reales y el porcentaje ahorrado se resaltan en rojo.
 
 - **RDS RI Type Comparison** (Comparación de tipo de instancia reservada para RDS): esta sección enfatiza los puntos destacables del ROI de la implementación recomendada, incluidas todas las opciones pertinentes. Los resultados de este informe dan por hecho que la máquina se ejecuta con un tiempo de actividad del 100 %. Haga clic en **Zoom In** (Acercar) para abrir el informe detallado de la máquina seleccionada.
 - **Instances Over Time** (Instancias a lo largo del tiempo): esta sección muestra un desglose de todas las instancias asociadas con la recomendación: a petición, instancias reservadas y de prioridad baja. Haga clic en **Zoom In** (Acercar) para abrir el informe detallado.
@@ -417,7 +419,7 @@ No se puede descargar de este informe la lista de identificadores de instancia p
 
 Considere el siguiente ejemplo de reducción de tamaño:
 
-Tiene seis instancias de ejecución m3.xlarge. El análisis de Cost Management muestra que cinco de ellas tienen una baja utilización de CPU. Considere la posibilidad de reducir el tamaño de ellas.
+Tiene seis instancias de ejecución m3.xlarge. El análisis de Cloudyn muestra que cinco de ellas tienen una baja utilización de CPU. Considere la posibilidad de reducir el tamaño de ellas.
 
 En la sección Cost Impact (Efecto del costo), se calcula el efecto del costo. En este ejemplo, al expandir el elemento de línea, puede ver que el precio actual de una instancia de m3.xlarge (Linux/Unix) es de 0,266 $por hora y que el de una instancia m3.large (Linux/Unix) es de 0,133 $ por hora. Por lo tanto, el costo anual es de 11,651 $ por cinco instancias m3.xlarge que se ejecutan al 100 % de utilización. El costo anual es de 5,825 $ por cinco instancias m3.large que se ejecutan al 100 % de utilización. Los ahorros potenciales son de 5,825 $.
 
@@ -425,7 +427,7 @@ Para ver las justificaciones de tamaño rentable, haga clic en + para expandir e
 
 - La sección **Recommendation Justification** (Justificación de recomendación) muestra la implementación actual y el número de instancias para las que se recomienda reducir su tamaño.
 - La sección **Cost Impact** (Efecto del costo) muestra el cálculo usado para determinar los ahorros potenciales.
-- La sección **Potential Annual Savings** (Ahorros potenciales anuales) muestra los ahorros potenciales anuales al reducir de tamaño según cada recomendación de Cost Management.
+- La sección **Potential Annual Savings** (Ahorros potenciales anuales) muestra los ahorros potenciales anuales al reducir de tamaño según cada recomendación de Cloudyn.
 
 ### <a name="all-sizing-recommendations-report"></a>Informe de recomendaciones de todos los tamaños
 
@@ -483,11 +485,11 @@ Para ver las métricas de una instancia específica a lo largo del tiempo:
 
 ### <a name="rds-sizing-recommendations-report"></a>Informe de recomendaciones de tamaño de RDS
 
-El informe de recomendaciones de tamaño de RDS proporciona recomendaciones de tamaño de RDS para optimizar el uso de la nube. Este informe proporciona una lista de instancias infrautilizadas que son candidatas a la reducción de tamaño. Las recomendaciones de Cost Management se basan en los datos de uso y rendimiento de los últimos 30 días. Puede filtrar las recomendaciones por nombre de cuenta, región, tipo de instancia y estado.
+El informe de recomendaciones de tamaño de RDS proporciona recomendaciones de tamaño de RDS para optimizar el uso de la nube. Este informe proporciona una lista de instancias infrautilizadas que son candidatas a la reducción de tamaño. Las recomendaciones de Cloudyn se basan en los datos de uso y rendimiento de los últimos 30 días. Puede filtrar las recomendaciones por nombre de cuenta, región, tipo de instancia y estado.
 
 ### <a name="sizing-threshold-manager-report"></a>Informe de administrador de umbrales de tamaño
 
-Las recomendaciones de tamaño integradas de Cost Management se calculan mediante un complejo algoritmo para proporcionar sugerencias de tamaño precisas. Puede ajustar los umbrales para las recomendaciones de reducción de tamaño.
+Las recomendaciones de tamaño integradas de Cloudyn se calculan mediante un complejo algoritmo para proporcionar sugerencias de tamaño precisas. Puede ajustar los umbrales para las recomendaciones de reducción de tamaño.
 
 Para ajustar manualmente las recomendaciones de umbral de tamaño:
 

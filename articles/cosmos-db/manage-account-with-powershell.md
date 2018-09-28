@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 90de671d8e57244765f1da439649e57485814533
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 60b13c8284708ce46d62b6659b2631a4f551c2ab
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051670"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983127"
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Creación de una cuenta de Azure Cosmos DB mediante PowerShell
 
-En la guía siguiente, se describen los comandos para automatizar la administración de las cuentas de base de datos de Azure Cosmos DB mediante Azure Powershell. También incluye comandos para administrar las claves de cuenta y las prioridades de conmutación por error de las [cuentas de base de datos de varias regiones][scaling-globally]. La actualización de la cuenta de base de datos le permite agregar o quitar regiones y modificar las directivas de coherencia. Para la administración entre plataformas de su cuenta de base de datos de Azure Cosmos DB, puede usar la [CLI de Azure](cli-samples.md), la [API de REST de proveedor de recursos][rp-rest-api] o [Azure Portal](create-sql-api-dotnet.md#create-account).
+En la guía siguiente, se describen los comandos para automatizar la administración de las cuentas de base de datos de Azure Cosmos DB mediante Azure Powershell. También incluye comandos para administrar las claves de cuenta y las prioridades de conmutación por error de las [cuentas de base de datos de varias regiones][distribute-data-globally.md]. La actualización de la cuenta de base de datos le permite agregar o quitar regiones y modificar las directivas de coherencia. Para la administración entre plataformas de su cuenta de base de datos de Azure Cosmos DB, puede usar la [CLI de Azure](cli-samples.md), la [API de REST de proveedor de recursos][rp-rest-api] o [Azure Portal](create-sql-api-dotnet.md#create-account).
 
 ## <a name="getting-started"></a>Introducción
 
@@ -33,7 +33,7 @@ Siga las instrucciones de [Cómo instalar y configurar Azure PowerShell][powersh
 
 ## <a id="create-documentdb-account-powershell"></a> Creación de una cuenta de Azure Cosmos DB
 
-Este comando le permite crear una cuenta de base de datos de Azure Cosmos DB. Configure la nueva cuenta de base de datos como de región única o de [varias regiones][scaling-globally] con una determinada [directiva de coherencia](consistency-levels.md).
+Este comando le permite crear una cuenta de base de datos de Azure Cosmos DB. Configure la nueva cuenta de base de datos como de región única o de [varias regiones][distribute-data-globally.md] con una determinada [directiva de coherencia](consistency-levels.md).
 
     $locations = @(@{"locationName"="<write-region-location>"; "failoverPriority"=0}, @{"locationName"="<read-region-location>"; "failoverPriority"=1})
     $iprangefilter = "<ip-range-filter>"
@@ -60,7 +60,7 @@ Ejemplo:
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "West US" -Name "docdb-test" -Properties $CosmosDBProperties
 
 ### <a name="notes"></a>Notas
-* En el ejemplo anterior se crea una cuenta de base de datos con dos regiones. También es posible crear una cuenta de base de datos con una región (que se designa como la región de escritura y tiene un valor de prioridad de conmutación por error de 0) o más de dos regiones. Para obtener más información, vea la información de [cuentas de bases de datos de varias regiones][scaling-globally].
+* En el ejemplo anterior se crea una cuenta de base de datos con dos regiones. También es posible crear una cuenta de base de datos con una región (que se designa como la región de escritura y tiene un valor de prioridad de conmutación por error de 0) o más de dos regiones. Para obtener más información, vea la información de [cuentas de bases de datos de varias regiones][distribute-data-globally.md].
 * Las ubicaciones deben ser regiones donde Azure Cosmos DB esté disponible de forma general. Se proporciona la lista actual de regiones en la [página Regiones de Azure](https://azure.microsoft.com/regions/#services).
 
 ## <a id="update-documentdb-account-powershell"></a> Actualizar una cuenta de base de datos Azure Cosmos DB

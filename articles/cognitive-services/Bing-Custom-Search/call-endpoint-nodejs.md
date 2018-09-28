@@ -9,43 +9,40 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 5d9391cc486dc868a1a291ccc7095291cddd3e4c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 73c31c7175bd4dfcb182fb76784937c176ac7702
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858466"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977883"
 ---
 # <a name="call-bing-custom-search-endpoint-nodejs"></a>Llamada a un punto de conexión de Bing Custom Search (Node.js)
 
 Esta guía de inicio rápido muestra cómo solicitar los resultados de la búsqueda a la instancia de búsqueda personalizada usando Node.js para llamar al punto de conexión de Bing Custom Search. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
+
 Para completar este inicio rápido necesita instalar:
 
-- Una instancia de Custom Search. Consulte [Create your first Bing Custom Search instance](quick-start.md) (Creación de la primera instancia de Bing Custom Search).
-
+- Una instancia de Custom Search lista para usar. Consulte [Create your first Bing Custom Search instance](quick-start.md) (Creación de la primera instancia de Bing Custom Search).
 - [Node.js](https://www.nodejs.org/) instalado.
-
--  Una [cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Bing Search APIs**. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) es suficiente para esta guía de inicio rápido. Necesita la clave de acceso que se le proporciona al activar la versión de evaluación gratuita, o puede usar una clave de suscripción de pago desde su panel de Azure.
+- Una clave de suscripción. Puede obtener una clave de suscripción cuando active su [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) o puede utilizar una clave de suscripción de pago desde el panel de Azure (consulte [Cuenta de la API de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
 ## <a name="run-the-code"></a>Ejecución del código
 
-Para llamar al punto de conexión Bing Custom Search, siga estos pasos:
+Para ejecutar el ejemplo, siga estos pasos:
 
-1. Cree una carpeta para el código.
-
-2. Desde un terminal o símbolo del sistema, vaya a la carpeta que acaba de crear.
-
+1. Cree una carpeta para el código.  
+  
+2. Desde un terminal o símbolo del sistema, vaya a la carpeta que acaba de crear.  
+  
 3. Instale el módulo de Node **request**:
     <pre>
     npm install request
-    </pre>
+    </pre>  
     
-4. Cree el archivo BingCustomSearch.js y copie en él el código siguiente.
-
-5. Reemplace los valores de **YOUR-SUBSCRIPTION-KEY** y **YOUR-CUSTOM-CONFIG-ID** por su clave y su identificador de configuración (consulte el paso 1).
-
+4. Cree un archivo denominado BingCustomSearch.js en la carpeta que creó y copie el código siguiente en él. Reemplace los valores de **YOUR-SUBSCRIPTION-KEY** y **YOUR-CUSTOM-CONFIG-ID** por su clave de suscripción y su identificador de configuración.  
+  
     ``` javascript
     var request = require("request");
     
@@ -74,11 +71,13 @@ Para llamar al punto de conexión Bing Custom Search, siga estos pasos:
             console.log();
         }
     })
-    ```
-6. Ejecute el código con el comando siguiente.
+    ```  
+  
+6. Ejecute el código con el comando siguiente:  
+  
     ```    
     node BingCustomSearch.js
-   ``` 
+    ``` 
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración de la experiencia de interfaz de usuario hospedada](./hosted-ui.md)

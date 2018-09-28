@@ -1,42 +1,41 @@
 ---
-title: Obtención de soporte técnico y aprendizaje para servicios de Azure Machine Learning
-description: Este artículo explica cómo puede obtener soporte técnico y aprendizaje para los servicios de Azure Machine Learning y Azure Machine Learning Workbench
+title: Obtención de soporte técnico y aprendizaje para el servicio Azure Machine Learning
+description: Este artículo explica cómo puede obtener soporte técnico y aprendizaje para el servicio Azure Machine Learning.
 services: machine-learning
-author: j-martens
-ms.author: jmartens
-manager: cgronlund
-ms.reviewer: mldocs
 ms.service: machine-learning
 ms.component: core
-ms.workload: data-services
-ms.topic: article
-ms.date: 03/01/2018
-ms.openlocfilehash: a9529a2b38105274f021483cfce51f30fd38fb62
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.topic: conceptual
+ms.reviewer: jmartens
+author: j-martens
+ms.author: jmartens
+ms.date: 09/24/2018
+ms.openlocfilehash: b5834bfd47cf2ab8462462c43394c8f05e43afa3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35639656"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971406"
 ---
-# <a name="get-support-and-training-for-azure-machine-learning-services"></a>Obtención de soporte técnico y aprendizaje para servicios de Azure Machine Learning
+# <a name="get-support-and-training-for-azure-machine-learning-service"></a>Obtención de soporte técnico y aprendizaje para el servicio Azure Machine Learning
 
-En este artículo se proporciona más información acerca de los servicios de Azure Machine Learning, así como para obtener soporte técnico para problemas y preguntas. 
+En este artículo se proporciona más información acerca del servicio Azure Machine Learning, así como para obtener soporte técnico para problemas y preguntas. 
 
 ## <a name="learn-more-about-azure-machine-learning"></a>Más información sobre Azure Machine Learning
 
-El [Centro de documentación de Azure Machine Learning](../desktop-workbench/overview-what-is-azure-ml.md) hospeda tutoriales en vídeo y guías de procedimientos. Estas guías paso a paso presentan los servicios y explican el ciclo de vida de la ciencia de datos. Agregamos continuamente nuevo material al Centro de Machine Learning. 
-
-Además, existen [vídeos que puede ver para obtener más información](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
+Además de la documentación de este sitio, puede encontrar lo siguiente:
++ [Tutoriales y artículos de procedimientos](../service/index.yml)
++ [Introducción a la arquitectura](../service/concept-azure-machine-learning-architecture.md)
++ [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 
 Puede **enviar solicitudes** para obtener material de aprendizaje adicional mediante el vínculo de comentarios situado en la parte inferior del artículo.
 
-## <a name="get-support-for-azure-machine-learning-services"></a>Obtener soporte técnico para los servicios de Azure Machine Learning
+## <a name="get-support-for-azure-machine-learning-service"></a>Obtención de soporte técnico para el servicio Azure Machine Learning
 
-Puede obtener soporte técnico para los servicios de Azure Machine Learning de las maneras siguientes:
+Consulte estos recursos de soporte técnico:
 
-+ **Servicio de soporte técnico**: para ponerse en contacto con el soporte técnico de Azure, visite [Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione Machine Learning. 
++ **Soporte técnico**: visite el [servicio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione Machine Learning. 
 
-+ **Foro de usuarios de MSDN**: formule preguntas, responda a preguntas y conecte con otros usuarios en el [foro del servicio de soporte técnico de los servicios de Azure Machine Learning en MSDN](https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning).
++ **Foro de usuarios**: formule preguntas, responda a preguntas y conecte con otros usuarios en el [foro del servicio de soporte técnico del servicio Azure Machine Learning en MSDN](https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning).
 
 + **Stack Overflow**: visite la comunidad de Azure Machine Learning en [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) etiquetada con "Azure-Machine-Learning".
 

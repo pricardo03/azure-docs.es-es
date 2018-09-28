@@ -5,14 +5,14 @@ author: vhorne
 manager: jeconnoc
 ms.service: dns
 ms.topic: overview
-ms.date: 6/7/2018
+ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 0812f5e3e23fbf49afec91524b4de2ff0eb7cd9a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e3e04bf7e35b22a56465810f476323ed217e047a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574188"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967632"
 ---
 # <a name="what-is-azure-dns"></a>¿Qué es Azure DNS?
 
@@ -52,6 +52,14 @@ Los dominios y registros pueden administrarse mediante Azure Portal, los cmdlets
 Azure DNS también admite dominios DNS privados, que están ahora en versión preliminar pública. Esto le permite usar sus propios nombres de dominio personalizados en sus redes virtuales privadas en lugar de los nombres proporcionados por Azure disponibles actualmente.
 
 Para obtener más información, vea [Uso de Azure DNS para dominios privados](private-dns-overview.md).
+
+## <a name="alias-records"></a>Registros de alias
+
+Azure DNS admite conjuntos de registros de alias. Puede usar un registro de alias que se haga referencia a un recurso de Azure, como una dirección IP pública de Azure o un perfil de Traffic Manager. Si cambia la dirección IP del recurso subyacente, el conjunto de registros de alias se actualiza sin problemas durante la resolución DNS. El conjunto de registros de alias apunta a la instancia de servicio, y la instancia de servicio está asociada con una dirección IP. 
+
+Además, ahora puede apuntar el vértice o dominio desnudo (por ejemplo, contoso.com) a un perfil de Traffic Manager mediante un registro de alias.
+
+Para obtener más información, consulte [Overview of Azure DNS alias records](dns-alias.md) (Introducción a los registros de alias de Azure DNS).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

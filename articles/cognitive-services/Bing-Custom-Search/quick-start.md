@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: v-brapel
-ms.openlocfilehash: 35f0bca01de1c2087f6ae30949cca9b03192b838
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 25d622772fe47ffad001834d476e612f8c606904
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381014"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981678"
 ---
 # <a name="create-your-first-bing-custom-search-instance"></a>Creación de la primera instancia de Bing Custom Search
 Para usar Bing Custom Search, debe crear una instancia de búsqueda personalizada que defina la vista o el segmento de la web. La instancia contiene valores que especifican los dominios públicos, sitios web y páginas web que desee que busque Bing, así como los ajustes en la clasificación. Para crear la instancia, utilice el [portal](https://customsearch.ai) de Bing Custom Search. 
@@ -24,12 +24,12 @@ Para usar Bing Custom Search, debe crear una instancia de búsqueda personalizad
 Para crear una instancia de Bing Custom Search:
 
 1.  Obtenga una clave para Custom Search API. Consulte [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-2.  Inicie sesión en el portal mediante una cuenta Microsoft (MSA). Haga clic en el botón **Iniciar sesión**. Si es la primera vez que usa el portal, siga estos pasos adicionales; en caso contrario, continúe con el paso 3.
+2.  Haga clic en el botón **Iniciar sesión** e inicie sesión en el portal mediante una cuenta de Microsoft (MSA). 
     - Si no tiene una MSA, haga clic en **Creación de una cuenta Microsoft**. El portal solicita permisos para tener acceso a los datos. Haga clic en **Sí**.
     - Acepte los términos de Cognitive Services. Active **Acepto** y haga clic en **Acepto**.  
 3.  Después de iniciar sesión, haga clic en **Nueva instancia** y ponga un nombre a la instancia. Utilice un nombre que sea significativo y describa el tipo de contenido que devuelve la búsqueda. Puede cambiar el nombre en cualquier momento. 
-4.  En la pestaña **Activo** de **Experiencia de búsqueda**, escriba la dirección URL de uno o varios que quiera incluir en la búsqueda.
-5.  Para confirmar que la instancia devuelve resultados, escriba una consulta en el panel de vista previa de la derecha. Si no hay ningún resultado, especifique un nuevo sitio. Bing devuelve resultados solo de sitios públicos que se han indexado.
+4.  En la pestaña **Activo** de **Experiencia de búsqueda**, escriba la dirección URL de uno o varios sitios web que quiera incluir en la búsqueda.
+5.  Para confirmar que la instancia devuelve resultados, escriba una consulta en el panel de vista previa de la derecha. Si no hay ningún resultado, especifique un nuevo sitio web. Bing devuelve resultados solo de sitios web públicos que se han indexado.
 6.  Haga clic en **Publicar** para publicar los cambios de configuración en producción. Cuando se le solicite, haga clic en **Publicar** para confirmar.
 7.  Haga clic en **Producción** > **Punto de conexión** y copie el valor de **Custom Configuration ID** (Id. de configuración personalizada). Necesita este identificador para llamar a Custom Search API.
 

@@ -1,23 +1,23 @@
 ---
-title: Creación de una solicitud de soporte técnico de Azure Cost Management | Microsoft Docs
-description: Este artículo le guiará por los pasos necesarios para crear una solicitud de soporte técnico de Cost Management.
+title: Creación de una solicitud de soporte técnico de Cloudyn en Azure | Microsoft Docs
+description: Este artículo le guiará por los pasos necesarios para crear una solicitud de soporte técnico de Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 35d3153cb485f11fe17689f1ff1d3d88961878d3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d074b263d11c6b12a4283d2ff479a5b3dc1d6908
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296698"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952450"
 ---
-# <a name="create-a-support-request-for-cost-management"></a>Creación de una solicitud de soporte técnico de Cost Management
+# <a name="create-a-support-request-for-cloudyn"></a>Creación de una solicitud de soporte técnico para Cloudyn
 
 Puede abrir una solicitud de soporte técnico si no se puede encontrar la información que está buscando. También, si sospecha que un problema es un error o una interrupción del servicio. Al abrir un vale de soporte técnico, asegúrese de hacerlo para un solo problema. Así ayudará a derivar rápidamente el problema notificado.
 
@@ -48,4 +48,4 @@ Para comprobar el estado de un incidente que haya enviado, consulte [Todas las s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información acerca de Azure Cost Management, consulte el tutorial [Revisión del uso y los costos](tutorial-review-usage.md) de Cost Management.
+- Para obtener más información acerca de Cloudyn, consulte el tutorial [Revisión del uso y los costos](tutorial-review-usage.md) de Cloudyn.

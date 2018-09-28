@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: b735f93b2d7ad093ef752fd5f26be729a1157b37
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 15d2e40127579fbd278cc3dc18653d782a515caa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090689"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957319"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Lenguajes admitidos en Azure Functions
 
@@ -31,23 +31,23 @@ Hay tres niveles de soporte:
 
 ## <a name="languages-in-runtime-1x-and-2x"></a>Lenguajes en el entorno de tiempo de ejecución 1.x y 2.x
 
-[Hay disponibles dos versiones del entorno de tiempo de ejecución de Azure Functions](functions-versions.md). El sistema de tiempo de ejecución 1.x está disponible de forma general. Es el único sistema de tiempo de ejecución que está aprobado para las aplicaciones de producción. El sistema de tiempo de ejecución 2.x está actualmente en versión preliminar, por lo que los lenguajes que admite están en versión preliminar. En la tabla siguiente se indica qué lenguajes se admiten en cada versión del sistema de tiempo de ejecución.
+[Hay disponibles dos versiones del entorno de tiempo de ejecución de Azure Functions](functions-versions.md). En la tabla siguiente se indica qué lenguajes se admiten en cada versión del sistema de tiempo de ejecución.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 ### <a name="experimental-languages"></a>Lenguajes experimentales
 
-En la versión 1.x, los lenguajes experimentales no escalan bien y no admiten todos los enlaces. Por ejemplo, Python es lento porque el sistema de tiempo de ejecución de Functions ejecuta *python.exe* con cada invocación de función. Y aunque Python admite los enlaces HTTP, no puede acceder al objeto de solicitud.
+En la versión 1.x, los lenguajes experimentales no escalan bien y no admiten todos los enlaces. Por ejemplo, Python 1.x es lento porque el sistema de tiempo de ejecución de Functions ejecuta *python.exe* con cada invocación de función. Y aunque Python admite los enlaces HTTP, no puede acceder al objeto de solicitud.
 
-En la versión experimental, solo se admite la versión 5.1 de PowerShell porque es la que se instala de forma predeterminada en las máquinas virtuales en las que se ejecutan las aplicaciones de función. Si desea ejecutar scripts de PowerShell, considere la posibilidad de usar [Azure Automation](https://azure.microsoft.com/services/automation/).
+El soporte técnico experimental en la versión 1.x de PowerShell está limitado a la versión 5.1 porque es la que se instala de forma predeterminada en las máquinas virtuales en las que se ejecutan las aplicaciones de función. Si desea ejecutar scripts de PowerShell, considere la posibilidad de usar [Azure Automation](https://azure.microsoft.com/services/automation/).
 
-Si desea usar uno de los lenguajes que solo están disponibles en la versión 1.x, mantenga el sistema de tiempo de ejecución 1.x. No use los lenguajes experimentales para nada importante, porque no cuentan con soporte oficial. Para solicitar ayuda, puede [crear incidencias en GitHub](https://github.com/Azure/azure-webjobs-sdk-script/issues), pero no abra casos de soporte técnico para problemas con lenguajes experimentales. 
+No use los lenguajes experimentales para nada importante, porque no cuentan con soporte oficial. No se deben abrir casos de soporte técnico para problemas con lenguajes experimentales. 
 
 La versión 2.x del sistema de tiempo de ejecución no admite lenguajes experimentales. La compatibilidad para nuevos idiomas solamente se agrega cuando el idioma puede admitirse en producción. 
 
 ### <a name="language-extensibility"></a>Extensibilidad de lenguaje
 
-El sistema de tiempo de ejecución 2.x está diseñado para ofrecer [extensibilidad de lenguaje](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Uno de los primeros lenguajes en basarse en este modelo de extensibilidad es Java, que se encuentra en versión preliminar 2.x.
+El sistema de tiempo de ejecución 2.x está diseñado para ofrecer [extensibilidad de lenguaje](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Los lenguajes JavaScript y Java en el entorno de ejecución 2.x están incluidos con esta extensibilidad.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
