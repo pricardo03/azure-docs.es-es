@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales de Azure | Microsoft Docs'
-description: Aprenda a usar la CLI de Azure 2.0 para crear un conjunto de escalado de máquinas virtuales, junto con algunas tareas de administración comunes, por ejemplo, cómo iniciar y detener una instancia o cambiar la capacidad del conjunto de escalado.
+description: Obtenga información sobre cómo usar la CLI de Azure para crear un conjunto de escalado de máquinas virtuales, junto con algunas tareas de administración comunes, como cómo iniciar y detener una instancia, o cambiar la capacidad del conjunto de escalado.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a076603519cdce5a16881e0f0703d8187001e058
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f00f7934bfb78c16f9e93dc2fcd94025e5f806a1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452556"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993302"
 ---
-# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0
+# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Crear y administrar un conjunto de escalado con la CLI de Azure
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
@@ -37,7 +37,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure 2.0.29 o versiones posteriores. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure 2.0.29 o versiones posteriores. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
@@ -303,7 +303,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha aprendido cómo realizar algunas tareas básicas de creación y administración del conjunto de escalado con la CLI de Azure 2.0:
+En este tutorial, ha aprendido cómo realizar algunas tareas de creación y administración de un conjunto de escalado básico con la CLI de Azure:
 
 > [!div class="checklist"]
 > * Crear un conjunto de escalado de máquinas virtuales y conectarse a él

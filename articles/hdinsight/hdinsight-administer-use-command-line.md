@@ -1,6 +1,6 @@
 ---
-title: Administración de clústeres de Hadoop mediante la CLI de Azure en Azure HDInsight
-description: Aprenda a usar la interfaz de la línea de comandos de Azure para administrar clústeres de Hadoop en Azure HDInsight. La CLI de Azure funciona en Windows, Mac y Linux.
+title: 'Administrar clústeres de Hadoop mediante la CLI clásica de Azure: Azure HDInsight'
+description: Obtenga información sobre cómo usar la CLI clásica de Azure para administrar clústeres de Hadoop en Azure HDInsight.
 services: hdinsight
 ms.reviewer: jasonh
 author: jasonwhowell
@@ -9,32 +9,32 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 8d77f6f902ad0d1f6ee2b3dd1da5a38364f1da9b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 2586b9219eb145b2033fe2d8fc64b8ae72f34eda
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103751"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958295"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Administración de clústeres de Hadoop en HDInsight mediante la CLI de Azure
+# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>Administración de clústeres de Hadoop en HDInsight mediante la CLI clásica de Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Aprenda a usar la [interfaz de la línea de comandos de Azure](../cli-install-nodejs.md) para administrar clústeres de Hadoop en Azure HDInsight. La CLI de Azure se implementa en Node.js y se puede usar en cualquier plataforma compatible con Node.js, entre las que se incluyen Windows, Mac y Linux. Actualmente HDInsight no admite la [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure).
+Obtenga información sobre cómo usar la [CLI clásica de Azure](../cli-install-nodejs.md) para administrar clústeres de Hadoop en Azure HDInsight. La CLI clásica se implementa en Node.js. y se puede usar en cualquier plataforma compatible con Node.js, entre las que se incluyen Windows, Mac y Linux.
 
-Este artículo solo trata del uso de la CLI de Azure con HDInsight. Para obtener información general sobre cómo usar la CLI de Azure CLI, consulte [Instalación y configuración de la CLI de Azure][azure-command-line-tools].
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este artículo, debe tener lo siguiente:
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **CLI de Azure** - Vea [Instalar y configurar la CLI de Azure](../cli-install-nodejs.md) para obtener información de instalación y configuración.
+* **CLI clásica de Azure**: vea [Install and configure the Azure Classic CLI](../cli-install-nodejs.md) (Instalar y configurar la CLI clásica de Azure) para obtener información de instalación y configuración.
 * **Conectarse a Azure**mediante el comando siguiente:
 
     ```cli
     azure login
     ```
   
-    Para más información acerca de cómo autenticarse con una cuenta profesional o educativa, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](/cli/azure/authenticate-azure-cli).
+    Para obtener más información sobre la autenticación mediante una cuenta profesional o educativa, vea [Conectarse a una suscripción de Azure desde la CLI clásica de Azure](/cli/azure/authenticate-azure-cli).
 * **Cambiar al modo de Administrador de recursos de Azure**con el siguiente comando:
   
     ```cli
@@ -48,7 +48,7 @@ azure hdinsight cluster create -h
 ```
 
 ## <a name="create-clusters-with-the-cli"></a>Creación de clústeres con la CLI
-Consulte [Administración de clústeres de Hadoop en HDInsight mediante la CLI de Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
+Vea [Creación de clústeres de HDInsight mediante la CLI de Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
 ## <a name="list-and-show-cluster-details"></a>Enumeración y visualización de los detalles del clúster
 Use los comandos siguientes para enumerar y mostrar los detalles del clúster:
@@ -101,7 +101,7 @@ En este artículo, ha aprendido a realizar diferentes tareas administrativas en 
 * [Administración de HDInsight mediante Azure Portal][hdinsight-admin-portal]
 * [Administración de HDInsight con Azure PowerShell][hdinsight-admin-powershell]
 * [Introducción a Azure HDInsight][hdinsight-get-started]
-* [Uso de la CLI de Azure][azure-command-line-tools]
+* [Cómo usar la CLI clásica de Azure][azure-command-line-tools]
 
 [azure-command-line-tools]: ../cli-install-nodejs.md
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md

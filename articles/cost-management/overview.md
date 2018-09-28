@@ -1,27 +1,29 @@
 ---
-title: Introducción a Azure Cost Management | Microsoft Docs
-description: Azure Cost Management es una solución de administración de costos en varias nubes que le permitirá usar Azure y otros recursos en la nube.
+title: Introducción a Cloudyn en Azure | Microsoft Docs
+description: Cloudyn es una solución de administración de costos en varias nubes que le permitirá usar Azure y otros recursos en la nube.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: overview
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 05e53688e1350052fdbbc61451df8a51dc3349cd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9f0eac454d6ac937fc3313e4c50f8872e320c7ca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162983"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985391"
 ---
-# <a name="what-is-azure-cost-management"></a>¿Qué es Administración de costos de Azure?
+# <a name="what-is-cloudyn"></a>¿Qué es Cloudyn?
 
-Azure Cost Management se concede bajo licencia de Cloudyn, una subsidiaria de Microsoft, y le permite realizar un seguimiento de los gastos y el uso de la nube para los recursos de Azure y otros proveedores de servicios en la nube, como AWS y Google. Los sencillos informes del panel proporcionan ayuda con la asignación de costos, los contracargos y la visibilidad de los gastos. Administración de costos le ayuda a optimizar los gastos en la nube mediante la identificación de los recursos que no está aprovechando para que pueda administrarlos y ajustarlos.
+Cloudyn, una subsidiaria de Microsoft, le permite realizar un seguimiento de los gastos y el uso de la nube para los recursos de Azure y otros proveedores de servicios en la nube, como AWS y Google. Los sencillos informes del panel proporcionan ayuda con la asignación de costos, los contracargos y la visibilidad de los gastos. Cloudyn le ayuda a optimizar los gastos en la nube mediante la identificación de los recursos que no está aprovechando para que pueda administrarlos y ajustarlos.
 
-Para ver un vídeo de introducción, consulte [Introducción a Azure Cost Management](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
+Para ver un vídeo de introducción, consulte [Introducción a Cloudyn](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
+
+Azure Cost Management ofrece una funcionalidad similar a Cloudyn. Azure Cost Management es una solución de administración de costos de Azure nativa. Le ayuda a analizar costos, crear y administrar presupuestos, exportar datos, y revisar y actuar sobre recomendaciones de optimización para ahorrar dinero. Para más información, vea [Azure Cost Management](overview-cost-mgt.md).
 
 ## <a name="monitor-usage-and-spending"></a>Supervisión del uso y del gasto
 
@@ -29,12 +31,9 @@ Supervisar el uso y el gasto es crucial para las infraestructuras en la nube por
 
 Los informes ayudan a supervisar los gastos para analizar y realizar un seguimiento del uso de la nube, los costos y las tendencias. Los informes de uso a lo largo del tiempo permiten detectar anomalías que difieren de las tendencias normales. Los informes de optimización también permiten detectar las deficiencias en la implementación de la nube. También puede detectar deficiencias en informes de análisis de costos.
 
-![Informe de costo a lo largo del tiempo](media\overview\cost-over-time-rpt.png)
-
-
 ## <a name="manage-costs"></a>Administrar costos
 
-Los datos históricos pueden ayudar a administrar los costos al analizar el uso y los costos a lo largo del tiempo para identificar tendencias. Después, las tendencias se usan para hacer una previsión de los gastos futuros. Administración de costos también incluye informes útiles de costos previstos.
+Los datos históricos pueden ayudar a administrar los costos al analizar el uso y los costos a lo largo del tiempo para identificar tendencias. Después, las tendencias se usan para hacer una previsión de los gastos futuros. Cloudyn también incluye informes útiles de costos previstos.
 
 La asignación de costos administra los costos mediante el análisis basado en la directiva de etiquetado. Puede utilizar etiquetas en sus cuentas, recursos y entidades personalizadas para refinar la asignación de costos. El administrador de categorías organiza las etiquetas para proporcionarle control adicional. Así mismo, puede usar la asignación de costos para el proceso de visualización completa de los gastos y contracargo, y para mostrar el uso de recursos y los costos asociados para influir en los comportamientos de consumo o cobrar a los clientes del inquilino.
 
@@ -44,14 +43,12 @@ Las alertas ayudan a administrar los costos mediante la notificación automátic
 
 ## <a name="improve-efficiency"></a>Mejorar la eficiencia
 
-Puede determinar el uso óptimo de las VM e identificar o eliminar VM inactivas, así como detectar discos sin conectar con Administración de costos. Con la información de los informes acerca de la optimización de tamaño y la falta de eficiencia, puede crear un plan para reducir o eliminar las VM inactivas. Sin embargo, los informes sobre optimización no se admiten actualmente para las suscripciones o las cuentas de asociados de CSP.
-
-![recomendaciones de tamaño](.\media\overview\sizing.png)
+Puede determinar el uso óptimo de las VM e identificar o eliminar VM inactivas, así como detectar discos sin conectar con Cloudyn. Con la información de los informes acerca de la optimización de tamaño y la falta de eficiencia, puede crear un plan para reducir o eliminar las VM inactivas. Sin embargo, los informes sobre optimización no se admiten actualmente para las suscripciones o las cuentas de asociados de CSP.
 
 Si aprovisionó instancias reservadas de AWS, puede mejorar el uso de las instancias reservadas con informes de optimización que le permiten consultar recomendaciones de compra, modificar reservas sin usar y planear el aprovisionamiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que está familiarizado con Administración de costos, el paso siguiente es registrar el entorno de nube y empezar a explorar los datos.
+Ahora que está familiarizado con Cloudyn, el paso siguiente es registrar el entorno de nube y empezar a explorar los datos.
 
 - [Registrar una suscripción individual de Azure](quick-register-azure-sub.md)

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 6/7/2017
-ms.openlocfilehash: 7d9565db8fe46ee26fafa7bd021d771e728e9a77
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: b9ca8848da543bbfb27246109c3a4ab97eb6bc58
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43101619"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974925"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implementación en Azure App Service con Jenkins y la CLI de Azure
 Para implementar una aplicación web de Java en Azure, puede utilizar la CLI de Azure en [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). En este tutorial, creará una canalización de CI/CD en una máquina virtual de Azure, y aprenderá los siguientes temas:
@@ -26,7 +26,7 @@ Para implementar una aplicación web de Java en Azure, puede utilizar la CLI de 
 > * Creación de una canalización de Jenkins
 > * Ejecución de la canalización y comprobación de la aplicación web
 
-Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI de Azure. Para encontrar la versión, ejecute `az --version`. Si necesita actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI de Azure. Para encontrar la versión, ejecute `az --version`. Si debe actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: a93467404232b0fff51136cb7648d84a81165bdb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4ae9d8053f7463c069a7305bbd07a91a387e31d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697966"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972307"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales en Azure Portal
 Al crear un conjunto de escalado, puede definir el número de instancias de máquina virtual que quiere ejecutar. A medida que cambia la demanda de las aplicaciones, puede aumentar o reducir automáticamente el número de estas instancias. La posibilidad de realizar el escalado automático le permite satisfacer la demanda del cliente o responder a los cambios de rendimiento de la aplicación a lo largo del ciclo de vida de esta.
 
-Este artículo muestra cómo crear reglas de escalado automático en Azure Portal que supervisan el rendimiento de las instancias de máquina virtual del conjunto de escalado. Estas reglas de escalado automático permiten aumentar o reducir el número de instancias de máquina virtual en respuesta a estas métricas de rendimiento. Estos pasos también se pueden completar con [Azure PowerShell](tutorial-autoscale-powershell.md) o en la [CLI de Azure 2.0](tutorial-autoscale-cli.md).
+Este artículo muestra cómo crear reglas de escalado automático en Azure Portal que supervisan el rendimiento de las instancias de máquina virtual del conjunto de escalado. Estas reglas de escalado automático permiten aumentar o reducir el número de instancias de máquina virtual en respuesta a estas métricas de rendimiento. También puede seguir estos pasos con [Azure PowerShell](tutorial-autoscale-powershell.md) o la [CLI de Azure](tutorial-autoscale-cli.md).
 
 
-## <a name="prerequisites"></a>requisitos previos
-Para crear reglas de escalado automático, necesita un conjunto de escalado de máquinas virtuales ya existente. Puede crear un conjunto de escalado mediante [Azure Portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md) o la [CLI de Azure 2.0](quick-create-cli.md).
+## <a name="prerequisites"></a>Requisitos previos
+Para crear reglas de escalado automático, necesita un conjunto de escalado de máquinas virtuales ya existente. Puede crear un conjunto de escalado con [Azure Portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md) o la [CLI de Azure](quick-create-cli.md).
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Creación de una regla para realizar un escalado horizontal de forma automática
@@ -47,7 +47,7 @@ Si aumenta la demanda de la aplicación, la carga de las instancias de máquina 
 
     Especifique la configuración siguiente para la regla:
     
-    | .              | Explicación                                                                                                         | Valor          |
+    | Parámetro              | Explicación                                                                                                         | Valor          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
     | *Agregación de tiempo*     | Define cómo se deben agregar las métricas recopiladas para el análisis.                                                | Media        |
     | *Nombre de métrica*          | La métrica de rendimiento del conjunto de escalado sobre el que realizar las acciones de supervisión y aplicación.                                                   | Porcentaje de CPU |
@@ -74,7 +74,7 @@ La demanda de la aplicación puede reducirse por las tardes o durante los fines 
 
     Use el mismo enfoque que con la regla anterior. Ajuste la configuración siguiente para la regla:
     
-    | .              | Explicación                                                                                                          | Valor          |
+    | Parámetro              | Explicación                                                                                                          | Valor          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operador*             | El operador que se utiliza para comparar los datos de las métricas con los umbrales.                                                      | Menor que   |
     | *Umbral*            | El porcentaje que hace que la regla de escalado automático desencadene una acción.                                                 | 30             |

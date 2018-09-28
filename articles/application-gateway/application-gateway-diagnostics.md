@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 256eac99feacc18a51e45c3f07cdceb7d687cacf
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 563194ea0b3e4bda2021c75c544d068f00d74ba7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293628"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963839"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway
 
@@ -58,7 +58,7 @@ El código de PowerShell siguiente muestra cómo extraer el mantenimiento del ba
 Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
 ```
 
-### <a name="view-back-end-health-through-azure-cli-20"></a>Visualización del mantenimiento del back-end mediante la CLI de Azure 2.0
+### <a name="view-back-end-health-through-azure-cli"></a>Visualización del mantenimiento del back-end mediante la CLI de Azure
 
 ```azurecli
 az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway
@@ -311,6 +311,10 @@ También puede conectarse a la cuenta de almacenamiento y recuperar las entradas
 > Si está familiarizado con Visual Studio y con los conceptos básicos de cambio de los valores de constantes y variables de C#, puede usar las [herramientas convertidoras de registros](https://github.com/Azure-Samples/networking-dotnet-log-converter) que encontrará en GitHub.
 > 
 > 
+
+#### <a name="analyzing-access-logs-through-goaccess"></a>Analizar los registros de acceso mediante GoAccess
+
+Hemos publicado una plantilla de Resource Manager que se instala y ejecuta el popular analizador de registros [GoAccess](https://goaccess.io/) para los registros de acceso de Application Gateway. GoAccess proporciona valiosas estadísticas de tráfico HTTP como visitantes únicos, archivos solicitados, hosts, sistemas operativos, exploradores, códigos de estado HTTP y mucho más. Para obtener más información, consulte el [archivo Léame en la carpeta de plantillas de Resource Manager en GitHub](https://aka.ms/appgwgoaccessreadme).
 
 ## <a name="metrics"></a>Métricas
 

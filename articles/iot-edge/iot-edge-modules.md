@@ -8,12 +8,12 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9064e0da6dde6c4b30235adf771f06a4f25d709a
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 76b0bab0f2eb34d7283d38eb0442f4f2f2083db3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42144531"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995398"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Información sobre los módulos de Azure IoT Edge
 
@@ -67,7 +67,7 @@ Twin twin = await client.GetTwinAsync();
 
 ## <a name="offline-capabilities"></a>Funcionalidades sin conexión
 
-Azure IoT Edge permite realizar operaciones sin conexión en los dispositivos IoT Edge. Por el momento, estas funcionalidades están limitadas, pero se irán desarrollando nuevos escenarios. 
+Azure IoT Edge permite realizar operaciones sin conexión en los dispositivos IoT Edge. Estas funcionalidades están limitadas por ahora. 
 
 Los módulos de IoT Edge pueden permanecer sin conexión durante largos períodos de tiempo siempre que se cumplan los requisitos siguientes: 
 
@@ -75,6 +75,8 @@ Los módulos de IoT Edge pueden permanecer sin conexión durante largos período
 * **Que los módulos no tengan que volver a autenticarse con el centro de IoT Edge cuando estén sin conexión**. Los módulos solo pueden autenticarse con centros de Edge que tengan una conexión activa con un centro de IoT. Los módulos tienen que volver a autenticarse si se reinician por algún motivo. Los módulos pueden seguir enviando mensajes al centro de Edge aunque el token de SAS haya expirado. Cuando se reanuda la conectividad, el centro de Edge solicita un nuevo token desde el módulo y lo valida con el centro de IoT. Si es correcto, el centro de Edge reenvía los mensajes del módulo que están guardados, incluso lo que se enviaron mientras el token del módulo estaba vencido. 
 * **Que el módulo que envía los mensajes mientras no hay conexión siga en funcionamiento cuando se reanude la conectividad**. Cuando se restablece la conexión con IoT Hub, el centro de Edge tiene que validar un nuevo token del módulo (si el anterior venció) para poder reenviar los mensajes del módulo. Si el módulo no es capaz de proporcionar un nuevo token, el centro de Edge no puede realizar ninguna operación con los mensajes almacenados del módulo. 
 * **Que el centro de Edge tenga espacio en disco para almacenar los mensajes**. De forma predeterminada, los mensajes se guardan en el sistema de archivos del contenedor del centro de Edge. No obstante, hay una opción de configuración que permite especificar un volumen montado para guardar los mensajes. En cualquier caso, debe haber espacio en disco suficiente para guardar los mensajes que se van a entregar en diferido a IoT Hub.  
+
+Hay capacidades sin conexión adicionales disponibles en la versión preliminar pública. Para obtener más información, consulte [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md) (Entender las capacidades sin conexión extendidas para dispositivos IoT Edge, módulos y dispositivos secundarios).
 
 ## <a name="next-steps"></a>Pasos siguientes
  - [Información de la instancia de Azure IoT Edge en tiempo de ejecución y su arquitectura][lnk-runtime]

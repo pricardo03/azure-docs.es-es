@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: d0720c23e0831b446a92855383fab06b0bfacbc7
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e66d896a7df48645dad39b5b978c4f7c2f8d8cb9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525474"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954558"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Baja del servicio Azure IoT Hub Device Provisioning para un dispositivo
 
@@ -34,9 +34,12 @@ Para colocar el dispositivo temporalmente en la lista negra, deshabilite su entr
 2. En la lista de recursos, seleccione el servicio de aprovisionamiento para el que desee incluir en la lista negra a su dispositivo.
 3. En el servicio de aprovisionamiento, seleccione **Administrar inscripciones** y después, la pestaña **Inscripciones individuales**.
 4. Seleccione la entrada de inscripción del dispositivo que desee colocar en la lista negra. 
-5. Desplácese a la parte inferior, seleccione **Deshabilitar** en el conmutador **Habilitar entrada** y, después, seleccione **Guardar**.  
 
-   [![Deshabilitación de una entrada de inscripción individual en el portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+    ![Seleccione su inscripción individual](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
+
+5. En la página de inscripción, desplácese hacia abajo y seleccione **Deshabilitar** para el conmutador **Habilitar entrada** y después **Guardar**.  
+
+   ![Deshabilitación de una entrada de inscripción individual en el portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
 
 Para incluir el dispositivo de forma permanente en la lista negra, elimine su entrada de inscripción:
 
@@ -47,7 +50,8 @@ Para incluir el dispositivo de forma permanente en la lista negra, elimine su en
 5. Seleccione **Eliminar** en la parte superior de la ventana y después seleccione **Sí** para confirmar que desea eliminar la inscripción. 
 
    ![Eliminación de una entrada de inscripción individual en el portal](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
-    
+
+
 Una vez completado el procedimiento, debe ver que la entrada se ha eliminado de la lista de inscripciones de individuales.  
 
 ## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Inclusión en una lista negra de un certificado de entidad de certificación X.509 intermedia o raíz usando un grupo de inscripción
@@ -91,14 +95,18 @@ Para incluir en una lista negra a un dispositivo individual en un grupo de inscr
 1. Inicie sesión en Azure Portal y seleccione **Todos los recursos** en el menú a la izquierda.
 2. En la lista de recursos, seleccione el servicio de aprovisionamiento que contiene el grupo de inscripción para el dispositivo que desee colocar en la lista negra.
 3. En el servicio de aprovisionamiento, seleccione **Administrar inscripciones** y después, la pestaña **Inscripciones individuales**.
-4. Seleccione el botón **Agregar** de la parte superior. 
-5. Seleccione **X.509** como mecanismo de atestación para el dispositivo y cargue el certificado del dispositivo. Este es el certificado de entidad final firmado instalado en el dispositivo. El dispositivo lo usa para generar certificados para la autenticación.
-6. En **Id. de dispositivo de IoT Hub**, escriba el identificador del dispositivo. 
-7. Seleccione **Deshabilitar** en el conmutador **Habilitar entrada** y después seleccione **Guardar**. 
+4. Seleccione el botón **Agregar inscripción individual** situado en la parte superior. 
+5. En la página **Agregar inscripción**, seleccione **X.509** como el **Mecanismo** de atestación para el dispositivo.
+
+    Cargue el certificado del dispositivo y escriba el identificador del dispositivo que debe estar en la lista negra. Para el certificado, utilice el certificado de entidad final firmado instalado en el dispositivo. El dispositivo usa el certificado de entidad final firmado para la autenticación.
+
+    ![Establecer las propiedades de dispositivo para el dispositivo en la lista negra](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
+
+6. Desplácese hasta la parte inferior de la página **Agregar inscripción** y seleccione **Deshabilitar** en el conmutador **Habilitar entrada** y después **Guardar**. 
 
     [![Uso de la deshabilitación de una entrada de inscripción individual para deshabilitar en el portal la inscripción en grupo del dispositivo](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
-Si la inscripción se crea correctamente, verá que el dispositivo aparece en la pestaña **Inscripciones individuales**.
+Al crear la inscripción correctamente, debería ver que la inscripción del dispositivo deshabilitado aparece en la pestaña **Inscripciones individuales**. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

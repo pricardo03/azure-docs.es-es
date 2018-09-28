@@ -1,79 +1,82 @@
 ---
-title: Configuración de un clúster de HDInsight unido a un dominio mediante Azure AD DS
-description: Obtenga información sobre cómo configurar un clúster de HDInsight unido a un dominio mediante Azure Active Directory Domain Services
+title: Configurar un clúster de HDInsight con Enterprise Security Package mediante Azure AD DS
+description: Obtenga información sobre cómo instalar y configurar un clúster de Enterprise Security Package de HDInsight mediante Azure Active Directory Domain Services
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 07/17/2018
-ms.openlocfilehash: 17924b0a00f4605d41492768b0124c583664aca6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/24/2018
+ms.openlocfilehash: a5b377381fd540c2a9f1d85e0cb7edce32c2dae8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042148"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968380"
 ---
-# <a name="configure-a-domain-joined-hdinsight-cluster-by-using-azure-active-directory-domain-services"></a>Configuración de un clúster de HDInsight unido a un dominio mediante Azure Active Directory Domain Services
+# <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services
 
-Los clústeres unidos a un dominio proporcionan acceso multiusuario en los clústeres de Azure HDInsight. Los clústeres de HDInsight unidos a un dominio se conectan a un dominio, lo que permite a los usuarios del dominio usar sus credenciales de dominio para autenticarse en los clústeres y ejecutar trabajos de macrodatos. 
+Los clústeres de Enterprise Security Package (ESP) proporcionan acceso multiusuario en clústeres de Azure HDInsight. Los clústeres de HDInsight con ESP se conectan a un dominio para que los usuarios del dominio puedan usar sus credenciales de dominio para autenticarse con los clústeres y ejecutar trabajos de macrodatos. 
 
-En este artículo, aprenderá a configurar un clúster de HDInsight unido a un dominio con Azure Active Directory Domain Services (Azure AD DS).
+En este artículo, aprenderá a configurar un clúster de HDInsight con ESP mediante Azure Active Directory Domain Services (Azure AD-DS).
 
-## <a name="enable-azure-ad-ds"></a>Habilitación de Azure AD DS
+>[!NOTE]
+>ESP está disponible en HDI 3.6+ para Spark, Interactive y Hadoop. ESP para el clúster de HBase está en versión preliminar.
 
-La habilitación de Azure AD DS es un requisito previo para poder crear un clúster de HDInsight unido a un dominio. Para obtener más información, consulte [Habilitación de Azure Active Directory Domain Services mediante Azure Portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
-> [!NOTE]
-> Solo los administradores de inquilinos tienen privilegios para crear instancias de Azure AD DS. Si usa Azure Data Lake Storage Gen1 como almacenamiento predeterminado para HDInsight, asegúrese de que el inquilino de Azure AD predeterminado de Data Lake Storage Gen1 es el mismo que el del dominio del clúster de HDInsight. Como Hadoop se basa en Kerberos y en autenticación básica, la autenticación multifactor se debe deshabilitar para los usuarios que tendrán acceso al clúster.
+## <a name="enable-azure-ad-ds"></a>Habilitar Azure AD DS
 
-Después de aprovisionar la instancia de Azure AD DS, cree una cuenta de servicio en Azure Active Directory (Azure AD) con los permisos adecuados. Si ya existe esta cuenta de servicio, restablezca la contraseña y espere hasta que se sincronice con Azure AD DS. Este restablecimiento dará como resultado la creación del hash de contraseña de Kerberos y puede tardar hasta 30 minutos en sincronizarse con Azure AD DS. 
-
-La cuenta de servicio debe tener los privilegios siguientes:
-
-- Unir máquinas al dominio y colocar las entidades de seguridad de la máquina en la unidad organizativa que se especifique durante la creación del clúster.
-- Crear entidades de servicio dentro de la unidad organizativa que especifique durante la creación del clúster.
+Habilitar Azure AD DS es un requisito previo para poder crear un clúster de HDInsight con ESP. Para obtener más información, consulte [Habilitación de Azure Active Directory Domain Services mediante Azure Portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
 > [!NOTE]
-> Dado que Apache Zeppelin usa el nombre de dominio para autenticar la cuenta de servicio administrativa, dicha cuenta *debe* tener el mismo nombre de dominio que su sufijo de UPN para que Apache Zeppelin funcione correctamente.
+> Solo los administradores de inquilinos tienen los privilegios para crear una instancia de Azure AD DS. Si usa Azure Data Lake Storage Gen1 como almacenamiento predeterminado para HDInsight, asegúrese de que el inquilino de Azure AD predeterminado de Data Lake Storage Gen1 es el mismo que el del dominio del clúster de HDInsight. Como Hadoop se basa en Kerberos y en autenticación básica, la autenticación multifactor se debe deshabilitar para los usuarios que tendrán acceso al clúster.
 
-Para más información sobre las unidades organizativas y cómo administrarlas, consulte [Creación de una unidad organizativa en un dominio administrado de Azure AD DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md). 
+LDAP seguro es para un dominio administrado de Azure AD DS. Al habilitar LDAPS, coloque el nombre de dominio en el nombre del firmante o el nombre alternativo del firmante del certificado. Para obtener más información, consulte [Configuración de LDAP seguro (LDAPS) para un dominio administrado con Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
-LDAP seguro es para un dominio administrado de Azure AD DS. Para más información, consulte [Configuración de LDAP seguro para un dominio administrado de Azure AD DS](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
+## <a name="add-managed-identity"></a>Agregar identidad administrada
 
-## <a name="create-a-domain-joined-hdinsight-cluster"></a>Creación de un clúster de HDInsight unido a un dominio
+Después de habilitar Azure AD DS, cree una identidad administrada y asígnela al rol **Colaborador de servicios de dominio de HDInsight** en el control de acceso de Azure AD DS.
 
-El paso siguiente es crear el clúster de HDInsight con Azure AD DS y la cuenta de servicio que creó en la sección anterior.
+![Control de acceso de Azure Active Directory Domain Services](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-configure-managed-identity.png)
 
-Es más sencillo colocar tanto la instancia de Azure AD DS como el clúster de HDInsight en la misma red virtual de Azure. Si decide colocarlos en distintas redes virtuales, debe emparejar esas redes virtuales para que las máquinas virtuales de HDInsight tengan una línea de visión al controlador de dominio para unirse a las máquinas virtuales. Para más información, consulte [Emparejamiento de redes virtuales](../../virtual-network/virtual-network-peering-overview.md).
+Para obtener más información, vea [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md) (¿Qué son las identidades administradas de Azure?).
 
-Al crear un clúster de HDInsight unidos a un dominio, debe proporcionar los parámetros siguientes:
+## <a name="create-a-hdinsight-cluster-with-esp"></a>Crear un clúster de HDInsight con ESP
 
-- **Nombre de dominio**: nombre de dominio asociado con Azure AD DS. Un ejemplo es contoso.onmicrosoft.com.
+El siguiente paso es crear el clúster de HDInsight con ESP habilitado mediante Azure AD DS.
 
-- **Nombre de usuario de dominio**: cuenta de servicio del dominio administrado del controlador de dominio de Azure ADDS que creó en la sección anterior. Un ejemplo es hdiadmin@contoso.onmicrosoft.com. Este usuario de dominio será el administrador de este clúster de HDInsight.
+Es más fácil colocar la instancia de Azure AD DS y el clúster de HDInsight en la misma red virtual de Azure. Si decide colocarlos en distintas redes virtuales, debe emparejar esas redes virtuales para que las máquinas virtuales de HDInsight tengan una línea de visión al controlador de dominio para unirse a las máquinas virtuales. Para más información, consulte [Emparejamiento de redes virtuales](../../virtual-network/virtual-network-peering-overview.md).
 
-- **Contraseña de dominio**: contraseña de la cuenta de servicio.
+Cuando cree un clúster de HDInsight, tiene la opción para habilitar Enterprise Security Package para que conecte su clúster con Azure AD DS. 
 
-- **Unidad organizativa**: nombre distintivo de la unidad organizativa que quiere utilizar con el clúster de HDInsight. Un ejemplo es OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com. Si no existe esta unidad organizativa, el clúster de HDInsight intenta crearla mediante los privilegios que tiene la cuenta de servicio. Por ejemplo, si la cuenta de servicio está en el grupo de administradores de Azure AD DS, tiene los permisos adecuados para crear una unidad organizativa. En caso contrario, debe crear primero la unidad organizativa y proporcionar a la cuenta de servicio el control total sobre esa unidad organizativa. Para más información, consulte [Creación de una unidad organizativa en un dominio administrado de Azure AD DS](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
+![Redes y seguridad de Azure HDInsight](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-security-networking.png)
 
-    > [!IMPORTANT]
-    > Incluya todos los controladores de dominio, separados con comas, después de la unidad organizativa (por ejemplo, OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com).
+Una vez que habilite ESP, se detectarán y validarán las configuraciones erróneas comunes relacionadas con Azure AD DS.
+
+![Validación del dominio de Enterprise Security Package de Azure HDInsight](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate.png)
+
+La detección temprana ahorra tiempo al permitirle corregir los errores antes de crear el clúster.
+
+![Validación de dominio con error de Enterprise Security Package de Azure HDInsight](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate-failed.png)
+
+Cuando crea un clúster de HDInsight mediante ESP, debe proporcionar los siguientes parámetros:
+
+- **Usuario de administrador de clúster**: elija un administrador para el clúster desde su Azure AD DS sincronizado.
+
+- **Grupos de acceso de clúster**: los grupos de seguridad cuyos usuarios desea sincronizar con el clúster deben estar sincronizados y disponibles en Azure AD DS. Por ejemplo, HiveUsers. Si desea especificar varios grupos de usuarios, sepárelos con un punto y coma ";". Los grupos deben existir en el directorio antes del aprovisionamiento. Para más información consulte [Creación de un grupo y adición de miembros en Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Si el grupo no existe, se produce un error que indica que el grupo HiveUsers no se ha encontrado en Active Directory.
 
 - **Dirección URL de LDAPS**: un ejemplo es ldaps://contoso.onmicrosoft.com:636.
 
     > [!IMPORTANT]
     > Escriba la dirección URL completa, incluido "ldaps://" y el número de puerto (:636).
 
-- **Grupo de usuarios de acceso**: grupos de seguridad cuyos usuarios quiere que se sincronicen con el clúster. Por ejemplo, HiveUsers. Si desea especificar varios grupos de usuarios, sepárelos con un punto y coma ";". Los grupos deben existir en el directorio antes del aprovisionamiento. Para más información consulte [Creación de un grupo y adición de miembros en Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Si el grupo no existe, se produce un error que indica que el grupo HiveUsers no se ha encontrado en Active Directory.
-
 En la siguiente captura de pantalla se muestran las configuraciones en Azure Portal:
 
-   ![Configuración de Active Directory Domain Services unido a un dominio de Azure HDInsight](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
+   ![Configuración de Azure HDInsight ESP Active Directory Domain Services](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para configurar las directivas de Hive y ejecutar las consultas de Hive, consulte [Configuración de directivas de Hive en clústeres de HDInsight unidos a un dominio](apache-domain-joined-run-hive.md).
-* Para utilizar SSH para conectarse a clústeres de HDInsight unidos a dominio, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Para configurar las directivas de Hive y ejecutar las consultas de Hive, vea [Configurar directivas de Hive en HDInsight unido a un dominio](apache-domain-joined-run-hive.md).
+* Para que usar SSH para conectarse a clústeres de HDInsight con ESP, vea [Usar SSH con Hadoop basado en Linux en HDInsight desde Linux, Unix u OS X](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 

@@ -9,34 +9,34 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 03d622e3c7a3315238f2bceedae529bbe06af299
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7ef4de749d5b9152bbe043a26d3c60fe7f09f869
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35382964"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951821"
 ---
 # <a name="call-bing-custom-search-endpoint-java"></a>Llamada a un punto de conexión de Bing Custom Search (Java)
 
-Esta guía de inicio rápido muestra cómo solicitar los resultados de la búsqueda a la instancia de búsqueda personalizada usando Java para llamar al punto de conexión de Bing Custom Search. 
+En esta guía de inicio rápido se muestra cómo solicitar los resultados de la búsqueda a la instancia de búsqueda personalizada usando Java, para llamar al punto de conexión de Bing Custom Search. 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
+
 Para completar este inicio rápido necesita instalar:
-- Una instancia de Custom Search. Consulte [Create your first Bing Custom Search instance](quick-start.md) (Creación de la primera instancia de Bing Custom Search).
 
+- Una instancia de Custom Search lista para usar. Consulte [Create your first Bing Custom Search instance](quick-start.md) (Creación de la primera instancia de Bing Custom Search).
 - [Java](https://www.java.com) instalado.
-
-- Una [cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Bing Search APIs**. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) es suficiente para esta guía de inicio rápido. Necesita la clave de acceso que se le proporciona al activar la versión de evaluación gratuita, o puede usar una clave de suscripción de pago desde su panel de Azure.
+- Una clave de suscripción. Puede obtener una clave de suscripción al activar la [evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), o bien puede usar una clave de suscripción de pago en el panel de Azure (consulte [Cuenta de la API de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
 ## <a name="run-the-code"></a>Ejecución del código
 
-Para llamar al punto de conexión Bing Custom Search, siga estos pasos:
+Para ejecutar el ejemplo, siga estos pasos:
 
-1. Use el IDE de Java que prefiera para crear un paquete.
-2. Cree el archivo CustomSrchJava.java y copie en él el código siguiente.
-3. Reemplace los valores de **YOUR-SUBSCRIPTION-KEY** y **YOUR-CUSTOM-CONFIG-ID** por su clave y su identificador de configuración.
-
-    ``` Java
+1. Use el IDE de Java que prefiera para crear un paquete.  
+  
+2. Cree un archivo denominado CustomSrchJava.java en el paquete, y copie el código siguiente en él. Reemplace los valores de **YOUR-SUBSCRIPTION-KEY** y **YOUR-CUSTOM-CONFIG-ID** por su clave de suscripción y su identificador de configuración.  
+  
+    ```java
     import java.io.InputStream;
     import java.net.URL;
     import java.net.URLEncoder;
@@ -58,9 +58,9 @@ Para llamar al punto de conexión Bing Custom Search, siga estos pasos:
         static String subscriptionKey = "YOUR-SUBSCRIPTION-KEY"; 
         static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";  
     
-        static String searchTerm = "Microsoft";  // Replace with search term specific to your defined sources.
+        static String searchTerm = "Microsoft";  // Replace with search term specific to your search scenario.
     
-        public static SearchResults SearchImages (String searchQuery) throws Exception {
+        public static SearchResults SearchWeb (String searchQuery) throws Exception {
             // construct URL of search request (endpoint + query string)
             URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
             HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -96,15 +96,15 @@ Para llamar al punto de conexión Bing Custom Search, siga estos pasos:
     
         public static void main (String[] args) {
             if (subscriptionKey.length() != 32) {
-                System.out.println("Invalid Bing Search API subscription key!");
+                System.out.println("Invalid Custom Search subscription key!");
                 System.out.println("Please paste yours into the source code.");
                 System.exit(1);
             }
     
             try {
-                System.out.println("Searching the Web for: " + searchTerm);
+                System.out.println("Searching your slice of the Web for: " + searchTerm);
     
-                SearchResults result = SearchImages(searchTerm);
+                SearchResults result = SearchWeb(searchTerm);
     
                 System.out.println("\nRelevant HTTP Headers:\n");
                 for (String header : result.relevantHeaders.keySet())
@@ -130,8 +130,8 @@ Para llamar al punto de conexión Bing Custom Search, siga estos pasos:
         }
     
     }
-    
-    ```
+    ```  
+  
 4. Ejecute el programa.
     
 ## <a name="next-steps"></a>Pasos siguientes

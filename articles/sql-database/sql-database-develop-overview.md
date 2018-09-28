@@ -10,12 +10,12 @@ ms.custom: develop apps
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: sstein
-ms.openlocfilehash: 4236372370858e940d7e3a1671c0e8a8278796fb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 1986c19e6625df7c281f7de9b322124da6a12c45
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42146022"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973852"
 ---
 # <a name="sql-database-application-development-overview"></a>Introducción al desarrollo de aplicaciones en SQL Database
 Este artículo le lleva por las consideraciones básicas que debe tener en cuenta un desarrollador al escribir código para conectarse a Azure SQL Database.
@@ -36,9 +36,9 @@ Puede aprovechar herramientas de código abierto como [cheetah](https://github.c
 Azure SQL Database administra los recursos disponibles para una base de datos mediante dos mecanismos diferentes: regulación de recursos y aplicación de límites. Para más información, consulte:
 
 - [Límites de modelo de recursos basados en DTU para bases de datos únicas](sql-database-dtu-resource-limits-single-databases.md)
-- [Límites de modelo de recursos basados en DTU para grupos de bases de datos elásticas](sql-database-dtu-resource-limits-elastic-pools.md)
+- [Límites de modelo de recursos basado en DTU: grupos elásticos](sql-database-dtu-resource-limits-elastic-pools.md)
 - [Límites de recursos basados en núcleos virtuales para bases de datos únicas](sql-database-vcore-resource-limits-single-databases.md)
-- [Límites de recursos basados en núcleos virtuales para grupos de bases de datos elásticas](sql-database-vcore-resource-limits-elastic-pools.md)
+- [Límites de recursos basados en núcleos virtuales para grupos elásticos](sql-database-vcore-resource-limits-elastic-pools.md)
 
 ## <a name="security"></a>Seguridad
 Azure SQL Database proporciona recursos para limitar el acceso, proteger los datos y supervisar las actividades en SQL Database.

@@ -9,22 +9,22 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e3aa2cf93e529fcc430162ac90be06a75690fb21
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 45558e25f2f61090cfb3ddb5c382170ab40792d0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523451"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999056"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Configuración del servicio IoT Hub Device Provisioning con una plantilla de Azure Resource Manager
 
-Puede utilizar [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para configurar mediante programación los recursos de nube de Azure necesarios para aprovisionar los dispositivos. Estos pasos muestran cómo crear una instancia de IoT Hub, una nueva instancia del servicio IoT Hub Device Provisioning y vincular los dos servicios mediante una plantilla de Azure Resource Manager. Esta guía de inicio rápido utiliza la [CLI de Azure 2.0](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) para realizar los pasos de programación necesarios para crear un grupo de recursos e implementar la plantilla, pero puede utilizar fácilmente [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby u otros lenguajes de programación para realizar estos pasos e implementar la plantilla. 
+Puede utilizar [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para configurar mediante programación los recursos de nube de Azure necesarios para aprovisionar los dispositivos. Estos pasos muestran cómo crear una instancia de IoT Hub, una nueva instancia del servicio IoT Hub Device Provisioning y vincular los dos servicios mediante una plantilla de Azure Resource Manager. Esta guía de inicio rápido usa la [CLI de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) para realizar los pasos de programación necesarios para crear un grupo de recursos e implementar la plantilla, pero puede usar fácilmente [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby u otros lenguajes de programación para realizar estos pasos e implementar la plantilla. 
 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-- Esta guía de inicio rápido requiere que se ejecute localmente la CLI de Azure. Debe tener instalada la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- Esta guía de inicio rápido requiere que se ejecute localmente la CLI de Azure. Debe tener instalada la CLI de Azure versión 2.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalar o actualizar la CLI, consulte [Instalar la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 
 ## <a name="sign-in-to-azure-and-create-a-resource-group"></a>Inicio de sesión en Azure y creación de un grupo de recursos

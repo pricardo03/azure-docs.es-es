@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: b206d93d7c72f5d8ff3dd3baa277cd0db33ba583
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 97e192312619455c0055a917df880cc48eb082dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811920"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978930"
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -105,13 +105,13 @@ En las rutas definidas por el usuario, no se pueden especificar **Emparejamiento
 
 El nombre que se muestra y al que hace referencia en los tipos de próximo salto es diferente entre Azure Portal y las herramientas de línea de comandos y los modelos de implementación clásico y mediante Azure Resource Manager. En la siguiente tabla se enumeran los nombres que se usan para hacer referencia a cada tipo de próximo salto con las diferentes herramientas y los [modelos de implementación](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
-|Tipo de próximo salto                   |CLI de Azure 2.0 y PowerShell (Resource Manager) |CLI de Azure 1.0 y PowerShell (clásico)|
+|Tipo de próximo salto                   |CLI de Azure y PowerShell (Resource Manager) |CLI clásica de Azure y PowerShell (clásico)|
 |-------------                   |---------                                       |-----|
 |Puerta de enlace de red virtual         |VirtualNetworkGateway                           |VPNGateway|
-|Virtual network                 |VNetLocal                                       |VNETLocal (no disponible en la CLI 1.0 en modo asm)|
-|Internet                        |Internet                                        |Internet (no disponible en la CLI 1.0 en modo asm)|
+|Virtual network                 |VNetLocal                                       |VNETLocal (no disponible en la CLI clásica en modo asm)|
+|Internet                        |Internet                                        |Internet (no disponible en la CLI clásica en modo asm)|
 |Aplicación virtual               |VirtualAppliance                                |VirtualAppliance|
-|None                            |None                                            |Nulo (no disponible en la CLI 1.0 en modo asm)|
+|None                            |None                                            |Null (no disponible en la CLI clásica en modo asm)|
 |Emparejamiento de redes virtuales de Azure         |Emparejamiento de VNET                                    |No aplicable|
 |Puntos de conexión de servicio Virtual Network|VirtualNetworkServiceEndpoint                   |No aplicable|
 

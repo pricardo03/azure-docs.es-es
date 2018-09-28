@@ -1,38 +1,38 @@
 ---
-title: Conectar una cuenta de Amazon Web Services a Azure Cost Management | Microsoft Docs
-description: Conecte una cuenta de Amazon Web Services para ver los datos de uso y el costo en los informes de Cost Management.
+title: Conectar una cuenta de Amazon Web Services a Cloudyn en Azure | Microsoft Docs
+description: Conecte una cuenta de Amazon Web Services para ver datos de uso y costo en los informes de Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 08/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: c2c7ea043d2da41442829321ac663325f30ff066
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 44bf1d9cd270394720aee71862c1e65118084259
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297335"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978238"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Conectarse a una cuenta de Amazon Web Services
 
-Tiene dos opciones para conectar su cuenta de Amazon Web Services (AWS) a Azure Cost Management. Puede conectarse con un rol de IAM o con una cuenta de usuario de IAM de solo lectura. Se recomienda usar el rol de IAM porque le permite delegar el acceso con permisos definidos a las entidades de confianza. El rol de IAM no necesita que comparta claves de acceso a largo plazo. Después de conectar una cuenta de AWS a Cost Management, los datos de uso y de costo estarán disponibles en los informes de Cost Management. Este documento le guía a través de ambas opciones.
+Tiene dos opciones para conectar su cuenta de Amazon Web Services (AWS) a Cloudyn. Puede conectarse con un rol de IAM o con una cuenta de usuario de IAM de solo lectura. Se recomienda usar el rol de IAM porque le permite delegar el acceso con permisos definidos a las entidades de confianza. El rol de IAM no necesita que comparta claves de acceso a largo plazo. Después de conectar una cuenta de AWS a Cloudyn, los datos de uso y costo estarán disponibles en los informes de Cloudyn. Este documento le guía a través de ambas opciones.
 
 Para obtener más información acerca de las identidades de AWS IAM, vea [Identidades (usuarios, grupos y roles)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html).
 
-Además, habilitará los informes de facturación detallados de AWS y almacenará la información en un cubo de Simple Storage Service (S3). Los informes de facturación detallados incluyen cargos de facturación con etiqueta e información de recursos cada hora. El almacenamiento de los informes permite que Cost Management los recupere del cubo y muestre la información en sus informes.
+Además, habilitará los informes de facturación detallados de AWS y almacenará la información en un cubo de Simple Storage Service (S3). Los informes de facturación detallados incluyen cargos de facturación con etiqueta e información de recursos cada hora. Almacenar los informes permite a Cloudyn recuperarlos del cubo y mostrar la información en sus informes.
 
 
 ## <a name="aws-role-based-access"></a>Acceso basado en roles de AWS
 
-En las siguientes secciones se le ayudará a crear un rol de IAM de solo lectura para proporcionar acceso a Cost Management.
+Las siguientes secciones le ayudarán a crear un rol de IAM de solo lectura para proporcionar acceso a Cloudyn.
 
-### <a name="get-your-cost-management-account-external-id"></a>Obtención del identificador externo de la cuenta de Cost Management
+### <a name="get-your-cloudyn-account-external-id"></a>Obtener el identificador externo de cuenta de Cloudyn
 
-El primer paso es obtener la frase de contraseña de conexión única desde el portal de Azure Cost Management. Se utiliza en AWS como **ID externo**.
+El primer paso es obtener la frase de contraseña de conexión única desde el portal de Cloudyn. Se utiliza en AWS como **ID externo**.
 
 1. Abra el portal de Cloudyn desde Azure Portal o vaya a [https://azure.cloudyn.com](https://azure.cloudyn.com) e inicie sesión.
 2. Haga clic en el símbolo de engranaje y, después, seleccione **Cuentas de Cloud**.
@@ -44,16 +44,16 @@ El primer paso es obtener la frase de contraseña de conexión única desde el p
 
 1. Inicie sesión en la consola de AWS en https://console.aws.amazon.com/iam/home y seleccione **Roles**.
 2. Haga clic en **Crear rol** y, después, seleccione **Another AWS account** (Otra cuenta de AWS).
-3. En el cuadro **Id. de cuenta**, pegue `432263259397`. Este identificador de cuenta es la cuenta del recopilador de datos de Cost Management asignada por AWS al servicio de Cloudyn. Utilice el mismo identificador de cuenta que se muestra.
-4. Junto a **Opciones**, seleccione **Require external ID** (Requerir id. externo). Pegue el valor exclusivo que copió anteriormente del campo **Id. externo** en Cost Management. A continuación, haga clic en **Next: Permissions** (Siguiente: permisos).  
+3. En el cuadro **Id. de cuenta**, pegue `432263259397`. Este identificador de cuenta es la cuenta del recopilador de datos de Cloudyn asignada por AWS al servicio de Cloudyn. Utilice el mismo identificador de cuenta que se muestra.
+4. Junto a **Opciones**, seleccione **Require external ID** (Requerir id. externo). Pegue el valor único que copió anteriormente del campo **Id. externo** en Cloudyn. A continuación, haga clic en **Next: Permissions** (Siguiente: permisos).  
     ![Crear rol](./media/connect-aws-account/create-role01.png)
 5. En **Attach permissions policies** (Adjuntar directivas de permisos), en el cuadro de búsqueda de filtros **Tipo de directiva**, escriba `ReadOnlyAccess`, seleccione **ReadOnlyAccess** y, después, haga clic en **Next: Permissions** (Siguiente: Permisos).  
     ![Acceso de solo lectura](./media/connect-aws-account/readonlyaccess.png)
-6. En la página Revisar, asegúrese de que las selecciones son correctas y escriba un **Nombre de rol**. Por ejemplo, *Azure-Cost-Mgt*. Escriba una **Descripción de rol**. Por ejemplo, _Role assignment for Azure Cost Management_ (Asignación de roles para Azure Cost Management) y, después, haga clic en **Crear rol**.
-7. En la lista **Roles**, haga clic en el rol que haya creado y copie el valor de **ARN de rol** de la página Resumen. Utilice el valor de ARN (nombre de recursos de Amazon) de rol más adelante al registrar su configuración en Azure Cost Management.  
+6. En la página Revisar, asegúrese de que las selecciones son correctas y escriba un **Nombre de rol**. Por ejemplo, *Azure-Cost-Mgt*. Escriba una **Descripción de rol**. Por ejemplo, _Asignación de roles de Cloudyn_, y después haga clic en **Crear rol**.
+7. En la lista **Roles**, haga clic en el rol que haya creado y copie el valor de **ARN de rol** de la página Resumen. Use el valor de ARN de rol (Nombre de recurso de Amazon) más adelante al registrar su configuración en Cloudyn.  
     ![ARN de rol](./media/connect-aws-account/role-arn.png)
 
-### <a name="configure-aws-iam-role-access-in-cost-management"></a>Configuración del rol de AWS IAM en Cost Management
+### <a name="configure-aws-iam-role-access-in-cloudyn"></a>Configurar el acceso de rol de IAM de AWS en Cloudyn
 
 1. Abra el portal de Cloudyn desde Azure Portal o vaya a https://azure.cloudyn.com/ e inicie sesión.
 2. Haga clic en el símbolo de engranaje y, después, seleccione **Cuentas de Cloud**.
@@ -64,16 +64,16 @@ El primer paso es obtener la frase de contraseña de conexión única desde el p
     ![Cuadro Add AWS Account (Añadir cuenta de AWS)](./media/connect-aws-account/add-aws-account-box.png)
 
 
-La cuenta de AWS aparece en la lista de cuentas. El **Id. de propietario** que aparece coincide con el valor ARN del rol. Su **estado de cuenta** debe tener una marca de verificación verde que indica que Cost Management puede acceder a su cuenta de AWS. Hasta que habilite la facturación de AWS detallada, el estado de consolidación será **independiente**.
+La cuenta de AWS aparece en la lista de cuentas. El **Id. de propietario** que aparece coincide con el valor ARN del rol. Su **Estado de la cuenta** debería tener un símbolo de marca de verificación verde que indica que Cloudyn puede tener acceso a su cuenta de AWS. Hasta que habilite la facturación de AWS detallada, el estado de consolidación será **independiente**.
 
 ![Estado de la cuenta de AWS](./media/connect-aws-account/aws-account-status01.png)
 
-Cost Management comienza a recopilar datos y a rellenar informes. A continuación, [habilite la facturación de AWS detallada](#enable-detailed-aws-billing).
+Cloudyn inicia la recopilación de datos y rellena los informes. A continuación, [habilite la facturación de AWS detallada](#enable-detailed-aws-billing).
 
 
 ## <a name="aws-user-based-access"></a>Acceso basado en usuarios de AWS
 
-En las siguientes secciones se le ayudará a crear un usuario de solo lectura para proporcionar acceso a Cost Management.
+Las siguientes secciones le ayudarán a crear un usuario de solo lectura para proporcionar acceso a Cloudyn.
 
 ### <a name="add-aws-read-only-user-based-access"></a>Agregar acceso basado en usuarios y de solo lectura de AWS
 
@@ -86,11 +86,11 @@ En las siguientes secciones se le ayudará a crear un usuario de solo lectura pa
 6. En **Attach permissions policies** (Adjuntar directivas de permisos), en el cuadro de búsqueda de filtros **Tipo de directiva**, escriba `ReadOnlyAccess`, seleccione **ReadOnlyAccess** y, después, haga clic en **Next: Permissions** (Siguiente: Permisos).  
     ![Selección de permisos para usuario](./media/connect-aws-account/set-permission-for-user.png)
 7. En la página Revisar, asegúrese de que las selecciones son correctas y, después, haga clic en **Crear usuario**.
-8. En la página Completar, se muestran el id. de clave de acceso y la clave de acceso secreta. Utilice esta información para configurar el registro en Cost Management.
+8. En la página Completar, se muestran el id. de clave de acceso y la clave de acceso secreta. Utilice esta información para configurar el registro de Cloudyn.
 9. Haga clic en **Descargar .csv** y guarde el archivo credentials.csv en una ubicación segura.  
     ![Descargar credenciales](./media/connect-aws-account/download-csv.png)
 
-### <a name="configure-aws-iam-user-based-access-in-cost-management"></a>Configuración del acceso basado en usuarios de AWS IAM en Cost Management
+### <a name="configure-aws-iam-user-based-access-in-cloudyn"></a>Configuración de acceso basado en usuarios de IAM de AWS en Cloudyn
 
 1. Abra el portal de Cloudyn desde Azure Portal o vaya a https://azure.cloudyn.com/ e inicie sesión.
 2. Haga clic en el símbolo de engranaje y, después, seleccione **Cuentas de Cloud**.
@@ -102,7 +102,7 @@ En las siguientes secciones se le ayudará a crear un usuario de solo lectura pa
 
 La cuenta de AWS aparece en la lista de cuentas. El **Estado de la cuenta** debe tener un símbolo de marca de verificación verde.
 
-Cost Management comienza a recopilar datos y a rellenar informes. A continuación, [habilite la facturación de AWS detallada](#enable-detailed-aws-billing).
+Cloudyn inicia la recopilación de datos y rellena los informes. A continuación, [habilite la facturación de AWS detallada](#enable-detailed-aws-billing).
 
 ## <a name="enable-detailed-aws-billing"></a>Habilitación de la facturación de AWS detallada
 
@@ -185,7 +185,7 @@ Después de crear y configurar el cubo de S3, vaya a [Billing Preferences](https
 3. Seleccione las cuatro opciones de granularidad de informe y, a continuación, haga clic en **Save preferences** (Guardar preferencias).  
     ![Habilitación de informes](./media/connect-aws-account/enable-reports.png)
 
-Cost Management recupera información de facturación detallada del cubo de S3 y rellena informes después de que se habilite la facturación detallada. Pueden pasar hasta 24 horas hasta que aparezcan datos de facturación detallada en la consola de Cloudyn. Cuando hay datos de facturación detallada disponibles, el estado de consolidación de su cuenta se muestra como **Consolidado**. El estado de la cuenta se muestra como **Completado**.
+Cloudyn recupera información de facturación detallada del cubo S3 y rellena los informes después de que se habilite la facturación detallada. Pueden pasar hasta 24 horas hasta que aparezcan datos de facturación detallada en la consola de Cloudyn. Cuando hay datos de facturación detallada disponibles, el estado de consolidación de su cuenta se muestra como **Consolidado**. El estado de la cuenta se muestra como **Completado**.
 
 ![Estado de cuenta consolidado](./media/connect-aws-account/consolidated-status.png)
 
@@ -193,4 +193,4 @@ Algunos de los informes de optimización pueden requerir datos de varios días p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información acerca de Azure Cost Management, consulte el tutorial [Revisión del uso y los costos](tutorial-review-usage.md) de Cost Management.
+- Para obtener más información acerca de Cloudyn, siga al tutorial [Revisión del uso y los costos](tutorial-review-usage.md) para Cloudyn.

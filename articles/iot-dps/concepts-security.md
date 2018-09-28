@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 82548ef8fd3f992eedd77c93be47cb5328a584c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 92a30f0754decc3052bf53a64da13325ddc4f954
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628647"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946568"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Conceptos de seguridad del servicio Azure IoT Hub Device Provisioning 
 
@@ -26,9 +26,11 @@ El mecanismo de atestación es el método utilizado para confirmar la identidad 
 > [!NOTE]
 > IoT Hub utiliza un "esquema de autenticación" para un concepto similar en ese servicio.
 
-El servicio Device Provisioning admite dos formas de atestación:
+El servicio de aprovisionamiento de dispositivos admite las siguientes formas de atestación:
 * **Certificados X.509** basado en el flujo de autenticación de certificados X.509 estándar.
-* **Módulo de plataforma segura (TPM)** basado en un desafío nonce, utilizando el estándar TPM para las claves para presentar un token de Firma de acceso compartido (SAS) firmado. Esto no requiere un módulo de plataforma segura (TPM) físico en el dispositivo, pero el servicio espera atestar usando la clave de aprobación para cada [especificación de TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Módulo de plataforma segura (TPM)** basado en un desafío nonce, utilizando el estándar TPM para las claves para presentar un token de Firma de acceso compartido (SAS) firmado. Esta forma de atestación no requiere un módulo de plataforma segura (TPM) físico en el dispositivo, pero el servicio espera realizar la atestación mediante la clave de aprobación para cada [especificación de TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Clave simétrica**, basada en los [tokens de seguridad](../iot-hub/iot-hub-devguide-security.md#security-tokens) de las firmas de acceso compartido (SAS), los cuales incluyen una firma hash y una fecha de expiración insertada. Para obtener más información, consulte [Symmetric key attestation](concepts-symmetric-key-attestation.md) (Atestación de clave simétrica).
+
 
 ## <a name="hardware-security-module"></a>Módulo de seguridad de hardware
 
@@ -55,7 +57,7 @@ La clave raíz de almacenamiento se almacena en el modulo de plataforma segura y
 
 ## <a name="x509-certificates"></a>Certificados X.509
 
-El uso de certificados X.509 como un mecanismo de atestación es una manera excelente para escalar la producción y simplificar el aprovisionamiento de dispositivos. Los certificados X.509 normalmente están organizados en una cadena de certificados de confianza en la que cada certificado de la cadena está firmado por la clave privada del certificado superior siguiente y así sucesivamente, terminando en un certificado raíz autofirmado. Esto establece una cadena de confianza delegada a partir del certificado raíz generado por una entidad de certificación (CA) raíz de confianza que va descendiendo mediante cada entidad de certificación intermedia hasta el certificado "de hoja" de entidad final instalado en un dispositivo. Para más información consulte [Autenticación de dispositivos mediante certificados de entidades de certificación X.509](/azure/iot-hub/iot-hub-x509ca-overview). 
+El uso de certificados X.509 como un mecanismo de atestación es una manera excelente para escalar la producción y simplificar el aprovisionamiento de dispositivos. Los certificados X.509 normalmente están organizados en una cadena de certificados de confianza en la que cada certificado de la cadena está firmado por la clave privada del certificado superior siguiente y así sucesivamente, terminando en un certificado raíz autofirmado. Esta opción establece una cadena de confianza delegada a partir del certificado raíz que generó una entidad de certificación (CA) raíz de confianza, a través de cada entidad de certificación intermedia y hasta el certificado "de hoja" de entidad final instalado en un dispositivo. Para más información consulte [Autenticación de dispositivos mediante certificados de entidades de certificación X.509](/azure/iot-hub/iot-hub-x509ca-overview). 
 
 A menudo la cadena de certificados representa alguna jerarquía lógica o física asociada con los dispositivos. Por ejemplo, un fabricante puede:
 - emitir un certificado raíz de entidad de certificación autofirmado

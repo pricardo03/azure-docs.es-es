@@ -1,0 +1,87 @@
+---
+title: Limitaciones de Azure Database for MariaDB
+description: En este artículo se describen las limitaciones de Azure Database for MariaDB como el número de conexiones o las opciones de motor de almacenamiento.
+author: ajlam
+ms.author: andrela
+editor: jasonwhowell
+services: mariadb
+ms.service: mariadb
+ms.topic: conceptual
+ms.date: 09/24/2018
+ms.openlocfilehash: ac05a2dcee3adaa93d31e28e5597a788c0159ddd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955442"
+---
+# <a name="limitations-in-azure-database-for-mariadb"></a>Limitaciones de Azure Database for MariaDB
+El servicio Azure Database for MariaDB se encuentra en versión preliminar pública. En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos.
+
+## <a name="maximum-connections"></a>Número máximo de conexiones
+El número máximo de conexiones por plan de tarifa y núcleos virtuales durante la versión preliminar es este:
+
+|**Plan de tarifa**|**Núcleos virtuales**| **Conexiones máximas**|
+|---|---|---|
+|Básica| 1| 50|
+|Básica| 2| 100|
+|Uso general| 2| 300|
+|Uso general| 4| 625|
+|Uso general| 8| 1250|
+|Uso general| 16| 2.500|
+|Uso general| 32| 5000|
+|Memoria optimizada| 2| 600|
+|Memoria optimizada| 4| 1250|
+|Memoria optimizada| 8| 2.500|
+|Memoria optimizada| 16| 5000|
+
+Si las conexiones superan el límite, puede que reciba el error siguiente:
+> ERROR 1040 (08004): Too many connections
+
+## <a name="storage-engine-support"></a>Compatibilidad del motor de almacenamiento
+
+### <a name="supported"></a>Compatible
+- [InnoDB](https://mariadb.com/kb/en/library/xtradb-and-innodb/)
+- [MEMORY](https://mariadb.com/kb/en/library/memory-storage-engine/)
+
+### <a name="unsupported"></a>No compatible
+- [MyISAM](https://mariadb.com/kb/en/library/myisam-storage-engine/)
+- [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/l)
+- [ARCHIVE](https://mariadb.com/kb/en/library/archive/)
+
+## <a name="privilege-support"></a>Compatibilidad de los privilegios
+
+### <a name="unsupported"></a>No compatible
+- Rol DBA: muchos parámetros de servidor y valores de configuración pueden reducir por error el rendimiento del servidor o invalidar las propiedades ACID del sistema de administración de bases de datos. Por lo tanto, para mantener la integridad del servicio y SLA en un nivel de producto, no se expone el rol DBA de este servicio. La cuenta de usuario predeterminada, que se crea a la vez que las instancias de base de datos, permite a los usuarios realizar la mayoría de las instrucciones DDL y DML en la instancia de base de datos administrados.
+- Privilegio SUPER: del mismo modo, los [privilegios SUPER](https://mariadb.com/kb/en/library/grant/#global-privileges) también están restringidos.
+
+## <a name="data-manipulation-statement-support"></a>Compatibilidad de las instrucciones de manipulación de datos
+
+### <a name="supported"></a>Compatible
+- `LOAD DATA INFILE` es compatible, pero el parámetro `[LOCAL]` debe especificarse y dirigirse a una ruta de acceso UNC (Azure Storage montado a través de SMB).
+
+### <a name="unsupported"></a>No compatible
+- `SELECT ... INTO OUTFILE`
+
+## <a name="functional-limitations"></a>Limitaciones funcionales
+
+### <a name="scale-operations"></a>Operaciones de escalado
+- El escalado dinámico a y desde niveles de precios Básico no se admite en este momento.
+- La reducción del tamaño de almacenamiento del servidor no se admite.
+
+### <a name="server-version-upgrades"></a>Actualizaciones de la versión de servidor
+- La migración automatizada entre las principales versiones del motor de base de datos no se admite en este momento.
+
+### <a name="point-in-time-restore"></a>Restauración a un momento dado
+- Al usar la característica PITR, el nuevo servidor se crea con la misma configuración que el servidor en el que se basa.
+- La restauración a un servidor que se ha eliminado no se admite en este momento.
+
+### <a name="subscription-management"></a>Administración de suscripciones
+- El movimiento dinámico de servidores creados previamente entre grupo de suscripciones y recursos no se admite en este momento.
+
+## <a name="current-known-issues"></a>Problemas conocidos actualmente
+- La instancia del servidor MariaDB muestra una versión de servidor incorrecta después de establecer la conexión. Para obtener la versión del motor de instancias de servidor correcta, use el comando `select version();`.
+
+## <a name="next-steps"></a>Pasos siguientes
+- [Qué está disponible en cada nivel de servicio](concepts-pricing-tiers.md)
+- [Versiones de base de datos de MariaDB admitidas](concepts-supported-versions.md)

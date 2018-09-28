@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 1ac55b728a29ff1bb8129087da5992ffe5f23df9
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 6ed1ef6019e339768c4ba6a62d8b4d99d844f254
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42820316"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949540"
 ---
 # <a name="azure-and-linux"></a>Azure y Linux
 Microsoft Azure es una colección cada vez mayor de servicios en la nube, públicos e integrados, que incluyen servicios de análisis, máquinas virtuales, bases de datos, móviles, de red, de almacenamiento y web,&mdash;ideales para hospedar sus soluciones.  Microsoft Azure proporciona una plataforma informática escalable que permite pagar solo por lo que use, cuando lo desee, sin tener que invertir en hardware local.  Azure está listo cuando tenga que escalar sus soluciones vertical y horizontalmente a cualquier escala que necesite para atender las necesidades de sus clientes.
@@ -37,7 +37,7 @@ Azure anunció un Acuerdo de Nivel de Servicio líder de la industria de máquin
 
 ## <a name="managed-disks"></a>Managed Disks
 
-El servicio Managed Disks controla la creación y administración de las cuentas de almacenamiento de Azure Storage en segundo plano y se asegura de que no tenga que preocuparse de los límites de escalabilidad de la cuenta de almacenamiento. Especifique el tamaño del disco y el nivel de rendimiento (Estándar o Premium), y Azure crea y administra el disco. Al agregar discos o escale y reduzca la máquina virtual no tendrá que preocuparse por el almacenamiento que se va a usar. Si está creando nuevas máquinas virtuales, [use la CLI de Azure 2.0](quick-create-cli.md) o Azure Portal para crear máquinas virtuales con sistema operativo administrado y discos de datos. Si tiene máquinas virtuales con discos no administrados, puede [convertir las máquinas virtuales para realizar copias de seguridad con Managed Disks](convert-unmanaged-to-managed-disks.md).
+El servicio Managed Disks controla la creación y administración de las cuentas de almacenamiento de Azure Storage en segundo plano y se asegura de que no tenga que preocuparse de los límites de escalabilidad de la cuenta de almacenamiento. Especifique el tamaño del disco y el nivel de rendimiento (Estándar o Premium), y Azure crea y administra el disco. Al agregar discos o escale y reduzca la máquina virtual no tendrá que preocuparse por el almacenamiento que se va a usar. Si está creando nuevas máquinas virtuales, [use la CLI de Azure](quick-create-cli.md) o Azure Portal para crear máquinas virtuales con sistema operativo administrado y discos de datos. Si tiene máquinas virtuales con discos no administrados, puede [convertir las máquinas virtuales para realizar copias de seguridad con Managed Disks](convert-unmanaged-to-managed-disks.md).
 
 También puede administrar sus imágenes personalizadas en una cuenta de almacenamiento por región de Azure y utilizarlas para crear cientos de máquinas virtuales en la misma suscripción. Para más información acerca de Managed Disks, consulte [Introducción a Azure Managed Disks](../linux/managed-disks-overview.md).
 
@@ -91,7 +91,7 @@ Para empezar a usar Azure, se necesita una cuenta de Azure, la CLI de Azure inst
 El primer paso para usar la nube de Azure es suscribirse para obtener una cuenta de Azure.  Para empezar, vaya a la página de [registro para obtener cuentas de Azure](https://azure.microsoft.com/pricing/free-trial/) .
 
 ### <a name="install-the-cli"></a>Instalación de la CLI de Azure
-Con la nueva cuenta de Azure, puede comenzar inmediatamente a usar Azure Portal, que se trata de un panel de administración web.  Para administrar la nube de Azure a través de la línea de comandos, instale `azure-cli`.  Instale la [CLI de Azure 2.0](/cli/azure/install-azure-cli) en su estación de trabajo Mac o Linux.
+Con la nueva cuenta de Azure, puede comenzar inmediatamente a usar Azure Portal, que se trata de un panel de administración web.  Para administrar la nube de Azure a través de la línea de comandos, instale `azure-cli`.  Instale la [CLI de Azure ](/cli/azure/install-azure-cli)en su estación de trabajo Mac o Linux.
 
 ### <a name="create-an-ssh-key-pair"></a>Creación de un par de claves SSH
 Ya dispone de una cuenta de Azure, del portal web de Azure y de la CLI de Azure.  El siguiente paso consiste en crear un par de claves SSH que se utiliza para acceder mediante SSH a Linux sin utilizar una contraseña.  [Cree claves SSH en Linux y Mac](mac-create-ssh-keys.md) para habilitar inicios de sesión sin contraseñas y disfrutar de una mayor seguridad.

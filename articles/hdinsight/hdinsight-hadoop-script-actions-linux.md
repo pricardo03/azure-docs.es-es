@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: jasonh
-ms.openlocfilehash: 0225115fb6c74f736e6a5fba09414dc2ebafd84e
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 9a10620e3a388fa47076afd54e1789607e5ca47e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104830"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986258"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Desarrollo de la acción de script con HDInsight
 
@@ -33,7 +33,7 @@ Se puede aplicar una acción de script a través de los métodos siguientes:
 | --- |:---:|:---:|
 | Azure Portal |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
-| CLI de Azure 1.0 |&nbsp; |✓ |
+| CLI clásica de Azure |&nbsp; |✓ |
 | SDK .NET de HDInsight |✓ |✓ |
 | Plantilla de Azure Resource Manager |✓ |&nbsp; |
 

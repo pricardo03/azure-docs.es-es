@@ -1,6 +1,6 @@
 ---
 title: Uso de cloud-init para ejecutar un script de Bash en una máquina virtual Linux en Azure | Microsoft Docs
-description: Procedimiento para usar cloud-init con el fin de ejecutar un script de Bash en una máquina virtual Linux con la CLI de Azure 2.0
+description: Cómo usar cloud-init para ejecutar un script de bash en una máquina virtual Linux durante la creación con la CLI de Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 471749563fae5b5de6e98e22ebf2ec5cc9365368
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8e8950cbd7927cb6b0543866ab976b550c9ec043
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29123725"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959553"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>Uso de cloud-init para ejecutar un script de Bash en una máquina virtual Linux en Azure
 En este artículo se muestra el uso de [cloud-init](https://cloudinit.readthedocs.io) para ejecutar un script ya existente de Bash en una máquina virtual Linux (VM) o en conjuntos de escalado de máquinas virtuales (VMSS) en el momento del aprovisionamiento en Azure. Estos scripts cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos. Para obtener más información acerca del funcionamiento nativo de cloud-init en Azure y las distribuciones de Linux compatibles, consulte la [introducción a cloud-init](using-cloud-init.md).
@@ -65,7 +65,7 @@ Cambie al directorio **/tmp** y compruebe que el archivo myScript.txt existe y t
 Running config-scripts-user using lock Running command ['/var/lib/cloud/instance/scripts/part-001']
 ```
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para ejemplos de cloud-init de cambios de configuración adicionales, vea lo siguiente:
  
 - [Incorporación de otro usuario de Linux a una máquina virtual](cloudinit-add-user.md)

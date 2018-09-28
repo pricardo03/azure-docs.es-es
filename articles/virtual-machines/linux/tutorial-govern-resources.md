@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Control de máquinas virtuales de Azure con la CLI de Azure 2.0 | Microsoft Docs'
-description: En este tutorial, aprenderá a usar la CLI de Azure 2.0 para administrar máquinas virtuales de Azure mediante la aplicación de RBAC, directivas, bloqueos y etiquetas.
+title: 'Tutorial: Controlar máquinas virtuales de Azure con la CLI de Azure | Microsoft Docs'
+description: En este tutorial obtendrá información sobre cómo usar la CLI de Azure para administrar máquinas virtuales de Azure aplicando RBAC, directivas, bloqueos y etiquetas
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 18ea9920ef3f3602721bc27001a66bcd2fc2b0fd
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 2d19488d9b4d6ae6c71610788345b45c38e51cfa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205704"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968822"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>Tutorial: Información acerca del control de máquinas virtuales Linux con la CLI de Azure 2.0
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutorial: Obtener información sobre el control de máquinas virtuales de Linux con la CLI de Azure
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="understand-scope"></a>Descripción del ámbito
 

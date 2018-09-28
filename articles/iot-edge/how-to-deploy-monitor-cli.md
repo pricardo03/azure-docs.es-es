@@ -9,12 +9,12 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b90c26eaa36c906dda904106b104c3dbf04a55ce
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c94a58a19558350c3c20377ce750f6758f688c0d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257987"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998515"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar y supervisar módulos de IoT Edge a escala, mediante la CLI de Azure
 
@@ -24,20 +24,20 @@ Azure IoT Edge permite mover los análisis al perímetro y proporciona una inter
 
 Puede administrar dispositivos individuales e implementarles módulos de uno en uno. Sin embargo, si desea realizar cambios en los dispositivos en a gran escala, puede crear una **implementación automática de IoT Edge**, que forma parte de la administración automática de dispositivos de IoT Hub. Las implementaciones son procesos dinámicos que permiten poner en marcha varios módulos en múltiples dispositivos a la vez, realizar un seguimiento del estado y del mantenimiento de los módulos y realizar cambios cuando sea necesario. 
 
-En este artículo, configurará la CLI de Azure 2.0 y la extensión de IoT. A continuación, aprenderá a implementar módulos en un dispositivo de IoT Edg, y a supervisar el progreso mediante los comandos de la CLI disponibles.
+En este artículo, configuró la CLI de Azure y la extensión de IoT. A continuación, aprenderá a implementar módulos en un dispositivo de IoT Edg, y a supervisar el progreso mediante los comandos de la CLI disponibles.
 
 ## <a name="cli-prerequisites"></a>Requisitos previos de CLI
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-using-cli.md) en la suscripción de Azure. 
 * [Dispositivos de IoT Edge](how-to-register-device-cli.md) que tengan instalado el entorno de ejecución de IoT Edge.
-* [CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) en su entorno. La versión mínima de la CLI de Azure 2.0 debe ser la 2.0.24. Use `az –-version` para realizar la validacion. Esta versión admite comandos az extension e introduce la plataforma de comandos de Knack. 
-* La [extensión de IoT para la CLI de Azure 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) en su entorno. La versión mínima de la CLI de Azure es la 2.0.24. Use `az –-version` para asegurarse. Esta versión admite comandos az extension e introduce la plataforma de comandos de Knack. 
+* La [extensión de IoT de la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configuración de un manifiesto de implementación
 
 Un manifiesto de implementación es un documento JSON que describe qué módulos se van a implementar, cómo fluyen los datos entre los módulos y las propiedades deseadas de los módulos gemelos. Para más información sobre los manifiestos de implementación y cómo crearlos, consulte [Descripción de cómo se pueden utilizar, configurar y reutilizar los módulos de IoT Edge](module-composition.md).
 
-Para implementar módulos con la CLI de Azure 2.0, guarde el manifiesto de implementación localmente como un archivo .txt. Usará la ruta de acceso al archivo en la sección siguiente, al ejecutar el comando para aplicar la configuración al dispositivo. 
+Para implementar módulos mediante la CLI de Azure, guarde localmente el manifiesto de implementación como un archivo .txt. Usará la ruta de acceso al archivo en la sección siguiente, al ejecutar el comando para aplicar la configuración al dispositivo. 
 
 Este es un manifiesto de implementación básico con un módulo como ejemplo:
 
@@ -191,7 +191,7 @@ az iot edge deployment update --deployment-id [deployment id] --hub-name [hub na
 * **--hub-name**: nombre de la instancia de IoT Hub en la que está la implementación. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
 * **--set**: actualizar una propiedad de la implementación. Puede actualizar las propiedades siguientes:
     * targetCondition: por ejemplo, `targetCondition=tags.location.state='Oregon'`.
-    * etiquetas 
+    * labels 
     * prioridad
 
 

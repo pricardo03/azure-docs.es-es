@@ -6,21 +6,21 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: a52ab4ff65312088e65d56006b6f99a7470b88f6
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 575c8a5bec4c7763c75154835830ba350f009e93
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287257"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946947"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configuración del enrutamiento de mensajes con IoT Hub
 
-El enrutamiento de mensajes permite enviar datos de telemetría desde dispositivos de IoT a puntos de conexión integrados compatibles con el centro de eventos o puntos de conexión personalizados como Blob Storage, cola de Service Bus, tema de Service Bus y Event Hubs. Al configurar el enrutamiento de mensajes, puede crear reglas de enrutamiento para personalizar la ruta que coincide con una regla determinada. Una vez configurado, los datos entrantes se enrutan automáticamente a los puntos de conexión mediante IoT Hub. 
+[El enrutamiento de mensajes](iot-hub-devguide-messages-d2c.md) permite enviar datos de telemetría desde dispositivos de IoT a puntos de conexión integrados compatibles con el centro de eventos o puntos de conexión personalizados como Blob Storage, cola de Service Bus, tema de Service Bus y Event Hubs. Al configurar el enrutamiento de mensajes, puede crear [consultas de enrutamiento](iot-hub-devguide-routing-query-syntax.md) para personalizar la ruta que coincide con una condición determinada. Una vez configurado, los datos entrantes se enrutan automáticamente a los puntos de conexión mediante IoT Hub. 
 
-En este tutorial, aprenderá a configurar y usar las reglas de enrutamiento con IoT Hub. Enrutará los mensajes des un dispositivo de IoT a uno de los múltiples servicios, entre los que se incluyen Blob Storage y una cola de Service Bus. Los mensajes que envían a la cola de Service Bus los seleccionará una aplicación lógica y se enviarán por correo electrónico. Los mensajes que no tienen el enrutamiento configurado específicamente se envían al punto de conexión predeterminado y se ven en Power BI.
+En este tutorial, aprenderá a configurar y usar las consultas de enrutamiento con IoT Hub. Enrutará los mensajes des un dispositivo de IoT a uno de los múltiples servicios, entre los que se incluyen Blob Storage y una cola de Service Bus. Los mensajes que envían a la cola de Service Bus los seleccionará una aplicación lógica y se enviarán por correo electrónico. Los mensajes que no tienen el enrutamiento configurado específicamente se envían al punto de conexión predeterminado y se ven en Power BI.
 
 En este tutorial se realizan las siguientes tareas:
 
@@ -39,36 +39,13 @@ En este tutorial se realizan las siguientes tareas:
 
 - Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-- Instale [Visual Studio para Windows](https://www.visualstudio.com/). 
+- Instale [Visual Studio](https://www.visualstudio.com/). 
 
 - Una cuenta de Power BI para realizar el análisis del flujo del punto de conexión predeterminado. ([pruebe Power BI de manera gratuita](https://app.powerbi.com/signupredirect?pbi_source=web)).
 
 - Una cuenta de Office 365 para enviar notificaciones por correo electrónico. 
 
-Se necesita la CLI de Azure o Azure PowerShell para realizar los pasos de configuración para este tutorial. 
-
-Para utilizar la CLI de Azure, aunque puede instalarla localmente, se recomienda usar Azure Cloud Shell. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar scripts de la CLI de Azure. Las herramientas comunes de Azure están preinstaladas y configuradas en Cloud Shell para que las use en su cuenta y no tenga que instalarlas localmente. 
-
-Para usar PowerShell, instálelo localmente con las instrucciones siguientes. 
-
-### <a name="azure-cloud-shell"></a>Azure Cloud Shell
-
-Existen varias maneras de abrir Cloud Shell:
-
-|  |   |
-|-----------------------------------------------|---|
-| Seleccione **Probarlo** en la esquina superior derecha de un bloque de código. | ![Cloud Shell en este artículo](./media/tutorial-routing/cli-try-it.png) |
-| Abra Cloud Shell en el explorador. | [![https://shell.azure.com/bash](./media/tutorial-routing/launchcloudshell.png)](https://shell.azure.com) |
-| Seleccione el botón **Cloud Shell** en el menú de la esquina superior derecha de [Azure Portal](https://portal.azure.com). |    ![Cloud Shell en el portal](./media/tutorial-routing/cloud-shell-menu.png) |
-|  |  |
-
-### <a name="using-azure-cli-locally"></a>Uso de la CLI de Azure en un entorno local
-
-Si prefiere usar la CLI localmente, en lugar de usar Cloud Shell, debe tener la versión 2.0.30.0 del módulo de la CLI de Azure, o una versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). 
-
-### <a name="using-powershell-locally"></a>Uso de PowerShell en un entorno local
-
-Para realizar este tutorial es necesaria la versión 5.7 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="set-up-resources"></a>Configuración de recursos
 
@@ -78,19 +55,19 @@ En las secciones siguientes se describe cómo realizar estos pasos. Siga las ins
 
 1. Cree un [grupo de recursos](../azure-resource-manager/resource-group-overview.md). 
 
-    <!-- When they add the Basic tier, change this to use Basic instead of Standard. -->
+2. Creación de una instancia de IoT Hub en el nivel S1. Agregue un grupo de consumidores a la instancia de IoT Hub. El grupo de consumidores lo utiliza Azure Stream Analytics al recuperar datos.
 
-1. Creación de una instancia de IoT Hub en el nivel S1. Agregue un grupo de consumidores a la instancia de IoT Hub. El grupo de consumidores lo utiliza Azure Stream Analytics al recuperar datos.
+3. Cree una cuenta de almacenamiento V1 estándar con replicación Standard_LRS.
 
-1. Cree una cuenta de almacenamiento V1 estándar con replicación Standard_LRS.
+4. Cree un espacio de nombres de Service Bus y una cola. 
 
-1. Cree un espacio de nombres de Service Bus y una cola. 
+5. Cree una identidad de dispositivo para el dispositivo simulado que envíe mensajes al centro. Guarde la clave para la fase de pruebas.
 
-1. Cree una identidad de dispositivo para el dispositivo simulado que envíe mensajes al centro. Guarde la clave para la fase de pruebas.
+### <a name="set-up-your-resources-using-azure-cli"></a>Configuración de los recursos mediante la CLI de Azure
 
-### <a name="azure-cli-instructions"></a>Instrucciones para la CLI de Azure
+Copie y pegue este script en Cloud Shell. Suponiendo que ya haya iniciado sesión, el script se ejecutará línea a línea. 
 
-La manera más fácil de usar este script es copiarlo y pegarlo en Cloud Shell. Suponiendo que ya haya iniciado sesión, el script se ejecutará línea a línea. 
+Las variables que deben ser globalmente únicas llevan concatenado `$RANDOM`. Cuando se ejecuta el script y se establecen las variables, se genera y se concatena una cadena numérica aleatoria al final de la cadena fija, lo que la convierte en única.
 
 ```azurecli-interactive
 
@@ -182,9 +159,11 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ```
 
-### <a name="powershell-instructions"></a>Instrucciones para PowerShell
+### <a name="set-up-your-resources-using-azure-powershell"></a>Configuración de los recursos mediante Azure PowerShell
 
-La forma más fácil de usar este script es abrir [PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise?view=powershell-6), copiar el script en el Portapapeles y, luego, pegar todo el script en la ventana de script. Después puede cambiar los valores de los nombres de recursos (si lo desea) y ejecutar todo el script. 
+Copie y pegue este script en Cloud Shell. Suponiendo que ya haya iniciado sesión, el script se ejecutará línea a línea.
+
+Las variables que deben ser globalmente únicas llevan concatenado `$(Get-Random)`. Cuando se ejecuta el script y se establecen las variables, se genera y se concatena una cadena numérica aleatoria al final de la cadena fija, lo que la convierte en única.
 
 ```azurepowershell-interactive
 # Log into Azure account.
@@ -265,15 +244,15 @@ A continuación, cree una identidad del dispositivo y guarde su clave para su us
 
 1. Abra [Azure Portal](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
 
-1. Haga clic en **Grupos de recursos** y seleccione el grupo de recursos. En este tutorial se usa **ContosoResources**.
+2. Haga clic en **Grupos de recursos** y seleccione el grupo de recursos. En este tutorial se usa **ContosoResources**.
 
-1. En la lista de recursos, haga clic en IoT Hub. En este tutorial se usa **ContosoTestHub**. Seleccione **Dispositivos IoT** en el panel Cuadro.
+3. En la lista de recursos, haga clic en IoT Hub. En este tutorial se usa **ContosoTestHub**. Seleccione **Dispositivos IoT** en el panel Cuadro.
 
-1. Haga clic en **+ Agregar**. En el panel Agregar dispositivo, rellene el identificador del dispositivo. En este tutorial se usa **Contoso-Test-Device**. Deje en blanco las claves y marque **Generar claves automáticamente**. Asegúrese de que **Connect device to IoT hub** (Conectar dispositivo a IoT Hub) está habilitado. Haga clic en **Save**(Guardar).
+4. Haga clic en **+ Agregar**. En el panel Agregar dispositivo, rellene el identificador del dispositivo. En este tutorial se usa **Contoso-Test-Device**. Deje en blanco las claves y marque **Generar claves automáticamente**. Asegúrese de que **Connect device to IoT hub** (Conectar dispositivo a IoT Hub) está habilitado. Haga clic en **Save**(Guardar).
 
    ![Captura de pantalla que muestra la pantalla para agregar dispositivos.](./media/tutorial-routing/add-device.png)
 
-1. Una que ha creado el dispositivo, haga clic en él para ver las claves generadas. Haga clic en el icono Copiar en la clave principal y guárdelo en alguna parte, como el Bloc de notas, para la fase de pruebas del tutorial.
+5. Una que ha creado el dispositivo, haga clic en él para ver las claves generadas. Haga clic en el icono Copiar en la clave principal y guárdelo en alguna parte, como el Bloc de notas, para la fase de pruebas del tutorial.
 
    ![Captura de pantalla que muestra los detalles del dispositivo, incluidas las claves.](./media/tutorial-routing/device-details.png)
 
@@ -289,69 +268,85 @@ Va a enrutar mensajes a diferentes recursos en función de propiedades que el di
 
 ### <a name="routing-to-a-storage-account"></a>Enrutamiento en una cuenta de almacenamiento 
 
-Ahora, configure el enrutamiento de la cuenta de almacenamiento. Defina un punto de conexión y, después, configure una ruta para dicho punto. Los mensajes en los que la propiedad **level** esté establecida en **storage** se escriben automáticamente en una cuenta de almacenamiento.
+Ahora, configure el enrutamiento de la cuenta de almacenamiento. Vaya al panel de enrutamiento de mensajes y agregue una ruta. Al agregar la ruta, defina un nuevo punto de conexión para la misma. Una vez tenga todo configurado, los mensajes en los que la propiedad **level** esté establecida en **storage** se escriben automáticamente en una cuenta de almacenamiento.
 
-1. En [Azure Portal](https://portal.azure.com), haga clic en **Grupos de recursos** y seleccione un grupo de recursos. En este tutorial se usa **ContosoResources**. Haga cloc en la instancia de IoT Hub en la lista de recursos. En este tutorial se usa **ContosoTestHub**. Haga clic en **Extremos**. En el panel **Extremos**, haga clic en **+ Agregar**. Escriba la siguiente información:
+1. En [Azure Portal](https://portal.azure.com), haga clic en **Grupos de recursos** y seleccione un grupo de recursos. En este tutorial se usa **ContosoResources**. 
 
-   **Nombre**: escriba el nombre del punto de conexión. En este tutorial se usa **StorageContainer**.
+2. Haga cloc en la instancia de IoT Hub en la lista de recursos. En este tutorial se usa **ContosoTestHub**. 
+
+3. Haga clic en **Enrutamiento de mensajes**. En el panel **Enrutamiento de mensajes**, haga clic en +**Agregar**. En el panel **Agregar una ruta**, haga clic en +**Agregar**, que se encuentra junto al campo Punto de conexión, tal como se muestra en la siguiente imagen:
+
+   ![Captura de pantalla que muestra cómo comenzar a agregar un punto de conexión a una ruta.](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+
+4. Seleccione **Blob Storage**. Verá el panel **Add Storage Endpoint** (Agregar punto de conexión de almacenamiento). 
+
+   ![Captura de pantalla que muestra la incorporación de un punto de conexión.](./media/tutorial-routing/message-routing-add-storage-ep.png)
+
+5. Escriba el nombre del punto de conexión. En este tutorial se usa **StorageContainer**.
+
+6. Haga clic en **Seleccionar un contenedor**. Esto le llevará a una lista donde podrá ver las cuentas de almacenamiento. Seleccione la que configuró en los pasos de preparación. En este tutorial se usa **contosostorage**. Muestra una lista de contenedores en esa cuenta de almacenamiento. Seleccione el contenedor que configuró en los pasos de preparación. En este tutorial se usa **contosoresults**. Haga clic en **Seleccionar**. Vuelva al panel **Agregar punto de conexión**. 
+
+7. En el resto de los campos, use los valores predeterminados. Haga clic en **Crear** para crear el punto de conexión de almacenamiento y agregarlo a la ruta. Volverá al panel **Agregar una ruta**.
+
+8.  Ahora, complete el resto de la información de la consulta de enrutamiento. En esta consulta se especifican los criterios para enviar mensajes al contenedor de almacenamiento que acaba de agregar como punto de conexión. Rellene los campos de la pantalla. 
+
+   **Nombre**: escriba el nombre de la consulta de enrutamiento. En este tutorial se usa **StorageRoute**.
+
+   **Punto de conexión**: seleccione el punto de conexión que acaba de configurar. 
    
-   **Tipo de extremo**: seleccione **Contenedor de Azure Storage** en la lista desplegable.
+   **Origen de datos**: seleccione **Device Telemetry Messages** (Mensajes de telemetría del dispositivo) en la lista desplegable.
 
-   Haga clic en **Seleccionar un contenedor** para ver la lista de cuentas de almacenamiento. Seleccione su cuenta de almacenamiento. En este tutorial se usa **contosostorage**. Luego, seleccione el contenedor. En este tutorial se usa **contosoresults**. Haga clic en **Seleccionar**, lo que le devuelve al panel **Agregar punto de conexión**. 
+   **Habilitar ruta**: asegúrese de que esta opción está habilitada.
    
-   ![Captura de pantalla que muestra la incorporación de un punto de conexión.](./media/tutorial-routing/add-endpoint-storage-account.png)
-   
-   Haga clic en **Aceptar** para terminar de agregar el punto de conexión.
-   
-1. Haga clic en **Rutas** en IoT Hub. Va a crear una regla de enrutamiento que enruta los mensajes al contenedor de almacenamiento que acaba de agregar como punto de conexión. Haga clic en **+Agregar** en la parte superior del panel Rutas. Rellene los campos de la pantalla. 
+   **Consulta de enrutamiento**: escriba `level="storage"` como la cadena de la consulta. 
 
-   **Nombre**: escriba el nombre de la regla de enrutamiento. En este tutorial se usa **StorageRule**.
-
-   **Origen de datos**: seleccione **Mensajes del dispositivo** en la lista desplegable.
-
-   **Extremo**: seleccione el punto de conexión que acaba de configurar. En este tutorial se usa **StorageContainer**. 
+   ![Captura de pantalla que muestra la creación de una consulta de enrutamiento para la cuenta de almacenamiento.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
    
-   **Cadena de consulta**: escriba `level="storage"` como cadena de consulta. 
-
-   ![Captura de pantalla que muestra la creación de una regla de enrutamiento para la cuenta de almacenamiento.](./media/tutorial-routing/create-a-new-routing-rule-storage.png)
-   
-   Haga clic en **Save**(Guardar). Al terminar, vuelve al panel Rutas, donde puede ver la nueva regla de enrutamiento para el almacenamiento. Cierre el panel Rutas, lo que le devolverá a la página Grupo de recursos.
+   Haga clic en **Save**(Guardar). Al terminar, vuelve al panel Enrutamiento de mensajes, donde podrá ver la nueva consulta de enrutamiento del almacenamiento. Cierre el panel Rutas, lo que le devolverá a la página Grupo de recursos.
 
 ### <a name="routing-to-a-service-bus-queue"></a>Enrutamiento a una cola de Service Bus. 
 
-Ahora, configure el enrutamiento de la cola de Service Bus. Defina un punto de conexión y, después, configure una ruta para dicho punto. Los mensajes en los que la propiedad **level** está establecida en **critical** se escriben en la cola de Service Bus, lo que desencadena una aplicación lógica, que, posteriormente, envía un correo electrónico con la información. 
+Ahora, configure el enrutamiento de la cola de Service Bus. Vaya al panel de enrutamiento de mensajes y agregue una ruta. Al agregar la ruta, defina un nuevo punto de conexión para la misma. Después de realizar la configuración, los mensajes en los que la propiedad **level** está establecida en **critical** se escriben en la cola de Service Bus, lo que desencadena una aplicación lógica, que, posteriormente, envía un correo electrónico con la información. 
 
-1. En la página Grupo de recursos, haga clic en IoT Hub y, después, en **Extremos**. En el panel **Extremos**, haga clic en **+ Agregar**. Escriba la siguiente información.
+1. En la página Grupo de recursos, haga clic en IoT Hub y, después, en **Enrutamiento de mensajes**. 
 
-   **Nombre**: escriba el nombre del punto de conexión. En este tutorial se usa **CriticalQueue**. 
+2. En el panel **Enrutamiento de mensajes**, haga clic en +**Agregar**. 
 
-   **Tipo de extremo**: seleccione **Cola de Service Bus** en la lista desplegable.
+3. En el panel **Agregar una ruta**, haga clic en +**Agregar** junto al campo de punto de conexión. Seleccione la **cola de Service Bus**. Verá el panel **Add Service Bus Endpoint**  (Agregar punto de conexión de Service Bus). 
 
-   **Espacio de nombres de Service Bus**: seleccione el espacio de nombres de Bus de servicio para este tutorial en la lista desplegable. En este tutorial se usa **ContosoSBNamespace**.
+   ![Captura de pantalla en la que se agrega un punto de conexión de Service Bus](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
 
-   **Cola de Service Bus**: seleccione la cola de Service Bus en la lista desplegable. En este tutorial se usa **contososbqueue**.
+4. Rellene los campos:
 
-   ![Captura de pantalla que muestra la incorporación de un punto de conexión a la cola de Service Bus.](./media/tutorial-routing/add-endpoint-sb-queue.png)
-
-   Haga clic en **Aceptar** para guardar el punto de conexión. Cuando finalice, cierre el panel Extremos. 
-    
-1. Haga clic en **Rutas** en IoT Hub. Va a crear una regla de enrutamiento que enruta los mensajes a la cola de Service Bus que acaba de agregar como punto de conexión. Haga clic en **+Agregar** en la parte superior del panel Rutas. Rellene los campos de la pantalla. 
-
-   **Nombre**: escriba el nombre de la regla de enrutamiento. En este tutorial se usa **SBQueueRule**. 
-
-   **Origen de datos**: seleccione **Mensajes del dispositivo** en la lista desplegable.
-
-   **Extremo**: seleccione el punto de conexión que acaba de configurar, **CriticalQueue**.
-
-   **Cadena de consulta**: escriba `level="critical"` como cadena de consulta. 
-
-   ![Captura de pantalla que muestra la creación de una regla de enrutamiento para la cola de Service Bus.](./media/tutorial-routing/create-a-new-routing-rule-sbqueue.png)
+   **Nombre del punto de conexión**: escriba el nombre del punto de conexión. En este tutorial se usa **CriticalQueue**.
    
-   Haga clic en **Save**(Guardar). Al regresar al panel Rutas, se ven las dos nuevas reglas de enrutamientos, tal como se muestra aquí.
+   **Espacio de nombres de Service Bus**: haga clic en este campo para mostrar la lista desplegable, y seleccione el espacio de nombres de Service Bus que configuró en los pasos de preparación. En este tutorial se usa **ContosoSBNamespace**.
 
-   ![Captura de pantalla que muestra las rutas que acaba de configurar.](./media/tutorial-routing/show-routing-rules-for-hub.png)
+   **Cola de Service Bus**: haga clic en este campo para mostrar la lista desplegable, y seleccione la cola de Service Bus. En este tutorial se usa **contososbqueue**.
 
-   Cierre el panel Rutas, lo que le devolverá a la página Grupo de recursos.
+5. Haga clic en **Crear** para agregar el punto de conexión de cola de Service Bus. Volverá al panel **Agregar una ruta**. 
+
+6.  Ahora, complete el resto de la información de la consulta de enrutamiento. En esta consulta se especifican los criterios para enviar mensajes a la cola de Service Bus que acaba de agregar como punto de conexión. Rellene los campos de la pantalla. 
+
+   **Nombre**: escriba el nombre de la consulta de enrutamiento. En este tutorial se usa **SBQueueRoute**. 
+
+   **Punto de conexión**: seleccione el punto de conexión que acaba de configurar.
+
+   **Origen de datos**: seleccione **Device Telemetry Messages** (Mensajes de telemetría del dispositivo) en la lista desplegable.
+
+   **Consulta de enrutamiento**: escriba `level="critical"` como la cadena de la consulta. 
+
+   ![Captura de pantalla que muestra la creación de una consulta de enrutamiento para la cola de Service Bus.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
+
+7. Haga clic en **Save**(Guardar). Al regresar al panel Rutas, se ven las dos nuevas rutas, tal como se muestra aquí.
+
+   ![Captura de pantalla que muestra las rutas que acaba de configurar.](./media/tutorial-routing/message-routing-show-both-routes.png)
+
+8. Para ver los puntos de conexión personalizados que configuró, haga clic en la pestaña **Punto de conexión personalizados**.
+
+   ![Captura de pantalla que muestra los puntos de conexión personalizados que acaba de configurar.](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
+
+9. Cierre el panel Enrutamiento de mensajes, lo que le devolverá al panel Grupo de recursos.
 
 ## <a name="create-a-logic-app"></a>Crear una aplicación lógica  
 

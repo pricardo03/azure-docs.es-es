@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: v-brapel
-ms.openlocfilehash: 7cd61fc63d0d7734b842ed222c67c6753da9a418
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b6f50844d6571cca6d63c1db7a85863e3d22d411
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35381011"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948084"
 ---
 # <a name="what-is-bing-custom-search"></a>¿Qué es Bing Custom Search?
 
@@ -30,18 +30,34 @@ La siguiente imagen muestra la simplicidad de la integración de la búsqueda pe
 
 ![imagen alt](./media/bcs-overview.png "Funcionamiento de Bing Custom Search")
 
-## <a name="customize-search-suggestions"></a>Personalización de las sugerencias de búsqueda
+## <a name="adding-custom-search-box-suggestions"></a>Agregar sugerencias personalizadas del cuadro de búsqueda
 
-Si está suscrito a Custom Search en el nivel adecuado (consulte las [páginas de precios](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), puede personalizar las sugerencias de búsqueda realizadas en su experiencia de Custom Search. Custom Autosuggest API devuelve una lista de consultas sugeridas basándose en una cadena de consulta parcial proporcionada por el usuario. Con Custom Autosuggest, proporcione sugerencias de búsqueda personalizadas pertinentes para su experiencia de búsqueda. Especifique si desea devolver solo sugerencias personalizadas o incluir sugerencias de Bing. Si se incluyen las sugerencias de Bing, las sugerencias personalizadas aparecen antes de las sugerencias que ofrece Bing. Las sugerencias de Bing están restringidas al contexto de la instancia de Custom Search.
+Puede enriquecer su experiencia de búsqueda personalizada gracias a las sugerencias personalizadas del cuadro de búsqueda. Esta característica le permite proporcionar sugerencias de búsqueda personalizadas que sean relevantes para su experiencia de búsqueda. Cuando el usuario escribe algo en el cuadro de búsqueda, la lista desplegable que se muestra contiene las cadenas de consulta sugeridas en función de la cadena de consulta parcial del usuario. Puede especificar si desea devolver solo sugerencias personalizadas o también incluir las sugerencias de Bing. [Más información](define-custom-suggestions.md).
+
+## <a name="adding-custom-image-search-experience"></a>Agregar la experiencia personalizada de búsqueda de imágenes
+
+Puede enriquecer su experiencia de búsqueda personalizada con imágenes. De forma similar a los resultados web, la búsqueda personalizada permite buscar imágenes en la lista de sitios web de su instancia. [Más información](get-images-from-instance.md).
+
+## <a name="adding-custom-video-search-experience"></a>Agregar la experiencia personalizada de búsqueda de vídeos
+
+Puede enriquecer su experiencia de búsqueda personalizada con vídeos. De forma similar a los resultados web, la búsqueda personalizada permite buscar vídeos en la lista de sitios web de su instancia. [Más información](get-videos-from-instance.md).
+
+## <a name="sharing-your-custom-search-instance-with-others"></a>Compartir la instancia de búsqueda personalizada con otros usuarios
+
+Puede permitir fácilmente la edición y prueba colaborativas de la instancia al compartirla con miembros del equipo. [Más información](share-your-custom-search.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para iniciar rápidamente, consulte [Create your first Bing Custom Search instance](quick-start.md) (Creación de la primera instancia de Bing Custom Search).
 
-Para obtener más información sobre las opciones disponibles para personalizar su instancia de búsqueda, vea [Define a custom search instance](define-your-custom-view.md) (Definición de una instancia de búsqueda personalizada).
+Para obtener más información sobre cómo personalizar su instancia de búsqueda, consulte [Define a custom search instance](define-your-custom-view.md) (Definir una instancia de búsqueda personalizada).
 
-Familiarícese con la referencia de [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference). La referencia contiene la lista de los puntos de conexión, encabezados y parámetros de consulta que se utilizan para solicitar los resultados de la búsqueda. También incluye definiciones de los objetos de respuesta.
+Familiarícese con el contenido de referencia de cada uno de los puntos de conexión de búsqueda personalizada. La referencia contiene los puntos de conexión, los encabezados y los parámetros de consulta que se utilizan para solicitar los resultados de la búsqueda. También incluye definiciones de los objetos de respuesta.
 
-Para obtener información sobre cómo personalizar sugerencias, consulte [Define custom search suggestions](define-custom-suggestions.md) (Definición de sugerencias de búsqueda personalizadas).
+- [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference)
+- [Custom Image API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference)
+- [Custom Vidoe API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
+- [Custom Autosuggest API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
+
 
 No olvide leer los [Requisitos de visualización y uso de Bing](./use-and-display-requirements.md) para evitar infringir alguna de las reglas sobre el uso de los resultados de búsqueda.

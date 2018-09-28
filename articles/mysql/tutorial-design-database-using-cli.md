@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Diseño de Azure Database for MySQL mediante la CLI de Azure'
-description: En este tutorial se explica cómo crear y administrar la base de datos y el servidor de Azure Database for MySQL con la CLI de Azure 2.0 desde la línea de comandos.
+description: Este tutorial explica cómo crear y administrar servidores y bases de datos de Azure Database for MySQL mediante la CLI de Azure desde la línea de comandos.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 07dc1c2fa166be066df9bd8a663e08db830fe1af
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 60cfb5e1c5fa44952ca6a5e6fc411f4a6ab0e8be
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446337"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966986"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Diseño de Azure Database for MySQL mediante la CLI de Azure
 
@@ -31,11 +31,11 @@ Azure Database for MySQL es un servicio de base de datos relacional de Microsoft
 > * Actualización de datos
 > * Restauración de datos
 
-Puede usar Azure Cloud Shell en el explorador, o bien [instalar la CLI de Azure 2.0]( /cli/azure/install-azure-cli) en su propio equipo para ejecutar los bloques de código de este tutorial.
+Puede usar Azure Cloud Shell en el explorador o [instalar la CLI de Azure]( /cli/azure/install-azure-cli) en su propio equipo para ejecutar los bloques de código de este tutorial.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
 
 Si tiene varias suscripciones, elija la adecuada donde se encuentre el recurso o para la cual se facture. Seleccione un identificador de suscripción específico en su cuenta mediante el comando [az account set](/cli/azure/account#az-account-set).
 ```azurecli-interactive

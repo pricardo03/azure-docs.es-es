@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: d2f5ce97ee81deaf590771f4794af4adf0fdbd1b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 737a76ba313dddaa58c302f1df501f16a5c4e9e8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248594"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966570"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Preguntas frecuentes sobre el acelerador de la solución de factoría conectada
 
@@ -111,7 +111,7 @@ La misma simulación registra los siguientes dispositivos:
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-Mediante la herramienta [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) o [la extensión de IoT para la CLI de Azure 2.0](https://github.com/Azure/azure-iot-cli-extension), puede comprobar qué dispositivos están registrados con la instancia de IoT Hub que la solución usa. Para usar el explorador de dispositivos, necesita la cadena de conexión para la instancia de IoT Hub en la implementación. Para usar la extensión de IoT para la CLI de Azure 2.0, necesita el nombre de la instancia de IoT Hub.
+Mediante la herramienta [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) o [la extensión de IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension), puede comprobar qué dispositivos están registrados con la instancia de IoT Hub que la solución usa. Para usar el explorador de dispositivos, necesita la cadena de conexión para la instancia de IoT Hub en la implementación. Para usar la extensión de IoT para la CLI de Azure, necesita el nombre de la instancia de IoT Hub.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>¿Cómo se pueden obtener datos de registro de los componentes de simulación?
 

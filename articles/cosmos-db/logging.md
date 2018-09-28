@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: acc327bd9fa6828a65243b6d0ad0c6da4b98f48d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 68eb567235897641d5d4027160f62c5aa6e7e4f9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857106"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963396"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registro de diagnóstico de Azure Cosmos DB
 
@@ -29,9 +29,9 @@ En la siguiente imagen se muestran los diferentes tipos de registros de Azure di
 
 ![Diferentes tipos de registros de Azure](./media/logging/azurelogging.png)
 
-En la imagen anterior, los **recursos de proceso** representan los recursos de Azure a los que puede acceder el sistema operativo invitado. Por ejemplo, Azure Virtual Machines, los conjuntos de escalado de máquinas virtuales, Azure Container Service se consideran recursos de proceso. Los recursos de proceso generan registros de actividad, registros de diagnóstico y registros de aplicaciones. Para más información, consulte el artículo [Supervisión de Azure: recursos de proceso](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset).
+En la imagen anterior, los **recursos de proceso** representan los recursos de Azure a los que puede acceder el sistema operativo invitado. Por ejemplo, Azure Virtual Machines, los conjuntos de escalado de máquinas virtuales, Azure Container Service se consideran recursos de proceso. Los recursos de proceso generan registros de actividad, registros de diagnóstico y registros de aplicaciones. Para obtener más información, consulte el artículo [Orígenes de datos de supervisión en Azure](../monitoring/monitoring-data-sources.md#).
 
-Los **recursos no de proceso** son recursos a los que no puede acceder el sistema operativo subyacente y funcionan directamente con recursos. Por ejemplo, grupos de seguridad de red o Logic Apps. Azure Cosmos DB es un recurso no de proceso. Puede ver los registros de los recursos no de proceso en el registro de actividad o si habilita la opción de registros de diagnóstico en el portal. Para más información, consulte el artículo [Supervisión de Azure: recursos no de proceso](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else).
+Los **recursos no de proceso** son recursos a los que no puede acceder el sistema operativo subyacente y funcionan directamente con recursos. Por ejemplo, grupos de seguridad de red o Logic Apps. Azure Cosmos DB es un recurso no de proceso. Puede ver los registros de los recursos no de proceso en el registro de actividad o si habilita la opción de registros de diagnóstico en el portal. Para obtener más información, consulte el artículo [Orígenes de datos en Azure Monitor](../monitoring/monitoring-data-sources.md).
 
 El registro de actividad registra las operaciones a un nivel de suscripción para Azure Cosmos DB. Se registran operaciones como ListKeys, Write DatabaseAccounts y otras. Los registros de diagnóstico proporcionan un registro más pormenorizado y le permiten iniciar DataPlaneRequests (crear, leer, consultar...) y MongoRequests.
 

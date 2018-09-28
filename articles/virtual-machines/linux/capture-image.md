@@ -1,6 +1,6 @@
 ---
-title: Captura de una imagen de una máquina virtual Linux en Azure mediante la CLI 2.0 | Microsoft Docs
-description: Capture una imagen de una máquina virtual de Azure que se usará para implementaciones masivas mediante la CLI de Azure 2.0.
+title: Capturar una imagen de una máquina virtual de Linux mediante la CLI de Azure | Microsoft Docs
+description: Capture una imagen de una máquina virtual de Azure que se usará para realizar implementaciones masivas mediante la CLI de Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: ea202cad06130cfaaa134cad94ac08bede2f41a9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 98d98c1337830ce54c7ff96c19812169be129584
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867708"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946823"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Creación de una imagen de una máquina virtual o un disco duro virtual
 
@@ -38,7 +38,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 
 * Necesita crear una máquina virtual de Azure en el modelo de implementación de Resource Manager mediante discos administrados. Si no ha creado una máquina virtual Linux, puede usar el [portal](quick-create-portal.md), la [CLI de Azure](quick-create-cli.md) o [plantillas de Resource Manager](create-ssh-secured-vm-from-template.md). Configure la máquina virtual como considere necesario. Por ejemplo, [agregue discos de datos](add-disk.md), aplique actualizaciones e instale aplicaciones. 
 
-* También necesita tener instalada la última versión de la [CLI de Azure 2.0](/cli/azure/install-az-cli2) e iniciar sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az_login).
+* También necesita tener instalada la última versión de la [CLI de Azure](/cli/azure/install-az-cli2) e iniciar sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az_login).
 
 ## <a name="quick-commands"></a>Comandos rápidos
 
@@ -62,7 +62,7 @@ Desaprovisione la máquina virtual con el agente de máquinas virtuales de Azure
 4. Una vez que se complete el comando, escriba **exit**. Este paso cierra el cliente de SSH.
 
 ## <a name="step-2-create-vm-image"></a>Paso 2: Crear la imagen de máquina virtual
-Use la CLI de Azure 2.0 para marcar la máquina virtual como generalizada y capture la imagen. En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluyen *myResourceGroup*, *myVnet* y *myVM*.
+Use la CLI de Azure para marcar la máquina virtual como generalizada y capture la imagen. En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluyen *myResourceGroup*, *myVnet* y *myVM*.
 
 1. Desasigne la VM que desaprovisionó con [az vm deallocate](/cli//azure/vm#deallocate). En el ejemplo siguiente se desasigna la máquina virtual denominada "*myVM*" en el grupo de recursos *myResourceGroup*:
    
@@ -146,4 +146,4 @@ Puede crear varias VM a partir de la imagen de VM de origen. Si necesita realiza
 - Vuelva a seguir los pasos para desaprovisionar, desasignar, generalizar y crear una imagen.
 - Use esta nueva imagen para implementaciones futuras. Si lo desea, elimine la imagen original.
 
-Para obtener más información sobre la administración de las máquinas virtuales con la CLI, vea [CLI de Azure 2.0](/cli/azure).
+Para obtener más información sobre la administración de las máquinas virtuales con la CLI, consulte [CLI de Azure](/cli/azure).

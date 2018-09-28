@@ -4,15 +4,15 @@ description: Obtenga respuestas a algunas preguntas frecuentes sobre Azure Files
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 07/19/2018
+ms.date: 09/11/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 31f5b2792aa83d15a1478cf201ca674995816430
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 43acff5c4d37c46245566fb2e1d74d3e14d527bb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142516"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949849"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Preguntas más frecuentes (P+F) sobre Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados, a los que se puede acceder mediante el [protocolo de bloque de mensajes del servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) estándar. Los recursos compartidos de archivos de Azure se pueden montar simultáneamente en implementaciones de Windows, Linux y macOS en la nube o locales. También puede almacenar en caché recursos compartidos de archivos de Azure en máquinas con Windows Server mediante Azure File Sync para tener un acceso rápido cerca de donde se usan los datos.
@@ -196,44 +196,97 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
  **¿Puedo mover el servicio de sincronización del almacenamiento o la cuenta de almacenamiento a un grupo de recursos o suscripción diferentes?**  
    Sí, el servicio de sincronización del almacenamiento o la cuenta de almacenamiento se pueden mover a un grupo de recursos o suscripción diferentes. Si se mueve la cuenta de almacenamiento, debe dar acceso al servicio File Sync híbrido a la cuenta de almacenamiento (consulte el apartado [Asegúrese de que Azure File Sync tiene acceso a la cuenta de almacenamiento](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
+* <a id="afs-ntfs-acls"></a>
+ **¿Mantiene Azure File Sync las listas ACL de NTFS a nivel de directorio/archivo junto con los datos almacenados en Azure Files? **
+
+    Las listas ACL de NTFS que provienen de los servidores de archivos locales se conservan en Azure File Sync como metadatos. Azure Files no admite la autenticación con credenciales de Azure AD para acceder a recursos compartidos de archivos que administra el servicio Azure File Sync.
+    
 ## <a name="security-authentication-and-access-control"></a>Seguridad, autenticación y control de acceso
 * <a id="ad-support"></a>
  **¿Admite Azure Files la autenticación y el control de acceso basados en Active Directory?**  
-    Azure Files ofrece dos formas de administrar el control de acceso:
+    
+    Sí, Azure Files admite la autenticación basada en identidades y el control de acceso con Azure Active Directory (Azure AD) (versión preliminar). La autenticación de Azure AD mediante SMB para Azure Files aprovecha Azure Active Directory Domain Services para permitir que las máquinas virtuales unidas a un dominio accedan a recursos compartidos, directorios y archivos mediante las credenciales de Azure AD. Para obtener más detalles, consulte [Introducción de la autenticación de Azure Active Directory sobre SMB para Azure Files (versión preliminar)](storage-files-active-directory-overview.md). 
+
+    Azure Files ofrece dos formas adicionales de administrar el control de acceso:
 
     - Puede usar firmas de acceso compartido (SAS) para generar tokens que tengan permisos específicos y que sean válidos para un intervalo de tiempo específico. Por ejemplo, se puede generar un token con acceso de solo lectura a un archivo específico que expire al cabo de 10 minutos. Todos los usuarios que posean dicho token, mientras tenga validez, tendrán acceso de solo lectura al archivo durante esos 10 minutos. Actualmente, solo se admiten claves de firma de acceso compartido a través de la API de REST o en bibliotecas de cliente. Debe montar el recurso compartido de archivos de Azure a través de SMB mediante el uso de las claves de cuenta de almacenamiento.
 
     - Azure File Sync conserva y replica todas las ACL discrecionales, o DACL, locales o basadas en Active Directory en todos los puntos de conexión de servidor con los que se sincroniza. Dado que Windows Server ya se autentica con Active Directory, Azure File Sync es una opción provisional eficaz hasta que llegue la compatibilidad total con autenticación basada en Active Directory y ACL.
 
-    En la actualidad, Azure Files no es directamente compatible con Active Directory.
+* <a id="ad-support-regions"></a>
+** ¿Está disponible la versión preliminar de Azure AD sobre SMB para Azure Files en todas las regiones de Azure?**
+
+    La versión preliminar está disponible en todas las regiones públicas, excepto en las siguientes: Oeste de Estados Unidos, Oeste de EE.UU. 2, Centro y Sur de EE. UU, Este de Estados Unidos 2, Centro de EE. UU., Norte y Centro de EE. UU., Este de Australia, Europa Occidental, Europa del Norte.
+
+* <a id="ad-support-on-premises"></a>
+ **¿La autenticación de Azure AD sobre SMB para Azure Files (versión preliminar) admite la autenticación mediante Azure AD desde máquinas locales?**
+
+    No, Azure Files no admite la autenticación con Azure AD desde máquinas locales en la versión preliminar.
+
+* <a id="ad-support-devices"></a>
+ **¿La autenticación de Azure AD sobre SMB para Azure Files (versión preliminar) admite el acceso a SMB mediante las credenciales de Azure AD desde dispositivos combinados o registrados con Azure AD?**
+
+    No, este escenario no se admite.
+
+* <a id="ad-support-rest-apis"></a>
+ **¿Hay API REST que admitan las operaciones para obtener, establecer o copiar las listas ACL de NTFS en directorios o archivos?**
+
+    La versión preliminar no es compatible con las API REST para obtener, establecer o copiar las listas ACL de NTFS en directorios o archivos.
+
+* <a id="ad-vm-subscription"></a>
+ **¿Puedo obtener acceso a Azure Files con las credenciales de Azure AD desde una máquina virtual que esté en una suscripción diferente?**
+
+    Si la suscripción con la que se implementa el recurso compartido de archivos está asociada al mismo inquilino de Azure AD como, por ejemplo, la función de implementación de Azure AD Domain Services a la que está unida la máquina virtual mediante el dominio, puede obtener acceso a Azure Files con las mismas credenciales de Azure AD. La limitación no se impone en la suscripción, sino en el inquilino de Azure AD asociado.    
+    
+* <a id="ad-support-subscription"></a>
+ **¿Puedo habilitar la autenticación de Azure AD sobre SMB para Azure Files con un inquilino de Azure AD que sea diferente del inquilino principal con el que se asocia el recurso compartido de archivos?**
+
+    No, Azure Files solo es compatible con la integración de Azure AD con un inquilino de Azure AD que reside en la misma suscripción que el recurso compartido de archivos. Cada suscripción está asociada a un inquilino de Azure AD.
+
+* <a id="ad-linux-vms"></a>
+ **¿La autenticación de Azure AD sobre SMB para Azure Files (versión preliminar) es compatible con las máquinas virtuales de Linux?**
+
+    No, no se admite la autenticación desde máquinas virtuales de Linux en la versión preliminar.
+
+* <a id="ad-aad-smb-afs"></a>
+ **¿Puedo aprovechar las capacidades que ofrece la autenticación de Azure AD sobre SMB en los recursos compartidos de archivos que administra Azure File Sync?**
+
+    No, Azure Files no admite la preservación de las listas ACL de NTFS en recursos compartidos de archivos que administre Azure File Sync. Las listas ACL de archivos que provienen de los servidores de archivos locales se conservan en Azure File Sync. El servicio Azure File Sync se encargará de sobrescribir cualquier lista ACL de NTFS configurada de forma nativa en Azure Files. Además, Azure Files no admite la autenticación con credenciales de Azure AD para obtener acceso a los recursos compartidos de archivos que administra el servicio Azure File Sync.
 
 * <a id="encryption-at-rest"></a>
  **¿Cómo se puede garantizar que el recurso compartido de archivos de Azure está cifrado en reposo?**  
+
     El cifrado del servicio Azure Storage se habilitará en breve de forma predeterminada en todas las regiones. En cuanto a estas regiones, no es necesario que haga nada para habilitar el cifrado. Si se trata de otras regiones, vea la información sobre el [cifrado del lado servidor](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="access-via-browser"></a>
  **¿Cómo se puede proporcionar acceso a un archivo específico a través de un explorador web?**  
+
     Puede usar firmas de acceso compartido para generar tokens que tengan permisos específicos y que sean válidos para un intervalo de tiempo específico. Por ejemplo, puede generar un token que proporcione acceso de solo lectura a un archivo específico durante un período de tiempo determinado. Cualquier persona que posea la dirección URL puede obtener acceso al archivo directamente desde cualquier explorador web mientras el token sea válido. Puede generar fácilmente una clave de firma de acceso compartido desde una interfaz de usuario, como el Explorador de Storage.
 
 * <a id="file-level-permissions"></a>
  **¿Es posible especificar permisos de solo lectura o solo escritura en las carpetas del recurso compartido?**  
+
     Si monta el recurso compartido de archivos a través de SMB, no tendrá control de nivel de carpeta sobre los permisos. Pero si crea una firma de acceso compartido mediante la API de REST o bibliotecas de cliente, puede especificar permisos de solo lectura o de solo escritura en las carpetas del recurso compartido.
 
 * <a id="ip-restrictions"></a>
  **¿Puedo implementar restricciones de IP en un recurso compartido de archivos de Azure?**  
+
     Sí. Es posible limitar el acceso al recurso compartido de archivos de Azure en el nivel de cuenta de almacenamiento. Para más información, vea [Configuración de Firewalls y redes virtuales de Azure Storage](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="data-compliance-policies"></a>
  **¿Qué directivas de cumplimiento de datos admite Azure Files?**  
+
    Azure Files se ejecuta sobre la misma arquitectura de almacenamiento que se usa en otros servicios de almacenamiento de Azure Storage. Azure Files aplica las mismas directivas de cumplimiento de datos que se usan en otros servicios de Azure Storage. Para obtener más información sobre el cumplimiento de datos de Azure Storage, puede consultar [Ofertas de cumplimiento de Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-compliance-offerings) e ir al [Centro de confianza de Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Acceso local
 * <a id="expressroute-not-required"></a>
  **¿Tengo que usar Azure ExpressRoute para conectarme a Azure Files o debo usar Azure File Sync en un entorno local?**  
+
     No. No es necesario ExpressRoute para obtener acceso a un recurso compartido de archivos de Azure. Si está montando un recurso compartido de archivos de Azure directamente en un entorno local, lo único que se necesita es tener abierto el puerto 445 (salida TCP) para tener acceso a Internet (este es el puerto que SMB usa para comunicarse). Si usa Azure File Sync, lo único que se necesita es el puerto 443 (salida TCP) para el acceso HTTPS (no se necesita SMB). Pero *puede usar* ExpressRoute con cualquiera de estas opciones de acceso.
 
 * <a id="mount-locally"></a>
  **¿Cómo puedo montar un recurso compartido de archivos de Azure en mi máquina local?**  
+
     Puede montar el recurso compartido de archivos a través del protocolo SMB, siempre y cuando el puerto 445 (salida TCP) esté abierto y el cliente admita el protocolo SMB 3.0 (por ejemplo, si usa Windows 10 o Windows Server 2016). Si el puerto 445 está bloqueado por una directiva de su organización o por su ISP, puede usar Azure File Sync para obtener acceso al recurso compartido de archivos de Azure.
 
 ## <a name="backup"></a>Copia de seguridad
@@ -242,6 +295,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
     Puede usar [instantáneas periódicas de recursos compartidos](storage-snapshots-files.md) para evitar cualquier eliminación accidental. También puede usar AzCopy, Robocopy o una herramienta de copia de seguridad de terceros que pueda hacer una copia de seguridad de un recurso compartido de archivos montado. Azure Backup ofrece la copia de seguridad de Azure Files. Obtenga más información sobre la [copia de seguridad de recursos compartidos de archivos de Azure mediante Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
 
 ## <a name="share-snapshots"></a>Instantáneas de recursos compartido
+
 ### <a name="share-snapshots-general"></a>Instantáneas de recurso compartido: general
 * <a id="what-are-snaphots"></a>
  **¿Qué son las instantáneas de recursos compartidos de archivos?**  
@@ -262,10 +316,14 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 * <a id="snapshot-limits"></a>
  **¿Hay límites en el número de instantáneas de recurso compartido que se pueden usar?**  
     Sí. Azure Files puede retener un máximo de 200 instantáneas de recurso compartido. Las instantáneas de recurso compartido no cuentan en la cuota del recurso compartido, así que no hay ningún límite de recurso compartido en el espacio total usado por todas las instantáneas de recurso compartido. Los límites de cuenta de almacenamiento se siguen aplicando. Una vez que llegue a las 200 instantáneas de recurso compartido, debe eliminar las instantáneas más antiguas para poder crear otras.
+
 * <a id="snapshot-cost"></a>
  **¿Cuánto cuestan las instantáneas de recurso compartido?**  
     El costo de transacciones estándar y de almacenamiento estándar se aplicará a la instantánea. Las instantáneas tienen una naturaleza incremental. La instantánea de base es el recurso compartido mismo. Todas las instantáneas siguientes son incrementales y solo almacenarán la diferencia de la instantánea anterior. Esto significa que los cambios diferenciales que se verán en la factura será mínimos si la renovación de la carga de trabajo es mínima. Vea la [página de precios](https://azure.microsoft.com/pricing/details/storage/files/) para obtener información sobre precios estándar de Azure Files. En la actualidad, la manera de ver el tamaño consumido por instantánea de recurso compartido es comparando la capacidad facturada con la capacidad usada. Estamos trabajando en herramientas para mejorar los informes.
 
+* <a id="ntfs-acls-snaphsots"></a>
+ **¿Las listas ACL de NTFS que están en los directorios y archivos se conservan en instantáneas del recurso compartido?**
+    Las listas ACL de NTFS que están en los directorios y archivos se conservan en instantáneas del recurso compartido.
 
 ### <a name="create-share-snapshots"></a>Creación de instantáneas de recurso compartido
 * <a id="file-snaphsots"></a>
@@ -285,7 +343,7 @@ En este artículo se responden las preguntas más frecuentes sobre las caracter�
 ### <a name="manage-share-snapshots"></a>Administración de instantáneas de recurso compartido
 * <a id="browse-snapshots-linux"></a>
  **¿Puedo examinar mis instantáneas de recurso compartido con Linux?**  
-    Puede usar la CLI de Azure 2.0 para crear, enumerar, examinar y restaurar instantáneas de recurso compartido en Linux.
+    Puede usar la CLI de Azure para crear, enumerar, examinar y restaurar instantáneas de recurso compartido en Linux.
 
 * <a id="copy-snapshots-to-other-storage-account"></a>
  **¿Puedo copiar las instantáneas de recurso compartido a una cuenta de almacenamiento diferente?**  

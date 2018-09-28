@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Alta disponibilidad para máquinas virtuales Linux en Azure | Microsoft Docs'
-description: En este tutorial, aprenderá a usar la CLI de Azure 2.0 para implementar máquinas virtuales de alta disponibilidad en conjuntos de disponibilidad.
+description: En este tutorial, aprenderá a usar la CLI de Azure para implementar máquinas virtuales de alta disponibilidad en conjuntos de disponibilidad.
 documentationcenter: ''
 services: virtual-machines-linux
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a31ca4dc326eb6ada37813cacd8bb1dc337c7fdc
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ee1c3cb079d77fe8e510695514e77c8ae9795c30
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044249"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950512"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli-20"></a>Tutorial: Creación e implementación de máquinas virtuales de alta disponibilidad con la CLI de Azure 2.0
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutorial: crear e implementar máquinas virtuales de alta disponibilidad con la CLI de Azure
 
 En este tutorial, obtendrá información sobre cómo aumentar la disponibilidad y confiabilidad de las soluciones de máquina virtual en Azure mediante una funcionalidad denominada "conjuntos de disponibilidad". Los conjuntos de disponibilidad garantizan que las máquinas virtuales implementadas en Azure se distribuyan entre varios clústeres de hardware aislados. De este modo, se asegura de que, si se produce un error de hardware o software en Azure, solo un subconjunto de las máquinas virtuales se verá afectado y que la solución seguirá disponible y en funcionamiento.
 
@@ -36,7 +36,7 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="availability-set-overview"></a>Información general sobre conjuntos de disponibilidad
 
