@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: include file
-ms.openlocfilehash: bdc2eec30c44ddd9512ffdb33210a6b287d3debf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 18befb5c26879642b371a2ea084fb5c27349addb
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47003961"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47401578"
 ---
-## <a name="data-lake"></a>Data Lake
+## <a name="data-lake-storage-gen1"></a>Data Lake Storage Gen1
 
 |  |  |
 |---------|---------|
-| [Aplicar cifrado de Data Lake Store](../articles/governance/policy/samples/enforce-datalakestore-encryption.md) | Deniega todas las cuentas de Data Lake Store que no tengan el cifrado habilitado. |
+| [Aplicación del cifrado de Data Lake Storage Gen1](../articles/governance/policy/samples/enforce-datalakestore-encryption.md) | Deniega todas las cuentas de Data Lake Store Gen1 que no tengan el cifrado habilitado. |

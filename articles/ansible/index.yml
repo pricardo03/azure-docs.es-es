@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 11541b0af13de17b20c1be516184d094b1be0961
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: f24a2ab1e4e4b87bb41b95b6ea5d80277c0e7094
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667078"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409956"
 documentType: LandingData
 title: Ansible en la documentación de Azure
 metadata:
@@ -52,6 +52,7 @@ sections:
     - html: <a href="./ansible-create-configure-vmss">Cree y administre conjuntos de escalado de máquinas virtuales en Azure.</a>
     - html: <a href="./ansible-deploy-app-vmss">Implemente aplicaciones en conjuntos de escalado de máquinas virtuales de Azure.</a>
     - html: <a href="./ansible-create-configure-aks">Cree y administre clústeres de Azure Kubernetes Service.</a>
+    - html: <a href="./ansible-create-configure-application-gateway">Administración del tráfico web con una instancia de Azure Application Gateway</a>.
 - title: Referencia
   items:
   - type: list

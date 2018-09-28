@@ -50,7 +50,7 @@ Consulte [Configure Azure Key Vault Firewalls and Virtual Networks](key-vault-ne
 > [!NOTE]
 > * Se permiten un máximo de 127 reglas de VNET y 127 reglas de IPv4. 
 > * Los intervalos de dirección pequeños con tamaños de prefijos "/31" o "/32" no son compatibles. Estos intervalos se deberían configurar utilizando reglas de direcciones IP individuales.
-> * Las reglas de red IP solo se permiten para direcciones IP públicas. No se permiten intervalos de direcciones IP reservados para redes privadas (tal y como se define en RFC 1918) en las reglas IP. Las redes privadas incluyen direcciones que comienzan por *10.**, *172.16.** y *192.168.**. 
+> * Las reglas de red IP solo se permiten para direcciones IP públicas. No se permiten intervalos de direcciones IP reservados para redes privadas (tal y como se define en RFC 1918) en las reglas IP. Las redes privadas incluyen direcciones que comienzan por *10.*\*, *172.16.*\* y *192.168.*\*. 
 > * Solo se admiten direcciones IPV4 en este momento.
 
 ## <a name="trusted-services"></a>Servicios de confianza

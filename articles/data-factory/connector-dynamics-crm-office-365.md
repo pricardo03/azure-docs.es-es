@@ -277,7 +277,7 @@ Para copiar datos en Dynamics, establezca el tipo de receptor de la actividad de
 | ignoreNullValues | Indica si se omiten los valores nulos de los datos de entrada (excepto los campos de clave) durante la operación de escritura.<br/>Los valores permitidos son **true** y **false**.<br>- **True**: deja los datos del objeto de destino sin cambiar cuando realiza una operación upsert/update. Inserta un valor predeterminado definido al realizar una operación insert.<br/>- **False**: actualiza los datos del objeto de destino a NULL cuando realiza una operación upsert/update. Inserta un valor NULL al realizar una operación insert. | No (el valor predeterminado es false) |
 
 >[!NOTE]
->El valor predeterminado del receptor "**writeBatchSize**" y el de la actividad de copia "**[parallelCopies](copy-activity-performance.md#parallel-copy)" del receptor de Dynamics es 10 en ambos casos. Por lo tanto, se enviarán 100 registros a Dynamics simultáneamente.
+>El valor predeterminado del receptor "**writeBatchSize**" y el de la actividad de copia "**[parallelCopies](copy-activity-performance.md#parallel-copy)**" del receptor de Dynamics es 10 en ambos casos. Por lo tanto, se enviarán 100 registros a Dynamics simultáneamente.
 
 Para Dynamics 365 en línea, hay un límite de [2 llamadas simultáneas por lotes por organización](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Si se supera dicho límite, se produce un error de "Servidor ocupado" antes de que la primera solicitud se haya ejecutado siquiera. Mantener el valor "writeBatchSize" menor o igual a 10 evitará tal limitación de las llamadas simultáneas.
 

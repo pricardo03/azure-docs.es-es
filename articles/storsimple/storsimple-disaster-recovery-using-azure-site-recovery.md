@@ -168,16 +168,16 @@ Puede crear un plan de recuperación en ASR para automatizar el proceso de conmu
 1. En la cuenta de Automation, haga clic en **Variables** &gt; **Agregar variable** y agregue las siguientes variables. Puede elegir cifrar estos activos. Estas variables son específicas del plan de recuperación. Si el plan de recuperación que creará en el paso siguiente se denomina TestPlan, las variables deben ser TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName y así sucesivamente.
 
    - **BaseUrl**: dirección URL de Resource Manager para la nube de Azure. Se obtiene mediante el cmdlet **Get-AzureRmEnvironment | Select-Object Name, ResourceManagerUrl**.
-   - *RecoveryPlanName***-ResourceGroupName**: el grupo de Resource Manager que tiene el recurso de StorSimple.
-   - *RecoveryPlanName***-ManagerName**: el recurso de StorSimple que tiene el dispositivo StorSimple.
-   - *RecoveryPlanName***-DeviceName**: el dispositivo StorSimple que debe conmutarse por error.
-   - *RecoveryPlanName***-DeviceIpAddress**: la dirección IP del dispositivo (se puede encontrar en la pestaña **Dispositivos** de la sección Administrador de dispositivos de StorSimple &gt; **Configuración** &gt; **Red** &gt; **Configuración DNS**).
-   - *RecoveryPlanName***-VolumeContainers**: una cadena separada por comas de contenedores de volúmenes presentes en el dispositivo que deben conmutarse por error; por ejemplo, contDeVol1,contDeVol2,contDeVol3.
-   - *RecoveryPlanName***-TargetDeviceName**: StorSimple Cloud Appliance en el que se deben conmutar por error los contenedores.
-   - *RecoveryPlanName***-TargetDeviceIpAddress**: la dirección IP del dispositivo de destino (se puede encontrar en la sección **Máquina virtual** grupo &gt; **Configuración** pestaña &gt; **Red**).
-   - *RecoveryPlanName***-StorageAccountName**: el nombre de la cuenta de almacenamiento en la que se almacenará el script (que debe ejecutarse en la máquina virtual conmutada por error). Puede tratarse de cualquier cuenta de almacenamiento que tenga suficiente espacio como para almacenar temporalmente el script.
-   - *RecoveryPlanName***-StorageAccountKey**: la clave de acceso para la cuenta de almacenamiento anterior.
-   - *RecoveryPlanName***-VMGUIDS**: al proteger una máquina virtual, Azure Site Recovery asigna a cada VM un identificador único que ofrece los detalles de la máquina virtual conmutada por error. Para obtener el VMGUID, seleccione la pestaña **Recovery Services** y haga clic en **Elemento protegido**&gt;**Grupos de protección**&gt;**Máquinas**&gt;**Propiedades**. Si tiene varias máquinas virtuales, después, agregue los GUID como una cadena separada por comas.
+   - *RecoveryPlanName* **-ResourceGroupName**: el grupo de Resource Manager que tiene el recurso de StorSimple.
+   - *RecoveryPlanName* **-ManagerName**: el recurso de StorSimple que tiene el dispositivo StorSimple.
+   - *RecoveryPlanName* **-DeviceName**: el dispositivo StorSimple que debe conmutarse por error.
+   - *RecoveryPlanName* **-DeviceIpAddress**: la dirección IP del dispositivo (se puede encontrar en la pestaña **Dispositivos** de la sección Administrador de dispositivos de StorSimple &gt; **Configuración** &gt; **Red** &gt; **Configuración DNS**).
+   - *RecoveryPlanName* **-VolumeContainers**: una cadena separada por comas de contenedores de volúmenes presentes en el dispositivo que deben conmutarse por error; por ejemplo, contDeVol1,contDeVol2,contDeVol3.
+   - *RecoveryPlanName* **-TargetDeviceName**: StorSimple Cloud Appliance en el que se deben conmutar por error los contenedores.
+   - *RecoveryPlanName* **-TargetDeviceIpAddress**: la dirección IP del dispositivo de destino (se puede encontrar en la sección **Máquina virtual** grupo &gt; **Configuración** pestaña &gt; **Red**).
+   - *RecoveryPlanName* **-StorageAccountName**: el nombre de la cuenta de almacenamiento en la que se almacenará el script (que debe ejecutarse en la máquina virtual conmutada por error). Puede tratarse de cualquier cuenta de almacenamiento que tenga suficiente espacio como para almacenar temporalmente el script.
+   - *RecoveryPlanName* **-StorageAccountKey**: la clave de acceso para la cuenta de almacenamiento anterior.
+   - *RecoveryPlanName* **-VMGUIDS**: al proteger una máquina virtual, Azure Site Recovery asigna a cada VM un identificador único que ofrece los detalles de la máquina virtual conmutada por error. Para obtener el VMGUID, seleccione la pestaña **Recovery Services** y haga clic en **Elemento protegido**&gt;**Grupos de protección**&gt;**Máquinas**&gt;**Propiedades**. Si tiene varias máquinas virtuales, después, agregue los GUID como una cadena separada por comas.
 
     Por ejemplo, si el nombre del plan de recuperación es fileServerpredayRP, las pestañas **Variables**, **Conexiones** y **Certificados** deberían aparecer de la siguiente forma después de agregar todos los recursos.
 
