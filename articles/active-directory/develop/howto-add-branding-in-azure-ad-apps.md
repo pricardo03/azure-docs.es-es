@@ -10,30 +10,37 @@ ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2017
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 92990a71a0b138f08c515450ecd71692fa57f297
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 6edcd5b3df7c3c58c6568434f82fbc52cb9e28df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "43185427"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958873"
 ---
 # <a name="branding-guidelines-for-applications"></a>Directrices de personalización de marca para aplicaciones
 
-En este artículo se describen las directrices de personalización de marca que hay que usar al desarrollar aplicaciones con Azure Active Directory (Azure AD). Gracias a ellas, podrá dirigir a los clientes cuando estos quieran usar su cuenta profesional o educativa (administrada en Azure AD), o su cuenta personal, para suscribirse a la aplicación o iniciar sesión en ella.
+Cuando desarrolle aplicaciones con Azure Active Directory (Azure AD), deberá dirigir a los clientes cuando estos quieran usar su cuenta profesional o educativa (administrada en Azure AD), o su cuenta personal, para suscribirse a la aplicación o iniciar sesión en ella.
+
+En este artículo:
+
+- Obtendrá información sobre los dos tipos de cuentas de usuario administradas por Microsoft y cómo hacer referencia a las cuentas de Azure AD en su aplicación.
+- Averiguará qué debe hacer para agregar el logotipo de Microsoft para usarlo en su aplicación.
+- Descargue las imágenes de **Iniciar sesión** o **Iniciar sesión con Microsoft** oficiales para usarlas en su aplicación
+- Obtenga información sobre la personalización de marca y qué debe hacer y qué no debe hacer en la navegación.
 
 ## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>Cuentas personales frente a cuentas profesionales o educativas de Microsoft
 
 Microsoft administra dos tipos de cuentas de usuario:
 
-* **Cuentas personales** (anteriormente conocidas como Windows Live ID). Estas cuentas representan la relación entre los usuarios *individuales* y Microsoft. Se usan para tener acceso a servicios y dispositivos de consumidor de Microsoft. Estas cuentas están pensadas para un uso personal.
-* **Cuentas profesionales o educativas.** Estas cuentas las administra Microsoft en nombre de las organizaciones que usan Azure Active Directory. Estas cuentas se utilizan para iniciar sesión en Office 365 y otros servicios empresariales de Microsoft.
+- **Cuentas personales** (anteriormente conocidas como Windows Live ID). Estas cuentas representan la relación entre los usuarios *individuales* y Microsoft. Se usan para tener acceso a servicios y dispositivos de consumidor de Microsoft. Estas cuentas están pensadas para un uso personal.
+- **Cuentas profesionales o educativas.** Estas cuentas las administra Microsoft en nombre de las organizaciones que usan Azure Active Directory. Estas cuentas se utilizan para iniciar sesión en Office 365 y otros servicios empresariales de Microsoft.
 
 Las cuentas profesionales o educativas de Microsoft normalmente se asignan las organizaciones (compañías, escuelas, administraciones públicas, etc.).a los usuarios finales (empleados, estudiantes, empleados de las administraciones, etc.). Estas cuentas se controlan directamente en la nube (en la plataforma de Azure AD) o se sincronizan con Azure AD desde un directorio local, como Windows Server Active Directory. Microsoft mantiene la *custodia* de las cuentas profesionales o educativas, pero son propiedad la organización y es esta quien las controla.
 
@@ -41,8 +48,8 @@ Las cuentas profesionales o educativas de Microsoft normalmente se asignan las o
 
 Microsoft no expone a los usuarios finales a los nombres de marca de Azure ni de Active Directory, y usted tampoco debería hacerlo.
 
-* Una vez que los usuarios han iniciado sesión, use el nombre y el logotipo de la organización tanto como sea posible. Esto es mejor que usar términos genéricos como "la organización".
-* Cuando los usuarios no han iniciado sesión, refiérase a sus cuentas como "cuentas profesionales o educativas" y use el logotipo de Microsoft para transmitir que Microsoft administra estas cuentas. No utilice términos como "cuenta de la empresa", "cuenta empresarial" ni "cuenta corporativa", ya que estos crearían confusión entre los usuarios.
+- Una vez que los usuarios han iniciado sesión, use el nombre y el logotipo de la organización tanto como sea posible. Esto es mejor que usar términos genéricos como "la organización".
+- Cuando los usuarios no han iniciado sesión, refiérase a sus cuentas como "cuentas profesionales o educativas" y use el logotipo de Microsoft para transmitir que Microsoft administra estas cuentas. No utilice términos como "cuenta de la empresa", "cuenta empresarial" ni "cuenta corporativa", ya que estos crearían confusión entre los usuarios.
 
 ## <a name="user-account-pictogram"></a>Pictograma de una cuenta de usuario
 
@@ -94,7 +101,6 @@ Para descargar las imágenes oficiales para su uso en la aplicación, haga clic 
 | Inicio de sesión en Microsoft (tema claro) | ![PNG del tema claro del botón de inicio de sesión](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![SVG del tema claro del botón de inicio de sesión en Microsoft](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
 | Inicio de sesión (tema oscuro)                 | ![PNG del tema oscuro del botón corto de inicio de sesión](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![SVG del tema oscuro del botón corto de inicio de sesión](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
 | Inicio de sesión (tema claro)                | ![PNG del tema claro del botón corto de inicio de sesión](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![SVG del tema claro del botón corto de inicio de sesión](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
-
 
 ## <a name="branding-dos-and-donts"></a>Personalización de marca: qué se debe hacer y qué no
 

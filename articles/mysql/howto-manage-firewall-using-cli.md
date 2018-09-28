@@ -10,18 +10,18 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: e6bb06d8ae46afbb946754113e1d81a90e3ddc57
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 45df284d29ea2d5eb799697b22deeab03cb66622
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423698"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956683"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Creación y administración de reglas de firewall de Azure Database for MySQL mediante la CLI de Azure
 Las reglas de firewall de nivel de servidor permiten a los administradores administrar el acceso a un servidor de Azure Database for MySQL desde una dirección IP o desde un intervalo de direcciones IP especificado. Con los comandos de la CLI de Azure adecuados, puede crear, actualizar, eliminar, enumerar y mostrar reglas de firewall para administrar el servidor. Para obtener información general sobre los firewalls de Azure Database for MySQL, consulte [Reglas de firewall de un servidor de Azure Database for MySQL](./concepts-firewall-rules.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
-* [Instale la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 * Un [servidor de Azure Database for MySQL y una base de datos](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 ## <a name="firewall-rule-commands"></a>Comandos de reglas de firewall:

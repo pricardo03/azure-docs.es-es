@@ -11,23 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/10/2018
+ms.date: 09/14/2018
 ms.author: bwren
-ms.openlocfilehash: 0e513cc4f6a7d5d030ded807870de9eb0fdc0ed8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f40c8ed7eb6bfae958b3b57c4b7d525963ab9741
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38973187"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955269"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Tiempos de la ingesta de datos en Log Analytics
-Azure Log Analytics es un servicio de datos a gran escala que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. Con frecuencia se plantean preguntas sobre el tiempo necesario para que los datos estén disponibles en Log Analytics una vez que se han recopilado. En este artículo se explican los distintos factores que afectan a esta latencia.
+Azure Log Analytics es un servicio de datos a gran escala de Azure Monitor que atiende a miles de clientes que envían terabytes de datos cada mes a un ritmo creciente. Con frecuencia se plantean preguntas sobre el tiempo necesario para que los datos estén disponibles en Log Analytics una vez que se han recopilado. En este artículo se explican los distintos factores que afectan a esta latencia.
 
 ## <a name="typical-latency"></a>Latencia típica
-La latencia hace referencia al momento en el que los datos se crean en el sistema supervisado y el momento en el que están disponibles para su análisis en Log Analytics. La latencia típica para la ingesta de datos en Log Analytics es de entre 3 y 10 minutos, con el 95 % de los datos ingeridos en menos de 7 minutos. La latencia específica para cualquier dato determinado varía en función de una serie de factores que se explican más adelante.
+La latencia hace referencia al momento en el que los datos se crean en el sistema supervisado y el momento en el que están disponibles para su análisis en Log Analytics. La latencia típica para la ingesta de datos en Log Analytics es de entre 2 y 5 minutos. La latencia específica para cualquier dato determinado varía en función de una serie de factores que se explican más adelante.
 
-## <a name="sla-for-log-analytics"></a>Acuerdo de Nivel de Servicio para Log Analytics
-El [Acuerdo de Nivel de Servicio (SLA) para Log Analytics](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) es un acuerdo legal vinculante que define cuándo Microsoft deberá reembolsa a los clientes cuando el servicio no cumpla sus objetivos. Esto no se basa en el rendimiento típico del sistema sino en el peor de los casos, que representa situaciones potencialmente catastróficas.
 
 ## <a name="factors-affecting-latency"></a>Factores que afectan a la latencia
 El tiempo total de ingesta para un determinado conjunto de datos puede dividirse en las siguientes áreas de alto nivel. 
@@ -60,7 +58,7 @@ Algunas soluciones no recopilan los datos de un agente y pueden usar un método 
 Consulte la documentación de cada solución para determinar su frecuencia de recopilación.
 
 ### <a name="pipeline-process-time"></a>Tiempo del proceso de canalización
-Una vez que las entradas de registro se han ingerido en la canalización de Log Analytics, se escriben en un almacenamiento temporal para garantizar el aislamiento de inquilinos y para asegurarse de que no se pierden datos. Normalmente, este proceso agrega de 5 a 15 segundos. Algunas soluciones de administración implementan algoritmos más pesados para agregar datos y obtener perspectivas a medida que los datos van entrando. Por ejemplo, Network Performance Monitor agrega los datos de entrada en intervalos de 3 minutos, agregando así una latencia de 3 minutos.
+Una vez que las entradas de registro se han ingerido en la canalización de Log Analytics, se escriben en un almacenamiento temporal para garantizar el aislamiento de inquilinos y para asegurarse de que no se pierden datos. Normalmente, este proceso agrega de 5 a 15 segundos. Algunas soluciones de administración implementan algoritmos más pesados para agregar datos y obtener perspectivas a medida que los datos van entrando. Por ejemplo, Network Performance Monitor agrega los datos de entrada en intervalos de 3 minutos, agregando así una latencia de 3 minutos. Otro proceso que agrega latencia es el proceso que controla los registros personalizados. En algunos casos, este proceso puede agregar algunos minutos de latencia a los registros recopilados de los archivos por el agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Aprovisionamiento de nuevos tipos de datos personalizados
 Cuando se crea un nuevo tipo de datos personalizados desde un [registro personalizado](../log-analytics/log-analytics-data-sources-custom-logs.md) o la [API del recopilador de datos](../log-analytics/log-analytics-data-collector-api.md), el sistema crea un contenedor de almacenamiento dedicado. Se trata de una sobrecarga de un solo uso que se produce solo con la primera aparición de este tipo de datos.

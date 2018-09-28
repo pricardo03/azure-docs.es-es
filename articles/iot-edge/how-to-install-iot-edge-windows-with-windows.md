@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: e92adc5dbd0da6ab4f60f8cc7bf6dbe7a58694c6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 3d450bf16acd2b64702694ae961a65e31062d9d1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128425"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961593"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Instalación del entorno de ejecución de Azure IoT Edge en Windows para usar con contenedores de Windows
 
@@ -109,6 +109,10 @@ Y, enumere los módulos en ejecución con:
 ```powershell
 iotedge list
 ```
+
+## <a name="tips-and-suggestions"></a>Recomendaciones y sugerencias
+
+Si la red tiene un servidor proxy, siga los pasos descritos en [Configure your IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md) (Configuración del dispositivo IoT Edge para comunicarse a través de un servidor proxy).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
