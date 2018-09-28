@@ -16,12 +16,12 @@ ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: a4b1e59ff9ac4d7f455c87e821fb014ba238d3c9
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 2c7c1e71830eb3fe4f7240195dac828ac9dfed3a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127482"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951580"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Creación y uso compartido de paneles de datos de Log Analytics
 
@@ -56,7 +56,7 @@ Se le pedirá que elija una suscripción y un grupo de recursos en el que se vay
 
 Puede crear consultas básicas en una sola línea desde el portal de búsqueda de registros en Azure Portal. El portal de búsqueda de registros se puede utilizar sin necesidad de iniciar un portal externo y se puede usar para realizar una serie de funciones con búsquedas de registros, incluida la creación de reglas de alertas, la creación de grupos de equipos y la exportación de los resultados de la consulta. 
 
-El [portal de análisis avanzado](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal) es un portal dedicado que proporciona funcionalidades avanzadas que no están disponibles en el portal de búsqueda de registros. Las características incluyen la capacidad para editar una consulta en varias líneas, ejecutar código de forma selectiva, Intellisense sensible al contexto y análisis inteligente. En el portal de análisis avanzado, creará una vista de rendimiento con forma gráfica, la guardará para futuras búsquedas y la anclará al panel compartido creado anteriormente.   
+El [portal de Log Analytics](../log-analytics/query-language/get-started-analytics-portal.md) es un portal dedicado que proporciona funcionalidades avanzadas que no están disponibles en el portal de búsqueda de registros. Las características incluyen la capacidad para editar una consulta en varias líneas, ejecutar código de forma selectiva, Intellisense sensible al contexto y análisis inteligente. En el portal de análisis avanzado, creará una vista de rendimiento con forma gráfica, la guardará para futuras búsquedas y la anclará al panel compartido creado anteriormente.   
 
 Inicie el portal de análisis avanzado desde un vínculo del portal de búsqueda de registros.<br> ![Inicio del portal de análisis avanzado](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-01.png)
 

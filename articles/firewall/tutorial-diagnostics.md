@@ -1,27 +1,22 @@
 ---
-title: 'Tutorial: Supervisión de los registros de Azure Firewall'
-description: En este tutorial, aprenderá a habilitar y administrar los registros de Azure Firewall.
+title: 'Tutorial: Métricas y registros de Azure Firewall'
+description: En este tutorial, aprenderá a habilitar y administrar los registros y métricas de Azure Firewall.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/11/2018
+ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: a4922fda80b957138a9929090f9d3c349348185d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 1940fb210481dc75fe48d110776185e90cb3e42f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991964"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991052"
 ---
-# <a name="tutorial-monitor-azure-firewall-logs"></a>Tutorial: Supervisión de los registros de Azure Firewall
+# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Tutorial: Métricas y registros de Azure Firewall
 
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-En los ejemplos de los artículos de Azure Firewall se supone que ya tiene habilitada la versión preliminar pública de Azure Firewall. Para más información, consulte [Enable the Azure Firewall public preview](public-preview.md) (Habilitar la versión preliminar pública de Azure Firewall).
-
-Puede supervisar Azure Firewall mediante los registros del firewall. También puede usar los registros de actividad para auditar las operaciones de los recursos de Azure Firewall.
+Puede supervisar Azure Firewall mediante los registros del firewall. También puede usar los registros de actividad para auditar las operaciones de los recursos de Azure Firewall. Con las métricas, puede ver los contadores de rendimiento en el portal. 
 
 Se puede acceder a algunos de estos registros mediante el portal. Los registros se pueden enviar a [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Storage y Event Hubs, y se pueden analizar en Log Analytics o mediante distintas herramientas como Excel y Power BI.
 
@@ -32,69 +27,12 @@ En este tutorial, aprenderá a:
 > * Habilitación del registro con PowerShell
 > * Visualización y análisis del registro de actividades
 > * Ver y analizar los registros de la regla de red y de aplicación
+> * Visualización de métricas
 
-## <a name="diagnostic-logs"></a>Registros de diagnóstico
+## <a name="prerequisites"></a>Requisitos previos
 
- Los siguientes registros de diagnóstico están disponibles para Azure Firewall:
+Antes de comenzar este tutorial, debe leer el artículo acerca de las [métricas y registros de Azure Firewall](logs-and-metrics.md), que es una introducción a los registros y las métricas de diagnóstico y métricas disponibles para Azure Firewall.
 
-* **Registro de regla de aplicación**
-
-   El registro de la regla de aplicación se guarda en una cuenta de almacenamiento, se transmite a Event Hubs o se envía a Log Analytics solo si lo habilitó para cada instancia de Azure Firewall. Cada nueva conexión que coincida con una de las reglas de la aplicación configuradas dará como resultado un registro de la conexión aceptada o rechazada. Los datos se registran en formato JSON, tal y como se muestra en el ejemplo siguiente:
-
-   ```
-   Category: access logs are either application or network rule logs.
-   Time: log timestamp.
-   Properties: currently contains the full message. 
-   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
-   ```
-
-   ```json
-   {
-    "category": "AzureFirewallApplicationRule",
-    "time": "2018-04-16T23:45:04.8295030Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallApplicationRuleLog",
-    "properties": {
-        "msg": "HTTPS request from 10.1.0.5:55640 to mydestination.com:443. Action: Allow. Rule Collection: collection1000. Rule: rule1002"
-    }
-   }
-   ```
-
-* **Registro de regla de red**
-
-   El registro de la regla de red se guarda en una cuenta de almacenamiento, se transmite a Event Hubs o se envía a Log Analytics solo si lo habilitó para cada instancia de Azure Firewall. Cada nueva conexión que coincida con una de las reglas de red configuradas dará como resultado un registro de la conexión aceptada o rechazada. Los datos se registran en formato JSON, tal y como se muestra en el ejemplo siguiente:
-
-   ```
-   Category: access logs are either application or network rule logs.
-   Time: log timestamp.
-   Properties: currently contains the full message. 
-   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
-   ```
-
-   ```json
-  {
-    "category": "AzureFirewallNetworkRule",
-    "time": "2018-06-14T23:44:11.0590400Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallNetworkRuleLog",
-    "properties": {
-        "msg": "TCP request from 111.35.136.173:12518 to 13.78.143.217:2323. Action: Deny"
-    }
-   }
-
-   ```
-
-Tiene tres opciones para almacenar los archivos de registro:
-
-* **Cuenta de almacenamiento**: cuentas que resultan especialmente útiles para registros cuando estos se almacenan durante mucho tiempo y se revisan cuando es necesario.
-* **Event Hubs**: es una buena opción para la integración con otras herramientas de información de seguridad y administración de eventos (SEIM) para obtener alertas acerca de los recursos.
-* **Log Analytics**: se usa para la supervisión general en tiempo real de la aplicación o para examinar las tendencias.
-
-## <a name="activity-logs"></a>Registros de actividad
-
-   Las entradas del registro de actividades se recopilan de forma predeterminada y se pueden ver en Azure Portal.
-
-   Puede usar el [registro de actividades de Azure](../azure-resource-manager/resource-group-audit.md) (anteriormente conocido como registros operativos y registros de auditoría) para ver todas las operaciones enviadas a sus suscripciones de Azure.
 
 ## <a name="enable-diagnostic-logging-through-the-azure-portal"></a>Habilitación del registro de diagnóstico mediante Azure Portal
 
@@ -105,8 +43,8 @@ Puede tardar algunos minutos en que los datos aparezcan en los registros despué
 
    En Azure Firewall hay dos registros específicos del servicio:
 
-   * Registro de regla de aplicación
-   * Registro de regla de red
+   * AzureFirewallApplicationRule
+   * AzureFirewallNetworkRule
 
 3. Para empezar a recopilar los datos, clic en **Activar diagnósticos**.
 4. En la página **Configuración de diagnóstico**, se encuentran las opciones de configuración de los registros de diagnóstico. 
@@ -163,6 +101,8 @@ También puede conectarse a la cuenta de almacenamiento y recuperar las entradas
 > [!TIP]
 > Si está familiarizado con Visual Studio y con los conceptos básicos de cambio de los valores de constantes y variables de C#, puede usar las [herramientas convertidoras de registros](https://github.com/Azure-Samples/networking-dotnet-log-converter) que encontrará en GitHub.
 
+## <a name="view-metrics"></a>Visualización de métricas
+Navegue a una instancia de Azure Firewall y, en **Supervisión** haga clic en **Métricas**. Para ver los valores disponibles, seleccione la lista desplegable **MÉTRICA**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

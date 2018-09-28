@@ -12,48 +12,68 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/21/2018
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: f83ca06843b94aecf44a4e4a58959d35f00532c2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: da8eebb2fc6b87b8916e944495679b45aa34dbf2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125123"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960335"
 ---
-# <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Ámbitos, permisos y consentimiento en el punto de conexión v2.0 de Azure Active Directory
+# <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Permisos y consentimiento en el punto de conexión v2.0 de Azure Active Directory
 
-Las aplicaciones que se integran con Azure Active Directory (Azure AD) siguen un modelo de autorización que ofrece a los usuarios control sobre el modo en que una aplicación puede acceder a sus datos. La implementación v2.0 del modelo de implementación se ha actualizado, y cambia el modo en que una aplicación debe interactuar con Azure AD. En este artículo se tratan los conceptos básicos de este modelo de autorización, incluidos los ámbitos, los permisos y el consentimiento.
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
+Las aplicaciones que se integran con la plataforma de identidad de Microsoft siguen un modelo de autorización que permite a los usuarios y los administradores controlar el modo en que se puede acceder a los datos. La implementación del modelo de autorización se ha actualizado en el punto de conexión v2.0 y cambia el modo en que una aplicación debe interactuar con la plataforma de identidad de Microsoft. En este artículo se tratan los conceptos básicos de este modelo de autorización, incluidos los ámbitos, los permisos y el consentimiento.
 
 > [!NOTE]
-> No todas las características y escenarios de Azure Active Directory son compatibles con la versión 2.0 del punto de conexión. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de esta versión](active-directory-v2-limitations.md).
+> No todas las características y escenarios se admiten en la versión 2.0 del punto de conexión. Para determinar si debe usar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
 
 ## <a name="scopes-and-permissions"></a>Permisos y ámbitos
 
-Azure AD implementa el protocolo de autorización [OAuth 2.0](active-directory-v2-protocols.md). OAuth 2.0 es un método a través del cual una aplicación de terceros puede acceder a recursos hospedados en Web en nombre de un usuario. Cualquier recurso hospedado en Web que se integre con Azure AD tiene un identificador de recursos o *URI de id. de aplicación*. Por ejemplo, algunos de los recursos de Microsoft hospedados en la web incluyen:
+La plataforma de identidad de Microsoft implementa el protocolo de autorización [OAuth 2.0](active-directory-v2-protocols.md). OAuth 2.0 es un método a través del cual una aplicación de terceros puede acceder a recursos hospedados en Web en nombre de un usuario. Cualquier recurso hospedado en web que se integre con la plataforma de identidad de Microsoft tiene un identificador de recursos o *URI de identificador de aplicación*. Por ejemplo, algunos de los recursos de Microsoft hospedados en la web incluyen:
 
-* La API de Correo unificado de Office 365: `https://outlook.office.com`
-* Graph API de Azure AD: `https://graph.windows.net`
 * Microsoft Graph: `https://graph.microsoft.com`
+* Office 365 Mail API: `https://outlook.office.com`
+* Azure AD Graph: `https://graph.windows.net`
 
-Ocurre lo mismo con cualquier recurso de terceros integrado con Azure AD. Cualquiera de estos recursos también puede definir un conjunto de permisos que se puede usar para dividir la funcionalidad de ese recurso en fragmentos menores. Por ejemplo, [Microsoft Graph](https://graph.microsoft.io) tiene permisos definidos para realizar, entre otras, las tareas siguientes:
+> [!NOTE]
+> Se recomienda encarecidamente que utilice Microsoft Graph en lugar de Azure AD Graph, Office 365 Mail API, etc.
+
+Ocurre lo mismo con cualquier recurso de terceros integrado en la plataforma de identidad de Microsoft. Cualquiera de estos recursos también puede definir un conjunto de permisos que se puede usar para dividir la funcionalidad de ese recurso en fragmentos menores. Por ejemplo, [Microsoft Graph](https://graph.microsoft.com) tiene permisos definidos para realizar, entre otras, las tareas siguientes:
 
 * Leer el calendario de un usuario
 * Escribir en el calendario de un usuario
 * Enviar correo como un usuario
 
-Mediante la definición de estos tipos de permisos, el recurso tiene control específico sobre sus datos y el modo en que se exponen. Una aplicación de terceros puede solicitar estos permisos a un usuario de la aplicación. El usuario de la aplicación debe aprobar los permisos para que la aplicación pueda actuar en su nombre. Al fragmentar la funcionalidad del recurso en conjuntos de permisos más pequeños, se pueden crear aplicaciones de terceros para solicitar solo los permisos concretos que necesitan para realizar sus tareas. Los usuarios de la aplicación pueden saber exactamente cómo una aplicación usará sus datos, así pueden estar más seguros de que la aplicación no se comporta de forma malintencionada.
+Mediante la definición de estos tipos de permisos, el recurso tiene control específico sobre sus datos y el modo en que la funcionalidad de la API se expone. Una aplicación de terceros puede solicitar estos permisos a los usuarios y administradores, quienes deben aprobar la solicitud para que la aplicación pueda acceder a los datos o actuar en nombre de un usuario. Al fragmentar la funcionalidad del recurso en conjuntos de permisos más pequeños, se pueden crear aplicaciones de terceros para solicitar solo los permisos concretos que necesitan para realizar sus tareas. Los usuarios y administradores pueden conocer exactamente el modo en que la aplicación accede a sus datos y estar más seguros de que no se comporta de forma malintencionada. Los desarrolladores deben cumplir siempre con el concepto del mínimo privilegio y pedir solo los permisos que necesitan para que sus aplicaciones funcionen.
 
-En Azure AD y OAuth, estos tipos de permisos se denominan *ámbitos*. En ocasiones también se conocen como *oAuth2Permissions*. Un ámbito se representa en Azure AD como un valor de cadena. Al igual que en el ejemplo de Microsoft Graph, el valor de ámbito para cada permiso es:
+En OAuth, estos tipos de permisos se denominan *ámbitos*. A menudo simplemente se hará referencia a ellos como *permisos*. Un permiso se representa en la plataforma de identidad de Microsoft como un valor de cadena. Al igual que en el ejemplo de Microsoft Graph, el valor de ámbito cadena para cada permiso es:
 
 * Leer el calendario de un usuario mediante `Calendars.Read`
 * Escribir en el calendario de un usuario mediante `Calendars.ReadWrite`
 * Enviar correo electrónico con un usuario mediante `Mail.Send`
 
-Una aplicación puede solicitar estos permisos mediante la especificación de los ámbitos en las solicitudes al punto de conexión v2.0.
+Una aplicación suele solicitar estos permisos especificando los ámbitos en las solicitudes al punto de conexión de la autorización v2.0. Sin embargo, ciertos permisos con privilegios elevados solo se pueden conceder con el consentimiento del administrador y por lo general se solicitan o conceden con el [punto de conexión de consentimiento del administrador](v2-permissions-and-consent.md#admin-restricted-scopes). Siga leyendo para obtener más información.
+
+## <a name="permission-types"></a>Tipos de permisos
+
+La plataforma de identidad de Microsoft admite dos tipos de permisos: **permisos delegados** y **permisos de aplicación**.
+
+- **Permisos delegados**: se utilizan en aplicaciones que tienen un usuario con la sesión iniciada. Para estas aplicaciones, el usuario o un administrador dan su consentimiento para los permisos que la aplicación requiere y a la aplicación se le delega el permiso para actuar como el usuario que inició sesión al realizar llamadas al recurso de destino. Algunos permisos delegados pueden ser consentidos por usuarios que no sean administradores, pero otros con más privilegios requieren el [consentimiento del administrador](v2-permissions-and-consent.md#admin-restricted-scopes).  
+
+- **Permisos de aplicación**: los usan las aplicaciones que se ejecutan sin la presencia de un usuario con la sesión iniciada; por ejemplo, las aplicaciones que se ejecutan como demonios o servicios en segundo plano.  Los permisos de aplicación solo pueden ser [aceptados por un administrador](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). 
+
+_Los permisos efectivos_ son los que la aplicación tendrá al realizar solicitudes al recurso de destino. Es importante comprender la diferencia entre los permisos delegados y los de aplicación que se conceden a una aplicación, y sus permisos efectivos al realizar llamadas al recurso de destino.
+
+- En el caso de los permisos delegados, los _permisos efectivos_ de la aplicación serán la intersección con menos privilegios de los permisos delegados que se le han concedido a la aplicación (mediante consentimiento) y los privilegios del usuario que tiene iniciada la sesión actualmente. La aplicación nunca puede tener más privilegios que el usuario que tiene la sesión iniciada. Dentro de las organizaciones, los privilegios del usuario que tiene la sesión iniciada pueden determinarse mediante directivas o pertenencia a uno o varios roles de administrador. Para más información acerca de los roles de administrador, consulte [Asignación de roles de administrador en Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+  Por ejemplo, suponga que a su aplicación se le ha concedido el permiso delegado _User.ReadWrite.All_ en Microsoft Graph. Este permiso concede a su aplicación de forma nominal un permiso para leer y actualizar el perfil de cada usuario de una organización. Si el usuario que inició sesión es un administrador global, la aplicación podrá actualizar el perfil de cada usuario de la organización. Sin embargo, si el usuario con la sesión iniciada no pertenece a un rol de administrador, la aplicación podrá actualizar solo el perfil del usuario que tiene la sesión iniciada. No podrá actualizar los perfiles de otros usuarios de la organización, porque el usuario para el que tiene permiso para actuar en su nombre no tiene tales privilegios.
+  
+- Para los permisos de aplicación, los _permisos efectivos_ de la aplicación serán el nivel completo de privilegios que concede el permiso. Por ejemplo, una aplicación que tiene el permiso de aplicación _User.ReadWrite.All_ puede actualizar el perfil de cada usuario de la organización. 
 
 ## <a name="openid-connect-scopes"></a>Ámbitos de OpenID Connect
 
@@ -69,7 +89,7 @@ El ámbito `email` puede usarse con el ámbito `openid` y cualquier otro. Propor
 
 ### <a name="profile"></a>Perfil
 
-El ámbito `profile` puede usarse con el ámbito `openid` y cualquier otro. Proporciona acceso de la aplicación a una cantidad considerable de información sobre el usuario. Por ejemplo, el nombre propio del usuario, el apellido, el nombre de usuario preferido o el id. de objeto, entre otros datos. Para ver una lista completa de las notificaciones de perfil disponibles en el parámetro id_tokens para un usuario específico, consulte la [referencia de los tokens de v2.0](v2-id-and-access-tokens.md).
+El ámbito `profile` puede usarse con el ámbito `openid` y cualquier otro. Proporciona acceso de la aplicación a una cantidad considerable de información sobre el usuario. Por ejemplo, el nombre propio del usuario, el apellido, el nombre de usuario preferido o el id. de objeto, entre otros datos. Para ver una lista completa de las notificaciones de perfil disponibles en el parámetro id_tokens para un usuario específico, consulte la [`id_tokens`referencia](id-tokens.md).
 
 ### <a name="offlineaccess"></a>offline_access
 
@@ -78,19 +98,6 @@ El ámbito [`offline_access` ](http://openid.net/specs/openid-connect-core-1_0.h
 Si la aplicación no solicita el ámbito `offline_access`, no recibirá tokens de actualización. Esto significa que cuando se canjea un código de autorización del [flujo del código de autorización de OAuth 2.0](active-directory-v2-protocols.md), solo se recibirá un token de acceso del punto de conexión `/token`. El token de acceso es válido durante un breve período de tiempo. Normalmente, expira al cabo de una hora. En ese momento, la aplicación tiene que redirigir al usuario de vuelta al punto de conexión `/authorize` para que obtenga un nuevo código de autorización. Durante esta redirección y, en función del tipo de aplicación, puede que el usuario tenga que volver a escribir sus credenciales o dar de nuevo el consentimiento a permisos.
 
 Para más información sobre cómo obtener y usar tokens de actualización, consulte la [referencia del protocolo v2.0](active-directory-v2-protocols.md).
-
-## <a name="accessing-v10-resources"></a>Acceso a los recursos de la versión v1.0
-Las aplicaciones v2.0 pueden solicitar tokens y permitir aplicaciones v1.0 (por ejemplo, la API de Power BI `https://analysis.windows.net/powerbi/api` o la API de Sharepoint `https://{tenant}.sharepoint.com`).  Para ello, haga referencia al identificador URI de la aplicación y la cadena de ámbito en el parámetro `scope`.  Por ejemplo, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All` solicitaría a `View all Datasets` de Power BI permiso para la aplicación. 
-
-Para solicitar varios permisos, anexe el identificador URI completo con un espacio o `+`, por ejemplo, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://analysis.windows.net/powerbi/api/Report.Read.All`.  Esto solicita tanto el permiso `View all Datasets` como `View all Reports`.  Tenga en cuenta que al igual que con todos los ámbitos y los permisos de Azure AD, las aplicaciones solo pueden realizar una solicitud a un recurso a la vez, por lo que la solicitud `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://api.skypeforbusiness.com/Conversations.Initiate`, que solicita tanto el permiso `View all Datasets` de Power BI como el `Initiate conversations` de Skype for Business, se rechazará, ya que solicita permiso en dos recursos distintos.  
-
-### <a name="v10-resources-and-tenancy"></a>Recursos y inquilinos de v1.0
-Tanto la versión v1.0 como v2.0 de los protocolos de Azure AD usan un parámetro `{tenant}` incrustado en el identificador URI (`https://login.microsoftonline.com/{tenant}/oauth2/`).  Al usar el punto de conexión v2.0 para acceder a un recurso organizativo v1.0, los inquilinos `common` y `consumers` no pueden usarse, ya que estos recursos solo son accesibles con cuentas organizativas (de Azure AD).  Por lo tanto, al acceder a estos recursos, solo pueden usarse el GUID del inquilino o `organizations` como parámetro `{tenant}`.  
-
-Si una aplicación intenta acceder a un recurso organizativo v1.0 mediante un inquilino incorrecto, se devolverá un error similar al siguiente. 
-
-`AADSTS90124: Resource 'https://analysis.windows.net/powerbi/api' (Microsoft.Azure.AnalysisServices) is not supported over the /common or /consumers endpoints. Please use the /organizations or tenant-specific endpoint.`
-
 
 ## <a name="requesting-individual-user-consent"></a>Solicitud de consentimiento de usuario individual
 
@@ -108,40 +115,51 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```
 
-El parámetro `scope` es una lista separada por espacios que incluye los ámbitos que solicita la aplicación. Cada ámbito individual se indica anexando el valor del ámbito al identificador del recurso (URI del id. de aplicación). En la solicitud de ejemplo, la aplicación necesita permiso para leer el calendario del usuario y enviar correo electrónico en nombre del usuario.
+El parámetro `scope` es una lista separada por espacios que incluye los permisos delegados que la aplicación solicita. Cada permiso se indica anexando el valor del permiso al identificador del recurso (URI del identificador de aplicación). En la solicitud de ejemplo, la aplicación necesita permiso para leer el calendario del usuario y enviar correo electrónico en nombre del usuario.
 
-Después de que el usuario escribe sus credenciales, el punto de conexión v2.0 busca un registro que coincida con el *consentimiento del usuario*. Si el usuario no ha dado su consentimiento a ninguno de los permisos solicitados en el pasado, el punto de conexión v2.0 le pide al usuario que conceda los permisos solicitados.
+Después de que el usuario escribe sus credenciales, el punto de conexión v2.0 busca un registro que coincida con el *consentimiento del usuario*. Si el usuario no dio su consentimiento para alguno de los permisos solicitados en el pasado, ni ningún administrador ha otorgado su consentimiento a estos permisos en nombre de toda la organización, el punto de conexión v2.0 solicita al usuario que conceda los permisos solicitados.
 
 ![Consentimiento de la cuenta de trabajo](./media/v2-permissions-and-consent/work_account_consent.png)
 
-Cuando el usuario aprueba el permiso, el consentimiento se registra, así el usuario no tiene que volver a dar su consentimiento en los sucesivos inicios de sesión.
+Cuando el usuario aprueba la solicitud del permiso, el consentimiento se registra y el usuario no tiene que volver a dar su consentimiento en los sucesivos inicios de sesión en la aplicación.
 
 ## <a name="requesting-consent-for-an-entire-tenant"></a>Solicitud de consentimiento para un inquilino al completo
 
-A menudo, cuando una organización adquiere una licencia o una suscripción de una aplicación, quiere aprovisionar totalmente la aplicación para sus empleados. Como parte de este proceso, el administrador puede conceder consentimiento a la aplicación para que actúe en nombre de cualquier empleado. Si el administrador concede el consentimiento del inquilino entero, los empleados de la organización no verán una página de consentimiento para la aplicación.
+A menudo, cuando una organización adquiere una licencia o una suscripción de una aplicación, quiere configurar de forma proactiva la aplicación para que la usen todos sus miembros. Como parte de este proceso, el administrador puede conceder consentimiento a la aplicación para que actúe en nombre de cualquier usuario del inquilino. Si el administrador concede el consentimiento del inquilino entero, los usuarios de la organización no verán una página de consentimiento para la aplicación.
 
-Para solicitar el consentimiento de todos los usuarios de un inquilino, la aplicación puede usar el punto de conexión de consentimiento del administrador.
+Para solicitar el consentimiento de los permisos delegados para todos los usuarios de un inquilino, la aplicación puede usar el punto de conexión de consentimiento del administrador.
 
-## <a name="admin-restricted-scopes"></a>Ámbitos restringidos para los administradores
+Además, las aplicaciones deben usar el punto de conexión de consentimiento del administrador para solicitar los permisos de la aplicación.
 
-Algunos permisos de privilegios elevados del ecosistema de Microsoft se pueden establecer en *restringido para los administradores*. Algunos ejemplos de estos tipos de ámbitos son los siguientes permisos:
+## <a name="admin-restricted-permissions"></a>Permisos restringidos por el administrador
 
-* Leer datos del directorio de una organización mediante `Directory.Read`
-* Escribir datos en el directorio de una organización mediante `Directory.ReadWrite`
-* Leer grupos de seguridad del directorio de una organización mediante: `Groups.Read.All`
+Algunos permisos de privilegios elevados del ecosistema de Microsoft se pueden establecer en *restringido para los administradores*. Algunos ejemplos de estos tipos de permisos son los siguientes:
+
+* Leer los perfiles completos de todos los usuarios con `User.Read.All`
+* Escribir datos en el directorio de una organización mediante `Directory.ReadWrite.All`
+* Leer todos los grupos de seguridad del directorio de una organización con: `Groups.Read.All`
 
 Aunque un usuario consumidor podría conceder acceso de la aplicación a este tipo de datos, los usuarios de la organización tienen la restricción de no conceder acceso al mismo conjunto de datos confidenciales de la empresa. Si la aplicación solicita acceso a uno de estos permisos desde un usuario de la organización, el usuario recibe un mensaje de error que indica que no está autorizado para dar el consentimiento a los permisos de la aplicación.
 
 Si la aplicación necesita acceso a los ámbitos restringidos para los administradores en una organización, debe solicitarlos directamente a un administrador de la empresa, también mediante el punto de conexión de consentimiento del administrador, que se describe a continuación.
 
-Cuando un administrador concede estos permisos mediante el punto de conexión de consentimiento del administrador, el consentimiento se concede a todos los usuarios del inquilino.
+Si la aplicación solicita permisos delegados con altos privilegios y un administrador los concede a través del punto de conexión de consentimiento del administrador, el consentimiento se concede a todos los usuarios del inquilino.
+
+Si la aplicación solicita permisos de aplicación y un administrador los concede a través del punto de conexión de consentimiento del administrador, esta concesión no se realiza en nombre de un usuario específico. En su lugar, a la aplicación cliente se le conceden los permisos *directamente*. Por lo general, estos tipos de permisos solo son utilizados por servicios de demonio y otras aplicaciones no interactivas que se ejecutan en segundo plano.
 
 ## <a name="using-the-admin-consent-endpoint"></a>Uso del punto de conexión de consentimiento del administrador
 
-Si sigue estos pasos, la aplicación puede recopilar permisos para todos los usuarios de un inquilino, incluidos los ámbitos restringido para los administradores. Para ver un ejemplo de código que implementa lo pasos, consulte el [ejemplo de ámbitos restringidos para los administradores](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
+Cuando el administrador de una empresa use la aplicación y se dirija al punto de conexión de autorización, la plataforma de identidad de Microsoft detectará el rol del usuario y le preguntará si desea dar el consentimiento en nombre del inquilino completo para los permisos que se hayan solicitado. Sin embargo, también hay un punto de conexión de consentimiento de administrador dedicado que puede usar si desea solicitar de forma proactiva que un administrador conceda permiso en nombre de todo el inquilino. El uso de este punto de conexión también es necesario para solicitar permisos de aplicación (que no se pueden solicitar mediante el unto de conexión de autorización).
+
+Si sigue estos pasos, la aplicación puede recopilar los permisos para todos los usuarios de un inquilino, incluso en los ámbitos restringidos para los administradores. Se trata de una operación con privilegios elevados y solo debe realizarse si es necesario.
+
+Para ver un ejemplo de código que implementa lo pasos, consulte el [ejemplo de ámbitos restringidos para los administradores](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitud de los permisos en el portal de registro de aplicaciones
 
+El consentimiento del administrador no acepta un parámetro de ámbito, por lo que ningún permiso que se solicite debe definirse estáticamente en el registro de la aplicación. En general, es aconsejable asegurarse de que los permisos definidos estáticamente para una determinada aplicación son un superconjunto de los que se van a solicitar dinámica o incrementalmente.
+
+Para configurar la lista de permisos solicitados estáticamente para una aplicación: 
 1. Vaya a la aplicación en el [Portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) o [cree una aplicación](quickstart-v2-register-an-app.md), si todavía no tiene una.
 2. Busque la sección de **permisos de Microsoft Graph** y agregue los permisos que necesite la aplicación.
 3. **Guarde** el registro de aplicaciones.
@@ -233,3 +251,7 @@ Content-Type: application/json
 Puede usar el token de acceso resultante en las solicitudes HTTP al recurso. Dicho token indica al recurso de forma confiable que la aplicación tiene el permiso apropiado para realizar una tarea específica. 
 
 Para más información sobre el protocolo OAuth 2.0 y cómo obtener tokens de acceso, consulte la [referencia de protocolo del punto de conexión v2.0](active-directory-v2-protocols.md).
+
+## <a name="troubleshooting"></a>solución de problemas
+
+Si usted o los usuarios de su aplicación observan errores inesperados durante el proceso de consentimiento, consulte en este artículo los pasos para solucionar el problema: [Error inesperado al otorgar consentimiento a una aplicación](../manage-apps/application-sign-in-unexpected-user-consent-error.md).

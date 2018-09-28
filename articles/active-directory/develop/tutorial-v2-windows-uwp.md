@@ -16,14 +16,18 @@ ms.workload: identity
 ms.date: 04/20/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 48d03b590d718cf82d692dc177a69f6d54de43d1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 4afd4ce5b8a0ab4c076ebc3c587605dfe1204b8a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495919"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966391"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (XAML)
+
+
+> [!div renderon="docs"]
+> [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 En esta guía se explica cómo una aplicación de la Plataforma universal de Windows (UWP) puede solicitar un token de acceso y, a continuación, llamar a Microsoft Graph API. La guía también se aplica a otras API que requieren tokens de acceso del punto de conexión de Azure Active Directory v2.
 
@@ -71,11 +75,14 @@ Esta guía crea una aplicación que muestra un botón que consulta Graph API, un
 2. Copie y pegue el siguiente comando en la ventana de la **consola del administrador de paquetes**:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
     ```
 
 > [!NOTE]
 > Este comando instala la [biblioteca de autenticación de Microsoft](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL adquiere, almacena en memoria caché y actualiza los tokens de usuario que obtienen acceso a las API protegidas por Azure Active Directory v2.
+
+> [!NOTE]
+> En este tutorial no se usa todavía la versión más reciente de MSAL.NET, pero estamos trabajando para actualizarla.
 
 ## <a name="initialize-msal"></a>Inicializar MSAL
 Este paso le ayuda a crear una clase para administrar la interacción con MSAL, como la administración de tokens.
@@ -350,7 +357,7 @@ También verá información básica sobre el token adquirido a través de `Acqui
 
 |Propiedad  |Formato  |DESCRIPCIÓN |
 |---------|---------|---------|
-|**Name** |Nombre completo del usuario|Nombre y apellidos del usuario.|
+|**Nombre** |Nombre completo del usuario|Nombre y apellidos del usuario.|
 |**Nombre de usuario** |<span>user@domain.com</span> |El nombre de usuario que identifica al usuario.|
 |**Expiración del token** |Datetime |La hora a la que expira el token. MSAL amplía la fecha de expiración al renovar el token según sea necesario.|
 |**Token de acceso** |string |Cadena de token que se envía a las solicitudes HTTP que requieran un *encabezado de autorización*.|

@@ -1,28 +1,32 @@
 ---
-title: 'Tutorial: Revisión del uso y los costos en Azure Cost Management | Microsoft Docs'
+title: 'Tutorial: Revisión del uso y los costos con Cloudyn en Azure | Microsoft Docs'
 description: En este tutorial, revisará el uso y los costos para realizar un seguimiento de las tendencias, detectar deficiencias y crear alertas.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 5505ec8dd25e5468fad81d4eb26980202425969a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 72eaa6f085581f34b696a946e2168eceaa21a849
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "35628724"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987720"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
 
 # <a name="tutorial-review-usage-and-costs"></a>Tutorial: Revisión del uso y los costos
 
-Azure Cost Management muestra el uso y los costos para que pueda realizar un seguimiento de las tendencias, detectan deficiencias y crear alertas. Todos los datos de uso y costos se muestran en los informes y paneles de Cloudyn. Los ejemplos de este tutorial le guiarán en la revisión del uso y los costos de los paneles e informes. En este tutorial, aprenderá a:
+Cloudyn muestra el uso y los costos para que pueda realizar un seguimiento de las tendencias, detectan deficiencias y crear alertas. Todos los datos de uso y costos se muestran en los informes y paneles de Cloudyn. Los ejemplos de este tutorial le guiarán en la revisión del uso y los costos de los paneles e informes.
+
+Azure Cost Management ofrece una funcionalidad similar a Cloudyn. Azure Cost Management es una solución de administración de costos de Azure nativa. Le ayuda a analizar costos, crear y administrar presupuestos, exportar datos, y revisar y actuar sobre recomendaciones de optimización para ahorrar dinero. Para más información, consulte [Azure Cost Management](overview-cost-mgt.md).
+
+En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Realizar un seguimiento de las tendencias de uso y costos
@@ -32,10 +36,10 @@ Azure Cost Management muestra el uso y los costos para que pueda realizar un seg
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Debe tener una cuenta de Azure.
-- Debe tener un registro de prueba o una suscripción de pago en Azure Cost Management.
+- Debe tener un registro de prueba o una suscripción de pago en Cloudyn.
 
 ## <a name="open-the-cloudyn-portal"></a>Abrir el portal de Cloudyn
 
@@ -59,7 +63,7 @@ En el ejemplo anterior, se gastó menos dinero a partir del 31/08/2017 que antes
 
 En el ejemplo, se ve claramente la caída de los costos de Azure Storage a partir del 31-08-2017, mientras que los gastos en otros servicios de Azure permanecían estables. Por lo tanto, ¿qué causó esa reducción en los gastos? En este ejemplo, algunos empleados estaban de vacaciones y no usaron el servicio de Storage.
 
-Para ver un tutorial en vídeo acerca del seguimiento de las tendencias de uso y costo, consulte [Analyzing your cloud billing data vs. time with Azure Cost Management](https://youtu.be/7LsVPHglM0g) (Análisis de los datos frente al tiempo de facturación en la nube con Azure Cost Management).
+Para ver un tutorial en vídeo acerca del seguimiento de las tendencias de uso y costo, consulte [Analyzing your cloud billing data vs. time with Cloudyn](https://youtu.be/7LsVPHglM0g) (Análisis de los datos frente al tiempo de facturación en la nube con Cloudyn).
 
 ## <a name="detect-usage-inefficiencies"></a>Detectar deficiencias de uso
 
@@ -83,7 +87,7 @@ Para ver los identificadores de instancia de máquina virtual, haga clic en el s
 
 ![Lista de candidatos](./media/tutorial-review-usage/sizing03.png)
 
-Para ver un tutorial en vídeo acerca de cómo detectar deficiencias de uso, consulte [Optimizing VM Size in Azure Cost Management](https://youtu.be/1xaZBNmV704) (Optimización del tamaño de máquina virtual en Azure Cost Management).
+Para ver un tutorial en vídeo acerca de cómo detectar deficiencias de uso, consulte [Optimizing VM Size in Cloudyn](https://youtu.be/1xaZBNmV704) (Optimización del tamaño de máquina virtual en Cloudyn).
 
 ## <a name="create-alerts-for-unusual-spending"></a>Crear alertas de gastos inusuales
 

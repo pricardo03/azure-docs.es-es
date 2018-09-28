@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/25/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 72c5c4b0f0ab752bb02e6bee7cd038afca44ee1b
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 652d39b4d15569b9365543e02f170664a88715fa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605202"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953266"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Tutorial: Configuración de la conectividad de nube híbrida con Azure y Azure Stack
 
@@ -33,7 +33,14 @@ En este tutorial, creará un entorno de ejemplo para:
 > - Mantener datos localmente para cumplir los requisitos de seguridad o normativos, pero tendrá acceso a los recursos de Azure global.
 > - Mantener un sistema heredado mientras se usan recursos e implementaciones de aplicaciones escaladas en la nube en Azure global.
 
-## <a name="prerequisites"></a>requisitos previos
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack es una extensión de Azure. Azure Stack aporta la agilidad y la innovación de la informática en la nube a su entorno local y hace posible la única nube híbrida que le permite crear e implementar aplicaciones híbridas en cualquier parte.  
+> 
+> En las notas del producto [Consideraciones de diseño para aplicaciones híbridas](https://aka.ms/hybrid-cloud-applications-pillars) se revisan los pilares de la calidad de software (selección de ubicación, escalabilidad, disponibilidad, resistencia, capacidad de administración y seguridad) para diseñar, implementar y usar aplicaciones híbridas. Las consideraciones de diseño ayudan a optimizar el diseño de aplicaciones híbridas y reducen los desafíos en los entornos de producción.
+
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Se requieren algunos componentes para crear una implementación de conectividad híbrida. Algunos de estos componentes tardarán tiempo en prepararse, por lo que tendrá que planear en consecuencia.
 
@@ -132,7 +139,7 @@ En [Azure Portal](http://portal.azure.com/), navegue a la red virtual de Resourc
 
     ![Agregación de subred de puerta de enlace](media/azure-stack-solution-hybrid-connectivity/image4.png)
 
-4. El **nombre** de la subred se rellena automáticamente con el valor "GatewaySubnet". Este valor es necesario para que Azure reconozca que se trata de subred de puerta de enlace.
+4. El **nombre** de la subred se rellena automáticamente con el valor "GatewaySubnet". Este valor es necesario para que Azure reconozca que se trata de subred de una puerta de enlace.
 5. Cambie los valores del **intervalo de direcciones** que se proporcionan para que coincidan con los requisitos de configuración y, después, seleccione **Aceptar**.
 
 ## <a name="create-a-virtual-network-gateway-in-azure-and-azure-stack"></a>Creación de una puerta de enlace de red virtual en Azure y Azure Stack.
@@ -164,7 +171,7 @@ Para crear una puerta de enlace de red virtual en Azure, use los pasos siguiente
 
 6. Repita los pasos anteriores (1-5) en la implementación de Azure Stack.
 
-## <a name="create-the-local-network-gateway-in-azure-and-azure-stack"></a>Creación de la puerta de enlace de red virtual local Azure y Azure Stack
+## <a name="create-the-local-network-gateway-in-azure-and-azure-stack"></a>Creación de la puerta de enlace de red virtual local de Azure y Azure Stack
 
 La puerta de enlace de red local suele hacer referencia a la ubicación local. Asigne un nombre al sitio al que se puedan referir Azure o Azure Stack y, a continuación, especifique lo siguiente:
 

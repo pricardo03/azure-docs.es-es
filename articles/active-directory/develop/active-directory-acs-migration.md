@@ -1,6 +1,6 @@
 ---
 title: Migrar desde Azure Access Control Service | Microsoft Docs
-description: Opciones para mover aplicaciones y servicios fuera de Azure Access Control Service
+description: Aprenda sobre las opciones para mover aplicaciones y servicios fuera de Azure Access Control Service (ACS).
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 09/07/2018
 ms.author: celested
-ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 41c7de3039634f262efedc1bb3de1b39dda4593a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.reviewer: jlu, annaba, hirsin
+ms.openlocfilehash: 2c7dc650109ecc3844ee2ae90e50b2267f5716c4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698067"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996526"
 ---
-# <a name="migrate-from-the-azure-access-control-service"></a>Migrar desde Azure Access Control Service
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedimiento para la migración desde Azure Access Control Service
 
-Azure Access Control, un servicio de Azure Active Directory (Azure AD), se retirará el 7 de noviembre de 2018. Para entonces, las aplicaciones y servicios que utilizan Access Control deben migrarse completamente a un mecanismo de autenticación diferente. En este artículo se describen las recomendaciones para los clientes actuales que pretenden dejar de usar Access Control. Si actualmente no utiliza Access Control, no es necesario realizar ninguna acción.
-
+Microsoft Azure Access Control Service (ACS), un servicio de Azure Active Directory (Azure AD), se retirará el 7 de noviembre de 2018. Para entonces, las aplicaciones y servicios que utilizan Access Control deben migrarse completamente a un mecanismo de autenticación diferente. En este artículo se describen las recomendaciones para los clientes actuales que pretenden dejar de usar Access Control. Si actualmente no utiliza Access Control, no es necesario realizar ninguna acción.
 
 ## <a name="overview"></a>Información general
 
@@ -38,7 +37,7 @@ Los casos de uso de Access Control pueden dividirse en tres categorías principa
 - Agregar el proceso de autenticación a aplicaciones web personalizadas y preestablecidas (como SharePoint). Mediante la autenticación "pasiva" de Access Control, las aplicaciones web pueden permitir que se inicie sesión con una cuenta de Microsoft (anteriormente Live ID), con cuentas de Google, Facebook, Yahoo, Azure AD y los Servicios de federación de Active Directory (AD FS).
 - Proteger los servicios web integrados personalizados con tokens que haya emitido Access Control. Mediante la autenticación "activa", los servicios web pueden garantizar que solo se permite el acceso de clientes conocidos que se hayan autenticado con Access Control.
 
-Cada uno de estos casos de uso y sus estrategias recomendadas de migración se describen en las secciones siguientes. 
+Cada uno de estos casos de uso y sus estrategias recomendadas de migración se describen en las secciones siguientes.
 
 > [!WARNING]
 > En la mayoría de los casos, se requieren cambios de código significativos para migrar los servicios y las aplicaciones existentes a las tecnologías más recientes. Le recomendamos que comience la planificación y la ejecución de la migración inmediatamente para evitar la posibilidad de que se produzcan interrupciones o tiempos de inactividad.
@@ -73,7 +72,6 @@ Aquí está el calendario que indica el desuso de los componentes de Access Cont
 - **2 de abril de 2018**: el Portal de Azure clásico se ha retirado por completo, lo que significa que la administración del espacio de nombres de Access Control ya no está disponible a través de ninguna dirección URL. No podrá deshabilitar o habilitar, eliminar o enumerar los espacios de nombres de Access Control. Sin embargo, el portal de administración de Access Control será totalmente funcional y se ubicará en `https://\<namespace\>.accesscontrol.windows.net`. Todos los demás componentes de Access Control también seguirán funcionando con normalidad.
 - **7 de noviembre de 2018**: todos los componentes de Access Control se cierran permanentemente. Esto incluye el portal de administración de Access Control, el servicio de administración, STS y el motor de reglas de transformación de tokens. En este momento, las solicitudes enviadas a Access Control (ubicado en \<espacio de nombres\>.accesscontrol.windows.net) producirán un error. Debe haber migrado todos los servicios y aplicaciones existentes a otras tecnologías bastante antes de esta fecha.
 
-
 ## <a name="migration-strategies"></a>Estrategias de migración
 
 En las secciones siguientes se describen recomendaciones detalladas para la migración de Access Control a otras tecnologías de Microsoft.
@@ -98,7 +96,6 @@ Cada uno de los Servicios en la nube de Microsoft que aceptan tokens que haya em
 <!-- Retail federation services are moving, customers don't need to move -->
 <!-- Azure StorSimple: TODO -->
 <!-- Azure SiteRecovery: TODO -->
-
 
 ### <a name="sharepoint-customers"></a>Clientes de SharePoint
 
@@ -175,26 +172,14 @@ Para utilizar WS-Federation o WIF para realizar integraciones con Azure AD, le r
 - Obtiene toda la flexibilidad de la personalización de tokens de Azure AD. Puede personalizar las notificaciones que emite Azure AD para que coincidan con las que emite Access Control. Esta opción incluye especialmente la notificación del id. de usuario o del identificador de nombre. Para continuar recibiendo identificadores de usuario consistentes de todos sus usuarios una vez haya cambiado de tecnología, debe asegurarse de que los id. de usuario que emita Azure AD coincidan con los que emita Access Control.
 - Puede configurar un certificado de firma de tokens específico para su aplicación y cuya vigencia controle.
 
-<!--
-
-Possible nameIdentifiers from Access Control (via AAD or AD FS):
-- AD FS - Whatever AD FS is configured to send (email, UPN, employeeID, what have you)
-- Default from AAD using App Registrations, or Custom Apps before ClaimsIssuance policy: subject/persistent ID
-- Default from AAD using Custom apps nowadays: UPN
-- Kusto can't tell us distribution, it's redacted
-
--->
-
 > [!NOTE]
 > Para poder continuar con este enfoque necesita una licencia Premium de Azure AD. Si es un cliente de Access Control y necesita una licencia Premium para configurar el inicio de sesión único de una aplicación, póngase en contacto con nosotros. Estaremos encantados de proporcionarle licencias de desarrollador.
 
 Una solución alternativa es seguir [este código de ejemplo](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) que ofrece instrucciones ligeramente diferentes acerca de cómo configurar WS-Federation. Este ejemplo de código no usa WIF, sino el middleware OWIN de ASP.NET 4.5. Sin embargo, las instrucciones para el registro de la aplicación son válidas para las aplicaciones que usan WIF y no requieren una licencia Premium de Azure AD. 
 
-Si elige esta solución, debe entender la [sustitución de claves de firma de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Esta solución usa la clave de firma global de Azure AD para emitir tokens. De forma predeterminada, WIF no actualiza automáticamente las claves de firma. Cuando Azure AD rota sus claves de firma globales, la implementación de WIF debe estar preparada para aceptar los cambios.
+Si elige esta solución, debe entender la [sustitución de claves de firma de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Esta solución usa la clave de firma global de Azure AD para emitir tokens. De forma predeterminada, WIF no actualiza automáticamente las claves de firma. Cuando Azure AD rota sus claves de firma globales, la implementación de WIF debe estar preparada para aceptar los cambios. Para más información, consulte [Sustitución de claves de firma de Azure Active Directory](https://msdn.microsoft.com/en-us/library/azure/dn641920.aspx).
 
 Si puede realizar la integración con Azure AD a través de los protocolos de OpenID Connect u OAuth, se recomienda hacerlo. Tenemos una extensa documentación y guías sobre cómo integrar Azure AD en una aplicación web; están disponibles en nuestra [Guía del desarrollador de Azure AD](https://aka.ms/aaddev).
-
-<!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Migrar a Azure Active Directory B2C
 
@@ -237,7 +222,6 @@ Si decide que Azure AD B2C es la forma adecuada para migrar sus aplicaciones y s
 - [Directivas personalizadas de Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
 - [Precios de Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
-
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Migrar a la identidad de Ping o Auth0
 
 En algunos casos, es posible que Azure AD y Azure AD B2C no sean suficientes para reemplazar Access Control en las aplicaciones web sin tener que realizar cambios importantes en el código. Algunos ejemplos comunes pueden incluir:
@@ -249,8 +233,6 @@ En algunos casos, es posible que Azure AD y Azure AD B2C no sean suficientes par
 - Aplicaciones web de varios inquilinos que utilizan ACS para administrar de forma centralizada la federación de varios proveedores de identidades.
 
 En estos casos, conviene considerar la posibilidad de migrar la aplicación web a otro servicio de autenticación en la nube. Le recomendamos que tenga en cuenta las opciones siguientes. Cada una de ellas ofrece capacidades similares a Access Control:
-
-
 
 |     |     | 
 | --- | --- |

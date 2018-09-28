@@ -2,32 +2,39 @@
 title: 'Precios y facturación: Azure Logic Apps | Microsoft Docs'
 description: Descubra cómo funcionan los precios y la facturación en Azure Logic Apps
 services: logic-apps
-author: kevinlam1
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
-ms.topic: article
-ms.date: 05/11/2018
+ms.suite: logic-apps
+author: kevinlam1
 ms.author: klam
-ms.openlocfilehash: e1702de42be8510412a6479b594a198a84d15ae2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.reviewer: estfan, LADocs
+ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
+ms.topic: article
+ms.date: 09/24/2018
+ms.openlocfilehash: b75fba2ba0e9fa922b1252378e0bab326cada7d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299263"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974313"
 ---
-# <a name="logic-apps-pricing-model"></a>Modelo de precios de Logic Apps
+# <a name="pricing-model-for-azure-logic-apps"></a>Modelo de precios de Azure Logic Apps
 
 Puede crear y ejecutar flujos de trabajo de integración escalable automatizados en la nube con Azure Logic Apps. Estos son los detalles sobre cómo funcionan los precios y facturación para Logic Apps. 
 
+<a name="consumption-pricing"></a>
+
 ## <a name="consumption-pricing-model"></a>Modelo de precios de consumo
 
-Con las aplicaciones lógicas recién creadas, solo paga por lo que utiliza. Las nuevas aplicaciones lógicas usan un plan de consumo y un modelo de precios, lo que significa que todas las ejecuciones de acciones realizadas por una instancia de aplicación lógica son medidas. Cada paso de una definición de aplicación lógica es una acción, que incluye desencadenadores, pasos del flujo de control, llamadas a acciones integradas y llamadas a conectores. Para más información, consulte [Precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
+Para las nuevas aplicaciones lógicas que cree mediante el servicio de Logic Apps "global" o público, paga solo lo que usa. Estas aplicaciones lógicas usan un plan de consumo y un modelo de precios, lo que significa que todas las ejecuciones de acciones realizadas por una aplicación lógica son medidas. Cada paso de una definición de aplicación lógica es una acción, que incluye desencadenadores, pasos del flujo de control, llamadas a acciones integradas y llamadas a conectores. Para más información, consulte [Precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
+
+<a name="fixed-pricing"></a>
+
+## <a name="fixed-pricing-model"></a>Modelo de precios fijos
+
+> [!NOTE]
+> El entorno de servicio de integración se encuentra en *versión preliminar privada*. Para solicitar acceso, [cree su solicitud para unirse aquí](https://aka.ms/iseprivatepreview).
+
+Para las nuevas aplicaciones lógicas que cree con un [*entorno del servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), que es una instancia de Logic Apps privada aislada que usa recursos dedicados, paga un precio mensual fijo por acciones integradas y conectores estándar etiquetados por ISE. El ISE incluye un conector Enterprise sin costo, mientras que los conectores Enterprise adicionales se cobran en función del precio de consumo Enterprise. Para más información, consulte [Precios de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="triggers"></a>
 

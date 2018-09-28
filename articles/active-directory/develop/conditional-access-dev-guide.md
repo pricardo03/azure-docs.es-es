@@ -5,22 +5,21 @@ services: active-directory
 keywords: ''
 author: CelesteDG
 manager: mtillman
-editor: PatAltimore
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 07/19/2017
+ms.date: 09/24/2018
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: ab6936d62aac5502d70239bacfbfd15bd6b793ab
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 229f74367262e07128fa9ea6c895d448b854ae0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145017"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958261"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Instrucciones para desarrolladores para el acceso condicional de Azure Active Directory
 
@@ -40,9 +39,9 @@ En él se supone que tiene conocimientos sobre aplicaciones de inquilino [único
 
 ### <a name="app-types-impacted"></a>Tipos de aplicación afectados
 
-En los casos más comunes, el acceso condicional no cambia el comportamiento de una aplicación ni requiere ningún cambio por parte del desarrollador. Solo en ciertos casos en los que una aplicación, de manera indirecta o silenciosa, solicita un token para un servicio, una aplicación requiere cambios en el código para controlar los "desafíos" del acceso condicional. Puede ser tan sencillo como realizar una solicitud de inicio de sesión interactiva. 
+En los casos más comunes, el acceso condicional no cambia el comportamiento de una aplicación ni requiere ningún cambio por parte del desarrollador. Solo en ciertos casos en los que una aplicación, de manera indirecta o silenciosa, solicita un token para un servicio, una aplicación requiere cambios en el código para controlar los "desafíos" del acceso condicional. Puede ser tan sencillo como realizar una solicitud de inicio de sesión interactiva.
 
-En concreto, los escenarios siguientes requieren código para controlar los "desafíos" del acceso condicional: 
+En concreto, los escenarios siguientes requieren código para controlar los "desafíos" del acceso condicional:
 
 * Aplicaciones que acceden a Microsoft Graph
 * Aplicaciones que realizan el flujo "en nombre de"
@@ -147,7 +146,7 @@ Para ejemplos de código que demuestran cómo controlar el desafío de notificac
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Escenario: Aplicación que realiza el flujo "en nombre de"
 
-En este escenario, analizaremos un caso en el que una aplicación nativa llama a una API o servicio web. A su vez, este servicio realiza [el flujo "en nombre de"](authentication-scenarios.md#application-types-and-scenarios) para llamar a un servicio de bajada. En este caso, se aplica la directiva de acceso condicional al servicio de bajada (API web 2) y se usa una aplicación nativa en lugar de una aplicación demonio/servidor. 
+En este escenario, analizaremos un caso en el que una aplicación nativa llama a una API o servicio web. A su vez, este servicio realiza el flujo "en nombre de" para llamar a un servicio de bajada. En este caso, se aplica la directiva de acceso condicional al servicio de bajada (API web 2) y se usa una aplicación nativa en lugar de una aplicación demonio/servidor. 
 
 ![Aplicación que realiza el flujo "en nombre de"](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 

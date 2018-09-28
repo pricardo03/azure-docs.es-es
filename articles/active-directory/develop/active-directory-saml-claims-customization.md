@@ -13,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 2405f1a8ab5ef03e5ed2992b7a089571077ce59b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 80842f7e99ee0c58f1615892f3c3c4adf03119b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348521"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956979"
 ---
-# <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure Active Directory
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-ad"></a>Procedimientos para personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure AD
+
 Hoy en día Azure Active Directory admite el inicio de sesión único con la mayoría de las aplicaciones empresariales, incluidas las aplicaciones previamente integradas en la galería de aplicaciones de Azure AD, así como las aplicaciones personalizadas. Cuando un usuario se autentica en una aplicación a través de Azure AD con el protocolo SAML 2.0, Azure AD envía un token a la aplicación (mediante HTTP POST). A continuación, la aplicación valida y usa el token para que el usuario inicie sesión en lugar de solicitar un nombre de usuario y una contraseña. Estos tokens SAML contienen trozos de información sobre el usuario conocidos como "notificaciones".
 
 En términos de identidad, una "notificación" es información que declara un proveedor de identidades sobre un usuario dentro del token que emite para dicho usuario. En [token SAML](http://en.wikipedia.org/wiki/SAML_2.0), estos datos suelen incluirse en la instrucción SAML Attribute. El identificador único del usuario suele representarse en SAML Subject, también denominado NameIdentifier.
@@ -73,7 +74,7 @@ Por ejemplo, debe enviar el departamento al que pertenece el usuario en su organ
 > Si no hay ningún valor almacenado para el atributo seleccionado para un usuario determinado, esa notificación no se emite en el token.
 
 > [!TIP]
-> **user.onpremisesecurityidentifier** y **user.onpremisesamaccountname** solo se admiten cuando se sincronizan los datos de usuario desde una instancia local de Active Directory mediante la [herramienta Azure AD Connect](../active-directory-aadconnect.md).
+> **user.onpremisesecurityidentifier** y **user.onpremisesamaccountname** solo se admiten cuando se sincronizan los datos de usuario desde una instancia local de Active Directory mediante la [herramienta Azure AD Connect](../hybrid/whatis-hybrid-identity.md).
 
 ## <a name="restricted-claims"></a>Notificaciones restringidas
 
@@ -129,7 +130,7 @@ Hay algunas notificaciones restringidas en SAML. Si agrega estas notificaciones,
     | http://schemas.microsoft.com/identity/claims/scope |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](../active-directory-apps-index.md)
+* [Administración de aplicaciones en Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](howto-v1-debug-saml-sso-issues.md)
 

@@ -1,38 +1,38 @@
 ---
-title: Conectar una cuenta de Google Cloud Platform a Azure Cost Management | Microsoft Docs
-description: Conecte una cuenta de Google Cloud Platform para ver los datos de uso y el costo en los informes de Cost Management.
+title: Conexión de una cuenta de Google Cloud Platform a Cloudyn en Azure | Microsoft Docs
+description: Conecte una cuenta de Google Cloud Platform para ver los datos de uso y costo en los informes de Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: d4b906bd966da66659d23b935f7dbbd44b33899a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 09035146fe3211f9fc46d3ad51326a6e76921b7d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296448"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977305"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Conectar una cuenta de Google Cloud Platform
 
-Puede conectar una cuenta existente de Google Cloud Platform a Azure Cost Management. Después de conectar su cuenta a Cost Management, los datos de uso y de costo estarán disponibles en los informes de Cost Management. En este artículo se le ayuda a configurar y a conectar su cuenta de Google con Cost Management.
+Puede conectar una cuenta existente de Google Cloud Platform a Cloudyn. Después de conectar una cuenta a Cloudyn, los datos de uso y costo estarán disponibles en los informes de Cloudyn. En este artículo verá cómo configurar y conectar su cuenta de Google con Cloudyn.
 
 ## <a name="collect-project-information"></a>Recopilación de información del proyecto
 
 Debe comenzar por recopilar información acerca de su proyecto.
 
 1. Inicie sesión en la consola de Google Cloud Platform en [https://console.cloud.google.com](https://console.cloud.google.com).
-2. Revise la información del proyecto que desea incorporar a Cost Management y anote el **Nombre del proyecto** y el **Id. del proyecto**. Mantenga esta información a mano para los pasos posteriores.  
+2. Revise la información del proyecto que quiera incorporar a Cloudyn y anote el **Nombre del proyecto** y el **Id. del proyecto**. Mantenga esta información a mano para los pasos posteriores.  
     ![Consola de Google Cloud Platform](./media/connect-google-account/gcp-console01.png)
 3. Si la facturación no está habilitada ni vinculada a su proyecto, cree una cuenta de facturación. Para más información, consulte [Create a new billing account](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create\_a\_new\_billing\_account) (Crear una nueva cuenta de facturación).
 
 ## <a name="enable-storage-bucket-billing-export"></a>Habilitar la exportación de facturación de depósitos de almacenamiento
 
-Cost Management recupera los datos de facturación de Google de un depósito de almacenamiento. Mantenga la información de **Nombre del depósito** y **Prefijo del informe** a mano para usarla más tarde durante el registro de Cost Management.
+Cloudyn recupera los datos de facturación de Google de un depósito de almacenamiento. Mantenga la información de **Nombre del depósito** y **Prefijo del informe** a mano para usarla más tarde durante el registro de Cloudyn.
 
 Las tarifas del uso de Google Cloud Storage para almacenar informes de uso son muy reducidas. Para más información, consulte [Precios de Cloud Storage](https://cloud.google.com/storage/pricing).
 
@@ -42,7 +42,7 @@ Las tarifas del uso de Google Cloud Storage para almacenar informes de uso son m
 
 ## <a name="enable-google-cloud-platform-apis"></a>Habilite las API de Google Cloud Platform
 
-Para recopilar información de uso y de recursos, Cost Management necesita que las siguientes API de Google Cloud Platform estén habilitadas:
+Para recopilar información de uso y de recursos, Cloudyn necesita que las siguientes API de Google Cloud Platform estén habilitadas:
 
 - BigQuery API
 - Google Cloud SQL
@@ -53,12 +53,12 @@ Para recopilar información de uso y de recursos, Cost Management necesita que l
 
 ### <a name="enable-or-verify-apis"></a>Habilitar o comprobar API
 
-1. En la consola de Google Cloud Platform, seleccione el proyecto que desee registrar con Cost Management.
+1. En la consola de Google Cloud Platform, seleccione el proyecto que quiera registrar en Cloudyn.
 2. Vaya a **API y servicios** > **Biblioteca**.
 3. Use la búsqueda para encontrar todas las API enumeradas anteriormente.
 4. Para cada API, compruebe que se muestra **API habilitada**. De lo contrario, haga clic en **HABILITAR**.
 
-## <a name="add-a-google-cloud-account-to-cost-management"></a>Adición de una cuenta de Google Cloud para Cost Management
+## <a name="add-a-google-cloud-account-to-cloudyn"></a>Adición de una cuenta de Google Cloud a Cloudyn
 
 1. Abra el portal de Cloudyn desde Azure Portal o vaya a [https://azure.cloudyn.com](https://azure.cloudyn.com/) e inicie sesión.
 2. Haga clic en **Configuración** (símbolo de engranaje) y, después, seleccione **Cuentas de Cloud**.
@@ -70,8 +70,8 @@ Para recopilar información de uso y de recursos, Cost Management necesita que l
 
 Su cuenta de Google aparece en la lista de cuentas y debería aparecer como **Autenticada**. Debajo de esta, el nombre del proyecto de Google y el identificador deberían aparecer y tener un símbolo de marca de verificación verde. El estado de la cuenta debe aparecer como **Completado**.
 
-En unas horas, los informes de Cost Management muestran información acerca del costo y del uso de Google.
+En unas horas, los informes de Cloudyn muestran información acerca del costo y del uso de Google.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información acerca de Azure Cost Management, consulte el tutorial [Revisión del uso y los costos](./tutorial-review-usage.md) de Cost Management.
+- Para obtener más información acerca de Cloudyn, siga al tutorial [Revisión del uso y los costos](./tutorial-review-usage.md) para Cloudyn.

@@ -5,16 +5,16 @@ services: cost-management
 author: bandersmsft
 ms.service: cost-management
 ms.topic: include
-ms.date: 04/26/2018
+ms.date: 09/17/2018
 ms.author: banders
 manager: dougeby
 ms.custom: include file
-ms.openlocfilehash: 1b65775ef5ad40ca9e9c1e2c96fe1c2b8d92afdc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4acc3f43f04c51e5303c8eba1d934580802312b5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32198862"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47017694"
 ---
 ## <a name="view-cost-data"></a>Visualización de datos de costos
 
@@ -26,27 +26,27 @@ En este ejemplo, el panel de administración muestra los costos consolidados par
 
 Si no está seguro del propósito de un informe en un panel, mantenga el puntero sobre el símbolo **i** para ver una explicación. Haga clic en cualquier informe de un panel para ver el informe completo.
 
-También puede ver los informes con el menú de informes en la parte superior del portal. Eche un vistazo al gasto de recursos de Azure en Contoso durante los últimos 30 días. Haga clic en **Costo** > **Análisis de costos** > **Análisis del costo real**. Borre todos los valores si no hay ningún conjunto para etiquetas, grupos o filtros en el informe.
+También puede ver los informes con el menú de informes en la parte superior del portal. Eche un vistazo al gasto de recursos de Azure en Contoso durante los últimos 30 días. Haga clic en **Costos** > **Análisis de costos** > **Análisis del costo real**. Borre todos los valores si no hay ningún conjunto para etiquetas, grupos o filtros en el informe.
 
 ![Análisis del costo real](./media/cost-management-create-account-view-data/actual-cost-01.png)
 
-En este ejemplo, $75,970 es el costo total y el presupuesto es US $130.000.
+En este ejemplo, $122 273 es el costo total y el presupuesto es $290 000.
 
 Ahora, vamos a modificar el formato de informe y establecer grupos y filtros para restringir los resultados de los costos de Azure. Establezca el **intervalo de fechas** en los últimos 30 días. En la parte superior derecha, haga clic en el símbolo de columna para darle formato de gráfico de barras y, en Grupos, seleccione **Proveedor**. Después, establezca un filtro para **Proveedor** en **Azure**.
 
 ![Análisis del costo real filtrado](./media/cost-management-create-account-view-data/actual-cost-02.png)
 
-En este ejemplo, el costo total de los recursos de Azure era de $3,839 durante los últimos 30 días.
+En este ejemplo, el costo total de los recursos de Azure era de $3309 durante los últimos 30 días.
 
 Haga clic con el botón derecho en la barra Proveedor (Azure) y explore en profundidad en **Tipos de recursos**.
 
 ![explorar en profundidad](./media/cost-management-create-account-view-data/actual-cost-03.png)
 
-En la siguiente imagen se muestran los costos en los recursos de Azure que incurre Contoso. El total era $3,839. En este ejemplo, aproximadamente la mitad de los costos se destinaban al almacenamiento con redundancia local y aproximadamente la otra mitad de los costos se destinaban a varias instancias de máquinas virtuales.
+En la siguiente imagen se muestran los costos en los recursos de Azure que incurre Contoso. El total era $3309. En este ejemplo, aproximadamente la mitad de los costos se destinaban VM Standard_A1 y aproximadamente la otra mitad de los costos se destinaban a varios servicios de Azure e instancias de VM.
 
 ![tipos de recursos](./media/cost-management-create-account-view-data/actual-cost-04.png)
 
-Haga clic con el botón derecho en un tipo de recurso y seleccione **Cost Entities** (Entidades de costo) para ver las entidades y los servicios que ha consumido el recurso. Los servicios de máquina virtual y de trabajo de DevOps han consumido $486.60 y $435.71 en este ejemplo. El total para ambos es $922.
+Haga clic con el botón derecho en un tipo de recurso y seleccione **Cost Entities** (Entidades de costo) para ver las entidades y los servicios que ha consumido el recurso. En la siguiente imagen de ejemplo, el almacenamiento con redundancia local se establece como tipo de recurso. Contoso|Azure/Storage consumió $15,65. Engineering|Azure Storage consumió $164,25. Shared Infrastructure|Azure/Storage consumió $116,58. El costo total de los servicios es de $296.
 
 ![entidades de costo y servicios](./media/cost-management-create-account-view-data/actual-cost-05.png)
 

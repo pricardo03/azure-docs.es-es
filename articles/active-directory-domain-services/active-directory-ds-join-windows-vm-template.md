@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 2b94496895c0ab06127b6c556b1240e3279e572f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 40eb0e8133626e77a1f61ddfc5df69ecf1b958f2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504420"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950801"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Unión de una máquina virtual con Windows Server a un dominio administrado mediante una plantilla de Resource Manager
 En este artículo se muestra cómo unir una máquina virtual con Windows Server a un dominio administrado con Azure AD Domain Services mediante plantillas de Resource Manager.
@@ -39,7 +39,7 @@ Para realizar las tareas enumeradas en este artículo, necesita lo siguiente:
 ## <a name="install-and-configure-required-tools"></a>Instalación y configuración de las herramientas necesarias
 Puede usar cualquiera de las siguientes opciones para realizar los pasos descritos en este documento:
 * **Azure PowerShell**: [instalación y configuración](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
-* **Interfaz de línea de comandos multiplataforma de Azure**: [instalación y configuración](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
+* **CLI de Azure**: [instalación y configuración](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
 ## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>Opción 1: aprovisionamiento de una nueva máquina virtual con Windows Server y su unión a un dominio administrado

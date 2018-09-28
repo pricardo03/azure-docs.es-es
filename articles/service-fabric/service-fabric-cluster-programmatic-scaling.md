@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: dcf4721012fb8ec39bcd1de02c294747357b3539
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ff02f79321823e42c25897e9de30dfbb6fac46b0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213068"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949629"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Escalado mediante programación de un clúster de Service Fabric 
 
 Los clústeres de Service Fabric que se ejecutan en Azure se basan en conjuntos de escalado de máquinas virtuales.  En el artículo de [escalado de clústeres](./service-fabric-cluster-scale-up-down.md) se describe la manera de escalar los clústeres de Service Fabric, ya sea manualmente o con reglas de escalado automático. En este artículo se describe cómo administrar las credenciales y reducir o escalar horizontalmente un clúster en mediante el SDK de proceso fluido de Azure, que es un escenario más avanzado. Para una introducción, lea la sección de [métodos de programación para coordinar las operaciones de escalado de Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
 
 ## <a name="manage-credentials"></a>Administración de credenciales
-Una dificultad que se presenta al escribir un servicio para controlar el escalado es que el servicio tiene que tener acceso a recursos de conjunto de escalado de máquinas virtuales sin un inicio de sesión interactivo. El acceso al clúster de Service Fabric es fácil si el servicio de escalado está modificando su propia aplicación de Service Fabric, pero se requieren credenciales para tener acceso al conjunto de escalado. Para iniciar sesión, puede usar un [entidad de servicio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) creada con la [CLI de Azure 2.0](https://github.com/azure/azure-cli).
+Una dificultad que se presenta al escribir un servicio para controlar el escalado es que el servicio tiene que tener acceso a recursos de conjunto de escalado de máquinas virtuales sin un inicio de sesión interactivo. El acceso al clúster de Service Fabric es fácil si el servicio de escalado está modificando su propia aplicación de Service Fabric, pero se requieren credenciales para tener acceso al conjunto de escalado. Para iniciar sesión, puede usar una [entidad de servicio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) creada con la [CLI de Azure](https://github.com/azure/azure-cli).
 
 Una entidad de servicio se puede crear con los pasos siguientes:
 

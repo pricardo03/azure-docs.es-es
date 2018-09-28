@@ -12,27 +12,32 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/27/2018
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 735c5a3645f5e2e0f31bac4d4b2f61d73dfe069e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 93bc3db2b7cf3002efc93f1e8006c5362eddab9f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128786"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959978"
 ---
-# <a name="permissions-in-azure-active-directory"></a>Permisos en Azure Active Directory
+# <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Permisos y consentimiento en el punto de conexión v1.0 de Azure Active Directory
 
-Azure Active Directory (Azure AD) hace un uso extensivo de los permisos para los flujos de OAuth y OpenID Connect (OIDC). Cuando la aplicación recibe un token de acceso de Azure AD, el token de acceso incluye notificaciones que describen los permisos que tiene la aplicación con respecto a un recurso determinado. Los permisos, también conocidos como ámbitos, facilitan la autorización para el recurso porque solo es necesario comprobar que el token contiene el permiso adecuado para cualquier API a la que llame la aplicación. 
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+
+Azure Active Directory (Azure AD) hace un uso extensivo de los permisos para los flujos de OAuth y OpenID Connect (OIDC). Cuando la aplicación recibe un token de acceso de Azure AD, el token de acceso incluye notificaciones que describen los permisos que tiene la aplicación con respecto a un recurso determinado.
+
+Los *permisos*, también conocidos como *ámbitos*, facilitan la autorización del recurso, ya que este solo tiene que comprobar que el token contiene el permiso adecuado para cualquier API a la que llame la aplicación.
 
 ## <a name="types-of-permissions"></a>Tipos de permisos
 
-Azure AD define dos tipos de permisos: 
-* **Permisos delegados**: se utilizan en aplicaciones que tienen un usuario con la sesión iniciada. Para estas aplicaciones, el usuario o un administrador dan su consentimiento para los permisos que la aplicación requiere y a la aplicación se le delega el permiso para actuar como el usuario que inició sesión al realizar llamadas a una API. Según la API de que se trate, el usuario puede no tener la capacidad de dar su consentimiento a la API directamente y, en su lugar, necesitaría [pedir a un administrador que proporcione el "consentimiento de administrador"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
-* **Permisos de aplicación**: los usan las aplicaciones que se ejecutan sin la presencia de un usuario con la sesión iniciada; por ejemplo, las aplicaciones que se ejecutan como demonios o servicios en segundo plano. Los permisos de aplicación solo puede [autorizarlos un administrador](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant), porque suelen ser muy eficaces y permitir el acceso a los datos más allá de los límites de usuario o a datos que deberían estar restringidos a los administradores. 
+Azure AD define dos tipos de permisos:
+
+* **Permisos delegados**: se utilizan en aplicaciones que tienen un usuario con la sesión iniciada. Para estas aplicaciones, el usuario o un administrador dan su consentimiento para los permisos que la aplicación requiere y a la aplicación se le delega el permiso para actuar como el usuario que inició sesión al realizar llamadas a una API. En función de la API de que se trate, es posible que el usuario no tenga la capacidad de dar su consentimiento a la API directamente y, en su lugar, tenga que [pedir a un administrador que proporcione el "consentimiento del administrador"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+* **Permisos de aplicación**: los usan las aplicaciones que se ejecutan sin la presencia de un usuario con la sesión iniciada; por ejemplo, las aplicaciones que se ejecutan como demonios o servicios en segundo plano. Los permisos de aplicación solo puede [autorizarlos un administrador](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant), porque suelen ser muy eficaces y permitir el acceso a los datos más allá de los límites de usuario o a datos que deberían estar restringidos a los administradores.
 
 Los permisos efectivos son los permisos que la aplicación tendrá al realizar solicitudes a una API. 
 

@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: cambio, seguimiento, automatización
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 08/27/2018
+ms.date: 09/12/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: fd94fd234067f63eab424c7f757d4adf842e7b46
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 16d5a025f0c0ff571298e0f528fb9119e37950f3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43120592"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995280"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solución de problemas en el entorno
 
@@ -32,6 +32,7 @@ En este tutorial, aprenderá a:
 > * Habilitar la conexión del registro de actividad
 > * Desencadenar un evento
 > * Ver los cambios
+> * Configurar alertas
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -41,7 +42,7 @@ Para completar este tutorial, necesita:
 * Una [cuenta de Automation](automation-offering-get-started.md) para contener los runbooks de monitor y de acción y la tarea de monitor.
 * Una [máquina virtual](../virtual-machines/windows/quick-create-portal.md) para incorporar.
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en http://portal.azure.com.
 
@@ -57,7 +58,7 @@ En primer lugar, debe habilitar Change Tracking e Inventario para la máquina vi
 Un área de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) se usa para recopilar datos que se generan mediante características y servicios, como, por ejemplo, Inventario.
 El área de trabajo proporciona una única ubicación para revisar y analizar datos desde varios orígenes.
 
-Durante la incorporación la máquina virtual se aprovisiona con Microsoft Monitoring Agent (MMA) e Hybrid Worker.
+Durante la incorporación, la máquina virtual se aprovisiona con Microsoft Monitoring Agent (MMA) e Hybrid Worker.
 Este agente se usa para comunicarse con la máquina virtual y obtener información sobre el software instalado.
 
 La habilitación de la solución puede tardar hasta 15 minutos. Durante este tiempo, no debería cerrar la ventana del explorador.
@@ -66,20 +67,22 @@ Los datos pueden tardar entre 30 minutos y 6 horas en estar disponibles para el 
 
 ## <a name="using-change-tracking-in-log-analytics"></a>Uso de Change Tracking en Log Analytics
 
-El seguimiento de cambios genera datos de registro que se envían a Log Analytics. Para buscar los registros mediante la ejecución de consultas, seleccione **Log Analytics** en la parte superior de la ventana **Seguimiento de cambios**.
-Los datos de Change Tracking se almacenan con el tipo **ConfigurationChange**. La siguiente consulta de Log Analytics de ejemplo devuelve todos los servicios de Windows que se hayan detenido.
+El seguimiento de cambios genera datos de registro que se envían a Log Analytics.
+Para buscar los registros mediante la ejecución de consultas, seleccione **Log Analytics** en la parte superior de la ventana **Seguimiento de cambios**.
+Los datos de Change Tracking se almacenan con el tipo **ConfigurationChange**.
+La siguiente consulta de Log Analytics de ejemplo devuelve todos los servicios de Windows que se hayan detenido.
 
 ```
 ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Para obtener más información sobre la ejecución y la búsqueda de archivos de registro en Log Analytics, consulte [Azure Log Analytics](https://docs.loganalytics.io/index).
+Para obtener más información sobre la ejecución y la búsqueda de archivos de registro en Log Analytics, consulte [Azure Log Analytics](../log-analytics/log-analytics-queries.md).
 
 ## <a name="configure-change-tracking"></a>Configuración de Change Tracking
 
 Change Tracking le ofrece la posibilidad de realizar un seguimiento de los cambios en la configuración de su máquina virtual. En los pasos siguientes se muestra cómo configurar el seguimiento de las claves del Registro y los archivos.
- 
+
 Para elegir de qué archivos y claves del Registro se realizará la recopilación y el seguimiento, seleccione **Editar configuración** en la parte superior de la página **Change Tracking**.
 
 > [!NOTE]
@@ -92,7 +95,7 @@ En la ventana **Configuración del área de trabajo**, agregue las claves del Re
 1. En la pestaña **Registro de Windows**, seleccione **Agregar**.
     Se abrirá la ventana **Agregar Registro de Windows para el seguimiento de cambios**.
 
-3. En **Agregar Registro de Windows para el seguimiento de cambios**, introduzca la información de la clave cuyo seguimiento se va a realizar y haga clic en **Guardar**.
+1. En **Agregar Registro de Windows para el seguimiento de cambios**, introduzca la información de la clave cuyo seguimiento se va a realizar y haga clic en **Guardar**.
 
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
@@ -168,6 +171,49 @@ Seleccione un cambio de tipo **WindowsServices**. Se abrirá la ventana **Detall
 
 ![Visualización de los detalles de cambio en el portal](./media/automation-tutorial-troubleshoot-changes/change-details.png)
 
+## <a name="configure-alerts"></a>Configurar alertas
+
+Ver los cambios en Azure Portal puede ser útil, pero poder recibir una alerta cuando ocurre un cambio, como por ejemplo cuando se detiene un servicio, es más beneficioso.
+
+Para agregar una alerta para un servicio detenido, en Azure Portal, vaya a **Monitor**. Y, después, en **Servicios compartidos**, seleccione **Alertas** y haga clic en **+ Nueva regla de alertas**.
+
+En **1. Defina la condición de la alerta**, haga clic en **+ Seleccionar destino**. En **Filter by resource type** (Filtrar por tipo de recurso), seleccione **Log Analytics**. Seleccione el área de trabajo de Log Analytics y, a continuación, seleccione **Listo**.
+
+![Selección de un recurso](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
+
+Seleccione **+ Agregar criterios**.
+En **Configurar lógica de señal**, en la tabla, seleccione **Búsqueda de registros personalizada**. Escriba la consulta siguiente en el cuadro de texto de consulta de búsqueda:
+
+```loganalytics
+ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
+```
+
+Esta consulta devuelve los equipos que tenían el servicio W3SVC detenido en el tiempo especificado.
+
+En **Lógica de alerta**, en **Umbral**, escriba **0**. Cuando haya finalizado, seleccione **Listo**.
+
+![Configuración de la lógica de señal](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
+
+En **2. Definir detalles de la alerta**, escriba un nombre y una descripción para la alerta. Establezca **Gravedad** en **Informativo (gravedad 2)**, **Advertencia (gravedad 1)** o **Crítico (gravedad 0)**.
+
+![Definición de detalles de la alerta](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
+
+En **3. Definir grupo de acciones**, seleccione **Nuevo grupo de acciones**. Un grupo de acciones es un conjunto de acciones que puede usar en varias alertas. Por ejemplo, notificaciones por correo electrónico, runbooks, webhooks y muchas más. Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](../monitoring-and-diagnostics/monitoring-action-groups.md).
+
+En el cuadro **Nombre del grupo de acción**, escriba un nombre para la alerta y un nombre corto. El nombre corto se utiliza en lugar del nombre completo del grupo de acciones cuando se envían notificaciones mediante este grupo.
+
+En **Acciones**, escriba un nombre para la acción, como **Administradores de correo electrónico**. En **Tipo de acción**, seleccione **Correo electrónico/SMS/Push/Voz**. En **DETALLES**, seleccione **Editar detalles**.
+
+![Adición del grupo de acciones](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+
+En el panel **Correo electrónico/SMS/Push/Voz**, escriba un nombre. Seleccione la casilla de verificación **Correo electrónico** y, a continuación, escriba una dirección de correo electrónico válida. Haga clic en **Aceptar** en la página **Email/SMS/Push/Voice** (Correo electrónico/SMS/Inserción/Voz) y haga clic en **Aceptar** en la página **Agregar grupo de acciones**.
+
+Para personalizar el asunto de las alertas por correo electrónico, en **Crear regla**, en **Personalizar las acciones**, seleccione **Asunto del correo electrónico**. Cuando finalice, seleccione **Crear regla de alertas**. La regla le indica cuando la implementación de una actualización es correcta y qué máquinas formaron parte de la ejecución de la implementación de actualizaciones.
+
+La siguiente imagen es un ejemplo de correo electrónico recibido cuando el servicio W3SVC se detiene.
+
+![email](./media/automation-tutorial-troubleshoot-changes/email.png)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial, ha aprendido cómo:
@@ -179,6 +225,7 @@ En este tutorial, ha aprendido cómo:
 > * Habilitar la conexión del registro de actividad
 > * Desencadenar un evento
 > * Ver los cambios
+> * Configurar alertas
 
 Continúe hacia la introducción sobre la solución Change Tracking e Inventario para obtener más información.
 

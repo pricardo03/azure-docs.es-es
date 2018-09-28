@@ -14,16 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 4856f4cdba7618884a42341f16d4828cb062e75c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 696139a3e37f7bd1e32b4e7cec836b3c66df16a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667657"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974330"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Tutorial: autenticación del servicio Azure SignalR
-
-El servicio Microsoft Azure SignalR se encuentra actualmente en [versión preliminar pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este tutorial se basa en la aplicación de salón de chat presentada en la guía de inicio rápido. Si no ha realizado [Creación de un salón de chat con el servicio SignalR](signalr-quickstart-dotnet-core.md), lleve a cabo ese ejercicio primero. 
 
@@ -396,7 +394,7 @@ En esta sección, se activará la autenticación real mediante la adición del a
 
 En esta sección, utilizará la interfaz de la línea de comandos (CLI) de Azure desde Azure Cloud Shell para crear una nueva [aplicación web de Azure](https://docs.microsoft.com/azure/app-service/) para hospedar la aplicación ASP.NET en Azure. La aplicación web se configurará para usar la implementación de Git local. La aplicación web también se configurará con la cadena de conexión de SignalR, los secretos de la aplicación de OAuth de GitHub y un usuario de implementación.
 
-En los pasos descritos en esta sección se usa la extensión *signalr* para la CLI de Azure. Ejecute el siguiente comando para instalar la extensión *signalr* para la versión 2.0 de la CLI de Azure:
+En los pasos descritos en esta sección se usa la extensión *signalr* para la CLI de Azure. Ejecute el siguiente comando para instalar la extensión *signalr* para la versión de la CLI de Azure:
 
 ```azurecli-interactive
 az extension add -n signalr

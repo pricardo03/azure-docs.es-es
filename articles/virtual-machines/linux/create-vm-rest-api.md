@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 0f77b46be0207b0ce96e6dc2562fb5298afbe36b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 11d9f5efb452d46e5ca30169861582f6f2bbbd1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928189"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969400"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creación de una máquina virtual Linux que usa la autenticación de SSH con la API REST
 
@@ -49,7 +49,7 @@ Para más información sobre cómo crear la solicitud, consulte [ Componentes de
 
 Para crear el cuerpo de la solicitud, se usan las siguientes definiciones comunes:
 
-| NOMBRE                       | Obligatorio | type                                                                                | DESCRIPCIÓN  |
+| NOMBRE                       | Obligatorio | Escriba                                                                                | DESCRIPCIÓN  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True     | string                                                                              | Ubicación del recurso |
 | Nombre                       |          | string                                                                              | Escriba un nombre para la máquina virtual. |
@@ -121,7 +121,7 @@ El cuerpo de solicitud de ejemplo siguiente define una imagen de Ubuntu 18.04 LT
 
 Hay dos respuestas correctas a la operación para crear o actualizar una máquina virtual:
 
-| NOMBRE        | type                                                                              | DESCRIPCIÓN |
+| NOMBRE        | Escriba                                                                              | DESCRIPCIÓN |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Creado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Creado     |
@@ -141,9 +141,9 @@ Una respuesta *201 Creado* condensada del cuerpo de solicitud de ejemplo anterio
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre las API REST de Azure u otras herramientas de administración como la CLI de Azure 2.0 o Azure PowerShell, consulte lo siguiente:
+Para más información sobre las API REST de Azure u otras herramientas de administración como la CLI de Azure o Azure PowerShell, consulte lo siguiente:
 
 - [API REST del proveedor de Azure Compute](/rest/api/compute/)
 - [Get started with Azure REST API](/rest/api/azure/) (Introducción a la API REST de Azure)
-- [CLI de Azure 2.0](/cli/azure/)
+- [CLI de Azure](/cli/azure/)
 - [Módulo de Azure PowerShell](/powershell/azure/overview)

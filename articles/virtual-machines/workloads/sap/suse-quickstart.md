@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: cc4438a770a8092275373ccf8da9cc9951a1f906
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8a16fa9f639a6a4a17d6904d6bc9a0e31f774e0c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858619"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950053"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Ejecución de SAP NetWeaver en máquinas virtuales de SUSE Linux de Microsoft Azure
 En este artículo se describen diversos aspectos que deben considerarse al ejecutar SAP NetWeaver en máquinas virtuales (VM) con SUSE Linux de Microsoft Azure. A partir del 19 de mayo de 2016, SAP NetWeaver es compatible oficialmente con máquinas virtuales de SUSE Linux en Azure. Todos los detalles sobre las versiones de Linux, las versiones de kernel SAP y otros requisitos previos se encuentran en la nota de SAP 1928533 "SAP Applications on Azure: Supported Products and Azure VM types" (Aplicaciones SAP en Azure: productos admitidos y tipos de máquina virtual de Azure).
@@ -119,7 +119,7 @@ Debe crear nuevas máquinas virtuales de SUSE mediante archivos de plantilla JSO
    ```
 Para más información sobre los archivos de plantilla JSON, consulte el artículo de [creación de plantillas de Azure Resource Manager](../../../resource-group-authoring-templates.md) y [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/).
 
-Para más información sobre la CLI y Azure Resource Manager, consulte el artículo sobre el [uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](../../../xplat-cli-azure-resource-manager.md).
+Para más información sobre la CLI clásica de Azure y Azure Resource Manager, consulte el artículo sobre el [uso de la CLI clásica de Azure para Mac, Linux y Windows con Azure Resource Manager](../../../xplat-cli-azure-resource-manager.md).
 
 ## <a name="sap-license-and-hardware-key"></a>Clave de licencia y hardware de SAP
 Para la certificación oficial SAP-Azure se introdujo un nuevo mecanismo para calcular la clave de hardware de SAP, que se usa para la licencia SAP. Había que adaptar el kernel de SAP para usar el nuevo algoritmo. Las versiones anteriores de kernel de SAP para Linux no incluían este cambio en el código. Por lo tanto, en determinadas situaciones (por ejemplo, el cambio de tamaño de la máquina virtual de Azure), es posible que los cambios en la clave de hardware de SAP y en la licencia de SAP ya no fueran válidos. Se proporciona una solución con los kernels Linux de SAP más recientes.  Las revisiones de kernel de SAP detalladas se documentan en la nota de SAP 1928533.

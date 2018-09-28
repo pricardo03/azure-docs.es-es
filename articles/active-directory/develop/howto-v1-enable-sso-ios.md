@@ -1,6 +1,6 @@
 ---
 title: Habilitación del inicio de sesión único entre aplicaciones en iOS mediante ADAL | Microsoft Docs
-description: 'Cómo utilizar las características del SDK de ADAL para habilitar el inicio de sesión único entre las aplicaciones. '
+description: Cómo utilizar las características del SDK de ADAL para habilitar el inicio de sesión único entre las aplicaciones.
 services: active-directory
 author: CelesteDG
 manager: mtillman
@@ -11,47 +11,52 @@ ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/07/2017
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 203cb4f57cfa50a17b66a9b70a44568e57ec4835
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e9598cb464360e35a86b6fe35d8c965a5e7fb51d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601229"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963039"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Habilitación del inicio de sesión único entre aplicaciones en iOS mediante ADAL
 
-Actualmente, los clientes esperan disfrutar de un inicio de sesión único que les permita escribir sus credenciales una sola vez y que esas credenciales se propaguen automáticamente entre las diferentes aplicaciones. La dificultad de escribir el nombre de usuario y contraseña en una pantalla pequeña, a menudo combinado con un factor adicional (2FA) como una llamada de teléfono o un código de mensaje de texto, provoca una rápida insatisfacción si el usuario tiene que hacer esto más de una vez para su producto.
+[!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
-Además, si aplica una plataforma de identidad que puedan usar otras aplicaciones, como cuentas Microsoft o una cuenta de trabajo de Office 365, los clientes esperan que las credenciales estén disponibles para todas sus aplicaciones, independientemente del proveedor.
+El inicio de sesión único (SSO) permite a los usuarios escribir sus credenciales una sola vez y que esas credenciales funcionen automáticamente en todas las aplicaciones y plataformas que otras aplicaciones puedan utilizar (como las cuentas Microsoft o una cuenta profesional de Microsoft 365) con independencia del editor.
 
-La plataforma de Microsoft Identity, junto con los SDK correspondientes, se ocupa de este trabajo ingrato y le ofrece la posibilidad de satisfacer a sus clientes con el inicio de sesión único, ya sea dentro de su propio conjunto de aplicaciones o, como sucede con nuestra funcionalidad de agente y las aplicaciones de Authenticator, en todo el dispositivo.
+La plataforma de identidad de Microsoft, junto con los SDK, facilitan la habilitación de SSO dentro de su propio conjunto de aplicaciones, o con la funcionalidad de agente y las aplicaciones de Authenticator, en todo el dispositivo.
 
-Este tutorial le indicará cómo configurar nuestro SDK dentro de la aplicación para proporcionar esta ventaja a sus clientes.
+En esta guía de procedimientos aprenderá a configurar el SDK dentro de la aplicación para proporcionar SSO a sus clientes.
 
-Este tutorial se aplica a:
+Esta guía se aplica a:
 
-* Azure Active Directory
+* Azure Active Directory (ADS)
 * Azure Active Directory B2C
 * Azure Active Directory B2B
 * Acceso condicional de Azure Active Directory
 
-En el documento anterior se considera que tiene conocimientos acerca de cómo [aprovisionar aplicaciones en el portal heredado para Azure Active Directory](active-directory-how-to-integrate.md) y que ha integrado su aplicación con el [SDK de iOS de Microsoft Identity](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="sso-concepts-in-the-microsoft-identity-platform"></a>Conceptos de inicio de sesión único en la plataforma de Microsoft Identity
+En esta guía se supone que sabe cómo:
 
-### <a name="microsoft-identity-brokers"></a>Agentes de Microsoft Identity
+* Aprovisionar la aplicación mediante el portal heredado para Azure AD. Para más información, consulte [Registro de una aplicación con el punto de conexión v1.0 de Azure AD](quickstart-v1-add-azure-ad-app.md).
+* Integrar la aplicación con el [SDK iOS de Azure AD](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
-Microsoft proporciona aplicaciones para todas las plataformas móviles que permiten el traspaso de credenciales entre aplicaciones de distintos proveedores, y habilita características mejoradas especiales que requieren un único lugar seguro desde el que validar las credenciales. A estas aplicaciones las llamamos **agentes**. En iOS y Android, estos agentes se consiguen a través de aplicaciones descargables que los clientes instalan de forma independiente o bien se insertan en el dispositivo gracias a una empresa que administra el dispositivo de manera total o parcial para sus empleados. Gracias a estos agentes, es posible administrar la seguridad de solo unas aplicaciones o bien del dispositivo en su totalidad, en función de lo que decidan los administradores de TI. En Windows, esta funcionalidad se proporciona mediante un selector de cuentas integrado en el sistema operativo, que se conoce técnicamente como agente de autenticación web.
+## <a name="single-sign-on-concepts"></a>Conceptos relativos al inicio de sesión único
 
-Siga leyendo para más información sobre el uso que hacemos de estos agentes y la percepción que tendrán de ellos sus clientes durante el proceso de inicio de sesión para la plataforma Microsoft Identity.
+### <a name="identity-brokers"></a>Agentes de identidad
+
+Microsoft proporciona aplicaciones para todas las plataformas móviles que permiten el traspaso de credenciales entre aplicaciones de distintos proveedores, y características mejoradas especiales que requieren un único lugar seguro desde el que validar las credenciales. Se denominan **agentes**.
+
+En iOS y Android, los agentes se proporcionan mediante aplicaciones descargables que los clientes instalan de forma independiente o bien las inserta en el dispositivo una empresa que administra algunos o todos los dispositivos de sus empleados. Gracias a estos agentes, es posible administrar la seguridad de solo unas aplicaciones o bien de todo el dispositivo, en función de la configuración de los administradores de TI. En Windows, esta funcionalidad se proporciona mediante un selector de cuentas integrado en el sistema operativo, que se conoce técnicamente como agente de autenticación web.
 
 ### <a name="patterns-for-logging-in-on-mobile-devices"></a>Patrones para iniciar sesión en dispositivos móviles
 
-El acceso a credenciales en los dispositivos sigue dos patrones básicos para la plataforma Microsoft Identity:
+El acceso a credenciales en los dispositivos sigue dos patrones básicos:
 
 * Inicios de sesión no asistidos por agente
 * Inicios de sesión asistidos por agente
@@ -68,11 +73,11 @@ Estos inicios de sesión tienen las siguientes ventajas:
 
 Estos inicios de sesión tienen las siguientes desventajas:
 
-* El usuario no puede experimentar el inicio de sesión único entre todas las aplicaciones que usan una identidad de Microsoft Identity, solo en aquellas identidades de Microsoft Identity que su aplicación ha configurado.
+* El usuario no puede experimentar el inicio de sesión único entre todas las aplicaciones que usan una identidad de Microsoft Identity, solo en aquellas identidades de Microsoft Identity que la aplicación haya configurado.
 * La aplicación no se puede usar con las características empresariales más avanzadas, como el acceso condicional, ni utilizar el conjunto de aplicaciones de Intune.
 * La aplicación no admite la autenticación basada en certificados para usuarios empresariales.
 
-A continuación se representa el funcionamiento de los SDK de Microsoft Identity con el almacenamiento compartido de sus aplicaciones para habilitar el inicio de sesión único:
+A continuación se representa el funcionamiento de los SDK con el almacenamiento compartido de las aplicaciones para habilitar el inicio de sesión único:
 
 ```
 +------------+ +------------+  +-------------+
@@ -81,7 +86,7 @@ A continuación se representa el funcionamiento de los SDK de Microsoft Identity
 |            | |            |  |             |
 |            | |            |  |             |
 +------------+ +------------+  +-------------+
-| ADAL SDK  |  |  ADAL SDK  |  |  ADAK SDK   |
+| ADAL SDK  |  |  ADAL SDK  |  |  ADAL SDK   |
 +------------+-+------------+--+-------------+
 |                                            |
 |            App Shared Storage              |
@@ -90,22 +95,23 @@ A continuación se representa el funcionamiento de los SDK de Microsoft Identity
 
 #### <a name="broker-assisted-logins"></a>Inicios de sesión asistidos por agente
 
-Los inicios de sesión asistidos por agente son experiencias de inicio de sesión que se producen dentro de la aplicación del agente y usan el almacenamiento y la seguridad del agente para compartir las credenciales entre todas las aplicaciones del dispositivo que se aplican a la plataforma Microsoft Identity. Esto significa que las aplicaciones dependen del agente para que los usuarios inicien sesión. En iOS y Android, estos agentes se proporcionan a través de aplicaciones descargables que los clientes instalan de forma independiente o las inserta en el dispositivo una empresa que administra el dispositivo de su usuario. Un ejemplo de este tipo de aplicación es la aplicación Microsoft Authenticator en iOS. En Windows, esta funcionalidad se proporciona mediante un selector de cuentas integrado en el sistema operativo, que se conoce técnicamente como agente de autenticación web.
-La experiencia varía según la plataforma y a veces puede ser problemática para los usuarios si no se administra correctamente. Quizá este modelo le resulte más familiar si tiene instalada la aplicación Facebook y usa Facebook Connect desde otra aplicación. La plataforma Microsoft Identity utiliza este mismo modelo.
+Los inicios de sesión asistidos por agente son experiencias de inicio de sesión que se producen dentro de la aplicación del agente y usan el almacenamiento y la seguridad del agente para compartir las credenciales entre todas las aplicaciones del dispositivo que se aplican a la plataforma de identidad. Esto significa que las aplicaciones dependen del agente para que los usuarios inicien sesión. En iOS y Android, estos agentes se proporcionan a través de aplicaciones descargables que los clientes instalan de forma independiente o las inserta en el dispositivo una empresa que administra el dispositivo de su usuario. Un ejemplo de este tipo de aplicación es la aplicación Microsoft Authenticator en iOS. En Windows, esta funcionalidad se proporciona mediante un selector de cuentas integrado en el sistema operativo, que se conoce técnicamente como agente de autenticación web.
 
-En el caso de iOS, esto da lugar a una animación de "transición" en la que la aplicación se envía a un segundo plano y las aplicaciones de Microsoft Authenticator vienen al primer plano para que el usuario seleccione la cuenta en la que quiere iniciar sesión. 
+La experiencia varía según la plataforma y a veces puede ser problemática para los usuarios si no se administra correctamente. Quizá este modelo le resulte más familiar si tiene instalada la aplicación Facebook y usa Facebook Connect desde otra aplicación. La plataforma de identidad utiliza este mismo modelo.
+
+En el caso de iOS, esto da lugar a una animación de "transición" en la que la aplicación se envía a un segundo plano y las aplicaciones de Microsoft Authenticator vienen al primer plano para que el usuario seleccione la cuenta en la que quiere iniciar sesión.
 
 En el caso de Android y Windows, el selector de cuentas se muestra sobre la aplicación, lo cual interrumpe menos la experiencia del usuario.
 
 #### <a name="how-the-broker-gets-invoked"></a>¿Cómo se invoca el agente?
 
-Si se instala un agente compatible en el dispositivo, como la aplicación Microsoft Authenticator, los SDK de Microsoft Identity se ocuparán automáticamente de la tarea de invocar al agente cuando un usuario indique que quiere iniciar sesión con alguna de las cuentas de la plataforma Microsoft Identity. Esta cuenta podría tratarse de una cuenta personal de Microsoft, una cuenta profesional o educativa o una cuenta que especifique y hospede en Azure mediante nuestros productos B2C y B2B.
+Si se instala un agente compatible en el dispositivo, como la aplicación Microsoft Authenticator, los SDK se ocuparán automáticamente de la tarea de invocar al agente cuando un usuario indique que quiere iniciar sesión con alguna de las cuentas de la plataforma de identidad. Esta cuenta podría tratarse de una cuenta personal de Microsoft, una cuenta profesional o educativa o una cuenta que especifique y hospede en Azure mediante nuestros productos B2C y B2B.
 
 #### <a name="how-we-ensure-the-application-is-valid"></a>Cómo se garantiza que la aplicación es válida
- 
- La necesidad de asegurar la identidad de una llamada de la aplicación al agente es fundamental para la seguridad que proporcionamos en los inicios de sesión asistidos por agente. Ni IOS ni Android exigen identificadores únicos que solo son válidos para una aplicación determinada, por lo que aplicaciones malintencionadas pueden "suplantar" un identificador de la aplicación legítima y recibir los tokens destinados a la aplicación legítima. Para asegurarse de que siempre se comunica con la aplicación correcta en tiempo de ejecución, le pedimos al desarrollador que proporcione un redirectURI personalizado al registrar su aplicación con Microsoft. **A continuación se describe cómo los desarrolladores deben diseñar este URI de redirección.** Este redirectURI personalizado contiene el identificador de paquete de la aplicación y la App Store de Apple garantiza que es único para la aplicación. Cuando una aplicación llama al agente, este solicita al sistema operativo iOS que le proporcione el identificador de paquete que llamó al agente. El agente proporciona este identificador a Microsoft en la llamada a nuestro sistema de identidad. Si el identificador de paquete de la aplicación no coincide con el identificador de paquete que el desarrollador nos ha proporcionado durante el registro, denegaremos el acceso a los tokens del recurso que está solicitando la aplicación. Esta comprobación asegura que solo la aplicación registrada por el desarrollador recibe los tokens.
 
-**El desarrollador tiene la opción de elegir si el SDK de Microsoft Identity llama al agente o usa el flujo sin asistencia del agente.** Sin embargo, si el desarrollador decide no usar el flujo asistido por agente, no podrá beneficiarse del uso de las credenciales de SSO que el usuario puede ya haber agregado en el dispositivo; además, impide que la aplicación se use con las características empresariales que Microsoft proporciona a sus clientes, como el acceso condicional, las funcionalidades de administración de Intune y la autenticación basada en certificados.
+La necesidad de asegurar la identidad de una llamada de la aplicación al agente es fundamental para la seguridad que proporcionamos en los inicios de sesión asistidos por agente. Ni IOS ni Android exigen identificadores únicos que solo son válidos para una aplicación determinada, por lo que aplicaciones malintencionadas pueden "suplantar" un identificador de la aplicación legítima y recibir los tokens destinados a la aplicación legítima. Para asegurarse de que siempre se comunica con la aplicación correcta en tiempo de ejecución, le pedimos al desarrollador que proporcione un redirectURI personalizado al registrar su aplicación con Microsoft. A continuación se describe cómo los desarrolladores deben diseñar este URI de redireccionamiento. Este redirectURI personalizado contiene el identificador de paquete de la aplicación y la App Store de Apple garantiza que es único para la aplicación. Cuando una aplicación llama al agente, este solicita al sistema operativo iOS que le proporcione el identificador de paquete que llamó al agente. El agente proporciona este identificador a Microsoft en la llamada a nuestro sistema de identidad. Si el identificador de paquete de la aplicación no coincide con el identificador de paquete que el desarrollador nos ha proporcionado durante el registro, denegaremos el acceso a los tokens del recurso que está solicitando la aplicación. Esta comprobación asegura que solo la aplicación registrada por el desarrollador recibe los tokens.
+
+**El desarrollador tiene la opción de elegir si el SDK llama al agente o usa el flujo sin asistencia del agente.** Sin embargo, si el desarrollador decide no usar el flujo asistido por agente, no podrá beneficiarse del uso de las credenciales de SSO que el usuario pueda ya haber agregado en el dispositivo; además, impide que la aplicación se use con las características empresariales que Microsoft proporciona a sus clientes, como el acceso condicional, las funcionalidades de administración de Intune y la autenticación basada en certificados.
 
 Estos inicios de sesión tienen las siguientes ventajas:
 
@@ -119,7 +125,7 @@ Estos inicios de sesión tienen las siguientes desventajas:
 * En iOS, el usuario pasa por un proceso externo a la experiencia de la aplicación mientras se eligen las credenciales.
 * Se pierde la capacidad de administrar la experiencia de inicio de sesión para los clientes dentro de la aplicación.
 
-A continuación se representa el funcionamiento de los SDK de Microsoft Identity con las aplicaciones de agente para habilitar el inicio de sesión único:
+A continuación se representa el funcionamiento de los SDK con las aplicaciones de agente para habilitar el inicio de sesión único:
 
 ```
 +------------+ +------------+   +-------------+
@@ -145,8 +151,6 @@ A continuación se representa el funcionamiento de los SDK de Microsoft Identity
               +-------------+
 ```
 
-Una vez que disponga de toda esta información, probablemente pueda entender e implementar mejor el inicio de sesión único en la aplicación mediante los SDK y la plataforma Microsoft Identity.
-
 ## <a name="enabling-cross-app-sso-using-adal"></a>Habilitación del SSO entre aplicaciones mediante ADAL
 
 Ahora vamos a usar el SDK de iOS de ADAL para:
@@ -156,20 +160,20 @@ Ahora vamos a usar el SDK de iOS de ADAL para:
 
 ### <a name="turning-on-sso-for-non-broker-assisted-sso"></a>Activación del SSO para el SSO no asistido por agente
 
-En el caso del SSO entre aplicaciones no asistido por agente, los SDK de Microsoft Identity administran automáticamente gran parte de la complejidad que entraña este proceso. Esto incluye la búsqueda del usuario adecuado en la memoria caché y el mantenimiento de una lista de usuarios que han iniciado sesión en la que se pueden realizar consultas.
+En el caso del SSO entre aplicaciones no asistido por agente, los SDK administran automáticamente gran parte de la complejidad que entraña este proceso. Esto incluye la búsqueda del usuario adecuado en la memoria caché y el mantenimiento de una lista de usuarios que han iniciado sesión en la que se pueden realizar consultas.
 
 Para habilitar el SSO entre aplicaciones de las que es el propietario debe hacer lo siguiente:
 
 1. Garantizar que todas las aplicaciones utilizan el mismo identificador de cliente o aplicación
-2. Garantizar que todas las aplicaciones comparten el mismo certificado de firma de Apple para que sea posible compartir los llaveros.
+2. Garantizar que todas las aplicaciones comparten el mismo certificado de firma de Apple para que sea posible compartir las cadenas de claves.
 3. Solicitar los mismos permisos de llaveros para cada una de las aplicaciones.
-4. Indicar a los SDK de Microsoft Identity cuál es el llavero compartido que quiere que utilicemos.
+4. Indicar a los SDK cuál es la cadena de claves compartida que quiere que utilicemos.
 
 #### <a name="using-the-same-client-id--application-id-for-all-the-applications-in-your-suite-of-apps"></a>Uso del mismo identificador de cliente o aplicación para todas las aplicaciones de su conjunto
 
-A fin de que la plataforma Microsoft Identity sepa que puede compartir tokens entre las aplicaciones, es necesario que todas ellas tengan el mismo identificador de cliente o aplicación. Se trata del identificador único que se le suministró al registrar su primera aplicación en el portal.
+A fin de que la plataforma de identidad sepa que puede compartir tokens entre las aplicaciones, es necesario que todas ellas compartan el mismo identificador de cliente o aplicación. Se trata del identificador único que se le suministró al registrar su primera aplicación en el portal.
 
-Quizás se pregunte cómo se puede identificar a las diferentes aplicaciones en el servicio Microsoft Identity si todas utilizan el mismo identificador. Pues bien, esto es posible gracias a los **URI de redirección**. Cada aplicación puede tener varios URI de redirección registrados en el portal de incorporación. Cada una de las aplicaciones de su conjunto tendrá diferentes URI de redirección. A continuación se muestra un ejemplo típico de su aspecto:
+Redirigir los URI permite identificar diferentes aplicaciones en el servicio de identidad de Microsoft, si este utiliza el mismo identificador de aplicación. Cada aplicación puede tener varios URI de redirección registrados en el portal de incorporación. Cada una de las aplicaciones de su conjunto tendrá diferentes URI de redirección. A continuación se muestra un ejemplo típico de su aspecto:
 
 URI de redirección de la aplicación 1: `x-msauth-mytestiosapp://com.myapp.mytestapp`
 
@@ -204,8 +208,7 @@ Estos están anidados en el mismo identificador de cliente o aplicación y se co
 
 ```
 
-
-*Tenga en cuenta que el formato de estos URI de redirección se explica a continuación. Puede usar cualquier URI de redirección, a menos que desee utilizar el agente, en cuyo caso debe tener un aspecto como el anterior*
+El formato de estos URI de redireccionamiento se explica a continuación. Puede usar cualquier URI de redireccionamiento, a menos que desee utilizar el agente, en cuyo caso debe parecerse al anterior*
 
 #### <a name="create-keychain-sharing-between-applications"></a>Permitir el uso compartido de llaveros entre aplicaciones
 
@@ -227,16 +230,16 @@ Cuando haya configurado los derechos correctamente, verá un archivo en el direc
 </plist>
 ```
 
-Una vez que haya habilitado los derechos del llavero en cada una de las aplicaciones y esté listo para usar el SSO, informe al SDK de Microsoft Identity acerca del llavero usando el siguiente valor en `ADAuthenticationSettings` :
+Una vez que haya habilitado los derechos de la cadena de claves en cada una de las aplicaciones y esté preparado para usar el SSO, informe al SDK de identidad acerca de la cadena de claves usando el siguiente valor en `ADAuthenticationSettings`:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";
 ```
 
 > [!WARNING]
-> Cuando se comparte un llavero entre aplicaciones, cualquiera de ellas puede eliminar usuarios o, peor aún, eliminar todos los tokens de la aplicación. Esto puede resultar especialmente problemático si tiene aplicaciones que dependen de los tokens para hacer el trabajo en segundo plano. Compartir un llavero implica ser muy cuidadoso en todas y cada una de las operaciones de eliminación realizadas a través de los SDK de Microsoft Identity
+> Cuando se comparte un llavero entre aplicaciones, cualquiera de ellas puede eliminar usuarios o, peor aún, eliminar todos los tokens de la aplicación. Esto puede resultar especialmente problemático si tiene aplicaciones que dependen de los tokens para hacer el trabajo en segundo plano. Compartir una cadena de claves implica ser muy cuidadoso en todas y cada una de las operaciones de eliminación realizadas mediante los SDK de identidad.
 
-Eso es todo. El SDK de Microsoft Identity ahora compartirá las credenciales entre todas sus aplicaciones. La lista de usuarios también se compartirá entre las instancias de la aplicación.
+Eso es todo. El SDK ahora compartirá las credenciales entre todas las aplicaciones. La lista de usuarios también se compartirá entre las instancias de la aplicación.
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>Activación del SSO para el SSO asistido por agente
 
@@ -257,16 +260,14 @@ La capacidad de la aplicación de utilizar el agente se activa al crear el "cont
 /*! See the ADCredentialsType enumeration definition for details */
 @propertyADCredentialsType credentialsType;
 ```
-El valor `AD_CREDENTIALS_AUTO` permitirá al SDK de Microsoft Identity llamar al agente, `AD_CREDENTIALS_EMBEDDED` impedirá que el SDK de Microsoft Identity llame al agente.
+El valor `AD_CREDENTIALS_AUTO` permitirá al SDK llamar al agente, `AD_CREDENTIALS_EMBEDDED` impedirá que el SDK llame al agente.
 
 #### <a name="step-2-registering-a-url-scheme"></a>Paso 2: Registrar un esquema de dirección URL
 
-La plataforma Microsoft Identity utiliza direcciones URL para invocar al agente y, a continuación, devolver el control a la aplicación. Para terminar este viaje de ida y vuelta se requiere un esquema de dirección URL registrado para la aplicación del que tenga conocimiento la plataforma Microsoft Identity. Esto puede sumarse a otros esquemas de aplicación que haya registrado previamente en la aplicación.
+La plataforma de identidad utiliza direcciones URL para invocar al agente y, a continuación, devolver el control a la aplicación. Para terminar este viaje de ida y vuelta, se requiere un esquema de dirección URL registrado para la aplicación del que tenga conocimiento la plataforma de identidad. Esto puede sumarse a otros esquemas de aplicación que haya registrado previamente en la aplicación.
 
 > [!WARNING]
 > Se recomienda dotar al esquema de dirección URL de unas características bastante únicas para minimizar las posibilidades de que otra aplicación use el mismo esquema de dirección URL. Apple no exige que los esquemas de dirección URL registrados en el almacén de aplicaciones sean únicos.
-> 
-> 
 
 A continuación, se muestra un ejemplo del aspecto que podría tener esto en la configuración de un proyecto. También es posible hacerlo en XCode del modo siguiente:
 
@@ -296,11 +297,11 @@ Para ser correcto, el URI de redirección debe presentar el formato siguiente:
 
 Por ejemplo, *x-msauth-mytestiosapp://com.myapp.mytestapp*
 
-Este URI de redirección debe especificarse en el registro de la aplicación mediante [Azure Portal](https://portal.azure.com/). Para más información sobre el registro de aplicaciones de Azure AD, consulte [Integración con Azure Active Directory](active-directory-how-to-integrate.md).
+Este URI de redireccionamiento debe especificarse en el registro de la aplicación mediante [Azure Portal](https://portal.azure.com/). Para más información sobre el registro de aplicaciones de Azure AD, consulte [Integración con Azure Active Directory](active-directory-how-to-integrate.md).
 
 ##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>Paso 3a: Agregar un URI de redirección a la aplicación y al portal de desarrolladores para admitir la autenticación basada en certificados
 
-Para admitir la autenticación basada en certificados, se requiere el registro de un segundo elemento "msauth"en la aplicación y en [Azure Portal](https://portal.azure.com/) para controlar la autenticación de certificados si desea agregar esa compatibilidad a su aplicación.
+Para admitir la autenticación basada en certificados, se requiere el registro de un segundo elemento "msauth"en la aplicación y en [Azure Portal](https://portal.azure.com/) para controlar la autenticación de certificados si quiere agregar esa compatibilidad a su aplicación.
 
 `msauth://code/<broker-redirect-uri-in-url-encoded-form>`
 
@@ -310,8 +311,14 @@ Por ejemplo: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
 ADAL usa – canOpenURL: para comprobar si el agente está instalado en el dispositivo. En iOS 9, Apple ha bloqueado los esquemas que puede consultar una aplicación. Debe agregar "msauth" a la sección LSApplicationQueriesSchemes de `info.plist file`.
 
+```
 <key>LSApplicationQueriesSchemes</key> <array><string>msauth</string></array>
+```
 
 ### <a name="youve-configured-sso"></a>Ya ha configurado el SSO.
 
-Ahora, el SDK de Microsoft Identity compartirá automáticamente las credenciales entre las aplicaciones e invocará al agente si está presente en su dispositivo.
+Ahora, el SDK de identidad compartirá automáticamente las credenciales entre las aplicaciones e invocará al agente, si está presente en su dispositivo.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* Más información sobre el [Protocolo SAML de inicio de sesión único](single-sign-on-saml-protocol.md)

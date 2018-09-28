@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/08/2018
+ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 3fcede7f813e97885d8fc3d7e0bc04776f2d0d12
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: febdb2e3ae4432c36ca839f81ba7a1d333df1a2f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579848"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952008"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implementación de aplicaciones en Azure y Azure Stack
 
@@ -30,7 +30,7 @@ Obtenga información sobre cómo implementar una aplicación en Azure y Azure St
 En este tutorial, creará un entorno de ejemplo para:
 
 > [!div class="checklist"]
-> * Iniciar una nueva compilación en función de las confirmaciones de código en el repositorio de Visual Studio Team Services (VSTS).
+> * Iniciar una nueva compilación en función de las confirmaciones de código en el repositorio de Azure DevOps Services.
 > * Implementar automáticamente la aplicación en Azure global para llevar a cabo las pruebas de aceptación del usuario.
 > * Una vez que el código haya pasado las pruebas, implementar automáticamente la aplicación en Azure Stack.
 
@@ -47,6 +47,12 @@ Para más información sobre la integración continua y la implementación conti
 
 * [What is Continuous Integration?](https://www.visualstudio.com/learn/what-is-continuous-integration/) (¿Qué es la integración continua?)
 * [What is Continuous Delivery?](https://www.visualstudio.com/learn/what-is-continuous-delivery/) (¿Qué es la entrega continua?)
+
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack es una extensión de Azure. Azure Stack aporta la agilidad y la innovación de la informática en la nube a su entorno local y hace posible la única nube híbrida que le permite crear e implementar aplicaciones híbridas en cualquier parte.  
+> 
+> En las notas del producto [Consideraciones de diseño para aplicaciones híbridas](https://aka.ms/hybrid-cloud-applications-pillars) se revisan los pilares de la calidad de software (selección de ubicación, escalabilidad, disponibilidad, resistencia, capacidad de administración y seguridad) para diseñar, implementar y usar aplicaciones híbridas. Las consideraciones de diseño ayudan a optimizar el diseño de aplicaciones híbridas y reducen los desafíos en los entornos de producción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -81,34 +87,38 @@ En este tutorial se da por supuesto que tiene algunos conocimientos básicos de 
  * Cree [Planes y ofertas](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) en Azure Stack.
  * Cree una [suscripción de inquilino](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) en Azure Stack.
  * Cree una aplicación web en la suscripción de inquilino. Anote la nueva dirección URL de aplicación web, ya que la usará más adelante.
- * Implemente la máquina virtual de VSTS en la suscripción de inquilino.
+ * Implemente una máquina virtual Windows Server 2012 en la suscripción del inquilino. Este servidor se utilizará como servidor de compilación y para ejecutar Azure DevOps Services.
 * Proporcione una imagen de Windows Server 2016 con .NET 3.5 para una máquina virtual (VM). Esta máquina virtual se crea en la instancia de Azure Stack como un agente de compilación privado.
 
 ### <a name="developer-tool-requirements"></a>Requisitos de la herramienta para desarrolladores
 
-* Cree un [área de trabajo de VSTS](https://docs.microsoft.com/vsts/repos/tfvc/create-work-workspaces). El proceso de registro crea un proyecto denominado **MyFirstProject**.
-* [Instale Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) e [inicie sesión en VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
+* Cree un [área de trabajo de Azure DevOps Services](https://docs.microsoft.com/azure/devops/repos/tfvc/create-work-workspaces). El proceso de registro crea un proyecto denominado **MyFirstProject**.
+* [Instale Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) e [inicie sesión en Azure DevOps Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Conéctese al proyecto y [realice la clonación localmente](https://www.visualstudio.com/docs/git/gitquickstart).
 
  > [!Note]
  > El entorno de Azure Stack necesita las imágenes correctas sindicadas para ejecutar Windows Server y SQL Server. También debe tener implementado App Service.
 
-## <a name="prepare-the-private-build-and-release-agent-for-visual-studio-team-services-integration"></a>Preparación de la compilación privada y el agente de versión para la integración de Visual Studio Team Services
+## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>Preparación del agente de Azure Pipelines privado para la integración de Azure DevOps Services
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-Visual Studio Team Services (VSTS) se autentica en Azure Resource Manager mediante una entidad de servicio. VSTS debe tener el rol de **Colaborador** para aprovisionar recursos en una suscripción de Azure Stack.
+Azure DevOps Services se autentica en Azure Resource Manager mediante una entidad de servicio. Azure DevOps Services debe tener el rol de **Colaborador** para aprovisionar recursos en una suscripción de Azure Stack.
 
 Los pasos siguientes describen lo que se requiere para configurar la autenticación:
 
 1. Cree una entidad de servicio o utilice una existente.
 2. Cree las claves de autenticación para la entidad de servicio.
 3. Valide la suscripción de Azure Stack mediante el control de acceso basado en rol para permitir que el nombre de entidad de seguridad de servicio (SPN) forme parte del rol de colaborador.
-4. Cree una nueva definición de servicio en VSTS mediante los puntos de conexión de Azure Stack y la información de SPN.
+4. Cree una nueva definición de servicio en Azure DevOps Services con los puntos de conexión de Azure Stack y la información de SPN.
 
 ### <a name="create-a-service-principal"></a>Creación de una entidad de servicio
 
-Consulte las instrucciones de [Creación de una entidad de servicio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) para crear una entidad de servicio y, a continuación, seleccione **Aplicación web/API** como tipo de aplicación.
+Consulte las instrucciones de [creación de entidades de servicio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) para crear una. Elija **Aplicación web o API** como tipo de aplicación o [use el script de PowerShell](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) como se explica en el artículo [Create an Azure Resource Manager service connection with an existing service principal](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) (Creación de una conexión de servicio de Azure Resource Manager con una entidad de servicio existente).
+
+ > [!Note]  
+ > Si utiliza el script para crear un punto de conexión de Azure Resource Manager de Azure Stack, tiene que pasar los parámetros **-azureStackManagementURL** y **-environmentName**. Por ejemplo:   
+> `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
 
 ### <a name="create-an-access-key"></a>Creación de una clave de acceso
 
@@ -118,7 +128,7 @@ Una entidad de servicio requiere una clave para la autenticación. Siga estos pa
 
     ![Selección de la aplicación](media\azure-stack-solution-hybrid-pipeline\000_01.png)
 
-2. Anote el valor del **identificador de aplicación**. Este valor se usará al configurar el punto de conexión de servicio en VSTS.
+2. Anote el valor del **identificador de aplicación**. Este valor se usará al configurar el punto de conexión de servicio en Azure DevOps Services.
 
     ![Identificador de aplicación](media\azure-stack-solution-hybrid-pipeline\000_02.png)
 
@@ -140,7 +150,7 @@ Una entidad de servicio requiere una clave para la autenticación. Siga estos pa
 
 ### <a name="get-the-tenant-id"></a>Obtención del identificador de inquilino
 
-Como parte de la configuración del punto de conexión de servicio, VSTS requiere el **identificador de inquilino** que corresponde al directorio de AAD en el que se implementó la marca de Azure Stack. Utilice los pasos siguientes para obtener el identificador de inquilino.
+Como parte de la configuración del punto de conexión de servicio, Azure DevOps Services requiere el **identificador de inquilino** que corresponde al directorio de AAD en el que se implementó la marca de Azure Stack. Utilice los pasos siguientes para obtener el identificador de inquilino.
 
 1. Seleccione **Azure Active Directory**.
 
@@ -190,20 +200,21 @@ Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o rec
 
 El control de acceso basado en rol (RBAC) de Azure permite realizar una administración del acceso pormenorizada para Azure. Mediante el uso de RBAC, puede controlar el nivel de acceso que los usuarios necesitan para realizar sus trabajos. Para más información sobre el control de acceso basado en rol, consulte [Administración del acceso a los recursos de suscripción de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
 
-### <a name="vsts-agent-pools"></a>Grupos de agentes de VSTS
+### <a name="azure-devops-services-agent-pools"></a>Grupos de agentes de Azure DevOps Services
 
-En lugar de administrar cada agente de forma individual, puede organizar los agentes en grupos de agentes. Un grupo de agentes define el límite de uso compartido de todos los agentes de ese grupo. En VSTS, los grupos de agentes tienen como ámbito la cuenta de VSTS; por lo que puede compartir un grupo de agentes entre proyectos de equipo. Para más información acerca de los grupos de agentes, consulte [Creación de grupos de agentes y colas](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts).
+En lugar de administrar cada agente de forma individual, puede organizar los agentes en grupos de agentes. Un grupo de agentes define el límite de uso compartido de todos los agentes de ese grupo. En Azure DevOps Services, los grupos de agentes tienen el ámbito de la organización de Azure DevOps Services, lo que significa que puede compartir un grupo de agentes entre proyectos. Para más información acerca de los grupos de agentes, consulte [Creación de grupos de agentes y colas](https://docs.microsoft.com/azure/devops/pipelines/agents/pools-queues?view=vsts).
 
 ### <a name="add-a-personal-access-token-pat-for-azure-stack"></a>Adición de un token de acceso personal (PAT) a Azure Stack
 
-Cree un token de acceso personal para acceder a VSTS.
+Cree un token de acceso personal para acceder a Azure DevOps Services.
 
-1. Inicie sesión en su cuenta de VSTS y seleccione el nombre de perfil de su cuenta.
+1. Inicie sesión en su organización de Azure DevOps Services y seleccione el nombre de perfil de la organización.
+
 2. Seleccione **Administrar seguridad** para acceder a la página de creación de tokens de acceso.
 
     ![Inicio de sesión de usuario](media\azure-stack-solution-hybrid-pipeline\000_17.png)
 
-    ![Selección del proyecto de equipo](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+    ![Selección de un proyecto](media\azure-stack-solution-hybrid-pipeline\000_18.png)
 
     ![Adición del token de acceso personal](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
 
@@ -216,7 +227,7 @@ Cree un token de acceso personal para acceder a VSTS.
 
     ![Token de acceso personal](media\azure-stack-solution-hybrid-pipeline\000_19.png)
 
-### <a name="install-the-vsts-build-agent-on-the-azure-stack-hosted-build-server"></a>Instalación del agente de compilación de VSTS en el servidor de compilación hospedado de Azure Stack
+### <a name="install-the-azure-devops-services-build-agent-on-the-azure-stack-hosted-build-server"></a>Instalación del agente de compilación de Azure DevOps Services en el servidor de compilación hospedado en Azure Stack
 
 1. Conéctese a su servidor de compilación que implementó en el host de Azure Stack.
 2. Descargue e instale el agente de compilación como un servicio mediante su token de acceso personal (PAT) y ejecútelo como la cuenta de administrador de la máquina virtual.
@@ -233,17 +244,17 @@ Cree un token de acceso personal para acceder a VSTS.
 
     ![Actualizar de la carpeta del agente de compilación](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
 
-    Puede ver al agente en la carpeta de VSTS.
+    Puede ver el agente en la carpeta de Azure DevOps Services.
 
 ## <a name="endpoint-creation-permissions"></a>Permisos de creación de puntos de conexión
 
-Mediante la creación de puntos de conexión, una compilación de Visual Studio Online (VSTO) puede implementar aplicaciones de Azure Service en Azure Stack. VSTS se conecta con el agente de compilación, que, a su vez, se conecta con Azure Stack.
+Mediante la creación de puntos de conexión, una compilación de Visual Studio Online (VSTO) puede implementar aplicaciones de Azure Service en Azure Stack. Azure DevOps Services se conecta con el agente de compilación, que, a su vez, se conecta con Azure Stack.
 
 ![Aplicación de ejemplo NorthwindCloud en VSTO](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
 
 1. Inicie sesión en VSTO y vaya a la página de configuración de la aplicación.
 2. En **Configuración**, seleccione **Seguridad**.
-3. En **Grupos de VSTS**, seleccione **Creadores de puntos de conexión**.
+3. En **Grupos de Azure DevOps Services**, seleccione **Creadores de puntos de conexión**.
 
     ![Creadores de puntos de conexión de NorthwindCloud](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
 
@@ -253,7 +264,7 @@ Mediante la creación de puntos de conexión, una compilación de Visual Studio 
 
 5. En **Agregar usuarios y grupos**, escriba un nombre de usuario y seleccione ese usuario en la lista de usuarios.
 6. Seleccione **Save changes** (Guardar los cambios).
-7. En la lista **Grupos de VSTS**, seleccione **Administradores de puntos de conexión**.
+7. En la lista **Grupos de Azure DevOps Services**, seleccione **Administradores de puntos de conexión**.
 
     ![Administradores de puntos de conexión de NorthwindCloud](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
 
@@ -261,7 +272,20 @@ Mediante la creación de puntos de conexión, una compilación de Visual Studio 
 9. En **Agregar usuarios y grupos**, escriba un nombre de usuario y seleccione ese usuario en la lista de usuarios.
 10. Seleccione **Save changes** (Guardar los cambios).
 
-Ahora que existe la información del punto de conexión, la conexión de VSTS con Azure Stack está lista para su uso. El agente de compilación de Azure Stack obtiene instrucciones de VSTS y, a continuación, el agente transmite la información del punto de conexión para la comunicación con Azure Stack.
+Ahora que existe la información del punto de conexión, la conexión de Azure DevOps Services con Azure Stack está lista para su uso. El agente de compilación de Azure Stack obtiene instrucciones de Azure DevOps Services y, a continuación, el agente transmite la información del punto de conexión para la comunicación con Azure Stack.
+## <a name="create-an-azure-stack-endpoint"></a>Creación de un punto de conexión de Azure Stack
+
+Puede seguir las instrucciones del artículo [Create an Azure Resource Manager service connection with an existing service principal](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) (Creación de una conexión de servicio de Azure Resource Manager con una entidad de servicio existente) para crear una conexión de servicio con una entidad de servicio existente y usar la siguiente asignación:
+
+- Entorno: AzureStack
+- Dirección URL del entorno: algo parecido a `https://management.local.azurestack.external`
+- Id. de suscripción: identificador de suscripción del usuario de Azure Stack
+- Nombre de suscripción: nombre de suscripción del usuario de Azure Stack
+- Id. de cliente de entidad de servicio: identificador de la entidad de [esta](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) sección del artículo
+- Clave de entidad de servicio: clave del mismo artículo (o la contraseña si usa el script)
+- Id. de inquilino: identificador del inquilino que se recupera con las instrucciones de [Obtención del identificador de inquilino](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id)
+
+Ahora que se ha creado el punto de conexión, la conexión de VSTS con Azure Stack está lista para su uso. El agente de compilación de Azure Stack obtiene instrucciones de VSTS y, a continuación, el agente transmite la información del punto de conexión para la comunicación con Azure Stack.
 
 ![Agente de compilación](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
 
@@ -269,18 +293,18 @@ Ahora que existe la información del punto de conexión, la conexión de VSTS co
 
 En esta parte del tutorial, vamos a:
 
-* Agregar código a un proyecto de VSTS.
+* Agregar código a un proyecto de Azure DevOps Services.
 * Crear una implementación de aplicaciones web independiente.
 * Configuración del proceso de implementación continua
 
 > [!Note]
  > El entorno de Azure Stack necesita las imágenes correctas sindicadas para ejecutar Windows Server y SQL Server. También debe tener implementado App Service. Revise la sección "Requisitos previos" de la documentación de App Service para conocer los requisitos del operador de Azure Stack.
 
-La canalización de CI/CD híbrida se puede aplicar al código de aplicación y al código de infraestructura. Use [plantillas de Azure Resource Manager como código de aplicación web](https://azure.microsoft.com/resources/templates/) de VSTS para implementar en ambas nubes.
+La canalización de CI/CD híbrida se puede aplicar al código de aplicación y al código de infraestructura. Use [plantillas de Azure Resource Manager como código de aplicación web](https://azure.microsoft.com/resources/templates/) de Azure DevOps Services para implementar en ambas nubes.
 
-### <a name="add-code-to-a-vsts-project"></a>Adición de código a un proyecto de VSTS
+### <a name="add-code-to-an-azure-devops-services-project"></a>Adición de código a un proyecto de Azure DevOps Services
 
-1. Inicie sesión en VSTS con una cuenta que tenga derechos de creación de proyectos en Azure Stack. La captura de pantalla siguiente muestra cómo conectarse al proyecto HybridCICD.
+1. Inicie sesión en Azure DevOps Services con una organización que tenga derechos de creación de proyectos en Azure Stack. La captura de pantalla siguiente muestra cómo conectarse al proyecto HybridCICD.
 
     ![Conexión a un proyecto](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
 
@@ -294,37 +318,38 @@ La canalización de CI/CD híbrida se puede aplicar al código de aplicación y 
 
     ![Configuración de Runtimeidentifier](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
 
-2. Compruebe el código en VSTS mediante Team Explorer.
+2. Compruebe el código en Azure DevOps Services mediante Team Explorer.
 
-3. Confirme que el código de la aplicación se ha insertado en el repositorio de Visual Studio Team Services.
+3. Confirme que el código de la aplicación se ha insertado en Azure DevOps Services.
 
-### <a name="create-the-build-definition"></a>Creación de la definición de compilación
+### <a name="create-the-build-pipeline"></a>Creación de la canalización de compilación
 
-1. Inicie sesión en VSTS con una cuenta que pueda crear una definición de compilación.
+1. Inicie sesión en Azure DevOps Services con una organización que pueda crear una canalización de compilación.
+
 2. Vaya a la página **Compilar aplicación web** del proyecto.
 
 3. En **Argumentos**, agregue el código **-r win10-x64**. Esto es necesario para desencadenar una implementación independiente con .Net Core.
 
-    ![Adición del argumento de definición de compilación](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+    ![Adición del argumento de canalización de compilación](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
 
 4. Ejecute la compilación. El proceso de [compilación de implementación autocontenida](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) publicará los artefactos que se pueden ejecutar en Azure y Azure Stack.
 
 ### <a name="use-an-azure-hosted-build-agent"></a>Uso de un agente de compilación hospedado en Azure
 
-El uso de un agente de compilación hospedado en VSTS es una opción adecuada para compilar e implementar aplicaciones web. Microsoft Azure realiza automáticamente el mantenimiento y las actualizaciones, lo que permite un ciclo de desarrollo ininterrumpido y continuo.
+El uso de un agente de compilación hospedado en Azure DevOps Services es una opción adecuada para compilar e implementar aplicaciones web. Microsoft Azure realiza automáticamente el mantenimiento y las actualizaciones, lo que permite un ciclo de desarrollo ininterrumpido y continuo.
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>Configuración del proceso de implementación continua (CD)
 
-Visual Studio Team Services (VSTS) y Team Foundation Server (TFS) proporcionan una canalización con una gran capacidad de configuración y administración para versiones de varios entornos, como desarrollo, ensayo, control de calidad (QA) y producción. Este proceso puede incluir la necesidad de aprobaciones en determinadas fases del ciclo de vida de la aplicación.
+Azure DevOps Services y Team Foundation Server (TFS) proporcionan una canalización con una gran capacidad de configuración y administración para versiones de varios entornos, como desarrollo, ensayo, control de calidad (QA) y producción. Este proceso puede incluir la necesidad de aprobaciones en determinadas fases del ciclo de vida de la aplicación.
 
-### <a name="create-release-definition"></a>Creación de la definición de versión
+### <a name="create-release-pipeline"></a>Creación de la canalización de versión
 
-La creación de una definición de versión es el último paso en el proceso de compilación de la aplicación. Esta definición de versión se usa para crear una versión e implementar una compilación.
+La creación de una canalización de versión es el último paso en el proceso de compilación de la aplicación. Esta canalización de versión se usa para crear una versión e implementar una compilación.
 
-1. Inicie sesión en VSTS y vaya a **Compilación y versión** del proyecto.
+1. Inicie sesión en Azure DevOps Services y vaya a **Azure Pipelines** para el proyecto.
 2. En la pestaña **Versiones**, seleccione **\[ + ]** y, a continuación, elija **Crear definición de versión**.
 
-   ![Creación de la definición de versión](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+   ![Creación de la canalización de versión](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
 
 3. En **Seleccionar una plantilla**, elija **Implementación de Azure App Service** y, a continuación, seleccione **Aplicar**.
 
@@ -411,11 +436,11 @@ La creación de una definición de versión es el último paso en el proceso de 
 23. Guarde todos los cambios.
 
 > [!Note]
-> Algunos valores de configuración de las tareas de la versión se han definido automáticamente como [variables de entorno](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) cuando se creó una definición de versión desde una plantilla. No se puede modificar esta configuración en la configuración de la tarea. Sin embargo, puede editar estos valores en los elementos del entorno primario.
+> Algunos valores de configuración de las tareas de la versión se pueden haber definido automáticamente como [variables de entorno](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts#custom-variables) cuando se creó una canalización de versión desde una plantilla. No se puede modificar esta configuración en la configuración de la tarea. Sin embargo, puede editar estos valores en los elementos del entorno primario.
 
 ## <a name="create-a-release"></a>Creación de una versión
 
-Ahora que ha completado las modificaciones a la definición de versión, es hora de iniciar la implementación. Para ello, cree una versión a partir de la definición de versión. Una versión se puede crear automáticamente; por ejemplo, el desencadenador de implementación continua se establece en la definición de versión. Esto significa que al modificar el código fuente se iniciará una nueva compilación y, a partir de ella, una nueva versión. Sin embargo, en esta sección creará una nueva versión manualmente.
+Ahora que ha completado las modificaciones a la canalización de versión, es hora de iniciar la implementación. Para ello, cree una versión a partir de la canalización de versión. Una versión se puede crear automáticamente; por ejemplo, el desencadenador de implementación continua se establece en la canalización de versión. Esto significa que al modificar el código fuente se iniciará una nueva compilación y, a partir de ella, una nueva versión. Sin embargo, en esta sección creará una nueva versión manualmente.
 
 1. En la pestaña **Canalización**, abra la desplegable lista **Versión** y elija **Crear versión**.
 
@@ -439,7 +464,7 @@ En esta sección se muestra cómo puede supervisar y realizar un seguimiento de 
 
     Elija el icono de persona en la columna **Acción** correspondiente a una aprobación previa o posterior a la implementación para ver quién aprobó (o rechazó) la implementación y el mensaje que proporcionó.
 
-2. Una vez finalizada la implementación, se muestra el archivo de registro completo en el panel derecho. Puede seleccionar cualquier **Paso** en el panel izquierdo para ver el archivo de registro de un único paso, como "Inicializar trabajo". La posibilidad de ver los registros individuales facilita realizar el seguimiento y la depuración de partes individuales de la implementación general. También puede **Guardar** el archivo de registro de un paso o **Descargar todos los registros como zip**.
+2. Una vez finalizada la implementación, se muestra el archivo de registro completo en el panel derecho. Puede seleccionar cualquier **Paso** en el panel izquierdo para ver el archivo de registro de un único paso, como "Initialize job" (Inicializar trabajo). La posibilidad de ver los registros individuales facilita realizar el seguimiento y la depuración de partes individuales de la implementación general. También puede **Guardar** el archivo de registro de un paso o **Descargar todos los registros como zip**.
 
     ![Registros de versión](media\azure-stack-solution-hybrid-pipeline\203.png)
 

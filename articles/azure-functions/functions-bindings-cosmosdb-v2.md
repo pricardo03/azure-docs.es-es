@@ -1,5 +1,5 @@
 ---
-title: Enlaces de Azure Cosmos DB para Functions 2.x (versión preliminar)
+title: Enlaces de Azure Cosmos DB para Functions 2.x
 description: Descubra cómo utilizar desencadenadores y enlaces de almacenamiento de Azure Cosmos DB en Azure Functions.
 services: functions
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ea1403ed8afe6e84a3118d891e8c2d34b390d158
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d39c27614fd4d534db36df1af61b2d419493c4d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093437"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953487"
 ---
-# <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Enlaces de Azure Cosmos DB para Azure Functions 2.x (versión preliminar)
+# <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Enlaces de Azure Cosmos DB para Azure Functions 2.x
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Versión 1: Disponibilidad general](functions-bindings-cosmosdb.md)
@@ -27,7 +27,7 @@ ms.locfileid: "44093437"
 En este artículo se explica cómo trabajar con enlaces de [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) en Azure Functions 2.x. Azure Functions enlaces de desencadenador, de entrada y de salida para Azure Cosmos DB.
 
 > [!NOTE]
-> Este artículo es para la [versión 2.x de Azure Functions](functions-versions.md), que está en versión preliminar.  Para obtener información acerca del uso de estos enlaces en Functions 1.x, consulte [Enlaces de Azure Cosmos DB para Azure Functions 1.x](functions-bindings-cosmosdb.md).
+> Este artículo va dirigido a [Azure Functions 2.x](functions-versions.md).  Para obtener información acerca del uso de estos enlaces en Functions 1.x, consulte [Enlaces de Azure Cosmos DB para Azure Functions 1.x](functions-bindings-cosmosdb.md).
 >
 > Este enlace se llamaba originalmente DocumentDB. En la versión 2.x de Functions, tanto el desencadenador, como los enlaces y el paquete se denominan Cosmos DB.
 

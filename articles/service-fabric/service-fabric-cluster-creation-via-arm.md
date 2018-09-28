@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: aab985270cf17b94d6353536c96a3825b5e3b73f
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b71c1d75dc9d988c7b26f9720cc03d9fee9109b1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287349"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970318"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Creación de un clúster de Service Fabric con Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Si va a crear un clúster de producción para ejecutar cargas de trabajo de prod
 En este artículo, use el powershell de RM de Service Fabric o los módulos de la CLI de Azure para implementar un clúster:
 
 * [Azure PowerShell 4.1 y posterior][azure-powershell]
-* [CLI de Azure 2.0 y posterior][azure-CLI]
+* [CLI de Azure 2.0 y versiones posteriores][azure-CLI]
 
 Puede encontrar la documentación de referencia para los módulos de Service Fabric aquí:
 * [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric)
@@ -167,9 +167,9 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 Si tiene un certificado que quiere usar para proteger el clúster, use el siguiente comando para crear el clúster.
 
-Si es un certificado firmado por una entidad de certificación que terminará usándose también para otros fines, se recomienda proporcionar un grupo de recursos distinto específicamente para su almacén de claves. Se recomienda colocar el almacén de claves en su propio grupo de recursos. Esto le permite quitar los grupos de recursos de proceso y almacenamiento, incluido el grupo de recursos que tiene el clúster de Service Fabric, sin perder las claves y los secretos. **El grupo de recursos que contiene el almacén de claves*debe estar en la misma región* que el clúster que lo usa.**
+Si es un certificado firmado por una entidad de certificación que terminará usándose también para otros fines, se recomienda proporcionar un grupo de recursos distinto específicamente para su almacén de claves. Se recomienda colocar el almacén de claves en su propio grupo de recursos. Esto le permite quitar los grupos de recursos de proceso y almacenamiento, incluido el grupo de recursos que tiene el clúster de Service Fabric, sin perder las claves y los secretos. **El grupo de recursos que contiene el almacén de claves *debe estar en la misma región* que el clúster que lo usa.**
 
-### <a name="use-the-default-five-node-one-node-type-template-that-ships-in-the-module"></a>Uso de la plantilla predeterminada de tipo de nodo 5 Node 1 que se incluye con el módulo
+### <a name="use-the-default-five-node-one-node-type-template-that-ships-in-the-module"></a>Uso de la plantilla predeterminada de cinco nodos, un tipo de nodo que se incluye con el módulo
 La plantilla que se usa está disponible en las [plantillas de Azure: plantilla de Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) y [plantilla de Ubuntu](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure).
 
 Implemente el clúster mediante PowerShell:

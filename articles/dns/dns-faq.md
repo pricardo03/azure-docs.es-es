@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/06/2017
+ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 747b2e2499a9bafcf7a7b03bc2ce144828c55c75
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 66e04e7f0b272f19788e79805ef06d11e2eda572
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172507"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948033"
 ---
 # <a name="azure-dns-faq"></a>Preguntas más frecuentes sobre DNS de Azure
 
@@ -63,6 +63,10 @@ Si desea vincular la zona DNS a la jerarquía DNS global, debe adquirir el nombr
 
 ## <a name="azure-dns-features"></a>Características de DNS de Azure
 
+### <a name="are-there-any-restrictions-when-using-alias-records-for-a-domain-name-apex-with-traffic-manager"></a>¿Hay alguna restricción en el uso de registros de alias para un vértice de nombre de dominio con Traffic Manager?
+
+Sí. Debe usar direcciones IP públicas estáticas con Traffic Manager. Configure el **Punto de conexión externo** de destino con una dirección IP estática. 
+
 ### <a name="does-azure-dns-support-dns-based-traffic-routing-or-endpoint-failover"></a>¿DNS de Azure admite la conmutación por error de puntos de conexión o el enrutamiento basados en DNS?
 
 Azure Traffic Manager proporciona las características de conmutación por error de puntos de conexión y el enrutamiento de tráfico basados en DNS. Azure Traffic Manager es un servicio de Azure independiente que puede utilizarse junto con Azure DNS. Para más información, vea la [Introducción a Traffic Manager](../traffic-manager/traffic-manager-overview.md).
@@ -93,13 +97,41 @@ No. Los servicios de redireccionamiento de dirección URL realmente no son un se
 
 Redireccionamiento de URL es una característica de la que se realiza seguimiento en el trabajo pendiente de Azure DNS. Puede usar el sitio de comentarios para [registrar su compatibilidad con esta característica](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
 
-### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset-"></a>¿Azure DNS admite la codificación ASCII extendida (8 bits) en conjuntos de registros TXT?
+### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset"></a>¿Azure DNS admite la codificación ASCII extendida (8 bits) en conjuntos de registros TXT?
 
-Sí. Azure DNS admite la codificación ASCII extendida en los conjuntos de registros TXT si se utiliza la última versión de las API REST, los SDK, PowerShell y CLI de Azure (las versiones anteriores a 2017-10-01 o SDK 2.1 no admiten el conjunto de ASCII extendido). Por ejemplo, si un usuario proporciona una cadena como valor de un registro TXT que tiene un carácter ASCII extendido \128 (por ejemplo, "abcd\128efgh"), Azure DNS usará el valor de bytes de este carácter (que es 128) en una representación interna. En ese momento, se devolverá en la respuesta la resolución de DNS junto con el valor de bytes. Debe tener en cuenta también que "abc" y "\097\098\099" son intercambiables en lo que respecta a la resolución. 
+Sí. Azure DNS admite la codificación ASCII extendida en los conjuntos de registros TXT si se utiliza la última versión de las API REST, los SDK, PowerShell y la CLI de Azure (las versiones anteriores a 2017-10-01 o SDK 2.1 no admiten el conjunto de ASCII extendido). Por ejemplo, si un usuario proporciona una cadena como valor de un registro TXT que tiene un carácter ASCII extendido \128 (por ejemplo, "abcd\128efgh"), Azure DNS usará el valor de bytes de este carácter (que es 128) en una representación interna. En ese momento, se devolverá en la respuesta la resolución de DNS junto con el valor de bytes. Debe tener en cuenta también que "abc" y "\097\098\099" son intercambiables en lo que respecta a la resolución. 
 
 Seguimos las reglas de secuencias de escape de caracteres maestros de archivos de zona [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) para los registros TXT. Por ejemplo, según la RFC, ‘\’ actúa ahora como secuencia de escape. Si especifica "A\B" como valor del registro TXT, se representará y resolverá simplemente como "AB". Si realmente desea que el registro TXT sea "A\B" en la resolución, tendrá que volver a utilizar una secuencia de escape con "\"; por ejemplo, especificarlo como "A\\B". 
 
-Tenga en cuenta que esta compatibilidad no está disponible actualmente para los registros TXT creados desde Azure Portal. 
+Esta compatibilidad no está disponible actualmente para los registros TXT creados en Azure Portal. 
+
+## <a name="alias-records"></a>Registros de alias
+
+### <a name="what-are-some-scenarios-where-alias-records-are-useful"></a>¿En qué escenarios son útiles los registros de alias?
+Consulte la sección de escenarios en [Azure DNS alias records overview](dns-alias.md) (Introducción a los registros de alias de Azure DNS).
+
+### <a name="what-record-types-are-supported-for-alias-record-sets"></a>¿Qué tipos de registros se admiten para los conjuntos de registros de alias?
+Se admiten conjunto de registros de alias para los siguientes tipos de registros en una zona de Azure DNS: A, AAAA y CNAME. 
+
+### <a name="what-resources-are-supported-as-targets-for-alias-record-sets"></a>¿Qué recursos se admiten como destinos para los conjuntos de registros de alias?
+- **Apuntar a un recurso de dirección IP pública desde un conjunto de registros A/AAAA de DNS**. Puede crear un conjunto de registros A/AAAA y hacer que sea un conjunto de registros de alias que apunte a un recurso de dirección IP pública.
+- **Apuntar a un perfil de Traffic Manager desde un conjunto de registros A/AAAA/CNAME de DNS**. Además de poder apuntar al registro CNAME de un perfil de Traffic Manager (por ejemplo: contoso.trafficmanager.net) desde un conjunto de registros CNAME de DNS, ahora también puede apuntar a un perfil de Traffic Manager que tenga puntos de conexión externos, desde un conjunto de registros A o AAAA en su zona de DNS.
+- **Apuntar a otro conjunto de registros de DNS dentro de la misma zona**. Los registros de alias pueden hacer referencia a otros conjuntos de registros del mismo tipo. Por ejemplo, puede hacer que un conjunto de registros CNAME de DNS sea un alias de otro conjunto de registros CNAME del mismo tipo. Esto es útil si desea que algunos conjuntos de registros sean alias y otros no por cuestiones de comportamiento.
+
+### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>¿Puedo crear y actualizar registros de alias desde Azure Portal?
+Sí. Los registros de alias se pueden crear o administrar en Azure Portal, además de las API REST de Azure, Azure PowerShell, la CLI y los SDK.
+
+### <a name="will-alias-records-help-ensure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>¿Los registros de alias ayudarán a garantizar que mi conjunto de registros de DNS se eliminará cuando se elimine la dirección IP pública subyacente?
+Sí. De hecho, esta es una de las funcionalidades principales de los registros de alias. Le ayudan a evitar posibles interrupciones para los usuarios finales de la aplicación.
+
+### <a name="will-alias-records-help-ensure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>¿Los registros de alias ayudarán a garantizar que mi conjunto de registros de DNS se actualizará a la dirección IP correcta cuando cambie la dirección IP pública subyacente?
+Sí. Al igual que en la pregunta anterior, esta es una de las funcionalidades principales de los registros de alias, y ayuda a evitar posibles interrupciones o riesgos para la seguridad de la aplicación.
+
+### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-an-a-or-aaaa-records-to-point-to-traffic-manager"></a>¿Hay alguna restricción a la hora de usar conjuntos de registros de alias para que registros A o AAAA apunten a Traffic Manager?
+Sí. Si desea apuntar a un perfil de Traffic Manager como un alias desde el conjunto de registros A o AAAA, debe asegurarse de que perfil de Traffic Manager solo use puntos de conexión externos. Al crear los puntos de conexión externos en Traffic Manager, asegúrese de proporcionar las direcciones IP reales de los puntos de conexión.
+
+### <a name="is-there-an-additional-charge-for-using-alias-records"></a>¿Hay algún cargo adicional por utilizar los registros de alias?
+Los registros de alias son una calificación de un conjunto de registros DNS válido y no conlleva ninguna facturación adicional.
 
 ## <a name="using-azure-dns"></a>Uso de DNS de Azure
 
@@ -179,7 +211,7 @@ No. Las zonas privadas funcionan en conjunción con las redes virtuales y permit
 Sí. Los clientes pueden asociar hasta 10 redes virtuales de resolución con una única zona privada.
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>¿Se puede agregar una red virtual que pertenece a otra suscripción como red virtual de resolución a una zona privada? 
-Sí, siempre que el usuario tenga permiso de escritura tanto en las redes virtuales como en la zona de DNS privado. Tenga en cuenta que el permiso de escritura se puede asignar a varios roles de RBAC. Por ejemplo, el rol de RBAC Colaborador de la red virtual clásica tiene permisos de escritura en las redes virtuales. Para más información acerca de los roles de RBAC, consulte [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md)
+Sí, siempre que el usuario tenga permiso de escritura tanto en las redes virtuales como en la zona de DNS privado. El permiso de escritura se puede asignar a varios roles de RBAC. Por ejemplo, el rol de RBAC Colaborador de la red virtual clásica tiene permisos de escritura en las redes virtuales. Para más información acerca de los roles de RBAC, consulte [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md)
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>¿Se eliminarán automáticamente los registros de DNS de una red virtual registrada automáticamente cuando el cliente elimine las máquinas virtuales?
 Sí. Si elimina una máquina virtual en una red virtual de registro, eliminaremos automáticamente los registros de DNS de la zona, ya que esta es una red virtual de registro. 
@@ -190,14 +222,14 @@ No. Actualmente, los clientes no pueden ver ni editar los registros de DNS de un
 ### <a name="what-happens-when-we-attempt-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>¿Qué ocurre cuando se intenta crear manualmente un nuevo registro de DNS en una zona privada que tiene el mismo nombre de host que una máquina virtual existente (registrada automáticamente) en una red virtual de registro? 
 Si intenta crear manualmente un nuevo registro de DNS en una zona privada que tenga el mismo nombre de host que una máquina virtual (registrada automáticamente) existente de una red virtual de registro, se permitirá que el nuevo registro de DNS sobrescriba el registro de máquina virtual registrado automáticamente. Además, si posteriormente intenta eliminar de la zona este registro de DNS creado manualmente, la operación se realizará correctamente y el registro automático volverá a producirse (el registro se DNS se volverá a crear automáticamente en la zona) siempre que la máquina virtual aún exista y tenga una dirección IP privada asociada. 
 
-### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone--would-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-as-well"></a>¿Qué ocurre si el vínculo de una red virtual de registro se anula de una zona privada? ¿Se quitaran de la zona también los registros de máquina virtual registrados automáticamente de la red virtual?
+### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone-would-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-as-well"></a>¿Qué ocurre si desvinculamos una red virtual de registro de una zona privada? ¿Se quitaran de la zona también los registros de máquina virtual registrados automáticamente de la red virtual?
 Sí. Si anula la vinculación de una red virtual de registro (actualiza la zona DNS para quitar de la red virtual asociada de registro asociada) de una zona privada, Azure quitará los registros de todas las máquinas virtuales registradas automáticamente de la zona. 
 
-### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-that-is-linked-to-a-private-zone--do-we-have-to-manually-update-the-private-zone-to-un-link-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>¿Qué pasa cuando se elimina una red virtual de registro (o de resolución) vinculada a una zona privada? ¿Tenemos que actualizar manualmente la zona privada para anular el vínculo de la red virtual de registro (o resolución) de la zona?
+### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-that-is-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>¿Qué ocurre cuando se elimina una red virtual de registro (o de resolución) que está vinculada a una zona privada? ¿Tenemos que actualizar manualmente la zona privada para desvincular la red virtual de registro (o resolución) de la zona?
 Sí. Cuando se elimina una red virtual de registro (o de resolución) sin haber anulado antes su vinculación de la zona privada, Azure permitirán realizar la operación de eliminación correctamente, pero no se anula la vinculación automáticamente entre la red virtual y la zona privada, en caso de haberla. Es preciso anular la vinculación manualmente de la zona privada. Por esta razón, se aconseja anular la vinculación entre la red virtual y su zona privada antes de eliminarla.
 
 ### <a name="would-dns-resolution-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>¿Funcionaría la resolución de DNS con el valor de FQDN predeterminado (internal.cloudapp.net) aunque una zona privada (por ejemplo: contoso.local) esté vinculada a una red virtual? 
-Sí. La característica de zonas privados no sustituye a las resoluciones DNS predeterminadas que usan la zona internal.cloudapp.net viene con Azure, y se ofrece como una funcionalidad o mejora adicional. En ambos casos (si se usa la zona internal.cloudapp.net que viene con Azure o la zona privada propia) se recomienda usar el FQDN de la zona con la que se desea realizar la resolución. 
+Sí. La característica de zonas privados no sustituye a las resoluciones DNS predeterminadas que usan la zona internal.cloudapp.net viene con Azure, y se ofrece como una funcionalidad o mejora adicional. En ambos casos (tanto si se usa la zona internal.cloudapp.net que viene con Azure como la zona privada propia) se recomienda usar el FQDN de la zona con la que se desea realizar la resolución. 
 
 ### <a name="would-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>¿Se cambiaría el sufijo DNS en las máquinas virtuales de una red virtual vinculada por el de la zona privada? 
 No. Actualmente, el sufijo DNS de las máquinas virtuales en la red virtual vinculada permanecerá como sufijo predeterminado proporcionado por Azure ("*. internal.cloudapp.net"). Sin embargo, en las máquinas virtuales dicho sufijo DNS se puede cambiar manualmente por el de la zona privada. 
@@ -212,7 +244,7 @@ Sí. Durante la versión preliminar pública, existen las siguientes limitacione
 * El DNS inverso solo funciona en el espacio de direcciones IP privadas de la red virtual de registro.
 * El DNS inverso de una dirección IP privada que no esté registrada en la zona privada (por ejemplo, la IP privada de una máquina virtual de una red virtual vinculada como red virtual de resolución a una zona privada) devolverá "internal.cloudapp.net" como sufijo de DNS; sin embargo, este sufijo no se podrá resolver.   
 * La red virtual debe estar vacía (es decir, no hay máquinas virtuales con una NIC conectada) cuando se realiza la vinculación (es decir, la primera vez) con una zona privada como red virtual de registro o de resolución. Sin embargo, la red virtual podría no estar vacía para una futura vinculación como red virtual de registro o resolución con otras zonas privadas. 
-* Actualmente, no se admite el reenvío condicional, por ejemplo, para habilitar la resolución entre redes de Azure y locales. Puede encontrar documentación acerca de la forma en que los clientes pueden poner en funcionamiento este escenario con otros mecanismos en [Resolución de nombres para las máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+* Actualmente, no se admite el reenvío condicional, por ejemplo, para habilitar la resolución entre redes de Azure y locales. Puede encontrar documentación sobre cómo los clientes pueden poner en funcionamiento este escenario con otros mecanismos en [Resolución de nombres para las máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>¿Existen cuotas o límites de zonas o registros en las zonas privadas?
 No hay límites en cuanto al número de zonas que se permiten por suscripción ni al número de conjuntos de registros por zona en las zonas privadas. Tanto las zonas públicas como las privadas cuentan para los límites globales de DNS tal como se documenta [aquí](../azure-subscription-service-limits.md#dns-limits)

@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4c7b46972a8c07675e1318a900c1f07043beb3de
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 51c7bacbfa30a74aef89abba133e48c483375032
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591942"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971457"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 y el protocolo OpenID Connect
 
@@ -139,7 +139,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 | Parámetro | DESCRIPCIÓN |
 | --- | --- |
-| ID_token |El token de identificador que la aplicación solicitó. Puede usar el parámetro `id_token` para comprobar la identidad del usuario y comenzar una sesión con el usuario. Para más información sobre los tokens de identificador y su contenido, consulte la [referencia a los tokens del punto de conexión v2.0](v2-id-and-access-tokens.md). |
+| ID_token |El token de identificador que la aplicación solicitó. Puede usar el parámetro `id_token` para comprobar la identidad del usuario y comenzar una sesión con el usuario. Para más información sobre los tokens de identificador y su contenido, consulte la [`id_tokens` referencia](id-tokens.md). |
 | state |Si un parámetro `state` está incluido en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debería comprobar que los valores de estado de la solicitud y la respuesta son idénticos. |
 
 ### <a name="error-response"></a>Respuesta de error
@@ -175,20 +175,18 @@ En la tabla siguiente se describen los códigos de error que puede devolver el p
 
 ## <a name="validate-the-id-token"></a>Validar el token de identificador
 
-Recibir un token de identificador no es suficiente para autenticar al usuario. También debe validar la firma del token de identificador y comprobar las notificaciones en el token en función de los requisitos de la aplicación. El punto de conexión v2.0 usa [tokens web JSON (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) y criptografía de clave pública para firmar los tokens y comprobar que son válidos.
+Recibir un solo id_token no es suficiente para autenticar al usuario; debe validar la firma del id_token y comprobar las notificaciones en el token según los requisitos de su aplicación. El punto de conexión v2.0 usa [tokens web JSON (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) y criptografía de clave pública para firmar los tokens y comprobar que son válidos.
 
-Puede elegir validar el token de identificador en el código de cliente, pero lo habitual es enviar el token de identificador a un servidor back-end y realizar allí la validación. Después de validar la firma del token de identificador, deberá comprobar algunas notificaciones. Para más información, incluida información sobre cómo [validar tokens](v2-id-and-access-tokens.md#validating-tokens) e [información importante sobre la sustitución de clave de firma](v2-id-and-access-tokens.md#validating-tokens), consulte la [referencia a los tokens v2.0](v2-id-and-access-tokens.md). Se recomienda usar una biblioteca para analizar y validar los tokens. Hay al menos una de estas bibliotecas disponibles para la mayoría de los lenguajes y plataformas.
+Puede elegir validar el `id_token` en el código de cliente, pero lo habitual es enviar el `id_token` a un servidor back-end y realizar allí la validación. Una vez haya validado la firma del id_token, se le solicitará que compruebe algunas notificaciones: Para más información, consulte la [Referencia de `id_token`](id-tokens.md), incluidas la sección [Validación de los tokens](id-tokens.md#validating-idtokens) y [Sustitución de claves de firma de Azure Active Directory](active-directory-signing-key-rollover.md). Hay al menos una disponible para la mayoría de los lenguajes y las plataformas.
 <!--TODO: Improve the information on this-->
 
-También es posible que desee validar notificaciones adicionales, en función del escenario. Algunas validaciones comunes incluyen:
+Se recomienda que valide notificaciones adicionales según su escenario. Algunas validaciones comunes incluyen:
 
-* Asegurarse de que el usuario o la organización se registró en la aplicación.
-* Asegurarse de que el usuario tiene privilegios o una autorización que se necesita.
-* Asegurarse de que se produjo un determinado nivel de autenticación, como la autenticación multifactor.
+* Asegurarse de que la organización/el usuario se ha registrado en la aplicación.
+* Asegurarse de que el usuario tiene la autorización/los privilegios adecuados
+* Asegurarse de que se haya producido un determinado nivel de autenticación, como la autenticación multifactor.
 
-Para más información sobre las notificaciones en un token de identificador, consulte la [referencia a los tokens de punto de conexión v2.0](v2-id-and-access-tokens.md).
-
-Cuando haya validado el token de identificador, podrá iniciar una sesión con el usuario. Use las notificaciones del token de identificador para información sobre el usuario de la aplicación. Puede usar esta información para su visualización, registros, autorizaciones, etc.
+Una vez que haya validado completamente el id_token, puede iniciar una sesión con el usuario y usar las notificaciones en el id_token para obtener información sobre el usuario en su aplicación. Esta información puede usarse para visualización, registros, autorizaciones, etc. 
 
 ## <a name="send-a-sign-out-request"></a>Envío de una solicitud de cierre de sesión
 
@@ -257,7 +255,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 | Parámetro | DESCRIPCIÓN |
 | --- | --- |
-| ID_token |El token de identificador que la aplicación solicitó. Puede usar el token de identificador para comprobar la identidad del usuario y comenzar una sesión con el usuario. Encontrará más detalles sobre los tokens de identificador y su contenido en la [referencia a los tokens del punto de conexión v2.0](v2-id-and-access-tokens.md). |
+| ID_token |El token de identificador que la aplicación solicitó. Puede usar el token de identificador para comprobar la identidad del usuario y comenzar una sesión con el usuario. Encontrará más detalles sobre los tokens de identificador y su contenido en la [`id_tokens` referencia](id-tokens.md). |
 | código |El código de autorización que la aplicación solicitó. La aplicación puede utilizar el código de autorización para solicitar un token de acceso para el recurso de destino. Un código de autorización tiene una duración muy breve. Habitualmente, un código de autorización expira en alrededor de 10 minutos. |
 | state |Si se incluye un parámetro de estado en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debería comprobar que los valores de estado de la solicitud y la respuesta son idénticos. |
 
@@ -280,4 +278,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Para una descripción de los posibles códigos de error y las respuestas de cliente recomendadas, consulte [Códigos de error correspondientes a errores de puntos de conexión de autorización](#error-codes-for-authorization-endpoint-errors).
 
-Cuando tiene un código de autorización y un token de identificador, puede iniciar la sesión del usuario y obtener tokens de acceso en su nombre. Para iniciar la sesión del usuario, debe validar el token de identificador [exactamente como se describió](#validate-the-id-token). Para obtener tokens de acceso, siga los pasos descritos en la [documentación del protocolo OAuth](v2-oauth2-auth-code-flow.md#request-an-access-token).
+Cuando tiene un código de autorización y un token de identificador, puede iniciar la sesión del usuario y obtener tokens de acceso en su nombre. Para iniciar la sesión del usuario, debe validar el token de identificador [exactamente como se describió](id-tokens.md#validating-idtokens). Para obtener tokens de acceso, siga los pasos descritos en la [documentación del flujo de código de OAuth](v2-oauth2-auth-code-flow.md#request-an-access-token).

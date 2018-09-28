@@ -1,200 +1,323 @@
 ---
-title: Conceptos, términos y entidades del programador | Microsoft Docs
-description: Conceptos de Azure Scheduler, terminología y jerarquía de entidades, incluidos trabajos y colecciones de trabajos.  Proporciona un ejemplo completo de un trabajo programado.
+title: 'Conceptos, términos y entidades: Azure Scheduler | Microsoft Docs'
+description: Aprenda los conceptos, terminología y jerarquía de entidades, incluidos trabajos y colecciones de trabajos de Azure Scheduler.
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.suite: infrastructure-services
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: get-started-article
 ms.date: 08/18/2016
-ms.author: deli
-ms.openlocfilehash: 91302d57c43a6c9d14aeeee95df3d61fa6f73172
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 07b7cce4b026464ba34296b54c4ae90d6d2b1afa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418849"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981168"
 ---
-# <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Conceptos, terminología y jerarquía de entidades de Scheduler
-## <a name="scheduler-entity-hierarchy"></a>Jerarquía de entidades de Scheduler
-En la tabla siguiente se describen los recursos principales expuestos o utilizados por la API de Scheduler:
+# <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceptos, terminología y entidades de Azure Scheduler
 
-| Recurso | DESCRIPCIÓN |
-| --- | --- |
-| **Colección de trabajos** |Una colección de trabajos contiene un grupo de trabajos y mantiene configuraciones, cuotas y aceleradores compartidos por los trabajos de la colección. La colección de trabajos la crea el propietario de la suscripción y agrupa los trabajos en función de los límites de uso o de la aplicación. Está limitado a una región. También permite la aplicación de cuotas para restringir el uso de todos los trabajos de la colección. Las cuotas incluyen MaxJobs y MaxRecurrence. |
-| **Trabajo** |Un trabajo define una única acción periódica, con estrategias simples o complejas para su ejecución. Las acciones pueden incluir solicitudes HTTP, de cola de almacenamiento, de cola de bus de servicio o de tema de bus de servicio. |
-| **Historial de trabajos** |Un historial de trabajos representa los detalles de una ejecución de un trabajo. Contiene los trabajos realizados correctamente y los errores, así como los detalles de las respuestas. |
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) reemplaza a Azure Scheduler, que se va a retirar. Para programar trabajos, [pruebe Azure Logic Apps en su lugar](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
-## <a name="scheduler-entity-management"></a>Administración de entidades de Scheduler
-En un nivel superior, el Programador y la API de administración de servicio exponen las operaciones siguientes en los recursos:
+## <a name="entity-hierarchy"></a>Jerarquía de entidades
 
-| Capacidad | Descripción y dirección URI |
-| --- | --- |
-| **Administración de la colección de trabajos** |GET, PUT y DELETE permiten la creación y modificación de las colecciones de trabajos y trabajos que contienen. Una colección de trabajos es un contenedor para trabajos, asignaciones para cuotas y configuración compartida. Ejemplos de cuotas, descritos más adelante, son el número máximo de trabajos y un intervalo menor de periodicidad. <p>PUT y DELETE: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p> |
-| **Administración de trabajos** |GET, PUT, POST, PATCH y DELETE permiten la creación y modificación de trabajos. Todos los trabajos deben pertenecer a una colección de trabajos que ya existe, así que no hay ninguna creación implícita. <p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p> |
-| **Administración del historial de trabajos** |GET admite la recuperación de 60 días de historial de ejecución de trabajos, como el tiempo de trabajo transcurrido y los resultados de la ejecución del trabajo. Agrega compatibilidad de parámetros de cadena de consulta para filtrar basándose en el estado y la situación. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p> |
+La API REST de Azure Scheduler expone y usa estas entidades principales o los recursos:
+
+| Entidad | DESCRIPCIÓN |
+|--------|-------------|
+| **Trabajo** | Define una única acción periódica, con estrategias simples o complejas para su ejecución. Las acciones pueden incluir solicitudes HTTP, de cola de Storage, de cola de Service Bus o de tema de Service Bus. | 
+| **Colección de trabajos** | Contiene un grupo de trabajos y mantiene configuraciones, cuotas y aceleradores compartidos por los trabajos de la colección. Como propietario de la suscripción de Azure, puede crear colecciones de trabajos y agrupar los trabajos en función de los límites de uso o de la aplicación. Una colección de trabajos tiene estos atributos: <p>- Está limitada a una región. <br>- Le permite aplicar cuotas para que pueda restringir el uso de todos los trabajos de una colección. <br>- Las cuotas incluyen MaxJobs y MaxRecurrence. | 
+| **Historial de trabajos** | Describe los detalles de ejecución de un trabajo, por ejemplo, el estado y los detalles de la respuesta. |
+||| 
+
+## <a name="entity-management"></a>Administración de entidades
+
+A grandes rasgos, la API REST de Scheduler expone estas operaciones para administrar entidades.
+
+### <a name="job-management"></a>Administración de trabajos
+
+Admite operaciones para crear y editar trabajos. Todos los trabajos deben pertenecer a una colección de trabajos existente, así que no hay ninguna creación implícita. Para más información, consulte [API REST de Scheduler: Trabajos](https://docs.microsoft.com/rest/api/scheduler/jobs). Esta es la dirección del identificador URI para estas operaciones:
+
+`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`
+
+### <a name="job-collection-management"></a>Administración de la colección de trabajos
+
+Admite operaciones para crear y editar trabajos y colecciones de trabajos, que se asignan a las cuotas y a la configuración compartida. Por ejemplo, las cuotas especifican el número máximo de trabajos y un intervalo menor de periodicidad. Para más información, consulte [API REST de Scheduler: Colecciones de trabajos](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Esta es la dirección del identificador URI para estas operaciones:
+
+`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`
+
+### <a name="job-history-management"></a>Administración del historial de trabajos
+
+Admite la operación GET para recuperar 60 días de historial de ejecución de trabajos, por ejemplo, el tiempo de trabajo transcurrido y los resultados de la ejecución del trabajo. Incluye compatibilidad de parámetros de cadena de consulta para filtrar basándose en el estado y la situación. Para más información, consulte [API REST de Scheduler: Trabajos - Enumeración del historial de trabajos](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Esta es la dirección URI de esta operación:
+
+`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`
 
 ## <a name="job-types"></a>Tipos de trabajo
-Hay varios tipos de trabajos: trabajos HTTP (incluidos trabajos HTTPS que admiten SSL), trabajos de cola de almacenamiento, trabajos de cola de bus de servicio y trabajos de tema de bus de servicio. Los trabajos HTTP son perfectos si dispone de un extremo de una carga de trabajo o servicio existente. Puede usar trabajos de cola de almacenamiento para enviar mensajes a colas de almacenamiento, por lo que dichos trabajos son ideales para cargas de trabajo que utilizan colas de almacenamiento. De forma similar, los trabajos de bus de servicio son ideales para cargas de trabajo que usan temas y colas de bus de servicio.
 
-## <a name="the-job-entity-in-detail"></a>La entidad "Trabajo" en detalle
-En un nivel básico, un trabajo programado cuenta con varias partes:
+Azure Scheduler admite varios tipos de trabajo: 
 
-* La acción que se va a realizar cuando se activa el temporizador de trabajo  
-* (Opcional) El tiempo para ejecutar el trabajo  
-* (Opcional) Cuándo y con qué frecuencia se debe repetir el trabajo  
-* (Opcional) Una acción que se desencadena si se produce un error en la acción principal  
+* Trabajos HTTP, incluidos los trabajos HTTPS que admiten SSL, para cuando tenga el punto de conexión de un servicio o carga de trabajo existente
+* Trabajos de la cola de almacenamiento para cargas de trabajo que utilizan colas de Storage, como la publicación de mensajes en colas de Storage
+* Trabajos de cola de Service Bus para cargas de trabajo que usan colas de Service Bus
+* Trabajos de tema de Service Bus para cargas de trabajo que usan temas de Service Bus
 
-Internamente, un trabajo programado contiene también datos proporcionados por el sistema, como la siguiente hora de ejecución programada.
+## <a name="job-definition"></a>Definición del trabajo
 
-El código siguiente proporciona un ejemplo completo de un trabajo programado. En las secciones siguientes se proporcionan los detalles.
+En el nivel superior, un trabajo de Scheduler tiene estas partes básicas:
 
-    {
-        "startTime": "2012-08-04T00:00Z",               // optional
-        "action":
-        {
-            "type": "http",
-            "retryPolicy": { "retryType":"none" },
-            "request":
-            {
-                "uri": "http://contoso.com/foo",        // required
-                "method": "PUT",                        // required
-                "body": "Posting from a timer",         // optional
-                "headers":                              // optional
+* La acción que se ejecuta cuando se activa el temporizador de trabajo
+* Opcional: El tiempo para ejecutar el trabajo
+* Opcional: Cuándo y con qué frecuencia se debe repetir el trabajo
+* Opcional: Una acción de error que se ejecuta si se produce un error en la acción principal
 
-                {
-                    "Content-Type": "application/json"
-                },
-            },
-           "errorAction":
-           {
-               "type": "http",
-               "request":
-               {
-                   "uri": "http://contoso.com/notifyError",
-                   "method": "POST",
-               },
-           },
-        },
-        "recurrence":                                   // optional
-        {
-            "frequency": "week",                        // can be "year" "month" "day" "week" "minute"
-            "interval": 1,                              // optional, how often to fire (default to 1)
-            "schedule":                                 // optional (advanced scheduling specifics)
-            {
-                "weekDays": ["monday", "wednesday", "friday"],
-                "hours": [10, 22]
-            },
-            "count": 10,                                 // optional (default to recur infinitely)
-            "endTime": "2012-11-04",                     // optional (default to recur infinitely)
-        },
-        "state": "disabled",                           // enabled or disabled
-        "status":                                       // controlled by Scheduler service
-        {
-            "lastExecutionTime": "2007-03-01T13:00:00Z",
-            "nextExecutionTime": "2007-03-01T14:00:00Z ",
-            "executionCount": 3,
-                                                "failureCount": 0,
-                                                "faultedCount": 0
-        },
-    }
+El trabajo también incluye datos proporcionados por el sistema, como el siguiente entorno en tiempo de ejecución programado del trabajo. La definición de código del trabajo es un objeto en formato JavaScript Object Notation (JSON), que tiene estos elementos:
 
-Como se muestra en el trabajo programado de ejemplo anterior, una definición de trabajo tiene varias partes:
+| Elemento | Obligatorio | DESCRIPCIÓN | 
+|---------|----------|-------------| 
+| [**startTime**](#start-time) | Sin  | La hora de inicio para el trabajo con un desplazamiento de zona horaria en [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) | 
+| [**action**](#action) | SÍ | Los detalles de la acción principal, que puede incluir un objeto **errorAction** | 
+| [**errorAction**](#error-action) | Sin  | Los detalles de la acción secundaria que se ejecuta si se produce un error en la acción principal |
+| [**recurrence**](#recurrence) | Sin  | Los detalles como la frecuencia y el intervalo para un trabajo periódico | 
+| [**retryPolicy**](#retry-policy) | Sin  | Los detalles de la frecuencia de reintentos de una acción | 
+| [**state**](#state) | SÍ | Los detalles del estado actual del trabajo |
+| [**status**](#status) | SÍ | Los detalles del estado actual del trabajo, que está controlado por el servicio |
+||||
 
-* Hora de inicio ("startTime")  
-* Acción ("action"), que incluye la acción del error ("errorAction")
-* Periodicidad ("recurrence")  
-* Situación ("state")  
-* Estado ("status")  
-* Directiva de reintentos (“retryPolicy”)  
+Este es un ejemplo que muestra una definición de trabajo completa para una acción HTTP con detalles más completos de los elementos que se describen en secciones posteriores: 
 
-Examinemos cada uno de ellos en detalle:
+```json
+"properties": {
+   "startTime": "2012-08-04T00:00Z",
+   "action": {
+      "type": "Http",
+      "request": {
+         "uri": "http://contoso.com/some-method", 
+         "method": "PUT",          
+         "body": "Posting from a timer",
+         "headers": {
+            "Content-Type": "application/json"
+         },
+         "retryPolicy": { 
+             "retryType": "None" 
+         },
+      },
+      "errorAction": {
+         "type": "Http",
+         "request": {
+            "uri": "http://contoso.com/notifyError",
+            "method": "POST"
+         }
+      }
+   },
+   "recurrence": {
+      "frequency": "Week",
+      "interval": 1,
+      "schedule": {
+         "weekDays": ["Monday", "Wednesday", "Friday"],
+         "hours": [10, 22]
+      },
+      "count": 10,
+      "endTime": "2012-11-04"
+   },
+   "state": "Disabled",
+   "status": {
+      "lastExecutionTime": "2007-03-01T13:00:00Z",
+      "nextExecutionTime": "2007-03-01T14:00:00Z ",
+      "executionCount": 3,
+      "failureCount": 0,
+      "faultedCount": 0
+   }
+}
+```
+
+<a name="start-time"></a>
 
 ## <a name="starttime"></a>startTime
-"startTime" es la hora de inicio y permite al que llama especificar un desplazamiento de zona horaria en el cable en [formato ISO-8601](http://en.wikipedia.org/wiki/ISO_8601).
 
-## <a name="action-and-erroraction"></a>action y errorAction
-"action" es la acción que se invoca en cada repetición y describe un tipo de invocación del servicio. La acción es lo que se ejecutará en la programación especificada. Scheduler admite acciones HTTP, de cola de almacenamiento, de cola de Service Bus y de tema de Service Bus.
+En el objeto **startTime**, puede especificar la hora de inicio y un desplazamiento de la zona horaria en [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
 
-La acción en el ejemplo anterior es una acción http. A continuación se muestra un ejemplo de una acción de cola de almacenamiento:
+<a name="action"></a>
 
-    {
-            "type": "storageQueue",
-            "queueMessage":
-            {
-                "storageAccount": "myStorageAccount",  // required
-                "queueName": "myqueue",                // required
-                "sasToken": "TOKEN",                   // required
-                "message":                             // required
-                    "My message body",
-            },
+## <a name="action"></a>action
+
+El trabajo de Scheduler ejecuta una **acción** principal según la programación especificada. Scheduler admite acciones HTTP, de cola de Storage, de cola de Service Bus y de tema de Service Bus. Si se produce un error en el objeto **action** principal, Scheduler puede ejecutar un objeto [**errorAction**](#errorAction) secundario que se encargue del error. El objeto **action** describe estos elementos:
+
+* El tipo de servicio de la acción
+* Los detalles de la acción
+* Un objeto **errorAction** alternativo
+
+El ejemplo anterior describe una acción HTTP. A continuación se muestra un ejemplo de una acción de cola de Storage:
+
+```json
+"action": {
+   "type": "storageQueue",
+   "queueMessage": {
+      "storageAccount": "myStorageAccount",  
+      "queueName": "myqueue",                
+      "sasToken": "TOKEN",                   
+      "message": "My message body"
     }
+}
+```
 
-A continuación se muestra un ejemplo de una acción de tema de bus de servicio.
+A continuación se muestra un ejemplo de una acción de cola de Service Bus:
 
-  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1",  
-      "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
+```json
+"action": {
+   "type": "serviceBusQueue",
+   "serviceBusQueueMessage": {
+      "queueName": "q1",  
+      "namespace": "mySBNamespace",
+      "transportType": "netMessaging", // Either netMessaging or AMQP
+      "authentication": {  
+         "sasKeyName": "QPolicy",
+         "type": "sharedAccessKey"
+      },
+      "message": "Some message",  
+      "brokeredMessageProperties": {},
+      "customMessageProperties": {
+         "appname": "FromScheduler"
+      }
+   }
+},
+```
 
-A continuación se muestra un ejemplo de una acción de cola de bus de servicio.
+A continuación se muestra un ejemplo de una acción de tema de Service Bus:
 
-  "action": { "serviceBusQueueMessage": { "queueName": "q1",  
-      "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": {  
-        "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message",  
-      "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
+```json
+"action": {
+   "type": "serviceBusTopic",
+   "serviceBusTopicMessage": {
+      "topicPath": "t1",  
+      "namespace": "mySBNamespace",
+      "transportType": "netMessaging", // Either netMessaging or AMQP
+      "authentication": {
+         "sasKeyName": "QPolicy",
+         "type": "sharedAccessKey"
+      },
+      "message": "Some message",
+      "brokeredMessageProperties": {},
+      "customMessageProperties": {
+         "appname": "FromScheduler"
+      }
+   }
+},
+```
 
-"errorAction" es el controlador de errores, la acción que se invoca cuando se produce un error en la acción primaria. Puede usar esta variable para llamar a un extremo de control de errores o para enviar una notificación al usuario. Esto puede usarse para llegar a un extremo secundario en caso de que el principal no esté disponible (por ejemplo, en caso de un desastre en el sitio del extremo) o se puede usar para notificar a un extremo de control de errores. Igual que la acción primaria, la acción de error puede ser una lógica simple o compuesta basada en otras acciones. Para obtener información sobre cómo crear un token de SAS, consulte [Crear y usar una firma de acceso compartido](https://msdn.microsoft.com/library/azure/jj721951.aspx).
+Para más información sobre los tokens de Firma de acceso compartido (SAS), consulte [Uso de firmas de acceso compartido (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+
+<a name="error-action"></a>
+
+## <a name="erroraction"></a>errorAction
+
+Si se produce un error en el objeto **action** principal del trabajo, Scheduler puede ejecutar un objeto **errorAction** secundario que se encargue del error. En el objeto **action** principal, puede especificar un objeto **errorAction** para que Scheduler pueda llamar a un punto de conexión de tratamiento de errores o enviar una notificación al usuario. 
+
+Por ejemplo, si ocurre un desastre en el punto de conexión principal, puede utilizar el objeto **errorAction** para llamar a un punto de conexión secundario o para notificar un punto de conexión de control de errores. 
+
+Igual que la **acción** primaria, puede hacer que la acción de error utilice una lógica simple o compuesta basada en otras acciones. 
+
+<a name="recurrence"></a>
 
 ## <a name="recurrence"></a>recurrence
-La periodicidad tiene varias partes:
 
-* Frecuencia: un minuto, hora, día, semana, mes, año  
-* Intervalo: el intervalo de frecuencia definido para la periodicidad  
-* Programación prescrita: especifique minutos, horas, días de la semana, meses y días de mes para de la periodicidad  
-* Recuento: número de repeticiones  
-* Hora de finalización: ningún trabajo se ejecutará después de la hora de finalización especificada  
+Un trabajo se vuelve a producir si la definición de JSON del trabajo incluye el objeto **recurrence**, por ejemplo:
 
-Un trabajo es periódico si tiene un objeto de periodicidad especificado en la definición de JSON. Si se especifican a la vez count y endTime, se respeta la regla de finalización que se produzca primero.
+```json
+"recurrence": {
+   "frequency": "Week",
+   "interval": 1,
+   "schedule": {
+      "hours": [10, 22],
+      "minutes": [0, 30],
+      "weekDays": ["Monday", "Wednesday", "Friday"]
+   },
+   "count": 10,
+   "endTime": "2012-11-04"
+},
+```
 
-## <a name="state"></a>state
-La situación del trabajo es una de cuatro valores: habilitado, deshabilitado, completado o con errores. Puede utilizar PUT o PATCH para los trabajos para actualizarlos al estado habilitado o deshabilitado. Si un trabajo se ha completado o tiene errores, es el estado final el que no se puede actualizar (aunque todavía se pueda eliminar el trabajo). Un ejemplo de la propiedad state es la siguiente:
+| Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
+|----------|----------|-------|-------------| 
+| **frequency** | Sí, cuando se usa **recurrence** | "Minute", "Hour", "Day", "Week", "Month", "Year" | La unidad de tiempo entre las repeticiones | 
+| **interval** | Sin  | 1 a 1000, ambos inclusive | Un entero positivo que determina el número de unidades de tiempo entre cada repetición según la **frecuencia** | 
+| **schedule** | Sin  | Varía | Los detalles de las programaciones más complejas y avanzadas. Consulte **hours**, **minutes**, **weekDays**, **months** y **monthDays** | 
+| **hours** | Sin  | De 1 a 24 | Una matriz con las marcas de hora para saber cuándo ejecutar el trabajo | 
+| **minutes** | Sin  | De 1 a 24 | Una matriz con las marcas de minutos para saber cuándo ejecutar el trabajo | 
+| **months** | Sin  | De 1 a 12 | Una matriz con los meses en los que se puede ejecutar el trabajo | 
+| **monthDays** | Sin  | Varía | Una matriz con los días del mes en los que se puede ejecutar el trabajo | 
+| **weekDays** | Sin  | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Una matriz con los días de la semana en los que se puede ejecutar el trabajo | 
+| **count** | Sin  | <*none*> | El número de repeticiones. El valor predeterminado es que se repita indefinidamente. No se puede usar **count** y **endTime** a la vez, pero se cumple la regla del que finaliza primero. | 
+| **endTime** | Sin  | <*none*> | La fecha y hora en la que se detiene la periodicidad. El valor predeterminado es que se repita indefinidamente. No se puede usar **count** y **endTime** a la vez, pero se cumple la regla del que finaliza primero. | 
+||||
 
-        "state": "disabled", // enabled, disabled, completed, or faulted
-Los trabajos completados y con errores se eliminan después de 60 días.
+Para obtener más información acerca de estos elementos, consulte [Creación de programaciones complejas y periodicidad avanzada](../scheduler/scheduler-advanced-complexity.md).
 
-## <a name="status"></a>status
-Una vez que se inició un trabajo de Scheduler, se devolverá información sobre el estado actual del trabajo. Este objeto no es configurable por el usuario: lo establece el sistema. Sin embargo, se incluye en el objeto de trabajo (en lugar de un recurso vinculado independiente) para que se pueda obtener fácilmente el estado de un trabajo.
-
-El estado del trabajo incluye el tiempo de la ejecución anterior (si hay alguna), el tiempo de la siguiente ejecución programada (para los trabajos en curso) y el recuento de la ejecución del trabajo.
+<a name="retry-policy"></a>
 
 ## <a name="retrypolicy"></a>retryPolicy
-Si se produce un error en un trabajo de Scheduler, es posible especificar una directiva de reintentos para determinar cuándo y cómo se vuelve a intentar la acción. Esto viene determinado por el objeto **retryType**: está establecido en **none** si no hay ninguna directiva de reintentos, como se mostró anteriormente. Establézcalo en **fixed** si hay una directiva de reintentos.
 
-Para establecer una directiva de reintentos, se pueden especificar dos configuraciones adicionales: un intervalo de reintento (**retryInterval**) y el número de reintentos (**retryCount**).
+Para el caso de que un trabajo de Scheduler pueda producir un error, puede configurar una directiva de reintentos, que determina si Scheduler reintenta la acción y cómo lo hace. De manera predeterminada, Scheduler reintenta el trabajo otras cuatro veces, a intervalos de 30 segundos. Puede hacer que esta directiva sea más o menos agresiva, por ejemplo, esta directiva reintenta una acción dos veces al día:
 
-El intervalo de reintentos, especificado con el objeto **retryInterval** , es el intervalo entre reintentos. Su valor predeterminado es de 30 segundos, su valor configurable mínimo es de 15 segundos y su valor máximo es de 18 meses. Se define en el formato ISO 8601. Del mismo modo, se especifica el valor del número de reintentos con el objeto **retryCount** ; es el número de veces que se realiza un reintento. Su valor predeterminado es 4 y su valor máximo es 20\. Tanto **retryInterval** como **retryCount** son opcionales. Obtienen sus valores predeterminados si **retryType** está establecido en **fixed** y no se especifican explícitamente los valores.
+```json
+"retryPolicy": { 
+   "retryType": "Fixed",
+   "retryInterval": "PT1D",
+   "retryCount": 2
+},
+```
 
-## <a name="see-also"></a>Consulte también
- [¿Qué es Scheduler?](scheduler-intro.md)
+| Propiedad | Obligatorio | Valor | DESCRIPCIÓN | 
+|----------|----------|-------|-------------| 
+| **retryType** | SÍ | **Fixed**, **None** | Determina si se especifica una directiva de reintentos (**fixed**) o no (**none**). | 
+| **retryInterval** | Sin  | PT30S | Especifica el intervalo y la frecuencia entre los reintentos en [ formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). El valor mínimo es de 15 segundos, mientras que el valor máximo es de 18 meses. | 
+| **retryCount** | Sin  | 4 | Especifica el número de reintentos. El valor máximo es 20. | 
+||||
 
- [Introducción a Azure Scheduler en Azure Portal](scheduler-get-started-portal.md)
+Para más información, consulte [Alta disponibilidad y confiabilidad de Scheduler](../scheduler/scheduler-high-availability-reliability.md).
 
- [Planes y facturación en Azure Scheduler](scheduler-plans-billing.md)
+<a name="status"></a>
 
- [Creación de programaciones complejas y periodicidad avanzada con Azure Scheduler](scheduler-advanced-complexity.md)
+## <a name="state"></a>state
 
- [Referencia de API de REST de Azure Scheduler](https://msdn.microsoft.com/library/mt629143)
+El estado de un trabajo es **Enabled** (Habilitado), **Disabled** (Deshabilitado), **Completed** (Completado) o **Faulted** (Con errores), por ejemplo: 
 
- [Referencia de cmdlets de PowerShell de Azure Scheduler](scheduler-powershell-reference.md)
+`"state": "Disabled"`
 
- [Alta disponibilidad y confiabilidad de Azure Scheduler](scheduler-high-availability-reliability.md)
+Para cambiar los trabajos a estado **Habilitado** o **Deshabilitado**, puede usar la operación PUT o PATCH en esos trabajos.
+Sin embargo, si un trabajo tiene el estado **Completado** o **Con errores**, no puede actualizar el estado, aunque puede realizar la operación DELETE en el trabajo. Scheduler elimina los trabajos completados y con errores después de 60 días. 
 
- [Límites, valores predeterminados y códigos de error de Azure Scheduler](scheduler-limits-defaults-errors.md)
+<a name="status"></a>
 
- [Autenticación de salida de Azure Scheduler](scheduler-outbound-authentication.md)
+## <a name="status"></a>status
 
+Después de que se inicia un trabajo, Scheduler devuelve información sobre el estado del trabajo mediante el objeto **status**, que solo controla Scheduler. Sin embargo, puede encontrar el objeto **status** dentro del objeto **job**. Esta es la información que incluye el estado de un trabajo:
+
+* Hora de la ejecución anterior, si la hubiera
+* Hora de la siguiente ejecución programada de los trabajos en curso
+* El número de ejecuciones de trabajos
+* El número de errores, si existen.
+* El número de errores, si existen
+
+Por ejemplo: 
+
+```json
+"status": {
+   "lastExecutionTime": "2007-03-01T13:00:00Z",
+   "nextExecutionTime": "2007-03-01T14:00:00Z ",
+   "executionCount": 3,
+   "failureCount": 0,
+   "faultedCount": 0
+}
+```
+
+## <a name="see-also"></a>Otras referencias
+
+* [¿Qué es Azure Scheduler?](scheduler-intro.md)
+* [Conceptos, terminología y jerarquía de entidades](scheduler-concepts-terms.md)
+* [Creación de programaciones complejas y periodicidad avanzada](scheduler-advanced-complexity.md)
+* [Límites, cuotas, valores predeterminados y códigos de error](scheduler-limits-defaults-errors.md)
+* [Referencia de API de REST de Azure Scheduler](https://docs.microsoft.com/rest/api/schedule)
+* [Referencia de cmdlets de PowerShell de Azure Scheduler](scheduler-powershell-reference.md)

@@ -1,5 +1,5 @@
 ---
-title: Tipos de aplicación para el punto de conexión v2.0 de Azure Active Directory | Microsoft Docs
+title: Tipos de aplicaciones para v2.0 | Azure
 description: Tipos de aplicaciones y escenarios admitidos por el punto de conexión v2.0 de Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 09/24/2018
 ms.author: celested
-ms.reviewer: hirsin
+ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 7ec4d447c3ff3f36f9f995390a61d021e325322e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 24a9b014028bf99673881904e17ec0911d0b5063
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39609336"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952059"
 ---
-# <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Tipos de aplicación para el punto de conexión v2.0 de Azure Active Directory
+# <a name="application-types-for-v20"></a>Tipos de aplicaciones para v2.0
 
-El punto de conexión v2.0 de Azure Active Directory (Azure AD) admite la autenticación de una variedad de arquitecturas de aplicaciones modernas, todas ellas basadas en los protocolos estándar del sector [OAuth 2.0 u OpenID Connect](active-directory-v2-protocols.md). En este artículo se describen los tipos de aplicaciones que puede crear mediante Azure AD v2.0, con independencia de su plataforma o idioma preferidos. La información de este artículo está diseñada para ayudarle a entender los escenarios de alto nivel antes de [empezar a trabajar con el código](active-directory-appmodel-v2-overview.md#getting-started).
+El punto de conexión v2.0 de Azure Active Directory (Azure AD) admite la autenticación de una variedad de arquitecturas de aplicaciones modernas, todas ellas basadas en los protocolos estándar del sector [OAuth 2.0 u OpenID Connect](active-directory-v2-protocols.md). En este artículo se describen los tipos de aplicaciones que puede crear mediante Azure AD v2.0, con independencia de su plataforma o idioma preferidos. La información de este artículo está diseñada para ayudarle a entender los escenarios de alto nivel antes de [empezar a trabajar con el código](v2-overview.md#getting-started).
 
 > [!NOTE]
 > No todas las características y escenarios de Azure Active Directory son compatibles con la versión 2.0 del punto de conexión. Para determinar si debe usar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
@@ -47,7 +47,16 @@ Una vez registrada, la aplicación se comunica con Azure AD mediante el envío d
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
 https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
-<!-- TODO: Need a page for libraries to link to -->
+
+## <a name="single-page-apps-javascript"></a>Aplicaciones de una página (JavaScript)
+
+Muchas aplicaciones modernas tienen un front-end de aplicación de una página escrito principalmente en JavaScript. A menudo, se escribe con un marco como AngularJS, Ember.js o Durandal.js. El punto de conexión v2.0 de Azure AD admite estas aplicaciones mediante el [flujo implícito de OAuth 2.0](v2-oauth2-implicit-grant-flow.md).
+
+En este flujo, la aplicación recibe tokens directamente del punto de conexión de autorización de v2.0, sin necesidad de realizar ningún intercambio de servidor a servidor. Toda la lógica de autenticación y el control de sesiones tiene lugar por completo en el cliente de JavaScript, sin redireccionamientos de página adicionales.
+
+![Flujo de autenticación implícita](./media/v2-app-types/convergence_scenarios_implicit.png)
+
+Para ver este escenario en acción, pruebe uno de los ejemplos de código de aplicación de una única página en nuestra sección de [introducción a v2.0](v2-overview.md#getting-started).
 
 ## <a name="web-apps"></a>Aplicaciones web
 
@@ -66,7 +75,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 }
 ```
 
-Puede aprender más sobre todos los tipos de token y notificaciones disponibles para una aplicación en la [referencia de token v2.0](v2-id-and-access-tokens.md).
+Encontrará más información sobre los diferentes tipos de token que se usan en el punto de conexión v2.0 en la [referencia de token de acceso](access-tokens.md) y en la [referencia de `id_token`](id-tokens.md).
 
 En las aplicaciones de servidor web, el flujo de autenticación de inicio de sesión realiza estos pasos de alto nivel:
 
@@ -74,11 +83,12 @@ En las aplicaciones de servidor web, el flujo de autenticación de inicio de ses
 
 Puede confirmar la identidad del usuario mediante la validación del token de id. con una clave de firma pública recibida por el punto de conexión v2.0. Se establece una cookie de sesión, que puede usarse para identificar al usuario en las sucesivas solicitudes de página.
 
-Para ver este escenario en acción, pruebe uno de los ejemplos de código de inicio de sesión de aplicación web en nuestra sección de [introducción](active-directory-appmodel-v2-overview.md#getting-started) de v2.0.
+Para ver este escenario en acción, pruebe uno de los ejemplos de código de inicio de sesión de aplicación web en nuestra sección de [introducción a v2.0](v2-overview.md#getting-started).
 
 Además del inicio de sesión sencillo, una aplicación web de servidor podría tener la necesidad de acceder a otros servivio web, como una API de REST. En este caso, la aplicación de servidor web participa en un flujo combinado de OpenID Connect y OAuth 2.0, mediante el [flujo de código de autorización de OAuth 2.0](active-directory-v2-protocols.md). Para más información sobre este escenario, lea acerca de cómo [comenzar con aplicaciones web y API web](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
 
 ## <a name="web-apis"></a>API web
+
 Puede usar el punto de conexión v2.0 para proteger los servicios web, como la API web RESTful de su aplicación. En lugar de tokens de id. y cookies de sesión, una API web usa un token de acceso de OAuth 2.0 para proteger sus datos y para autenticar las solicitudes entrantes. El llamador de una API web anexa un token de acceso en el encabezado de autorización de una solicitud HTTP, como esta:
 
 ```
@@ -89,7 +99,7 @@ Accept: application/json
 ...
 ```
 
-La API web usa el token de acceso para comprobar la identidad del llamador de API y extraer información sobre el llamador de notificaciones que se codifican en dicho token. Para más información sobre todos los tipos de tokens y notificaciones que están disponibles para una aplicación, consulte la [referencia de tokens de v2.0](v2-id-and-access-tokens.md).
+La API web usa el token de acceso para comprobar la identidad del llamador de API y extraer información sobre el llamador de notificaciones que se codifican en dicho token. Encontrará más información sobre los diferentes tipos de token que se usan en el punto de conexión v2.0 en la [referencia de token de acceso](access-tokens.md) y en la [referencia de `id_token`](id-tokens.md).
 
 Una API web puede ofrecer a los usuarios la capacidad para administrar la participación/no participación de ciertas funcionalidades o datos mediante la exposición de permisos, conocidos también como [ámbitos](v2-permissions-and-consent.md). Para que una aplicación de llamada adquiera permiso para un ámbito, el usuario debe consentir el ámbito durante un flujo. El punto de conexión v2.0 solicita al usuario permiso y luego registra los permisos en todos los tokens de acceso que recibe la API web. La API web valida los tokens de acceso que recibe en cada llamada y realiza comprobaciones de autorización.
 
@@ -97,27 +107,20 @@ Una API web puede recibir tokens de acceso de todos los tipos de aplicaciones, i
 
 ![Flujo de autenticación de API web](./media/v2-app-types/convergence_scenarios_webapi.png)
 
-Para aprender a proteger una API web con tokens de acceso de OAuth2, consulte los ejemplos de código de API web en nuestra sección de [introducción](active-directory-appmodel-v2-overview.md#getting-started).
+Para aprender a proteger una API web con tokens de acceso de OAuth2, consulte los ejemplos de código de API web en nuestra sección de [introducción a v2.0](v2-overview.md#getting-started).
 
 En muchos casos, las API web también tienen que realizar solicitudes salientes a otras API web de bajada protegidas por Azure Active Directory. Para ello, las API web pueden aprovechar las ventajas del flujo **en nombre de** de Azure AD, que permite a la API web intercambiar un token de acceso entrante por otro token de acceso que se usará en las solicitudes salientes. El flujo "en nombre de" del punto de conexión v2.0 se describe [aquí con mayor detalle](v2-oauth2-on-behalf-of-flow.md).
 
 ## <a name="mobile-and-native-apps"></a>Aplicaciones móviles y nativas
+
 Las aplicaciones instaladas en un dispositivo, como las aplicaciones móviles y de escritorio, suelen necesitar el acceso a servicios back-end o a las API web que almacenan datos y realizan varias funciones en nombre del usuario. Estas aplicaciones pueden agregar el inicio de sesión y la autorización a los servicios back-end mediante el [flujo de código de autorización de OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
 En este flujo, la aplicación recibe un código de autorización del punto de conexión v2.0 cuando el usuario inicia sesión. El código de autorización representa el permiso de la aplicación para llamar a servicios de back-end en nombre del usuario que inició la sesión. La aplicación podrá intercambiar el código de autorización en segundo plano para un token de acceso de OAuth 2.0 y un token de actualización. La aplicación puede usar el token de acceso para autenticar las API web en las solicitudes HTTP y utilizar el token de actualización para obtener nuevos tokens de acceso cuando expiren los antiguos.
 
 ![Flujo de autenticación de la aplicación nativa](./media/v2-app-types/convergence_scenarios_native.png)
 
-## <a name="single-page-apps-javascript"></a>Aplicaciones de una página (JavaScript)
-Muchas aplicaciones modernas tienen un front-end de aplicación de una página escrito principalmente en JavaScript. A menudo, se escribe con un marco como AngularJS, Ember.js o Durandal.js. El punto de conexión v2.0 de Azure AD admite estas aplicaciones mediante el [flujo implícito de OAuth 2.0](v2-oauth2-implicit-grant-flow.md).
-
-En este flujo, la aplicación recibe tokens directamente del punto de conexión de autorización de v2.0, sin necesidad de realizar ningún intercambio de servidor a servidor. Toda la lógica de autenticación y el control de sesiones tiene lugar por completo en el cliente de JavaScript, sin redireccionamientos de página adicionales.
-
-![Flujo de autenticación implícita](./media/v2-app-types/convergence_scenarios_implicit.png)
-
-Para ver este escenario en acción, pruebe uno de los ejemplos de código de aplicación de una única página en nuestra sección de [introducción](active-directory-appmodel-v2-overview.md#getting-started).
-
 ## <a name="daemons-and-server-side-apps"></a>Demonios y aplicaciones de servidor
+
 Las aplicaciones que contienen procesos de larga duración o que funcionan sin la interacción con un usuario también necesitan un modo de acceder a recursos protegidos, como las API web. Estas aplicaciones pueden autenticarse y obtener tokens mediante la identidad de la aplicación, en lugar de una identidad delegada del usuario, con el flujo de credenciales de cliente de OAuth 2.0.
 
 En este flujo, la aplicación interactúa directamente con el punto de conexión `/token` para obtener los puntos de conexión:
