@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 21ba95a7b3efff177afe63d22da3f6ba9848ded2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d70eecb6a5d6bafbfa6507dbe8b1bcb1cad67191
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301038"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990253"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Extensión de alertas de Log Analytics a Alertas de Azure
 Alertas de Azure está reemplazando la característica de alertas de Azure Log Analytics. Como parte de esta transición, las alertas que ha configurado originalmente en Log Analytics se extenderán a Azure. Si no quiere esperar a que se trasladen automáticamente a Azure, puede iniciar el proceso:
@@ -22,7 +22,7 @@ Alertas de Azure está reemplazando la característica de alertas de Azure Log A
 - Mediante programación usando AlertsVersion API.  
 
 > [!NOTE]
-> Microsoft extenderá automáticamente las alertas creadas en Log Analytics a Alertas de Azure, a partir de 14 de mayo de 2018, en una serie periódica hasta que se completen. Microsoft programa la migración de las alertas a Azure y, durante esta transición, las alertas se pueden administrar tanto desde el portal de Operations Management Suite como desde Azure Portal. Este proceso no es destructivo ni intrusivo.  
+> A partir del 14 de mayo de 2018, Microsoft extenderá automáticamente las alertas creadas en las instancias de la nube pública de Log Analytics a Alertas de Azure en una serie periódica hasta que se completen. Si tiene problemas para crear [ grupos de acciones](monitoring-action-groups.md), siga [estos pasos de corrección](monitoring-alerts-extend-tool.md#troubleshooting) para crear grupos de acciones automáticamente. Puede seguir estos pasos hasta el 5 de julio de 2018. *No es aplicable para usuarios de Azure Government y la nube soberana de Log Analytics*. 
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Opción 1: Inicio desde portal de Operations Management Suite
 En los pasos siguientes se describen cómo ampliar las alertas para el espacio de trabajo desde el portal de Operations Management Suite.  
@@ -457,7 +457,7 @@ El script es detallado y genera los pasos mientras se ejecuta:
 Durante el proceso de la extensión de las alertas, los problemas pueden impedir que el sistema cree los [grupos de acciones](monitoring-action-groups.md) necesarios. En tales casos, verá un mensaje de error en un banner de la sección **Alerta** del portal de Operations Management Suite, o bien en la llamada GET realizada en la API.
 
 > [!IMPORTANT]
-> Si no toma las siguientes medidas de corrección antes del 5 de julio de 2018, las alertas se ejecutarán en Azure pero no activarán ninguna acción ni notificación. Para obtener notificaciones de alertas, debe editar y agregar manualmente [grupos de acciones](monitoring-action-groups.md) o usar el [script de PowerShell personalizado](#option-3---using-custom-powershell-script) anterior.
+> Si los usuarios de Log Analytics basados en la nube pública de Azure no toman las siguientes medidas de corrección antes del 5 de julio de 2018, las alertas se ejecutarán en Azure pero no activarán ninguna acción ni notificación. Para obtener notificaciones de alertas, debe editar y agregar manualmente [grupos de acciones](monitoring-action-groups.md) o usar el [script de PowerShell personalizado](#option-3---using-custom-powershell-script) anterior.
 
 Aquí se indican los pasos para corregir cada error:
 - **Error: Scope Lock is present at subscription/resource group level for write operations** (El bloqueo de ámbito está presente en el nivel de la suscripción o del grupo de recursos para las operaciones de escritura): ![captura de pantalla de la página de configuración de la alerta de Operations Management Suite con el mensaje de error del bloqueo de ámbito resaltado](./media/monitor-alerts-extend/ErrorScopeLock.png)

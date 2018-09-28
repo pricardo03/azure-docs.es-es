@@ -6,21 +6,21 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: b00d774ec59755288b8660d238c7b8dfc9a89eab
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ef1422db799db6d635ad9f03908e3a34f312e408
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089900"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974245"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Qué es la extensión Azure Diagnostics
-La extensión Azure Diagnostics es un agente dentro de Azure que habilita la recopilación de datos de diagnóstico en una aplicación implementada. Puede utilizar la extensión de diagnóstico desde un número de orígenes diferentes. Actualmente se admiten los roles web y de trabajo de Azure Cloud Services, las máquinas virtuales, los conjuntos de escalado de máquinas virtuales y Service Fabric. Otros servicios de Azure tienen métodos de diagnóstico diferentes. Consulte [Introducción a la supervisión en Azure](monitoring-overview.md). 
+La extensión Azure Diagnostics es un agente dentro de Azure que habilita la recopilación de datos de diagnóstico en una aplicación implementada. Puede utilizar la extensión de diagnóstico desde un número de orígenes diferentes. Actualmente se admiten los roles web y de trabajo de Azure Cloud Services, las máquinas virtuales, los conjuntos de escalado de máquinas virtuales y Service Fabric. Otros servicios de Azure tienen métodos de diagnóstico diferentes. Consulte [Introducción a la supervisión en Azure](monitoring-overview.md).
 
 ## <a name="linux-agent"></a>Agente Linux
-Una [versión Linux de la extensión](../virtual-machines/linux/diagnostic-extension.md) está disponible para máquinas virtuales que ejecutan Linux. Las estadísticas recopiladas y los comportamientos varían frente a la versión Windows. 
+Una [versión Linux de la extensión](../virtual-machines/linux/diagnostic-extension.md) está disponible para máquinas virtuales que ejecutan Linux. Las estadísticas recopiladas y los comportamientos varían frente a la versión Windows.
 
 ## <a name="data-you-can-collect"></a>Datos que puede recopilar
 La extensión Azure Diagnostics puede recopilar los siguientes tipos de datos:
@@ -37,13 +37,20 @@ La extensión Azure Diagnostics puede recopilar los siguientes tipos de datos:
 | Registros de errores personalizados |Registros creados por su aplicación o servicio |
 | Registros de infraestructura de diagnóstico de Azure |Información sobre Diagnósticos |
 
-(1) Para obtener una lista de proveedores de ETW, ejecute `c:\Windows\System32\logman.exe query providers` en una ventana de la consola en el equipo del cual quiere recopilar información. 
+(1) Para obtener una lista de proveedores de ETW, ejecute `c:\Windows\System32\logman.exe query providers` en una ventana de la consola en el equipo del cual quiere recopilar información.
 
 ## <a name="data-storage"></a>Almacenamiento de datos
-La extensión almacena sus datos en una [cuenta de Azure Storage](azure-diagnostics-storage.md) que especifique. 
+La extensión almacena sus datos en una [cuenta de Azure Storage](azure-diagnostics-storage.md) que especifique.
 
-También puede enviarlos a [Application Insights](../application-insights/app-insights-cloudservices.md). Otra opción es transmitirlos al [Centro de eventos](../event-hubs/event-hubs-what-is-event-hubs.md), que le permite enviarlos a servicios de supervisión que no son de Azure. 
+También puede enviarlos a [Application Insights](../application-insights/app-insights-cloudservices.md). Otra opción es transmitirlos al [Centro de eventos](../event-hubs/event-hubs-what-is-event-hubs.md), que le permite enviarlos a servicios de supervisión que no son de Azure.
 
+### <a name="azure-monitor"></a>Azure Monitor
+También tiene la opción de enviar los datos a Azure Monitor. En este momento, este receptor solo se puede aplicar a los contadores de rendimiento. Permite enviar a Azure Monitor los contadores de rendimiento recopilados en la máquina virtual, VMSS o en el servicio en la nube como métricas personalizadas. El receptor de Azure Monitor admite:
+* La recuperación de todos los contadores de rendimiento que se envían a Azure Monitor a través de las [API de métricas de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/).
+* Las alertas de todos los contadores de rendimiento que se envían a Azure Monitor a través de la nueva [experiencia unificada de alertas](monitoring-overview-unified-alerts.md) de Azure Monitor.
+* El tratamiento del operador comodín de los contadores de rendimiento como la dimensión "Instancia" de la métrica.  Por ejemplo, si recopiló el contador de "LogicalDisk(\*)/DiskWrites/sec", debería poder filtrar y dividir en la dimensión "Instancia" para el trazado o una alerta en las escrituras en disco/s para cada disco lógico de la máquina virtual (C:, D:, etc.).
+
+Para obtener más información sobre cómo configurar este receptor, consulte la [documentación del esquema de diagnósticos de Azure](azure-diagnostics-schema-1dot3-and-later.md).
 
 ## <a name="versioning-and-configuration-schema"></a>Esquema de configuración y control de versiones
 Consulte [Historial y versiones del esquema de configuración de la extensión Azure Diagnostics](azure-diagnostics-versioning-history.md).

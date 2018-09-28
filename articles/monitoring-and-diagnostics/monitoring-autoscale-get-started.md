@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
 ms.component: autoscale
-ms.openlocfilehash: b303632c236e492bbf57ee60d5e7b0cc7b2f9e5c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e96e3abc05353aa3ea134b7d11256a29fe64c300
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448975"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989233"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introducción al escalado automático en Azure
 Este artículo describe cómo configurar el escalado automático de recursos en Microsoft Azure Portal.
 
-El escalado automático de Azure Monitor solo se aplica a Conjuntos de escalado de máquinas virtuales, Cloud Services, planes de Azure App Service y App Service Environment. 
+La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) y los [servicios de API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Detección de la configuración de escalado automático en la suscripción
 Puede detectar todos los recursos a los que se aplica el escalado automático en Azure Monitor. Siga los pasos siguientes para obtener un tutorial paso a paso:
@@ -47,8 +47,8 @@ Se va a ofrecer ahora un tutorial paso a paso sencillo sobre cómo crear la prim
 1. Proporcione un nombre para la configuración de escalado y haga clic en **Agregar una regla**. Tenga en cuenta que las opciones de la regla de escalado se abren como un panel Contexto en el lado derecho. De forma predeterminada, establece la opción para escalar el recuento de instancias en 1 si el porcentaje de CPU del recurso supera el 70 %. Deje los valores predeterminados y haga clic en **Agregar**.
   ![Crear configuración de escalado para una aplicación web][6]
 1. Ahora ha creado su primera regla de escalado. Tenga en cuenta que UX ofrece procedimientos recomendados e indica que "se recomienda tener al menos una regla de reducción horizontal". Para ello:
-  
-    a. Haga clic en **Agregar una regla**. 
+
+    a. Haga clic en **Agregar una regla**.
 
     b. Establezca **Operador** en **Menos que**.
 
@@ -62,7 +62,7 @@ Se va a ofrecer ahora un tutorial paso a paso sencillo sobre cómo crear la prim
 
 Felicidades. Ya ha establecido correctamente la primera configuración del escalado para escalar automáticamente la aplicación web en función del uso de CPU.
 
-> [!NOTE] 
+> [!NOTE]
 > Los mismos pasos son aplicables para empezar a trabajar con un rol de servicio en la nube o un conjunto de escalado de máquinas virtuales.
 
 ## <a name="other-considerations"></a>Otras consideraciones
@@ -105,8 +105,8 @@ Pueden darse ocasiones en que desee deshabilitar la configuración actual de esc
 Haga clic en el botón **Deshabilitar escalado automático** en la parte superior.
 ![Deshabilitar escalado automático][13]
 
-> [!NOTE] 
-> Esta opción deshabilita su configuración. Sin embargo, puede volver a ella después de habilitar de nuevo el escalado automático. 
+> [!NOTE]
+> Esta opción deshabilita su configuración. Sin embargo, puede volver a ella después de habilitar de nuevo el escalado automático.
 
 Ahora puede establecer el número de instancias a las que desea escalar manualmente.
 
@@ -133,4 +133,3 @@ Siempre se puede volver al escalado automático; para ello, haga clic en **Enabl
 [12]: ./media/monitoring-autoscale-get-started/scale-definition-json.png
 [13]: ./media/monitoring-autoscale-get-started/disable-autoscale.png
 [14]: ./media/monitoring-autoscale-get-started/set-manualscale.png
-

@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 75116e0ba50c3f195d528d33822af0c446acd5fe
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 716f96b7723a947c35eb54acd67f13261363fd38
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143771"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972885"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Realización de búsquedas de registros entre recursos en Log Analytics  
 
 Anteriormente, con Azure Log Analytics, solo podía analizar datos desde dentro del área de trabajo actual, lo que limitaba su capacidad de consulta a través de varias áreas de trabajo definidas en la suscripción.  Además, solo puede buscar los elementos de telemetría recopilados de la aplicación basada en web con Application Insights directamente en Application Insights o desde Visual Studio.  Esto también convirtió en un desafío analizar de manera nativa los datos operativos y de aplicación en conjunto.   
 
-Ahora puede consultar no solo a través de varias áreas de trabajo de Log Analytics, sino también datos desde una aplicación específica de Application Insights del mismo grupo de recursos, otro grupo de recursos u otra suscripción. Gracias a esto se consigue una vista total del sistema de datos.  Solo se pueden realizar este tipo de consultas en la [página de Log Analytics (versión preliminar)](log-analytics-log-search-portals.md#log-analytics-page-preview), no en Azure Portal. El número de recursos (áreas de trabajo de Log Analytics y aplicación de Application Insights) que se pueden incluir en una sola consulta se limita a 100. 
+Ahora puede consultar no solo a través de varias áreas de trabajo de Log Analytics, sino también datos desde una aplicación específica de Application Insights del mismo grupo de recursos, otro grupo de recursos u otra suscripción. Gracias a esto se consigue una vista total del sistema de datos.  Solo puede realizar estos tipos de consultas en [Log Analytics](log-analytics-log-search-portals.md#log-analytics-page). El número de recursos (áreas de trabajo de Log Analytics y aplicación de Application Insights) que se pueden incluir en una sola consulta se limita a 100. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Consultas a través de áreas de trabajo de Log Analytics y desde Application Insights
 Para hacer referencia a otra área de trabajo en la consulta, use el identificador del [*área de trabajo*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()), y, para una aplicación de Application Insights, use el identificador de la [*aplicación*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()).  

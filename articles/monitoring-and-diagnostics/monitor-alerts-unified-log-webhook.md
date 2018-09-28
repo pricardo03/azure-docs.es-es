@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f20e102ee1d100ea02da53fe460b56f8f8390418
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5f8ed885791a648f30790434be56d966bbf2e47
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426700"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989301"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Acciones de webhook para reglas de alertas de registro
-Cuando se [crea una alerta en Azure](monitor-alerts-unified-usage.md), tiene la opción de [configurarla mediante grupos de acción](monitoring-action-groups.md), para así poder realizar una o varias acciones.  En este artículo se describen las diferentes acciones de webhook que están disponibles y los detalles sobre la configuración de los webhook personalizados basados en JSON.
+Cuando se [crea una alerta de registro en Azure](alert-log.md), tiene la opción de [configurarla mediante grupos de acciones](monitoring-action-groups.md), para así poder realizar una o varias acciones.  En este artículo se describen las diferentes acciones de webhook que están disponibles y los detalles sobre la configuración de los webhook personalizados basados en JSON.
 
 
 ## <a name="webhook-actions"></a>Acciones de webhook
 
-Las acciones de Webhook permiten invocar un proceso externo a través de una sola solicitud HTTP POST.  El servicio que se llama debe admitir webhooks y determinar cómo usa cualquier carga que recibe.   Ejemplos de uso de un webhook en respuesta a una alerta donde se envía un mensaje en [Slack](http://slack.com) o se crea un incidente en [PagerDuty](http://pagerduty.com/).  
+Las acciones de Webhook permiten invocar un proceso externo a través de una sola solicitud HTTP POST.  El servicio que se llama debe admitir webhooks y determinar cómo usa cualquier carga que recibe.    
 
 Las acciones de webhook requieren las propiedades de la siguiente tabla:
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | Dirección URL de Webhook |La dirección URL del webhook. |
-| Carga de JSON personalizada |Carga personalizada para enviar con el webhook, cuando esta opción se elige durante la creación de la alerta. Puede obtener más información en [Manage alerts using Azure Alerts](monitor-alerts-unified-usage.md) (Administrar alertas mediante Alertas de Azure) |
+| Carga de JSON personalizada |Carga personalizada para enviar con el webhook, cuando esta opción se elige durante la creación de la alerta. Conozca más detalles en el artículo sobre la [administración de alertas de registro](alert-log.md) |
 
 > [!NOTE]
-> Si prueba el botón de webhook junto con la opción *Incluir la carga personalizada de JSON para webhook* de la alerta del registro, se desencadenará una llamada ficticia para probar la URL de webhook. No contiene datos reales ni representativos del esquema JSON que se usen en las alertas de registro. 
+> El botón Ver webhook y la opción *Incluir la carga personalizada de JSON para webhook* de la alerta del registro mostrarán una carga de webhook de ejemplo con la personalización proporcionada. No contiene datos reales ni representativos del esquema JSON que se usen en las alertas de registro. 
 
 Los webhooks incluyen una dirección URL y una carga en formato JSON que son los datos enviados al servicio externo.  De manera predeterminada, la carga incluye los valores de la tabla siguiente: Puede elegir si reemplazar esta carga por una personalizada.  En ese caso, puede utilizar las variables de la tabla para cada uno de los parámetros para incluir su valor en la carga personalizada.
 
@@ -54,7 +54,7 @@ Los webhooks incluyen una dirección URL y una carga en formato JSON que son los
 | Id. de suscripción |#subscriptionid |Identificador de la suscripción de Azure que se usa con Application Insights. 
 
 > [!NOTE]
-> LinkToSearchResults pasa parámetros como SearchQuery, Search Interval StartTime y Search Interval End time en la dirección URL a Azure Portal para su visualización en la sección de Análisis. Azure Portal tiene un límite de tamaño de URI de aproximadamente 2000 caracteres y se abrirá si los valores de los parámetros superan dicho límite. Los usuarios pueden escribir manualmente los detalles para ver los resultados en el portal de Analytics o usar [Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) o [Log Analytics REST API](https://dev.loganalytics.io/reference) de Application Insights para recuperar los resultados mediante programación 
+> LinkToSearchResults pasa parámetros como SearchQuery, Search Interval StartTime y Search Interval End time en la dirección URL a Azure Portal para su visualización en la sección de Análisis. Azure Portal tiene un límite de tamaño de URI de aproximadamente 2000 caracteres y *no* abrirá el vínculo proporcionado en las alertas si los valores de los parámetros superan dicho límite. Los usuarios pueden escribir manualmente los detalles para ver los resultados en el portal de Analytics o usar [Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) o [Log Analytics REST API](https://dev.loganalytics.io/reference) de Application Insights para recuperar los resultados mediante programación 
 
 Por ejemplo, podría especificar la siguiente carga personalizada que incluye un único parámetro denominado *text*.  El servicio al que llama este webhook estaría esperando este parámetro.
 
@@ -198,6 +198,7 @@ A continuación se muestra una carga de ejemplo para una acción de webhook pers
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información sobre las [alertas de registro en Alertas de Azure](monitor-alerts-unified-log.md).
+- Información sobre la [administración de alertas de registro en Azure](alert-log.md)
 - Crear y administrar [grupos de acciones en Azure](monitoring-action-groups.md)
 - Más información sobre [Application Insights](../application-insights/app-insights-analytics.md)
 - Más información sobre [Log Analytics](../log-analytics/log-analytics-overview.md). 

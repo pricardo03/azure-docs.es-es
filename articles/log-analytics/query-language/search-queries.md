@@ -15,17 +15,19 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6a375da3c97790bd6a7a6fa505de82b2fc298385
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 250eddb043ccf9fa0b1bb92a298900f8ad820140
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145003"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992276"
 ---
 # <a name="search-queries-in-log-analytics"></a>Consultas de búsqueda en Log Analytics
 
 > [!NOTE]
-> Debe completar la [introducción a las consultas en Log Analytics](get-started-queries.md) antes de completar este tutorial.
+> Debe completar la [introducción a las consultas en Log Analytics](get-started-queries.md) antes de completar esta lección.
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Las consultas en Azure Log Analytics pueden comenzar por un nombre de tabla o un comando de búsqueda. Este tutorial trata las consultas de búsqueda. Cada método tiene sus ventajas.
 
@@ -34,7 +36,7 @@ Las consultas basadas en tablas comienzan por definir el ámbito de la consulta 
 ## <a name="search-a-term"></a>Búsqueda de un término
 El comando **search** normalmente se usa para buscar un término específico. En el ejemplo siguiente se examinan todas las columnas de todas las tablas en busca del término "error":
 
-```OQL
+```Kusto
 search "error"
 | take 100
 ```
@@ -44,13 +46,13 @@ Aunque sean fáciles de usar, las consultas sin ámbito como la anterior no son 
 ### <a name="table-scoping"></a>Ámbito de tabla
 Para buscar un término en una tabla específica, agregue `in (table-name)` justo después del operador **search**:
 
-```OQL
+```Kusto
 search in (Event) "error"
 | take 100
 ```
 
 o en varias tablas:
-```OQL
+```Kusto
 search in (Event, SecurityEvent) "error"
 | take 100
 ```
@@ -58,7 +60,7 @@ search in (Event, SecurityEvent) "error"
 ### <a name="table-and-column-scoping"></a>Ámbito de tabla y columna
 De forma predeterminada, **search** evalúa todas las columnas del conjunto de datos. Para buscar solo una columna específica, use esta sintaxis:
 
-```OQL
+```Kusto
 search in (Event) Source:"error"
 | take 100
 ```
@@ -69,7 +71,7 @@ search in (Event) Source:"error"
 ## <a name="case-sensitivity"></a>Diferenciación entre mayúsculas y minúsculas
 De forma predeterminada, en la búsqueda de términos no se distingue entre mayúsculas y minúsculas, por lo que al buscar "dns" se pueden producir resultados como "DNS", "dns" o "Dns". Para que en la búsqueda se distinga entre mayúsculas y minúsculas, use la opción `kind`:
 
-```OQL
+```Kusto
 search kind=case_sensitive in (Event) "DNS"
 | take 100
 ```
@@ -78,26 +80,26 @@ search kind=case_sensitive in (Event) "DNS"
 El comando **search** admite caracteres comodín, al principio, al final o en el medio de un término.
 
 Para buscar términos que comienzan por "win":
-```OQL
+```Kusto
 search in (Event) "win*"
 | take 100
 ```
 
 Para buscar términos que terminan en ".com":
-```OQL
+```Kusto
 search in (Event) "*.com"
 | take 100
 ```
 
 Para buscar términos que contienen "www":
-```OQL
+```Kusto
 search in (Event) "*www*"
 | take 100
 ```
 
 Para buscar términos que comienzan por "corp" y terminan en ".com", por ejemplo, "corp.mydomain.com":
 
-```OQL
+```Kusto
 search in (Event) "corp*.com"
 | take 100
 ```
@@ -110,21 +112,21 @@ También puede obtener todo el contenido de una tabla utilizando solo un caráct
 ## <a name="add-and--or-to-search-queries"></a>Agregue *and* / *or* a las consultas de búsqueda
 Use **and** para buscar los registros que contengan varios términos:
 
-```OQL
+```Kusto
 search in (Event) "error" and "register"
 | take 100
 ```
 
 Use **or** para obtener los registros que contengan al menos uno de los términos:
 
-```OQL
+```Kusto
 search in (Event) "error" or "register"
 | take 100
 ```
 
 Si tiene varias condiciones de búsqueda, puede combinarlas en la misma consulta mediante paréntesis:
 
-```OQL
+```Kusto
 search in (Event) "error" and ("register" or "marshal*")
 | take 100
 ```
@@ -134,7 +136,7 @@ Los resultados de este ejemplo serían los registros que contienen el término "
 ## <a name="pipe-search-queries"></a>Canalización de consultas de búsqueda
 Al igual que cualquier otro comando, **search** se puede canalizar para filtrar, ordenar y agregar los resultados de la búsqueda. Por ejemplo, para obtener el número de registros *Event* que contienen "win":
 
-```OQL
+```Kusto
 search in (Event) "win"
 | count
 ```
@@ -144,4 +146,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Ver más tutoriales en el [sitio del lenguaje de consulta de Log Analytics](https://docs.loganalytics.io)
+- Ver más tutoriales en el [sitio del lenguaje de consulta de Log Analytics](https://aka.ms/LogAnalyticsLanguage).
