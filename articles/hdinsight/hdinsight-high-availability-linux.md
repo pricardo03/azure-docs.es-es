@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: jasonh
-ms.openlocfilehash: c10ff022d54510c4fb81bf1f922aeaaf4e9036bb
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 33458794ad74b367f1278364d7b4ace30f7d13a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104861"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953601"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilidad y fiabilidad de clústeres de Hadoop en HDInsight
 
@@ -223,7 +223,7 @@ Al crear un clúster, puede especificar el tamaño de los nodos. A continuación
 Use los siguientes vínculos para obtener más información sobre los aspectos que se mencionan en este documento.
 
 * [Referencia de REST de Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Instalación y configuración de la interfaz de la línea de comandos de Azure](../cli-install-nodejs.md)
+* [Install the Azure classic CLI](../cli-install-nodejs.md) (Instalación y configuración de la CLI de Azure)
 * [Instale y configure Azure PowerShell.](/powershell/azure/overview)
 * [Administración de HDInsight mediante Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Aprovisionamiento de clústeres de HDInsight basado en Linux](hdinsight-hadoop-provision-linux-clusters.md)
