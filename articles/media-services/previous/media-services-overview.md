@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/24/2017
+ms.date: 09/24/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: d79a8937c0190246218153e42ead74ada619b121
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 65f38ca477cf1a861c1285e6195598be705005d7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940870"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163756"
 ---
 # <a name="azure-media-services-overview"></a>Introducción a Azure Media Services 
 
@@ -29,17 +29,9 @@ ms.locfileid: "33940870"
 
 Microsoft Azure Media Services (AMS) es una plataforma extensible basada en la nube que permite a los desarrolladores crear aplicaciones de administración y entrega de contenido multimedia escalables. Media Services se basa en las API de REST, que permiten cargar, almacenar, codificar y empaquetar de forma segura contenido de audio o vídeo para la entrega bajo demanda y de streaming en vivo a varios clientes (por ejemplo, televisión, PC y dispositivos móviles).
 
-Puede crear flujos de trabajo de un extremo a otro usando solamente Media Services. También puede usar componentes de terceros para algunas partes del flujo de trabajo. Por ejemplo, codifique mediante un codificador de terceros. A continuación, cargue, proteja, empaquete y entregue con Media Services.
+Puede crear flujos de trabajo de un extremo a otro usando solamente Media Services. También puede usar componentes de terceros para algunas partes del flujo de trabajo. Por ejemplo, codifique mediante un codificador de terceros. A continuación, cargue, proteja, empaquete y entregue con Media Services. Puede elegir entre transmitir en secuencias el contenido en directo o entregar el contenido a petición. 
 
-Puede elegir entre transmitir en secuencias el contenido en directo o entregar el contenido a petición. El tema también incluye vínculos a otros temas de interés.
-
-## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
-Puede ver las rutas de aprendizaje de Azure Media Services aquí:
-
-* [Flujo de trabajo de streaming en vivo de Azure Media Services](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-* [Flujo de trabajo de streaming a petición de AMS](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
-
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar a usar Azure Media Services, debe tener lo siguiente:
 

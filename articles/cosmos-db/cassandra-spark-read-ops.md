@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: c2c5d4fe1085a77c710f1657b01fea7775fd1b33
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ef5f1a3479080aaab665a449bbf946a29344f26c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964793"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224995"
 ---
 # <a name="read-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Lectura de tablas de Cassandra API de Azure Cosmos DB desde Spark
 
@@ -23,7 +23,7 @@ ms.locfileid: "46964793"
 ## <a name="cassandra-api-configuration"></a>Configuración de Cassandra API
 ```scala
 import org.apache.spark.sql.cassandra._
-//datastax Spark connector
+//Spark connector
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.cql.CassandraConnector
 
@@ -140,7 +140,7 @@ select * from books_vw where book_pub_year > 1891
 Los siguientes son artículos adicionales sobre cómo trabajar con Cassandra API de Azure Cosmos DB desde Spark:
  
  * [Operaciones de upsert](cassandra-spark-upsert-ops.md)
- * [Operaciones de eliminación](cassandra-spark-delete-ops.md)
- * [Operaciones de agregación](cassandra-spark-aggregation-ops.md)
- * [Operaciones de copia en la tabla](cassandra-spark-table-copy-ops.md)
+ * [Delete operations](cassandra-spark-delete-ops.md) (Operaciones de eliminación)
+ * [Aggregation operations](cassandra-spark-aggregation-ops.md) (Operaciones de agregación)
+ * [Table copy operations](cassandra-spark-table-copy-ops.md) (Operaciones de copia en tabla)
 

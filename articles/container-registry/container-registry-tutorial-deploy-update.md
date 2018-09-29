@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 8edb35b91327bde1fa824ec456b8a98962adb7ce
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1a18b6f627a28b912baeda6f180297dc703e665e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634094"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031210"
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Tutorial: Inserción de una imagen actualizada en implementaciones regionales
 
@@ -138,7 +138,7 @@ En este tutorial, se actualiza y se inserta una nueva versión del contenedor de
 
 Además de la replicación geográfica, ACR Build es otra característica de Azure Container Registry que puede ayudarle a optimizar la canalización de la implementación de contenedores. Comience con la información general de ACR Build para hacerse una idea de sus capacidades:
 
-[Automatizar la aplicación de revisiones de sistema operativo y marco con ACR Build](container-registry-build-overview.md)
+[Automatizar la aplicación de revisiones de sistema operativo y marco con ACR Build](container-registry-tasks-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: b816d94c8d85ad7d28dfc76072627423a30f6704
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2a4c389d063bb63f2fa2293d54236f99d7035e0e
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293567"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47061005"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Llamar a Microsoft Graph API desde una aplicación de página única de JavaScript (SPA)
 
@@ -47,6 +47,7 @@ Esta guía utiliza la siguiente biblioteca:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de autenticación de Microsoft para la vista preliminar de JavaScript|
 
 > [!NOTE]
-> *msal.js* apunta al *punto de conexión de Azure Active Directory v2*, lo que permite que las cuentas personales, profesionales y educativas inicien sesión y adquieran tokens. El *punto de conexión de Azure Active Directory v2* tiene [algunas limitaciones](..\articles\active-directory\develop\active-directory-v2-limitations.md). Si solo le interesan las cuentas educativas y profesionales, use *adal.js* en el *punto de conexión V1*. Para comprender las diferencias entre los puntos de conexión v1 y v2, lea la [comparación entre v1 y v2](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
+> *msal.js* apunta al *punto de conexión de Azure Active Directory v2*, lo que permite que las cuentas personales, profesionales y educativas inicien sesión y adquieran tokens. El *punto de conexión de Azure Active Directory v2* tiene [algunas limitaciones](..\articles\active-directory\develop\active-directory-v2-limitations.md).
+> Para comprender las diferencias entre los puntos de conexión v1 y v2, lea la [comparación entre v1 y v2](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->

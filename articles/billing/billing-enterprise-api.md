@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
-ms.author: aedwin
-ms.openlocfilehash: b67e6202c470be46b3100c06e503c05415371c6e
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: erikre
+ms.openlocfilehash: 7cc5b0cb12e806b0946ce421e7ee6daa4de76afa
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42920106"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47390603"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Información general de API de informes para clientes de Enterprise
 Las API de informes permiten a los clientes de Azure Enterprise extraer datos de facturación y consumo mediante programación en las herramientas de análisis de datos preferidas. Los clientes de empresa han firmado un [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) con Azure para negociar compromisos monetarios y conseguir acceso a precios personalizados por los recursos de Azure.

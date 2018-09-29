@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: La referencia de dominios creados previamente, que son colecciones creadas previamente de intenciones y entidades de Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: diberry
-ms.openlocfilehash: 36e527f9afdce58475ca4c3c6e54ce393c48c983
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: f424abd339bda6c29079e3d286cbe96593f16f52
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238903"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040047"
 ---
 # <a name="prebuilt-domain-reference"></a>Referencia de dominio creado previamente
 Esta referencia ofrece información sobre los [dominios creados previamente](luis-how-to-use-prebuilt-domains.md), que son colecciones creadas previamente de intenciones y entidades que LUIS ofrece.
@@ -162,7 +162,7 @@ El dominio de entretenimiento ofrece intenciones y entidades relacionadas con la
 | Persona| El actor, director, productor, músico o artista asociados con una película, aplicación, juego o programa de televisión.|Madonna<br/>Stanley Kubrick|
 | Rol| Rol que desempeña una persona en la creación de un elemento multimedia.|Canciones<br/>Dirigido por<br/>Por|
 | Título| El nombre de una película, aplicación, juego, programa de TV o canción.|Friends<br/>Minecraft|
-| type| El tipo o formato multimedia de una película, aplicación, juego, programa de TV o canción.|Música<br/>Películas de TV <br/>Programas|
+| Escriba| El tipo o formato multimedia de una película, aplicación, juego, programa de TV o canción.|Música<br/>Películas de TV <br/>Programas|
 | UserRating| Clasificación del usuario con estrellas o con el dedo pulgar hacia arriba o hacia abajo.|5 estrellas<br/>3 estrellas<br/>4 estrellas|
 
 ## <a name="events"></a>Eventos 
@@ -181,7 +181,7 @@ El dominio de eventos proporciona intenciones y entidades relacionadas con la re
 | NOMBRE | El nombre de un evento.|Shakespeare in the Park|
 | PlaceName| El nombre de ubicación del evento.|Louvre<br/>Opera House<br/>Broadway|
 | PlaceType | El tipo de ubicación en que se celebrará el evento.|Bar<br/>Teatro<br/>Biblioteca|
-| type | El tipo de evento.|Concierto<br/>Encuentro deportivo|
+| Escriba | El tipo de evento.|Concierto<br/>Encuentro deportivo|
 
 ## <a name="fitness"></a>Fitness 
 El dominio de fitness ofrece intenciones y entidades relacionadas con el control de actividades de fitness. Las intenciones incluyen guardar notas, el tiempo restante o la distancia, así como guardar los resultados de la actividad.

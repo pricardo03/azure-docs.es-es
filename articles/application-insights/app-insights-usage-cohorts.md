@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.reviewer: daviste
 ms.author: mbullwin
-ms.openlocfilehash: 2157af8d6c3b8eea372c060a70c78559d8ffe6ad
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 30ef00fa1bfd2933df5e5c966cb8266d7c598a47
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35638840"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162175"
 ---
 # <a name="application-insights-cohorts"></a>Cohortes de Application Insights
 
@@ -110,7 +110,7 @@ Las dos cohortes anteriores se han definido mediante listas desplegables. Pero t
 
     * Una sección de consulta que se usa para definir la cohorte con una consulta de análisis.
 
-    En la sección de la consulta, [escriba una consulta de análisis](https://docs.loganalytics.io/index). La consulta selecciona el conjunto específico de filas que describen la cohorte que desee definir. La herramienta Cohortes agrega implícitamente una cláusula "| Resumir por identificador de usuario" a la consulta. Se muestra una vista previa de estos datos debajo de la consulta en una tabla para que se asegure de que la consulta devuelve resultados.
+    En la sección de la consulta, [escriba una consulta de análisis](/azure/kusto/query). La consulta selecciona el conjunto específico de filas que describen la cohorte que desee definir. La herramienta Cohortes agrega implícitamente una cláusula "| Resumir por identificador de usuario" a la consulta. Se muestra una vista previa de estos datos debajo de la consulta en una tabla para que se asegure de que la consulta devuelve resultados.
 
     > [!NOTE]
     > Si no ve la consulta, pruebe a cambiar el tamaño de la sección para hacerla más alta y mostrar la consulta. En el .gif animado al principio de esta sección se muestra el comportamiento de cambio de tamaño.

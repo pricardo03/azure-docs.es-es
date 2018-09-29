@@ -1,22 +1,23 @@
 ---
 title: Aprovisionamiento en Azure SaaS multiinquilino | Microsoft Docs
 description: Obtenga información sobre cómo aprovisionar y catalogar nuevos inquilinos en una aplicación SaaS de multiinquilino de Azure SQL Database
-keywords: tutorial de SQL Database
 services: sql-database
-author: MightyPen
-manager: craigg
-ms.reviewer: billgib;andrela;genemi
 ms.service: sql-database
-ms.custom: saas apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: MightyPen
+ms.author: genemi
+ms.reviewer: billgib,andrela,stein
+manager: craigg
 ms.date: 04/01/2018
-ms.author: billgib
-ms.openlocfilehash: 42f4aff50a5e3b89ee58f59c0db87f6a174e9be2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e37bc5f46a1a56357e3dff9d1f67de7dcc2537b0
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645970"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055312"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Aprovisionamiento y catalogación de nuevos inquilinos en una aplicación SaaS con una base de datos SQL de Azure multiinquilino con particiones
 
@@ -122,7 +123,7 @@ En este tutorial, aprenderá a:
 > * Aprovisionar un lote de inquilinos en bases de datos multiinquilino y en bases de datos de un único inquilino
 > * Registrar una asignación de inquilino y base de datos en un catálogo
 
-#### <a name="prerequisites"></a>requisitos previos
+#### <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 7633d00c24a18763d414b1a2595073753d651a50
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.component: ''
+ms.openlocfilehash: 297b3f4c9ef110f8adc9dcb5cd9eac9e30729a5d
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579027"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47180132"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Recopilación de registros y métricas de Azure para servicios de Log Analytics
 

@@ -2,19 +2,22 @@
 title: Administración de datos históricos en tablas temporales con directivas de retención |Microsoft Docs
 description: Aprenda a usar la directiva de retención temporal para mantener los datos históricos bajo su control.
 services: sql-database
-author: bonova
-manager: craigg
 ms.service: sql-database
-ms.custom: develop databases
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: f65f7ec44ccbeb6f64d43d20b1bd7a77329fa97f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: f339cadc63d5e5cd934d07e7b0fffc6342ca04c7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649030"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159113"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Administración de datos históricos en tablas temporales con directivas de retención
 Las tablas temporales pueden aumentar el tamaño de la base de datos más que las tablas normales, especialmente si conserva datos históricos durante un período de tiempo más largo. De ahí que las directivas de retención de datos históricos sean un aspecto importante del planeamiento y la administración del ciclo de vida de cada tabla temporal. Las tablas temporales de Azure SQL Database incluyen un mecanismo de retención fácil de usar que ayuda a realizar esta tarea.

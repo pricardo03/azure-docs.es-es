@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: Este artículo contiene información sobre la entidad precompilada de temperatura en Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: diberry
-ms.openlocfilehash: 6436a7ee8d7b796595813fa613c442824aeae8f3
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 39d33a3132a400ce0f1853062968cfdaf81c693f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237468"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041479"
 ---
 # <a name="temperature-entity"></a>Entidad de temperatura
 La entidad de temperatura extrae una variedad de tipos de temperatura. Dado que esta entidad ya está entrenada, no se necesita agregar expresiones de ejemplo que contengan temperatura en la aplicación. La entidad de temperatura se admite en [muchas referencias culturales](luis-reference-prebuilt-entities.md). 

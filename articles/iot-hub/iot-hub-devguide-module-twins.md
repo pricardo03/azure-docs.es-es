@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 8f567ba43c1657783f9898863aef980627800481
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 0df1170079e66bda95e38bcf17dcce738269eeb0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436326"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039390"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Uso de módulos gemelos en IoT Hub
 
@@ -250,7 +250,7 @@ Las etiquetas y las propiedades deseadas y notificadas son objetos JSON con las 
     }
     ```
 
-* Todos los valores de cadena pueden tener una longitud de 4 KB como máximo.
+* Todos los valores de cadena pueden tener como máximo una longitud de 512 bytes.
 
 ## <a name="module-twin-size"></a>Tamaño del módulo gemelo
 IoT Hub impone un límite de tamaño de 8 KB en cada uno de los valores totales respectivos `tags`, `properties/desired` y `properties/reported`, excepto los elementos de solo lectura.

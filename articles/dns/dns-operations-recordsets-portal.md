@@ -15,20 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: victorh
-ms.openlocfilehash: b95ec9b4b5077b236c5f3a7183820552b7ccac49
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e24aa8d0fb72147b0ac30e7c495b598d6e9ea96f
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174316"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451399"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Administración de registros y conjuntos de registros DNS mediante el Portal de Azure
-
-> [!div class="op_single_selector"]
-> * [Azure Portal](dns-operations-recordsets-portal.md)
-> * [CLI de Azure 1.0](dns-operations-recordsets-cli-nodejs.md)
-> * [CLI de Azure 2.0](dns-operations-recordsets-cli.md)
-> * [PowerShell](dns-operations-recordsets.md)
 
 En este artículo se explica cómo administrar conjuntos de registros y registros para la zona DNS mediante el Portal de Azure.
 
@@ -95,7 +89,7 @@ Puede usar el Portal de Azure para quitar registros de un conjunto de registros.
 
 1. En la hoja **Record set properties** (Propiedades del conjunto de registros) correspondiente al conjunto de registros, haga clic en **Eliminar**.
 
-    ![Eliminación de un conjunto de registros](./media/dns-operations-recordsets-portal/deleterecordset500.png)
+    ![Eliminación de un conjunto de registros](./media/dns-operations-recordsets-portal/deleterecordset500.PNG)
 
 2. Aparece un mensaje en el que se pregunta si desea eliminar el conjunto de registros.
 3. Compruebe que el nombre coincide con el conjunto de registros que desea eliminar y después haga clic en **Sí**.

@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
 manager: douge
-ms.openlocfilehash: 602e2a691dfa150c2e8332cb6dca070dbdd57901
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1448acf9a9e45b23b714a3a314526c5e6bb7752b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162094"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404592"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Desarrollo en equipo con Azure Dev Spaces
 
@@ -82,7 +82,7 @@ En el código de ejemplo anterior se reenvía el encabezado `azds-route-as` de l
 
 ## <a name="learn-about-team-development"></a>Aprenda sobre el desarrollo en equipo.
 
-[!INCLUDE [](includes/team-development-1.md)]
+[!INCLUDE [](../../includes/team-development-1.md)]
 
 Vamos a verlo en acción. Vaya a la ventana de VS Code para `mywebapi` y realice una edición de código para el método `string Get(int id)`, por ejemplo:
 
@@ -95,8 +95,25 @@ public string Get(int id)
 ```
 
 
-[!INCLUDE [](includes/team-development-2.md)]
+[!INCLUDE [](../../includes/team-development-2.md)]
 
-[!INCLUDE [](includes/well-done.md)]
+### <a name="well-done"></a>¡Listo!
+¡Ha completado la guía de introducción! Ha aprendido a:
 
-[!INCLUDE [](includes/clean-up.md)]
+> [!div class="checklist"]
+> * Configurar Azure Dev Spaces con un clúster de Kubernetes administrado en Azure.
+> * Desarrollar código de forma iterativa en contenedores.
+> * Desarrollar de forma independiente dos servicios distintos y usar la detección de servicios DNS de Kubernetes para realizar una llamada a otro servicio.
+> * Desarrollar y probar de forma productiva el código en un entorno de equipo.
+
+Ahora que ha explorado Azure Dev Spaces, [comparta su espacio de desarrollo con un miembro del equipo](how-to/share-dev-spaces.md) y ayúdele a ver lo fácil que es colaborar con otros.
+
+## <a name="clean-up"></a>Limpieza
+Para eliminar completamente una instancia de Azure Dev Spaces en un clúster, incluidos todos los espacios de desarrollo y los servicios en ejecución dentro de él, utilice el comando `az aks remove-dev-spaces`. Tenga en cuenta que esta acción es irreversible. Puede agregar compatibilidad para Azure Dev Spaces de nuevo en el clúster, pero será como si comienza de nuevo. No se restaurarán los servicios y espacios anteriores.
+
+En el ejemplo siguiente se enumeran los controladores de Azure Dev Spaces en la suscripción activa y, a continuación, se elimina el controlador de Azure Dev Spaces que está asociado con el clúster de AKS "myaks" en el grupo de recursos "myaks-rg".
+
+```cmd
+    azds controller list
+    az aks remove-dev-spaces --name myaks --resource-group myaks-rg
+```

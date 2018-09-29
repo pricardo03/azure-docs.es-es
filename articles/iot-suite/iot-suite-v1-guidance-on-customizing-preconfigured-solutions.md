@@ -1,12 +1,12 @@
 ---
-title: "Personalizar una solución preconfigurada | Microsoft Docs"
-description: "Proporciona directrices sobre la personalización de ñas soluciones preconfiguradas del Conjunto de aplicaciones de IoT de Azure."
-services: 
+title: Personalizar una solución preconfigurada | Microsoft Docs
+description: Proporciona directrices sobre la personalización de ñas soluciones preconfiguradas de Azure IoT Suite.
+services: ''
 suite: iot-suite
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4653ae53-4110-4a10-bd6c-7dc034c293a8
 ms.service: iot-suite
 ms.devlang: dotnet
@@ -15,15 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: ba965b9bc23b96adb2b1b7c9306cb7f508f820bf
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: cb5955111cb3954f71f11602042b5153ccee3473
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47106549"
 ---
 # <a name="customize-a-preconfigured-solution"></a>Personalizar una solución preconfigurada
 
-Las soluciones preconfiguradas proporcionadas con el conjunto de aplicaciones de IoT de Azure muestran los servicios del conjunto de aplicaciones que funcionan juntos para proporcionar una solución completa. Desde este punto de partida, existen varios lugares donde puede ampliar y personalizar la solución para cada situación específica. Las secciones siguientes describen estos puntos de personalización comunes.
+Las soluciones preconfiguradas proporcionadas conAzure IoT Suite muestran los servicios que funcionan juntos para proporcionar una solución completa. Desde este punto de partida, existen varios lugares donde puede ampliar y personalizar la solución para cada situación específica. Las secciones siguientes describen estos puntos de personalización comunes.
 
 ## <a name="find-the-source-code"></a>Ubicación del código fuente
 
@@ -33,7 +34,7 @@ El código fuente de su solución preconfigurada está disponible en Github en l
 * Mantenimiento predictivo: [https://github.com/Azure/azure-iot-predictive-maintenance](https://github.com/Azure/azure-iot-predictive-maintenance)
 * Fábrica conectada: [https://github.com/Azure/azure-iot-connected-factory](https://github.com/Azure/azure-iot-connected-factory)
 
-El código fuente de las soluciones preconfiguradas se proporciona para demostrar los patrones y los procedimientos que se usan para implementar la funcionalidad de extremo a extremo de una solución de IoT mediante el conjunto de aplicaciones de IoT de Azure. Puede encontrar más información sobre cómo crear e implementar las soluciones en los repositorios de GitHub.
+El código fuente de las soluciones preconfiguradas se proporciona para demostrar los patrones y los procedimientos que se usan para implementar la funcionalidad de extremo a extremo de una solución de IoT mediante Azure IoT Suite. Puede encontrar más información sobre cómo crear e implementar las soluciones en los repositorios de GitHub.
 
 ## <a name="change-the-preconfigured-rules"></a>Cambio de las reglas previamente configuradas
 
@@ -236,7 +237,7 @@ El valor predeterminado es 10 minutos. Puede cambiar este valor en [TelmetryApiC
 
 Para obtener más información sobre las opciones para personalizar las soluciones preconfiguradas, consulte estos artículos:
 
-* [Tutorial: Conexión de una aplicación lógica a la solución preconfigurada de supervisión remota del Conjunto de aplicaciones de IoT de Azure][lnk-logicapp]
+* [Tutorial: Conexión de una aplicación lógica a la solución preconfigurada de supervisión remota de Azure IoT Suite][lnk-logicapp]
 * [Uso de telemetría dinámica con la solución de supervisión remota preconfigurada][lnk-dynamic]
 * [Metadatos de información de dispositivo en la solución preconfigurada de supervisión remota][lnk-devinfo]
 * [Customize how the connected factory solution displays data from your OPC UA servers][lnk-cf-customize] (Personalización de cómo muestra la solución de fábrica conectada los datos de los servidores de OPC UA)
@@ -252,4 +253,4 @@ Para obtener más información sobre las opciones para personalizar las solucion
 [lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25 
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-cf-customize]: iot-suite-connected-factory-customize.md
+[lnk-cf-customize]:../iot-accelerators/iot-accelerators-connected-factory-customize.md

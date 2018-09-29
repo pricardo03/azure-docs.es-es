@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: bd05f1c5c2c8f4c4469a702b73341fd506c54815
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3ac7ab0aac190ab53075a6a4ee24fca3ee7eeb84
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958788"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227527"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Crear, modificar o eliminar un grupo de seguridad de red
 
@@ -68,7 +68,7 @@ En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *
 1. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *grupos de seguridad de red*. Cuando aparezca **grupos de seguridad de red** en los resultados de la búsqueda, selecciónelo.
 2. En la lista, seleccione el grupo de seguridad de red cuyos detalles quiere ver. En **CONFIGURACIÓN** puede ver las **reglas de seguridad de entrada** y las **reglas de seguridad de salida**, las **interfaces de red** y las **subredes** a las que está asociado el grupo de seguridad de red. También puede habilitar o deshabilitar los **registros de diagnóstico** y ver las **reglas de seguridad efectivas**. Para más información, consulte los temas sobre [registros de diagnóstico](virtual-network-nsg-manage-log.md) y [Visualización de reglas de seguridad efectivas](diagnose-network-traffic-filter-problem.md).
 3. Para más información sobre la configuración común de Azure que se muestra, consulte los artículos siguientes:
-    *   [Registro de actividad](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
+    *   [Registro de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
     *   [Control de acceso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
     *   [Etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Bloqueos](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

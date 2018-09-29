@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0654ea09fb67eeebed457be26133b80574dd383d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 92e4f93f3bf384ef8ec75a6f65d49a7b81e0925b
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952365"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432331"
 ---
 # <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>Tutorial: Habilitar el firewall de aplicaciones web mediante la CLI de Azure
 
@@ -73,7 +73,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>Creación de una puerta de enlace de aplicaciones con WAF
 
-Puede usar [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) para crear la puerta de enlace de aplicaciones llamada *myAppGateway*. Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. La puerta de enlace de aplicaciones se asigna a los elementos *myAGSubnet* y *myPublicIPSddress* creados anteriormente.
+Puede usar [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) para crear la puerta de enlace de aplicaciones llamada *myAppGateway*. Cuando se crea una puerta de enlace de aplicaciones mediante la CLI de Azure, se especifica información de configuración, como capacidad, SKU y HTTP. La puerta de enlace de aplicaciones se asigna a los elementos *myAGSubnet* y *myAGPublicIPAddress* creados anteriormente.
 
 ```azurecli-interactive
 az network application-gateway create \

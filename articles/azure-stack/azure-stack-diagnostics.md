@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 09/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: a36609ae63351070bb28469d9ccf1f3deb7bc6ff
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 5a9621ef9a8d6c545617e5bf3ef6f4197b70be88
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616956"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419617"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Herramientas de diagnóstico de Azure Stack
 
@@ -143,14 +143,6 @@ if($s)
  |Nube|IdentityProvider|OnboardRP|     |   
  |Clúster|iDns|PXE|     |
  |   |   |   |    |
-
-
-### <a name="bkmk_gui"></a>Recopilación de registros mediante una interfaz gráfica de usuario
-En lugar de proporcionar los parámetros necesarios para que el cmdlet Get-AzureStackLog recupere registros de Azure Stack, también puede aprovechar las herramientas de Azure Stack de código abierto disponibles ubicadas en el repositorio de herramientas de GitHub de Azure Stack principal en http://aka.ms/AzureStackTools.
-
-El script de PowerShell **ERCS_AzureStackLogs.ps1** se almacena en el repositorio de herramientas de GitHub y se actualiza con frecuencia. Para asegurarse de que tiene la versión más reciente disponible, debe descargarlo directamente de http://aka.ms/ERCS. Iniciado desde una sesión de PowerShell administrativa, el script se conecta al punto de conexión con privilegios y ejecuta Get-AzureStackLog con los parámetros proporcionados. Si no se proporcionan parámetros, la acción predeterminada del script es solicitar parámetros a través de una interfaz gráfica de usuario.
-
-Para más información acerca del script de PowerShell ERCS_AzureStackLogs.ps1 script puede ver [un vídeo corto](https://www.youtube.com/watch?v=Utt7pLsXEBc) o consultar el [archivo léame](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) del script ubicado en el repositorio de herramientas de GitHub de Azure Stack. 
 
 ### <a name="additional-considerations"></a>Consideraciones adicionales
 

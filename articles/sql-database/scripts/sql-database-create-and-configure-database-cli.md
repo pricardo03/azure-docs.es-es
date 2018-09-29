@@ -2,24 +2,22 @@
 title: Ejemplo de la CLI para crear una instancia de Azure SQL Database | Microsoft Docs
 description: Use este ejemplo de script de la CLI de Azure para crear una base de datos SQL.
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: janeng
-editor: carlrab
 ms.service: sql-database
-ms.custom: DBs & servers, mvc
+ms.subservice: single-database
+ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
+author: CarlRabeler
+manager: craigg
 ms.author: carlrab
-ms.date: 09/07/2018
-ms.openlocfilehash: a7537b59a73c00a5364bfa4a758a6584a9ef6003
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.reviewer: ''
+ms.date: 09/20/2018
+ms.openlocfilehash: d239236e9e6f7133aa57eb617c3cc9e8626fc178
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964282"
+ms.locfileid: "47055482"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>Uso de la CLI para crear una instancia única de Azure SQL Database y configurar una regla de firewall
 
@@ -49,11 +47,11 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Crea un servidor lógico que hospeda SQL Database. |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create) | Crea una regla de firewall para permitir el acceso a todas las instancias de SQL Database en el servidor desde el intervalo de direcciones IP especificado. |
-| [az sql db create](/cli/azure/sql/db#az_sql_db_create) | Crea la instancia de SQL Database en el servidor lógico. |
-| [az group delete](/cli/azure/resource#az_resource_delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
+| [az group create](/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crea un servidor lógico que hospeda SQL Database. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Crea una regla de firewall para permitir el acceso a todas las instancias de SQL Database en el servidor desde el intervalo de direcciones IP especificado. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Crea la instancia de SQL Database en el servidor lógico. |
+| [az group delete](/cli/azure/resource#az-resource-delete) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

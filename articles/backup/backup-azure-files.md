@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: d21a235602c425cef77b26d8c60f1e3562411095
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 09bddd1c1d9589dbba0acf319ba43ea54c0c737b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961679"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221469"
 ---
 # <a name="back-up-azure-file-shares"></a>Copia de seguridad de recursos compartidos de archivos de Azure
 En este artículo se explica cómo usar Azure Portal para realizar una copia de seguridad de los [recursos compartidos de archivos de Azure](../storage/files/storage-files-introduction.md) y restaurarla.
@@ -27,7 +27,7 @@ En esta guía, aprenderá a:
 > * Detener la protección en archivos de Azure
 > * Eliminar los datos de copia de seguridad
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de realizar una copia de seguridad de un recurso compartido de archivos de Azure, asegúrese de que se encuentra en uno de los [tipos de cuenta de almacenamiento admitidos](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Cuando haya comprobado esto, puede proteger los recursos compartidos de archivos.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitaciones de la copia de seguridad de recursos compartidos de archivos de Azure en la versión preliminar
@@ -195,3 +195,5 @@ En el siguiente procedimiento se da por sentado que se ha detenido el trabajo de
 Para más información acerca de los recursos compartidos de archivos de Azure, consulte
 - [Preguntas frecuentes acerca de la copia de seguridad de recursos compartidos de archivos de Azure](backup-azure-files-faq.md)
 - [Solución de problemas en la copia de seguridad de recursos compartidos de archivos de Azure](troubleshoot-azure-files.md)
+ 
+

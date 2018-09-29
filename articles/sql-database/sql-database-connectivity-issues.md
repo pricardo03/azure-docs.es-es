@@ -3,19 +3,22 @@ title: Corrección de un error de conexión de SQL, error transitorio | Microsof
 description: Aprenda a solucionar problemas, diagnosticar y evitar un error de conexión de SQL o un error transitorio en Azure SQL Database.
 keywords: conexión de sql, cadena de conexión, problemas de conectividad, error transitorio, error de conexión
 services: sql-database
-author: dalechen
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
+author: dalechen
 ms.author: ninarn
-ms.openlocfilehash: 1da4e8d94007653a43f187322c1d0e4077e337fa
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 08/01/2018
+ms.openlocfilehash: f381eaad61c98228ea9be2665ebed5878b666317
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398944"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064244"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Acciones para solucionar problemas, diagnosticar y evitar errores de conexión y errores transitorios en SQL Database
 En este artículo se describe cómo evitar, solucionar, diagnosticar y mitigar los errores de conexión y los errores transitorios que la aplicación cliente encuentra cuando interactúa con Azure SQL Database. Aprenda a configurar la lógica de reintento, generar la cadena de conexión y ajustar otros valores de conexión.
@@ -265,7 +268,7 @@ Presentamos algunas instrucciones SELECT de Transact-SQL que consultan los regis
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
 ### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnóstico: Buscar eventos de problema en el registro de SQL Database
-Puede buscar entradas sobre los eventos de problema en el registro de SQL Database. Pruebe la siguiente instrucción SELECT de Transact-SQL en la base de datos *principal*:
+Puede buscar entradas sobre los eventos de problema en el registro de SQL Database. Pruebe la siguiente instrucción SELECT de Transact-SQL en la base de datos *principal* :
 
 ```
 SELECT

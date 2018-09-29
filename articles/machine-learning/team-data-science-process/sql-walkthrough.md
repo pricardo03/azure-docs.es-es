@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 6e58429567e447002b1c9191bb8e50a4351649a9
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 6e9813d989a54dbb1609a58dd502a7493d973faa
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246844"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433725"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proceso de ciencia de datos en equipos en acción: uso de SQL Server
 En este tutorial, se describe el proceso de creación e implementación de un modelo de Machine Learning con SQL Server y un conjunto de datos disponible públicamente: [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) . El procedimiento sigue un flujo de trabajo de ciencia de datos estándar: introducir y explorar los datos, diseñar características para facilitar el aprendizaje y, después, crear e implementar un modelo.
@@ -582,7 +582,7 @@ En este ejercicio, ya se han explorado y diseñado los datos en SQL Server, y ta
 2. Seleccionar **Azure SQL Database** como **Origen de datos** en el panel **Propiedades**.
 3. Escribir el nombre DNS de la base de datos en el campo **Nombre del servidor de la base de datos** . Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Escribir el **nombre de la base de datos** en el campo correspondiente.
-5. Escribir el **nombre de usuario de SQL** en **Server user account name y la contraseña en **Server user account password**.
+5. Escribir el **nombre de usuario de SQL** en **Nombre de la cuenta de usuario del servidor** y la **contraseña** en **Contraseña de la cuenta de usuario del servidor**.
 7. En el área de texto editable **Consulta de base de datos** , pegar la consulta que extrae los campos de la base de datos necesarios (incluidos los campos calculados, como las etiquetas) y reducir la muestra al tamaño de muestra deseado.
 
 En la ilustración siguiente se muestra un ejemplo de un experimento de clasificación binaria que lee datos directamente de la base de datos de SQL Server. Se pueden construir experimentos similares para problemas de clasificación multiclase y de regresión.

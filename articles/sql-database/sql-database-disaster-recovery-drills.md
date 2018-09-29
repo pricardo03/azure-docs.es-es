@@ -2,20 +2,22 @@
 title: Maniobras de recuperación ante desastres de SQL Database | Microsoft Docs
 description: Obtenga información de instrucciones y procedimientos recomendados para usar Azure SQL Database en la recuperación ante desastres.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 52973758404faa4158afe81a92079c1acdb4cfd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: c861163670b05b01c9c6d64b81f6e83c979a2af8
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645470"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163042"
 ---
 # <a name="performing-disaster-recovery-drill"></a>Obtención de detalles de la recuperación ante desastres
 Se recomienda validar periódicamente el flujo de trabajo de preparación de la aplicación para la recuperación. Comprobar el comportamiento de la aplicación y las implicaciones de las pérdidas de datos o de las interrupciones que conlleva la conmutación por error es una buena práctica de ingeniería. También es un requisito de la mayoría de estándares del sector como parte de la certificación de continuidad del negocio.

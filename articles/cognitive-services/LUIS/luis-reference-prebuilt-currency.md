@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: Este artículo contiene información de la entidad precompilada de la moneda en Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: diberry
-ms.openlocfilehash: b383e21f870d15818c540b79a9a56c1dd65fa342
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 89350ad6a49ceef8169d1693dafdedf702992504
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236829"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033896"
 ---
 # <a name="currency-entity"></a>Entidad de la moneda
 La entidad de la moneda precompilada detecta la moneda en muchas denominaciones y países, independientemente de la referencia cultural de la aplicación de LUIS. Dado que esta entidad ya está entrenada, no es necesario agregar expresiones de ejemplo que contengan la moneda para las intenciones de la aplicación. La entidad de la moneda se admite en [muchas referencias culturales](luis-reference-prebuilt-entities.md). 

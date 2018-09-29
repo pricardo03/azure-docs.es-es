@@ -3,18 +3,18 @@ title: Panel de la aplicación para aplicaciones de LUIS| Microsoft Docs
 description: Obtenga información sobre el panel de la aplicación, una herramienta de informes visualizada que permite supervisar las aplicaciones de un solo vistazo.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: diberry
-ms.openlocfilehash: 518227d9f4165a08fafefa357de255d97c710f61
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cab07a994f2bdfb7ef8491adbb482c1902e4d4cb
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224507"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031992"
 ---
 # <a name="application-dashboard"></a>Panel de la aplicación
 El panel de la aplicación permite supervisar la aplicación de un solo vistazo. El **Panel** se muestra cuando se abre una aplicación al hacer clic en el nombre de la aplicación en la página **My Apps** (Mis aplicaciones) y después en **Dashboard** (Panel) en el panel superior. 

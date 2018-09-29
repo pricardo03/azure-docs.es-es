@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/24/2017
-ms.author: adamab
+ms.author: cwatson
 ms.custom: accessibility
-ms.openlocfilehash: 4744a752230cfd1f6012d9fe0a502b2653ef8061
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: de79e1ea91b7d30eb550cb078bbb257e2f924dfb
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295234"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393832"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Métodos abreviados de teclado de Azure Portal
 Este artículo muestra los métodos abreviados de teclado que funcionan en Azure Portal. Los servicios individuales pueden tener sus propios métodos abreviados de teclado.

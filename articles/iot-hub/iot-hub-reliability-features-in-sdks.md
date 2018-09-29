@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f6cfb7bb988b080189da444cb77e0c258417b1ac
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 9a07fa2010eef22c4d1477641d07dee70ab5a9cb
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574716"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227459"
 ---
 # <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>Administración de la conectividad y mensajería confiable mediante los SDK de dispositivo de Azure IoT Hub
 
@@ -54,7 +54,7 @@ Los errores de conexión pueden producirse en muchos niveles:
 - Errores a nivel de protocolo para transporte HTTP, AMQP y MQTT, como vínculos desasociados o sesiones expiradas
 - Errores a nivel de aplicación que se generan a partir de errores locales, como credenciales no válidas o un comportamiento de servicio, como exceder una cuota o una limitación
 
-Los SDK de dispositivo detectan errores en los tres niveles.  Los errores relacionados con el sistema operativo y los errores de hardware no se detectan ni se controlan mediante los SDK de dispositivo.  El diseño se basa en [la guía para controlar errores transitorios](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) de Azure Architecture Center.
+Los SDK de dispositivo detectan errores en los tres niveles.  Los errores relacionados con el sistema operativo y los errores de hardware no se detectan ni se controlan mediante los SDK de dispositivo.  El diseño se basa en [la guía para controlar errores transitorios](/azure/architecture/best-practices/transient-faults#general-guidelines) de Azure Architecture Center.
 
 ### <a name="retry-patterns"></a>Patrones de reintentos
 

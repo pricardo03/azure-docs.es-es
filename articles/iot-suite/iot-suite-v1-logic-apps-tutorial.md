@@ -1,12 +1,12 @@
 ---
-title: Conjunto de aplicaciones de IoT de Azure y Logic Apps | Microsoft Docs
-description: "Un tutorial sobre cómo enlazar aplicaciones lógicas con el conjunto de aplicaciones de IoT de Azure para el proceso empresarial."
-services: 
+title: Azure IoT Suite y Logic Apps | Microsoft Docs
+description: Un tutorial sobre cómo enlazar aplicaciones lógicas conAzure IoT Suite para el proceso empresarial.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4629a7af-56ca-4b21-a769-5fa18bc3ab07
 ms.service: iot-suite
 ms.devlang: na
@@ -16,13 +16,14 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
 ms.openlocfilehash: 4a1db86f4b715533dfea545365eaf66de0574c5e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47106559"
 ---
-# <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Tutorial: Conexión de una aplicación lógica a la solución preconfigurada de supervisión remota del conjunto de aplicaciones de IoT de Azure
-La solución preconfigurada de supervisión remota del [conjunto de aplicaciones de IoT de Microsoft Azure][lnk-internetofthings] constituye una excelente forma de empezar a trabajar rápidamente con una serie de características de extremo a extremo que ejemplifica una solución de IoT. Este tutorial le mostrará cómo agregar una aplicación lógica a su solución preconfigurada de supervisión remota de dicho conjunto de aplicaciones. Estos pasos muestran cómo puede aprovechar aún más la solución de IoT conectándola a un proceso empresarial.
+# <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Tutorial: Conexión de una aplicación lógica a la solución preconfigurada de supervisión remota de Azure IoT Suite
+La solución preconfigurada de supervisión remota de [Microsoft Azure IoT Suite][lnk-internetofthings] constituye una excelente forma de empezar a trabajar rápidamente con una serie de características de extremo a extremo que ejemplifica una solución de IoT. Este tutorial le mostrará cómo agregar una aplicación lógica a su solución preconfigurada de supervisión remota de Microsoft Azure IoT Suite. Estos pasos muestran cómo puede aprovechar aún más la solución de IoT conectándola a un proceso empresarial.
 
 *Si está buscando un tutorial sobre cómo aprovisionar una solución preconfigurada de supervisión remota, consulte [Tutorial: Introducción a las soluciones preconfiguradas][lnk-getstarted].*
 
@@ -42,7 +43,7 @@ Para comenzar, configure la aplicación lógica que se usará con la solución p
 ## <a name="set-up-the-logic-app"></a>Configuración de la aplicación lógica
 1. Haga clic en la opción **Agregar** que verá en la parte superior de la hoja del grupo de recursos en Azure Portal.
 2. Busque la **aplicación lógica**, selecciónela y, después, haga clic en **Crear**.
-3. Especifique un valor en **Nombre** y utilice los mismos valores de **Suscripción** y **Grupo de recursos** que usó al aprovisionar la solución de supervisión remota. Haga clic en **Crear**.
+3. Especifique un valor en **Nombre** y utilice los mismos valores de **Suscripción** y **Grupo de recursos** que usó al aprovisionar la solución de supervisión remota. Haga clic en **Create**(Crear).
    
     ![](media/iot-suite-v1-logic-apps-tutorial/createlogicapp.png)
 4. Cuando se complete la implementación, verá que la aplicación lógica aparece incluida en el grupo de recursos.
@@ -106,7 +107,7 @@ Para comenzar, configure la aplicación lógica que se usará con la solución p
 ## <a name="set-up-the-eventprocessor-web-job"></a>Configuración del trabajo web EventProcessor
 En esta sección, se conectará la solución preconfigurada a la aplicación lógica creada. Para completar esta tarea, agregue la dirección URL para desencadenar la aplicación lógica con la acción que se activa cuando el valor del sensor de un dispositivo supera un umbral.
 
-1. Use el cliente de Git para clonar la versión más reciente del [repositorio de GitHub azure-iot-remote-monitoring][lnk-rmgithub]. Por ejemplo:
+1. Use el cliente de Git para clonar la versión más reciente del [repositorio de GitHub azure-iot-remote-monitoring][lnk-rmgithub]. Por ejemplo: 
    
     ```cmd
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git

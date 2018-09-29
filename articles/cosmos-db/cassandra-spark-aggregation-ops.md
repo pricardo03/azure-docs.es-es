@@ -10,12 +10,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: ac150b72e94b010457731616784b2a8381c9080c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 385a365ac3b81bca70a71eeed7ca1876c9df49b8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969339"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225008"
 ---
 # <a name="aggregate-operations-on-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Operaciones de agregado en tablas de Cassandra API de Azure Cosmos DB de Spark 
 
@@ -28,7 +28,7 @@ En este artículo se describen operaciones de agregación básicas en tablas de 
 
 ```scala
 import org.apache.spark.sql.cassandra._
-//datastax Spark connector
+//Spark connector
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.cql.CassandraConnector
 
@@ -72,7 +72,7 @@ booksDF.write
 ## <a name="count-operation"></a>Operación de recuento
 
 
-### <a name="rdd-api"></a>API de RDD
+### <a name="rdd-api"></a>RDD API
 
 ```scala
 sc.cassandraTable("books_ks", "books").count
@@ -83,7 +83,7 @@ sc.cassandraTable("books_ks", "books").count
 res48: Long = 5
 ```
 
-### <a name="dataframe-api"></a>API de tramas de datos
+### <a name="dataframe-api"></a>Dataframe API
 
 Actualmente no se admite el recuento de tramas de datos.  En el ejemplo siguiente se muestra cómo ejecutar un recuento de tramas de datos después de guardar la trama de datos en la memoria como una solución alternativa.
 
@@ -138,7 +138,7 @@ select count(*) from books_vw;
 
 ## <a name="average-operation"></a>Operación de promedio
 
-### <a name="rdd-api"></a>API de RDD
+### <a name="rdd-api"></a>RDD API
 
 ```scala
 sc.cassandraTable("books_ks", "books").select("book_price").as((c: Double) => c).mean
@@ -149,7 +149,7 @@ sc.cassandraTable("books_ks", "books").select("book_price").as((c: Double) => c)
 res24: Double = 16.016000175476073
 ```
 
-### <a name="dataframe-api"></a>API de tramas de datos
+### <a name="dataframe-api"></a>Dataframe API
 
 ```scala
 spark
@@ -182,7 +182,7 @@ select avg(book_price) from books_vw;
 
 ## <a name="min-operation"></a>Operación mínima
 
-### <a name="rdd-api"></a>API de RDD
+### <a name="rdd-api"></a>RDD API
 
 ```scala
 sc.cassandraTable("books_ks", "books").select("book_price").as((c: Float) => c).min
@@ -193,7 +193,7 @@ sc.cassandraTable("books_ks", "books").select("book_price").as((c: Float) => c).
 res31: Float = 11.33
 ```
 
-### <a name="dataframe-api"></a>API de tramas de datos
+### <a name="dataframe-api"></a>Dataframe API
 
 ```scala
 spark
@@ -233,7 +233,7 @@ select min(book_price) from books_vw;
 sc.cassandraTable("books_ks", "books").select("book_price").as((c: Float) => c).max
 ```
 
-### <a name="dataframe-api"></a>API de tramas de datos
+### <a name="dataframe-api"></a>Dataframe API
 
 ```scala 
 spark
@@ -264,7 +264,7 @@ select max(book_price) from books_vw;
 
 ## <a name="sum-operation"></a>Operación de suma
 
-### <a name="rdd-api"></a>API de RDD
+### <a name="rdd-api"></a>RDD API
 
 ```scala
 sc.cassandraTable("books_ks", "books").select("book_price").as((c: Float) => c).sum
@@ -275,7 +275,7 @@ sc.cassandraTable("books_ks", "books").select("book_price").as((c: Float) => c).
 res46: Double = 80.08000087738037
 ```
 
-### <a name="dataframe-api"></a>API de tramas de datos
+### <a name="dataframe-api"></a>Dataframe API
 
 ```scala
 spark
@@ -308,7 +308,7 @@ select sum(book_price) from books_vw;
 
 ## <a name="top-or-comparable-operation"></a>Operación comparable o superior
 
-### <a name="rdd-api"></a>API de RDD
+### <a name="rdd-api"></a>RDD API
 
 ```scala
 val readCalcTopRDD = sc.cassandraTable("books_ks", "books").select("book_name","book_price").sortBy(_.getFloat(1), false)
@@ -322,7 +322,7 @@ readCalcTopRDD.zipWithIndex.filter(_._2 < 3).collect.foreach(println)
 (CassandraRow{book_name: The memoirs of Sherlock Holmes, book_price: 14.22},2)
 readCalcTopRDD: org.apache.spark.rdd.RDD[com.datastax.spark.connector.CassandraRow] = MapPartitionsRDD[430] at sortBy at command-2371828989676374:1
 ```
-### <a name="dataframe-api"></a>API de tramas de datos
+### <a name="dataframe-api"></a>Dataframe API
 
 ```scala
 import org.apache.spark.sql.functions._

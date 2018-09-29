@@ -2,21 +2,22 @@
 title: Uso de Visual Studio y .NET para consultar Azure SQL Database | Microsoft Docs
 description: En este tema se muestra cómo usar Visual Studio para crear un programa que se conecta a Azure SQL Database y realiza consultas mediante instrucciones Transact-SQL.
 services: sql-database
-ms.workload: azure-vs
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: devcenter, vs-azure
+ms.subservice: development
+ms.custom: ''
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: da2bd556567882d2620e9bc8b1f58923010eeaa4
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: e6eaaa67914579edd5c3b53362835aa1ad168eca
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050024"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064040"
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Uso de .NET (C#) con Visual Studio para conectarse y consultar una base de datos SQL de Azure
 

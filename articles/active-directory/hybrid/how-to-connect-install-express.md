@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0e31f311c123fa8ace523cfde21ebdf2f707fce5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 1af54e3b0237d1d62ae7fb47939e7786fa1219b8
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303883"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434677"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introducción a Azure AD Connect mediante la configuración rápida
 La **configuración rápida** de Azure AD Connect se usa cuando se tiene una topología de bosque único y una [sincronización de hash de contraseñas](how-to-connect-password-hash-synchronization.md) para la autenticación. **Configuración rápida** es la opción predeterminada y se utiliza en los escenarios implementados más habituales. Ya solo le faltan uno cuantos clics para extender su directorio local a la nube.
@@ -46,7 +46,7 @@ Puede ver estos pasos de acción en la sección [Vídeos](#videos) .
    Si ve esta página, revise los dominios marcados como **Not Added** (Sin agregar) y **Not Verified** (Sin comprobar). Asegúrese de que los dominios que usa se han comprobado en Azure AD. Cuando haya comprobado los dominios, haga clic en el símbolo de actualización.
 8. En la pantalla Listo para configurar, haga clic en **Instalar**.
    * En la página Listo para configurar, puede desactivar la casilla **Inicie el proceso de sincronización en cuanto se complete la configuración**. Si quiere realizar alguna configuración adicional, por ejemplo, el [filtrado](how-to-connect-sync-configure-filtering.md), desactive esta casilla. Si desactiva esta opción, el asistente configura la sincronización, pero deja el programador deshabilitado,  y no se ejecuta hasta que lo habilite manualmente [volviendo a ejecutar el Asistente para la instalación](how-to-connect-installation-wizard.md).
-   * Si deja la casilla **Inicie el proceso de sincronización cuando se complete la configuración** habilitada, se desencadenará de inmediato una sincronización completa en Azure AD de todos los usuarios, grupos y contactos. 
+   * Si deja la casilla **Inicie el proceso de sincronización cuando se complete la configuración** habilitada, se desencadenará de inmediato una sincronización completa en Azure AD de todos los usuarios, grupos y contactos.
    * Si tiene Exchange en su entorno de Active Directory local, también dispone de la opción para habilitar una [**implementación híbrida de Exchange**](https://technet.microsoft.com/library/jj200581.aspx). Habilite esta opción si planea tener buzones de Exchange tanto en la nube como locales de manera simultánea.
      ![Listo para configurar Azure AD Connect](./media/how-to-connect-install-express/readytoconfigure.png)
 9. Una vez completada la instalación, haga clic en **Salir**.

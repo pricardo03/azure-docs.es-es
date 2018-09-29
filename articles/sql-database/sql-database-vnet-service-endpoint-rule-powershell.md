@@ -2,21 +2,22 @@
 title: PowerShell para las reglas y los puntos de conexión del servicio Virtual Network en Azure SQL| Microsoft Docs
 description: Proporciona scripts de PowerShell para crear y administrar puntos de conexión del servicio virtual para su Azure SQL Database y SQL Data Warehouse.
 services: sql-database
-author: DhruvMsft
-manager: craigg
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-ms.custom: VNet Service endpoints
+ms.subservice: development
+ms.custom: ''
+ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 06/14/2018
-ms.reviewer: genemi, vanto
+author: DhruvMsft
 ms.author: dmalik
-ms.openlocfilehash: d40f471ec3f7aa1646fd4b9b19395be87cb5935a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.reviewer: genemi, vanto
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 50e88dd11b8a883a4d2999ad2d0419cbf7176078
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714554"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161155"
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database-and-sql-data-warehouse"></a>Usar PowerShell para crear una regla y un punto de conexión del servicio virtual para Azure SQL Database y SQL Data Warehouse
 

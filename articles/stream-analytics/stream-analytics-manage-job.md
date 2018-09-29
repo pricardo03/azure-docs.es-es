@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 6b924e0555ea7a57f8d5e5309a266b6d2fb44f44
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 1955fc033e0351be9da89bbee11dc41d6281a63a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702534"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433997"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Creación de un trabajo de Stream Analytics para analizar los datos de llamadas de teléfono y visualizar los resultados en un panel de Power BI
  
@@ -101,12 +101,12 @@ Antes de iniciar la aplicación TelcoGenerator, debe configurarla para enviar da
 5. A continuación, abra una ventana de comandos, cambie a la carpeta donde ha descomprimido la aplicación TelcoGenerator y escriba el siguiente comando:
 
    ```
-   telcodatagen.exe 1000 .2 2
+   telcodatagen.exe 1000 0.2 2
    ```
 
    Este comando toma los parámetros siguientes:
    * **Número de registros de datos de llamada por hora**.  
-   * **Porcentaje de probabilidad de fraude**: es decir, la frecuencia con la que la aplicación debe simular una llamada fraudulenta. El valor .2 indica que aproximadamente el 20 % de los registros de llamada tendrán un aspecto fraudulento.  
+   * **Porcentaje de probabilidad de fraude**: es decir, la frecuencia con la que la aplicación debe simular una llamada fraudulenta. El valor 0,2 indica que aproximadamente el 20 % de los registros de llamada tendrán un aspecto fraudulento.  
    * **Duración en horas**: el número de horas que debe ejecutarse la aplicación. También puede finalizar el proceso (Ctrl+C) en la línea de comandos para detener la aplicación en cualquier momento.
 
    Después de unos segundos, la aplicación comienza a mostrar los registros de llamada telefónica en la pantalla tal y como los envía al centro de eventos. Los datos de llamada de teléfono contienen los siguientes campos:
@@ -228,7 +228,7 @@ Puede probar una consulta desde el editor de consultas, pero para ello necesita 
 
 3. Establezca **Minutos** en 3 y seleccione **Aceptar**. Se realiza el muestreo de tres minutos de datos del flujo de entrada y se le notifica cuando los datos de muestra están listos. Puede ver el estado del muestreo en la barra de notificación. 
 
-   Los datos de muestra se almacenan temporalmente y están disponibles mientras tenga abierta la ventana de consulta. Si cierra la ventana de consulta, los datos de muestra se descartan y tendrá que crear un nuevo conjunto de datos de muestra. Como alternativa, puede obtener un archivo .json que contiene datos de muestra en [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample Data/telco.json) y luego cargarlo para usarlo como datos de muestra para la entrada CallStream.  
+   Los datos de muestra se almacenan temporalmente y están disponibles mientras tenga abierta la ventana de consulta. Si cierra la ventana de consulta, los datos de muestra se descartan y tendrá que crear un nuevo conjunto de datos de muestra. Como alternativa, puede obtener un archivo .json que contiene datos de muestra en [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) y luego cargarlo para usarlo como datos de muestra para la entrada CallStream.  
 
 4. Seleccione **Probar** para probar la consulta; verá los resultados de salida, tal y como se muestra en esta captura de pantalla:  
 
@@ -262,7 +262,7 @@ Puede probar una consulta desde el editor de consultas, pero para ello necesita 
 
 En esta parte del tutorial, usará una aplicación web [ASP.NET](http://asp.net/) de ejemplo que ha creado el equipo de PowerBI para insertar el panel. Para más información sobre cómo insertar paneles, consulte el artículo [Inserción con Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
-En este tutorial, se seguirán los pasos del usuario propietario de la aplicación de datos. Para configurar la aplicación, vaya al repositorio de GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) y siga las instrucciones de la sección **User Owns Data** (use las direcciones URL de redireccionamiento y de página principal en la subsección **integrate-dashboard-web-app**). Dado que se está usando el ejemplo de panel, utilice el código de ejemplo integrate-dashboard-web-app que se encuentra en el [repositorio de GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User Owns Data/integrate-dashboard-web-app).
+En este tutorial, se seguirán los pasos del usuario propietario de la aplicación de datos. Para configurar la aplicación, vaya al repositorio de GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) y siga las instrucciones de la sección **User Owns Data** (use las direcciones URL de redireccionamiento y de página principal en la subsección **integrate-dashboard-web-app**). Dado que se está usando el ejemplo de panel, utilice el código de ejemplo integrate-dashboard-web-app que se encuentra en el [repositorio de GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 Cuando esté satisfecho con la aplicación que se ejecuta en el explorador, siga estos pasos para insertar el panel que creó anteriormente en la página web:
 
 1. Seleccione **Sign in to Power BI** (Iniciar sesión en Power BI). Mediante esta acción se concede a la aplicación acceso a los paneles de la cuenta de Power BI.  

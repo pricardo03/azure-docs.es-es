@@ -4,18 +4,18 @@ description: Información sobre cómo agregar una entidad de lista para ayudar a
 services: cognitive-services
 author: diberry
 titleSuffix: Azure
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 12a6cfbe7267d3575fbb33978d7ea6e743802d12
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 42fde2b24f851129e24257bbfe6d65a96e235485
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237169"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036786"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Use una entidad de lista para aumentar la detección de entidades 
 En este tutorial se muestra el uso de una [entidad de lista](luis-concept-entity-types.md) para aumentar la detección de entidades. No es necesario etiquetar las entidades de lista ya que son una coincidencia exacta de términos.  

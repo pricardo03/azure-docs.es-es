@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 30dbdff584f1bea955072e96a5e0f03cfe4c92c1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c195f2ee24b61a57c098d5214a37f65e80845074
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963737"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410211"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Tutorial: Creación de una solución de aprendizaje automático de Edge con Azure y Azure Stack
 
@@ -30,7 +30,7 @@ Aprenda a crear una solución de aprendizaje automático de Edge con Azure y Azu
 En este tutorial, creará un entorno de ejemplo para:
 
 > [!div class="checklist"]
-> - Crear una cuenta de almacenamiento y un contenedor que contenga los datos limpios
+> - Cree una cuenta de almacenamiento y un contenedor que contenga los datos limpios.
 > - Crear una instancia de Data Science Virtual Machine (DSVM) Ubuntu en Azure Portal
 > - Implementar Azure Machine Learning Services en Azure para compilar y entrenar modelos
 > - Crear cuentas de Azure Machine Learning Services
@@ -71,7 +71,7 @@ Se requieren conocimientos previos de Azure y Azure Stack. Para más informació
 
  -  [Conceptos clave de Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-key-features)
 
- -  [Guía de soluciones híbridas de CI/CD de Azure Stack](/azure-stack-solution-pipeline.md)
+ -  [Guía de soluciones híbridas de CI/CD de Azure Stack](/azure/azure-stack/user/azure-stack-solution-pipeline)
 
 **Las tablas de Azure**
 

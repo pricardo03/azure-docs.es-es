@@ -2,20 +2,22 @@
 title: 'Configuración de la retención de copias de seguridad a largo plazo: Azure SQL Database | Microsoft Docs'
 description: Aprenda a almacenar copias de seguridad automáticas en el almacén de Azure Recovery Services y a restaurarlas en él
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/08/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c908e73a225f90227f09a8bb806a62c690de7632
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+manager: craigg
+ms.date: 05/08/2018
+ms.openlocfilehash: a9a3d696f1c503969b89795f8c6d86a77bd353e8
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718855"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160731"
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configuración y restauración de retención de copias de seguridad a largo plazo de Azure SQL Database mediante el almacén de Azure Recovery Services
 

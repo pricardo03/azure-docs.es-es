@@ -2,19 +2,22 @@
 title: Informes de bases de datos escaladas horizontalmente en la nube (partición horizontal) | Microsoft Docs
 description: Uso de consultas de bases de datos entre bases de datos para informes a través de varias bases de datos.
 services: sql-database
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MladjoA
 ms.author: mlandzic
-ms.openlocfilehash: e2393980d966d5a476a2fedf0e70b0614e803e06
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: f6e9c36634435c759004e6102148a072bbdba94a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646446"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166697"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Informes de bases de datos escaladas horizontalmente en la nube (versión preliminar)
 Puede crear informes de varias bases de datos SQL de Azure desde un único punto de conexión mediante una [consulta elástica](sql-database-elastic-query-overview.md). Las bases de datos deben tener particiones horizontales (también conocidas como "particiones").
@@ -23,7 +26,7 @@ Si tiene una base de datos, consulte [Conversión de bases de datos existentes p
 
 Para comprender los objetos SQL necesarios para realizar consultas, consulte [Informes de bases de datos escaladas horizontalmente en la nube (versión preliminar)](sql-database-elastic-query-horizontal-partitioning.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Descargue [Introducción al ejemplo de herramientas de Elastic Database](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Creación de un administrador de mapas de particiones con la aplicación de ejemplo

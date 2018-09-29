@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 928a251c00952b9b515d41c87821e3b3f821809f
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434609"
 documentType: LandingData
 title: Documentación sobre Base de datos de Azure para PostgreSQL
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
-  ms.openlocfilehash: ef78955bf3b7453702725d0899f3f6813fa29ef2
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
-  ms.translationtype: HT
-  ms.contentlocale: es-ES
-  ms.lasthandoff: 01/12/2018
-  ms.locfileid: "27784833"
 abstract:
   description: Base de datos de Azure para PostgreSQL es un servicio de base de datos relacional basado en el motor de base de datos de código abierto de PostgreSQL.  Es una base de datos como servicio completamente administrada que ofrece la capacidad de manejar cargas de trabajo críticas con rendimiento predecible, gran seguridad, alta disponibilidad y escalabilidad dinámica.  Desarrolle aplicaciones con la Base de datos PostgreSQL en Azure para aprovechar las herramientas y plataformas de código abierto de su elección.  Aprenda a usar Base de datos PostgreSQL en Azure con nuestros inicios rápidos, tutoriales y ejemplos.
 sections:
@@ -46,8 +46,21 @@ sections:
     style: ordered
     items:
     - html: Diseño de una base de datos&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure Portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">CLI de Azure</a>
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Compilación de una aplicación web con Python y la CLI</a>
-- title: Muestras
+    - html: <a href="/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Compilación de una aplicación web con Python y la CLI</a>
+- title: Desarrollo de aptitudes con Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Creación de un servidor de Azure Database for PostgreSQL
+      href: /learn/modules/create-azure-db-for-postgresql-server/
+      image:
+        src: /learn/achievements/create-azure-db-for-postgresql-server.svg
+        href: /learn/modules/create-azure-db-for-postgresql-server/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure">Más aprendizaje interactivo...</a>
+- title: Ejemplos
   items:
   - type: paragraph
     text: Busque scripts para administrar las tareas más habituales.

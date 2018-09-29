@@ -2,19 +2,22 @@
 title: Introducción a las consultas entre bases de datos (particiones verticales) | Microsoft Docs
 description: cómo usar la consulta de base de datos elástica con bases de datos con particiones verticales
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/03/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 62dda46f2f78b01722016a9bbd1e6db05814a0bf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.reviewer: ''
+manager: craigg
+ms.date: 07/03/2018
+ms.openlocfilehash: d78767f9360c8cb3a304af19f619dd9f74d3fb8e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448567"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162991"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Introducción a las consultas entre bases de datos (particiones verticales) (versión preliminar)
 
@@ -24,7 +27,7 @@ Una vez completado, sabrá: cómo configurar y usar una instancia de Azure SQL D
 
 Para obtener más información sobre la característica de la consulta de base de datos elástica, consulte la [información general sobre consulta de bases de datos elásticas de Azure SQL Database](sql-database-elastic-query-overview.md).
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Se requiere el permiso ALTER ANY EXTERNAL DATA SOURCE. Este permiso está incluido en el permiso ALTER DATABASE. Se necesitan permisos ALTER ANY EXTERNAL DATA SOURCE para hacer referencia al origen de datos subyacente.
 

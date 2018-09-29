@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 7999dc15fbe1af9d23b47971db03cf6b197f110f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a3cbbf887c4b7df57f2df89dfb8649967d6d9b1b
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306114"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434762"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definición de una estrategia de protección de datos para soluciones de identidad híbrida
 En esta tarea, se definirá la estrategia de protección de datos para que una solución de identidad híbrida cumpla los requisitos empresariales que se definen en:
@@ -58,8 +58,6 @@ En función de cómo responda a las preguntas del apartado [Determinar los requi
 
 ## <a name="define-content-management-options"></a>Definición de las opciones de administración de contenido
 
-<a name="one-advantage-of-using-azure-ad-to-manage-a-hybrid-identity-infrastructure-is-that-the-process-is-fully-transparent-from-the-end-users-perspective-the-user-tries-to-access-a-shared-resource-the-resource-requires-authentication-the-user-has-to-send-an-authentication-request-to-azure-ad-in-order-to-obtain-the-token-and-access-the-resource-this-entire-process-happens-in-the-background-without-user-interaction"></a>Una ventaja de usar Azure AD para administrar una infraestructura de identidad híbrida es que el proceso es completamente transparente desde la perspectiva del usuario final. El usuario intenta acceder a un recurso compartido, pero el recurso requiere autenticación, por lo que el usuario tendrá que enviar una solicitud de autenticación a Azure AD para obtener el token y el acceso al recurso. Todo este proceso se produce en segundo plano, sin interacción del usuario. 
-=======
 Una ventaja de usar Azure AD para administrar una infraestructura de identidad híbrida es que el proceso es completamente transparente desde la perspectiva del usuario final. El usuario intenta acceder a un recurso compartido, pero el recurso requiere autenticación, por lo que el usuario tendrá que enviar una solicitud de autenticación a Azure AD para obtener el token y el acceso al recurso. Todo este proceso se produce en segundo plano, sin interacción del usuario. 
 
 Las organizaciones a las que preocupa la privacidad de los datos requieren la clasificación de datos para su solución. Si su infraestructura local actual ya usa la clasificación de datos, es posible usar Azure AD como repositorio principal de la identidad del usuario. Una herramienta común que se usa localmente para la clasificación de datos se denomina [Data Classification Toolkit](https://msdn.microsoft.com/library/Hh204743.aspx) para Windows Server 2012 R2. Esta herramienta puede ayudar a identificar, clasificar y proteger los datos de los servidores de archivos de su nube privada. También es posible usar la [clasificación de archivos automática](https://technet.microsoft.com/library/hh831672.aspx) en Windows Server 2012 para lograrlo.

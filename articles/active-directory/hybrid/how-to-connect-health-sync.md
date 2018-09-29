@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc7ee4e7a6975722458ed12f636cdc8f4777614a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8ca3c0524873e4c7a1326095eb1cc28f63f59a27
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46301945"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431940"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Supervisión de Azure AD Connect sync con Azure AD Connect Health
 La siguiente documentación es específica de la supervisión de sincronización de Azure AD Connect (Sync) con Azure AD Connect Health.  Para obtener información sobre la supervisión de AD FS con Azure AD Connect Health, consulte [Uso de Azure AD Connect Health con AD FS](how-to-connect-health-adfs.md). Para obtener información adicional sobre la supervisión de Active Directory Domain Services con Azure AD Connect Health, consulte [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md)(Uso de Azure AD Connect Health con AD DS).
@@ -36,7 +36,7 @@ Al seleccionar una alerta, recibirá información adicional, así como los pasos
 ### <a name="limited-evaluation-of-alerts"></a>Evaluación limitada de alertas
 Si Azure AD Connect no usa la configuración predeterminada (por ejemplo, si el filtrado de atributos se cambia de la configuración predeterminada a una configuración personalizada), el agente de Azure AD Connect Health no cargará los eventos de error relacionados con Azure AD Connect.
 
-Esto limita la evaluación de las alertas por parte del servicio. Verá una pancarta que indica esta condición en Azure Portal en su servicio.
+Esto limita la evaluación de las alertas por parte del servicio. Verá un banner que indica esta condición en Azure Portal en su servicio.
 
 ![Azure AD Connect Health para sincronización](./media/how-to-connect-health-sync/banner.png)
 
