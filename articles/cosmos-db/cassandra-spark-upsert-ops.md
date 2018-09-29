@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: cb6f120e28fc17b413bceab945b3569cb10912f1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5bb4d066d6003dde38b02a3f4ac6c66463dd5ebe
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986445"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221475"
 ---
 # <a name="upsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Actualización e inserción de datos en Cassandra API de Azure Cosmos DB desde Spark
 
@@ -24,7 +24,7 @@ En este artículo se describe cómo realizar una operación de actualización e 
 
 ```scala
 import org.apache.spark.sql.cassandra._
-//datastax Spark connector
+//Spark connector
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.cql.CassandraConnector
 
@@ -84,7 +84,7 @@ booksUpsertDF.write
 cdbConnector.withSessionDo(session => session.execute("update books_ks.books set book_price=99.33 where book_id ='b00300';"))
 ```
 
-## <a name="rdd-api"></a>API de RDD
+## <a name="rdd-api"></a>RDD API
 > [!NOTE]
 > La operación de actualización e inserción desde la API de RDD es igual que la operación de creación. 
 
@@ -93,5 +93,5 @@ cdbConnector.withSessionDo(session => session.execute("update books_ks.books set
 Continúe con los artículos siguientes para realizar otras operaciones en los datos almacenados en tablas de Cassandra API de Azure Cosmos DB:
  
 * [Operaciones de eliminación](cassandra-spark-delete-ops.md)
-* [Operaciones de agregación](cassandra-spark-aggregation-ops.md)
-* [Operaciones de copia en la tabla](cassandra-spark-table-copy-ops.md)
+* [Aggregation operations](cassandra-spark-aggregation-ops.md) (Operaciones de agregación)
+* [Table copy operations](cassandra-spark-table-copy-ops.md) (Operaciones de copia en tabla)

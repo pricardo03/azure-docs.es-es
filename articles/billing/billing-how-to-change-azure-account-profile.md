@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bce9e7de13ff95024685ccf916541357f5362727
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 622a8777f5ed329636c7023bb52790756f8d7206
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070658"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422633"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Cambio de la información de perfil de la cuenta de Azure, como el correo electrónico, la dirección y el número de teléfono de contacto
 
@@ -46,7 +46,7 @@ Sí. El Administrador de cuenta es la persona que configuró la cuenta de Azure 
 
 ### <a name="does-updating-my-profile-email-also-update-my-login-email-address"></a>Si actualizo el correo electrónico del perfil, ¿también se actualiza la dirección de correo electrónico de inicio de sesión?
 
-Nº Si actualiza la dirección de correo electrónico del perfil, no se actualiza la dirección de correo electrónico de inicio de sesión. Para cambiar la dirección de correo electrónico de inicio de sesión, tendrá que transferir la propiedad de la cuenta.
+No. Si actualiza la dirección de correo electrónico del perfil, no se actualiza la dirección de correo electrónico de inicio de sesión. Para cambiar la dirección de correo electrónico de inicio de sesión, tendrá que transferir la propiedad de la cuenta.
 
 ### <a name="does-updating-my-profile-address-also-update-my-credit-card-billing-address"></a>Si actualizo la dirección del perfil, ¿se actualiza también la dirección de facturación de la tarjeta de crédito?
 
@@ -55,10 +55,6 @@ Para aprender a actualizar la información de facturación, consulte [Cambio de 
 ### <a name="why-cant-i-update-the-country"></a>¿Por qué no puedo actualizar el país?
 
 Debido a limitaciones técnicas, no se puede cambiar el país de una cuenta existente. Sin embargo, puede crear una cuenta en el país deseado y después ponerse en contacto con el soporte técnico de Azure para migrar los servicios a esa cuenta.
-
-### <a name="what-email-address-does-the-azure-billing-alerts-preview-feature-use"></a>¿Qué dirección de correo electrónico usa la característica de vista previa Alertas de facturación de Azure?
-
-Recibirá notificaciones de alerta en la dirección de correo electrónico que agregue cuando se registre para recibir las alertas. La dirección de correo electrónico utilizada para las alertas es independiente de la del administrador de cuenta. Para obtener más información, consulte [Configurar alertas de facturación para las suscripciones de Microsoft Azure](billing-set-up-alerts.md).
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 

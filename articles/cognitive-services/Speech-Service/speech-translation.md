@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 3559a25f3073f88e99379e98bc4562209b0c0825
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: f80c0f3cdc114b53c002266820e8d9b8773acc5d
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42108451"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432196"
 ---
 # <a name="about-the-speech-translation-api"></a>Introducción a Translator Speech API
 
@@ -32,7 +32,7 @@ Translator Speech API emplea las mismas tecnologías que ofrecen varios servicio
 
 En el motor de traducción subyacente de Microsoft existen dos enfoques diferentes: traducción automática estadística (SMT) y traducción automática neuronal (NMT). El segundo, un enfoque de inteligencia artificial que utiliza redes neuronales, es el enfoque más moderno para la traducción automática. NMT proporciona mejores traducciones; no es solo más preciso, sino que es más fluido y natural. El motivo principal para esta fluidez es que NMT usa el contexto completo de una oración para traducir palabras.
 
-Actualmente, Microsoft ha migrado a NMT para los idiomas más populares, dejando el uso de SMT solo para los idiomas que se utilizan con menos frecuencia. Todos los [idiomas disponibles para la traducción de voz a voz](supported-languages.md#speech-translation) cuentan con la tecnología de NMT. La traducción de voz a texto puede utilizar SMT o NMT, según el par de idiomas. Si el idioma de destino es compatible con NMT, la traducción completa ser realiza con dicha tecnología. Si el idioma de destino no es compatible con NMT, la traducción es un híbrido de NMT y SMT, usando el inglés como un "eje" entre los dos idiomas.
+Actualmente, Microsoft ha migrado a NMT para los idiomas más populares, dejando el uso de SMT solo para los idiomas que se utilizan con menos frecuencia. Todos los [idiomas disponibles para la traducción de voz a voz](language-support.md#speech-translation) cuentan con la tecnología de NMT. La traducción de voz a texto puede utilizar SMT o NMT, según el par de idiomas. Si el idioma de destino es compatible con NMT, la traducción completa ser realiza con dicha tecnología. Si el idioma de destino no es compatible con NMT, la traducción es un híbrido de NMT y SMT, usando el inglés como un "eje" entre los dos idiomas.
 
 Las diferencias entre los modelos son internas para el motor de traducción. Los usuarios finales solo observan la calidad de la traducción mejorada, especialmente en los casos de árabe, chino y japonés.
 

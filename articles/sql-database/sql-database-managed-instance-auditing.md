@@ -2,20 +2,22 @@
 title: Auditoría de Instancia administrada de Azure SQL Database | Microsoft Docs
 description: Obtención de información acerca de cómo auditar Instancia administrada de Azure SQL Database mediante T-SQL
 services: sql-database
-author: giladm
-manager: craigg
-ms.reviewer: vanto
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/28/2018
+author: giladm
 ms.author: giladm
-ms.openlocfilehash: 7671b49921799e63b01d0eb85e90a8b75b2d5a48
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 38dee577ff57e6ba440fb4062315b57e4eb7957b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544301"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162260"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introducción a la auditoría de Instancia administrada de Azure SQL Database mediante T-SQL
 
@@ -104,7 +106,7 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
     Si no se especifica, el valor predeterminado de `RETENTION_DAYS` es 0 (retención ilimitada).
 
     Para información adicional:
-    - [Diferencias de auditoría entre Instancia administrada, Azure SQL DB y SQL Server](#subheading-3)
+    - [Diferencias de auditoría entre Instancia administrada, Azure SQL DB y SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
     - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
     - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 

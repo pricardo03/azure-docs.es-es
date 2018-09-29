@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 575326ee3bd2cb64b2cb65168f23f7fe97dad029
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52aabcfd908afeea3bb9bf36eefad706b74d8ba9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954405"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227153"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glosario de términos de IoT Hub
 En este artículo se enumeran algunos de los términos comunes que se utilizan en los artículos de IoT Hub.
@@ -219,7 +219,7 @@ En el contexto de un [dispositivo gemelo](iot-hub-devguide-device-twins.md), las
 [Azure Resource Manager](#azure-resource-manager) usa grupos de recursos para agrupar recursos relacionados. Se puede usar un grupo de recursos para realizar operaciones en todos los recursos del grupo al mismo tiempo.
 
 ## <a name="retry-policy"></a>Directiva de reintentos
-Una directiva de reintentos se utiliza para controlar los [errores transitorios](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx) al conectarse a un servicio en la nube.
+Una directiva de reintentos se utiliza para controlar los [errores transitorios](/azure/architecture/best-practices/transient-faults) al conectarse a un servicio en la nube.
 
 ## <a name="routing-rules"></a>Reglas de enrutamiento
 Configure [reglas de enrutamiento](iot-hub-devguide-messages-read-custom.md) en su instancia de IoT Hub para enrutar mensajes del dispositivo a la nube a un [punto de conexión integrado](#built-in-endpoints) o a [puntos de conexión personalizados](#custom-endpoints) para que los procese el back-end de su solución.

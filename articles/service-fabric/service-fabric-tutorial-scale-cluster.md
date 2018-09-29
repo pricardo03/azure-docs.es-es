@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 26930ccb80545b80ab047ef9bc51b7122009ec1f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: da9e1ce17e21f4d87286c0be5d425419f6ed0300
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967343"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408517"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Escala de un clúster de Service Fabric
 
@@ -38,7 +38,7 @@ En esta serie de tutoriales, se aprende a:
 > * Cree un [clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o [clúster de Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) en Azure mediante una plantilla
 > * Escalar o reducir un clúster horizontalmente
 > * [Actualización del entorno en tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> * [Eliminación de un clúster](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 

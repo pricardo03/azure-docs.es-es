@@ -2,19 +2,21 @@
 title: 'Protección avanzada contra amenazas: Azure SQL Database | Microsoft Docs'
 description: Obtenga información acerca de la funcionalidad para detectar y clasificar datos confidenciales, administrar los puntos vulnerables de una bases de datos y detectar actividades anómalas que puedan indicar una amenaza para una base de datos SQL de Azure.
 services: sql-database
-author: ronitr
-manager: craigg
 ms.service: sql-database
+ms.subservice: security
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/17/2018
+author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
-ms.openlocfilehash: 350f43dcb15062b4d44fc537e664b257f77d8e88
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+manager: craigg
+ms.date: 05/17/2018
+ms.openlocfilehash: cb3d8629d5d72644e647da14e7c3b31a4914814d
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497831"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159577"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Protección avanzada contra amenazas en Azure SQL Database
 

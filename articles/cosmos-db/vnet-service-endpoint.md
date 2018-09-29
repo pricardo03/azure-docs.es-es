@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: e6b263c1eb9fe3b151f0a51b5da9a92b8ced4549
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: a4758e5597876112fa7a85850786491e22af8c83
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109749"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037148"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Protección del acceso a una cuenta de Azure Cosmos DB con el uso de un punto de conexión de servicio de Azure Virtual Network
 
@@ -25,9 +25,6 @@ Azure Cosmos DB es un servicio de base de datos de varios modelos distribuido gl
 ![arquitectura del punto de conexión de servicio de Virtual Network](./media/vnet-service-endpoint/vnet-service-endpoint-architecture.png)
 
 Una vez configurada la cuenta de Azure Cosmos DB con un punto de conexión de servicio de Virtual Network, solo se puede acceder a ella desde la subred especificada; de hecho, se elimina todo el acceso público y desde Internet. Para obtener información detallada sobre los puntos de conexión de servicio, vaya al artículo de [información general sobre los puntos de servicio de Azure Virtual Network](../virtual-network/virtual-network-service-endpoints-overview.md).
-
-> [!NOTE]
-> Actualmente, los puntos de conexión de servicio de Virtual Network se pueden configurar para la API de SQL de Azure Cosmos DB o las cuentas de la API de Mongo. Pronto se ofrecerá la posibilidad de configurar los puntos de conexión de servicio para otras API y nubes soberanas, como Azure Alemania o Azure Government. Si tiene un firewall para direcciones IP existente configurado para la cuenta de Azure Cosmos DB, tenga en cuenta la configuración del firewall, quite el firewall para direcciones IP y luego configure la ACL del punto de conexión de servicio. Una vez configurado el punto de conexión de servicio, puede volver a habilitar el firewall para las direcciones IP si es necesario.
 
 ## <a name="configure-service-endpoint-by-using-azure-portal"></a>Configuración del punto de conexión de servicio en Azure Portal
 ### <a name="configure-service-endpoint-for-an-existing-azure-virtual-network-and-subnet"></a>Configuración del punto de conexión de servicio para una subred y red virtual de Azure existentes

@@ -11,12 +11,12 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: 9ae73659ee8fbf9099e7e8fab65e020a170126e3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 76afc558048f1890e5e2440fd002361172acbea2
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304176"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433844"
 ---
 <div class="content">
    <h1>Docker en Azure</h1>   
@@ -32,7 +32,7 @@ Docker es una conocida plataforma de creación de imágenes y administración de
 <h2>Tutoriales detallados</h2>
 <p>Obtenga información sobre cómo usar Docker en su aplicación y como parte de la canalización de integración y entrega continuas:</p>
 <ol>
-  <li><a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app">Compilación de Python y PostgreSQL con Docker</a></li>
+  <li><a href="/azure/app-service/containers/tutorial-python-postgresql-app">Compilación de Python y PostgreSQL con Docker</a></li>
   <li><a href="/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine">Integración y entrega continuas con Docker Swarm y Azure DevOps Services</a></li>
   <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Integración de Docker, Jenkins y máquinas virtuales Linux</a></li>
 </ol>

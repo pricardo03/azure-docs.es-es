@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/22/2018
-ms.openlocfilehash: bf2116d7fc143e66309e3bbbdefc50bfa33f1521
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a5b9d711b1d53d56f31a8b32e6d86722ac02c905
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974568"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393543"
 ---
 # <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>Uso de Ansible para crear una máquina virtual Linux en Azure
 Mediante un lenguaje declarativo, Ansible permite automatizar la creación, configuración e implementación de recursos de Azure con los *cuadernos* de Ansible. Cada sección de este artículo muestra cómo podría ser cada sección de un cuaderno de Ansible para crear y configurar diferentes aspectos de una máquina virtual Linux. El [cuaderno de Ansible completo](#complete-sample-ansible-playbook) aparece al final de este artículo.
@@ -29,9 +29,9 @@ Ansible necesita un grupo de recursos en el que implementará todos los recursos
 
 ```yaml
 - name: Create resource group
-    azure_rm_resourcegroup:
-      name: myResourceGroup
-      location: eastus
+  azure_rm_resourcegroup:
+    name: myResourceGroup
+    location: eastus
 ```
 
 ## <a name="create-a-virtual-network"></a>Creación de una red virtual

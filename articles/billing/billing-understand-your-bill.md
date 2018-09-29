@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
-ms.author: tonguyen
-ms.openlocfilehash: c782cadadb0250e6c3ca4912dbf8f81e19cb88c5
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: cwatson
+ms.openlocfilehash: be2e774bc4220d5d93f555263fa9f342f449f8b2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919061"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423449"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprender la factura de Microsoft Azure
 Para entender la factura de Azure, compare la factura con el archivo de uso diario detallado y los informes de administración de costos en Azure Portal.
@@ -141,7 +141,6 @@ Los cargos de Azure son para aquellos recursos que Azure desarrolla y ofrece dir
 
 ## <a name="tips-for-cost-management"></a>Sugerencias de administración de costes
 - Realice una estimación de los costos mediante la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) y la [calculadora de costo total de propiedad](https://aka.ms/azure-tco-calculator) y obtenga la [información detallada sobre los precios de cada servicio](https://azure.microsoft.com/pricing/).
-- [Configure las alertas de facturación](billing-set-up-alerts.md).
 - [Revise el uso y los costos con regularidad en Azure Portal](billing-getting-started.md#costs).
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.

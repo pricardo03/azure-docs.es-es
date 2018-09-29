@@ -2,20 +2,22 @@
 title: Información de rendimiento de consultas para Azure SQL Database | Microsoft Docs
 description: La supervisión del rendimiento de las consultas identifica las consultas que más CPU consumen en Azure SQL Database.
 services: sql-database
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 5069b4e69c53ed93e9018cef2517f6125b838d12
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: f46d5a31667f52f553bcfdbd20ff56439d526144
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524172"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163314"
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Query Performance Insight de Azure SQL Database
 La administración y ajuste del rendimiento de las bases de datos relacionales son tareas difíciles que requieren una gran inversión de tiempo y muchos conocimientos. Información de rendimiento de consultas permite dedicar menos tiempo a la solución de problemas de rendimiento de bases de datos, ya que proporciona:

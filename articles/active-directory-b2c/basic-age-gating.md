@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9d24e37642a41e4d60b33f42a60d7e56cb4b35b5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9a9a86d445deaea4872615f443ad53f76638a758
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446731"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056529"
 ---
 #<a name="using-age-gating-in-azure-ad-b2c"></a>Usar el acceso según la edad en Azure AD B2C
 
 >[!IMPORTANT]
->Esta característica se encuentra en versión preliminar privada.  Consulte nuestro [blog de servicio](https://blogs.msdn.microsoft.com/azureadb2c/) para obtener más información cuando esté disponible o póngase en contacto con AADB2CFeedback@microsoft.com.  NO use esta opción en los directorios de producción hasta que esté disponible para el público en general, ya que el uso de estas nuevas características puede provocar la pérdida de datos y cambios inesperados en el comportamiento.  
+>Esta característica se encuentra en versión preliminar privada.  Consulte nuestro [blog de servicio](https://blogs.msdn.microsoft.com/azureadb2c/) para obtener más información cuando esté disponible o póngase en contacto con AADB2CPreview@microsoft.com.  NO use esta opción en los directorios de producción hasta que esté disponible para el público en general, ya que el uso de estas nuevas características puede provocar la pérdida de datos y cambios inesperados en el comportamiento.  
 >
 
 ##<a name="age-gating"></a>Acceso según la edad
@@ -56,13 +56,3 @@ Para los flujos de usuarios que permitan el registro, el inicio de sesión o amb
 Para los flujos de usuarios que permitan el registro, el inicio de sesión o ambos, puede optar por bloquear el acceso de menores sin autorización a la aplicación.  Hay dos opciones para administrar los usuarios bloqueados en Azure AD B2C:
 * Enviar datos JSON de vuelta a la aplicación: esta opción enviará una respuesta a la aplicación indicando que se bloqueó un menor.
 * Mostrar una página de error: se mostrará al usuario una página que le informe que no puede acceder a la aplicación.
-
-##<a name="known-issues"></a>Problemas conocidos
-###<a name="format-for-the-response-when-a-minor-is-blocked"></a>Formato de la respuesta cuando se bloquea a un menor.
-Actualmente la respuesta no tiene un formato adecuado, pero este error se abordará en una próxima actualización.
-
-###<a name="deleting-specific-attributes-that-were-added-during-setup-can-make-your-directory-unable-to-use-age-gating"></a>Si elimina atributos específicos que se agregaron durante la configuración, es posible que el directorio no pueda usar el acceso según la edad.
-Al configurar el acceso según la edad, configuró el directorio a través de una opción en `Properties`.  Si elimina `legalCountry` o `dateOfBirth` a través de Graph, el directorio no podrá usar más el acceso según la edad, y no se podrán volver a crear las propiedades.
-
-###<a name="list-of-countries-is-incomplete"></a>La lista de países o regiones está incompleta.
-Actualmente, la lista de países o regiones del elemento legalCountry está incompleta, pero agregaremos el resto de países y regiones en una próxima actualización.

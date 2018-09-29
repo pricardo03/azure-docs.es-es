@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 0ad22562bd1f36bba7c0ab99fe504e82645033d3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: dcdc84f100ce534ea517f0201b0c090c3059a318
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131417"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160936"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filtros de las vistas de Log Analytics
 Un **filtro** de una [vista de Log Analytics](log-analytics-view-designer.md) permite a los usuarios filtrar los datos de la vista por el valor de una propiedad determinada sin modificar la vista propiamente dicha.  Por ejemplo, podría permitir que los usuarios de la vista la filtraran por los datos de solo un determinado equipo o conjunto de equipos.  Puede crear varios filtros en una sola vista para permitir que los usuarios filtren por varias propiedades.  En este artículo se describe cómo usar un filtro y agregar uno a una vista personalizada.
@@ -49,7 +49,7 @@ En la tabla siguiente se describe la configuración de un filtro.
 | Configuración | DESCRIPCIÓN |
 |:---|:---|
 | Nombre del campo | Nombre del campo usado para filtrar.  Debe coincidir con el campo de resumen de **Consultar valores**. |
-| Consultar valores | Consulta que se ejecutará para rellenar la lista desplegable de filtros del usuario.  Esta consulta debe usar [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) o [distinct](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/distinct-operator) para proporcionar valores únicos para un campo determinado y debe coincidir con el valor de **Nombre de campo**.  Puede usar [sort](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator) para ordenar los valores que se muestran al usuario. |
+| Consultar valores | Consulta que se ejecutará para rellenar la lista desplegable de filtros del usuario.  Esta consulta debe usar [summarize](/azure/kusto/query/summarizeoperator) o [distinct](/azure/kusto/query/distinctoperator) para proporcionar valores únicos para un campo determinado y debe coincidir con el valor de **Nombre de campo**.  Puede usar [sort](/azure/kusto/query/sortoperator) para ordenar los valores que se muestran al usuario. |
 | Etiqueta | Nombre del campo que se usa en las consultas que admiten el filtro y también se muestra al usuario. |
 
 ### <a name="examples"></a>Ejemplos

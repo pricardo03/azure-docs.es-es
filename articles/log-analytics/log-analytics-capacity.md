@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: e9163b3c29fd304c80eff46426a30c4fa0ce3b15
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 0244673d50e22124e8a0678e202004f06b0bca00
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130350"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182627"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Con la solución Capacidad y rendimiento (versión preliminar) puede planear la capacidad de máquinas virtuales de Hyper-V.
 
@@ -50,12 +50,12 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 
 | Origen conectado | Soporte técnico | DESCRIPCIÓN |
 |---|---|---|
-| [Agentes de Windows](log-analytics-windows-agent.md) | Sí | La solución recopila información de datos de rendimiento y capacidad de los agentes de Windows. |
+| [Agentes de Windows](log-analytics-windows-agent.md) | SÍ | La solución recopila información de datos de rendimiento y capacidad de los agentes de Windows. |
 | [Agentes de Linux](log-analytics-linux-agents.md) | Sin     | La solución no recopila información de datos de rendimiento y capacidad de los agentes directos de Linux.|
-| [Grupo de administración de SCOM](log-analytics-om-agents.md) | Sí |La solución recopila datos de rendimiento y capacidad de los agentes de un grupo de administración de SCOM conectado. No se requiere una conexión directa entre el agente de SCOM y Log Analytics.|
+| [Grupo de administración de SCOM](log-analytics-om-agents.md) | SÍ |La solución recopila datos de rendimiento y capacidad de los agentes de un grupo de administración de SCOM conectado. No se requiere una conexión directa entre el agente de SCOM y Log Analytics.|
 | [Cuenta de Almacenamiento de Azure](log-analytics-azure-storage.md) | Sin  | Azure Storage no incluye datos de capacidad y rendimiento.|
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 - Los agentes de Windows o de Operations Manager deben instalarse en hosts de Hyper-V, no máquinas virtuales, con Windows Server 2012, o cualquier versión superior.
 

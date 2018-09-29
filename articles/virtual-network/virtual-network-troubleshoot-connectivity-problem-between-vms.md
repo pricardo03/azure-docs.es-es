@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 6decb0e9188db00608be35d9ba4e84df92ceb671
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 02f6e2648c007cfe87984e8de886b8b76e1e8d16
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072341"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409922"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Solución de problemas de conectividad entre máquinas virtuales de Azure
 
@@ -103,7 +103,7 @@ Todas las máquinas virtuales que se crean en Azure con el modelo de implementac
 
 ### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Paso 8: Intente conectarse a un recurso compartido de red de una máquina virtual
 
-Si no se puede conectar a un recurso compartido de red de máquina virtual, el problema puede deberse a que la NIC no está disponible en la máquina virtual. Para eliminar las NIC no disponibles, consulte [Eliminación de las NIC no disponibles](../virtual-machines/windows/reset-network-interface.md#delete-the-unavailable-nics)
+Si no se puede conectar a un recurso compartido de red de máquina virtual, el problema puede deberse a que la NIC no está disponible en la máquina virtual. Para eliminar las NIC no disponibles, consulte [Eliminación de las NIC no disponibles](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
 
 ### <a name="step-9-check-inter-vnet-connectivity"></a>Paso 9: Compruebe la conectividad entre redes virtuales
 

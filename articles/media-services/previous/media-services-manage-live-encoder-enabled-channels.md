@@ -4,7 +4,7 @@ description: 'En este tema se describe cómo configurar un canal que recibe una 
 services: media-services
 documentationcenter: ''
 author: anilmur
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 008fac84eedfd58cbcfe563504a50bc19d519382
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ada5f55cf356ca79efb7cb45c76a4812804400c5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246792"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222070"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple
 
@@ -166,7 +166,7 @@ Un canal proporciona un extremo de entrada (dirección URL de ingesta) que usted
 
 Puede obtener las direcciones URL de ingesta al crear un canal. Para obtener estas direcciones URL, el canal no puede encontrarse en el estado **En ejecución** . Cuando esté listo para comenzar a insertar datos en el canal, este debe estar **En ejecución** . Una vez que el canal empieza a consumir datos, puede obtener una vista previa de la secuencia a través de la dirección URL de vista previa.
 
-Tiene la opción de consumir una secuencia en directo de MP4 fragmentado (Smooth Streaming) a través de una conexión SSL. Para introducir en SSL, asegúrese de actualizar la dirección URL de introducción a HTTPS. Tenga en cuenta que, actualmente, AMS no admite SSL con dominios personalizados.  
+Tiene la opción de consumir una secuencia en directo de MP4 fragmentado (Smooth Streaming) a través de una conexión SSL. Para introducir en SSL, asegúrese de actualizar la dirección URL de introducción a HTTPS. Actualmente, AMS no admite SSL con dominios personalizados.  
 
 ### <a name="allowed-ip-addresses"></a>Direcciones IP permitidas
 Puede definir las direcciones IP permitidas para publicar vídeo en el canal. Las direcciones IP permitidas se pueden especificar como una dirección IP única (por ejemplo, "10.0.0.1"), un intervalo IP que usa una dirección IP y una máscara de subred CIDR (por ejemplo, "10.0.0.1/22") o un intervalo de IP que usa una máscara de subred decimal con puntos; por ejemplo, "10.0.0.1(255.255.252.0)".

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: d467bc88e1ed3b8dbe42a17095e4f0d14f14fe9a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2191ffabee31d12fb5b581280f924546b0078255
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950240"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405471"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Actualización del runtime de un clúster de Service Fabric en Azure
 
@@ -42,7 +42,7 @@ En esta serie de tutoriales, se aprende a:
 > * Cree un [clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o [clúster de Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) en Azure mediante una plantilla
 > * [Escalado o reducción horizontal](service-fabric-tutorial-scale-cluster.md)
 > * Actualización del entorno en tiempo de ejecución de un clúster
-> * [Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> * [Eliminación de un clúster](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -204,6 +204,3 @@ En este tutorial aprendió lo siguiente:
 > * Actualizar el runtime del clúster
 > * Supervisar la actualización
 
-A continuación, avance hasta el siguiente tutorial para aprender a implementar API Management con un clúster de Service Fabric.
-> [!div class="nextstepaction"]
-> [Implementación de API Management con Service Fabric](service-fabric-tutorial-deploy-api-management.md)

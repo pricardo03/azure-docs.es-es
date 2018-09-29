@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: c99186d73886041d92bea38b0dd4dc17f55001e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1a42c13bc0b441074829b1753c1d3cab8fbfaccf
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977867"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407576"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introducción a roles, permisos y seguridad con Azure Monitor
 Muchos equipos necesitan regular estrictamente el acceso a los datos y la configuración de supervisión. Por ejemplo, si tiene miembros del equipo que trabajan exclusivamente en la supervisión (ingenieros de soporte técnico o ingenieros de operaciones de desarrollo) o si usa un proveedor de servicios administrados, puede concederles acceso solo a datos de supervisión, mientras restringe su capacidad para crear, modificar o eliminar recursos. En este artículo se explica cómo aplicar rápidamente un rol RBAC de supervisión integrado a un usuario en Azure o crear un rol personalizado propio para un usuario que necesita permisos de supervisión limitados. Después se describen las consideraciones de seguridad para los recursos relacionados con Azure Monitor y cómo puede limitar el acceso a los datos que contienen.
@@ -181,14 +181,8 @@ Azure Monitor necesita acceso a los recursos de Azure para proporcionar los serv
 Los datos de supervisión a menudo se escriben en una cuenta de almacenamiento. Es posible que desee asegurarse de que los usuarios no autorizados no pueden tener acceso a los datos copiados en una cuenta de almacenamiento. Para mayor seguridad, puede bloquear el acceso de red para permitir que solo los recursos autorizados y los servicios de confianza de Microsoft accedan a una cuenta de almacenamiento mediante la restricción del uso de "redes seleccionadas" por parte de una cuenta de almacenamiento.
 ![Cuadro de diálogo de configuración de Azure Storage](./media/monitoring-roles-permissions-security/secured-storage-example.png) Azure Monitor se considera uno de estos "servicios de confianza de Microsoft" Si permite que los servicios de confianza de Microsoft tengan acceso al almacenamiento protegido, Azure Monitor tendrá acceso a su cuenta de almacenamiento protegida, permitiendo la escritura de los registros de diagnóstico de Azure Monitor, del registro de actividad y de las métricas para la cuenta de almacenamiento según estas condiciones protegidas. Esto también permitirá que Log Analytics lea los registros de almacenamiento protegido.   
 
+
 Para obtener más información, consulte [Seguridad de red y Azure Storage](../storage/common/storage-network-security.md).
- 
-### <a name="secured-virtual-networks-with-service-endpoints"></a>Redes virtuales protegidas con puntos de conexión de servicio 
-
-Las redes virtuales (VNET) le permiten restringir el tráfico para permitir solo tráfico especificado para comunicarse con los recursos de Azure. Puede especificar los puntos de conexión de servicio para ampliar la red virtual para que incluya Azure Monitor. Esto permitirá que los recursos sigan enviando información acerca de los registros y las métrica de manera segura a Azure Monitor desde las redes virtuales.  
-
-Para obtener más información, consulte [Puntos de conexión de redes virtuales](../virtual-network/virtual-network-service-endpoints-overview.md). 
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Consulte información sobre RBAC y permisos en Resource Manager](../role-based-access-control/overview.md)

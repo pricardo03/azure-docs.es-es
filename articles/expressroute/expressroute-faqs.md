@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2a7842a50690049507e00b85c8736e63da002503
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 101dec93713983e5f2082a59103288fcda346740
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950172"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419311"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -348,9 +348,9 @@ El circuito existente continuará anunciando los prefijos para Office 365 y Dyna
 
 * No se anunciará ningún prefijo para el emparejamiento de Microsoft de los circuitos ExpressRoute que se configuraron el 1 de agosto de 2017 o con posterioridad, hasta que se asocie un filtro de ruta al circuito. No verá los prefijos de forma predeterminada.
 
-## <a name="globalreach"></a>ExpressRoute Direct (versión preliminar)
+## <a name="expressRouteDirect"></a>ExpressRoute Direct (versión preliminar)
 
-[!INCLUDE [Global Reach](../../includes/expressroute-direct-faq-include.md)]
+[!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]
 
 ## <a name="globalreach"></a>Global Reach (versión preliminar)
 

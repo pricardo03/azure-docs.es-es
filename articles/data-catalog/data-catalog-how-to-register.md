@@ -2,18 +2,18 @@
 title: Registro de orígenes de datos en Azure Data Catalog
 description: Este artículo destaca cómo registrar orígenes de datos en Azure Data Catalog, incluidos los campos de metadatos que se extraen durante el registro.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: bab89906-186f-4d35-9ffd-61b1d903905d
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 4688b58b40df110a33f9310226db9a6412f43054
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 413f9340432f39d60ccdb43557616b4123132873
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052892"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404901"
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>Registro de orígenes de datos en Azure Data Catalog
 ## <a name="introduction"></a>Introducción

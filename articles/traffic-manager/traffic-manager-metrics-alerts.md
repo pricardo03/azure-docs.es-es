@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: 424782be2d814df6d598591198b5005fb494d3da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fe4cc3c06af6868396f5db6fd88804022f5f9793
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303239"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432484"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Métricas y alertas de Traffic Manager
 
@@ -46,7 +46,7 @@ La figura 2 muestra la misma información, sin embargo, se divide por puntos de 
 *Figura 2: Vista dividida con el volumen de consultas por punto de conexión devuelto*
 
 ## <a name="endpoint-status-by-endpoint"></a>Estado de punto de conexión por punto de conexión
-Use [esta métrica](../monitoring-and-diagnostics/monitoring-supported-metrics.md) para conocer el estado de mantenimiento de los puntos de conexión en el perfil. Toma dos valores:
+Use [esta métrica](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworktrafficmanagerprofiles) para conocer el estado de mantenimiento de los puntos de conexión en el perfil. Toma dos valores:
  - Use **1**, si el punto de conexión está activo.
  - Use **0**, si el punto de conexión está inactivo.
 

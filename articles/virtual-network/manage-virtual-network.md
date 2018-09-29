@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: f8d92c5d01e977fc64e823a0229b5f2ede944743
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d72faa99c15fdbebb299e416fd902bae261f31f9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985660"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221186"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Crear, cambiar o eliminar una red virtual
 
@@ -89,7 +89,7 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
     - **Propiedades**: muestra la configuración de la red virtual, incluidos el identificador de recurso de la red virtual y la suscripción de Azure en la que se encuentra.
     - **Diagrama**: el diagrama proporciona una representación visual de todos los dispositivos conectados a la red virtual. El diagrama muestra alguna información clave sobre los dispositivos. Para administrar un dispositivo en esta vista, vaya al diagrama y seleccione el dispositivo.
     - **Configuración común de Azure**: para obtener más información sobre la configuración común de Azure, vea la siguiente información:
-        *   [Registro de actividad](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
+        *   [Registro de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
         *   [Control de acceso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
         *   [Etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
         *   [Bloqueos](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

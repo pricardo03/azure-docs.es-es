@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: Este artículo contiene información acerca de la entidad precompilada de correo electrónico en Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: diberry
-ms.openlocfilehash: 5f2ff9ef8e06c747558d795b52423d494824a746
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: c69fc9cb19871611b383ebf6603197fdcd781a03
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236737"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030611"
 ---
 # <a name="email-entity"></a>Entidad de correo electrónico
 La extracción de correo electrónico incluye la dirección de correo electrónico completa de un mensaje. Dado que esta entidad ya está entrenada, no se necesita agregar expresiones de ejemplo que contengan el correo electrónico en las intenciones de la aplicación. La entidad de correo electrónico se admite solamente en la referencia cultural `en-us`. 

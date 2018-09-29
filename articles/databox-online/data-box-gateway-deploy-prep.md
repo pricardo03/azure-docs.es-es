@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: f4c3cf5329c10cda3691370e946b8397662a8d66
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c21245e05625f65b6b5dcf5f7081f5f5d1abb52
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953419"
+ms.locfileid: "47030615"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Tutorial: Preparación de la implementación de Azure Data Box Gateway (versión preliminar)
 
@@ -89,7 +89,7 @@ Antes de comenzar, asegúrese de que:
 
 ## <a name="create-a-new-resource"></a>Crear un nuevo recurso
 
-Una única instancia del recurso de Data Box Gateway puede administrar varios dispositivos virtuales de Data Box Gateway. Realice los siguientes pasos para crear un nuevo recurso de Data Box Gateway. 
+Realice los siguientes pasos para crear un nuevo recurso de Data Box Gateway. 
 
 Si ya tiene un recurso de Data Box Gateway para administrar los dispositivos virtuales, omita este paso y vaya a [Obtención de la clave de activación](#get-the-activation-key).
 
@@ -121,7 +121,7 @@ Se tarda unos minutos en crear el recurso. Recibirá una apropiada cuando el ser
 Una vez creado el recurso de Data Box Gateway, descargue la imagen correspondiente al dispositivo virtual para aprovisionar un dispositivo virtual en el sistema host. Las imágenes de dispositivos virtuales son específicas del sistema operativo y pueden descargarse de la hoja **Inicio rápido** en Azure Portal.
 
 > [!IMPORTANT]
-> El software que se ejecuta en el recurso de Data Box Gateway solo puede usarse con él.
+> El software que se ejecuta en Data Box Gateway solo puede usarse con el recurso Data Box Gateway.
 
 
 Siga estos pasos en [Azure Portal](https://portal.azure.com/).

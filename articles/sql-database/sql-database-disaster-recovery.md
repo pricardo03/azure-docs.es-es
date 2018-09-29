@@ -2,20 +2,22 @@
 title: Recuperación ante desastres de SQL Database | Microsoft Docs
 description: Obtenga información sobre cómo recuperar una base de datos tras un error o una interrupción de un centro de datos regional con las funcionalidades de replicación geográfica activa y restauración geográfica de Azure SQL Database.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: dba78d3fb63ed6b2f867539fc471199ab72afe6a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+manager: craigg
+ms.date: 07/16/2018
+ms.openlocfilehash: f04b17ec052e4d55ccb39c803b2d690589cb27d2
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092603"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161682"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restauración de una instancia de Azure SQL Database o una conmutación por error en una secundaria
 Azure SQL Database ofrece las siguientes capacidades para recuperarse de un corte en el suministro eléctrico:
