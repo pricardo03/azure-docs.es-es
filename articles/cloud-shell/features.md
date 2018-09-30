@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 5087b8a1d675fb6fb2bbfb2b46a09c215bf5e9ae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2184d006bb99d57f50e71c0096d68b7a0b69a219
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998770"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162294"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Características y herramientas de Azure Cloud Shell
 
@@ -44,7 +44,7 @@ Los archivos fuera de `$Home` y el estado de la máquina no se conservan entre s
 
 ### <a name="azure-drive-azure"></a>Unidad de Azure (Azure):
 
-PowerShell en Cloud Shell (versión preliminar) se inicia en la unidad de Azure (`Azure:`).
+PowerShell en Cloud Shell se inicia en la unidad de Azure (`Azure:`).
 La unidad de Azure permite detectar y navegar fácilmente por los recursos de Azure, como Compute, Network y Storage, etc., de manera similar a la navegación por el sistema de archivos.
 Puede seguir usando los [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure) que ya conoce para administrar estos recursos sin importar la unidad en la que se encuentre.
 Cualquier cambio que se realice en los recursos de Azure, ya sea directamente en Azure Portal o mediante los cmdlets de Azure PowerShell, se reflejan en la unidad de Azure.  Puede ejecutar `dir -Force` para actualizar los recursos.
@@ -81,6 +81,6 @@ Cloud Shell incluye autenticación configurada previamente para herramientas de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Guía de inicio rápido de Bash en Cloud Shell](quickstart.md) <br>
-[Inicio rápido de PowerShell en Cloud Shell (versión preliminar)](quickstart-powershell.md) <br>
-[Más información acerca de la CLI de Azure](https://docs.microsoft.com/cli/azure/) <br>
+[Guía de inicio rápido de PowerShell en Cloud Shell](quickstart-powershell.md) <br>
+[Más información sobre la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/) <br>
 [Información acerca de Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

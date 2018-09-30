@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ca3f689ef91c0a1bcb751c78d4fa1d799ed3888b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7af0d4819d4044f4cccc43cde1cffe7dff7982a7
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984643"
+ms.locfileid: "47056444"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definición y asignación de un plano técnico de Azure Blueprint en el portal
 
@@ -119,7 +119,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
 ## <a name="edit-a-blueprint"></a>Edición de un plano técnico
 
-En [Crear un plano técnico](#create_a_blueprint), no se proporcionó una descripción ni la asignación de roles que se agrega al nuevo grupo de recursos. Ambos se pueden solucionar mediante la realización de los pasos siguientes:
+En [Crear un plano técnico](#create-a-blueprint), no se proporcionó una descripción ni la asignación de roles que se agrega al nuevo grupo de recursos. Ambos se pueden solucionar mediante la realización de los pasos siguientes:
 
 1. Seleccione **Definiciones del plano técnico** en la página de la izquierda.
 

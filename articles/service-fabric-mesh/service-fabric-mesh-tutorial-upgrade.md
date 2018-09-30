@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a734eb7b4efecf14a4d47a660c00d561a5fa6677
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c23646bca6109d27e57b2f928363e65c83c634eb
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971814"
+ms.locfileid: "47031159"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutorial: Actualización de una aplicación de Service Fabric con Visual Studio
 
@@ -46,7 +46,7 @@ Antes de empezar este tutorial:
 
 * Si no ha implementado la aplicación de tareas pendientes, siga las instrucciones de [Publicación de una aplicación web de Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
 
-# <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Actualización de un servicio de Service Fabric Mesh mediante Visual Studio
+## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Actualización de un servicio de Service Fabric Mesh mediante Visual Studio
 
 En este artículo se muestra cómo actualizar microservicios de forma independiente en una aplicación.  En este ejemplo, se modificará el servicio `WebFrontEnd` para mostrar una categoría de tarea. Después, se actualizará el servicio implementado.
 
