@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/13/2018
 ms.author: magattus
-ms.openlocfilehash: c3a20bd4fa1cccdca7cba0de52620f09fe01abc5
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2468462170f970cd597dd1296417d5b93a88c2ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42146547"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997287"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Mejora del rendimiento comprimiendo archivos en Azure CDN
 La compresión de archivo es un método sencillo y eficaz para mejorar la velocidad de transferencia de archivos y aumentar el rendimiento de carga de página al reducir el tamaño de un archivo antes de enviarlo al servidor. La compresión de archivo reduce los costos de ancho de banda y proporciona una mayor capacidad de respuesta para los usuarios.
@@ -102,13 +102,14 @@ Los niveles Standard y Premium de CDN proporcionan la misma funcionalidad de com
 
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Perfiles Azure CDN Estándar de Microsoft
 
-En el caso de los perfiles **Azure CDN Estándar de Microsoft**, todos los archivos se pueden elegir para compresión. Sin embargo, un archivo debe tener un tipo MIME que esté [configurado para la compresión](#enabling-compression).
+En el caso de los perfiles **Azure CDN Estándar de Microsoft**, solo se comprimen los archivos que se pueden elegir. Para que un archivo se pueda elegir para comprimirlo, debe: ser un tipo MIME que se haya [configurado para la compresión](#enabling-compression),
+- Tener más de 1 KB y tener menos de 8 MB
 
 Estos perfiles admiten las codificaciones de compresión siguientes:
 - gzip (GNU zip)
 - brotli 
  
-Si la solicitud admite más de un tipo de compresión, esos tipos de compresión tienen prioridad sobre la compresión brotli.
+Si la solicitud admite más de un tipo de compresión, la compresión brotli es la que tiene prioridad.
 
 Cuando una solicitud de un activo especifica la compresión gzip y la solicitud da como resultado un error de caché, Azure CDN realiza la compresión gzip del recurso directamente en el servidor POP. Después, el archivo comprimido se envía desde la caché.
 
@@ -152,8 +153,7 @@ En las tablas siguientes se describe el comportamiento de la compresión de Azur
 | --- | --- | --- | --- |
 | Comprimidos |Comprimidos |Comprimidos |La red CDN transcodifica entre los formatos admitidos. |
 | Comprimidos |Sin comprimir |Comprimidos |La red CDN realiza una compresión. |
-| Comprimidos |No almacenado en caché |Comprimidos |La red CDN realiza una compresión si el origen devuelve un archivo sin comprimir. <br/>
-  **Azure CDN de Verizon** pasa el archivo descomprimido en la primera solicitud y luego lo comprime y lo almacena en caché para solicitudes posteriores. <br/>Los archivos con el encabezado `Cache-Control: no-cache` nunca se comprimen. |
+| Comprimidos |No almacenado en caché |Comprimidos |La red CDN realiza una compresión si el origen devuelve un archivo sin comprimir. <br/>**Azure CDN de Verizon** pasa el archivo descomprimido en la primera solicitud y luego lo comprime y lo almacena en caché para solicitudes posteriores. <br/>Los archivos con el encabezado `Cache-Control: no-cache` nunca se comprimen. |
 | Sin comprimir |Comprimidos |Sin comprimir |La red CDN realiza una descompresión. |
 | Sin comprimir |Sin comprimir |Sin comprimir | |
 | Sin comprimir |No almacenado en caché |Sin comprimir | |

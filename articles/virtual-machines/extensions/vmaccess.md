@@ -1,6 +1,6 @@
 ---
 title: Restablecimiento del acceso a una máquina virtual Linux de Azure | Microsoft Docs
-description: Administración de usuarios administrativos y restablecer el acceso en máquinas virtuales Linux con la extensión VMAccess y la CLI de Azure 2.0
+description: Administración de usuarios administrativos y restablecimiento del acceso en máquinas virtuales Linux con la extensión VMAccess y la CLI de Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: zroiy
@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 51c203c746a5256924033ebe48d9ddfdc3823b16
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e878f5c9f923b55a1eb94cefb1ecf021c81e884e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415898"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998634"
 ---
-# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Administración de usuarios administrativos, SSH y comprobación o reparación de discos en máquinas virtuales Linux con la extensión VMAccess y la CLI de Azure 2.0
+# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Administración de usuarios administrativos, SSH y comprobación o reparación de discos en máquinas virtuales Linux con la extensión VMAccess y la CLI de Azure
 ## <a name="overview"></a>Información general
 El disco de la máquina virtual de Linux muestra errores. De alguna forma, restableció la contraseña raíz de la máquina virtual de Linux o eliminó por accidente la clave privada SSH. Si esto sucedió en el centro de datos, deberá ir ahí y, luego, abrir el conmutador KVM para llegar a la consola del servidor. Piense en la extensión VMAccess de Azure como ese conmutador KVM que le permite tener acceso a la consola para restablecer el acceso a Linux o realizar el mantenimiento de nivel de disco.
 
@@ -47,10 +47,10 @@ La extensión de acceso a la máquina virtual puede ejecutarse en estas distribu
 ## <a name="ways-to-use-the-vmaccess-extension"></a>Formas de usar la extensión VMAccess
 Hay dos formas de usar la extensión VMAccess en las máquinas virtuales Linux:
 
-* Usando la CLI de Azure 2.0 y los parámetros necesarios
-* [Usando archivos sin formato JSON que procese la extensión VMAccess](#use-json-files-and-the-vmaccess-extension) para realizar acciones en ellos
+* Usar la CLI de Azure y los parámetros necesarios.
+* [Usar archivos sin formato JSON que procese la extensión VMAccess](#use-json-files-and-the-vmaccess-extension) para realizar acciones en ellos
 
-En los ejemplos siguientes se utilizan comandos [az vm user](/cli/azure/vm/user). Para realizar estos pasos, necesita tener instalada la [CLI de Azure 2.0](/cli/azure/install-az-cli2) más reciente y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/reference-index#az_login).
+En los ejemplos siguientes se utilizan comandos [az vm user](/cli/azure/vm/user). Para realizar estos pasos, es preciso tener instalada la [CLI de Azure](/cli/azure/install-az-cli2) más reciente y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/reference-index#az_login).
 
 ## <a name="update-ssh-key"></a>Actualizar la clave SSH
 En el ejemplo siguiente se actualiza la clave SSH del usuario `azureuser` en la VM denominada `myVM`:

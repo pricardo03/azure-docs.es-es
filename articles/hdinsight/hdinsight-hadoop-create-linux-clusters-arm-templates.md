@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 9a48b3ff9769e2757ac7930feb14d6537d96fae3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4cf516550e9f9852ec50981932c2df8f236d0358
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109245"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961321"
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Creación de clústeres de Hadoop en HDInsight con plantillas de Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -27,7 +27,7 @@ En este artículo aprenderá varias formas de crear clústeres de Azure HDInsigh
 Para seguir las instrucciones de este artículo, necesita:
 
 * Una [suscripción de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Azure PowerShell o CLI de Azure.
+* Azure PowerShell o CLI de Azure clásica.
 
 ### <a name="resource-manager-templates"></a>Plantillas de Resource Manager
 Una plantilla de Resource Manager facilita la creación de los siguientes recursos de la aplicación en una única operación coordinada:
@@ -49,7 +49,7 @@ Resource Manager permite exportar una plantilla de Resource Manager a partir de 
 
 - Azure Portal: vea [Exportación de plantillas de Azure Resource Manager desde recursos existentes](../azure-resource-manager/resource-manager-export-template.md).
 - Azure PowerShell: vea [Exportación de plantillas de Azure Resource Manager con Azure PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- CLI de Azure: [Exportación de plantillas de Azure Resource Manager con CLI de Azure](../azure-resource-manager/resource-manager-export-template-cli.md).
+- CLI de Azure clásica: consulte [Exportación de plantillas de Azure Resource Manager con la CLI de Azure clásica](../azure-resource-manager/resource-manager-export-template-cli.md).
 
 
 ## <a name="deploy-using-the-portal"></a>Implementación mediante Azure Portal
@@ -60,9 +60,9 @@ Puede implementar una plantilla de Resource Manager mediante Azure Portal. Para 
 
 Puede implementar una plantilla de Resource Manager mediante Azure PowerShell. Para más información, vea [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) e [Implementar la plantilla de Resource Manager privada con el token de SAS y Azure PowerShell](../azure-resource-manager/resource-manager-powershell-sas-token.md).
 
-## <a name="deploy-using-cli"></a>Implementación mediante la CLI
+## <a name="deploy-using-azure-cli"></a>Implementación con la CLI de Azure
 
-Puede implementar una plantilla de Resource Manager mediante la CLI de Azure. Para más información, vea [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) e [Implementar la plantilla de Resource Manager privada con el token de SAS y la CLI de Azure](../azure-resource-manager/resource-manager-cli-sas-token.md).
+Puede implementar una plantilla de Resource Manager mediante la CLI clásica. Para más información, vea [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md) e [Implementar la plantilla de Resource Manager privada con el token de SAS y la CLI de Azure](../azure-resource-manager/resource-manager-cli-sas-token.md).
 
 ## <a name="deploy-using-the-rest-api"></a>Implementación mediante la API de REST
 Puede implementar una plantilla de Resource Manager mediante la API de REST. Para más información, vea [Implementación de recursos con las plantillas de Resource Manager y la API de REST de Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md).

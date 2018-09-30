@@ -1,60 +1,74 @@
 ---
-title: Autenticación saliente de Programador
-description: Autenticación saliente de Programador
+title: 'Autenticación de salida: Azure Scheduler'
+description: Aprenda a configurar o quitar la autenticación de salida de Azure Scheduler
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
-ms.author: deli
-ms.openlocfilehash: e345b2e22daae5b24c23645f7d2636f66df630ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 88f2fe0781bad4b652826b6a8d1961dd39b063e1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040340"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993347"
 ---
-# <a name="scheduler-outbound-authentication"></a>Autenticación saliente de Programador
-Puede que los trabajos de Programador tengan que llamar a servicios que requieren autenticación. De este modo, un servicio llamado puede determinar si el trabajo de Programador puede tener acceso a sus recursos. Algunos de estos servicios incluyen otros servicios de Azure, Salesforce.com, Facebook y sitios web personalizados que sean seguros.
+# <a name="outbound-authentication-for-azure-scheduler"></a>Autenticación de salida en Azure Scheduler
 
-## <a name="adding-and-removing-authentication"></a>Incorporación y eliminación de autenticación
-La incorporación de autenticación a un trabajo de Programador es sencilla: agregue un elemento secundario JSON `authentication` al elemento `request` al crear o actualizar un trabajo. Los secretos que se pasan al servicio Programador en una solicitud PUT, PATCH o POST, como parte del objeto `authentication` , nunca se devuelven en respuestas. En las respuestas, la información secreta se establece en null o puede que tenga un token público que represente la entidad autenticada.
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) reemplaza a Azure Scheduler, que se va a retirar. Para programar trabajos, [pruebe Azure Logic Apps en su lugar](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
-Para quitar la autenticación, incluya explícitamente una solicitud PUT o PATCH en el trabajo, lo que establece el objeto `authentication` en null. No verá ninguna propiedad de autenticación en la respuesta.
+Es posible que los trabajos de Azure Scheduler tengan que llamar a servicios que requieran autenticación, como otros servicios de Azure, Salesforce.com, Facebook y sitios web personalizados seguros. El servicio llamado puede determinar si el trabajo del Programador puede acceder a los recursos solicitados. 
 
-Actualmente, los únicos tipos de autenticación compatibles son el modelo `ClientCertificate` (para usar los certificados de cliente SSL/TLS), el modelo `Basic` (para la autenticación básica) y el modelo `ActiveDirectoryOAuth` (para autenticación ActiveDirectoryOAuth).
+El Programador admite estos modelos de autenticación: 
 
-## <a name="request-body-for-clientcertificate-authentication"></a>Cuerpo de la solicitud en autenticación ClientCertificate
-Al agregar autenticación mediante el modelo `ClientCertificate` , especifique los siguientes elementos adicionales en el cuerpo de la solicitud.  
+* Autenticación de *certificado de cliente* cuando se usan certificados de cliente SSL/TLS
+* Autenticación *básica*
+* Autenticación de *Active Directory OAuth*
 
-| Elemento | Description |
-|:--- |:--- |
-| *autenticación (elemento primario)* |Objeto de autenticación para usar un certificado de cliente SSL. |
-| *type* |Obligatorio. Tipo de autenticación. En certificados de cliente SSL, el valor debe ser `ClientCertificate`. |
-| *pfx* |Obligatorio. Contenido codificado en base 64 del archivo PFX. |
-| *password* |Obligatorio. Contraseña de acceso al archivo PFX. |
+## <a name="add-or-remove-authentication"></a>Adición o eliminación de la autenticación
 
-## <a name="response-body-for-clientcertificate-authentication"></a>Cuerpo de la respuesta en autenticación ClientCertificate
-Cuando se envía una solicitud con información de autenticación, la respuesta contiene los siguientes elementos relacionados con la autenticación.
+* Para agregar autenticación a un trabajo del Programador, al crear o actualizar el trabajo, agregue el `authentication`elemento secundario de notación de objetos JavaScript (JSON) al elemento `request`. 
 
-| Elemento | Description |
-|:--- |:--- |
-| *autenticación (elemento primario)* |Objeto de autenticación para usar un certificado de cliente SSL. |
-| *type* |Tipo de autenticación. Para los certificados de cliente SSL, el valor es `ClientCertificate`. |
-| *certificateThumbprint* |Huella digital del certificado. |
-| *certificateSubjectName* |Nombre distintivo del sujeto del certificado. |
-| *certificateExpiration* |Fecha de expiración del certificado |
+  Las respuestas nunca devuelven secretos que se pasen al servicio Scheduler mediante una solicitud PUT, PATCH o POST, en el objeto `authentication`. 
+  Las respuestas establecen la información del secreto como nula o pueden usar un token público que representa la entidad autenticada. 
 
-## <a name="sample-rest-request-for-clientcertificate-authentication"></a>Ejemplo de solicitud de REST para la autenticación ClientCertificate
-```
-PUT https://management.azure.com/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
+* Para quitar la autenticación de un trabajo del Programador, ejecute explícitamente una solicitud PUT o PATCH en el trabajo establezca el objeto `authentication` como nulo. La respuesta no contendrá propiedades de autenticación.
+
+## <a name="client-certificate"></a>Certificado de cliente
+
+### <a name="request-body---client-certificate"></a>Cuerpo de solicitud - Certificado de cliente
+
+Al agregar autenticación mediante el modelo `ClientCertificate`, especifique estos elementos adicionales en el cuerpo de la solicitud.  
+
+| Elemento | Obligatorio | DESCRIPCIÓN |
+|---------|----------|-------------|
+| **autenticación** (elemento principal) | El objeto de autenticación para usar un certificado de cliente SSL |
+| **type** | SÍ | El tipo de autenticación. Para los certificados de cliente SSL, el valor es `ClientCertificate`. |
+| **pfx** | SÍ | El contenido con codificación base64 del archivo PFX |
+| **password** | SÍ | La contraseña para acceder al archivo PFX |
+||| 
+
+### <a name="response-body---client-certificate"></a>Cuerpo de respuesta: Certificado de cliente 
+
+Cuando se envía una solicitud con información de autenticación, la respuesta contiene estos elementos de autenticación.
+
+| Elemento | DESCRIPCIÓN | 
+|---------|-------------| 
+| **autenticación** (elemento principal) | El objeto de autenticación para usar un certificado de cliente SSL |
+| **type** | El tipo de autenticación. Para los certificados de cliente SSL, el valor es `ClientCertificate`. |
+| **certificateThumbprint** |La huella digital del certificado |
+| **certificateSubjectName** |El nombre distintivo del sujeto del certificado |
+| **certificateExpiration** | La fecha de expiración del certificado |
+||| 
+
+### <a name="sample-rest-request---client-certificate"></a>Solicitud de REST de ejemplo - Certificado de cliente
+
+```json
+PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
 Host: management.azure.com
 Authorization: Bearer sometoken
@@ -83,15 +97,15 @@ Content-Type: application/json; charset=utf-8
       "endTime": "2016-04-10T08:00:00Z",
       "interval": 1
     },
-    "state": "enabled",
+    "state": "enabled"
   }
 }
 ```
 
-## <a name="sample-rest-response-for-clientcertificate-authentication"></a>Ejemplo de respuesta de REST para la autenticación ClientCertificate
-```
-HTTP/1.1 200 OK
-Cache-Control: no-cache
+### <a name="sample-rest-response---client-certificate"></a>Respuesta de REST de ejemplo - Certificado de cliente
+
+```json
+HTTP/1.1 200 OKCache-Control: no-cache
 Pragma: no-cache
 Content-Length: 858
 Content-Type: application/json; charset=utf-8
@@ -107,7 +121,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 {
-  "id": "/subscriptions/1fe0abdf-581e-4dfe-9ec7-e5cb8e7b205e/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
+  "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
   "type": "Microsoft.Scheduler/jobCollections/jobs",
   "name": "southeastasiajc/httpjob",
   "properties": {
@@ -144,28 +158,35 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 }
 ```
 
-## <a name="request-body-for-basic-authentication"></a>Cuerpo de la solicitud en autenticación básica
-Al agregar autenticación mediante el modelo `Basic` , especifique los siguientes elementos adicionales en el cuerpo de la solicitud.
+## <a name="basic"></a>Básico
 
-| Elemento | Description |
-|:--- |:--- |
-| *autenticación (elemento primario)* |Objeto de autenticación para usar autenticación básica. |
-| *type* |Obligatorio. Tipo de autenticación. En autenticación básica, el valor debe ser `Basic`. |
-| *username* |Obligatorio. Nombre de usuario para autenticar. |
-| *password* |Obligatorio. Contraseña para autenticar. |
+### <a name="request-body---basic"></a>Cuerpo de la solicitud - Básico
 
-## <a name="response-body-for-basic-authentication"></a>Cuerpo de la respuesta en autenticación básica
-Cuando se envía una solicitud con información de autenticación, la respuesta contiene los siguientes elementos relacionados con la autenticación.
+Al agregar autenticación mediante el modelo `Basic`, especifique estos elementos adicionales en el cuerpo de la solicitud.
 
-| Elemento | Description |
-|:--- |:--- |
-| *autenticación (elemento primario)* |Objeto de autenticación para usar autenticación básica. |
-| *type* |Tipo de autenticación. En autenticación básica, el valor es `Basic`. |
-| *username* |Nombre del usuario autenticado. |
+| Elemento | Obligatorio | DESCRIPCIÓN |
+|---------|----------|-------------|
+| **autenticación** (elemento principal) | El objeto de autenticación para usar la autenticación básica | 
+| **type** | SÍ | El tipo de autenticación. En autenticación básica, el valor es `Basic`. | 
+| **username** | SÍ | El nombre de usuario que se autentica | 
+| **password** | SÍ | La contraseña que se autentica |
+|||| 
 
-## <a name="sample-rest-request-for-basic-authentication"></a>Ejemplo de solicitud de REST para la autenticación Basic
-```
-PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
+### <a name="response-body---basic"></a>Cuerpo de respuesta: Básico
+
+Cuando se envía una solicitud con información de autenticación, la respuesta contiene estos elementos de autenticación.
+
+| Elemento | DESCRIPCIÓN | 
+|---------|-------------|
+| **autenticación** (elemento principal) | El objeto de autenticación para usar la autenticación básica |
+| **type** | El tipo de autenticación. En el caso de la autenticación básica, el valor es `Basic`. |
+| **username** | El nombre del usuario autenticado |
+||| 
+
+### <a name="sample-rest-request---basic"></a>Solicitud de REST de ejemplo - Básico
+
+```json
+PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
 Host: management.azure.com
 Authorization: Bearer sometoken
@@ -195,13 +216,14 @@ Content-Type: application/json; charset=utf-8
       "endTime": "2016-04-10T08:00:00Z",
       "interval": 1
     },
-    "state": "enabled",
+    "state": "enabled"
   }
 }
 ```
 
-## <a name="sample-rest-response-for-basic-authentication"></a>Ejemplo de respuesta de REST para la autenticación Basic
-```
+### <a name="sample-rest-response---basic"></a>Respuesta de REST de ejemplo - Básico
+
+```json
 HTTP/1.1 200 OK
 Cache-Control: no-cache
 Pragma: no-cache
@@ -219,7 +241,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 {  
-   "id":"/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
+   "id":"/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
    "type":"Microsoft.Scheduler/jobCollections/jobs",
    "name":"southeastasiajc/httpjob",
    "properties":{  
@@ -236,14 +258,14 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
                "type":"Basic"
             }
          },
-         "type":"http"
+         "type":"Http"
       },
       "recurrence":{  
-         "frequency":"minute",
+         "frequency":"Minute",
          "endTime":"2016-04-10T08:00:00Z",
          "interval":1
       },
-      "state":"enabled",
+      "state":"Enabled",
       "status":{  
          "nextExecutionTime":"2016-03-16T19:06:00Z",
          "executionCount":0,
@@ -254,35 +276,39 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 }
 ```
 
-## <a name="request-body-for-activedirectoryoauth-authentication"></a>Cuerpo de la solicitud en autenticación ActiveDirectoryOAuth
-Al agregar autenticación mediante el modelo `ActiveDirectoryOAuth` , especifique los siguientes elementos adicionales en el cuerpo de la solicitud.
+## <a name="active-directory-oauth"></a>Active Directory OAuth
 
-| Elemento | Description |
-|:--- |:--- |
-| *autenticación (elemento primario)* |Objeto de autenticación para usar autenticación ActiveDirectoryOAuth. |
-| *type* |Obligatorio. Tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor debe ser `ActiveDirectoryOAuth`. |
-| *tenant* |Obligatorio. Identificador del inquilino de Azure AD. |
-| *audience* |Obligatorio. Esto se establece en https://management.core.windows.net/. |
-| *clientId* |Obligatorio. Proporcione el identificador de cliente para la aplicación de Azure AD. |
-| *secret* |Obligatorio. Secreto del cliente que solicita el token. |
+### <a name="request-body---active-directory-oauth"></a>Cuerpo de la solicitud - Active Directory OAuth 
 
-### <a name="determining-your-tenant-identifier"></a>Determinación del identificador del inquilino
-Encontrará el identificador del inquilino de Azure AD ejecutando `Get-AzureAccount` en Azure PowerShell.
+Al agregar autenticación mediante el modelo `ActiveDirectoryOAuth`, especifique estos elementos adicionales en el cuerpo de la solicitud.
 
-## <a name="response-body-for-activedirectoryoauth-authentication"></a>Cuerpo de la respuesta en autenticación ActiveDirectoryOAuth
-Cuando se envía una solicitud con información de autenticación, la respuesta contiene los siguientes elementos relacionados con la autenticación.
+| Elemento | Obligatorio | DESCRIPCIÓN |
+|---------|----------|-------------|
+| **autenticación** (elemento principal) | SÍ | El objeto de autenticación para usar la autenticación de ActiveDirectoryOAuth |
+| **type** | SÍ | El tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor es `ActiveDirectoryOAuth`. |
+| **tenant** | SÍ | Identificador del inquilino de Azure AD. Para encontrar el identificador del inquilino de Azure AD, ejecute `Get-AzureAccount` en Azure PowerShell. |
+| **audience** | SÍ | Este valor se establece en `https://management.core.windows.net/`. | 
+| **clientId** | SÍ | Identificador de cliente para la aplicación de Azure AD | 
+| **secret** | SÍ | El secreto del cliente que solicita el token | 
+|||| 
 
-| Elemento | Description |
-|:--- |:--- |
-| *autenticación (elemento primario)* |Objeto de autenticación para usar autenticación ActiveDirectoryOAuth. |
-| *type* |Tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor es `ActiveDirectoryOAuth`. |
-| *tenant* |Identificador del inquilino de Azure AD. |
-| *audience* |Esto se establece en https://management.core.windows.net/. |
-| *clientId* |Identificador de cliente para la aplicación de Azure AD. |
+### <a name="response-body---active-directory-oauth"></a>Cuerpo de respuesta: Active Directory OAuth
 
-## <a name="sample-rest-request-for-activedirectoryoauth-authentication"></a>Ejemplo de solicitud de REST para la autenticación ActiveDirectoryOAuth
-```
-PUT https://management.azure.com/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
+Cuando se envía una solicitud con información de autenticación, la respuesta contiene estos elementos de autenticación.
+
+| Elemento | DESCRIPCIÓN |
+|---------|-------------|
+| **autenticación** (elemento principal) | El objeto de autenticación para usar la autenticación de ActiveDirectoryOAuth |
+| **type** | El tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor es `ActiveDirectoryOAuth`. | 
+| **tenant** | Identificador del inquilino de Azure AD. |
+| **audience** | Este valor se establece en `https://management.core.windows.net/`. |
+| **clientId** | Identificador de cliente para la aplicación de Azure AD |
+||| 
+
+### <a name="sample-rest-request---active-directory-oauth"></a>Solicitud de REST de ejemplo - Active Directory OAuth
+
+```json
+PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobcollections/southeastasiajc/jobs/httpjob?api-version=2016-01-01 HTTP/1.1
 User-Agent: Fiddler
 Host: management.azure.com
 Authorization: Bearer sometoken
@@ -307,20 +333,21 @@ Content-Type: application/json; charset=utf-8
           "type":"ActiveDirectoryOAuth"
         }
       },
-      "type": "http"
+      "type": "Http"
     },
     "recurrence": {
-      "frequency": "minute",
+      "frequency": "Minute",
       "endTime": "2016-04-10T08:00:00Z",
       "interval": 1
     },
-    "state": "enabled",
+    "state": "Enabled"
   }
 }
 ```
 
-## <a name="sample-rest-response-for-activedirectoryoauth-authentication"></a>Ejemplo de respuesta de REST para la autenticación ActiveDirectoryOAuth
-```
+### <a name="sample-rest-response---active-directory-oauth"></a>Respuesta de REST de ejemplo - Active Directory OAuth
+
+```json
 HTTP/1.1 200 OK
 Cache-Control: no-cache
 Pragma: no-cache
@@ -337,59 +364,49 @@ x-ms-routing-request-id: WESTUS:20160316T191003Z:5183bbf4-9fa1-44bb-98c6-6872e3f
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 Date: Wed, 16 Mar 2016 19:10:02 GMT
 
-{  
-   "id":"/subscriptions/1d908808-e491-4fe5-b97e-29886e18efd4/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
-   "type":"Microsoft.Scheduler/jobCollections/jobs",
-   "name":"southeastasiajc/httpjob",
-   "properties":{  
-      "startTime":"2015-05-14T14:10:00Z",
-      "action":{  
-         "request":{  
-            "uri":"https://mywebserviceendpoint.com",
-            "method":"GET",
-            "headers":{  
-               "x-ms-version":"2013-03-01"
+{
+   "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/CS-SoutheastAsia-scheduler/providers/Microsoft.Scheduler/jobCollections/southeastasiajc/jobs/httpjob",
+   "type": "Microsoft.Scheduler/jobCollections/jobs",
+   "name": "southeastasiajc/httpjob",
+   "properties": {
+      "startTime": "2015-05-14T14:10:00Z",
+      "action": {  
+         "request": {
+            "uri": "https://mywebserviceendpoint.com",
+            "method": "GET",
+            "headers": {  
+               "x-ms-version": "2013-03-01"
             },
-            "authentication":{  
-               "tenant":"microsoft.onmicrosoft.com",
-               "audience":"https://management.core.windows.net/",
-               "clientId":"dc23e764-9be6-4a33-9b9a-c46e36f0c137",
-               "type":"ActiveDirectoryOAuth"
+            "authentication": {  
+               "tenant": "microsoft.onmicrosoft.com",
+               "audience": "https://management.core.windows.net/",
+               "clientId": "dc23e764-9be6-4a33-9b9a-c46e36f0c137",
+               "type": "ActiveDirectoryOAuth"
             }
          },
-         "type":"http"
+         "type": "Http"
       },
-      "recurrence":{  
-         "frequency":"minute",
-         "endTime":"2016-04-10T08:00:00Z",
-         "interval":1
+      "recurrence": {  
+         "frequency": "minute",
+         "endTime": "2016-04-10T08:00:00Z",
+         "interval": 1
       },
-      "state":"enabled",
-      "status":{  
-         "lastExecutionTime":"2016-03-16T19:10:00.3762123Z",
-         "nextExecutionTime":"2016-03-16T19:11:00Z",
-         "executionCount":5,
-         "failureCount":5,
-         "faultedCount":1
+      "state": "Enabled",
+      "status": {  
+         "lastExecutionTime": "2016-03-16T19:10:00.3762123Z",
+         "nextExecutionTime": "2016-03-16T19:11:00Z",
+         "executionCount": 5,
+         "failureCount": 5,
+         "faultedCount": 1
       }
    }
 }
 ```
 
 ## <a name="see-also"></a>Otras referencias
- [¿Qué es Programador?](scheduler-intro.md)
 
- [Conceptos, terminología y jerarquía de entidades de Programador de Azure](scheduler-concepts-terms.md)
-
- [Introducción al Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
-
- [Planes y facturación en Programador de Azure](scheduler-plans-billing.md)
-
- [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/mt629143)
-
- [Referencia de cmdlets de PowerShell de Programador de Azure](scheduler-powershell-reference.md)
-
- [Alta disponibilidad y confiabilidad de Programador de Azure](scheduler-high-availability-reliability.md)
-
- [Límites, valores predeterminados y códigos de error de Programador de Azure](scheduler-limits-defaults-errors.md)
-
+* [¿Qué es Azure Scheduler?](scheduler-intro.md)
+* [Conceptos, terminología y jerarquía de entidades de Azure Scheduler](scheduler-concepts-terms.md)
+* [Límites, valores predeterminados y códigos de error de Azure Scheduler](scheduler-limits-defaults-errors.md)
+* [API REST de Azure Scheduler](https://msdn.microsoft.com/library/mt629143)
+* [Referencia de cmdlets de PowerShell de Azure Scheduler](scheduler-powershell-reference.md)

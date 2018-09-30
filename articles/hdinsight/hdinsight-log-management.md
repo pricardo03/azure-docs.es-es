@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: aab5be7f98f5fdf6e7304485c3d1fc5ddb7afdba
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 339d5d39c637369420e197acf65df802cefd5cb9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106924"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988502"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Administración de registros de un clúster de HDInsight
 
@@ -43,12 +43,13 @@ Los siguientes detalles del clúster son útiles para ayudar a recopilar informa
 * Estado del clúster, incluidos los detalles del último cambio de estado
 * Tipo y número de instancias de HDInsight especificados para los nodos maestro, principal y de tarea
 
-Puede obtener la mayor parte de esta información de nivel superior mediante Azure Portal.  Como alternativa, puede utilizar la CLI de Azure para obtener información acerca de los clústeres de HDInsight:
+Puede obtener la mayor parte de esta información de nivel superior mediante Azure Portal.  Como alternativa, puede utilizar la CLI de Azure clásica para obtener información acerca de los clústeres de HDInsight:
 
 ```
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 ```
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 También puede usar PowerShell para ver esta información.  Para más información, consulte [Administración de clústeres de Hadoop en HDInsight mediante Azure PowerShell](hdinsight-administer-use-powershell.md).
 
