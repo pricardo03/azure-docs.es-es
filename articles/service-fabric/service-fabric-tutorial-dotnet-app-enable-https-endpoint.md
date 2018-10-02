@@ -281,8 +281,9 @@ if ($cert -eq $null)
     }
 }
 
-Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory** to "Copy if newer".
 ```
+
+Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory** to "Copy if newer".
 
 ### <a name="run-the-setup-script-as-a-local-administrator"></a>Ejecución del script de instalación como administrador local
 
