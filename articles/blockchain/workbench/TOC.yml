@@ -1,0 +1,77 @@
+items:
+- name: Azure Blockchain Workbench (versión preliminar pública)
+  href: index.yml
+- name: Información general
+  items:
+  - name: Acerca de Azure Blockchain Workbench
+    href: overview.md
+  expanded: true
+- name: Conceptos
+  items:
+  - name: Arquitectura
+    href: architecture.md
+  - name: Patrones de integración
+    href: integration-patterns.md
+- name: Guías de procedimientos
+  items:
+  - name: Implementación de Workbench
+    href: deploy.md
+  - name: Creación de aplicación de cadena de bloques
+    href: create-app.md
+  - name: Administración de usuarios de Workbench
+    href: manage-users.md
+  - name: Uso de aplicación de cadena de bloques
+    href: use.md
+  - name: Uso de la API de Workbench
+    href: use-api.md
+  - name: Solución de problemas de aplicaciones
+    href: troubleshooting.md
+  - name: Uso de los datos de Workbench
+    items:
+    - name: Configuración del firewall de la base de datos
+      href: database-firewall.md
+    - name: Obtención de detalles de la base de datos
+      href: getdb-details.md
+    - name: Uso de datos en Excel
+      href: data-excel.md
+    - name: Uso de datos en Power BI
+      href: data-powerbi.md
+    - name: Uso de datos en SQL Management Studio
+      href: data-sql-management-studio.md
+  expanded: true
+- name: Referencia
+  items:
+  - name: Configuración
+    href: configuration.md
+  - name: Vistas de base de datos
+    href: database-views.md
+  - name: API de mensajería
+    href: messages-overview.md
+  - name: API DE REST
+    href: https://docs.microsoft.com/rest/api/azure-blockchain-workbench
+- name: Recursos
+  items:
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/blockchain/
+  - name: Ejemplos de código
+    href: https://github.com/Azure-Samples/blockchain
+  - name: Comunidad
+    href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
+  - name: Foro
+    href: https://aka.ms/workbenchforum
+  - name: Comentarios sobre el producto
+    href: https://aka.ms/blockchainuservoice
+- name: Plantillas de solución
+  items:
+  - name: Consorcio de prueba de autoridad de Ethereum
+    href: ../templates/ethereum-poa-deployment.md
+  - name: Consorcio de prueba de trabajo de Ethereum
+    href: ../templates/ethereum-deployment.md
+  - name: Consorcio de Hyperledger Fabric
+    href: ../templates/hyperledger-fabric-single-member-blockchain.md
+ms.openlocfilehash: de9b0906450f3ba26ebfac6699c07d93039db6a7
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239785"
