@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/18/2018
+ms.date: 9/28/2018
 ms.author: rithorn
-ms.openlocfilehash: d031059f9811cedb703fec4920e00fd1b2e3f877
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6b369c8209e62ff3c98b3fdf78378b403b0a0d2d
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045356"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017660"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure
 
@@ -62,19 +62,30 @@ Este grupo de administración raíz está integrado en la jerarquía de manera q
   - Todos los usuarios con acceso a una suscripción pueden ver el contexto de dónde está esa suscripción en la jerarquía.  
   - A ninguno se le concede acceso de forma predeterminada al grupo de administración raíz. Los administradores globales de directorio son los únicos usuarios que pueden elevarse ellos mismos para obtener acceso.  Una vez que tengan acceso, los administradores de directorio pueden asignar cualquier rol RBAC a otros usuarios para la administración.  
 
-> [!NOTE]
-> Si su directorio empezó usando el servicio de administración de grupos antes del 25 de junio de 2018, el directorio podría no estar configurado con todas las suscripciones en la jerarquía. El equipo del grupo de administración actualiza con carácter retroactivo cada directorio que comenzó con grupos de administración en la versión preliminar pública antes de esa fecha en julio o agosto de 2018. Todas las suscripciones en los directorios serán elementos secundarios en el grupo de administración raíz anterior.
->
-> Si tiene preguntas sobre este proceso retroactivo, póngase en contacto con: managementgroups@microsoft.com  
-  
-## <a name="initial-setup-of-management-groups"></a>Instalación inicial de los grupos de administración
-
-Cuando algún usuario comienza usando grupos de administración, se produce un proceso de configuración inicial. El primer paso es que el grupo de administración raíz se crea en el directorio. Una vez creado este grupo, todas las suscripciones existentes que existen en el directorio se convierten en elementos secundarios del grupo de administración raíz. El motivo de este proceso es asegurarse de que hay solo una jerarquía de grupos de administración en un directorio. La jerarquía única dentro del directorio permite a los clientes administrativos aplicar directivas y un acceso global que otros clientes dentro del directorio no puedan omitir. Nada que se haya asignado en la raíz se aplicará a todos los grupos de administración, suscripciones, grupos de recursos y recursos dentro del directorio al tener una jerarquía dentro del directorio.
-
 > [!IMPORTANT]
 > Todas las asignaciones de acceso de los usuarios o de directivas en el grupo de administración raíz **se aplican a todos los recursos dentro del directorio**.
 > Por este motivo, todos los clientes deben evaluar la necesidad de tener los elementos definidos en este ámbito.
 > Las asignaciones de directivas y de acceso de usuario deberían ser obligatorias solo en este ámbito.  
+
+## <a name="initial-setup-of-management-groups"></a>Instalación inicial de los grupos de administración
+
+Cuando algún usuario comienza usando grupos de administración, se produce un proceso de configuración inicial. El primer paso es que el grupo de administración raíz se crea en el directorio. Una vez creado este grupo, todas las suscripciones existentes que existen en el directorio se convierten en elementos secundarios del grupo de administración raíz. El motivo de este proceso es asegurarse de que hay solo una jerarquía de grupos de administración en un directorio. La jerarquía única dentro del directorio permite a los clientes administrativos aplicar directivas y un acceso global que otros clientes dentro del directorio no puedan omitir. Nada que se haya asignado en la raíz se aplicará a todos los grupos de administración, suscripciones, grupos de recursos y recursos dentro del directorio al tener una jerarquía dentro del directorio.
+
+## <a name="trouble-seeing-all-subscriptions"></a>Problemas para ver todas las suscripciones
+
+Algunos de los directorios que empezaron a usar grupos de administración durante la versión preliminar (antes del 25 de junio de 2018) podrían experimentar un problema por el cual no se aplican todas las suscripciones a la jerarquía.  Esto se debe a que los procesos para aplicar suscripciones en la jerarquía se implementaron después de realizar una asignación de roles o directivas en el grupo de administración raíz del directorio.
+
+### <a name="how-to-resolve-the-issue"></a>Cómo resolver el problema
+
+Hay dos opciones de autoservicio para resolver este problema.
+
+1. Eliminar todas las asignaciones de roles y directivas del grupo de administración raíz
+    1. Mediante la eliminación de todas las asignaciones de roles y directivas del grupo de administración raíz, el servicio repondrá todas las suscripciones en la jerarquía durante el siguiente ciclo nocturno.  El motivo de esta comprobación es asegurarse de que no se ha dado ningún acceso accidental ni asignación de directiva a todas las suscripciones de los inquilinos.
+    1. La mejor manera de realizar este proceso sin que afecte a los servicios es aplicar las asignaciones de roles o directivas un nivel por debajo del grupo de administración raíz. Después, puede quitar todas las asignaciones del ámbito raíz.
+1. Llamar a la API directamente para iniciar el proceso de reposición
+    1. Cualquier cliente autorizado del directorio puede llamar a las API *TenantBackfillStatusRequest* o *StartTenantBackfillRequest*. Cuando se llama a StartTenantBackfillRequest API, esta comienza el proceso de configuración inicial de mover todas las suscripciones a la jerarquía. Este proceso también inicia la aplicación de todas las suscripciones nuevas para que constituyan un elemento secundario del grupo de administración raíz. Este proceso se puede realizar sin cambiar ninguna asignación en el nivel raíz ya que, como usted dice, está bien que cualquier asignación de directiva o de acceso en la raíz se pueda aplicar a todas las suscripciones.
+
+Si tiene preguntas acerca de este proceso de reposición, póngase en contacto con: managementgroups@microsoft.com  
   
 ## <a name="management-group-access"></a>Acceso al grupo de administración
 

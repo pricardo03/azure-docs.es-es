@@ -22,6 +22,8 @@
 ## [Comprobar el mantenimiento de un dominio administrado](active-directory-ds-check-health.md)
 ## [Usar Azure AD Domain Services en suscripciones de Azure CSP](active-directory-ds-csp.md)
 ## [Habilitar Azure AD Domain Services mediante PowerShell](active-directory-ds-enable-using-powershell.md)
+## [Configuración de la sincronización con ámbito desde Azure AD a un dominio administrado](active-directory-ds-scoped-synchronization.md)
+## [Protección del dominio administrado](active-directory-ds-secure-your-domain.md)
 ## Unirse a un dominio administrado
 ### [Máquina virtual Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Máquina virtual Windows Server a partir de plantilla](active-directory-ds-join-windows-vm-template.md)
@@ -44,7 +46,6 @@
 ### [Creación de una cuenta de servicio administrada de grupos en un dominio administrado](active-directory-ds-create-gmsa.md)
 ### [Administración de directivas de grupo en un dominio administrado](active-directory-ds-admin-guide-administer-group-policy.md)
 ### [Configuración de directivas de contraseña en un dominio administrado](active-directory-ds-password-policy.md)
-### [Configuración de la sincronización con ámbito desde Azure AD a un dominio administrado](active-directory-ds-scoped-synchronization.md)
 ## [Seleccionar una red virtual](active-directory-ds-networking.md)
 ## Implementación de aplicaciones
 ### [Configuración de la compatibilidad con la sincronización de perfiles de SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
