@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 15bd452ad2b80334c3f6168e6dee89bdd7c5efc4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 81b5bd18ea367b68adfc41ee97768b3b28967a42
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424412"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986649"
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Use ACR con un clúster de DC/OS para implementar la aplicación
 
@@ -28,7 +28,7 @@ En este artículo, exploraremos cómo usar Azure Container Registry con un clús
 
 Necesita un clúster de DC/OS de ACS para completar los pasos de este tutorial. Si es necesario, este [script de ejemplo](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) puede crear uno.
 
-Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si debe actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

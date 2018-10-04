@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7ae235ea52c5c505e535cc3fad2306167d349ee9
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 8f4b1c1c66243c06d46ef3fddec8ea495163fa07
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782267"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999620"
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Tutorial de Azure Container Service - Administrar DC/OS
 
@@ -30,7 +30,7 @@ DC/OS proporciona una plataforma distribuida para ejecutar aplicaciones modernas
 > * Administración básica de DC/OS
 > * Eliminación del clúster de DC/OS
 
-Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Para realizar este tutorial es necesaria la versión 2.0.4 o superior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si debe actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-dcos-cluster"></a>Creación del clúster de DC/OS
 
