@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 6fcc7823a7e2f2f1e280622a1fa05d4417a71546
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: e4a913aaeb6eeb3c58b70dbcd714f1360875594f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143489"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161543"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Tutorial: Desempaquetado, conexión y desbloqueo de Azure Data Box Disk
 
@@ -30,7 +30,9 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Desempaquetado de Data Box Disk
-> * Conéctese y desbloquee Data Box Disk.
+> * Conexión a discos y obtención de la clave de paso
+> * Desbloqueo de discos en el cliente de Windows
+> * Desbloqueo de discos en el cliente de Linux
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -38,12 +40,9 @@ Antes de comenzar, asegúrese de que:
 
 1. Ha completado el [Tutorial: Pedido de Azure Data Box Disk](data-box-disk-deploy-ordered.md).
 2. Ha recibido los discos y el estado del trabajo en el portal se actualiza a **Delivered** (Entregado).
-3. Tiene un equipo host en el que puede instalar la herramienta de desbloqueo de Data Box Disk. El equipo host debe:
-    - Ejecutar un [sistema operativo admitido](data-box-disk-system-requirements.md).
-    - Tener [instalado Windows PowerShell 4](https://www.microsoft.com/download/details.aspx?id=40855).
-    - Tener [instalado .NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653).
-    - Tener [BitLocker habilitado](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-how-to-deploy-on-windows-server).
-    - Tener [instalado Windows Management Framework 4](https://www.microsoft.com/en-us/download/details.aspx?id=40855). 
+3. Tiene un equipo cliente en el que puede instalar la herramienta de desbloqueo Data Box Disk. El equipo cliente debe:
+    - Ejecutar un [sistema operativo admitido](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+    - Disponer de otro [software necesario](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) instalado si es un cliente de Windows.  
 
 ## <a name="unpack-your-disks"></a>Desempaquetado de los discos
 
@@ -60,22 +59,31 @@ Antes de comenzar, asegúrese de que:
 
 4. Guarde la caja y la espuma de embalaje para el envío de devolución de los discos.
 
-## <a name="connect-and-unlock-your-disks"></a>Conexión y desbloqueo de los discos
+## <a name="connect-to-disks-and-get-the-passkey"></a>Conexión a discos y obtención de la clave de paso 
 
-Realice los pasos siguientes para conectarse a los discos y para desbloquearlos.
-
-1. Utilice el cable incluido para conectar el disco a un equipo Windows que ejecute un sistema operativo compatible como se indica en los requisitos previos. 
+1. Utilice el cable incluido para conectar el disco al equipo cliente que ejecute un sistema operativo compatible como se indica en los requisitos previos. 
 
     ![Conexión de Data Box Disk](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)    
     
-2. En Azure Portal, vaya a **General > Detalles del dispositivo**. 
-3. Haga clic en **Download Data Box Disk unlock tool** (Descargar herramienta de desbloqueo de Data Box Disk). 
+2. En Azure Portal, vaya a **General > Detalles del dispositivo**. Use el icono de copia para copiar la clave de paso. Esta clave de paso se usará para desbloquear los discos.
 
-    ![Descarga de la herramienta de desbloqueo de Data Box Disk](media/data-box-disk-deploy-set-up/data-box-disk-unload1.png)     
+    ![Clave de paso de la herramienta de desbloqueo Data Box Disk](media/data-box-disk-deploy-set-up/data-box-disk-get-passkey.png) 
 
-4. Extraiga la herramienta en el mismo equipo que va a utilizar para copiar los datos.
-5. Abra una ventana del símbolo del sistema o ejecute Windows PowerShell como administrador en el mismo equipo.
-6. (Opcional) Para comprobar que el equipo que va a usar para desbloquear el disco cumple los requisitos del sistema operativo, ejecute el comando de comprobación del sistema. A continuación se muestra una salida de ejemplo. 
+Dependiendo de si está conectado a un cliente de Windows o de Linux, los pasos para desbloquear los discos son diferentes.
+
+## <a name="unlock-disks-on-windows-client"></a>Desbloqueo de discos en el cliente de Windows
+
+Realice los pasos siguientes para conectarse a los discos y para desbloquearlos.
+     
+1. En Azure Portal, vaya a **General > Detalles del dispositivo**. 
+2. Descargue el conjunto de herramientas de Data Box Disk que se corresponde con el cliente de Windows. 
+
+    > [!div class="nextstepaction"]
+    > [Descargar conjunto de herramientas de Data Box Disk para Windows](http://aka.ms/databoxdisktoolswin)         
+
+3. Extraiga la herramienta en el mismo equipo que va a utilizar para copiar los datos.
+4. Abra una ventana del símbolo del sistema o ejecute Windows PowerShell como administrador en el mismo equipo.
+5. (Opcional) Para comprobar que el equipo que va a usar para desbloquear el disco cumple los requisitos del sistema operativo, ejecute el comando de comprobación del sistema. A continuación se muestra una salida de ejemplo. 
 
     ```powershell
     Windows PowerShell
@@ -86,13 +94,12 @@ Realice los pasos siguientes para conectarse a los discos y para desbloquearlos.
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ``` 
 
-7. En Azure Portal, vaya a **General > Detalles del dispositivo**. Use el icono de copia para copiar la clave de paso.
-8. Ejecute `DataBoxDiskUnlock.exe` y proporcione la clave de paso. Se muestra la letra de unidad asignada en el disco. A continuación se muestra una salida de ejemplo.
+6. Ejecute `DataBoxDiskUnlock.exe` y proporcione la clave de paso que obtuvo en [Conexión a discos y obtención de la clave de paso](#Connect-to-disks-and-get-the-passkey). Se muestra la letra de unidad asignada en el disco. A continuación se muestra una salida de ejemplo.
 
     ```powershell
     PS C:\WINDOWS\system32> cd C:\DataBoxDiskUnlockTool\DiskUnlock
     PS C:\DataBoxDiskUnlockTool\DiskUnlock> .\DataBoxDiskUnlock.exe
-    Enter the passkeys (format: passkey1;passkey2;passkey3):
+    Enter the passkey :
     testpasskey1
     
     Following volumes are unlocked and verified.
@@ -101,26 +108,155 @@ Realice los pasos siguientes para conectarse a los discos y para desbloquearlos.
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ```
 
-9. Repita los pasos 6 a 8 cuando vuelva a insertar discos. Use el comando de ayuda si necesita ayuda con la herramienta de desbloqueo de Data Box Disk.   
+7. Repita los pasos de desbloqueo cada vez que tenga que volver a insertar un disco. Use el comando `help` si necesita ayuda con la herramienta de desbloqueo de Data Box Disk.   
 
     ```powershell
     PS C:\DataBoxDiskUnlockTool\DiskUnlock> .\DataBoxDiskUnlock.exe /help
     USAGE:
-    DataBoxUnlock /PassKeys:<passkey_list_separated_by_semicolon>
+    DataBoxUnlock /PassKey:<passkey_from_Azure_portal>
     
-    Example: DataBoxUnlock /PassKeys:<your passkey>
+    Example: DataBoxUnlock /PassKey:<your passkey>
     Example: DataBoxUnlock /SystemCheck
     Example: DataBoxUnlock /Help
     
-    /PassKeys:       Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.
+    /PassKey:        Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.
     /SystemCheck:    This option checks if your system meets the requirements to run the tool.
     /Help:           This option provides help on cmdlet usage and examples.
     
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ```  
-10. Una vez que el disco está desbloqueado, puede ver su contenido.    
+8. Una vez que el disco está desbloqueado, puede ver su contenido.    
 
     ![Contenido de Data Box Disk](media/data-box-disk-deploy-set-up/data-box-disk-content.png) 
+
+## <a name="unlock-disks-on-linux-client"></a>Desbloqueo de discos en el cliente de Linux
+
+1. En Azure Portal, vaya a **General > Detalles del dispositivo**. 
+2. Descargue el conjunto de herramientas de Data Box Disk que se corresponde con el cliente de Linux.  
+
+    > [!div class="nextstepaction"]
+    > [Descargar conjunto de herramientas de Data Box Disk para Linux](http://aka.ms/databoxdisktoolslinux) 
+
+3. En el cliente Linux, abra un terminal. Vaya a la carpeta en la que descargó el software. Cambie los permisos de archivo para que pueda ejecutar estos archivos. Escriba el siguiente comando:  
+
+    `chmod +x DataBoxDiskUnlock_x86_64` 
+    
+    `chmod +x DataBoxDiskUnlock_Prep.sh` 
+ 
+    A continuación se muestra una salida de ejemplo. Una vez que se ejecuta el comando chmod, puede comprobar que los permisos de archivo se han cambiado mediante la ejecución del comando `ls`. 
+ 
+    ```
+        [user@localhost Downloads]$ chmod +x DataBoxDiskUnlock_x86_64  
+        [user@localhost Downloads]$ chmod +x DataBoxDiskUnlock_Prep.sh   
+        [user@localhost Downloads]$ ls -l  
+        -rwxrwxr-x. 1 user user 1152664 Aug 10 17:26 DataBoxDiskUnlock_x86_64  
+        -rwxrwxr-x. 1 user user 795 Aug 5 23:26 DataBoxDiskUnlock_Prep.sh
+    ```
+4. Ejecute el script para que instale todos los archivos binarios necesarios para el software de desbloqueo de Data Box Disk. Use `sudo` para ejecutar el comando como raíz. Una vez que los archivos binarios se han instalado correctamente, aparecerá una nota a tal efecto en el terminal.
+
+    `sudo ./DataBoxDiskUnlock_Prep.sh`
+
+    El script comprobará primero si el equipo cliente está ejecutando un sistema operativo compatible. A continuación se muestra una salida de ejemplo. 
+ 
+    ```
+    [user@localhost Documents]$ sudo ./DataBoxDiskUnlock_Prep.sh 
+        OS = CentOS Version = 6.9 
+        Release = CentOS release 6.9 (Final) 
+        Architecture = x64 
+    
+        The script will install the following packages and dependencies. 
+        epel-release 
+        dislocker 
+        ntfs-3g 
+        fuse-dislocker 
+        Do you wish to continue? y|n :|
+    ```
+    
+ 
+5. Escriba `y` para continuar la instalación. Los paquetes que instala el script son: 
+    - **epel-release**: repositorio que contiene los tres paquetes siguientes. 
+    - **dislocker y fuse-dislocker**: esta utilidad ayuda a descifrar los discos cifrados de BitLocker. 
+    - **ntfs-3g**: paquete que ayuda a montar volúmenes NTFS. 
+ 
+    Una vez que los paquetes se han instalado correctamente el terminal mostrará una notificación al respecto.     
+    ```
+    Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
+    ruby-libs.x86 64 0:1.8.7.374-5.el6 
+    Complete! 
+    Loaded plugins: fastestmirror, refresh-packagekit, security 
+    Setting up Remove Process 
+    Resolving Dependencies 
+    --> Running transaction check 
+    ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
+    Dependencies Resolved 
+    Package        Architecture        Version        Repository        Size 
+    Removing:  epel-release        noarch         6-8        @extras        22 k 
+    Transaction Summary                                 
+    Remove        1 Package(s) 
+    Installed size: 22 k 
+    Downloading Packages: 
+    Running rpmcheckdebug 
+    Running Transaction Test 
+    Transaction Test Succeeded 
+    Running Transaction 
+    Erasing : epel-release-6-8.noarch 
+    Verifying : epel-release-6-8.noarch 
+    Removed: 
+    epel-release.noarch 0:6-8 
+    Complete! 
+    Dislocker is installed by the script. 
+    OpenSSL is already installed.
+    ```
+
+6. Ejecute la herramienta de desbloqueo de Data Box Disk. Proporcione la clave de paso de Azure Portal que obtuvo en [Conexión a discos y obtención de la clave de paso](#Connect-to-disks-and-get-the-passkey). Opcionalmente, especifique una lista de volúmenes cifrados de BitLocker para desbloquear. La lista de volúmenes y la clave de paso se debe especificar entre comillas simples. 
+
+    Escriba el siguiente comando.
+ 
+    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’ /Volumes:’<list of volumes>’`         
+
+    A continuación se muestra la salida de ejemplo. 
+ 
+    ```
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’ /Volumes:’/dev/sdbl’ 
+    
+    START: Mon Aug 13 14:25:49 2018 
+    Volumes: /dev/sdbl 
+    Passkey: qwerqwerqwer 
+    
+    Volumes for data copy : 
+    /dev/sdbl: /mnt/DataBoxDisk/mountVoll/ 
+    END: Mon Aug 13 14:26:02 2018
+    ```
+    Aparece el punto de montaje del volumen en el que puede copiar los datos.
+
+7. Repita los pasos de desbloqueo cada vez que tenga que volver a insertar un disco. Use el comando `help` si necesita ayuda con la herramienta de desbloqueo de Data Box Disk. 
+    
+    `sudo ./DataBoxDiskUnlock_x86_64 /Help` 
+
+    A continuación se muestra la salida de ejemplo. 
+ 
+    ```
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Help  
+    START: Mon Aug 13 14:29:20 2018 
+    USAGE: 
+    sudo DataBoxDiskUnlock /PassKey:’<passkey from Azure_portal>’ 
+    
+    Example: sudo DataBoxDiskUnlock /PassKey:’passkey’ 
+    Example: sudo DataBoxDiskUnlock /PassKey:’passkey’ /Volumes:’/dev/sdbl’ 
+    Example: sudo DataBoxDiskUnlock /Help Example: sudo DataBoxDiskUnlock /Clean 
+    
+    /PassKey: This option takes a passkey as input and unlocks all of your disks. 
+    Get the passkey from your Data Box Disk order in Azure portal. 
+    /Volumes: This option is used to input a list of BitLocker encrypted volumes. 
+    /Help: This option provides help on the tool usage and examples. 
+    /Unmount: This option unmounts all the volumes mounted by this tool. 
+   
+    END: Mon Aug 13 14:29:20 2018 [user@localhost Downloads]$
+    ```
+    
+8. Una vez que el disco está desbloqueado, puede ir al punto de montaje y ver su contenido. Ahora está listo para copiar los datos en las carpetas *BlockBlob* o *PageBlob*. 
+
+    ![Contenido de Data Box Disk](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -128,7 +264,9 @@ En este tutorial, ha aprendido sobre temas relacionados con Azure Data Box Disk;
 
 > [!div class="checklist"]
 > * Desempaquetado de Data Box Disk
-> * Conexión y desbloqueo de Data Box Disk
+> * Conexión a discos y obtención de la clave de paso
+> * Desbloqueo de discos en el cliente de Windows
+> * Desbloqueo de discos en el cliente de Linux
 
 
 Pase al siguiente tutorial para aprender a copiar datos en Data Box Disk.

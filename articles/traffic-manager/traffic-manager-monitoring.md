@@ -3,8 +3,8 @@ title: Supervisión de puntos de conexión de Azure Traffic Manager y conmutaci�
 description: Este artículo le puede ayudar a comprender la forma en que el Administrador de tráfico utiliza la supervisión de puntos de conexión y la conmutación por error automática de los puntos de conexión para permitir que los clientes de Azure implementen aplicaciones de alta disponibilidad
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: ''
 ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 0124c70916d1c9a6f6b818a68f13d7a189a1b70f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 64f3595206c580d0d177622d23aa49753100d3c0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398842"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221101"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Supervisión de puntos de conexión de Traffic Manager
 
@@ -32,17 +32,19 @@ Para configurar la supervisión de los puntos de conexión, debe especificar la 
 * **Protocolo**. Elija HTTP, HTTPS o TCP como el protocolo que utilizará Traffic Manager al sondear su punto de conexión para comprobar su estado. La supervisión HTTPS no comprueba si el certificado SSL es válido, solo comprueba que está presente.
 * **Port**. Elija el puerto que se usará para la solicitud.
 * **Ruta de acceso**. Esta opción de configuración solo es válida para los protocolos HTTP y HTTPS, para los que la configuración de la ruta de acceso especifica es necesaria. Si utiliza esta configuración para el protocolo de supervisión TCP se producirá un error. Para el protocolo HTTP y HTTPS, proporcione la ruta de acceso relativa y el nombre de la página web o el archivo a los que accederá la supervisión. Una barra diagonal (/) es una entrada válida para la ruta de acceso relativa. Este valor implica que el archivo se encuentra en el directorio raíz (valor predeterminado).
+* **Configuración de encabezado personalizado**. Esta opción le ayuda a agregar encabezados HTTP específicos para las comprobaciones de estado que Traffic Manager envía a los puntos de conexión de un perfil. Los encabezados personalizados se pueden especificar a nivel de perfil para que se apliquen en todos los puntos de conexión del perfil o a nivel de punto de conexión para que solo se apliquen a este último. Puede usar los encabezados personalizados para que las comprobaciones de estado que se realicen en puntos de conexión de un entorno multiinquilino se enruten correctamente a su destino mediante la especificación de un encabezado de host. Para usar esta configuración, también puede agregar encabezados únicos que se usarán para identificar las solicitudes HTTPS originadas por Traffic Manager y procesarlas de manera distinta.
+* **Intervalos de código de estado esperados**. Esta configuración permite especificar varios intervalos de código correctos en formato 200-299, 301-301. Si estos códigos de estado se reciben como respuesta desde un punto de conexión al iniciarse una comprobación de estado, Traffic Manager marca el punto de conexión como correcto. Se puede especificar un máximo de 8 intervalos de código de estado. Esta configuración es aplicable únicamente a los protocolos HTTP y HTTPS y a todos los puntos de conexión. Esta configuración se encuentra a nivel de perfil de Traffic Manager y, de forma predeterminada,se define el valor 200 como código de estado correcto.
 * **Intervalo de sondeo**. Este valor especifica la frecuencia con la que el agente de sondeo de Traffic Manager comprueba el estado de un punto de conexión. Puede especificar dos valores aquí: 30 segundos (sondeo normal) y 10 segundos (sondeo rápido). Si no se proporciona ningún valor, el perfil se establece en un valor predeterminado de 30 segundos. Visite la página [Precios de Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) para más información sobre precios del sondeo rápido.
 * **Número tolerado de errores**. Este valor especifica cuántos errores tolera un agente de sondeo de Traffic Manager antes de marcar un punto de conexión como en mal estado. Su valor puede oscilar entre 0 y 9. Un valor de 0 significa que un único error de supervisión puede dar lugar a que ese punto de conexión se marque como en mal estado. Si no se especifica ningún valor, el valor predeterminado será 3.
-* **Tiempo de espera de supervisión**. Esta propiedad especifica la cantidad de tiempo que debe esperar el agente de sondeo de Traffic Manager antes de considerar la comprobación como errónea cuando se envía un sondeo de comprobación de estado al punto de conexión. Si el intervalo de sondeo se establece en 30 segundos, puede establecer el valor del tiempo de espera entre 5 y 10 segundos. Si no se especifica ningún valor, el valor predeterminado será de 10 segundos. Si el intervalo de sondeo se establece en 10 segundos, puede establecer el valor del tiempo de espera entre 5 y 9 segundos. Si no se especifica ningún valor, el valor predeterminado será de 9 segundos.
+* **Tiempo de expiración del sondeo**. Esta propiedad especifica la cantidad de tiempo que debe esperar el agente de sondeo de Traffic Manager antes de considerar la comprobación como errónea cuando se envía un sondeo de comprobación de estado al punto de conexión. Si el intervalo de sondeo se establece en 30 segundos, puede establecer el valor del tiempo de espera entre 5 y 10 segundos. Si no se especifica ningún valor, el valor predeterminado será de 10 segundos. Si el intervalo de sondeo se establece en 10 segundos, puede establecer el valor del tiempo de espera entre 5 y 9 segundos. Si no se especifica ningún valor, el valor predeterminado será de 9 segundos.
 
-![Supervisión de puntos de conexión de Traffic Manager](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
+    ![Supervisión de puntos de conexión de Traffic Manager](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
-**Figura 1: supervisión de puntos de conexión de Traffic Manager**
+    **Ilustración: supervisión de puntos de conexión de Traffic Manager**
 
 ## <a name="how-endpoint-monitoring-works"></a>Funcionamiento de la supervisión de puntos de conexión
 
-Si el protocolo de supervisión se establece en HTTP o HTTPS, el agente de sondeo de Traffic Manager envía una solicitud GET al punto de conexión utilizando el protocolo, puerto y ruta de acceso relativa indicados. Si recibe una respuesta 200-OK, ese punto de conexión se considera correcto. Si la respuesta es un valor diferente o si no se recibe ninguna respuesta dentro del período de tiempo de espera especificado, el agente de sondeo de Traffic Manager vuelve a intentarlo en función de la configuración del número tolerado de errores (no lo vuelve a intentar si este valor es 0). Si el número de errores consecutivos es mayor que la configuración del número tolerado de errores, ese punto de conexión queda marcado como incorrecto. 
+Si el protocolo de supervisión se establece en HTTP o HTTPS, el agente de sondeo de Traffic Manager envía una solicitud GET al punto de conexión utilizando el protocolo, puerto y ruta de acceso relativa indicados. Si recibe una respuesta correcta (200) o cualquiera de las respuestas configuradas en **Intervalos de código de estado *esperados**, ese punto de conexión se considera correcto. Si la respuesta es un valor diferente o si no se recibe ninguna respuesta dentro del período de tiempo de espera especificado, el agente de sondeo de Traffic Manager vuelve a intentarlo en función de la configuración del número tolerado de errores (no lo vuelve a intentar si este valor es 0). Si el número de errores consecutivos es mayor que la configuración del número tolerado de errores, ese punto de conexión queda marcado como incorrecto. 
 
 Si el protocolo de supervisión es TCP, el agente de sondeo de Traffic Manager inicia una solicitud de conexión TCP utilizando el puerto especificado. Si el punto de conexión responde a la solicitud con una respuesta para establecer la conexión, dicha comprobación de estado se marca como correcta y el agente de sondeo de Traffic Manager restablece la conexión TCP. Si la respuesta es un valor diferente, o si no se recibe ninguna respuesta dentro del período de tiempo de espera especificado, el agente de sondeo de Traffic Manager vuelve a intentarlo en función de la configuración del número tolerado de errores (no lo vuelve a intentar si este valor es 0). Si el número de errores consecutivos es mayor que la configuración del número tolerado de errores, ese punto de conexión queda marcado como incorrecto.
 
@@ -101,7 +103,7 @@ Traffic Manager comprueba periódicamente el estado de cada punto de conexión, 
 
 Un punto de conexión es incorrecto cuando tienen lugar alguna de estas condiciones:
 - Si el protocolo de supervisión es HTTP o HTTPS:
-    - Se recibe una respuesta distinta de 200 (incluidos un código 2xx diferente o un redireccionamiento 301/302).
+    - Se recibe una respuesta distinta de 200 o una que no incluya el intervalo de estado especificado en la opción de configuración **Intervalos de código de estado esperados** (códigos 2xx distintos o redireccionamientos 301/302 incluidos).
 - Si el protocolo de supervisión es TCP: 
     - Se recibe una respuesta que no sea ACK o SYN ACK en respuesta a la solicitud SYNC enviada por Traffic Manager para intentar establecer una conexión.
 - Tiempo de espera. 
@@ -109,14 +111,14 @@ Un punto de conexión es incorrecto cuando tienen lugar alguna de estas condicio
 
 Para más información sobre la solución de problemas de comprobaciones erróneas, consulte [Solución de problemas de estado degradado en el Administrador de tráfico de Azure](traffic-manager-troubleshooting-degraded.md). 
 
-La escala de tiempo siguiente de la figura 2 es una descripción detallada del proceso de supervisión de un punto de conexión por Traffic Manager con la siguiente configuración: el protocolo de supervisión es HTTP, el intervalo de sondeo es de 30 segundos, el número tolerado de errores es 3, el valor de tiempo de espera es de 10 segundos y el TTL de DNS es de 30 segundos.
+La escala de tiempo de la siguiente ilustración es una descripción detallada del proceso de supervisión de un punto de conexión por Traffic Manager con la siguiente configuración: el protocolo de supervisión es HTTP, el intervalo de sondeo es de 30 segundos, el número tolerado de errores es 3, el valor de tiempo de expiración es 10 segundos y el TTL de DNS es de 30 segundos.
 
 ![Secuencia de conmutación por error y conmutación por error de puntos de conexión del Administrador de tráfico](./media/traffic-manager-monitoring/timeline.png)
 
-**Figura 2: secuencia de conmutación por error y recuperación de un punto de conexión con Traffic Manager**
+**Ilustración: secuencia de conmutación por error y recuperación de un punto de conexión con Traffic Manager**
 
 1. **GET**. Para cada punto de conexión, el sistema de supervisión de Traffic Manager realiza una solicitud GET en la ruta de acceso especificada en la configuración de supervisión.
-2. **200 - CORRECTO**. El sistema de supervisión espera que se devuelva un mensaje HTTP 200 OK al cabo de 10 segundos. Cuando recibe esta respuesta, reconoce que el servicio está disponible.
+2. **Respuesta correcta de 200 o intervalo de código personalizado especificados en la configuración de supervisión del perfil de Traffic Manager**. El sistema de supervisión espera que se devuelva una respuesta HTTP 200 correcta o el mensaje de intervalo de código personalizado especificado en la configuración de supervisión del perfil de Traffic Manager en 10 segundos. Cuando recibe esta respuesta, reconoce que el servicio está disponible.
 3. **30 segundos entre comprobaciones**. La comprobación de estado del punto de conexión se repite cada 30 segundos.
 4. **Servicio no disponible**. El servicio en la nube deja de estar disponible. El Administrador de tráfico no lo sabrá hasta la siguiente comprobación de mantenimiento.
 5. **Intentos de acceso a la ruta de acceso de supervisión**. El sistema de supervisión realiza una solicitud GET, pero no recibe una respuesta dentro del período de tiempo de espera de 10 segundos (como alternativa, se puede recibir una respuesta distinta de 200). Después lo intenta tres veces en intervalos de 30 segundos. Si uno de los intentos anteriores es correcto, se restablece el número de intentos.
@@ -137,6 +139,8 @@ Cuando un punto de conexión tiene un estado Degradado, ya no se devuelve en res
 * **Ponderado**. Se elige un punto de conexión disponible al azar según sus ponderaciones asignadas y las ponderaciones de los demás puntos de conexión disponibles.
 * **Rendimiento**. Se devuelve el punto de conexión más cercano al usuario final. Si ese punto de conexión no está disponible, Traffic Manager moverá el tráfico a los puntos de conexión de la región de Azure siguiente más cercana. Puede configurar planes de conmutación por error alternativos para el enrutamiento del tráfico de rendimiento mediante los [perfiles anidados de Traffic Manager](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geográfico**. Se devuelve el punto de conexión asignado para dar servicio a la ubicación geográfica en función de la dirección IP de la solicitud de consulta. Si ese punto de conexión no está disponible, no se seleccionará otro punto de conexión para la conmutación por error, ya que una ubicación geográfica se puede asignar solo a un punto de conexión en un perfil (puede encontrar más detalles en el artículo [preguntas más frecuentes](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Como práctica recomendada al usar enrutamiento geográfico, se recomienda que los clientes usen perfiles de Traffic Manager anidados con más de un punto de conexión como puntos de conexión del perfil.
+* **Multivalor**. Se devuelven varios puntos de conexión asignados a direcciones IPv4/IPv6. Al recibirse una consulta relacionada con este perfil, se devuelven los puntos de conexión correctos en función del valor de **Maximum record count in response** (Máximo de registros por respuesta) especificado. El número predeterminado de respuestas es dos puntos de conexión.
+* **Subred**. Se devuelve el punto de conexión asignado a un conjunto de intervalos de direcciones IP. Al recibirse una solicitud de esa dirección IP, se devuelve el punto de conexión asignado a ella. 
 
 Para más información, consulte [Métodos de enrutamiento del Administrador de tráfico](traffic-manager-routing-methods.md).
 

@@ -6,14 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 9/24/2018
+ms.date: 9/26/2018
 ms.author: victorh
-ms.openlocfilehash: 2961f6cc8607ba7ec670b297a1858bf433c3ec89
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1527ed9c0a83577da9a231cb91a93ad7f182061c
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960794"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392708"
 ---
 # <a name="what-is-azure-firewall"></a>¿Qué es Azure Firewall?
 
@@ -68,7 +68,9 @@ Azure Firewall presenta los siguientes problemas conocidos:
 |Concentrador y radio con emparejamiento global no funciona|No se admite el modelo de concentrador y radio, donde el concentrador y el firewall están implementados en una región de Azure y los radios en otra, conectados al concentrador mediante el emparejamiento de VNet.|Para más información, consulte [Crear, cambiar o eliminar un emparejamiento de red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints).|
 Las reglas de filtrado de red para protocolos que no son TCP/UDP (por ejemplo, ICMP) no funcionan con el tráfico enlazado a Internet|Las reglas de filtrado de red de protocolos que no son TCP/UDP no funcionan con la traducción SNAT a la dirección IP pública. Los protocolos que no son TCP/UDP no se admiten entre subredes de radio y redes virtuales.|Azure Firewall usa Standard Load Balancer, [que actualmente no admite SNAT para los protocolos IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). Se están examinando opciones para admitir este escenario en una versión futura.|
 |La NAT de destino (DNAT) no funciona para el puerto 80 y 22.|El campo del puerto de destino de la colección de reglas NAT no puede incluir el puerto 80 ni el 22.|Estamos trabajando para solucionar este problema en un futuro próximo. Mientras tanto, puede usar cualquier otro puerto como puerto de destino en las reglas NAT. Todavía se puede usar el puerto 80 o el 22 como el puerto traducido (por ejemplo, puede asignar la IP pública 81 a la IP privada 80).|
-|
+|Falta de compatibilidad entre PowerShell y CLI con ICMP|Azure PowerShell y CLI no admiten ICMP como protocolo válido en las reglas de red.|Aun así se puede usar ICMP como protocolo a través del portal y la API REST. Estamos trabajando para agregar pronto ICMP a PowerShell y CLI.|
+|Las etiquetas FQDN requieren que se establezca una combinación protocolo: puerto|Las reglas de aplicaciones con las etiquetas FQDN requieren la definición de puerto: protocolo.|Puede usar **https** como valor de puerto: protocolo. Estamos trabajando para que este campo sea opcional cuando se usen etiquetas FQDN.|
+|No se admite la posibilidad de mover un firewall a otro grupo de recursos o suscripción.|No se admite la posibilidad de mover un firewall a otro grupo de recursos o suscripción.|La compatibilidad con esta funcionalidad está en nuestro mapa de ruta. Para mover un firewall a otro un grupo de recursos o suscripción, debe eliminar la instancia actual y volver a crearla en el nuevo grupo de recursos o suscripción.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

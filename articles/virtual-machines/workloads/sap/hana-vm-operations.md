@@ -13,20 +13,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/27/2018
+ms.date: 09/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2ff826f21adf12d48b21acefe4b704866e02c04
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: db2d7fbe395a6d7e332d79183a331b45f7767f51
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917965"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434071"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraciones y operaciones de infraestructura de SAP HANA en Azure
 En este documento se proporcionan instrucciones para configurar la infraestructura de Azure y sobre el funcionamiento de los sistemas SAP HANA que se implementaron en máquinas virtuales nativas de Azure. En el documento también se incluye información sobre la configuración de la escalabilidad horizontal de SAP HANA para la SKU de máquinas virtuales M128s. Este documento no pretende reemplazar ninguna documentación estándar de SAP, incluido el contenido siguiente:
 
-- [Guía de administración de SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/330e5550b09d4f0f8b6cceb14a64cd22.html)
+- [Guía de administración de SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/330e5550b09d4f0f8b6cceb14a64cd22.html)
 - [Guías de instalación de SAP](https://service.sap.com/instguides)
 - [Notas de SAP](https://sservice.sap.com/notes)
 
@@ -168,6 +168,8 @@ Discos recomendados para los tipos de máquinas virtuales más pequeños con un 
 Compruebe si el rendimiento del almacenamiento para los diferentes volúmenes sugeridos se adaptará a la carga de trabajo que se va a ejecutar. Si la carga de trabajo requiere volúmenes mayores para **/hana/data** y **/hana/log**, tiene que aumentar el número de discos duros virtuales de Azure Premium Storage. Ajustar el tamaño de un volumen con más discos duros virtuales de los que se enumeran, aumentará el IOPS y el rendimiento de E/S dentro de los límites del tipo de máquina virtual de Azure. 
 
 
+
+
 #### <a name="storage-solution-with-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Solución de almacenamiento con Acelerador de escritura de Azure para máquinas virtuales de serie M de Azure
 El Acelerador de escritura de Azure es una funcionalidad que se implementa exclusivamente para las máquinas virtuales de la serie M. Como el nombre indica, el propósito de la funcionalidad es mejorar la latencia de E/S de las escrituras en Azure Premium Storage. Para SAP HANA, el Acelerador de escritura se supone que debe usarse solo en el volumen **/hana/log**. Por lo tanto, las configuraciones que se han mostrado hasta ahora tienen que cambiarse. El cambio principal es el desglose entre **/hana/data** y **/hana/log** para poder usar el Acelerador de escritura de Azure solo en el volumen **/hana/log**. 
 
@@ -203,7 +205,9 @@ Puede encontrar instrucciones más detalladas sobre cómo habilitar el Acelerado
 
 En la misma documentación puede encontrar información más detallada y las restricciones para el Acelerador de escritura de Azure.
 
-
+> [!NOTE]
+> Las recomendaciones de configuración de discos que se han indicado se dirigen a los requisitos mínimos que SAP expresa a sus proveedores de infraestructura. En las implementaciones reales de clientes y en los escenarios de carga de trabajo, se encontraron situaciones en las que estas recomendaciones aún no proporcionaban suficientes funcionalidades. Estas podrían ser situaciones en las que un cliente necesitara una recarga más rápida de los datos después de un reinicio de HANA o en las que las configuraciones de copia de seguridad requirieran un mayor ancho de banda para el almacenamiento. Otros casos incluían **/hana/log**, en los que 5000 IOPS no fueron suficientes para la carga de trabajo específico. Por lo tanto, tome estas recomendaciones como punto de partida y adáptelas en función de los requisitos de la carga de trabajo.
+>  
 
 ### <a name="set-up-azure-virtual-networks"></a>Configurar Azure Virtual Network
 Si tiene conectividad de sitio a sitio a Azure por medio de VPN o de ExpressRoute, debe tener como mínimo una red de Azure Virtual Network conectada a través de una puerta de enlace virtual al circuito VPN o ExpressRoute. En las implementaciones sencillas, la puerta de enlace virtual puede implementarse en una subred de la instancia de Azure Virtual Network (VNet) que también hospeda las instancias de SAP HANA. Para instalar SAP HANA, debe crear dos subredes adicionales en la instancia de Azure Virtual Network. Una subred hospeda las máquinas virtuales para ejecutar las instancias de SAP HANA. La otra subred ejecuta Jumpbox o máquinas virtuales de administración para hospedar SAP HANA Studio, otro software de administración o el software de la aplicación.
@@ -212,6 +216,11 @@ Al instalar las máquinas virtuales para ejecutar SAP HANA, estas necesitan lo s
 
 - Dos NIC virtuales instaladas: una para conectarse a la subred de administración y la otra para conectarse ya sea desde la red local o desde otras redes a la instancia de SAP HANA de la máquina virtual de Azure.
 - Direcciones IP privadas estáticas implementadas para ambas NIC virtuales.
+
+> [!NOTE]
+> Debería asignar direcciones IP estáticas mediante Azure a NIC virtuales individuales. No debería asignar direcciones IP estáticas dentro del sistema operativo invitado a una NIC virtual. Algunos servicios de Azure como el servicio Azure Backup se basan en el hecho de que al menos el vNIC principal está establecido en DHCP y no en direcciones IP estáticas. Consulte también el documento [Solución de problemas de copia de seguridad de máquinas virtuales de Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). Si necesita asignar varias direcciones IP estáticas a una máquina virtual, debe asignar varias NIC virtuales a una máquina virtual.
+>
+>
 
 Sin embargo, para implementaciones permanentes, deberá crear una arquitectura de red del centro de datos virtual en Azure. Esta arquitectura recomienda la separación de la puerta de enlace de Azure Virtual Network que se conecta a entornos locales en una instancia independiente de Azure Virtual Network. Esta red virtual independiente debe hospedar todo el tráfico que sale a entornos locales o a Internet. Este enfoque permite implementar software para la auditoría y el registro de tráfico que entra en el centro de datos virtual de Azure en esta red virtual hub independiente. De esta forma, dispondrá de una red virtual que hospeda todo el software y las configuraciones relacionados con el tráfico de entrada y salida de la implementación de Azure.
 
@@ -485,4 +494,4 @@ Asegúrese de instalar SAPRouter en otra máquina virtual y no en la máquina vi
 Para más información sobre cómo configurar y mantener conexiones de compatibilidad remota a través de SAPRouter, consulte la [documentación de SAP](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
 
 ### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Alta disponibilidad con SAP HANA en máquinas virtuales nativas de Azure
-Si ejecuta SUSE Linux 12 SP1 o una versión posterior, puede establecer un clúster Pacemaker con dispositivos STONITH. Puede usar los dispositivos para establecer una configuración de SAP HANA que utilice la replicación sincrónica con conmutación por error automática y replicación del sistema de HANA. Para más información acerca del procedimiento de configuración, consulte [Alta disponibilidad de SAP HANA para máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
+Si ejecuta SUSE Linux Enterprise Server para aplicaciones SAP 12 SP1 o una versión posterior, puede establecer un clúster Pacemaker con dispositivos STONITH. Puede usar los dispositivos para establecer una configuración de SAP HANA que utilice la replicación sincrónica con conmutación por error automática y replicación del sistema de HANA. Para más información acerca del procedimiento de configuración, consulte [Alta disponibilidad de SAP HANA para máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).

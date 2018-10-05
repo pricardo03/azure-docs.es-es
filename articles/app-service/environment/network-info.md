@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: d099163cdc34624afd8f01b8f1978c5ee902d1ff
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6d4f7fab0c36095d96cec0038a39744102e8972b
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433759"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Consideraciones de red para una instancia de App Service Environment #
 
@@ -28,9 +29,9 @@ ms.lasthandoff: 05/20/2018
 - **ASE externo**: expone las aplicaciones hospedadas en ASE en una dirección IP accesible a través de Internet. Para más información, consulte [Creación de una instancia externa de App Service Environment][MakeExternalASE].
 - **ASE de ILB**: expone las aplicaciones hospedadas en ASE en una dirección IP dentro de su instancia de VNet. El punto de conexión interno es un equilibrador de carga interno (ILB), y esta es la razón por la que se denomina ASE de ILB. Para más información, consulte [Creación y uso de un ASE de ILB][MakeILBASE].
 
-Ahora hay dos versiones de App Service Environment: ASEv1 y ASEv2. Para información sobre ASEv1, consulte [Introducción a App Service Environment v1][ASEv1Intro]. Una instancia de ASEv1 se puede implementar en una red virtual clásica o en una de Resource Manager. En el caso de ASEv2, la implementación solo se puede realizar en una red virtual de Resource Manager.
+Hay dos versiones de App Service Environment: ASEv1 y ASEv2. Para información sobre ASEv1, consulte [Introducción a App Service Environment v1][ASEv1Intro]. Una instancia de ASEv1 se puede implementar en una red virtual clásica o en una de Resource Manager. En el caso de ASEv2, la implementación solo se puede realizar en una red virtual de Resource Manager.
 
-Todas las llamadas que vayan a Internet desde una instancia de ASE salen de la red virtual a través de una IP virtual asignada para el ASE. La dirección IP pública de esta IP virtual es la dirección IP de origen para todas las llamadas desde el ASE que vayan a Internet. Si las aplicaciones en la instancia de ASE realizan llamadas a los recursos de la red virtual o a través de una VPN, la IP de origen es una de las de la subred usada por su ASE. Dado que el ASE está dentro de la red virtual, también puede tener acceso a los recursos dentro de la red virtual sin ninguna configuración adicional. Si la red virtual está conectada a la red local, las aplicaciones en su ASE también tienen acceso a los recursos allí. No es necesario seguir configurando el ASE ni la aplicación.
+Todas las llamadas que vayan a Internet desde una instancia de ASE salen de la red virtual a través de una IP virtual asignada para el ASE. La dirección IP pública de esta IP virtual es la dirección IP de origen para todas las llamadas desde el ASE que vayan a Internet. Si las aplicaciones en la instancia de ASE realizan llamadas a los recursos de la red virtual o a través de una VPN, la IP de origen es una de las de la subred usada por su ASE. Dado que el ASE está dentro de la red virtual, también puede tener acceso a los recursos dentro de la red virtual sin ninguna configuración adicional. Si la red virtual está conectada a la red local, las aplicaciones en su ASE también tienen acceso a los recursos allí sin configuración adicional.
 
 ![ASE externo][1] 
 
@@ -43,7 +44,7 @@ Si tiene un ASE externo, la VIP pública es también el punto de conexión que l
 
 ![ASE de ILB][2]
 
-Si tiene un ASE de ILB, la dirección IP del ILB es el punto de conexión para HTTP/S, FTP/S, implementación web y depuración remota.
+Si tiene un ASE de ILB, la dirección del ILB es el punto de conexión para HTTP/S, FTP/S, implementación web y depuración remota.
 
 Los puertos de acceso de aplicación normales son:
 
@@ -57,14 +58,18 @@ Es así tanto si está en un ASE externo como en un ASE de ILB. Si se encuentra 
 
 ## <a name="ase-subnet-size"></a>Tamaño de la subred de ASE ##
 
-El tamaño de la subred que se utiliza para hospedar una instancia de ASE no se puede modificar una vez que dicha instancia de ASE se ha implementado.  La instancia de ASE utiliza una dirección para cada rol de la infraestructura, así como para cada instancia del plan de App Service en entorno aislado.  Además, hay cinco direcciones que Redes de Azure utiliza para cada una de las subredes generadas.  Las instancias de ASE que no tengan ningún plan de App Service utilizarán 12 direcciones antes de que se cree una aplicación.  Si se trata de un ASE de ILB, utilizará 13 direcciones antes de que se cree una aplicación en dicho ASE. A medida que escale horizontalmente los planes de App Service, se necesitarán más direcciones para cada uno de los front-end que se agreguen.  De forma predeterminada, los servidores front-end se agregan por cada 15 instancias del plan de App Service. 
+El tamaño de la subred que se utiliza para hospedar una instancia de ASE no se puede modificar una vez que dicha instancia de ASE se ha implementado.  La instancia de ASE utiliza una dirección para cada rol de la infraestructura, así como para cada instancia del plan de App Service en entorno aislado.  Además, hay cinco direcciones que Redes de Azure utiliza para cada una de las subredes generadas.  Las instancias de ASE que no tengan ningún plan de App Service utilizarán 12 direcciones antes de que se cree una aplicación.  Si se trata de un ASE de ILB, utilizará 13 direcciones antes de que se cree una aplicación en dicho ASE. A medida que escale horizontalmente el ASE, los roles de infraestructura se agregan a cada múltiplo de 15 y 20 de las instancias del plan de App Service.
 
    > [!NOTE]
-   > Puede no haber nada más en la subred excepto el ASE. Asegúrese de elegir un espacio de direcciones que pueda crecer en el futuro. No puede cambiar esta configuración posteriormente. Se recomienda un tamaño de `/25` con ciento veintiocho direcciones.
+   > Puede no haber nada más en la subred excepto el ASE. Asegúrese de elegir un espacio de direcciones que pueda crecer en el futuro. No puede cambiar esta configuración posteriormente. Se recomienda un tamaño de `/24` con doscientas cincuenta y seis direcciones.
+
+Al escalar o reducir verticalmente, se agregan nuevos roles del tamaño adecuado y, a continuación, las cargas de trabajo se migran del tamaño actual al tamaño de destino. Solo después de migran las aplicaciones se quitan las máquinas virtuales originales. Esto significa que si tuviera un ASE con 100 instancias ASP, habría un período en el que se necesitaría el doble del número de máquinas virtuales.  Es por esta razón que se recomienda el uso de un "/24" para acomodar cualquier cambio que pueda necesitar.  
 
 ## <a name="ase-dependencies"></a>Dependencias de ASE ##
 
-Un dependencia de acceso de entrada de ASE es:
+### <a name="ase-inbound-dependencies"></a>Dependencias de entrada de ASE ###
+
+Las dependencias de acceso de entrada de ASE son:
 
 | Uso | De | Para |
 |-----|------|----|
@@ -73,7 +78,7 @@ Un dependencia de acceso de entrada de ASE es:
 |  Permitir entrada de Azure Load Balancer | Azure Load Balancer | Subred de ASE: todos los puertos
 |  Direcciones IP asignadas a las aplicaciones | Direcciones asignadas a las aplicaciones | Subred de ASE: todos los puertos
 
-El tráfico entrante proporciona el comando y control del ASE además de supervisión del sistema. Las direcciones IP de origen para este tráfico se incluyen en el documento [Direcciones de administración de App Service Environment][ASEManagement]. La configuración de seguridad de red tiene que permitir el acceso desde todas las direcciones IP en los puertos 454 y 455.
+El tráfico de administración entrante proporciona el comando y control del ASE además de supervisión del sistema. Las direcciones de origen para este tráfico se incluyen en el documento [Direcciones de administración de App Service Environment][ASEManagement]. La configuración de seguridad de red tiene que permitir el acceso desde todas las direcciones IP en los puertos 454 y 455. Si se bloquea el acceso desde esas direcciones, ASE se volverá incorrecto y se suspenderá.
 
 Dentro de la subred de ASE hay muchos puertos usados para la comunicación de componentes interna y pueden cambiar.  Esto requiere que todos los puertos de la subred de ASE sean accesibles desde la subred de ASE. 
 
@@ -81,26 +86,23 @@ Para la comunicación entre el equilibrador de carga de Azure y la subred de ASE
 
 Si usa direcciones IP asignadas a las aplicaciones, debe permitir el tráfico de las direcciones IP asignadas a sus aplicaciones en la subred de ASE.
 
-Para el acceso de salida, un ASE depende de varios sistemas externos. Esas dependencias del sistema se definen con nombres DNS y no se asignan a un conjunto fijo de direcciones IP. Por tanto, el ASE requiere acceso de salida desde la subred de ASE a todas las direcciones IP externas en diversos puertos. Un ASE presenta las siguientes dependencias de salida:
+El tráfico TCP que entra por los puertos 454 y 455 debe salir de la misma VIP o tendrá un problema de enrutamiento asimétrico. 
 
-| Uso | De | Para |
-|-----|------|----|
-| Azure Storage | Subred de ASE | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 se necesita solo para ASEv1). |
-| Azure SQL Database | Subred de ASE | database.windows.net: 1433, 11000-11999, 14000-14999 (Para más información, consulte [Uso de los puertos de SQL Database V12](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md)).|
-| Administración de Azure | Subred de ASE | management.core.windows.net, management.azure.com: 443 
-| Comprobación de certificado SSL |  Subred de ASE            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
-| Azure Active Directory        | Subred de ASE            |  Internet: 443
-| Administración de App Service        | Subred de ASE            |  Internet: 443
-| Azure DNS                     | Subred de ASE            |  Internet: 53
-| Comunicación interna ASE    | Subred de ASE: todos los puertos |  Subred de ASE: todos los puertos
+### <a name="ase-outbound-dependencies"></a>Dependencias de salida de ASE ###
 
-Si el ASE pierde el acceso a estas dependencias, deja de funcionar. Cuando esto ocurre durante un tiempo suficientemente prolongado, el ASE se suspende.
+Para el acceso de salida, un ASE depende de varios sistemas externos. Muchas de estas dependencias del sistema se definen con nombres DNS y no se asignan a un conjunto fijo de direcciones IP. Por tanto, el ASE requiere acceso de salida desde la subred de ASE a todas las direcciones IP externas en diversos puertos. 
+
+La lista completa de las dependencias de salida se enumeran en el documento que describe el [bloqueo del tráfico de salida de App Service Environment](./firewall-integration.md). Si el ASE pierde el acceso a sus dependencias, deja de funcionar. Cuando esto ocurre durante un tiempo suficientemente prolongado, el ASE se suspende. 
 
 ### <a name="customer-dns"></a>DNS del cliente ###
 
 Si la red virtual se configura con un servidor DNS definido por el cliente, las cargas de trabajo del inquilino lo utilizan. El ASE todavía tiene que comunicarse con Azure DNS para fines de administración. 
 
 Si la red virtual se configura con un cliente DNS en el otro lado de una VPN, el servidor DNS tiene que ser accesible desde la subred que contiene el ASE.
+
+Para probar la resolución de la aplicación web, puede usar el comando de consola *nameresolver*. Vaya a la ventana de depuración en el sitio de scm para su aplicación o vaya a la aplicación en el portal y seleccione la consola. Desde el símbolo del shell puede enviar el comando *nameresolver* junto con la dirección que desea buscar. El resultado que se obtiene es el mismo que el que obtendría la aplicación al hacer la misma búsqueda. Si se usa nslookup, se hará una búsqueda con Azure DNS en su lugar.
+
+Si cambia la configuración de DNS de la red virtual en la que se encuentra el ASE, tendrá que reiniciar el ASE. Para evitar tener que reiniciar la instancia de ASE, se recomienda configurar el valor de DNS para la red virtual antes de crear el ASE.  
 
 <a name="portaldep"></a>
 
@@ -140,6 +142,9 @@ Un ASE tiene algunas direcciones IP que es necesario tener en cuenta. Son las si
 - **Direcciones SSL basadas en IP asignadas a la aplicación**: solo son posibles con un ASE externo y cuando hay configurada una SSL basada en IP.
 
 Todas estas direcciones IP son fácilmente visibles en un ASEv2 en Azure Portal desde la interfaz de usuario de ASE. Si tiene un ASE de ILB, aparece la dirección IP para el ILB.
+
+   > [!NOTE]
+   > Estas direcciones IP no cambiarán mientras el ASE se mantenga en funcionamiento.  Si el ASE se suspende y se restaura, cambiarán las direcciones usadas por él. La causa normal de la suspensión del ASE es si se bloquea el acceso de administración de entrada o se bloquea el acceso a una dependencia del ASE. 
 
 ![Direcciones IP][3]
 

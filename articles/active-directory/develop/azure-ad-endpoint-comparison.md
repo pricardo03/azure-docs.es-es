@@ -1,9 +1,9 @@
 ---
-title: Comparación del punto de conexión v2.0 con el punto de conexión v1.0 de Azure AD | Microsoft Docs
+title: Comparación del punto de conexión v2.0 con el punto de conexión v1.0 de Azure AD| Microsoft Docs
 description: Conozca las diferencias entre el punto de conexión v2.0 y el punto de conexión v1.0 de Azure AD.
 services: active-directory
 documentationcenter: ''
-author: andretms
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
@@ -13,23 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/27/2018
 ms.author: andret
-ms.reviewer: hirsin, celested
+ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: 02c7edc84d2ac3a91c33d8f266d022db5cd5cb40
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948972"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406539"
 ---
-# <a name="comparing-the-azure-ad-v20-endpoint-with-v10-endpoint"></a>Comparación del punto de conexión v2.0 con el punto de conexión v1.0 de Azure AD
+# <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Comparación del punto de conexión v2.0 con el punto de conexión v1.0 de Azure AD
 
 Al desarrollar una nueva aplicación, es importante conocer las diferencias entre los puntos de conexión v1.0 y v2.0. A continuación se muestran las diferencias principales, así como algunas limitaciones del punto de conexión v2.0.
 
 > [!NOTE]
-> No todas las características ni escenarios de Azure AD son compatibles con el punto de conexión v2.0. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](#limitations).
+> No todas las características y escenarios de Azure Active Directory (Azure AD) son compatibles con el punto de conexión v2.0. Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](#limitations).
 
 ## <a name="who-can-sign-in"></a>Quién puede iniciar sesión
 
@@ -37,7 +37,7 @@ Al desarrollar una nueva aplicación, es importante conocer las diferencias entr
 
 * El punto de conexión v1.0 solo permite iniciar sesión en la aplicación con cuentas profesionales y educativas (Azure AD).
 
-* El punto de conexión v2.0 iniciar sesión con cuentas profesionales y educativas de Azure Active Directory y con cuentas personales (MSA) (hotmail.com, outlook.com, msn.com).
+* El punto de conexión v2.0 iniciar sesión con cuentas profesionales y educativas de Azure AD y con cuentas personales (MSA) (hotmail.com, outlook.com, msn.com).
 
 * Tanto los puntos de conexión v1.0 como v2.0 aceptan inicios de sesión de *[usuarios invitados](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* de un directorio de Azure AD para las aplicaciones configuradas como *[inquilino único](single-and-multi-tenant-apps.md)* o para las aplicaciones configuradas como *multiinquilino* para el punto de conexión específico del inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
@@ -214,15 +214,13 @@ En este momento, la compatibilidad del punto de conexión v2.0 con las bibliotec
 
 El punto de conexión v2.0 no admite SAML ni WS-Federation; solo admite Open ID Connect y OAuth 2.0. No todas las características y capacidades los protocolos OAuth se han incorporado al punto de conexión v2.0.
 
-Las siguientes funcionalidades y características de protocolo actualmente *no están disponibles* en el punto de conexión v2.0:
+Las siguientes funcionalidades y características de los protocolos actualmente *no están disponibles* en el punto de conexión v2.0 o *no son compatibles* con él:
 
-* Actualmente, la notificación `email` solo se devuelve si se configura una notificación opcional y el ámbito es scope=email especificado en la solicitud. Sin embargo, este comportamiento cambiará cuando el punto de conexión v2.0 se actualice para cumplir aún más los estándares Open ID Connect y OAuth 2.0.
+* La notificación `email` solo se devuelve si se configura una notificación opcional y el ámbito is scope=email se ha especificado en la solicitud. Sin embargo, cabría esperar el cambio de este comportamiento cuando el punto de conexión v2.0 se actualice para cumplir aún más los estándares Open ID Connect y OAuth 2.0.
 
 * El punto de conexión v2.0 no admite la emisión de notificaciones de roles o grupos en los tokens de identificador.
 
-* La [concesión de credenciales de contraseña de propietario del recurso OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3) no es compatible con el punto de conexión v2.0.
-
-Además, el punto de conexión v2.0 no admite ninguna forma de los protocolos SAML o WS-Federation.
+* El punto de conexión v2.0 no es compatible con la [concesión de credenciales de contraseña de propietario del recurso de OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3).
 
 Para comprender mejor el alcance de la funcionalidad de protocolo que se admite en el punto de conexión v2.0, consulte nuestra [referencia a los protocolos OpenID Connect y OAuth 2.0](active-directory-v2-protocols.md).
 

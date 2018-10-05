@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: ea1117e202868465e3ea4004d21cf62d175a357a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0eec1100c5246bb9f5c281971453ac60abc0339f
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963924"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225029"
 ---
 # <a name="web-apps"></a>Aplicaciones web
 
@@ -44,7 +44,7 @@ Consulte los ejemplos de código correspondientes a los escenarios de explorador
 
 ## <a name="app-registration"></a>Registro de aplicación
 
-Para registrar una aplicación web, consulte [Cómo registrar una aplicación con el punto de conexión v2.0](quickstart-v2-register-an-app.md).
+Para registrar una aplicación web, consulte [Registro de una aplicación con el punto de conexión v1.0 de Azure AD](quickstart-v1-add-azure-ad-app.md).
 
 * Inquilino único: si va a compilar una aplicación únicamente para la organización, esta debe registrarse en el directorio de la empresa mediante Azure Portal.
 * Multiinquilino: si va a compilar una aplicación que puede ser utilizada por usuarios ajenos a la organización, esta debe registrarse en el directorio de la compañía, pero también en el directorio de cada organización que vaya a usar la aplicación. Para que la aplicación esté disponible en su directorio, puede incluir un proceso de inicio de sesión para que los clientes puedan dar su consentimiento a la aplicación. Cuando inicien sesión en la aplicación, se les presentará un cuadro de diálogo que muestra los permisos que la aplicación requiere y la opción de consentimiento. Según los permisos necesarios, es posible que se requiera que un administrador de la otra organización dé su consentimiento. Cuando el usuario o el administrador dan su consentimiento, la aplicación queda registrada en el directorio.

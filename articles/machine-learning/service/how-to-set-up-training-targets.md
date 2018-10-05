@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 4af2e570b498e496e80b6aeee2b8aeae23c582cc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e5b44ed2435986ffd500cade1f7c8ff8047d353d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952416"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452316"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selección y uso de un destino de proceso para entrenar el modelo
 
@@ -23,7 +23,7 @@ Con el servicio Azure Machine Learning, puede entrenar el modelo en distintos en
 
 Un destino de proceso es el recurso que ejecuta el script de entrenamiento u hospeda el modelo cuando se implementa como un servicio web. Se pueden crear y administrar mediante el SDK de Azure Machine Learning o la CLI. Si dispone de destinos de proceso creados por otro proceso (por ejemplo, Azure Portal o la CLI de Azure), para agregarlos, puede asociarlos al área de trabajo del servicio Azure Machine Learning.
 
-Puede comenzar con ejecuciones locales en la máquina y, a continuación, escalar vertical y horizontalmente a otros entornos, como Data Science Virtual Machines con GPU o Azure Batch AI. 
+Puede comenzar con ejecuciones locales en la máquina y, a continuación, escalar vertical y horizontalmente a otros entornos, como las instancias de Data Science Virtual Machine con GPU o Azure Batch AI. 
 
 ## <a name="supported-compute-targets"></a>Destinos de proceso admitidos
 
@@ -90,6 +90,8 @@ run_config_user_managed.environment.python.user_managed_dependencies = True
 # You can choose a specific Python environment by pointing to a Python path 
 #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
 ```
+
+Para ver una instancia de Jupyter Notebook en la que se muestra cómo se realiza el entrenamiento en un entorno administrado por el usuario, consulte [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
   
 ### <a name="system-managed-environment"></a>Entorno administrado por el sistema
 
@@ -110,6 +112,9 @@ run_config_system_managed.prepare_environment = True
 
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
+
+Para ver una instancia de Jupyter Notebook en la que se muestra cómo se realiza el entrenamiento en un entorno administrado por el sistema, consulte [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
+
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
 El equipo local puede no tener el proceso o los recursos de GPU necesarios para entrenar el modelo. En esta situación, puede escalar vertical u horizontalmente el proceso de entrenamiento si agrega más destinos de proceso, como Data Science Virtual Machines (DSVM).
@@ -138,7 +143,7 @@ Los pasos siguientes utilizan el SDK para configurar una máquina virtual Data S
             dsvm_compute = DsvmCompute.create(ws, name = compute_target_name, provisioning_configuration = dsvm_config)
             dsvm_compute.wait_for_completion(show_output = True)
         ```
-    * Para asociar una máquina virtual existente como un destino de proceso, debe proporcionar el nombre de dominio completo, el nombre de inicio de sesión y la contraseña para la máquina virtual.  En el ejemplo, reemplace ```<fqdn>``` con el nombre de dominio completo público de la máquina virtual o con la dirección IP pública. Reemplace ```<username>``` y ```<password>``` con el usuario SSH y la contraseña para la máquina virtual:
+    * Para asociar una máquina virtual existente como un destino de proceso, debe proporcionar el nombre de dominio completo, el nombre de inicio de sesión y la contraseña de la máquina virtual.  En el ejemplo, reemplace ```<fqdn>``` con el nombre de dominio completo público de la máquina virtual o con la dirección IP pública. Reemplace ```<username>``` y ```<password>``` con el usuario SSH y la contraseña para la máquina virtual:
 
         ```python
         from azureml.core.compute import RemoteCompute
@@ -190,6 +195,8 @@ Los pasos siguientes utilizan el SDK para configurar una máquina virtual Data S
     dsvm_compute.delete()
     ```
 
+Para ver una instancia de Jupyter Notebook en la que se muestra cómo se realiza el entrenamiento en una máquina virtual de Data Science Virtual Machine, consulte [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb).
+
 ## <a id="batch"></a>Azure Batch AI
 
 Si tarda mucho tiempo en entrenar el modelo, puede usar Azure Batch AI para distribuir el entrenamiento en un clúster de recursos de proceso en la nube. Batch AI también puede configurarse para habilitar un recurso de la GPU.
@@ -232,14 +239,14 @@ if not found:
     print(compute_target.status.serialize())
 ```
 
-Para asociar un clúster de Batch AI existente como un destino de proceso, debe proporcionar el identificador de recurso de Azure. Para obtener el identificador de recurso desde Azure Portal, haga lo siguiente:
+Para asociar un clúster existente de Batch AI como destino de proceso, debe proporcionar el identificador de recurso de Azure. Para obtener el identificador de recurso en Azure Portal, siga estos pasos:
 1. Busque el servicio `Batch AI` en **Todos los servicios**.
 1. Haga clic en el nombre del área de trabajo a la que pertenece el clúster.
 1. Seleccione el clúster.
 1. Haga clic en **Propiedades**.
 1. Copie el **identificador**.
 
-El ejemplo siguiente usa el SDK para asociar un clúster al área de trabajo. En el ejemplo, reemplace `<name>` con cualquier nombre para el proceso. No tiene que coincidir con el nombre del clúster. Reemplace `<resource-id>` con el identificador de recursos de Azure detallado anteriormente:
+El ejemplo siguiente usa el SDK para asociar un clúster al área de trabajo. En el ejemplo, reemplace `<name>` con cualquier nombre para el proceso. No tiene que coincidir con el nombre del clúster. Reemplace `<resource-id>` por el identificador de recursos de Azure detallado anteriormente:
 
 ```python
 from azureml.core.compute import BatchAiCompute
@@ -254,6 +261,8 @@ También puede comprobar el estado del trabajo y el clúster de Batch AI con los
 - Compruebe el estado del trabajo. Con `az batchai job list`, puede ver cuántos trabajos se ejecutan.
 
 Se tarda aproximadamente cinco minutos en crear el clúster de Batch AI.
+
+Para ver una instancia de Jupyter Notebook en la que se muestra cómo se realiza el entrenamiento en un clúster de Batch AI, consulte [https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb).
 
 ## <a name='aci'></a>Azure Container Instances (ACI)
 
@@ -296,6 +305,8 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
 ```
 
 En la creación de un destino de proceso de ACI, puede tardarse desde unos segundos a algunos minutos.
+
+Para ver una instancia de Jupyter Notebook en la que se muestra cómo se realiza el entrenamiento en Azure Container Instances, consulte [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
 
 ## <a id="hdinsight"></a>Asociación de un clúster HDInsight 
 
@@ -352,6 +363,8 @@ run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
+Para ver una instancia de Jupyter Notebook en la que se muestra cómo se realiza el entrenamiento con Spark en HDInsight, consulte [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
+
 ## <a name="view-and-set-up-compute-using-the-azure-portal"></a>Visualización y configuración del proceso mediante Azure Portal
 
 Desde Azure Portal puede ver qué destinos de proceso están asociados con el área de trabajo. Para obtener la lista, siga estos pasos:
@@ -403,6 +416,7 @@ Siga los pasos anteriores para ver la lista de destinos de proceso y, a continua
 Los cuadernos siguientes muestran los conceptos de este artículo:
 * `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
 * `01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb`
+* `01.getting-started/03.train-on-aci/03.train-on-aci.ipynb`
 * `01.getting-started/05.train-in-spark/05.train-in-spark.ipynb`
 * `01.getting-started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
 

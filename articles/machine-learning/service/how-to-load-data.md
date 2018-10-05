@@ -10,21 +10,26 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 000870e3273799930f519ff32d6b072d8c2d1f10
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 436ff9d318dc311efe27352a8b2ac91cfb5be618
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989692"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221339"
 ---
-#<a name="load-data-with-the-azure-machine-learning-data-prep-sdk"></a>Carga de datos con Azure Machine Learning Data Prep SDK
+#<a name="load-and-read-data-with-azure-machine-learning"></a>Carga y lectura de datos con Azure Machine Learning
 
-[Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) permite cargar diferentes tipos de datos de entrada. Puede especificar el tipo de archivo de datos y sus parámetros, o bien usar la funcionalidad de lectura inteligente de SDK para detectar automáticamente el tipo de un archivo.
+Use [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) para cargar diferentes tipos de datos de entrada. 
 
-## <a name="read-lines"></a>Lectura de líneas
+Para cargar los datos existen dos posibilidades:
++ Especificar el tipo de archivo de datos y sus parámetros
++ Usar la funcionalidad de lectura inteligente del SDK para detectar automáticamente el tipo de archivo
+
+## <a name="use-text-line-data"></a>Uso de datos de línea de texto 
 Una de las formas más sencillas de cargar datos es leerlos como líneas de texto.
 
-```
+Código de ejemplo:
+```python
 dataflow = dprep.read_lines(path='./data/text_lines.txt')
 dataflow.head(5)
 ```
@@ -38,11 +43,12 @@ dataflow.head(5)
 
 Después de que se ingieren los datos, puede recuperar un DataFrame de pandas para el conjunto de datos completo.
 
-```
+Código de ejemplo:
+```python
 df = dataflow.to_pandas_dataframe()
 df
 ```
-
+Salida de ejemplo:
 ||Línea|
 |----|-----|
 |0|Fecha \|\| Temperatura mínima \|\| Temperatura máxima|
@@ -51,15 +57,17 @@ df
 |3|3-07-2015\|\| 7,0\|\| 10,5|
 |4|4-07-2015\|\| 5,5\|\| 9,3|
 
-## <a name="read-csv"></a>Lectura de CSV
+## <a name="use-csv-data"></a>Uso de datos CSV
 Al leer archivos delimitados, puede dejar que el runtime subyacente infiera los parámetros de análisis (como un separador, codificación, si se usan encabezados, etc.) en lugar de proporcionarlos. Para este ejemplo intente leer un archivo especificando solo su ubicación. 
 
-```
+Código de ejemplo:
+```python
 # SAS expires June 16th, 2019
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
 dataflow.head(5)
 ```
 
+Salida de ejemplo:
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
 |0||stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
@@ -69,12 +77,13 @@ dataflow.head(5)
 |4|ALABAMA|1|101710|Hale County|10171000588|2|
 
 Uno de los parámetros que puede especificar es el número de líneas que se omiten en los archivos que va a leer. Use el siguiente código para filtrar y eliminar la línea duplicada.
-```
+```python
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1)
 dataflow.head(5)
 ```
 
+Salida de ejemplo:
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
 |0|ALABAMA|1|101710|Hale County|10171002158|29|
@@ -84,7 +93,8 @@ dataflow.head(5)
 |4|ALABAMA|1|101710|Hale County|10171000589|23 |
 
 A continuación, puede mirar los tipos de datos de las columnas.
-```
+Código de ejemplo:
+```python
 dataflow.head(1).dtypes
 
 stnam                     object
@@ -96,6 +106,7 @@ schnam10                  object
 MAM_MTH00numvalid_1011    object
 dtype: object
 ```
+
 Lamentablemente, todas nuestras columnas regresaron como cadenas. Eso se debe a que, de forma predeterminada, Azure Machine Learning Data Prep SDK no cambia el tipo de datos. El origen de datos del que se lee es un archivo de texto, por lo que el SDK lee todos los valores como cadenas. Sin embargo, en este ejemplo queremos analizar las columnas numéricas como números. Para ello, puede establecer el parámetro inference_arguments como current_culture.
 
 ```
@@ -113,13 +124,15 @@ schnam10                   object
 ALL_MTH00numvalid_1011    float64
 dtype: object
 ```
-Algunas de las columnas se detectaron correctamente como números y su tipo se establece en float64. Tras la ingesta puede recuperar un DataFrame de pandas de todo conjunto de datos.
 
-```
+Algunas de las columnas se detectaron correctamente como números y su tipo se establece en float64. Tras la ingesta puede recuperar un DataFrame de pandas de todo conjunto de datos.
+Código de ejemplo:
+```python
 df = dataflow.to_pandas_dataframe()
 df
 ```
 
+Salida de ejemplo:
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Hale County|1,017100e+10|49,0|
@@ -128,12 +141,14 @@ df
 |3|ALABAMA|Hale County|1,017100e+10|2.0|
 |4|ALABAMA|Hale County|1,017100e+10|23,0|
 
-## <a name="read-excel"></a>Lectura de Excel
-Azure Machine Learning Data Prep SDK incluye una función `read_excel` para cargar archivos de Excel.
-```
+## <a name="use-excel-data"></a>Uso de datos de Excel
+Azure Machine Learning Data Prep SDK incluye una función `read_excel` para cargar archivos de Excel. Código de ejemplo:
+```python
 dataflow = dprep.read_excel(path='./data/excel.xlsx')
 dataflow.head(5)
 ```
+
+Salida de ejemplo:
 ||Column1|Column2|Column3|Column4|Column5|Column6|Column7|Column8|
 |------|------|------|-----|------|-----|-------|----|-----|
 |0|Hoba|Iron, IVB|60000000,0|Encontrado|1920,0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |-19,58333|17,91667|
@@ -142,12 +157,13 @@ dataflow.head(5)
 |3|Canyon Diablo|Iron, IAB-MG|30000000,0|Encontrado|1891,0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |35,05000|-111,03333|
 |4|Armanty|Iron, IIIE|28000000,0|Encontrado|1898,0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |47,00000|88,00000|
 
-Ha cargado la primera hoja del archivo de Excel. Se puede lograr el mismo resultado si se especifica explícitamente el nombre de la hoja que se desea cargar. Si desea cargar en su lugar la segunda hoja, puede usar su nombre como argumento.
-```
+Ha cargado la primera hoja del archivo de Excel. Se puede lograr el mismo resultado si se especifica explícitamente el nombre de la hoja que se desea cargar. Si desea cargar en su lugar la segunda hoja, puede usar su nombre como argumento. Por ejemplo: 
+```python
 dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2')
 dataflow.head(5)
 ```
 
+Salida de ejemplo:
 ||Column1|Column2|Column3|Column4|Column5|Column6|Column7|Column8|
 |------|------|------|-----|------|-----|-------|----|-----|
 |0|None|None|None|None|None|None|None|None|None|
@@ -156,13 +172,14 @@ dataflow.head(5)
 |3|RANK|Título|Estudio|Worldwide|Domestic / %|Column1|Overseas / %|Column2|Year^|
 |4|1|Avatar|Fox|2788|760,5|0,273|2027,5|0,727|2009^|5|
 
-Como puede ver, la tabla de la segunda hoja tenía encabezados y tres filas vacías. Deberá modificar los argumentos de la función en consecuencia.
-```
+Como puede ver, la tabla de la segunda hoja tenía encabezados y tres filas vacías. Debe modificar los argumentos de la función en consecuencia. Ejemplo:
+```python
 dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_header=True, skip_rows=3)
 df = dataflow.to_pandas_dataframe()
 df
 ```
 
+Salida de ejemplo:
 ||RANK|Título|Estudio|Worldwide|Domestic / %|Column1|Overseas / %|Column2|Year^|
 |------|------|------|-----|------|-----|-------|----|-----|-----|
 |0|1|Avatar|Fox|2788|760,5|0,273|2027,5|0,727|2009^|
@@ -171,13 +188,14 @@ df
 |3|4|Harry Potter and the Deathly Hallows Part 2|WB|1341,5|381|0,284|960,5|0,716|2011|
 |4|5|Frozen|BV|1274,2|400,7|0,314|873,5|0,686|2013|
 
-## <a name="read-fixed-width-files"></a>Lectura de archivos de ancho fijo
-Para los archivos de ancho fijo, puede especificar una lista de desplazamientos. La primera columna siempre se supone que comienza en el desplazamiento 0.
-
-```
+## <a name="use-fixed-width-data-files"></a>Uso del tipo de datos de ancho fijo
+Para los archivos de ancho fijo, puede especificar una lista de desplazamientos. La primera columna siempre se supone que comienza en el desplazamiento 0. Ejemplo:
+```python
 dataflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
 dataflow.head(5)
 ```
+
+Salida de ejemplo:
 ||010000|99999|BOGUS NORWAY|NO|NO_1|ENRS|Column7|Column8|Column9|
 |------|------|------|-----|------|-----|-------|----|-----|----|
 |0|010003|99999|BOGUS NORWAY|NO|NO|ENSO||||
@@ -187,9 +205,8 @@ dataflow.head(5)
 |4|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
 
 
-Si no hay encabezados en los archivos, deseará que la primera fila se trate como datos. Mediante el uso de `PromoteHeadersMode.NONE` en el argumento de la palabra clave del encabezado puede evitar que se detecte el encabezado y obtener los datos correctos.
-
-```
+Si no hay encabezados en los archivos, deseará que la primera fila se trate como datos. Mediante el uso de `PromoteHeadersMode.NONE` en el argumento de la palabra clave del encabezado puede evitar que se detecte el encabezado y obtener los datos correctos. Por ejemplo: 
+```python
 dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
                           offsets=[7, 13, 43, 46, 52, 58, 65, 73],
                           header=dprep.PromoteHeadersMode.NONE)
@@ -197,6 +214,9 @@ dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
 df = dataflow.to_pandas_dataframe()
 df
 ```
+
+Salida de ejemplo:
+
 ||Column1|Column2|Column3|Column4|Column5|Column6|Column7|Column8|Column9|
 |------|------|------|-----|------|-----|-------|----|-----|----|
 |0|010000|99999|BOGUS NORWAY|NO|NO_1|ENRS|Column7|Column8|Column9|
@@ -206,11 +226,10 @@ df
 |4|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
 |5|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
 
-## <a name="read-sql"></a>Lectura de SQL
+## <a name="use-sql-data"></a>Uso de datos de SQL
 Azure Machine Learning Data Prep SDK también puede cargar datos de servidores SQL Server. Actualmente solo se admite Microsoft SQL Server.
-Para leer datos de un servidor SQL server, cree un objeto de origen de datos que contiene la información de conexión.
-
-```
+Para leer datos de un servidor SQL server, cree un objeto de origen de datos que contiene la información de conexión. Por ejemplo: 
+```python
 secret = dprep.register_secret("[SECRET-USERNAME]", "[SECRET-PASSWORD]")
 
 ds = dprep.MSSQLDataSource(server_name="[SERVER-NAME]",
@@ -222,12 +241,13 @@ Como puede ver, el parámetro de la contraseña de `MSSQLDataSource` acepta un o
 -   Registre el secreto y su valor con el motor de ejecución. 
 -   Cree el secreto con solo un identificador (lo que es útil si el valor del secreto ya está registrado en el entorno de ejecución).
 
-Después de crear un objeto de origen de datos, puede continuar y leer los datos.
-```
+Después de crear un objeto de origen de datos, puede continuar y leer los datos. Por ejemplo: 
+```python
 dataflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
 dataflow.head(5)
 ```
 
+Salida de ejemplo:
 ||ProductID|NOMBRE|ProductNumber|Color|StandardCost|ListPrice|Tamaño|Peso|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate|
 |-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|
 |0|680|HL Road Frame - Black, 58|FR-R92B-58|Negro|1059,3100|1431,50|58|1016,04|18|6|2002-06-01 00:00:00+00:00|None|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|2008-03-11 |0:01:36.827000+00:00|
@@ -236,10 +256,12 @@ dataflow.head(5)
 |3|708|Sport-100 Helmet, Black|HL-U509|Negro|13,0863|34,99|None|None|35|33|2005-07-01 00:00:00+00:00|None|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|a25a44fb-c2de-4268-958f-110b8d7621e2|2008-03-11 |10:01:36.827000+00:00|
 |4|709|Mountain Bike Socks, M|SO-B909-M|Blanco|3,3963|9,50|M|None|27|18|2005-07-01 00:00:00+00:00|2006-06-30 00:00:00+00:00|None|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|18f95f47-1540-4e02-8f1f-cc1bcb6828d0|2008-03-11 |10:01:36.827000+00:00|
 
-```
+```python
 df = dataflow.to_pandas_dataframe()
 df.dtypes
 ```
+
+Salida de ejemplo:
 ```
 ProductID                                     int64
 Name                                         object
@@ -261,7 +283,7 @@ ModifiedDate              datetime64[ns, UTC+00:00]
 dtype: object
 ```
 
-## <a name="read-from-azure-data-lake-storage"></a>Lectura de Azure Data Lake Storage
+## <a name="use-azure-data-lake-storage"></a>Uso de Azure Data Lake Storage
 Hay dos maneras de que el SDK pueda adquirir el token de OAuth necesario para acceder a Azure Data Lake Storage:
 -   Recuperar el token de acceso de una sesión de inicio de sesión reciente del inicio de sesión de la CLI de Azure del usuario
 -   Usar una entidad de servicio (SP) y un certificado como secreto
@@ -273,14 +295,15 @@ En el equipo local, ejecute el siguiente comando:
 > Si su cuenta de usuario es miembro de más de un inquilino de Azure, deberá especificar el inquilino, con el formato de nombre de host de dirección URL de AAD.
 
 
-```
+Por ejemplo: 
+```azurecli
 az login
 az account show --query tenantId
 dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
 ```
 ### <a name="create-a-service-principal-with-the-azure-cli"></a>Creación de una entidad de servicio con la CLI de Azure
-La CLI de Azure se puede usar para crear una entidad de servicio y el certificado correspondiente. Esta entidad de servicio concreta está configurada como lector y su ámbito se ha reducido exclusivamente a la cuenta de Azure Data Lake Storage "dpreptestfiles"
-```
+La CLI de Azure se puede usar para crear una entidad de servicio y el certificado correspondiente. Esta entidad de servicio concreta está configurada como lector y su ámbito se ha reducido exclusivamente a la cuenta de Azure Data Lake Storage "dpreptestfiles".  Por ejemplo: 
+```azurecli
 az account set --subscription "Data Wrangling development"
 az ad sp create-for-rbac -n "SP-ADLS-dpreptestfiles" --create-cert --role reader --scopes /subscriptions/35f16a99-532a-4a47-9e93-00305f6c40f2/resourceGroups/dpreptestfiles/providers/Microsoft.DataLakeStore/accounts/dpreptestfiles
 ```
@@ -291,14 +314,13 @@ Extraiga la huella digital:
 openssl x509 -in adls-dpreptestfiles.crt -noout -fingerprint
 ```
 
-##### <a name="configure-an-azure-data-lake-storage-account-for-the-service-principal"></a>Configure una cuenta de Azure Data Lake Storage para la entidad de servicio
-Para configurar la lista de control de acceso para el sistema de archivos de Azure Data Lake Storage, use el valor de objectId del usuario o, en este ejemplo, la entidad de servicio:
-```
+Para configurar la lista de control de acceso para el sistema de archivos de Azure Data Lake Storage, use el valor de objectId del usuario o, en este ejemplo, la entidad de servicio. Por ejemplo: 
+```azurecli
 az ad sp show --id "8dd38f34-1fcb-4ff9-accd-7cd60b757174" --query objectId
 ```
-##### <a name="configure-read-and-execute-access-for-the-azure-data-lake-storage-file-system"></a>Configure el acceso de lectura y ejecución para el sistema de archivos de Azure Data Lake Storage.
-Como el modelo de lista de control de acceso de HDFS subyacente no admite la herencia, deberá configurar la lista de control de acceso para los archivos y carpetas de forma individual.
-```
+
+Para configurar el acceso de `Read` y `Execute` para el sistema de archivos de Azure Data Lake Storage, debe configurar la lista de control de acceso de los archivos y las carpetas individualmente. Esto es así porque el modelo de la lista de control de acceso de HDFS subyacente no admite herencias. Por ejemplo: 
+```azurecli
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r-x" --path /
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r--" --path /farmers-markets.csv
 ```
@@ -310,10 +332,10 @@ with open('./data/adls-dpreptestfiles.crt', 'rt', encoding='utf-8') as crtFile:
 
 servicePrincipalAppId = "8dd38f34-1fcb-4ff9-accd-7cd60b757174"
 ```
-#### <a name="acquire-an-oauth-access-token"></a>Adquisición de un token de acceso de OAuth
+### <a name="acquire-an-oauth-access-token"></a>Adquisición de un token de acceso de OAuth
 Use el paquete `adal` (a través de: `pip install adal`) para crear un contexto de autenticación en el inquilino MSFT y adquirir un token de acceso de OAuth. En el caso de ADLS, el recurso de la solicitud del token debe ser para "https://datalake.azure.net", que es diferente de la mayoría de los demás recursos de Azure.
 
-```
+```python
 import adal
 from azureml.dataprep.api.datasources import DataLakeDataSource
 
@@ -331,3 +353,6 @@ dataflow.to_pandas_dataframe().head()
 |3|1009364|106 S. Main Street Farmers Market|http://thetownofsixmile.wordpress.com/ |106 S. Main Street|Six Mile|||
 |4|1010691|10th Steet Community Farmers Market|http://agrimissouri.com/mo-grown/grodetail.php... |10th Street and Poplar|Lamar|Barton|
 
+## <a name="use-smart-reading"></a>Uso de la lectura inteligente
+
+Use la funcionalidad de lectura inteligente del SDK para detectar automáticamente el tipo de archivo.

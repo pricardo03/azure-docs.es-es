@@ -11,17 +11,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
-ms.reviewer: Soubhagya.Dash
+ms.date: 06/14/2018
+ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 539becf272194a116355c6a0491042d40e1e7494
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9b39eef5accec4764f61ab31dd894d368242ee3d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293969"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094657"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicación: evaluación de prioridades de aplicaciones distribuidas
+
 El mapa de aplicación le ayuda a detectar los cuellos de botella en el rendimiento o las zonas activas con error en todos los componentes de la aplicación distribuida. Cada nodo del mapa representa un componente de aplicación o sus dependencias, e incluye el KPI de mantenimiento y el estado de alerta. Puede hacer clic a través de cualquier componente para ver un diagnóstico más detallado, como los eventos de Application Insights. Si su aplicación usa los servicios de Azure, también puede hacer clic por los diagnósticos de Azure, como las recomendaciones SQL Database Advisor.
 
 ## <a name="what-is-a-component"></a>¿Qué es un componente?
@@ -32,105 +33,63 @@ Los componentes son partes que se pueden implementar independientemente de su ap
 * Los componentes se ejecutan en cualquier número de instancias de rol, servidor o contenedor.
 * Los componentes pueden ser claves de instrumentación de Application Insights independientes (incluso aunque las suscripciones sean diferentes) o diferentes roles que informan a una única clave de instrumentación de Application Insights. La experiencia de mapa de versión preliminar muestra los componentes con independencia de cómo están configurados.
 
-## <a name="composite-application-map-preview"></a>Mapa de aplicación compuesto (versión preliminar)
-*Esta es una primera versión preliminar y se irán agregando más características a este mapa. Nos gustaría conocer su opinión sobre la nueva experiencia. Puede cambiar fácilmente entre la experiencia clásica y de versión preliminar.*
-
-Habilite "Mapa de aplicación compuesto" en la [lista de versiones preliminares](app-insights-previews.md) o haga clic en "Mapa de versión preliminar" en la opción de conmutación de la esquina superior derecha. Puede usar esta opción de conmutación para volver a la experiencia clásica.
-![Habilitar el mapa de versión preliminar](media/app-insights-app-map/preview-from-classic.png)
-
->[!Note]
-Esta versión preliminar reemplaza a la versión preliminar anterior de "Asignación de aplicaciones de varios roles". En este momento, úsela para ver la topología entera a lo largo de varios niveles de dependencias de componentes de aplicación. Envíenos sus comentarios. Iremos agregando más funcionalidades similares a las que admite el mapa clásico.
+## <a name="composite-application-map"></a>Mapa de aplicación compuesta
 
 Puede ver la topología de aplicación completa a lo largo de varios niveles de componentes de aplicación relacionados. Los componentes podrían ser diferentes recursos de Application Insights o distintos roles de un único recurso. Para encontrar componentes, el mapa de aplicación sigue las llamadas de dependencia HTTP entre los servidores con el SDK de Application Insights instalado. 
 
-Esta experiencia comienza con la detección progresiva de los componentes. La primera vez que carga la versión preliminar, se desencadena un conjunto de consultas para detectar los componentes relacionados con este componente. Un botón en la esquina superior izquierda se actualiza con el número de componentes de la aplicación a medida que se detectan. 
-![Mapa de versión preliminar](media/app-insights-app-map/preview.png)
+Esta experiencia comienza con la detección progresiva de los componentes. La primera vez que carga el mapa de aplicación, se desencadena un conjunto de consultas para detectar los componentes relacionados con este componente. Un botón en la esquina superior izquierda se actualiza con el número de componentes de la aplicación a medida que se detectan. 
 
 Al hacer clic en "Update map components" (Actualizar componentes del mapa), el mapa se actualiza con todos los componentes detectados hasta ese momento.
-![Mapa de versión preliminar cargado](media/app-insights-app-map/components-loaded-hierarchical.png)
 
 Si todos los componentes son roles dentro de un único recurso de Application Insights, este paso de detección no es necesario. La carga inicial para este tipo de aplicación tendrá todos sus componentes.
 
-Uno de los objetivos principales de la nueva experiencia es poder visualizar topologías complejas con cientos de componentes. La nueva experiencia admite zoom y puede acercar para agregar detalles. O puede alejar para ver más componentes de un vistazo, y aun así detectar los componentes con mayores tasas de error. 
+![Captura de pantalla de mapa de aplicación](media/app-insights-app-map/001.png)
 
-![Niveles de zoom](media/app-insights-app-map/zoom-levels.png)
+Uno de los objetivos principales de la experiencia es poder visualizar topologías complejas con cientos de componentes.
 
 Haga clic en cada componente para ver información detallada relacionada e ir a la experiencia de evaluación de prioridades de rendimiento y errores de ese componente.
 
-![Control flotante](media/app-insights-app-map/preview-flyout.png)
+![Control flotante](media/app-insights-app-map/application-map-001.png)
 
+### <a name="investigate-failures"></a>Investigar los errores
 
-## <a name="classic-application-map"></a>Mapa de aplicación clásico
+Seleccione **Investigar los errores** para iniciar el panel de errores.
 
-El mapa muestra:
+![Captura de pantalla del botón Investigar los errores](media/app-insights-app-map/investigate-failures.png)
 
-* Pruebas de disponibilidad
-* Componente del lado cliente (que se supervisa con el SDK de JavaScript)
-* Componente del lado servidor
-* Dependencias de los componentes cliente y servidor
+![Captura de pantalla de la experiencia de errores](media/app-insights-app-map/failures.png)
 
-![mapa de aplicación](./media/app-insights-app-map/02.png)
+### <a name="investigate-performance"></a>Investigar el rendimiento
 
-Puede expandir y contraer los grupos de vínculos de dependencia:
+Para solucionar problemas de rendimiento seleccione **Investigar el rendimiento**
 
-![contraer](./media/app-insights-app-map/03.png)
+![Captura de pantalla del botón Investigar el rendimiento](media/app-insights-app-map/investigate-performance.png)
 
-Si tiene un gran número de dependencias de un tipo (SQL, HTTP, etc.), aparecen agrupadas. 
+![Captura de pantalla de la experiencia de rendimiento](media/app-insights-app-map/performance.png)
 
-![dependencias agrupadas](./media/app-insights-app-map/03-2.png)
+### <a name="go-to-details"></a>Ir a los detalles
 
-## <a name="spot-problems"></a>Detección de problemas
-Cada nodo cuenta con indicadores de rendimiento relacionados, como los porcentajes de error, rendimiento y carga de ese componente. 
+Seleccione **Ir a los detalles** para explorar una experiencia de transacción completa que puede ofrecer las vistas realizadas en el nivel de la pila de llamadas.
 
-Los iconos de advertencia resaltan los posibles problemas. Una advertencia naranja significa que hay errores en las solicitudes, las vistas de página o las llamadas de dependencia. Rojo significa un porcentaje de error superior al 5 %. Si quiere ajustar estos umbrales, abra Opciones.
+![Captura de pantalla del botón Ir a los detalles](media/app-insights-app-map/go-to-details.png)
 
-![iconos de error](./media/app-insights-app-map/04.png)
+![Captura de pantalla de los detalles de una transacción completa](media/app-insights-app-map/end-to-end-transaction.png)
 
-También se muestran las alertas activas: 
+### <a name="view-in-analytics"></a>Ver en Analytics
 
-![alertas activas](./media/app-insights-app-map/05.png)
+Para consultar e investigar aún más los datos de aplicaciones, haga clic **Ver en Analytics**.
 
-Si usa SQL Azure, hay un icono que se muestra cuando hay recomendaciones sobre cómo mejorar el rendimiento. 
+![Captura de pantalla del botón Ver en Analytics](media/app-insights-app-map/view-in-analytics.png)
 
-![recomendación de Azure](./media/app-insights-app-map/06.png)
+![Captura de pantalla de la experiencia con Analytics](media/app-insights-app-map/analytics.png)
 
-Haga clic en cualquier icono para más detalles:
+### <a name="alerts"></a>Alertas
 
-![recomendación de Azure](./media/app-insights-app-map/07.png)
+Para ver las alertas activas y las reglas subyacentes que provocan el desencadenamiento de estas, seleccione **alertas**.
 
-## <a name="diagnostic-click-through"></a>Recorrido por los diagnósticos mediante clic
-Cada uno de los nodos del mapa ofrece un recorrido dirigido mediante clic por la información de diagnóstico. Las opciones varían según el tipo del nodo.
+![Captura de pantalla del botón de alertas](media/app-insights-app-map/alerts.png)
 
-![opciones de servidor](./media/app-insights-app-map/09.png)
-
-En el caso de los componentes que se hospedan en Azure, las opciones incluyen vínculos directos a ellos.
-
-## <a name="filters-and-time-range"></a>Filtros e intervalo de tiempo
-De forma predeterminada, el mapa resume todos los datos disponibles para el intervalo de tiempo seleccionado. Sin embargo, puede filtrar para incluir solo nombres de operaciones o dependencias específicos.
-
-* Nombre de la operación: incluye vistas de página y tipos de solicitud del lado servidor. Con esta opción, el mapa muestra el KPI en el nodo del lado cliente o servidor solo de las operaciones seleccionadas. Muestra las dependencias que se invocan en el contexto de esas operaciones específicas.
-* Nombre base de dependencia: incluye las dependencias del explorador de AJAX y las dependencias del lado servidor. Si utiliza la API TrackDependency para notificar telemetría de dependencias personalizada, esta información también se muestra aquí. Puede seleccionar las dependencias que se mostrarán en el mapa. Actualmente esta selección no filtra las solicitudes del lado servidor ni las vistas de página del lado cliente.
-
-![Establecer filtros](./media/app-insights-app-map/11.png)
-
-## <a name="save-filters"></a>Guardado de los filtros
-Para guardar los filtros aplicados, ancle la vista filtrada a un [panel](app-insights-dashboards.md).
-
-![Anclar al panel](./media/app-insights-app-map/12.png)
-
-## <a name="error-pane"></a>Panel de errores
-Al hacer clic en un nodo del mapa, se muestra un panel de error se muestra en el lado derecho con un resumen de los errores de ese nodo. Los errores se agrupan en primer lugar por identificador de operación y, luego, por identificador de problema.
-
-![Panel de errores](./media/app-insights-app-map/error-pane.png)
-
-Al hacer clic en un error, se le redirige a la instancia más reciente de ese error.
-
-## <a name="resource-health"></a>Estado de los recursos
-En algunos tipos de recursos, se muestra el estado en la parte superior del panel de errores. Por ejemplo, al hacer clic en un nodo de SQL se mostrará el estado de la base de datos y las alertas activadas.
-
-![Estado de los recursos](./media/app-insights-app-map/resource-health.png)
-
-Puede hacer clic en el nombre del recurso para ver las métricas de información general estándar de ese recurso.
+![Captura de pantalla de la experiencia con Analytics](media/app-insights-app-map/alerts-view.png)
 
 ## <a name="video"></a>Vídeo
 
@@ -140,7 +99,6 @@ Puede hacer clic en el nombre del recurso para ver las métricas de información
 Proporcione sus comentarios mediante la opción de comentarios del portal.
 
 ![Imagen MapLink-1](./media/app-insights-app-map/13.png)
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

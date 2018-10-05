@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 1ec47ddf5769dd8ed624277a86db57f449581b90
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 586ced5b239b77dd9ae596a754613a66cee371a9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948696"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405927"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprender cómo funcionan las alertas de métricas en Azure Monitor
 
-Las alertas de métricas en Azure Monitor funcionan en la parte superior de las métricas multidimensionales. Estas métricas pueden ser métricas de plataforma, métricas personalizadas (versión preliminar), registros populares de Log Analytics convertidos en métricas y métricas estándar de Application Insights. Las alertas de métricas se evalúan a intervalos regulares para comprobar si las condiciones en las series de tiempo para las métricas son verdaderas; además, recibirá una notificación cuando se cumplan las evaluaciones. Como las alertas de métricas cuentan con un estado, solo envían notificaciones cuando cambia ese estado.
+Las alertas de métricas en Azure Monitor funcionan en la parte superior de las métricas multidimensionales. Estas métricas pueden ser métricas de plataforma, [métricas personalizadas](metrics-custom-overview.md), [registros populares de Log Analytics convertidos en métricas](monitoring-metric-alerts-logs.md) y métricas estándar de Application Insights. Las alertas de métricas se evalúan a intervalos regulares para comprobar si las condiciones de una o varias series temporales para las métricas son verdaderas y recibirá una notificación cuando se cumplan las evaluaciones. Como las alertas de métricas tienen un estado, solo envían notificaciones cuando cambia ese estado.
 
 ## <a name="how-do-metric-alerts-work"></a>Cómo funcionan las alertas de métricas
 
@@ -75,11 +75,17 @@ Supongamos que tiene una aplicación web con una demanda masiva y es necesario a
 
 Esta regla supervisará automáticamente todos los valores de la instancia, es decir, puede supervisar sus instancias a medida que aparecen sin necesidad de modificar su regla de alerta de métrica nuevamente.
 
-### <a name="monitoring-multiple-resource-using-metric-alerts"></a>Supervisar varios recursos con las alertas de métricas
+### <a name="monitoring-multiple-resources-using-metric-alerts"></a>Supervisión de varios recursos mediante alertas de métricas
 
-Como ya ha visto en la sección anterior, es posible tener una sola regla de alerta de métrica que supervisa cada combinación de dimensión individual (es decir, una serie de tiempo para las métricas). Sin embargo, todavía está limitado a realizar esta acción con un recurso cada vez. Las alertas de métricas también le permiten supervisar varios recursos con una regla en la versión preliminar. Si tiene cientos de máquinas virtuales en la suscripción, esta nueva característica le ayudará a configurar rápidamente la supervisión de las mismas. 
+Como ya ha visto en la sección anterior, es posible tener una sola regla de alerta de métrica que supervisa cada combinación de dimensión individual (es decir, una serie de tiempo para las métricas). Sin embargo, antes existía la limitación de que había que hacerlo recurso a recurso. Azure Monitor también admite la supervisión de varios recursos con una sola regla de alerta de métrica. Esta característica está actualmente versión preliminar y solo se admite en máquinas virtuales. Además, una alerta de métrica individual puede supervisar los recursos de una sola región de Azure.
 
-Esta funcionalidad actualmente está en su versión preliminar. Actualmente, no se admite la creación de reglas de alerta de métricas que supervisen varios recursos a través de Azure Portal. Puede crear estas reglas mediante las plantillas de Azure Resource Manager.
+Puede especificar el ámbito de la supervisión por una única alerta de métrica de cualquiera de estas tres formas:
+
+- como una lista de máquinas virtuales de una región de Azure en una suscripción
+- todas las máquinas virtuales (de una región de Azure) en uno o varios grupos de recursos de una suscripción
+- todas las máquinas virtuales (de una región de Azure) en una suscripción
+
+Actualmente, no se admite la creación de reglas de alerta de métricas que supervisen varios recursos a través de Azure Portal. Estas reglas se pueden crear mediante las [plantillas de Azure Resource Manager](monitoring-create-metric-alerts-with-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources). Recibirá notificaciones individuales para cada máquina virtual. 
 
 ## <a name="typical-latency"></a>Latencia típica
 

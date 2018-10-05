@@ -2,24 +2,26 @@
 title: Diferencias de T-SQL en Instancia administrada de Azure SQL Database | Microsoft Docs
 description: En este artículo se describen las diferencias de T-SQL entre Instancia administrada de Azure SQL Database y SQL Server.
 services: sql-database
-author: jovanpop-msft
-ms.reviewer: carlrab, bonova
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 0813/2018
+author: jovanpop-msft
 ms.author: jovanpop
+ms.reviewer: carlrab, bonova
 manager: craigg
-ms.openlocfilehash: 57c6b52df3e8f6c47eb794cda4b47bfa2d7de374
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 08/13/2018
+ms.openlocfilehash: 2f512c666555ca8bee58305b76573459f6e631e2
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051245"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166510"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferencias de T-SQL en Instancia administrada de Azure SQL Database 
 
-Instancia administrada de Azure SQL Database (versión preliminar) proporciona gran compatibilidad con instancias locales de Motor de base de datos de SQL Server. Instancia administrada admite la mayoría de las características de Motor de base de datos de SQL Server. Puesto que todavía hay algunas diferencias de comportamiento y de sintaxis, en este artículo se resumen y se explican estas diferencias.
+Instancia administrada de Azure SQL Database proporciona gran compatibilidad con instancias locales de Motor de base de datos de SQL Server. Instancia administrada admite la mayoría de las características de Motor de base de datos de SQL Server. Puesto que todavía hay algunas diferencias de comportamiento y de sintaxis, en este artículo se resumen y se explican estas diferencias.
  - [Diferencias de T-SQL y características no admitidas](#Differences)
  - [Características que tienen un comportamiento diferente en Instancia administrada](#Changes)
  - [Limitaciones temporales y problemas conocidos](#Issues)
@@ -267,7 +269,7 @@ No se admiten tablas externas que hacen referencia a archivos en HDFS o Azure Bl
 
 ### <a name="replication"></a>Replicación 
  
-Se admite la replicación en la Instancia administrada. Para más información sobre la replicación, consulte [Replicación de SQL Server](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+La replicación está disponible para su versión preliminar en Instancia administrada. Para más información sobre la replicación, consulte [Replicación de SQL Server](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### <a name="restore-statement"></a>Instrucción RESTORE 
  
@@ -335,23 +337,24 @@ Para más información acerca de las instrucciones Restore, consulte [Instruccio
 - No se admiten `sp_attach_db`, `sp_attach_single_file_db` y `sp_detach_db`. Consulte [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), y [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - No se admite `sp_renamedb`. Consulte [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
-### <a name="sql-server-agent"></a>Agente SQL Server 
- 
+### <a name="sql-server-agent"></a>Agente SQL Server
+
 - La configuración del Agente SQL es de solo lectura. El procedimiento `sp_set_agent_properties` no se admite en Instancia administrada.  
-- Trabajos: actualmente solo se admiten los pasos de trabajo de T-SQL (se agregarán más pasos durante la versión preliminar pública).
- - Aún no se admite SSIS. 
- - Aún no se admite la replicación.  
-  - Aún no se admite el lector del registro de transacciones.  
-  - Aún no se admiten instantáneas.  
-  - Aún no se admite el distribuidor.  
-  - Aún no se permite combinar.  
+- Trabajos: actualmente se admiten pasos de trabajo de T-SQL
+- No se admiten actualmente otros tipos de pasos de trabajo (se agregarán más tipos de pasos durante la versión preliminar pública).
+  - Entre los trabajos de replicación no admitidos se incluyen los siguientes:
+    - Lector del registro de transacciones.  
+    - Instantánea.
+    - Distribuidor.  
+    - Combinar.  
+  - Aún no se admite SSIS. 
   - Aún no se admite el lector de colas.  
- - Aún no se admite el shell de comandos. 
+  - Aún no se admite el shell de comandos. 
   - Instancia administrada no puede acceder a los recursos externos (por ejemplo, recursos compartidos de red a través de robocopy).  
- - Aún no se admite PowerShell.
- - No se admite Analysis Services.  
+  - Aún no se admite PowerShell.
+  - No se admite Analysis Services.  
 - Las notificaciones se admiten parcialmente.
- - Se admite la notificación por correo electrónico; es necesario configurar un perfil de Correo electrónico de base de datos. Solo puede haber un perfil de Correo electrónico de base de datos y debe llamarse `AzureManagedInstance_dbmail_profile` en la versión preliminar pública (limitación temporal).  
+- Se admite la notificación por correo electrónico; es necesario configurar un perfil de Correo electrónico de base de datos. Solo puede haber un perfil de Correo electrónico de base de datos y debe llamarse `AzureManagedInstance_dbmail_profile` en la versión preliminar pública (limitación temporal).  
  - No se admite el paginador.  
  - No se admite NetSend. 
  - Aún no se admiten las alertas.
@@ -414,15 +417,58 @@ Asegúrese de que quita el signo `?` inicial de la clave SAS generada mediante A
 
 SQL Server Management Studio y SQL Server Data Tools podrían tener algunos problemas al obtener acceso a Instancia administrada. Todos los problemas de herramientas se corregirán antes de la versión de disponibilidad general.
 
-### <a name="incorrect-database-names"></a>Nombres de base de datos incorrectos
+### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Nombres incorrectos de base de datos en algunas vistas, registros y mensajes
 
-Instancia administrada podría mostrar el valor de GUID en lugar del nombre de la base de datos durante la restauración o en algunos mensajes de error. Estos problemas se corregirán antes de la versión de disponibilidad general.
+Varias vistas del sistema, contadores de rendimiento, mensajes de error, XEvents y entradas de registro de errores muestran identificadores de base de datos GUID en lugar de los nombres reales de base de datos. No confíe en estos identificadores GUID porque se reemplazarán por los nombres reales de base de datos en el futuro.
 
 ### <a name="database-mail-profile"></a>Perfil de Correo electrónico de base de datos
 Solo puede haber un perfil de Correo electrónico de base de datos y debe llamarse `AzureManagedInstance_dbmail_profile`. Se trata de una limitación temporal que se quitará próximamente.
+
+### <a name="error-logs-are-not-persisted"></a>Los registros de errores no son persistentes
+Los registros de errores que están disponibles en la instancia administrada no son persistentes y su tamaño no está incluido en el límite de almacenamiento máximo. Es posible que se borren automáticamente los registros de errores en caso de conmutación por error.
+
+### <a name="error-logs-are-verbose"></a>Los registros de errores son detallados
+Instancia administrada coloca información detallada en los registros de errores y muchos de ellos no son pertinentes. En el futuro se reducirá la cantidad de información de los registros de errores.
+
+**Solución alternativa**: use un procedimiento personalizado para leer los registros de errores que filtran algunas entradas que no son pertinentes. Para obtener más información, consulte [Azure SQL DB Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) (Instancia administrada de Azure SQL Database – sp_readmierrorlog).
+
+### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>No se admite el ámbito de transacción en dos bases de datos de la misma instancia
+La clase `TransactionScope` de .Net no funciona si dos consultas se envían a dos bases de datos de la misma instancia en el mismo ámbito de transacción:
+
+```C#
+using (var scope = new TransactionScope())
+{
+    using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn1.Open();
+        SqlCommand cmd1 = conn1.CreateCommand();
+        cmd1.CommandText = string.Format("insert into T1 values(1)");
+        cmd1.ExecuteNonQuery();
+    }
+
+    using (var conn2 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn2.Open();
+        var cmd2 = conn2.CreateCommand();
+        cmd2.CommandText = string.Format("insert into b.dbo.T2 values(2)");        cmd2.ExecuteNonQuery();
+    }
+
+    scope.Complete();
+}
+
+```
+
+Aunque este código funciona con datos en la misma instancia, requería el coordinador de transacciones distribuidas.
+
+**Solución alternativa**: use [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) para utilizar otra base de datos en el contexto de conexión en lugar de usar dos conexiones.
+
+### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>Los módulos de CLR y los servidores vinculados en algún momento no pueden hacer referencia a la dirección IP local
+Los módulos de CLR colocados en Instancia administrada y las consultas distribuidas o servidores vinculados que hacen referencia a la instancia actual en algún momento no pueden resolver la dirección IP de la instancia local. Se trata de un problema transitorio.
+
+**Solución alternativa**: use conexiones de contexto en el módulo de CLR, si es posible.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información acerca de Instancia administrada, consulte [¿Qué es Instancia administrada de SQL Database (versión preliminar)?](sql-database-managed-instance.md).
 - Para obtener una lista de características y una comparación, consulte [Características comunes de SQL](sql-database-features.md).
-- Para ver un tutorial que muestra cómo crear una instancia administrada, consulte el artículo de [creación de instancias administradas](sql-database-managed-instance-get-started.md).
+- Para consultar una guía de inicio rápido que muestra cómo crear una nueva instancia administrada, consulte el artículo de [creación de instancias administradas](sql-database-managed-instance-get-started.md).

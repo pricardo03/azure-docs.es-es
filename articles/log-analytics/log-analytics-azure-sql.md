@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: na
-ms.openlocfilehash: 82845f475857f9a911febd496e86eb2a60f69c25
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: b7a7e2787128c74cd7d016c01b751d15628fb4b2
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782250"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181998"
 ---
-# <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Supervisar instancias de Azure SQL Database con Azure SQL Analytics (versión preliminar)
+# <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Supervisión de instancias de Azure SQL Database con Azure SQL Analytics (versión preliminar)
 
 ![Símbolo de Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
@@ -30,16 +30,17 @@ Azure SQL Analytics es una solución de supervisión en la nube para supervisar 
 
 Con las métricas recopiladas con la solución, puede crear alertas y reglas de supervisión personalizadas. La solución también le ayuda a identificar los problemas de cada capa de la pila de la aplicación. Usa las métricas de diagnóstico de Azure junto con las vistas de Log Analytics para presentar datos sobre todas sus instancias de Azure SQL Database, sus grupos elásticos y las bases de datos en las instancias administradas en una sola área de trabajo de Log Analytics. Log Analytics le ayuda a recopilar, correlacionar y visualizar datos estructurados y no estructurados.
 
-Actualmente, la versión preliminar de esta solución admite hasta 200 000 instancias de Azure SQL Database y 5000 grupos elásticos de SQL por área de trabajo.
-
 Para obtener información general práctica acerca del uso de la solución Azure SQL Analytics y escenarios de uso habituales, vea el vídeo incrustado:
+
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
 ## <a name="connected-sources"></a>Orígenes conectados
 
-Azure SQL Analytics es una solución de supervisión de uso solo en la nube que admite el streaming de telemetría de diagnósticos para grupos elásticos, instancias de SQL Azure Database e instancias administradas. Debido a que no utiliza agentes para conectarse al servicio Log Analytics, la solución no admite la supervisión de instancias locales de SQL Server o máquinas virtuales, consulte la siguiente tabla de compatibilidad.
+Azure SQL Analytics es una solución de supervisión de uso solo en la nube que admite el streaming de telemetría de diagnósticos para Azure SQL Database, bases de datos y grupos elásticos de instancia administrada.
+
+Debido a que la solución no utiliza agentes para conectarse al servicio Log Analytics, la solución no admite la supervisión de instancias de SQL Server hospedadas localmente o en máquinas virtuales, consulte la siguiente tabla de compatibilidad.
 
 | Origen conectado | Compatible | DESCRIPCIÓN |
 | --- | --- | --- |
@@ -51,7 +52,7 @@ Azure SQL Analytics es una solución de supervisión de uso solo en la nube que 
 
 ## <a name="configuration"></a>Configuración
 
-Realice los pasos siguientes para agregar la solución Azure SQL Analytics al área de trabajo.
+Realice los pasos siguientes para agregar la solución Azure SQL Analytics al panel de Azure.
 
 1. Agregue la solución Azure SQL Analytics al área de trabajo desde [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview).
 2. En Azure Portal, haga clic en **+ Crear un recurso** y, a continuación, busque **Azure SQL Analytics**.  
@@ -59,17 +60,18 @@ Realice los pasos siguientes para agregar la solución Azure SQL Analytics al á
 3. Seleccione **Azure SQL Analytics (versión preliminar)** en la lista.
 4. En el área **Azure SQL Analytics (versión preliminar)**, haga clic en **Crear**.  
     ![Creación](./media/log-analytics-azure-sql/portal-create.png)
-5. En el área **Crear nueva solución**, cree una nueva área de trabajo o seleccione una existente, a la que quiera agregar la solución y luego haga clic en **Crear**.  
+5. En el área **Crear nueva solución**, cree una nueva área de trabajo o seleccione una existente, a la que quiera agregar la solución y luego haga clic en **Crear**.
+
     ![Agregar a área de trabajo](./media/log-analytics-azure-sql/add-to-workspace.png)
 
-### <a name="configure-azure-sql-databases-and-elastic-pools-to-stream-diagnostics-telemetry"></a>Configurar las instancias de Azure SQL Database y los grupos elásticos para la telemetría de diagnósticos de secuencia
+### <a name="configure-azure-sql-databases-elastic-pools-and-managed-instances-to-stream-diagnostics-telemetry"></a>Configuración de instancias de Azure SQL Database, grupos elásticos e instancias administradas para la telemetría de diagnósticos de secuencia
 
-Una vez haya creado la solución Azure SQL Analytics en el área de trabajo, con el fin de supervisar el rendimiento de las instancias de Azure SQL Database o los grupos elásticos, deberá **configurar cada** instancia de Azure SQL Database y grupo elástico que quiera supervisar para transmitir su telemetría de diagnósticos a la solución.
+Una vez haya creado la solución Azure SQL Analytics en el área de trabajo, con el fin de supervisar el rendimiento de las bases de datos de Azure SQL Database o de las bases de datos y grupos elásticos de Instancia administrada, deberá **configurar cada** uno de estos recursos que desee supervisar para transmitir su telemetría de diagnósticos a la solución.
 
-- Habilite Diagnósticos de Azure para sus instancias de Azure SQL Database y para los grupos elásticos y [configúrelo para que envíe sus datos a Log Analytics](../sql-database/sql-database-metrics-diag-logging.md).
+- Habilite Azure Diagnostics para Azure SQL Database y para las bases de datos y grupos elásticos de Instancia administrada para [transmitir la telemetría de diagnósticos a Azure SQL Analytics](../sql-database/sql-database-metrics-diag-logging.md).
 
 ### <a name="to-configure-multiple-azure-subscriptions"></a>Configuración de varias suscripciones de Azure
-
+ 
 Para admitir varias suscripciones, use el script de PowerShell de [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/) (Habilitar registro de métricas de recursos de Azure mediante PowerShell). Proporcione el identificador de recurso del área de trabajo como un parámetro al ejecutar el script para enviar los datos de diagnóstico de los recursos de una suscripción de Azure a un área de trabajo de otra suscripción de Azure.
 
 **Ejemplo**
@@ -84,13 +86,23 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ## <a name="using-the-solution"></a>Uso de la solución
 
-Cuando la solución se agrega al área de trabajo, el icono de Azure SQL Analytics se agrega al área de trabajo y aparece en la introducción. El icono muestra el número de bases de datos y grupos elásticos de Azure SQL a los que está conectada la solución.
+Cuando la solución se agrega al área de trabajo, el icono de Azure SQL Analytics se agrega al área de trabajo y aparece en la introducción. El icono muestra el número de bases de datos de Azure SQL Database, grupos elásticos, instancias administradas y bases de datos de instancias administradas de las que la solución recibe datos de telemetría de diagnósticos.
 
 ![Icono de Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
 
+La solución proporciona dos vistas independientes: una para supervisar las bases de datos y los grupos elásticos de Azure SQL Database y la otra para supervisar Instancia administrada y las bases de datos de esta.
+
+Para ver el panel de supervisión de Azure SQL Analytics de las bases de datos y grupos elásticos de Azure SQL Database, haga clic en la parte superior del icono. Para ver el panel de supervisión de Azure SQL Analytics para Instancia administrada y las bases de datos de esta, haga clic en la parte inferior del icono.
+
 ### <a name="viewing-azure-sql-analytics-data"></a>Visualización de los datos de Azure SQL Analytics
 
-Haga clic en el icono de **Azure SQL Analytics** para que se abra el panel de Azure SQL Analytics. El panel incluye la información general de todas las bases de datos que se supervisan a través de distintas perspectivas. Para que estas distintas perspectivas funcionen, debe habilitar las métricas o los registros apropiados en los recursos de SQL para que se transmitan al área de trabajo de Azure Log Analytics.
+El panel incluye la información general de todas las bases de datos que se supervisan a través de distintas perspectivas. Para que estas distintas perspectivas funcionen, debe habilitar las métricas o los registros apropiados en los recursos de SQL para que se transmitan al área de trabajo de Azure Log Analytics.
+
+Tenga en cuenta que si no se transmiten algunas métricas o registros en Azure Log Analytics, los iconos en la solución no se rellenarán con la información de supervisión.
+
+### <a name="azure-sql-database-and-elastic-pool-view"></a>Vista de Azure SQL Database y grupo elástico
+
+Una vez que se selecciona el icono de Azure SQL Analytics para Azure SQL Database y los grupos elásticos, aparece el panel de supervisión.
 
 ![Información general de Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
@@ -98,32 +110,48 @@ Si selecciona cualquiera de los iconos, se abre un informe detallado de la persp
 
 ![Tiempos de expiración de Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-metrics.png)
 
-Cada perspectiva proporciona resúmenes en el nivel de suscripción, servidor, grupo elástico y base de datos. Además, cada perspectiva muestra a la derecha una perspectiva específica del informe. Seleccione suscripción, servidor, grupo o base de datos en la lista para seguir obteniendo los detalles.
+Cada perspectiva de esta vista proporciona resúmenes en el nivel de suscripción, servidor, grupo elástico y base de datos. Además, cada perspectiva muestra a la derecha una perspectiva específica del informe. Seleccione suscripción, servidor, grupo o base de datos en la lista para seguir obteniendo los detalles.
 
-| Perspectiva | Descripción |
-| --- | --- |
-| Recurso por tipo | Perspectiva que considera todos los recursos supervisados. El informe detallado proporciona el resumen de las métricas de GB y DTU. |
-| Información detallada | Ofrece un informe detallado jerárquico de Intelligent Insights. Más información sobre Intelligent Insights. |
-| Errors | Ofrece un informe detallado jerárquico de los errores de SQL que se produjeron en las bases de datos. |
-| Tiempos de expiración | Ofrece un informe detallado jerárquico de los tiempos de expiración de SQL que se produjeron en las bases de datos. |
-| Bloqueos | Ofrece un informe detallado jerárquico de los bloqueos de SQL que se produjeron en las bases de datos. |
-| Esperas de la base de datos | Ofrece un informe detallado jerárquico de las estadísticas de espera de SQL en el nivel de base de datos. Incluye resúmenes del tiempo de espera total y el tiempo de espera por tipo de espera. |
-| Duración de la consulta | Ofrece un informe detallado jerárquico de las estadísticas de ejecución de consulta, como la duración de la consulta, el uso de CPU, el uso de E/S de datos y el uso de E/S de registro. |
-| Esperas de consulta | Ofrece un informe detallado jerárquico de las estadísticas de espera de consulta por categoría de espera. |
+### <a name="managed-instance-and-databases-in-managed-instance-view"></a>Instancia administrada y bases de datos en la vista de Instancia administrada
+
+Una vez que se selecciona el icono de Azure SQL Analytics para Instancia administrada y las bases de datos de esta, aparece el panel de supervisión.
+
+![Información general de Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-overview-mi.png)
+
+Si selecciona cualquiera de los iconos, se abre un informe detallado de la perspectiva específica. Una vez que se ha seleccionado la perspectiva, se abre el informe de la exploración en profundidad.
+
+Si selecciona la vista de Instancia administrada, aparecerán los detalles de uso de Instancia administrada, las bases de datos que contiene y los datos de telemetría de las consultas que se han ejecutado en la instancia.
+
+![Tiempos de expiración de Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-metrics-mi.png)
+
+### <a name="perspectives"></a>Perspectivas
+
+La siguiente tabla describe las perspectivas compatibles de dos versiones del panel, una para las bases de datos y grupos elásticos de Azure SQL Database y la otra para Instancia administrada.
+
+| Perspectiva | DESCRIPCIÓN | Compatibilidad de instancias de SQL Database y grupos elásticos | Compatibilidad de Instancia administrada |
+| --- | ------- | ----- | ----- |
+| Recurso por tipo | Perspectiva que considera todos los recursos supervisados. | SÍ | SÍ | 
+| Información detallada | Proporciona un informe detallado jerárquico del rendimiento de Intelligent Insights. | SÍ | SÍ |
+| Errors | Ofrece un informe detallado jerárquico de los errores de SQL que se produjeron en las bases de datos. | SÍ | SÍ |
+| Tiempos de expiración | Ofrece un informe detallado jerárquico de los tiempos de expiración de SQL que se produjeron en las bases de datos. | SÍ | Sin  |
+| Bloqueos | Ofrece un informe detallado jerárquico de los bloqueos de SQL que se produjeron en las bases de datos. | SÍ | Sin  |
+| Esperas de la base de datos | Ofrece un informe detallado jerárquico de las estadísticas de espera de SQL en el nivel de base de datos. Incluye resúmenes del tiempo de espera total y el tiempo de espera por tipo de espera. |SÍ | SÍ |
+| Duración de la consulta | Ofrece un informe detallado jerárquico de las estadísticas de ejecución de consulta, como la duración de la consulta, el uso de CPU, el uso de E/S de datos y el uso de E/S de registro. | SÍ | SÍ |
+| Esperas de consulta | Ofrece un informe detallado jerárquico de las estadísticas de espera de consulta por categoría de espera. | SÍ | SÍ |
 
 ### <a name="intelligent-insights-report"></a>Informe de Intelligent Insights
 
-Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) le permite saber lo que ocurre con el rendimiento de la base de datos. Todas las instancias de Intelligent Insights que se recopilan se pueden visualizar y acceder a través de la perspectiva de información detallada.
+Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) le permite saber lo que ocurre con el rendimiento de las bases de datos de Azure SQL Database y de Instancia administrada. Todas las instancias de Intelligent Insights que se recopilan se pueden visualizar y acceder a través de la perspectiva de información detallada.
 
 ![Información detallada de Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
 ### <a name="elastic-pool-and-database-reports"></a>Informes de grupos elásticos y bases de datos
 
-Tanto los grupos elásticos como las bases de datos tienen sus propios informes específicos que muestran cómo se recopilan todos los datos para el recurso en el tiempo especificado.
+Tanto los grupos elásticos como las bases de datos de SQL Database tienen sus propios informes específicos que muestran cómo se recopilan todos los datos para el recurso en el tiempo especificado.
 
 ![Base de datos Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
 
-![Grupo elástico de Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-pool.png)
+![Grupo elástico de Azure SQL](./media/log-analytics-azure-sql/azure-sql-sol-pool.png)
 
 ### <a name="query-reports"></a>Informes de consulta
 
@@ -132,6 +160,8 @@ Con las perspectivas de duración de consulta y esperas de consulta, puede corre
 ![Consultas de Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
 ### <a name="analyze-data-and-create-alerts"></a>Análisis de datos y creación de alertas
+
+### <a name="creating-alerts-for-azure-sql-database"></a>Creación de alertas para una instancia de Azure SQL Database
 
 Las [alertas se pueden crear fácilmente](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) con los datos procedentes de los recursos de Azure SQL Database. Estas son algunas consultas de [búsqueda de registros](log-analytics-log-searches.md) útiles que puede usar para las alertas de registros:
 
@@ -206,6 +236,23 @@ AzureDiagnostics
 | where Category == "SQLInsights" and status_s == "Active" 
 | distinct rootCauseAnalysis_s
 ```
+
+### <a name="creating-alerts-for-managed-instance"></a>Creación de alertas para Instancia administrada
+
+*El almacenamiento de Instancia administrada es superior al 90 %
+
+```
+let storage_percentage_treshold = 90;
+AzureDiagnostics
+| where Category =="ResourceUsageStats"
+| summarize (TimeGenerated, calculated_storage_percentage) = arg_max(TimeGenerated, todouble(storage_space_used_mb_s) *100 / todouble (reserved_storage_mb_s))
+   by ResourceId
+| where calculated_storage_percentage > storage_percentage_treshold
+```
+
+> [!NOTE]
+> - Para configurar esta alerta debe cumplir con un requisito previo: que la Instancia administrada supervisada tenga habilitado el streaming del registro ResourceUsageStats para la solución.
+> - Esta consulta requiere que se configure una regla de alerta para activar una alerta cuando existen resultados (> 0 resultados) de la consulta, lo que indica que la condición existe en la instancia administrada. La salida es el consumo de porcentaje de almacenamiento en la instancia administrada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

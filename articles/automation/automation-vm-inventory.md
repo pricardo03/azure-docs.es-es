@@ -10,11 +10,12 @@ ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d5f9bae34dabba71861adc9b2aeb0d33b8a1e226
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 30569c3a89de320769d433b5b3a4af9cf4e08e66
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091413"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Administración de una máquina virtual de Azure con la recopilación de inventario
 
@@ -26,7 +27,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.m
 
 En este artículo se da por supuesto que tiene una máquina virtual activada para configurar la solución. Si no tiene una máquina virtual de Azure, cree una [máquina virtual](../virtual-machines/windows/quick-create-portal.md).
 
-## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.
+## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
 Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
@@ -87,6 +88,24 @@ Las tablas siguientes proporcionan información sobre cada propiedad que se pued
 |Recursión     | Determina si se usa recursividad al buscar el elemento cuyo seguimiento se va a realizar.        |
 |Usar sudo     | Esta configuración determina si se va a utilizar sudo al buscar el elemento.         |
 |Vínculos     | Esta configuración determina cómo se tratan los vínculos simbólicos cuando se recorren directorios.<br> **Omitir**: ignora los vínculos simbólicos y no incluye los archivos y directorios de referencia.<br>**Seguir**: sigue los vínculos simbólicos durante la recursión y también incluye los archivos y directorios de referencia.<br>**Administrar**: sigue los vínculos simbólicos y permite modificar el tratamiento del contenido devuelto.      |
+
+## <a name="manage-machine-groups"></a>Administración de grupos de máquinas
+
+Inventario le permite crear y ver grupos de máquinas en Log Analytics. Los grupos de máquinas son colecciones de máquinas definidas por una consulta en Log Analytics.
+
+Para ver los grupos de máquinas, seleccione la pestaña **Grupos de máquinas** en la página Inventario.
+
+![Visualización de grupos de máquinas en la página Inventario](./media/automation-vm-inventory/inventory-machine-groups.png)
+
+Si selecciona un grupo de máquinas de la lista se abrirá la página Grupos de máquinas. Esta página muestra detalles sobre el grupo de máquinas. Estos detalles incluyen la consulta de Log Analytics que se usa para definir el grupo. En la parte inferior de la página, hay una lista paginada de las máquinas que forman parte de ese grupo.
+
+![Ver página Grupo de máquinas](./media/automation-vm-inventory/machine-group-page.png)
+
+Haga clic en el botón **+ Clonar** para clonar el grupo de máquinas. Aquí debe asignar al grupo un nuevo nombre y un alias. La definición se puede modificar en este momento. Después de cambiar la consulta, presione **Validar consulta** para obtener una vista previa de las máquinas que se pueden seleccionar. Cuando esté satisfecho con el grupo, haga clic en **Crear** para crear el grupo de máquinas
+
+Seleccione si desea crear un nuevo grupo de máquinas. Para ello, seleccione **+ Crear un grupo de máquinas**. Este botón abre la **página Crear un nuevo grupo de máquinas** en la que puede definir el nuevo grupo. Haga clic en **Crear** para crear el grupo.
+
+![Crear grupo de máquinas](./media/automation-vm-inventory/create-new-group.png)
 
 ## <a name="disconnect-your-virtual-machine-from-management"></a>Interrupción de la administración de la máquina virtual
 

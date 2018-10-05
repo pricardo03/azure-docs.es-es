@@ -1,24 +1,24 @@
 ---
 title: 'Tutorial: Entrenar un modelo de clasificación de imágenes con Azure Machine Learning'
-description: Obtenga información sobre cómo entrenar un modelo de clasificación de imágenes de scikit-learn con un cuaderno de Jupyter en Python. Este tutorial es la primera de una serie de dos partes.
-author: hning86
-ms.author: haining
-ms.topic: conceptual
+description: En este tutorial se muestra cómo usar el servicio Azure Machine Learning para entrenar un modelo de clasificación de imágenes con Scikit Learn en un cuaderno de Jupyter en Python. Este tutorial es la primera de una serie de dos partes.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
+ms.topic: tutorial
+author: hning86
+ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: bed4abcce3019607715416b5194a2ddecc89b76a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6fbca5e83d8ab4b3c34c6448c7a2303697da623b
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966618"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181405"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning"></a>Tutorial n.º 1: Entrenar un modelo de clasificación de imágenes con Azure Machine Learning
 
-En este tutorial, entrenará un modelo de aprendizaje automático tanto localmente como en los recursos de proceso remotos. Usará el flujo de trabajo de entrenamiento e implementación para el servicio Azure Machine Learning en un cuaderno de Jupyter en Python.  A continuación, puede utilizar el cuaderno como plantilla para entrenar su propio modelo de Machine Learning con sus propios datos. Este tutorial es la **primera de dos partes**.  
+En este tutorial, entrenará un modelo de aprendizaje automático tanto localmente como en los recursos de proceso remotos. Usará el flujo de trabajo de entrenamiento e implementación para el servicio Azure Machine Learning (versión preliminar) en un cuaderno de Jupyter en Python.  A continuación, puede utilizar el cuaderno como plantilla para entrenar su propio modelo de Machine Learning con sus propios datos. Este tutorial es la **primera de dos partes**.  
 
 En este tutorial se entrena una regresión logística simple usando el conjunto de datos de [MNIST](http://yann.lecun.com/exdb/mnist/) y [scikit-aprender](http://scikit-learn.org) con Azure Machine Learning.  MNIST es un conjunto de datos popular que consta de 70 000 imágenes en escala de grises. Cada imagen es un dígito escrito a mano de 28×28 píxeles, que representa un número de 0 a 9. El objetivo es crear un clasificador multiclase para identificar el dígito que representa una imagen determinada. 
 
@@ -37,7 +37,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="get-the-notebook"></a>Obtención del cuaderno
 
-Para su comodidad, este tutorial está disponible como cuaderno de Jupyter. Use cualquiera de estos métodos para ejecutar el cuaderno `tutorials/01.train-models.ipynb`:
+Para su comodidad, este tutorial está disponible como un cuaderno de Jupyter. Use cualquiera de los dos métodos siguientes para clonar el [repositorio de GitHub de cuadernos de ejemplo de Machine Learning](https://github.com/Azure/MachineLearningNotebooks) y ejecute el cuaderno `tutorials/01.train-models.ipynb`:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -79,7 +79,7 @@ print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 
 ### <a name="create-experiment"></a>Crear un experimento
 
-Cree un experimento para realizar un seguimiento de todas las ejecuciones en el área de trabajo.  
+Cree un experimento para realizar un seguimiento de las ejecuciones en el área de trabajo. Un área de trabajo puede tener varios experimentos. 
 
 ```python
 experiment_name = 'sklearn-mnist'
@@ -105,7 +105,7 @@ batchai_cluster_name = "traincluster"
 try:
     # look for the existing cluster by name
     compute_target = ComputeTarget(workspace=ws, name=batchai_cluster_name)
-    if compute_target is BatchAiCompute:
+    if type(compute_target) is BatchAiCompute:
         print('found compute target {}, just use it.'.format(batchai_cluster_name))
     else:
         print('{} exists but it is not a Batch AI cluster. Please choose a different name.'.format(batchai_cluster_name))
@@ -157,7 +157,7 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ub
 
 ### <a name="display-some-sample-images"></a>Mostrar algunas imágenes de ejemplo
 
-Cargue los archivos comprimidos en matrices `numpy`. A continuación, use `matplotlib` para trazar 30 imágenes aleatorias del conjunto de datos con sus etiquetas sobre ellas.
+Cargue los archivos comprimidos en matrices `numpy`. A continuación, use `matplotlib` para trazar 30 imágenes aleatorias del conjunto de datos con sus etiquetas sobre ellas. Tenga en cuenta que este paso requiere una función `load_data` que se incluye en el archivo `util.py`. Este archivo se incluye en la carpeta de ejemplo. Asegúrese de que se coloca en la misma carpeta que el cuaderno. La función `load_data` analiza los archivos comprimidos en matrices de Numpy.
 
 
 
@@ -194,7 +194,7 @@ Ahora tiene una idea del aspecto de estas imágenes y el resultado de predicció
 
 ### <a name="upload-data-to-the-cloud"></a>Cargar datos en la nube
 
-Ahora haga que los datos sean accesibles remotamente mediante la carga de datos desde el equipo local en la nube para que se pueda acceder a ellos para el entrenamiento remoto. El almacén de datos es una construcción cómoda asociada con el área de trabajo para que cargue y descargue datos, e interactúe con ellos desde los destinos de proceso remotos. 
+Ahora haga que los datos sean accesibles remotamente mediante su carga en Azure desde la máquina local para que se pueda acceder a ellos para el entrenamiento remoto. El almacén de datos es una construcción cómoda asociada con el área de trabajo para que cargue y descargue datos, e interactúe con ellos desde los destinos de proceso remotos. Cuenta con el respaldo de la cuenta de Azure Blob Storage.
 
 Los archivos de MNIST se cargan en un directorio denominado `mnist` en la raíz del almacén de datos.
 
@@ -365,7 +365,7 @@ run = exp.submit(config=est)
 run
 ```
 
-Puesto que la llamada es asincrónica, devuelve un estado **en ejecución** en cuanto se inicia el trabajo.
+Puesto que la llamada es asincrónica, devuelve un estado **Preparando** o **En ejecución** en cuanto se inicia el trabajo.
 
 ## <a name="monitor-a-remote-run"></a>Supervisión de una ejecución remota
 
@@ -377,7 +377,7 @@ Esto es lo que sucede mientras espera:
 
   Esta fase se produce una vez para cada entorno de Python, puesto que el contenedor se almacena en caché para las ejecuciones posteriores.  Durante la creación de la imagen, los registros se transmiten al historial de ejecución. Puede supervisar el progreso de la creación de la imagen con estos registros.
 
-- **Escalado**: si el clúster remoto requiere más nodos que los que hay disponibles actualmente, se agregan nodos adicionales de manera automática. El escalado suele tomar **aproximadamente 5 minutos.**
+- **Escalado**: si el clúster remoto requiere más nodos para la ejecución que los que hay disponibles actualmente, se agregan nodos adicionales de manera automática. El escalado suele tomar **aproximadamente 5 minutos.**
 
 - **Ejecución**: en esta etapa, los archivos y scripts necesarios se envían al destino de proceso, luego se montan o copian los almacenes de datos y se ejecuta entry_script. Mientras se ejecuta el trabajo, stdout y el directorio ./logs se transmiten al historial de ejecución. Puede supervisar el progreso de la ejecución con estos registros.
 

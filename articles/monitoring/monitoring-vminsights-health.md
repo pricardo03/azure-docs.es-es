@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: c8a8598640e31f59476b5b3351fdb2eab7b66a6c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5c9211486fa40e49afd91eba7c432990b0ee860b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952926"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160628"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>Comprender el estado de sus máquinas virtuales de Azure con Azure Monitor para las máquinas virtuales
 Azure incluye varios servicios que realizan individualmente una tarea o un rol específico en el espacio de supervisión, pero hasta ahora no era posible proporcionar una perspectiva detallada del estado del sistema operativo hospedado en máquinas virtuales de Azure.  Aunque se podían supervisar distintas condiciones mediante Log Analytics o Azure Monitor, no estaban diseñadas para modelar ni representar el estado general de la máquina virtual o de los componentes principales.  Con la característica de estado de Azure Monitor para máquinas virtuales, la disponibilidad y el rendimiento del sistema operativo invitado Windows o Linux se supervisan de forma proactiva con un modelo que representa los principales componentes y sus relaciones, así como los criterios que especifican cómo se debe medir el estado de dichos componentes y, además, le avisa cuando se detecta una condición de estado incorrecto.  
@@ -99,11 +99,11 @@ Los estados de mantenimiento definidos de una VM son los siguientes:
 * **Advertencia**: se detectan uno o varios problemas que deben solucionarse o la condición de estado puede volverse crítica.  
 * **Desconocido**: si el servicio no pudo establecer ninguna conexión con la VM, el estado cambia a un estado desconocido.  
 
-Si selecciona **Ver el diagnóstico de estado**, se abre una página que muestra todos los componentes de la VM, los criterios de estado asociados, los cambios de estado y otros temas importantes detectados mediante la supervisión de componentes relacionados con la VM. Consulte [Diagnóstico de mantenimiento](#health-diagnostics) para obtener más detalles. 
+Si selecciona **Ver el diagnóstico de estado**, se abre una página que muestra todos los componentes de la VM, los criterios de estado asociados, los cambios de estado y otros temas importantes detectados mediante la supervisión de componentes relacionados con la máquina virtual. Para más información, consulte [Diagnóstico de mantenimiento](#health-diagnostics). 
 
 En la sección **Estado del componente**, la tabla muestra un estado acumulativo del mantenimiento de las categorías de rendimiento principales supervisadas según los criterios de estado de esas áreas, específicamente la **CPU**, la **memoria**, el **disco** y la **red**.  Si selecciona cualquiera de los componentes, se abre una página en la que se enumeran todos los aspectos de supervisión de los criterios de estado individuales de ese componente y el estado de mantenimiento correspondiente de cada uno.  
 
-Al obtener acceso al estado de una VM de Azure que ejecuta el sistema operativo Windows, los estados de mantenimiento de los cinco principales servicios de Windows se muestran en la sección **Estado de los servicios principales**.  Cuando selecciona cualquiera de los servicios, se abre una página que enumera los criterios de estado que supervisan dicho componente y su estado de mantenimiento.  Al hacer clic en el nombre de los criterios de mantenimiento, se abrirá el panel de propiedades y, desde aquí, puede revisar los detalles de configuración, por ejemplo, si los criterios de estado tienen definida una alerta de Azure Monitor correspondiente. Para obtener más información al respecto, vea [Health Diagnostics and working with health criteria](#health-diagnostics) (Diagnóstico de mantenimiento y trabajar con los criterios de mantenimiento).  
+Al obtener acceso al estado de una VM de Azure que ejecuta el sistema operativo Windows, los estados de mantenimiento de los cinco principales servicios de Windows se muestran en la sección **Estado de los servicios principales**.  Cuando selecciona cualquiera de los servicios, se abre una página que enumera los criterios de estado que supervisan dicho componente y su estado de mantenimiento.  Al hacer clic en el nombre de los criterios de mantenimiento, se abrirá el panel de propiedades y, desde aquí, puede revisar los detalles de configuración, por ejemplo, si los criterios de estado tienen definida una alerta de Azure Monitor correspondiente. Para más información, consulte [Health Diagnostics and working with health criteria](#health-diagnostics) (Diagnóstico de mantenimiento y trabajo con los criterios de mantenimiento).  
 
 ## <a name="aggregate-virtual-machine-perspective"></a>Perspectiva de la máquina virtual agregada
 Para ver la colección de mantenimiento de todas las máquinas virtuales de un grupo de recursos, vaya a la lista de navegación del portal, seleccione **Azure Monitor** y, a continuación, seleccione **Máquinas virtuales (versión preliminar)**.  
@@ -202,13 +202,13 @@ En el ejemplo siguiente, los componentes detectados son el disco, el disco lógi
 ![Ejemplo del modelo de componente presentado en el diagnóstico de mantenimiento](./media/monitoring-vminsights-health/health-diagnostics-page-component.png)
 
 ### <a name="health-criteria"></a>Criterios de mantenimiento
-La columna central de la página Diagnóstico de mantenimiento es **Criterios de mantenimiento**. El modelo de estado definido para la VM se muestra en un árbol jerárquico. El modelo de estado de una VM está compuesto por los criterios de mantenimiento agregados, la dependencia y la unidad.  
+La columna central de la página Diagnóstico de mantenimiento es **Criterios de mantenimiento**. El modelo de estado definido para la VM se muestra en un árbol jerárquico. El modelo de estado de una máquina virtual está compuesto por los criterios de mantenimiento agregados, la dependencia y la unidad.  
 
 ![Ejemplo de los criterios de mantenimiento presentados en la página Diagnóstico de mantenimiento](./media/monitoring-vminsights-health/health-diagnostics-page-healthcriteria.png)
 
 Un criterio de mantenimiento mide el mantenimiento de la instancia supervisada con algunos criterios, lo que podría ser un valor de umbral o un estado de una entidad, etc. Dicho criterio tiene dos o tres estados de mantenimiento, tal y como se describe en la sección anterior. En cualquier momento dado, el criterio de mantenimiento solo puede estar en uno de sus estados posibles. 
 
-El mantenimiento general de un destino viene determinado por el mantenimiento de cada uno de sus criterios de mantenimiento definidos en el modelo de mantenimiento. Se tratará de una combinación de criterios de mantenimiento dirigidos directamente al destino y de criterios de estado dirigidos a la acumulación de componentes en el destino mediante un criterio de mantenimiento de dependencia. Esta jerarquía se ilustra en la sección **Criterios de mantenimiento** de la página Diagnóstico de mantenimiento. La directiva de cómo se acumula el mantenimiento es la parte de la configuración de los criterios de mantenimiento agregados y de dependencia. Puede encontrar una lista del conjunto predeterminado de los criterios de mantenimiento que se ejecuta como parte de esta característica en la sección [Detalles de configuración de supervisión](#monitoring-configuration-details).  
+El mantenimiento general de un destino viene determinado por el mantenimiento de cada uno de sus criterios de mantenimiento definidos en el modelo de mantenimiento. Se tratará de una combinación de criterios de mantenimiento dirigidos directamente al destino y de criterios de estado dirigidos a la acumulación de componentes en el destino mediante un criterio de mantenimiento de dependencia. Esta jerarquía se ilustra en la sección **Criterios de mantenimiento** de la página Diagnóstico de mantenimiento. La directiva de acumulación del mantenimiento es la parte de la configuración de los criterios de mantenimiento agregados y de dependencia. Puede encontrar una lista del conjunto predeterminado de los criterios de mantenimiento que se ejecuta como parte de esta característica en la sección [Detalles de configuración de supervisión](#monitoring-configuration-details).  
 
 En el ejemplo siguiente, el criterio de mantenimiento agregado **Core Windows Services Rollup** (Acumulación de servicios básicos de Windows) para una máquina virtual basada en Windows evalúa el mantenimiento de los servicios más importantes de Windows en función de criterios de mantenimiento del servicio individuales. El estado de cada servicio, como DNS, DHCP, etc., se evalúa y el mantenimiento se acumula según el criterio de mantenimiento de acumulación correspondiente (como se muestra a continuación).  
 
@@ -228,7 +228,8 @@ En este ejemplo del panel de configuración de los criterios de mantenimiento se
 
 ![Ejemplo de la configuración de un criterio de mantenimiento de un monitor de unidad](./media/monitoring-vminsights-health/health-diagnostics-linuxvm-example-04.png)
 
-
+Para más información sobre el indicador de estado, se incluyen artículos de conocimientos que le ayudan a identificar problemas, causas y resoluciones.  Haga clic en el vínculo **Ver información** en la página y se abrirá una nueva pestaña en el explorador que muestra el artículo de conocimiento específico.  En cualquier momento, puede revisar todos los artículos de conocimiento sobre criterios de mantenimiento incluidos con Azure Monitor para la característica de mantenimiento de máquinas virtuales [aquí](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
+  
 ### <a name="state-changes"></a>Cambios de estado
 La columna más a la derecha de la página Diagnóstico de mantenimiento es **Cambios de estado**. Enumera todos los cambios de estado asociados con los criterios de mantenimiento que se han seleccionado en la sección **Criterios de mantenimiento** o el cambio de estado de la VM si se ha seleccionado una VM en la columna **Modelo de componente** o **Criterios de mantenimiento** de la tabla. 
 
@@ -256,7 +257,7 @@ Para filtrar esta vista, seleccione valores en los menús desplegables que apare
 
 |Columna |DESCRIPCIÓN | 
 |-------|------------| 
-|Subscription |Seleccione una suscripción a Azure. Solo se incluyen las alertas de la suscripción seleccionada en la vista. | 
+|Subscription |Seleccione una suscripción de Azure. Solo se incluyen las alertas de la suscripción seleccionada en la vista. | 
 |Grupo de recursos |Seleccione un solo grupo de recursos. Solo las alertas con destinos en el grupo de recursos seleccionado se incluyen en la vista. | 
 |Tipo de recurso |Seleccione uno o varios tipos de recurso. Solo las alertas con destinos del tipo seleccionado se incluyen en la vista. Esta columna solo está disponible tras especificar un grupo de recursos. | 
 |Recurso |Seleccione un recurso. Solo las alertas con ese recurso como destino se incluyen en la vista. Esta columna solo está disponible tras especificar un tipo de recurso. | 

@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/21/2018
+ms.date: 06/15/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 9704f05cc6da97e33c0043b93acedc9e66bdcc36
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 2f974b7773e7a4cbc0eda32a267bb5ab939644d8
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714908"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095123"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Conexión del Explorador de Storage a una suscripción de Azure Stack o una cuenta de almacenamiento
 
@@ -65,9 +65,9 @@ Para el Kit de desarrollo de Azure Stack, debe exportar el certificado raíz de 
 
     ![Comprobación de que Azure Stack de destino está activada](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
-## <a name="connect-to-an-azure-stack-subscription"></a>Conexión a una suscripción de Azure Stack
+## <a name="connect-to-an-azure-stack-subscription-with-azure-ad"></a>Conexión a una suscripción de Azure Stack con Azure AD
 
-Utilice los pasos siguientes para conectar el Explorador de Storage a una suscripción de Azure Stack.
+Siga estos pasos para conectar el Explorador de Storage a una suscripción de Azure Stack que pertenece a una cuenta de Azure Active Directory (Azure AD).
 
 1. En el panel izquierdo del Explorador de Storage, seleccione **Administrar cuentas**. 
     Se muestran todas las suscripciones de Microsoft en las que inició sesión.
@@ -87,6 +87,44 @@ Utilice los pasos siguientes para conectar el Explorador de Storage a una suscri
     El panel izquierdo muestra ahora las cuentas de almacenamiento asociadas a las suscripciones de Azure Stack seleccionadas.
 
     ![Lista de cuentas de almacenamiento, incluidas las cuentas de suscripción de Azure Stack](./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png)
+
+## <a name="connect-to-an-azure-stack-subscription-with-ad-fs-account"></a>Conexión a una suscripción de Azure Stack con una cuenta de AD FS
+
+> [!Note]  
+> La experiencia de inicio de sesión de los Servicios de federación de Active Directory (AD FS) es compatible con el Explorador de Storage 1.2.0 o versiones más recientes con Azure Stack 1804 u otras actualizaciones más recientes.
+Siga estos pasos para conectar el Explorador de Storage a una suscripción de Azure Stack que pertenece a una cuenta de AD FS.
+
+1. Seleccione **Administrar cuentas**. El explorador enumera las suscripciones de Microsoft en las que ha iniciado sesión.
+2. Para conectarse a la suscripción de Azure Stack, seleccione **Agregar una cuenta**.
+
+    ![Agregar una cuenta](media/azure-stack-storage-connect-se/add-an-account.png)
+
+3. Seleccione **Next** (Siguiente). En el cuadro de diálogo Conectar a Azure Storage, en **Entorno de Azure**, seleccione **Use Custom Environment** (Usar entorno personalizado) y luego haga clic en **Siguiente**.
+
+    ![Conectar a Azure Storage](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
+
+4. Escriba la información necesaria del entorno personalizado de Azure Stack. 
+
+    | Campo | Notas |
+    | ---   | ---   |
+    | Nombre del entorno | El usuario puede personalizar este campo. |
+    | Punto de conexión de Azure Resource Manager | Los ejemplos de los puntos de conexión de recursos de Azure Resource Manager del Kit de desarrollo de Azure Stack.<br>Para operadores: https://adminmanagement.local.azurestack.external <br> Para usuarios: https://management.local.azurestack.external |
+
+    Si está trabajando en el sistema integrado de Azure Stack y no conoce el punto de conexión de administración, póngase en contacto con su operador.
+
+    ![Agregar una cuenta](./media/azure-stack-storage-connect-se/custom-environments.png)
+
+5. Seleccione **Iniciar sesión** para conectarse a la cuenta de Azure Stack que está asociada a una suscripción de Azure Stack activa por lo menos.
+
+
+
+6. Seleccione las suscripciones de Azure Stack con las que quiere trabajar. Seleccione **Aplicar**.
+
+    ![Administración de cuentas](./media/azure-stack-storage-connect-se/account-management.png)
+
+    El panel izquierdo muestra ahora las cuentas de almacenamiento asociadas a las suscripciones de Azure Stack seleccionadas.
+
+    ![Lista de las suscripciones asociadas](./media/azure-stack-storage-connect-se/list-of-associated-subscriptions.png)
 
 ## <a name="connect-to-an-azure-stack-storage-account"></a>Conexión a una cuenta de almacenamiento de Azure Stack
 
