@@ -1,25 +1,27 @@
 ---
 title: 'Detección de amenazas: Instancia administrada de Azure SQL Database| Microsoft Docs'
-description: Detección de amenazas detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad a la base de datos.
+description: Detección de amenazas detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad para la base de datos en una Instancia administrada.
 services: sql-database
-author: rmatchoro
-manager: craigg
 ms.service: sql-database
-ms.custom: security, managed instance
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/07/2018
+author: rmatchoro
 ms.author: ronmat
-ms.reviewer: carlrab
-ms.openlocfilehash: 14ef907717045e2e0cf297694d92468a65e57e4d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 7f05bd6c96a8e22b1e039c3edcec491b7c079d54
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650084"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162416"
 ---
 # <a name="azure-sql-database-managed-instance-threat-detection"></a>Detección de amenazas de Instancia administrada de Azure SQL Database
 
-Detección de amenazas de SQL detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a las bases de datos o de vulnerar su seguridad en una instancia de Instancia administrada de Azure SQL Database (versión preliminar).
+Detección de amenazas de SQL detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a las bases de datos o de vulnerar su seguridad en una instancia de Instancia administrada de Azure SQL Database.
 
 ## <a name="overview"></a>Información general
 

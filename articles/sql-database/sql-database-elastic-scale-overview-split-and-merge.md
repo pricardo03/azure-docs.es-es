@@ -2,19 +2,22 @@
 title: Desplazamiento de datos entre bases de datos en la nube escaladas horizontalmente | Microsoft Docs
 description: Explica cómo manipular las particiones y mover los datos a través de un servicio autohospedado mediante las API de bases de datos elásticas.
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 3c68b18a96ae79cd32cd3059eab837e6051847dd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 518d7659df603ed0fcab4aebf5f35c3b92e75ccf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647425"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162635"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Moving data between scaled-out cloud databases (Mover datos entre bases de datos en la nube escaladas horizontalmente)
 Si es desarrollador de Software como servicio y su aplicación experimenta de pronto una demanda enorme, es necesario adaptarse al crecimiento. De este modo, agrega más bases de datos (particiones). ¿Cómo redistribuye los datos en las nuevas bases de datos sin interrumpir la integridad de los datos? Use la **herramienta de división y combinación** para mover datos desde bases de datos limitadas a las nuevas bases de datos.  
@@ -65,7 +68,7 @@ El servicio División y combinación interactúa con el mapa de particiones de l
 
 **Conexiones coherentes de shardlets**
 
-cuando se inicia el desplazamiento de datos para un lote de shardlets nuevo, se cierra toda conexión de enrutamiento dependiente de los datos proporcionada por el mapa de particiones a la partición que almacena el shardlet, además, las conexiones subsiguientes desde las API de mapa de particiones a estos shardlets se bloquean mientras el desplazamiento de los datos está en curso a fin de evitar incoherencias. También se cierran las conexiones a otros shardlets de la misma partición, pero se realizarán correctamente de nuevo inmediatamente al reintentarlo. Una vez que se mueve el lote, los shardlets se marcan nuevamente como en línea para la partición de destino y los datos de origen se quitan de la partición de origen. El servicio pasa por estos pasos para cada lote, hasta que se han movido todos los shardlets. Esto dará lugar a operaciones de cierre de varias conexiones durante el curso de la operación de división/combinación/desplazamiento completa.  
+Cuando se inicia el movimiento de datos para un lote de shardlets nuevo, se cierra toda conexión de enrutamiento dependiente de los datos proporcionada por el mapa de particiones a la partición que almacena el shardlet, además, las conexiones subsiguientes desde las API de mapa de particiones a los shardlets se bloquean mientras el desplazamiento de los datos está en curso a fin de evitar incoherencias. También se cierran las conexiones a otros shardlets de la misma partición, pero se realizarán correctamente de nuevo inmediatamente al reintentarlo. Una vez que se mueve el lote, los shardlets se marcan nuevamente como en línea para la partición de destino y los datos de origen se quitan de la partición de origen. El servicio pasa por estos pasos para cada lote, hasta que se han movido todos los shardlets. Esto dará lugar a operaciones de cierre de varias conexiones durante el curso de la operación de división/combinación/desplazamiento completa.  
 
 **Administración de la disponibilidad de shardlets**
 

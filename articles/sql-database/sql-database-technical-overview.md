@@ -3,18 +3,22 @@ title: ¿Qué es el servicio Azure SQL Database? | Microsoft Docs
 description: 'Obtenga una introducción a Azure SQL Database: detalles técnicos y funcionalidades del sistema de administración de bases de datos relacionales (RDBMS) de Microsoft en la nube.'
 keywords: introducción a sql,introducción a sql,qué es base de datos sql
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.topic: overview
-ms.date: 09/07/2018
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 6e793c0227300b836c0a14b4252eeaf63c1bc949
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 21350fe9a44ad801204b8288f3c49eda82ca6343
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054587"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163195"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>¿Qué es el servicio Azure SQL Database? 
 
@@ -23,7 +27,7 @@ SQL Database es un servicio administrado de base de datos relacional de uso gene
 Azure SQL Database proporciona las siguientes opciones de implementación para una base de datos SQL de Azure:
 - Como una base de datos única con su propio conjunto de recursos administrados mediante un servidor lógico 
 - Como una base de datos agrupada en un [grupo elástico](sql-database-elastic-pool.md) con un conjunto de recursos compartido que se administra a través de un servidor lógico
-- Como parte de una colección de bases de datos que se conoce como [instancia administrada](sql-database-managed-instance.md) (en versión preliminar pública) que contiene bases de datos de usuario y de sistema, y que comparten un conjunto de recursos
+- Como parte de una colección de bases de datos que se conoce como [instancia administrada](sql-database-managed-instance.md) que contiene bases de datos de usuario y de sistema, y que comparten un conjunto de recursos
 
 En la siguiente ilustración se muestran estas opciones de implementación:
 
@@ -37,29 +41,27 @@ SQL Database comparte su base de código con el [motor de base de datos de Micro
 > [!IMPORTANT]
 > Para entender las diferentes características de SQL Database y SQL Server, consulte las [características de SQL](sql-database-features.md). 
 
-SQL Database ofrece un rendimiento predecible en varios niveles de servicio que proporciona escalabilidad dinámica sin tiempo de inactividad, optimización inteligente integrada, escalabilidad y disponibilidad globales, y opciones de seguridad avanzadas (todo ello casi sin necesidad de administración). Estas funcionalidades permiten centrarse en el desarrollo rápido de aplicaciones y en reducir el plazo de acceso al mercado, en lugar de tener que dedicar tiempo y recursos a la administración tanto de máquinas virtuales como de la infraestructura. El servicio SQL Database está actualmente en 38 centros de datos de todo el mundo, y constantemente se incorporan más, lo que le permite ejecutar la base de datos en un centro de datos próximo.
-
-> [!NOTE]
-> Instancia administrada de SQL Database está actualmente en versión preliminar y solo está disponible en un nivel de servicio único. Para más información, consulte [Instancia administrada de SQL Database](sql-database-managed-instance.md).
->
+SQL Database ofrece un rendimiento predecible con varios tipos de recursos, niveles de servicio y tamaños de proceso que proporciona escalabilidad dinámica sin tiempo de inactividad, optimización inteligente integrada, escalabilidad y disponibilidad globales, y opciones de seguridad avanzadas (todo ello casi sin necesidad de administración). Estas funcionalidades permiten centrarse en el desarrollo rápido de aplicaciones y en reducir el plazo de acceso al mercado, en lugar de tener que dedicar tiempo y recursos a la administración tanto de máquinas virtuales como de la infraestructura. El servicio SQL Database está actualmente en 38 centros de datos de todo el mundo, y constantemente se incorporan más, lo que le permite ejecutar la base de datos en un centro de datos próximo.
 
 ## <a name="scalable-performance-and-pools"></a>Grupos y rendimiento escalable
 
-Con SQL Database, cada base de datos está aislada de las demás y es portátil, cada una con su propio nivel de servicio dentro del [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) y un nivel de rendimiento garantizado. SQL Database proporciona diferentes niveles de rendimiento para cubrir distintas necesidades y permite que las bases de datos pueden agruparse para maximizar el uso de recursos y ahorrar dinero.
+Con SQL Database, cada base de datos está aislada de las demás y es portátil, cada una con su propio nivel de servicio dentro del [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md) y un tamaño de proceso garantizado. SQL Database proporciona diferentes tamaños de proceso para cubrir distintas necesidades y permite que las bases de datos puedan agruparse para maximizar el uso de recursos y ahorrar dinero.
 
-Con Instancia administrada de SQL Database, cada instancia está aislada de otras instancias con recursos garantizados. Para más información, consulte [Instancia administrada de SQL Database](sql-database-managed-instance.md) 
+- Con [Instancia administrada de SQL Database](sql-database-managed-instance.md), cada instancia está aislada de otras instancias con recursos garantizados. Para más información, consulte [Instancia administrada de SQL Database](sql-database-managed-instance.md).
+- Con el [nivel de servicio de hiperescala](sql-database-hyperscale.md) (versión preliminar) en el modelo de compra de núcleos virtuales, puede escalar hasta 100 TB con funcionalidades de copia de seguridad rápida y restauración.
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Ajuste del rendimiento y escalabilidad sin tiempo de inactividad
 
 SQL Database ofrece un [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md). 
-- El modelo de compra basado en DTU ofrece una combinación de proceso, memoria y recursos de E/S en tres niveles de servicio para admitir cargas de trabajo de base de datos de ligeras a pesadas: Básico, Estándar y Premium. Los niveles de rendimiento de cada nivel ofrecen una mezcla diferente de estos recursos, a los que puede agregar recursos de almacenamiento adicionales.
+- El modelo de compra basado en DTU ofrece una combinación de proceso, memoria y recursos de E/S en tres niveles de servicio para admitir cargas de trabajo de base de datos de ligeras a pesadas: Básico, Estándar y Premium. Los tamaños de proceso de cada nivel ofrecen una combinación diferente de estos recursos, a los que puede agregar recursos de almacenamiento adicionales.
 - El modelo de compra basado en núcleos virtuales le permite elegir el número de núcleos virtuales, la cantidad de memoria y la cantidad y velocidad del almacenamiento.
 
-La primera aplicación se puede compilar en una base de datos pequeña con un costo muy pequeño al mes y, después, cambiar el nivel de servicio manualmente o mediante programación en cualquier momento para adecuarla a las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
+La primera aplicación se puede compilar en una base de datos pequeña con un costo muy pequeño al mes en el nivel de servicio de uso general y, después, cambiar el nivel de servicio manualmente o mediante programación en cualquier momento al nivel de servicio crítico para la empresa para adecuarlo a las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
+
+> [!IMPORTANT]
+> No se puede escalar de un nivel de servicio de uso general o crítico para la empresa a un [nivel de servicio de hiperescala](sql-database-hyperscale.md). Sin embargo, se pueden cambiar los niveles de rendimiento en el nivel de servicio de hiperescala.
 
 La escalabilidad dinámica es diferente del escalado automático. El escalado automático se produce al escalarse un servicio automáticamente en función de determinados criterios, mientras la escalabilidad dinámica permite el escalado manual sin tiempo de inactividad. La versión de Azure SQL Database sencilla admite la escalabilidad dinámica manual, pero no el escalado automático. Para ganar experiencia con el uso *automático*, considere los grupos elásticos, que permiten que las bases de datos compartan recursos en un grupo en función de las necesidades individuales de las bases de datos. Sin embargo, hay scripts que pueden ayudar a automatizar la escalabilidad en una única instancia de Azure SQL Database. En [Uso de PowerShell para supervisar y escalar una sola base de datos SQL](scripts/sql-database-monitor-and-scale-database-powershell.md) encontrará un ejemplo. 
-
-Instancia administrada de SQL Database está en versión preliminar y ofrece un nivel de servicio único. Para más información, consulte [Instancia administrada de SQL Database](sql-database-managed-instance.md)
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Grupos elásticos para maximizar la utilización de los recursos
 
@@ -86,7 +88,7 @@ Además, SQL Database puede [emitir métricas y registros de diagnóstico](sql-d
 
 - **Azure Storage**: para archivar grandes cantidades de telemetría a un pequeño precio
 - **Azure Event Hub**: para integrar la telemetría de SQL Database con una solución de supervisión personalizada o canalizaciones activas
-- **Azure Log Analytics**: para la solución de supervisión integrada con funcionalidades de generación de informes, alertas y mitigación. Esta es una característica de [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
+- **Azure Log Analytics**: para la solución de supervisión integrada con funcionalidades de generación de informes, alertas y mitigación. Azure Log Analytics es una característica de [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
 
     ![arquitectura](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -177,8 +179,8 @@ SQL Database admite la compilación de aplicaciones con Python, Java, Node.js, P
 - Consulte estas guías de inicio rápido para comenzar:
 
   - [Creación de una base de datos SQL en Azure Portal](sql-database-get-started-portal.md)  
-  - [Creación de una base de datos SQL con la CLI de Azure](sql-database-cli-samples.md)
-  - [Creación de una base de datos SQL con PowerShell](sql-database-powershell-samples.md)
+  - [Creación de una base de datos SQL con la CLI de Azure](sql-database-get-started-cli.md)
+  - [Creación de una base de datos SQL con PowerShell](sql-database-get-started-powershell.md)
 
 - Para obtener ejemplos de la CLI de Azure y de PowerShell, consulte:
   - [Ejemplos de la CLI de Azure para SQL Database](sql-database-cli-samples.md)

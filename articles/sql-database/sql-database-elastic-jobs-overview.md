@@ -1,23 +1,30 @@
 ---
 title: Administración de bases de datos escaladas horizontalmente en la nube | Microsoft Docs
 description: Use el servicio Trabajo de Elastic Database para ejecutar un script a través de un grupo de bases de datos.
-metakeywords: azure sql database elastic databases
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 5e2c233ec631f6a3e57d2203a9678b42f909a885
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 649a76fad8f54339a6b1e429b3966945410573f7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646092"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166799"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Administración de bases de datos escaladas horizontalmente en la nube
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+**Trabajos de Elastic Database** es un servicio en la nube de Azure hospedado en el cliente que permite la ejecución de tareas administrativas ad hoc y programadas, que se denominan **trabajos**. Con los trabajos, puede administrar de forma fácil y confiable grandes grupos de bases de datos de Azure SQL Database mediante la ejecución de scripts de Transact-SQL para realizar operaciones administrativas. 
+
 Para administrar bases de datos con particiones y escaladas horizontalmente en la nube, la característica **Trabajos de Elastic Database** (versión preliminar) permite ejecutar un script de Transact-SQL (T-SQL) de forma confiable en un grupo de bases de datos, lo que incluye:
 
 * una colección personalizada de bases de datos (se explica más adelante)
@@ -30,7 +37,7 @@ Para administrar bases de datos con particiones y escaladas horizontalmente en l
 * [Creación y administración de un grupo de bases de datos SQL elásticas mediante PowerShell](sql-database-elastic-jobs-powershell.md).
 * [Creación y administración de instancias de Azure SQL Database escaladas horizontalmente](sql-database-elastic-jobs-getting-started.md)
 
-**Trabajos de Elastic Database** es actualmente un servicio en la nube de Azure hospedado en el cliente que permite la ejecución de tareas administrativas ad hoc y programadas, que se denominan **trabajos**. Con los trabajos, puede administrar de forma fácil y confiable grandes grupos de bases de datos de Azure SQL Database mediante la ejecución de scripts de Transact-SQL para realizar operaciones administrativas. 
+
 
 ![Servicio del trabajo de bases de datos elásticas][1]
 
@@ -45,7 +52,7 @@ Agregue datos de una colección de instancias de Azure SQL Database en una tabla
 
 **Reducción de la sobrecarga**
 
-Normalmente, debe conectarse a cada base de datos de forma independiente para ejecutar instrucciones T-SQL o realizar otras tareas administrativas. Un trabajo controla la tarea de inicio de sesión en cada base de datos en el grupo de destino. También se definen, mantienen y conservan los scripts Transact-SQL que se van a ejecutar transversalmente en un grupo de instancias de Azure SQL Database.
+Normalmente, debe conectarse a cada base de datos de forma independiente para ejecutar instrucciones T-SQL o realizar otras tareas administrativas. Un trabajo controla la tarea de inicio de sesión en cada base de datos en el grupo de destino. También se definen, mantienen y conservan los scripts de Transact-SQL que se van a ejecutar en un grupo de instancias de Azure SQL Database.
 
 **Control**
 

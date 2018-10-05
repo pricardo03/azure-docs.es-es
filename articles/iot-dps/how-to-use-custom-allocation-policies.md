@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 503a8026fe11d1cdb3d0fc0c2680d8d545a1c992
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89cb44366d4752052d990a1506482c9108cde103
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955266"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161715"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Uso de directivas de asignación personalizadas
 
 
-Una directiva de asignación personalizada le ofrece más control sobre cómo se asignan los dispositivos a un centro de IoT. Esto se logra mediante el uso de código personalizado en una [función de Azure](../azure-functions/functions-overview.md) para asignar dispositivos a un centro de IoT. El servicio de aprovisionamiento de dispositivos realiza una llamada al código en la función de Azure que proporciona el grupo de centros de IoT. El código de la función devuelve la información del centro de IoT para aprovisionar el dispositivo.
+Una directiva de asignación personalizada le ofrece más control sobre cómo se asignan los dispositivos a un centro de IoT. Esto se logra mediante el uso de código personalizado en una [función de Azure](../azure-functions/functions-overview.md) para asignar dispositivos a un centro de IoT. El servicio de aprovisionamiento de dispositivos llama al código de función de Azure y proporciona toda la información pertinente sobre el dispositivo y la inscripción. El código de la función se ejecuta y devuelve la información del centro de IoT para aprovisionar el dispositivo.
 
 Mediante el uso de directivas de asignación personalizada, puede definir sus propias directivas de asignación cuando las directivas proporcionadas por el servicio de aprovisionamiento de dispositivos no cumplan con los requisitos de su escenario.
 
@@ -107,7 +107,9 @@ En esta sección, creará un nuevo grupo de inscripciones que use la directiva d
     ![Adición de un grupo de inscripciones de asignación personalizado para la atestación de clave simétrica](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
 
-4. En **Agregar grupo de inscripciones**, haga clic en **Link a new IoT hub** (Vincular un nuevo centro de IoT) para vincular sus dos centros de IoT de división.
+4. En **Agregar grupo de inscripciones**, haga clic en **Link a new IoT hub** (Vincular un nuevo centro de IoT) para vincular sus dos centros de IoT de división. 
+
+    Debe ejecutar este paso para sus dos IoT Hub de división.
 
     **Suscripción**: si tiene varias suscripciones, elija aquella en la que ha creado los centros de IoT de división.
 
@@ -278,9 +280,9 @@ En esta sección, creará un nuevo grupo de inscripciones que use la directiva d
 
 En esta sección, creará dos claves de dispositivo únicas. Una de las claves se usará para la tostadora simulada. La otra, se usará para la bomba de calor simulada.
 
-Para generar la clave del dispositivo, use la **clave principal** que apuntó anteriormente para calcular el [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) del identificador de registro de cada dispositivo y convierta el resultado en formato Base64.
+Para generar la clave del dispositivo, usará la **clave principal** que anotó anteriormente para calcular el [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) del identificador de registro de cada dispositivo y convertirá el resultado al formato Base64. Para obtener más información sobre cómo crear claves de dispositivo derivadas con grupos de inscripción, consulte la sección de inscripciones de grupo de [Atestación de clave simétrica](concepts-symmetric-key-attestation.md).
 
-Use los dos identificadores de registro de dispositivo que se muestran a continuación y calcule una clave de dispositivo para ambos. Ambos identificadores de registro tienen un sufijo válido para funcionar con el código de ejemplo de la directiva de asignación personalizada:
+Para el ejemplo de este artículo, use los dos identificadores de registro de dispositivo que se muestran a continuación y calcule una clave de dispositivo para ambos. Ambos identificadores de registro tienen un sufijo válido para funcionar con el código de ejemplo de la directiva de asignación personalizada:
 
 - **breakroom499-contoso-tstrsd-007**
 - **mainbuilding167-contoso-hpsd-088**
@@ -289,53 +291,53 @@ Use los dos identificadores de registro de dispositivo que se muestran a continu
 
 Si utiliza una estación de trabajo de Linux, puede usar openssl para generar las claves de dispositivo derivadas tal y como se muestra en el ejemplo siguiente.
 
-Reemplace el valor de **KEY** por el de la **clave principal** que ha apuntado anteriormente.
+1. Reemplace el valor de **KEY** por el de la **clave principal** que ha apuntado anteriormente.
 
-```bash
-KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
+    ```bash
+    KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
 
-REG_ID1=breakroom499-contoso-tstrsd-007
-REG_ID2=mainbuilding167-contoso-hpsd-088
+    REG_ID1=breakroom499-contoso-tstrsd-007
+    REG_ID2=mainbuilding167-contoso-hpsd-088
 
-keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+    keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+    devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+    devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
 
-echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
-```
+    echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
+    ```
 
-```bash
-breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-```
+    ```bash
+    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+    ```
 
 
 #### <a name="windows-based-workstations"></a>Estaciones de trabajo basadas en Windows
 
 Si utiliza una estación de trabajo basada en Windows, puede usar PowerShell para generar las claves de dispositivo derivadas tal y como se muestra en el ejemplo siguiente.
 
-Reemplace el valor de **KEY** por el de la **clave principal** que ha apuntado anteriormente.
+1. Reemplace el valor de **KEY** por el de la **clave principal** que ha apuntado anteriormente.
 
-```PowerShell
-$KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
+    ```PowerShell
+    $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
 
-$REG_ID1='breakroom499-contoso-tstrsd-007'
-$REG_ID2='mainbuilding167-contoso-hpsd-088'
+    $REG_ID1='breakroom499-contoso-tstrsd-007'
+    $REG_ID2='mainbuilding167-contoso-hpsd-088'
 
-$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
-$hmacsha256.key = [Convert]::FromBase64String($key)
-$sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
-$sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
-$derivedkey1 = [Convert]::ToBase64String($sig1)
-$derivedkey2 = [Convert]::ToBase64String($sig2)
+    $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
+    $hmacsha256.key = [Convert]::FromBase64String($key)
+    $sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
+    $sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
+    $derivedkey1 = [Convert]::ToBase64String($sig1)
+    $derivedkey2 = [Convert]::ToBase64String($sig2)
 
-echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
-```
+    echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
+    ```
 
-```PowerShell
-breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-```
+    ```PowerShell
+    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+    ```
 
 
 Los dispositivos simulados usarán las claves de dispositivo derivadas con cada Id. de registro para realizar la atestación de clave simétrica.

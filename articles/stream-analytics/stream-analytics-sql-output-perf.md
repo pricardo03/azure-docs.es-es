@@ -1,0 +1,50 @@
+---
+title: Salida de Azure Stream Analytics a Azure SQL Database
+description: Obtenga información sobre cómo enviar datos a SQL Azure desde Azure Stream Analytics y lograr mayores tasas de rendimiento de escritura.
+services: stream-analytics
+author: chetang
+ms.author: chetang
+manager: katicad
+ms.reviewer: mamccrea
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 09/21/2018
+ms.openlocfilehash: 623d03c96866392ef245fb924cbf6600e7850ffe
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47057855"
+---
+# <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Salida de Azure Stream Analytics a Azure SQL Database
+
+En este artículo se tratan las sugerencias para lograr un mejor rendimiento de escritura al cargar datos en Azure SQL Database mediante Azure Stream Analytics.
+
+La salida de SQL en Azure Stream Analytics admite la escritura en paralelo como una opción. Esta opción permite topologías de trabajo [totalmente paralelas](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs), donde varias particiones de salida escriben en la tabla de destino en paralelo. No obstante, es posible que habilitar esta opción en Azure Stream Analytics no sea suficiente para lograr un mayor rendimiento, ya que depende significativamente la configuración de la base de datos de SQL Azure y el esquema de tabla. La elección de índices, clave de agrupación en clústeres, factor de relleno de índice y compresión influye en el tiempo de carga de las tablas. Para obtener más información acerca de cómo optimizar la base de datos de SQL Azure para mejorar el rendimiento de carga y las consultas de acuerdo con las pruebas comparativas internas, consulte la [guía sobre el rendimiento de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance).
+
+A continuación se indican algunas configuraciones de cada servicio que pueden ayudar a mejorar el rendimiento global de la solución.
+
+## <a name="azure-stream-analytics"></a>Azure Stream Analytics
+
+- **Inherit Partitioning** (Heredar la creación de particiones): esta opción de configuración de salida de SQL habilita la herencia del esquema de partición de la entrada o el paso anterior de la consulta. Con esta opción habilitada, al escribir en una tabla basada en disco y tener una topología [totalmente paralela](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) para su trabajo, espere ver un rendimiento superior. Esta creación de particiones se produce automáticamente para muchas otras [salidas](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). El bloqueo de tabla (TABLOCK) también se deshabilita para las inserciones masivas realizadas con esta opción.
+
+> [!NOTE] 
+> Cuando hay más de 8 particiones de entrada, es posible que heredar el esquema de partición de entrada no sea una opción adecuada. Se ha observado este límite superior en una tabla con una columna de identidad única y un índice agrupado. Según el esquema y la elección de índices, sus observaciones pueden variar.
+
+- **Tamaño del lote**: la configuración de salida de SQL le permite especificar el tamaño del lote máximo en una salida de SQL de Azure Stream Analytics según la naturaleza de la carga de trabajo o la tabla de destino. El tamaño del lote es el número máximo de registros que se envía con cada transacción de inserción masiva. En los índices de almacén de columnas agrupados, los tamaños de lote en torno a [100 000](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) permiten más paralelización, registros mínimos y optimizaciones de bloqueo. En las tablas basadas en disco, un tamaño de 10 000 (valor predeterminado) o inferior puede ser óptimo para su solución, ya que los tamaños de lote mayores pueden desencadenar la extensión de bloqueo durante las inserciones masivas.
+
+- **Input Message Tuning** (Optimización de mensajes de entrada): si ha realizado la optimización con la herencia de particiones y el tamaño del lote, aumentar el número de eventos de entrada por mensaje y por partición ayuda a aumentar aún más el rendimiento de escritura. La opción de optimización de mensajes de entrada permite que los tamaños de lote en Azure Stream Analytics alcancen el tamaño del lote especificado, lo que mejora el rendimiento. Esto puede lograrse mediante la [compresión](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) o con tamaños de mensaje mayores disponibles en el SKU de EventHub Premium.
+
+## <a name="sql-azure"></a>SQL Azure
+
+- **Partitioned Table and Indexes** (Tabla e índices con particiones): con una tabla SQL [con particiones](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) e índices con particiones en la tabla con la misma columna que la clave de partición (por ejemplo, PartitionId), puede reducir significativamente las contenciones entre particiones durante las operaciones de escritura. Para una tabla con particiones, deberá crear un [función de partición](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) y un [esquema de partición](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) en el grupo de archivos PRIMARY. Esto también aumentará la disponibilidad de los datos existentes mientras se cargan datos nuevos. Es posible que se haya alcanzado el límite de E/S de registro basado en el número de particiones, que se puede incrementar mediante la actualización de la SKU.
+
+- **Avoid unique key violations** (Evitar infracciones de clave únicas): si recibe [varios mensajes de advertencia de infracción de claves](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-common-troubleshooting-issues#handle-duplicate-records-in-azure-sql-database-output) en el registro de actividad de Azure Stream Analytics, asegúrese de que el trabajo no se ve afectado por las infracciones de restricción únicas que pueden producirse durante los casos de recuperación. Para evitarlo, puede definir la opción [IGNORE\_DUP\_KEY](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-common-troubleshooting-issues#handle-duplicate-records-in-azure-sql-database-output) en sus índices.
+
+## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory y tablas en memoria
+
+- **In-Memory Table as temp table** (Tabla en memoria como tabla temporal): las [tablas en memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) permiten cargas de datos de alta velocidad, pero los datos deben caber en la memoria. Las pruebas comparativas muestran que la carga masiva de una tabla en memoria a una tabla basada en disco es aproximadamente 10 veces más rápida que la inserción masiva directamente con un único escritor en la tabla basada en disco con una columna de identidad y un índice agrupado. Para aprovechar este rendimiento de inserción masiva, configure un [trabajo de copia mediante Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database) que copie datos de la tabla en memoria a la tabla basada en disco.
+
+## <a name="summary"></a>Resumen
+
+En resumen, con la característica de salida con particiones en Azure Stream Analytics para la salida SQL, la paralelización alineada de su trabajo con una tabla con particiones en SQL Azure debería proporcionarle mejoras de rendimiento significativas. Aprovechar Azure Data Factory para orquestar el movimiento de datos de una tabla en memoria en las tablas basadas en disco puede proporcionar mejoras de rendimiento de orden de magnitud. Si es factible, mejorar la densidad de mensajes también puede ser un factor importante para mejorar el rendimiento global.

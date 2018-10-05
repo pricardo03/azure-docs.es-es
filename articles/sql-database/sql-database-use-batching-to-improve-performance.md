@@ -2,19 +2,22 @@
 title: Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de Azure SQL Database
 description: El tema proporciona evidencia de que el procesamiento por lotes de las operaciones de base de datos mejora en gran medida la velocidad y la escalabilidad de las aplicaciones de Azure SQL Database. Aunque estas técnicas de procesamiento por lotes funcionan para cualquier base de datos de SQL Server, el artículo se centra en Azure.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: c0e1ff3cf018e185ae2dfb329e2aa56766cc247c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: genemi
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 21dc28658f7f6f31bc7536df739a70238a3bcb8f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649788"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160815"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de SQL Database
 El procesamiento de operaciones por lotes para Azure SQL Database mejora notablemente el rendimiento y la escalabilidad de las aplicaciones. Para comprender las ventajas, la primera parte de este artículo trata algunos resultados de pruebas de ejemplo que comparan solicitudes por lotes y secuenciales a una instancia de SQL Database. El resto del artículo muestra las técnicas, los escenarios y las consideraciones para ayudarlo a usar el procesamiento por lotes correctamente en las aplicaciones de Azure.
@@ -104,9 +107,7 @@ En la tabla siguiente se muestran algunos resultados de pruebas ad hoc. En las p
 | 1000 |21479 |2756 |
 
 > [!NOTE]
-> Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
-> 
-> 
+> Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este artículo](#note-about-timing-results-in-this-article).
 
 A partir de los resultados de las pruebas anteriores, encapsular una única operación en una transacción en realidad reduce el rendimiento. Pero a medida que aumente el número de operaciones dentro de una única transacción, la mejora del rendimiento se vuelve más marcada. La diferencia de rendimiento también es más apreciable cuando todas las operaciones se producen dentro del centro de datos de Microsoft Azure. La mayor latencia existente cuando se usa SQL Database desde fuera del centro de datos de Microsoft Azure contrarresta la ganancia de rendimiento por el uso de transacciones.
 
@@ -186,7 +187,7 @@ En la tabla siguiente se muestran los resultados de pruebas ad hoc para el uso d
 | 10000 |23830 |3586 |
 
 > [!NOTE]
-> Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
+> Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este artículo](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -223,7 +224,7 @@ Los resultados de pruebas ad hoc siguientes muestran el rendimiento del procesam
 | 10000 |21605 |2737 |
 
 > [!NOTE]
-> Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
+> Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este artículo](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -264,7 +265,7 @@ Los resultados de pruebas ad hoc siguientes muestran el rendimiento de este tipo
 | 100 |33 |51 |
 
 > [!NOTE]
-> Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
+> Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este artículo](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -306,7 +307,7 @@ En nuestras pruebas, normalmente dividir los lotes grandes en fragmentos menores
 | 50 |20 |630 |
 
 > [!NOTE]
-> Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
+> Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este artículo](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -327,7 +328,7 @@ Por último, sopese el tamaño del lote y los riesgos asociados con el procesami
 | 100 [10] |488 |439 |391 |
 
 > [!NOTE]
-> Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este tema](#note-about-timing-results-in-this-topic).
+> Los resultados no sirven para pruebas comparativas. Consulte la [nota sobre los tiempos resultantes en este artículo](#note-about-timing-results-in-this-article).
 > 
 > 
 

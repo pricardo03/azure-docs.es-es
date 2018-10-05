@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: b75fba2ba0e9fa922b1252378e0bab326cada7d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f9147035c07bbe4fb3f38b74025015e70dd87b3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974313"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159580"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de precios de Azure Logic Apps
 
@@ -54,7 +54,7 @@ Puede encontrar ejecuciones de desencadenadores en el panel Información general
 
 ## <a name="actions"></a>Acciones
 
-Las acciones integradas, como las que llaman a HTTP, Azure Functions o API Management, así como los pasos de flujo de control, se miden como acciones nativas y tienen sus tipos respectivos. Las acciones que llaman a [conectores](https://docs.microsoft.com/connectors) tienen el tipo "ApiConnection". Estos conectores se clasifican como standard o enterprise, y se miden con sus [precios][pricing] respectivos. 
+Las acciones integradas, como las que llaman a HTTP, Azure Functions o API Management, así como los pasos de flujo de control, se miden como acciones nativas y tienen sus tipos respectivos. Las acciones que llaman a [conectores](https://docs.microsoft.com/connectors) tienen el tipo "ApiConnection". Estos conectores se clasifican como standard o enterprise, y se miden con sus [precios][pricing] respectivos. Los conectores empresariales en *versión preliminar* se cobran como conectores estándar.
 
 Todas las acciones ejecutadas correcta o incorrectamente se cuentan y se miden como ejecuciones de acción. Sin embargo, las acciones omitidas debido a condiciones que no se cumplieron o a acciones que no se ejecutaron porque la aplicación lógica terminó antes de que se completaran, no se cuentan como ejecuciones de acción. Las aplicaciones lógicas deshabilitadas no pueden crear instancias nuevas, por lo que no se cobran mientras estén deshabilitadas.
 

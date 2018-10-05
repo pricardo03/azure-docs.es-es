@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a7a4e4b487c324bada818d4815f253110f7f7a60
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: f8ca716f4ab991fecca52ca2d5fed080e6f4c177
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234863"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47061037"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Discos administrados SSD estándar para cargas de trabajo de máquinas virtuales de Azure
 
@@ -39,9 +39,12 @@ La tabla siguiente contiene los tamaños de disco que actualmente se ofrecen par
 |E10     |128 GB         |Hasta 500         |Hasta 60 MiB por segundo         |
 |E15     |256 GiB         |Hasta 500         |Hasta 60 MiB por segundo         |
 |E20     |512 GB         |Hasta 500         |Hasta 60 MiB por segundo         |
-|E30     |1024 GiB         |Hasta 500         |Hasta 60 MiB por segundo         |
-|E40     |2048 GiB         |Hasta 500         |Hasta 60 MiB por segundo         |
-|E50     |4095 GiB         |Hasta 500         |Hasta 60 MiB por segundo         |
+|E30     |1024 GiB       |Hasta 500         |Hasta 60 MiB por segundo         |
+|E40     |2048 GiB       |Hasta 500         |Hasta 60 MiB por segundo         |
+|E50     |4095 GiB       |Hasta 500         |Hasta 60 MiB por segundo         |
+|E60     |8192 GiB       |Hasta 1300       |Hasta 300 MiB por segundo        |
+|E70     |16 384 GiB      |Hasta 2000       |Hasta 500 MiB por segundo        |
+|E80     |32 767 GiB      |Hasta 2000       |Hasta 500 MiB por segundo        |
 
 Los discos SSD estándar están diseñados para proporcionar latencias de milisegundos de un solo dígito para la mayoría de las operaciones de E/S, y para entregar las IOPS y el rendimiento hasta los límites descritos en la tabla anterior. Las IOPS y el rendimiento reales pueden variar a veces, según los patrones de tráfico. Los discos SSD estándar proporcionarán un rendimiento más coherente que los discos HDD, con una latencia menor.
 
