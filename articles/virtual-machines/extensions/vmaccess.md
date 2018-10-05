@@ -3,7 +3,7 @@ title: Restablecimiento del acceso a una máquina virtual Linux de Azure | Micro
 description: Administración de usuarios administrativos y restablecimiento del acceso en máquinas virtuales Linux con la extensión VMAccess y la CLI de Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,18 +15,21 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: e878f5c9f923b55a1eb94cefb1ecf021c81e884e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 638ca5d1b1b68896ff5dcad70fedf27261ae96cb
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998634"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452061"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Administración de usuarios administrativos, SSH y comprobación o reparación de discos en máquinas virtuales Linux con la extensión VMAccess y la CLI de Azure
 ## <a name="overview"></a>Información general
 El disco de la máquina virtual de Linux muestra errores. De alguna forma, restableció la contraseña raíz de la máquina virtual de Linux o eliminó por accidente la clave privada SSH. Si esto sucedió en el centro de datos, deberá ir ahí y, luego, abrir el conmutador KVM para llegar a la consola del servidor. Piense en la extensión VMAccess de Azure como ese conmutador KVM que le permite tener acceso a la consola para restablecer el acceso a Linux o realizar el mantenimiento de nivel de disco.
 
 En este artículo se muestra cómo usar la extensión VMAccess de Azure para comprobar o reparar un disco, restablecer el acceso de usuarios administrativos, administrar cuentas de usuario o actualizar la configuración de SSH en Linux cuando se ejecutan como máquinas virtuales de Azure Resource Manager. Si necesita administrar máquinas virtuales clásicas, puede seguir las instrucciones que se encuentran en la documentación [de máquinas virtuales clásicas](../linux/classic/reset-access-classic.md). 
+ 
+> [!NOTE]
+> Si utiliza la extensión VMAccess para restablecer la contraseña de la máquina virtual después de instalar la extensión de inicio de sesión de AAD, tendrá que volver a ejecutar esta última extensión para habilitar del nuevo el inicio de sesión de AAD en la máquina.
 
 ## <a name="prerequisites"></a>Requisitos previos
 ### <a name="operating-system"></a>Sistema operativo
@@ -48,7 +51,7 @@ La extensión de acceso a la máquina virtual puede ejecutarse en estas distribu
 Hay dos formas de usar la extensión VMAccess en las máquinas virtuales Linux:
 
 * Usar la CLI de Azure y los parámetros necesarios.
-* [Usar archivos sin formato JSON que procese la extensión VMAccess](#use-json-files-and-the-vmaccess-extension) para realizar acciones en ellos
+* [Usando archivos sin formato JSON que procese la extensión VMAccess](#use-json-files-and-the-vmaccess-extension) para realizar acciones en ellos
 
 En los ejemplos siguientes se utilizan comandos [az vm user](/cli/azure/vm/user). Para realizar estos pasos, es preciso tener instalada la [CLI de Azure](/cli/azure/install-az-cli2) más reciente y haber iniciado sesión en una cuenta de Azure mediante [az login](/cli/azure/reference-index#az_login).
 

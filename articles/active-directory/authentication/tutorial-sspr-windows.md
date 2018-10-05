@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 27f271a20af2bb9910f1cf7d63e6033d78e67b83
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f2f2208f325728275706eeed9ff16e8afc3b11cf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919562"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166884"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Restablecimiento de contraseña de Azure AD desde la pantalla de inicio de sesión
 
@@ -45,8 +45,6 @@ La implementación de cambios de configuración para habilitar el restablecimien
    * Opcionalmente, proporcione una descripción detallada del perfil
    * Plataforma **Windows 10 y versiones posteriores**
    * Tipo de perfil **Personalizado**
-
-   ![CreateProfile][CreateProfile]
 
 3. Configuración de los **valores**
    * **Agregue** la siguiente configuración de OMA-URI para habilitar el vínculo de restablecimiento de contraseña
@@ -100,7 +98,6 @@ Ahora que la directiva está configurada y asignada, ¿qué cambia para el usuar
 ![LoginScreen][LoginScreen]
 
 Cuando los usuarios intenten iniciar sesión verán un vínculo de restablecimiento de contraseña que abre la experiencia de autoservicio de restablecimiento de contraseña en la pantalla de inicio de sesión. Esta funcionalidad permite a los usuarios restablecer su contraseña sin tener que usar otro dispositivo para acceder a un explorador web.
-Cuando los usuarios intenten iniciar sesión verán un vínculo de restablecimiento de contraseña que abre la experiencia de autoservicio de restablecimiento de contraseña en la pantalla de inicio de sesión. Esta funcionalidad permite a los usuarios restablecer su contraseña sin tener que usar otro dispositivo para acceder a un explorador web.
 
 Los usuarios encontrarán instrucciones para usar esta característica en el artículo sobre el [restablecimiento de la contraseña profesional o educativa](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
@@ -116,6 +113,10 @@ Al probar esta funcionalidad con Escritorio remoto, el vínculo "Restablecer con
 
 Si se ha deshabilitado la pantalla de bloqueo al usar una clave del Registro de Windows o una directiva de grupo, el vínculo **Restablecer contraseña** no estará disponible.
 
+El registro de auditoría de Azure AD incluirá información sobre la dirección IP y el ClientType donde se produjo el restablecimiento de contraseña.
+
+![Ejemplo de pantalla de inicio de sesión con restablecimiento de contraseña en el registro de auditoría de Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si decide que ya no desea utilizar la funcionalidad que se ha configurado como parte de este tutorial, elimine el perfil de configuración del dispositivo Intune que ha creado o la clave del registro.
@@ -127,6 +128,5 @@ En este tutorial ha permitido a los usuarios restablecer sus contraseñas desde 
 > [!div class="nextstepaction"]
 > [Evaluación del riesgo en el inicio de sesión](tutorial-risk-based-sspr-mfa.md)
 
-[CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Creación de un perfil de configuración de dispositivo de Intune para habilitar el vínculo de restablecimiento de contraseña en la pantalla de inicio de sesión de Windows 10"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "Asignación de la directiva de configuración de dispositivo de Intune a un grupo de dispositivos con Windows 10"
 [LoginScreen]: ./media/tutorial-sspr-windows/logon-reset-password.png "Vínculo de restablecimiento de contraseña en la pantalla de inicio de sesión de Windows 10"

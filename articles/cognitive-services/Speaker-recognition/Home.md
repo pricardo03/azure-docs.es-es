@@ -1,24 +1,25 @@
 ---
-title: Speaker Recognition API | Microsoft Docs
-description: Use los algoritmos avanzados para la verificación e identificación del hablante con Speaker Recognition API en Cognitive Services.
+title: ¿Qué es Speaker Recognition?
+titlesuffix: Azure Cognitive Services
+description: Use los algoritmos avanzados para la verificación e identificación del hablante con Speaker Recognition API.
 services: cognitive-services
 author: dwlin
-manager: zhang
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speaker-recognition
-ms.topic: article
+ms.topic: overview
 ms.date: 03/20/2016
 ms.author: dwlin
-ms.openlocfilehash: 6d5e4e4bbe0cb5e57d2556f680ffcf8d16ee1818
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 13a95aff8b2b0d5dad0574e6107958a20576702a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380535"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227340"
 ---
 # <a name="speaker-recognition-api"></a>Speaker Recognition API
 
-Bienvenido a Microsoft Speaker Recognition API. Las Speaker Recognition API son API basadas en la nube que proporcionan los algoritmos más avanzados para la comprobación e identificación del hablante. Speaker Recognition puede dividirse en dos categorías: verificación del hablante y la identificación del hablante.
+Estas son Speaker Recognition API. Las Speaker Recognition API son API basadas en la nube que proporcionan los algoritmos más avanzados para la comprobación e identificación del hablante. Speaker Recognition puede dividirse en dos categorías: verificación del hablante y la identificación del hablante.
 
 
 ## <a name="speaker-verification"></a>Verificación del hablante

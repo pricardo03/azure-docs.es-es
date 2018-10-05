@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 09/12/2018
 ms.author: danlep
-ms.openlocfilehash: fc245d38af90e0c395389e24b14d061fcfe0c10c
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: abb0ba6eace2e837ea2f74a0d919097f8801101e
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143452"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407423"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Uso de claves SSH con Windows en Azure
 
-En este artículo se presentan maneras de generar y utilizar claves de Secure Shell (SSH) en un equipo Windows para crear y conectarse a una máquina virtual (VM) Linux en Azure. Para usar las claves SSH desde un cliente Linux o macOS, consulte la guía [rápida](mac-create-ssh-keys.md) o [detallada](create-ssh-keys-detailed.md).
+En este artículo se describen las formas de generar y utilizar claves de *Secure Shell* (SSH) en un equipo Windows para crear y conectarse a una máquina virtual (VM) Linux en Azure. Para usar las claves SSH desde un cliente Linux o macOS, consulte la guía [rápida](mac-create-ssh-keys.md) o [detallada](create-ssh-keys-detailed.md).
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
@@ -33,32 +33,32 @@ En este artículo se presentan maneras de generar y utilizar claves de Secure Sh
 ## <a name="windows-packages-and-ssh-clients"></a>Paquetes de Windows y los clientes SSH
 Para conectarse a máquinas virtuales Linux de Azure y administraras, se usa un cliente *ssh*. Los equipos que ejecutan Linux o macOS suelen tener un conjunto de comandos SSH para generar y administrar claves SSH, y para establecer conexiones SSH. 
 
-Los equipos Windows no siempre tienen comandos SSH comparables instalados. Las versiones recientes de Windows 10 proporcionan [comandos del cliente OpenSSH](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) para crear y administrar claves SSH y establecer conexiones SSH desde un símbolo del sistema. Las versiones recientes de Windows 10 también incluyen el [subsistema de Windows para Linux](https://docs.microsoft.com/windows/wsl/about) para ejecutar utilidades y acceder a ellas, como un cliente SSH nativo en el shell de Bash. 
+Los equipos Windows no siempre tienen comandos SSH comparables instalados. Las versiones más recientes de Windows 10 proporcionan [comandos del cliente OpenSSH](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) para crear y administrar claves SSH y establecer conexiones SSH desde un símbolo del sistema. Las versiones recientes de Windows 10 también incluyen el [subsistema de Windows para Linux](https://docs.microsoft.com/windows/wsl/about) para ejecutar utilidades y acceder a ellas, como un cliente SSH nativo en el shell de Bash. 
 
-Si desea usar otra herramienta SSH para Windows, en los paquetes siguientes se incluyen clientes comunes de Windows SSH que puede instalar en la máquina local:
+Otros clientes SSH de Windows comunes que puede instalar se encuentran de forma local en los siguientes paquetes:
 
 * [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [Git para Windows](https://git-for-windows.github.io/)
 * [MobaXterm](http://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
-Otra opción consiste en usar las utilidades SSH disponibles en Bash en [Azure Cloud Shell](../../cloud-shell/overview.md). 
+Asimismo, puede usar las utilidades SSH disponibles en Bash en [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
 * Acceda a Cloud Shell en el explorador web en [ https://shell.azure.com ](https://shell.azure.com) o en [Azure Portal](https://portal.azure.com). 
 * Acceda a Cloud Shell como terminal desde Visual Studio Code mediante la instalación de la [extensión Cuenta de Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 ## <a name="create-an-ssh-key-pair"></a>Creación de un par de claves SSH
-En esta sección se muestran dos opciones para crear un par de claves SSH en Windows.
+En las secciones siguientes se muestran dos opciones para crear un par de claves SSH en Windows. Puede usar un comando de shell (`ssh-keygen`) o una herramienta de GUI (PuTTYgen).
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>Crear claves SSH con ssh-keygen
 
-Si ejecuta un shell de comandos en Windows que admita las herramientas de cliente SSH (o usa Azure Cloud Shell), cree un par de claves SSH mediante el comando `ssh-keygen`. Escribe el siguiente comando y responda a los mensajes. Si existe un par de claves SSH en la ubicación actual, esos archivos se sobrescribirán. 
+Si ejecuta un shell de comandos en Windows que admita las herramientas de cliente SSH (o usa Azure Cloud Shell), cree un par de claves SSH mediante el comando `ssh-keygen`. Escribe el siguiente comando y responda a los mensajes. Si existe un par de claves SSH en la ubicación escogida, esos archivos se sobrescribirán. 
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
-Para ver otras consideraciones y obtener información, vea los pasos [rápidos](mac-create-ssh-keys.md) o [detallados](create-ssh-keys-detailed.md) para crear claves con `ssh-keygen`.
+Para ver otras consideraciones y obtener información, vea los pasos [rápidos](mac-create-ssh-keys.md) o [detallados](create-ssh-keys-detailed.md) para crear claves SSH con `ssh-keygen`.
 
 ### <a name="create-ssh-keys-with-puttygen"></a>Crear claves SSH con PuTTYgen
 
@@ -70,32 +70,32 @@ Para crear un par de claves SSH RSA con PuTTYgen:
 
 2. Haga clic en **Generar**. De forma predeterminada, PuTTYgen genera una clave SSH-2 RSA de 2048 bits.
 
-4. Mueva el mouse sobre el área en blanco para generar algo de aleatoriedad para la clave.
+4. Mueva el mouse en el área en blanco para que la clave sea aleatoria.
 
 5. Una vez generada la clave pública, tiene la opción de escribir y confirmar una frase de contraseña. Se le pedirá la frase de contraseña cuando se autentique en la máquina virtual con la clave SSH. Sin una frase de contraseña, si alguien obtiene su clave privada, podrá iniciar sesión en cualquier máquina virtual o servicio que utilice dicha clave. Por consiguiente, se recomienda crear una frase de contraseña. Sin embargo, si se le olvida la frase de contraseña, no hay forma de recuperarla.
 
-6. La clave pública se muestra en la parte superior de la ventana. Cuando cree una máquina virtual Linux, copie y pegue esta clave pública de una línea en Azure Portal o en una plantilla de Azure Resource Manager. También puede hacer clic en **Save public key** (Guardar clave pública) para guardar una copia en el equipo:
+6. La clave pública se muestra en la parte superior de la ventana. Cuando cree una máquina virtual Linux, copie la clave pública al completo y péguela en Azure Portal o en una plantilla de Azure Resource Manager. También puede hacer clic en **Save public key** (Guardar clave pública) para guardar una copia en el equipo:
 
     ![Guardar archivo de clave pública de PuTTY](./media/ssh-from-windows/save-public-key.png)
 
-7. De manera opcional, para guardar la clave privada con el formato de clave privada de PuTTy (archivo .ppk), haga clic en **Save private key** (Guardar clave privada). Necesita el archivo .ppk si quiere usar PuTTY más adelante para establecer una conexión SSH a la máquina virtual.
+7. De manera opcional, para guardar la clave privada con el formato de clave privada de PuTTy (archivo .ppk), haga clic en **Save private key** (Guardar clave privada). Necesitará el archivo .ppk si quiere usar PuTTY más adelante para establecer una conexión SSH con la máquina virtual.
 
     ![Guardar el archivo de clave privada de PuTTY](./media/ssh-from-windows/save-ppk-file.png)
 
-    Si quiere guardar la clave privada con el formato de OpenSSH (formato de clave privada que usan muchos clientes de SSH), haga clic en **Conversiones** > **Export OpenSSH key** (Exportar clave OpenSSH).
+    Si quiere guardar la clave privada con el formato de OpenSSH (este es el formato de clave privada que usan muchos clientes de SSH), seleccione **Conversiones** > **Export OpenSSH key** (Exportar clave OpenSSH).
 
-## <a name="provide-ssh-public-key-when-deploying-a-vm"></a>Especificación de la clave pública SSH al implementar una máquina virtual
+## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Proporcione una clave pública SSH al implementar una máquina virtual
 
 Para crear una VM Linux que use claves SSH para la autenticación, proporcione la clave pública SSH al crear la máquina virtual mediante Azure Portal u otros métodos.
 
-En el siguiente ejemplo se muestra cómo se copia y pega esta clave pública en Azure Portal al crear una máquina virtual Linux. La clave pública se suele almacenar en `~/.ssh/authorized_keys` en la máquina virtual nueva.
+En el siguiente ejemplo se muestra cómo se copia y pega esta clave pública en Azure Portal al crear una máquina virtual Linux. La clave pública se almacena normalmente en el directorio ~/.ssh/authorized_key, en la nueva máquina virtual.
 
    ![Usar la clave pública al crear una máquina virtual en Azure Portal](./media/ssh-from-windows/use-public-key-azure-portal.png)
 
 
 ## <a name="connect-to-your-vm"></a>Conexión a la máquina virtual
 
-Una manera de establecer una conexión SSH a la máquina virtual Linux desde Windows es usar un cliente SSH. Este es el método preferido si tiene un cliente SSH instalado en el sistema Windows o si usa herramientas SSH en Bash en Azure Cloud Shell. Si prefiere una herramienta basada en GUI, puede conectarse con PuTTY.  
+Una manera de establecer una conexión SSH a la máquina virtual Linux desde Windows es usar un cliente SSH. Este es el método que se prefiere si tiene un cliente SSH instalado en el sistema Windows o si usa herramientas SSH en Bash en Azure Cloud Shell. Si prefiere una herramienta basada en GUI, puede conectarse con PuTTY.  
 
 ### <a name="use-an-ssh-client"></a>Uso de un cliente SSH
 Con la clave pública implementada en la VM de Azure y la clave privada en el sistema local, ejecute SSH en la máquina virtual con la dirección IP o el nombre DNS de la máquina virtual. Reemplace *azureuser* y *myvm.westus.cloudapp.azure.com* en el siguiente comando por el nombre de usuario del administrador y el nombre de dominio completo (o la dirección IP):
@@ -116,7 +116,7 @@ Si instaló el [paquete de descarga de PuTTY](http://www.chiark.greenend.org.uk/
 
     ![Abrir conexión nueva de PuTTY](./media/ssh-from-windows/putty-new-connection.png)
 
-3. Antes de seleccionar **Open** (Abrir), haga clic en la pestaña **Connection** (Conexión) > **SSH** > **Auth** (Autorización). Busque y seleccione la clave privada de PuTTY (archivo .ppk):
+3. Seleccione la categoría **Conexión** > **SSH** > **Autenticación**. Busque y seleccione la clave privada de PuTTY (archivo .ppk):
 
     ![Seleccionar la clave privada de PuTTY para la autenticación](./media/ssh-from-windows/putty-auth-dialog.png)
 
@@ -128,4 +128,4 @@ Si instaló el [paquete de descarga de PuTTY](http://www.chiark.greenend.org.uk/
 
 * También puede usar Powershell en Azure Cloud Shell para generar claves SSH y establecer conexiones SSH a máquinas virtuales Linux. Consulte [Inicio rápido de PowerShell](../../cloud-shell/quickstart-powershell.md#ssh).
 
-* Si tiene problemas con el uso de SSH para conectarse a máquinas virtuales Linux, consulte [Solución de problemas de conexiones SSH a una máquina virtual Linux de Azure](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Si tiene problemas al usar SSH para conectarse a máquinas virtuales Linux, consulte [Troubleshoot SSH connections to an Azure Linux VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Solución de problemas de conexiones SSH a una máquina virtual Linux de Azure).

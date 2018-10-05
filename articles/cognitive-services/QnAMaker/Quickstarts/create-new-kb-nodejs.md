@@ -1,24 +1,26 @@
 ---
-title: 'Creación de una base de conocimiento: Guía de inicio rápido de Node.js para Microsoft QnA Maker API (V4): Azure Cognitive Services | Microsoft Docs'
-description: Cree una base de conocimiento en Node.js para contener las preguntas frecuentes o manuales de producto de manera que pueda empezar a trabajar con QnA Maker.
+title: 'Inicio rápido: Node.js de API: Creación de la base de conocimientos: QnA Maker'
+description: Esta guía de inicio rápido le explica en detalle cómo crear mediante programación un ejemplo de base de conocimiento de QnA Maker, que aparecerá en el panel de Azure de su cuenta de API Cognitive Services.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: cbf89aa3a10012ea2d99972c6a83dd351739c5a6
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 435c937e64d0befc5a3bf30f9d58ccd303247b9e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "43771400"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037310"
 ---
 # <a name="create-a-new-knowledge-base-in-nodejs"></a>Creación de una base de conocimiento en Node.js
 
 Esta guía de inicio rápido le explica en detalle cómo crear mediante programación un ejemplo de base de conocimiento de QnA Maker, que aparecerá en el panel de Azure de su cuenta de API Cognitive Services.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 A continuación se dan dos direcciones URL de preguntas frecuentes de ejemplo (en "urls" de **req={}**) que proporcionarán el contenido. QnA Maker extrae automáticamente las preguntas y respuestas de este contenido semiestructurado, como se explica en este documento de [orígenes de datos](../Concepts/data-sources-supported.md). En esta guía de inicio rápido también puede usar sus propias direcciones URL de preguntas frecuentes.
 

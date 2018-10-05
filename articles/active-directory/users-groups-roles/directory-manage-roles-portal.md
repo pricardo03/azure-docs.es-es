@@ -1,5 +1,5 @@
 ---
-title: Visualización de los miembros de un rol de administrador y los permisos de los roles en Azure Active Directory | Microsoft Docs
+title: Visualización y asignación de permisos de roles de administrador en Azure Active Directory | Microsoft Docs
 description: Ahora puede ver y administrar los miembros de un rol de administrador de Azure AD en el portal. Para aquellos que administran con frecuencia las asignaciones de roles.
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 09/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 5a42f48e85eea95211b36e0c08dcb0edb4928a20
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cb2e5286eb8e910b555e221242a735f00dff4778
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38489929"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182831"
 ---
-# <a name="view-members-and-descriptions-of-administrator-roles-in-azure-active-directory"></a>Ver miembros y las descripciones de los roles de administrador en Azure Active Directory
+# <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Visualización y asignación de roles de administrador en Azure Active Directory
 
 Ahora puede ver y administrar todos los miembros de los roles de administrador en el portal de Azure Active Directory. Si administra las asignaciones de roles con frecuencia, probablemente preferirá esta experiencia. Y si alguna vez se ha preguntado "¿qué es lo que realmente hacen estos roles?", puede ver una lista detallada de los permisos para cada uno de los roles de administrador de Azure AD.
 
@@ -29,13 +29,13 @@ También es fácil ver sus propios permisos. Haga clic en **Su rol** para obtene
 
 ![lista de roles en el portal de Azure AD](./media/directory-manage-roles-portal/role-list.png)
 
-Seleccione la fila completa para ver la lista de miembros asignados. Puede hacer clic en **Administrar en PIM** para obtener funcionalidades de administración adicionales. Los administradores de roles con privilegios pueden cambiar las asignaciones "Permanentes" (siempre activas en el rol) a "Elegibles" (en el rol solo cuando se elevan). Si no dispone de PIM, todavía puede hacer clic en **Administrar en PIM** para registrarse y obtener una versión de prueba. Privileged Identity Management requiere un [Plan de licencias de Azure AD Premium P2](../privileged-identity-management/subscription-requirements.md).
+Seleccione la fila de un rol para ver los usuarios asignados a este. Puede hacer clic en **Administrar en PIM** para obtener funcionalidades de administración adicionales. Los administradores de roles con privilegios pueden cambiar las asignaciones "Permanentes" (siempre activas en el rol) a "Elegibles" (en el rol solo cuando se elevan). Si no dispone de PIM, todavía puede hacer clic en **Administrar en PIM** para registrarse y obtener una versión de prueba. Privileged Identity Management requiere un [Plan de licencias de Azure AD Premium P2](../privileged-identity-management/subscription-requirements.md).
 
 ![lista de miembros de un rol de administrador](./media/directory-manage-roles-portal/member-list.png)
 
-Si es un administrador Global o un administrador de roles con privilegios, puede fácilmente agregar o quitar miembros, filtrar la lista o seleccionar un miembro para ir a la página de usuario y ver sus roles asignados activos. 
+Si es un administrador global o un administrador de roles con privilegios, puede agregar o quitar miembros, filtrar la lista o seleccionar un miembro fácilmente para ver sus roles asignados activos.
 
-## <a name="detailed-role-permissions-in-the-portal"></a>Permisos de rol detallados en el portal
+## <a name="view-role-permissions"></a>Visualización de permisos de los roles
 
 Cuando esté viendo los miembros de un rol, haga clic en **Descripción** para ver una lista completa de los permisos otorgados por la asignación de roles. En la página se incluyen vínculos a documentación relevante que le guiarán a través de la administración de los roles de directorio.
 
@@ -45,5 +45,5 @@ Cuando esté viendo los miembros de un rol, haga clic en **Descripción** para v
 ## <a name="next-steps"></a>Pasos siguientes
 
 * No dude en compartir con nosotros en el [foro de roles administrativos de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* Para obtener más información sobre los roles y la asignación de roles de Administrador, vea [Asignación de roles de administrador](directory-assign-admin-roles.md).
-* Para los permisos de usuario predeterminados, vea una [comparación de los permisos de usuario miembro y de invitado predeterminados](../fundamentals/users-default-permissions.md).
+* Para obtener más información sobre los roles y la asignación de roles de administrador, consulte el artículo [Assign administrator roles](directory-assign-admin-roles.md) (Asignación de roles de administrador).
+* Para conocer los permisos predeterminados de usuario, vea una [comparación de los permisos predeterminados de usuario miembro e invitado](../fundamentals/users-default-permissions.md).

@@ -1,22 +1,23 @@
 ---
-title: Moderación de catálogo de comercio electrónico con aprendizaje automático e inteligencia artificial con Azure Content Moderator | Microsoft Docs
-description: Moderación automática de los catálogos de comercio electrónico con aprendizaje automático e inteligencia artificial
+title: 'Tutorial: Moderación de catálogos de comercio electrónico - Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Modere automáticamente los catálogos de comercio electrónico con aprendizaje automático e inteligencia artificial.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6177758eaa3e611ad67da0778d889df48b052d90
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2405ba9087e63b57c7bd6bc6f290cdafacaf7a49
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37095758"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227357"
 ---
-# <a name="ecommerce-catalog-moderation-with-machine-learning"></a>Moderación de catálogo de comercio electrónico con aprendizaje automático
+# <a name="tutorial-ecommerce-catalog-moderation-with-machine-learning"></a>Tutorial: Moderación de catálogos de comercio electrónico con aprendizaje automático
 
 En este tutorial, aprenderá a implementar la moderación inteligente de catálogos de comercio electrónico basada en aprendizaje automático, mediante la combinación de tecnologías de inteligencia artificial asistidas automáticamente con la moderación humana para proporcionar un sistema de catálogo inteligente.
 

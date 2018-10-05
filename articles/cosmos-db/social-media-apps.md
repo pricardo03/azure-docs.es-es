@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 7925ef15dc7b3ce25ae919810a5ed2220184fe6e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 5c916f847bf5098145c3ed14fad87c7669d916c8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700850"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222700"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Redes sociales y Azure Cosmos DB
 Vivir en una sociedad enormemente interconectada significa que, en algún momento de la vida, uno formará parte de una **red social**. Las redes sociales se usan para mantenerse en contacto con amigos, compañeros de trabajo y familiares y, a veces, para compartir intereses comunes con otras personas.
@@ -39,7 +39,7 @@ No me malinterpreten, he trabajado con bases de datos SQL toda mi vida y me pare
 Por supuesto, podría usar una instancia de SQL enorme con capacidad suficiente para resolver miles de consultas con las combinaciones necesarias para servir el contenido, pero ¿por qué habría de hacerlo cuando existe una solución más sencilla?
 
 ## <a name="the-nosql-road"></a>La vía NoSQL
-Este artículo lo ayudará a modelar los datos de su plataforma social con una base de datos NoSQL de Azure, [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), de una manera rentable y aprovechando otras funciones de Azure Cosmos DB, como la [API de Gremlin](../cosmos-db/graph-introduction.md). Con un enfoque [NoSQL](https://en.wikipedia.org/wiki/NoSQL), almacenamiento de datos en formato JSON y la aplicación de [desnormalización](https://en.wikipedia.org/wiki/Denormalization), la publicación, que antes era complicada, ahora puede transformarse en un único [documento](https://en.wikipedia.org/wiki/Document-oriented_database):
+Este artículo le ayudará a modelar los datos de su plataforma social con una base de datos NoSQL de Azure, [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), de una manera rentable y aprovechando otras funciones de Azure Cosmos DB, como [Gremlin API](../cosmos-db/graph-introduction.md). Con un enfoque [NoSQL](https://en.wikipedia.org/wiki/NoSQL), almacenamiento de datos en formato JSON y la aplicación de [desnormalización](https://en.wikipedia.org/wiki/Denormalization), la publicación, que antes era complicada, ahora puede transformarse en un único [documento](https://en.wikipedia.org/wiki/Document-oriented_database):
 
 
     {
@@ -99,7 +99,7 @@ Para la creación de fuentes solo es necesario crear documentos que puedan conte
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Podría tener un flujo "más reciente" con publicaciones ordenadas por fecha de creación o un flujo "favoritos" con las publicaciones que más han gustado en las últimas 24 horas. Incluso se puede implementar un flujo personalizado para cada usuario basado en lógica como seguidores e intereses, y seguiría siendo una lista de publicaciones. La cuestión es cómo crear estas listas, pero el rendimiento de lectura no se verá afectado. Una vez que se adquiere una de estas listas, se emite una consulta única a Cosmos DB con el [operador IN](sql-api-sql-query.md#WhereClause) para obtener páginas de publicaciones a la vez.
+Se podría tener un flujo "más reciente" con publicaciones ordenadas por fecha de creación o un flujo "favoritos" con las publicaciones que más han gustado en las últimas 24 horas. Incluso se puede implementar un flujo personalizado para cada usuario basado en lógica como seguidores e intereses, y seguiría siendo una lista de publicaciones. La cuestión es cómo crear estas listas, pero el rendimiento de lectura no se verá afectado. Una vez que se adquiere una de estas listas, se emite una consulta única a Cosmos DB con el [operador IN](sql-api-sql-query.md#WhereClause) para obtener páginas de publicaciones a la vez.
 
 Los flujos de fuente se pueden generar mediante procesos en segundo plano de [Azure App Service](https://azure.microsoft.com/services/app-service/): [Webjobs](../app-service/web-sites-create-web-jobs.md). Una vez que se crea una publicación, el procesamiento en segundo plano puede activarse mediante el uso de [Azure Storage](https://azure.microsoft.com/services/storage/) [Queues](../storage/queues/storage-dotnet-how-to-use-queues.md) y Webjobs desencadenados mediante el [SDK Azure Webjobs](https://github.com/Azure/azure-webjobs-sdk/wiki), implementando la propagación de publicaciones dentro de los flujos en función de nuestra lógica personalizada. 
 
@@ -134,7 +134,7 @@ Y el grafo real de los seguidores puede almacenarse con la [API de Gremlin](../c
 
 El documento de Estadísticas de usuario se sigue pudiendo usar para crear tarjetas en la interfaz de usuario o vistas previas rápidas de los perfiles.
 
-## <a name="the-ladder-pattern-and-data-duplication"></a>El modelo "Escalera" y la duplicación de datos
+## <a name="the-ladder-pattern-and-data-duplication"></a>El modelo "escalera" y la duplicación de datos
 Como habrá observado en el documento JSON que hace referencia a una publicación, hay varias apariciones de un usuario. Y, como ya habrá imaginado, esto significa que la información que representa a un usuario, dada esta desnormalización, puede existir en más de un lugar.
 
 Para permitir consultas más rápidas, se incurre en la duplicación de datos. El problema con este efecto secundario es que si, por alguna acción, cambian los datos de un usuario, habrá que buscar todas las actividades que ha hecho y actualizarlas. Lo cierto es que no parece muy práctico.
@@ -157,7 +157,7 @@ Tomemos como ejemplo información de usuario:
         "totalPosts":24
     }
 
-Al examinar esta información, podemos detectar rápidamente cuál es información importante y cuál no lo es, creando así una "escalera":
+Al examinar esta información, podemos detectar rápidamente cuál es información importante y cuál no, creando así una "escalera":
 
 ![Diagrama de un modelo de escalera](./media/social-media-apps/social-media-apps-ladder.png)
 
@@ -190,7 +190,7 @@ Asimismo, una solicitud Post tendría el aspecto siguiente:
         }
     }
 
-Si se produce una modificación que afecte a uno de los atributos del fragmento, es fácil encontrar los documentos afectados mediante consultas que señalen a los atributos indexados (SELECT * FROM posts p WHERE p.createdBy.id == “edited_user_id”) y, a continuación, actualizando los fragmentos.
+Si se produce una modificación que afecte a uno de los atributos del fragmento, es fácil encontrar los documentos afectados mediante consultas que señalen a los atributos indexados (SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id") y la actualización de los fragmentos.
 
 ## <a name="the-search-box"></a>El cuadro de búsqueda
 Los usuarios generarán, con suerte, gran cantidad de contenido. Debe proporcionar la capacidad de buscar y encontrar contenido que podría no estar directamente en los flujos de contenido de los usuarios, quizás porque no siguen a los creadores o quizás porque están buscando una publicación antigua de hace seis meses.
@@ -240,7 +240,7 @@ Cuando replica globalmente los datos, debe asegurarse de que los clientes puedan
 ![Incorporación de la cobertura global en la plataforma social](./media/social-media-apps/social-media-apps-global-replicate.png)
 
 ## <a name="conclusion"></a>Conclusión
-Este artículo trata de ofrecer alternativas de bajo costo y excelentes resultados en el proceso integral de creación de redes sociales en Azure. Con este objetivo, se fomenta el uso de una solución de almacenamiento en varias capas y distribución de datos denominada "Escalera".
+En este artículo se trata de ofrecer alternativas de bajo costo y excelentes resultados en el proceso integral de creación de redes sociales en Azure. Con este objetivo, se fomenta el uso de una solución de almacenamiento en varias capas y distribución de datos denominada "escalera".
 
 ![Diagrama de interacción entre los servicios de Azure para redes sociales](./media/social-media-apps/social-media-apps-azure-solution.png)
 

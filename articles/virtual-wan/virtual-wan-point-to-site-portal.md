@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/21/2018
+ms.date: 09/26/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: bf0e766f082b2e137c90b5ea66bb7570bea2e1e6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8a4c0c1426200e6c2d5041131fd0dd9cde4761cf
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963379"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409293"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Tutorial: Creación de una conexión de punto a sitio mediante Azure Virtual WAN (Versión preliminar)
 
@@ -23,7 +23,7 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear una red de área extensa (WAN)
-> * Crear una configuración de P2S
+> * Creación de una configuración de P2S
 > * Crear un concentrador
 > * Aplicar la configuración de P2S a un concentrador
 > * Conectar una red virtual a un concentrador
@@ -40,6 +40,38 @@ En este tutorial, aprenderá a:
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
+## <a name="register"></a>Registro de esta característica
+
+Haga clic en **Probar** para registrar esta característica fácilmente mediante Azure Cloud Shell.
+
+>[!NOTE]
+>Si no la registra, no podrá usarla ni verla en el portal.
+>
+>
+
+Después de hacer clic en **Probar** para abrir Azure Cloud Shell, copie y pegue los siguientes comandos:
+
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+```
+ 
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+```
+
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+```
+
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+```
+
+Una vez que la característica se muestre como registrada, vuelva a registrar la suscripción en el espacio de nombres Microsoft.Network.
+
+```azurepowershell-interactive
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```
 
 ## <a name="vnet"></a>1. Creación de una red virtual
 
@@ -47,7 +79,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="openvwan"></a>2. Creación de una instancia de Virtual WAN
 
-Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
+En un explorador, vaya a [Azure Portal (versión preliminar)](http://aka.ms/azurevirtualwanpreviewfeatures) e inicie sesión con su cuenta de Azure.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
@@ -117,7 +149,7 @@ Use el perfil descargado para configurar los clientes de acceso remoto. El proce
 1.  Descargue e instale el cliente OpenVPN desde el sitio web oficial.
 2.  Descargue el perfil de VPN para la puerta de enlace. Esto puede hacerse desde la pestaña de configuraciones de punto a sitio de Azure Portal o mediante New-AzureRmVpnClientConfiguration en PowerShell.
 3.  Descomprima el perfil. Abra el archivo de configuración vpnconfig.ovpn desde la carpeta OpenVPN en el Bloc de notas.
-4.  Rellene la sección de certificado cliente de P2S con la clave pública del certificado cliente de P2S en Base64. En un certificado con formato PEM, puede abrir el archivo .cer y copiar la clave de Base64 entre los encabezados del certificado. Vea aquí cómo exportar un certificado para obtener la clave pública codificada.
+4.  Rellene la sección de certificado cliente de P2S con la clave pública del certificado cliente de P2S en Base64. En un certificado con formato PEM, puede abrir el archivo .cer y copiar la clave de base64 entre los encabezados del certificado. Vea aquí cómo exportar un certificado para obtener la clave pública codificada.
 5.  Rellene la sección de la clave privada con la clave privada del certificado cliente de P2S en Base64. Vea aquí cómo extraer la clave privada.
 6.  No cambie los demás campos. Use los datos de la configuración de entrada del cliente para conectarse a la VPN.
 7.  Copie el archivo vpnconfig.ovpn en la carpeta C:\Program Files\OpenVPN\config.
@@ -136,7 +168,7 @@ Use el perfil descargado para configurar los clientes de acceso remoto. El proce
 1.  Descargue e instale un cliente OpenVPN, como TunnelBlik, desde https://tunnelblick.net/downloads.html 
 2.  Descargue el perfil de VPN para la puerta de enlace. Esto puede hacerse desde la pestaña Configuración de punto a sitio de Azure Portal o mediante New-AzureRmVpnClientConfiguration en PowerShell.
 3.  Descomprima el perfil. Abra el archivo de configuración vpnconfig.ovpn desde la carpeta OpenVPN en el Bloc de notas.
-4.  Rellene la sección de certificado cliente de P2S con la clave pública del certificado cliente de P2S en Base64. En un certificado con formato PEM, puede abrir el archivo .cer y copiar la clave de Base64 entre los encabezados del certificado. Vea aquí cómo exportar un certificado para obtener la clave pública codificada.
+4.  Rellene la sección de certificado cliente de P2S con la clave pública del certificado cliente de P2S en Base64. En un certificado con formato PEM, puede abrir el archivo .cer y copiar la clave de base64 entre los encabezados del certificado. Vea aquí cómo exportar un certificado para obtener la clave pública codificada.
 5.  Rellene la sección de la clave privada con la clave privada del certificado cliente de P2S en Base64. Vea aquí cómo extraer la clave privada.
 6.  No cambie los demás campos. Use los datos de la configuración de entrada del cliente para conectarse a la VPN.
 7.  Haga doble clic en el archivo de perfil para crear el perfil en Tunnelblik.

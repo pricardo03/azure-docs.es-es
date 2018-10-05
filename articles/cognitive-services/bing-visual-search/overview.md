@@ -1,21 +1,21 @@
 ---
-title: Información general sobre Bing Visual Search API | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Muestra cómo obtener detalles o conclusiones sobre una imagen, como imágenes similares u orígenes de compras.
+title: ¿Qué es Bing Visual Search?
+titleSuffix: Azure Cognitive Services
+description: Bing Visual Search muestra cómo obtener detalles o conclusiones sobre una imagen, como imágenes similares u orígenes de compras.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: overview
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: aa563d89b1834f5be952f13c31a2451d809709b1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 2ab73281eb050a52b596504ea9cc0e478144ff24
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006536"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226780"
 ---
 # <a name="what-is-bing-visual-search-api"></a>¿Qué es Bing Visual Search API?
 
@@ -95,7 +95,7 @@ Las solicitudes solo se deben enviar como solicitudes HTTP POST.
 
 Estos son los parámetros de consulta que debe especificar la solicitud. Como mínimo, debe incluir el parámetro de consulta `mkt`.
 
-|NOMBRE|Valor|type|Obligatorio|  
+|NOMBRE|Valor|Escriba|Obligatorio|  
 |----------|-----------|----------|--------------|  
 |<a name="cc" />cc|Un código de país de 2 caracteres del país del que provienen los resultados.<br /><br /> Si establece este parámetro, debe especificar también el encabezado [Accept-Language](#acceptlanguage). Bing usa el primer idioma compatible que encuentra en la lista de idiomas y combina el idioma con el código de país que especifique para determinar el mercado del que debe devolver resultados. Si la lista de idiomas no incluye ningún idioma compatible, Bing busca el idioma y el mercado más cercanos que admiten la solicitud. También puede usar un mercado agregado o predeterminado para los resultados, en lugar del especificado.<br /><br /> Debe utilizar este parámetro de consulta y el parámetro de consulta `Accept-Language` solo si especifica varios idiomas. En caso contrario, debe utilizar los parámetros de consulta `mkt` y `setLang`.<br /><br /> Este parámetro y el parámetro de consulta [mkt](#mkt) son mutuamente excluyentes: no especifique los dos.|string|Sin |  
 |<a name="mkt" />mkt|Mercado de dónde proceden los resultados. <br /><br /> **NOTA:** Se recomienda especificar siempre el mercado, si se conoce. Especificar el mercado ayuda a Bing a enrutar la solicitud y devolver una respuesta adecuada y óptima.<br /><br /> Este parámetro y el parámetro de consulta [cc](#cc) son mutuamente excluyentes: no especifique los dos.|string|SÍ|  

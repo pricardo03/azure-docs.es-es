@@ -5,15 +5,15 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 05/29/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 1813367a2d143f75fb51a3160dd00219c709c57b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: dc03f49a684bfeb43ffd8bac9f551a67f034a04f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37935755"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042884"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distribuciones y controladores admitidos
 
@@ -26,11 +26,11 @@ Los controladores NVIDIA CUDA para máquinas virtuales de las series NC, NCv2, N
 
 | Distribución | Controlador |
 | --- | -- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 o 7.4<br/><br/> HPC basada en CentOS 7.3 o 7.4, HPC basada en CentOS 7.4 | NVIDIA CUDA 9.1, rama de controlador R390 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 o 7.4<br/><br/> HPC basada en CentOS 7.3 o 7.4, HPC basada en CentOS 7.4 | NVIDIA CUDA 10.0, rama de controlador R410 |
 
 ### <a name="nvidia-grid-drivers"></a>Controladores de NVIDIA GRID
 
-Microsoft redistribuye los instaladores del controlador NVIDIA GRID para máquinas virtuales de la serie NV que se emplean como estaciones de trabajo virtuales o para aplicaciones virtuales. Instale estos controladores GRID en máquinas virtuales de la serie NV de Azure y solo en las distribuciones enumeradas en la tabla siguiente. Estos controladores incluyen licencias del software GRID Virtual GPU en Azure.
+Microsoft redistribuye los instaladores del controlador NVIDIA GRID para VM de las series NV y NVv2 que se emplean como estaciones de trabajo virtuales o para aplicaciones virtuales. Instale estos controladores GRID en máquinas virtuales de la serie NV de Azure y solo en las distribuciones enumeradas en la tabla siguiente. Estos controladores incluyen licencias del software GRID Virtual GPU en Azure.
 
 | Distribución | Controlador |
 | --- | -- |

@@ -2,25 +2,26 @@
 title: Introducción a Instancia administrada de Azure SQL Database | Microsoft Docs
 description: En este tema se describe una instancia de Instancia administrada de Azure SQL Database y se explica cómo funciona y cómo difiere de una base de datos única de Azure SQL Database.
 services: sql-database
-author: bonova
-ms.reviewer: carlrab
-manager: craigg
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: DBs & servers
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/30/2018
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: 2e1fd7c87931f804433708b6ac30a5960e6006ae
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/26/2018
+ms.openlocfilehash: 626dd362248027831c78d1505662ca12d2ff334d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287670"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392829"
 ---
-# <a name="what-is-a-managed-instance-preview"></a>¿Qué es Instancia administrada de SQL Database (versión preliminar)?
+# <a name="what-is-a-managed-instance"></a>¿Qué es la Instancia administrada de SQL Database?
 
-La Instancia administrada de Azure SQL Database (versión preliminar) es un nuevo modelo de implementación de Azure SQL Database que proporciona casi un 100 % de compatibilidad con el motor de base de datos local más reciente de SQL Server (Enterprise Edition), proporciona una implementación nativa de [red virtual (VNet)](../virtual-network/virtual-networks-overview.md) que permite solucionar problemas de seguridad habituales y un [modelo de negocio](https://azure.microsoft.com/pricing/details/sql-database/) favorable para los clientes locales de SQL Server. Instancia administrada permite a los clientes existentes de SQL Server migrar mediante lift-and-shift sus aplicaciones locales a la nube con cambios mínimos en la aplicación y la base de datos. Al mismo tiempo, la Instancia administrada conserva todas las funcionalidades de PaaS (aplicación de revisiones y actualizaciones de versión automáticas, [copia de seguridad automática](sql-database-automated-backups.md), [alta disponibilidad](sql-database-high-availability.md)), lo cual reduce drásticamente la sobrecarga de administración y el costo total de propiedad.
+La Instancia administrada de Azure SQL Database es un nuevo modelo de implementación de Azure SQL Database que proporciona casi un 100 % de compatibilidad con el motor de base de datos local más reciente de SQL Server (Enterprise Edition), una implementación nativa de [red virtual (VNet)](../virtual-network/virtual-networks-overview.md) que permite solucionar problemas de seguridad habituales y un [modelo de negocio](https://azure.microsoft.com/pricing/details/sql-database/) favorable para los clientes locales de SQL Server. Instancia administrada permite a los clientes existentes de SQL Server migrar mediante lift-and-shift sus aplicaciones locales a la nube con cambios mínimos en la aplicación y la base de datos. Al mismo tiempo, la Instancia administrada conserva todas las funcionalidades de PaaS (aplicación de revisiones y actualizaciones de versión automáticas, [copia de seguridad automática](sql-database-automated-backups.md), [alta disponibilidad](sql-database-high-availability.md)), lo cual reduce drásticamente la sobrecarga de administración y el costo total de propiedad.
 
 > [!IMPORTANT]
 > Para una lista de las regiones en las que está actualmente disponible Instancia administrada, consulte [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) (Migración de las bases de datos a un servicio completamente administrado con Instancia administrada de Azure SQL Database).
@@ -61,7 +62,7 @@ La tabla siguiente le servirá de ayuda para determinar cuál es la configuraci�
 ||Gen 4|Gen 5|
 |----|------|-----|
 |Hardware|Procesadores Intel E5-2673 v3 (Haswell) de 2.4 GHz, núcleo virtual SSD conectado equivalente a 1 PP (núcleo físico)|Procesadores Intel E5-2673 v4 (Broadwell) de 2.3 GHz, SSD eNVM rápido, núcleo virtual equivalente a 1 LP (Hyper-Threading)|
-|Niveles de rendimiento|8, 16, 24 núcleos virtuales|8, 16, 24, 32, 40, 64, 80 núcleos virtuales|
+|Tamaños de procesos|8, 16, 24 núcleos virtuales|8, 16, 24, 32, 40, 64, 80 núcleos virtuales|
 |Memoria|7 GB por núcleo virtual|5,5 GB por núcleo virtual|
 ||||
 
@@ -69,7 +70,7 @@ La tabla siguiente le servirá de ayuda para determinar cuál es la configuraci�
 
 Instancia administrada está disponible en dos niveles de servicio:
 - **Uso general**: diseñada para aplicaciones con rendimiento y requisitos de latencia de E/S comunes.
-- **Crítico para la empresa**: diseñada para aplicaciones con requisitos de latencia baja de E/S y un impacto mínimo subyacente de operaciones de mantenimiento en la carga de trabajo.
+- **Crítico para la empresa (versión preliminar)**: diseñada para aplicaciones con requisitos de latencia baja de E/S y un impacto mínimo de operaciones de mantenimiento subyacentes en la carga de trabajo.
 
 Ambos niveles de servicio garantizan una disponibilidad del 99,99 % y le permiten seleccionar el tamaño de almacenamiento y la capacidad de proceso de forma independiente. Para obtener más información acerca de la arquitectura de alta disponibilidad de Azure SQL Database, consulte [Alta disponibilidad y Azure SQL Database](sql-database-high-availability.md).
 
@@ -109,7 +110,7 @@ La siguiente lista describe las principales características del nivel de servic
 
 Para obtener más información, consulte las [disponibilidades estándar y de uso general y la arquitectura de Azure SQL Database](sql-database-high-availability.md#standardgeneral-purpose-availability).
 
-### <a name="business-critical-service-tier"></a>Nivel de servicio Crítico para la empresa
+### <a name="business-critical-service-tier-preview"></a>Nivel de servicio Crítico para la empresa (versión preliminar)
 
 El nivel de servicio Crítico para la empresa se ha creado para las aplicaciones con elevados requisitos de E/S. Ofrece la máxima resistencia a errores mediante varias réplicas Always On aisladas. 
 
@@ -141,6 +142,9 @@ La siguiente lista describe las principales características del nivel de servic
 
 Para obtener más información, consulte la [disponibilidad Premium o Crítica para la empresa y la arquitectura](sql-database-high-availability.md#premiumbusiness-critical-availability) de Azure SQL Database.
 
+> [!IMPORTANT]
+> El nivel de servicio **Crítico para la empresa** está en versión preliminar.
+
 ## <a name="advanced-security-and-compliance"></a>Conformidad y seguridad avanzada 
 
 La Instancia administrada de Azure SQL Database combina características de seguridad avanzadas que proporciona Azure Cloud y el motor de base de datos de SQL Server. 
@@ -171,7 +175,7 @@ Azure SQL Database proporciona un conjunto de características de seguridad avan
 - La [detección de amenazas](sql-database-managed-instance-threat-detection.md) complementa la [auditoría de Instancia administrada](sql-database-managed-instance-auditing.md), ya que proporciona una capa adicional de inteligencia de seguridad integrada en el servicio que detecta intentos inusuales y potencialmente dañinos para obtener acceso a las bases de datos o vulnerarlas. Recibirá alertas de actividades sospechosas, vulnerabilidades potenciales y ataques por inyección de código SQL, así como patrones anómalos de acceso a bases de datos. Las alertas de Detección de amenazas pueden verse en [Azure Security Center](https://azure.microsoft.com/services/security-center/) y proporcionar detalles de actividad sospechosa y la acción recomendada sobre cómo investigar y mitigar la amenaza.  
 - El [enmascaramiento dinámico de datos](/sql/relational-databases/security/dynamic-data-masking) limita la exposición de información confidencial mediante su enmascaramiento a los usuarios sin privilegios. El enmascaramiento dinámico de datos ayuda a impedir el acceso no autorizado a datos confidenciales permitiéndole designar la cantidad de los datos confidenciales que se revelarán con un impacto mínimo en el nivel de aplicación. Es una característica de seguridad basada en directivas que oculta los datos confidenciales en el conjunto de resultados de una consulta sobre los campos designados de la base de datos, aunque que los datos de la base de datos no cambian. 
 - La [seguridad de nivel de fila](/sql/relational-databases/security/row-level-security) le permite controlar el acceso a las filas de una tabla de base de datos en función de las características del usuario que ejecuta una consulta (por ejemplo, la pertenencia a un grupo o el contexto de ejecución). La seguridad de nivel de fila (RLS) simplifica el diseño y la codificación de la seguridad de la aplicación. RLS permite implementar restricciones de acceso a filas de datos. Por ejemplo, garantiza que los empleados únicamente puedan acceder a aquellas filas de datos necesarios para su departamento o restringe el acceso solo a los datos relevantes. 
-- [Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) cifra los archivos de datos de Instancia administrada de Azure SQL, lo que se conoce como cifrado de datos en reposo. TDE realiza el cifrado y descifrado de E/S en tiempo real de los archivos de datos y de registro. El cifrado usa una clave de cifrado de base de datos (DEK), que se almacena en el registro de arranque de la base de datos de disponibilidad durante la recuperación. Puede proteger todas las bases de datos en una instancia administrada con cifrado de datos transparente. TDE es la probada tecnología de cifrado en reposo de SQL que requieren muchos estándares de cumplimiento normativo para proteger contra el robo de soportes de almacenamiento. Durante la versión preliminar pública, se admite el modelo de administración automática de claves (realizada por la plataforma PaaS). 
+- El [Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) cifra los archivos de datos de la Instancia administrada de Azure SQL Database, lo que se conoce como cifrado de datos en reposo. TDE realiza el cifrado y descifrado de E/S en tiempo real de los archivos de datos y de registro. El cifrado usa una clave de cifrado de base de datos (DEK), que se almacena en el registro de arranque de la base de datos de disponibilidad durante la recuperación. Puede proteger todas las bases de datos en una instancia administrada con cifrado de datos transparente. TDE es la probada tecnología de cifrado en reposo de SQL que requieren muchos estándares de cumplimiento normativo para proteger contra el robo de soportes de almacenamiento. Durante la versión preliminar pública, se admite el modelo de administración automática de claves (realizada por la plataforma PaaS). 
 
 Se admite la migración de una base de datos cifrada a Instancia administrada de SQL a través de Azure Database Migration Service (DMS) o la restauración nativa. Si va a migrar la base de datos cifrada mediante la restauración nativa, la migración del certificado TDE existente desde la VM con SQL Server o el SQL Server local a Instancia administrada es un paso necesario. Para obtener más información sobre los diversos métodos de migración, vea [Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database](sql-database-managed-instance-migrate.md).
 
@@ -200,9 +204,12 @@ Instancia administrada está diseñado para escenarios de usuario con migración
 ### <a name="backup-and-restore"></a>Copia de seguridad y restauración  
 
 El enfoque de migración aprovecha las copias de seguridad de SQL en Azure Blob Storage. Las copias de seguridad almacenadas en Azure Storage Blob se pueden restaurar directamente en la Instancia administrada mediante el [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current). 
-  - Para ver un tutorial que muestra cómo restaurar el archivo de copia de seguridad de base de datos de Wide World Importers - Standard, consulte [Restauración de una copia de seguridad de datos a una instancia administrada de Azure SQL Database](sql-database-managed-instance-restore-from-backup-tutorial.md). Este tutorial muestra que tiene que cargar un archivo de copia de seguridad en el almacenamiento de blobs de Azure y protegerlo utilizando una clave de firma de acceso compartido (SAS).
+  - Para ver una guía rápida que muestra cómo restaurar el archivo de copia de seguridad de base de datos de Wide World Importers - Standard, consulte [Restore a backup file to a Managed Instance](sql-database-managed-instance-get-started-restore.md) (Restauración de un archivo de copia de seguridad a una instancia administrada). En esta guía rápida se muestra cómo cargar un archivo de copia de seguridad en el almacenamiento de blobs de Azure y protegerlo mediante una clave de Firma de acceso compartido (SAS).
   - Para obtener información sobre la restauración desde una URL, vea [Restauración de copias de seguridad nativas desde la dirección URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
-  
+
+> [!IMPORTANT]
+> Solo se pueden restaurar las copias de seguridad de una instancia administrada en otra instancia administrada. No puede restaurarse en una instancia local de SQL Server o en una base de datos única o agrupada del servidor lógico de Azure SQL Server.
+
 ### <a name="data-migration-service"></a>Data Migration Service
 
 Azure Database Migration Service es un servicio totalmente administrado diseñado para permitir migraciones completas desde varios orígenes de base de datos hasta las plataformas de datos de Azure con un tiempo de inactividad mínimo. Este servicio simplifica las tareas necesarias para mover las bases de datos existentes de SQL Server y de terceros a Azure. Las opciones de implementación incluyen Azure SQL Database, Instancia administrada y SQL Server en una máquina virtual de Azure en versión preliminar pública. Consulte cómo [migrar su base de datos local a Instancia administrada mediante DMS](https://aka.ms/migratetoMIusingDMS).
@@ -226,11 +233,11 @@ Instancia administrada tiene la ventaja de estar siempre actualizada en la nube,
 - Instancia administrada no permite especificar las rutas de acceso físicas completas por lo que todos los escenarios correspondientes se admiten de manera diferente: RESTORE DB no admite WITH MOVE, CREATE DB no permite rutas de acceso físicas, BULK INSERT funciona solo con Blobs de Azure, etc. 
 - Instancia administrada admite la [autenticación de Azure AD](sql-database-aad-authentication.md) como alternativa en la nube a la autenticación de Windows. 
 - Instancia administrada administra automáticamente el grupo de archivos XTP y los archivos de bases de datos que contienen objetos de OLTP en memoria
-- Instancia administrada es compatible con SQL Server Integration Services (SSIS) y puede hospedar el catálogo de SSIS (SSISDB) que almacena paquetes SSIS, pero que se ejecuta en una instancia de Integration Runtime para la integración de SSIS en Azure en Azure Data Factory; consulte [Creación de una instancia de Integration Runtime de SSIS de Azure en Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar las características de SSIS en SQL Database y la Instancia administrada, consulte [Comparación entre SQL Database e Instancia administrada (versión preliminar)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
+- Instancia administrada es compatible con SQL Server Integration Services (SSIS) y puede hospedar el catálogo de SSIS (SSISDB) que almacena paquetes SSIS, pero que se ejecuta en una instancia de Integration Runtime para la integración de SSIS en Azure en Azure Data Factory; consulte [Creación de una instancia de Integration Runtime de SSIS de Azure en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar las características de SSIS en SQL Database y la Instancia administrada, consulte [Compare SQL Database logical server and Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance) (Comparación entre el servidor lógico de SQL Database y la Instancia administrada).
 
 ### <a name="managed-instance-administration-features"></a>Características de administración de Instancia administrada  
 
-Instancia administrada permite al administrador del sistema centrarse en lo más importante para el negocio. Muchas actividades del administrador del sistema o DBA no son necesarias, o son sencillas. Por ejemplo, la instalación y aplicación de revisiones de SO o RDBMS, el cambio de tamaño y configuración de instancias dinámicos, las copias de seguridad, la replicación de bases de datos (incluidas las bases de datos del sistema), la configuración de la alta disponibilidad y los flujos de datos de configuración del estado y supervisión del rendimiento. 
+Instancia administrada permite al administrador del sistema centrarse en lo más importante para el negocio. Muchas actividades del administrador del sistema o DBA no son necesarias, o son sencillas. Por ejemplo, la instalación y aplicación de revisiones de SO o RDBMS, las opciones dinámicas de cambio de tamaño y configuración de instancias, las copias de seguridad, la [replicación de bases de datos](replication-with-sql-database-managed-instance.md) (incluidas las bases de datos del sistema), la configuración de la alta disponibilidad y los flujos de datos de configuración del estado y supervisión del rendimiento. 
 
 > [!IMPORTANT]
 > Para obtener una lista de las características compatibles, parcialmente compatibles o no compatibles, consulte [Características de SQL Database](sql-database-features.md). Para obtener una lista de diferencias de T-SQL en Instancia administrada en comparación con SQL Server, consulte [Managed Instance T-SQL Differences from SQL Server](sql-database-managed-instance-transact-sql-information.md) (Diferencias de T-SQL entre Instancia administrada y SQL Server)
@@ -251,6 +258,6 @@ En la tabla siguiente se muestran varias propiedades, accesibles mediante Transa
 - Para obtener información sobre cómo crear su primera instancia administrada, consulte la [guía de inicio rápido](sql-database-managed-instance-get-started.md).
 - Para obtener una lista de características y una comparación, consulte [Características comunes de SQL](sql-database-features.md).
 - Para más información acerca de la configuración de redes virtuales, consulte [Configuración de una red virtual de instancia administrada](sql-database-managed-instance-vnet-configuration.md).
-- Para ver un tutorial que crea una instancia administrada y restaura una base de datos desde un archivo de copia de seguridad, consulte [Creación de una instancia administrada](sql-database-managed-instance-create-tutorial-portal.md).
+- Para ver una guía rápida en la que se crea una instancia administrada y se restaura una base de datos desde un archivo de copia de seguridad, consulte [Creación de una instancia administrada](sql-database-managed-instance-get-started.md).
 - Para consultar un tutorial con Azure Database Migration Service (DMS) para la migración, consulte [Migración a Instancia administrada con DMS](../dms/tutorial-sql-server-to-managed-instance.md).
 - Para obtener información de precios, vea [Precios de Instancia administrada de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/managed/).

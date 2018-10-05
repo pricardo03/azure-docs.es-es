@@ -2,19 +2,22 @@
 title: Implementar una solución distribuida geográficamente de Azure SQL Database| Microsoft Docs
 description: Aprenda a configurar Azure SQL Database y su aplicación para realizar conmutación por error a una base de datos replicada y probar una conmutación por error.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,business continuity
-ms.topic: tutorial
-ms.date: 04/01/2018
-ms.author: carlrab
-ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: anosov1960
+ms.author: sashan
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: 65cf954f5d91176715181620671f620264069bdc
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416626"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166272"
 ---
 # <a name="implement-a-geo-distributed-database"></a>Implementar una base de datos distribuida geográficamente
 
@@ -30,7 +33,7 @@ En este tutorial, configurará una instancia de Azure SQL Database y una aplicac
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
@@ -38,8 +41,8 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 - Instancia de Azure SQL Database instalada. En este tutorial se usa la base de datos de ejemplo AdventureWorksLT con el nombre **mySampleDatabase** proveniente de uno de estos inicios rápidos:
 
    - [Creación de la base de datos: Azure Portal](sql-database-get-started-portal.md)
-   - [Creación de la base de datos: CLI](sql-database-get-started-cli.md)
-   - [Creación de la base de datos: PowerShell](sql-database-get-started-powershell.md)
+   - [Creación de la base de datos: CLI](sql-database-cli-samples.md)
+   - [Creación de la base de datos: PowerShell](sql-database-powershell-samples.md)
 
 - Si ha identificado un método para ejecutar scripts SQL en la base de datos, puede usar una de las herramientas de consulta siguientes:
    - El editor de consultas de [Azure Portal](https://portal.azure.com). Para más información sobre el empleo del editor de consultas de Azure Portal, vea [Connect and query using Query Editor](sql-database-get-started-portal.md#query-the-sql-database) (Conectar y consultar mediante el editor de consultas).
@@ -54,7 +57,7 @@ Conéctese a la base de datos y cree cuentas de usuario con una de las herramien
 - SQL Server Management Studio
 - Visual Studio Code
 
-Estas cuentas de usuario se replican automáticamente en el servidor secundario (y se mantienen sincronizadas). Para usar SQL Server Management Studio o Visual Studio Code, es posible que tenga que configurar una regla de firewall si se conecta desde un cliente en una dirección IP para la que todavía no tiene configurado un firewall. Para consultar los pasos detallados, vea [Create a server-level firewall rule](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) (Crear una regla de firewall de nivel de servidor).
+Estas cuentas de usuario se replican automáticamente en el servidor secundario (y se mantienen sincronizadas). Para usar SQL Server Management Studio o Visual Studio Code, es posible que tenga que configurar una regla de firewall si se conecta desde un cliente en una dirección IP para la que todavía no tiene configurado un firewall. Para consultar los pasos detallados, vea [Create a server-level firewall rule](sql-database-get-started-portal-firewall.md) (Crear una regla de firewall de nivel de servidor).
 
 - En una ventana de consulta, ejecute la consulta siguiente para crear dos cuentas de usuario en la base de datos. Este script concede permisos **db_owner** a la cuenta **app_admin** y permisos **SELECT** y **UPDATE** a la cuenta **app_user**. 
 
@@ -70,7 +73,7 @@ Estas cuentas de usuario se replican automáticamente en el servidor secundario 
 
 ## <a name="create-database-level-firewall"></a>Creación de firewall de nivel de base de datos
 
-Cree una [regla de firewall de nivel de base de datos](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) para la base de datos SQL. Esta regla de firewall de nivel de base de datos se replica automáticamente en el servidor secundario que se crea en este tutorial. Para simplificar (en este tutorial), use la dirección IP pública del equipo en el que está realizando los pasos de este tutorial. Para determinar la dirección IP usada para la regla de firewall de nivel de servidor del equipo actual, vea [Create a server-level firewall](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) (Crear un firewall de nivel de servidor).  
+Cree una [regla de firewall de nivel de base de datos](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) para la base de datos SQL. Esta regla de firewall de nivel de base de datos se replica automáticamente en el servidor secundario que se crea en este tutorial. Para simplificar (en este tutorial), use la dirección IP pública del equipo en el que está realizando los pasos de este tutorial. Para determinar la dirección IP usada para la regla de firewall de nivel de servidor del equipo actual, vea [Create a server-level firewall](sql-database-get-started-portal-firewall.md) (Crear un firewall de nivel de servidor).  
 
 - En la ventana de consulta abierta, reemplace la consulta anterior por la consulta siguiente y reemplace las direcciones IP por las direcciones IP adecuadas para el entorno.  
 
@@ -390,8 +393,8 @@ En este tutorial, ha aprendido a configurar una instancia de Azure SQL Database 
 > * Crear y compilar una aplicación de Java para consultar una instancia de Azure SQL Database
 > * Obtener detalles de recuperación ante desastres
 
-Continúe con el siguiente tutorial para aprender a crear una instancia administrada.
+Avance al siguiente tutorial para migrar de SQL Server a Instancia administrada de Azure SQL Database mediante DMS.
 
 > [!div class="nextstepaction"]
->[Creación de una instancia administrada](sql-database-managed-instance-create-tutorial-portal.md)
+>[Migración de SQL Server a Instancia administrada de Azure SQL Database mediante DMS](../dms/tutorial-sql-server-to-managed-instance.md)
 

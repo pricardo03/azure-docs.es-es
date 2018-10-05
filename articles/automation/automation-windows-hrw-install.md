@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e449e6e457c4fa568b5a4de5823014b4dcea82d0
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c94fd0bb68a03c64935c20fef1fab7b68c9c2c9b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064539"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032995"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementación de Hybrid Runbook Worker en Windows
 
@@ -30,7 +30,7 @@ Para instalar y configurar una instancia de Hybrid Runbook Worker en Windows, se
 Estos son los requisitos mínimos de Hybrid Runbook Worker en Windows:
 
 * Windows Server 2012 o posterior.
-* Windows PowerShell 4.0 o posterior ([descargar WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)). Se recomienda Windows PowerShell 5.1 ([descargar WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) para mayor confiabilidad.
+* Windows PowerShell 5.1 o posterior ([descargar WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)).
 * .NET Framework 4.6.2 o posterior.
 * Dos núcleos
 * 4 GB de RAM
@@ -49,13 +49,13 @@ Después de implementar correctamente un trabajo de runbook, revise la [ejecuci�
 
 Realice los pasos siguientes para automatizar la instalación y configuración del rol Hybrid Worker en Windows:
 
-1. Descargue el script New-OnPremiseHybridWorker.ps1 de la [Galería de PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/DisplayScript) directamente desde el equipo que ejecuta el rol Hybrid Runbook Worker o desde otro equipo de su entorno. Copie el script en el trabajo.
+1. Descargue el script New-OnPremiseHybridWorker.ps1 de la [Galería de PowerShell](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker) directamente desde el equipo que ejecuta el rol Hybrid Runbook Worker o desde otro equipo de su entorno. Copie el script en el trabajo.
 
    El script New-OnPremiseHybridWorker.ps1 requiere los siguientes parámetros durante la ejecución:
 
    * *AutomationAccountName* (obligatorio): el nombre de la cuenta de Automation.
    * *AAResourceGroupName* (obligatorio): el nombre del grupo de recursos que está asociado a su cuenta de Automation.
-   * *OMSResourceGroupName* (opcional): el nombre del grupo de recursos para el área de trabajo de Operations Management Suite. Si no se especifica este grupo de recursos, se utiliza *AAResourceGroupName*.
+   * *OMSResourceGroupName* (opcional): el nombre del grupo de recursos para el área de trabajo de Log Analytics. Si no se especifica este grupo de recursos, se utiliza *AAResourceGroupName*.
    * *HybridGroupName* (obligatorio): el nombre de un grupo de Hybrid Runbook Worker que se especifica como destino para los runbooks que admiten este escenario.
    * *SubscriptionID* (obligatorio): el identificador de la suscripción de Azure en el que se encuentra su cuenta de Automation.
    * *WorkspaceName* (opcional): el nombre del área de trabajo de Log Analytics. Si no tiene un área de trabajo de Log Analytics, el script creará y configurará una.
@@ -63,8 +63,8 @@ Realice los pasos siguientes para automatizar la instalación y configuración d
      > [!NOTE]
      > Actualmente estas son las únicas regiones que admiten la integración de Automation con Log Analytics: **Sudeste de Australia**, **Este de EE. UU. 2**, **Sudeste Asiático** y **Europa Occidental**. Si su cuenta de Automation no está en una de esas regiones, el script crea un área de trabajo de Log Analytics, pero le advierte que no se puede vincular.
 
-1. En el equipo, inicie **Windows PowerShell** desde la pantalla **Inicio** en modo de administrador.
-1. Desde el shell de línea de comandos de PowerShell, vaya a la carpeta que contiene el script que ha descargado. Cambie los valores de los parámetros *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* y *-WorkspaceName*. Después, ejecute el script.
+2. En el equipo, inicie **Windows PowerShell** desde la pantalla **Inicio** en modo de administrador.
+3. Desde el shell de línea de comandos de PowerShell, vaya a la carpeta que contiene el script que ha descargado. Cambie los valores de los parámetros *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* y *-WorkspaceName*. Después, ejecute el script.
 
      > [!NOTE]
      > Se le solicitará que se autentique en Azure después de ejecutar el script. *Debe* iniciar sesión con una cuenta que sea miembro del rol Administradores de suscripciones y coadministrador de la suscripción.
@@ -75,9 +75,9 @@ Realice los pasos siguientes para automatizar la instalación y configuración d
    -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfLogAnalyticsWorkspace>
    ```
 
-1. Se le pedirá que acepte la instalación de NuGet y que se autentique con sus credenciales de Azure.
+4. Se le pedirá que acepte la instalación de NuGet y que se autentique con sus credenciales de Azure.
 
-1. Una vez finalizado el script, la página **Grupos de Hybrid Worker** muestra el nuevo grupo y el número de miembros. Si se trata de un grupo existente, se incrementa el número de miembros. Puede seleccionar el grupo de la lista en la página **Grupos de Hybrid Worker** y seleccionar el icono **Hybrid Workers**. En la página **Hybrid Workers**, verá que aparece cada miembro del grupo.
+5. Una vez finalizado el script, la página **Grupos de Hybrid Worker** muestra el nuevo grupo y el número de miembros. Si se trata de un grupo existente, se incrementa el número de miembros. Puede seleccionar el grupo de la lista en la página **Grupos de Hybrid Worker** y seleccionar el icono **Hybrid Workers**. En la página **Hybrid Workers**, verá que aparece cada miembro del grupo.
 
 ### <a name="manual-deployment"></a>Implementación manual
 

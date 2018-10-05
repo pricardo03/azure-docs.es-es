@@ -9,15 +9,15 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 5/8/2018
+ms.date: 9/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a79c1951fb8cfbfc208942835ee87b91b763c44
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 8bfe815b9664e499f7ae458dfc42b88199e0ecb4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798192"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037939"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Python para la API de SQL de Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -36,13 +36,13 @@ ms.locfileid: "34798192"
 
 <table>
 
-<tr><td>**Descargar SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td>**Descargar SDK**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
 
-<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de la API de Python](https://docs.microsoft.com/python/api/pydocumentdb?view=azure-python)</td></tr>
+<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de la API de Python](https://docs.microsoft.com/python/api/azure-cosmos)</td></tr>
 
-<tr><td>**Instrucciones de instalación del SDK**</td><td>[Instrucciones de instalación del SDK de Python](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**Instrucciones de instalación del SDK**</td><td>[Instrucciones de instalación del SDK de Python](https://github.com/Azure/azure-cosmos-python)</td></tr>
 
-<tr><td>**Contribuya al SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td>**Contribuya al SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmos-python)</td></tr>
 
 <tr><td>**Primeros pasos**</td><td>[Introducción al SDK de Python](sql-api-python-application.md)</td></tr>
 
@@ -50,6 +50,12 @@ ms.locfileid: "34798192"
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="a-name300300"></a><a name="3.0.0"/>3.0.0
+* Compatibilidad para escrituras en varias regiones.
+* El espacio de nombres cambió a azure.cosmos.
+* Los conceptos de colección y documento cambiaron de nombre a contenedor y elemento, document_client cambió de nombre a cosmos_client. 
+
 ### <a name="a-name232232"></a><a name="2.3.2"/>2.3.2
 * Compatibilidad agregada para reintentos predeterminados en los problemas de conexión.
 

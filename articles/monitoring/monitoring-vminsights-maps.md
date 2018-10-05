@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: magoedte
-ms.openlocfilehash: 30f9a874853f4cb492d7a562d0d2439b73cf62dc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e75409e791c00dc0a5bec591aecfbaa019df8f81
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989981"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225169"
 ---
 # <a name="using-azure-monitor-for-vms-map-to-understand-application-components"></a>Uso de la asignación de Azure Monitor para máquinas virtuales para conocer los componentes de una aplicación
-Los componentes de aplicación detectados en máquinas virtuales de Windows y Linux que se ejecutan en su entorno de Azure se pueden observar de dos formas gracias a Azure Monitor para máquinas virtuales: directamente desde la máquina virtual o a través de los grupos de máquinas virtuales en Azure Monitor. 
+Los componentes de aplicación detectados en máquinas virtuales de Windows y Linux que se ejecutan en su entorno de Azure se pueden observar de dos formas gracias a Azure Monitor para máquinas virtuales: directamente desde la máquina virtual o a través de grupos de máquinas virtuales en Azure Monitor. 
 
-En este artículo le ayudamos a comprender la experiencia entre las dos perspectivas y a usar la característica de asignación. Para obtener más información sobre cómo configurar Azure Monitor para máquinas virtuales, consulte cómo [habilitar Azure Monitor para máquinas virtuales](monitoring-vminsights-onboard.md).
+En este artículo le ayudamos a comprender la experiencia entre las dos perspectivas y a usar la característica de asignación. Para obtener más información sobre cómo configurar Azure Monitor para máquinas virtuales, consulte el artículo [Enable Azure Monitor for VMs](monitoring-vminsights-onboard.md) (Habilitar Azure Monitor para máquinas virtuales).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).

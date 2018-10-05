@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b1f1c85cea9aa7c48478ef6ee1c9a4609a3df8e0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ff2a161cbc39cdb4cf35cad2b8bd403ef2d3260c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045133"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222174"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configuración de la unión a Azure Active Directory híbrido para dominios administrados
 
@@ -156,7 +156,7 @@ En la siguiente directiva se debe elegir **Todos**: **Los usuarios pueden regist
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Configurar los valores de la intranet local para el registro de dispositivos
 
-Para completar con éxito la unión a Azure AD híbrido de los dispositivos de Windows de nivel inferior, y para evitar las peticiones de certificados cuando los dispositivos se autentican en Azure AD, se puede insertar una directiva en los dispositivos unidos a un dominio para agregar las siguientes direcciones URL a la zona de intranet local en Internet Explorer:
+Para completar con éxito la combinación de Azure AD híbrido de los dispositivos de Windows de nivel inferior, y para evitar las peticiones de certificados cuando los dispositivos se autentican en Azure AD, se puede insertar una directiva en los dispositivos unidos a un dominio para agregar las siguientes direcciones URL a la zona de intranet local en Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
 

@@ -9,16 +9,22 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: be6f3efd74d013e9ddb02c44031dd6a402f00871
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918278"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409497"
 ---
-# <a name="archive-azure-monitoring-data"></a>Archivado de datos de supervisión de Azure
+# <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Archivado de datos de registro y métricas de Azure con Azure Storage
 
-Varias capas de su entorno de Azure generan datos de registros y de métricas que pueden archivarse en una cuenta de Azure Storage. Puede que desee hacer esto para conservar un historial de los datos de supervisión a lo largo del tiempo en un almacén económico y que no admite búsquedas, una vez que haya transcurrido el período de retención en Log Analytics o Azure Monitor. En este tutorial, se recorre el proceso de configuración del entorno de Azure para archivar datos en una cuenta de almacenamiento.
+Varias capas de su entorno de Azure generan datos de registros y de métricas que pueden archivarse en una cuenta de Azure Storage. Esto es algo que se puede hacer para conservar un historial de los datos de supervisión a lo largo del tiempo en un almacén económico y que no admite búsquedas, una vez que haya transcurrido su período de retención. 
+
+- Las métricas de la plataforma Azure Monitor se conservan durante 93 días. 
+- Los registros de diagnóstico de recursos solo aparecen si se enrutan a Log Analytics, donde tienen un período de retención configurable de un mínimo de 30 días. 
+- Las entradas del registros de actividad se conservan 90 días.  
+
+En este tutorial, se recorre el proceso de configuración del entorno de Azure para archivar datos en una cuenta de almacenamiento.
 
 > [!div class="checklist"]
 > * Creación de una cuenta de almacenamiento para conservar los datos de supervisión

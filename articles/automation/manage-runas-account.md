@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32a7b7026df1522abe2ca3dc7b212b06e08ff905
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: a8821b2e1be10cddafba04109041e76ef65f6a6a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544284"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433708"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Administración de cuentas de ejecución de Azure Automation
 
 Las cuentas de ejecución en Azure Automation se usan para proporcionar autenticación para administrar los recursos de Azure con los cmdlets de Azure.
 
-Cuando se crea una cuenta de ejecución, crea un nuevo usuario de la entidad de servicio en Azure Active Directory y asigna el rol Colaborador a este usuario en el nivel de suscripción.
+Cuando se crea una cuenta de ejecución, crea un nuevo usuario de la entidad de servicio en Azure Active Directory y asigna el rol Colaborador a este usuario en el nivel de suscripción. Para los runbooks que utilizan instancias de Hybrid Runbook Worker en máquinas virtuales de Azure, puede utilizar [Managed Identities for Azure Resources](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) en lugar de cuentas de ejecución para autenticarse en sus recursos de Azure.
 
 Existen dos tipos de cuentas de ejecución:
 

@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 479fd902ef68bf24306bcd699da0be08415592a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6ac31818a68aa2b4624410b423b7559b84275777
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956996"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409378"
 ---
-# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Crear, ver y administrar las alertas de métricas mediante Azure Monitor
+# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de métricas mediante Azure Monitor
 
 Las alertas de métricas en Azure Monitor proporcionan una forma de recibir notificaciones cuando una de sus métricas cruza un umbral. Las alertas de métricas funcionan en una amplia variedad de métricas de plataforma multidimensionales, métricas personalizadas y métricas personalizadas y estándar de Application Insights. En este artículo describiremos cómo crear, ver y administrar las reglas de alertas de métricas a través de Azure Portal y la CLI de Azure. También puede crear reglas de alertas de métricas mediante plantillas de Azure Resource Manager que se describe en [otro artículo](monitoring-enable-alerts-using-template.md).
 
 Puede obtener más información acerca del funcionamiento de las alertas de métricas en el artículo sobre [información general de las alertas de métricas](alert-metric-overview.md).
 
-## <a name="create-a-metric-alert-rule-using-azure-portal"></a>Crear una regla de alertas de métricas mediante Azure Portal
+## <a name="create-with-azure-portal"></a>Creación con Azure Portal
 
 En el siguiente procedimiento se describe cómo crear una regla de alertas de métricas en Azure Portal:
 
@@ -58,7 +58,7 @@ En el siguiente procedimiento se describe cómo crear una regla de alertas de m�
 > [!NOTE]
 > Las reglas de alertas de métricas creadas mediante el portal se crean en el mismo grupo de recursos que el recurso de destino.
 
-## <a name="view-and-manage-metric-alert-rules-using-azure-portal"></a>Ver y administrar reglas de alertas de métricas mediante Azure Portal
+## <a name="view-and-manage-with-azure-portal"></a>Visualización y administración con Azure Portal
 
 Puede ver y administrar las reglas de alertas de métricas mediante la hoja Administrar reglas de Alertas. En el siguiente procedimiento se muestra cómo puede ver las reglas de alertas de métricas y editar una de ellas.
 
@@ -80,7 +80,7 @@ Puede ver y administrar las reglas de alertas de métricas mediante la hoja Admi
 
 6. Haga clic en **Listo** para guardar los cambios.
 
-## <a name="create-view-and-manage-metric-alert-rules-using-azure-cli"></a>Crear, ver y administrar reglas de alertas de métricas mediante la CLI de Azure
+## <a name="with-azure-cli"></a>Con la CLI de Azure
 
 En las secciones anteriores se describía cómo crear, ver y administrar las reglas de alertas de métricas mediante Azure Portal. En esta sección se describe cómo hacer lo mismo con la multiplataforma [CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). La forma más rápida de comenzar a utilizar la CLI de Azure es a través de [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest). En este artículo, usamos Cloud Shell.
 

@@ -4,17 +4,17 @@ description: En este tutorial, va a implementar Azure Stream Analytics como un m
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/10/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 66d55c07493a540e36a08d48d6abbdc3d082b9b9
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 6997d40603bd6ebf39f8797a3e354e92c04da58d
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41918503"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422752"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Tutorial: Implementación de Azure Stream Analytics como un módulo de IoT Edge (versión preliminar)
 
@@ -50,7 +50,7 @@ Un dispositivo de Azure IoT Edge:
 
 Recursos en la nube:
 
-* Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) de nivel estándar en Azure. 
+* Un nivel gratis de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) en Azure. 
 
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Creación de un trabajo de Azure Stream Analytics
@@ -67,7 +67,7 @@ Cuando se crea un trabajo de Azure Stream Analytics para ejecutarse en un dispos
 
    | Campo | Valor |
    | ----- | ----- |
-   | Nombre | Especifique un nombre único para la cuenta de almacenamiento. | 
+   | NOMBRE | Especifique un nombre único para la cuenta de almacenamiento. | 
    | Ubicación | Elija una ubicación cercana a usted. |
    | Subscription | Elija la misma suscripción que IoT Hub. |
    | Grupos de recursos | Se recomienda usar el mismo grupo de recursos para todos los recursos de prueba que se crean en las guías de inicio rápido y los tutoriales de IoT Edge. Por ejemplo, **IoTEdgeResources**. |
@@ -231,7 +231,7 @@ Podrá observar que la temperatura de la máquina sube gradualmente hasta alcanz
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
 
-Si prevé seguir con el siguiente artículo recomendado, puede mantener los recursos y las configuraciones que ya ha creado y volverlos a utilizar. También puede seguir usando el mismo dispositivo IoT Edge como dispositivo de prueba. 
+Si prevé seguir con el siguiente artículo recomendado, puede mantener los recursos y las configuraciones que ya ha creado y volverlos a utilizar. También puede seguir usando el mismo dispositivo de IoT Edge como dispositivo de prueba. 
 
 En caso contrario, para evitar gastos, puede eliminar las configuraciones locales y los recursos de Azure que creó en este artículo. 
  

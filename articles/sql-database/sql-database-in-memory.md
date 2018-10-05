@@ -2,19 +2,22 @@
 title: Tecnologías en memoria de Azure SQL Database | Microsoft Docs
 description: Las tecnologías en memoria de Azure SQL Database mejoran notablemente el rendimiento de las cargas de trabajo transaccionales y de análisis.
 services: sql-database
-author: jodebrui
-manager: craigg
 ms.service: sql-database
-ms.custom: develop databases
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: jodebrui
 ms.author: jodebrui
-ms.openlocfilehash: f4e056e9f8461085df6ae447672e2c9ec91aa3ca
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: ''
+manager: craigg
+ms.date: 07/16/2018
+ms.openlocfilehash: 8fd430aa710c7e36133b40c7079b9d727774c68f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092410"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166935"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimización del rendimiento mediante las tecnologías en memoria de SQL Database
 
@@ -72,7 +75,7 @@ Vídeos detallados sobre las tecnologías:
 
 OLTP en memoria incluye tablas optimizadas para memoria, que se usan para almacenar los datos de los usuarios. Estas tablas deben caber en la memoria. Dado que administra la memoria directamente en el servicio de SQL Database, tenemos el concepto de una cuota para datos de usuario. Esta idea se conoce como *almacenamiento de OLTP en memoria*.
 
-Cada plan de tarifa de grupo elástico y de base de datos independiente admitido incluye una cantidad determinada de almacenamiento de OLTP en memoria. Consulte [Límites de los recursos basados en DTU para bases de datos únicas](sql-database-dtu-resource-limits-single-databases.md), [Límites de los recursos basados en DTU para grupos elásticos](sql-database-dtu-resource-limits-elastic-pools.md), [Límites de los recursos basados en núcleos virtuales para bases de datos únicas](sql-database-vcore-resource-limits-single-databases.md) y [Límites de los recursos basados en núcleos virtuales para grupos elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
+Cada plan de tarifa de grupo elástico y de base de datos única admitido incluye una cantidad determinada de almacenamiento de OLTP en memoria. Consulte [Límites de los recursos basados en DTU para bases de datos únicas](sql-database-dtu-resource-limits-single-databases.md), [Límites de los recursos basados en DTU para grupos elásticos](sql-database-dtu-resource-limits-elastic-pools.md), [Límites de los recursos basados en núcleos virtuales para bases de datos únicas](sql-database-vcore-resource-limits-single-databases.md) y [Límites de los recursos basados en núcleos virtuales para grupos elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Los siguientes elementos cuentan para su límite de almacenamiento de OLTP en memoria:
 
@@ -521,7 +524,7 @@ En una base de datos con el plan de tarifa P2, puede esperar un rendimiento nuev
 
 #### <a name="tools"></a>Herramientas
 
-- [Portal de Azure](https://portal.azure.com/)
+- [Azure Portal](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

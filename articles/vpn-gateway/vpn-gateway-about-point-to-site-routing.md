@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2018
 ms.author: anzaman
-ms.openlocfilehash: a0576e00d22b731f7ee9de3a9b021c0f52fc8ef9
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 620a2bf9221bdb7c46dc36a2b3ed23d853faff35
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702183"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031730"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Información sobre el enrutamiento de VPN de punto a sitio
 
@@ -148,7 +148,7 @@ Los clientes que usan Windows o cualquier otro SO compatible pueden acceder a to
 
 En este ejemplo, la conexión de puerta de enlace de VPN de punto a sitio es para VNet1. VNet1 no está conectada ni emparejada con ninguna otra red virtual, pero sí está conectada a un sitio local a través de una conexión VPN de sitio a sitio que no ejecuta BGP.
 
-Los clientes Windows pueden acceder a VNet1 y a la sucursal (Site1), pero las rutas a Site1 se deben agregar manualmente al cliente. Los clientes no Windows pueden acceder a VNet1, así como a Site1 local.
+Los clientes Windows y no Windows solo pueden acceder a VNet1.
 
 ![enrutamiento con una red virtual y una sucursal](./media/vpn-gateway-about-point-to-site-routing/5.jpg "enrutamiento con una red virtual y una sucursal")
 
@@ -162,7 +162,7 @@ Los clientes Windows pueden acceder a VNet1 y a la sucursal (Site1), pero las ru
 
 * Rutas agregadas a clientes Windows: 10.1.0.0/16, 192.168.0.0/24
 
-* Rutas agregadas a clientes no Windows: 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
+* Rutas agregadas a clientes no Windows: 10.1.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 

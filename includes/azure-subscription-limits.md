@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: c6ef868d80e628f9120acc0775179e89ccd03674
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: fdb05f48478d22eea90c3a2c0264e9c4c8640eb0
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979428"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47454384"
 ---
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
 | vCPU por [suscripción](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup> |20 |10 000 |
 | [Coadministradores](../articles/billing-add-change-azure-subscription-administrator.md) por suscripción |200 |200 |
-| [Cuentas de almacenamiento](../articles/storage/common/storage-quickstart-create-account.md) por región por suscripción<sup>2</sup> |200 |250 |
+| [Cuentas de almacenamiento](../articles/storage/common/storage-create-storage-account.md) por suscripción <sup>2</sup> |100 |100 |
 | [Servicios en la nube](../articles/cloud-services/cloud-services-choose-me.md) por suscripción |20 |200 |
 | [Redes locales](http://msdn.microsoft.com/library/jj157100.aspx) por suscripción |10 |500 |
 | Servidores de SQL Database por suscripción |6 |200 |
@@ -31,5 +31,5 @@ ms.locfileid: "45979428"
 
 <sup>1</sup>Recuento de instancias extrapequeñas como un vCPU hacia el límite de vCPU a pesar de utilizar un núcleo de CPU parcial.
 
-<sup>2</sup>El límite de la cuenta de almacenamiento incluye las cuentas de almacenamiento Estándar y Premium. Si necesita más de 200 cuentas de almacenamiento en una región dada, realice una solicitud a través del [servicio de soporte técnico de Azure](https://azure.microsoft.com/support/faq/). El equipo de Azure Storage revisará su caso empresarial y podría aprobar hasta 250 cuentas de almacenamiento para una región dada. 
+<sup>2</sup>El límite de la cuenta de almacenamiento incluye las cuentas de almacenamiento Estándar y Premium. 
 

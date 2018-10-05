@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/25/2018
 ms.author: alkohli
-ms.openlocfilehash: 0204445464a9d61b4e25be1d71373ce8394b32f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957678"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161937"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>Tutorial: Copia de datos a un dispositivo Azure Data Box 
 
@@ -233,7 +233,7 @@ Para garantizar la integridad de los datos, la suma de comprobación se calcula 
 
 Si su equipo es un host Linux, use una utilidad de copia similar a Robocopy. Algunas de las alternativas disponibles en Linux son [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) o [Ultracopier](https://ultracopier.first-world.info/).  
 
-El comando cp es una de los mejores opciones para copiar un directorio. Para más información sobre cómo usarlo, consulte las [páginas sobre cp](http://man7.org/linux/man-pages/man1/cp.1.html).
+El comando `cp` es una de las mejores opciones para copiar un directorio. Para más información sobre cómo usarlo, consulte las [páginas sobre cp](http://man7.org/linux/man-pages/man1/cp.1.html).
 
 Si usa la opción rsync para una copia multiproceso, siga estas directrices:
 
@@ -273,7 +273,7 @@ El paso final consiste en preparar el dispositivo para el envío. En este paso, 
    
     ![Preparación para el envío 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
 
-2. Si la suma de comprobación no está habilitada, se mostrará la opción de habilitarla. Para preservar la integridad de los datos, se recomienda realizar la validación de la suma de comprobación. Seleccione **Enable checksum** (Habilitar suma de comprobación) para iniciar el cálculo de la suma de comprobación, que puede tardar algún tiempo dependiendo del tamaño de los datos. Haga clic en **Start preparation** (Iniciar preparación).
+2. De forma predeterminada, las sumas de comprobación se procesan alineadas durante la acción de preparar para enviar. El proceso de la suma de comprobación puede tardar un tiempo en función del tamaño de los datos. Haga clic en **Start preparation** (Iniciar preparación).
     1. Los recursos compartidos de dispositivo se desconectan y el dispositivo se bloquea cuando se prepara para el envío.
         
         ![Preparación para el envío 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 

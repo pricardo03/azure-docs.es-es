@@ -7,19 +7,16 @@ ms.service: firewall
 ms.topic: article
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 536c0915cae17aa6f4201c62eae5f5b077805274
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6dc7d20d31d9399355b2b3de90ea90f2f3e07af5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999484"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224654"
 ---
 # <a name="fqdn-tags-overview"></a>Información general de las etiquetas FQDN
 
 Una etiqueta FQDN representa un grupo de nombres de dominio completo (FQDN) asociados con los servicios de Microsoft conocidos. Puede usar una etiqueta FQDN en las reglas de una aplicación para permitir que pase el tráfico de red saliente necesario a través del firewall.
-
->[!NOTE]
->La característica de etiquetas FQDN solo está disponible actualmente en Azure PowerShell y REST.
 
 Por ejemplo, para permitir manualmente el tráfico de red de Windows Update a través del firewall, deberá crear varias reglas de aplicación de acuerdo con la documentación de Microsoft. Si usa etiquetas FQDN, puede crear una regla de aplicación e incluir la etiqueta **Windows Update** para que el tráfico de red que apunta a los puntos de conexión de Windows Update pueda fluir a través del firewall.
 
@@ -36,6 +33,9 @@ En la siguiente tabla se muestran las etiquetas FQDN actuales que puede usar. Mi
 |Microsoft Active Protection Service (MAPS)|Permite el acceso saliente a [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
 |App Service Environment (ASE)|Permite el acceso saliente hacia el tráfico de la plataforma de ASE. Esta etiqueta no incluye los puntos de conexión de SQL y Storage específicos del cliente creados por ASE. Dichos puntos de conexión deben habilitarse a través de los [puntos de conexión de servicio](../virtual-network/tutorial-restrict-network-access-to-resources.md) o se deben agregar manualmente.|
 |Azure Backup|Permite el acceso saliente a los servicios de Azure Backup.
+
+> [!NOTE]
+> Al seleccionar Etiqueta FQDN en una regla de aplicación, en el campo protocolo: puerto debe estar seleccionada la opción **https**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

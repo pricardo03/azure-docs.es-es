@@ -5,15 +5,15 @@ services: iot-accelerators
 author: dominicbetts
 ms.service: iot-accelerators
 ms.topic: include
-ms.date: 08/16/2018
+ms.date: 09/28/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: c6e57d5094f455983b8b474b6930f628d654e457
-ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
+ms.openlocfilehash: 5eb3c08792b760bf66e443f79762d91210706c92
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43371024"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47435119"
 ---
 En el primer escenario, debe agregar un tipo de telemetría nuevo al dispositivo **Refrigerador** existente de Contoso.
 
@@ -73,6 +73,7 @@ Para completar esta guía paso a paso, necesita:
 
 * Código de Visual Studio. También puede [descargar Visual Studio Code para Mac, Linux y Windows](https://code.visualstudio.com/download).
 * .NET Core. También puede descargar [.NET Core para Mac, Linux y Windows](https://www.microsoft.com/net/download).
+* [C# para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * Postman También puede descargar [Postman para Mac, Linux y Windows](https://www.getpostman.com/apps).
 * Una instancia de [IoT Hub implementada en la suscripción de Azure](../articles/iot-hub/iot-hub-create-through-portal.md). Necesita la cadena de conexión de IoT Hub para completar los pasos descritos en esta guía. Puede obtener la cadena de conexión de Azure Portal.
 * Una base de datos de Cosmos DB que usa SQL API y que está configurada para tener una [coherencia fuerte](../articles/cosmos-db/manage-account.md). Necesita la cadena de conexión de la base de datos de Cosmos DB para completar los pasos descritos en esta guía. Puede obtener la cadena de conexión de Azure Portal.
@@ -89,13 +90,13 @@ En las instrucciones de este artículo se asume que está usando Windows. Si usa
 
 ### <a name="download-the-microservices"></a>Descargar los microservicios
 
-Descargue y descomprima el [microservicio del adaptador de almacenamiento](https://github.com/Azure/pcs-storage-adapter-dotnet/archive/master.zip) desde GitHub en una ubicación adecuada del equipo local.
+Descargue y descomprima los [microservicios de supervisión remota](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) desde GitHub en una ubicación adecuada del equipo local. En este artículo, se presupone que el nombre de esta carpeta es **remote-monitoring-services-dotnet-master**.
 
-Descargue y descomprima el [microservicio de simulación de dispositivo](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) desde GitHub en una ubicación adecuada del equipo local.
+Descargue y descomprima el [microservicio de simulación de dispositivo](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) desde GitHub en una ubicación adecuada del equipo local. En este artículo, se presupone que el nombre de esta carpeta es **device-simulation-dotnet-master**.
 
 ### <a name="run-the-storage-adapter-microservice"></a>Ejecute el microservicio del adaptador de almacenamiento.
 
-Abra la carpeta **pcs-storage-adapter-dotnet-master** en Visual Studio Code. Haga clic en cualquiera de los botones **Restaurar** para corregir cualquier dependencia sin resolver.
+Abra la carpeta **remote-monitoring-services-dotnet-master\storage-adapter** en Visual Studio Code. Haga clic en cualquiera de los botones **Restaurar** para corregir cualquier dependencia sin resolver.
 
 Abra el archivo **.vscode/launch.json** y asigne su cadena de conexión de Cosmos DB a la variable de entorno **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING**.
 
@@ -117,20 +118,14 @@ En esta sección, agregará un nuevo tipo de telemetría de **temperatura intern
 
     | Origen | Destino |
     | ------ | ----------- |
-    | Services\Data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
-    | Services\Data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
-    | Services\Data\devicemodels\scripts\Reboot-method.js | C:\temp\devicemodels\scripts\Reboot-method.js |
-    | Services\Data\devicemodels\scripts\FirmwareUpdate-method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-method.js |
-    | Services\Data\devicemodels\scripts\EmergencyValveRelease-method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-method.js |
-    | Services\Data\devicemodels\scripts\IncreasePressure-method.js | C:\temp\devicemodels\scripts\IncreasePressure-method.js |
+    | Services\data\devicemodels\chiller-01.json | C:\temp\devicemodels\chiller-01.json |
+    | Services\data\devicemodels\scripts\chiller-01-state.js | C:\temp\devicemodels\scripts\chiller-01-state.js |
+    | Services\data\devicemodels\scripts\Reboot-method.js | C:\temp\devicemodels\scripts\Reboot-method.js |
+    | Services\data\devicemodels\scripts\FirmwareUpdate-method.js | C:\temp\devicemodels\scripts\FirmwareUpdate-method.js |
+    | Services\data\devicemodels\scripts\EmergencyValveRelease-method.js | C:\temp\devicemodels\scripts\EmergencyValveRelease-method.js |
+    | Services\data\devicemodels\scripts\IncreasePressure-method.js | C:\temp\devicemodels\scripts\IncreasePressure-method.js |
 
 1. Abra el archivo **C:\temp\devicemodels\chiller-01.json**.
-
-1. Actualice el valor **SchemaVersion** de la siguiente manera:
-
-    ```json
-    "SchemaVersion": "1.0.0",
-    ```
 
 1. En la sección **InitialState**, agregue las dos definiciones siguientes:
 
@@ -422,7 +417,7 @@ En esta sección, probará los tipos de dispositivo que creó en las secciones a
 
 Abra la carpeta **device-simulation-dotnet-master** que descargó de GitHub en una nueva instancia de Visual Studio Code. Haga clic en cualquiera de los botones **Restaurar** para corregir cualquier dependencia sin resolver.
 
-Abra el archivo **.vscode/launch.json** y asigne su cadena de conexión de IoT Hub a la variable de entorno **PCS_IOTHUB_CONNSTRING**.
+Abra el archivo **.vscode/launch.json** y asigne su cadena de conexión de IoT Hub a la variable de entorno **PCS_IOTHUB_CONNSTRING**. En el mismo archivo, agregue la variable de entorno **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** y asigne la cadena de conexión de la base de datos de Cosmos DB.
 
 Abra el archivo **WebService/Properties/launchSettings.json** y asigne su cadena de conexión de IoT Hub a la variable de entorno **PCS_IOTHUB_CONNSTRING**.
 
@@ -466,7 +461,7 @@ Para configurar Postman:
 
 1. Haga clic en **File > Import** (Archivo > Importar). A continuación, haga clic en **Choose Files** (Elegir archivos).
 
-1. Vaya a la carpeta **device-simulation-dotnet/docs/postman**. Seleccione **Azure IoT Device Simulation solution accelerator.postman_collection** (accelerator.postman_collection de la solución Simulación de dispositivo de Azure IoT) y **Azure IoT Device Simulation solution accelerator.postman_environment** (accelerator.postman_environment de la solución Simulación de dispositivo de Azure IoT) y haga clic en **Open** (Abrir).
+1. Vaya a la carpeta **device-simulation-dotnet-master/docs/postman**. Seleccione **Azure IoT Device Simulation solution accelerator.postman_collection** (accelerator.postman_collection de la solución Simulación de dispositivo de Azure IoT) y **Azure IoT Device Simulation solution accelerator.postman_environment** (accelerator.postman_environment de la solución Simulación de dispositivo de Azure IoT) y haga clic en **Open** (Abrir).
 
 1. Expanda el **Acelerador de soluciones de simulación de dispositivos de Azure IoT** a las solicitudes que se puede enviar.
 

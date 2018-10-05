@@ -1,22 +1,23 @@
 ---
-title: Inicio rápido de Node.js para Azure Cognitive Services, Bing Video Search API | Microsoft Docs
-description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Video Search API en Microsoft Cognitive Services en Azure.
+title: 'Guía de inicio rápido: Bing Video Search API, Node.js'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Video Search API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: be9cbd56a1db1f9df78ec6f1c378d803c0a37151
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a4ee4b0c0f4ce46110cebf95cdf927f8df3567d0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382114"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220399"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-nodejs"></a>Inicio rápido para Bing Video Search API con Node.js
+# <a name="quickstart-bing-video-search-api-with-nodejs"></a>Guía de inicio rápido: Bing Video Search API con Node.js
 
 En este artículo se detalla cómo usar Bing Video Search API, que forma parte de Microsoft Cognitive Services en Azure. Si bien en este artículo se usa Node.js, la API es un servicio web RESTful compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON. 
 
@@ -24,7 +25,7 @@ El ejemplo está escrito en JavaScript y se ejecuta con Node.js 6.
 
 Consulte la [referencia de la API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) para obtener detalles técnicos acerca de las API.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Bing Search APIs**. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) es suficiente para esta guía de inicio rápido. Necesitará la clave de acceso que se le proporcionó al activar la versión de evaluación gratuita, o puede usar una clave de suscripción de pago desde su panel de Azure.
 
@@ -33,7 +34,7 @@ Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azu
 [Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) devuelve resultados relacionados con los vídeos desde el motor de búsqueda de Bing.
 
 1. Cree un nuevo proyecto de Node.js en su IDE o editor favorito.
-2. Agregue el código proporcionado a continuación.
+2. Agregue el código que se proporciona a continuación.
 3. Reemplace el valor `subscriptionKey` por una clave de acceso válida para la suscripción.
 4. Ejecute el programa.
 
@@ -97,7 +98,7 @@ bing_video_search(term);
 
 **Respuesta**
 
-Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente ejemplo: 
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
 ```json
 {
@@ -208,7 +209,7 @@ Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Vídeos de página](paging-videos.md)
+> [Paginación de vídeos](paging-videos.md)
 > [Cambio de tamaño y recorte de miniaturas](resize-and-crop-thumbnails.md)
 
 ## <a name="see-also"></a>Otras referencias 

@@ -1,20 +1,20 @@
 ---
-title: Ejemplos de código de Azure Content Moderator | Microsoft Docs
+title: 'Ejemplos de código: Content Moderator, .NET'
 description: Uso de Content Moderator en sus aplicaciones
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: sample
 ms.date: 01/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: a7f5b0a7433631e303de47667871cc1354053c08
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c5465a2de0924037eb93b9de652e93e85f166737
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380803"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223158"
 ---
 # <a name="net-sdk-samples"></a>Ejemplos de SDK de .NET
 
@@ -28,14 +28,14 @@ En la lista siguiente se incluyen vínculos a ejemplos de código compilados med
 - **Imágenes personalizadas**: [modere con listas de imágenes personalizadas](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageListManagement/Program.cs). Consulte el [inicio rápido](image-lists-quickstart-dotnet.md).
 
 > [!NOTE]
-> Hay un límite máximo de **5 listas de imágenes** y cada una de ellas **no debe superar las 10 000 imágenes**.
+> Hay un límite máximo de **5 listas de imágenes** y cada una de ellas **no debe superar las 10 000 imágenes**.
 >
 
 - **Moderación de texto**: [examine texto para buscar palabras soeces e información personal identificable (DCP)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). Consulte el [inicio rápido](text-moderation-quickstart-dotnet.md).
 - **Términos personalizados**: [modere con listas de términos personalizados](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs). Consulte el [inicio rápido](term-lists-quickstart-dotnet.md).
 
 > [!NOTE]
-> Hay un límite máximo de **5 listas de términos** y cada lista **no debe superar los 10 000 términos**.
+> Hay un límite máximo de **5 listas de términos** y cada lista **no debe superar los 10 000 términos**.
 >
 
 - **Moderación de vídeos**: [examine un vídeo para buscar contenido explícito y para adultos y obtener resultados](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoModeration/Program.cs). Consulte el [inicio rápido](video-moderation-api.md).

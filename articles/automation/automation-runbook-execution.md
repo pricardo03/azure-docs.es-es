@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6e449c1216fabf64da2b2abb59a7066fa30e332d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: b577f697f4467656166b83ea78efdfe6d742941f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982987"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032536"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 
@@ -145,7 +145,8 @@ De esta forma se protege el servicio impidiéndose que los runbooks se ejecuten 
 
 Si el runbook no tiene puntos de control o el trabajo no había alcanzado el primer punto de control antes de la descarga, se reinicia desde el principio.
 
-Para las tareas de larga ejecución, se recomienda usar un [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Los trabajos Hybrid Runbook Worker no están limitados por la distribución equilibrada y no tienen una limitación de cuánto tiempo se puede ejecutar un runbook.
+Para las tareas de larga ejecución, se recomienda usar un [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Los trabajos Hybrid Runbook Worker no están limitados por la distribución equilibrada y no tienen una limitación de cuánto tiempo se puede ejecutar un runbook. Los demás [límites](../azure-subscription-service-limits.md#automation-limits) de trabajo se aplican a los espacios aislados de Azure y a Hybrid Runbook Workers.
+
 
 Si usa un runbook de flujo de trabajo de PowerShell, al crear un runbook, debe asegurarse de que el tiempo para ejecutar las actividades entre dos puntos de control no supera las tres horas. Puede que necesite agregar puntos de control a un runbook para asegurarse de que no alcanza este límite de tres horas ni divide operaciones de ejecución prolongada. Por ejemplo, su runbook podría realizar una reindexación en una gran base de datos SQL. Si esta operación no se completa dentro del límite de distribución equilibrada, el trabajo se descarga y se reinicia desde el principio. En este caso, debe dividir la operación de reindexación en varios pasos, como volver a indexar una tabla a la vez y, a continuación, inserte un punto de control después de cada operación, de modo que el trabajo se pueda reanudar después de la última operación para completar.
 

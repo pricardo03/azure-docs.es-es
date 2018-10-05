@@ -1,22 +1,23 @@
 ---
-title: Moderación de contenido de Facebook con Azure Content Moderator | Microsoft Docs
-description: Moderación de páginas de Facebook con Content Moderator basado en aprendizaje automático
+title: 'Tutorial: Moderación de contenido de Facebook - Azure Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Modere páginas de Facebook con Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: 66caea65c21bb1f8bb6efa9b50c917599bb71e2f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ead8c1d445bf32ecaaf236b4e73c2a583c755049
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093984"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223945"
 ---
-# <a name="facebook-content-moderation-with-content-moderator"></a>Moderación de contenido de Facebook con Content Moderator
+# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Tutorial: Moderación de contenido de Facebook con Content Moderator
 
 En este tutorial, aprenderá a utilizar Content Moderator basado en aprendizaje automático para ayudar a moderar los comentarios y las publicaciones de Facebook.
 

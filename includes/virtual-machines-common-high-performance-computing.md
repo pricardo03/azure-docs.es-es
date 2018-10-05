@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 5a6c5498b4607719199363b5f6d93d3b42ccec0d
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 77da95ce0d37e8d0b35125f0cc8dc33376a52259
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967807"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47401621"
 ---
 Las organizaciones tienen necesidades informáticas a gran escala. Las cargas de trabajo de Big Compute incluyen el diseño y análisis de ingeniería, los cálculos de riesgos financieros, la representación de imágenes, los modelos complejos, las simulaciones de Monte Carlo, etc. 
 
@@ -162,7 +162,7 @@ Las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtual
 ### <a name="data-and-analytics"></a>Datos y análisis
 * [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Factoría de datos](../articles/data-factory/introduction.md)
-* [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
+* [Data Lake Storage Gen1](../articles/data-lake-store/data-lake-store-overview.md)
 * [Databricks](../articles/azure-databricks/what-is-azure-databricks.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
 

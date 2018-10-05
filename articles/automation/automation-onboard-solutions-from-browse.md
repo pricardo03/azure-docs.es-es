@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 0a624d850b8c3260acb24cb17566090e8ad0043e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5bb36c693db5b2d7d46b772fd8b92bcda3667dc7
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233944"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039435"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitación de las soluciones Update Management, Change Tracking e Inventory en varias máquinas virtuales
 
@@ -43,17 +43,62 @@ La siguiente imagen es de Update Management. Change Tracking e Inventory tienen 
 
 La lista de máquinas virtuales se filtra para mostrar solo las que se encuentran en la misma suscripción y ubicación. Si las máquinas virtuales están en más de tres grupos de recursos, se seleccionan los tres primeros.
 
+### <a name="resource-group-limit"></a> Limitaciones de incorporación
+
+El número de grupos de recursos que puede usar para incorporar está limitado por los [límites de implementación de Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Las implementaciones de Resource Manager, que no se deben confundir con las implementaciones de actualizaciones, están limitadas a 5 grupos de recursos por implementación. Para garantizar la integridad de la incorporación, dos de esos grupos de recursos están reservados para configurar el área de trabajo de Log Analytics, la cuenta de Automation y los recursos relacionados. Esto le deja tres grupos de recursos para seleccionar para la implementación.
+
 Use los controles de filtro para seleccionar máquinas virtuales de distintas suscripciones, ubicaciones y grupos de recursos.
 
 ![Habilitar la solución Update Management](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Revise las opciones del área de trabajo de Log Analytics y de la cuenta de Automation. De forma predeterminada están seleccionadas un área de trabajo y una cuenta de Automation nuevas. Si tiene una área de trabajo de Log Analytics y una cuenta de Automation existentes que desee usar, haga clic en **cambiar** para seleccionarlas en la página **Configuración**. Cuando termine, haga clic en **Guardar**.
+Revise las opciones del área de trabajo de Log Analytics y de la cuenta de Automation. De forma predeterminada, se seleccionan un área de trabajo y una cuenta de Automation existentes. Si quiere usar un área de trabajo de Log Analytics y una cuenta de Automation diferentes, haga clic en **PERSONALIZAR** para seleccionarlas en la página **Configuración personalizada**. Al elegir un área de trabajo de Log Analytics, se realiza una comprobación para determinar si está vinculada con una cuenta de Automation. Si se encuentra una cuenta de Automation vinculada, verá la siguiente pantalla. Cuando termine, haga clic en **Aceptar**.
 
 ![Seleccionar área de trabajo y cuenta](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
+
+Si el área de trabajo seleccionada no está vinculada a una cuenta de Automation, verá la siguiente pantalla. Seleccione una cuenta de Automation y haga clic en **Aceptar** cuando haya terminado.
+
+![No hay área de trabajo](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
 Anule la selección de las casillas que haya junto a las máquinas virtuales que no desee habilitar. Ya se ha anulado la selección de las máquinas virtuales que no se puedan habilitar.
 
 Haga clic en **Habilitar** para habilitar la solución. La solución tarda hasta 15 minutos en habilitarse.
+
+## <a name="unlink-workspace"></a>Unlink workspace (Desvincular área de trabajo)
+
+Las siguientes soluciones dependen de un área de trabajo de Log Analytics:
+
+* [Administración de actualizaciones](automation-update-management.md)
+* [Seguimiento de cambios](automation-change-tracking.md)
+* [Inicio y detención de máquinas virtuales durante las horas de trabajo](automation-solution-vm-management.md)
+
+Si decide que ya no desea integrar su cuenta de Automation con Log Analytics, puede desvincular la cuenta directamente desde Azure Portal. Antes de continuar, primero deberá quitar las soluciones mencionadas anteriormente; en caso contrario, este proceso no podrá continuar. Revise el artículo de la solución concreta que ha importado para conocer los pasos necesarios para quitarla.
+
+Después de quitar estas soluciones, puede realizar los pasos siguientes para desvincular la cuenta de Automation.
+
+> [!NOTE]
+> Algunas soluciones que incluyen versiones anteriores de la solución de supervisión de SQL Azure pueden haber creado recursos de automatización y también puede que tengan que quitarse antes de desvincularse del área de trabajo.
+
+1. En Azure Portal, abra su cuenta de Automation y, en la página de la cuenta de Automation, seleccione **Área de trabajo vinculada** en la sección **Recursos relacionados** de la izquierda.
+
+1. En la página Desvincular área de trabajo, haga clic en **Desvincular área de trabajo**.
+
+   ![Página Desvincular área de trabajo](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
+
+   Recibirá un aviso para comprobar que desea continuar.
+
+1. Aunque Azure Automation trate de desvincular la cuenta del área de trabajo de Log Analytics, puede seguir el progreso en **Notificaciones** en el menú.
+
+Si ha usado la solución de administración de actualizaciones, también puede quitar los siguientes elementos que ya no necesite después de quitar la solución.
+
+* Programaciones de actualizaciones: cada una tendrá nombres que coinciden con las implementaciones de las actualizaciones que ha creado.
+
+* Los grupos de Hybrid Worker que se han creado para la solución: cada uno de ellos se llamará de forma similar a machine1.contoso.com_9ceb8108 - 26 c 9-4051-b6b3-227600d715c8).
+
+Si ha usado la solución de inicio y detención de máquinas virtuales durante las horas de trabajo, también puede quitar los siguientes elementos que ya no necesite después de quitar la solución.
+
+* Programaciones de runbook de inicio y detención de máquinas virtuales
+* Runbooks de inicio y detención de máquinas virtuales
+* variables
 
 ## <a name="troubleshooting"></a>solución de problemas
 

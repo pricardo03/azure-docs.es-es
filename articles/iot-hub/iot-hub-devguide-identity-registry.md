@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 10c1749a3065d429944def28f912cc2197a294b1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 041eed3a65faeb4e6c19cd9220a9e6393e18532a
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978813"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452214"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Descripción del registro de identidades de un centro de IoT
 
@@ -44,10 +44,10 @@ El registro de identidades de IoT Hub muestra las operaciones siguientes:
 * Exportar todas las identidades de dispositivo a Azure Blob Storage
 * Importar las identidades de dispositivo desde Azure Blob Storage
 
-Todas estas operaciones pueden usar la simultaneidad optimista, tal como se especifica en [RFC7232][lnk-rfc7232].
+Todas estas operaciones pueden usar la simultaneidad optimista, tal como se especifica en [RFC7232](https://tools.ietf.org/html/rfc7232).
 
 > [!IMPORTANT]
-> La única manera de recuperar todas las identidades en un registro de identidades de un centro de IoT es usar la funcionalidad [Exportar][lnk-export].
+> La única manera de recuperar todas las identidades en un registro de identidades de un centro de IoT es usar la funcionalidad [Exportar](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
 Un registro de identidades de un centro de IoT:
 
@@ -58,39 +58,40 @@ Un registro de identidades de un centro de IoT:
 Una solución de IoT normalmente tiene un almacén independiente específico de la solución que contiene los metadatos específicos de la aplicación. Por ejemplo, el almacén específico de la solución en una solución de un edificio inteligente puede registrar la sala en la que se implementa un sensor de temperatura.
 
 > [!IMPORTANT]
-> Solo se debe utilizar el registro de identidad para las operaciones de aprovisionamiento y administración de dispositivos. Las operaciones de alto rendimiento en tiempo de ejecución no deben depender de la realización de operaciones en el registro de identidad. Por ejemplo, comprobar el estado de conexión de un dispositivo antes de enviar un comando no es un modelo compatible. Asegúrese de comprobar las [tasas de limitación][lnk-quotas] para el registro de identidad y el patrón de [latido de dispositivo][lnk-guidance-heartbeat].
+> Solo se debe utilizar el registro de identidad para las operaciones de aprovisionamiento y administración de dispositivos. Las operaciones de alto rendimiento en tiempo de ejecución no deben depender de la realización de operaciones en el registro de identidad. Por ejemplo, comprobar el estado de conexión de un dispositivo antes de enviar un comando no es un modelo compatible. Asegúrese de comprobar las [tasas de limitación](iot-hub-devguide-quotas-throttling.md) para el registro de identidad y el patrón de [latido de dispositivo](iot-hub-devguide-identity-registry.md#device-heartbeat).
 
 ## <a name="disable-devices"></a>Deshabilitar dispositivos
 
 Puede deshabilitar los dispositivos actualizando la propiedad **status** de una identidad en el registro de identidad. Normalmente, esta propiedad se usa en dos escenarios:
 
-* Durante el proceso de orquestación de aprovisionamiento. Para más información, consulte [Aprovisionamiento de dispositivos][lnk-guidance-provisioning].
+* Durante el proceso de orquestación de aprovisionamiento. Para más información, consulte [Aprovisionamiento de dispositivos](iot-hub-devguide-identity-registry.md#device-provisioning).
+
 * Si por cualquier motivo cree que un dispositivo está en peligro o no está autorizado.
 
 Esta característica no está disponible para los módulos.
 
 ## <a name="import-and-export-device-identities"></a>Importar y exportar identidades de dispositivo
 
-Use operaciones asincrónicas en el [punto de conexión del proveedor de recursos de IoT Hub][lnk-endpoints] para exportar identidades de dispositivo de forma masiva desde un registro de identidades de una instancia de IoT Hub. Las exportaciones son trabajos de ejecución prolongada que usan un contenedor de blobs proporcionado por el cliente para guardar los datos de identidad del dispositivo que se leen en el registro de identidad.
+Use operaciones asincrónicas en el [punto de conexión del proveedor de recursos de IoT Hub](iot-hub-devguide-endpoints.md) para exportar identidades de dispositivo de forma masiva desde un registro de identidades de una instancia de IoT Hub. Las exportaciones son trabajos de ejecución prolongada que usan un contenedor de blobs proporcionado por el cliente para guardar los datos de identidad del dispositivo que se leen en el registro de identidad.
 
-Use operaciones asincrónicas en el [punto de conexión del proveedor de recursos de IoT Hub][lnk-endpoints] para importar identidades de dispositivo de forma masiva en un registro de identidades de una instancia de IoT Hub. Las importaciones son trabajos de ejecución prolongada que usan los datos de un contenedor de blobs proporcionado por el cliente para escribir datos de identidad del dispositivo en el registro de identidad.
+Use operaciones asincrónicas en el [punto de conexión del proveedor de recursos de IoT Hub](iot-hub-devguide-endpoints.md) para importar identidades de dispositivo de forma masiva en un registro de identidades de una instancia de IoT Hub. Las importaciones son trabajos de ejecución prolongada que usan los datos de un contenedor de blobs proporcionado por el cliente para escribir datos de identidad del dispositivo en el registro de identidad.
 
-Para más información sobre las API de importación y exportación, consulte [API de REST del proveedor de recursos de IoT Hub][lnk-resource-provider-apis]. Para más información sobre la ejecución de trabajos de importación y exportación, consulte [Administración de identidades de dispositivos de IoT Hub de forma masiva][lnk-bulk-identity].
+Para más información sobre las API de importación y exportación, consulte [API REST del proveedor de recursos de IoT Hub](/rest/api/iothub/iothubresource). Para más información sobre la ejecución de trabajos de importación y exportación, consulte [Administración de identidades de dispositivos de IoT Hub de forma masiva](iot-hub-bulk-identity-mgmt.md).
 
 ## <a name="device-provisioning"></a>Aprovisionamiento de dispositivos
 
 Los datos del dispositivo que almacena una solución de IoT determinada dependen de los requisitos específicos de la solución. Sin embargo, como mínimo, una solución debe almacenar identidades del dispositivo y claves de autenticación. El IoT Hub incluye un registro de identidades que puede almacenar valores para cada dispositivo como identificadores, claves de autenticación y códigos de estado. Una posible solución consiste en usar otros servicios de Azure como Table Storage, Blob Storage o Cosmos DB para almacenar datos de dispositivos adicionales.
 
-*Aprovisionamiento de dispositivos* es el proceso de agregar los datos iniciales del dispositivo a los almacenes de la solución. Para habilitar un nuevo dispositivo y que se conecte al centro, debe agregar un nuevo identificador de dispositivo y claves al registro de identidades del centro de IoT. Como parte del proceso de aprovisionamiento, es posible que tenga que inicializar datos específicos del dispositivo en otros almacenes de la solución. También puede usar el servicio Azure IoT Hub Device Provisioning para habilitar el aprovisionamiento Just-In-Time sin intervención del usuario de uno o varios centros de IoT sin necesidad de ninguna intervención humana. Para más información, vea la [documentación del servicio de aprovisionamiento][lnk-dps].
+*Aprovisionamiento de dispositivos* es el proceso de agregar los datos iniciales del dispositivo a los almacenes de la solución. Para habilitar un nuevo dispositivo y que se conecte al centro, debe agregar un nuevo identificador de dispositivo y claves al registro de identidades del centro de IoT. Como parte del proceso de aprovisionamiento, es posible que tenga que inicializar datos específicos del dispositivo en otros almacenes de la solución. También puede usar el servicio Azure IoT Hub Device Provisioning para habilitar el aprovisionamiento Just-In-Time sin intervención del usuario de uno o varios centros de IoT sin necesidad de ninguna intervención humana. Para más información, consulte la [documentación del servicio de aprovisionamiento](https://azure.microsoft.com/documentation/services/iot-dps).
 
 ## <a name="device-heartbeat"></a>Latido de dispositivo
 
-El registro de identidades de IoT Hub contiene un campo llamado **connectionState**. Utilice únicamente el campo **connectionState** durante el desarrollo y la depuración. Las soluciones de IoT no deben consultar el campo en tiempo de ejecución. Por ejemplo, no hay que consultar el campo **connectionState** para comprobar si el dispositivo está conectado antes de enviar un mensaje de la nube al dispositivo o un SMS. Se recomienda suscribirse al [**evento dispositivo** desconectado][lnk-devguide-evgrid-evtype] en Event Grid para obtener alertas y supervisar el estado de conexión del dispositivo. Siga este [tutorial][lnk-howto-evgrid-connstate] para aprender a integrar eventos de dispositivo conectado y dispositivo desconectado de IoT Hub en la solución de IoT.
+El registro de identidades de IoT Hub contiene un campo llamado **connectionState**. Utilice únicamente el campo **connectionState** durante el desarrollo y la depuración. Las soluciones de IoT no deben consultar el campo en tiempo de ejecución. Por ejemplo, no hay que consultar el campo **connectionState** para comprobar si el dispositivo está conectado antes de enviar un mensaje de la nube al dispositivo o un SMS. Se recomienda suscribirse al [**evento dispositivo desconectado**](iot-hub-event-grid.md#event-types) en Event Grid para obtener alertas y supervisar el estado de conexión del dispositivo. Siga este [tutorial](iot-hub-how-to-order-connection-state-events.md) para aprender a integrar eventos de dispositivo conectado y dispositivo desconectado de IoT Hub en la solución de IoT.
 
 Si la solución de IoT necesita saber si un dispositivo está conectado, debe implementar el *patrón de latido*.
 En el patrón de latido, el dispositivo envía mensajes de dispositivo a la nube al menos una vez en un período de tiempo predeterminado (por ejemplo, al menos una vez cada hora). Por lo tanto, incluso si un dispositivo no tiene ningún dato que enviar, seguirá enviando un mensaje de dispositivo a la nube vacío (normalmente con una propiedad que lo identifica como un latido). En el lado del servicio, la solución mantiene un mapa con el último latido recibido para cada dispositivo. Si solución si no recibe del dispositivo un mensaje de latido en el tiempo esperado, da por supuesto que hay un problema con un dispositivo.
 
-Una implementación más compleja podría incluir la información de [Azure Monitor][lnk-AM] y [Azure Resource Health][lnk-ARH] para identificar los dispositivos que están intentando conectarse o comunicarse sin éxito. Consulte la guía [Monitor con diagnósticos][lnk-devguide-mon]. Al implementar el patrón de latido, asegúrese de echar un vistazo a las [cuotas y limitaciones de IoT Hub][lnk-quotas].
+Una implementación más compleja podría incluir la información de [Azure Monitor](../azure-monitor/index.yml) y [Azure Resource Health](../service-health/resource-health-overview.md) para identificar los dispositivos que están intentando conectarse o comunicarse sin éxito. Consulte la guía [Monitor con diagnósticos](iot-hub-monitor-resource-health.md). Al implementar el patrón de latidos, asegúrese de echar un vistazo a [las cuotas y limitaciones de IoT Hub](iot-hub-devguide-quotas-throttling.md).
 
 > [!NOTE]
 > Si una solución de IoT utiliza el estado de conexión de los dispositivos únicamente para determinar si enviar mensajes de la nube a los dispositivos y los mensajes no se difunden a grandes conjuntos de dispositivos, considere usar el patrón más sencillo de un *tiempo de expiración breve*. Con este patrón se consigue el mismo resultado que con el mantenimiento de un registro del estado de la conexión de los dispositivos con el patrón de latido, a la vez que resulta más eficiente. Cuando solicita confirmaciones de mensajes, IoT Hub puede notificarle sobre qué dispositivos pueden recibir mensajes y cuáles no.
@@ -99,7 +100,7 @@ Una implementación más compleja podría incluir la información de [Azure Moni
 
 IoT Hub puede notificar a la solución de IoT la creación o eliminación de la identidad de un dispositivo mediante el envío de notificaciones de ciclo de vida de dispositivo. Para ello, la solución de IoT debe crear una ruta y establecer el origen de datos igual a *DeviceLifecycleEvents* o *ModuleLifecycleEvents*. De forma predeterminada, no se envían notificaciones de ciclo de vida, es decir, no existen previamente tales rutas. El mensaje de notificaciones incluye propiedades y el cuerpo.
 
-Propiedades: las propiedades del sistema de mensajes tienen como prefijo el símbolo `'$'`.
+Propiedades: las propiedades del sistema de mensajes tienen como prefijo el símbolo `$`.
 
 Mensaje de notificación del dispositivo:
 
@@ -183,7 +184,7 @@ Las identidades de dispositivos se representan como documentos JSON con las prop
 | --- | --- | --- |
 | deviceId |necesarias, de solo lectura en actualizaciones |Una cadena que distingue entre mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits más determinados caracteres especiales: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |requerido, de solo lectura |Una cadena de hasta 128 caracteres que distingue mayúsculas y minúsculas generada por el centro de IoT. Este valor se usa para distinguir dispositivos con el mismo **deviceId**, cuando se han eliminado y vuelto a crear. |
-| ETag |requerido, de solo lectura |Una cadena que representa un valor de ETag débil para la identidad del dispositivo, como [RFC7232][lnk-rfc7232]. |
+| ETag |requerido, de solo lectura |Una cadena que representa un valor de ETag débil para la identidad del dispositivo, como [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |opcional |Un objeto compuesto que contiene material de seguridad e información de autenticación. |
 | auth.symkey |opcional |Un objeto compuesto que contiene una clave principal y una secundaria, almacenadas en formato base64. |
 | status |requerido |Indicador de acceso Puede ser **Habilitado** o **Deshabilitado**. Si está **Habilitado**, el dispositivo se puede conectar. Si está **Dishabilitado**, este dispositivo no puede obtener acceso a ningún punto de conexión accesible desde el dispositivo. |
@@ -205,7 +206,7 @@ Las identidades de módulos se representan como documentos JSON con las propieda
 | deviceId |necesarias, de solo lectura en actualizaciones |Una cadena que distingue entre mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits más determinados caracteres especiales: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | moduleId |necesarias, de solo lectura en actualizaciones |Una cadena que distingue entre mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits más determinados caracteres especiales: `- . + % _ # * ? ! ( ) , = @ $ '`. |
 | generationId |requerido, de solo lectura |Una cadena de hasta 128 caracteres que distingue mayúsculas y minúsculas generada por el centro de IoT. Este valor se usa para distinguir dispositivos con el mismo **deviceId**, cuando se han eliminado y vuelto a crear. |
-| ETag |requerido, de solo lectura |Una cadena que representa un valor de ETag débil para la identidad del dispositivo, como [RFC7232][lnk-rfc7232]. |
+| ETag |requerido, de solo lectura |Una cadena que representa un valor de ETag débil para la identidad del dispositivo, como [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |opcional |Un objeto compuesto que contiene material de seguridad e información de autenticación. |
 | auth.symkey |opcional |Un objeto compuesto que contiene una clave principal y una secundaria, almacenadas en formato base64. |
 | status |requerido |Indicador de acceso Puede ser **Habilitado** o **Deshabilitado**. Si está **Habilitado**, el dispositivo se puede conectar. Si está **Dishabilitado**, este dispositivo no puede obtener acceso a ningún punto de conexión accesible desde el dispositivo. |
@@ -219,54 +220,32 @@ Las identidades de módulos se representan como documentos JSON con las propieda
 
 Otros temas de referencia en la guía del desarrollador de IoT Hub son los siguientes:
 
-* En [Puntos de conexión de IoT Hub][lnk-endpoints], se describen los diferentes puntos de conexión que expone cada centro de IoT Hub para las operaciones en tiempo de ejecución y de administración.
-* En [Cuotas y limitación][lnk-quotas], se describen las cuotas y el comportamiento de limitación que se aplican al servicio IoT Hub.
-* En [SDK de dispositivo y servicio IoT de Azure][lnk-sdks] se muestran los diversos SDK de lenguaje que puede usar para desarrollar aplicaciones para dispositivo y de servicio que interactúen con IoT Hub.
-* En [Lenguaje de consulta de IoT Hub][lnk-query], se describe el lenguaje de consulta que se puede usar para recuperar información de IoT Hub sobre los trabajos y dispositivos gemelos.
-* En [Compatibilidad con MQTT de IoT Hub][lnk-devguide-mqtt], se proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT.
+* En [Puntos de conexión de IoT Hub](iot-hub-devguide-endpoints.md) se describen los diferentes puntos de conexión que expone cada centro de IoT Hub para las operaciones en tiempo de ejecución y de administración.
+
+* En [Cuotas y limitación](iot-hub-devguide-quotas-throttling.md) se describen las cuotas y el comportamiento de limitación que se aplican al servicio IoT Hub.
+
+* En [SDK de dispositivo y servicio IoT de Azure](iot-hub-devguide-sdks.md) se muestran los diversos SDK de lenguaje que puede usar para desarrollar aplicaciones para dispositivo y de servicio que interactúen con IoT Hub.
+
+* En [Lenguaje de consulta de IoT Hub](iot-hub-devguide-query-language.md) se describe el lenguaje de consulta que se puede usar para recuperar información de IoT Hub sobre los trabajos y dispositivos gemelos.
+
+* En [Compatibilidad con MQTT de IoT Hub](iot-hub-mqtt-support.md) se proporciona más información sobre la compatibilidad de IoT Hub con el protocolo MQTT.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha aprendido a usar el registro de identidad de IoT Hub, pueden interesarle los siguientes temas de la Guía para desarrolladores de IoT Hub:
 
-* [Control del acceso a IoT Hub][lnk-devguide-security]
-* [Uso de dispositivos gemelos para sincronizar el estado y las configuraciones][lnk-devguide-device-twins]
-* [Invocación de un método directo en un dispositivo][lnk-devguide-directmethods]
-* [Programación de trabajos en varios dispositivos][lnk-devguide-jobs]
+* [Control del acceso a IoT Hub](iot-hub-devguide-security.md)
+
+* [Uso de dispositivos gemelos para sincronizar el estado y las configuraciones](iot-hub-devguide-device-twins.md)
+
+* [Invocación de un método directo en un dispositivo](iot-hub-devguide-direct-methods.md)
+
+* [Programación de trabajos en varios dispositivos](iot-hub-devguide-jobs.md)
 
 Para probar algunos de los conceptos descritos en este artículo, vea el siguiente tutorial de IoT Hub:
 
-* [Introducción a Azure IoT Hub][lnk-getstarted-tutorial]
+* [Introducción a Azure IoT Hub](quickstart-send-telemetry-dotnet.md)
 
 Para explorar el uso del servicio IoT Hub Device Provisioning para habilitar el aprovisionamiento Just-In-Time sin intervención del usuario, vea: 
 
-* [Servicio Azure IoT Hub Device Provisioning][lnk-dps]
-
-
-<!-- Links and images -->
-
-[lnk-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-query]: iot-hub-devguide-query-language.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-guidance-provisioning]: iot-hub-devguide-identity-registry.md#device-provisioning
-[lnk-guidance-heartbeat]: iot-hub-devguide-identity-registry.md#device-heartbeat
-[lnk-rfc7232]: https://tools.ietf.org/html/rfc7232
-[lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
-[lnk-export]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-[lnk-devguide-mon]: iot-hub-monitor-resource-health.md
-
-[lnk-devguide-security]: iot-hub-devguide-security.md
-[lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
-[lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
-[lnk-devguide-jobs]: iot-hub-devguide-jobs.md
-
-[lnk-getstarted-tutorial]: quickstart-send-telemetry-dotnet.md
-[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
-
-[lnk-AM]: ../azure-monitor/index.yml
-[lnk-ARH]: ../service-health/resource-health-overview.md
-[lnk-devguide-evgrid-evtype]: iot-hub-event-grid.md#event-types
-[lnk-howto-evgrid-connstate]: iot-hub-how-to-order-connection-state-events.md
+* [Servicio Azure IoT Hub Device Provisioning](https://azure.microsoft.com/documentation/services/iot-dps)

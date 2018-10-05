@@ -1,8 +1,8 @@
 ---
-title: "Detección inteligente: Azure Application Insights detectó una posible fuga de memoria | Microsoft Docs"
+title: 'Detección inteligente: Azure Application Insights detectó una posible fuga de memoria | Microsoft Docs'
 description: Supervise las aplicaciones con Azure Application Insights para detectar posibles fugas de memoria.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: e98caaa387418d746905990436b69925a591b260
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 25d26db3cd11fff7f7e9ba472247a920ecddea33
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47090741"
 ---
 # <a name="memory-leak-detection-preview"></a>Detección de fugas de memoria (versión preliminar)
 
@@ -25,12 +26,10 @@ Application Insights analiza automáticamente el consumo de memoria de cada uno 
 
 Esta característica no requiere ninguna configuración especial, excepto la [configuración de los contadores de rendimiento](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) de la aplicación. Se activa cuando la aplicación genera suficiente telemetría en los contadores de rendimiento de memoria (por ejemplo, bytes privados).
 
-
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>¿Cuándo recibiré este tipo de notificación de detección inteligente?
-Una notificación típica suele generarse por un aumento uniforme del consumo de memoria durante un largo período de tiempo (unas horas), en uno o más procesos y/o en uno o varios equipos, que forman parte de la aplicación.
-Los algoritmos de aprendizaje automático se utilizan para detectar un aumento en el consumo de memoria que coincide con un patrón de una fuga de memoria, a diferencia de un aumento del consumo de memoria debido al aumento natural del uso de la aplicación.
+Una notificación típica suele generarse por un aumento uniforme del consumo de memoria durante un largo período de tiempo, en uno o más procesos y/o en uno o varios equipos, que forman parte de la aplicación. Los algoritmos de aprendizaje automático se utilizan para detectar un consumo de memoria aumentado que coincida con un patrón de fuga de memoria.
 
-## <a name="does-my-app-definitely-have-a-problem"></a>Entonces, ¿mi aplicación tiene un problema?
+## <a name="does-my-app-really-have-a-problem"></a>Entonces, ¿mi aplicación tiene realmente un problema?
 No, una notificación no significa que la aplicación tenga un problema. Aunque los patrones de fuga de memoria generalmente indican un problema de aplicación, estos patrones pueden ser típicos de su proceso específico, o pueden tener una justificación comercial natural, y pueden ignorarse.
 
 ## <a name="how-do-i-fix-it"></a>¿Cómo puedo corregirlo?

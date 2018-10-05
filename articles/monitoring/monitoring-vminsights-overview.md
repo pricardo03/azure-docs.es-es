@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 79f507c342f5a13c4d3784cf312f0bf8aeffa3e3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 26fcc3eb78af53360cca57382b4c06b017f36c0e
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957265"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063275"
 ---
-## <a name="what-is-azure-monitor-for-vms"></a>¿Qué es Azure Monitor para máquinas virtuales?
+# <a name="what-is-azure-monitor-for-vms"></a>¿Qué es Azure Monitor para máquinas virtuales?
 
 La característica Azure Monitor para VM supervisa las máquinas virtuales (VM) de Azure a escala y analiza el rendimiento y el estado de las máquinas virtuales de Windows y Linux, incluidos los diferentes procesos y las dependencias interconectadas con otros recursos y con procesos externos. La solución permite supervisar el rendimiento y las dependencias de las aplicaciones de máquinas virtuales hospedadas en el entorno local o en otro proveedor en la nube.  Incluye tres características clave para ofrecer esta información detallada:
 
@@ -57,4 +57,4 @@ Tan pronto como incorpore Azure Monitor para las VM, los datos que recopilen sus
 El tamaño del registro varía en función de las longitudes de cadena de los contadores y puede aumentar con el número de discos lógicos y adaptadores de red.  Si ya tiene un área de trabajo y está recopilando estos contadores, no se aplicará ningún cargos duplicado.  Si ya usa Service Map, el único cambio que verá son los datos de conexión adicionales que se envían a Azure Monitor.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte el artículo sobre la [incorporación de Azure Monitor para las máquinas virtuales](monitoring-vminsights-onboard.md) para empezar a supervisar sus máquinas virtuales de Azure.
+Consulte [Incorporación de Azure Monitor para VM](monitoring-vminsights-onboard.md) para conocer los requisitos y los métodos necesarios para habilitar la supervisión de máquinas virtuales.

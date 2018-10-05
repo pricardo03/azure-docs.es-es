@@ -5,26 +5,22 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 9/27/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 766ad04251fbe404d43734115e41e23ae0a4be28
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 894389ec07fb8e371a269f895473fe82985de7c3
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982059"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405978"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtro del tráfico entrante con la DNAT de Azure Firewall mediante Azure Portal
 
-La traducción de direcciones de red de destino (DNAT) de Azure Firewall se puede configurar para traducir y filtrar el tráfico que entra a las subredes. Azure Firewall no tiene el concepto de las reglas de entrada y reglas de salida. Hay reglas de aplicación y reglas de red, y se aplican a todo el tráfico que entra en el firewall. En primer lugar se aplican las reglas de red, después las reglas de aplicación y las reglas finalizan.
+La traducción de direcciones de red de destino (DNAT) de Azure Firewall se puede configurar para traducir y filtrar el tráfico que entra a las subredes. Al configurar DNAT, en la acción de colección de la regla NAT se selecciona **Traducción de direcciones de red de destino (DNAT)**. Luego, todas las reglas de la colección de reglas NAT pueden usarse para traducir la dirección IP y el puerto públicos del firewall a una dirección IP y puerto privados. Las reglas DNAT agregan implícitamente una regla de red correspondiente implícita para permitir el tráfico traducido. Para invalidar este comportamiento, agregue explícitamente una colección de reglas de red con reglas de denegación que coinciden con el tráfico traducido. Para más información acerca de la lógica de procesamiento de reglas Azure Firewall, consulte [Lógica de procesamiento de reglas de Azure Firewall](rule-processing.md).
 
->[!NOTE]
->La característica DNAT de Firewall solo está disponible actualmente en Azure PowerShell y REST.
-
-Por ejemplo, si alguna regla de red coincide, las reglas de aplicación ya no evaluarán el paquete. Si no coincide ninguna regla de red, y si el protocolo del paquete es HTTP/HTTPS, las reglas de aplicación lo evalúan posteriormente. Si sigue sin haber coincidencias, el paquete se evalúa con la [colección de reglas de infraestructura](infrastructure-fqdns.md). Si sigue sin haber coincidencias, el paquete se deniega de forma predeterminada.
-
-Al configurar DNAT, en la acción de colección de la regla NAT se selecciona **Traducción de direcciones de red de destino (DNAT)**. La dirección IP y el puerto públicos del firewall se traducen en una dirección IP y un puerto privados. Luego las reglas se aplican de la forma habitual, primero las de red y luego las de aplicaciones. Por ejemplo, se puede configurar una regla de red que permita el tráfico del Escritorio remoto en el puerto TCP 3389. Primero se produce la traducción de direcciones y, después, se aplican tanto las reglas de red como las de aplicaciones mediante las direcciones traducidas.
+> [!NOTE]
+> DNAT no funciona en los puertos 80 y 22. Estamos trabajando para solucionar este problema en un futuro próximo. Mientras tanto, puede usar cualquier otro puerto como puerto de destino en las reglas NAT. Los puertos 80 o 22 se puede seguir usando como puerto traducido. Por ejemplo, puede asignar la IP pública:81 a la IP privada:80.
 
 En este tutorial, aprenderá a:
 
@@ -33,7 +29,6 @@ En este tutorial, aprenderá a:
 > * Implementar un firewall
 > * Crear una ruta predeterminada
 > * Configurar una regla de DNAT
-> * Configurar una regla de red
 > * Probar el firewall
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
@@ -109,7 +104,7 @@ Ahora empareje las dos redes virtuales.
 6. Haga clic en **Permitir tráfico reenviado**.
 7. Haga clic en **OK**.
 
-## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
+## <a name="create-a-virtual-machine"></a>de una máquina virtual
 
 Crear una máquina virtual de cargas de trabajo y colóquela en la subred **SN-Workload**.
 
@@ -197,52 +192,22 @@ En la subred **SN-Workload**, configure la ruta predeterminada de salida para qu
 2. Haga clic en **OK**.
 
 
-## <a name="configure-a-dnat-rule"></a>Configuración de una regla de DNAT
+## <a name="configure-a-dnat-rule"></a>Configurar una regla de DNAT
 
-```azurepowershell-interactive
- $rgName  = "RG-DNAT-Test"
- $firewallName = "FW-DNAT-test"
- $publicip = type the Firewall public ip
- $newAddress = type the private IP address for the Srv-Workload virtual machine 
- 
-# Get Firewall
-    $firewall = Get-AzureRmFirewall -ResourceGroupName $rgName -Name $firewallName
-  # Create NAT rule
-    $natRule = New-AzureRmFirewallNatRule -Name RL-01 -SourceAddress * -DestinationAddress $publicip -DestinationPort 3389 -Protocol TCP -TranslatedAddress $newAddress -TranslatedPort 3389
-  # Create NAT rule collection
-    $natRuleCollection = New-AzureRmFirewallNatRuleCollection -Name RC-DNAT-01 -Priority 200 -Rule $natRule
-  # Add NAT Rule collection to firewall:
-    $firewall.AddNatRuleCollection($natRuleCollection)
-  # Save:
-    $firewall | Set-AzureRmFirewall
-```
-## <a name="configure-a-network-rule"></a>Configuración de una regla de red
+1. Abra **DNAT-RG-Test**y haga clic en el firewall **FW-DNAT-test**. 
+1. En la página **FW-DNAT-test**, en **Configuración**, haga clic en **Reglas**. 
+2. Haga clic en **Add DNAT rule collection** (Agregar colección de reglas DNAT). 
+3. En **Nombre**, escriba **RC-DNAT-01**. 
+1. En **Priority**, escriba **200**. 
+6. En **Reglas**, en **Nombre**, escriba **RL-01**. 
+7. En **Direcciones de origen**, escriba *. 
+8. En **Direcciones de destino** escriba la dirección IP pública del firewall. 
+9. En **Puertos de destino**, escriba **3389**. 
+10. En **Dirección traducida**, escriba la dirección IP privada de la máquina virtual Srv-Workload. 
+11. En **Puerto traducido**, escriba **3389**. 
+12. Haga clic en **Agregar**. 
 
-1. Abra **DNAT-RG-Test**y haga clic en el firewall **FW-DNAT-test**.
-1. En la página **FW-DNAT-test**, en **Configuración**, haga clic en **Reglas**.
-2. Haga clic en **Agregar una colección de reglas de red**.
-
-Use la siguiente tabla para configurar la regla con la siguiente tabla y, después, haga clic en **Agregar**:
-
-
-|Parámetro  |Valor  |
-|---------|---------|
-|NOMBRE     |**RC-Net-01**|
-|Prioridad     |**200**|
-|.     |**Permitir**|
-
-En **Reglas**:
-
-|Parámetro  |Configuración  |
-|---------|---------|
-|NOMBRE     |**RL-RDP**|
-|Protocolo     |**TCP**|
-|Direcciones de origen     |*|
-|Direcciones de destino     |Dirección IP privada de **Srv-Workload**|
-|Puertos de destino|**3389**|
-
-
-## <a name="test-the-firewall"></a>Prueba del firewall
+## <a name="test-the-firewall"></a>Probar el firewall
 
 1. Conecte un Escritorio remoto a la dirección IP pública del firewall. Debe estar conectado a la máquina virtual **Srv-Workload**.
 3. Cierre el Escritorio remoto.
@@ -255,14 +220,13 @@ Puede conservar los recursos relacionados con el firewall para el siguiente tuto
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió a:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Configurar un entorno de red de prueba
 > * Implementar un firewall
 > * Crear una ruta predeterminada
 > * Configurar una regla de DNAT
-> * Configurar una regla de red
 > * Probar el firewall
 
 A continuación, puede supervisar los registros de Azure Firewall.

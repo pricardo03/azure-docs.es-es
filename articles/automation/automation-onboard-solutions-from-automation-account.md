@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 8649b96c9cf95e4a25b24dedf447aef133ef299a
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 5b906b4a90dbceb62c6f2381d0ffa8bc1bee7ef1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865410"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033828"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory
 
@@ -102,6 +102,43 @@ Para habilitar la solución para todas las máquinas disponibles y futuras, sele
 ### <a name="selected-machines"></a>Máquinas seleccionadas
 
 Para habilitar la solución para una o varias máquinas, seleccione **Habilitar en las máquinas seleccionadas** y haga clic en **Agregar** junto a cada máquina que se va a agregar a la solución. Esta tarea agrega los nombres de máquina seleccionados a la consulta de la búsqueda guardada de grupos de equipos de la solución.
+
+## <a name="unlink-workspace"></a>Unlink workspace (Desvincular área de trabajo)
+
+Las siguientes soluciones dependen de un área de trabajo de Log Analytics:
+
+* [Administración de actualizaciones](automation-update-management.md)
+* [Seguimiento de cambios](automation-change-tracking.md)
+* [Inicio y detención de máquinas virtuales durante las horas de trabajo](automation-solution-vm-management.md)
+
+Si decide que ya no desea integrar su cuenta de Automation con Log Analytics, puede desvincular la cuenta directamente desde Azure Portal.  Antes de continuar, primero deberá quitar las soluciones mencionadas anteriormente; en caso contrario, este proceso no podrá continuar. Revise el artículo de la solución concreta que ha importado para conocer los pasos necesarios para quitarla.
+
+Después de quitar estas soluciones, puede realizar los pasos siguientes para desvincular la cuenta de Automation.
+
+> [!NOTE]
+> Algunas soluciones que incluyen versiones anteriores de la solución de supervisión de SQL Azure pueden haber creado recursos de automatización y también puede que tengan que quitarse antes de desvincularse del área de trabajo.
+
+1. En Azure Portal, abra su cuenta de Automation y, en la página de la cuenta de Automation, seleccione **Área de trabajo vinculada** en la sección **Recursos relacionados** de la izquierda.
+
+1. En la página Desvincular área de trabajo, haga clic en **Desvincular área de trabajo**.
+
+   ![Página Desvincular área de trabajo](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
+
+   Recibirá un aviso para comprobar que desea continuar.
+
+1. Aunque Azure Automation trate de desvincular la cuenta del área de trabajo de Log Analytics, puede seguir el progreso en **Notificaciones** en el menú.
+
+Si ha usado la solución de administración de actualizaciones, también puede quitar los siguientes elementos que ya no necesite después de quitar la solución.
+
+* Programaciones de actualizaciones: cada una tendrá nombres que coinciden con las implementaciones de las actualizaciones que ha creado.
+
+* Los grupos de Hybrid Worker que se han creado para la solución: cada uno de ellos se llamará de forma similar a machine1.contoso.com_9ceb8108 - 26 c 9-4051-b6b3-227600d715c8).
+
+Si ha usado la solución de inicio y detención de máquinas virtuales durante las horas de trabajo, también puede quitar los siguientes elementos que ya no necesite después de quitar la solución.
+
+* Programaciones de runbook de inicio y detención de máquinas virtuales
+* Runbooks de inicio y detención de máquinas virtuales
+* variables
 
 ## <a name="next-steps"></a>Pasos siguientes
 

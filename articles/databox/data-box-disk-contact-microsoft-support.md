@@ -5,19 +5,19 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: article
-ms.date: 08/28/2018
+ms.date: 09/27/2018
 ms.author: alkohli;
 ms.component: ''
-ms.openlocfilehash: afb7de78a30367b0cc12e621019f1e8be975e63f
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 9bab8a55301a5eb40b38bec984205fff2a52559e
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191529"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422820"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Apertura de una incidencia de soporte técnico en Azure Data Box 
 
-Si tiene algún problema con el servicio Azure Data Box, puede crear una solicitud de servicio de soporte técnico. Este artículo le enseñará a:
+Este artículo se aplica a Azure Data Box y a Azure Data Box Disk, administrados ambos por el servicio Azure Data Box. Si tiene algún problema con el servicio Azure Data Box, puede crear una solicitud de servicio de soporte técnico. Este artículo le enseñará a:
 
 * Crear una solicitud de soporte.
 * Administrar el ciclo de vida de una solicitud de soporte técnico desde dentro del portal.

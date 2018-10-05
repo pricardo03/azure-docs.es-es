@@ -3,19 +3,18 @@ title: Límites y configuración - Azure Logic Apps | Microsoft Docs
 description: Valores de límites y configuración del servicio para Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 08/10/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 49b8efe6b5d56c3edaf8b311ff3c6667a8952536
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.topic: article
+ms.date: 09/26/2018
+ms.openlocfilehash: c557c3e34fc4588b8bf13d69159a144d059b039e
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42143412"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452466"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -305,8 +304,13 @@ Todas las aplicaciones lógicas de una región usan el mismo intervalo de direcc
 Para admitir las llamadas que realizan los [conectores](../connectors/apis-list.md), establezca las opciones de configuración del firewall para que incluyan estas direcciones IP salientes, en función de las regiones donde estén las aplicaciones lógicas.
 
 > [!IMPORTANT]
->
 > Si ya tiene algunas opciones de configuración, actualícelas **tan pronto como le sea posible antes del 1 de septiembre de 2018** para que incluyan y coincidan con las direcciones IP de esta lista de las regiones donde están las aplicaciones lógicas. 
+> 
+> Logic Apps no admite la conexión directa a las cuentas de Azure Storage a través de firewalls. Para obtener acceso a estas cuentas de almacenamiento, use cualquiera de las opciones que le indicamos: 
+>
+> * Cree un [entorno de servicio de integración](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) que pueda conectarse a los recursos en una red virtual de Azure. 
+> 
+> * Si ya usa API Management, puede usar este servicio para este escenario. Para obtener más información, consulte [Arquitectura de integración empresarial sencilla](http://aka.ms/aisarch).
 
 | Región de Logic Apps | IP de salida | 
 |-------------------|-------------|  

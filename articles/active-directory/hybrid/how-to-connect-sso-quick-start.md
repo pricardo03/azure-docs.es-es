@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 532a37c5de7b69c44f0f8502613ac534f57c8ef9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d7906323da8e9ee1571efe908084ae1433884e61
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306444"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405995"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
@@ -124,9 +124,9 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
 
     El resultado se parecerá al siguiente:
 
-    Valor: https://autologon.microsoftazuread-sso.com
+    Nombre de valor: https://autologon.microsoftazuread-sso.com
   
-    Data 1
+    Valor (datos): 1
 
    >[!NOTE]
    > Si no desea permitir que algunos usuarios utilicen SSO de conexión directa (por ejemplo, si estos usuarios inician sesión en quioscos compartidos) establezca los valores anteriores en **4**. De este modo, agrega la dirección URL de Azure AD a la zona Sitios restringidos, y el SSO de conexión directa no puede conectar a esos usuarios.

@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: jroth
-ms.openlocfilehash: 56a0629249cdb5f0f098d2b7b6d36b3fbb215009
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e8297892c533f3b0126f925f81d3e9bc429828ef
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30190881"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039962"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Preguntas más frecuentes para SQL Server en máquinas virtuales Linux de Azure
 
@@ -72,13 +72,13 @@ En este artículo se proporcionan respuestas a algunas de las preguntas más com
 
 1. **¿Puedo cambiar una máquina virtual para usar mi propia licencia de SQL Server si se ha creado desde una de las imágenes de la galería de pago por uso?**
 
-   Nº No puede cambiar de licencias de pago por segundo a usar su propia licencia. Debe crear una máquina virtual Linux nueva, instalar SQL Server y migrar los datos. Consulte la pregunta anterior para más detalles sobre cómo traer su propia licencia.
+   No. No puede cambiar de licencias de pago por segundo a usar su propia licencia. Debe crear una máquina virtual Linux nueva, instalar SQL Server y migrar los datos. Consulte la pregunta anterior para más detalles sobre cómo traer su propia licencia.
 
 ## <a name="administration"></a>Administración
 
 1. **¿Puedo administrar una máquina virtual Linux de SQL Server con SQL Server Management Studio (SSMS)?**
 
-   Sí, pero SSMS es actualmente una herramienta solo para Windows. Debe conectarse de forma remota desde una máquina Windows para usar SSMS con máquinas virtuales Linux de SQL Server. La nueva herramienta [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) puede realizar muchas tareas administrativas de forma local en Linux. Para obtener una vista previa de una herramienta de administración de base de datos multiplataforma, consulte [SQL Server Operations Studio (versión preliminar)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
+   Sí, pero SSMS es actualmente una herramienta solo para Windows. Debe conectarse de forma remota desde una máquina Windows para usar SSMS con máquinas virtuales Linux de SQL Server. La nueva herramienta [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) puede realizar muchas tareas administrativas de forma local en Linux. Para obtener una herramienta de administración de base de datos multiplataforma, consulte [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
 
 1. **¿Puedo quitar SQL Server por completo de una VM de SQL?**
 

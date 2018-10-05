@@ -3,7 +3,7 @@ title: Extensión de máquina virtual de Azure Log Analytics para Windows | Micr
 description: Implemente el agente de Log Analytics en la máquina virtual Windows con una extensión de máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: roiyz
-ms.openlocfilehash: 2c228784e7a0a78f6dfdb93ce632bf340dea0ee9
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 02fa19cad56f1a31ad60c597df1b004710cb5b50
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414749"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452095"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Log Analytics para Windows
 
@@ -74,8 +74,10 @@ El siguiente JSON muestra el esquema para la extensión del agente de Log Analyt
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | Tipo | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
-| workspaceId (p.ej) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceId (e.g)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (p. ej.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+
+\* El identificador del área de trabajo se denomina identificador de consumidor en la API de Log Analytics.
 
 ## <a name="template-deployment"></a>Implementación de plantilla
 

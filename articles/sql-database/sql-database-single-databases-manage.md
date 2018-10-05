@@ -2,24 +2,26 @@
 title: Creación y administración de servidores y bases de datos únicas de SQL Azure | Microsoft Docs
 description: Obtenga información sobre cómo crear y administrar servidores lógicos y bases de datos únicas.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: DBs & servers
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/07/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 20039c32ed7bb740ba5d1185d195d7590cff39e2
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: c2855a9cdbb2abc01b3d3b55b12b979a2dbbf8bb
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051262"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165364"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Creación y administración de servidores lógicos y bases de datos únicas de Azure SQL Database 
 
-Puede crear y administrar servidores lógicos y bases de datos únicas de Azure SQL Database con Azure Portal, PowerShell, la CLI de Azure, la API de REST y Transact-SQL.
+Puede crear y administrar servidores lógicos y bases de datos únicas de Azure SQL Database con Azure Portal, PowerShell, la CLI de Azure, la API REST y Transact-SQL.
 
 ## <a name="azure-portal-manage-logical-servers-and-databases"></a>Azure Portal: administración de servidores lógicos y bases de datos
 
@@ -90,25 +92,25 @@ Para crear y administrar servidores, bases de datos y firewalls SQL Azure con la
 
 | Cmdlet | DESCRIPCIÓN |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#az_sql_db_create) |Crea una base de datos.|
-|[az sql db list](/cli/azure/sql/db#az_sql_db_list)|Enumera todas las bases de datos y almacenes de datos de un servidor, o todas las bases de datos de un grupo elástico.|
-|[az sql db list-editions](/cli/azure/sql/db#az_sql_db_list_editions)|Enumera los objetivos de servicio y los límites de almacenamiento disponibles.|
-|[az sql db list-usages](/cli/azure/sql/db#az_sql_db_list_usages)|Devuelve los usos de la base de datos.|
-|[az sql db show](/cli/azure/sql/db#az_sql_db_show)|Obtiene una base de datos o un almacenamiento de datos.|
-|[az sql db update](/cli/azure/sql/db#az_sql_db_update)|Actualiza una base de datos.|
-|[az sql db delete](/cli/azure/sql/db#az_sql_db_delete)|Quita una base de datos.|
-|[az group create](/cli/azure/group#az_group_create)|Crea un grupo de recursos.|
-|[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Crea un servidor.|
-|[az sql server list](/cli/azure/sql/server#az_sql_server_list)|Enumera los servidores.|
-|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list_usages)|Devuelve los usos del servidor.|
-|[az sql server show](/cli/azure/sql/server#az_sql_server_show)|Obtiene un servidor.|
-|[az sql server update](/cli/azure/sql/server#az_sql_server_update)|Actualiza un servidor.|
-|[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|Permite eliminar un servidor.|
-|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Crea una regla de firewall del servidor.|
-|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Enumera las reglas de firewall en un servidor.|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Muestra los detalles de una regla de firewall.|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Actualiza una regla de firewall.|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Elimina una regla de firewall.|
+|[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Crea una base de datos.|
+|[az sql db list](/cli/azure/sql/db#az-sql-db-list)|Enumera todas las bases de datos y almacenes de datos de un servidor, o todas las bases de datos de un grupo elástico.|
+|[az sql db list-editions](/cli/azure/sql/db#az-sql-db-list-editions)|Enumera los objetivos de servicio y los límites de almacenamiento disponibles.|
+|[az sql db list-usages](/cli/azure/sql/db#az-sql-db-list-usages)|Devuelve los usos de la base de datos.|
+|[az sql db show](/cli/azure/sql/db#az-sql-db-show)|Obtiene una base de datos o un almacenamiento de datos.|
+|[az sql db update](/cli/azure/sql/db#az-sql-db-update)|Actualiza una base de datos.|
+|[az sql db delete](/cli/azure/sql/db#az-sql-db-delete)|Quita una base de datos.|
+|[az group create](/cli/azure/group#az-group-create)|Crea un grupo de recursos.|
+|[az sql server create](/cli/azure/sql/server#az-sql-server-create)|Crea un servidor.|
+|[az sql server list](/cli/azure/sql/server#az-sql-server-list)|Enumera los servidores.|
+|[az sql server list-usages](/cli/azure/sql/server#az-sql-server-list-usages)|Devuelve los usos del servidor.|
+|[az sql server show](/cli/azure/sql/server#az-sql-server-show)|Obtiene un servidor.|
+|[az sql server update](/cli/azure/sql/server#az-sql-server-update)|Actualiza un servidor.|
+|[az sql server delete](/cli/azure/sql/server#az-sql-server-delete)|Permite eliminar un servidor.|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Crea una regla de firewall del servidor.|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Enumera las reglas de firewall en un servidor.|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Muestra los detalles de una regla de firewall.|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Actualiza una regla de firewall.|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Elimina una regla de firewall.|
 
 ## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: administración de servidores lógicos y bases de datos
 

@@ -9,16 +9,16 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: af25c52d1300a2daed3542c5cb1db080c505f715
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e5b412042d0a872443c0b30c774dfd4926555a5a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953130"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221679"
 ---
 # <a name="create-an-azure-cosmos-db-cassandra-api-account-database-and-a-table-by-using-a-java-application"></a>Creación de una cuenta de Cassandra API de Azure Cosmos DB, una base de datos y una tabla usando una aplicación de Java
 
-En este tutorial se describe cómo usar una aplicación de Java para crear una cuenta de Cassandra API de Azure Cosmos DB, así como agregar una base de datos (también conocida como "espacio de claves") y una tabla. La aplicación de Java utiliza el [controlador DataStax Java](https://github.com/datastax/java-driver) para crear una base de datos de usuario que contiene información detallada como el identificador de usuario, el nombre de usuario y la ciudad del usuario.  
+En este tutorial se describe cómo usar una aplicación de Java para crear una cuenta de Cassandra API de Azure Cosmos DB, así como agregar una base de datos (también conocida como "espacio de claves") y una tabla. La aplicación de Java utiliza el [controlador Java](https://github.com/datastax/java-driver) para crear una base de datos de usuario que contiene información detallada como el identificador, el nombre y la ciudad del usuario.  
 
 En este tutorial se describen las tareas siguientes:
 
@@ -48,7 +48,7 @@ En este tutorial se describen las tareas siguientes:
 
    |Configuración   |Valor sugerido  |DESCRIPCIÓN  |
    |---------|---------|---------|
-   |ID   |   Escribir un nombre único    | Escriba un nombre único para identificar esta cuenta de Azure Cosmos DB. <br/><br/>Como cassandra.cosmosdb.azure.com se anexa al identificador que proporcione para crear el punto de contacto, debe usar un identificador único pero reconocible.         |
+   |ID   |   Escriba un nombre único.    | Escriba un nombre único para identificar esta cuenta de Azure Cosmos DB. <br/><br/>Como cassandra.cosmosdb.azure.com se anexa al identificador que proporcione para crear el punto de contacto, debe usar un identificador único pero reconocible.         |
    |API    |  Cassandra   |  La API determina el tipo de cuenta que se va a crear. <br/> Seleccione **Cassandra**, ya que en este artículo se creará una base de datos de columnar que se puede consultar mediante la sintaxis CQL.  |
    |Subscription    |  Su suscripción        |  Seleccione la suscripción de Azure que desea usar para esta cuenta de Azure Cosmos DB.        |
    |Grupo de recursos   | Escribir un nombre    |  Seleccione  **Crear nuevo** y, después, escriba un nombre nuevo de grupo de recursos para la cuenta. Para simplificar, puede usar el mismo nombre del identificador.    |
@@ -91,7 +91,7 @@ Como alternativa, puede usar el ejemplo desde cero.
  
 2. Localice la carpeta `cassandra-demo`. Con un editor de texto, abra el archivo `pom.xml` que se generó. 
 
-   Agregue las dependencias de DataStax de Cassandra y cree los complementos necesarios para el proyecto, tal y como se muestra en el archivo [pom.xml](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/pom.xml).  
+   Agregue las dependencias de Cassandra y cree los complementos necesarios para el proyecto, tal y como se muestra en el archivo [pom.xml](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/pom.xml).  
 
 3. En la carpeta `cassandra-demo\src\main`, cree una carpeta denominada `resources`.  En la carpeta de recursos, agregue los archivos config.properties y log4j.properties:
 

@@ -1,20 +1,21 @@
 ---
-title: 'Creación de la primera aplicación de Language Understanding (LUIS) en 10 minutos: Cognitive Services LUIS | Microsoft Docs'
-description: En esta guía de inicio rápido, creará una aplicación de LUIS que utiliza el dominio pregenerado`HomeAutomation` para encender y apagar las luces y los dispositivos. Este dominio pregenerado le proporciona intenciones, entidades y expresiones de ejemplo. Cuando termine, tendrá un punto de conexión LUIS que se ejecuta en la nube.
+title: Diez minutos a su primera aplicación de LUIS
+titleSuffix: Azure Cognitive Services
+description: Cree una aplicación de LUIS que utiliza el dominio previamente creado `HomeAutomation` para encender y apagar las luces y los dispositivos. Este dominio pregenerado le proporciona intenciones, entidades y expresiones de ejemplo. Cuando termine, tendrá un punto de conexión LUIS que se ejecuta en la nube.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/22/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 457f23936dec0cf85e9aebbf3e54bba37c2f3ca3
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 12a660b49d1a81865c34ceda38f041de9be31eb1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "43771643"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037480"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Guía de inicio rápido: uso de la aplicación de automatización del hogar pregenerada
 
@@ -54,11 +55,7 @@ Cuando el dominio se agrega correctamente, el cuadro de dominio pregenerado mues
 
 ## <a name="intents-and-entities"></a>Intenciones y entidades
 
-Seleccione **Intents** (Intenciones) en el panel de navegación izquierdo para revisar las intenciones del dominio HomeAutomation. 
-
-[![](media/luis-quickstart-new-app/home-automation-intents.png "Captura de pantalla de la lista Intents (Intenciones) con el los nombres de intención en la tabla resaltados")](media/luis-quickstart-new-app/home-automation-intents.png)
-
-Cada intención tiene expresiones de ejemplo.
+Seleccione **Intents** (Intenciones) en el panel de navegación izquierdo para revisar las intenciones del dominio HomeAutomation. Cada intención tiene expresiones de ejemplo.
 
 > [!NOTE]
 > **None** (Ninguna) es una intención que proporcionan todas las aplicaciones de LUIS. Se usa para controlar las expresiones que no corresponden a la funcionalidad que proporciona la aplicación. 
@@ -67,11 +64,9 @@ Seleccione la intención **HomeAutomation.TurnOff**. Puede ver que la intención
 
 [![](media/luis-quickstart-new-app/home-automation-turnon.png "Captura de pantalla de la intención HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnon.png)
 
-## <a name="train-your-app"></a>Entrenamiento de la aplicación
+## <a name="train-the-luis-app"></a>Entrenamiento de la aplicación de LUIS
 
-Haga clic en **Train** (Entrenar) en la barra de navegación superior.
-
-[![](media/luis-quickstart-new-app/trained.png "Captura de pantalla de la intención HomeAutomation.TurnOff con notificación de éxito verde")](media/luis-quickstart-new-app/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-your-app"></a>Prueba de la aplicación
 Una vez que haya entrenado a su aplicación, puede probarla. Seleccione **Test** (Prueba) en la barra de navegación superior. Escriba una expresión de prueba, como "Turn off the lights" (Apagar las luces) en el panel de prueba interactiva y presione ENTRAR. 
@@ -89,29 +84,23 @@ En este ejemplo, "Turn off the lights" está identificada correctamente como la 
 
 Vuelva a seleccionar **Test** (Prueba) para contraer el panel de prueba. 
 
-## <a name="publish-your-app"></a>Publicación de la aplicación
-Seleccione **Publish** (Publicar) en el panel de navegación superior. 
+<a name="publish-your-app"></a>
 
-[![](media/luis-quickstart-new-app/publish.png "Captura de pantalla de la aplicación, con el botón Publish (Publicar) resaltado")](media/luis-quickstart-new-app/publish.png)
+## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicación de la aplicación para obtener la dirección URL del punto de conexión
 
-Seleccione el espacio de producción y haga clic en el botón **Publicar**.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-La barra de notificación verde situada en la parte superior indica que la aplicación se publicó correctamente.
+## <a name="query-the-endpoint-with-a-different-utterance"></a>Consulta del punto de conexión con una expresión diferente
 
-[![](media/luis-quickstart-new-app/published.png "Captura de pantalla de la aplicación con éxito en la publicación")](media/luis-quickstart-new-app/published.png)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-Después de haber realizado correctamente la publicación, puede usar la dirección URL del punto de conexión que se muestra en la página **Publish app** (Publicar aplicación).
+2. Vaya al final de la dirección URL en la dirección, escriba `turn off the living room light` y presione Intro. El navegador muestra la respuesta JSON de su punto de conexión HTTP.
 
-[![](media/luis-quickstart-new-app/endpoint.png "Captura de pantalla de la página Publish (Publicar) con la dirección URL del punto de conexión resaltada")](media/luis-quickstart-new-app/endpoint.png)
-
-## <a name="use-your-app"></a>Uso de la aplicación
-Puede probar el punto de conexión publicado en un explorador utilizando la dirección URL generada. Abra esta URL en el explorador, establezca el parámetro de dirección URL "& q" con la consulta de prueba. Por ejemplo, agregue `turn off the living room light` al final de la dirección URL y presione ENTRAR. El navegador muestra la respuesta JSON de su punto de conexión HTTP.
-
-
-[![](media/luis-quickstart-new-app/turn-off-living-room.png "Captura de pantalla del explorador con el resultado JSON detecta la intención de TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
-
+    [![](media/luis-quickstart-new-app/turn-off-living-room.png "Captura de pantalla del explorador con el resultado JSON detecta la intención de TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
+    
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Cuando ya no sea necesaria, elimine la aplicación de LUIS. Para ello, seleccione el botón de puntos suspensivos (***...***) situado a la derecha del nombre de la aplicación en la lista de aplicaciones y haga clic en **Delete** (Eliminar). En el cuadro de diálogo emergente **Delete app?** (¿Eliminar aplicación?), haga clic en **Ok** (Aceptar).
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

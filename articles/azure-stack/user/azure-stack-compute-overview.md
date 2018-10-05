@@ -6,15 +6,15 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: d478ccd0895ad067657bce56469a3a61d4ea0e17
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: a0d75b13369cff4e99bef6f57a3b01f3d8eee6e4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43050442"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227170"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introducción a máquinas virtuales de Azure Stack
 
@@ -99,7 +99,7 @@ Los recursos de la tabla siguiente se usan en la máquina virtual y deben ya exi
 |Recurso|Obligatorio|DESCRIPCIÓN|
 |---------|---------|---------|
 |Grupos de recursos|SÍ|La máquina virtual debe encontrarse en un grupo de recursos.|
-|Cuenta de almacenamiento|SÍ|La máquina virtual necesita la cuenta de almacenamiento para almacenar sus discos duros virtuales.|
+|Cuenta de almacenamiento|Sin |La máquina virtual no necesita la cuenta de Storage almacene sus discos duros virtuales si usa Managed Disks. <br>La máquina virtual necesita la cuenta de Storage almacene sus discos duros virtuales si usa discos sin administrar.|
 |Virtual network|SÍ|La máquina virtual debe ser miembro de una red virtual.|
 |Dirección IP pública|Sin |La máquina virtual puede tener una dirección IP pública asignada para acceder remotamente a ella.|
 |interfaz de red|SÍ|La máquina virtual necesita la interfaz de red para comunicarse en la red.|

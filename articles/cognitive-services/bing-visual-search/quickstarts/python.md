@@ -1,23 +1,23 @@
 ---
-title: Inicio rápido de Python para Bing Visual Search API | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
+title: 'Inicio rápido: Creación de una consulta de búsqueda visual, Python - Bing Visual Search'
+titleSuffix: Azure Cognitive Services
 description: Aquí le mostramos cómo cargar una imagen a Bing Visual Search API y obtener información detallada sobre la misma.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 96bd94e37c75d10726245fbcea7044d4ae2ed07e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 145749f52f64adf565eb33ab7fe92dd5494f9354
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070382"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223733"
 ---
-# <a name="your-first-bing-visual-search-query-in-python"></a>Su primera consulta de Bing Visual Search en Python
+# <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>Inicio rápido: Su primera consulta de Bing Visual Search en Python
 
 Bing Visual Search API devuelve información sobre una imagen proporcionada. Puede proporcionar la imagen utilizando la dirección URL de la misma, un token de conclusiones, o simplemente cargando una imagen. Para obtener más información acerca de estas opciones, consulte [What is Bing Visual Search API?](../overview.md) (¿Qué es Bing Visual Search API?). En este artículo se muestra la forma de cargar una imagen. Cargar una imagen puede serle de utilidad en aquellos momentos en los que use un dispositivo móvil para, por ejemplo, hacer una foto de un lugar interesante y así poder obtener información acerca de él. Asimismo, estos detalles pueden incluir curiosidades sobre ese lugar de interés. 
 

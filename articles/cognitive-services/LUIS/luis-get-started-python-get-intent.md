@@ -1,64 +1,43 @@
 ---
-title: Guía de inicio rápido para aprender a llamar a una aplicación de Language Understanding (LUIS) mediante Python | Microsoft Docs
+title: 'Inicio rápido de Python: Predicción de la intención en LUIS'
+titleSuffix: Azure Cognitive Services
 description: En esta guía de inicio rápido, aprenderá a llamar a una aplicación de LUIS mediante Python.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 06/27/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bc7ae912d762a98c34b9a1b2d6a82d5630c4794b
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: e560aeffecf63f63966a49053e0f79d012b4a0a3
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "43771752"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038279"
 ---
-# <a name="quickstart-call-a-luis-endpoint-using-python"></a>Guía de inicio rápido: Llamada a un punto de conexión de LUIS mediante Python
+# <a name="quickstart-get-intent-using-python"></a>Inicio rápido: Obtención de la intención con Python
 En esta guía de inicio rápido, pasará expresiones a un punto de conexión de LUIS y obtendrá entidades e intenciones.
 
-<!-- green checkmark -->
-<!--
-> [!div class="checklist"]
-> * Create LUIS subscription and copy key value for later use
-> * View LUIS endpoint results from browser to public sample IoT app
-> * Create Visual Studio C# console app to make HTTPS call to LUIS endpoint
--->
+[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-Para este artículo, necesita una cuenta gratuita de [LUIS](luis-reference-regions.md#luis-website) para crear la aplicación.
+## <a name="prerequisites"></a>Requisitos previos
 
-<a name="create-luis-subscription-key"></a>
-## <a name="create-luis-endpoint-key"></a>Creación de la clave de punto de conexión de LUIS
-Para realizar llamadas a la aplicación de LUIS de ejemplo que se utiliza en este tutorial se necesita la clave de la API de Cognitive Services. 
+* [Python 3.6](https://www.python.org/downloads/) o versiones posteriores.
+* [Visual Studio Code](https://code.visualstudio.com/)
 
-Para obtener una clave de API, siga estos pasos: 
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
-1. En primer lugar, hay que crear una [cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) en Azure Portal. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+## <a name="get-luis-key"></a>Obtención de la clave de LUIS
 
-2. Inicie sesión en Azure Portal en https://portal.azure.com. 
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-3. Para obtener una clave, siga los pasos que se describen en [Creación de claves de punto de conexión con Azure](./luis-how-to-azure-subscription.md).
+## <a name="get-intent-with-browser"></a>Obtención de la intención con el explorador
 
-4. Vuelva al sitio web de [LUIS](luis-reference-regions.md) e inicie sesión con su cuenta de Azure. 
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-    [![](media/luis-get-started-node-get-intent/app-list.png "Captura de pantalla de una lista de aplicaciones")](media/luis-get-started-node-get-intent/app-list.png)
-
-## <a name="understand-what-luis-returns"></a>Descripción de lo que LUIS devuelve
-
-Para comprender lo que devuelve una aplicación de LUIS, puede pegar la dirección URL de una aplicación de LUIS de ejemplo en una ventana del explorador. La aplicación de ejemplo es una aplicación de IoT que detecta si el usuario desea encender o apagar las luces.
-
-1. El punto de conexión de la aplicación de ejemplo está en este formato: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20bedroom%20light` Copie la dirección URL y sustituya la clave de punto de conexión por el valor del campo `subscription-key`.
-2. Pegue la dirección URL en una ventana del explorador y presione ENTRAR. El explorador muestra el resultado JSON que indica que LUIS ha detectado la intención `HomeAutomation.TurnOn` y la entidad `HomeAutomation.Room` con el valor `bedroom`.
-
-    ![El resultado JSON detecta la intención TurnOn](./media/luis-get-started-node-get-intent/turn-on-bedroom.png)
-3. Cambie el valor del parámetro `q=` en la dirección URL por `turn off the living room light` y presione ENTRAR. Ahora, el resultado indica que LUIS ha detectado la intención `HomeAutomation.TurnOff` y la entidad `HomeAutomation.Room` con el valor `living room`. 
-
-    ![El resultado JSON detecta la intención TurnOff](./media/luis-get-started-node-get-intent/turn-off-living-room.png)
-
-
-## <a name="consume-a-luis-result-using-the-endpoint-api-with-python"></a>Uso de un resultado de LUIS mediante la API de punto de conexión con Python
+## <a name="get-intent--programmatically"></a>Obtención de la intención mediante programación
 
 Puede usar Python para acceder a los mismos resultados que vio en la ventana del explorador del paso anterior.
 
@@ -73,13 +52,15 @@ Puede usar Python para acceder a los mismos resultados que vio en la ventana del
 3. Instale las dependencias con `pip install requests`.
 
 4. Ejecute el script con `python ./quickstart-call-endpoint.py`. Muestra el mismo código JSON que vio anteriormente en la ventana del explorador.
-<!-- 
-![Console window displays JSON result from LUIS](./media/luis-get-started-python-get-intent/console-turn-on.png)
--->
+
+## <a name="luis-keys"></a>Claves de LUIS
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Los dos recursos creados en este tutorial son la clave de punto de conexión de LUIS y el proyecto de C#. Elimine la clave de punto de conexión de LUIS desde Azure Portal. Cierre el proyecto de Visual Studio y quite el directorio del sistema de archivos. 
+Elimine el archivo de python. 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 > [!div class="nextstepaction"]
 > [Adición de grabaciones de voz](luis-get-started-python-add-utterance.md)

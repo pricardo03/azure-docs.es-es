@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 06b30d1381d8fba1d6f053576f6556e6d02f2ae9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d873d28ec772735b8f21551cde1c7d0eab79a18c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949169"
+ms.locfileid: "47035146"
 ---
 # <a name="log-analytics-faq"></a>Preguntas frecuentes sobre Log Analytics
 En este artículo de preguntas frecuentes de Microsoft, se presenta una lista con las preguntas frecuentes sobre Log Analytics en Microsoft Azure. Si tiene alguna otra pregunta sobre Log Analytics, vaya al [foro de discusión](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) y publíquela. Si una pregunta es frecuente, se agrega a este artículo para que se pueda encontrar de forma rápida y sencilla.
@@ -69,6 +69,10 @@ R: para obtener acceso a un área de trabajo en Azure, debe tener asignados perm
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>P: ¿por qué no puedo ver la entrada del Diseñador de vistas en los registros? 
 R: el Diseñador de vistas solo está disponible en los registros de los usuarios asignados que tengan permiso de colaborador o superior.
+
+### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>P: ¿Puedo seguir usando el portal de Analytics fuera de Azure?
+A. Sí, la página de registros de Azure y el [portal de análisis avanzado](https://portal.loganalytics.io) se basan en el mismo código. Log Analytics se integra como una característica de Azure Monitor para proporcionar una experiencia de supervisión más unificada. Puede seguir accediendo al portal de Analytics mediante la dirección URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+
 
 
 ## <a name="general"></a>General

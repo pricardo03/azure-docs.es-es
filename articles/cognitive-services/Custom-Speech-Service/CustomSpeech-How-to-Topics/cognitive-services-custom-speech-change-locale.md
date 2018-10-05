@@ -1,21 +1,22 @@
 ---
-title: Configuraciones regionales e idiomas admitidos en Custom Speech Service en Azure | Microsoft Docs
+title: 'Configuraciones regionales e idiomas admitidos: Custom Speech Service'
+titlesuffix: Azure Cognitive Services
 description: Información general de los idiomas admitidos de Custom Speech Service en Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1f186681c7e46d2e47ed7eee55c8f61290c48fcb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34af6673689244364ab3a1fe3f2a6ab056ea8598
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987533"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223962"
 ---
 # <a name="supported-locales-in-custom-speech-service"></a>Configuraciones regionales admitidas en Custom Speech Service
 Custom Speech Service admite actualmente la personalización de modelos en las siguientes configuraciones regionales:

@@ -2,19 +2,22 @@
 title: Preguntas más frecuentes sobre Azure SQL Database | Microsoft Docs
 description: Respuestas a las preguntas más comunes que los clientes preguntan sobre las bases de datos en la nube y Azure SQL Database, el sistema de administración de bases de datos relacionales (RDBMS) de Microsoft y bases de datos como un servicio en la nube.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: reference
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/29/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: a7837ac6af82b5c67ea5779340aedc16cb78d156
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 8aaf89426cf392faaf6339f49300bf7d2b7dcfcd
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286339"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166629"
 ---
 # <a name="sql-database-faq"></a>Preguntas más frecuentes sobre la SQL Database
 
@@ -41,7 +44,7 @@ En muchos casos, las aplicaciones pueden beneficiarse de la simplicidad de una a
 Los modelos basados en DTU y en núcleos virtuales seguirán coexistiendo. Lanzamos el modelo basado en núcleos virtuales como respuesta a las solicitudes de los clientes de una mayor transparencia en torno a sus recursos de base de datos y la posibilidad de escalar sus recursos de proceso y almacenamiento por separado. El modelo basado en núcleos virtuales también permite que los clientes con licencias activas de Software Assurance consigan un ahorro adicional gracias a la Ventaja híbrida de Azure para SQL Server.
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>¿Cómo debo elegir entre el modelo de compra basado en DTU y el modelo de compra basado en núcleos virtuales? 
-La unidad de transacción de base de datos (DTU) se basa en una medida combinada de CPU, memoria, lecturas y escrituras. Los niveles de rendimiento basados en DTU representan agrupaciones preconfiguradas de recursos que controlan distintos niveles de rendimiento de la aplicación. Los clientes que no desean preocuparse por los recursos subyacentes y prefieren la simplicidad de una agrupación preconfigurada y pagar una cantidad mensual fija, pueden encontrar que el modelo basado en DTU se ajusta mejor a sus necesidades. Sin embargo, para clientes que necesitan información detallada de los recursos subyacentes o escalarlos de manera independiente para lograr un rendimiento óptimo, el modelo basado en núcleos virtuales será el más adecuado.  Además, si el cliente tiene una licencia activa de Software Assurance (SA) para SQL Server, puede aprovechar su inversión actual y ahorrar hasta un 30 % con la [Ventaja para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Las opciones dentro de cada modelo de compra ofrecen las ventajas de un servicio administrado, tales como copias de seguridad automatizadas, revisiones y actualizaciones de software. 
+La unidad de transacción de base de datos (DTU) se basa en una medida combinada de CPU, memoria, lecturas y escrituras. Los tamaños de proceso basados en DTU representan conjuntos preconfigurados de recursos que controlan distintos niveles de rendimiento de la aplicación. Los clientes que no desean preocuparse por los recursos subyacentes y prefieren la simplicidad de una agrupación preconfigurada y pagar una cantidad mensual fija, pueden encontrar que el modelo basado en DTU se ajusta mejor a sus necesidades. Sin embargo, para clientes que necesitan información detallada de los recursos subyacentes o escalarlos de manera independiente para lograr un rendimiento óptimo, el modelo basado en núcleos virtuales será el más adecuado.  Además, si el cliente tiene una licencia activa de Software Assurance (SA) para SQL Server, puede aprovechar su inversión actual y ahorrar hasta un 30 % con la [Ventaja para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Las opciones dentro de cada modelo de compra ofrecen las ventajas de un servicio administrado, tales como copias de seguridad automatizadas, revisiones y actualizaciones de software. 
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>¿Qué es la Ventaja híbrida de Azure para SQL Server? 
 La [Ventaja para uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) ayuda a maximizar el valor de sus inversiones actuales en licencias y a acelerar el proceso de migración a la nube. Se trata de una ventaja basada en Azure que le permite usar las licencias de SQL Server con Software Assurance para pagar una tarifa reducida ("tasa base") en SQL Database. La Ventaja híbrida de Azure para SQL Server está disponible en la versión preliminar pública del modelo de compra basado en núcleos virtuales para bases de datos únicas y grupos elásticos de SQL Database. Puede solicitar esta ventaja aunque la SKU esté activa, pero tenga en cuenta que la tasa base se aplica desde el momento en que la seleccione en Azure Portal. No se emitirá ningún crédito con carácter retroactivo.
@@ -71,15 +74,15 @@ Los clientes de SQL Database tendrán asociados los siguientes derechos con la V
 El costo de proceso refleja la capacidad de proceso total que se ha aprovisionado para la aplicación. En el nivel de servicio Crítico para la empresa, se asignan automáticamente al menos 3 réplicas Always On. Para reflejar esta asignación adicional de recursos de proceso, el precio del núcleo virtual es aproximadamente 2,7 veces más elevado en el nivel Crítico para la empresa. Por la misma razón, el precio de almacenamiento más alto por GB en el nivel Crítico para la empresa refleja la E/S alta y la baja latencia del almacenamiento SSD. Al mismo tiempo, el costo de almacenamiento de copia de seguridad no es diferente porque en ambos casos se usa una clase de almacenamiento estándar.
 
 ## <a name="how-am-i-charged-for-storage---based-on-what-i-configure-upfront-or-on-what-the-database-uses"></a>¿Cómo se me cobra por el almacenamiento, en función de lo que configuro con antelación o de lo que usa la base de datos?
-Diferentes tipos de almacenamiento se facturan de forma diferente. En el almacenamiento de datos, se le cobra por el almacenamiento aprovisionado en función del tamaño máximo de la base de datos o del grupo que seleccione. El costo no cambia a menos que reduzca o aumente ese máximo. El almacenamiento de copia de seguridad se asocia a las copias de seguridad automatizadas de su instancia. Al aumentar el período de retención de las copias de seguridad, aumenta el almacenamiento de copia de seguridad que consume la instancia. No hay cargos adicionales por el almacenamiento de copia de seguridad hasta el 100 % del total de su almacenamiento de servidor aprovisionado. El consumo adicional de almacenamiento de copia de seguridad se cobra en GB/mes. Por ejemplo, si tiene un tamaño de almacenamiento de base de datos de 100 GB, obtendrá 100 GB de almacenamiento de copia de seguridad sin costo adicional. Pero, si la copia de seguridad ocupa 110 GB, deberá pagar los 10 GB adicionales.
+Diferentes tipos de almacenamiento se facturan de forma diferente. En el almacenamiento de datos, se le cobra por el almacenamiento aprovisionado en función del tamaño máximo de la base de datos o del grupo que seleccione. El costo no cambia a menos que reduzca o aumente ese máximo. El almacenamiento de copia de seguridad se asocia a las copias de seguridad automatizadas de la instancia y su ubicación es dinámica. Al aumentar el período de retención de las copias de seguridad, aumenta el almacenamiento de copia de seguridad que consume la instancia. No hay cargos adicionales por el almacenamiento de copia de seguridad hasta el 100 % del total de su almacenamiento de servidor aprovisionado. El consumo adicional de almacenamiento de copia de seguridad se cobra en GB/mes. Por ejemplo, si tiene un tamaño de almacenamiento de base de datos de 100 GB, obtendrá 100 GB de almacenamiento de copia de seguridad sin costo adicional. Pero, si la copia de seguridad ocupa 110 GB, deberá pagar los 10 GB adicionales. 
 
 El almacenamiento de copia de seguridad de una única base de datos se le cobra mediante el prorrateo del almacenamiento que se asignó a las copias de seguridad de base de datos menos el tamaño de la base de datos. El almacenamiento de copia de seguridad de un grupo elástico se le cobra mediante el prorrateo del almacenamiento que se asignó a las copias de seguridad de base de datos de todas las bases de datos del grupo menos el tamaño máximo de los datos del grupo elástico. Cualquier aumento en el tamaño de la base de datos o el grupo elástico, o aumento en la velocidad de transacción, requiere más almacenamiento y, por tanto, aumenta la facturación del almacenamiento de copia de seguridad.  Al aumentar el tamaño máximo de los datos, esta cantidad nueva se deduce del tamaño de almacenamiento de copia de seguridad facturado.
 
 ## <a name="how-do-i-select-the-right-sku-when-converting-an-existing-database-to-the-new-service-tiers"></a>¿Cómo se selecciona la SKU adecuada al convertir una base de datos existente a los nuevos niveles de servicio? 
 En las aplicaciones existentes de SQL Database que usan el modelo basado en DTU, el nivel de servicio De uso general es comparable con el nivel Estándar. El nivel de servicio Crítico para la empresa es comparable al nivel Premium. En ambos casos, debe asignar al menos 1 núcleo virtual por cada 100 DTU que use su aplicación en el modelo basado en DTU.
 
-## <a name="do-the-new-vcore-based-service-tiers-offer-the-performance-levels-compatible-with-all-existing-service-level-objectives-slos"></a>¿Ofrecen los nuevos niveles de servicio basados en núcleos virtuales los niveles de rendimiento compatibles con todos los objetivos de nivel de servicio (SLO) existentes?
-Los nuevos niveles de servicio basados en núcleos virtuales ofrecen opciones de rendimiento comparables para todos los grupos elásticos y bases de datos que usan 100 o más DTU.  Con el tiempo, seguiremos agregando más SLO con el fin de alojar las cargas de trabajo por debajo de 100 DTU.
+## <a name="do-the-new-vcore-based-service-tiers-offer-the-compute-sizes-compatible-with-all-existing-compute-sizes"></a>¿Ofrecen los nuevos niveles de servicios con núcleo virtual los tamaños de proceso compatibles con todos los existentes?
+Los nuevos niveles de servicio basados en núcleos virtuales ofrecen opciones de rendimiento comparables para todos los grupos elásticos y bases de datos que usan 100 o más DTU.  Con el tiempo, seguiremos agregando más tamaños de proceso con el fin de alojar las cargas de trabajo por debajo de 100 DTU.
 
 ## <a name="are-there-any-database-feature-differences-between-the-existing-dtu-based-and-new-vcore-based-service-tiers"></a>¿Hay alguna diferencia en las características de base de datos entre los niveles de servicio basados en DTU existentes y los nuevos basados en núcleos virtuales? 
 Los nuevos niveles de servicio admiten un superconjunto de las características disponibles con las ofertas actuales basadas en DTU. Las características adicionales incluyen un conjunto de vistas de administración dinámicas (DMV) adicionales y opciones de configuración de recursos adicionales. 
@@ -110,7 +113,7 @@ Dado que el modelo de núcleos virtuales permite un control independiente sobre 
 ## <a name="how-often-can-i-adjust-the-resources-per-pool"></a>¿Con qué frecuencia se pueden ajustar los recursos por grupo?
 Tan a menudo como desee. Consulte [Administración de grupos elásticos](sql-database-elastic-pool.md).
 
-## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>¿Cuánto tiempo se tarda en cambiar el nivel de servicio o el nivel de rendimiento de una base de datos única o en mover una base de datos dentro y fuera de un grupo elástico?
+## <a name="how-long-does-it-take-to-change-the-service-tier-or-compute-size-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>¿Cuánto tiempo se tarda en cambiar el nivel de servicio o el tamaño de proceso de una base de datos única o en mover una base de datos dentro y fuera de un grupo elástico?
 Para cambiar el nivel de servicio de una base de datos e incorporarla y retirarla de un grupo es necesario copiar la base de datos en la plataforma como operación en segundo plano. Cambiar el nivel de servicio puede tardar desde solo unos minutos hasta varias horas, según el tamaño de las bases de datos. En ambos casos, las bases de datos permanecen en línea y disponibles durante el traslado. Para más información sobre cómo cambiar las bases de datos únicas, consulte [Cambiar el nivel de servicio de una base de datos](sql-database-service-tiers-dtu.md). 
 
 ## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>¿Cuándo se deben usar bases de datos elásticas y cuándo una base de datos única?
@@ -120,7 +123,7 @@ En general, los grupos elásticos están diseñados para un [patrón de aplicaci
 SQL Database se factura según una tarifa horaria predecible basada en el [modelo de compra](sql-database-service-tiers-dtu.md). El uso real se procesa y se prorratea por horas, por lo que su factura podría mostrar fracciones de una hora. Por ejemplo, si una base de datos existe durante 12 horas al mes, la factura mostrará un uso de 0,5 días. 
 
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>¿Qué ocurre si una base de datos única está activa durante menos de una hora o usa un nivel de servicio mayor durante menos de una hora?
-Se le cobrará por cada hora que una base de datos exista con el mayor nivel de servicio + nivel de rendimiento aplicable durante esa hora, independientemente del uso o de si la base de datos estuvo activa durante menos de una hora. Por ejemplo, si crea una base de datos única y la elimina a los cinco minutos, se le efectuará un cargo de una hora por usar la base de datos. 
+Se le cobrará por cada hora que una base de datos exista con el mayor nivel de servicio + tamaño de proceso aplicable durante esa hora, independientemente del uso o de si la base de datos estuvo activa durante menos tiempo. Por ejemplo, si crea una base de datos única y la elimina a los cinco minutos, se le efectuará un cargo de una hora por usar la base de datos. 
 
 Ejemplos:
 
@@ -141,8 +144,8 @@ Ejemplos del modelo de compra basado en DTU:
 Los grupos elásticos se facturan según las características siguientes:
 
 * Los grupos elásticos se facturan desde su creación, incluso si no contiene ninguna base de datos.
-* Los grupos elásticos se facturan por horas. Se trata de la misma frecuencia de medición que la de los niveles de rendimiento de las bases de datos únicas.
-* Si se cambia el tamaño de un grupo elástico, el grupo no se factura según la nueva cantidad de recursos hasta que la operación de cambio de tamaño se complete. Esto sigue el mismo patrón que el cambio de nivel de rendimiento de las bases de datos únicas.
+* Los grupos elásticos se facturan por horas. Se trata de la misma frecuencia de medición que la de los tamaños de proceso de las bases de datos únicas.
+* Si se cambia el tamaño de un grupo elástico, el grupo no se factura según la nueva cantidad de recursos hasta que la operación de cambio de tamaño se complete. Esto sigue el mismo patrón que el cambio de tamaño de proceso de las bases de datos únicas.
 * El precio de un grupo elástico se basa en los recursos del grupo. El precio de un grupo elástico es independiente del número y el uso de las bases de datos elásticas de dentro de él.
 
 Para obtener más información, consulte los artículos sobre los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/), el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md).

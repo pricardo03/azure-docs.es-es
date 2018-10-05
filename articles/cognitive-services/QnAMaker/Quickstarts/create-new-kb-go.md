@@ -1,20 +1,21 @@
 ---
-title: 'Creación de una base de conocimiento: Guía de inicio rápido de Go para Microsoft QnA Maker API (v4): Azure Cognitive Services | Microsoft Docs'
-description: Cree una base de conocimiento en Go para contener las preguntas más frecuentes o manuales de producto de manera que pueda empezar a trabajar con QnA Maker.
+title: 'Inicio rápido: Go de API: Creación de la base de conocimientos: QnA Maker'
+titlesuffix: Azure Cognitive Services
+description: Esta guía de inicio rápido le explica en detalle cómo crear mediante programación un ejemplo de base de conocimiento de QnA Maker, que aparecerá en el panel de Azure de su cuenta de API Cognitive Services.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: fe763dada6d40822148423443be12df7c1626687
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 17d4a03966b1d6e3f278d5a507e46f9f6fcafa05
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "43770782"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034066"
 ---
 # <a name="create-a-new-knowledge-base-in-go"></a>Creación de una base de conocimiento en Go
 

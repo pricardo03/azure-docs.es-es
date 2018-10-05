@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: magoedte
-ms.openlocfilehash: c03adc239ea7025fe154db315daa17b26f8237f1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 819c3e74355cf80c7a998abb8b02b10c9e077059
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980226"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47062775"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms"></a>Problemas conocidos con Azure Monitor para VM
 
@@ -39,3 +39,6 @@ Los siguientes son problemas conocidos de la característica de Mantenimiento de
 - Los umbrales para algunos criterios de mantenimiento de Windows, como el estado del servicio cliente DNS, no se pueden modificar, ya que su estado correcto ya está bloqueada para el estado **en ejecución**, **disponible** del servicio o la entidad, según el contexto.  En su lugar, el valor se representa por el número 4, se convertirá en la cadena de presentación real en una versión futura.  
 - Los umbrales para algunos criterios de estado de Linux no se pueden modificar, como el estado del disco lógico, ya que ya están establecidos para desencadenarse en un estado incorrecto.  Estos indican si algo está en línea o sin conexión, o activado o desactivado, y se representan e indican al mostrar el valor 1 o 0.
 - Actualizar el filtro Grupo de recursos en cualquier grupo de recursos al usar la visita de lista a escala Azure Monitor -> Máquinas virtuales -> Mantenimiento -> Cualquier con la suscripción y el grupo de recursos preseleccionados hará que la vista de lista no muestre **ningún resultado**.  Vuelva a la pestaña Azure Monitor -> Máquinas virtuales -> Mantenimiento y seleccione la suscripción y el grupo de recursos deseados y, a continuación, vaya a la vista de lista.
+
+## <a name="next-steps"></a>Pasos siguientes
+Consulte [Incorporación de Azure Monitor para VM](monitoring-vminsights-onboard.md) para conocer los requisitos y los métodos necesarios para habilitar la supervisión de máquinas virtuales.

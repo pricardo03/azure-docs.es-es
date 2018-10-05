@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 57fef112186834ead76f6223e32cb358e4d6d053
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ef2b5dd393974ddf700235991b60ec66031e34c2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024080"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222274"
 ---
 # <a name="what-is-baseline-protection-preview"></a>¿Qué es la protección de base de referencia (versión preliminar)?  
 
@@ -56,7 +56,7 @@ La directiva de base de referencia permite excluir usuarios y grupos. Podría de
 
 ## <a name="enable-a-baseline-policy"></a>Habilitar una directiva de base de referencia 
 
-Mientras están en versión preliminar, las directivas de base de referencia están inactivas de forma predeterminada. Debe habilitar una directiva manualmente si quiere activarla. En cuanto esta característica esté disponible para el público general, las directivas estarán activas de forma predeterminada. El cambio de comportamiento planeado es el motivo por el que, además de las opciones de activación y desactivación, tiene una tercera opción para establecer el estado de una directiva: **Automatically enable policy in the future** (Habilitar la directiva automáticamente en el futuro). Al seleccionar esta opción, permite a Microsoft decidir cuándo se debe activar una directiva.      
+Mientras están en versión preliminar, las directivas de base de referencia están inactivas de forma predeterminada. Debe habilitar una directiva manualmente si quiere activarla. Si habilita explícitamente las directivas de línea de base en la etapa de versión preliminar, se mantendrán activas cuando la característica alcance la disponibilidad general. El cambio de comportamiento planeado es el motivo por el que, además de la activación y desactivación, tiene una tercera opción para establecer el estado de una directiva: **Automatically enable policy in the future** (Habilitar la directiva automáticamente en el futuro). Al seleccionar esta opción, puede dejar las directivas deshabilitadas durante la versión preliminar, pero Microsoft las habilitará automáticamente cuando la característica alcance la disponibilidad general. Si no habilita explícitamente las directivas de línea de base ahora y no selecciona la opción **Automatically enable policy in the future** (Habilitar la directiva automáticamente en el futuro), las directivas permanecerán deshabilitadas cuando esta característica alcance la disponibilidad general.
 
 
 **Para habilitar una directiva de base de referencia:**  

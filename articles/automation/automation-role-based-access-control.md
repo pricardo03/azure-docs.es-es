@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fd96a6cfebe44bd02e3f44a44d91119ad1c2c5a9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fe35f26fe73661901fa85da65e353fe66adf5d47
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598759"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094224"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Control de acceso basado en rol en Azure Automation
 
@@ -78,12 +78,21 @@ El rol de Operador de Automation permite crear y administrar trabajos, y leer la
 |**Acciones**  |**Descripción**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|Autorización de lectura.|
+|Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|Lee los recursos de Hybrid Runbook Worker.|
 |Microsoft.Automation/automationAccounts/jobs/read|Enumerar trabajos del runbook.|
 |Microsoft.Automation/automationAccounts/jobs/resume/action|Reanudar un trabajo que está en pausa.|
 |Microsoft.Automation/automationAccounts/jobs/stop/action|Cancelar un trabajo en curso.|
 |Microsoft.Automation/automationAccounts/jobs/streams/read|Leer los flujos de trabajo y los resultados.|
+|Microsoft.Automation/automationAccounts/jobs/output/read|Obtiene la salida de un trabajo.|
 |Microsoft.Automation/automationAccounts/jobs/suspend/action|Pausar un trabajo en curso.|
 |Microsoft.Automation/automationAccounts/jobs/write|Crear trabajos.|
+|Microsoft.Automation/automationAccounts/jobSchedules/read|Obtiene una programación de trabajos de Azure Automation.|
+|Microsoft.Automation/automationAccounts/jobSchedules/write|Crea una programación de trabajos de Azure Automation.|
+|Microsoft.Automation/automationAccounts/linkedWorkspace/read|Obtiene el área de trabajo vinculada a la cuenta de Automation.|
+|Microsoft.Automation/automationAccounts/read|Obtiene una cuenta de Azure Automation.|
+|Microsoft.Automation/automationAccounts/runbooks/read|Obtiene un runbook de Azure Automation.|
+|Microsoft.Automation/automationAccounts/schedules/read|Obtiene un recurso de programación de Azure Automation.|
+|Microsoft.Automation/automationAccounts/schedules/write|Crea o actualiza un recurso de programación de Azure Automation.|
 |Microsoft.Resources/subscriptions/resourceGroups/read      |Roles de lectura y asignaciones de roles.         |
 |Microsoft.Resources/deployments/*      |Crear y administrar implementaciones de grupos de recursos.         |
 |Microsoft.Insights/alertRules/*      | Crear y administrar reglas de alertas.        |

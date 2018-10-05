@@ -2,19 +2,22 @@
 title: Uso de Recovery Manager para solucionar problemas de mapas de particiones | Microsoft Docs
 description: Uso de la clase RecoveryManager para solucionar problemas con los mapas de particiones
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 6257edbb567be3ebb3151724e7e50ca81905ad40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 09eb2312ef2268169535b644470a754e46b51b18
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646242"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166867"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Uso de la clase RecoveryManager para solucionar problemas de mapas de particiones
 La clase [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) proporciona a las aplicaciones ADO.Net la capacidad de detectar y corregir fácilmente las incoherencias entre el mapa de particiones global y el mapa de particiones local en un entorno de base de datos con particiones. 
@@ -122,7 +125,7 @@ En este ejemplo se agrega una partición al mapa de particiones que se restauró
 Si se produce una conmutación por error geográfica, a la base de datos secundaria se le da permiso de escritura y se convierte en la nueva base de datos principal. El nombre del servidor y, posiblemente de la base de datos (según la configuración), puede ser diferente de la réplica principal original. Por lo tanto, deben corregirse las entradas de asignación para la partición en el mapa de particiones local y global. De igual forma, si la base de datos se restaura en una ubicación o nombre diferente o a un momento anterior en el tiempo, podría provocar inconsistencias en los mapas de particiones. El administrador de mapas de particiones controla la distribución de las conexiones abiertas a la base de datos correcta. La distribución se basa en los datos del mapa de particiones y en el valor de la clave de particionamiento, que es el destino de la solicitud de la aplicación. Después de una conmutación por error geográfica, esta información debe actualizarse con el nombre preciso del servidor, el nombre de la base de datos y la asignación de particiones de la base de datos recuperada. 
 
 ## <a name="best-practices"></a>Procedimientos recomendados
-La conmutación por error geográfica y la recuperación son operaciones administradas normalmente por un administrador de nube de la aplicación mediante el uso intencional de una de las características de continuidad del negocio de Azure SQL Database. La planeación de la continuidad de negocio requiere procesos, procedimientos y medidas para garantizar que las operaciones empresariales puedan continuar sin interrupción. Deben usarse los métodos disponibles como parte de la clase RecoveryManager dentro de este flujo de trabajo para garantizar que los mapas de particiones local y global se actualizan según la acción de recuperación realizada. Existen cinco pasos básicos para asegurar correctamente que los mapas de particiones local y global reflejan la información precisa después de un evento de conmutación por error. El código de la aplicación para ejecutar estos pasos se puede integrar en el flujo de trabajo y en las herramientas existentes. 
+La conmutación por error y la recuperación geográficas son operaciones que normalmente administra un administrador de nube de la aplicación al usar a propósito una de las características de continuidad empresarial de Azure SQL Database. La planeación de la continuidad de negocio requiere procesos, procedimientos y medidas para garantizar que las operaciones empresariales puedan continuar sin interrupción. Deben usarse los métodos disponibles como parte de la clase RecoveryManager dentro de este flujo de trabajo para garantizar que los mapas de particiones local y global se actualizan según la acción de recuperación realizada. Existen cinco pasos básicos para asegurar correctamente que los mapas de particiones local y global reflejan la información precisa después de un evento de conmutación por error. El código de la aplicación para ejecutar estos pasos se puede integrar en el flujo de trabajo y en las herramientas existentes. 
 
 1. Recupere RecoveryManager de ShardMapManager. 
 2. Desasocie la partición anterior del mapa de particiones.

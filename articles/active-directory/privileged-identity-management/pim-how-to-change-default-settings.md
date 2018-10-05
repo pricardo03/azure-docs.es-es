@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 08/27/2018
+ms.date: 09/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2d7226f18eb922eaba3c8184656560c33202ef56
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 77a57afda3859de4a246c15d3b5c0b4ba8e2a8c8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665441"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039010"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Configuración de roles de directorio de Azure AD en PIM
 
@@ -63,24 +63,23 @@ Use el modificador **Autenticación multifactor** para especificar si se requier
 * Los usuarios que tienen cuentas de Microsoft para sus direcciones de correo electrónico (normalmente @outlook.com, pero no siempre) no se pueden registrar en Azure MFA. Si quiere asignar roles a los usuarios con cuentas de Microsoft, debe establecerlos en administradores permanentes o deshabilitar MFA para ese rol.
 * No se puede deshabilitar MFA para roles con privilegios elevados en Azure AD y Office 365. Esta es una característica de seguridad porque estos roles deben protegerse cuidadosamente:  
   
-  * Administrador de aplicaciones
-  * Administrador del servidor proxy de la aplicación
-  * Administrador de facturación  
-  * Administrador de cumplimiento  
+  * Administrador de facturación
+  * Administrador de aplicaciones en la nube
+  * Administrador de cumplimiento
+  * Administrador de acceso condicional
   * Administrador de servicios de CRM
   * Aprobador del acceso a la Caja de seguridad del cliente
-  * Escritor de directorio  
-  * Administrador de Exchange  
+  * Escritores de directorios
+  * Administrador de Exchange
   * Administrador global
+  * Administrador de Information Protection
   * Administrador de servicios de Intune
-  * Administrador de buzón de correo  
-  * Soporte para asociados de nivel 1  
-  * Soporte para asociados de nivel 2  
+  * Administrador de servicios de Power BI
   * Administrador de roles con privilegios
-  * Administrador de seguridad  
-  * Administrador de SharePoint  
-  * Administrador de Skype Empresarial  
-  * Administrador de cuenta de usuario  
+  * Administrador de seguridad
+  * Administrador de servicios de SharePoint
+  * Administrador de Skype Empresarial
+  * Administrador de usuarios
 
 Para obtener más información, consulte [Autenticación multifactor (MFA) y PIM](pim-how-to-require-mfa.md).
 

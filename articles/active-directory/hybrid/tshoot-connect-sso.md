@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c2b6bd3b04dfbc7446e92dfcb16db64cc3c693c5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a020f0f22f16d8aaa959c41a912ca5839be05312
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310624"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055907"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -36,7 +36,7 @@ Este artículo sirve de ayuda para encontrar información sobre cómo solucionar
 - Si un usuario forma parte de demasiados grupos de Active Directory, es probable que el valor de Kerberos del usuario sea demasiado largo para procesarse, lo que hará que se produzca un error en el inicio de sesión único de conexión directa. Las solicitudes HTTPS de Azure AD pueden tener encabezados con un tamaño máximo de 50 KB; los vales de Kerberos deben ser menores que ese número para albergar otros artefactos de Azure AD (generalmente, de 2 a 5 KB), como las cookies. Nuestra recomendación es reducir la pertenencia a grupos del usuario y volver a intentarlo.
 - Si va a sincronizar treinta bosques de Active Directory o más, no se puede habilitar el inicio de sesión único de conexión directa mediante Azure AD Connect. Como alternativa, también puede [habilitar manualmente](#manual-reset-of-the-feature) la característica en su inquilino.
 - Agregar la dirección URL del servicio de Azure AD (https://autologon.microsoftazuread-sso.com) a la zona de sitios de confianza en lugar de a la zona de intranet local *impide que los usuarios inicien sesión*.
-- Deshabilitar el uso del tipo de cifrado **RC4_HMAC_MD5** para Kerberos en la configuración de Active Directory interrumpirá el SSO de conexión directa. En la herramienta Editor de administración de directivas de grupo, asegúrese de que el valor de directiva para **RC4_HMAC_MD5** en **Configuración de equipo -> Configuración de Windows -> Configuración de seguridad -> Directivas locales -> Opciones de seguridad -> "Seguridad de red: configurar tipos de cifrado permitidos para Kerberos"** esté habilitado.
+- Seamless SSO usa el tipo de cifrado **RC4_HMAC_MD5** para Kerberos. Deshabilitar el uso del tipo de cifrado **RC4_HMAC_MD5** en la configuración de Active Directory interrumpirá el SSO de conexión directa. En la herramienta Editor de administración de directivas de grupo, asegúrese de que el valor de directiva para **RC4_HMAC_MD5** en **Configuración de equipo -> Configuración de Windows -> Configuración de seguridad -> Directivas locales -> Opciones de seguridad -> "Seguridad de red: configurar tipos de cifrado permitidos para Kerberos"** sea **habilitado**. Además, Seamless SSO no puede utilizar otros tipos de cifrado, así que asegúrese de que su valor es **deshabilitado**.
 
 ## <a name="check-status-of-feature"></a>Comprobación del estado de la característica
 

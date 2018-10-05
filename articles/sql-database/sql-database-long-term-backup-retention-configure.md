@@ -2,20 +2,22 @@
 title: Administración de la retención de copias de seguridad a largo plazo de Azure SQL Database | Microsoft Docs
 description: Aprenda a almacenar copias de seguridad automatizadas en el almacenamiento de SQL Azure y, después, a restaurarlas
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/25/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: d448a4a75d966dcf2cdc6e3d50da2c94f8e7f5d8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+manager: craigg
+ms.date: 09/18/2018
+ms.openlocfilehash: 0a91139d92570a2ee2828f9295590d580902c501
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163131"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164997"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Administración de la retención de copias de seguridad a largo plazo de Azure SQL Database
 
@@ -29,7 +31,7 @@ En las secciones siguientes se explica cómo usar Azure Portal para configurar l
 
 Puede configurar SQL Database para [ conservar las copias de seguridad automatizadas](sql-database-long-term-retention.md) durante un período superior al período de retención del nivel de servicio. 
 
-1. En Azure Portal, seleccione el servidor SQL Server y después, haga clic en **Administrar copias de seguridad**. En la pestaña **Configurar directivas**, seleccione la base de datos en la que desea establecer o modificar las directivas de retención de copias de seguridad a largo plazo.
+1. En Azure Portal, seleccione el servidor SQL Server y después, haga clic en **Administrar copias de seguridad**. En la pestaña **Configurar directivas**, seleccione la casilla de la base de datos en la que desea establecer o modificar las directivas de retención de copias de seguridad a largo plazo.
 
    ![vínculo para administrar copias de seguridad](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 

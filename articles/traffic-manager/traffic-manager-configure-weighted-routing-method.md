@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: 7aa4c9120d44ff1b3e59a57090ea04e3f8021fc4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6637132481ee33d43ec2b747ba89a56983205ff2
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111013"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432450"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Configuración del método de enrutamiento de tráfico ponderado en Traffic Manager
 
 Un patrón del método de enrutamiento del tráfico es proporcionar un conjunto de extremos idénticos, que incluye servicios en la nube y sitios web, y enviar tráfico a cada uno de ellos de forma equitativa (round robin). Los siguientes pasos describen cómo configurar este tipo de método de enrutamiento de tráfico.
 
 > [!NOTE]
-> Azure ya proporciona la funcionalidad de equilibrio de carga Round Robin para sitios web en un centro de datos (también denominado "región"). El Administrador de tráfico permite especificar el método de enrutamiento del tráfico round robin para sitios web en distintos centros de datos.
+> Azure Web App ya le proporciona la funcionalidad de equilibrio de carga Round Robin para sitios web en una región de Azure (que contiene varios centros de datos). El Administrador de tráfico permite especificar el método de enrutamiento del tráfico round robin para sitios web en distintos centros de datos.
 
 ## <a name="to-configure-the-weighted-traffic-routing-method"></a>Para configurar el método de enrutamiento de tráfico ponderado
 

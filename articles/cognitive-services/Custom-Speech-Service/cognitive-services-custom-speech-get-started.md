@@ -1,21 +1,22 @@
 ---
-title: Introducción a Custom Speech Service en Azure | Microsoft Docs
+title: Introducción a Custom Speech Service
+titlesuffix: Azure Cognitive Services
 description: Suscríbase a Custom Speech Service y vincule las actividades de servicio a una suscripción de Azure para entrenar un modelo y realizar una implementación.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: bf674261a58aab4fee37920d12ce6a2ac54b58b8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ae72edd626bd91dea7cd2812a3ef821b905f59a4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975790"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225249"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Introducción a Custom Speech Service
 
@@ -51,7 +52,7 @@ Cuando haya creado los modelos acústicos y los modelos de lenguaje personalizad
 Puede encontrar una descripción detallada sobre cómo crear un punto de conexión personalizado de voz a texto [aquí](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md).
 
 ## <a name="using-a-custom-speech-endpoint"></a>Uso de un punto de conexión de voz personalizado
-Las solicitudes pueden enviarse a un punto de conexión de voz a texto CRIS de forma muy similar que el punto de conexión de voz de Microsoft Cognitive Services. Tenga en cuenta que estos puntos de conexión son funcionalmente idénticos a los puntos de conexión predeterminados de Speech API. Por lo tanto, la misma funcionalidad disponible a través de la biblioteca cliente o la API de REST para Speech API también está disponible para el punto de conexión personalizado.
+Las solicitudes se pueden enviar a un punto de conexión de voz a texto CRIS de forma muy similar que el punto de conexión de voz de Microsoft Cognitive Services. Tenga en cuenta que estos puntos de conexión son funcionalmente idénticos a los puntos de conexión predeterminados de Speech API. Por lo tanto, la misma funcionalidad disponible a través de la biblioteca cliente o la API de REST para Speech API también está disponible para el punto de conexión personalizado.
 
 Puede encontrar una descripción detallada sobre cómo usar un punto de conexión personalizado de voz a texto [aquí](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md).
 

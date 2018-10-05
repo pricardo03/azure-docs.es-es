@@ -1,22 +1,24 @@
 ---
 title: Impacto del uso de Azure Application Insights | Microsoft Docs
-description: "Analice cómo las diferentes propiedades pueden afectar a las tasas de conversión de partes de sus aplicaciones."
+description: Analice cómo las diferentes propiedades pueden afectar a las tasas de conversión de partes de sus aplicaciones.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/25/2018
-ms.author: mbullwin ; daviste
-ms.openlocfilehash: d76db02647ce878343f60fc84cf063c5b7833438
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.reviewer: daviste
+ms.author: mbullwin
+ms.openlocfilehash: 9188776fdd213f01523069b08bd898f48bee57a4
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091488"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análisis de impacto con Application Insights
 
@@ -66,7 +68,7 @@ En este caso, los resultados ya no se ajustan en un modelo de eje x continuo com
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>¿Cómo calcula la herramienta Impacto la tasa de conversión?
 
-En segundo plano, la herramienta Impacto se basa en el [coeficiente de correlación de Pearson] (https://es.wikipedia.org/wiki/Coeficiente_de_correlaci%C3%B3n_de_Pearson). Los resultados se calculan entre -1 y 1, donde -1 representa una correlación cero y 1 representa una correlación positiva.
+En segundo plano, la herramienta Impacto se basa en el [coeficiente de correlación de Pearson] (https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Los resultados se calculan entre -1 y 1, donde -1 representa una correlación cero y 1 representa una correlación positiva.
 
 El análisis básico de cómo funciona Análisis de impacto es el siguiente:
 

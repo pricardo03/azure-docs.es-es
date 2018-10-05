@@ -12,19 +12,19 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: d0c6f8723909b71501894c9363932c752c1e130c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989862"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419549"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Tutorial: Aprovisionamiento de Azure Data Box Gateway en VMware (versión preliminar)
 
-## <a name="overview"></a>Introducción
+## <a name="overview"></a>Información general
 
 En este tutorial se describe cómo aprovisionar Data Box Gateway en un sistema host que usa VMware ESXi 6.0 o 6.5. 
 
@@ -34,7 +34,7 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Asegurarse de que el host cumple los requisitos mínimos del dispositivo
-> * Aprovisionar un dispositivo virtual en el hipervisor
+> * Aprovisionamiento de un dispositivo virtual en VMWare
 > * Iniciar el dispositivo virtual y obtener la dirección IP
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
@@ -90,7 +90,7 @@ Para crear un dispositivo virtual, necesita:
 * Cliente VMware vSphere en el sistema para administrar el host ESXi.
 
 
-## <a name="provision-a-virtual-device-in-hypervisor"></a>Aprovisionamiento de un dispositivo virtual en el hipervisor
+## <a name="provision-a-virtual-device-in-hypervisor"></a>Aprovisionar un dispositivo virtual en el hipervisor
 
 Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipervisor.
 
@@ -157,7 +157,7 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
-27. En la página **Listo para completarse**, revise toda la configuración asociada a la nueva máquina virtual. Compruebe si el valor de CPU es 4, la memoria es 8192 MB, la interfaz de red es 1 y el disco duro 2 tiene el controlador IDE 0. Haga clic en **Finalizar** 
+27. En la página **Listo para completarse** , revise toda la configuración asociada a la nueva máquina virtual. Compruebe si el valor de CPU es 4, la memoria es 8192 MB, la interfaz de red es 1 y el disco duro 2 tiene el controlador IDE 0. Haga clic en **Finalizar** 
    
     ![](./media/data-box-gateway-deploy-provision-vmware/image16.png)
     ![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
@@ -198,7 +198,7 @@ Realice los pasos siguientes para iniciar el dispositivo virtual y conectarse a 
 
 6. Los pasos 5 a 7 solo se aplican cuando se arranca en un entorno que no sea DHCP. Si se encuentra en un entorno DHCP, omita estos pasos y vaya al paso 8. Si arrancó el dispositivo en un entorno que no sea DHCP, verá el mensaje: **Use the Set-HcsIPAddress cmdlet to configure the network** (Use el cmdlet Set-HcsIPAddress para configurar la red). 
    
-7. Para configurar la red, en el símbolo del sistema, utilice el comando `Get-HcsIpAddress` para enumerar las interfaces de red habilitadas en el dispositivo virtual. Si el dispositivo tiene una única interfaz de red habilitada, el nombre predeterminado asignado a esta interfaz es `DATA1`.
+7. Para configurar la red, en el símbolo del sistema, utilice el comando `Get-HcsIpAddress` para enumerar las interfaces de red habilitadas en el dispositivo virtual. Si el dispositivo tiene una única interfaz de red habilitada, el nombre predeterminado asignado a esta interfaz es `Ethernet`.
 
 8. Utilice el cmdlet `Set-HcsIpAddress` para configurar la red. A continuación se muestra un ejemplo:
 
@@ -208,7 +208,7 @@ Realice los pasos siguientes para iniciar el dispositivo virtual y conectarse a 
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
-Si el dispositivo no cumple los requisitos mínimos de configuración, verá un error en el texto del titular (se muestra a continuación). Debe modificar la configuración del dispositivo para que tenga los recursos adecuados para cumplir los requisitos mínimos. A continuación, puede reiniciar y conectarse al dispositivo. Consulte los requisitos mínimos de configuración de [Paso 1: Asegurarse de que el sistema host cumple los requisitos mínimos del dispositivo virtual](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
+Si el dispositivo no cumple los requisitos mínimos de configuración, verá un error en el texto del titular (se muestra a continuación). Debe modificar la configuración del dispositivo para que tenga los recursos adecuados para cumplir los requisitos mínimos. A continuación, puede reiniciar y conectarse al dispositivo. Consulte los requisitos mínimos de configuración indicados en [Asegurarse de que el sistema host cumple los requisitos mínimos del dispositivo virtual](#check-the-host-system).
 
 <!---If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 
@@ -221,7 +221,7 @@ En este tutorial, ha obtenido información acerca de varios temas relacionados c
 
 > [!div class="checklist"]
 > * Asegurarse de que el host cumple los requisitos mínimos del dispositivo
-> * Aprovisionar un dispositivo virtual en el hipervisor
+> * Aprovisionamiento de un dispositivo virtual en VMWare
 > * Iniciar el dispositivo virtual y obtener la dirección IP
 
 Pase al siguiente tutorial para aprender a conectar, configurar y activar dispositivos virtuales.

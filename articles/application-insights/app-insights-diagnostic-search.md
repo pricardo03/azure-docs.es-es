@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a343e238662393995404b8e4c705cf799866855
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 1bf716d4e5a37739de2e820725449be2576054ea
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136918"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038785"
 ---
 # <a name="using-search-in-application-insights"></a>Uso de Búsqueda en Application Insights
 Búsqueda es una característica de [Application Insights](app-insights-overview.md) que se usa para buscar y explorar elementos de telemetría individuales, como vistas de páginas, excepciones o solicitudes web. Y puede ver los seguimientos de registros y eventos que haya codificado.
@@ -123,8 +123,8 @@ A continuación se muestran las expresiones de búsqueda que puede utilizar:
 | Consulta de ejemplo | Efecto |
 | --- | --- |
 | `apple` |Busca todos los eventos del intervalo de tiempo cuyos campos incluyen la palabra "apple". |
-| `apple AND banana` |Busca eventos que contienen ambos términos. Utilizar "AND" en mayúsculas, no "and". |
-| `apple OR banana`<br/>`apple banana` |Buscar eventos que contengan cualquiera de los dos términos. Usar "OR" no "or".<br/>Forma abreviada. |
+| `apple AND banana` <br/>`apple banana` |Busca eventos que contienen ambos términos. Utilizar "AND" en mayúsculas, no "and". <br/>Forma abreviada. |
+| `apple OR banana` |Buscar eventos que contengan cualquiera de los dos términos. Usar "OR" no "or". |
 | `apple NOT banana` |Buscar eventos que contengan un término pero no el otro. |
 
 ## <a name="sampling"></a>muestreo
@@ -133,13 +133,13 @@ Si la aplicación genera muchos datos de telemetría (y está usando la versión
 [Más información sobre el muestreo](app-insights-sampling.md).
 
 ## <a name="create-work-item"></a>Creación de elemento de trabajo
-Puede crear un error en GitHub o en Visual Studio Team Services con los detalles de cualquier elemento de telemetría. 
+Puede crear un error en GitHub o en Azure DevOps, con información de cualquier elemento de telemetría. 
 
 ![Haga clic en Nuevo elemento de trabajo, modifique los campos y, a continuación, haga clic en Aceptar.](./media/app-insights-diagnostic-search/42.png)
 
-La primera vez que lo haga, deberá configurar un vínculo a la cuenta y el proyecto de Team Services.
+La primera vez que lo haga, se le pedirá que configure un vínculo a la organización y el proyecto de Azure DevOps.
 
-![Introduzca la dirección URL del servidor de Team Services y el nombre del proyecto y haga clic en Autorizar.](./media/app-insights-diagnostic-search/41.png)
+![Especifique la dirección URL del servidor de Azure DevOps Services y el nombre del proyecto, y haga clic en Autorizar.](./media/app-insights-diagnostic-search/41.png)
 
 (También puede configurar el vínculo en la hoja Elementos de trabajo).
 

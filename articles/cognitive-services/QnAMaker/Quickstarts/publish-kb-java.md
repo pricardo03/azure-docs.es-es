@@ -1,24 +1,27 @@
 ---
-title: 'Publicación de una base de conocimiento: Guía de inicio rápido de Java: Azure Cognitive Services | Microsoft Docs'
+title: 'Inicio rápido: Base de conocimientos de publicación de Java: QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Publicación de una base de conocimiento en Java para QnA Maker.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: fd815802643a67fe340098e97687fc6438a18ea0
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: a625151a0f6595e02ed899f2f8f7273c8e4f5cde
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43770814"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036929"
 ---
 # <a name="publish-a-knowledge-base-in-java"></a>Publicación de una base de conocimiento en Java
 
 El siguiente código publica una base de conocimiento existente con el método [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 1. Cree un nuevo proyecto de Java en su IDE favorito.
 2. Agregue el código que se proporciona a continuación.

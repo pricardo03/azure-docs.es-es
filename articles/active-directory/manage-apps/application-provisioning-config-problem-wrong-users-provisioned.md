@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 09/20/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2c2dd2208cf910456fa8f94ca739b7ef8875d475
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: df32ed7a6d3bc0c9e349f576f5f48832bf9906dd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355805"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041930"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Aprovisionamiento de un conjunto de usuarios incorrecto en una aplicación de la galería de Azure AD
 
@@ -109,7 +109,7 @@ Si el aprovisionamiento está configurado y ya se está ejecutando para una apli
 >
 >
 
-Si están habilitados los grupos de aprovisionamiento, asegúrese de revisar las asignaciones de atributos para asegurarse de que se utiliza un campo apropiado para el "identificador coincidente". Esto puede ser el nombre para mostrar o el alias de correo electrónico, ya que el grupo y sus miembros no se han aprovisionado si la propiedad coincidente está vacía o no se rellenado para un grupo en Azure AD.
+Si los grupos de aprovisionamiento están habilitados, asegúrese de revisar las asignaciones de atributos para asegurarse de que se use un campo apropiado para el "identificador de coincidencia". Este identificador de coincidencia puede ser el alias de correo electrónico o el nombre para mostrar. El grupo y sus miembros no se han aprovisionado si la propiedad de coincidencia está vacía o no se ha rellenado para un grupo en Azure AD.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](user-provisioning.md)

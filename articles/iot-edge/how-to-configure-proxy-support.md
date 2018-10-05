@@ -4,16 +4,16 @@ description: Aprenda a configurar el entorno de ejecución de Azure IoT Edge y t
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 09/13/2018
+ms.date: 09/24/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cf8f6197c65b0169e2bc61f46ab4a22f212512a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e6a1d2f758cabca41ac405a01de1f0d8bfd0a7b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996730"
+ms.locfileid: "47037463"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configuración de un dispositivo de IoT Edge para que se comunique a través de un servidor proxy
 
@@ -21,9 +21,25 @@ Los dispositivos de IoT Edge envían solicitudes HTTPS para comunicarse con IoT 
 
 Para configurar un dispositivo de IoT Edge para que funcione con un servidor proxy siga estos pasos básicos: 
 
-1. Configure los demonios de Docker y de IoT Edge en el dispositivo para que usen el servidor proxy.
-2. Configure las propiedades de edgeAgent en el archivo config.yaml del dispositivo.
-3. Establezca las variables de entorno del entorno de ejecución de Azure IoT Edge y de otros módulos de IoT Edge en el manifiesto de implementación. 
+1. Instale el entorno de ejecución de Azure IoT Edge en el dispositivo. 
+2. Configure los demonios de Docker y de IoT Edge en el dispositivo para que usen el servidor proxy.
+3. Configure las propiedades de edgeAgent en el archivo config.yaml del dispositivo.
+4. Establezca las variables de entorno del entorno de ejecución de Azure IoT Edge y de otros módulos de IoT Edge en el manifiesto de implementación. 
+
+## <a name="install-the-runtime"></a>Instalación de la instancia en tiempo de ejecución
+
+Si va a instalar el entorno de ejecución de Azure IoT Edge en un dispositivo Linux, configure el administrador de paquetes para que pase por el servidor proxy para acceder al paquete de instalación. Por ejemplo, [configure apt-get para usar un http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Una vez que el administrador de paquetes esté configurado, siga las instrucciones de [Instalación del entorno de ejecución de Azure IoT Edge en Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) o [Instalar el entorno de ejecución de Azure IoT Edge en Linux (x64)](how-to-install-iot-edge-linux.md) como de costumbre. 
+
+Si va a instalar el entorno de ejecución de Azure IoT Edge en un dispositivo Windows, debe pasar por el servidor proxy para acceder al paquete de instalación. Puede configurar la información del proxy en la configuración de Windows, o incluir la información del proxy directamente en el script de instalación. El siguiente script de PowerShell es un ejemplo de una instalación de Windows con el argumento `-proxy`:
+
+```powershell
+. {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; `
+Install-SecurityDaemon -Manual -ContainerOs Windows
+```
+
+Para más información y opciones de instalación, consulte [Instalación del entorno de ejecución de Azure IoT Edge en Windows para usar con contenedores de Windows](how-to-install-iot-edge-windows-with-windows.md) o [Instalación del entorno de ejecución de Azure IoT Edge en Windows para su uso con contenedores de Linux](how-to-install-iot-edge-windows-with-linux.md).
+
+Una vez que el entorno de ejecución de Azure IoT Edge esté instalado, use la sección siguiente para configurarlo con la información del proxy. 
 
 ## <a name="configure-the-daemons"></a>Configuración de los demonios
 

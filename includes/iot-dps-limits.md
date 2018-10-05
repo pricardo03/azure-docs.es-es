@@ -16,7 +16,8 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos del
 
 El servicio Device Provisioning limita las solicitudes cuando se superan las cuotas siguientes:
 
-| Limitación | Valor por servicio |
+| Limitación | Valor por unidad |
 | --- | --- |
-| Operaciones | 100 por minuto |
-| Registros de dispositivos | 100 por minuto |
+| Operaciones | 200/min/servicio |
+| Registros de dispositivos | 200/min/servicio |
+| Operación de sondeo de dispositivos | 5/10 segundos/dispositivo |

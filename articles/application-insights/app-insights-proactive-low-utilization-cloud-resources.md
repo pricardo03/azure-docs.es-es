@@ -1,8 +1,8 @@
 ---
-title: "Detección inteligente: Azure Application Insights detectó un uso reducido de los recursos de nube | Microsoft Docs"
+title: 'Detección inteligente: Azure Application Insights detectó un uso reducido de los recursos de nube | Microsoft Docs'
 description: Supervise las aplicaciones con Azure Application Insights para detectar un uso reducido de los recursos de nube.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
@@ -10,16 +10,17 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8382f6047ae222a01cc0e8d6ca9dcf5593d0dff6
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: ca4f944f605db96a2cedf2682f3ff4c811007ffb
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094919"
 ---
-# <a name="low-utilization-of-cloud-resources-preview"></a>Uso reducido de los recursos de nube (versión preliminar)
+# <a name="low-cpu-utilization-in-cloud-resources-preview"></a>Uso reducido de CPU en los recursos en la nube (versión preliminar)
 
 Application Insights analiza automáticamente el consumo de CPU de cada instancia de rol de la aplicación y detecta instancias con un uso de CPU reducido. Esta detección permite reducir los recursos de Azure y reducir costos, reduciendo el número de instancias de rol que utiliza cada rol, o reduciendo el número de roles.
 

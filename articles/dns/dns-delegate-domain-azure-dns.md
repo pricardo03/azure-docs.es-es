@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 44f5bf9a28d56e85bae1d50136c50868ec96eb4e
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: ea0dc257d691326bc073b4cbff37e847a6990f02
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205448"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452313"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Tutorial: Hospedaje del dominio en Azure DNS
 
@@ -44,7 +44,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
    | **Configuración** | **Valor** | **Detalles** |
    |---|---|---|
-   |**Name**|[el nombre de dominio] |El nombre de dominio que compró. Este tutorial usa como ejemplo contoso.net.|
+   |**Nombre**|[el nombre de dominio] |El nombre de dominio que compró. Este tutorial usa como ejemplo contoso.net.|
    |**Suscripción**|[Su suscripción]|Seleccione una suscripción en la que crear la zona.|
    |**Grupos de recursos**|**Crear nuevo:** contosoRG|Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción que ha seleccionado. |
    |**Ubicación**|Este de EE. UU||
@@ -70,6 +70,9 @@ Azure DNS crea automáticamente los registros NS autoritativos en la zona para l
 Ahora que se crea la zona DNS y que tiene los servidores de nombres, debe actualizar el dominio primario con los servidores de nombres de Azure DNS. Cada registrador dispone de sus propias herramientas de administración de DNS para cambiar los registros de servidores de nombres de un dominio. En la página de administración de DNS del registrador, edite los registros NS y reemplácelos por los servidores de nombres de Azure DNS.
 
 Al delegar un dominio a Azure DNS, debe usar los servidores de nombres proporcionados por Azure DNS. Recomendamos usar siempre los cuatro servidores de nombres, independientemente del nombre de su dominio. La delegación de dominios no requiere que el servidor de nombres use el mismo dominio de primer nivel que su dominio.
+
+> [!NOTE]
+> Cuando copie cada dirección del servidor de nombres, asegúrese de copiar el punto final al final de la dirección. El punto indica el final de un nombre de dominio completo. Algunos registradores pueden anexar el punto si el nombre NS no lo tiene al final. Pero para cumplir con la RFC de DNS, debe incluir el período de seguimiento, ya que no puede asumir que cada registrador lo anexe automáticamente.
 
 De momento, no se admiten en Azure DNS las delegaciones que usan servidores de nombres en su propia zona (a veces denominados *servidores DNS personalizados*).
 

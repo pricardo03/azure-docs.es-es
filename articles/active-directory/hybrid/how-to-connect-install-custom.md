@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9fe18c5e9514d7b8ecc3e38b394ddb4fadcc4393
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e984dc985100bcdabbee4fb86bd1819a329301a5
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303951"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452639"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
 Se utiliza **Configuración personalizada** de Azure AD Connect cuando se desea contar con más opciones para la instalación. Se utiliza si tiene varios bosques o si desea configurar características opcionales que no se incluyen en la instalación rápida. Se usa en todos aquellos casos en que la opción [**Instalación rápida**](how-to-connect-install-express.md) no vale para su implementación o topología.
@@ -56,10 +56,10 @@ Después de instalar los componentes necesarios, se le pide que seleccione el m�
 | Federación con AD FS |Los usuarios pueden iniciar sesión en los servicios en la nube de Microsoft, como Office 365, con la misma contraseña que usan en su red local.  Los usuarios se redirigen a su instancia local de AD FS para iniciar sesión y la autenticación se realiza de forma local. |
 | Federación con PingFederate|Los usuarios pueden iniciar sesión en los servicios en la nube de Microsoft, como Office 365, con la misma contraseña que usan en su red local.  Los usuarios se redirigen a su instancia local de PingFederate para iniciar sesión y la autenticación se realiza de forma local. |
 | No configurar |No se instala ni configura ninguna característica de inicio de sesión de usuario. Elija esta opción si ya tiene un servidor de federación de terceros u otra solución existente ya instalada. |
-|Habilitar el inicio de sesión único|Esta opción está disponible tanto con la sincronización de contraseñas como con la autenticación de paso a través, y proporciona una experiencia de inicio de sesión único para los usuarios de escritorio de la red corporativa. Para más información, consulte [Inicio de sesión único](how-to-connect-sso.md). </br>Tenga en cuenta para los clientes de AD FS esta opción no está disponible porque AD FS ya ofrece el mismo nivel de inicio de sesión único.</br>
+|Habilitar el inicio de sesión único|Esta opción está disponible tanto con la sincronización de hash de contraseñas como con la autenticación de paso a través, y proporciona una experiencia de inicio de sesión único para los usuarios de escritorio de la red corporativa. Para más información, consulte [Inicio de sesión único](how-to-connect-sso.md). </br>Tenga en cuenta para los clientes de AD FS esta opción no está disponible porque AD FS ya ofrece el mismo nivel de inicio de sesión único.</br>
 
 ### <a name="connect-to-azure-ad"></a>Conectarse a Azure
-En la pantalla Conectarse a Azure AD, especifique una cuenta de administrador global y una contraseña. Si seleccionó **Federación con AD FS** en la página anterior, no inicie sesión con una cuenta en un dominio en el que planee habilitar la federación. Se recomienda utilizar una cuenta en el dominio predeterminado **onmicrosoft.com** , que se incluye con su directorio de Azure AD.
+En la pantalla Conectarse a Azure AD, especifique una cuenta de administrador global y una contraseña. Si seleccionó **Federación con AD FS** en la página anterior, no inicie sesión con una cuenta en un dominio en el que planee habilitar la federación. Se recomienda utilizar una cuenta en el dominio predeterminado **onmicrosoft.com**, que se incluye con su inquilino de Azure AD.
 
 Esta cuenta solo se usa para crear una cuenta de servicio en Azure AD y no se utiliza una vez completado el asistente.  
 ![Inicio de sesión del usuario](./media/how-to-connect-install-custom/connectaad.png)
@@ -93,7 +93,7 @@ Esta página le permite revisar los dominios UPN presentes en el entorno local d
 ![Dominios sin comprobar](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
 Revise los dominios marcados como **Not Added** (Sin agregar) y **Not Verified** (Sin comprobar). Asegúrese de que los dominios que usa se han comprobado en Azure AD. Cuando haya comprobado los dominios, haga clic en el símbolo de actualización. Para más información, consulte [agregar y comprobar el dominio](../active-directory-domains-add-azure-portal.md)
 
-**UserPrincipalName**: userPrincipalName es el atributo que los usuarios utilizan al iniciar sesión en Azure AD y Office 365. Los dominios utilizados, también conocidos como sufijo UPN, deben comprobarse en Azure AD antes de que se sincronicen los usuarios. Microsoft recomienda mantener el atributo userPrincipalName predeterminado. Si este atributo no es enrutable y no se puede comprobar, se puede seleccionar otro. Por ejemplo, se puede seleccionar email como atributo que contiene el identificador de inicio de sesión. El uso de cualquier atributo distinto de userPrincipalName se conoce como **id. alternativo**. El valor del atributo Alternate ID debe seguir el estándar RFC822. Un id. alternativo puede usarse con la sincronización de contraseñas y con la federación. El atributo no debe definirse en Active Directory como de valores múltiples, aunque solo tenga un valor.
+**UserPrincipalName**: userPrincipalName es el atributo que los usuarios utilizan al iniciar sesión en Azure AD y Office 365. Los dominios utilizados, también conocidos como sufijo UPN, deben comprobarse en Azure AD antes de que se sincronicen los usuarios. Microsoft recomienda mantener el atributo userPrincipalName predeterminado. Si este atributo no es enrutable y no se puede comprobar, se puede seleccionar otro. Por ejemplo, se puede seleccionar email como atributo que contiene el identificador de inicio de sesión. El uso de cualquier atributo distinto de userPrincipalName se conoce como **id. alternativo**. El valor del atributo Alternate ID debe seguir el estándar RFC822. Se puede utilizar un identificador alternativo con la sincronización de hash de contraseñas, la autenticación de paso a través y la federación. El atributo no debe definirse en Active Directory como de valores múltiples, aunque solo tenga un valor.
 
 >[!NOTE]
 > Al habilitar la autenticación de paso a través, debe tener al menos un dominio verificado para continuar con el asistente.
@@ -139,7 +139,7 @@ El atributo sourceAnchor es inmutable mientras siga vigente un objeto de usuario
 | Let Azure manage the source anchor for me (Dejar que Azure administre automáticamente el delimitador de origen) | Seleccione esta opción si desea que Azure AD elija automáticamente el atributo. Si selecciona esta opción, el asistente de Azure AD Connect aplica la lógica de selección de atributo de sourceAnchor que se describe en la sección acerca de cómo [usar ms-DS-ConsistencyGuid como sourceAnchor del artículo Azure AD Connect: conceptos de diseño](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). El asistente indica qué atributo se ha elegido como atributo de delimitador de origen una vez finalizada la instalación personalizada. |
 | Un atributo específico | Seleccione esta opción si desea especificar un atributo existente de AD como atributo sourceAnchor. |
 
-Puesto que no se puede cambiar el atributo, debe pensar en un atributo que sea adecuado usar. Un buen candidato es objectGUID. Este atributo no cambiará, salvo que la cuenta de usuario se mueva entre bosques o dominios. En un entorno de varios bosque donde se muevan cuentas entre bosques, debe utilizarse otro atributo, como un atributo con el identificador de empleado. Evite los atributos que puedan cambiar si una persona se casa o se cambian las asignaciones. No se pueden utilizar los atributos con @-sign, por lo que no se puede utilizar el correo electrónico ni userPrincipalName. El atributo también distingue mayúsculas de minúsculas, por lo que si mueve un objeto entre bosques, asegúrese de conservar las mayúsculas y minúsculas. Los atributos binarios tienen codificación base64, pero otros tipos de atributo permanecerán en su estado sin codificar. En escenarios de federación y en algunas interfaces de Azure AD, este atributo se conoce también como immutableID. En los [conceptos de diseño](plan-connect-design-concepts.md#sourceanchor) encontrará más información sobre el delimitador de origen.
+Puesto que no se puede cambiar el atributo, debe pensar en un atributo que sea adecuado usar. Un buen candidato es objectGUID. Este atributo no cambiará, salvo que la cuenta de usuario se mueva entre bosques o dominios. Evite los atributos que puedan cambiar si una persona se casa o se cambian las asignaciones. No se pueden utilizar los atributos con @-sign, por lo que no se puede utilizar el correo electrónico ni userPrincipalName. El atributo también distingue mayúsculas de minúsculas, por lo que si mueve un objeto entre bosques, asegúrese de conservar las mayúsculas y minúsculas. Los atributos binarios tienen codificación base64, pero otros tipos de atributo permanecerán en su estado sin codificar. En escenarios de federación y en algunas interfaces de Azure AD, este atributo se conoce también como immutableID. En los [conceptos de diseño](plan-connect-design-concepts.md#sourceanchor) encontrará más información sobre el delimitador de origen.
 
 ### <a name="sync-filtering-based-on-groups"></a>Filtrado de sincronización basado en grupos
 El filtrado por grupos permite sincronizar solo un pequeño subconjunto de objetos para una prueba piloto. Para utilizar esta característica, cree un grupo específicamente para este propósito en su entorno de Active Directory local. Luego, agregue los usuarios y grupos que se deben sincronizar con Azure AD como miembros directos. Posteriormente puede agregar y quitar usuarios a este grupo para mantener la lista de objetos que deban estar presentes en Azure AD. Todos los objetos que quiere sincronizar deben ser un miembro directo del grupo. Los usuarios, grupos, contactos y equipos o dispositivos deben ser miembros directos. No se resuelve la pertenencia a grupos anidados. Cuando se agrega un grupo como miembro, solo se agrega el grupo en sí, no sus miembros.
@@ -220,7 +220,7 @@ En un equipo que tenga las herramientas de administración de directiva de grupo
 
         Value: `https://autologon.microsoftazuread-sso.com`  
         Data: 1  
-    
+
 
 5.  El archivo debe tener un aspecto similar al siguiente:  
 ![Zonas de intranet](./media/how-to-connect-install-custom/sitezone.png)
@@ -382,7 +382,7 @@ Para validar que la autenticación de extremo a extremo sea correcta, debe reali
 ## <a name="troubleshooting"></a>solución de problemas
 La siguiente sección contiene solución de problemas e información que puede usar si se produce un problema al instalar Azure AD Connect.
 
-### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>"La base de datos ADSync ya contiene datos y no se puede sobrescribir" 
+### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>"La base de datos ADSync ya contiene datos y no se puede sobrescribir"
 Cuando realiza una instalación personalizada de Azure AD Connect y selecciona la opción **Usar un SQL Server existente** en la página **Instalar componentes necesarios**, podría encontrar un error que indica **La base de datos ADSync ya contiene datos y no se puede sobrescribir. Quite la base de datos existente y vuelva a intentarlo.**
 
 ![Error](./media/how-to-connect-install-custom/error1.png)
@@ -393,7 +393,7 @@ Esto suele ocurrir después de haber desinstalado Azure AD Connect.  No se elimi
 
 Para corregir este problema, compruebe primero que la base de datos **ADSync** utilizada por Azure AD Connect ya no se está usando antes de desinstalar.
 
-A continuación, se recomienda hacer una copia de seguridad antes de eliminar la base de datos. 
+A continuación, se recomienda hacer una copia de seguridad antes de eliminar la base de datos.
 
 Por último, deberá eliminar la base de datos.  Para hacerlo, utilice **Microsoft SQL Server Management Studio** para conectarse a la instancia de SQL Server. Busque la base de datos **ADSync**, haga clic con el botón derecho en ella y seleccione **Eliminar** en el menú contextual.  A continuación, haga clic en el botón **Aceptar** para eliminarla.
 

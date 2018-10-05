@@ -2,20 +2,22 @@
 title: Introducción sobre las transacciones de base de datos elástica con Base de datos SQL de Azure
 description: Introducción sobre las transacciones de Elastic Database con Azure SQL Database
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.custom: scale out apps
-ms.workload: On Demand
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: c0dfc8e2b71e0d81943ef8306c58421ff1d78c6c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 3147061f527621ba98dee84f4d347a6e883d61c0
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646956"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166476"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Introducción sobre las transacciones de base de datos elástica con Base de datos SQL de Azure
 Las transacciones de base de datos elástica para Azure SQL Database le permiten ejecutar transacciones que abarcan varias bases de datos de SQL Database. Están disponibles para aplicaciones .NET mediante ADO .NET y se integran con la conocida experiencia de programación en la que se hace uso de las clases [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Para obtener la biblioteca, vea [.NET Framework 4.6.1 (instalador web)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -37,7 +39,7 @@ Las funcionalidades de las transacciones de base de datos elástica en Base de d
 
 Tras la instalación, puede usar las API de transacciones distribuidas de System.Transactions con conexiones a Base de datos SQL. Si tiene aplicaciones de MSDTC existentes que usan estas API, basta con que las regenere para .NET 4.6 después de instalar 4.6.1 Framework. Si los proyectos se destinan a .NET 4.6, usarán automáticamente los archivos DLL actualizados de la nueva versión de Framework, y las llamadas a API de transacciones distribuidas en combinación con las conexiones a Base de datos SQL ahora se realizarán correctamente.
 
-Recuerde que las transacciones de base de datos elástica no precisan la instalación de MSDTC. Por el contrario, se administran directamente mediante y dentro de Base de datos SQL. Con ello se simplifican enormemente los escenarios de nube, ya que no es necesario implementar MSDTC para usar transacciones distribuidas con Base de datos SQL. En la sección 4 se explica con más detalle cómo implementar transacciones de base de datos elástica y  la versión de .NET Framework necesaria junto con sus aplicaciones de nube en Azure.
+Recuerde que las transacciones de base de datos elástica no precisan la instalación de MSDTC. Por el contrario, se administran directamente mediante y dentro de Base de datos SQL. Con ello se simplifican enormemente los escenarios de nube, ya que no es necesario implementar MSDTC para usar transacciones distribuidas con Base de datos SQL. En la sección 4 se explica con más detalle cómo implementar transacciones de base de datos elástica y la versión de .NET Framework necesaria junto con sus aplicaciones de nube en Azure.
 
 ## <a name="development-experience"></a>Experiencia de desarrollo
 ### <a name="multi-database-applications"></a>Aplicaciones de varias bases de datos

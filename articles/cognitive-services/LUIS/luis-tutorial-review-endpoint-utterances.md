@@ -1,71 +1,81 @@
 ---
-title: 'Tutorial para revisar las expresiones de punto de conexión en Language Understanding (LUIS): Azure | Microsoft Docs'
-description: En este tutorial, aprenderá a revisar las expresiones de puntos de conexión en el dominio de Recursos humanos (RR. HH.) en LUIS.
+title: 'Tutorial 1: Revisión de las expresiones de punto de conexión con aprendizaje activo'
+titleSuffix: Azure Cognitive Services
+description: Mejore las predicciones de aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTP de LUIS de las que LUIS no está seguro. Algunas expresiones puede que se comprueben para la intención y otras puede que necesiten comprobarse para la entidad. Debe revisar las expresiones de punto de conexión como una parte convencional del mantenimiento programado de LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: db44bfad5ece59ed3373699c10d6134201bf1879
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1047c117228b57f7361a1e386bc6cde7acbfdde8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160088"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042285"
 ---
-# <a name="tutorial-review-endpoint-utterances"></a>Tutorial: Revisión de las expresiones de punto de conexión
-En este tutorial, va a mejorar las predicciones de aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTP de LUIS. 
+# <a name="tutorial-1-fix-unsure-predictions"></a>Tutorial 1: Corrección de predicciones no seguras
+En este tutorial, va a mejorar las predicciones de aplicaciones mediante la comprobación o corrección de las expresiones recibidas mediante el punto de conexión HTTPS de LUIS de las que LUIS no está seguro. Algunas expresiones puede que tengan que comprobarse para la intención y otras puede que necesiten comprobarse para la entidad. Debe revisar las expresiones de punto de conexión como una parte convencional del mantenimiento programado de LUIS. 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Descripción de la revisión de las expresiones de punto de conexión 
-> * Uso de la aplicación de LUIS para el dominio de Recursos humanos (RR. HH.) 
-> * Revisar las expresiones de punto de conexión
-> * Entrenamiento y publicación de la aplicación
-> * Consulta del punto de conexión de la aplicación para ver la respuesta JSON de LUIS
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Antes de empezar
-Si no tiene la aplicación de Recursos Humanos del tutorial de [opinión](luis-quickstart-intent-and-sentiment-analysis.md), importe la aplicación desde el repositorio Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json). Si utiliza este tutorial como una nueva aplicación importada, también tendrá que entrenar, publicar y, después, agregar las expresiones al punto de conexión con un [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) o desde el punto de conexión en un explorador. Las expresiones que se van a agregar son las siguientes:
-
-   [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
-
-Si quiere conservar la aplicación original de Recursos humanos, clone la versión en la página [Configuración](luis-how-to-manage-versions.md#clone-a-version) y llámela `review`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. 
-
-Si tiene todas las versiones de la aplicación, mediante la serie de tutoriales, se sorprenderá al ver que la lista **Review endpoint utterances** (Revisar las expresiones de punto de conexión) no cambia, en función de la versión. Existe un único grupo de expresiones para revisar, independientemente de la versión que esté editando activamente o de la versión de la aplicación que se haya publicado en el punto de conexión. 
-
-## <a name="purpose-of-reviewing-endpoint-utterances"></a>Propósito de la revisión de expresiones de punto de conexión
-Este proceso de revisión es otra forma de que LUIS aprenda el dominio de aplicación. LUIS seleccionó los enunciados de la lista de revisión. Esta lista:
+Este proceso de revisión es otra forma de que LUIS aprenda el dominio de aplicación. LUIS seleccionó las expresiones que aparecen en la lista de revisión. Esta lista:
 
 * Es específica de la aplicación.
 * Está pensada para mejorar la precisión de la predicción de la aplicación. 
 * Debe revisarse periódicamente. 
 
-Al revisar las expresiones de punto de conexión, debe comprobar o corregir la intención pronosticada de la expresión. También se etiquetan entidades personalizadas que no se predijeron. 
+Al revisar las expresiones de punto de conexión, debe comprobar o corregir la intención pronosticada de la expresión. También se etiquetan entidades personalizadas que no se predijeron o se predijeron incorrectamente. 
+
+**En este tutorial, aprenderá a:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Usar la aplicación del tutorial existente
+> * Revisar las expresiones de punto de conexión
+> * Actualización de la lista de frases
+> * Entrenamiento de la aplicación
+> * Publicación de aplicación
+> * Consulta del punto de conexión de la aplicación para ver la respuesta JSON de LUIS
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Usar una aplicación existente
+
+Continúe con la aplicación creada en el último tutorial, denominada **HumanResources**. 
+
+Si no tiene la aplicación HumanResources del tutorial anterior, siga estos pasos:
+
+1.  Descargue y guarde el [archivo JSON de la aplicación](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+
+2. Importe el archivo JSON en una aplicación nueva.
+
+3. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `review`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Dado que el nombre de la versión se usa como parte de la ruta de la dirección URL, el nombre no puede contener ningún carácter que no sea válido en una dirección URL.
+
+    Si utiliza este tutorial como una nueva aplicación importada, también tendrá que entrenar, publicar y, después, agregar las expresiones al punto de conexión con un [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) o desde el punto de conexión en un explorador. Las expresiones que se van a agregar son las siguientes:
+
+   [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
+
+    Si tiene todas las versiones de la aplicación, mediante la serie de tutoriales, se sorprenderá al ver que la lista **Review endpoint utterances** (Revisar las expresiones de punto de conexión) no cambia, en función de la versión. Existe un único grupo de expresiones para revisar, independientemente de la versión que esté editando activamente o de la versión de la aplicación que se haya publicado en el punto de conexión. 
 
 ## <a name="review-endpoint-utterances"></a>Revisar las expresiones de punto de conexión
 
-1. Asegúrese de que la aplicación de recursos humanos se encuentra en la sección **Build** (Crear) de LUIS. Para cambiar a esta sección, seleccione **Build** (Crear) en la barra de menús superior derecha. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Seleccione **Review endpoint utterances** (Revisar las expresiones de punto de conexión) en el panel de navegación izquierdo. La lista se filtra para la intención **ApplyForJob**. 
 
-    [ ![Captura de pantalla del botón Review endpoint utterances (Revisar las expresiones de punto de conexión) en el panel de navegación izquierdo](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png)](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png#lightbox)
+    [ ![Captura de pantalla del botón Review endpoint utterances (Revisar las expresiones de punto de conexión) en el panel de navegación izquierdo](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
 
 3. Alterne la **vista de entidades** para ver las entidades etiquetadas. 
     
-    [ ![Captura de pantalla de Review endpoint utterances (Revisar las expresiones de punto de conexión) con la alternancia de la vista de entidades resaltada](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png)](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png#lightbox)
+    [ ![Captura de pantalla de Review endpoint utterances (Revisar las expresiones de punto de conexión) con la alternancia de la vista de entidades resaltada](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
     |Expresión|Intención correcta|Entidades que faltan|
     |:--|:--|:--|
     |I'm looking for a job with Natural Language Processing (Estoy buscando un trabajo con procesamiento de lenguaje natural)|GetJobInfo|Trabajo: "Proceso de lenguaje natural"|
 
     Esta expresión no se encuentra en la intención correcta y tiene una puntuación menor del 50 %. La intención **ApplyForJob** tiene 21 expresiones en comparación con las siete expresiones de **GetJobInformation**. Junto con alinear correctamente la expresión de punto de conexión, se deben agregar más expresiones a la intención **GetJobInformation**. Esto queda como ejercicio para que pueda realizar por su cuenta. Cada intención, excepto para la intención **None** (Ninguno), debe tener aproximadamente el mismo número de expresiones de ejemplo. La intención **None** (Ninguno) debe contener un 10 % de las expresiones totales de la aplicación. 
-
-    Cuando se encuentre en la **vista de tokens**, puede mantener el cursor sobre cualquier texto azul de la expresión para ver el nombre de entidad pronosticada. 
 
 4. Para la intención `I'm looking for a job with Natual Language Processing`, seleccione la intención correcta, **GetJobInformation** en la columna **Aligned intent** (Intención alineada). 
 
@@ -87,11 +97,13 @@ Al revisar las expresiones de punto de conexión, debe comprobar o corregir la i
 
     [ ![Captura de pantalla de la finalización de las expresiones restantes en la intención alineada](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-9. La lista ya no debe tener esas expresiones. Si aparecen más expresiones, continúe trabajando en la lista, corrija las intenciones y etiquete cualquier entidad que falte, hasta que esté vacía. Seleccione la siguiente intención en la lista Filter (Filtro) y continúe el proceso de corregir las expresiones y etiquetar entidades. Recuerde que en el último paso de cada intención debe seleccionar la opción **Add to aligned intent** (Agregar a la intención alineada) en la fila de expresiones o activar la casilla por cada intención y seleccionar **Add selected** (Agregar selección) sobre la tabla. 
+9. La lista ya no debe tener esas expresiones. Si aparecen más expresiones, continúe trabajando en la lista, corrija las intenciones y etiquete cualquier entidad que falte, hasta que la lista esté vacía. 
 
-    Se trata de una aplicación muy pequeña. El proceso de revisión tarda solo unos minutos.
+10. Seleccione la siguiente intención en la lista Filter (Filtro) y continúe el proceso de corregir las expresiones y etiquetar entidades. Recuerde que en el último paso de cada intención debe seleccionar la opción **Add to aligned intent** (Agregar a la intención alineada) en la fila de expresiones o activar la casilla por cada intención y seleccionar **Add selected** (Agregar selección) sobre la tabla.
 
-## <a name="add-new-job-name-to-phrase-list"></a>Adición de un nuevo nombre de trabajo a la lista de frases
+    Continúe hasta que todas las intenciones y entidades de la lista de filtros tengan una lista vacía. Se trata de una aplicación muy pequeña. El proceso de revisión tarda solo unos minutos. 
+
+## <a name="update-phrase-list"></a>Actualización de la lista de frases
 Mantenga actualizada la lista de frases con los nombres de trabajo que se acaban de detectar. 
 
 1. Seleccione **Phrase Lists** (Listas de frases) en el panel de navegación izquierdo.
@@ -100,19 +112,19 @@ Mantenga actualizada la lista de frases con los nombres de trabajo que se acaban
 
 3. Agregue `Natural Language Processing` como un valor y, después, seleccione **Save** (Guardar). 
 
-## <a name="train-the-luis-app"></a>Entrenamiento de la aplicación de LUIS
+## <a name="train"></a>Train
 
 LUIS no sabe nada acerca de los cambios hasta que se entrena. 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicación de la aplicación para obtener la dirección URL del punto de conexión
+## <a name="publish"></a>Publicar
 
 Si ha importado a esta aplicación, deberá seleccionar **Sentiment analysis** (Análisis de sentimiento).
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-an-utterance"></a>Consulta del punto de conexión con una expresión
+## <a name="get-intent-and-entities-from-endpoint"></a>Obtención de intenciones y entidades del punto de conexión
 
 Pruebe con una expresión próxima a la expresión corregida. 
 
@@ -223,16 +235,14 @@ Pruebe con una expresión próxima a la expresión corregida.
 Tal vez se pregunte por qué no agregar más expresiones de ejemplo. ¿Cuál es el propósito de la revisión de las expresiones de punto de conexión? En una aplicación LUIS del mundo real, las expresiones de punto de conexión proceden de usuarios con una elección y disposición de palabras que todavía no han utilizado. Si hubiera usado la misma elección y disposición de palabras, la predicción original tendría un porcentaje mayor. 
 
 ## <a name="why-is-the-top-intent-on-the-utterance-list"></a>¿Por qué está la intención principal en la lista de expresiones? 
-Algunas de las expresiones de punto de conexión tendrán un porcentaje alto de la lista de revisión. Aun así deberá revisar y comprobar dichas expresiones. Están en la lista porque la siguiente intención más elevada tenía una puntuación demasiado cercana a la puntuación máxima de la intención. 
-
-## <a name="what-has-this-tutorial-accomplished"></a>¿Qué ha logrado este tutorial?
-Esta precisión de predicción de la aplicación ha aumentado al revisar las expresiones desde el punto de conexión. 
+Algunas de las expresiones de punto de conexión tendrán una puntuación de predicción alta en la lista de revisión. Aun así deberá revisar y comprobar dichas expresiones. Están en la lista porque la siguiente intención más elevada tenía una puntuación demasiado cercana a la puntuación máxima de la intención. Desea una diferencia de aproximadamente el 15 % entre dos de las intenciones con más puntuación.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
+En este tutorial revisó las expresiones enviadas en el punto de conexión, de las que LUIS no estaba seguro. Una vez que comprobadas estas expresiones y trasladadas a las intenciones correctas como expresiones de ejemplo, LUIS mejorará la precisión de la predicción.
 
 > [!div class="nextstepaction"]
 > [Más información sobre cómo usar los patrones](luis-tutorial-pattern.md)

@@ -4,16 +4,16 @@ description: Use Azure IoT Edge para crear un dispositivo de puerta de enlace tr
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/27/2017
+ms.date: 09/21/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0e085d6c2962ec2a2324bfc134b0e201df04a336
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: e1825bcdd8dbb06ef027919416b2d0532a7df9c2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37028972"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422837"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Uso de un dispositivo IoT Edge como puerta de enlace
 
@@ -22,7 +22,7 @@ La finalidad de las puertas de enlace en las soluciones IoT es específica de la
 ## <a name="patterns"></a>Patrones
 Existen tres patrones para usar un dispositivo IoT Edge como puerta de enlace: transparente, traducción del protocolo y traducción de la identidad:
 * **Transparente**: los dispositivos que podrían conectarse teóricamente a IoT Hub pueden conectarse en su lugar a un dispositivo de puerta de enlace. Esto implica que los dispositivos de nivel inferior tienen sus propias identidades de IoT Hub y usan cualquiera de los protocolos MQTT, AMQP o HTTP. La puerta de enlace simplemente pasa las comunicaciones entre los dispositivos e IoT Hub. Los dispositivos no saben que se están comunicando con la nube a través de una puerta de enlace y el usuario que interactúa con los dispositivos en IoT Hub no sabe que hay un dispositivo de puerta de enlace intermedio. Por lo tanto, la puerta de enlace es transparente. Consulte el procedimiento [Creación de una puerta de enlace transparente][lnk-iot-edge-as-transparent-gateway] para obtener información específica sobre como usar un dispositivo IoT Edge como puerta de enlace transparente.
-* **Traducción del protocolo**: los dispositivos que no admiten MQTT, AMQP o HTTP usan un dispositivo de puerta de enlace para enviar datos a IoT Hub. La puerta de enlace es lo suficientemente inteligente como para comprender ese protocolo utilizado por los dispositivos de nivel inferior; sin embargo, es el único dispositivo que tiene identidad en IoT Hub. Toda la información parece proceder de un dispositivo, la puerta de enlace. Como consecuencia, los dispositivos de nivel inferior deben insertar información de identificación adicional en sus mensajes si las aplicaciones de nube quieren razonar sobre los datos de cada dispositivo. Además, los primitivos de IoT Hub, como gemelos y métodos, solo están disponibles para el dispositivo de puerta de enlace, no para los dispositivos de nivel inferior.
+* **Traducción del protocolo**: también se conoce como patrón de puerta de enlace opaca. Los dispositivos que no admiten MQTT, AMQP o HTTP usan un dispositivo de puerta de enlace para enviar datos a IoT Hub. La puerta de enlace es lo suficientemente inteligente como para comprender ese protocolo utilizado por los dispositivos de nivel inferior; sin embargo, es el único dispositivo que tiene identidad en IoT Hub. Toda la información parece proceder de un dispositivo, la puerta de enlace. Como consecuencia, los dispositivos de nivel inferior deben insertar información de identificación adicional en sus mensajes si las aplicaciones de nube quieren razonar sobre los datos de cada dispositivo. Además, los primitivos de IoT Hub, como gemelos y métodos, solo están disponibles para el dispositivo de puerta de enlace, no para los dispositivos de nivel inferior.
 * **Traducción de la identidad**: los dispositivos que no se pueden conectar a IoT Hub se conectan a un dispositivo de puerta de enlace que proporciona la traducción de la identidad y el protocolo de IoT Hub en nombre de los dispositivos de nivel inferior. La puerta de enlace es lo suficientemente inteligente como para comprender el protocolo utilizado por los dispositivos de nivel inferior, proporcionarles una identidad y traducir los primitivos de IoT Hub. Los dispositivos de nivel inferior aparecen en IoT Hub como dispositivos de primera clase con gemelos y métodos. Un usuario puede interactuar con los dispositivos IoT Hub sin saber que hay un dispositivo de puerta de enlace intermedio.
 
 ![Diagramas de patrones de puerta de enlace][1]
@@ -40,7 +40,7 @@ Una puerta de enlace que realiza la traducción del protocolo también puede rea
 Una puerta de enlace que realiza la traducción de la identidad proporciona las ventajas de la traducción del protocolo y además permite una manejabilidad completa de los dispositivos de nivel inferior desde la nube. Todos los dispositivos de su solución IoT se muestran en IoT Hub con independencia del protocolo con el que se comunican.
 
 ## <a name="cheat-sheet"></a>Hoja de referencia rápida
-Se trata de una hoja de referencia rápida que compara los primitivos de IoT Hub cuando se usan puertas de enlace transparentes, opacas y proxy.
+Se trata de una hoja de características clave rápida que compara los primitivos de IoT Hub cuando se usan puertas de enlace transparentes, opacas (protocolo) y proxy.
 
 | &nbsp; | Puerta de enlace transparente | Traducción del protocolo | Traducción de la identidad |
 |--------|-------------|--------|--------|

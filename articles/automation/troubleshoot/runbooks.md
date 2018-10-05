@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 78f9ba817008a28e63ec167c4e2ccc7f3859be16
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: b02f1b04756f1e3f01426e58c5f8c625cb746f05
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146057"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163909"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solución de problemas relativos a errores con runbooks
 
@@ -93,11 +93,18 @@ Este error se produce si el nombre de la suscripción no es válido o si el usua
 
 Para determinar si se ha autenticado correctamente en Azure y tener acceso a la suscripción que intenta seleccionar, siga estos pasos:  
 
-1. Asegúrese de que ejecuta **Add-AzureAccount** antes de ejecutar el cmdlet **Select-AzureSubscription**.  
-2. Si continúa recibiendo este mensaje de error, modifique el código agregando el cmdlet **Get-AzureSubscription** a continuación del cmdlet **Add-AzureAccount** y luego ejecute el código. Ahora compruebe si la salida de Get-AzureSubscription contiene los detalles de su suscripción.  
+1. Asegúrese de que ejecuta el cmdlet **Add-AzureAccount** antes de ejecutar el cmdlet **Select-AzureSubscription**.  
+2. Si continúa recibiendo este mensaje de error, modifique el código agregando el parámetro **-AzureRmContext** a continuación del cmdlet **Add-AzureAccount** y luego ejecute el código.
 
-   * Si no ve los detalles de la suscripción en la salida, esto significa que la suscripción no se ha inicializado todavía.  
-   * Si ve los detalles de suscripción en la salida, confirme que está usando el nombre o el identificador correctos de la suscripción con el cmdlet **Select-AzureSubscription** .
+   ```powershell
+   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+   $context = Get-AzureRmContext
+
+   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
+   ```
 
 ### <a name="auth-failed-mfa"></a>Escenario: Error de autenticación en Azure porque está habilitada la autenticación multifactor
 
@@ -151,7 +158,7 @@ El runbook secundario no está utilizando el contexto correcto cuando se ejecuta
 
 #### <a name="resolution"></a>Resolución
 
-Si trabaja con varias suscripciones, se puede perder el contexto de suscripción al invocar runbooks secundarios. Para asegurarse de que el contexto de suscripción se pasa a los runbooks secundarios, agregue el parámetro `DefaultProfile` al cmdlet y pase el contexto a él.
+Si trabaja con varias suscripciones, se puede perder el contexto de suscripción al invocar runbooks secundarios. Para asegurarse de que el contexto de suscripción se pasa a los runbooks secundarios, agregue el parámetro `AzureRmContext` al cmdlet y pase el contexto a él.
 
 ```azurepowershell-interactive
 # Connect to Azure with RunAs account
@@ -171,7 +178,7 @@ Start-AzureRmAutomationRunbook `
     –AutomationAccountName 'MyAutomationAccount' `
     –Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -DefaultProfile $AzureContext `
+    -AzureRmContext $AzureContext `
     –Parameters $params –wait
 ```
 
@@ -216,17 +223,19 @@ Este error puede deberse a las siguientes razones:
 
 1. Límite de memoria. Se han documentado límites en la cantidad de memoria asignada a un espacio aislado con los [límites del servicio Automation](../../azure-subscription-service-limits.md#automation-limits), de modo que un trabajo puede producir un error, si está utilizando más de 400 MB de memoria.
 
-2. Módulo incompatible. Puede ocurrir si las dependencias del módulo no son correctas. En este caso, el runbook normalmente devuelve un mensaje similar a "Comando no encontrado" o "No se puede enlazar el parámetro".
+1. Sockets de red. Los espacios aislados de Azure se limitan a 1000 sockets de red simultáneos como se describe en [Límites del servicio Automation](../../azure-subscription-service-limits.md#automation-limits).
+
+1. Módulo incompatible. Puede ocurrir si las dependencias del módulo no son correctas. En este caso, el runbook normalmente devuelve un mensaje similar a "Comando no encontrado" o "No se puede enlazar el parámetro".
 
 #### <a name="resolution"></a>Resolución
 
 Cualquiera de las siguientes soluciones resolverá el problema:
 
-* Algunos métodos sugeridos para trabajar dentro del límite de memoria son dividir la carga de trabajo entre varios runbooks, no procesar tantos datos en la memoria, no escribir el resultado innecesario de los runbooks o considerar cuántos puntos de control se escriben en los runbooks de flujo de trabajo de PowerShell.  
+* Algunos métodos sugeridos para trabajar dentro del límite de memoria son dividir la carga de trabajo entre varios runbooks, no procesar tantos datos en la memoria, no escribir el resultado innecesario de los runbooks o considerar cuántos puntos de control se escriben en los runbooks de flujo de trabajo de PowerShell. Puede usar el método clear, como `$myVar.clear()` para borrar la variable y usar `[GC]::Collect()` para ejecutar la recolección de elementos no utilizados inmediatamente, esto reducirá la superficie de memoria de su runbook durante el tiempo de ejecución.
 
 * Actualice los módulos de Azure siguiendo los pasos de [Actualización de módulos de Azure PowerShell en Azure Automation](../automation-update-azure-modules.md).  
 
-* Otra solución consiste en ejecutar el runbook en un [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Los Hybrid Worker no están limitados por el límite de runbook de [distribución equilibrada](../automation-runbook-execution.md#fair-share) como los espacios aislados de Azure.
+* Otra solución consiste en ejecutar el runbook en un [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Los Hybrid Worker no están limitados por los límites de memoria y de red como lo están los espacios aislados de Azure.
 
 ### <a name="fails-deserialized-object"></a>Escenario: error en runbook debido a un objeto deserializado
 

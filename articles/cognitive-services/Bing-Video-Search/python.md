@@ -1,21 +1,23 @@
 ---
-title: Inicio rápido de Python para Azure Cognitive Services, Bing Video Search API | Microsoft Docs
-description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Video Search API en Microsoft Cognitive Services en Azure.
+title: 'Guía de inicio rápido: Bing Video Search, Python'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Video Search API.
 services: cognitive-services
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: ce4356f05e69540bc3bc3241e2ec1751ff7a7276
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 797eb476aa3386949b08efb957edf48a97e40d6b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380651"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220029"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-python"></a>Inicio rápido para Bing Video Search API con Python
+# <a name="quickstart-bing-video-search-api-with-python"></a>Guía de inicio rápido: Bing Video Search API con Python
 
 En este tutorial se detalla cómo usar Bing Video Search API, que forma parte de Microsoft Cognitive Services en Azure. Consulte la [referencia de la API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) para obtener detalles técnicos acerca de las API.
 
@@ -24,7 +26,7 @@ Para ejecutar este ejemplo como Jupyter Notebook en [MyBinder](https://mybinder.
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **Bing Search APIs**. La [cuenta de evaluación gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) es suficiente para esta guía de inicio rápido. Necesita la clave de acceso que se le proporciona al activar la versión de evaluación gratuita, o puede usar una clave de suscripción de pago desde su panel de Azure.
 
 ## <a name="running-the-walkthrough"></a>Ejecución del tutorial
@@ -75,7 +77,7 @@ HTML(search_results["value"][0]["embedHtml"].replace("autoplay=1","autoplay=0"))
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Vídeos de página](paging-videos.md)
+> [Paginación de vídeos](paging-videos.md)
 > [Cambio de tamaño y recorte de miniaturas](resize-and-crop-thumbnails.md)
 
 ## <a name="see-also"></a>Otras referencias 

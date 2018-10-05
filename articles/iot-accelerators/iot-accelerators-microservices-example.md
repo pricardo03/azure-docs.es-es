@@ -1,19 +1,18 @@
 ---
 title: Cambio y reimplementación de un microservicio | Microsoft Docs
 description: En este tutorial se explica cómo cambiar y reimplementar un microservicio en la solución de supervisión remota.
-author: giyeh
-manager: hegate
-ms.author: giyeh
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: e15e17a499ad33a270b220fa7483d96c2945f6bb
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 0b206d7b56fc8a65c422a4ce22b2f5585e71c8da
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338084"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219432"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalización y reimplementación de un microservicio
 
@@ -47,28 +46,29 @@ En esta parte, llame a la API de microservicio del administrador de IoT Hub pred
 2. Busque el entorno de Postman descargado y ábralo.
 3. En Postman, escriba lo siguiente en GET: http://localhost:8080/iothubmanager/v1/status.
 4. Verá el valor devuelto y también debe ver "Estado": "Activo y correcto".
-![Mensaje de activo y correcto en Postman](./media/iot-accelerators-microservices-example/postman-alive-well.png)
+
+    ![Mensaje de activo y correcto en Postman](./media/iot-accelerators-microservices-example/postman-alive-well.png)
 
 ## <a name="change-the-status-and-build-the-image"></a>Cambio de estado y creación de la imagen
 
 Ahora cambie el mensaje de estado del microservicio del administrador de IoT Hub a "Las nuevas modificaciones se hacen aquí" y luego recompile la imagen de Docker con este nuevo estado. Si experimenta problemas aquí, vea la sección [Solución de problemas](#Troubleshoot).
 
 1. Asegúrese de que el terminal esté abierto y cambie al directorio en que clonó la solución de supervisión remota. 
-2. Cambie el directorio a "..azure-iot-pcs-remote-monitoring-dotnet/iothub-manager/WebService/v1/Controllers".
+2. Cambie el directorio a "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/WebService/v1/Controllers".
 3. Abra StatusController.cs en el editor de texto o el IDE que le guste. 
 4. Busque el código siguiente:
 
-    ```javascript
+    ```csharp
     return new StatusApiModel(true, "Alive and well");
     ```
 
     y cámbielo por el código siguiente y guárdelo.
 
-    ```javascript
+    ```csharp
     return new StatusApiModel(true, "New Edits Made Here!");
     ```
 
-5. Vuelva al terminal, pero ahora cambie al siguiente directorio: "...azure-iot-pcs-remote-monitoring-dotnet/iothub-manager/scripts/docker".
+5. Vuelva al terminal, pero ahora cambie al siguiente directorio: "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker".
 6. Para compilar la nueva imagen de Docker, escriba
 
     ```cmd/sh
@@ -113,24 +113,24 @@ Antes de poder insertar una nueva imagen de Docker en un centro de Docker, Docke
 ## <a name="update-your-remote-monitoring-solution"></a>Actualización de la solución de supervisión remota
 Debe actualizar el archivo local docker-compose.yml para extraer la imagen de Docker nueva del centro de Docker. Si experimenta problemas aquí, vea la sección [Solución de problemas](#Troubleshoot).
 
-1. Vuelva al terminal y cambie al siguiente directorio: "..azure-iot-pcs-remote-monitoring-dotnet/scripts/local".
+1. Vuelva al terminal y cambie al siguiente directorio: "azure-iot-pcs-remote-monitoring-dotnet/services/scripts/local".
 2. Abra docker-compose.yml en el editor de texto o el IDE que le guste.
 3. Busque el código siguiente:
 
     ```docker
-    image: azureiotpcs/pcs-auth-dotnet:testing
+    image: azureiotpcs/iothub-manager-dotnet:testing
     ```
 
     y cámbielo para que sea similar a la imagen siguiente y después guárdelo.
 
     ```cmd/sh
-    image: [docker ID]/pcs-auth-dotnet:testing
+    image: [docker ID]/iothub-manager-dotnet:testing
     ```
 
 ## <a name="view-the-new-response-status"></a>Visualización del nuevo estado de respuesta
 Para terminar, reimplemente una instancia local de la solución de supervisión remota y vea la nueva respuesta de estado en Postman.
 
-1. Vuelva al terminal y cambie al siguiente directorio: "..azure-iot-pcs-remote-monitoring-dotnet/scripts/local".
+1. Vuelva al terminal y cambie al siguiente directorio: "azure-iot-pcs-remote-monitoring-dotnet/scripts/local".
 2. Inicie la instancia local de la solución de supervisión remota; para ello, escriba el siguiente comando en el terminal:
 
     ```cmd/sh

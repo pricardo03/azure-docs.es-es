@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/1/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f272ac7ee6432b43d0c9a72daf620a46e52366f8
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 2f990f22d762c5f95d3274b740caf30691ded90e
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399056"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409851"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solución Start/Stop VMs during off-hours en Azure Automation
 
@@ -31,6 +31,9 @@ Las siguientes son limitaciones a la solución actual:
 - Esta solución administrar máquinas virtuales de cualquier región, pero solo se puede utilizar en la misma suscripción que la cuenta de Azure Automation.
 - Esta solución está disponible en Azure y AzureGov para cualquier región que admita un área de trabajo de Log Analytics, una cuenta de Azure Automation y alertas. Las regiones de AzureGov no admiten la funcionalidad de correo electrónico en este momento.
 
+> [!NOTE]
+> Si usa la solución para las máquinas virtuales clásicas, todas las máquinas virtuales se procesarán secuencialmente por servicio en la nube. El procesamiento de trabajos en paralelo aún se admite en varios servicios en la nube.
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 Los runbooks para esta solución funcionan con una [cuenta de ejecución de Azure](automation-create-runas-account.md). La cuenta de ejecución es el método de autenticación preferido, ya que emplea la autenticación mediante certificado, en lugar de una contraseña que puede expirar o cambiar con frecuencia.
@@ -45,28 +48,28 @@ Realice los siguientes pasos para agregar la solución Start/Stop VMs during off
 
    > [!NOTE]
    > También puede crearla desde cualquier lugar en Azure Portal; para ello, haga clic en **Crear un recurso**. En la página de Marketplace, escriba una palabra clave como **Iniciar** o **Inciar/Detener**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Como alternativa, puede escribir en una o varias palabras clave del nombre completo de la solución y presione Entrar. Seleccione **Start/Stop VMs during off-hours** en los resultados de la búsqueda.
-1. En la página **Start/Stop VMs during off-hours**, revise la información de resumen y luego haga clic en **Crear**.
+2. En la página **Start/Stop VMs during off-hours**, revise la información de resumen y luego haga clic en **Crear**.
 
    ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)
 
-1. Aparece la página **Agregar solución**. Se le pide que configure la solución antes de importarla en la suscripción de Automation.
+3. Aparece la página **Agregar solución**. Se le pide que configure la solución antes de importarla en la suscripción de Automation.
 
    ![Página Agregar solución de administración de VM](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-1. En el la página **Agregar solución**, seleccione **Área de trabajo**. Seleccione un área de trabajo de Log Analytics que esté vinculada a la suscripción de Azure en la que se encuentra la cuenta de Automation. Si no tiene ningún área de trabajo, seleccione **Crear nueva área de trabajo**. En la página **Área de trabajo de OMS**, realice los pasos siguientes:
-   - Especifique un nombre para el nuevo **espacio de trabajo de OMS**.
+4. En el la página **Agregar solución**, seleccione **Área de trabajo**. Seleccione un área de trabajo de Log Analytics que esté vinculada a la suscripción de Azure en la que se encuentra la cuenta de Automation. Si no tiene ningún área de trabajo, seleccione **Crear nueva área de trabajo**. En la página **Área de trabajo de Log Analytics**, siga estos pasos:
+   - Especifique un nombre para el nuevo **área de trabajo de Log Analytics**.
    - Seleccione la **suscripción** a la que vincularlo en la lista desplegable si la opción predeterminada seleccionada no es adecuada.
    - En **Grupo de recursos**, puede crear un grupo de recursos nuevo o seleccionar uno existente.
    - Seleccione una **ubicación**. Actualmente las únicas ubicaciones disponibles son: **Sudeste de Australia**, **Centro de Canadá**, **Centro de la India**, **Este de EE. UU.**, **Japón Oriental**, **Sudeste Asiático**, **Sur de Reino Unido** y **Europa Occidental**.
    - Seleccione un **plan de tarifa**. Elija la opción **Por GB (independiente)**. Log Analytics ha actualizado [precios](https://azure.microsoft.com/pricing/details/log-analytics/) y el nivel Por GB es la única opción.
 
-1. Después de proporcionar la información necesaria en la página **Área de trabajo de OMS**, haga clic en **Crear**. Se puede realizar un seguimiento de su progreso en la opción **Notificaciones** del menú, que le devuelve a la página **Agregar solución** cuando haya finalizado.
-1. En la página **Agregar solución**, seleccione **Cuenta de Automation**. Si está creando una nueva área de trabajo de Log Analytics, puede crear una nueva cuenta de Automation para asociarla, o seleccionar una cuenta de Automation existente que no esté ya vinculada a un área de trabajo de Log Analystics. Seleccione una cuenta de Automation existente o haga clic en **Crear una cuenta de Automation** y, en la página **Agregar cuenta de Automation**, especifique la siguiente información:
+5. Después de proporcionar la información necesaria en la página **Área de trabajo de Log Analytics**, haga clic en **Crear**. Se puede realizar un seguimiento de su progreso en la opción **Notificaciones** del menú, que le devuelve a la página **Agregar solución** cuando haya finalizado.
+6. En la página **Agregar solución**, seleccione **Cuenta de Automation**. Si está creando una nueva área de trabajo de Log Analytics, puede crear una nueva cuenta de Automation para asociarla, o seleccionar una cuenta de Automation existente que no esté ya vinculada a un área de trabajo de Log Analystics. Seleccione una cuenta de Automation existente o haga clic en **Crear una cuenta de Automation** y, en la página **Agregar cuenta de Automation**, especifique la siguiente información:
    - En el campo **Nombre**, escriba el nombre de la cuenta de Automation.
 
     Las restantes opciones se rellenan automáticamente en función del área de trabajo de Log Analytics seleccionada. Dichas opciones no se pueden modificar. Una cuenta de ejecución de Azure es el método de autenticación predeterminado para los Runbooks incluidos en esta solución. Después de hacer clic en **Aceptar**, se validan las opciones de configuración y se crea la cuenta de Automation. Puede realizar un seguimiento de su progreso en **Notificaciones** en el menú.
 
-1. Por último, en la página **Agregar solución**, seleccione **Configuración**. Aparece la página **Parámetros**.
+7. Por último, en la página **Agregar solución**, seleccione **Configuración**. Aparece la página **Parámetros**.
 
    ![Página Parámetros para la solución](media/automation-solution-vm-management/azure-portal-add-solution-02.png)
 
@@ -83,7 +86,7 @@ Realice los siguientes pasos para agregar la solución Start/Stop VMs during off
      > [!IMPORTANT]
      > El valor predeterminado de los **nombres del grupo de recursos de destino** es **&ast;**. Este se dirige a todas las máquinas virtuales de una suscripción. Si no desea que la solución se dirija a todas las máquinas virtuales de su suscripción, este valor debe actualizarse a una lista de nombres del grupo de recursos antes de habilitar las programaciones.
 
-1. Cuando haya configurado los valores iniciales necesarios para la solución, haga clic en **Aceptar** para cerrar la página **Parámetros** y seleccione **Crear**. Cuando todos los valores se hayan validado, la solución se implementa en su suscripción. Este proceso puede tardar varios segundos en finalizar y se puede realizar un seguimiento de su progreso en **Notificaciones** en el menú.
+8. Cuando haya configurado los valores iniciales necesarios para la solución, haga clic en **Aceptar** para cerrar la página **Parámetros** y seleccione **Crear**. Cuando todos los valores se hayan validado, la solución se implementa en su suscripción. Este proceso puede tardar varios segundos en finalizar y se puede realizar un seguimiento de su progreso en **Notificaciones** en el menú.
 
 ## <a name="scenarios"></a>Escenarios
 

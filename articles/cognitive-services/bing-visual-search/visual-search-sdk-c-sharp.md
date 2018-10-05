@@ -1,25 +1,25 @@
 ---
-title: Guía de inicio rápido del SDK de Visual Search para C# | Microsoft Docs
-description: Configuración de la aplicación de consola del SDK de Visual Search para C#
+title: 'Inicio rápido: Uso del SDK de Bing Visual Search, C#'
 titleSuffix: Azure Cognitive Services
+description: Configuración de la aplicación de consola del SDK de Visual Search para C#
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: e9b93c46cf0702dc58398e247fef79c3f31bb50c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 938768ad366611b8651adc3d554c44c16a3830ef
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213112"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224535"
 ---
-# <a name="visual-search-sdk-c-quickstart"></a>Guía de inicio rápido del SDK de Visual Search para C#
+# <a name="quickstart-bing-visual-search-sdk-c"></a>Inicio rápido: SDK de Bing Visual Search en C#
 
-El SDK de Bing Visual Search usa la funcionalidad de la API REST para solicitudes web y análisis de resultados.
+El SDK de Bing Visual Search contiene la funcionalidad de la API REST para solicitudes web y análisis de resultados.
 El [código fuente de los ejemplos del SDK de Bing Visual Search para C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVisualSearch) está disponible en GitHub.
 
 Los escenarios de código se documentan en los siguientes títulos:

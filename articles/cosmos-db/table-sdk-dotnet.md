@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.author: rnagpal
-ms.openlocfilehash: d0bd7dba5d50445cb681c16d9575b1bd69167e2f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 1f2fae7bf500a469bc789fc2296fac5b653d1538
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142851"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451789"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Table API .NET de Azure Cosmos DB: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -37,6 +37,10 @@ ms.locfileid: "42142851"
 >
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+* Compatibilidad con escrituras de varias regiones agregada
+* Se corrigieron las dependencias del paquete NuGet en Microsoft.Azure.DocumentDB, Microsoft.OData.Core, Microsoft.OData.Edm, Microsoft.Spatial
 
 ### <a name="a-name113113"></a><a name="1.1.3"/>1.1.3
 * Se corrigieron las dependencias de Microsoft.Azure.Storage.Common and Microsoft.Azure.DocumentDB del paquete de NuGet.

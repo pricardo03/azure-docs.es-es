@@ -1,24 +1,26 @@
 ---
-title: 'Azure Content Moderator: Moderación de imágenes con .NET | Microsoft Docs'
-description: Moderación de imágenes con Azure Content Moderator SDK para .NET
+title: 'Inicio rápido: Moderación de imágenes con .NET - Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Moderación de imágenes con el SDK de Content Moderator para .NET
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
-ms.date: 01/04/2018
+ms.topic: quickstart
+ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: cc2329c233029a1ff6bd82da3d090c4e98a8bac8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d89d9b8a2e3b00155e82cc28105007ab39fc549c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35380230"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226171"
 ---
-# <a name="moderate-images-using-net"></a>Moderación de imágenes con .NET
+# <a name="quickstart-moderate-images-using-net"></a>Inicio rápido: Moderación de imágenes con .NET
 
-En este artículo se proporciona información y ejemplos de código que le ayudarán a empezar a usar el SDK de Content Moderator para .NET con las siguientes finalidades: 
+En este artículo se proporciona información y ejemplos de código que le ayudarán a empezar a usar el [SDK de Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) para: 
+
 - Comprobar una imagen para detectar contenido para adultos o subido de tono
 - Detectar y extraer el texto de una imagen
 - Detectar caras en una imagen
@@ -27,8 +29,8 @@ En este artículo se da por supuesto que ya está familiarizado con Visual Studi
 
 ## <a name="sign-up-for-content-moderator-services"></a>Suscribirse a los servicios de Content Moderator
 
-Antes de poder usar los servicios de Content Moderator mediante la API REST o el SDK, necesita una clave de suscripción.
-Consulte el [inicio rápido](quick-start.md) para más información sobre cómo puede obtener la clave.
+Antes de usar los servicios de Content Moderator a través de API REST o del SDK, necesita una clave de API y la región de la cuenta de la API.
+Consulte el [inicio rápido](quick-start.md) para obtener información sobre cómo registrarse en Content Moderator para obtener ambas.
 
 ## <a name="create-your-visual-studio-project"></a>Crear un proyecto de Visual Studio
 
@@ -38,7 +40,6 @@ Consulte el [inicio rápido](quick-start.md) para más información sobre cómo 
 
 1. Seleccione este proyecto como proyecto de inicio único para la solución.
 
-1. Agregue una referencia al conjunto de proyectos **ModeratorHelper** que creó en [Content Moderator client helper quickstart](content-moderator-helper-quickstart-dotnet.md) (Inicio rápido de la aplicación auxiliar cliente de Content Moderator).
 
 ### <a name="install-required-packages"></a>Instalación de los paquetes requeridos
 
@@ -52,14 +53,63 @@ Instale los siguientes paquetes NuGet:
 
 Modifique las instrucciones using del programa.
 
+    using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
-    using ModeratorHelper;
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Threading;
+
+### <a name="create-the-content-moderator-client"></a>Creación del cliente de Content Moderator
+
+Agregue el código siguiente para crear un cliente de Content Moderator para su suscripción.
+
+> [!IMPORTANT]
+> Actualice los campos **AzureRegion** y **CMSubscriptionKey** con los valores de su identificador de región y clave de suscripción.
+
+    /// <summary>
+    /// Wraps the creation and configuration of a Content Moderator client.
+    /// </summary>
+    /// <remarks>This class library contains insecure code. If you adapt this 
+    /// code for use in production, use a secure method of storing and using
+    /// your Content Moderator subscription key.</remarks>
+    public static class Clients
+    {
+        /// <summary>
+        /// The region/location for your Content Moderator account, 
+        /// for example, westus.
+        /// </summary>
+        private static readonly string AzureRegion = "YOUR API REGION";
+
+        /// <summary>
+        /// The base URL fragment for Content Moderator calls.
+        /// </summary>
+        private static readonly string AzureBaseURL =
+            $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+        /// <summary>
+        /// Your Content Moderator subscription key.
+        /// </summary>
+        private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+        /// <summary>
+        /// Returns a new Content Moderator client for your subscription.
+        /// </summary>
+        /// <returns>The new client.</returns>
+        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+        /// When you have finished using the client,
+        /// you should dispose of it either directly or indirectly. </remarks>
+        public static ContentModeratorClient NewClient()
+        {
+            // Create and initialize an instance of the Content Moderator API wrapper.
+            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
+
+            client.Endpoint = AzureBaseURL;
+            return client;
+        }
+    }
 
 ### <a name="initialize-application-specific-settings"></a>Inicializar la configuración específica de la aplicación
 
@@ -403,4 +453,4 @@ El siguiente objeto JSON contiene la salida del programa.
 
 ## <a name="next-steps---get-the-source-code"></a>Pasos siguientes: obtención del código fuente
 
-[Descargue la solución de Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este y otros inicios rápidos de Content Moderator para .NET y empiece a trabajar en la integración.
+Obtenga el [SDK de Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) y la [solución de Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este y otros inicios rápidos de Content Moderator para .NET y empiece a trabajar en la integración.

@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 07/30/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6b7589652f5b180a826f3c0b1fcbe040ff3d386d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b9cebfa9c826c5be7c84feb5953b8d2c446953aa
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41918959"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423262"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desarrollo de un módulo IoT Edge con C en el dispositivo simulado
 
@@ -41,7 +41,7 @@ Un dispositivo de Azure IoT Edge:
 
 Recursos en la nube:
 
-* Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) de nivel estándar en Azure. 
+* Un nivel gratis de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) en Azure. 
 
 Recursos de desarrollo:
 
@@ -349,7 +349,7 @@ En el artículo de la guía de inicio rápido que siguió para configurar el dis
  
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
 
-Si prevé seguir con el siguiente artículo recomendado, puede mantener los recursos y las configuraciones que ya ha creado y volverlos a utilizar. También puede seguir usando el mismo dispositivo IoT Edge como dispositivo de prueba. 
+Si prevé seguir con el siguiente artículo recomendado, puede mantener los recursos y las configuraciones que ya ha creado y volverlos a utilizar. También puede seguir usando el mismo dispositivo de IoT Edge como dispositivo de prueba. 
 
 En caso contrario, para evitar gastos, puede eliminar las configuraciones locales y los recursos de Azure que creó en este artículo. 
 

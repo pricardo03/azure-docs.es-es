@@ -5,65 +5,72 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 58245478cf49c030c435b487e233bbc893a2b9a3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: bc3eb2721dd9fc0c4cde407a8257f6be73201a2a
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296363"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423364"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Adición de métricas extendidas a máquinas virtuales de Azure
 
-Cost Management utiliza los datos de métrica de Azure de las máquinas virtuales de Azure para mostrar información detallada acerca de sus recursos. Cost Management utiliza los datos de métrica, también denominados contadores de rendimiento, para generar informes. Sin embargo, Cost Management no recopila automáticamente todos los datos de métrica de Azure de las máquinas virtuales invitadas (es preciso habilitar la recopilación de métricas). Este artículo le ayuda a habilitar y configurar métricas de diagnóstico adicionales en las máquinas virtuales de Azure.
+Cloudyn usa los datos de métrica de Azure de las máquinas virtuales de Azure para mostrar información detallada acerca de sus recursos. Asimismo, Cloudyn usa los datos de métrica, también denominados contadores de rendimiento, para generar informes. Sin embargo, Cloudyn no recopila automáticamente todos los datos de métrica de Azure de las máquinas virtuales invitadas (para ello, es preciso habilitar la recopilación de métricas). Este artículo le ayuda a habilitar y configurar métricas de diagnóstico adicionales en las máquinas virtuales de Azure.
 
 Tras habilitar la recopilación de métricas puede:
 
 - Saber si las máquinas virtuales están llegando a sus límites de CPU, disco y memoria.
 - Detectar tendencias de uso y anomalías.
 - Controlar los costos mediante el ajuste de tamaño en función del uso.
-- Obtener recomendaciones de para la optimización rentable del tamaño de Cost Management.
+- Obtener recomendaciones de Cloudyn para optimizar de forma rentable el tamaño.
 
 Por ejemplo, puede supervisar los porcentajes de CPU y de memoria de las máquinas virtuales de Azure. Las métricas de las máquinas virtual de Azure corresponden a _Porcentaje de CPU [host]_ y _Porcentaje de memoria [invitado]_.
 
-## <a name="verify-that-metrics-are-enabled-on-vms"></a>Comprobación de que las métricas están habilitadas en las máquinas virtuales
+> [!NOTE]
+> La recopilación de datos métricos extendidos solo se admite con la supervisión a nivel de invitado de Azure. Cloudyn no es compatible con la extensión de la máquina virtual de Log Analytics.
+
+## <a name="determine-whether-extended-metrics-are-enabled"></a>Determinar si las métricas extendidas están habilitadas
 
 1. Inicie sesión en Azure Portal en http://portal.azure.com.
 2. En **Máquinas virtuales**, seleccione una máquina virtual y en **Supervisión**, seleccione **Métricas**. Se muestra una lista de las métricas disponibles.
 3. Seleccione algunas métricas y un gráfico mostrará los datos de las mismas.  
     ![Métrica de ejemplo: porcentaje de CPU de host](./media/azure-vm-extended-metrics/metric01.png)
 
-En el ejemplo anterior, hay disponible un conjunto limitado de métricas estándar de los hosts, pero no métricas de memoria. Las métricas de memoria forman parte de las métricas extendidas. Para habilitar las métricas extendidas es preciso dar algunos pasos más. La siguiente información le guía por el proceso de su habilitación.
+En el ejemplo anterior, hay disponible un conjunto limitado de métricas estándar de los hosts, pero no métricas de memoria. Las métricas de memoria forman parte de las métricas extendidas. En este caso, no están habilitadas las métricas extendidas de la máquina virtual. Para habilitar las métricas extendidas es preciso dar algunos pasos más. La siguiente información le guía por el proceso de su habilitación.
 
 ## <a name="enable-extended-metrics-in-the-azure-portal"></a>Habilitación de métricas extendidas en Azure Portal
 
 Las métricas estándar son las métricas del equipo host. La métrica _Porcentaje de CPU [host]_ es un ejemplo. También hay métricas básicas para las máquinas virtuales invitadas y también se denominan métricas extendidas. Entre los ejemplos de métricas extendidas se encuentran _Porcentaje de memoria [invitado]_ y _Memoria disponible [invitado]_.
 
-La habilitación de las métricas extendidas es un proceso sencillo. En cada máquina virtual, habilite la supervisión a nivel de invitado. Cuando se habilita la supervisión a nivel de invitado, el agente de Azure Diagnostics se instala en la máquina virtual. El siguiente proceso es el mismo para las máquinas virtuales clásicas y regulares, así como para las máquinas virtuales Windows y Linux.
+La habilitación de las métricas extendidas es un proceso sencillo. En cada máquina virtual, habilite la supervisión a nivel de invitado. Cuando se habilita la supervisión a nivel de invitado, el agente de Azure Diagnostics se instala en la máquina virtual. De forma predeterminada, se agrega un conjunto básico de métricas extendidas. El siguiente proceso es el mismo para las máquinas virtuales clásicas y regulares, así como para las máquinas virtuales Windows y Linux.
+
+Tenga en cuenta que tanto la supervisión a nivel de invitado de Azure como la de Linux requieren una cuenta de almacenamiento. Si no elige una cuenta de almacenamiento existente cuando habilite la supervisión de nivel de invitado, se creará una.
 
 ### <a name="enable-guest-level-monitoring-on-existing-vms"></a>Habilitar supervisión a nivel de invitado en las máquinas virtuales existentes
 
 1. En **Máquinas virtuales**, vea la lista de las máquinas virtuales y seleccione una de ellas.
-2. En **Supervisión**, seleccione **Métricas**.
-3. Haga clic en **Configuración de diagnóstico**.
-4. En la página Configuración de diagnóstico, haga clic en **Habilitar supervisión a nivel de invitado**. Las máquinas virtuales Linux requieren una cuenta de almacenamiento existente. Si no elige una cuenta de almacenamiento para una máquina virtual de Windows, se crea automáticamente.  
+2. En **Supervisión**, seleccione **Configuración de diagnóstico**.
+3. En la página Configuración de diagnóstico, haga clic en **Habilitar supervisión a nivel de invitado**.  
     ![Habilitar la supervisión a nivel de invitado](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
-5. Pocos minutos después, el agente de Azure Diagnostics está instalado en la máquina virtual. Actualice la página y la lista de métricas disponibles se actualizará con las métricas de invitado.  
+4. Pocos minutos después, el agente de Azure Diagnostics está instalado en la máquina virtual. Se agrega un conjunto básico de métricas. Actualice la página. Los contadores de rendimiento agregados aparecen en la pestaña de información general.
+5. En Supervisión, seleccione **Métricas**.
+6. En **Espacio de nombres de métrica** del gráfico de métricas, seleccione **Invitado (clásico)**.
+7. En la lista Métrica podrá ver todos los contadores de rendimiento disponibles para la máquina virtual invitada.  
     ![Métricas extendidas](./media/azure-vm-extended-metrics/extended-metrics.png)
 
 ### <a name="enable-guest-level-monitoring-on-new-vms"></a>Habilitar la supervisión a nivel de invitado en las máquinas virtuales nuevas
 
-Al crear nuevas máquinas virtuales, asegúrese de seleccionar **Diagnósticos del SO invitado**. Las máquinas virtuales Linux requieren una cuenta de almacenamiento existente. Si no elige una cuenta de almacenamiento para una máquina virtual de Windows, se crea automáticamente.
+Cuando cree nuevas máquinas virtuales, en la pestaña Administración, seleccione **Activados** para **Diagnósticos del SO invitado**.
 
 ![Habilitar los diagnósticos del SO invitado](./media/azure-vm-extended-metrics/new-enable-diag.png)
 
 ## <a name="resource-manager-credentials"></a>Credenciales de Resource Manager
 
-Después de habilitar las métricas extendidas, asegúrese de que Cost Management tiene acceso a sus [credenciales de Resource Manager](activate-subs-accounts.md). Dichas credenciales son necesarias para que Cost Management recopile y muestre los datos de rendimiento de las máquinas virtuales. También se utilizan para crear recomendaciones de optimización de costo. Cost Management necesita al menos tres días de datos de rendimiento de una instancia para determinar si es candidata a una recomendación de reducción de tamaño.
+Después de habilitar las métricas extendidas, asegúrese de que Cloudyn tiene acceso a sus [credenciales de Resource Manager](activate-subs-accounts.md). Dichas credenciales son necesarias para que Cloudyn recopile y muestre los datos de rendimiento de las máquinas virtuales. También se utilizan para crear recomendaciones de optimización de costo. Cloudyn necesita al menos tres días de datos de rendimiento de una instancia para determinar si es candidata a una recomendación de reducción de tamaño.
 
 ## <a name="enable-vm-metrics-with-a-script"></a>Habilitar las métricas de una máquina virtual con un script
 
@@ -77,4 +84,4 @@ Para ver métricas del rendimiento de las instancias de Azure en el portal de Cl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si no ha habilitado el acceso de la API de Azure Resource Manager en sus cuentas, pase a [Activate Azure subscriptions and accounts with Azure Cost Management](activate-subs-accounts.md) (Activación de suscripciones y cuentas de Azure con Azure Cost Management)
+- Si no ha habilitado el acceso de la API de Azure Resource Manager en sus cuentas, vaya a la sección [Activate Azure subscriptions and accounts with Azure Cost Management](activate-subs-accounts.md) (Activación de suscripciones y cuentas de Azure con Azure Cost Management).

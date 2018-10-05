@@ -8,16 +8,21 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 512f251a91a035d3d48566c414076b1a5b6d8805
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 961f82cd4970abfdd11a30b2847a14f8ff1880b0
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37907107"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47454573"
 ---
 Los tamaños de VM optimizadas para almacenamiento proporcionan un alto rendimiento de disco y de E/S, y son ideales para macrodatos, SQL y bases de datos NoSQL. En este artículo, se proporciona información acerca del número de vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento y del ancho de banda de red para cada tamaño de esta agrupación. 
 
-La serie LS ofrece hasta 32 vCPU, con el [procesador Intel® Xeon® de la familia E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). La serie LS obtiene el mismo rendimiento de CPU que las series G/GS y viene con 8 GiB de memoria por vCPU.  
+La serie LS ofrece hasta 32 vCPU, con el [procesador Intel® Xeon® de la familia E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). La serie LS obtiene el mismo rendimiento de CPU que las series G/GS y viene con 8 GiB de memoria por vCPU.  Las máquinas virtuales de la serie Ls son ideales para aplicaciones que requieren una baja latencia, un alto rendimiento y un almacenamiento en el disco local de gran tamaño. 
+
+Entre los casos de usos, están las bases de datos NoSQL, como Cassandra, MongoDB, Cloudera y Redis; el almacenamiento de datos, y las bases de datos transaccionales de gran tamaño.
+
+> [!NOTE]
+> La serie Ls está optimizada para utilizarse con el disco temporal asociado a la máquina virtual en lugar de utilizarse con discos de datos duraderos. El alto rendimiento y el elevado número de IOPS del disco temporal hace de Ls la serie ideal para almacenes NoSQL, como Apache Cassandra y MongoDB, que replican datos en diferentes máquinas virtuales para garantizar la persistencia en caso de que se produzca un error en una máquina virtual. La serie Ls no permite crear una memoria caché local para aumentar el número de IOPS que pueden alcanzar los discos de datos duraderos.
 
 ## <a name="ls-series"></a>Serie Ls
 

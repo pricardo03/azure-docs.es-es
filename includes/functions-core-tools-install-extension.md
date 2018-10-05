@@ -5,23 +5,29 @@ services: functions
 author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 04/06/2018
+ms.date: 09/21/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: d166a77a0636efea3b63660fde2187e3f2ec15c0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f1b53c53b1e5fb089eb9b8a9b816b11a1eea126d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38944726"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47044516"
 ---
-Al desarrollar funciones a nivel local, puede instalar las extensiones necesarias con el uso de Azure Functions Core Tools desde el terminal o desde un símbolo del sistema. 
+Al desarrollar funciones a nivel local, puede instalar las extensiones necesarias con el uso de Azure Functions Core Tools desde el terminal o desde un símbolo del sistema.
 
-Después de haber actualizado el archivo *function.json* para que incluya todos los enlaces que necesita la función, ejecute el comando `func extensions install` en la carpeta del proyecto. El comando lee el archivo *function.json* para ver qué paquetes necesita y, a continuación, los instala.
+Después de haber actualizado el archivo *function.json* para que incluya todos los enlaces que necesita la función, ejecute el siguiente comando en la carpeta del proyecto.
+
+```bash
+func extensions install
+```
+
+El comando lee el archivo *function.json* para ver qué paquetes necesita, los instala y, luego, recompila el proyecto de extensiones. Agrega los nuevos enlaces en la versión actual, pero no actualiza los enlaces existentes. Use la opción `--force` para actualizar los enlaces existentes a la versión más reciente cuando instale otros nuevos.
 
 Si desea instalar una versión concreta de un paquete o va a instalar paquetes antes de editar el archivo *function.json*, use el comando `func extensions install` con el nombre del paquete, tal como se muestra en el ejemplo siguiente:
 
-```
+```bash
 func extensions install --package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
 ```
 

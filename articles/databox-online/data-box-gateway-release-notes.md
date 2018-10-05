@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 7619056ace5d9b3cf083a40a6cfa06a0cac0561e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2668279b33d2d8d1c0adf92c138cc6347c95bd4d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949696"
+ms.locfileid: "47035358"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Notas de la versión preliminar de Azure Data Box Gateway
 
@@ -53,8 +53,10 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de la
 | **5.** |Copiar| Si se copia un archivo de solo lectura en el dispositivo, no se conserva la propiedad de solo lectura. | |
 | **6.** |Registros| Debido a un error en esta versión, podría ver instancias del código de error 110 en *error.xml* con nombres de elemento no reconocibles. | |
 | **7.** |Cargar | Debido a un error en esta versión, podría ver instancias del código de error 2003 durante la carga de archivos específicos. | |
-| **8.** |Eliminación | Debido a un error en esta versión, si se elimina un recurso compartido NFS, es posible que el recurso compartido no se pueda eliminar. El estado del recurso compartido será *Deleting* (Eliminando).  |Esto solo se produce cuando el recurso compartido usa un nombre de archivo no admitido. |
-| **9.** |Ayuda en línea |Los vínculos de Ayuda en Azure Portal podrían no conducir a la documentación.|Los vínculos de Ayuda funcionarán en la versión de disponibilidad general. |
+| **8.** |Tipos de archivo | No se admiten los siguientes tipos de archivos de Linux: archivos de caracteres, archivos de bloqueo, sockets, canalizaciones y vínculos simbólicos.  |Al copiar estos archivos, se crean archivos de longitud 0 en el recurso compartido NFS. Estos archivos permanecen en estado de error y también se notifican en *error.xml*. |
+| **9.** |Eliminación | Debido a un error en esta versión, si se elimina un recurso compartido NFS, es posible que el recurso compartido no se pueda eliminar. El estado del recurso compartido será *Deleting* (Eliminando).  |Esto solo se produce cuando el recurso compartido usa un nombre de archivo no admitido. |
+| **10.** |Actualizar | En una operación de actualización, no se conservan los permisos y las listas de control de acceso (ACL).  | |
+| **11.** |Ayuda en línea |Los vínculos de Ayuda en Azure Portal podrían no conducir a la documentación.|Los vínculos de Ayuda funcionarán en la versión de disponibilidad general. |
 
 
 

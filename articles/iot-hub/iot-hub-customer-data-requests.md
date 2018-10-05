@@ -8,18 +8,18 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: c0197b8f0cceab575aa5e830d094ddd2fb6b6b01
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 862ed2b38521cac3a4c83a9dc90db78f9f030ff1
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436302"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451823"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumen de características de solicitud de datos del cliente
 
 Azure IoT Hub es un servicio en la nube basado en la API de REST destinado a los clientes de empresas que permite una comunicación segura y bidireccional entre millones de dispositivos y un servicio de Azure con particiones.
 
-[!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [gdpr-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 Un administrador de inquilinos asigna un número de identificador (id. de dispositivo) a cada dispositivo. Los datos del dispositivo se basan en el id. de dispositivo asignado. Microsoft no retiene ninguna información y no tiene acceso a datos que permitan la correlación entre el id. de dispositivo y el usuario.
 
@@ -27,7 +27,7 @@ Muchos de los dispositivos administrados en Azure IoT Hub no son dispositivos pe
 
 Los administradores de inquilinos pueden usar Azure Portal o las API de REST del servicio para atender las solicitudes de información mediante la exportación o eliminación de los datos asociados con un id. de dispositivo.
 
-Si usa la característica de enrutamiento del servicio Azure IoT Hub para reenviar mensajes de dispositivo a otros servicios, entonces, el administrador de inquilinos debe realizar solicitudes de datos para cada punto de conexión de enrutamiento con el fin de completar una solicitud completa para un determinado dispositivo. Consulte la documentación de referencia sobre puntos de conexión para obtener más detalles. Si quiere obtener más información sobre los puntos de conexión compatibles, consulte [Referencia: puntos de conexión de IoT Hub](iot-hub-devguide-endpoints.md).
+Si usa la característica de enrutamiento del servicio Azure IoT Hub para reenviar mensajes de dispositivo a otros servicios, entonces, el administrador de inquilinos debe realizar solicitudes de datos para cada punto de conexión de enrutamiento con el fin de completar una solicitud completa para un determinado dispositivo. Para más información, consulte la documentación de referencia de cada punto de conexión. Si quiere obtener más información sobre los puntos de conexión compatibles, consulte [Referencia: puntos de conexión de IoT Hub](iot-hub-devguide-endpoints.md).
 
 Si usa la característica de integración Azure Event Grid del servicio de Azure IoT Hub, entonces, el administrador de inquilinos debe realizar solicitudes de datos para cada suscriptor de estos eventos. Para obtener más información, consulte la sección sobre cómo [responder a eventos de IoT Hub mediante el uso de Event Grid](iot-hub-event-grid.md).
 
@@ -37,17 +37,17 @@ Si usa la característica de integración Azure Monitor del servicio de Azure Io
 
 Los administradores de inquilinos pueden usar la hoja de dispositivos de IoT de la extensión de Azure IoT Hub de Azure Portal para eliminar un dispositivo. De ese modo, se eliminarán los datos asociados con ese dispositivo.
 
-También se pueden realizar operaciones de eliminación para dispositivos mediante las API de REST. Para más información, consulte [Service - Delete Device](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) (Servicio - Eliminar servicio).
+También se pueden realizar operaciones de eliminación para dispositivos mediante las API de REST. Para más información, consulte [Service - Delete Device](/rest/api/iothub/service/deletedevice) (Servicio - Eliminar servicio).
 
 ## <a name="exporting-customer-data"></a>Exportación de datos del cliente
 
 Los administradores de inquilinos pueden copiar y pegar en la hoja de dispositivos de IoT de la extensión de Azure IoT Hub en Azure Portal para exportar los datos asociados con un dispositivo.
 
-También se pueden realizar operaciones de exportación de dispositivos mediante las API de REST. Para más información, consulte [Service - Get Device](https://docs.microsoft.com/rest/api/iothub/service/getdevice) (Servicio - Obtener dispositivo).
+También se pueden realizar operaciones de exportación de dispositivos mediante las API de REST. Para más información, consulte [Service - Get Device](/rest/api/iothub/service/getdevice) (Servicio - Obtener dispositivo).
 
 > [!NOTE]
 > Cuando se usan servicios para empresas de Microsoft, Microsoft genera cierta información, conocida como registros generados por el sistema. Los administradores de inquilinos no pueden acceder a ciertos registros generados por el sistema de Azure IoT Hub ni exportarlos. Estos registros constituyen acciones objetivas que se realizan en el servicio y datos de diagnóstico relacionados con dispositivos individuales.
 
 ## <a name="links-to-additional-documentation"></a>Vínculos a documentación adicional
 
-La documentación completa de las API del servicio Azure IoT Hub se encuentra en [https://docs.microsoft.com/rest/api/iothub/service](https://docs.microsoft.com/rest/api/iothub/service).
+La documentación completa de las API del servicio Azure IoT Hub se encuentra en [API del servicio IoT Hub](https://docs.microsoft.com/rest/api/iothub/service).

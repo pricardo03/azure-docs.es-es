@@ -8,12 +8,12 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f832b05969c028880f6e375ff4a2ee8dc7a7eaf4
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 9c9c04a8310a46605cf5733131db1418b7cb7f7a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42144670"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47218791"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Información del entorno de ejecución de Azure IoT Edge y su arquitectura
 
@@ -31,9 +31,9 @@ La instancia de IoT Edge en tiempo de ejecución realiza las siguientes funcione
 
 ![La instancia de IoT Edge en tiempo de ejecución comunica la información y el estado del módulo a IoT Hub][1]
 
-Las responsabilidades de la instancia de IoT Edge en tiempo de ejecución se dividen en dos categorías: comunicación y administración de los módulos. Estas dos funciones las realizan dos componentes que constituyen la instancia en tiempo de ejecución de IoT Edge. El centro de IoT Edge es responsable de la comunicación, mientras que el agente de IoT Edge administra la implementación y supervisión de los módulos. 
+Las responsabilidades del entorno de ejecución de IoT Edge se dividen en dos categorías: comunicación y administración de los módulos. Estas dos funciones las realizan dos componentes que constituyen la instancia en tiempo de ejecución de IoT Edge. El centro de IoT Edge es responsable de la comunicación, mientras que el agente de IoT Edge administra la implementación y supervisión de los módulos. 
 
-El agente y el centro de Edge son módulos, como cualquier otro que se ejecuta en un dispositivo IoT Edge. 
+El agente y el centro de Edge son módulos, como cualquier otro que se ejecuta en un dispositivo de IoT Edge. 
 
 ## <a name="iot-edge-hub"></a>Centro de IoT Edge
 
@@ -117,7 +117,7 @@ Para obtener más información sobre el marco de seguridad de Azure IoT Edge, co
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Información sobre los módulos de Azure IoT Edge][lnk-modules]
+[Información sobre los certificados de Azure IoT Edge][lnk-certs]
 
 <!-- Images -->
 [1]: ./media/iot-edge-runtime/Pipeline.png
@@ -126,4 +126,4 @@ Para obtener más información sobre el marco de seguridad de Azure IoT Edge, co
 [4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
 
 <!-- Links -->
-[lnk-modules]: iot-edge-modules.md
+[lnk-certs]: iot-edge-certs.md

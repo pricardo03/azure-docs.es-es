@@ -3,7 +3,7 @@ title: Características y extensiones de las máquinas virtuales de Azure para W
 description: Obtenga información acerca de qué extensiones están disponibles para máquinas virtuales de Azure, agrupadas por lo que proporcionan o mejoran.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc2433b8ac12bc1d485b6f23b56f356041e5128e
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: d7b183a5b87d5777609deac02e4424d9451e9643
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783107"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452503"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Características y extensiones de las máquinas virtuales para Windows
 
@@ -66,7 +66,7 @@ Algunas extensiones no son compatibles con todos los sistemas operativos y puede
 Los paquetes de extensiones se descargan del repositorio de extensiones de Azure Storage y las cargas de estado de las extensiones se publican en Azure Storage. Si usa una versión [compatible](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) de los agentes, no necesita autorizar el acceso a Azure Storage en la región de la máquina virtual, porque puede usar el agente para redirigir la comunicación al controlador de tejido de Azure para las comunicaciones de los agentes. Si usa una versión no compatible del agente, deberá autorizar el acceso de salida a Azure Storage en esa región desde la máquina virtual.
 
 > [!IMPORTANT]
-> Si bloqueó el acceso a *168.63.129.1* con el firewall invitado, las extensiones generarán un error independientemente de lo mencionado.
+> Si bloqueó el acceso a *168.63.129.16* con el firewall invitado, las extensiones generarán un error con independencia de lo mencionado anteriormente.
 
 Los agentes solo se pueden usar para descargar los paquetes de extensiones e informar el estado. Por ejemplo, si la instalación de una extensión requiere descargar un script de GitHub (script personalizado) o necesita acceso a Azure Storage (Azure Backup), se deben abrir puertos adicionales del firewall o del grupo de seguridad de red. Distintas extensiones tienen distintos requisitos, porque son aplicaciones por sí mismas. En el caso de las extensiones que requieren acceso a Azure Storage, puede permitir el acceso mediante las etiquetas del servicio NSG de Azure para [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 

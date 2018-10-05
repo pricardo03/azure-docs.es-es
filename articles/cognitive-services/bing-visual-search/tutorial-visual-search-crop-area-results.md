@@ -1,20 +1,20 @@
 ---
-title: Tutorial de resultados del área de recorte del SDK de Bing Visual Search | Microsoft Docs
+title: 'Tutorial: Resultados y área de recorte de imagen - Bing Visual Search'
 description: Cómo usar el SDK de Bing Visual Search para obtener las direcciones URL de imágenes similares al área de recorte de la imagen cargada.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: dd51ed7c710cc51a9fe0e63e55aa0d2c4ea24bee
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 66e17c00da898e575bb858dbe16a35d1c44a2780
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574496"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226917"
 ---
 # <a name="tutorial-bing-visual-search-sdk-image-crop-area-and-results"></a>Tutorial: Resultados y área de recorte de imagen del SDK de Bing Visual Search
 El SDK de Visual Search incluye una opción para seleccionar un área de una imagen y buscar las imágenes en línea que sean similares al área de recorte de la imagen más grande.  En este ejemplo se especifica un área de recorte que muestra a una persona de una imagen que contiene varias personas.  El código envía el área de recorte y la dirección URL de la imagen de mayor tamaño, y devuelve los resultados que incluyen direcciones URL de Bing Search y direcciones URL de imágenes similares que se encuentran en línea.

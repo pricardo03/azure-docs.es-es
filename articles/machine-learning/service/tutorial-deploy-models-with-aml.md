@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Implementación de un modelo de clasificación de imágenes en Azure Container Instances (ACI) - Azure Machine Learning'
-description: Obtenga información sobre cómo implementar un modelo de clasificación de imágenes de scikit-learn con un cuaderno de Jupyter en Python.  Este tutorial es la segunda parte de dos.
-author: hning86
-ms.author: haining
+title: 'Tutorial: Implementación de un modelo de clasificación de imágenes en Azure Container Instances (ACI) con el servicio Azure Machine Learning'
+description: En este tutorial se muestra cómo usar el servicio Azure Machine Learning para implementar un modelo de clasificación de imágenes con Scikit Learn en un cuaderno de Jupyter en Python.  Este tutorial es la segunda parte de dos.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: tutorial
+author: hning86
+ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: e79df258701fa1d269e45e00a92b0961306ffbe3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eda4a1dabd20eee73cfbfa4dc0dd2b0eaa56788e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968635"
+ms.locfileid: "47031244"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Tutorial n.º 2: Implementación de un modelo de clasificación de imágenes en Azure Container Instances (ACI)
 
@@ -185,7 +185,7 @@ Para crear el entorno correcto para ACI, proporcione lo siguiente:
 Cree el script de puntuación, llamado score.py, que usó la llamada al servicio web para mostrar cómo usar el modelo.
 
 Debe incluir dos funciones necesarias en el script de puntuación:
-* La función `init()`, que normalmente carga el modelo en un objeto global. Esta función se ejecuta solo una vez cuando se inicia el contenedor de Docker. 
+* La función `init()`, que normalmente carga el modelo en un objeto global. Esta función solo se ejecuta una vez cuando se inicia el contenedor de Docker. 
 
 * La función `run(input_data)` usa el modelo para predecir un valor basado en los datos de entrada. Los datos de entrada y salida de la ejecución suelen usan el formato JSON para la serialización y deserialización, pero se admiten otros formatos.
 

@@ -1,5 +1,5 @@
 1. Inicie sesión en [Azure Portal][Azure portal].
-2. En el menú de la izquierda, seleccione **+ Crear un recurso**. A continuación, seleccione **Integración empresarial** > **Relay**.
+2. En el menú de la izquierda, seleccione **+ Crear un recurso**. Seleccione **Integración** > **Retransmisión**. Si no ve **Retransmisión** en la lista, seleccione **Ver todo** en la esquina superior derecha. 
 3. En **Crear espacio de nombres**, especifique un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
 4. En el campo **Suscripción**, elija la suscripción de Azure en la que se va a crear el espacio de nombres.
 5. En el cuadro [Grupo de recursos](../articles/azure-resource-manager/resource-group-portal.md), seleccione un grupo de recursos existente en el que se colocará el espacio de nombres o cree uno nuevo.  

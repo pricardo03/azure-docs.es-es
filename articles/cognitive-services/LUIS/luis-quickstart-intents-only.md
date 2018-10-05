@@ -1,63 +1,63 @@
 ---
-title: 'Creación de una aplicación simple con dos intenciones: Azure | Microsoft Docs'
-description: Obtenga información sobre cómo crear una aplicación simple de LUIS con dos intenciones y sin identidades para identificar expresiones de usuario en este inicio rápido.
+title: 'Tutorial 1: Búsqueda de intenciones en la aplicación de LUIS personalizada'
+titleSuffix: Azure Cognitive Services
+description: Cree una aplicación personalizada que prediga la intención del usuario. Esta aplicación es el tipo más primitivo de aplicación de LUIS, dado que no extrae varios elementos de datos del texto de la expresión, como direcciones de correo electrónico o fechas.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 3f23ade2b0256c72c344e2a619227a79e3c79a47
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b229dbc90f3f6ecc226c88ee393114f233bcf1a2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160122"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035415"
 ---
-# <a name="tutorial-1-build-app-with-custom-domain"></a>Tutorial: 1. Compilación de aplicación con dominio personalizado
-En este tutorial, cree una aplicación que muestre cómo usar las **intenciones** para determinar la _intención_ del usuario en función de la expresión (texto) que envía a la aplicación. Cuando termine, tendrá un punto de conexión LUIS en ejecución en la nube.
+# <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Tutorial 1: Creación de una aplicación personalizada para determinar las intenciones del usuario
 
-Esta aplicación es el tipo más simple de aplicación LUIS porque no extrae datos a partir de las expresiones. Solo determina la intención de la expresión del usuario.
+En este tutorial creará una aplicación de recursos humanos (RRHH) personalizada que predice la intención del usuario en función de la expresión (texto). Cuando termine, tendrá un punto de conexión LUIS en ejecución en la nube.
 
-<!-- green checkmark -->
+La finalidad de la aplicación es determinar la intención del texto de conversión en lenguaje natural. Estas intenciones se categorizan en **Intenciones**. Esta aplicación tiene algunas intenciones. La primera intención, **`GetJobInformation`**, identifica cuando un usuario quiere información sobre los trabajos disponibles dentro de una empresa. La segunda intención, **`None`**, se usa para cualquier expresión del usuario que esté fuera del _dominio_ (ámbito) de esta aplicación. Más adelante, una tercera intención, **`ApplyForJob`**, se agrega para cualquier expresión sobre la aplicación para un trabajo. Esta tercera intención es diferente de `GetJobInformation` porque ya se debe conocer la información del trabajo cuando alguien solicita dicho trabajo. Sin embargo, dependiendo de la elección de la palabra, determinar la intención puede ser complicado porque ambas son sobre un trabajo.
+
+Después de que LUIS devuelva la respuesta JSON, LUIS termina con esta solicitud. LUIS no proporciona respuestas a expresiones de usuario, solo identifica el tipo de información que se solicita en lenguaje natural. 
+
+**En este tutorial, aprenderá sobre:**
+
 > [!div class="checklist"]
-> * Compilar una aplicación nueva para un dominio de recursos humanos (RR. HH.) 
-> * Agregar la intención GetJobInformation
-> * Agregar expresiones de ejemplo a la intención GetJobInformation 
-> * Entrenar y publicar la aplicación
-> * Consultar el punto de conexión de la aplicación para ver la respuesta JSON de LUIS
-> * Agregar la intención ApplyForJob
-> * Agregar expresiones de ejemplo a la intención ApplyForJob 
-> * Entrenar, publicar y consultar nuevamente el punto de conexión 
+> * Creación de una nueva aplicación 
+> * Creación de intenciones
+> * Incorporación de expresiones de ejemplo
+> * Entrenamiento de la aplicación
+> * Publicación de aplicación
+> * Obtención de la intención a partir del punto de conexión
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="purpose-of-the-app"></a>Propósito de la aplicación
-Esta aplicación tiene algunas intenciones. La primera intención, **`GetJobInformation`**, identifica cuando un usuario quiere información sobre los trabajos disponibles dentro de una empresa. La segunda intención, **`None`**, identifica cualquier otro tipo de expresión. Más adelante en la guía de inicio rápido se agrega una tercera intención, `ApplyForJob`. 
-
 ## <a name="create-a-new-app"></a>Creación de una nueva aplicación
-1. Inicie sesión en el sitio web de [LUIS](luis-reference-regions.md#luis-website). Asegúrese de que inicia sesión en la [región](luis-reference-regions.md#publishing-regions) en la que necesita publicar los puntos de conexión de LUIS.
 
-2. En el sitio web de [LUIS](luis-reference-regions.md#luis-website), seleccione **Create new app** (Crear aplicación).  
+1. Inicie sesión en el portal de LUIS con la dirección URL [https://www.luis.ai](https://www.luis.ai). 
 
-    [![](media/luis-quickstart-intents-only/app-list.png "Captura de pantalla de la página My Apps (Mis aplicaciones)")](media/luis-quickstart-intents-only/app-list.png#lightbox)
+2. Seleccione **Create new app** (Crear nueva aplicación).  
 
-3. En el cuadro de diálogo emergente, escriba el nombre `HumanResources`. Esta aplicación abarca preguntas sobre el departamento de Recursos Humanos de la empresa. Ese tipo de departamento controla los asuntos relacionados con el empleo, como los puestos de trabajo que se deben rellenar en la empresa.
+    [![](media/luis-quickstart-intents-only/app-list.png "Captura de pantalla de la página My Apps (Mis aplicaciones) de Language Understanding (LUIS)")](media/luis-quickstart-intents-only/app-list.png#lightbox)
+
+3. En el cuadro de diálogo emergente, escriba el nombre `HumanResources` y mantenga la referencia cultural predeterminada, **English** (Inglés). Deje en blanco la descripción.
 
     ![Nueva aplicación de LUIS](./media/luis-quickstart-intents-only/create-app.png)
 
-4. Cuando el proceso finalice, la aplicación mostrará la página **Intents** (Intenciones) con la intención **None**. 
+    A continuación, la aplicación mostrará la página **Intents** (Intenciones) con la intención **None** (Ninguna).
 
-## <a name="create-getjobinformation-intention"></a>Creación de la intención GetJobInformation
-1. Seleccione **Create new intent** (Crear nueva intención). Escriba el nombre de la intención nueva `GetJobInformation`. Esta intención se predice cada vez que un usuario quiere información sobre las ofertas de trabajo en la empresa.
+## <a name="getjobinformation-intent"></a>Intención GetJobInformation
 
-    ![](media/luis-quickstart-intents-only/create-intent.png "Captura de pantalla del cuadro de diálogo de intención nueva")
+1. Haga clic en **Create new intent** (Crear intención). Escriba el nombre de la intención nueva `GetJobInformation`. Esta intención se predice cada vez que un usuario quiere información sobre las ofertas de trabajo de la empresa.
 
-    Al crear una intención, se crea una categoría de información que desea identificar. Dar un nombre a la categoría permite que otras aplicaciones que usen los resultados de consulta de LUIS puedan usar ese nombre de categoría para encontrar una respuesta apropiada. LUIS no responde a estas preguntas, solo identifica el tipo de información que se solicita en lenguaje natural. 
+    ![](media/luis-quickstart-intents-only/create-intent.png "Captura de pantalla del cuadro de diálogo New intent (Nueva intención) de Language Understanding (LUIS)")
 
-2. Agregue siete expresiones a esta intención que espera que un usuario pida, por ejemplo:
+2. Al proporcionar _expresiones de ejemplo_, está entrenando a LUIS sobre qué tipos de expresiones deben predecirse para esta intención. Agregue varias expresiones de ejemplo a esta intención que espera que un usuario pida como, por ejemplo:
 
     | Expresiones de ejemplo|
     |--|
@@ -71,9 +71,17 @@ Esta aplicación tiene algunas intenciones. La primera intención, **`GetJobInfo
 
     [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Captura de pantalla del ingreso de expresiones nuevas para la intención MyStore")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
-3. La aplicación de LUIS no tiene actualmente expresiones en la intención **None**. Necesita expresiones que la aplicación no responde. No la deje en blanco. Seleccione **Intents** (Intenciones) en el panel izquierdo. 
+    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
-4. Seleccione la intención **None**. Agregue tres expresiones que el usuario podría solicitar pero que no son pertinentes para la aplicación. Si la aplicación está relacionada con los puestos de trabajo, algunas expresiones del tipo **None** que puede usar son las siguientes:
+
+## <a name="none-intent"></a>Intención None 
+La aplicación cliente debe saber si una expresión está fuera del dominio del asunto de la aplicación. Si LUIS devuelve la intención **None** (Ninguna) para una expresión, la aplicación cliente puede preguntar al usuario si desea finalizar la conversación. La aplicación cliente también puede dar más instrucciones para que continúe la conversación si el usuario no desea terminarla. 
+
+Estas expresiones de ejemplo, fuera del dominio del asunto, se agrupan en la intención **None** (Ninguna). No la deje en blanco. 
+
+1. Seleccione **Intents** (Intenciones) en el panel izquierdo.
+
+2. Seleccione la intención **None**. Agregue tres expresiones que el usuario podría solicitar pero que no son pertinentes para la aplicación de recursos humanos. Si la aplicación está relacionada con los puestos de trabajo, algunas expresiones del tipo **None** (Ninguna) que puede usar son las siguientes:
 
     | Expresiones de ejemplo|
     |--|
@@ -81,25 +89,24 @@ Esta aplicación tiene algunas intenciones. La primera intención, **`GetJobInfo
     |Order a pizza for me (Pídanme una pizza)|
     |Penguins in the ocean (Pingüinos en el océano)|
 
-    En la aplicación que realiza la llamada de LUIS, por ejemplo, un bot de chat, si LUIS devuelve la intención **None** para una expresión, el bot puede preguntar al usuario si desea finalizar la conversación. El bot de chat también puede dar más instrucciones para que continúe la conversación si el usuario no desea terminarla. 
 
-## <a name="train-and-publish-the-app"></a>Entrenamiento y publicación de la aplicación
+## <a name="train"></a>Train 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-app-to-endpoint"></a>Publicación de la aplicación en un punto de conexión
+## <a name="publish"></a>Publicar
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
-## <a name="query-endpoint-for-getjobinformation-intent"></a>Consulta del punto de conexión para la intención GetJobInformation
+## <a name="get-intent"></a>Obtener intención
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Vaya al final de la dirección URL en la dirección y escriba `I'm looking for a job with Natual Language Processing`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. Esta expresión no es la misma que ninguna de las expresiones de ejemplo del paso 4, por lo que es una buena prueba y debería devolver la intención `GetJobInformation` como la intención con la puntuación más alta. 
+2. Vaya al final de la dirección URL en la barra de direcciones y escriba `I'm looking for a job with Natural Language Processing`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. Esta expresión no es la misma que cualquiera de las expresiones de ejemplo. Es una buena prueba y debe devolver la intención `GetJobInformation` como la intención con la puntuación más alta. 
 
-    ```
+    ```JSON
     {
-      "query": "I'm looking for a job with Natual Language Processing",
+      "query": "I'm looking for a job with Natural Language Processing",
       "topScoringIntent": {
         "intent": "GetJobInformation",
         "score": 0.8965092
@@ -118,8 +125,12 @@ Esta aplicación tiene algunas intenciones. La primera intención, **`GetJobInfo
     }
     ```
 
-## <a name="create-applyforjob-intention"></a>Creación de la intención ApplyForJob
-Vuelva a la pestaña del explorador del sitio web de LUIS y cree una intención nueva para postular a un trabajo.
+    Los resultados incluyen **todas las intenciones** de la aplicación, actualmente dos. La matriz de entidades está vacía porque esta aplicación no tiene actualmente ninguna entidad. 
+
+    El resultado de JSON identifica la intención que tiene la puntuación más alta como propiedad **`topScoringIntent`**. Todas las puntuaciones están comprendidas entre 1 y 0, y la mejor está próxima a 1. 
+
+## <a name="applyforjob-intent"></a>Intención ApplyForJob
+Regrese al sitio web de LUIS y cree una nueva intención para determinar si la expresión del usuario trata de solicitar un trabajo.
 
 1. Seleccione **Build** (Compilar) en el menú superior de la derecha para volver a la compilación de aplicaciones.
 
@@ -143,15 +154,21 @@ Vuelva a la pestaña del explorador del sitio web de LUIS y cree una intención 
 
     La intención etiquetada aparece en rojo porque actualmente LUIS no está seguro de que la intención esté correcta. Entrenar la aplicación indica a LUIS que las expresiones están en la intención correcta. 
 
-    [Entrene y publique](#train-and-publish-the-app) nuevamente. 
+## <a name="train-again"></a>Volver a entrenar
 
-## <a name="query-endpoint-for-applyforjob-intent"></a>Punto de conexión de consulta para la intención ApplyForJob
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+
+## <a name="publish-again"></a>Volver a publicar
+
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
+
+## <a name="get-intent-again"></a>Volver a obtener intención
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. En la nueva ventana del explorador, escriba `Can I submit my resume for job 235986` al final de la dirección URL. 
 
-    ```
+    ```JSON
     {
       "query": "Can I submit my resume for job 235986",
       "topScoringIntent": {
@@ -176,19 +193,15 @@ Vuelva a la pestaña del explorador del sitio web de LUIS y cree una intención 
     }
     ```
 
-## <a name="what-has-this-luis-app-accomplished"></a>¿Qué ha logrado esta aplicación de LUIS?
-Esta aplicación, con tan solo algunas intenciones, identificó una consulta de lenguaje natural de la misma intención, pero escrita de manera distinta. 
-
-El resultado de JSON identifica la intención que tiene la puntuación más alta. Todas las puntuaciones están comprendidas entre 1 y 0, y la mejor está próxima a 1. La puntuación de las intenciones `GetJobInformation` y `None` son mucho más cercanas a cero. 
-
-## <a name="where-is-this-luis-data-used"></a>¿Dónde se usan estos datos de LUIS? 
-LUIS ha terminado con esta solicitud. La aplicación que realiza la llamada, como un bot de chat, puede tomar el resultado topScoringIntent y encontrar información (no almacenada en LUIS) para responder la pregunta o para finalizar la conversación. Estas son opciones programáticas para el bot o la aplicación que realiza la llamada. LUIS no hace ese trabajo. LUIS solo determina cuál es la intención del usuario. 
+    Los resultados incluyen la nueva intención **ApplyForJob**, así como las intenciones existentes. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+En este tutorial se creó la aplicación de recursos humanos (RRHH), se crearon dos intenciones, se agregaron expresiones de ejemplo a cada intención, se agregaron expresiones de ejemplo a la intención None (Ninguna), se entrenó, se publicó y se probó en el punto de conexión. Estos son los pasos básicos de la creación de un modelo de LUIS. 
 
 > [!div class="nextstepaction"]
 > [Add prebuilt intents and entities to this app](luis-tutorial-prebuilt-intents-entities.md) (Incorporación de entidades e intenciones creadas previamente a esta aplicación)

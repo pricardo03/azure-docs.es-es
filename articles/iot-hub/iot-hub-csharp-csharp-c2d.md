@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: e744ffe9eb6e58c9226802f0196cb5acf1427bdf
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 2dca04cadd4c5b904c752ac8a01af8bcb7c6ae33
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047726"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220115"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Envío de mensajes desde la nube al dispositivo con IoT Hub (.NET)
 
@@ -114,7 +114,7 @@ En esta sección, escribirá una aplicación de consola de .NET que envía mensa
    using Microsoft.Azure.Devices;
    ```
 
-5. Agregue los campos siguientes a la clase **Program** . Sustituya el valor del marcador de posición por la cadena de conexión de IoT Hub de [Enviar datos de telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-dotnet.md):
+5. Agregue los campos siguientes a la clase **Program**. Sustituya el valor del marcador de posición por la cadena de conexión de IoT Hub de [Enviar datos de telemetría desde un dispositivo a IoT Hub](quickstart-send-telemetry-dotnet.md):
 
    ``` csharp
    static ServiceClient serviceClient;
@@ -200,7 +200,7 @@ En esta sección, modificará la aplicación **SendCloudToDevice** para solicita
    ![Aplicación que recibe el mensaje](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
-> Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Control de errores transitorios](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx).
+> Por simplificar, este tutorial no implementa ninguna directiva de reintentos. En el código de producción, deberá implementar directivas de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo [Control de errores transitorios](/azure/architecture/best-practices/transient-faults).
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes

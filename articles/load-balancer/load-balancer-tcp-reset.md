@@ -1,5 +1,5 @@
 ---
-title: Restablecimiento de TCP al agotarse el tiempo de espera de inactividad en Load Balancer | Microsoft Docs
+title: Restablecimiento de TCP inactivo en Load Balancer | Microsoft Docs
 description: Load Balancer con paquetes RST de TCP bidireccionales al agotarse el tiempo de espera de inactividad
 services: load-balancer
 documentationcenter: na
@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/16/2018
+ms.date: 09/26/2018
 ms.author: kumud
-ms.openlocfilehash: 6ec8754e9a6e1afb9dcb400215570d08ebd4342b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0b533a48e94db880f23d42decc5c3fb39a27e5ac
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973735"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395651"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle-timeout-public-preview"></a>Load Balancer con restablecimiento de TCP al agotarse el tiempo de espera de inactividad (versión preliminar pública)
+# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer con restablecimiento de TCP inactivo (versión preliminar pública)
 
 Puede usar [Standard Load Balancer](load-balancer-standard-overview.md) si desea crear un comportamiento de aplicación más predecible para los escenarios con restablecimientos de TCP bidireccionales (paquete RST de TCP) para cada tiempo de espera de inactividad configurable.  El comportamiento predeterminado de Load Balancer es descartar silenciosamente los flujos cuando se alcanza el tiempo de inactividad de un flujo.
+
+![Restablecimiento de TCP en Load Balancer](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
 >Load Balancer con la funcionalidad de restablecimiento de TCP al agotarse el tiempo de espera de inactividad está disponible como versión preliminar pública en este momento y disponible en un conjunto limitado de [regiones](#regions). Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -73,6 +75,8 @@ Este parámetro está vigente actualmente en las siguientes regiones.  En las re
 
 | Region |
 |---|
+| Sudeste de Asia |
+| Oeste de Europa |
 | Este de EE. UU. - 2 |
 | Norte de Reino Unido |
 | Oeste de EE. UU. |
@@ -87,4 +91,4 @@ Esta tabla se actualizará a medida que la versión preliminar se expanda a otra
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre [Standard Load Balancer](load-balancer-standard-overview.md).
-- Más información sobre [reglas de salida](https://aka.ms/lboutboundrules).
+- Más información sobre [reglas de salida](load-balancer-outbound-rules-overview.md).

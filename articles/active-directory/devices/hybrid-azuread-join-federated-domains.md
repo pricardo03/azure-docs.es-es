@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: f4659d2dc8dfd52ae6f7ec19dc29ec31c9b3ca6b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bc2b391457d7652b62558c9a752376b07b50a8c1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047349"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391819"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configuración de la unión a Azure Active Directory híbrido para dominios federados
 
@@ -122,7 +122,7 @@ Para configurar una unión a Azure AD híbrido utilizando Azure AD Connect, nece
 
     a. Seleccione el bosque.
 
-    b. Seleccione el servicio de autenticación.
+    b. Seleccione el servicio de autenticación. Debe seleccionar servidor de AD FS, salvo que su organización tenga exclusivamente clientes de Windows 10.
 
     c. Haga clic en **Agregar** para especificar las credenciales de administrador de empresa.
 
@@ -170,7 +170,7 @@ En la siguiente directiva se debe elegir **Todos**: **Los usuarios pueden regist
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Configurar los valores de la intranet local para el registro de dispositivos
 
-Para completar con éxito la unión a Azure AD híbrido de los dispositivos de Windows de nivel inferior, y para evitar las peticiones de certificados cuando los dispositivos se autentican en Azure AD, se puede insertar una directiva en los dispositivos unidos a un dominio para agregar las siguientes direcciones URL a la zona de intranet local en Internet Explorer:
+Para completar con éxito la combinación de Azure AD híbrido de los dispositivos de Windows de nivel inferior, y para evitar las peticiones de certificados cuando los dispositivos se autentican en Azure AD, se puede insertar una directiva en los dispositivos unidos a un dominio para agregar las siguientes direcciones URL a la zona de intranet local en Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
 

@@ -3,7 +3,7 @@ title: Características y extensiones de las máquinas virtuales de Azure | Micr
 description: Obtenga información sobre las extensiones de máquina virtual de Azure y sobre su uso con máquinas virtuales de Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: ec201f7f82aea97b9927b85a6b185fad51f6081d
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 38f885cc230df6e0edb1e5b5254faf0cd519847a
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412607"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451450"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Características y extensiones de las máquinas virtuales de Azure
 Las extensiones de máquina virtual (VM) de Azure son pequeñas aplicaciones que proporcionan tareas de configuración y automatización tras la implementación en máquinas virtuales de Azure. Puede usar imágenes existentes y, después, personalizarlas como parte de las implementaciones, lo que le ahorra el trabajo de compilar imágenes personalizadas.
@@ -41,7 +41,7 @@ Las extensiones se pueden incluir con una nueva implementación de máquina virt
 Puede ver las extensiones disponibles en la hoja Máquina virtual del portal, en Extensiones. Aquí solo se presentan algunas de ellas; para ver la lista completa, use las herramientas de la CLI. Vea [Discovering VM Extensions for Linux](features-linux.md) (Detección de extensiones de máquina virtual para Linux) y [Discovering VM Extensions for Windows](features-windows.md) (Detección de extensiones de máquina virtual para Windows).
 
 ## <a name="how-can-i-install-an-extension"></a>¿Cómo puedo instalar una extensión?
-Las extensiones de máquina virtual de Azure se pueden administrar con la CLI 2.0 de Azure, Azure PowerShell, plantillas de Azure Resource Manager y Azure Portal. Para probar una extensión, vaya a Azure Portal, seleccione la extensión de script personalizado, pase un comando o script y ejecute las extensiones.
+Las extensiones de máquina virtual de Azure se pueden administrar con la CLI de Azure, Azure PowerShell, plantillas de Azure Resource Manager y Azure Portal. Para probar una extensión, vaya a Azure Portal, seleccione la extensión de script personalizado, pase un comando o script y ejecute las extensiones.
 
 Si quiere la misma extensión que agregó en el portal mediante la CLI o la plantilla de Resource Manager, vea otra documentación sobre extensiones, como [Extensión de script personalizado para Windows](custom-script-windows.md) y [Extensión de script personalizado para Linux](custom-script-linux.md).
 

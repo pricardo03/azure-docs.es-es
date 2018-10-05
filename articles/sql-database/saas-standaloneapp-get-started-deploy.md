@@ -1,21 +1,23 @@
 ---
-title: Tutorial de la aplicación SaaS multiinquilino con Azure SQL Database | Microsoft Docs
+title: 'Tutorial de la aplicación SaaS de inquilino único: Azure SQL Database | Microsoft Docs'
 description: Implemente y explore una aplicación SaaS de inquilino único independiente que usa Azure SQL Database.
-keywords: tutorial de SQL Database
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: 32cfa2e9bd48dd4e27da5c4010391c032d67d96b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: sstein
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 1e74a0c915471fecb3b8e0662559eb5bfe189b3d
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644729"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423024"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementación y dexploración de una aplicación de inquilino único independiente que usa Azure SQL Database
 
@@ -25,7 +27,7 @@ El patrón de aplicación independiente (o aplicación por inquilino) implementa
 
 En este tutorial, implementará tres aplicaciones independientes para tres inquilinos en su suscripción de Azure.  Tiene acceso completo para explorar y trabajar con los componentes individuales de la aplicación.
 
-El código fuente y los scripts de administración de la aplicación están disponibles en el repositorio [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) de GitHub.
+El código fuente y los scripts de administración de la aplicación están disponibles en el repositorio [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) de GitHub. La aplicación se creó con Visual Studio 2015 y no se abre ni se compila correctamente Visual Studio 2017 si no se actualiza.
 
 
 En este tutorial, obtendrá información:

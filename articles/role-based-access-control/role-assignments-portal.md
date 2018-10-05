@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 97bf33cb882d5a121b9811a8e36a1d26f9a954f8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 1cac4e4cee408e5208d2d5d84f81b8ad7a89f03b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715376"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033998"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Administración del acceso mediante RBAC y Azure Portal
 
@@ -109,9 +109,9 @@ Al administrar el acceso, desea saber quién tiene acceso, cuáles son sus permi
 
 ## <a name="grant-access"></a>Conceder acceso
 
-En RBAC, para conceder acceso es preciso crear una asignación de roles. Siga estos pasos para conceder acceso en distintos ámbitos.
+En RBAC, para conceder acceso es preciso asignar un rol. Siga estos pasos para conceder acceso en distintos ámbitos.
 
-### <a name="create-a-role-assignment-at-a-resource-group-scope"></a>Creación de una asignación de roles en el ámbito de un grupo de recursos
+### <a name="assign-a-role-at-a-resource-group-scope"></a>Asignación de un rol en el ámbito de un grupo de recursos
 
 1. En la lista de navegación, elija **Grupos de recursos**.
 
@@ -131,11 +131,11 @@ En RBAC, para conceder acceso es preciso crear una asignación de roles. Siga es
 
 1. En la lista **Seleccionar**, seleccione un usuario, grupo o aplicación. Si no ve la entidad de seguridad en la lista, puede escribir en el cuadro **Seleccionar** para nombres para mostrar, direcciones de correo electrónico e identificadores de objeto en el directorio.
 
-1. Seleccione **Guardar** para crear la asignación de roles.
+1. Elija **Guardar** para asignar el rol.
 
    Transcurridos unos instantes, a la entidad de seguridad se le asigna el rol en el ámbito de un grupo de recursos.
 
-### <a name="create-a-role-assignment-at-a-subscription-scope"></a>Creación de una asignación de roles en el ámbito de una suscripción
+### <a name="assign-a-role-at-a-subscription-scope"></a>Asignación de un rol en el ámbito de una suscripción
 
 1. En Azure Portal, elija **Todos los servicios** y, después, **Suscripciones**.
 
@@ -155,11 +155,37 @@ En RBAC, para conceder acceso es preciso crear una asignación de roles. Siga es
 
 1. En la lista **Seleccionar**, seleccione un usuario, grupo o aplicación. Si no ve la entidad de seguridad en la lista, puede escribir en el cuadro **Seleccionar** para nombres para mostrar, direcciones de correo electrónico e identificadores de objeto en el directorio.
 
-1. Seleccione **Guardar** para crear la asignación de roles.
+1. Elija **Guardar** para asignar el rol.
 
    Transcurridos unos instantes, a la entidad de seguridad se le asigna el rol en el ámbito de la suscripción.
 
-### <a name="create-a-role-assignment-at-a-management-group-scope"></a>Creación de una asignación de roles en el ámbito de un grupo de administración
+### <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Asignación de un usuario como administrador de una suscripción
+
+Para que un usuario sea administrador de una suscripción de Azure, asígnele el rol [Propietario](built-in-roles.md#owner) en el ámbito de la suscripción. El rol Propietario da al usuario acceso completo a todos los recursos de la suscripción, incluido el derecho a delegar este acceso a otros. Estos pasos son los mismos que para la asignación de cualquier otro rol.
+
+1. En Azure Portal, elija **Todos los servicios** y, después, **Suscripciones**.
+
+1. Elija su suscripción.
+
+1. Elija **Control de acceso (IAM)** para ver la lista actual de las asignaciones de roles en el ámbito de la suscripción.
+
+   ![Hoja Control de acceso (IAM) para una suscripción](./media/role-assignments-portal/grant-subscription-access-control.png)
+
+1. Elija **Agregar** para abrir el panel **Agregar permisos**.
+
+   Si no tiene permisos para asignar roles, no verá la opción **Agregar**.
+
+   ![Panel Agregar permisos](./media/role-assignments-portal/add-permissions.png)
+
+1. En la lista desplegable **Rol**, seleccione el rol **Propietario**.
+
+1. En la lista **Seleccionar**, seleccione un usuario. Si no ve el usuario en la lista, puede escribir en el cuadro **Seleccionar** para buscar el directorio de nombres para mostrar y direcciones de correo electrónico.
+
+1. Elija **Guardar** para asignar el rol.
+
+   Transcurridos unos instantes, al usuario se le asigna el rol Propietario en el ámbito de la suscripción.
+
+### <a name="assign-a-role-at-a-management-group-scope"></a>Asignación de un rol en el ámbito de un grupo de administración
 
 1. En Azure Portal, elija **Todos los servicios** y, después, **Grupos de administración**.
 
@@ -181,11 +207,11 @@ En RBAC, para conceder acceso es preciso crear una asignación de roles. Siga es
 
 1. En la lista desplegable **Rol**, seleccione un rol como **Colaborador de grupo de administración**.
 
-    Para información sobre las acciones admitidas en los grupos de administración para varios roles, consulte [Organización de los recursos con grupos de administración de Azure](../azure-resource-manager/management-groups-overview.md#management-group-access).
+    Para información sobre las acciones admitidas en los grupos de administración para varios roles, consulte [Organización de los recursos con grupos de administración de Azure](../governance/management-groups/index.md#management-group-access).
 
 1. En la lista **Seleccionar**, seleccione un usuario, grupo o aplicación. Si no ve la entidad de seguridad en la lista, puede escribir en el cuadro **Seleccionar** para nombres para mostrar, direcciones de correo electrónico e identificadores de objeto en el directorio.
 
-1. Seleccione **Guardar** para crear la asignación de roles.
+1. Elija **Guardar** para asignar el rol.
 
    Transcurridos unos instantes, a la entidad de seguridad se le asigna el rol en el ámbito del grupo de administración.
 

@@ -1,22 +1,23 @@
 ---
-title: Guía de inicio rápido de Ruby para Azure Cognitive Services, Bing Video Search API | Microsoft Docs
-description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Video Search API en Microsoft Cognitive Services en Azure.
+title: 'Inicio rápido: Bing Video Search, Ruby'
+titlesuffix: Azure Cognitive Services
+description: Obtenga información y ejemplos de código que le ayuden a empezar a usar rápidamente Bing Video Search API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: d621944415ec376f11a45ea96c331138ec4d6cdb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dfabfe24a653f84e5e242f32167b57b6a28b0075
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382115"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223583"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-ruby"></a>Guía de inicio rápido de Bing Video Search API con Ruby
+# <a name="quickstart-bing-video-search-api-with-ruby"></a>Inicio rápido: Bing Video Search API con Ruby
 
 En este artículo se detalla cómo usar Bing Video Search API, que forma parte de Microsoft Cognitive Services en Azure. Aunque este artículo se usa Ruby, la API es un servicio web RESTful compatible con cualquier lenguaje de programación que pueda realizar solicitudes HTTP y analizar JSON. 
 

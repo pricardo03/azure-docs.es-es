@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2018
+ms.date: 09/21/2018s
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0e94392b882d111d925c864feb9aaeb54bae4e2a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9092629c7bef46cdb7c464fca5e22d4aea0da9fc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980413"
+ms.locfileid: "47041547"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guía de inicio rápido: Exploración y análisis de costos con el análisis de costos
 
@@ -32,11 +32,15 @@ En esta guía de inicio rápido, ha aprendido a hacer lo siguiente:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-El análisis de costos está disponible para todos los clientes con Contrato Enterprise (EA). Debe tener acceso de lectura a al menos uno de los siguientes ámbitos para ver datos de costos.
+El análisis de costos está disponible para todos los clientes con [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Debe tener al menos acceso de lectura a uno o varios de los siguientes ámbitos para ver datos de costos.
 
-- Cuenta de facturación de Azure para Contrato Enterprise (inscripción)
-- Suscripción de Azure para Contrato Enterprise
-- Grupo de recursos de suscripción de Azure para Contrato Enterprise
+- Cuenta de facturación
+- department
+- Cuenta de inscripción
+- Grupo de administración
+- Subscription
+- Grupos de recursos
+
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -44,7 +48,11 @@ El análisis de costos está disponible para todos los clientes con Contrato Ent
 
 ## <a name="review-costs-in-cost-analysis"></a>Revise los costos en análisis de costos
 
-Para revisar sus costos con análisis de costos, abra Azure Portal y, a continuación, vaya a **Administración de costos + Facturación** &gt; **Cuentas de facturación** &gt; seleccione su cuenta de facturación de Contrato Enterprise &gt; en Administración de costos, seleccione **Análisis de costos**.
+Para revisar los costos con el análisis de costos, en Azure Portal, vaya a **Administración de costos + Facturación**  &gt; **Administración de costos** &gt;  **Cambiar ámbito**, elija un ámbito y haga clic en **Seleccionar**.
+
+El ámbito que seleccione se utiliza en todo Cost Management para proporcionar la consolidación de datos y controlar el acceso a la información de costos. Cuando use ámbitos, no realice una selección múltiple de ellos. En su lugar, seleccione un ámbito mayor al que otros se acumulan y luego filtre lo que desee. Es importante comprender esto porque algunas personas no deberían tener acceso a un ámbito principal al que se acumulan los ámbitos secundarios.
+
+Haga clic en **Abrir análisis de costos**.
 
 La vista de análisis de costos inicial incluye las siguientes áreas:
 

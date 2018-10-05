@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 44fa19191f08f0e35c06f0b7ea5a3e5e41611de3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9560166f9733e1370f99f5f76a6ca3a58567865e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979124"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220252"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Tutorial: Transferencia de datos con Azure Data Box Gateway (versión preliminar)
 
@@ -55,7 +55,7 @@ Siga estos pasos en [Azure Portal](https://portal.azure.com/) para crear un recu
 
 1. Vuelva a Azure Portal. Vaya a **Todos los recursos** y busque el recurso de Data Box Gateway.
     
-2. En la lista filtrada de recursos, seleccione el recurso de Data Box Gateway y, a continuación, vaya a **Información general**. Haga clic en **+ Agregar recurso compartido** en la barra de comandos del dispositivo.
+2. En la lista filtrada de recursos, seleccione el recurso Data Box Gateway y vaya a **Información general**. Haga clic en **+ Agregar recurso compartido** en la barra de comandos del dispositivo.
    
    ![Agregar un recurso compartido](./media/data-box-gateway-deploy-add-shares/click-add-share.png)
 

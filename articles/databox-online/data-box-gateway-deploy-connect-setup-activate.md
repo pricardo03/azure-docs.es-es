@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: e2fe7c375525389da865a3c85b52fad4dd11e333
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77ccc6ebbb48ab3d7ce22d6c593bd62aa8dec3ac
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957497"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419495"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Tutorial: Conexión, configuración y activación de Azure Data Box Gateway (versión preliminar) 
 
@@ -122,7 +122,7 @@ Ya está en el **Panel** del dispositivo.
        
          ![](./media/data-box-gateway-deploy-connect-setup-activate/image10.png)
     
-    3. Esto reinicia el dispositivo. Debe esperar de 2 a 3 minutos antes de que el dispositivo se active correctamente. Una vez que se haya reiniciado el dispositivo, irá a la página de inicio de sesión.
+    3. Debe esperar un minuto antes de que el dispositivo se active correctamente. Después de la activación, la página se actualiza para indicar que el dispositivo se ha activado correctamente.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

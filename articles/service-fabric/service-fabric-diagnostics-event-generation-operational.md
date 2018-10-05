@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: 529df0147d2563c62c4a9578e47184bd98b01761
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: da4a779bca806fe6aa392db96eafc6c20f8ddcf6
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212966"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182168"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista de eventos de Service Fabric 
 
@@ -34,180 +34,177 @@ Aquí tiene una lista de todos los eventos disponible en la plataforma, ordenada
 
 **Eventos de actualización de clústeres**
 
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 29627 | ClusterUpgradeStartOperational | CM | Informativo | 1 |
-| 29628 | ClusterUpgradeCompleteOperational | CM | Informativo | 1 |
-| 29629 | ClusterUpgradeRollbackStartOperational | CM | Informativo | 1 |
-| 29630 | ClusterUpgradeRollbackCompleteOperational | CM | Informativo | 1 |
-| 29631 | ClusterUpgradeDomainCompleteOperational | CM | Informativo | 1 |
-
-**Eventos de informe de estado de clústeres**
-
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 54428 | ProcessClusterReportOperational | HM | Informativo | 1 |
-| 54437 | ExpiredClusterEventOperational | HM | Informativo | 1 |
-
-**Eventos del servicio Chaos**
-
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 50021 | ChaosStartedEvent | Capacidad de prueba | Informativo | 1 |
-| 50023 | ChaosStoppedEvent | Capacidad de prueba | Informativo | 1 |
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | --- | --- | --- | --- |
+| 29627 | ClusterUpgradeStarted | Se ha iniciado una actualización de clúster | CM | Informativo | 1 |
+| 29628 | ClusterUpgradeCompleted | Se ha terminado una actualización de clúster| CM | Informativo | 1 |
+| 29629 | ClusterUpgradeRollbackStarted | Se ha iniciado la reversión de una actualización de clúster | CM | Informativo | 1 |
+| 29630 | ClusterUpgradeRollbackCompleted | Se ha terminado la reversión de una actualización de clúster | CM | Informativo | 1 |
+| 29631 | ClusterUpgradeDomainCompleted | Se ha completado una actualización de dominio durante una actualización de clúster | CM | Informativo | 1 |
 
 ## <a name="node-events"></a>Eventos de nodos
 
 **Eventos del ciclo de vida de los nodos** 
 
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 18602 | DeactivateNodeCompletedOperational | FM | Informativo | 1 |
-| 18603 | NodeUpOperational | FM | Informativo | 1 |
-| 18604 | NodeDownOperational | FM | Informativo | 1 |
-| 18605 | NodeAddedOperational | FM | Informativo | 1 |
-| 18606 | NodeRemovedOperational | FM | Informativo | 1 |
-| 18607 | DeactivateNodeStartOperational | FM | Informativo | 1 |
-| 25620 | NodeOpening | FabricNode | Informativo | 1 |
-| 25621 | NodeOpenedSuccess | FabricNode | Informativo | 1 |
-| 25622 | NodeOpenedFailed | FabricNode | Informativo | 1 |
-| 25623 | NodeClosing | FabricNode | Informativo | 1 |
-| 25624 | NodeClosed | FabricNode | Informativo | 1 |
-| 25625 | NodeAborting | FabricNode | Informativo | 1 |
-| 25626 | NodeAborted | FabricNode | Informativo | 1 |
-
-**Eventos de informe de estado de nodos**
-
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 54423 | ProcessNodeReportOperational | HM | Informativo | 1 |
-| 54432 | ExpiredNodeEventOperational | HM | Informativo | 1 |
-
-**Eventos de nodos de Chaos**
-
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 50033 | ChaosRestartNodeFaultScheduledEvent | Capacidad de prueba | Informativo | 1 |
-| 50087 | ChaosRestartNodeFaultCompletedEvent | Capacidad de prueba | Informativo | 1 |
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | ---| --- | --- | --- |
+| 18602 | NodeDeactivateCompleted | Se ha completado la desactivación de un nodo | FM | Informativo | 1 |
+| 18603 | NodeUp | El clúster ha detectado que un nodo se ha iniciado | FM | Informativo | 1 |
+| 18604 | NodeDown | El clúster ha detectado que un nodo se ha apagado |  FM | Informativo | 1 |
+| 18605 | NodeAddedToCluster | Se ha agregado un nuevo nodo al clúster | FM | Informativo | 1 |
+| 18606 | NodeRemovedFromCluster | Se ha eliminado un nodo del clúster | FM | Informativo | 1 |
+| 18607 | NodeDeactivateStarted | Se ha iniciado la desactivación de un nodo | FM | Informativo | 1 |
+| 25620 | NodeOpening | Un nodo se está iniciando. Primera fase del ciclo de vida del nodo | FabricNode | Informativo | 1 |
+| 25621 | NodeOpenSucceeded | Un nodo se inició correctamente | FabricNode | Informativo | 1 |
+| 25622 | NodeOpenFailed | No se puedo iniciar un nodo | FabricNode | Informativo | 1 |
+| 25623 | NodeClosing | Un nodo se está apagando. Inicio de la fase final del ciclo de vida del nodo | FabricNode | Informativo | 1 |
+| 25624 | NodeClosed | Un nodo se apagó correctamente | FabricNode | Informativo | 1 |
+| 25625 | NodeAborting | Un nodo se empieza a apagar de manera brusca | FabricNode | Informativo | 1 |
+| 25626 | NodeAborted | Un nodo se ha apagado de manera brusca | FabricNode | Informativo | 1 |
 
 ## <a name="application-events"></a>Eventos de aplicación
 
 **Eventos del ciclo de vida de aplicaciones**
 
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 29620 | ApplicationCreatedOperational | CM | Informativo | 1 |
-| 29625 | ApplicationDeletedOperational | CM | Informativo | 1 |
-| 23083 | ProcessExitedOperational | Hospedaje | Informativo | 1 |
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | ---| --- | --- | --- |
+| 29620 | ApplicationCreated | Se ha creado una nueva aplicación | CM | Informativo | 1 |
+| 29625 | ApplicationDeleted | Se ha eliminado una aplicación existente | CM | Informativo | 1 |
+| 23083 | ApplicationProcessExited | Un proceso de una aplicación ha salido | Hospedaje | Informativo | 1 |
 
 **Eventos de actualización de aplicaciones**
 
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 29621 | ApplicationUpgradeStartOperational | CM | Informativo | 1 |
-| 29622 | ApplicationUpgradeCompleteOperational | CM | Informativo | 1 |
-| 29623 | ApplicationUpgradeRollbackStartOperational | CM | Informativo | 1 |
-| 29624 | ApplicationUpgradeRollbackCompleteOperational | CM | Informativo | 1 |
-| 29626 | ApplicationUpgradeDomainCompleteOperational | CM | Informativo | 1 |
-
-**Eventos de informe de estado de aplicaciones**
-
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 54425 | ProcessApplicationReportOperational | HM | Informativo | 1 |
-| 54426 | ProcessDeployedApplicationReportOperational | HM | Informativo | 1 |
-| 54427 | ProcessDeployedServicePackageReportOperational | HM | Informativo | 1 |
-| 54434 | ExpiredApplicationEventOperational | HM | Informativo | 1 |
-| 54435 | ExpiredDeployedApplicationEventOperational | HM | Informativo | 1 |
-| 54436 | ExpiredDeployedServicePackageEventOperational | HM | Informativo | 1 |
-
-**Eventos de aplicación Chaos**
-
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 50053 | ChaosRestartCodePackageFaultScheduledEvent | Capacidad de prueba | Informativo | 1 |
-| 50101 | ChaosRestartCodePackageFaultCompletedEvent | Capacidad de prueba | Informativo | 1 |
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | ---| --- | --- | --- |
+| 29621 | ApplicationUpgradeStarted | Se ha iniciado una actualización de aplicación | CM | Informativo | 1 |
+| 29622 | ApplicationUpgradeCompleted | Se ha terminado una actualización de aplicación | CM | Informativo | 1 |
+| 29623 | ApplicationUpgradeRollbackStarted | Se ha iniciado la reversión de una actualización de aplicación |CM | Informativo | 1 |
+| 29624 | ApplicationUpgradeRollbackCompleted | Se ha terminado la reversión de una actualización de aplicación | CM | Informativo | 1 |
+| 29626 | ApplicationUpgradeDomainCompleted | Se ha completado una actualización de dominio durante una actualización de aplicación | CM | Informativo | 1 |
 
 ## <a name="service-events"></a>Eventos de servicios
 
 **Eventos de ciclo de vida de servicios**
 
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 18602 | ServiceCreatedOperational | FM | Informativo | 1 |
-| 18658 | ServiceDeletedOperational | FM | Informativo | 1 |
-
-**Eventos de informe de estado de servicios**
-
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 54424 | ProcessServiceReportOperational | HM | Informativo | 1 |
-| 54433 | ExpiredServiceEventOperational | HM | Informativo | 1 |
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | ---| --- | --- | --- |
+| 18657 | ServiceCreated | Se ha creado un nuevo servicio | FM | Informativo | 1 |
+| 18658 | ServiceDeleted | Se ha eliminado un servicio existente | FM | Informativo | 1 |
 
 ## <a name="partition-events"></a>Eventos de particiones
 
 **Eventos de movimiento de particiones**
 
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 18940 | ReconfigurationCompleted | RA | Informativo | 1 |
-
-**Eventos de informe de estado de particiones**
-
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 54422 | ProcessPartitionReportOperational | HM | Informativo | 1 |
-| 54431 | ExpiredPartitionEventOperational | HM | Informativo | 1 |
-
-**Eventos de particiones de Chaos**
-
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 50069 | ChaosMovePrimaryFaultScheduledEvent | Capacidad de prueba | Informativo | 1 |
-| 50077 | ChaosMoveSecondaryFaultScheduledEvent | Capacidad de prueba | Informativo | 1 |
-
-**Eventos de análisis de particiones**
-
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 65003 | PrimaryMoveAnalysisEvent | Capacidad de prueba | Informativo | 1 |
-
-## <a name="replica-events"></a>Eventos de réplicas
-
-**Eventos de informe de estado de réplicas**
-
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 54429 | ProcessStatefulReplicaReportOperational | HM | Informativo | 1 |
-| 54430 | ProcessStatelessInstanceReportOperational | HM | Informativo | 1 |
-| 54438 | ExpiredStatefulReplicaEventOperational | HM | Informativo | 1 |
-| 54439 | ExpiredStatelessInstanceEventOperational | HM | Informativo | 1 |
-
-**Eventos de réplicas de Chaos**
-
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 50047 | ChaosRestartReplicaFaultScheduledEvent | Capacidad de prueba | Informativo | 1 |
-| 50051 | ChaosRemoveReplicaFaultScheduledEvent | Capacidad de prueba | Informativo | 1 |
-| 50093 | ChaosRemoveReplicaFaultCompletedEvent | Capacidad de prueba | Informativo | 1 |
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | ---| --- | --- | --- |
+| 18940 | PartitionReconfigured | Se ha terminado la reconfiguración de una partición | RA | Informativo | 1 |
 
 ## <a name="container-events"></a>Eventos de contenedores
 
 **Eventos de ciclo de vida de contenedores** 
 
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 23074 | ContainerActivatedOperational | Hospedaje | Informativo | 1 |
-| 23075 | ContainerDeactivatedOperational | Hospedaje | Informativo | 1 |
-| 23082 | ContainerExitedOperational | Hospedaje | Informativo | 1 |
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | ---| --- | --- | --- |
+| 23074 | ContainerActivated | Se ha iniciado un contenedor | Hospedaje | Informativo | 1 |
+| 23075 | ContainerDeactivated | Se ha detenido un contenedor | Hospedaje | Informativo | 1 |
+| 23082 | ContainerExited | Ha salido un contenedor. Compruebe la marca UnexpectedTermination | Hospedaje | Informativo | 1 |
+
+## <a name="health-reports"></a>Informes de mantenimiento
+
+**Eventos de informe de estado de clústeres**
+
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | --- | --- | --- | --- |
+| 54428 | ClusterNewHealthReport | Hay un nuevo informe de estado de clúster disponible | HM | Informativo | 1 |
+| 54437 | ClusterHealthReportExpired | Un informe de estado de clúster existente ha expirado | HM | Informativo | 1 |
+
+**Eventos de informe de estado de nodos**
+
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | ---| --- | --- | --- |
+| 54423 | NodeNewHealthReport | Hay un nuevo informe de estado de nodo disponible | HM | Informativo | 1 |
+| 54432 | NodeHealthReportExpired | Un informe de estado de nodo existente ha expirado | HM | Informativo | 1 |
+
+**Eventos de informe de estado de aplicaciones**
+
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | ---| --- | --- | --- |
+| 54425 | ApplicationNewHealthReport | Se ha creado un informe de estado de aplicación. Para aplicaciones no implementadas. | HM | Informativo | 1 |
+| 54426 | DeployedApplicationNewHealthReport | Se ha creado un informe de estado de aplicación implementada | HM | Informativo | 1 |
+| 54427 | DeployedServicePackageNewHealthReport | Se ha creado un informe de estado de servicio implementado | HM | Informativo | 1 |
+| 54434 | ApplicationHealthReportExpired | Un informe de estado de aplicación existente ha expirado | HM | Informativo | 1 |
+| 54435 | DeployedApplicationHealthReportExpired | Un informe de estado de aplicación implementada existente ha expirado | HM | Informativo | 1 |
+| 54436 | DeployedServicePackageHealthReportExpired | Un informe de estado de servicio implementado existente ha expirado | HM | Informativo | 1 |
+
+**Eventos de informe de estado de servicios**
+
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | ---| --- | --- | --- |
+| 54424 | ServiceNewHealthReport | Se ha creado un informe de estado de servicio | HM | Informativo | 1 |
+| 54433 | ServiceHealthReportExpired | Un informe de estado de servicio existente ha expirado | HM | Informativo | 1 |
+
+**Eventos de informe de estado de particiones**
+
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | ---| --- | --- | --- |
+| 54422 | PartitionNewHealthReport | Se ha creado un informe de estado de partición | HM | Informativo | 1 |
+| 54431 | PartitionHealthReportExpired | Un informe de estado de partición existente ha expirado | HM | Informativo | 1 |
+
+**Eventos de informe de estado de réplicas**
+
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | ---| --- | --- | --- |
+| 54429 | StatefulReplicaNewHealthReport | Se ha creado un informe de estado de réplica con estado | HM | Informativo | 1 |
+| 54430 | StatelessInstanceNewHealthReport | Se ha creado un informe de estado de instancia sin estado | HM | Informativo | 1 |
+| 54438 | StatefulReplicaHealthReportExpired | Un informe de estado de réplica con estado existente ha expirado | HM | Informativo | 1 |
+| 54439 | StatelessInstanceHealthReportExpired | Un informe de estado de instancia sin estado existente ha expirado | HM | Informativo | 1 |
+
+## <a name="chaos-testing-events"></a>Eventos de pruebas de caos 
+
+**Eventos de sesión de caos**
+
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | ---| --- | --- | --- |
+| 50021 | ChaosStarted | Se ha iniciado una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
+| 50023 | ChaosStopped | Se ha detenido una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
+
+**Eventos de nodos de Chaos**
+
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | ---| --- | --- | --- |
+| 50033 | ChaosNodeRestartScheduled | Se ha programado el reinicio de un nodo como parte de una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
+| 50087 | ChaosNodeRestartCompleted | Un nodo ha terminado el reinicio como parte de una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
+
+**Eventos de aplicación Chaos**
+
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | ---| --- | --- | --- |
+| 50053 | ChaosCodePackageRestartScheduled | Se ha programado un reinicio del paquete de código durante una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
+| 50101 | ChaosCodePackageRestartCompleted | Se ha completado el reinicio del paquete de código durante una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
+
+**Eventos de particiones de Chaos**
+
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | ---| --- | --- | --- |
+| 50069 | ChaosPartitionPrimaryMoveScheduled | Se ha programado la migración de una partición principal como parte de una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
+| 50077 | ChaosPartitionSecondaryMoveScheduled | Se ha programado la migración de una partición secundaria como parte de una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
+| 65003 | PartitionPrimaryMoveAnalysis | El análisis en profundidad de la migración de la partición principal está disponible | Capacidad de prueba | Informativo | 1 |
+
+**Eventos de réplicas de Chaos**
+
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | ---| --- | --- | --- |
+| 50047 | ChaosReplicaRestartScheduled | Se ha programado un reinicio de una réplica como parte de una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
+| 50051 | ChaosReplicaRemovalScheduled | Se ha programado una eliminación de réplica como parte de una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
+| 50093 | ChaosReplicaRemovalCompleted | Se ha terminado una eliminación de réplica como parte de una sesión de pruebas de caos | Capacidad de prueba | Informativo | 1 |
 
 ## <a name="other-events"></a>Otros eventos
 
 **Eventos de correlaciones**
 
-| EventId | NOMBRE | Origen (tarea) | Nivel | Versión |
-| --- | --- | --- | --- | --- |
-| 65011 | CorrelationOperational | Capacidad de prueba | Informativo | 1 |
+| EventId | NOMBRE | DESCRIPCIÓN |Origen (tarea) | Nivel | Versión |
+| --- | --- | ---| --- | --- | --- |
+| 65011 | CorrelationOperational | Se ha detectado una correlación | Capacidad de prueba | Informativo | 1 |
 
 ## <a name="events-prior-to-version-62"></a>Eventos anteriores a la versión 6.2
 

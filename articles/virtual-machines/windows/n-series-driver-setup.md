@@ -1,5 +1,5 @@
 ---
-title: Instalación del controlador de la serie N de Azure para Windows | Microsoft Docs
+title: Instalación de controladores de GPU de la serie N de Azure para Windows | Microsoft Docs
 description: Instalación de controladores de GPU de NVIDIA para máquinas virtuales de la serie N que se ejecutan en Windows Server o Windows en Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/19/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50d9ea88afc0e7d96d71b2ab26c8a8489ae41fee
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a4d259c7f9a139b3c31d96e75d588c7be162189c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719664"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033267"
 ---
-# <a name="set-up-gpu-drivers-for-n-series-vms-running-windows"></a>Instalación de controladores de GPU para máquinas virtuales de la serie N con Windows 
+# <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Instalación de controladores de GPU de NVIDIA en VM de la serie N con Windows 
+
 Para aprovechar las funcionalidades de GPU de las máquinas virtuales de la serie N de Azure que ejecutan Windows, deben instalarse controladores de GPU de NVIDIA. La [extensión de controlador de GPU de NVIDIA](../extensions/hpccompute-gpu-windows.md) instala los controladores CUDA de NVIDIA o GRID adecuados en una máquina virtual de la serie N. Instale o administre la extensión mediante Azure Portal o con herramientas como las plantillas de Azure PowerShell o Azure Resource Manager. Consulte la [documentación de la extensión de controlador de GPU de NVIDIA](../extensions/hpccompute-gpu-windows.md) para los sistemas operativos compatibles y los pasos de implementación.
 
 Si decide instalar manualmente los controladores de GPU, este artículo proporciona pasos de instalación y verificación, controladores y los sistemas operativos compatibles. También está disponible la información de instalación manual del controlador para las [máquinas virtuales Linux](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -38,7 +39,7 @@ Para conocer las especificaciones básicas, las capacidades de almacenamiento y 
 
 2. Descargue, extraiga e instale el controlador compatible con su sistema operativo Windows.
 
-En las máquinas virtuales de Azure NV, se requiere un reinicio después de la instalación del controlador. En máquinas virtuales NC, no se requiere un reinicio.
+Después de la instalación de controladores de GRID en una VM, se requiere un reinicio. Después de la instalación de controladores de CUDA, no se requiere un reinicio.
 
 ## <a name="verify-driver-installation"></a>Comprobación de la instalación del controlador
 
@@ -64,7 +65,7 @@ Para instalar la versión más reciente de la extensión HpcVMDrivers 1.1 en una
   ```
   Para obtener más información, consulte [Características y extensiones de las máquinas virtuales para Windows](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Ahora, la red RDMA admite el tráfico de interfaz de paso de mensajes (MPI) para aplicaciones que se ejecutan con [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) o Intel MPI 5.x. 
+Ahora, la red RDMA admite el tráfico de interfaz de paso de mensajes (MPI) para aplicaciones que se ejecutan con [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) o Intel MPI 5.x. 
 
 
 ## <a name="next-steps"></a>Pasos siguientes

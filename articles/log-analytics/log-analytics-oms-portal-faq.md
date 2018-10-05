@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 09/25/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 503d5913efe67bd0de738f68921b9631c63acfa8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.component: ''
+ms.openlocfilehash: d1ad629ff5c6909256baa94573d045a8c2c09fb5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116051"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223838"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Preguntas comunes para la transición desde el portal de OMS a Azure Portal para los usuarios de Log Analytics
 Log Analytics inicialmente usaba su propio portal denominado portal de OMS para administrar su configuración y analizar los datos recopilados.  Toda la funcionalidad de este portal se ha movido a Azure Portal, donde continuará desarrollándose.
@@ -83,7 +83,7 @@ Administre la mayoría de las configuraciones de orígenes conectados en el men�
 | Azure Storage     | Menú **Configuración avanzada** para el área de trabajo. |
 | System Center     | Menú **Configuración avanzada** para el área de trabajo. |
 | Office 365        | Consulte la [documentación de solución de administración de Office 365](../operations-management-suite/oms-solution-office-365.md) para obtener detalles de configuración. |
-| Telemetría de Windows | Todavía no está disponible en Azure Portal. |
+| Telemetría de Windows | Menú de configuración de la solución. Para ver los detalles de la configuración, consulte [Windows Analytics en Azure Portal](/windows/deployment/update/windows-analytics-azure-portal). |
 | Conector ITSM    | Consulte [Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI](../log-analytics/log-analytics-itsmc-connections.md) para instrucciones sobre cómo conectar el servicio ITSM con Log Analytics. |
 
 ### <a name="data"></a>Datos

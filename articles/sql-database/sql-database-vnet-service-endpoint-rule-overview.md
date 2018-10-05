@@ -3,20 +3,21 @@ title: Reglas y puntos de conexión del servicio de Virtual Network para Azure S
 description: Marque una subred como punto de conexión del servicio de Virtual Network. A continuación, defina el punto de conexión como una regla de red virtual a la ACL de su instancia de Azure SQL Database. Su instancia de SQL Database aceptará la comunicación de todas las máquinas virtuales y otros nodos de la subred.
 services: sql-database
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-author: DhruvMsft
-manager: craigg
-ms.custom: VNet Service endpoints
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/28/2018
-ms.reviewer: carlrab
+author: DhruvMsft
 ms.author: dmalik
-ms.openlocfilehash: 223a8da0c3c940c57dfc58d9cc87a19ae45a64eb
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.reviewer: vanto, genemi
+manager: craigg
+ms.date: 09/18/2018
+ms.openlocfilehash: 90138664e5eab9110f51bbd3d3755dec0ed59ea8
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143817"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166816"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Uso de reglas y puntos de conexión del servicio Virtual Network para Azure SQL Database y SQL Data Warehouse
 
@@ -108,7 +109,7 @@ Cada regla de red virtual se aplica a su servidor completo de Azure SQL Database
 Existe una separación de los roles de seguridad en la administración de puntos de conexión del servicio de Virtual Network. Se requiere una acción de cada uno de los roles siguientes:
 
 - **Administrador de red:**&nbsp; activar el punto de conexión.
-- **Administrador de base de datos:**&nbsp; actualizar la lista de control de acceso (ACL) que se va a agregar a la subred proporcionada en el servidor SQL Database .
+- **Administrador de base de datos:**&nbsp; actualizar la lista de control de acceso (ACL) que se va a agregar a la subred proporcionada en el servidor SQL Database.
 
 *Alternativa de RBAC:*
 
@@ -125,7 +126,7 @@ Si quiere, puede optar por la opción de usar el [control de acceso basado en ro
 
 Para Azure SQL Database, la característica de las reglas de red virtual tiene las siguientes limitaciones:
 
-- Una aplicación web se puede asignar a una dirección IP privada en una red virtual o subred. Incluso si los puntos de conexión de servicio están ACTIVADOS desde la red virtual o subred proporcionada, las conexiones de la aplicación web con el servidor tendrán un origen IP público de Azure, no un origen de red virtual o subred. Para habilitar la conectividad desde una aplicación web con un servidor que tiene reglas de firewall de red virtual, debe **permitir todos los servicios de Azure** en el servidor.
+- Una aplicación web se puede asignar a una dirección IP privada en una red virtual o subred. Incluso si los puntos de conexión de servicio están ACTIVADOS desde la red virtual o subred proporcionada, las conexiones de la aplicación web con el servidor tendrán un origen IP público de Azure, no un origen de red virtual o subred. Para habilitar la conectividad desde una aplicación web con un servidor que tenga reglas de firewall de red virtual, debe **Permitir que los servicios de Azure accedan al servidor** en el servidor.
 
 - En el firewall de su instancia de SQL Database, cada regla de red virtual hace referencia a una subred. Todas estas subredes a las que se hace referencia deben estar hospedadas en la misma región geográfica que hospeda la base de datos SQL.
 
@@ -157,23 +158,23 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
-## <a name="impact-of-removing-allow-all-azure-services"></a>Impacto de deshabilitar "Permitir todos los servicios de Azure"
+## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>Impacto de eliminar la opción "Permitir que los servicios de Azure accedan al servidor"
 
-Muchos usuarios desean deshabilitar la opción **Permitir todos los servicios de Azure** de sus servidores de Azure SQL y reemplazarla por una regla de firewall de red virtual.
+Muchos usuarios desean eliminar la opción **Permitir que los servicios de Azure accedan al servidor** de sus servidores de Azure SQL y reemplazarla por una regla de firewall de red virtual.
 Sin embargo, esto afecta a las siguientes características de Azure SQL Database:
 
 #### <a name="import-export-service"></a>Import Export Service
-Azure SQLDB Import Export Service se ejecuta en máquinas virtuales de Azure. Estas máquinas virtuales no están en la red virtual y, por tanto, obtienen una dirección IP de Azure al conectarse a la base de datos. Si deshabilita **Permitir todos los servicios de Azure** estas máquinas virtuales no podrán acceder a las bases de datos.
+Azure SQLDB Import Export Service se ejecuta en máquinas virtuales de Azure. Estas máquinas virtuales no están en la red virtual y, por tanto, obtienen una dirección IP de Azure al conectarse a la base de datos. Al deshabilitar **Permitir que los servicios de Azure accedan al servidor**, estas máquinas virtuales no podrán acceder a las bases de datos.
 Puede solucionar el problema. Ejecute la importación o exportación de BACPAC directamente en el código mediante la API de DACFx. Asegúrese de que la API esté implementada en una máquina virtual que se encuentre en la subred de la red virtual para la cual ha establecido la regla de firewall.
 
 #### <a name="sql-database-query-editor"></a>Editor de consultas de SQL Database
-El editor de consultas de Azure SQL Database se implementa en máquinas virtuales de Azure. Estas máquinas virtuales no están en la red virtual. Por tanto, las máquinas virtuales obtienen una dirección IP de Azure cuando se conectan a la base de datos. Si deshabilita **Permitir todos los servicios de Azure** estas máquinas virtuales no podrán acceder a las bases de datos.
+El editor de consultas de Azure SQL Database se implementa en máquinas virtuales de Azure. Estas máquinas virtuales no están en la red virtual. Por tanto, las máquinas virtuales obtienen una dirección IP de Azure cuando se conectan a la base de datos. Al deshabilitar **Permitir que los servicios de Azure accedan al servidor**, estas máquinas virtuales no podrán acceder a las bases de datos.
 
 #### <a name="table-auditing"></a>Auditoría de tablas
 En la actualidad hay dos maneras de habilitar la auditoría en SQL Database. La auditoría de tablas produce un error después de haber habilitado los puntos de conexión de servicio en el servidor de Azure SQL Server. La solución en este caso consiste en cambiar a la auditoría de blobs.
 
 #### <a name="impact-on-data-sync"></a>Impacto en la sincronización de datos
-Azure SQLDB tiene la característica de sincronización de datos que se conecta a las bases de datos con direcciones IP de Azure. Al utilizar los puntos de conexión de servicio, es probable que desactive el acceso **Allow all Azure Services** (Permitir todos los servicios de Azure) a su servidor lógico. Esto inhabilitará la característica de sincronización de datos.
+Azure SQLDB tiene la característica de sincronización de datos que se conecta a las bases de datos con direcciones IP de Azure. Al utilizar los puntos de conexión de servicio, es probable que desactive la opción **Permitir que los servicios de Azure accedan al servidor** de acceso al servidor lógico. Esto inhabilitará la característica de sincronización de datos.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Efectos del uso de puntos de conexión de servicio de la red virtual con Azure Storage
 
@@ -184,7 +185,7 @@ Si decide usar esta característica con una cuenta de Storage que se está usand
 PolyBase normalmente se usa para cargar datos en Azure SQLDW desde cuentas de Storage. Si la cuenta de Storage desde la que está cargando los datos limita el acceso a solo un conjunto de subredes de red virtual, se interrumpirá la conectividad de PolyBase a la cuenta. Hay una mitigación; póngase en contacto con el soporte técnico de Microsoft para más información.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Auditoría de blobs de Azure SQLDB
-La auditoría de blobs inserta los registros de auditoría en su propia cuenta de almacenamiento. Si esta cuenta de almacenamiento usa la característica VENT de puntos de conexión de servicio, la conectividad entre Azure SQLDB y la cuenta de almacenamiento se interrumpirá.
+La auditoría de blobs inserta los registros de auditoría en su propia cuenta de almacenamiento. Si esta cuenta de almacenamiento usa la característica de puntos de conexión de servicio de red virtual, la conectividad entre Azure SQLDB y la cuenta de almacenamiento se interrumpirá.
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Agregar una regla de firewall de VNET al servidor sin tener que activar los puntos de conexión de servicio
 

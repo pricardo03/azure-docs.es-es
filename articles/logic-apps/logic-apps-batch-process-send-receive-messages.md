@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: ee1df77dc18350a64082cb62c297a53700cad223
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bd31de8f60fff5630141f708714083fe76220d11
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128752"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410160"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Envío, recepción y procesamiento por lotes de mensajes en Azure Logic Apps
 
@@ -60,7 +60,7 @@ Antes de poder enviar mensajes a un lote, ese lote debe existir como el destino 
    |----------|-------------|
    | **Batch Mode** | - **Inline**: para definir los criterios de versión en el desencadenador de lotes <br>- **Cuenta de integración**: para definir varias configuraciones de criterios de lanzamiento a través de una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Con una cuenta de integración, puede mantener todas estas configuraciones en un mismo lugar, en lugar de en aplicaciones lógicas independientes. | 
    | **Nombre del lote** | El nombre del lote, que es "TestBatch" en este ejemplo, y solo se aplica al modo por lotes **Inline** |  
-   | **Criterios de lanzamiento** | Solo se aplica al modo por lotes **Inline** y especifica los criterios que deben cumplirse antes de procesar cada lote: <p>- **Basado en el número de mensajes**: el número de mensajes que se recopilan en el lote, por ejemplo, 10 mensajes <br>- **En función del tamaño**: el tamaño máximo de lote en bytes, por ejemplo, 100 MB <br>- **Basado en la programación**: el intervalo y la frecuencia entre las liberaciones de lotes, por ejemplo, 10 minutos. También puede especificar una fecha y hora de inicio. <br>- **Seleccionar todo**: use todos los criterios especificados. | 
+   | **Release Criteria** | Solo se aplica al modo por lotes **Inline** y selecciona los criterios que deben cumplirse antes de procesar cada lote: <p>- **Basado en el número de mensajes**: el número de mensajes que se recopilan en el lote, por ejemplo, 10 mensajes <br>- **En función del tamaño**: el tamaño máximo de lote en bytes, por ejemplo, 100 MB <br>- **Basado en la programación**: el intervalo y la frecuencia entre las liberaciones de lotes, por ejemplo, 10 minutos. La periodicidad mínima es de 60 segundos o 1 minuto. Los valores de minutos fraccionarios se redondean eficazmente hasta 1 minuto. Para especificar una fecha y hora de inicio, seleccione **Mostrar opciones avanzadas**. <br>- **Seleccionar todo**: use todos los criterios especificados. | 
    ||| 
    
    En este ejemplo se han seleccionado todos los criterios:
@@ -107,9 +107,7 @@ Antes de poder enviar mensajes a un lote, ese lote debe existir como el destino 
 
    * En el cuadro **Cuerpo**, cuando aparezca la lista de contenido dinámico, seleccione el campo **Id. del mensaje**. 
 
-     El Diseñador de Logic Apps agrega automáticamente un bucle "For each" en torno a la acción de enviar un correo electrónico porque la acción acepta una matriz como entrada. 
-     Este bucle envía un correo electrónico para cada mensaje en el lote. 
-     Por lo tanto, cuando el desencadenador de lotes se establece en 10 mensajes, obtendrá 10 correos electrónicos cada vez que el se active el desencadenador.
+     El diseñador de Logic Apps agrega automáticamente un bucle "Para cada uno" en la acción para enviar correos electrónicos, debido a que esa acción trata el resultado de la acción anterior como una colección, en lugar de un lote. 
 
      ![En "Cuerpo", seleccione "Id. del mensaje"](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png)
 
@@ -216,6 +214,7 @@ La aplicación lógica remitente de lotes se ejecuta cada minuto, genera un núm
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+* [Procesamiento por lotes y envío de mensajes EDI](../logic-apps/logic-apps-scenario-edi-send-batch-messages.md)
 * [Generar definiciones de aplicación lógica mediante el uso de JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Cree una aplicación sin servidor en Visual Studio con Azure Logic Apps y Functions](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [Control de excepciones y registro de errores para aplicaciones lógicas](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)

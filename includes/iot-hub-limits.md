@@ -20,7 +20,7 @@ En la tabla siguiente se enumeran los límites que se aplican a los recursos de 
 | Número máximo de identidades del dispositivo<br/> devueltas en una sola llamada |1000 |
 | Retención máxima de mensajes de IoT Hub para los mensajes de dispositivo a la nube |7 días |
 | Tamaño máximo de mensaje del dispositivo a la nube |256 KB |
-| Tamaño máximo de lote de dispositivo a la nube |256 KB |
+| Tamaño máximo de lote de dispositivo a la nube |AMQP y HTTP: 256 KB para todo el lote <br/>MQTT: 256 KB por cada mensaje |
 | Número máximo de mensajes en lote del dispositivo a la nube |500 |
 | Tamaño máximo de mensaje de nube a dispositivo |64 KB |
 | TTL máximo para los mensajes de nube a dispositivo |2 días |

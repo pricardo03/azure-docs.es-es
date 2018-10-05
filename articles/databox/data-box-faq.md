@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: ''
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d0da9107fe1dd34481ca0bf1aa9a0b260bb10951
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e47ffbe15291275a7104d5e201a597d084cdbdd9
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946636"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422871"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Preguntas frecuentes sobre Azure Data Box
 
@@ -45,7 +45,7 @@ A.  El servicio Azure Data Box está diseñado para la ingesta de datos sin cone
 ### <a name="q-what-is-azure-data-box"></a>P: ¿Qué es Azure Data Box?
 A. Azure Data Box le permiten transferir terabytes de datos de forma rápida, barata y segura hacia y desde Azure. Puede pedir el dispositivo Data Box en Azure Portal. Microsoft le enviará un dispositivo de almacenamiento de 80 TB de capacidad a través de un operador regional. 
 
-Una vez recibido el dispositivo, puede configurarlo rápidamente mediante la interfaz de usuario web local. Copie los datos de los servidores en el dispositivo y envíelo de nuevo a Azure. En el centro de datos de Azure, los datos se cargan automáticamente del dispositivo a la nube. El servicio de Data Box se encarga de realizar el seguimiento de todo el proceso en Azure Portal.
+Una vez recibido el dispositivo, puede configurarlo rápidamente mediante la interfaz de usuario web local. Copie los datos de los servidores en el dispositivo y envíelo de nuevo a Azure. En el centro de datos de Azure, los datos se cargan automáticamente del dispositivo a Azure. El servicio de Data Box se encarga de realizar el seguimiento de todo el proceso en Azure Portal.
 
 ### <a name="q-when-should-i-use-data-box"></a>P: ¿Cuándo debo usar Data Box?
 A. Si quiere transferir entre 40 y 500 TB de datos a Azure, puede usar Data Box. Si va transferir menos de 40 TB de datos, use Data Box Disk; si lo que quiere es transferir más de 500 TB de datos, regístrese en Data Box Heavy.
@@ -117,7 +117,7 @@ A.
 A.-->
 
 ### <a name="q-the-system-fault-indicator-led-on-the-front-operating-panel-is-on-what-should-i-do"></a>P: La luz LED que indica un error del sistema y que se encuentra en el panel de operación frontal está encendida. ¿Cuál debo hacer?
-A. Si la luz LED que indica un error del sistema está encendida, esto quiere decir que su sistema no está funcionando correctamente. Póngase en contacto con el servicio de soporte técnico de Microsoft para conocer los pasos siguientes.
+A. Si la luz LED que indica un error del sistema está encendida, esto quiere decir que su sistema no está funcionando correctamente. [Póngase en contacto con el servicio de soporte técnico de Microsoft](data-box-disk-contact-microsoft-support.md) para conocer los pasos siguientes.
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>P: No puedo acceder a la contraseña de desbloqueo de Data Box en Azure Portal. ¿Por qué?
 A. Si no puede acceder a la contraseña de desbloqueo en Azure Portal, compruebe los permisos de la suscripción y la cuenta de almacenamiento. Asegúrese de tener los permisos de colaborador o propietario en el nivel del grupo de recursos. De lo contrario, debe tener un permiso de rol de operador de Data Box, al menos para ver las credenciales de acceso.
@@ -127,8 +127,8 @@ A. Si no puede acceder a la contraseña de desbloqueo en Azure Portal, compruebe
 ### <a name="q-how-do-i-track-the-data-box-from-when-i-placed-the-order-to-shipping-the-device-back"></a>P: ¿Cómo puedo hacer el seguimiento del dispositivo de Data Box desde el momento en que realicé el pedido hasta el envío para devolverlo? 
 A.  El seguimiento del estado del pedido de Data Box se puede realizar desde Azure Portal. Al crear el pedido, también se le solicita que indique una dirección de correo electrónico para cualquier notificación. Si ya la ha especificado, los cambios de estado del pedido se le notificarán por correo electrónico. Para más información acerca de cómo [configurar correos electrónicos de notificación](data-box-portal-ui-admin.md#edit-notification-details).
 
-### <a name="q-how-do-i-return-the-disks"></a>P: ¿Cómo se devuelven los discos? 
-A.  Microsoft muestra una etiqueta de envío en la pantalla de E-Ink. Pegue dicha etiqueta en la caja de envío y lleve el paquete precintado a las instalaciones de la empresa que va a realizar el envío. Si la etiqueta se daña o se pierde, vaya a **Información general > Descargar la etiqueta de envío** y descargue una nueva etiqueta de envío de devolución.
+### <a name="q-how-do-i-return-the-device"></a>P: ¿Cómo se devuelve el dispositivo? 
+A.  Microsoft muestra una etiqueta de envío en la pantalla de E-Ink. Si la etiqueta de envío no aparece en la pantalla de E-Ink, vaya a **Introducción > Descargar la etiqueta de envío**. Descargue e imprima la etiqueta, inserte la etiqueta en la etiqueta de plástico transparente del dispositivo y llévelo a la ubicación del transportista. 
 
 ### <a name="q-i-received-an-email-notification-that-my-device-has-reached-the-azure-datacenter-how-do-i-find-out-if-the-data-upload-is-in-progress"></a>P: He recibido una notificación por correo electrónico que dice que el dispositivo ha llegado al centro de datos de Azure. ¿Cómo puedo saber si la carga de datos está en curso?
 A. Vaya a su pedido de Data Box en Azure Portal y acceda a **Información general**. Si se ha iniciado la carga de datos en Azure, verá el progreso de la copia en el panel derecho. 
@@ -184,8 +184,8 @@ A. En cuanto al servicio Data Box, Microsoft se encarga de administrar el envío
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>P: La pantalla E-Ink no muestra la etiqueta del envío de devolución. ¿Cuál debo hacer?
 A. Si la pantalla E-Ink no muestra la etiqueta del envío de devolución, realice los siguientes pasos:
 - Retire la etiqueta del envío anterior y cualquier etiqueta que tenga que ver con el mismo.
-- Vaya a su pedido en el portal de Azure. Vaya a la opción Información general > Descargar etiqueta de envío. Para obtener más información, vaya a [Download shipping label](data-box-portal-admin.md#download-shipping-label) (Descargar la etiqueta de envío).
-- Imprima la etiqueta de envío e insértela en la funda transparente que tiene el dispositivo. 
+- Vaya a su pedido en el portal de Azure. Vaya a la opción **Información general** y **Descargar la etiqueta de envío**. Para obtener más información, vaya a [Download shipping label](data-box-portal-admin.md#download-shipping-label) (Descargar la etiqueta de envío).
+- Imprima la etiqueta de envío e insértela en la funda transparente de plástico que se adjunta al dispositivo. 
 - Asegúrese de que la etiqueta de envío se vea con claridad. 
 
 ### <a name="q-how-is-my-data-protected-during-transit"></a>P: ¿Cómo se protegen los datos durante el tránsito? 
@@ -204,12 +204,11 @@ A. Sí. Puede encender el dispositivo y agregar más datos. Recuerde que deberá
 A.  Una vez que el estado del pedido de **Copia de datos** indica que se **ha completado**, debería obtener acceso a los datos de inmediato.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>P: ¿Dónde se encuentran los datos en Azure después de la carga?
-A.  Cuando copia los datos en Data Box, dependiendo de si los datos son un blob en bloques, un blob en páginas o archivos de Azure, los datos se cargan en una de estas rutas de acceso de su cuenta de Azure Storage:
- - `<You_storage_account_name_BlockBlob>/<my_container>/Blob` 
- - `<Your_storage_account_name_PageBlob>/<my_container>/Blob`
- - `<Your_storage_account_name_AzFile>/` 
-
-En los recursos compartidos de blob en bloques y en páginas, las entidades de primer nivel son contenedores y las entidades de segundo nivel son blobs. En los recursos compartidos de Azure Files, las entidades de primer nivel son los recursos compartidos y las entidades de segundo nivel son los archivos.
+A.  Cuando copia los datos en Data Box, dependiendo de si los datos son un blob en bloques, un blob en páginas o archivos de Azure, los datos se cargan en una de las rutas de acceso siguientes de su cuenta de Azure Storage.
+ - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
+ -  `https://<storage_account_name>.file.core.windows.net/<sharename>`
+ 
+ Como alternativa, puede ir a su cuenta de almacenamiento de Azure en Azure Portal e ir desde allí.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>P: Acabo de darme cuenta de que no he seguido los requisitos de nomenclatura de Azure en los contenedores. ¿Pueden aparecer errores al cargar los datos en Azure?
 A.  Si los nombres de los contenedores tienen mayúsculas, se convierten automáticamente en minúsculas. Si los nombres no son compatibles por algún otro motivo (caracteres especiales, otros idiomas, etc.), se producirá un error en la carga. Para obtener más información sobre procedimientos recomendados para asignar nombres a los recursos compartidos, contenedores o archivos, vaya a: 

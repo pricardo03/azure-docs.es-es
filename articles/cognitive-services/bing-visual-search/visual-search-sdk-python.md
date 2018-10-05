@@ -1,23 +1,23 @@
 ---
-title: Guía de inicio rápido del SDK de Video Search para Python | Microsoft Docs
-description: Configuración de la aplicación de consola del SDK de Video Search para Python.
+title: 'Inicio rápido: SDK de Bing Visual Search, Python'
 titleSuffix: Azure Cognitive Services
+description: Configuración de la aplicación de consola del SDK de Video Search para Python.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: f7a1f275f9059abdceaef577fb5ca722c9951366
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 269eaccbf834646b540123dfeeeec7c569b8ced4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939440"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222648"
 ---
-# <a name="visual-search-sdk-python-quickstart"></a>Guía de inicio rápido del SDK de Visual Search para Python
+# <a name="quickstart-bing-visual-search-sdk-python"></a>Inicio rápido: SDK de Bing Visual Search en Python
 
 El SDK de Bing Visual Search contiene la funcionalidad de la API REST para solicitudes web y análisis de resultados.
 El [código fuente de los ejemplos del SDK de Bing Visual Search para Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) está disponible en Git Hub.
@@ -176,9 +176,9 @@ with open(image_path, "rb") as image_fd:
 Los ejemplos de búsqueda de Bing muestran diversas características del SDK.  Agregue las siguientes funciones a la clase `VisualSrchSDK` previamente definida.
 
 <a name="binary-crop"></a>
-## <a name="image-binary-post-with-croparea"></a>Post de archivo binario de imagen con cropArea
+## <a name="image-binary-post-with-croparea"></a>POST de archivo binario de imagen con cropArea
 
-El siguiente código envía un archivo binario de imagen en el cuerpo de la solicitud Post, junto con un objeto cropArea.  Después imprime el objeto imageInsightsToken, el número de etiquetas, el número de acciones y el primer objeto actionType.
+El siguiente código envía un archivo binario de imagen en el cuerpo de la solicitud POST, junto con un objeto cropArea.  Después, imprime el objeto imageInsightsToken, el número de etiquetas, el número de acciones y el primer objeto actionType.
 
 ```
 def search_image_binary_with_crop_area(client, sub_key, file_path):
@@ -227,7 +227,7 @@ def search_image_binary_with_crop_area(client, sub_key, file_path):
 <a name="knowledge-req"></a>
 ## <a name="knowledgerequest-parameter"></a>Parámetro KnowledgeRequest
 
-El código siguiente envía una dirección de URL de imagen en el parámetro `knowledgeRequest`, junto con un filtro \"site:www.bing.com\". Después imprime el objeto `imageInsightsToken`, el número de etiquetas, el número de acciones y el primer objeto actionType.
+El código siguiente envía una dirección URL de imagen en el parámetro `knowledgeRequest`, junto con un filtro \"site:www.bing.com\". Después, imprime el objeto `imageInsightsToken`, el número de etiquetas, el número de acciones y el primer objeto actionType.
 ```
 def search_url_with_filters(client_in, sub_key):
 
@@ -276,7 +276,7 @@ def search_url_with_filters(client_in, sub_key):
 <a name="tags-actions"></a>
 ## <a name="tags-actions-and-actiontype"></a>Etiquetas, acciones y actionType
 
-El código siguiente envía un token de información de la imagen en el parámetro knowledgeRequest, junto con un objeto cropArea. Después imprime el objeto imageInsightsToken, el número de etiquetas, el número de acciones y el primer objeto actionType.
+El código siguiente envía un token de información de la imagen en el parámetro knowledgeRequest, junto con un objeto cropArea. Después, imprime el objeto imageInsightsToken, el número de etiquetas, el número de acciones y el primer objeto actionType.
 
 ```
     client = client_in

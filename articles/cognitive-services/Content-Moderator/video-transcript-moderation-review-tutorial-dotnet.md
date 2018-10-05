@@ -1,22 +1,23 @@
 ---
-title: 'Azure Content Moderator: moderación de vídeos y transcripciones en .NET | Microsoft Docs'
+title: 'Tutorial: Moderación de vídeos y transcripciones en .NET - Content Moderator'
+titlesuffix: Azure Cognitive Services
 description: Se describe cómo usar Content Moderator para moderar vídeos y transcripciones en. NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 1/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: 0f851c030a05880d79a998ed4b4a941082c057b9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 12f03352373bebecb74b9dd8d31470ac337f5e71
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865478"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227578"
 ---
-# <a name="video-and-transcript-moderation-tutorial"></a>Tutorial de moderación de vídeos y transcripciones
+# <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Moderación de vídeos y transcripciones
 
 La API de vídeo de Content Moderator le permite moderar vídeos y crear revisiones de vídeo en la herramienta de revisión humana. 
 
@@ -40,7 +41,7 @@ Antes de continuar, echemos un vistazo a las siguientes salidas de ejemplo del p
 - [Revisión de vídeo](#video-review-default-view)
 - [Vista de transcripción](#video-review-transcript-view)
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 1. Regístrese en el sitio web de la [herramienta de revisión de Content Moderator](https://contentmoderator.cognitive.microsoft.com/) y [cree etiquetas personalizadas](Review-Tool-User-Guide/tags.md) que la aplicación de consola de C# asigna desde dentro del código. La siguiente pantalla muestra las etiquetas personalizadas.
 

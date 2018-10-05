@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/16/2018
+ms.date: 09/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e98012a012c8569a40fe454a777e5f108bfe0e2e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 72503c9f073a046b81001322cdbb4fb8a1af76cf
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304594"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224127"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: actualización automática
 Esta característica se introdujo con la compilación [1.1.105.0 (publicada en febrero de 2016)](reference-connect-version-history.md#111050).  Esta característica se actualizó en la [compilación 1.1.561](reference-connect-version-history.md#115610) y ahora admite otros escenarios que antes no eran compatibles.
@@ -39,7 +39,7 @@ Se puede ver el estado actual de la actualización automática con el cmdlet de 
 | Estado | Comentario |
 | --- | --- |
 | Enabled |La actualización automática está habilitada. |
-| Suspended |Solo lo establece el sistema. El sistema ya no cumple los requisitos para recibir actualizaciones automáticas. |
+| Suspended |Solo lo establece el sistema. **Actualmente**, el sistema no cumple los requisitos para recibir actualizaciones automáticas. |
 | Disabled |La actualización automática está deshabilitada. |
 
 Puede cambiar entre **Habilitado** y **Deshabilitado** con `Set-ADSyncAutoUpgrade`. Solo el sistema debe establecer el estado **Suspendido**.

@@ -4,16 +4,16 @@ description: Revisión de las propiedades específicas y sus valores de los mód
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/14/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2858179d42ebf51cbb24d95d2e0093f8577bacef
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5e358992661f7bcf06121a07c1bafca0850316b2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030570"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423144"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Propiedades de los módulos gemelos EdgeAgent y EdgeHub
 
@@ -27,27 +27,27 @@ El módulo gemelo del agente de Edge se denomina `$edgeAgent` y coordina las com
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | -------- | ----------- | -------- |
-| schemaVersion | Debe ser "1.0". | Sí |
-| runtime.type | Debe ser "docker". | Sí |
-| runtime.settings.minDockerVersion | Establece la propiedad en la versión de Docker mínima que requiere este manifiesto de implementación. | Sí |
+| schemaVersion | Debe ser "1.0". | SÍ |
+| runtime.type | Debe ser "docker". | SÍ |
+| runtime.settings.minDockerVersion | Establece la propiedad en la versión de Docker mínima que requiere este manifiesto de implementación. | SÍ |
 | runtime.settings.loggingOptions | Cadenas JSON que contienen las opciones de registro del contenedor del agente de Edge. [Opciones de registro de Docker][lnk-docker-logging-options] | Sin  |
 | runtime.settings.registryCredentials<br>.{registryId}.username | El nombre de usuario del registro de contenedor. Para Azure Container Registry, el nombre de usuario suele ser el nombre del registro.<br><br> Las credenciales del registro son necesarias para las imágenes de módulo que no son públicas. | Sin  |
 | runtime.settings.registryCredentials<br>.{registryId}.password | La contraseña del registro de contenedor. | Sin  |
 | runtime.settings.registryCredentials<br>.{registryId}.address | La dirección del registro de contenedor. Para Azure Container Registry, la dirección suele ser *{registryname}.azurecr.io*. | Sin  |  
-| systemModules.edgeAgent.type | Debe ser "docker". | Sí |
-| systemModules.edgeAgent.settings.image | El URI de la imagen del agente de Edge. Actualmente, el agente de Edge no puede actualizarse automáticamente. | Sí |
+| systemModules.edgeAgent.type | Debe ser "docker". | SÍ |
+| systemModules.edgeAgent.settings.image | El URI de la imagen del agente de Edge. Actualmente, el agente de Edge no puede actualizarse automáticamente. | SÍ |
 | systemModules.edgeAgent.settings<br>.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del agente de Edge. [Opciones de creación de Docker][lnk-docker-create-options] | Sin  |
 | systemModules.edgeAgent.configuration.id | El identificador de la implementación que implementó este módulo. | Esta propiedad la establece IoT Hub cuando se aplica este manifiesto mediante una implementación. No forma parte de un manifiesto de implementación. |
-| systemModules.edgeHub.type | Debe ser "docker". | Sí |
-| systemModules.edgeHub.status | Debe ser "running". | Sí |
-| systemModules.edgeHub.restartPolicy | Debe ser "always". | Sí |
-| systemModules.edgeHub.settings.image | El URI de la imagen del centro de Edge. | Sí |
+| systemModules.edgeHub.type | Debe ser "docker". | SÍ |
+| systemModules.edgeHub.status | Debe ser "running". | SÍ |
+| systemModules.edgeHub.restartPolicy | Debe ser "always". | SÍ |
+| systemModules.edgeHub.settings.image | El URI de la imagen del centro de Edge. | SÍ |
 | systemModules.edgeHub.settings<br>.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del centro de Edge. [Opciones de creación de Docker][lnk-docker-create-options] | Sin  |
 | systemModules.edgeHub.configuration.id | El identificador de la implementación que implementó este módulo. | Esta propiedad la establece IoT Hub cuando se aplica este manifiesto mediante una implementación. No forma parte de un manifiesto de implementación. |
-| modules.{moduleId}.version | Una cadena definida por el usuario que representa la versión de este módulo. | Sí |
-| modules.{moduleId}.type | Debe ser "docker". | Sí |
-| modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | Sí |
-| modules.{moduleId}.settings.image | El URI de la imagen del módulo. | Sí |
+| modules.{moduleId}.version | Una cadena definida por el usuario que representa la versión de este módulo. | SÍ |
+| modules.{moduleId}.type | Debe ser "docker". | SÍ |
+| modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | SÍ |
+| modules.{moduleId}.settings.image | El URI de la imagen del módulo. | SÍ |
 | modules.{moduleId}.settings.createOptions | Cadenas JSON que contienen las opciones de creación del contenedor del módulo. [Opciones de creación de Docker][lnk-docker-create-options] | Sin  |
 | modules.{moduleId}.configuration.id | El identificador de la implementación que implementó este módulo. | Esta propiedad la establece IoT Hub cuando se aplica este manifiesto mediante una implementación. No forma parte de un manifiesto de implementación. |
 
@@ -98,9 +98,9 @@ El módulo gemelo del centro de Edge se denomina `$edgeHub` y coordina las comun
 
 | Propiedad | DESCRIPCIÓN | Requerida en el manifiesto de implementación |
 | -------- | ----------- | -------- |
-| schemaVersion | Debe ser "1.0". | Sí |
+| schemaVersion | Debe ser "1.0". | SÍ |
 | routes.{routeName} | Una cadena que representa una ruta del centro de Edge. | El elemento `routes` puede estar presente, pero vacío. |
-| storeAndForwardConfiguration.timeToLiveSecs | El tiempo en segundos que el centro de Microsoft Edge conserva los mensajes en el caso de que se desconecten puntos de conexión de enrutamiento, por ejemplo, de IoT Hub o del módulo local. | Sí |
+| storeAndForwardConfiguration.timeToLiveSecs | El tiempo en segundos que el centro de Microsoft Edge conserva los mensajes en el caso de que se desconecten puntos de conexión de enrutamiento, por ejemplo, de IoT Hub o del módulo local. | SÍ |
 
 ## <a name="edgehub-reported-properties"></a>Propiedades notificadas de EdgeHub
 
@@ -109,9 +109,9 @@ El módulo gemelo del centro de Edge se denomina `$edgeHub` y coordina las comun
 | lastDesiredVersion | Este entero hace referencia a la última versión de las propiedades deseadas procesadas mediante el centro de Microsoft Edge. |
 | lastDesiredStatus.code | Se trata del código de estado que hace referencia a las últimas propiedades que procesó el centro de Edge. Valores permitidos: `200` (correcto), `400` (configuración no válida) y `500` (error). |
 | lastDesiredStatus.description | Descripción de texto del estado. |
-| clients.{identidad de dispositivo o módulo}.status | El estado de conectividad de este dispositivo o módulo. Valores posibles {"connected" \| "disconnected"}. Solo las identidades de módulo pueden estar en el estado disconnected. Los dispositivos de nivel inferior que se conectan al centro de Edge solo aparecen cuando se conectan. |
-| clients.{identidad de dispositivo o módulo}.lastConnectTime | Última vez que se conectó el dispositivo o módulo. |
-| clients.{identidad de dispositivo o módulo}.lastDisconnectTime | Última vez que se desconectó el dispositivo o módulo. |
+| clients.{device or moduleId}.status | El estado de conectividad de este dispositivo o módulo. Valores posibles {"connected" \| "disconnected"}. Solo las identidades de módulo pueden estar en el estado disconnected. Los dispositivos de nivel inferior que se conectan al centro de Edge solo aparecen cuando se conectan. |
+| clients.{device or moduleId}.lastConnectTime | Última vez que se conectó el dispositivo o módulo. |
+| clients.{device or moduleId}.lastDisconnectTime | Última vez que se desconectó el dispositivo o módulo. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

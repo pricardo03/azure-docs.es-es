@@ -17,12 +17,12 @@ ms.date: 07/28/2018
 ms.author: billmath
 author: billmath
 ms.custom: ''
-ms.openlocfilehash: 4eeb716e4eeae8dc560f9588c6c3ce252daf741e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5ac69c53a6b6c1e4695b88e5806f8e883cd52c66
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309764"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432062"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Administración de la confianza de AD FS con Azure AD mediante Azure AD Connect
 
@@ -41,7 +41,7 @@ Azure AD Connect **solo** administra la configuración relacionada con la confia
 | Configuración | DESCRIPCIÓN |
 | :--- | :--- |
 | Certificado de firma de tokens | Azure AD Connect puede usarse para restablecer y volver a crear la confianza con Azure AD. Azure AD Connect realiza una sustitución inmediata puntual de los certificados de firma de tokens para AD FS y actualiza la configuración de federación de dominios de Azure AD.|
-| Algoritmo de firma de token | Microsoft recomienda usar SHA-256 como algoritmo de firma de token. Azure AD Connect puede detectar si el algoritmo de firma de tokens está establecido en un valor menos seguro que SHA-256, y actualizará la configuración a SHA-256 en la siguiente operación de configuración posible. |
+| Algoritmo de firma de token | Microsoft recomienda usar SHA-256 como algoritmo de firma de token. Azure AD Connect puede detectar si el algoritmo de firma de tokens está establecido en un valor menos seguro que SHA-256, y actualizará la configuración a SHA-256 en la siguiente operación de configuración posible. El usuario de confianza debe actualizarse para utilizar el nuevo certificado de firma de tokens. |
 | Identificador de confianza de Azure AD | Azure AD Connect establece el valor de identificador correcto para la confianza de Azure AD. AD FS identifica de forma única la confianza de Azure AD con el valor de identificador. |
 | Puntos de conexión de Azure AD | Azure AD Connect se asegura de que los puntos de conexión configurados para la confianza de Azure AD sigan siempre los valores recomendados más recientes de resiliencia y rendimiento. |
 | Reglas de transformación de emisión | Hay varias reglas de notificación que son necesarias para un rendimiento óptimo de las características de Azure AD en un escenario federado. Azure AD Connect garantiza que la confianza de Azure AD siempre esté configurada con el conjunto adecuado de reglas de notificación recomendadas. |

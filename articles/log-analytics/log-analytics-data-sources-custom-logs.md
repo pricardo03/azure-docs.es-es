@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/27/2018
+ms.date: 09/27/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 831b52a27a1ccfc349b9b54f8c3d874e41ddc322
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.component: ''
+ms.openlocfilehash: 5eab8e4bf6b1aa90a9eef3e26dfc3020e3e3179b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363150"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423519"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registros personalizados de Log Analytics
 El origen de datos de registros personalizados en Log Analytics permite recopilar eventos de archivos de texto en equipos Windows y Linux. Muchas aplicaciones registran información en archivos de texto, en lugar de los servicios de registro estándar, como el registro de eventos de Windows o Syslog.  Una vez recopilada la información, puede analizar cada entrada del registro en campos individuales mediante la característica [Campos personalizados](log-analytics-custom-fields.md) de Log Analytics.
@@ -40,6 +40,10 @@ Los archivos de registro que se van a recopilar deben cumplir los criterios sigu
 >Si hay entradas duplicadas en el archivo de registro, Log Analytics los recoge.  Sin embargo, los resultados de búsqueda serán incoherentes donde los resultados del filtro muestren más eventos que el recuento de resultados.  Es importante que valide el registro para determinar si la aplicación que crea está causando este comportamiento y solucionarlo si es posible antes de crear la definición de la colección de registros personalizada.  
 >
   
+>[!NOTE]
+> Si la aplicación crea un nuevo archivo de registro cada día o cuando alcanza un tamaño determinado, el agente de Log Analytics para Linux no lo detecta hasta que se reinicia. Esto se debe a que el agente solo enumera y comienza a supervisar patrones con los registros especificados al iniciar el sistema, y por ello es necesario pensar en evitarlo mediante la automatización del reinicio del agente.  Esta limitación no existe con el agente de Log Analytics para Windows.  
+>
+
 ## <a name="defining-a-custom-log"></a>Definición de un registro personalizado
 Utilice el procedimiento siguiente para definir un archivo de registro personalizado.  Desplácese hasta el final de este artículo para ver un tutorial con un ejemplo de cómo agregar un registro personalizado.
 
@@ -66,9 +70,13 @@ Si se usa un delimitador de marca de tiempo, la propiedad TimeGenerated de cada 
 5. Haga clic en **Next**.
 
 ### <a name="step-3-add-log-collection-paths"></a>Paso 3. Incorporación de rutas de recopilación de registros
-Debe definir una o más rutas de acceso en el agente para colocar el registro personalizado.  Puede proporcionar un nombre y una ruta de acceso específicos para el archivo de registro, o bien puede especificar una ruta de acceso con un carácter comodín para el nombre.  Esto admite aplicaciones que crean un archivo nuevo cada día o cuando un archivo alcanza un tamaño determinado.  También puede proporcionar varias rutas de acceso para un solo archivo de registro.
+Debe definir una o más rutas de acceso en el agente para colocar el registro personalizado.  Puede proporcionar un nombre y una ruta de acceso específicos para el archivo de registro, o bien puede especificar una ruta de acceso con un carácter comodín para el nombre. Esto admite aplicaciones que crean un archivo nuevo cada día o cuando un archivo alcanza un tamaño determinado. También puede proporcionar varias rutas de acceso para un solo archivo de registro.
 
 Por ejemplo, una aplicación puede crear un archivo de registro cada día con la fecha incluida en el nombre, como registro20100316.txt. Un patrón para dicho registro podría ser *registro\*.txt*, que se aplicará a cualquier archivo de registro que siga el esquema de asignación de nombres de la aplicación.
+
+>[!NOTE]
+> Si la aplicación crea un nuevo archivo de registro cada día o cuando alcanza un tamaño determinado, el agente de Log Analytics para Linux no lo detecta hasta que se reinicia. Esto se debe a que el agente solo enumera y comienza a supervisar patrones con los registros especificados al iniciar el sistema, y por ello es necesario pensar en evitarlo mediante la automatización del reinicio del agente.  Esta limitación no existe con el agente de Log Analytics para Windows.  
+>
 
 La tabla siguiente proporciona ejemplos de patrones válidos para especificar diferentes archivos de registro.
 

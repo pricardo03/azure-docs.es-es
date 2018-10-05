@@ -1,24 +1,27 @@
 ---
-title: 'Creación de una nueva base de conocimiento: Guía de inicio rápido de Python para Microsoft QnA Maker API (V4): Azure Cognitive Services | Microsoft Docs'
-description: Cree una base de conocimiento en Python para contener las preguntas frecuentes o manuales de producto de manera que pueda empezar a trabajar con QnA Maker.
+title: 'Inicio rápido: Python de API: Creación de la base de conocimientos: QnA Maker'
+titlesuffix: Azure Cognitive Services
+description: Esta guía de inicio rápido le explica en detalle cómo crear mediante programación un ejemplo de base de conocimiento de QnA Maker, que aparecerá en el panel de Azure de su cuenta de API Cognitive Services.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: a8e3ae73c76c13d44267f221d37a07eea721a608
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 9a3b801058a2614b9b484a3ebf414a9225c5371e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "43771386"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033301"
 ---
 # <a name="create-a-new-knowledge-base-in-python"></a>Creación de una base de conocimiento en Python
 
 Esta guía de inicio rápido le explica en detalle cómo crear mediante programación un ejemplo de base de conocimiento de QnA Maker, que aparecerá en el panel de Azure de su cuenta de API Cognitive Services.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 A continuación se indican dos direcciones URL de ejemplo de preguntas frecuentes (en el elemento "urls" del diccionario **req**). QnA Maker extrae automáticamente las preguntas y respuestas de contenido semiestructurado, como las preguntas frecuentes, tal como se explica mejor en este documento de [orígenes de datos](../Concepts/data-sources-supported.md). En esta guía de inicio rápido también puede usar sus propias direcciones URL de preguntas frecuentes.
 

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: f453fff59abc1441b2fb16049f130d2c19460083
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d4ce2dc67b0d9229ac2605ab317594ea345c19b2
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970819"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434082"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX y Azure Machine Learning: creación e implementación de modelos de inteligencia artificial interoperables
 
@@ -48,17 +48,15 @@ Puede crear modelos de ONNX de varias maneras:
 ## <a name="exportconvert-your-models-to-onnx"></a>Exportación o conversión de modelos de ONNX
 
 También puede convertir sus modelos existentes en ONNX.
-+ Para los modelos de **PyTorch**, pruebe [este cuaderno de Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb).
 
-+ Para los modelos de **Microsoft Cognitive Toolkit (CNTK)**, pruebe [este cuaderno de Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb).
-
-+ Para los modelos de **Chainer**, pruebe [este cuaderno de Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb).
-
-+ Para los modelos de **MXNet**, pruebe [este cuaderno de Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb).
-
-+ Para los modelos de **TensorFlow**, use el [convertidor tensorflow-onnx](https://github.com/onnx/tensorflow-onnx).
-
-+ Para los modelos de **Keras**, **ScitKit-Learn**, **CoreML**, **XGBoost** y **libSVM**, convierta a ONNX mediante el paquete [WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools).
+|Plataforma para el modelo|Ejemplo o herramienta de conversión|
+|-----|-------|
+|PyTorch|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
+|Microsoft&nbsp;Cognitive&nbsp;Toolkit&nbsp;(CNTK)|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
+|TensorFlow|[tensorflow-onnx converter](https://github.com/onnx/tensorflow-onnx)|
+|Chainer|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
+|MXNet|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
+|Keras, ScitKit-Learn, CoreML<br/>XGBoost y libSVM|[WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools)|
 
 Puede encontrar la lista más reciente de marcos y convertidores admitidos en el [sitio de tutoriales de ONNX](https://github.com/onnx/tutorials).
 
@@ -70,7 +68,7 @@ Con el servicio Azure Machine Learning, puede implementar, administrar y supervi
 
 ### <a name="install-and-configure-the-onnx-runtime"></a>Instalación y configuración del entorno de ejecución de ONNX
 
-El entorno de ejecución de ONNX es un motor de inferencia de alto rendimiento para los modelos de ONNX. Incluye una API de Python y proporciona aceleración de hardware en la CPU y la GPU. Actualmente admite modelos de ONNX 1.2 y se ejecuta en Ubuntu 16.04 Linux.
+El entorno de ejecución de ONNX es un motor de inferencia de alto rendimiento para los modelos de ONNX. Incluye una API de Python y proporciona aceleración de hardware en la CPU y la GPU. Actualmente admite modelos de ONNX 1.2 y se ejecuta en Ubuntu 16.04 Linux. Ambos paquetes [CPU](https://pypi.org/project/onnxruntime) y [GPU](https://pypi.org/project/onnxruntime-gpu) están disponibles en [PyPi.org](https://pypi.org).
 
 Para instalar el entorno de ejecución de ONNX, use:
 ```python
@@ -97,7 +95,7 @@ results = session.run(["output1", "output2"], {"input1": indata1, "input2": inda
 results = session.run([], {"input1": indata1, "input2": indata2})
 ```
 
-Para consultar la referencia completa de la API, vea la [documentación](https://docs.microsoft.com/en-us/python/api/overview/azure/main?view=azure-onnx-py).
+Para obtener una referencia completa de la API, consulte [los documentos de referencia del entorno de ejecución de ONNX](https://aka.ms/onnxruntime-python).
 
 ### <a name="example-deployment-steps"></a>Pasos de implementación de ejemplo
 
@@ -175,13 +173,14 @@ Aquí tiene un ejemplo para implementar un modelo de ONNX:
    El archivo `myenv.yml` describe las dependencias necesarias para la imagen. Vea este [tutorial](tutorial-deploy-models-with-aml.md#create-environment-file) para obtener instrucciones sobre cómo crear un archivo de entorno, como este archivo de ejemplo:
 
    ```
-   name: myenv
-   channels:
-     - defaults
-   dependencies:
-     - pip:
-       - onnxruntime
-       - azureml-core
+   from azureml.core.conda_dependencies import CondaDependencies 
+
+   myenv = CondaDependencies()
+   myenv.add_pip_package("azureml-core")
+   myenv.add_pip_package("onnxruntime")
+
+   with open("myenv.yml","w") as f:
+    f.write(myenv.serialize_to_string())
    ```
 
 4. Implemente su modelo de ONNX con Azure Machine Learning en:
