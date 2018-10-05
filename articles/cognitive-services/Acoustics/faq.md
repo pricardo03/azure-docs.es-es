@@ -9,18 +9,18 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 7e27b5117f5f0ea98916ecfefcbb0dac9323e1d9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: a71e867bd23cf64b2ac7fc8cd1c54c55d92ce924
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181386"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431795"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 ## <a name="what-is-project-acoustics"></a>¿Qué son los elementos acústicos de un proyecto?
 
-El complemento de Elementos acústicos de un proyecto de Unity es un sistema acústico que calcula el comportamiento de las ondas de sonido antes de tiempo de ejecución, de manera similar a una luz estática. La nube hace el trabajo pesado de la física de ondas en tiempo de diseño, por lo que el costo de CPU en tiempo de ejecución es bajo.  
+El complemento de Elementos acústicos de un proyecto de Unity es un sistema acústico que calcula el comportamiento de las ondas de sonido antes de tiempo de ejecución, de manera similar a una luz estática. La nube hace el trabajo pesado de los cálculos de física de ondas, por lo que el costo de CPU en tiempo de ejecución es bajo.  
 
 ## <a name="where-can-i-download-the-plugin"></a>¿Dónde puedo descargar el complemento?
 
@@ -28,7 +28,7 @@ Si está interesado en evaluar el complemento de acústica, se puede registrar [
 
 ## <a name="is-azure-used-at-runtime"></a>¿Se usa Azure en tiempo de ejecución?
 
-No, la integración de la nube se usa solo durante la fase de proceso previo en tiempo de diseño.
+No, la integración de la nube solo se usa durante la fase de proceso previo como parte de la configuración de la escena.
  
 ## <a name="what-is-simulation-input"></a>¿Qué es la entrada de simulación? 
 

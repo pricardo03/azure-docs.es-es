@@ -1,20 +1,21 @@
 ---
-title: 'Uso de Microsoft Azure Traffic Manager para aumentar la cuota de punto de conexión en Language Understanding (LUIS): Azure | Microsoft Docs'
-description: Usar Microsoft Azure Traffic Manager para distribuir la cuota de punto de conexión en varias suscripciones en Language Understanding (LUIS) a fin de aumentar la cuota de punto de conexión
+title: Uso de Microsoft Azure Traffic Manager para aumentar la cuota de punto de conexión en Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: Language Understanding (LUIS) ofrece la posibilidad de aumentar la cuota de solicitud de punto de conexión más allá de la cuota de una clave única. Esto se hace al crear más claves para LUIS y agregarlas a la aplicación de LUIS en la página **Publicar**, en la sección **Resources and Keys** (Recursos y claves).
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 909c32452db216f79633b94c31f39350b7a6ee20
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 28fc0d0061d1826f0e17c26325ea227e001dccda
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248635"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042183"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usar Microsoft Azure Traffic Manager para administrar la cuota de punto de conexión en las claves
 Language Understanding (LUIS) ofrece la posibilidad de aumentar la cuota de solicitud de punto de conexión más allá de la cuota de una clave única. Esto se hace al crear más claves para LUIS y agregarlas a la aplicación de LUIS en la página **Publicar**, en la sección **Resources and Keys** (Recursos y claves). 
@@ -44,9 +45,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Captura de pantalla de Azure Portal con dos claves de LUIS en el grupo de recursos luis-traffic-manager](./media/traffic-manager/luis-keys.png)
 
-2. En el sitio web de [LUIS][LUIS], en la página **Publicar**, agregue las claves a la aplicación y vuelva a publicarla. 
-
-    ![Captura de pantalla del portal de LUIS con dos claves de LUIS en la página Publicar](./media/traffic-manager/luis-keys-in-luis.png)
+2. En el sitio web de [LUIS][LUIS], en la sección **Manage** (Administrar), en la página **Keys and endpoints** (Claves y puntos de conexión), haga clic en el botón **Publish** (Publicar) del menú superior derecho para asignar claves a la aplicación y volver a publicarla. 
 
     En la dirección URL de ejemplo de la columna **Punto de conexión** se usa una solicitud GET con la clave de punto de conexión como un parámetro de consulta. Copie las dos nuevas direcciones URL de punto de conexión de las claves. Se usarán como parte de la configuración de Traffic Manager más adelante en este artículo.
 
@@ -350,7 +349,7 @@ dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {
 
 La respuesta correcta con el punto de conexión de LUIS es:
 
-```cmd
+```json
 [
     {
         value: 'westus.api.cognitive.microsoft.com', 

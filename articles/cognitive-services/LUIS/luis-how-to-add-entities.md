@@ -1,28 +1,28 @@
 ---
-title: Incorporación de entidades en las aplicaciones de LUIS | Microsoft Docs
-titleSuffix: Azure
+title: Adición de entidades en aplicaciones de LUIS
+titleSuffix: Azure Cognitive Services
 description: Agregue entidades (datos clave del dominio de la aplicación) a las aplicaciones de Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: e97f9a5391799849983bd98db5400e0a842627b7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e82955da24e127e5536c2e40ad2cccf07c5fa173
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224133"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032010"
 ---
 # <a name="manage-entities"></a>Administrar entidades
 Después de identificar las [intenciones](luis-concept-intent.md) de la aplicación, deberá [etiquetar las expresiones de ejemplo](luis-concept-utterance.md) con [entidades](luis-concept-entity-types.md). Las entidades son las partes importantes de un comando o una pregunta y pueden ser esenciales para que la aplicación cliente lleve a cabo su tarea. 
 
-Puede agregar, editar o eliminar entidades de la aplicación a través de la **lista de entidades** en la página **Entities** (Entidades). LUIS ofrece dos tipos principales de entidades: [entidades precompiladas](luis-reference-prebuilt-entities.md) y sus propias entidades personalizadas.
+Puede agregar, editar o eliminar entidades de la aplicación a través de la **lista de entidades** en la página **Entities** (Entidades). LUIS ofrece dos tipos principales de entidades: [entidades precompiladas](luis-reference-prebuilt-entities.md) y entidades del usuario personalizadas.
 
-Las secciones siguientes solo están disponibles dentro de una aplicación de LUIS, desde la sección **Build** (Compilación). El vínculo **Build** (Compilación) está en la barra de navegación superior. Una vez dentro de la sección **Build** (Compilación), seleccione **Entities** (Entidades) en el menú de navegación de la izquierda. Una vez que se agrega una entidad a la aplicación, si la entidad es de aprendizaje automático, puede [etiquetar la entidad](luis-how-to-add-example-utterances.md) dentro de la expresión. Una vez que se entrena y publica la aplicación, puede recibir datos de la entidad [extraídos](luis-concept-data-extraction.md) de la predicción. 
+Las secciones siguientes solo están disponibles dentro de una aplicación de LUIS, desde la sección **Build** (Compilación). El vínculo **Build** (Compilación) está en la barra de navegación superior. Una vez dentro de la sección **Build** (Compilación), seleccione **Entities** (Entidades) en el menú de navegación de la izquierda. Después de agregar una entidad a la aplicación, si la entidad es de aprendizaje automático, puede [etiquetar la entidad](luis-how-to-add-example-utterances.md) dentro de la expresión. Una vez que se entrena y publica la aplicación, puede recibir datos de la entidad [extraídos](luis-concept-data-extraction.md) de la predicción. 
 
 ## <a name="add-prebuilt-entity"></a>Incorporación de entidad precompilada
 Las entidades precompiladas están definidas en el proyecto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Las entidades precompiladas comunes que se agregan a una aplicación son *number* y *datetimeV2*. 
@@ -30,8 +30,6 @@ Las entidades precompiladas están definidas en el proyecto [Recognizers-Text](h
 1. En la aplicación, en la sección **Build** (Compilación), haga clic en **Entities** (Entidades) en el panel de la izquierda.
  
 2. En la página **Entities** (Entidades), seleccione **Manage prebuilt entities** (Administrar entidades precompiladas).
-
-    ![Captura de pantalla de la incorporación de una entidad precompilada en la página de entidades](./media/add-entities/manage-prebuilt-entities-button.png)
 
 3. En el cuadro de diálogo **Add or remove prebuilt entities** (Agregar o quitar entidades precompiladas), seleccione las entidades precompiladas **number** y **datetimeV2**. A continuación, seleccione **Done** (Listo).
 
@@ -42,9 +40,7 @@ Las entidades precompiladas están definidas en el proyecto [Recognizers-Text](h
 ## <a name="add-simple-entities"></a>Incorporación de entidades simples
 Una entidad simple es una entidad genérica que describe un concepto único. 
 
-1. En la aplicación, en la sección **Build** (Compilación), haga clic en **Entities** en el panel de la izquierda y seleccione **Create new entity** (Crear nueva entidad).
-
-    ![Captura de pantalla de la página Entities (Entidades) con el botón Create new entity (Crear nueva entidad) resaltado](./media/add-entities/create-new-entity-button.png)
+1. En la aplicación, en la sección **Build** (Compilación), haga clic en **Entities** (Entidades) en el panel de la izquierda y seleccione **Create new entity** (Crear nueva entidad).
 
 2. En el cuadro de diálogo emergente, escriba `Airline` en el cuadro **Entity name** (Nombre de la entidad), seleccione **Simple** en la lista **Entity type** (Tipo de entidad) y seleccione **Done** (Listo).
 
@@ -57,7 +53,7 @@ Una entidad de expresión regular se usa para extraer datos de la expresión en 
 
 1. En la aplicación, seleccione **Entities** (Entidades) en el menú de navegación de la izquierda y seleccione **Create new entity** (Crear nueva entidad).
 
-2. En el cuadro de diálogo emergente, escriba `AirFrance Flight` en el cuadro **Entity name** (Nombre de la entidad), seleccione **Regular expression** (Expresión regular) en la lista **Entity type** (Tipo de entidad), escriba la expresión regular `AFR[0-9]{3,4}` y seleccione **Done** (Listo). 
+2. En el cuadro de diálogo emergente, escriba `AirFrance Flight` en el cuadro **Entity name** (Nombre de la entidad), seleccione **Regular expression** (Expresión regular) en la lista **Entity type** (Tipo de entidad), escriba la expresión regular `AFR[0-9]{3,4}` y, después, haga clic en **Done** (Listo). 
 
     Esta expresión regular AirFrance Flight (Vuelo de AirFrance) espera tres caracteres, literalmente `AFR`, y luego 3 o 4 dígitos. Los dígitos pueden ser cualquier número entre 0 y 9. La expresión regular coincide con números de vuelos de AirFrance como: "AFR101", "ARF1302" y "AFR5006". Consulte [Extracción de datos](luis-concept-data-extraction.md) para más información sobre cómo extraer la entidad a partir de la respuesta a la consulta JSON del punto de conexión.
 
@@ -83,7 +79,7 @@ Complete estos pasos para agregar entidades jerárquicas:
 4. Seleccione **Add Child** (Agregar elemento secundario) y escriba "Destino" en el cuadro **Child #2** (Elemento secundario n.°2). Seleccione **Listo**.
 5. 
     >[!NOTE]
-    >Para eliminar a un elemento secundario, seleccione el icono de la papelera que está junto a él.
+    >Para eliminar un elemento secundario, seleccione el icono de la papelera que está junto a él.
 
     >[!CAUTION]
     >Los nombres de entidad secundaria deben ser únicos en todas las entidades en una sola aplicación. Dos entidades jerárquicas diferentes no pueden contener entidades secundarias con el mismo nombre. 
@@ -91,11 +87,11 @@ Complete estos pasos para agregar entidades jerárquicas:
     Consulte [Data Extraction](luis-concept-data-extraction.md#hierarchical-entity-data) (Extracción de datos) para obtener más información acerca de cómo extraer la entidad jerárquica a partir de la respuesta a la consulta JSON del punto de conexión. Pruebe el [inicio rápido](luis-quickstart-intent-and-hier-entity.md) de la entidad jerárquica para obtener más información sobre cómo usar una entidad jerárquica.
 
 ## <a name="add-composite-entities"></a>Incorporación de entidades compuestas
-Puede definir las relaciones entre varias entidades existentes mediante la creación de una entidad compuesta. En el ejemplo siguiente, la entidad contiene recuento de incidencias y ubicaciones de origen y destino. 
+Puede definir las relaciones entre varias entidades existentes mediante la creación de una entidad compuesta. En el ejemplo siguiente, la entidad contiene el recuento de incidencias y las ubicaciones de origen y destino. 
 
 En la expresión `Book 2 tickets from Seattle to Cairo`, el número 2 coincide con una entidad precompilada, Seattle es la ubicación de origen y El Cairo es la ubicación de destino. Cada entidad forma parte de una entidad principal más grande una vez creada la entidad compuesta.
 
-1. En la aplicación, agregue el **número** de la entidad precompilada. Para instrucciones, consulte [Incorporación de entidades precompiladas](#add-prebuilt-entity). 
+1. En la aplicación, agregue el **número** de la entidad precompilada. Para ver instrucciones, consulte [Incorporación de entidades precompiladas](#add-prebuilt-entity). 
 
 2. Agregue la entidad jerárquica `Location`, incluidos los subtipos: `origin`, `destination`. Para más instrucciones, consulte [Incorporación de entidades jerárquicas](#add-hierarchical-entities). 
 
@@ -116,7 +112,7 @@ En la expresión `Book 2 tickets from Seattle to Cairo`, el número 2 coincide c
     ![Imagen del cuadro de diálogo para crear una entidad compuesta](./media/add-entities/ticketsorder-composite-entity.png)
 
     >[!NOTE]
-    >Para eliminar a un elemento secundario, seleccione el botón de la papelera que está junto a él.
+    >Para eliminar un elemento secundario, seleccione el botón de la papelera que está junto a él.
 
     Vea [Extracción de datos](luis-concept-data-extraction.md#composite-entity-data) para obtener más información sobre cómo extraer la entidad compuesta a partir de la respuesta a la consulta JSON del punto de conexión. Pruebe el [tutorial](luis-tutorial-composite-entity.md) de entidades compuestas para obtener más información sobre cómo usar una entidad de compuesta.
 
@@ -126,9 +122,9 @@ Las entidades [Pattern.Any](luis-concept-entity-types.md) solo son válidas en l
 
 Si una aplicación tiene una intención `FindBookInfo`, el título del libro puede interferir con la predicción de la intención. Con el fin de aclarar las palabras que están en el título del libro, use una entidad Pattern.any dentro de un patrón. La predicción de LUIS empieza con la expresión. En primer lugar, la expresión se comprueba y se buscan coincidencias con las entidades y, cuando se encuentran, se comprueba y hace coincidir el patrón. 
 
-En la expresión `Who wrote the book Ask and when was it published?`, el título del libro, Ask, es complicado porque no resulta evidente en términos contextuales dónde finaliza el título y dónde empieza el resto de la expresión. Los títulos de libros pueden tener cualquier orden de palabras, incluida una sola palabra, frases complejas con signos de puntuación y una ordenación de palabras sin sentido. Un patrón permite crear una entidad donde se puede extraer la entidad completa y exacta. Una vez que se encuentra el título del libro, se predice la intención `FindBookInfo` porque esa es la intención del modelo.
+En la expresión `Who wrote the book Ask and when was it published?`, el título del libro, Ask, es complicado porque no resulta evidente en términos contextuales dónde finaliza el título y dónde empieza el resto de la expresión. Los títulos de libros pueden tener cualquier orden de palabras, incluida una sola palabra, frases complejas con signos de puntuación y una ordenación de palabras sin sentido. Un patrón permite crear una entidad donde se puede extraer la entidad completa y exacta. Una vez que se encuentra el título del libro, se predice la intención `FindBookInfo` porque esa es la intención del patrón.
 
-1. En la aplicación, en la sección **Build** (Compilación), haga clic en **Entities** en el panel de la izquierda y seleccione **Create new entity** (Crear nueva entidad).
+1. En la aplicación, en la sección **Build** (Compilación), haga clic en **Entities** (Entidades) en el panel de la izquierda y seleccione **Create new entity** (Crear nueva entidad).
 
 2. En el cuadro de diálogo **Add Entity** (Agregar entidad), escriba `BookTitle` en el cuadro **Entity name** (Nombre de la entidad) y seleccione **Pattern.any** como **Entity type** (Tipo de entidad).
  
@@ -169,7 +165,7 @@ Para una entidad de la lista de bebidas, puede tener dos valores normalizados: a
 |Agua|H20, con gas, natural|
 |Refresco|Frutas, cola, jengibre|
 
-1. En la aplicación, en la sección **Build** (Compilación), haga clic en **Entities** en el panel de la izquierda y seleccione **Create new entity** (Crear nueva entidad).
+1. En la aplicación, en la sección **Build** (Compilación), haga clic en **Entities** (Entidades) en el panel de la izquierda y seleccione **Create new entity** (Crear nueva entidad).
 
 2. En el cuadro de diálogo **Add Entity** (Agregar entidad), escriba `Drinks` en el cuadro **Entity name** (Nombre de la entidad) y seleccione **List** (Lista) como **Entity type** (Tipo de entidad). Seleccione **Listo**.
  

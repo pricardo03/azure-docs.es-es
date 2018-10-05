@@ -1,25 +1,27 @@
 ---
 title: 'Azure Portal: creación de una instancia administrada de SQL | Microsoft Docs'
 description: Cree una instancia administrada de SQL, un entorno de red y una máquina virtual cliente para el acceso.
-keywords: tutorial de sql database, crear una instancia administrada de sql
 services: sql-database
-author: jovanpop-msft
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 08/31/2018
-ms.author: jovanpop-msft
-ms.openlocfilehash: 4271f0cef31b0e028ed1f9408166c37d4cbbe109
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+author: jovanpop-msft
+ms.author: jovanpop
+ms.reviewer: Carlrab
+manager: craigg
+ms.date: 09/23/2018
+ms.openlocfilehash: c0c249ffe426e86049024122d9cbf786bb677220
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382005"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160645"
 ---
-# <a name="create-an-azure-sql-managed-instance"></a>Creación de una instancia administrada de Azure SQL
+# <a name="create-an-azure-sql-database-managed-instance"></a>Creación de una Instancia administrada de Azure SQL Database
 
-En este inicio rápido se explica cómo crear una instancia administrada de SQL en Azure. Instancia administrada de Azure SQL Database es una instancia del motor de base de datos de SQL Server PaaS (plataforma como-servicio) que permite ejecutar y escalar bases de datos de SQL Server de alta disponibilidad en la nube de Azure. En esta guía de inicio rápido se muestra cómo comenzar mediante la creación de una instancia administrada de SQL.
+Este inicio rápido le guía por la creación de una [Instancia administrada](sql-database-managed-instance.md) de Azure SQL Database en Azure Portal. 
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -27,104 +29,63 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-## <a name="prepare-network-environment"></a>Preparación del entorno de red
-
-Instancia administrada de SQL es un servicio seguro que se coloca en su propia instancia de Azure Virtual Network (VNet). Para crear una instancia administrada, es preciso preparar el entorno de red de Azure, lo que incluye:
- - Una red virtual de Azure, en la que se colocará su instancia administrada.
- - Una subred de la red virtual de Azure, en la que se colocarán las instancias administradas.
- - Ruta definida por el usuario que permitirá a la instancia administrada comunicarse con los servicios de Azure que controlan y administran la instancia.
-
-La subred está dedicada a las instancias administradas y no se pueden crear otros recursos (por ejemplo Azure Virtual Machines) en esa subred. En esta guía de inicio rápido se crearán dos subredes en una red virtual de Azure, con el fin de que pueda colocar instancias administradas en la subred dedicada a las instancias administradas y otros recursos en la subred predeterminada.
-
-1. Para implementar un entorno de red de Azure preparado para la instancia administrada de Azure SQL Database, haga clic en el botón siguiente:
-
-    <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener"> <img src="http://azuredeploy.net/deploybutton.png"> </a>
-
-    Este botón abrirá un formulario en Azure Portal en el que se puede configurar un entorno de red antes de implementarlo.
-
-2. Opcionalmente, cambie los nombres de la red virtual y de las subredes, y ajuste los intervalos IP asociados a sus recursos de red. Después, presione el botón "Comprar" para crear y configurar el entorno:
-
-    ![crear un entorno de una instancia administrada](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
-
-    > [!Note]
-    > Esta implementación de Azure Resource Manager creará dos subredes en la red virtual: una para las instancias administradas llamada **ManagedInstances** y otra llamada **Default** para otros recursos, como la máquina virtual cliente que se pueden usar para conectarse a la instancia administrada. Si no necesita dos subredes, puede eliminar la valor predeterminado más adelante; sin embargo, en ese caso no podría completar el paso 3 en esta guía de inicio rápido: [Preparación de la máquina cliente](#prepare-client-machine).
-
-    > [!Note]
-    > Si cambia los nombres de la red virtual y las subredes, asegúrese de que recuerda los nombres nuevos, ya que los necesitará en las secciones siguientes. En el resto del tutorial se asumirá que ha creado una red virtual denominada **MyNewVNet**, una subred **ManagedInstances** para instancias administradas de SQL y una subred **Default** para las máquinas virtuales y otros recursos.
-
 ## <a name="create-a-managed-instance"></a>Creación de una instancia administrada
 
-Los pasos siguientes muestran cómo crear la instancia administrada cuando se haya aprobado la versión preliminar.
+En los pasos siguientes se muestra cómo crear una Instancia administrada.
 
 1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
-2. Busque **Instancia administrada** y seleccione **Instancia administrada Azure SQL Database (versión preliminar)**.
+2. Busque **Instancia administrada** y, después, seleccione **Instancia administrada de Azure SQL**.
 3. Haga clic en **Create**(Crear).
 
    ![Crear una instancia administrada](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
-4. Seleccione la suscripción y compruebe que los términos de la versión preliminar muestran **Aceptado**.
-
-   ![versión preliminar de la instancia administrada aceptada](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
-
-5. Rellene el formulario de la instancia administrada con la información solicitada, utilizando los datos de la siguiente tabla:
+4. Rellene el formulario de la instancia administrada con la información solicitada, utilizando los datos de la siguiente tabla:
 
    | Configuración| Valor sugerido | DESCRIPCIÓN |
    | ------ | --------------- | ----------- |
+   | **Suscripción** | Su suscripción | Una suscripción en la que tiene permiso para crear recursos. |
    |**Nombre de la instancia administrada**|Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Inicio de sesión de administrador de la instancia administrada**|Cualquier nombre de usuario válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). No utilice "serveradmin", ya es un rol de nivel de servidor reservado.| 
    |**Contraseña**|Cualquier contraseña válida|La contraseña debe tener al menos 16 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
-   |**Grupo de recursos**|El grupo de recursos que ha creado anteriormente||
-   |**Ubicación**|La ubicación que ha seleccionado anteriormente|Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).|
-   |**Red virtual**|La red virtual que ha creado anteriormente| Elija el elemento **MyNewVNet/ManagedInstances** si no ha cambiado los nombres en el paso anterior. De lo contrario, elija el nombre de la red virtual y la subred de la instancia administrada que especificó en la sección anterior. **No utilice la subred predeterminada porque no está configurada para hospedar instancias administradas**. |
+   |**Grupo de recursos**|Un grupo de recursos nuevo o existente.|Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura).|
+   |**Ubicación**|La ubicación en la que quiere crear la Instancia administrada.|Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).|
+   |**Red virtual**|Haga clic en **Crear una nueva red virtual** o seleccione una red virtual que haya creado anteriormente en el grupo de recursos que proporcionó antes en este formulario.| Para configurar una red virtual para una Instancia administrada con una configuración personalizada, vea [Configure SQL Managed Instance virtual network environment template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) (Configuración de la plantilla de entorno de red virtual de Instancia administrada de SQL) en Github. Para obtener información sobre los requisitos para configurar el entorno de red para una Instancia administrada, vea [Configuración de una red virtual para Instancia administrada de Azure SQL Database](sql-database-managed-instance-vnet-configuration.md). |
 
-   ![formulario de creación de instancia administrada](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
+   ![Formulario de la instancia administrada](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-6. Haga clic en **Plan de tarifa** para cambiar el tamaño de los recursos de almacenamiento y de proceso, así como para revisar las opciones del plan de tarifa. De forma predeterminada, la instancia obtiene 32 GB de espacio de almacenamiento de forma gratuita, **lo que puede que no sea suficiente para sus aplicaciones**.
-7. Utilice los controles deslizantes o cuadros de texto para especificar la cantidad de almacenamiento y el número de núcleos virtuales. 
-   ![plan de tarifa de instancia administrada](./media/sql-database-managed-instance-get-started/managed-instance-pricing-tier.png)
+5. Haga clic en **Plan de tarifa** para cambiar el tamaño de los recursos de almacenamiento y de proceso, así como para revisar las opciones del plan de tarifa. El plan de tarifa de uso general con 32 GB de memoria y 16 núcleos de virtuales es el valor predeterminado.
+6. Utilice los controles deslizantes o cuadros de texto para especificar la cantidad de almacenamiento y el número de núcleos virtuales. 
+7. Cuando haya terminado, haga clic en **Aplicar** para guardar la selección.  
+8. Haga clic en **Crear** para implementar la instancia administrada.
+9. Haga clic en el icono de **notificaciones** para ver el estado de la implementación.
 
-8. Cuando haya terminado, haga clic en **Aplicar** para guardar la selección.  
-9. Haga clic en **Crear** para implementar la instancia administrada.
-10. Haga clic en el icono de **notificaciones** para ver el estado de la implementación.
-11. Haga clic en **Deployment in progress** (Implementación en curso) para abrir la ventana de la instancia administrada y seguir la supervisión del progreso de la implementación.
+    ![Progreso de la implementación de la Instancia administrada](./media/sql-database-managed-instance-get-started/deployment-progress.png)
 
-Mientras se realiza la implementación, continúe con el siguiente procedimiento.
+10. Haga clic en **Deployment in progress** (Implementación en curso) para abrir la ventana de la instancia administrada y seguir la supervisión del progreso de la implementación. 
 
 > [!IMPORTANT]
-> Para la primera instancia de una subred, el tiempo de implementación es típicamente mucho mayor que en las instancias siguientes. No cancele la operación de implementación porque dure más de lo previsto. La creación de la segunda instancia administrada en la subred llevará un par de minutos.
+> Para la primera instancia de una subred, el tiempo de implementación es típicamente mucho mayor que en las instancias siguientes. No cancele la operación de implementación porque dure más de lo previsto. La creación de la segunda Instancia administrada en la subred solo tarda un par de minutos.
 
-## <a name="prepare-client-machine"></a>Preparación de la máquina cliente
+## <a name="review-resources-and-retrieve-your-fully-qualified-server-name"></a>Revisión de los recursos y recuperación del nombre del servidor completo
 
-Dado que la instancia administrada de SQL está colocada en su red virtual privada, es preciso que cree una máquina virtual de Azure con una herramienta de cliente SQL como SQL Server Management Studio o SQL Operations Studio para conectarse a la instancia administrada y ejecutar consultas.
+Cuando la implementación finalice correctamente, revise los recursos creados y recupere el nombre completo del servidor para su uso en tutoriales posteriores.
 
-> [!Note]
-> En lugar de la máquina virtual de Azure del cliente, puede configurar la conexión de [punto a sitio](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) y conectarse a la instancia administrada desde un equipo local.
+1. Abra el grupo de recursos de la Instancia administrada y vea los recursos que se crearon de forma automática en el inicio rápido [Creación de una Instancia administrada](sql-database-managed-instance-get-started.md).
 
-La forma más fácil de crear una máquina virtual cliente con todas las herramientas necesarias es usar las plantillas de Azure Resource Manager.
+   ![Recursos de la Instancia administrada](./media/sql-database-managed-instance-get-started/resources.png)Abra el recurso de Instancia administrada en Azure Portal.
 
-1. Haga clic en el siguiente botón (asegúrese de que ha iniciado sesión en Azure Portal en otra pestaña del explorador):
+2. Haga clic en la Instancia administrada.
+3. En el pestaña **Información general**, busque la propiedad **Host** y copie la dirección de host completa para la Instancia administrada.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-2. En el formulario que se abrirá, escriba el nombre de la máquina virtual, el nombre de usuario del administrador y la contraseña que usará para conectarse a la máquina virtual.
+   ![Recursos de la Instancia administrada](./media/sql-database-managed-instance-get-started/host-name.png)
 
-    ![crear máquina virtual cliente](./media/sql-database-managed-instance-get-started/create-client-sql-vm.png)
-
-    Si no ha cambiado el nombre de la red virtual y la subred predeterminada, no es necesario cambiar los dos últimos parámetros; en caso contrario, debe cambiar estos valores por los que especificó al configurar el entorno de red.
-
-3. Haga clic en el botón "Comprar" y se implementará una máquina virtual de Azure en la red que preparó.
-
-4. Conéctese a su máquina virtual mediante la conexión al Escritorio remoto y busque SQL Server Management Studio o SQL Operation Studio, que se instalan automáticamente en la máquina virtual.
-
-5. Abra SQL Server Management Studio y escriba el **nombre de host** de la instancia administrada en el cuadro **Nombre del servidor**, seleccione **Autenticación de SQL Server**, especifique el inicio de sesión y la contraseña en el cuadro de diálogo **Conectar con el servidor** y haga clic en **Conectar**.
-
-    ![conexión ssms](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
-
-Después de conectarse, puede ver las bases de datos del sistema y de los usuarios en el nodo Bases de datos, así como varios objetos en los nodos Seguridad, Objetos de servidor, Replicación, Administración, Agente SQL Server y XEvent Profiler.
+   El nombre es similar a este: **nombre_del_equipo.neu15011648751ff.database.windows.net**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
- - [Conexión de aplicaciones a instancia administrada](sql-database-managed-instance-connect-app.md).
- - [Migración de bases de datos de un entorno local a instancia administrada](sql-database-managed-instance-migrate.md).
-
-
+- Para obtener información sobre cómo conectarse a una Instancia administrada, vea:
+  - Para obtener información general de las opciones de conexión para las aplicaciones, vea [Conexión de la aplicación a Instancia administrada de Azure SQL Database](sql-database-managed-instance-connect-app.md).
+  - Para obtener una guía de inicio rápido en la que se muestra cómo conectarse a una instancia administrada desde una máquina virtual de Azure, vea [Configure an Azure virtual machine connection](sql-database-managed-instance-configure-vm.md) (Configuración de una conexión de máquina virtual de Azure).
+  - Para obtener una guía de inicio rápido en la que se muestra cómo conectarse a una Instancia administrada desde un equipo cliente local mediante una conexión de punto a sitio, vea [Configure a point-to-site connection](sql-database-managed-instance-configure-p2s.md) (Configuración de una conexión de punto a sitio).
+- Para restaurar una base de datos SQL Server existente desde el entorno local en una Instancia administrada, puede usar [Azure Database Migration Service (DMS) para la migración](../dms/tutorial-sql-server-to-managed-instance.md) a fin de restaurar desde un archivo de copia de seguridad de base de datos, o bien el [comando T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) para restaurar desde un archivo de copia de seguridad de base de datos.

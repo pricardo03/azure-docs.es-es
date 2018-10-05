@@ -1,22 +1,23 @@
 ---
-title: Búsqueda de la región de LUIS con C# en límites de Language Understanding (LUIS) | Microsoft Docs
+title: Búsqueda de la región de punto de conexión con C# en LUIS
+titleSuffix: Azure Cognitive Services
 description: Busque mediante programación la región de publicación con la clave de punto de conexión y el id. de la aplicación para LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6f2688e492dbba718dc55825de164c189a9b46c9
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 53c3d1abb24ae0d5b33a2a100dda07fd20ae92d1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225115"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039639"
 ---
-# <a name="region-can-be-determined-from-api-call"></a>La región se puede determinar a partir de la llamada API 
+# <a name="find-endpoint-region-with-c"></a>Búsqueda de la región de punto de conexión con C# 
 Si tiene los identificadores de aplicación y suscripción de LUIS, puede buscar la región que se va a usar para las consultas de punto de conexión.
 
 > [!NOTE] 

@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kylestorck
-ms.openlocfilehash: b0dd5e0c365c65fc7b29752f7885acb71bdb3df8
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: c19b19cab33ae868f11ded0b7ce87dac99269596
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181429"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432006"
 ---
 # <a name="known-issues"></a>Problemas conocidos
 Podría encontrar los siguientes problemas conocidos al usar la versión preliminar del diseñador para Elementos acústicos de un proyecto.
@@ -27,7 +27,7 @@ Si cambia el nombre de una escena, todos los parámetros acústicos que pertenec
 
 Debería establecerse por defecto en una ruta de acceso relativa para poder compartir más fácilmente los proyectos entre los colaboradores. Como solución alternativa, cambie la ruta de acceso para que sea relativa al directorio del proyecto.
 
-## <a name="runtime-voxels-are-a-different-size-than-design-time-voxels"></a>Los vóxeles en tiempo de ejecución tienen un tamaño distinto de los vóxeles en tiempo de diseño
+## <a name="runtime-voxels-are-a-different-size-than-scene-preview-voxels"></a>Los vóxeles en tiempo de ejecución tienen un tamaño distinto de los vóxeles de vista previa de la escena
 
 Si hace un **cálculo** en la pestaña **Probes** (Sondeos) y ve los vóxeles, haga una elaboración y vea los vóxeles en tiempo de ejecución para la misma escena. Los vóxeles tendrán tamaños distintos. Los vóxeles que se muestran previos a la elaboración son los vóxeles que se usan en la simulación. Los vóxeles que se muestran en tiempo de ejecución se usan para la interpolación entre los puntos de sondeo. Esto puede provocar una incoherencia en la que los portales aparecerán abiertos en tiempo de ejecución, pero no estarán abiertos realmente.
 

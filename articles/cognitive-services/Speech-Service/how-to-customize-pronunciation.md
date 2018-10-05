@@ -1,6 +1,6 @@
 ---
-title: Servicio Speech de Azure Cognitive Services
-description: Obtenga información sobre cómo personalizar la pronunciación con Speech Service para Cognitive Services.
+title: Personalización de la pronunciación con Servicios de voz en Azure Cognitive Services
+description: Obtenga información sobre cómo personalizar la pronunciación con Servicios de voz en Azure Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
 ms.service: cognitive-services
@@ -8,12 +8,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: 93fec1ea78263798588a43b2314ffdea736cdbbc
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: a608d1e48112fbb2adb56191eeb7f168de507e77
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745358"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423211"
 ---
 # <a name="enable-custom-pronunciation"></a>Habilitar la pronunciación personalizada
 Con el uso de la pronunciación personalizada, puede definir el formato fonético y mostrar una palabra o un término. Es útil para controlar términos personalizados, como nombres de producto o acrónimos. Basta con un archivo de pronunciación (un archivo .txt simple).
@@ -33,13 +33,13 @@ En la tabla siguiente se muestran varios ejemplos:
 | CNTK | ce ene té k|
 
 ## <a name="requirements-for-the-spoken-form"></a>Requisitos del formato hablado
-El formato hablado debe estar en minúsculas, que se puede forzar durante la importación. Además, debe proporcionar comprobaciones en el importador de datos. No se permite ninguna pestaña en el formato hablado o el formato mostrado. Sin embargo, puede haber más caracteres prohibidos en el formato mostrado (por ejemplo, ~ y ^).
+El formato hablado debe estar en minúsculas, que se puede forzar durante la importación. También tendrá que proporcionar comprobaciones en el importador de datos. No se permite ninguna pestaña en el formato hablado o el formato mostrado. Sin embargo, puede haber más caracteres prohibidos en el formato mostrado (por ejemplo, ~ y ^).
 
 Cada archivo .txt puede tener varias entradas, como se muestra en la siguiente imagen:
 
 ![Ejemplos de pronunciación de acrónimos](media/stt/custom-speech-pronunciation-file.png)
 
-El formato hablado es la secuencia fonética del formato mostrado. Se compone de letras, palabras o sílabas. Actualmente, no hay instrucciones adicionales ni un conjunto de estándares que ayuden a formular el formato hablado. 
+El formato hablado es la secuencia fonética del formato mostrado. Se compone de letras, palabras o sílabas. En la actualidad, no hay instrucciones adicionales ni un conjunto de estándares que ayuden a formular el formato hablado. 
 
 ## <a name="supported-pronunciation-characters"></a>Caracteres de pronunciación admitidos
 La pronunciación personalizada solo se admite en inglés (en-US) y en alemán (de-de) en este momento. Los juegos de caracteres que pueden usarse para expresar el formato hablado de un término (en el archivo de pronunciación personalizada) se muestran en la tabla siguiente: 
@@ -47,7 +47,7 @@ La pronunciación personalizada solo se admite en inglés (en-US) y en alemán (
 | Idioma | Caracteres |
 |---------- |----------|
 | Inglés (en-US) | a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
-| Alemán (de-de) | ä, ö, ü, ẞ, a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
+| Alemán (de-de) | ä, ö, ü, ?, a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
 
 > [!NOTE]
 > El formato mostrado de un término (en un archivo pronunciación) debe escribirse igual en un conjunto de datos de adaptación de lenguaje.

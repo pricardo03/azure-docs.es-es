@@ -3,7 +3,7 @@ title: Actualización de Azure Stack 1807 | Microsoft Docs
 description: Conozca las novedades de la actualización 1807 de los sistemas integrados de Azure Stack, incluidos los problemas conocidos y la ubicación donde debe descargarse la actualización.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2018
-ms.author: brenduns
+ms.date: 09/26/2018
+ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: afbe3ff2e6be4e03f8de8ac2490922c3ec788733
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 951c012dd22cf83741211b9601a5e7502de33be6
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091387"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393033"
 ---
 # <a name="azure-stack-1807-update"></a>Actualización de Azure Stack 1807
 
@@ -143,7 +143,11 @@ Para más información acerca de estos puntos vulnerables, haga clic en los vín
   > - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
 
 
-- Antes de iniciar la instalación de la actualización 1807, ejecute [Test-AzureStack](azure-stack-diagnostic-test.md) para validar el estado de Azure Stack y resolver todos los problemas operativos que se encuentren. Repase también las alertas activas y resuelva las que requieran alguna acción.
+- Antes de iniciar la instalación de esta actualización, ejecute [Test-AzureStack](azure-stack-diagnostic-test.md) con los parámetros siguientes para validar el estado de Azure Stack y resolver todos los problemas operativos detectados, incluidas todas las advertencias y errores. Repase también las alertas activas y resuelva las que requieran alguna acción.  
+
+  ```PowerShell
+  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+  ``` 
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conocidos relacionados con el proceso de actualización
 
@@ -154,21 +158,22 @@ Para más información acerca de estos puntos vulnerables, haga clic en los vín
 - <!-- 2830461 - IS --> En determinadas circunstancias cuando una actualización requiere atención, la alerta correspondiente podría no generarse. El estado preciso se reflejará en el portal y no se ve afectado.
 
 ### <a name="post-update-steps"></a>Pasos posteriores a la actualización
+Después de instalar esta actualización, instale todas las revisiones aplicables. Para más información, consulte los siguientes artículos de la Knowledge base, así como nuestra [Directiva de mantenimiento](azure-stack-servicing-policy.md). 
+- [KB 4464231: Revisión de Azure Stack 1.1807.1.78]( https://support.microsoft.com/help/4464231)
 
-- <!-- 2933866 – IS --> **Estado mejorado para las instalaciones de actualización con errores.** Esta versión introduce dos nuevas categorías de estado para proporcionar a los operadores más detalles acerca de las instalaciones de actualización con errores. Las dos categorías son *PreparationFailed* e *InstallationFailed*. Después de instalar esta versión, puede ver información de errores de instalación de actualización anteriores revisada para reflejar estas nuevas categorías. 
-
-<!-- *There are no post-update steps for update 1807.* -->
-
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - Link to KB  
- -->
+ <!-- 2933866 – IS --> Después de la instalación de esta actualización, puede ver el **estado mejorado para las instalaciones de actualización con errores.** Esto puede incluir información sobre errores de instalación de actualización anteriores que se han revisado para reflejar las dos nuevas categorías de estado. Las categorías de estado nuevas son *PreparationFailed* e *InstallationFailed*.  
 
 ## <a name="known-issues-post-installation"></a>Problemas conocidos (posteriores a la instalación)
 
 Los siguientes son problemas conocidos posteriores a la instalación de esta compilación.
 
 ### <a name="portal"></a>Portal
-- <!-- 2931230 – IS  ASDK --> No se pueden eliminar los planes que se agregan a una suscripción de usuario como plan complementario, aunque se quite el pan de la suscripción. Este permanecerá hasta que también se eliminen las suscripciones a las que haga referencia el plan complementario. 
+
+- La documentación técnica de Azure Stack se centra en la versión más reciente. Debido a los cambios del portal entre las versiones, es posible que lo que vea al usar los portales de Azure Stack varíe con respecto a lo que ve en la documentación. 
+
+- No está disponible la posibilidad de [abrir una nueva solicitud de soporte técnico desde la lista desplegable](azure-stack-manage-portals.md#quick-access-to-help-and-support) en el portal de administración. En su lugar, para los sistemas integrados de Azure Stack, use el vínculo siguiente: [https://aka.ms/newsupportrequest](https://aka.ms/newsupportrequest).
+
+- <!-- 2931230 – IS  ASDK --> No se pueden eliminar los planes que se agregan a una suscripción de usuario como planes complementarios, aunque se quite el plan de la suscripción de usuario. El plan permanecerá hasta que también se eliminen las suscripciones a las que haga referencia el plan complementario. 
 
 - <!--2760466 – IS  ASDK --> Cuando se instala un nuevo entorno de Azure Stack que ejecuta esta versión, la alerta que indica *Activación necesaria* podría no mostrarse. La [activación](azure-stack-registration.md) se requiere para poder usar la redifusión de marketplace.  
 
@@ -249,7 +254,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 
 - <!-- 2724961- IS ASDK --> Al registrar el proveedor de recursos **Microsoft.Insight** en la configuración de la suscripción y crear una máquina virtual Windows con el diagnóstico del sistema operativo invitado habilitado, la página de información general de la máquina virtual no muestra los datos de las métricas. 
 
-   Para buscar datos de métricas, como el gráfico Porcentaje de CPU para la máquina virtual, vaya a la hoja **Métrica** y muestre todas las métricas de invitado de las máquinas virtuales Windows admitidas.
+   Para buscar datos de métricas, como el gráfico de porcentaje de CPU para la máquina virtual, vaya a la hoja **Métrica** y muestre todas las métricas de invitado de las máquinas virtuales Windows admitidas.
 
 ### <a name="networking"></a>Redes  
 

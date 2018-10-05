@@ -9,18 +9,18 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 3b35f78d66a6ae66b0a56818f5d4be455ce00de5
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 8f594be67c4677fae00cb01598d3899e30dae1e8
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181428"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433231"
 ---
 # <a name="design-process-overview"></a>Información general del proceso de diseño
-Puede expresar la intención del diseño en las tres fases del flujo de trabajo de los Elementos acústicos de proyecto: diseño previo a la elaboración, integrar previamente el diseño, selección de ubicación de origen de sonido y el diseño posterior a la elaboración. El proceso requiere menos marcado asociado con la colocación de los volúmenes de reverberación mientras se conserva el control de diseñador sobre cómo suena una escena.
+Puede expresar la intención del diseño en las tres fases del flujo de trabajo Elementos acústicos del proyecto: configuración de la escena previa a la elaboración, ubicación del origen de sonido y diseño posterior a la elaboración. El proceso requiere menos marcado asociado con la colocación de los volúmenes de reverberación mientras se conserva el control de diseñador sobre cómo suena una escena.
 
 ## <a name="pre-bake-design"></a>Diseño previo a la elaboración
-El proceso de diseño previo a la elaboración genera la escena y los metadatos que se usan para la simulación de ondas de sonido, que incluye seleccionar los elementos de la escena que participarán en la simulación para proporcionar oclusiones, reflexiones y reverberaciones. Los metadatos de la escena son la selección de materiales acústicos para cada elemento de la escena. Los materiales acústicos controlan la cantidad de energía sonora que se refleja desde cada superficie.
+El proceso de configuración de la escena previa a la elaboración genera la escena y los metadatos que se usan para la simulación de ondas de sonido, lo que incluye la selección de los elementos de la escena que participarán en la simulación para proporcionar oclusiones, reflexiones y reverberaciones. Los metadatos de la escena son la selección de materiales acústicos para cada elemento de la escena. Los materiales acústicos controlan la cantidad de energía sonora que se refleja desde cada superficie.
 
 El coeficiente de absorción predeterminado de todas las superficies es 0,04, que es altamente reflectante. Puede lograr efectos de estética y juego si ajusta los coeficientes de absorción de distintos materiales a lo largo de la escena, que son especialmente importantes para los oyentes cuando escuchan las transiciones de un área de la escena a otra. Por ejemplo, la transición desde una habitación reverberante a oscuras a una escena al aire libre luminosa y no reverberante mejora el impacto de la transición. Para lograr este efecto, ajuste los coeficientes de absorción de los materiales de la escena al aire libre para que sean más altos.
 

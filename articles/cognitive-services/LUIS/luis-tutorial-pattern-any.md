@@ -1,42 +1,29 @@
 ---
-title: 'Tutorial de uso de la entidad pattern.any para mejorar las predicciones de LUIS: Azure | Microsoft Docs'
-titleSuffix: Cognitive Services
-description: En este tutorial, use la entidad pattern.any para mejorar las predicciones de intenciones y entidades de LUIS.
+title: 'Tutorial 5: Entidad Pattern.any para texto de forma libre'
+titleSuffix: Azure Cognitive Services
+description: Use la entidad Pattern.any para extraer datos de expresiones con el formato correcto y donde el final de los datos se pueda confundir fácilmente con el resto de las palabras de la expresión.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 43f169ae11191c2e98c4538189bce781821de980
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 4ff4a7085a8caeedebe2a734014afb1cb46d9fbf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157861"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164402"
 ---
-# <a name="tutorial-improve-app-with-patternany-entity"></a>Tutorial: Mejorar la aplicación con la entidad pattern.any
+# <a name="tutorial-5-extract-free-form-data"></a>Tutorial 5: Extracción de datos de forma libre
 
-En este tutorial, use la entidad pattern.any para aumentar las predicciones de intenciones y entidades.  
+En este tutorial, use la entidad Pattern.any para extraer datos de expresiones con el formato correcto y donde el final de los datos se puede confundir fácilmente con el resto de las palabras de la expresión. 
 
-> [!div class="checklist"]
-* Obtener información de cómo y cuándo usar la entidad pattern.any
-* Crear el patrón que usa la entidad pattern.any
-* Comprobar las mejoras de las predicciones
+La entidad Pattern.any permite buscar datos de forma libre en los que la redacción de la entidad dificulte determinar el final de la entidad del resto de la expresión. 
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Antes de empezar
-Si no tiene la aplicación de recursos humanos del tutorial sobre [roles de patrón](luis-tutorial-pattern-roles.md), [importe](luis-how-to-start-new-app.md#import-new-app) el archivo JSON a una nueva aplicación en el sitio web de [LUIS](luis-reference-regions.md#luis-website). La aplicación que se va a importar se encuentra en el repositorio de GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json).
-
-Si quiere conservar la aplicación original de Recursos humanos, clone la versión en la página [Configuración](luis-how-to-manage-versions.md#clone-a-version) y llámela `patt-any`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. 
-
-## <a name="the-purpose-of-patternany"></a>El propósito de la entidad pattern.any
-La entidad pattern.any permite buscar datos de forma libre en los que la redacción de la entidad dificulte determinar el final de la entidad a partir del resto de la expresión. 
-
-Esta aplicación de recursos humanos ayuda a que los empleados encuentren formularios de la empresa. Los formularios se agregaron en el [tutorial sobre expresiones regulares](luis-quickstart-intents-regex-entity.md). Los nombres de formulario de ese tutorial usaban una expresión regular para extraer el nombre de un formulario con el formato correcto, como los nombres de formato en negrita en la tabla de expresiones siguiente:
+Esta aplicación de recursos humanos ayuda a que los empleados encuentren formularios de la empresa. 
 
 |Expresión|
 |--|
@@ -54,11 +41,38 @@ Las expresiones con el nombre de formato descriptivo tienen el aspecto siguiente
 |¿Quién creó el formulario **"Request relocation from employee new to the company 2018 version 5"**?|
 |¿El formulario **Request relocation from employee new to the company 2018 version 5** se publicó en francés?|
 
-La diferencia de longitud incluye frases que pueden confundir a LUIS con respecto a dónde finaliza la entidad. Si usa una entidad Pattern.any en un patrón, puede especificar el principio y el final del nombre del formulario para que LUIS extraiga correctamente el nombre del formulario.
+La diferencia de longitud incluye palabras que pueden confundir a LUIS con respecto a dónde finaliza la entidad. Si usa una entidad Pattern.any en un patrón, puede especificar el principio y el final del nombre del formulario para que LUIS extraiga correctamente el nombre del formulario.
 
-**Si bien los patrones permiten proporcionar menos expresiones de ejemplo, si no se detectan las entidades, el patrón no coincide.**
+|Ejemplo de expresión de plantilla|
+|--|
+|¿Dónde está {NombreDelFormulario}[?]|
+|¿Quién ha creado {NombreDelFormulario}[?]|
+|¿{NombreDelFormulario} se ha publicado en francés[?]|
 
-## <a name="add-example-utterances-to-the-existing-intent-findform"></a>Incorporación de expresiones de ejemplo a la intención FindForm existente 
+**En este tutorial, aprenderá a:**
+
+> [!div class="checklist"]
+> * Usar la aplicación del tutorial existente
+> * Agregar expresiones de ejemplo a la intención existente
+> * Crear la entidad Pattern.any
+> * Crear el patrón
+> * Train
+> * Probar el patrón nuevo
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Uso de una aplicación existente
+Continúe con la aplicación creada en el último tutorial, denominada **HumanResources**. 
+
+Si no tiene la aplicación HumanResources del tutorial anterior, siga estos pasos:
+
+1.  Descargue y guarde [el archivo JSON de la aplicación](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json).
+
+2. Importe el archivo JSON en una aplicación nueva.
+
+3. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `patt-any`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Como el nombre de la versión se usa como parte de la ruta de la dirección URL, no puede contener ningún carácter que no sea válido en una dirección URL.
+
+## <a name="add-example-utterances"></a>Adición de expresiones de ejemplo 
 Quite la entidad keyPhrase precompilada si resulta difícil compilar y etiquetar la entidad FormName. 
 
 1. Seleccione **Build** (Compilación) en el menú de navegación superior y seleccione **Intents** (Intenciones) en el menú de navegación de la izquierda.
@@ -128,6 +142,8 @@ La entidad Pattern.any extrae entidades de diferente longitud. Solo funciona en 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+En este tutorial se han agregado expresiones de ejemplo a una intención existente y después se ha creado una entidad Pattern.any para el nombre del formulario. Después, en el tutorial se ha creado un patrón para la intención existente con las nuevas expresiones de ejemplo y la entidad. Las pruebas interactivas mostraron que el patrón y su intención se predijeron porque se encontró la entidad. 
 
 > [!div class="nextstepaction"]
 > [Información sobre cómo usar roles con un patrón](luis-tutorial-pattern-roles.md)

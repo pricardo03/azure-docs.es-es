@@ -1,24 +1,25 @@
 ---
-title: 'Entrenamiento y pruebas de la aplicación de LUIS: Azure | Microsoft Docs'
+title: Prueba de la aplicación de LUIS dentro del portal de LUIS
+titleSuffix: Azure Cognitive Services
 description: Use Language Understanding (LUIS) para trabajar continuamente en la aplicación para refinarla y mejorar la comprensión del lenguaje.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 925b96b61de876d40105c89556fd6dcb600d1b1a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6bb03975e36e93c2496eb4c6013be21ebc891ed1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223657"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039708"
 ---
 # <a name="test-your-luis-app"></a>Probar la aplicación de LUIS
-El <a name="train-your-app"></a>
-[entrenamiento](luis-how-to-train.md) y la [prueba](luis-concept-test.md) de una aplicación es un proceso iterativo. Tras entrenar la aplicación de LUIS, pruébela con expresiones de ejemplo para ver si las entidades e intenciones se reconocen correctamente. En caso contrario, realice actualizaciones en la aplicación de LUIS, entrénela y pruébela de nuevo. 
+La <a name="train-your-app"></a>
+[prueba](luis-concept-test.md) de una aplicación es un proceso iterativo. Tras entrenar la aplicación de LUIS, pruébela con expresiones de ejemplo para ver si las entidades e intenciones se reconocen correctamente. En caso contrario, realice actualizaciones en la aplicación de LUIS, entrénela y pruébela de nuevo. 
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>

@@ -1,80 +1,70 @@
 ---
-title: 'Tutorial de uso de roles de patrón para mejorar las predicciones de LUIS: Azure | Microsoft Docs'
-titleSuffix: Cognitive Services
-description: En este tutorial, use roles de patrón para las entidades relacionadas contextualmente para mejorar las predicciones de LUIS.
+title: 'Tutorial 4: Roles de patrón para datos relacionados con el contexto'
+titleSuffix: Azure Cognitive Services
+description: Use un patrón para extraer datos de una expresión de plantilla con el formato correcto. En la expresión de plantilla se usa una entidad sencilla y roles para extraer datos relacionados como las ubicaciones de origen y destino.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 6f3e7c9db7bbdb6bc24d123208355fc7a1d8e7e8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 2c3705d28d6496c3d20999231de98572bc26e3be
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161941"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160254"
 ---
-# <a name="tutorial-improve-app-with-pattern-roles"></a>Tutorial: Mejorar la aplicación con roles de patrón
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutorial 4: Extracción de patrones relacionados contextualmente
 
-En este tutorial, utilice una entidad simple con los roles combinados con patrones para aumentar la predicción de entidades e intenciones.  Al usar patrones, se necesitan menos expresiones de ejemplo para la intención.
+En este tutorial, use un patrón para extraer datos de una expresión de plantilla con el formato correcto. En la expresión de plantilla se usa una entidad sencilla y roles para extraer datos relacionados como las ubicaciones de origen y destino.  Al usar patrones, se necesitan menos expresiones de ejemplo para la intención.
 
-> [!div class="checklist"]
-* Descripción de los roles de patrón
-* Uso de la entidad simple con roles 
-* Creación del patrón para expresiones mediante una entidad simple con roles
-* Cómo comprobar las mejoras de la predicción de patrones
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Antes de empezar
-Si no tiene la aplicación de recursos humanos del tutorial sobre [patrones](luis-tutorial-pattern.md), [importe](luis-how-to-start-new-app.md#import-new-app) el archivo JSON a una nueva aplicación en el sitio web de [LUIS](luis-reference-regions.md#luis-website). La aplicación que se va a importar se encuentra en el repositorio de GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json).
-
-Si quiere conservar la aplicación original de Recursos humanos, clone la versión en la página [Configuración](luis-how-to-manage-versions.md#clone-a-version) y llámela `roles`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. 
-
-## <a name="the-purpose-of-roles"></a>El propósito de los roles
 El propósito de los roles es extraer las entidades relacionadas contextualmente de una expresión. En la expresión, `Move new employee Robert Williams from Sacramento and San Francisco`, los valores de ciudad de origen y ciudad de destino se relacionan entre sí y usan un lenguaje común para denotar cada ubicación. 
 
-Al usar patrones, se deben detectar todas las entidades en el patrón _antes_ de que el patrón coincida con la expresión. 
 
-Cuando se crea un modelo, el primer paso es seleccionar la intención del patrón. Al seleccionar la intención, si el patrón coincide, la intención correcta siempre se devuelve con una puntuación alta (habitualmente de 99 % a 100 %). 
-
-### <a name="compare-hierarchical-entity-to-simple-entity-with-roles"></a>Comparación de una entidad jerárquica con una entidad simple con roles
-
-En el [tutorial sobre entidades jerárquicas](luis-quickstart-intent-and-hier-entity.md), la intención **MoveEmployee** detectó cuándo se debe trasladar un empleado existente de un edificio y oficina a otro. Las expresiones de ejemplo tenían las ubicaciones de origen y destino, pero no usaban roles. En lugar de eso, el origen y destino eran elementos secundarios de la entidad jerárquica. 
-
-En este tutorial, la aplicación de recursos humanos detecta expresiones sobre cómo trasladar los empleados nuevos de una ciudad a otra. Estos dos tipos de expresiones son similares pero se resuelven mediante distintas funcionalidades de LUIS.
-
-|Tutorial|Expresión de ejemplo|Ubicaciones de origen y destino|
-|--|--|--|
-|[Jerárquica (sin roles)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
-|Este tutorial (con roles)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
-
-No puede usar la entidad jerárquica en el patrón porque en él solo se usan los elementos primarios jerárquicos. Para volver a las ubicaciones con nombre de origen y destino, debe usar un patrón.
-
-### <a name="simple-entity-for-new-employee-name"></a>Entidad simple para el nombre del empleado nuevo
 El nombre del empleado nuevo, Billy Patterson, todavía no forma parte de la entidad de la lista **Employee** (Empleado). En primer lugar, se extrae el nombre del empleado nuevo con el fin de enviar el nombre a un sistema externo para crear las credenciales de la empresa. Una vez creadas las credenciales de la empresa, las credenciales del empleado se agregan a la entidad de la lista **Employee** (Empleado).
 
-La lista **Employee** (Empleado) se creó en el [tutorial sobre las listas](luis-quickstart-intent-and-list-entity.md).
-
-La entidad **NewEmployee** es una entidad simple sin roles. 
-
-### <a name="simple-entity-with-roles-for-relocation-cities"></a>Entidad simple con roles para ciudades de reubicación
 Es necesario trasladar al empleado nuevo y su familia desde la ciudad actual a una ciudad donde está ubicada la empresa ficticia. Como un empleado nuevo puede provenir de cualquier ciudad, es necesario detectar las ubicaciones. Una lista de conjuntos, como una entidad de lista, no funcionará porque se solo se extraerán las ciudades de la lista.
 
-Los nombres de roles asociados con las ciudades de origen y destino deben ser únicos en todas las entidades. Una manera sencilla de garantizar que los roles son únicos es vincularlos a la entidad contenedora a través de una estrategia de nomenclatura. La entidad **NewEmployeeRelocation** es una entidad simple con dos roles: **NewEmployeeReloOrigin** y **NewEmployeeReloDestination**.
+Los nombres de roles asociados con las ciudades de origen y destino deben ser únicos en todas las entidades. Una manera sencilla de garantizar que los roles son únicos es vincularlos a la entidad contenedora a través de una estrategia de nomenclatura. La entidad **NewEmployeeRelocation** es una entidad simple con dos roles: **NewEmployeeReloOrigin** y **NewEmployeeReloDestination**. "Relo" es la abreviatura de "reubicación".
 
-### <a name="simple-entities-need-enough-examples-to-be-detected"></a>La detección de entidades simples requiere ejemplos suficientes
 Dado que la expresión de ejemplo `Move new employee Robert Williams from Sacramento and San Francisco` solo tiene entidades de aprendizaje automático, es importante proporcionar expresiones de ejemplo suficientes a la intención para que se detecten las entidades.  
 
 **Si bien los patrones permiten proporcionar menos expresiones de ejemplo, si no se detectan las entidades, el patrón no coincide.**
 
 Si tiene dificultades con la detección de la entidad simple porque se trata de un nombre como una ciudad, considere la posibilidad de agregar una lista de frases de valores similares. Esto ayuda a la detección del nombre de la ciudad al proporcionar a LUIS una señal adicional sobre ese tipo de palabra o frase. Las listas de frases solo ayudan al patrón al contribuir a la detección de la entidad, algo necesario para que el patrón coincida. 
 
+**En este tutorial, aprenderá a:**
+
+> [!div class="checklist"]
+> * Usar la aplicación del tutorial existente
+> * Crear entidades nuevas
+> * Crear una intención nueva
+> * Entrenar
+> * Publicar
+> * Obtener intenciones y entidades del punto de conexión
+> * Crear un patrón con roles
+> * Crear una lista de frases de ciudades
+> * Obtener intenciones y entidades del punto de conexión
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Uso de una aplicación existente
+Continúe con la aplicación creada en el último tutorial, denominada **HumanResources**. 
+
+Si no tiene la aplicación HumanResources del tutorial anterior, siga estos pasos:
+
+1.  Descargue y guarde [el archivo JSON de la aplicación](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+
+2. Importe el archivo JSON en una aplicación nueva.
+
+3. Desde la sección **Manage** (Administrar), en la pestaña **Versions** (Versiones), clone la versión y asígnele el nombre `roles`. La clonación es una excelente manera de trabajar con distintas características de LUIS sin que afecte a la versión original. Como el nombre de la versión se usa como parte de la ruta de la dirección URL, no puede contener ningún carácter que no sea válido en una dirección URL.
+
 ## <a name="create-new-entities"></a>Creación de entidades nuevas
-1. Seleccione **Build** (Compilación) en el menú superior.
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Seleccione **Entities** (Entidades) en el menú de navegación de la izquierda. 
 
@@ -124,15 +114,15 @@ Etiquetar las entidades en estos pasos puede ser más sencillo si se quita la en
 
     Si quitó la entidad keyPhrase, vuelva a agregarla ahora a la aplicación.
 
-## <a name="train-the-luis-app"></a>Entrenamiento de la aplicación de LUIS
+## <a name="train"></a>Train
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicación de la aplicación para obtener la dirección URL del punto de conexión
+## <a name="publish"></a>Publicar
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-without-pattern"></a>Consulta del punto de conexión sin patrón
+## <a name="get-intent-and-entities-from-endpoint"></a>Obtención de intenciones y entidades del punto de conexión
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -224,9 +214,12 @@ Etiquetar las entidades en estos pasos puede ser más sencillo si se quita la en
 
 La puntuación de predicción de la intención es de solo un 50 %. Si la aplicación cliente requiere un número más alto, debe solucionarlo. Las entidades tampoco se predecían.
 
+Se ha extraído una de las ubicaciones pero la otra no. 
+
 Los patrones ayudarán en la puntuación de predicción, pero las entidades se deben predecir correctamente antes de que el patrón coincida con la expresión. 
 
-## <a name="add-a-pattern-that-uses-roles"></a>Incorporación de un patrón que usa roles
+## <a name="pattern-with-roles"></a>Patrón con roles
+
 1. Seleccione **Build** (Compilación) en el menú superior.
 
 2. Seleccione **Patterns** (Patrones) en el menú de navegación de la izquierda.
@@ -237,8 +230,8 @@ Los patrones ayudarán en la puntuación de predicción, pero las entidades se d
 
     Si entrena, publica y consulta el punto de conexión, puede que se decepcione al ver que no se encuentran las entidades, por lo que el patrón no coincidió y, por tanto, la predicción no mejoró. Esta es una consecuencia de que no tener expresiones suficientes con entidades etiquetadas. En lugar de agregar más ejemplos, agregue una lista de frases para corregir este problema.
 
-## <a name="create-a-phrase-list-for-cities"></a>Creación de una lista de frases para las ciudades
-Las ciudades, al igual que lo que ocurre con los nombres de personas, son complicadas porque pueden ser cualquier combinación de palabras y signos de puntuación. Pero las ciudades de la región y del mundo son conocidas, por lo que LUIS necesita una lista de frases para las ciudades para empezar el aprendizaje. 
+## <a name="cities-phrase-list"></a>Lista de frases de ciudades
+Las ciudades, al igual que lo que ocurre con los nombres de personas, son complicadas porque pueden ser cualquier combinación de palabras y signos de puntuación. Las ciudades de la región y del mundo son conocidas, por lo que LUIS necesita una lista de frases de ciudades para empezar el aprendizaje. 
 
 1. Seleccione **Phrase list** (Lista de frases) en la sección **Improve app performance** (Mejorar el rendimiento de las aplicaciones) del menú de la izquierda. 
 
@@ -255,16 +248,13 @@ Las ciudades, al igual que lo que ocurre con los nombres de personas, son compli
     |Miami|
     |Dallas|
 
-    No agregue todas las ciudades del mundo ni tampoco de la región. LUIS debe ser capaz de generalizar qué es una ciudad a partir de la lista. 
-
-    Asegúrese de que **These values are interchangeable** (Estos valores son intercambiables) esté seleccionado. Esta configuración significa que las palabras de la lista se tratan como sinónimos. Esto es exactamente cómo se deben tratar en el patrón.
-
-    Recuerde que [la última vez](luis-quickstart-primary-and-secondary-data.md) que la serie de tutoriales creó una lista de frases también fue para mejorar la detección de entidad para una entidad simple.  
+    No agregue todas las ciudades del mundo ni tampoco de la región. LUIS debe ser capaz de generalizar qué es una ciudad a partir de la lista. Asegúrese de que **These values are interchangeable** (Estos valores son intercambiables) esté seleccionado. Esta configuración significa que las palabras de la lista se tratan como sinónimos. 
 
 3. Entrene y publique la aplicación.
 
-## <a name="query-endpoint-for-pattern"></a>Consulta de punto de conexión para un patrón
-1. En la página **Publish** (Publicar), seleccione el vínculo **endpoint** (Punto de conexión) en la parte inferior de la página. Esta acción abre otra ventana del explorador con la dirección URL del punto de conexión en la barra de direcciones. 
+## <a name="get-intent-and-entities-from-endpoint"></a>Obtención de intenciones y entidades del punto de conexión
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Vaya al final de la dirección URL en la dirección y escriba `Move wayne berry from miami to mount vernon`. El último parámetro de la cadena de consulta es `q`, la expresión **query**. 
 
@@ -380,11 +370,24 @@ Las ciudades, al igual que lo que ocurre con los nombres de personas, son compli
 
 La puntuación de intención ahora es mucho más alta y los nombres de rol forman parte de la respuesta de la entidad.
 
+## <a name="hierarchical-entities-versus-roles"></a>Diferencias entre entidades jerárquicas y roles
+
+En el [tutorial sobre entidades jerárquicas](luis-quickstart-intent-and-hier-entity.md), la intención **MoveEmployee** detectó cuándo se debe trasladar un empleado existente de un edificio y oficina a otro. Las expresiones de ejemplo tenían las ubicaciones de origen y destino, pero no usaban roles. En su lugar, el origen y destino eran elementos secundarios de la entidad jerárquica. 
+
+En este tutorial, la aplicación de recursos humanos detecta expresiones sobre cómo trasladar los empleados nuevos de una ciudad a otra. Estos dos tipos de expresiones son iguales pero se resuelven mediante otras funcionalidades de LUIS.
+
+|Tutorial|Expresión de ejemplo|Ubicaciones de origen y destino|
+|--|--|--|
+|[Jerárquica (sin roles)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
+|Este tutorial (con roles)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+En este tutorial se ha agregado una entidad con roles y una intención con expresiones de ejemplo. La primera predicción de punto de conexión en la que se usaba la entidad predijo correctamente la intención pero con una puntuación de confianza baja. Solo se ha detectado una de las dos entidades. A continuación, en el tutorial se agregó un patrón en el que se usaban los roles de entidad y una lista de frases para aumentar el valor de los nombres de ciudades en las expresiones. La segunda predicción de punto de conexión devolvió una puntuación de confianza elevada y encontró los dos roles de entidad. 
 
 > [!div class="nextstepaction"]
 > [Información sobre los procedimientos recomendados de las aplicaciones de LUIS](luis-concept-best-practices.md)

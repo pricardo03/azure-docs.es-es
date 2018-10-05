@@ -1,20 +1,21 @@
 ---
-title: Etiquetado de expresiones sugeridas con LUIS | Microsoft Docs
-description: Use Language Understanding (LUIS) para etiquetar expresiones sugeridas y aumentar el aprendizaje automático activo.
+title: Revisión de las expresiones de punto de conexión para Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: La característica innovadora de LUIS es el concepto de aprendizaje activo. Una vez que LUIS tiene consultas de punto de conexión, el aprendizaje activo mejora la calidad de los resultados mediante la selección de expresiones de las que no está seguro. Si etiqueta estas expresiones, las entrena y las publica, LUIS las identifica con más precisión.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 5e195b8ef5aeb35b73c22438980fe2b2e3856977
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: a5e0dabe251d14389923df3efe41f6ba80f41bdd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224558"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030802"
 ---
 # <a name="review-endpoint-utterances"></a>Revisar las expresiones de punto de conexión
 
@@ -24,8 +25,6 @@ La característica innovadora de LUIS es el [concepto](luis-concept-review-endpo
 1. Para abrir la aplicación (por ejemplo, TravelAgent), seleccione su nombre en la página **My Apps** (Mis aplicaciones) y después haga clic en **Build** (Generar) en la barra superior.
 
 2. Debajo de **Improve app performance** (Mejorar el rendimiento de la aplicación), seleccione **Review endpoint utterances** (Revisar las expresiones de punto de conexión).
-
-    ![Revisión de las expresiones](./media/label-suggested-utterances/review.png)
 
 3. En la página **Review endpoint utterances** (Revisar las expresiones de punto de conexión), realice la selección en el cuadro de texto **Filter list by intent or entity** (Filtrar la lista por intención o entidad). En esta lista desplegable se incluyen todas las intenciones bajo en **INTENTS** (INTENCIONES) y todas las entidades bajo **ENTITIES** (ENTIDADES).
 
